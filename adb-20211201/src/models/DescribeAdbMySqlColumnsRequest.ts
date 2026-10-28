@@ -4,6 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAdbMySqlColumnsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the external data source.
+   * 
+   * @example
+   * oss
+   * 
    * **if can be null:**
    * true
    */
@@ -13,7 +19,7 @@ export class DescribeAdbMySqlColumnsRequest extends $dara.Model {
    * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the cluster IDs of all clusters in a specified region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all clusters in the target region.
    * 
    * This parameter is required.
    * 
@@ -34,7 +40,7 @@ export class DescribeAdbMySqlColumnsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * adb_demo
@@ -42,7 +48,7 @@ export class DescribeAdbMySqlColumnsRequest extends $dara.Model {
   schema?: string;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * @example
    * test

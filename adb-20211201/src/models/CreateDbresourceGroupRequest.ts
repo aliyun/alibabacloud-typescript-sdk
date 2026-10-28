@@ -13,7 +13,7 @@ export class CreateDBResourceGroupRequestAtmConfig extends $dara.Model {
   authNodeNum?: number;
   /**
    * @remarks
-   * The authentication node specification ([0-9+]ACU).
+   * The node specifications of authentication nodes ([0-9+]ACU).
    * 
    * @example
    * 8ACU
@@ -29,7 +29,7 @@ export class CreateDBResourceGroupRequestAtmConfig extends $dara.Model {
   insertNodeNum?: number;
   /**
    * @remarks
-   * The insert node specification ([0-9+]ACU).
+   * The node specifications of insert nodes ([0-9+]ACU).
    * 
    * @example
    * 8ACU
@@ -53,7 +53,7 @@ export class CreateDBResourceGroupRequestAtmConfig extends $dara.Model {
   selectNodeNum?: number;
   /**
    * @remarks
-   * The query node specification ([0-9+]ACU).
+   * The node specifications of query nodes ([0-9+]ACU).
    * 
    * @example
    * 8ACU
@@ -85,7 +85,7 @@ export class CreateDBResourceGroupRequestAtmConfig extends $dara.Model {
   storageNodeNum?: number;
   /**
    * @remarks
-   * The storage node specification ([0-9+]ACU).
+   * The node specifications of storage nodes ([0-9+]ACU).
    * 
    * @example
    * 8ACU
@@ -135,7 +135,7 @@ export class CreateDBResourceGroupRequestAtmConfig extends $dara.Model {
 export class CreateDBResourceGroupRequestGpuElasticPlanRules extends $dara.Model {
   /**
    * @remarks
-   * The end time as a cron expression. The interval must be at least 1 hour.
+   * The end time, specified as a cron expression. The interval must be at least 1 hour.
    * 
    * @example
    * 0 0 3 * * ?
@@ -143,7 +143,7 @@ export class CreateDBResourceGroupRequestGpuElasticPlanRules extends $dara.Model
   endCronExpression?: string;
   /**
    * @remarks
-   * The start time as a cron expression. The interval must be at least 1 hour.
+   * The start time, specified as a cron expression. The interval must be at least 1 hour.
    * 
    * @example
    * 0 0 2 * * ?
@@ -215,8 +215,20 @@ export class CreateDBResourceGroupRequestGpuElasticPlan extends $dara.Model {
 }
 
 export class CreateDBResourceGroupRequestRayConfigStorageMounts extends $dara.Model {
+  /**
+   * @example
+   * /mnt/data01
+   */
   mountPath?: string;
+  /**
+   * @example
+   * 1
+   */
   storageId?: number;
+  /**
+   * @example
+   * training-data
+   */
   storageName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -286,7 +298,7 @@ export class CreateDBResourceGroupRequestRayConfigWorkerGroups extends $dara.Mod
   workerDiskCapacity?: string;
   /**
    * @remarks
-   * The specification of the worker node.
+   * The node specifications of the worker node.
    * 
    * @example
    * xlarge
@@ -336,11 +348,19 @@ export class CreateDBResourceGroupRequestRayConfigWorkerGroups extends $dara.Mod
 export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
   /**
    * @remarks
+   * The Ray authentication token.
+   * 
+   * @example
+   * KnDC43ClfXqv&P*s
+   */
+  authToken?: string;
+  /**
+   * @remarks
    * The Ray cluster type. Valid values:
    * 
-   * - BASIC: the basic type, which is non-highly available.
+   * - BASIC: basic type, non-high-availability.
    * 
-   * - HIGH_AVAILABILITY: the highly available type.
+   * - HIGH_AVAILABILITY: high-availability type.
    * 
    * @example
    * BASIC
@@ -348,7 +368,7 @@ export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to enable user Elastic Network Interface (ENI) connectivity.
+   * Specifies whether to enable user ENI connectivity.
    */
   enableUserEni?: boolean;
   /**
@@ -369,7 +389,7 @@ export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
   headDiskCapacity?: string;
   /**
    * @remarks
-   * The specification of the head node.
+   * The node specifications of the head node.
    * 
    * @example
    * xlarge
@@ -384,6 +404,13 @@ export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
    */
   headSpecType?: string;
   storageMounts?: CreateDBResourceGroupRequestRayConfigStorageMounts[];
+  /**
+   * @remarks
+   * The custom Python dependencies for RayCluster. The content follows the requirements.txt format, with one pip dependency per line. A maximum of 200 lines are supported, and each line can be up to 512 characters in length. Version constraints, extras, PEP 440 direct URLs, and # comments are supported. Shell metacharacters are not supported. This parameter applies only to AI resource groups of the RayCluster type.
+   * 
+   * @example
+   * numpy==1.24.0
+   */
   userDefinedRequirements?: string;
   /**
    * @remarks
@@ -392,6 +419,7 @@ export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
   workerGroups?: CreateDBResourceGroupRequestRayConfigWorkerGroups[];
   static names(): { [key: string]: string } {
     return {
+      authToken: 'AuthToken',
       category: 'Category',
       enableUserEni: 'EnableUserEni',
       headAllocateUnit: 'HeadAllocateUnit',
@@ -406,6 +434,7 @@ export class CreateDBResourceGroupRequestRayConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      authToken: 'string',
       category: 'string',
       enableUserEni: 'boolean',
       headAllocateUnit: 'string',
@@ -455,7 +484,7 @@ export class CreateDBResourceGroupRequestRules extends $dara.Model {
   queryTime?: string;
   /**
    * @remarks
-   * The name of the destination resource group.
+   * The name of the target resource group.
    * 
    * @example
    * job
@@ -494,7 +523,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   atmConfig?: CreateDBResourceGroupRequestAtmConfig;
   /**
    * @remarks
-   * The auto-stop interval, in minutes (m).
+   * The automatic stop interval, in minutes (m).
    * 
    * @example
    * 5m
@@ -569,7 +598,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   engineParams?: { [key: string]: any };
   /**
    * @remarks
-   * The GPU time-based elastic plan.
+   * The GPU time-sharing elastic plan.
    */
   gpuElasticPlan?: CreateDBResourceGroupRequestGpuElasticPlan;
   /**
@@ -590,7 +619,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
    * The type of the resource group. Valid values:
    * - **Interactive**
    * - **Job**
-   * > For more information about Data Lakehouse Edition resource groups, see [Introduction to resource groups (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+   * > For more information about Data Lakehouse Edition resource groups, see [Resource group overview (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
    * 
    * This parameter is required.
    * 
@@ -609,8 +638,8 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum reserved computing resources, in ACUs.
-   * - If the resource group type is Interactive, the maximum reserved computing resources are the unallocated resources of the cluster, in increments of 16 ACUs.
-   * - If the resource group type is Job, the maximum reserved computing resources are the unallocated resources of the cluster, in increments of 8 ACUs.
+   * - If the resource group type is Interactive, the maximum reserved computing resources are the current unallocated resources of the cluster, with a step size of 16 ACUs.
+   * - If the resource group type is Job, the maximum reserved computing resources are the current unallocated resources of the cluster, with a step size of 8 ACUs.
    * 
    * @example
    * 48ACU
@@ -674,9 +703,9 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The scaling policy of the resource group. Valid values:
-   * - AutoScaling: enables the AutoScaling auto-scaling policy.
-   * - Disable: disables auto-scaling.
-   * - MultiCluster: enables the MultiCluster auto-scaling policy.
+   * - AutoScaling: enables the AutoScaling automatic scaling policy.
+   * - Disable: disables automatic scaling.
+   * - MultiCluster: enables the MultiCluster automatic scaling policy.
    * 
    * @example
    * AutoScaling
@@ -692,7 +721,7 @@ export class CreateDBResourceGroupRequest extends $dara.Model {
   specName?: string;
   /**
    * @remarks
-   * The name of the destination resource group.
+   * The name of the target resource group.
    * 
    * @example
    * test

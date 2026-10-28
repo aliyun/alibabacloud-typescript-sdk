@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * Minimum task execution time. Used to filter tasks with execution time greater than this value, in seconds. Default 0, meaning no limit.
+   * The minimum execution duration of the task. This parameter is used to filter tasks whose execution duration is greater than this value. Unit: seconds. Default value: 0, which indicates no limit.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   fromExecTime?: number;
   /**
    * @remarks
-   * Start time of task start time, indicating querying tasks whose start time is after this time. Expressed according to ISO8601 standard, and must use UTC +0 time, format: yyyy-MM-ddTHH:mm:ssZ. Earliest supports 30 days ago, automatically converts to 30 days ago if more than 30 days from current time.
+   * The start time of the time range to query task start times. Tasks that start after this time are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The earliest supported time is 30 days ago. If the specified time is more than 30 days before the current time, it is automatically changed to 30 days ago.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   fromStartTime?: string;
   /**
    * @remarks
-   * The cluster ID. Separate multiple cluster IDs with commas (,). Maximum 30 cluster IDs. If not filled, defaults to querying historical tasks of all clusters in that region.
+   * The cluster ID. You can specify multiple cluster IDs separated by commas (,). You can specify up to 30 cluster IDs. If this parameter is left empty, historical tasks of all clusters in the region are queried by default.
    * 
    * @example
    * amv-********
@@ -31,7 +31,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance type. The value is fixed to Instance.
+   * The instance type. Set the value to Instance.
    * 
    * @example
    * Instance
@@ -39,7 +39,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The number of the page to return. Valid range: positive integers. Default value: 1
+   * The page number of the query result. Valid values: positive integers. Default value: 1.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -63,7 +63,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-ae****
@@ -71,17 +71,23 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The state of the task. Valid values:
+   * The task status. Valid values:
    * 
-   * *   **Scheduled**
-   * *   **Running**
-   * *   **Succeed**
-   * *   **Failed**: The task failed.
-   * *   **Cancelling**
-   * *   **Canceled**
-   * *   **Waiting**
+   * - **Scheduled**: Pending execution.
    * 
-   * If querying multiple statuses, separate them with English commas. Default is empty, meaning select all.
+   * - **Running**: Running.
+   * 
+   * - **Succeed**: Succeeded.
+   * 
+   * - **Failed**: Failed.
+   * 
+   * - **Cancelling**: Being canceled.
+   * 
+   * - **Canceled**: Canceled.
+   * 
+   * - **Waiting**: Waiting for the scheduled time.
+   * 
+   * You can specify multiple values separated by commas (,). If this parameter is left empty, all statuses are queried by default.
    * 
    * @example
    * Scheduled
@@ -89,7 +95,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The job IDs. Separate multiple task IDs with commas (,). Maximum 30 task IDs. If not filled, defaults to querying historical tasks of all clusters.
+   * The task ID. You can specify multiple task IDs separated by commas (,). You can specify up to 30 task IDs. If this parameter is left empty, historical tasks of all clusters are queried by default.
    * 
    * @example
    * t-83br18hloy3faf****
@@ -97,7 +103,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Task type, used to query specific type task situations. If multiple, separate with English commas (,), maximum 30 supported. Default is empty, meaning no restriction.
+   * The task type. This parameter is used to query tasks of a specific type. You can specify multiple task types separated by commas (,). You can specify up to 30 task types. If this parameter is left empty, no limit is applied.
    * 
    * @example
    * autotest_dispatch_cases
@@ -105,7 +111,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * Maximum task execution time. Used to filter tasks with execution time not less than this value, in seconds. Default 0, meaning no limit.
+   * The maximum execution duration of the task. This parameter is used to filter tasks whose execution duration does not exceed this value. Unit: seconds. Default value: 0, which indicates no limit.
    * 
    * @example
    * 0
@@ -113,7 +119,7 @@ export class DescribeHistoryTasksRequest extends $dara.Model {
   toExecTime?: number;
   /**
    * @remarks
-   * End time of task start time, indicating querying tasks whose start time is before this time. Expressed according to ISO8601 standard, and must use UTC +0 time, format: yyyy-MM-ddTHH:mm:ssZ.
+   * The end time of the time range to query task start times. Tasks that start before this time are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 

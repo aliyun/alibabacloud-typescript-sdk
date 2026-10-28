@@ -13,7 +13,7 @@ export class GetSparkAppMetricsResponseBodyDataScanMetrics extends $dara.Model {
   outputRowsCount?: number;
   /**
    * @remarks
-   * The number of scanned bytes.
+   * The size of the scanned data in bytes.
    * 
    * @example
    * 10000
@@ -45,7 +45,7 @@ export class GetSparkAppMetricsResponseBodyDataScanMetrics extends $dara.Model {
 export class GetSparkAppMetricsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Spark application.
+   * The application ID.
    * 
    * @example
    * s202302051515shfa865f8000****
@@ -53,7 +53,7 @@ export class GetSparkAppMetricsResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The attempt ID of the Spark application.
+   * The retry ID of the Spark application.
    * 
    * @example
    * s202301061000hz57d797b0000201-****
@@ -69,10 +69,9 @@ export class GetSparkAppMetricsResponseBodyData extends $dara.Model {
   eventLogPath?: string;
   /**
    * @remarks
-   * Indicates whether parsing is complete. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the parsing is completed. Valid values:
+   * - **true**: Completed.
+   * - **false**: Not completed.
    * 
    * @example
    * True
@@ -80,7 +79,7 @@ export class GetSparkAppMetricsResponseBodyData extends $dara.Model {
   finished?: boolean;
   /**
    * @remarks
-   * The metrics.
+   * The metric data.
    */
   scanMetrics?: GetSparkAppMetricsResponseBodyDataScanMetrics;
   static names(): { [key: string]: string } {
@@ -123,7 +122,7 @@ export class GetSparkAppMetricsResponseBody extends $dara.Model {
   data?: GetSparkAppMetricsResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF

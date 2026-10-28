@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The available elastic AnalyticDB compute units (ACUs).
+   * The available elastic ACUs.
    * 
    * @example
    * 512 ACU
@@ -21,7 +21,7 @@ export class DescribeUserQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The available reserved computing resources.
+   * The available reserved compute resources.
    * 
    * @example
    * 48 ACU
@@ -29,7 +29,7 @@ export class DescribeUserQuotaResponseBody extends $dara.Model {
   reserverdCompteACU?: string;
   /**
    * @remarks
-   * The available reserved storage resources.
+   * The available storage compute resources.
    * 
    * @example
    * 24 ACU

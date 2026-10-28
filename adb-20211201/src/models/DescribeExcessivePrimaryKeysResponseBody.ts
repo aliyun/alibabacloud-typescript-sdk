@@ -68,7 +68,7 @@ export class DescribeExcessivePrimaryKeysResponseBodyTables extends $dara.Model 
    * The queried primary key fields.
    * 
    * @example
-   * id,date
+   * 2
    */
   primaryKeyColumns?: string;
   /**
@@ -76,7 +76,7 @@ export class DescribeExcessivePrimaryKeysResponseBodyTables extends $dara.Model 
    * The number of primary key fields.
    * 
    * @example
-   * 2
+   * 3
    */
   primaryKeyCount?: number;
   /**

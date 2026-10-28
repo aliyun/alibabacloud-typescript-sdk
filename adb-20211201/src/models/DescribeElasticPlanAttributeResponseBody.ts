@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeElasticPlanAttributeResponseBodyElasticPlan extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether **Default Proportional Scaling for EIUs** is enabled. Valid values: true: Default Proportional Scaling for EIUs is enabled. If you set this parameter to true, storage resources are scaled along with computing resources. false: Default Proportional Scaling for EIUs is not enabled.
-   * 
-   * >  You can enable Default Proportional Scaling for EIUs for only a single scaling plan of a cluster. After you enable a scaling plan of the Default Proportional Scaling for EIUs type, you cannot enable scaling plans of other types.
+   * Indicates whether **proportional default elastic scaling for the storage acceleration service (EIU)** is enabled.
+   * Valid values:
+   * - true: Enabled. After this feature is enabled, storage resources scale in or out along with the elastic scaling of compute resources.
+   * - false: Disabled.
+   * > Only one storage elastic plan with proportional default elastic scaling for the storage acceleration service (EIU) can be enabled for the entire cluster. After this type of elastic plan is enabled, no other storage elastic plans can be enabled.
    * 
    * @example
    * false
@@ -15,7 +17,7 @@ export class DescribeElasticPlanAttributeResponseBodyElasticPlan extends $dara.M
   autoScale?: boolean;
   /**
    * @remarks
-   * A CORN expression that indicates the scaling cycle and time for the scaling plan.
+   * The cron expression, which indicates the scaling cycle and scaling time of the elastic plan.
    * 
    * @example
    * 0 20 14 * * ?
@@ -23,7 +25,7 @@ export class DescribeElasticPlanAttributeResponseBodyElasticPlan extends $dara.M
   cronExpression?: string;
   /**
    * @remarks
-   * The name of the scaling plan.
+   * The name of the elastic plan.
    * 
    * @example
    * test
@@ -31,7 +33,7 @@ export class DescribeElasticPlanAttributeResponseBodyElasticPlan extends $dara.M
   elasticPlanName?: string;
   /**
    * @remarks
-   * Indicates whether the scaling plan is enabled.
+   * Indicates whether the elastic plan is enabled.
    * 
    * @example
    * true
@@ -39,9 +41,9 @@ export class DescribeElasticPlanAttributeResponseBodyElasticPlan extends $dara.M
   enabled?: boolean;
   /**
    * @remarks
-   * The end time of the scaling plan.
+   * The end time.
    * 
-   * >  The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+   * > The time is in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2025-01-01T12:01:00Z
@@ -49,7 +51,7 @@ export class DescribeElasticPlanAttributeResponseBodyElasticPlan extends $dara.M
   endTime?: string;
   /**
    * @remarks
-   * The name of the resource group used by the scaling plan.
+   * The name of the resource group to which the elastic plan belongs.
    * 
    * @example
    * test
@@ -57,9 +59,9 @@ export class DescribeElasticPlanAttributeResponseBodyElasticPlan extends $dara.M
   resourceGroupName?: string;
   /**
    * @remarks
-   * The start time of the scaling plan.
+   * The start time.
    * 
-   * >  The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+   * > The time is in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2022-01-01T12:01:00Z
@@ -67,7 +69,7 @@ export class DescribeElasticPlanAttributeResponseBodyElasticPlan extends $dara.M
   startTime?: string;
   /**
    * @remarks
-   * The amount of elastic resources after scaling.
+   * The target specifications.
    * 
    * @example
    * 32ACU
@@ -75,7 +77,7 @@ export class DescribeElasticPlanAttributeResponseBodyElasticPlan extends $dara.M
   targetSize?: string;
   /**
    * @remarks
-   * The type of the scaling plan.
+   * The type of the elastic plan.
    * 
    * @example
    * EXECUTOR
@@ -121,12 +123,12 @@ export class DescribeElasticPlanAttributeResponseBodyElasticPlan extends $dara.M
 export class DescribeElasticPlanAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried scaling plan.
+   * The elastic plan.
    */
   elasticPlan?: DescribeElasticPlanAttributeResponseBodyElasticPlan;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A5C433C2-001F-58E3-99F5-3274C14DF8BD

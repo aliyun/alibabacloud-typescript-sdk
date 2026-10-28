@@ -31,14 +31,11 @@ export class GetViewObjectsRequest extends $dara.Model {
   filterViewName?: string;
   /**
    * @remarks
-   * The view type.
-   * 
-   * Valid values:
-   * 
+   * The view type. Valid values:
    * - VIRTUAL_VIEW
    * - MATERIALIZED_VIEW
    * 
-   * Default value: null.
+   * Default value: empty.
    * 
    * @example
    * VIRTUAL_VIEW
@@ -46,13 +43,12 @@ export class GetViewObjectsRequest extends $dara.Model {
   filterViewType?: string;
   /**
    * @remarks
-   * The sorting field.
-   * 
-   * Valid values for Type:
+   * The sort field.
+   * Valid values for the sort type:
    * - Asc
    * - Desc
    * 
-   * Valid values for Field:
+   * Valid values for the sort field:
    * - ViewName
    * - CreateTime
    * - UpdateTime
@@ -74,9 +70,9 @@ export class GetViewObjectsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * * **30** (default).
-   * * **50**.
-   * * **100**.
+   * * **30** (default)
+   * * **50**
+   * * **100**
    * 
    * @example
    * 30

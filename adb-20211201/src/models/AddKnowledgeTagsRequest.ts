@@ -14,10 +14,13 @@ export class AddKnowledgeTagsRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @example
+   * 21321
+   */
+  fileId?: string;
+  /**
    * @remarks
    * The location of the knowledge base document.
-   * 
-   * This parameter is required.
    * 
    * @example
    * oss://bucketName/path/to/file.pdf
@@ -34,6 +37,7 @@ export class AddKnowledgeTagsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      fileId: 'FileId',
       fileLocation: 'FileLocation',
       tags: 'Tags',
     };
@@ -42,6 +46,7 @@ export class AddKnowledgeTagsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      fileId: 'string',
       fileLocation: 'string',
       tags: 'string',
     };

@@ -16,7 +16,7 @@ export class KillSparkAppResponseBodyData extends $dara.Model {
    * The name of the application.
    * 
    * @example
-   * test
+   * LAKEHOUSE-1-1
    */
   appName?: string;
   /**
@@ -24,7 +24,7 @@ export class KillSparkAppResponseBodyData extends $dara.Model {
    * The cluster ID.
    * 
    * @example
-   * amv-bp11q28kvl688****
+   * amv-bp1c3em7b2e****
    */
   DBClusterId?: string;
   /**
@@ -32,7 +32,7 @@ export class KillSparkAppResponseBodyData extends $dara.Model {
    * The error message returned.
    * 
    * @example
-   * [Advisor] Advisor feature is not available for instance: amv-bp11q28kvl688****
+   * [Advisor] Advisor feature is not available for instance: am-2ze292w4fyglwxxxx
    */
   message?: string;
   /**
@@ -52,7 +52,7 @@ export class KillSparkAppResponseBodyData extends $dara.Model {
    * *   **UNKNOWN**
    * 
    * @example
-   * KILLED
+   * running
    */
   state?: string;
   static names(): { [key: string]: string } {

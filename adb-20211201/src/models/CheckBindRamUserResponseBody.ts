@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckBindRamUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2FB9DCA3-DA56-5B43-A9A0-68E3D0E6AA84
@@ -13,10 +13,9 @@ export class CheckBindRamUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result of the request. Valid values:
-   * 
-   * *   **true**: the database account is associated with a RAM user.
-   * *   **false**: the database account is not associated with a RAM user.
+   * The result returned by the node. Valid values:
+   * - **true**: The current Resource Access Management (RAM) user is attached to a database account.
+   * - **false**: The current Resource Access Management (RAM) user is not attached to a database account.
    * 
    * @example
    * true

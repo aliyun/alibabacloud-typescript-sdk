@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateClusterPublicConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 868EF07F-D0B2-5043-B092-0C14CD00B65A

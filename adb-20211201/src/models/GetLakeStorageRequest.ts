@@ -13,7 +13,7 @@ export class GetLakeStorageRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The lake storage ID.
+   * The instance ID.
    * 
    * @example
    * -

@@ -15,9 +15,15 @@ export class DeleteKnowledgeFileRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The location of the knowledge base document.
+   * The ID of the file.
    * 
-   * This parameter is required.
+   * @example
+   * 2131213
+   */
+  fileId?: string;
+  /**
+   * @remarks
+   * The path of the knowledge base document.
    * 
    * @example
    * oss://bucket/doc.pdf
@@ -26,6 +32,7 @@ export class DeleteKnowledgeFileRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      fileId: 'FileId',
       fileLocation: 'FileLocation',
     };
   }
@@ -33,6 +40,7 @@ export class DeleteKnowledgeFileRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      fileId: 'string',
       fileLocation: 'string',
     };
   }

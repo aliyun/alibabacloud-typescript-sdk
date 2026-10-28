@@ -3,38 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKeys extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the multi-cluster feature is enabled. Valid values:
-   * 
-   * - true
-   * 
-   * - false
-   * 
-   * @example
-   * true
-   */
   enableAutoMc?: boolean;
   /**
    * @remarks
-   * The database engine of the cluster. Valid values:
-   * 
-   * *  AnalyticDB
+   * The list of applicable cluster engines.
    */
   engine?: string[];
   /**
    * @remarks
-   * The type of the resource group. Valid values:
-   * 
-   * *   **Interactive**
-   * *   **Job**
-   * 
-   * >  For more information about resource groups, see [Resource group overview](https://help.aliyun.com/document_detail/428610.html).
+   * The list of applicable resource group types.
    */
   groupType?: string[];
   /**
    * @remarks
-   * The name of the metric.
+   * The key of the metric.
    * 
    * @example
    * AnalyticDB_CPU
@@ -42,10 +24,10 @@ export class DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKey
   keyName?: string;
   /**
    * @remarks
-   * Specifies whether to select the metric. Valid values:
+   * Indicates whether the metric is selected. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - true
+   * - false
    * 
    * @example
    * true
@@ -90,11 +72,10 @@ export class DescribePerformanceViewAttributeResponseBodyViewDetailCategories ex
   /**
    * @remarks
    * The name of the metric category. Valid values:
-   * 
-   * *   **Node**
-   * *   **DiskData**
-   * *   **WorkLoad**
-   * *   **ResourceGroup**
+   * * **Node**: node resource metrics
+   * * **DiskData**: disk metrics
+   * * **WorkLoad**: workload metrics
+   * * **ResourceGroup**: resource group metrics
    * 
    * @example
    * Node
@@ -102,7 +83,7 @@ export class DescribePerformanceViewAttributeResponseBodyViewDetailCategories ex
   category?: string;
   /**
    * @remarks
-   * The metrics.
+   * The list of metrics.
    */
   keys?: DescribePerformanceViewAttributeResponseBodyViewDetailCategoriesKeys[];
   static names(): { [key: string]: string } {
@@ -134,15 +115,15 @@ export class DescribePerformanceViewAttributeResponseBodyViewDetailCategories ex
 export class DescribePerformanceViewAttributeResponseBodyViewDetail extends $dara.Model {
   /**
    * @remarks
-   * The metric category.
+   * The list of metric categories.
    */
   categories?: DescribePerformanceViewAttributeResponseBodyViewDetailCategories[];
   /**
    * @remarks
-   * Specifies whether to enable the filter interaction feature. Valid values:
+   * Indicates whether it is a linkage chart. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - true
+   * - false
    * 
    * @example
    * true
@@ -150,7 +131,7 @@ export class DescribePerformanceViewAttributeResponseBodyViewDetail extends $dar
   chartLinked?: boolean;
   /**
    * @remarks
-   * The number of charts to display in each row.
+   * The number of charts displayed in each row.
    * 
    * @example
    * 2
@@ -187,9 +168,7 @@ export class DescribePerformanceViewAttributeResponseBodyViewDetail extends $dar
 export class DescribePerformanceViewAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
-   * 
-   * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+   * The details of the access denial. This field is returned only when RAM authentication fails.
    * 
    * @example
    * {
@@ -205,7 +184,10 @@ export class DescribePerformanceViewAttributeResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The type of the view.
+   * The type of the source for the original chart. Valid values:
+   * 
+   * - **Basic**: basic view
+   * - **Advanced**: advanced view
    * 
    * @example
    * Basic
@@ -215,18 +197,16 @@ export class DescribePerformanceViewAttributeResponseBody extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
-   * 
    * @example
    * amv-bp198m028ih55xxxx
    */
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to populate the names of the metrics in the original monitoring view when you view the monitoring view. Valid values:
+   * Indicates whether the keys completed in the original monitoring view are populated when you view the monitoring view. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - true
+   * - false
    * 
    * @example
    * true
@@ -242,12 +222,12 @@ export class DescribePerformanceViewAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the monitoring view.
+   * The details of the monitoring view.
    */
   viewDetail?: DescribePerformanceViewAttributeResponseBodyViewDetail;
   /**
    * @remarks
-   * The name of the view.
+   * The name of the monitoring view.
    * 
    * @example
    * Custom-All metrics-2 columns-Linked

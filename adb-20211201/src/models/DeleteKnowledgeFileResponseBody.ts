@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteKnowledgeFileResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The file location. Currently, only OSS paths are supported.
+   * The file path. Currently, only OSS paths are supported.
    * 
    * @example
    * oss://bucket/doc.pdf
@@ -13,7 +13,7 @@ export class DeleteKnowledgeFileResponseBodyData extends $dara.Model {
   fileLocation?: string;
   /**
    * @remarks
-   * The prompt message.
+   * The message.
    * 
    * @example
    * Successful
@@ -21,10 +21,9 @@ export class DeleteKnowledgeFileResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

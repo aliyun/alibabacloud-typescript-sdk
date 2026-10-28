@@ -109,7 +109,7 @@ export class CreateApsDatasoureShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Simple Log Service (SLS) information for the data source to be created.
+   * The Simple Log Service (SLS) information.
    * 
    * @example
    * -

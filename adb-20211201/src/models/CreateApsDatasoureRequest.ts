@@ -61,7 +61,7 @@ export class CreateApsDatasoureRequestHiveInfo extends $dara.Model {
   hostConfig?: string;
   /**
    * @remarks
-   * The MetaStore endpoint.
+   * The metastore endpoint.
    * 
    * @example
    * ******
@@ -123,7 +123,7 @@ export class CreateApsDatasoureRequestKafkaInfo extends $dara.Model {
   kafkaClusterId?: string;
   /**
    * @remarks
-   * The assigned Kafka topic name.
+   * The name of the allocated Kafka topic.
    * 
    * @example
    * test
@@ -155,7 +155,7 @@ export class CreateApsDatasoureRequestKafkaInfo extends $dara.Model {
 export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether cross-account access is enabled. Valid values:
+   * Specifies whether cross-account access is used. Valid values:
    * 
    * - **true**: The current network instance is a cross-account resource.
    * - **false**: The current network instance is a resource within the current account.
@@ -174,7 +174,7 @@ export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   acrossRole?: string;
   /**
    * @remarks
-   * The UID of the cross-account.
+   * The cross-account UID.
    * 
    * @example
    * 123456789*
@@ -182,7 +182,7 @@ export class CreateApsDatasoureRequestPolarDBMysqlInfo extends $dara.Model {
   acrossUid?: string;
   /**
    * @remarks
-   * The custom RDS endpoint.
+   * The endpoint of the private custom RDS instance.
    * 
    * @example
    * ****
@@ -298,7 +298,7 @@ export class CreateApsDatasoureRequestPolarDBXInfo extends $dara.Model {
 export class CreateApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
   /**
    * @remarks
-   * The read-only instance endpoint.
+   * The endpoint of the read-only instance.
    * 
    * @example
    * ******
@@ -378,7 +378,7 @@ export class CreateApsDatasoureRequestRdsMysqlInfo extends $dara.Model {
 export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether cross-account access is enabled.
+   * Specifies whether cross-account access is used.
    * 
    * @example
    * false
@@ -386,7 +386,7 @@ export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
   across?: boolean;
   /**
    * @remarks
-   * The role name for cross-account access.
+   * The name of the cross-account role.
    * 
    * @example
    * yyy
@@ -394,7 +394,7 @@ export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
   acrossRole?: string;
   /**
    * @remarks
-   * The UID of the cross-account.
+   * The cross-account UID.
    * 
    * @example
    * xxxx
@@ -418,7 +418,7 @@ export class CreateApsDatasoureRequestSlsInfo extends $dara.Model {
   sourceRegionId?: string;
   /**
    * @remarks
-   * sls logstore。
+   * The Simple Log Service Logstore.
    * 
    * @example
    * test-store
@@ -562,7 +562,7 @@ export class CreateApsDatasoureRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Simple Log Service (SLS) information for the data source to be created.
+   * The Simple Log Service (SLS) information.
    * 
    * @example
    * -

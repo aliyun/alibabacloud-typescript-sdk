@@ -15,7 +15,7 @@ export class QueryFormationInstsByTaskIDRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) to query available region IDs.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query available region IDs.
    * 
    * This parameter is required.
    * 

@@ -15,9 +15,15 @@ export class RemoveKnowledgeUploadUserRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The location of the knowledge base document.
+   * The file ID.
    * 
-   * This parameter is required.
+   * @example
+   * 2134143
+   */
+  fileId?: string;
+  /**
+   * @remarks
+   * The address of the knowledge base document.
    * 
    * @example
    * oss://bucket/doc.pdf
@@ -36,6 +42,7 @@ export class RemoveKnowledgeUploadUserRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      fileId: 'FileId',
       fileLocation: 'FileLocation',
       users: 'Users',
     };
@@ -44,6 +51,7 @@ export class RemoveKnowledgeUploadUserRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      fileId: 'string',
       fileLocation: 'string',
       users: 'string',
     };

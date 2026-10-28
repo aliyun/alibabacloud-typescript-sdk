@@ -28,7 +28,7 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * <props="china">The ID of the cluster. The cluster can be an Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
    * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
@@ -42,12 +42,19 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
    * The database engine. Valid values:
    * 
    * - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-   * - **Clickhouse**: the wide table engine.
+   * - **Clickhouse**: the wide-table engine.
    * 
    * @example
    * Clickhouse
    */
   engine?: string;
+  /**
+   * @remarks
+   * The name of the resource group.
+   * 
+   * @example
+   * test_group
+   */
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {

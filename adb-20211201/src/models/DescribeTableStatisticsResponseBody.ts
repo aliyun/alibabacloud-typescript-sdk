@@ -104,7 +104,7 @@ export class DescribeTableStatisticsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 30
@@ -120,7 +120,7 @@ export class DescribeTableStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The names of databases.
+   * The list of database names.
    * 
    * @example
    * [\\"adb_platform\\", \\"adb_ai\\", \\"adb_data\\"]
@@ -128,7 +128,7 @@ export class DescribeTableStatisticsResponseBody extends $dara.Model {
   schemaNames?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 693

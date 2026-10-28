@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetSparkAppLogRootPathResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The default log path.
+   * The recommended default path.
    * 
    * @example
    * oss://testBucketname/to/log
@@ -13,7 +13,7 @@ export class SetSparkAppLogRootPathResponseBodyData extends $dara.Model {
   defaultLogPath?: string;
   /**
    * @remarks
-   * Indicates whether a log path exists.
+   * Indicates whether the log path exists.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class SetSparkAppLogRootPathResponseBodyData extends $dara.Model {
   modifiedTimestamp?: string;
   /**
    * @remarks
-   * The modifier ID.
+   * The ID of the modifier.
    * 
    * @example
    * 11111111
@@ -75,12 +75,12 @@ export class SetSparkAppLogRootPathResponseBodyData extends $dara.Model {
 export class SetSparkAppLogRootPathResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: SetSparkAppLogRootPathResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * D65A809F-34CE-4550-9BC1-0ED21ETG380

@@ -6,8 +6,7 @@ export class CancelSparkReplStatementRequest extends $dara.Model {
   /**
    * @remarks
    * The application ID.
-   * 
-   * >  You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query Spark application IDs.
+   * > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query the Spark application ID.
    * 
    * @example
    * s202411071444hzdvk486d9d2001****

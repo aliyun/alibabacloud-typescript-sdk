@@ -24,7 +24,7 @@ export class TableModel extends $dara.Model {
   blockSize?: number;
   /**
    * @remarks
-   * The bucket ID.
+   * The bucket number.
    * 
    * @example
    * 16
@@ -61,13 +61,21 @@ export class TableModel extends $dara.Model {
   compression?: string;
   /**
    * @remarks
-   * The time when the table was created.
+   * The creation time.
    * 
    * @example
    * 2023-01-05 13:17:55
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The creation source of the table.
+   */
   createdBySource?: string;
+  /**
+   * @remarks
+   * The user who created the table.
+   */
   createdByUser?: string;
   /**
    * @remarks
@@ -79,7 +87,7 @@ export class TableModel extends $dara.Model {
   currentVersion?: number;
   /**
    * @remarks
-   * The name of the logical database.
+   * The logical database name.
    * 
    * @example
    * example
@@ -87,7 +95,7 @@ export class TableModel extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * Indicates whether the dictionary is encrypted.
+   * Indicates whether encryption is enabled.
    * 
    * @example
    * false
@@ -108,7 +116,7 @@ export class TableModel extends $dara.Model {
   distributeType?: string;
   /**
    * @remarks
-   * Indicates whether DFS is allowed.
+   * Indicates whether DFS is enabled.
    * 
    * @example
    * false
@@ -129,7 +137,7 @@ export class TableModel extends $dara.Model {
   indexes?: CstoreIndexModel[];
   /**
    * @remarks
-   * Indicates whether the index is a full index.
+   * Indicates whether full indexing is enabled.
    * 
    * @example
    * true
@@ -137,7 +145,7 @@ export class TableModel extends $dara.Model {
   isAllIndex?: boolean;
   /**
    * @remarks
-   * Indicates whether the table is a full-text index dictionary.
+   * Indicates whether it is a full-text index dictionary.
    * 
    * @example
    * false
@@ -158,7 +166,7 @@ export class TableModel extends $dara.Model {
   parameters?: { [key: string]: string };
   /**
    * @remarks
-   * The information about the partition key column.
+   * The partition column information.
    * 
    * @example
    * colName
@@ -187,7 +195,7 @@ export class TableModel extends $dara.Model {
   partitionType?: string;
   /**
    * @remarks
-   * The name of the physical database.
+   * The physical database name.
    * 
    * @example
    * physicalDatabaseName
@@ -195,7 +203,7 @@ export class TableModel extends $dara.Model {
   physicalDatabaseName?: string;
   /**
    * @remarks
-   * The name of the physical table.
+   * The physical table name.
    * 
    * @example
    * physicalTableName
@@ -211,7 +219,7 @@ export class TableModel extends $dara.Model {
   previousVersion?: number;
   /**
    * @remarks
-   * The raw table name.
+   * The original table name.
    * 
    * @example
    * RawTableName
@@ -245,7 +253,7 @@ export class TableModel extends $dara.Model {
   rtEngineType?: string;
   /**
    * @remarks
-   * Indicates whether to route all indexes.
+   * Indicates whether all indexes are routed.
    * 
    * @example
    * false
@@ -261,7 +269,7 @@ export class TableModel extends $dara.Model {
   rtModeType?: string;
   /**
    * @remarks
-   * The description of the storage.
+   * The storage description.
    */
   sd?: StorageDescriptorModel;
   /**
@@ -274,7 +282,7 @@ export class TableModel extends $dara.Model {
   storagePolicy?: string;
   /**
    * @remarks
-   * The information about the subpartition column.
+   * The subpartition column information.
    * 
    * @example
    * SubpartitionColumn
@@ -298,7 +306,7 @@ export class TableModel extends $dara.Model {
   subpartitionType?: string;
   /**
    * @remarks
-   * The name of the table engine.
+   * The table engine name.
    * 
    * @example
    * hive
@@ -306,7 +314,7 @@ export class TableModel extends $dara.Model {
   tableEngineName?: string;
   /**
    * @remarks
-   * The name of the logical table.
+   * The logical table name.
    * 
    * @example
    * tableName
@@ -338,7 +346,7 @@ export class TableModel extends $dara.Model {
   temporary?: boolean;
   /**
    * @remarks
-   * The time when the table was last updated.
+   * The update time.
    * 
    * @example
    * 2023-01-05 13:17:55
@@ -346,7 +354,7 @@ export class TableModel extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The normalized SQL statement that is used to create the view.
+   * The normalized result of the SQL statement used to create the view.
    * 
    * @example
    * ViewExpandedText
@@ -354,7 +362,7 @@ export class TableModel extends $dara.Model {
   viewExpandedText?: string;
   /**
    * @remarks
-   * The SQL statement used to create the view.
+   * The SQL statement entered when creating the view.
    * 
    * @example
    * ViewOriginalText
@@ -362,7 +370,7 @@ export class TableModel extends $dara.Model {
   viewOriginalText?: string;
   /**
    * @remarks
-   * The security mode of the view.
+   * The view safe mode pattern.
    * 
    * @example
    * ViewSecurityMode

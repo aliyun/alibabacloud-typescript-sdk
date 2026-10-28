@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchSemanticViewsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL cluster.
+   * The ADB cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,15 +15,15 @@ export class SearchSemanticViewsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The search query.
+   * The text content to search.
    * 
    * @example
-   * 销售额
+   * Sales revenue
    */
   queryText?: string;
   /**
    * @remarks
-   * The number of the most relevant semantic views to return.
+   * The number of most relevant documents to return.
    * 
    * @example
    * 3

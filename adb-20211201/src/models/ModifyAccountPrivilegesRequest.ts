@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccountPrivilegesRequestAccountPrivilegesPrivilegeObject extends $dara.Model {
   /**
    * @remarks
-   * The column to which permissions are granted. This parameter is required when the privilege level is column.
+   * The authorized column. This parameter is required when the permission level is column.
    * 
    * @example
    * column1
@@ -13,7 +13,7 @@ export class ModifyAccountPrivilegesRequestAccountPrivilegesPrivilegeObject exte
   column?: string;
   /**
    * @remarks
-   * The database to which permissions are granted. This parameter is required when the privilege level is database, table, or column.
+   * The authorized database. This parameter is required when the permission level is database, table, or column.
    * 
    * @example
    * tsdb1
@@ -21,7 +21,7 @@ export class ModifyAccountPrivilegesRequestAccountPrivilegesPrivilegeObject exte
   database?: string;
   /**
    * @remarks
-   * The table to which permissions are granted. This parameter is required when the privilege level is table or column.
+   * The authorized table. This parameter is required when the permission level is table or column.
    * 
    * @example
    * table1
@@ -55,12 +55,12 @@ export class ModifyAccountPrivilegesRequestAccountPrivilegesPrivilegeObject exte
 export class ModifyAccountPrivilegesRequestAccountPrivileges extends $dara.Model {
   /**
    * @remarks
-   * The privilege object, which is a tuple of database, table, and column.
+   * The permission object, which is a triplet of database, table, and column.
    */
   privilegeObject?: ModifyAccountPrivilegesRequestAccountPrivilegesPrivilegeObject;
   /**
    * @remarks
-   * The privilege level, obtained from the `DescribeEnabledPrivileges` operation.
+   * The permission level obtained from the `DescribeEnabledPrivileges` operation.
    * 
    * @example
    * Global
@@ -120,8 +120,8 @@ export class ModifyAccountPrivilegesRequest extends $dara.Model {
   accountPrivileges?: ModifyAccountPrivilegesRequestAccountPrivileges[];
   /**
    * @remarks
-   * <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
-   * <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -129,8 +129,23 @@ export class ModifyAccountPrivilegesRequest extends $dara.Model {
    * amv-bp1k5p066e1a****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The list of PromQL write permissions.
+   */
   promqlInsertPrivileges?: string[];
+  /**
+   * @remarks
+   * The percentage of PromQL query nodes.
+   * 
+   * @example
+   * 0.6
+   */
   promqlSelectNodePercentage?: number;
+  /**
+   * @remarks
+   * The list of PromQL query permissions.
+   */
   promqlSelectPrivileges?: string[];
   /**
    * @remarks
@@ -142,6 +157,13 @@ export class ModifyAccountPrivilegesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the resource group.
+   * 
+   * @example
+   * test_group
+   */
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {

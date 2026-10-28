@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountAllPrivilegesResponseBodyDataResultPrivilegeObject extends $dara.Model {
   /**
    * @remarks
-   * The column name.
+   * The name of the column.
    * 
    * @example
    * id
@@ -13,7 +13,7 @@ export class DescribeAccountAllPrivilegesResponseBodyDataResultPrivilegeObject e
   column?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * tdb1
@@ -21,7 +21,7 @@ export class DescribeAccountAllPrivilegesResponseBodyDataResultPrivilegeObject e
   database?: string;
   /**
    * @remarks
-   * Description of the permission object.
+   * The description of the permission object.
    * 
    * @example
    * id of table
@@ -29,7 +29,7 @@ export class DescribeAccountAllPrivilegesResponseBodyDataResultPrivilegeObject e
   description?: string;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * @example
    * table1
@@ -65,12 +65,12 @@ export class DescribeAccountAllPrivilegesResponseBodyDataResultPrivilegeObject e
 export class DescribeAccountAllPrivilegesResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The permission object, represented as a trituple of database, table, and column. All fields are empty for Global-level permissions.
+   * The permission object, which is a triplet of the database, table, and column. All fields are empty when the permission level is Global.
    */
   privilegeObject?: DescribeAccountAllPrivilegesResponseBodyDataResultPrivilegeObject;
   /**
    * @remarks
-   * The permission level, returned by the `DescribeEnabledPrivileges` operation.
+   * The permission level, which is obtained from the `DescribeEnabledPrivileges` operation.
    * 
    * @example
    * Global
@@ -78,7 +78,7 @@ export class DescribeAccountAllPrivilegesResponseBodyDataResult extends $dara.Mo
   privilegeType?: string;
   /**
    * @remarks
-   * List of permissions.
+   * The list of permissions.
    */
   privileges?: string[];
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class DescribeAccountAllPrivilegesResponseBodyDataResult extends $dara.Mo
 export class DescribeAccountAllPrivilegesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * If the `Truncated` field in the response is `true`, pass this value in subsequent calls to retrieve the next set of results.
+   * If the `Truncated` field in the response is `true`, specify the value of this field in the next call to retrieve the subsequent entries.
    * 
    * @example
    * 0573e74fd1ccb01739993a691e876074db6e1b6ad79f54115f0e98528432ba6a523cfec5780ade5189299cc3396f6ff7
@@ -123,12 +123,12 @@ export class DescribeAccountAllPrivilegesResponseBodyData extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * List of permissions.
+   * The list of permissions.
    */
   result?: DescribeAccountAllPrivilegesResponseBodyDataResult[];
   /**
    * @remarks
-   * If the response is truncated, this field is `true`. Continue calling this operation until this field becomes `false`.
+   * Indicates whether the returned content is truncated. If the value is `true`, the returned content is truncated, and you must continue to call this operation to retrieve the remaining entries until the value is `false`.
    * 
    * @example
    * true
@@ -165,7 +165,7 @@ export class DescribeAccountAllPrivilegesResponseBodyData extends $dara.Model {
 export class DescribeAccountAllPrivilegesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Permission details.
+   * The permission details.
    */
   data?: DescribeAccountAllPrivilegesResponseBodyData;
   /**

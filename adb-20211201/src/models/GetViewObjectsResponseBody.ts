@@ -6,7 +6,7 @@ import { TableSummaryModel } from "./TableSummaryModel";
 export class GetViewObjectsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number. The value is a positive integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be a positive integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -15,9 +15,9 @@ export class GetViewObjectsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * * **30** (default).
-   * * **50**.
-   * * **100**.
+   * * **30** (default)
+   * * **50**
+   * * **100**
    * 
    * @example
    * 30
@@ -30,7 +30,7 @@ export class GetViewObjectsResponseBodyData extends $dara.Model {
   tableSummaryModels?: TableSummaryModel[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -74,7 +74,7 @@ export class GetViewObjectsResponseBody extends $dara.Model {
   data?: GetViewObjectsResponseBodyData;
   /**
    * @remarks
-   * The page number. The value is a positive integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be a positive integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -83,9 +83,9 @@ export class GetViewObjectsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * * **30** (default).
-   * * **50**.
-   * * **100**.
+   * * **30** (default)
+   * * **50**
+   * * **100**
    * 
    * @example
    * 30
@@ -101,7 +101,7 @@ export class GetViewObjectsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -6,8 +6,7 @@ export class ExecuteSparkReplStatementRequest extends $dara.Model {
   /**
    * @remarks
    * The application ID.
-   * 
-   * >  You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query Spark application IDs.
+   * > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/455888.html) operation to query the application ID of Spark.
    * 
    * @example
    * s202411071444hzdvk486d9d2001****
@@ -15,7 +14,7 @@ export class ExecuteSparkReplStatementRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The code that you want to execute.
+   * The code to execute.
    * 
    * This parameter is required.
    * 
@@ -26,9 +25,8 @@ export class ExecuteSparkReplStatementRequest extends $dara.Model {
   /**
    * @remarks
    * The language type of the code. Valid values:
-   * 
-   * *   SCALA
-   * *   PYTHON
+   * - SCALA
+   * - PYTHON
    * 
    * This parameter is required.
    * 
@@ -38,7 +36,7 @@ export class ExecuteSparkReplStatementRequest extends $dara.Model {
   codeType?: string;
   /**
    * @remarks
-   * The ID of the session that you want to use to execute the code.
+   * The session ID for executing the code.
    * 
    * This parameter is required.
    * 

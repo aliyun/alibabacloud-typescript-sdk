@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutoRenewalAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster IDs.
+   * The list of cluster IDs.
    */
   DBClusterId?: string[];
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The page number. A positive integer greater than 0 and not exceeding the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be a positive integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -20,11 +20,10 @@ export class DescribeAutoRenewalAttributeRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page. Valid values:
-   * 
-   * *   **30**(Default)
-   * *   **50**
-   * *   **100**
+   * The number of entries to return on each page. Valid values:
+   * - **30** (default)
+   * - **50**
+   * - **100**
    * 
    * @example
    * 30

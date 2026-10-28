@@ -6,12 +6,12 @@ import { DatabaseSummaryModel } from "./DatabaseSummaryModel";
 export class GetDatabaseObjectsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The queried databases.
+   * The result array.
    */
   databaseSummaryModels?: DatabaseSummaryModel[];
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. The value must be greater than 0 and no greater than the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -21,9 +21,9 @@ export class GetDatabaseObjectsResponseBodyData extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   30
-   * *   50
-   * *   100
+   * - 30
+   * - 50
+   * - 100
    * 
    * Default value: 30.
    * 
@@ -33,7 +33,7 @@ export class GetDatabaseObjectsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class GetDatabaseObjectsResponseBody extends $dara.Model {
   data?: GetDatabaseObjectsResponseBodyData;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. The value is a positive integer. Default value: **1**.
    * 
    * @example
    * 1
@@ -86,10 +86,9 @@ export class GetDatabaseObjectsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
-   * *   **30** (default)
-   * *   **50**
-   * *   **100**
+   * - **30** (default)
+   * - **50**
+   * - **100**
    * 
    * @example
    * 30
@@ -105,7 +104,7 @@ export class GetDatabaseObjectsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

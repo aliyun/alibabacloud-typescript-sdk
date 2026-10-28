@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAPSJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the synchronization job.
+   * The name of the task.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateAPSJobRequest extends $dara.Model {
   apsJobName?: string;
   /**
    * @remarks
-   * The objects to be synchronized.
+   * The list of synchronization objects.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateAPSJobRequest extends $dara.Model {
   dbList?: string;
   /**
    * @remarks
-   * The name of the database account of the destination cluster.
+   * The instance ID of the destination database.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateAPSJobRequest extends $dara.Model {
   destinationEndpointInstanceID?: string;
   /**
    * @remarks
-   * The password of the database account of the destination cluster.
+   * The password of the destination instance.
    * 
    * @example
    * ******
@@ -43,7 +43,7 @@ export class CreateAPSJobRequest extends $dara.Model {
   destinationEndpointPassword?: string;
   /**
    * @remarks
-   * The name of the database account of the destination cluster.
+   * The username of the destination instance.
    * 
    * @example
    * ******
@@ -51,7 +51,7 @@ export class CreateAPSJobRequest extends $dara.Model {
   destinationEndpointUserName?: string;
   /**
    * @remarks
-   * The partitions.
+   * The list of partitions.
    * 
    * @example
    * {}
@@ -60,8 +60,7 @@ export class CreateAPSJobRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -71,7 +70,7 @@ export class CreateAPSJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the source instance or cluster.
+   * The instance ID of the source database.
    * 
    * This parameter is required.
    * 
@@ -81,7 +80,7 @@ export class CreateAPSJobRequest extends $dara.Model {
   sourceEndpointInstanceID?: string;
   /**
    * @remarks
-   * The password of the database account of the source instance.
+   * The password of the source endpoint.
    * 
    * @example
    * ******
@@ -89,7 +88,7 @@ export class CreateAPSJobRequest extends $dara.Model {
   sourceEndpointPassword?: string;
   /**
    * @remarks
-   * The region ID of the source instance.
+   * The region of the source database.
    * 
    * @example
    * cn-beijing
@@ -97,7 +96,7 @@ export class CreateAPSJobRequest extends $dara.Model {
   sourceEndpointRegion?: string;
   /**
    * @remarks
-   * The name of the database account of the source instance.
+   * The username of the source endpoint.
    * 
    * @example
    * xxxx
@@ -105,7 +104,7 @@ export class CreateAPSJobRequest extends $dara.Model {
   sourceEndpointUserName?: string;
   /**
    * @remarks
-   * The mode of the destination table.
+   * The destination table mode.
    * 
    * @example
    * 1

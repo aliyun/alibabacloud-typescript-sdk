@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeElasticPlanSpecificationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeElasticPlanSpecificationsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A5C433C2-001F-58E3-99F5-3274C14DF8BD
@@ -29,12 +29,12 @@ export class DescribeElasticPlanSpecificationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried resource specifications.
+   * The list of supported specifications.
    */
   specifications?: string[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of specifications.
    * 
    * @example
    * 10

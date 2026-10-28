@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads extends $dara.Model {
   /**
    * @remarks
-   * The number of AnalyticDB compute units (ACUs).
+   * The number of ACUs.
    * 
    * @example
    * -
@@ -13,7 +13,7 @@ export class DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads extends
   acuCount?: number;
   /**
    * @remarks
-   * The time when the job was created.
+   * The time when the task was created. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
    * 
    * @example
    * 2021-06-21T02:15:16Z
@@ -29,7 +29,7 @@ export class DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads extends
   failedMsg?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * 123
@@ -45,7 +45,7 @@ export class DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads extends
   maxRT?: string;
   /**
    * @remarks
-   * The time when the migration job was modified.
+   * The time when the task was modified. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and in UTC.
    * 
    * @example
    * 2021-06-21T02:15:16Z
@@ -53,7 +53,7 @@ export class DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads extends
   modifyTime?: string;
   /**
    * @remarks
-   * The name of the workload.
+   * The name.
    * 
    * @example
    * TEST-001
@@ -61,7 +61,7 @@ export class DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads extends
   name?: string;
   /**
    * @remarks
-   * The OSS URL.
+   * The OSS address.
    * 
    * @example
    * oss://******
@@ -85,7 +85,7 @@ export class DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads extends
   targetType?: string;
   /**
    * @remarks
-   * The sub-type of the workload.
+   * The subtask type.
    * 
    * @example
    * test
@@ -135,7 +135,7 @@ export class DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads extends
 export class DescribeApsMigrationWorkloadsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried migration workloads.
+   * The list of migration workloads.
    */
   migrationWorkloads?: DescribeApsMigrationWorkloadsResponseBodyMigrationWorkloads[];
   /**
@@ -148,7 +148,7 @@ export class DescribeApsMigrationWorkloadsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 30
@@ -164,7 +164,7 @@ export class DescribeApsMigrationWorkloadsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 0

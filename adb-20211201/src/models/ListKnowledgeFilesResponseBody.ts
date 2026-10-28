@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKnowledgeFilesResponseBodyDataFiles extends $dara.Model {
   /**
    * @remarks
-   * The time when the file was added to the knowledge base.
+   * The time when the file was added to the knowledge base. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2026-06-09 10:27:35
@@ -21,7 +21,7 @@ export class ListKnowledgeFilesResponseBodyDataFiles extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * The size of the file, in bytes.
+   * The size of the file.
    * 
    * @example
    * 1024
@@ -29,7 +29,7 @@ export class ListKnowledgeFilesResponseBodyDataFiles extends $dara.Model {
   fileSizeBytes?: number;
   /**
    * @remarks
-   * The Object Storage Service (OSS) URL of the file.
+   * The OSS URL of the file.
    * 
    * @example
    * oss://bucketName/path/to/file
@@ -69,7 +69,7 @@ export class ListKnowledgeFilesResponseBodyDataFiles extends $dara.Model {
   pageCount?: number;
   /**
    * @remarks
-   * The processing message of the knowledge base file.
+   * The processing information of the knowledge base file.
    * 
    * @example
    * successful
@@ -89,7 +89,7 @@ export class ListKnowledgeFilesResponseBodyDataFiles extends $dara.Model {
   processStatus?: string;
   /**
    * @remarks
-   * The time when the file was last updated.
+   * The update time. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2026-06-10 10:23:46
@@ -144,7 +144,7 @@ export class ListKnowledgeFilesResponseBodyData extends $dara.Model {
   files?: ListKnowledgeFilesResponseBodyDataFiles[];
   /**
    * @remarks
-   * The message returned by the request.
+   * The message returned for the request.
    * 
    * @example
    * Successful
@@ -178,7 +178,7 @@ export class ListKnowledgeFilesResponseBodyData extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 100

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMvRecommendTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * A static field. This parameter cannot be modified.
+   * A fixed value. This parameter cannot be modified.
    * 
    * @example
-   * Modification is not supported.
+   * Not modifiable
    */
   actionInner?: string;
   /**
@@ -21,10 +21,10 @@ export class DescribeMvRecommendTasksRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * A static field. This parameter cannot be modified.
+   * A fixed value. This parameter cannot be modified.
    * 
    * @example
-   * Modification is not supported.
+   * Not modifiable
    */
   from?: string;
   /**

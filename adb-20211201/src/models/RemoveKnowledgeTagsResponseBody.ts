@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveKnowledgeTagsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The location of the knowledge base file.
+   * The knowledge base file location.
    * 
    * @example
    * oss://bucket/doc.pdf
@@ -13,7 +13,7 @@ export class RemoveKnowledgeTagsResponseBodyData extends $dara.Model {
   fileLocation?: string;
   /**
    * @remarks
-   * The message returned by the operation.
+   * The API message.
    * 
    * @example
    * Successful
@@ -21,7 +21,7 @@ export class RemoveKnowledgeTagsResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The number of tags that were successfully deleted.
+   * The number of tags successfully deleted.
    * 
    * @example
    * 1
@@ -29,10 +29,9 @@ export class RemoveKnowledgeTagsResponseBodyData extends $dara.Model {
   removed?: number;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

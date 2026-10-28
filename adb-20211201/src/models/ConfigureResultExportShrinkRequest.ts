@@ -6,8 +6,7 @@ export class ConfigureResultExportShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to view the cluster IDs of all AnalyticDB for MySQL clusters in the destination region.
    * 
    * This parameter is required.
    * 
@@ -19,8 +18,8 @@ export class ConfigureResultExportShrinkRequest extends $dara.Model {
    * @remarks
    * The export type. Valid values:
    * 
-   * *   SLS: Specifies that the export destination is SLS.
-   * *   OSS: Specifies that the export destination is OSS.
+   * - SLS: Exports data to SLS.
+   * - OSS: Exports data to OSS.
    * 
    * @example
    * SLS
@@ -28,12 +27,12 @@ export class ConfigureResultExportShrinkRequest extends $dara.Model {
   exportType?: string;
   /**
    * @remarks
-   * The OSS configuration details if the destination is of the OSS type.
+   * The OSS configuration information when the export destination is OSS.
    */
   ossInfoShrink?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -43,7 +42,7 @@ export class ConfigureResultExportShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The SLS configuration details if the destination is of the SLS type.
+   * The SLS configuration information when the export destination is SLS.
    */
   slsInfoShrink?: string;
   static names(): { [key: string]: string } {

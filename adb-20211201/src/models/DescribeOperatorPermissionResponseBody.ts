@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOperatorPermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the permissions take effect.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2024-02-25T03:35:02Z
@@ -21,7 +21,7 @@ export class DescribeOperatorPermissionResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The time when the permissions expire.
+   * The expiration time of the authorization. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2024-01-10T02:19:00Z
@@ -29,7 +29,7 @@ export class DescribeOperatorPermissionResponseBody extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The queried permissions.
+   * The authorization details.
    * 
    * @example
    * Control,Data

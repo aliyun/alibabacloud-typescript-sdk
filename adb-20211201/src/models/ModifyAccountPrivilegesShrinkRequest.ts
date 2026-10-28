@@ -20,8 +20,8 @@ export class ModifyAccountPrivilegesShrinkRequest extends $dara.Model {
   accountPrivilegesShrink?: string;
   /**
    * @remarks
-   * <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
-   * <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -29,8 +29,23 @@ export class ModifyAccountPrivilegesShrinkRequest extends $dara.Model {
    * amv-bp1k5p066e1a****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The list of PromQL write permissions.
+   */
   promqlInsertPrivilegesShrink?: string;
+  /**
+   * @remarks
+   * The percentage of PromQL query nodes.
+   * 
+   * @example
+   * 0.6
+   */
   promqlSelectNodePercentage?: number;
+  /**
+   * @remarks
+   * The list of PromQL query permissions.
+   */
   promqlSelectPrivilegesShrink?: string;
   /**
    * @remarks
@@ -42,6 +57,13 @@ export class ModifyAccountPrivilegesShrinkRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the resource group.
+   * 
+   * @example
+   * test_group
+   */
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {

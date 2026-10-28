@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLakeCacheSizeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The size of the lake cache space. Unit: GB.
+   * The size of the lake storage acceleration cache space, in GB.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class DescribeLakeCacheSizeResponseBodyData extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The size of the data that occupies the lake cache space. Unit: GB.
+   * The used capacity of the lake storage cache space, in GB.
    * 
    * @example
    * 100
@@ -29,7 +29,7 @@ export class DescribeLakeCacheSizeResponseBodyData extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * Indicates whether the lake cache feature is enabled.
+   * Indicates whether lake storage acceleration is enabled.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class DescribeLakeCacheSizeResponseBodyData extends $dara.Model {
   enableLakeCache?: boolean;
   /**
    * @remarks
-   * The clusters that share the lake cache space.
+   * The list of instances that share the lake storage cache space.
    */
   instances?: string[];
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class DescribeLakeCacheSizeResponseBodyData extends $dara.Model {
 export class DescribeLakeCacheSizeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The value 200 indicates that the request is successful.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200

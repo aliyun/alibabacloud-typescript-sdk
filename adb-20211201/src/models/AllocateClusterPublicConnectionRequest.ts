@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateClusterPublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix of the public connection address.
-   * 
-   * - It must begin with a lowercase letter and can contain only lowercase letters, digits, and hyphens (-).
-   * 
-   * - It must be no more than 30 characters long.
+   * Specifies the prefix of the public endpoint. The prefix must meet the following requirements:
+   * - It must start with a lowercase letter and can contain lowercase letters, digits, and hyphens (-).
+   * - It can be up to 30 characters in length.
    * 
    * @example
    * test12
@@ -17,8 +15,8 @@ export class AllocateClusterPublicConnectionRequest extends $dara.Model {
   connectionStringPrefix?: string;
   /**
    * @remarks
-   * <props="china">The cluster ID of an Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
-   * <props="intl">The cluster ID of a Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -30,14 +28,20 @@ export class AllocateClusterPublicConnectionRequest extends $dara.Model {
    * @remarks
    * The database engine. Valid values:
    * 
-   * - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-   * 
-   * - **Clickhouse**: the wide table engine.
+   * - **AnalyticDB** (default): AnalyticDB for MySQL engine.
+   * - **Clickhouse**: wide table engine.
    * 
    * @example
    * Clickhouse
    */
   engine?: string;
+  /**
+   * @remarks
+   * The name of the resource group.
+   * 
+   * @example
+   * test_group
+   */
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {

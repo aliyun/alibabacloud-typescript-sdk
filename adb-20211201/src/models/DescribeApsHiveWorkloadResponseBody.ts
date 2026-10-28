@@ -13,7 +13,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   advancedConfig?: string;
   /**
    * @remarks
-   * The policy to handle tables with the same name in the destination cluster.
+   * The handling strategy when a database or table with the same name exists at the destination.
    * 
    * @example
    * Intercept
@@ -21,7 +21,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   conflictStrategy?: string;
   /**
    * @remarks
-   * The time when the workload was created.
+   * The creation time.
    * 
    * @example
    * -
@@ -45,7 +45,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   datasourceId?: number;
   /**
    * @remarks
-   * The name of the data source.
+   * The data source name.
    * 
    * @example
    * sls-******
@@ -53,7 +53,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   datasourceName?: string;
   /**
    * @remarks
-   * The ID of the E-MapReduce (EMR) cluster.
+   * The EMR cluster ID.
    * 
    * @example
    * -
@@ -61,7 +61,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   emrClusterId?: string;
   /**
    * @remarks
-   * The number of AnalyticDB compute units (ACUs) required for migration.
+   * The number of ACUs required for migration.
    * 
    * @example
    * 16
@@ -69,7 +69,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   fullComputeUnit?: string;
   /**
    * @remarks
-   * The URL of the Hive Metastore.
+   * The Hive metastore URL.
    * 
    * @example
    * -
@@ -77,7 +77,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   metaStoreUri?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) URL of the AnalyticDB for MySQL cluster data.
+   * The OSS address.
    * 
    * @example
    * oss://******
@@ -85,7 +85,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   ossLocation?: string;
   /**
    * @remarks
-   * The number of tasks that are allowed in parallel.
+   * The degree of parallelism.
    * 
    * @example
    * 2
@@ -101,7 +101,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The resource group to which the SQL statement belongs.
+   * The resource pool to which the SQL statement belongs.
    * 
    * @example
    * test
@@ -109,7 +109,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   resourceGroup?: string;
   /**
    * @remarks
-   * The status of the workload.
+   * The status.
    * 
    * @example
    * COMPLETED
@@ -117,7 +117,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   state?: string;
   /**
    * @remarks
-   * The expression that manually matches the source database table whitelist.
+   * The whitelist expression for manually matching source databases and tables.
    * 
    * @example
    * abc
@@ -125,7 +125,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   syncAllowExpression?: string;
   /**
    * @remarks
-   * Manually match the blacklist expressions for source database tables.
+   * The blacklist expression for manually matching source databases and tables.
    * 
    * @example
    * def
@@ -141,7 +141,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   targetType?: string;
   /**
    * @remarks
-   * The name of the vSwitch.
+   * The vSwitch name.
    * 
    * @example
    * vsw-******
@@ -149,7 +149,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   vswitch?: string;
   /**
    * @remarks
-   * The job ID.
+   * The data link task ID.
    * 
    * @example
    * aps-******
@@ -157,7 +157,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   workloadId?: string;
   /**
    * @remarks
-   * The name of the workload.
+   * The workload name.
    * 
    * @example
    * test
@@ -165,7 +165,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
   workloadName?: string;
   /**
    * @remarks
-   * The name of the workload.
+   * The workload name.
    * 
    * @example
    * test
@@ -235,7 +235,7 @@ export class DescribeApsHiveWorkloadResponseBodyApsWorkload extends $dara.Model 
 export class DescribeApsHiveWorkloadResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried job.
+   * The workload information.
    * 
    * @example
    * -

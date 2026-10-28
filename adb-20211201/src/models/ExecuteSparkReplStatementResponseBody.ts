@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteSparkReplStatementResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the cluster.
+   * The Alibaba Cloud account to which the cluster belongs.
    * 
    * @example
    * 17108278707****
@@ -13,7 +13,7 @@ export class ExecuteSparkReplStatementResponseBodyData extends $dara.Model {
   aliyunUid?: number;
   /**
    * @remarks
-   * The code that is executed.
+   * The executed code.
    * 
    * @example
    * print(1+1)
@@ -21,12 +21,11 @@ export class ExecuteSparkReplStatementResponseBodyData extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The code execution status. Valid values:
-   * 
-   * *   CANCELLED
-   * *   RUNNING
-   * *   SUCCEEDED
-   * *   ERROR
+   * The execution status of the code. Valid values:
+   * - CANCELLED: The execution is canceled.
+   * - RUNNING: The execution is in progress.
+   * - SUCCEEDED: The execution is successful.
+   * - ERROR: The execution failed.
    * 
    * @example
    * RUNNING
@@ -34,10 +33,9 @@ export class ExecuteSparkReplStatementResponseBodyData extends $dara.Model {
   codeState?: string;
   /**
    * @remarks
-   * The code type. Valid values:
-   * 
-   * *   SCALA
-   * *   PYTHON
+   * The type of the code. Valid values:
+   * - SCALA
+   * - PYTHON
    * 
    * @example
    * PYTHON
@@ -45,12 +43,12 @@ export class ExecuteSparkReplStatementResponseBodyData extends $dara.Model {
   codeType?: string;
   /**
    * @remarks
-   * The column names.
+   * The array of column names.
    */
   columns?: string[];
   /**
    * @remarks
-   * The end time of the execution. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end time. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1730968125000
@@ -66,7 +64,7 @@ export class ExecuteSparkReplStatementResponseBodyData extends $dara.Model {
   error?: string;
   /**
    * @remarks
-   * The code execution result, which is a JSON string that conforms to Apache Livy.
+   * The code execution result. It is a JSON-formatted string that follows the Apache Livy output standard.
    * 
    * @example
    * {"text/plain": 2}
@@ -74,10 +72,9 @@ export class ExecuteSparkReplStatementResponseBodyData extends $dara.Model {
   output?: string;
   /**
    * @remarks
-   * The execution result type, which is in the JSON format. Valid values:
-   * 
-   * *   TEXT: the text content that conforms to Apache Livy.
-   * *   TABLE: the table content that conforms to Apache Livy.
+   * The serialization format of the execution result. The structure is a JSON object. Valid values:
+   * - TEXT: The output is text content that follows the Apache Livy standard.
+   * - TABLE: The output is table content that follows the Apache Livy standard.
    * 
    * @example
    * TEXT
@@ -85,7 +82,7 @@ export class ExecuteSparkReplStatementResponseBodyData extends $dara.Model {
   outputType?: string;
   /**
    * @remarks
-   * The start time of the execution. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start time. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1730968125000
@@ -146,7 +143,7 @@ export class ExecuteSparkReplStatementResponseBodyData extends $dara.Model {
 export class ExecuteSparkReplStatementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ExecuteSparkReplStatementResponseBodyData;
   /**

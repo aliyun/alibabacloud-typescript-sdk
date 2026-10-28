@@ -10,7 +10,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   atmConfigShrink?: string;
   /**
    * @remarks
-   * The auto-stop interval.
+   * The auto-stop time.
    * 
    * @example
    * 5m
@@ -18,7 +18,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   autoStopInterval?: string;
   /**
    * @remarks
-   * Reserved parameter (not applicable).
+   * Reserved parameter.
    * 
    * @example
    * None
@@ -26,7 +26,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   clusterMode?: string;
   /**
    * @remarks
-   * Reserved parameter (not applicable).
+   * Reserved parameter.
    * 
    * @example
    * None
@@ -34,8 +34,8 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   clusterSizeResource?: string;
   /**
    * @remarks
-   * <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
-   * <props="intl">The cluster ID of the Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the spot instance feature for the resource group. After spot instances are enabled, the unit price of resources is reduced, but the resources may be released. Only Job resource groups support this feature. Valid values:
+   * Specifies whether to enable the spot instance feature for the resource group. After you enable this feature, the unit price of resources decreases, but the resources may be released. This feature can be enabled only for Job resource groups. Valid values:
    * - **True**: Enables the spot instance feature.
    * - **False**: Disables the spot instance feature.
    * 
@@ -55,7 +55,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   enableSpot?: boolean;
   /**
    * @remarks
-   * The engine configuration.
+   * The engine configurations.
    * 
    * @example
    * {\\"spark.adb.version\\":\\"3.5\\"}
@@ -63,13 +63,13 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   engineParamsShrink?: string;
   /**
    * @remarks
-   * The GPU time-sharing elastic plan.
+   * The GPU time-based elastic plan.
    */
   gpuElasticPlanShrink?: string;
   /**
    * @remarks
-   * The resource group name.
-   * > You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the resource group names of a specified cluster.
+   * The name of the resource group.
+   * > You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the name of the resource group for a specified cluster.
    * 
    * This parameter is required.
    * 
@@ -79,10 +79,10 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The resource group type. Valid values:
+   * The type of the resource group. Valid values:
    * - **Interactive**
    * - **Job**
-   * > For more information about Data Lakehouse Edition resource groups, refer to [Resource group introduction](https://help.aliyun.com/document_detail/428610.html).
+   * > For more information about Data Lakehouse Edition resource groups, see [Resource groups](https://help.aliyun.com/document_detail/428610.html).
    * 
    * This parameter is required.
    * 
@@ -92,7 +92,7 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * Reserved parameter (not applicable).
+   * Reserved parameter.
    * 
    * @example
    * None
@@ -101,8 +101,8 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum reserved computing resources.
-   * - If the resource group type is Interactive, the maximum reserved computing resources are the current unallocated resources of the cluster, in increments of 16 ACUs.
-   * - If the resource group type is Job, the maximum reserved computing resources are the current unallocated resources of the cluster, in increments of 8 ACUs.
+   * - If the resource group type is Interactive, the maximum reserved computing resources is the currently unallocated resources of the cluster, and the step size is 16 ACUs.
+   * - If the resource group type is Job, the maximum reserved computing resources is the currently unallocated resources of the cluster, and the step size is 8 ACUs.
    * 
    * @example
    * 48ACU
@@ -110,15 +110,15 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   maxComputeResource?: string;
   /**
    * @remarks
-   * Reserved parameter (not applicable).
+   * Reserved parameter.
    * 
    * @example
-   * Reserved parameter. Not applicable.
+   * Reserved parameter
    */
   maxGpuQuantity?: number;
   /**
    * @remarks
-   * Reserved parameter (not applicable).
+   * Reserved parameter.
    * 
    * @example
    * None
@@ -127,8 +127,8 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The minimum reserved computing resources.
-   * - If the resource group type is Interactive, the minimum reserved computing resources are 16 ACUs.
-   * - If the resource group type is Job, the minimum reserved computing resources are 0 ACUs.
+   * - If the resource group type is Interactive, the minimum reserved computing resources is 16 ACUs.
+   * - If the resource group type is Job, the minimum reserved computing resources is 0 ACUs.
    * 
    * @example
    * 0ACU
@@ -136,15 +136,15 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   minComputeResource?: string;
   /**
    * @remarks
-   * Reserved parameter (not applicable).
+   * Reserved parameter.
    * 
    * @example
-   * Reserved parameter. Not applicable.
+   * Reserved parameter
    */
   minGpuQuantity?: number;
   /**
    * @remarks
-   * The Ray configuration. This parameter is required when the resource group is an AI resource group and the corresponding engine is RayCluster.
+   * The Ray configuration information. This parameter is required when the resource group is an AI resource group and the corresponding engine is RayCluster.
    */
   rayConfigShrink?: string;
   /**
@@ -158,20 +158,20 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The job routing rules.
+   * The job delivery rules.
    */
   rulesShrink?: string;
   /**
    * @remarks
-   * Reserved parameter (not applicable).
+   * Reserved parameter.
    * 
    * @example
-   * Reserved parameter. Not applicable.
+   * Reserved parameter
    */
   specName?: string;
   /**
    * @remarks
-   * The resource group status. **starting** indicates that the resource group is being started. **stopping** indicates that the resource group is being stopped.
+   * The status of the resource group. **starting** indicates that the resource group is being started. **stopping** indicates that the resource group is being stopped.
    * 
    * @example
    * starting
@@ -179,10 +179,10 @@ export class ModifyDBResourceGroupShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Reserved parameter (not applicable).
+   * Reserved parameter.
    * 
    * @example
-   * Reserved parameter. Not applicable.
+   * Reserved parameter
    */
   targetResourceGroupName?: string;
   static names(): { [key: string]: string } {

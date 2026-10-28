@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApsDatasourcesResponseBodyApsDatasources extends $dara.Model {
   /**
    * @remarks
-   * The time when the data source was created.
+   * The creation time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-01-10 14:44:33
@@ -21,7 +21,7 @@ export class DescribeApsDatasourcesResponseBodyApsDatasources extends $dara.Mode
   datasourceDescription?: string;
   /**
    * @remarks
-   * The data source ID.
+   * The ID of the data source.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class DescribeApsDatasourcesResponseBodyApsDatasources extends $dara.Mode
 export class DescribeApsDatasourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried APS data sources.
+   * The data sources.
    * 
    * @example
    * -
@@ -117,7 +117,7 @@ export class DescribeApsDatasourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 1

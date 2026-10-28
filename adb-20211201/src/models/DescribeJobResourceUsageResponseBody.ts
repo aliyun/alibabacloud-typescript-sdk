@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail extends $dara.Model {
   /**
    * @remarks
-   * The number of elastic ACU resources.
+   * The number of elastic ACUs.
    * 
    * @example
    * 16ACU
@@ -13,7 +13,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
   elasticAcuNumber?: number;
   /**
    * @remarks
-   * The number of reserved ACU resources.
+   * The number of reserved ACUs.
    * 
    * @example
    * 16ACU
@@ -21,7 +21,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
   reservedAcuNumber?: number;
   /**
    * @remarks
-   * The number of spot instance ACU resources.
+   * The number of spot instance ACUs.
    * 
    * @example
    * 16ACU
@@ -37,7 +37,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail e
   spotAcuPercentage?: number;
   /**
    * @remarks
-   * The total number of ACU resources.
+   * The total number of ACUs.
    * 
    * @example
    * 32ACU
@@ -80,7 +80,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.M
   acuUsageDetail?: DescribeJobResourceUsageResponseBodyDataJobAcuUsageAcuUsageDetail;
   /**
    * @remarks
-   * The end time of the job. Format: yyyy-MM-ddTHH:mmZ (UTC).
+   * The end time of the job. Format: yyyy-MM-ddTHH:mmZ (UTC time).
    * 
    * @example
    * 2023-05-23T16:00:00Z
@@ -96,7 +96,7 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.M
   jobId?: string;
   /**
    * @remarks
-   * The start time of the job. Format: yyyy-MM-ddTHH:mmZ (UTC).
+   * The start time of the job. Format: yyyy-MM-ddTHH:mmZ (UTC time).
    * 
    * @example
    * 2023-05-22T16:00:00Z
@@ -110,10 +110,17 @@ export class DescribeJobResourceUsageResponseBodyDataJobAcuUsage extends $dara.M
    * job_default
    */
   resourceGroupName?: string;
+  /**
+   * @remarks
+   * The name of the Spark application.
+   * 
+   * @example
+   * SparkTest
+   */
   sparkAppName?: string;
   /**
    * @remarks
-   * Indicates whether the hot pool is used.
+   * Indicates whether the cache pool is used.
    * 
    * @example
    * false
@@ -167,7 +174,7 @@ export class DescribeJobResourceUsageResponseBodyData extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end time. Format: yyyy-MM-ddTHH:mmZ (UTC).
+   * The end time. Format: yyyy-MM-ddTHH:mmZ (UTC time).
    * 
    * @example
    * 2023-05-23T16:00:00Z
@@ -196,7 +203,7 @@ export class DescribeJobResourceUsageResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time. Format: yyyy-MM-ddTHH:mmZ (UTC).
+   * The start time. Format: yyyy-MM-ddTHH:mmZ (UTC time).
    * 
    * @example
    * 2023-05-22T16:00:00Z
@@ -249,7 +256,7 @@ export class DescribeJobResourceUsageResponseBodyData extends $dara.Model {
 export class DescribeJobResourceUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status or POP error code.
+   * The API status code or POP error code.
    * 
    * @example
    * 200

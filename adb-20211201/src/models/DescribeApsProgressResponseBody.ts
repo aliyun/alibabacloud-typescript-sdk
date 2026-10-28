@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApsProgressResponseBodyApsHiveProgress extends $dara.Model {
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class DescribeApsProgressResponseBodyApsHiveProgress extends $dara.Model 
   dbName?: string;
   /**
    * @remarks
-   * The migration progress.
+   * The progress.
    * 
    * @example
    * 95
@@ -29,7 +29,7 @@ export class DescribeApsProgressResponseBodyApsHiveProgress extends $dara.Model 
   speed?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * test
@@ -81,7 +81,7 @@ export class DescribeApsProgressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The success rate.
+   * The success percentage.
    * 
    * @example
    * 100
@@ -89,7 +89,7 @@ export class DescribeApsProgressResponseBody extends $dara.Model {
   successPercentage?: number;
   /**
    * @remarks
-   * The total number of migrated tables returned.
+   * The total number of successfully migrated tables.
    * 
    * @example
    * 10
@@ -97,7 +97,7 @@ export class DescribeApsProgressResponseBody extends $dara.Model {
   successTableCount?: number;
   /**
    * @remarks
-   * The total number of tables to be migrated.
+   * The total number of tables.
    * 
    * @example
    * 10

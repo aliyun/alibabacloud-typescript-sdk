@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKnowledgeUploadUserResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The location of the knowledge base file.
+   * The address of the knowledge base file.
    * 
    * @example
    * oss://bucket/doc.pdf
@@ -13,7 +13,7 @@ export class ListKnowledgeUploadUserResponseBodyData extends $dara.Model {
   fileLocation?: string;
   /**
    * @remarks
-   * The prompt message.
+   * The message.
    * 
    * @example
    * Successful
@@ -21,10 +21,9 @@ export class ListKnowledgeUploadUserResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true
@@ -68,7 +67,7 @@ export class ListKnowledgeUploadUserResponseBodyData extends $dara.Model {
 export class ListKnowledgeUploadUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListKnowledgeUploadUserResponseBodyData;
   /**

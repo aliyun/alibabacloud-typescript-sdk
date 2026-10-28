@@ -13,7 +13,7 @@ export class DescribeAdbMySqlColumnsResponseBodyColumns extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The column name.
+   * The name of the column.
    * 
    * @example
    * id
@@ -69,8 +69,8 @@ export class DescribeAdbMySqlColumnsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The additional information about the call result. Valid values:
-   * - If the request was successful, **Success** is returned. 
-   * - If the request failed, a specific error code is returned.
+   * - If the request is successful, **Success** is returned.
+   * - If the request fails, a specific error code is returned.
    * 
    * @example
    * Success
@@ -78,7 +78,7 @@ export class DescribeAdbMySqlColumnsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A9F013CD-0222-595E-8157-445969B97F03
@@ -86,7 +86,7 @@ export class DescribeAdbMySqlColumnsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * adb_demo
@@ -94,7 +94,7 @@ export class DescribeAdbMySqlColumnsResponseBody extends $dara.Model {
   schema?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call was successful. Valid values:
    * - **true**: The call was successful.
    * - **false**: The call failed.
    * 
@@ -104,7 +104,7 @@ export class DescribeAdbMySqlColumnsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * @example
    * test

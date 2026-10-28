@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMvRecommendSubTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * A static value. This parameter cannot be modified.
+   * A fixed value. This value cannot be modified.
    * 
    * @example
-   * Modification is not supported.
+   * Not modifiable
    */
   actionInner?: string;
   /**
@@ -21,25 +21,21 @@ export class DescribeMvRecommendSubTasksRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * A static value. This parameter cannot be modified.
+   * A fixed value. This value cannot be modified.
    * 
    * @example
-   * Modification is not supported.
+   * Not modifiable
    */
   from?: string;
   /**
    * @remarks
-   * The sorting criteria.
-   * Valid values for \\`Type\\`:
-   * 
+   * The sort field.
+   * Valid values for the sort order:
    * - Asc
-   * 
    * - Desc
    * 
-   * Valid values for \\`Field\\`:
-   * 
+   * Valid values for the sort field:
    * - StartTime
-   * 
    * - EndTime
    * 
    * @example
@@ -72,7 +68,7 @@ export class DescribeMvRecommendSubTasksRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The subtask ID.
+   * The ID of the subtask.
    * 
    * @example
    * 123

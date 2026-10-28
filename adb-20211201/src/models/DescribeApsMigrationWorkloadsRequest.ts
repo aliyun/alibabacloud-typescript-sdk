@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApsMigrationWorkloadsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID. This parameter is required. You can call the DescribeDBClusters operation to query the instance ID in the destination region.
    * 
    * @example
    * amv-*******
@@ -13,7 +13,7 @@ export class DescribeApsMigrationWorkloadsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2021-07-20T16:00:00Z
@@ -21,7 +21,7 @@ export class DescribeApsMigrationWorkloadsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) URL.
+   * The OSS address.
    * 
    * @example
    * oss://******
@@ -49,7 +49,7 @@ export class DescribeApsMigrationWorkloadsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start of the time range to query.
+   * The start time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2021-06-20T16:00:00Z

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The ID of the task.
    * 
    * @example
    * aps-******
@@ -13,7 +13,7 @@ export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
   apsJobId?: string;
   /**
    * @remarks
-   * The name of the APS job.
+   * The name of the task.
    * 
    * @example
    * data-sync-******
@@ -21,7 +21,7 @@ export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
   apsJobName?: string;
   /**
    * @remarks
-   * The time when the APS job was created.
+   * The creation time in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2022-06-28 15:00:04
@@ -37,7 +37,7 @@ export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
   delay?: number;
   /**
    * @remarks
-   * The destination cluster ID.
+   * The destination instance ID.
    * 
    * @example
    * amv-*******
@@ -56,12 +56,12 @@ export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
    * The progress.
    * 
    * @example
-   * 30: progress 30%
+   * 30: 30% progress
    */
   projress?: string;
   /**
    * @remarks
-   * The ID of the source instance or cluster.
+   * The source instance ID.
    * 
    * @example
    * pc-******
@@ -69,7 +69,7 @@ export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
   sourceInstanceID?: string;
   /**
    * @remarks
-   * The status of the APS job.
+   * The status of the task.
    * 
    * @example
    * -
@@ -77,7 +77,7 @@ export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The status of the subtask.
    * 
    * @example
    * -
@@ -125,7 +125,7 @@ export class DescribeApsJobsResponseBodyAPSJobs extends $dara.Model {
 export class DescribeApsJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried APS jobs.
+   * The list of APS tasks.
    * 
    * @example
    * -
@@ -133,7 +133,7 @@ export class DescribeApsJobsResponseBody extends $dara.Model {
   APSJobs?: DescribeApsJobsResponseBodyAPSJobs[];
   /**
    * @remarks
-   * The HTTP status code.
+   * The backend error code.
    * 
    * @example
    * ok
@@ -141,7 +141,7 @@ export class DescribeApsJobsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The status code. A value of 200 indicates that the request was successful.
+   * The HTTP status code returned for the request. A value of 200 indicates that the request was successful.
    * 
    * @example
    * ok
@@ -149,10 +149,9 @@ export class DescribeApsJobsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message. Valid values:
-   * 
-   * *   If the request was successful, a success message is returned.****
-   * *   If the request failed, an error message is returned.
+   * The additional information about the call result. Valid values:
+   * - If the request is successful, **Success** is returned. 
+   * - If the request fails, a specific error code is returned.
    * 
    * @example
    * OK
@@ -184,10 +183,9 @@ export class DescribeApsJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * True
@@ -195,7 +193,7 @@ export class DescribeApsJobsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 0

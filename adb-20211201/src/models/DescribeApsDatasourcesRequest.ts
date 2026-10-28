@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApsDatasourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL cluster.
+   * The ADB instance ID. This parameter is required. You can invoke the DescribeDBClusters operation to query the cluster ID in the specified region.
    * 
    * @example
    * amv-******
@@ -29,7 +29,7 @@ export class DescribeApsDatasourcesRequest extends $dara.Model {
   datasourceType?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end date. Format: yyyy-MM-dd.
    * 
    * @example
    * 2024-01-30
@@ -65,7 +65,7 @@ export class DescribeApsDatasourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start date. Format: yyyy-MM-dd.
    * 
    * @example
    * 2024-01-01

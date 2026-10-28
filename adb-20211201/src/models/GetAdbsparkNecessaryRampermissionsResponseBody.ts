@@ -13,9 +13,9 @@ export class GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail exte
   action?: string;
   /**
    * @remarks
-   * The type of access policy denial. Valid values:
-   * - ImplicitDeny: The resource owner has not configured a relevant access policy for the current user. Unauthorized operations are denied by default.
-   * - ExplicitDeny: The RAM policy configured by the resource owner explicitly denies the current user authorization to access the corresponding resource.
+   * The type of denial by the access policy. Valid values:
+   * - ImplicitDeny: The resource owner has not configured a relevant access policy for the current user, and operations without authorization are denied by default.
+   * - ExplicitDeny: The RAM policy configured by the resource owner explicitly denies the current user access to the corresponding resource.
    * 
    * @example
    * ImplicitDeny
@@ -23,12 +23,12 @@ export class GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail exte
   noPermissionType?: string;
   /**
    * @remarks
-   * The type of the policy that caused the permission denial. Valid values:
-   * - ControlPolicy: control policy.
-   * - SessionPolicy: an additional permission policy attached to a temporary token.
-   * - AssumeRolePolicy: the trust policy of a RAM role.
-   * - AccountLevelIdentityBasedPolicy: an identity-access policy at the account authorization scope, including custom policies and system policies.
-   * - ResourceGroupLevelIdentityBasedPolicy: an identity-access policy at the resource group authorization scope, including custom policies and system policies.
+   * The type of the policy that causes the permission denial. Valid values:
+   * - ControlPolicy: The control policy.
+   * - SessionPolicy: An additional permission policy attached to the temporary token.
+   * - AssumeRolePolicy: The trust policy of the RAM role.
+   * - AccountLevelIdentityBasedPolicy: The identity-access policy at the account level, including custom policies and system policies.
+   * - ResourceGroupLevelIdentityBasedPolicy: The identity-access policy at the resource group level, including custom policies and system policies.
    * 
    * @example
    * ControlPolicy
@@ -46,7 +46,7 @@ export class GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail exte
   principalType?: string;
   /**
    * @remarks
-   * The information about the authentication target, which can be the Resource Access Management (RAM) users ID of the current user or the role information of the current accessor.
+   * The information about the authentication object, which can be the ID of the Resource Access Management (RAM) users of the current user or the role information of the current accessor.
    * 
    * @example
    * 223345695632****
@@ -94,15 +94,14 @@ export class GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail exte
 export class GetADBSparkNecessaryRAMPermissionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The diagnostic information returned when the permission check fails.
+   * The diagnostic information about the permission check failure. This parameter is returned when the permission check fails.
    */
   deniedDetail?: GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail;
   /**
    * @remarks
-   * Indicates whether the current user has the basic permissions to use ADB Spark. Valid values:
-   * 
-   * - true: The check is passed. The user has the basic permissions.
-   * - false: The check failed. The user is missing some permissions.
+   * Indicates whether the user has the basic permissions required to use ADB Spark. Valid values:
+   * - true: The check passed, and the user has the basic permissions.
+   * - false: The check failed, and the user lacks some permissions.
    * 
    * @example
    * true
@@ -110,7 +109,7 @@ export class GetADBSparkNecessaryRAMPermissionsResponseBodyData extends $dara.Mo
   passed?: boolean;
   /**
    * @remarks
-   * The recommended RAM configuration based on the diagnostic information.
+   * The recommended configurations in the RAM system based on the diagnostic information.
    * 
    * @example
    * Grant the system RAM policy \\"AliyunADBDeveloperAccess\\" to current RAM user can quickly solve this issue.

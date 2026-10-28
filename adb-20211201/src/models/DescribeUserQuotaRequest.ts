@@ -15,9 +15,7 @@ export class DescribeUserQuotaRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The region ID.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of the specified cluster.
    * 
    * @example
    * cn-hangzhou

@@ -53,7 +53,7 @@ export class ListKnowledgeTagsResponseBodyData extends $dara.Model {
   fileLocation?: string;
   /**
    * @remarks
-   * The prompt message.
+   * The message.
    * 
    * @example
    * Successful
@@ -61,10 +61,9 @@ export class ListKnowledgeTagsResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true
@@ -72,7 +71,7 @@ export class ListKnowledgeTagsResponseBodyData extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The list details.
+   * The details of the list.
    */
   tags?: ListKnowledgeTagsResponseBodyDataTags[];
   static names(): { [key: string]: string } {

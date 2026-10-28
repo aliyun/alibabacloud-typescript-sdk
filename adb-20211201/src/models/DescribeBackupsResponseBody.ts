@@ -84,7 +84,7 @@ export class DescribeBackupsResponseBodyItems extends $dara.Model {
 export class DescribeBackupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The free backup space. Unit: bytes.
+   * The free quota for backup sets. Unit: bytes.
    * 
    * @example
    * 0
@@ -109,7 +109,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CE17270B-F8F8-5A31-9DB4-DADDFDAD7940
@@ -117,7 +117,7 @@ export class DescribeBackupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total size of the backup sets. Unit: bytes.
+   * The total size of backup sets. Unit: bytes.
    * 
    * @example
    * 64953700

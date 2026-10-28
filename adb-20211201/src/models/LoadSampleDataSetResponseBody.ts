@@ -8,7 +8,7 @@ export class LoadSampleDataSetResponseBody extends $dara.Model {
    * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * @example
-   * amv-2ze0z517o1mg****
+   * amv-2ze0z517o1mgp66a
    */
   DBClusterId?: string;
   /**

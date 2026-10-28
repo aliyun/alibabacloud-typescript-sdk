@@ -6,7 +6,7 @@ export class DescribeAccountsRequest extends $dara.Model {
   /**
    * @remarks
    * The database account.
-   * > If you do not specify this parameter, information about all database accounts is returned.
+   * > If you do not specify this parameter, the information about all database accounts is returned by default.
    * 
    * @example
    * test_accout
@@ -14,7 +14,7 @@ export class DescribeAccountsRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="china">The ID of the cluster. The cluster can be of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition.
    * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * This parameter is required.
@@ -27,8 +27,8 @@ export class DescribeAccountsRequest extends $dara.Model {
    * @remarks
    * The database engine. Valid values:
    * 
-   * - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-   * - **Clickhouse**: the wide table engine.
+   * - **AnalyticDB** (default): AnalyticDB for MySQL engine
+   * - **Clickhouse**: wide-table engine
    * 
    * @example
    * Clickhouse
@@ -38,6 +38,9 @@ export class DescribeAccountsRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the resource group.
+   * 
+   * @example
+   * test_group
    */
   resourceGroupName?: string;
   static names(): { [key: string]: string } {

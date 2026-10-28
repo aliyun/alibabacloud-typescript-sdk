@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryTasksResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * null
+   * The authentication action.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class DescribeHistoryTasksResponseBodyAccessDeniedDetail extends $dara.Mo
   authAction?: string;
   /**
    * @remarks
-   * null
+   * The display name of the authorization principal.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class DescribeHistoryTasksResponseBodyAccessDeniedDetail extends $dara.Mo
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * null
+   * The Alibaba Cloud account ID of the authentication principal.
    * 
    * @example
    * 141345906006****
@@ -29,7 +29,7 @@ export class DescribeHistoryTasksResponseBodyAccessDeniedDetail extends $dara.Mo
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * null
+   * The type of the authorization principal.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class DescribeHistoryTasksResponseBodyAccessDeniedDetail extends $dara.Mo
   authPrincipalType?: string;
   /**
    * @remarks
-   * null
+   * The encoded diagnostic message.
    * 
    * @example
    * AQFmy+hZZsvoWTQ2NTJFQUFBLUIyNjktMzk5NS05MEZCLUMxMzgwNDUwMDA2Ng==
@@ -45,10 +45,9 @@ export class DescribeHistoryTasksResponseBodyAccessDeniedDetail extends $dara.Mo
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * null
-   * 
-   * *   **null**
-   * *   **null**
+   * The type of the access policy denial. Valid values:
+   * - **ImplicitDeny**: The resource owner has not configured a relevant access policy for the current user, and unauthorized operations are denied by default.
+   * - **ExplicitDeny**: The RAM policy configured by the resource owner explicitly denies the current user from accessing the corresponding resource.
    * 
    * @example
    * ImplicitDeny
@@ -56,13 +55,12 @@ export class DescribeHistoryTasksResponseBodyAccessDeniedDetail extends $dara.Mo
   noPermissionType?: string;
   /**
    * @remarks
-   * null
-   * 
-   * *   **null**
-   * *   **null**
-   * *   **null**
-   * *   **null**
-   * *   **null**
+   * The type of the policy that causes the permission denial. Valid values:
+   * - **ControlPolicy**: Control policy.
+   * - **SessionPolicy**: Session policy, which is an additional permission policy added to a temporary token.
+   * - **AssumeRolePolicy**: Assume role policy, which is the trust policy of a RAM role.
+   * - **AccountLevelIdentityBasedPolicy**: Account-level identity-access policy, which includes custom policies and system policies.
+   * - **ResourceGroupLevelIdentityBasedPolicy**: Resource group-level identity-access policy, which includes custom policies and system policies.
    * 
    * @example
    * ControlPolicy
@@ -104,7 +102,7 @@ export class DescribeHistoryTasksResponseBodyAccessDeniedDetail extends $dara.Mo
 export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Allowed operation information. When used specifically, matches operation Action based on currentStepName+status in this information. If no Action is matched, represents task current status does not support operations.
+   * The allowed operation information. When you use this parameter, the system matches the operation action based on the currentStepName and status in this information. If no action is matched, the current task status does not support the operation.
    * 
    * @example
    * {\\"steps\\":[{\\"action_info\\":{\\"Waiting\\":[\\"modifySwitchTime\\"]},\\"step_name\\":\\"exec_task\\"}]}
@@ -112,7 +110,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   actionInfo?: string;
   /**
    * @remarks
-   * null
+   * The ID of the requesting user. If callerSource is User, it represents the user UID.
    * 
    * @example
    * 141345906006****
@@ -120,10 +118,11 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   callerSource?: string;
   /**
    * @remarks
-   * null
+   * The request source. Valid values:
    * 
-   * *   **null**
-   * *   **null**
+   * - **System**: System.
+   * 
+   * - **User**: User.
    * 
    * @example
    * User
@@ -131,7 +130,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   callerUid?: string;
   /**
    * @remarks
-   * Current executing step name. If empty, represents task has not started.
+   * The name of the current step. If this parameter is empty, the task has not started.
    * 
    * @example
    * exec_task
@@ -139,7 +138,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   currentStepName?: string;
   /**
    * @remarks
-   * The database engine type.
+   * The database type.
    * 
    * @example
    * analyticdb
@@ -147,7 +146,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * Task end time.
+   * The end time of the task. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
    * 
    * @example
    * 2022-02-03T12:06:17Z
@@ -155,7 +154,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * @example
    * amv-********
@@ -163,7 +162,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The instance name.
    * 
    * @example
    * test
@@ -171,7 +170,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Instance type.
+   * The instance type.
    * 
    * @example
    * Instance
@@ -179,7 +178,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The service name.
+   * The product.
    * 
    * @example
    * ads
@@ -187,7 +186,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   product?: string;
   /**
    * @remarks
-   * Indicates the task progress.
+   * The current progress.
    * 
    * @example
    * 79.0
@@ -195,7 +194,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The reason why the current task was initiated.
+   * The reason why the current task is initiated.
    * 
    * @example
    * test
@@ -211,7 +210,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Estimated remaining execution time, in seconds.
+   * The estimated remaining execution time. Unit: seconds.
    * 
    * @example
    * 1000
@@ -219,7 +218,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   remainTime?: number;
   /**
    * @remarks
-   * Task start time.
+   * The start time of the task. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
    * 
    * @example
    * 2022-02-03T11:31:03Z
@@ -227,15 +226,21 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Task status. Valid values:
+   * The task status. Valid values:
    * 
-   * *   **Scheduled**
-   * *   **Running**
-   * *   **Succeed**
-   * *   **Failed**: The task failed.
-   * *   **Cancelling**
-   * *   **Canceled**
-   * *   **Waiting**
+   * - **Scheduled**: Pending execution.
+   * 
+   * - **Running**: Running.
+   * 
+   * - **Succeed**: Succeeded.
+   * 
+   * - **Failed**: Failed.
+   * 
+   * - **Cancelling**: Being canceled.
+   * 
+   * - **Canceled**: Canceled.
+   * 
+   * - **Waiting**: Waiting for the scheduled time.
    * 
    * @example
    * Running
@@ -251,7 +256,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   taskDetail?: string;
   /**
    * @remarks
-   * Task ID.
+   * The task ID.
    * 
    * @example
    * t-83br18hloy3faf****
@@ -259,7 +264,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * Task type.
+   * The task type.
    * 
    * @example
    * autotest_dispatch_cases
@@ -267,7 +272,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * null
+   * The ID of the user to which the resource belongs.
    * 
    * @example
    * 141345906006****
@@ -335,12 +340,12 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
 export class DescribeHistoryTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * null
+   * The details of the access denial. This field is returned only when RAM authentication fails.
    */
   accessDeniedDetail?: DescribeHistoryTasksResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The API status code or POP error code.
    * 
    * @example
    * 200
@@ -348,7 +353,7 @@ export class DescribeHistoryTasksResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -361,10 +366,9 @@ export class DescribeHistoryTasksResponseBody extends $dara.Model {
   items?: DescribeHistoryTasksResponseBodyItems[];
   /**
    * @remarks
-   * The returned message. null
-   * 
-   * *   null****
-   * *   null
+   * The additional information about the call result. Valid values:
+   * - If the request is normal, **Success** is returned. 
+   * - If the request is abnormal, a specific error code is returned.
    * 
    * @example
    * Success
@@ -372,7 +376,7 @@ export class DescribeHistoryTasksResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the query result.
    * 
    * @example
    * 1
@@ -380,7 +384,7 @@ export class DescribeHistoryTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -388,7 +392,7 @@ export class DescribeHistoryTasksResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * E51713A3-BB45-5616-AB15-170B704F8F01
@@ -396,10 +400,9 @@ export class DescribeHistoryTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true
@@ -407,7 +410,7 @@ export class DescribeHistoryTasksResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total record count.
+   * The total number of entries.
    * 
    * @example
    * 100

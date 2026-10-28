@@ -15,9 +15,15 @@ export class RemoveKnowledgeTagsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The location of the knowledge base document.
+   * The file ID.
    * 
-   * This parameter is required.
+   * @example
+   * 2131234
+   */
+  fileId?: string;
+  /**
+   * @remarks
+   * The knowledge base document location.
    * 
    * @example
    * oss://bucket/doc.pdf
@@ -25,7 +31,7 @@ export class RemoveKnowledgeTagsRequest extends $dara.Model {
   fileLocation?: string;
   /**
    * @remarks
-   * The JSON string of the tag array to delete.
+   * The JSON string of the tag array to be deleted.
    * 
    * @example
    * [{"tag_key":"biz.scene","tag_value":"test"}]
@@ -34,6 +40,7 @@ export class RemoveKnowledgeTagsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      fileId: 'FileId',
       fileLocation: 'FileLocation',
       tags: 'Tags',
     };
@@ -42,6 +49,7 @@ export class RemoveKnowledgeTagsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      fileId: 'string',
       fileLocation: 'string',
       tags: 'string',
     };

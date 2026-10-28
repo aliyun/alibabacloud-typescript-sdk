@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKnowledgeTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL instance.
+   * The ADB instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,15 @@ export class ListKnowledgeTagsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The location of the knowledge base document.
+   * The file ID.
    * 
-   * This parameter is required.
+   * @example
+   * 2112314
+   */
+  fileId?: string;
+  /**
+   * @remarks
+   * The location of the knowledge base document.
    * 
    * @example
    * oss://bucket/doc.pdf
@@ -26,6 +32,7 @@ export class ListKnowledgeTagsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      fileId: 'FileId',
       fileLocation: 'FileLocation',
     };
   }
@@ -33,6 +40,7 @@ export class ListKnowledgeTagsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      fileId: 'string',
       fileLocation: 'string',
     };
   }

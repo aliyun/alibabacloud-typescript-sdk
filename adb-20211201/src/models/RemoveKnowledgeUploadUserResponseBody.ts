@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveKnowledgeUploadUserResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The location of the knowledge base file.
+   * The address of the knowledge base file.
    * 
    * @example
    * oss://bucketName/path/to/file.pdf
@@ -13,7 +13,7 @@ export class RemoveKnowledgeUploadUserResponseBodyData extends $dara.Model {
   fileLocation?: string;
   /**
    * @remarks
-   * The prompt message.
+   * The message.
    * 
    * @example
    * Successful
@@ -21,7 +21,7 @@ export class RemoveKnowledgeUploadUserResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The number of users that were successfully deleted.
+   * The number of successfully deleted users.
    * 
    * @example
    * 1
@@ -29,9 +29,9 @@ export class RemoveKnowledgeUploadUserResponseBodyData extends $dara.Model {
   removed?: number;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

@@ -6,8 +6,7 @@ export class DescribeTableStatisticsRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the cluster ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class DescribeTableStatisticsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The keyword that is used to query information by table name.
+   * The search keyword. Fuzzy search by table name is supported.
    * 
    * @example
    * you_table_name
@@ -25,25 +24,28 @@ export class DescribeTableStatisticsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The order by which to sort query results. Specify the parameter value in the JSON format.
+   * The sorting rule for a specified field. The value is a JSON array. The array is ordered. Specify the fields to be sorted and the sorting order in sequence:
    * 
-   * Example:
+   * For example:
    * 
-   *     [
+   * ```
+   * [
    * 
-   *         {
+   *     {
    * 
-   *             "Field":"Name",
+   *         "Field":"Name",
    * 
-   *             "Type":"Asc"
+   *         "Type":"Asc"
    * 
-   *         }
+   *     }
    * 
-   *     ]
+   * ]
+   * ```
    * 
-   * Field specifies the field by which to sort the query results. Set the value to Name. Type specifies the sorting order. Valid values: Desc and Asc.
+   * Field specifies the name of the field to be sorted. Only the Name field is supported.
+   * Type specifies the sorting order. Desc indicates descending order, and Asc indicates ascending order.
    * 
-   * Field and Type are case-insensitive.
+   * Both parameters are case-insensitive.
    * 
    * @example
    * [{"Field":"SchemaName","Type":"Desc"}]
@@ -67,9 +69,8 @@ export class DescribeTableStatisticsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the most recent region list.
+   * The region ID.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612393.html) operation to query the region ID.
    * 
    * @example
    * cn-beijing
@@ -77,7 +78,7 @@ export class DescribeTableStatisticsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * test

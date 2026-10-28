@@ -6,26 +6,38 @@ import { OpenStructMvDetailModel } from "./OpenStructMvDetailModel";
 export class TableSummaryModel extends $dara.Model {
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2023-01-05 13:17:55
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The creation source of the table or view.
+   */
   createdBySource?: string;
+  /**
+   * @remarks
+   * The user who created the table or view.
+   */
   createdByUser?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * descrtiption
    */
   description?: string;
+  /**
+   * @remarks
+   * The materialized view details.
+   */
   mvDetailModel?: OpenStructMvDetailModel;
   /**
    * @remarks
-   * Owner.
+   * The owner.
    * 
    * @example
    * abc
@@ -33,7 +45,7 @@ export class TableSummaryModel extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * SQL for creating the table or view.
+   * The SQL statement used to create the table or view.
    * 
    * @example
    * create table(a varchar)
@@ -41,7 +53,7 @@ export class TableSummaryModel extends $dara.Model {
   SQL?: string;
   /**
    * @remarks
-   * Logical database name.
+   * The logical database name.
    * 
    * @example
    * schemaName
@@ -49,7 +61,7 @@ export class TableSummaryModel extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * Logical table name or logical view name.
+   * The logical table name or logical view name.
    * 
    * @example
    * tableName
@@ -57,7 +69,7 @@ export class TableSummaryModel extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * Table size in bytes.
+   * The table size in bytes.
    * 
    * @example
    * 1234
@@ -65,7 +77,7 @@ export class TableSummaryModel extends $dara.Model {
   tableSize?: number;
   /**
    * @remarks
-   * Table or view type.
+   * The table or view type.
    * 
    * @example
    * PHYSICAL_SCHEMA_NAME
@@ -73,7 +85,7 @@ export class TableSummaryModel extends $dara.Model {
   tableType?: string;
   /**
    * @remarks
-   * Update time.
+   * The update time.
    * 
    * @example
    * 2023-01-05 13:17:55

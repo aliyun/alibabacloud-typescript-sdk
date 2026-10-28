@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the account.
-   * - Cannot start with `http://` or `https://`.
-   * - Cannot exceed 256 characters in length.
+   * The description of the account. The description must meet the following requirements:
+   * - It cannot start with `http://` or `https://`.
+   * - It can be up to 256 characters in length.
    * 
    * @example
    * Database connection test account
@@ -16,8 +16,8 @@ export class CreateAccountRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the database account. The name must meet the following requirements:
-   * - Starts with a lowercase letter and ends with a lowercase letter or digit.
-   * - Contains only lowercase letters, digits, or underscores (_).
+   * - It must start with a lowercase letter and end with a lowercase letter or a digit.
+   * - It can contain only lowercase letters, digits, and underscores (_).
    * 
    * This parameter is required.
    * 
@@ -27,10 +27,10 @@ export class CreateAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The password of the database account.
-   * - Must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * The password of the database account. The password must meet the following requirements:
+   * - It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
    * - Special characters include: `!@#$%^&*()_+-=`
-   * - Must be 8 to 32 characters in length.
+   * - It must be 8 to 32 characters in length.
    * 
    * This parameter is required.
    * 
@@ -65,21 +65,43 @@ export class CreateAccountRequest extends $dara.Model {
    * @remarks
    * The database engine. Valid values:
    * 
-   * - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-   * - **Clickhouse**: the wide table engine.
+   * - **AnalyticDB** (default): AnalyticDB for MySQL engine.
+   * - **Clickhouse**: wide table engine.
    * 
    * @example
    * Clickhouse
    */
   engine?: string;
+  /**
+   * @remarks
+   * The list of PromQL write permissions.
+   */
   promqlInsertPrivileges?: string[];
+  /**
+   * @remarks
+   * The percentage of PromQL query nodes.
+   * 
+   * @example
+   * 0.6
+   */
   promqlSelectNodePercentage?: number;
+  /**
+   * @remarks
+   * The list of PromQL query permissions.
+   */
   promqlSelectPrivileges?: string[];
   /**
    * @remarks
-   * The list of Alibaba Cloud RAM user IDs to bind. Currently, only one RAM user can be bound.
+   * The IDs of the Alibaba Cloud Resource Access Management (RAM) users to bind. Currently, only one RAM user can be bound.
    */
   ramUserList?: string[];
+  /**
+   * @remarks
+   * The name of the resource group.
+   * 
+   * @example
+   * test_group
+   */
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {

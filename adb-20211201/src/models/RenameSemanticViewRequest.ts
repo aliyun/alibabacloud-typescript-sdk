@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenameSemanticViewRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL cluster.
+   * The ID of the ADB cluster.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RenameSemanticViewRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The new schema name in which the semantic view resides.
+   * The new schema name of the semantic view.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class RenameSemanticViewRequest extends $dara.Model {
   newViewName?: string;
   /**
    * @remarks
-   * The original schema name in which the semantic view resides.
+   * The original schema name of the semantic view.
    * 
    * This parameter is required.
    * 

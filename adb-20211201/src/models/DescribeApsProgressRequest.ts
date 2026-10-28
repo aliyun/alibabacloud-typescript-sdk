@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApsProgressRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeApsProgressRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The ID of the data link task.
    * 
    * This parameter is required.
    * 

@@ -6,7 +6,7 @@ import { OpenStructMvRecommendSubTaskModel } from "./OpenStructMvRecommendSubTas
 export class DescribeMvRecommendSubTasksResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of materialized view recommendation task executions.
+   * The execution list of the materialized view recommendation task.
    */
   mvRecommendSubTaskModels?: OpenStructMvRecommendSubTaskModel[];
   /**
@@ -87,7 +87,7 @@ export class DescribeMvRecommendSubTasksResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF

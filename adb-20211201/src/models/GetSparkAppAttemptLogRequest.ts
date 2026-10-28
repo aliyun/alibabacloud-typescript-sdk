@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSparkAppAttemptLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the log.
-   * 
-   * > You can call the [ListSparkAppAttempts](https://help.aliyun.com/document_detail/455887.html) operation to query the information about the retry attempts of a Spark application, including the retry log IDs.
+   * The ID of the retry log.
+   * > Call the [ListSparkAppAttempts](https://help.aliyun.com/document_detail/455887.html) operation to query the retry history of an application, which includes the retry log ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +16,7 @@ export class GetSparkAppAttemptLogRequest extends $dara.Model {
   attemptId?: string;
   /**
    * @remarks
-   * The number of log entries to return. Valid values: 1 to 500. Default value: 300.
+   * The number of lines in the retry log. Valid values: 1 to 500. Default value: 300.
    * 
    * @example
    * 20
@@ -25,7 +24,7 @@ export class GetSparkAppAttemptLogRequest extends $dara.Model {
   logLength?: number;
   /**
    * @remarks
-   * The log offset.
+   * The start offset for reading logs.
    * 
    * @example
    * 1
@@ -33,7 +32,7 @@ export class GetSparkAppAttemptLogRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of data rows per page.
    * 
    * @example
    * 500

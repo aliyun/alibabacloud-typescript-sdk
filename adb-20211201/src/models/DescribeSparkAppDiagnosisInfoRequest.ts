@@ -37,7 +37,7 @@ export class DescribeSparkAppDiagnosisInfoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * zh
+   * PYTHON
    */
   language?: string;
   /**

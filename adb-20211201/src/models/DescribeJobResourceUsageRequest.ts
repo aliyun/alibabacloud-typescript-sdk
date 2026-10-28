@@ -16,7 +16,7 @@ export class DescribeJobResourceUsageRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end time of the query. The end time must be later than the start time. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC).
+   * The end time of the query. The end time must be later than the start time. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC time).
    * 
    * This parameter is required.
    * 
@@ -45,10 +45,17 @@ export class DescribeJobResourceUsageRequest extends $dara.Model {
    * 30
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the Spark application, which is used to filter job resource usage.
+   * 
+   * @example
+   * SparkTest
+   */
   sparkAppName?: string;
   /**
    * @remarks
-   * The start time of the query. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC).
+   * The start time of the query. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC time).
    * 
    * This parameter is required.
    * 

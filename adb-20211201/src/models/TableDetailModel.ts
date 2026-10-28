@@ -6,7 +6,7 @@ import { ColDetailModel } from "./ColDetailModel";
 export class TableDetailModel extends $dara.Model {
   /**
    * @remarks
-   * External data source.
+   * The external data source.
    * 
    * @example
    * oss
@@ -14,40 +14,59 @@ export class TableDetailModel extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * Column information.
+   * The column information.
    */
   columns?: ColDetailModel[];
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2023-01-05 13:17:55
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The creation source of the table.
+   */
   createdBySource?: string;
+  /**
+   * @remarks
+   * The user who created the table.
+   */
   createdByUser?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * Description
    */
   description?: string;
+  /**
+   * @remarks
+   * The storage location of the table data.
+   * 
+   * @example
+   * oss://**************
+   */
   location?: string;
   /**
    * @remarks
-   * Owner.
+   * The owner.
    * 
    * @example
    * abc
    */
   owner?: string;
+  /**
+   * @remarks
+   * The table property parameters.
+   */
   parameters?: { [key: string]: string };
   /**
    * @remarks
-   * Logical database name.
+   * The logical database name.
    * 
    * @example
    * schemaName
@@ -55,7 +74,7 @@ export class TableDetailModel extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * Logical table name.
+   * The logical table name.
    * 
    * @example
    * tableName
@@ -63,7 +82,7 @@ export class TableDetailModel extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * Table type.
+   * The table type.
    * 
    * @example
    * PHYSICAL_SCHEMA_NAME
@@ -71,7 +90,7 @@ export class TableDetailModel extends $dara.Model {
   tableType?: string;
   /**
    * @remarks
-   * Update time.
+   * The update time.
    * 
    * @example
    * 2023-01-05 13:17:55

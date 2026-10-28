@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the client.
-   * 
-   * >  This parameter is returned only when **Type** is set to **accessip**.
+   * The client IP address.
+   * > This parameter is returned only when the Type parameter is set to accessip.
    * 
    * @example
    * 100.104.xx.xx
@@ -15,7 +14,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   accessIP?: string;
   /**
    * @remarks
-   * The average execution duration of the SQL pattern within the query time range. Unit: milliseconds.
+   * The average execution time. Unit: milliseconds.
    * 
    * @example
    * 1.0625
@@ -23,7 +22,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   avgCpuTime?: string;
   /**
    * @remarks
-   * The average peak memory usage of the SQL pattern within the query time range. Unit: KB.
+   * The average peak memory. Unit: KB.
    * 
    * @example
    * 240048
@@ -31,7 +30,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   avgPeakMemory?: string;
   /**
    * @remarks
-   * The average amount of data scanned based on the SQL pattern within the query time range. Unit: KB.
+   * The average scan size. Unit: KB.
    * 
    * @example
    * 244
@@ -55,7 +54,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   avgTaskCount?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * The cluster ID.
    * 
    * @example
    * amv-bp1ej1nq9n6****
@@ -63,7 +62,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The maximum execution duration of the SQL pattern within the query time range. Unit: milliseconds.
+   * The maximum execution time of the SQL statement. Unit: milliseconds.
    * 
    * @example
    * 17
@@ -71,7 +70,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   maxCpuTime?: string;
   /**
    * @remarks
-   * The maximum peak memory usage of the SQL pattern within the query time range. Unit: KB.
+   * The Peak Volume memory. Unit: KB.
    * 
    * @example
    * 480096
@@ -79,7 +78,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   maxPeakMemory?: string;
   /**
    * @remarks
-   * The maximum amount of data scanned based on the SQL pattern within the query time range. Unit: KB.
+   * The maximum scan size. Unit: KB.
    * 
    * @example
    * 1024
@@ -111,7 +110,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   pattern?: string;
   /**
    * @remarks
-   * The number of queries performed in association with the SQL pattern within the query time range.
+   * The total number of queries.
    * 
    * @example
    * 16
@@ -119,7 +118,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   queryCount?: string;
   /**
    * @remarks
-   * The start date of the query.
+   * The query date.
    * 
    * @example
    * 2022-08-30
@@ -128,8 +127,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The username.
-   * 
-   * >  This parameter is returned only when **Type** is left empty or set to **user**.
+   * > This parameter is returned only when the Type parameter is left empty or set to user.
    * 
    * @example
    * test_acc
@@ -189,7 +187,7 @@ export class DescribeSqlPatternResponseBodyItems extends $dara.Model {
 export class DescribeSqlPatternResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried SQL pattern.
+   * The list details.
    */
   items?: DescribeSqlPatternResponseBodyItems[];
   /**
@@ -218,7 +216,7 @@ export class DescribeSqlPatternResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 50

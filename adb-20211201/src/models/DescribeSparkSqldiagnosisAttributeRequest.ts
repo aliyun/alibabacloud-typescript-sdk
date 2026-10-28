@@ -6,8 +6,7 @@ export class DescribeSparkSQLDiagnosisAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The application ID.
-   * 
-   * >  You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query a list of Spark application IDs.
+   * > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query the ID of the Spark application.
    * 
    * This parameter is required.
    * 
@@ -18,10 +17,7 @@ export class DescribeSparkSQLDiagnosisAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * 
-   * > 
-   * 
-   * *   You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+   * > * You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view the information of all clusters in the specified region, including cluster IDs.
    * 
    * This parameter is required.
    * 
@@ -31,7 +27,7 @@ export class DescribeSparkSQLDiagnosisAttributeRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the query executed within the Spark application.
+   * The internal query execution ID of the Spark application.
    * 
    * This parameter is required.
    * 
@@ -41,10 +37,10 @@ export class DescribeSparkSQLDiagnosisAttributeRequest extends $dara.Model {
   innerQueryId?: number;
   /**
    * @remarks
-   * The language in which to return the query results. Valid values:
+   * The language type. The description of the system access policy is returned in this language.
    * 
-   * *   en: English.
-   * *   zh: Chinese.
+   * - en: English.
+   * - zh: Chinese.
    * 
    * This parameter is required.
    * 
@@ -55,8 +51,7 @@ export class DescribeSparkSQLDiagnosisAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

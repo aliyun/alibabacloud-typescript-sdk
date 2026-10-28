@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKnowledgeFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL instance.
+   * The ADB instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListKnowledgeFilesRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The JSON string of the file ID array. A maximum of 200 positive integers are supported.
+   * The JSON string of the file ID array, which contains up to 200 positive integers.
    * 
    * @example
    * [1001,1002,1003]
@@ -23,7 +23,7 @@ export class ListKnowledgeFilesRequest extends $dara.Model {
   fileIds?: string;
   /**
    * @remarks
-   * The page number, starting from 1. If this parameter is not specified, Ray uses a default value of 1.
+   * The page number, starting from 1. If this parameter is not specified, the default value is 1.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class ListKnowledgeFilesRequest extends $dara.Model {
   page?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. If this parameter is not specified, Ray uses a default value of 20.
+   * The number of entries per page. Valid values: 1 to 100. If this parameter is not specified, the default value is 20.
    * 
    * @example
    * 20
@@ -39,14 +39,7 @@ export class ListKnowledgeFilesRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The processing status. Valid values:
-   * 
-   * - PENDING
-   * - PROCESSING
-   * - COMPLETED
-   * - FAILED
-   * - DUPLICATED
-   * - SKIPPED
+   * The processing status. Valid values: PENDING, PROCESSING, COMPLETED, FAILED, DUPLICATED, and SKIPPED.
    * 
    * @example
    * FAILED

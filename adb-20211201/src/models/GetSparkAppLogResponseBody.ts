@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSparkAppLogResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
    * @example
    * amv-clusterxxx
@@ -13,7 +14,7 @@ export class GetSparkAppLogResponseBodyData extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The content of the log.
+   * The log content.
    * 
    * @example
    * 22/04/22 15:30:49 INFO Utils: Start the dump task because s202206061441hz22a35ab000****-0001 app end, the interval is 238141ms;22/04/22 15:30:49 INFO AbstractConnector: Stopped Spark@5e774d9d{HTTP/1.1, (http/1.1)}{0.0.0.0:4040}
@@ -21,7 +22,7 @@ export class GetSparkAppLogResponseBodyData extends $dara.Model {
   logContent?: string;
   /**
    * @remarks
-   * The number of log entries. A value of 0 indicates that no valid logs are returned.
+   * The number of log lines. A value of 0 indicates that no valid logs exist.
    * 
    * @example
    * 3517972480
@@ -29,7 +30,7 @@ export class GetSparkAppLogResponseBodyData extends $dara.Model {
   logSize?: number;
   /**
    * @remarks
-   * The alert message returned for the request, such as task execution failure or insufficient resources. If no alert occurs, null is returned.
+   * The alert information, such as task execution failure or insufficient resources. If no alerts are triggered, an empty value is returned.
    * 
    * @example
    * WARNING:  log file maybe deleted, please check oss path: oss://TestBucketName/applog/
@@ -65,7 +66,7 @@ export class GetSparkAppLogResponseBodyData extends $dara.Model {
 export class GetSparkAppLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried log.
+   * The log details.
    */
   data?: GetSparkAppLogResponseBodyData;
   /**

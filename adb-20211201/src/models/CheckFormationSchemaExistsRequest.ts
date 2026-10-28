@@ -6,8 +6,7 @@ export class CheckFormationSchemaExistsRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * 
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the cluster IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters in a region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (3.0) clusters in the destination region.
    * 
    * This parameter is required.
    * 
@@ -17,10 +16,9 @@ export class CheckFormationSchemaExistsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to enable prefix mode. Valid values:
-   * 
-   * - true: Enable prefix mode.
-   * - false: Disable prefix mode.
+   * Specifies whether to enable the prefix mode. Valid values:
+   * - true: Yes.
+   * - false: No.
    * 
    * This parameter is required.
    * 
@@ -40,7 +38,7 @@ export class CheckFormationSchemaExistsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * schema 。
+   * The schema.
    * 
    * This parameter is required.
    * 

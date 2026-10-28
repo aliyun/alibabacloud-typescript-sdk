@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApsJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyApsJobRequest extends $dara.Model {
   apsJobId?: string;
   /**
    * @remarks
-   * The objects to be synchronized.
+   * The list of synchronization objects.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyApsJobRequest extends $dara.Model {
   dbList?: string;
   /**
    * @remarks
-   * The partitions.
+   * The list of partitions.
    * 
    * @example
    * {}

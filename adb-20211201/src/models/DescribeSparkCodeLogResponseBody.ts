@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSparkCodeLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The content of the log.
+   * The log content.
    * 
    * @example
    * >>>>>>>> stdout:n++++++++++++++++++executing sql: MSCK REPAIR TABLE  `footprint_ethereum`.`dwd_eth_eth_txr_v2_di` n++n
@@ -13,10 +13,9 @@ export class DescribeSparkCodeLogResponseBody extends $dara.Model {
   log?: string;
   /**
    * @remarks
-   * The returned message.
-   * 
-   * *   If the request was successful, **Success** is returned.
-   * *   If the request failed, an error message is returned.
+   * The additional information about the call result. Valid values:
+   * - If the request succeeds, **Success** is returned. 
+   * - If an exception occurs, the specific error code is returned.
    * 
    * @example
    * Success
@@ -24,7 +23,7 @@ export class DescribeSparkCodeLogResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1CD65640-9963-5D60-929C-118F2C84070E
@@ -32,10 +31,9 @@ export class DescribeSparkCodeLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

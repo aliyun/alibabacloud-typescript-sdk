@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeControllerDetectionResponseBodyDetectionItems extends $dara.Model {
   /**
    * @remarks
-   * The information about the detection result.
+   * The detection result message.
    * 
    * @example
    * A CPU increase is detected on the access node.
@@ -16,16 +16,16 @@ export class DescribeControllerDetectionResponseBodyDetectionItems extends $dara
    * The name of the detection item.
    * 
    * @example
-   * CPU增高检测
+   * CPU usage spike detection
    */
   name?: string;
   /**
    * @remarks
-   * The severity level of the detection result. Valid values:
+   * The status of the detection result. Valid values:
    * 
-   * *   NORMAL
-   * *   WARNING
-   * *   CRITICAL
+   * - NORMAL
+   * - WARNING
+   * - CRITICAL
    * 
    * @example
    * NORMAL
@@ -69,7 +69,7 @@ export class DescribeControllerDetectionResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The queried detection items and detection results.
+   * The list of detection items and results.
    */
   detectionItems?: DescribeControllerDetectionResponseBodyDetectionItems[];
   /**

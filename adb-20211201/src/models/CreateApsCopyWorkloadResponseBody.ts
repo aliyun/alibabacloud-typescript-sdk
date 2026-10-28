@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApsCopyWorkloadResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status or POP error code.
+   * The API status code or POP error code.
    * 
    * @example
    * InvalidInput
@@ -29,9 +29,9 @@ export class CreateApsCopyWorkloadResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The additional information about the result. Valid values:
-   * - If the request was successful, Success is returned.
-   * - If the request failed, a specific error code is returned.
+   * The additional information about the call result. Valid values:
+   * - If the request is normal, Success is returned.
+   * - If the request is abnormal, a specific error code is returned.
    * 
    * @example
    * Success

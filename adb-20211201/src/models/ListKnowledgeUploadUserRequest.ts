@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKnowledgeUploadUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The ADB instance ID.
+   * The ID of the ADB instance.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,15 @@ export class ListKnowledgeUploadUserRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The location of the knowledge base document.
+   * The file ID.
    * 
-   * This parameter is required.
+   * @example
+   * 213141
+   */
+  fileId?: string;
+  /**
+   * @remarks
+   * The address of the knowledge base document.
    * 
    * @example
    * oss://bucket/doc.pdf
@@ -26,6 +32,7 @@ export class ListKnowledgeUploadUserRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      fileId: 'FileId',
       fileLocation: 'FileLocation',
     };
   }
@@ -33,6 +40,7 @@ export class ListKnowledgeUploadUserRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      fileId: 'string',
       fileLocation: 'string',
     };
   }

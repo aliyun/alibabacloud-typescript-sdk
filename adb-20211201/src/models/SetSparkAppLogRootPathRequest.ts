@@ -15,7 +15,7 @@ export class SetSparkAppLogRootPathRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The path of Object Storage Service (OSS) logs.
+   * The OSS log path.
    * 
    * @example
    * oss://testBucketname/to/log
@@ -23,7 +23,7 @@ export class SetSparkAppLogRootPathRequest extends $dara.Model {
   ossLogPath?: string;
   /**
    * @remarks
-   * Specifies whether to use the default OSS log path.
+   * Specifies whether to use the default OSS path.
    * 
    * @example
    * true

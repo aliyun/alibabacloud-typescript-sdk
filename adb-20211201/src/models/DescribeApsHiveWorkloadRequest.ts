@@ -23,7 +23,7 @@ export class DescribeApsHiveWorkloadRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The data link task ID.
    * 
    * This parameter is required.
    * 

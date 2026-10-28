@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $dara.Model {
   /**
    * @remarks
-   * The objects that are synchronized.
+   * The list of synchronization objects.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $dara.Model {
   dbList?: string;
   /**
    * @remarks
-   * The ID of the destination cluster.
+   * The target database instance ID.
    * 
    * @example
    * amv-******
@@ -21,7 +21,7 @@ export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $dara.Model {
   destinationEndpointInstanceID?: string;
   /**
    * @remarks
-   * The region of the destination cluster.
+   * The region of the target instance.
    * 
    * @example
    * cn-beijing
@@ -29,7 +29,7 @@ export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $dara.Model {
   destinationEndpointRegion?: string;
   /**
    * @remarks
-   * The partitions.
+   * The list of partitions.
    * 
    * @example
    * {}
@@ -37,7 +37,7 @@ export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $dara.Model {
   partitionList?: string;
   /**
    * @remarks
-   * The ID of the source instance.
+   * The source database instance ID.
    * 
    * @example
    * pc-*******
@@ -45,7 +45,7 @@ export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $dara.Model {
   sourceEndpointInstanceID?: string;
   /**
    * @remarks
-   * The region of the source instance.
+   * The region of the source database.
    * 
    * @example
    * cn-beijing
@@ -53,7 +53,7 @@ export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $dara.Model {
   sourceEndpointRegion?: string;
   /**
    * @remarks
-   * The status of the job.
+   * The status.
    * 
    * @example
    * Running
@@ -61,7 +61,7 @@ export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The mode of the destination table.
+   * The target table mode.
    * 
    * @example
    * 0
@@ -105,7 +105,7 @@ export class DescribeApsJobDetailResponseBodyAPSJobDetail extends $dara.Model {
 export class DescribeApsJobDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried job.
+   * The job details.
    * 
    * @example
    * -

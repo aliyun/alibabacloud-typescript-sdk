@@ -142,7 +142,7 @@ export class DescribeExecutorDetectionResponseBodyDetectionItemsResultsOperatorD
    * The property information about the operator.
    * 
    * @example
-   * Group By字段：uid
+   * GROUP BY field: uid
    */
   operatorInfo?: string;
   /**
@@ -318,7 +318,7 @@ export class DescribeExecutorDetectionResponseBodyDetectionItems extends $dara.M
    * The information about the detection result.
    * 
    * @example
-   * 检测到Aggregation算子消耗内存资源较多
+   * Large amounts of memory resources are used by the Aggregation operator.
    */
   message?: string;
   /**

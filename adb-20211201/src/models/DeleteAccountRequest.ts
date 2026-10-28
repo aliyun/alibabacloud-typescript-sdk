@@ -29,13 +29,20 @@ export class DeleteAccountRequest extends $dara.Model {
    * @remarks
    * The database engine. Valid values:
    * 
-   * - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-   * - **Clickhouse**: the wide table engine.
+   * - **AnalyticDB** (default): AnalyticDB for MySQL.
+   * - **Clickhouse**: wide table engine.
    * 
    * @example
    * Clickhouse
    */
   engine?: string;
+  /**
+   * @remarks
+   * The name of the resource group.
+   * 
+   * @example
+   * test_group
+   */
   resourceGroupName?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApsDatasourceResponseBodyApsDatasourceDatabricksInfo extends $dara.Model {
   /**
    * @remarks
-   * The token that is used to access Databricks.
+   * The token used to access Databricks.
    * 
    * @example
    * ******
@@ -53,7 +53,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceHiveInfo extends $dar
   emrClusterId?: string;
   /**
    * @remarks
-   * The URL of the Hive Metastore.
+   * The Hive metastore URL.
    * 
    * @example
    * -
@@ -61,7 +61,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceHiveInfo extends $dar
   metaStoreUri?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-******
@@ -69,7 +69,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceHiveInfo extends $dar
   securityGroup?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-******
@@ -105,7 +105,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceHiveInfo extends $dar
 export class DescribeApsDatasourceResponseBodyApsDatasourceKafkaInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Kafka instance.
+   * The Kafka instance ID.
    * 
    * @example
    * -
@@ -113,7 +113,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceKafkaInfo extends $da
   kafkaClusterId?: string;
   /**
    * @remarks
-   * The topic of the Kafka instance.
+   * kafka topic
    * 
    * @example
    * [{\\"value\\": \\"hongxian_test\\"}]
@@ -145,7 +145,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceKafkaInfo extends $da
 export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo extends $dara.Model {
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -153,7 +153,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   across?: boolean;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -161,7 +161,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   acrossRole?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -169,7 +169,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   acrossUid?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -177,7 +177,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   connectUrl?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -185,7 +185,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   instanceId?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -193,7 +193,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   regionId?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -201,7 +201,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
   securityGroup?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -245,7 +245,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo exte
 export class DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo extends $dara.Model {
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -253,7 +253,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo extends 
   connectUrl?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -261,7 +261,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo extends 
   instanceId?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -269,7 +269,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo extends 
   regionId?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -277,7 +277,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo extends 
   securityGroup?: string;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * -
    * 
    * @example
    * -
@@ -315,10 +315,10 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceRdsMysqlInfo extends 
 export class DescribeApsDatasourceResponseBodyApsDatasourceSlsInfo extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the data source is a cross-account resource. Valid values:
+   * Specifies whether the resource is cross-account. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The current network instance is a cross-account resource.
+   * - **false**: The current network instance belongs to the current account.
    * 
    * @example
    * false
@@ -350,7 +350,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceSlsInfo extends $dara
   project?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region to which the production site belongs.
    * 
    * @example
    * cn-hangzhou
@@ -398,7 +398,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceSlsInfo extends $dara
 export class DescribeApsDatasourceResponseBodyApsDatasource extends $dara.Model {
   /**
    * @remarks
-   * The time when the data source was created.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2024-04-12T15:03:38Z
@@ -406,7 +406,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasource extends $dara.Model 
   createTime?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * @example
    * amv-******
@@ -414,7 +414,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasource extends $dara.Model 
   DBClusterId?: string;
   /**
    * @remarks
-   * The information about Databricks.
+   * The Databricks information.
    * 
    * @example
    * -
@@ -446,7 +446,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasource extends $dara.Model 
   datasourceType?: string;
   /**
    * @remarks
-   * The information about the Hive data source.
+   * The Hive data source information.
    * 
    * @example
    * -
@@ -454,7 +454,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasource extends $dara.Model 
   hiveInfo?: DescribeApsDatasourceResponseBodyApsDatasourceHiveInfo;
   /**
    * @remarks
-   * The information about the Kafka instance.
+   * The Kafka instance information.
    * 
    * @example
    * -
@@ -462,7 +462,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasource extends $dara.Model 
   kafkaInfo?: DescribeApsDatasourceResponseBodyApsDatasourceKafkaInfo;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * This parameter is no longer supported.
    * 
    * @example
    * -
@@ -470,7 +470,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasource extends $dara.Model 
   polarDBMysqlInfo?: DescribeApsDatasourceResponseBodyApsDatasourcePolarDBMysqlInfo;
   /**
    * @remarks
-   * The parameter is no longer supported.
+   * This parameter is no longer supported.
    * 
    * @example
    * -
@@ -546,12 +546,12 @@ export class DescribeApsDatasourceResponseBodyApsDatasource extends $dara.Model 
 export class DescribeApsDatasourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried APS data source.
+   * -
    */
   apsDatasource?: DescribeApsDatasourceResponseBodyApsDatasource;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ******-**D8-5***-A***-****587

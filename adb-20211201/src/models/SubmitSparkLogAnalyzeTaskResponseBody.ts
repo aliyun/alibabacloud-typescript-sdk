@@ -6,12 +6,12 @@ import { SparkAnalyzeLogTask } from "./SparkAnalyzeLogTask";
 export class SubmitSparkLogAnalyzeTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the Spark log analysis task.
+   * The details of the Spark log analysis task.
    */
   data?: SparkAnalyzeLogTask;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1DF5AF5B-C803-1861-A0FF-63666A557709

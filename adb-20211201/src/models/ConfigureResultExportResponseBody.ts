@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigureResultExportResponseBodyDataOssInfo extends $dara.Model {
   /**
    * @remarks
-   * The OSS path where the result sets are stored.
+   * The OSS path where the export results are stored.
    * 
    * @example
    * oss://testBucketName/data_result
@@ -13,7 +13,7 @@ export class ConfigureResultExportResponseBodyDataOssInfo extends $dara.Model {
   exportBasePath?: string;
   /**
    * @remarks
-   * The name of the resource group that runs the job.
+   * The name of the resource group in which the export SQL statement is executed.
    * 
    * @example
    * aps
@@ -21,7 +21,7 @@ export class ConfigureResultExportResponseBodyDataOssInfo extends $dara.Model {
   resourceGroup?: string;
   /**
    * @remarks
-   * The expiration time of the OSS file. Unit: days. Minimum: 1 day, maximum: 30 days.
+   * The expiration time of the OSS file. Unit: days. The minimum value is 1 day and the maximum value is 30 days.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class ConfigureResultExportResponseBodyDataOssInfo extends $dara.Model {
 export class ConfigureResultExportResponseBodyDataSlsInfo extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the Logstore temporarily generated during the result set export. Unit: days. The Logstore is automatically deleted after it expires. Minimum value: 1 day. Maximum value: 30 days.
+   * The expiration time of the temporary Logstore generated for result set export. Unit: days. The Logstore is automatically deleted after expiration. The minimum value is 1 day and the maximum value is 30 days.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class ConfigureResultExportResponseBodyDataSlsInfo extends $dara.Model {
   logstoreTtl?: number;
   /**
    * @remarks
-   * The name of the resource group that runs the job.
+   * The name of the resource group in which the export SQL statement is executed.
    * 
    * @example
    * aps
@@ -107,8 +107,8 @@ export class ConfigureResultExportResponseBodyData extends $dara.Model {
    * @remarks
    * The export type. Valid values:
    * 
-   * *   SLS: Indicates that the export destination is SLS.
-   * *   OSS: Indicates that the export destination is OSS.
+   * - SLS: Exports data to SLS.
+   * - OSS: Exports data to OSS.
    * 
    * @example
    * SLS
@@ -116,12 +116,12 @@ export class ConfigureResultExportResponseBodyData extends $dara.Model {
   exportType?: string;
   /**
    * @remarks
-   * The OSS configuration if the destination is of the OSS type.
+   * The OSS export information configured when the export destination is OSS.
    */
   ossInfo?: ConfigureResultExportResponseBodyDataOssInfo;
   /**
    * @remarks
-   * The SLS configuration if the destination is of the SLS type.
+   * The SLS configuration information when the export destination is SLS.
    */
   slsInfo?: ConfigureResultExportResponseBodyDataSlsInfo;
   static names(): { [key: string]: string } {
@@ -166,12 +166,12 @@ export class ConfigureResultExportResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The path where the result sets are stored.
+   * The configured result set export information.
    */
   data?: ConfigureResultExportResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. A value of 200 indicates that the request is successful.
+   * The HTTP status code. A status code of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -179,10 +179,10 @@ export class ConfigureResultExportResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message. Valid values:
+   * The additional information about the call result. Description:
    * 
-   * *   OK is returned if the request is normal.
-   * *   The specific error code is returned if the request is abnormal,
+   * - If the request is normal, OK is returned.
+   * - If the request is abnormal, a specific error code is returned.
    * 
    * @example
    * OK
@@ -190,7 +190,7 @@ export class ConfigureResultExportResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
@@ -198,10 +198,9 @@ export class ConfigureResultExportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * 
-   * *   **true**: Succeeded.
-   * *   **false**: Failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

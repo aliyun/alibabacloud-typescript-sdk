@@ -25,10 +25,9 @@ export class ModifyMaterializedViewRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
-   * Enable the refresh delay alert. Valid values:
-   * 
-   * *   true: Enables alert.
-   * *   false: Disables alert.
+   * Specifies whether to enable alerting for refresh latency. Valid values:
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -36,10 +35,9 @@ export class ModifyMaterializedViewRequest extends $dara.Model {
   enableDelayAlert?: boolean;
   /**
    * @remarks
-   * Specifies whether to send alerts when the refresh task fails. Valid values:
-   * 
-   * *   true: Send alerts.
-   * *   false: Alerts disabled.
+   * Specifies whether to enable alerting for refresh task failures. Valid values:
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -47,7 +45,7 @@ export class ModifyMaterializedViewRequest extends $dara.Model {
   enableFailureAlert?: boolean;
   /**
    * @remarks
-   * The name of the resource group to which the materialized view is bound.
+   * The name of the resource group bound to the materialized view.
    * 
    * @example
    * res_1
@@ -55,7 +53,7 @@ export class ModifyMaterializedViewRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Refresh delay tolerance (in minutes).
+   * The refresh latency tolerance in minutes.
    * 
    * @example
    * 2
@@ -65,10 +63,9 @@ export class ModifyMaterializedViewRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Specifies whether to enable query rewrite. Valid values:
-   * 
-   * *   true: Enables query rewrite.
-   * *   false: Disables query rewrite.
+   * Specifies whether to enable the rewrite feature. Valid values:
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * true

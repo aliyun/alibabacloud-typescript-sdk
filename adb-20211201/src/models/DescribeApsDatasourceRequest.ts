@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApsDatasourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL cluster.
+   * The ADB instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeApsDatasourceRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The data source ID.
+   * The ID of the data source.
    * 
    * This parameter is required.
    * 

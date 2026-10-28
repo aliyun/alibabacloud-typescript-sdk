@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApsJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the APS job.
+   * The name of the task.
    * 
    * @example
    * aps-xxxxx
@@ -13,7 +13,7 @@ export class DescribeApsJobsRequest extends $dara.Model {
   apsJobName?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of creation.
    * 
    * @example
    * 2022-04-23T01:10Z
@@ -21,7 +21,7 @@ export class DescribeApsJobsRequest extends $dara.Model {
   createTimeEnd?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of creation.
    * 
    * @example
    * 2022-03-23T01:10Z

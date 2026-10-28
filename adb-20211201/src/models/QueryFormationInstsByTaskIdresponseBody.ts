@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryFormationInstsByTaskIDResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
+   * The creation time of the task.
    * 
    * @example
    * 2023-05-15T07:24:58Z
@@ -62,8 +62,8 @@ export class QueryFormationInstsByTaskIDResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The task source. Valid values:
-   * - **system**: system.
-   * - **custom**: custom.
+   * - **system**: System.
+   * - **custom**: Custom.
    * 
    * @example
    * shareScreen
@@ -173,7 +173,7 @@ export class QueryFormationInstsByTaskIDResponseBody extends $dara.Model {
   items?: { [key: string]: any }[];
   /**
    * @remarks
-   * The response message. OK is returned if the request was successful.
+   * The message. The value is OK when the request is successful.
    * 
    * @example
    * OK
@@ -205,7 +205,7 @@ export class QueryFormationInstsByTaskIDResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

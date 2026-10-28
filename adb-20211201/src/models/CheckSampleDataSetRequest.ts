@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckSampleDataSetRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 

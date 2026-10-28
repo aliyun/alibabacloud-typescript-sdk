@@ -13,15 +13,25 @@ export class DescribeCompactionServiceSwitchRequest extends $dara.Model {
    * amv-bp149vz49b36t****
    */
   DBClusterId?: string;
+  /**
+   * @remarks
+   * The ID of the region where the instance resides. The value must be the same as the region of the instance specified by DBClusterId.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      regionId: 'string',
     };
   }
 

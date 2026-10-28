@@ -13,7 +13,7 @@ export class GetKnowledgeRecallResponseBodyData extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The prompt message.
+   * The message.
    * 
    * @example
    * recall 5 files
@@ -21,7 +21,7 @@ export class GetKnowledgeRecallResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The recall results.
+   * The retrieval results.
    */
   results?: { [key: string]: any }[];
   /**

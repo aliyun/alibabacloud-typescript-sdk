@@ -13,7 +13,7 @@ export class GetLakeStorageResponseBodyDataPermissions extends $dara.Model {
   account?: string;
   /**
    * @remarks
-   * The read permissions.
+   * The read permission.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class GetLakeStorageResponseBodyDataPermissions extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The write permissions.
+   * The write permission.
    * 
    * @example
    * true
@@ -65,7 +65,7 @@ export class GetLakeStorageResponseBodyDataPermissions extends $dara.Model {
 export class GetLakeStorageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the lake storage was created.
+   * The creation time.
    * 
    * @example
    * 2023-05-15T07:24:58Z
@@ -73,7 +73,7 @@ export class GetLakeStorageResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The creator UID.
+   * The UID of the creator.
    * 
    * @example
    * 123456
@@ -81,7 +81,7 @@ export class GetLakeStorageResponseBodyData extends $dara.Model {
   creatorUid?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL cluster.
+   * The ADB instance ID.
    * 
    * @example
    * amv-*******
@@ -113,7 +113,7 @@ export class GetLakeStorageResponseBodyData extends $dara.Model {
   lakeStorageId?: string;
   /**
    * @remarks
-   * The operator UID.
+   * The UID of the operator.
    * 
    * @example
    * 123456
@@ -121,7 +121,7 @@ export class GetLakeStorageResponseBodyData extends $dara.Model {
   operatorUid?: string;
   /**
    * @remarks
-   * The owner UID.
+   * The UID of the owner.
    * 
    * @example
    * 123456
@@ -137,7 +137,7 @@ export class GetLakeStorageResponseBodyData extends $dara.Model {
   partitionCount?: string;
   /**
    * @remarks
-   * The permissions on the lake storage.
+   * The permissions of the lake storage.
    * 
    * @example
    * -
@@ -153,7 +153,7 @@ export class GetLakeStorageResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of data rows.
    * 
    * @example
    * -
@@ -161,7 +161,7 @@ export class GetLakeStorageResponseBodyData extends $dara.Model {
   rowCount?: number;
   /**
    * @remarks
-   * The number of the tables.
+   * The number of databases and tables.
    * 
    * @example
    * -
@@ -169,7 +169,7 @@ export class GetLakeStorageResponseBodyData extends $dara.Model {
   tableCount?: number;
   /**
    * @remarks
-   * The time when the lake storage was last updated.
+   * The update time.
    * 
    * @example
    * 2024-10-14T02:28:41Z
@@ -228,7 +228,7 @@ export class GetLakeStorageResponseBodyData extends $dara.Model {
 export class GetLakeStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the error code.
+   * The status code or POP error code.
    * 
    * @example
    * 200
@@ -236,7 +236,7 @@ export class GetLakeStorageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The queried lake storage.
+   * The returned data.
    * 
    * @example
    * -
@@ -244,7 +244,7 @@ export class GetLakeStorageResponseBody extends $dara.Model {
   data?: GetLakeStorageResponseBodyData;
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The HTTP status code returned for the request. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -252,10 +252,9 @@ export class GetLakeStorageResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message. Valid values:
-   * 
-   * *   If the request was successful, a success message is returned.****
-   * *   If the request failed, an error message is returned.
+   * The additional information about the call result. Valid values:
+   * - If the request is normal, **Ok** is returned.                                
+   * - If the request is abnormal, a specific error code is returned.
    * 
    * @example
    * SUCCESS
@@ -271,10 +270,9 @@ export class GetLakeStorageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

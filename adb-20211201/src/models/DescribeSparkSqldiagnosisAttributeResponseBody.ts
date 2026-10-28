@@ -8,12 +8,12 @@ import { SparkOperatorInfo } from "./SparkOperatorInfo";
 export class DescribeSparkSQLDiagnosisAttributeResponseBodyOperatorListSortedByMetrics extends $dara.Model {
   /**
    * @remarks
-   * The operators sorted by the execution duration.
+   * The operator queue sorted by execution time.
    */
   operatorListSortedByExclusiveTime?: SparkOperatorInfo[];
   /**
    * @remarks
-   * The operators sorted by the maximum memory used.
+   * The operator queue sorted by maximum memory consumption.
    */
   operatorListSortedByMaxMemory?: SparkOperatorInfo[];
   static names(): { [key: string]: string } {
@@ -48,7 +48,7 @@ export class DescribeSparkSQLDiagnosisAttributeResponseBodyOperatorListSortedByM
 export class DescribeSparkSQLDiagnosisAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the request denial.
+   * The details of the access denial.
    * 
    * @example
    * {}
@@ -57,8 +57,7 @@ export class DescribeSparkSQLDiagnosisAttributeResponseBody extends $dara.Model 
   /**
    * @remarks
    * The application ID.
-   * 
-   * >  You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query a list of Spark application IDs.
+   * > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query the ID of the Spark application.
    * 
    * @example
    * s202411071444hzdvk486d9d2001****
@@ -66,12 +65,12 @@ export class DescribeSparkSQLDiagnosisAttributeResponseBody extends $dara.Model 
   appId?: string;
   /**
    * @remarks
-   * The queried diagnostic information.
+   * The collection of diagnostic suggestions.
    */
   diagnosisInfos?: Adb4MysqlSparkDiagnosisInfo[];
   /**
    * @remarks
-   * The execution duration of the query. Unit: milliseconds.
+   * The actual execution time, in milliseconds.
    * 
    * @example
    * 100
@@ -79,7 +78,7 @@ export class DescribeSparkSQLDiagnosisAttributeResponseBody extends $dara.Model 
   elapsedTime?: number;
   /**
    * @remarks
-   * The ID of the query executed within the Spark application.
+   * The internal query execution ID of the Spark application.
    * 
    * @example
    * 1
@@ -87,7 +86,7 @@ export class DescribeSparkSQLDiagnosisAttributeResponseBody extends $dara.Model 
   innerQueryId?: number;
   /**
    * @remarks
-   * The operators sorted by metrics.
+   * The operator queue sorted by metrics.
    */
   operatorListSortedByMetrics?: DescribeSparkSQLDiagnosisAttributeResponseBodyOperatorListSortedByMetrics;
   /**

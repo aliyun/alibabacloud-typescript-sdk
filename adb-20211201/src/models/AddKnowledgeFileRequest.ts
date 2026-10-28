@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddKnowledgeFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL cluster.
+   * The AnalyticDB for MySQL cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AddKnowledgeFileRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The file location. Currently, only OSS paths are supported.
+   * The file location. Only OSS paths are supported.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class AddKnowledgeFileRequest extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * Specifies whether the path is a directory.
+   * Specifies whether the path is a folder.
    * 
    * @example
    * false
@@ -41,7 +41,10 @@ export class AddKnowledgeFileRequest extends $dara.Model {
   isDir?: boolean;
   /**
    * @remarks
-   * The confidence level or weight of the file.
+   * The credibility or weight of the file.
+   * 
+   * @example
+   * high
    */
   priority?: string;
   /**

@@ -4,6 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAdbMySqlSchemasRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the external data source.
+   * 
+   * @example
+   * oss
+   * 
    * **if can be null:**
    * true
    */
@@ -22,7 +28,7 @@ export class DescribeAdbMySqlSchemasRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of a specified cluster.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of the specified cluster.
    * 
    * This parameter is required.
    * 

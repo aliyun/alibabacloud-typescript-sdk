@@ -15,9 +15,15 @@ export class AddKnowledgeUploadUserRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The location of the knowledge base document.
+   * The ID of the file.
    * 
-   * This parameter is required.
+   * @example
+   * 3214123
+   */
+  fileId?: string;
+  /**
+   * @remarks
+   * The path of the knowledge base document.
    * 
    * @example
    * oss://bucketName/path/to/file.pdf
@@ -25,7 +31,7 @@ export class AddKnowledgeUploadUserRequest extends $dara.Model {
   fileLocation?: string;
   /**
    * @remarks
-   * The JSON string of the authorized user array.
+   * The JSON string of the authorized users array.
    * 
    * This parameter is required.
    * 
@@ -36,6 +42,7 @@ export class AddKnowledgeUploadUserRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      fileId: 'FileId',
       fileLocation: 'FileLocation',
       users: 'Users',
     };
@@ -44,6 +51,7 @@ export class AddKnowledgeUploadUserRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      fileId: 'string',
       fileLocation: 'string',
       users: 'string',
     };

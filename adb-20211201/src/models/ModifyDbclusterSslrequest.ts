@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBClusterSSLRequest extends $dara.Model {
   /**
    * @remarks
-   * The private or public endpoint for which the server certificate needs to be created or updated.
+   * The internal or public endpoint for which to create or update a server certificate.
    * 
    * @example
    * amv-***********.ads.aliyuncs.com
@@ -23,12 +23,10 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to enable SSL encryption. Valid values:
+   * Specifies whether to enable SSL connection encryption. Valid values:
    * 
-   * *   **true**: enabled
-   * *   **false**: disabled
-   * 
-   * This parameter is required.
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -42,12 +40,25 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The SSL operation. This parameter and EnableSSL are mutually exclusive. Valid values:
+   * 
+   * - Enable: Enables SSL.
+   * - Disable: Disables SSL.
+   * - Update: Updates the validity period of an enabled SSL certificate and retains the current endpoint bound to the certificate. When you set this parameter to Update, do not specify ConnectionString, or specify an endpoint that is the same as the current endpoint bound to the certificate.
+   * 
+   * @example
+   * Update
+   */
+  SSLEnabled?: string;
   static names(): { [key: string]: string } {
     return {
       connectionString: 'ConnectionString',
       DBClusterId: 'DBClusterId',
       enableSSL: 'EnableSSL',
       regionId: 'RegionId',
+      SSLEnabled: 'SSLEnabled',
     };
   }
 
@@ -57,6 +68,7 @@ export class ModifyDBClusterSSLRequest extends $dara.Model {
       DBClusterId: 'string',
       enableSSL: 'boolean',
       regionId: 'string',
+      SSLEnabled: 'string',
     };
   }
 

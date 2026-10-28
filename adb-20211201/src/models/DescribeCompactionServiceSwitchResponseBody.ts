@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCompactionServiceSwitchResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the remote build feature is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Indicates whether the remote build service is enabled.
    * 
    * @example
    * true

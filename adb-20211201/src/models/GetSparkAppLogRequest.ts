@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSparkAppLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The Spark application ID.
-   * 
-   * > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query the Spark application ID.
+   * The application ID.
+   * > You can call the [ListSparkApps](https://help.aliyun.com/document_detail/612475.html) operation to query the ID of the Spark application.
    * 
    * This parameter is required.
    * 
@@ -17,9 +16,10 @@ export class GetSparkAppLogRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+   * <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+   * <props="intl">The ID of the Data Lakehouse Edition cluster.
    * 
-   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all clusters in the target region.
    * 
    * @example
    * amv-2ze6fl8ud7t***
@@ -27,7 +27,7 @@ export class GetSparkAppLogRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The number of log entries to return. Valid values: 1 to 500. Default value: 300.
+   * The number of log lines. Valid values: 1 to 500. Default value: 300.
    * 
    * @example
    * 20
@@ -35,7 +35,7 @@ export class GetSparkAppLogRequest extends $dara.Model {
   logLength?: number;
   /**
    * @remarks
-   * The page number.
+   * The page number for reading logs.
    * 
    * @example
    * 1
@@ -43,7 +43,7 @@ export class GetSparkAppLogRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of data rows per page.
    * 
    * @example
    * 500
