@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EditZeroCreditShutdownResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Success or not</br>
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class EditZeroCreditShutdownResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Request ID</br>
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -21,15 +21,15 @@ export class EditZeroCreditShutdownResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Message</br>
+   * The prompt message.
    * 
    * @example
-   * Message</br>
+   * 成功
    */
   message?: string;
   /**
    * @remarks
-   * NO_STOP
+   * The prompt message.
    * 
    * @example
    * SUCCESS
@@ -37,7 +37,7 @@ export class EditZeroCreditShutdownResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * success
+   * The request ID.
    * 
    * @example
    * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4

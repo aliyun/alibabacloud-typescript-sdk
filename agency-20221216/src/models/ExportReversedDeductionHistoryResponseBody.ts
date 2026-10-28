@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExportReversedDeductionHistoryResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The estimated duration, in minutes.
+   * 
    * @example
    * 1
    */
   cost?: number;
   /**
+   * @remarks
+   * The ID of the export task.
+   * 
    * @example
    * 2131
    */
@@ -38,17 +44,30 @@ export class ExportReversedDeductionHistoryResponseBodyData extends $dara.Model 
 
 export class ExportReversedDeductionHistoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code of the response. A value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response object.
+   */
   data?: ExportReversedDeductionHistoryResponseBodyData;
   /**
+   * @remarks
+   * The description of the response.
+   * 
    * @example
    * SUCCESS
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * asfasd123
    */

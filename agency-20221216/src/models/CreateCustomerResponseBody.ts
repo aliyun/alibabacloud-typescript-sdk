@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Code indicating whether the call was successful.
+   * The code that indicates whether the call is successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateCustomerResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data indicating whether a customer was successfully created. If it\\"s "true", the Message contains CID.
+   * Indicates whether the customer is created. If the value is true, the Message contains the CID.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class CreateCustomerResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * Massage indicating whether the call was successful.
+   * The same as the Code parameter.
    * 
    * @example
    * 12345
@@ -29,7 +29,7 @@ export class CreateCustomerResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID, Alibaba Cloud will track errors with this.
+   * The request ID. Alibaba Cloud uses this ID for error tracking.
    * 
    * @example
    * A9B725C7-3DBD-576B-AC91-F6F22AB99A77
@@ -37,7 +37,11 @@ export class CreateCustomerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Candidate Value: True/False, which indicates whether the current API call it self was successful. It does not guarantee the success of subsequent business operations.
+   * Indicates whether the current API call is successful. Valid values:
+   * - True
+   * - False
+   * 
+   * This does not indicate whether the subsequent business operation is successful.
    * 
    * @example
    * true

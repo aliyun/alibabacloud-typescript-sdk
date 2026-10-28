@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InviteSubResellerResponseBodyResultsResult extends $dara.Model {
   /**
    * @remarks
-   * Validity period of the registration URL, in days
+   * The validity period of the registration URL, in days.
    * 
    * @example
    * 15
@@ -13,7 +13,7 @@ export class InviteSubResellerResponseBodyResultsResult extends $dara.Model {
   days?: number;
   /**
    * @remarks
-   * Invitation ID, used for querying the invitation status
+   * The invitation ID, which is used to query the invitation status.
    * 
    * @example
    * 12345
@@ -21,7 +21,7 @@ export class InviteSubResellerResponseBodyResultsResult extends $dara.Model {
   inviteId?: number;
   /**
    * @remarks
-   * T2 Reseller registration URL
+   * The registration URL of the T2 Reseller.
    * 
    * @example
    * http://agency-intl.console.aliyun.com/customer/register?intl=true&fxinfo=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -55,7 +55,7 @@ export class InviteSubResellerResponseBodyResultsResult extends $dara.Model {
 export class InviteSubResellerResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * Error code, 200 OK
+   * The error code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -63,7 +63,7 @@ export class InviteSubResellerResponseBodyResults extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Prompt message, explanation of the code
+   * The prompt message that describes the code.
    * 
    * @example
    * 成功
@@ -71,12 +71,12 @@ export class InviteSubResellerResponseBodyResults extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Returned invitation result information
+   * The invitation result details.
    */
   result?: InviteSubResellerResponseBodyResultsResult;
   /**
    * @remarks
-   * Always true
+   * Always true.
    * 
    * @example
    * true
@@ -115,7 +115,7 @@ export class InviteSubResellerResponseBodyResults extends $dara.Model {
 export class InviteSubResellerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Result code.
+   * The result code.
    * 
    * @example
    * 200
@@ -123,7 +123,7 @@ export class InviteSubResellerResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Message.
+   * message
    * 
    * @example
    * 200
@@ -131,7 +131,7 @@ export class InviteSubResellerResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
@@ -139,12 +139,12 @@ export class InviteSubResellerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 邀请结果信息
+   * The invitation result information.
    */
   results?: InviteSubResellerResponseBodyResults[];
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * true

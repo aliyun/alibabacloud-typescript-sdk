@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EditNewBuyStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status Code</br>
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class EditNewBuyStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Success or not</br>
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -21,15 +21,15 @@ export class EditNewBuyStatusResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Message</br>
+   * The prompt message.
    * 
    * @example
-   * success
+   * 成功
    */
   message?: string;
   /**
    * @remarks
-   * Message</br>
+   * The prompt message.
    * 
    * @example
    * success
@@ -37,7 +37,7 @@ export class EditNewBuyStatusResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Request ID</br>
+   * The request ID.
    * 
    * @example
    * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4

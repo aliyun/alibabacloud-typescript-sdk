@@ -107,9 +107,7 @@ export class GetInviteStatusResponseBodyData extends $dara.Model {
 export class GetInviteStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status Code. Error Code:
-   * 
-   * - 3057 InviteId is empty
+   * The status code. Error code: 3057: InviteId is empty.
    * 
    * @example
    * 200
@@ -118,15 +116,15 @@ export class GetInviteStatusResponseBody extends $dara.Model {
   data?: GetInviteStatusResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The message.
    * 
    * @example
-   * success
+   * Success
    */
   message?: string;
   /**
    * @remarks
-   * Request ID, Alibaba Cloud will track errors with this.
+   * The request ID. Alibaba Cloud uses this ID for error tracking.
    * 
    * @example
    * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
@@ -134,7 +132,7 @@ export class GetInviteStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
+   * Indicates whether the API call is successful. Valid values: true and false. This parameter does not indicate whether subsequent business operations are successful.
    * 
    * @example
    * true

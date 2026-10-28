@@ -5,9 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetMonthlyBillRequest extends $dara.Model {
   /**
    * @remarks
-   * Bill Owner type. Value Range:</br>
-   * 1: Master account</br>
-   * 2: Sub account</br>
+   * Bill Owner type.
+   * 
+   *  Value range:
+   * 
+   * 1: Master account 
+   * 
+   * 2: Sub account
    * 
    * This parameter is required.
    * 
@@ -19,15 +23,23 @@ export class GetMonthlyBillRequest extends $dara.Model {
    * @remarks
    * Value Range:
    * 
-   * - MonthlyInvoice
-   * - MonthRefundInvoice
-   * - MonthlySummary (Deprecated)
-   * - MonthlyInstanceAddAdjustBill 
-   * - MonthlyInstanceRefundBill
-   * - MonthlyAddAdjustInvoce
-   * - MonthlyRefundAdjustInvoce 
-   * - MonthlyInstanceConsumeV2 
-   * - MarginReportV2
+   * MonthlyInvoice
+   * 
+   * MonthRefundInvoice
+   * 
+   * MonthlySummary (Deprecated)
+   * 
+   * MonthlyInstanceAddAdjustBill 
+   * 
+   * MonthlyInstanceRefundBill
+   * 
+   * MonthlyAddAdjustInvoce
+   * 
+   * MonthlyRefundAdjustInvoce 
+   * 
+   * MonthlyInstanceConsumeV2 
+   * 
+   * MarginReportV2
    * 
    * This parameter is required.
    * 

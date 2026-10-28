@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportCustomerQuotaRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * End Date Format:  yyyy-MM-dd
+   * The end date. Format: yyyy-MM-dd.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ExportCustomerQuotaRecordRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Customer UID
+   * The UID of the customer.
    * 
    * This parameter is required.
    * 
@@ -25,10 +25,10 @@ export class ExportCustomerQuotaRecordRequest extends $dara.Model {
   endUserPk?: number;
   /**
    * @remarks
-   * Multilingual Parameters, the default language is English.</br>
-   * en: English</br>
-   * zh: Chinese</br>
-   * ja: Japanese </br>
+   * The language parameter. Default value: en. Valid values:
+   * - en: English.
+   * - zh: Chinese.
+   * - ja: Japanese.
    * 
    * @example
    * en
@@ -36,10 +36,10 @@ export class ExportCustomerQuotaRecordRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * Operation Type Enum</br>
-   * all All types</br>
-   * quota_create Create quota</br>
-   * quota_amount_adjust Adjust the amount of quota</br>
+   * The operation type. Valid values:
+   * - all: All operations.
+   * - quota_create: Creation.
+   * - quota_amount_adjust: Quota amount adjustment.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class ExportCustomerQuotaRecordRequest extends $dara.Model {
   operationType?: string;
   /**
    * @remarks
-   * Start Date Format:  yyyy-MM-dd
+   * The start date. Format: yyyy-MM-dd.
    * 
    * This parameter is required.
    * 

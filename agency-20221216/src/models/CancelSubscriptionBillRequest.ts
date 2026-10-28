@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CancelSubscriptionBillRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the bill to which you want to cancel the subscription. Valid values: PartnerBillingItemDetailForBillingPeriod, PartnerBillingItemDetailMonthly, PartnerInstanceDetailForBillingPeriod, and PartnerInstanceDetailMonthly.
+   * Subscription type.
+   * 
+   * - PartnerBillingItemDetailForBillingPeriod: Billing item bill details.
+   * - PartnerBillingItemDetailMonthly: Billing item monthly bill.
+   * - PartnerInstanceDetailForBillingPeriod: Instance bill details.
+   * - PartnerInstanceDetailMonthly: Instance monthly bill.
    * 
    * This parameter is required.
    * 

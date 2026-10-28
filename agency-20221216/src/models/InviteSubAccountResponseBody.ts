@@ -95,9 +95,9 @@ export class InviteSubAccountResponseBodyResults extends $dara.Model {
 export class InviteSubAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error Code: </br>
-   * • 200 OK</br>
-   * • 1109 System Error</br>
+   * The fault code. Valid values:
+   * - 200: OK.
+   * - 1109: System Error.
    * 
    * @example
    * 200
@@ -105,15 +105,15 @@ export class InviteSubAccountResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Message</br>
+   * The message returned.
    * 
    * @example
-   * success
+   * 成功
    */
   message?: string;
   /**
    * @remarks
-   * Request ID, Alibaba Cloud will track errors with this ID.
+   * The request ID. Alibaba Cloud uses this ID for fault tracking.
    * 
    * @example
    * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
@@ -122,7 +122,7 @@ export class InviteSubAccountResponseBody extends $dara.Model {
   results?: InviteSubAccountResponseBodyResults;
   /**
    * @remarks
-   * Candidate Values: True/False, this value states if the current API calling action is successful. It does not guarantee the success of subsequent business operations.
+   * Indicates whether the current API invocation is successful. Valid values: True and False. This does not indicate whether the subsequent business operation is successful.
    * 
    * @example
    * true

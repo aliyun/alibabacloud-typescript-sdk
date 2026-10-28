@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCouponUsageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 阿里云账号
+   * The Alibaba Cloud account.
    * 
    * @example
    * oqevfbveuadcrduzmf@ttirv.net
@@ -13,7 +13,7 @@ export class ListCouponUsageResponseBodyData extends $dara.Model {
   account?: string;
   /**
    * @remarks
-   * 优惠券面额
+   * The face value of the coupon.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class ListCouponUsageResponseBodyData extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * 余额
+   * The remaining balance.
    * 
    * @example
    * 0.01
@@ -29,7 +29,7 @@ export class ListCouponUsageResponseBodyData extends $dara.Model {
   balance?: number;
   /**
    * @remarks
-   * 优惠券id
+   * The ID of the coupon.
    * 
    * @example
    * 59226280
@@ -37,7 +37,7 @@ export class ListCouponUsageResponseBodyData extends $dara.Model {
   couponId?: string;
   /**
    * @remarks
-   * 优惠券模版id
+   * The ID of the coupon template.
    * 
    * @example
    * 503802
@@ -45,7 +45,7 @@ export class ListCouponUsageResponseBodyData extends $dara.Model {
   couponTemplateId?: number;
   /**
    * @remarks
-   * 优惠券有效期
+   * The validity period of the coupon.
    * 
    * @example
    * 2023-04-06 00:00:00 ~ 2023-04-07 00:00:00
@@ -53,7 +53,7 @@ export class ListCouponUsageResponseBodyData extends $dara.Model {
   effDate?: string;
   /**
    * @remarks
-   * 优惠券发放时间
+   * The time when the coupon was issued. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-04-06 19:32:10
@@ -61,11 +61,11 @@ export class ListCouponUsageResponseBodyData extends $dara.Model {
   publishDate?: string;
   /**
    * @remarks
-   * 优惠券状态 </br>
-   * AVAILABLE 正常 </br>
-   * EXHAUSTED 已用完 </br>
-   * EXPIRED 已过期 </br>
-   * ABANDONED 已作废 </br>
+   * The coupon status. Valid values:</br>
+   * AVAILABLE: Normal.</br>
+   * EXHAUSTED: Used up.</br>
+   * EXPIRED: Expired.</br>
+   * ABANDONED: Voided.</br>
    * 
    * @example
    * AVAILABLE
@@ -73,7 +73,7 @@ export class ListCouponUsageResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 二级分销商Uid
+   * The UID of the T2 partner.
    * 
    * @example
    * 5248516956402795
@@ -81,7 +81,7 @@ export class ListCouponUsageResponseBodyData extends $dara.Model {
   t2PartnerUid?: string;
   /**
    * @remarks
-   * 阿里云uid
+   * The UID of the Alibaba Cloud account.
    * 
    * @example
    * 1647668856741998
@@ -129,7 +129,7 @@ export class ListCouponUsageResponseBodyData extends $dara.Model {
 export class ListCouponUsageResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * 分页，当前页
+   * The current page number.
    * 
    * @example
    * 1
@@ -137,7 +137,7 @@ export class ListCouponUsageResponseBodyPageInfo extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * 分页，每页数量
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -145,7 +145,7 @@ export class ListCouponUsageResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 分页，总量
+   * The total number of entries.
    * 
    * @example
    * 300
@@ -179,7 +179,7 @@ export class ListCouponUsageResponseBodyPageInfo extends $dara.Model {
 export class ListCouponUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 接口状态码
+   * The status code of the API operation.
    * 
    * @example
    * 200
@@ -187,25 +187,25 @@ export class ListCouponUsageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 返回数据
+   * The returned data.
    */
   data?: ListCouponUsageResponseBodyData[];
   /**
    * @remarks
-   * 接口返回提示信息
+   * The message returned by the API operation.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
    * @remarks
-   * 分页信息
+   * The pagination information.
    */
   pageInfo?: ListCouponUsageResponseBodyPageInfo;
   /**
    * @remarks
-   * 接口请求id返回问题提供查询使用
+   * The request ID. You can provide this ID for troubleshooting.
    * 
    * @example
    * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4

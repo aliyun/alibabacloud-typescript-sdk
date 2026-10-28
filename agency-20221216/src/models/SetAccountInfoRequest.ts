@@ -5,35 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class SetAccountInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Result Code:
-   * *   200 OK
-   * *   1109 System error
-   * *   3030 Sub Account Nickname exceeds maximum length,  maximum length 150 bytes.
-   * *   3031 Remark exceeds maximum length,  maximum length 3000 bytes.
+   * The nickname of the sub-account. For enterprise customers, this is the company name. For T2 partners, this is the partner name.
    * 
    * @example
-   * Message information
+   * 我的账号
    */
   accountNickname?: string;
   /**
    * @remarks
-   * Customer manager（limited 50 character）
+   * The customer business manager. Maximum length: 50 characters.
    * 
    * @example
-   * abc
+   * 张三
    */
   customerBd?: string;
   /**
    * @remarks
-   * success
+   * The description of the sub-account.
    * 
    * @example
-   * Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
+   * 测试的账号
    */
   remark?: string;
   /**
    * @remarks
-   * Request ID, Alibaba Cloud will track errors with this.
+   * The UID of the sub-account.
    * 
    * This parameter is required.
    * 

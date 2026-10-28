@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInviteStatusRequestInviteStatusList extends $dara.Model {
   /**
    * @remarks
-   * Invitation ID, From interface InviteSubAccount
+   * The invitation ID, which is obtained from the InviteSubAccount operation.
    * 
    * @example
    * 123
@@ -35,8 +35,7 @@ export class GetInviteStatusRequestInviteStatusList extends $dara.Model {
 export class GetInviteStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * inviteId list</br>
-   * `Sub-levels <= 5`
+   * inviteId list
    * 
    * This parameter is required.
    */

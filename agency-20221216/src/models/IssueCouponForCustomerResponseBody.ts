@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class IssueCouponForCustomerResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the coupon template.
+   * 
    * @example
    * 5075915
    */
   couponTemplateId?: number;
   /**
+   * @remarks
+   * The creation time. The time is in the YYYY-MM-DD HH:mm:ss format.
+   * 
    * @example
    * 2024-03-05 18:24:07
    */
   createTime?: string;
   /**
+   * @remarks
+   * The UIDs to which the coupons are issued.
+   * 
    * @example
    * 111,2222
    */
@@ -45,11 +54,17 @@ export class IssueCouponForCustomerResponseBodyData extends $dara.Model {
 
 export class IssueCouponForCustomerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * code
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * 200
    */
@@ -63,10 +78,17 @@ export class IssueCouponForCustomerResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: IssueCouponForCustomerResponseBodyData;
   static names(): { [key: string]: string } {
     return {

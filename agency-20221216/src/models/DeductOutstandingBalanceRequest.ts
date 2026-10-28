@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeductOutstandingBalanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The Deducted Credit to be offset.
+   * The amount of deducted credit to reduce.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeductOutstandingBalanceRequest extends $dara.Model {
   deductAmount?: string;
   /**
    * @remarks
-   * Account UID of Distribution Customer.
+   * The UID of the reseller\\"s customer account.
    * 
    * This parameter is required.
    * 

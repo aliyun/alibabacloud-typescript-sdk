@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class EditEndUserStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * Shutdown Status</br>
+   * ### Shutdown status
    * 
-   * - postPayFreeze, the account have been blocked</br>
-   * 
-   * - postPayThaw, the account have been unlocked</br>
+   * - postPayFreeze: pay-as-you-go resource suspension
+   * - postPayThaw: pay-as-you-go resource resumption.
    * 
    * @example
    * postPayFreeze
@@ -17,7 +16,7 @@ export class EditEndUserStatusRequest extends $dara.Model {
   creditStatus?: string;
   /**
    * @remarks
-   * UID
+   * The UID of the customer to be processed.
    * 
    * @example
    * 1792155717328010

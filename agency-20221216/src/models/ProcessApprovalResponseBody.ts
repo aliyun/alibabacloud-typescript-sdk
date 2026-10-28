@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ProcessApprovalResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The approval result.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The prompt message.
+   * 
    * @example
    * SUCCESS
    */

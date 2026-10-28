@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCreditInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Message Information
+   * The UID of the sub-account.
    * 
    * This parameter is required.
    * 

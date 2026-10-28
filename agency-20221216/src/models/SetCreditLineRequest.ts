@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetCreditLineRequest extends $dara.Model {
   /**
    * @remarks
-   * New Credit Line
+   * The new credit limit.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SetCreditLineRequest extends $dara.Model {
   creditLine?: string;
   /**
    * @remarks
-   * The UID of Sub Account.
+   * The UID of the sub-account.
    * 
    * This parameter is required.
    * 

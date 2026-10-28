@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExportReversedDeductionHistoryRequest extends $dara.Model {
   /**
    * @remarks
+   * The end date. Format: yyyy-MM-dd.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ExportReversedDeductionHistoryRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
+   * The UID for which the reversed deduction details are exported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,20 @@ export class ExportReversedDeductionHistoryRequest extends $dara.Model {
    */
   exportUid?: number;
   /**
+   * @remarks
+   * The language of the exported content. Valid values:
+   * - en: English.
+   * - zh: Chinese.
+   * - ja: Japanese.
+   * 
    * @example
    * en
    */
   language?: string;
   /**
    * @remarks
+   * The start date. Format: yyyy-MM-dd.
+   * 
    * This parameter is required.
    * 
    * @example

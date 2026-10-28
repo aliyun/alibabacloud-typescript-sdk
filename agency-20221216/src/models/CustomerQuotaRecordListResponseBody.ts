@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CustomerQuotaRecordListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The way to submit the quota adjustment operation. API/ACPN
+   * The method used to submit the operation, such as API or ACPN.
    * 
    * @example
    * ACPN
@@ -13,7 +13,7 @@ export class CustomerQuotaRecordListResponseBodyData extends $dara.Model {
   operationSubmitType?: string;
   /**
    * @remarks
-   * The time of submit the quota adjustment operation.
+   * The time when the operation was performed. Format: YYYY-MM-DD HH:mm:ss UTC+8.
    * 
    * @example
    * 2023-12-15 10:34:36 UTC+8
@@ -21,10 +21,7 @@ export class CustomerQuotaRecordListResponseBodyData extends $dara.Model {
   operationTime?: string;
   /**
    * @remarks
-   * Operation Type Enum</br>
-   * all All types</br>
-   * quota_create Create quota</br>
-   * quota_amount_adjust Adjust the amount of quota</br>
+   * The code of the change type. Valid values: all: All, quota_create: Create, quota_amount_adjust: Quota adjustment.
    * 
    * @example
    * quota_amount_adjust
@@ -32,7 +29,7 @@ export class CustomerQuotaRecordListResponseBodyData extends $dara.Model {
   operationTypeCode?: string;
   /**
    * @remarks
-   * The description of submitted quota adjustment operation.
+   * The description of the change type.
    * 
    * @example
    * Quota Adjustment
@@ -40,7 +37,7 @@ export class CustomerQuotaRecordListResponseBodyData extends $dara.Model {
   operationTypeDesc?: string;
   /**
    * @remarks
-   * The UID of operator(Partner\\"s UID).
+   * The UID of the operator.
    * 
    * @example
    * 5113766248601929
@@ -48,7 +45,7 @@ export class CustomerQuotaRecordListResponseBodyData extends $dara.Model {
   operationUid?: string;
   /**
    * @remarks
-   * Updated quota amount
+   * The amount after the update.
    * 
    * @example
    * 121.00
@@ -56,7 +53,7 @@ export class CustomerQuotaRecordListResponseBodyData extends $dara.Model {
   updateAfterAmount?: string;
   /**
    * @remarks
-   * The difference amount between updated quota and original quota.
+   * The changed amount.
    * 
    * @example
    * -100.00
@@ -64,7 +61,7 @@ export class CustomerQuotaRecordListResponseBodyData extends $dara.Model {
   updateAmount?: string;
   /**
    * @remarks
-   * Original quota amount
+   * The amount before the update.
    * 
    * @example
    * 221.00
@@ -108,7 +105,7 @@ export class CustomerQuotaRecordListResponseBodyData extends $dara.Model {
 export class CustomerQuotaRecordListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code of returning result, 200 means success.
+   * The status code of the returned result. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -116,12 +113,12 @@ export class CustomerQuotaRecordListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Listed data of returning result
+   * The list of returned results.
    */
   data?: CustomerQuotaRecordListResponseBodyData[];
   /**
    * @remarks
-   * Description of returning data
+   * The description of the returned result.
    * 
    * @example
    * SUCCESS
@@ -129,7 +126,7 @@ export class CustomerQuotaRecordListResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -137,7 +134,7 @@ export class CustomerQuotaRecordListResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Record number on each page
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -145,7 +142,7 @@ export class CustomerQuotaRecordListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * ID of request
+   * The request ID.
    * 
    * @example
    * 2103a0ae16849855284594613d874e
@@ -153,7 +150,7 @@ export class CustomerQuotaRecordListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total volume
+   * The total number of entries.
    * 
    * @example
    * 10

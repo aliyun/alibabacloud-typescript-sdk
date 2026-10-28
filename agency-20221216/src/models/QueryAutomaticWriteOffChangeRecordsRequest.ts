@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAutomaticWriteOffChangeRecordsRequest extends $dara.Model {
   /**
    * @remarks
+   * The customer UID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,17 +14,29 @@ export class QueryAutomaticWriteOffChangeRecordsRequest extends $dara.Model {
    */
   customerUid?: number;
   /**
+   * @remarks
+   * The end date.
+   * Format: yyyy-MM-dd.
+   * 
    * @example
    * 2026-05-20
    */
   endDate?: string;
   /**
+   * @remarks
+   * The language. If you do not specify this parameter, English is used by default. Valid values:
+   * - en: English.
+   * - zh: Chinese.
+   * - ja: Japanese.
+   * 
    * @example
    * en
    */
   language?: string;
   /**
    * @remarks
+   * The page number. Pages start from 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +45,8 @@ export class QueryAutomaticWriteOffChangeRecordsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
+   * The number of entries per page. Maximum value: 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +54,10 @@ export class QueryAutomaticWriteOffChangeRecordsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The start date.
+   * Format: yyyy-MM-dd.
+   * 
    * @example
    * 2026-06-20
    */

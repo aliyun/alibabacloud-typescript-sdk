@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportCustomerQuotaRecordResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Estimated duration, in minutes.
+   * The estimated time required, in minutes.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ExportCustomerQuotaRecordResponseBodyData extends $dara.Model {
   cost?: number;
   /**
    * @remarks
-   * ID of Export task
+   * The ID of the export task.
    * 
    * @example
    * 1231
@@ -45,7 +45,7 @@ export class ExportCustomerQuotaRecordResponseBodyData extends $dara.Model {
 export class ExportCustomerQuotaRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Code
+   * code
    * 
    * @example
    * 200
@@ -53,12 +53,12 @@ export class ExportCustomerQuotaRecordResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Data
+   * The data.
    */
   data?: ExportCustomerQuotaRecordResponseBodyData;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * SUCCESS
@@ -66,7 +66,7 @@ export class ExportCustomerQuotaRecordResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * ID of the Request
+   * Id of the request
    * 
    * @example
    * 210bc4b416874189683843905d9f9a

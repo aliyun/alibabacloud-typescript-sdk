@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class EditNewBuyStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * New Purchase Status</br>
+   * The new purchase status. Valid values:
    * 
-   * - cancelBan: Cancel the restriction for New Purchase request</br>
-   * 
-   * - ban: ban the New Purchase request</br>
+   * - cancelBan: allows new purchases
+   * - ban: prohibits new purchases.
    * 
    * @example
    * cancelBan
@@ -17,7 +16,7 @@ export class EditNewBuyStatusRequest extends $dara.Model {
   newBuyStatus?: string;
   /**
    * @remarks
-   * Customer UID
+   * The UID of the customer.
    * 
    * @example
    * 1133166938931507

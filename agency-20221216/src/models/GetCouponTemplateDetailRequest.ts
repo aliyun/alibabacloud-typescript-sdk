@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetCouponTemplateDetailRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the coupon template.
+   * 
    * This parameter is required.
    * 
    * @example

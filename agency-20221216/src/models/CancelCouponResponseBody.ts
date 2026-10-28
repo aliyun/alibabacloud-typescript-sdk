@@ -4,22 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CancelCouponResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The operation result.
+   * 
    * @example
    * true
    */
   data?: boolean;
+  /**
+   * @remarks
+   * The message.
+   * 
+   * @example
+   * 成功
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
    * @example
    * true
    */

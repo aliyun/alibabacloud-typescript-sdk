@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUnassociatedCustomerRequest extends $dara.Model {
   /**
    * @remarks
-   * Pagination, current page.
+   * The current page number for pagination.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetUnassociatedCustomerRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Pagination, record number on each page.
+   * The number of records per page for pagination.
    * 
    * This parameter is required.
    * 

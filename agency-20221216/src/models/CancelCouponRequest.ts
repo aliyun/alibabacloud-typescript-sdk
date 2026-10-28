@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CancelCouponRequest extends $dara.Model {
   /**
    * @remarks
+   * The coupon ID.
+   * 
    * This parameter is required.
    * 
    * @example

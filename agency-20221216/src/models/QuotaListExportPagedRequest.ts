@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuotaListExportPagedRequest extends $dara.Model {
   /**
    * @remarks
-   * Pagination, current page number, starting from 1.
+   * The page number. Pages start from page 1.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class QuotaListExportPagedRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Multilingual Parameters, the default language is English.</br>
-   * en: English</br>
-   * zh: Chinese</br>
-   * ja: Japanese </br>
+   * The language. Default value: en. Valid values:
+   * - en: English.
+   * - zh: Chinese.
+   * - ja: Japanese.
    * 
    * @example
    * en
@@ -26,7 +26,7 @@ export class QuotaListExportPagedRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * Pagination, record number on each page, maximum 100.
+   * The number of entries per page. Maximum value: 100.
    * 
    * This parameter is required.
    * 

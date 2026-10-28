@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomerRequest extends $dara.Model {
   /**
    * @remarks
-   * Customer\\"s name.
+   * The customer name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,8 @@ export class CreateCustomerRequest extends $dara.Model {
   customerName?: string;
   /**
    * @remarks
-   * The source/channel that allow client to connected with us. Please enumerate with Customer Source.
+   * The customer source.
+   * Use the Customer Source enumeration.
    * 
    * This parameter is required.
    * 
@@ -25,25 +26,27 @@ export class CreateCustomerRequest extends $dara.Model {
   customerSource?: string;
   /**
    * @remarks
-   * The sub-industry that Customer\\"s business belongs to. Please enumerate with Customer Trade.
+   * The customer sub-industry.
+   * Use the Customer Sub Trade enumeration.
    * 
    * @example
-   * 0101
+   * 020501
    */
   customerSubTrade?: string;
   /**
    * @remarks
-   * The industry that Customer\\"s business belongs to. Please enumerate with Customer Trade.
+   * The customer industry name.
+   * Use the Customer Trade enumeration.
    * 
    * This parameter is required.
    * 
    * @example
-   * 01
+   * 0205
    */
   customerTrade?: string;
   /**
    * @remarks
-   * The region that Customer choose to launch the Cloud Service. Please use ListCountries to confirm the valid region list for current UID.
+   * The region to which the customer belongs. Call ListCountries to obtain the list of available regions for the current UID.
    * 
    * This parameter is required.
    * 

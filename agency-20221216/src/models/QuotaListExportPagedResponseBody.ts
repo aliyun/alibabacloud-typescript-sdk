@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuotaListExportPagedResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Create Time
+   * The creation time. The time is in the YYYY-MM-DD HH:mm:ss format in the UTC+8 time zone.
    * 
    * @example
    * 2023-12-21 21:31:57 UTC+8
@@ -13,7 +13,7 @@ export class QuotaListExportPagedResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * File Name
+   * The name of the file.
    * 
    * @example
    * 5113766248601929_quota_2023-06-22_2023-12-21_all_2023122121310057
@@ -21,7 +21,7 @@ export class QuotaListExportPagedResponseBodyData extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * Notification Message
+   * The prompt message.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class QuotaListExportPagedResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Display of Task Status
+   * The display status of the task.
    * 
    * @example
    * 3
@@ -37,10 +37,10 @@ export class QuotaListExportPagedResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Task Status Enum</br>
-   * 2: Exporting</br>
-   * 3: Export Success</br>
-   * -1: Export Fail</br>
+   * The status code of the task. Valid values:
+   * - 2: Exporting.
+   * - 3: Export succeeded.
+   * - -1: Export failed.
    * 
    * @example
    * Export Success
@@ -48,7 +48,7 @@ export class QuotaListExportPagedResponseBodyData extends $dara.Model {
   statusCode?: string;
   /**
    * @remarks
-   * The link to download exported file.
+   * The download URL of the file.
    * 
    * @example
    * //aliyun-eco-market-servic-singapore.oss-ap-southeast-1.aliyuncs.com/5113766248601929_quota_2023-06-22_2023-12-21_all_2023122121310057
@@ -88,7 +88,7 @@ export class QuotaListExportPagedResponseBodyData extends $dara.Model {
 export class QuotaListExportPagedResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code of returning result, 200 means success.
+   * The status code of the returned result. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -96,12 +96,12 @@ export class QuotaListExportPagedResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Listed data of returning result
+   * The list of returned results.
    */
   data?: QuotaListExportPagedResponseBodyData[];
   /**
    * @remarks
-   * Description of returning result
+   * The description of the returned result.
    * 
    * @example
    * SUCCESS
@@ -109,7 +109,7 @@ export class QuotaListExportPagedResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -117,7 +117,7 @@ export class QuotaListExportPagedResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Record number on each page
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -125,7 +125,7 @@ export class QuotaListExportPagedResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * ID of the Request
+   * The request ID.
    * 
    * @example
    * 210e876f16704666020714468dab35
@@ -133,7 +133,7 @@ export class QuotaListExportPagedResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total volume
+   * The total number of entries.
    * 
    * @example
    * 10

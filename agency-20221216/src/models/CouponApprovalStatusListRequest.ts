@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CouponApprovalStatusListRequest extends $dara.Model {
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CouponApprovalStatusListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,32 @@ export class CouponApprovalStatusListRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the coupon template.
+   * 
    * @example
    * 5093156
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * Test coupon template
+   */
   templateName?: string;
   /**
+   * @remarks
+   * The status of the coupon template. Valid values:
+   * - **1**: application revoked
+   * - **2**: under review
+   * - **3**: review rejected
+   * - **4**: review approved
+   * - **5**: review approved but issuance failed
+   * - **6**: automatically approved
+   * - **7**: automatically approved but issuance failed
+   * 
    * @example
    * 2
    */

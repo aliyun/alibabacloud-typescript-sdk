@@ -4,71 +4,125 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCustomerOrdersResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The customer account.
+   * 
    * @example
    * test_123
    */
   customerAccount?: string;
   /**
+   * @remarks
+   * The account manager.
+   * 
    * @example
    * myBd
    */
   customerManager?: string;
   /**
+   * @remarks
+   * The customer UID.
+   * 
    * @example
    * 123456
    */
   customerNo?: number;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 236414227150922
    */
   orderId?: number;
   /**
+   * @remarks
+   * The order source. Valid values:
+   * - 0: Regular customer.
+   * - 1: Enterprise customer.
+   * - 2: Tier-2 distributor.
+   * 
    * @example
    * 0
    */
   orderSource?: string;
   /**
+   * @remarks
+   * The order status. Valid values:
+   * - 1: Unpaid.
+   * - 2: Canceled.
+   * - 3: Paid.
+   * 
    * @example
    * 3
    */
   orderStatus?: number;
   /**
+   * @remarks
+   * The order type. Valid values:
+   * - BUY: New purchase.
+   * - UPGRADE: Upgrade.
+   * - DOWNGRADE: Downgrade.
+   * - RENEW: Renewal.
+   * - REFUND: Refund.
+   * - OTHERS: Others.
+   * 
    * @example
    * BUY
    */
   orderType?: string;
   /**
+   * @remarks
+   * The original order price.
+   * 
    * @example
    * 3.92
    */
   originalCost?: number;
   /**
+   * @remarks
+   * The payment method.
+   * 
    * @example
    * 3:32
    */
   paymentMethod?: string;
   /**
+   * @remarks
+   * The payment time. Format: YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2024-08-13 13:02:02
    */
   paymentTime?: string;
   /**
+   * @remarks
+   * The payable amount.
+   * 
    * @example
    * 3.92
    */
   pretaxCost?: number;
   /**
+   * @remarks
+   * The product details.
+   * 
    * @example
    * oss
    */
   productDetail?: string;
   /**
+   * @remarks
+   * The product detail code.
+   * 
    * @example
    * snapshot
    */
   productType?: string;
   /**
+   * @remarks
+   * The order placement time. Format: YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2024-08-13 13:02:02
    */
@@ -122,19 +176,46 @@ export class GetCustomerOrdersResponseBodyData extends $dara.Model {
 
 export class GetCustomerOrdersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetCustomerOrdersResponseBodyData[];
+  /**
+   * @remarks
+   * The message. The value is the same as the Code parameter.
+   * 
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The message. The value is the same as the Code parameter.
+   * 
+   * @example
+   * Success
+   */
   msg?: string;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 1
    */
@@ -148,11 +229,19 @@ export class GetCustomerOrdersResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * - 200: OK.
+   * - 201: Parameter error.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 100
    */

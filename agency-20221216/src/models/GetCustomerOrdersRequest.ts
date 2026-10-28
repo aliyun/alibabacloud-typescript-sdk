@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCustomerOrdersRequest extends $dara.Model {
   /**
+   * @remarks
+   * The customer account.
+   * 
    * @example
    * test_123
    */
   customerAccount?: string;
   /**
+   * @remarks
+   * The account manager.
+   * 
    * @example
    * myBd
    */
   customerManager?: string;
   /**
+   * @remarks
+   * The customer UID.
+   * 
    * @example
    * 123456
    */
   customerUid?: number;
   /**
    * @remarks
+   * The end time. This parameter is used in combination with TimeType. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,27 +38,53 @@ export class GetCustomerOrdersRequest extends $dara.Model {
    */
   endDate?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 209335720330622
    */
   orderId?: number;
   /**
+   * @remarks
+   * The order source. Valid values:
+   * - 0: Regular customer.
+   * - 1: Enterprise customer.
+   * - 2: Tier-2 distributor.
+   * 
    * @example
    * 0
    */
   orderSource?: number;
   /**
+   * @remarks
+   * The order status. Valid values:
+   * - 1: Unpaid.
+   * - 2: Canceled.
+   * - 3: Paid.
+   * 
    * @example
    * 3
    */
   orderStatus?: number;
   /**
+   * @remarks
+   * The order type. Valid values:
+   * - BUY: New purchase.
+   * - UPGRADE: Upgrade.
+   * - DOWNGRADE: Downgrade.
+   * - RENEW: Renewal.
+   * - REFUND: Refund.
+   * - OTHERS: Others.
+   * 
    * @example
    * RENEW
    */
   orderType?: string;
   /**
    * @remarks
+   * The current page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,6 +93,8 @@ export class GetCustomerOrdersRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,12 +102,17 @@ export class GetCustomerOrdersRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The product detail code.
+   * 
    * @example
    * vm_intl
    */
   productType?: string;
   /**
    * @remarks
+   * The start time. This parameter is used in combination with TimeType. Format: yyyy-MM-dd HH:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -77,6 +121,10 @@ export class GetCustomerOrdersRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
+   * The time type used as the basis for the query. This is not a date or time value. Valid values:
+   * - 1: Payment time.
+   * - 2: Order placement time.
+   * 
    * This parameter is required.
    * 
    * @example

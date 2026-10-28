@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetPurchaseControlRecordRequest extends $dara.Model {
   /**
    * @remarks
+   * The customer UID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class GetPurchaseControlRecordRequest extends $dara.Model {
    */
   customerUID?: number;
   /**
+   * @remarks
+   * The start time. If left empty, data from the last six months is returned. The time format is yyyy-MM-dd HH:mm:ss.
+   * 
    * @example
    * 2023-12-15 10:34:36
    */
   operationTime?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class GetPurchaseControlRecordRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example

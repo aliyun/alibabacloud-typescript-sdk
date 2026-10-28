@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetDailyBillRequest extends $dara.Model {
   /**
    * @remarks
-   * Bill Owner type. Value Range:</br>
-   * 1: Master account</br>
-   * 2: Sub account</br>
+   * The type of the bill owner. Valid values:
+   * 
+   * 1: reseller partner account 
+   * 
+   * 2: reseller customer account
    * 
    * This parameter is required.
    * 
@@ -17,11 +19,13 @@ export class GetDailyBillRequest extends $dara.Model {
   billOwner?: string;
   /**
    * @remarks
-   * BillType. Value Range:</br>
+   * The bill type. Valid values:
    * 
-   * - DailyOrder(Deprecated)
-   * - DailyBill (Deprecated)
-   * - DailyInstanceBill (Deprecated)
+   * - DailyOrder (deprecated)
+   * 
+   * - DailyBill (deprecated)
+   * 
+   * - DailyInstanceBill (deprecated) 
    * - DailyInstanceBillV2
    * 
    * This parameter is required.

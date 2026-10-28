@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelSubscriptionBillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CancelSubscriptionBillResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data that is returned.
+   * The data returned.
    * 
    * @example
    * true
@@ -21,15 +21,15 @@ export class CancelSubscriptionBillResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The message that is returned.
+   * The message returned.
    * 
    * @example
-   * Successful
+   * 成功
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 210e876f16704666020714468dab35

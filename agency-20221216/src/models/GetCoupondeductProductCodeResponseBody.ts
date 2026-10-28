@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCoupondeductProductCodeResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The product code.
+   * 
    * @example
    * code1
    */
@@ -31,11 +34,26 @@ export class GetCoupondeductProductCodeResponseBodyData extends $dara.Model {
 
 export class GetCoupondeductProductCodeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The result code. Valid values:
+   * 200: OK.
+   * 
    * @example
    * code
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: GetCoupondeductProductCodeResponseBodyData[];
+  /**
+   * @remarks
+   * The message information.
+   * 
+   * @example
+   * 成功
+   */
   message?: string;
   /**
    * @remarks
@@ -46,6 +64,9 @@ export class GetCoupondeductProductCodeResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * 
    * @example
    * true
    */

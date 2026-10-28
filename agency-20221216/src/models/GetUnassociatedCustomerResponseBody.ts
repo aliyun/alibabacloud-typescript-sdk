@@ -66,7 +66,7 @@ export class GetUnassociatedCustomerResponseBodyInviteInfoList extends $dara.Mod
 export class GetUnassociatedCustomerResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * Pagination, current page.
+   * The current page number for pagination.
    * 
    * @example
    * 1
@@ -74,7 +74,7 @@ export class GetUnassociatedCustomerResponseBodyPageInfo extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * Pagination, record number on each page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -82,7 +82,7 @@ export class GetUnassociatedCustomerResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Pagination, page volume in total.
+   * The total number of records.
    * 
    * @example
    * 12
@@ -116,9 +116,9 @@ export class GetUnassociatedCustomerResponseBodyPageInfo extends $dara.Model {
 export class GetUnassociatedCustomerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error Code, Candidate Value：
-   * * 200: OK
-   * * 1109: System error
+   * The error code. Valid values:
+   * 200: OK.
+   * 1109: System error.
    * 
    * @example
    * 200
@@ -127,20 +127,20 @@ export class GetUnassociatedCustomerResponseBody extends $dara.Model {
   inviteInfoList?: GetUnassociatedCustomerResponseBodyInviteInfoList;
   /**
    * @remarks
-   * Message information
+   * The message information.
    * 
    * @example
-   * success
+   * 成功
    */
   message?: string;
   /**
    * @remarks
-   * Pagination Information
+   * The pagination information.
    */
   pageInfo?: GetUnassociatedCustomerResponseBodyPageInfo;
   /**
    * @remarks
-   * Request ID, Alibaba Cloud will track errors with this.
+   * The request ID. Alibaba Cloud uses this ID for error tracking.
    * 
    * @example
    * 23309219-4A34-589D-A3E0-9B2A3BFFD24F
@@ -148,7 +148,7 @@ export class GetUnassociatedCustomerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
+   * Indicates whether the current API call itself is successful. Valid values: True and False. This does not indicate the success of subsequent business operations.
    * 
    * @example
    * true

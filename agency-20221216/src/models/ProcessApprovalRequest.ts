@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ProcessApprovalRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the application form.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,10 @@ export class ProcessApprovalRequest extends $dara.Model {
   applicationSheetId?: string;
   /**
    * @remarks
+   * The approval action. Valid values:
+   * - Approve: approved.
+   * - Reject: rejected.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,7 +27,12 @@ export class ProcessApprovalRequest extends $dara.Model {
   approvalAction?: string;
   /**
    * @remarks
+   * The approval comments.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 同意
    */
   approvalComments?: string;
   static names(): { [key: string]: string } {
