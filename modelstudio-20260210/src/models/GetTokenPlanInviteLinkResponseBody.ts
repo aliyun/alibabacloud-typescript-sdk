@@ -66,8 +66,7 @@ export class GetTokenPlanInviteLinkResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * 
+   * Indicates whether the API call is successful. Valid values:
    * - true: Successful.
    * - false: Failed.
    * 

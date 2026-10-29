@@ -10,7 +10,7 @@ export class BatchRevokeSeatsShrinkRequest extends $dara.Model {
   itemsShrink?: string;
   /**
    * @remarks
-   * The language. Valid values: zh-CN and en-US.
+   * The locale. Valid values: zh-CN and en-US.
    * 
    * @example
    * zh-CN

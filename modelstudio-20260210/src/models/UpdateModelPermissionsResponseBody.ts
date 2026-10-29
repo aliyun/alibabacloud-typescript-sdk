@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateModelPermissionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is empty when the call is successful.
+   * The error code. This parameter is empty if the call is successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateModelPermissionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message. This parameter is empty when the call is successful.
+   * The error message. This parameter is empty if the call is successful.
    * 
    * @example
    * The specified parameter is invalid
@@ -29,7 +29,7 @@ export class UpdateModelPermissionsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The unique request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 36045E0A-551D-592D-B1BC-4C56596CE59E

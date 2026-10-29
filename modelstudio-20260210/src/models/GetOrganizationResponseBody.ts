@@ -8,7 +8,7 @@ export class GetOrganizationResponseBodyData extends $dara.Model {
    * The organization description.
    * 
    * @example
-   * 组织描述
+   * Organization description
    */
   description?: string;
   /**
@@ -21,7 +21,7 @@ export class GetOrganizationResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2025-11-13T02:11:56Z
@@ -32,7 +32,7 @@ export class GetOrganizationResponseBodyData extends $dara.Model {
    * The organization name.
    * 
    * @example
-   * 组织名称
+   * Organization name
    */
   name?: string;
   /**
@@ -53,7 +53,7 @@ export class GetOrganizationResponseBodyData extends $dara.Model {
   orgId?: string;
   /**
    * @remarks
-   * The business account identifier of the organization owner. The value is aliyunUid for the ALIYUN type and userIdentifier for the SSO type.
+   * The business account identifier of the organization owner. For the ALIYUN type, the value is aliyunUid. For the SSO type, the value is userIdentifier.
    * 
    * @example
    * 1543686331379464
@@ -69,7 +69,7 @@ export class GetOrganizationResponseBodyData extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The status. Valid values: ACTIVE and FROZEN.
+   * The status of the organization. Valid values: ACTIVE and FROZEN.
    * 
    * @example
    * ACTIVE
@@ -144,7 +144,7 @@ export class GetOrganizationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * The request ID.
    * 
    * @example
    * 0CB5868D-C6E5-59A6-A20A-C39EB2E75BDE

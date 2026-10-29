@@ -15,7 +15,7 @@ export class UpdateModelLimitsShrinkRequest extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The throttling values for the workspace.
+   * The throttling limits for the workspace.
    */
   workspaceLimitsShrink?: string;
   static names(): { [key: string]: string } {

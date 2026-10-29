@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account and directly adds it as a member.
+   * Creates an account and directly adds a member.
    * 
    * @param request - AddOrganizationMemberRequest
    * @param headers - map
@@ -71,7 +71,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account and directly adds it as a member.
+   * Creates an account and directly adds a member.
    * 
    * @param request - AddOrganizationMemberRequest
    * @returns AddOrganizationMemberResponse
@@ -83,7 +83,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Assigns seats in batches to the member level.
+   * Assigns seats to member accounts in batches.
    * 
    * @param request - BatchAssignSeatsRequest
    * @param headers - map
@@ -124,7 +124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Assigns seats in batches to the member level.
+   * Assigns seats to member accounts in batches.
    * 
    * @param request - BatchAssignSeatsRequest
    * @returns BatchAssignSeatsResponse
@@ -136,7 +136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes member-level seats in batches.
+   * Revokes member-level seats in bulk.
    * 
    * @param tmpReq - BatchRevokeSeatsRequest
    * @param headers - map
@@ -179,7 +179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes member-level seats in batches.
+   * Revokes member-level seats in bulk.
    * 
    * @param request - BatchRevokeSeatsRequest
    * @returns BatchRevokeSeatsResponse
@@ -191,7 +191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
+   * Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
    * 
    * @param request - CreateApiKeyRequest
    * @param headers - map
@@ -234,7 +234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
+   * Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
    * 
    * @param request - CreateApiKeyRequest
    * @returns CreateApiKeyResponse
@@ -246,15 +246,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a TokenPlan member invitation link.
+   * Creates an invitation link for a TokenPlan member.
    * 
    * @remarks
-   * A user can have only one valid invitation link at a time.
+   * A user can have only one valid invitation link.
    * If the user already has a valid invitation link, this operation returns the existing link.
-   * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link first.
-   * This operation returns only the generated token. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+   * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link.
+   * This operation returns only the generated token. The invitation link is concatenated in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`.
    * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
-   * * For the China site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+   * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
    * 
    * @param request - CreateTokenPlanInviteLinkRequest
    * @param headers - map
@@ -291,15 +291,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a TokenPlan member invitation link.
+   * Creates an invitation link for a TokenPlan member.
    * 
    * @remarks
-   * A user can have only one valid invitation link at a time.
+   * A user can have only one valid invitation link.
    * If the user already has a valid invitation link, this operation returns the existing link.
-   * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link first.
-   * This operation returns only the generated token. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+   * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link.
+   * This operation returns only the generated token. The invitation link is concatenated in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`.
    * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
-   * * For the China site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+   * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
    * 
    * @param request - CreateTokenPlanInviteLinkRequest
    * @returns CreateTokenPlanInviteLinkResponse
@@ -409,7 +409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an authentication credential API key.
+   * Deletes an authentication API key.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -434,7 +434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an authentication credential API key.
+   * Deletes an authentication API key.
    * @returns DeleteApiKeyResponse
    */
   async deleteApiKey(apiKeyId: string): Promise<$_model.DeleteApiKeyResponse> {
@@ -447,11 +447,11 @@ export default class Client extends OpenApi {
    * Deletes a workspace.
    * 
    * @remarks
-   * A workspace can be deleted only if the following conditional requirements are met:
+   * You can delete a workspace only if it meets the following conditional requirements:
    * 1. The workspace is not the default workspace.
-   * 2. The workspace is not used to purchase other products, such as AMB.
-   * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
-   * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
+   * 2. The workspace is not used to purchase other services, such as AMB.
+   * 3. The workspace is not granted to Resource Access Management (RAM) users or RAM roles in permission management.
+   * 4. No resources exist in the workspace, such as API keys, model deployments, or knowledge bases.
    * 
    * @param request - DeleteWorkspaceRequest
    * @param headers - map
@@ -481,11 +481,11 @@ export default class Client extends OpenApi {
    * Deletes a workspace.
    * 
    * @remarks
-   * A workspace can be deleted only if the following conditional requirements are met:
+   * You can delete a workspace only if it meets the following conditional requirements:
    * 1. The workspace is not the default workspace.
-   * 2. The workspace is not used to purchase other products, such as AMB.
-   * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
-   * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
+   * 2. The workspace is not used to purchase other services, such as AMB.
+   * 3. The workspace is not granted to Resource Access Management (RAM) users or RAM roles in permission management.
+   * 4. No resources exist in the workspace, such as API keys, model deployments, or knowledge bases.
    * 
    * @param request - DeleteWorkspaceRequest
    * @returns DeleteWorkspaceResponse
@@ -500,7 +500,7 @@ export default class Client extends OpenApi {
    * Disables an API key.
    * 
    * @remarks
-   * An API key that is already disabled cannot be disabled again.
+   * You cannot disable an API key repeatedly.
    * 
    * @param request - DisableApiKeyRequest
    * @param headers - map
@@ -530,7 +530,7 @@ export default class Client extends OpenApi {
    * Disables an API key.
    * 
    * @remarks
-   * An API key that is already disabled cannot be disabled again.
+   * You cannot disable an API key repeatedly.
    * 
    * @param request - DisableApiKeyRequest
    * @returns DisableApiKeyResponse
@@ -545,7 +545,7 @@ export default class Client extends OpenApi {
    * Enables an API key.
    * 
    * @remarks
-   * An API key that is already enabled cannot be enabled again.
+   * You cannot enable an API key multiple times.
    * 
    * @param request - EnableApiKeyRequest
    * @param headers - map
@@ -575,7 +575,7 @@ export default class Client extends OpenApi {
    * Enables an API key.
    * 
    * @remarks
-   * An API key that is already enabled cannot be enabled again.
+   * You cannot enable an API key multiple times.
    * 
    * @param request - EnableApiKeyRequest
    * @returns EnableApiKeyResponse
@@ -622,7 +622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the bill overview.
+   * Queries the billing overview.
    * 
    * @param tmpReq - GetBillingOverviewRequest
    * @param headers - map
@@ -641,6 +641,10 @@ export default class Client extends OpenApi {
       request.groupByShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupBy, "groupBy", "json");
     }
 
+    if (!$dara.isNull(tmpReq.timePeriod)) {
+      request.timePeriodShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timePeriod, "timePeriod", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.billMonth)) {
       query["billMonth"] = request.billMonth;
@@ -648,6 +652,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.filterShrink)) {
       query["filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.granularity)) {
+      query["granularity"] = request.granularity;
     }
 
     if (!$dara.isNull(request.groupByShrink)) {
@@ -660,6 +668,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.timePeriodShrink)) {
+      query["timePeriod"] = request.timePeriodShrink;
     }
 
     if (!$dara.isNull(request.topNum)) {
@@ -689,7 +701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the bill overview.
+   * Queries the billing overview.
    * 
    * @param request - GetBillingOverviewRequest
    * @returns GetBillingOverviewResponse
@@ -701,7 +713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries bill trends.
+   * Queries the billing trends.
    * 
    * @param tmpReq - GetBillingTrendRequest
    * @param headers - map
@@ -735,6 +747,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.groupByShrink)) {
       query["groupBy"] = request.groupByShrink;
+    }
+
+    if (!$dara.isNull(request.includeHistoryPeriod)) {
+      query["includeHistoryPeriod"] = request.includeHistoryPeriod;
     }
 
     if (!$dara.isNull(request.locale)) {
@@ -776,7 +792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries bill trends.
+   * Queries the billing trends.
    * 
    * @param request - GetBillingTrendRequest
    * @returns GetBillingTrendResponse
@@ -788,10 +804,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a specified organization.
+   * Retrieves the details of a specified organization.
    * 
    * @remarks
-   * Retrieves information about a specified organization by OrgId.
+   * Retrieves the details of a specified organization by using the organization ID.
    * 
    * @param request - GetOrganizationRequest
    * @param headers - map
@@ -818,10 +834,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a specified organization.
+   * Retrieves the details of a specified organization.
    * 
    * @remarks
-   * Retrieves information about a specified organization by OrgId.
+   * Retrieves the details of a specified organization by using the organization ID.
    * 
    * @param request - GetOrganizationRequest
    * @returns GetOrganizationResponse
@@ -833,7 +849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries organization member statistics information, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
+   * Queries the statistics information of organization members, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
    * 
    * @param request - GetOrganizationMemberSeatStatsRequest
    * @param headers - map
@@ -860,7 +876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries organization member statistics information, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
+   * Queries the statistics information of organization members, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
    * 
    * @param request - GetOrganizationMemberSeatStatsRequest
    * @returns GetOrganizationMemberSeatStatsResponse
@@ -872,7 +888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries seat details by paging.
+   * Performs a paging query on seat details.
    * 
    * @param request - GetSubscriptionSeatDetailsRequest
    * @param headers - map
@@ -925,7 +941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries seat details by paging.
+   * Performs a paging query on seat details.
    * 
    * @param request - GetSubscriptionSeatDetailsRequest
    * @returns GetSubscriptionSeatDetailsResponse
@@ -937,7 +953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of members and seats for member management.
+   * Queries the member and seat count information for member management.
    * 
    * @param request - GetSubscriptionStatsRequest
    * @param headers - map
@@ -964,7 +980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of members and seats for member management.
+   * Queries the member and seat count information for member management.
    * 
    * @param request - GetSubscriptionStatsRequest
    * @returns GetSubscriptionStatsResponse
@@ -976,10 +992,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the TokenPlan account details and organization information.
+   * Retrieves the details and organization information of a TokenPlan account.
    * 
    * @remarks
-   * Retrieves the TokenPlan management platform account information when the user is logged in.
+   * Retrieves the account information from the TokenPlan management platform when logged on.
    * 
    * @param request - GetTokenPlanAccountDetailRequest
    * @param headers - map
@@ -1006,10 +1022,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the TokenPlan account details and organization information.
+   * Retrieves the details and organization information of a TokenPlan account.
    * 
    * @remarks
-   * Retrieves the TokenPlan management platform account information when the user is logged in.
+   * Retrieves the account information from the TokenPlan management platform when logged on.
    * 
    * @param request - GetTokenPlanAccountDetailRequest
    * @returns GetTokenPlanAccountDetailResponse
@@ -1021,10 +1037,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the TokenPlan member invitation link.
+   * Retrieves the invitation link for a TokenPlan member.
    * 
    * @remarks
-   * This operation returns only the generated token and expiration time. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+   * This operation returns only the generated token and expiration time. The invitation link is concatenated in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`.
    * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
    * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
    * 
@@ -1053,10 +1069,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the TokenPlan member invitation link.
+   * Retrieves the invitation link for a TokenPlan member.
    * 
    * @remarks
-   * This operation returns only the generated token and expiration time. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+   * This operation returns only the generated token and expiration time. The invitation link is concatenated in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`.
    * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
    * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
    * 
@@ -1239,16 +1255,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries model authorizations for a workspace.
+   * Queries model authorizations in a workspace.
    * 
    * @remarks
-   * ## Operation description
-   * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
-   * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
-   * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
-   * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
-   * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
-   * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+   * ## Request description
+   * - Specify the workspace to query by using `workspaceId` (required and cannot be empty).
+   * - Uses token-based pagination: `nextToken` is a string offset and is not required for the first page. The default value of `maxResults` is 20. If the value exceeds the upper limit, the `InvalidParameter.maxResults` error is returned.
+   * - `authorizationScope` controls the query dimension: `AUTHORIZED` specifies models that are authorized for the specified action, and `AUTHORIZABLE` specifies all authorizable directories.
+   * - `modelAction` specifies the authorization action dimension. Currently, only `INFERENCE` is supported. If this parameter is left empty, the default value `INFERENCE` is used.
+   * - `filter` supports filtering by `name` (fuzzy match for model and name) or `model` (exact match for a single model).
+   * - Returns `TokenBasedPage`, which contains the authorization status (inference, fine-tuning, and deployment) and throttling information for each model.
    * 
    * @param request - ListModelPermissionsRequest
    * @param headers - map
@@ -1301,16 +1317,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries model authorizations for a workspace.
+   * Queries model authorizations in a workspace.
    * 
    * @remarks
-   * ## Operation description
-   * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
-   * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
-   * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
-   * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
-   * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
-   * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+   * ## Request description
+   * - Specify the workspace to query by using `workspaceId` (required and cannot be empty).
+   * - Uses token-based pagination: `nextToken` is a string offset and is not required for the first page. The default value of `maxResults` is 20. If the value exceeds the upper limit, the `InvalidParameter.maxResults` error is returned.
+   * - `authorizationScope` controls the query dimension: `AUTHORIZED` specifies models that are authorized for the specified action, and `AUTHORIZABLE` specifies all authorizable directories.
+   * - `modelAction` specifies the authorization action dimension. Currently, only `INFERENCE` is supported. If this parameter is left empty, the default value `INFERENCE` is used.
+   * - `filter` supports filtering by `name` (fuzzy match for model and name) or `model` (exact match for a single model).
+   * - Returns `TokenBasedPage`, which contains the authorization status (inference, fine-tuning, and deployment) and throttling information for each model.
    * 
    * @param request - ListModelPermissionsRequest
    * @returns ListModelPermissionsResponse
@@ -1322,7 +1338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模型元数据-查询基础模型列表
+   * Queries a list of models.
    * 
    * @param tmpReq - ListModelsRequest
    * @param headers - map
@@ -1401,7 +1417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模型元数据-查询基础模型列表
+   * Queries a list of models.
    * 
    * @param request - ListModelsRequest
    * @returns ListModelsResponse
@@ -1413,7 +1429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of organization members (including seat information). Supports filtering by name, status, and seat assignment, and supports pagination.
+   * Queries a list of organization members, including seat information. Supports filtering by name, status, and seat allocation status, and supports pagination.
    * 
    * @param request - ListOrganizationMembersRequest
    * @param headers - map
@@ -1462,7 +1478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of organization members (including seat information). Supports filtering by name, status, and seat assignment, and supports pagination.
+   * Queries a list of organization members, including seat information. Supports filtering by name, status, and seat allocation status, and supports pagination.
    * 
    * @param request - ListOrganizationMembersRequest
    * @returns ListOrganizationMembersResponse
@@ -1678,7 +1694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes a TokenPlan member invitation link.
+   * Revokes the TokenPlan member invitation link.
    * 
    * @param request - RevokeTokenPlanInviteLinkRequest
    * @param headers - map
@@ -1705,7 +1721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes a TokenPlan member invitation link.
+   * Revokes the TokenPlan member invitation link.
    * 
    * @param request - RevokeTokenPlanInviteLinkRequest
    * @returns RevokeTokenPlanInviteLinkResponse
@@ -1720,7 +1736,7 @@ export default class Client extends OpenApi {
    * Resets a UAC API key.
    * 
    * @remarks
-   * Only the API Key value changes. The API Key ID remains unchanged.
+   * Only the API key changes. The API key ID remains unchanged.
    * 
    * @param request - RotateTokenPlanKeyRequest
    * @param headers - map
@@ -1756,7 +1772,7 @@ export default class Client extends OpenApi {
    * Resets a UAC API key.
    * 
    * @remarks
-   * Only the API Key value changes. The API Key ID remains unchanged.
+   * Only the API key changes. The API key ID remains unchanged.
    * 
    * @param request - RotateTokenPlanKeyRequest
    * @returns RotateTokenPlanKeyResponse
@@ -1817,7 +1833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits the information of an API Key authentication credential.
+   * Modifies the information of an API key.
    * 
    * @param request - UpdateApiKeyRequest
    * @param headers - map
@@ -1856,7 +1872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits the information of an API Key authentication credential.
+   * Modifies the information of an API key.
    * 
    * @param request - UpdateApiKeyRequest
    * @returns UpdateApiKeyResponse
@@ -1868,7 +1884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the model throttling configuration for a workspace.
+   * Updates the model throttling settings for a workspace.
    * 
    * @param tmpReq - UpdateModelLimitsRequest
    * @param headers - map
@@ -1911,7 +1927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the model throttling configuration for a workspace.
+   * Updates the model throttling settings for a workspace.
    * 
    * @param request - UpdateModelLimitsRequest
    * @returns UpdateModelLimitsResponse
@@ -1923,7 +1939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates model authorization for a workspace.
+   * Updates the model authorization for a workspace.
    * 
    * @param request - UpdateModelPermissionsRequest
    * @param headers - map
@@ -1964,7 +1980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates model authorization for a workspace.
+   * Updates the model authorization for a workspace.
    * 
    * @param request - UpdateModelPermissionsRequest
    * @returns UpdateModelPermissionsResponse
@@ -1976,7 +1992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies organization information.
+   * Modifies the organization information.
    * 
    * @param request - UpdateOrganizationRequest
    * @param headers - map
@@ -2013,7 +2029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies organization information.
+   * Modifies the organization information.
    * 
    * @param request - UpdateOrganizationRequest
    * @returns UpdateOrganizationResponse

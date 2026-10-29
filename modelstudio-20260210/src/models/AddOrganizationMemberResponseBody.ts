@@ -15,7 +15,7 @@ export class AddOrganizationMemberResponseBodyData extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * Indicates whether the seat was assigned successfully.
+   * Indicates whether the seat is assigned successfully.
    * 
    * @example
    * true
@@ -84,7 +84,7 @@ export class AddOrganizationMemberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

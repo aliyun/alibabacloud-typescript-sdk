@@ -6,7 +6,8 @@ export class GetTokenPlanAccountDetailResponseBodyDataOrgMembershipsWorkspaces e
   /**
    * @remarks
    * The member status. Valid values:
-   * - ACTIVE 
+   * 
+   * - ACTIVE
    * - FROZEN
    * 
    * @example
@@ -16,6 +17,7 @@ export class GetTokenPlanAccountDetailResponseBodyDataOrgMembershipsWorkspaces e
   /**
    * @remarks
    * The workspace role code. Valid values:
+   * 
    * - WS_ADMIN
    * - WS_MEMBER
    * 
@@ -69,7 +71,7 @@ export class GetTokenPlanAccountDetailResponseBodyDataOrgMembershipsWorkspaces e
 export class GetTokenPlanAccountDetailResponseBodyDataOrgMemberships extends $dara.Model {
   /**
    * @remarks
-   * The organization member status. Valid values:
+   * The status of the organization member. Valid values:
    * 
    * - ACTIVE 
    * - INITIAL 
@@ -167,7 +169,7 @@ export class GetTokenPlanAccountDetailResponseBodyData extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The Alibaba Cloud UID. This parameter applies only to accounts of the ALIYUN type.
+   * The Alibaba Cloud UID of an ALIYUN account.
    * 
    * @example
    * 1122334455
@@ -175,7 +177,7 @@ export class GetTokenPlanAccountDetailResponseBodyData extends $dara.Model {
   aliyunUid?: string;
   /**
    * @remarks
-   * The time when the account was created.
+   * The creation time.
    * 
    * @example
    * Thu May 28 14:33:52 CST 2026
@@ -183,7 +185,7 @@ export class GetTokenPlanAccountDetailResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The email address. This parameter applies only to accounts of the SSO type.
+   * The email address of an SSO account.
    * 
    * @example
    * test@email.com
@@ -191,7 +193,10 @@ export class GetTokenPlanAccountDetailResponseBodyData extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The global status of the account. A value of 0 indicates Normal. A value of 1 indicates Frozen.
+   * The global status of the account. Valid values:
+   * 
+   * - 0: Normal.
+   * - 1: Frozen.
    * 
    * @example
    * 0
@@ -207,7 +212,7 @@ export class GetTokenPlanAccountDetailResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of organization memberships in a tree structure (organization → workspace).
+   * The list of organization memberships in a tree structure from organization to workspace.
    */
   orgMemberships?: GetTokenPlanAccountDetailResponseBodyDataOrgMemberships[];
   static names(): { [key: string]: string } {
@@ -280,7 +285,7 @@ export class GetTokenPlanAccountDetailResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * The request ID.
    * 
    * @example
    * C0DC05D9-C506-519B-AFF3-2B00165176E4
@@ -290,8 +295,8 @@ export class GetTokenPlanAccountDetailResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the API call is successful. Valid values:
    * 
-   * - true: Successful.
-   * - false: Failed.
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * True

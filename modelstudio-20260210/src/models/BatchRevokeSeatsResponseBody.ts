@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchRevokeSeatsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is empty if the request was successful.
+   * The error code. This parameter is empty if the request is successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class BatchRevokeSeatsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message. This parameter is empty if the request was successful.
+   * The error message. This parameter is empty if the request is successful.
    * 
    * @example
    * Successful
@@ -21,7 +21,7 @@ export class BatchRevokeSeatsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

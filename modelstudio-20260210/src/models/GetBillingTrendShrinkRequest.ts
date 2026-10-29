@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBillingTrendShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The dimension filter conditions.
+   * The dimension filter condition.
    */
   filterShrink?: string;
   /**
@@ -18,12 +18,20 @@ export class GetBillingTrendShrinkRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * The grouping conditions. This parameter must contain one and only one element.
+   * The grouping condition. This parameter must contain exactly one element.
    */
   groupByShrink?: string;
   /**
    * @remarks
-   * The response language. Default value: en-US.
+   * Specifies whether to query the previous non-overlapping period of the same length. Default value: false.
+   * 
+   * @example
+   * false
+   */
+  includeHistoryPeriod?: boolean;
+  /**
+   * @remarks
+   * The language of the response. Default value: en-US.
    * 
    * @example
    * zh-CN
@@ -39,12 +47,12 @@ export class GetBillingTrendShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The query time range, including the start time and end time. This parameter is required.
+   * The time range to query, including the start time and end time. This parameter is required.
    */
   timePeriodShrink?: string;
   /**
    * @remarks
-   * The number of groups to return. Valid values: 1 to 20. Default value: 20. The remaining groups are merged into "Others".
+   * The number of groups to return. Valid values: 1 to 20. Default value: 20. The remaining groups are merged into "Other".
    * 
    * @example
    * 20
@@ -52,7 +60,7 @@ export class GetBillingTrendShrinkRequest extends $dara.Model {
   topNum?: number;
   /**
    * @remarks
-   * Specifies whether to filter out groups with a zero amount. Default value: true.
+   * Specifies whether to filter out groups with an amount of 0. Default value: true.
    * 
    * @example
    * true
@@ -63,6 +71,7 @@ export class GetBillingTrendShrinkRequest extends $dara.Model {
       filterShrink: 'filter',
       granularity: 'granularity',
       groupByShrink: 'groupBy',
+      includeHistoryPeriod: 'includeHistoryPeriod',
       locale: 'locale',
       regionId: 'regionId',
       timePeriodShrink: 'timePeriod',
@@ -76,6 +85,7 @@ export class GetBillingTrendShrinkRequest extends $dara.Model {
       filterShrink: 'string',
       granularity: 'string',
       groupByShrink: 'string',
+      includeHistoryPeriod: 'boolean',
       locale: 'string',
       regionId: 'string',
       timePeriodShrink: 'string',

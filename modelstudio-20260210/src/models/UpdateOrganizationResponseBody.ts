@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOrganizationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The organization description.
+   * The description of the organization.
    * 
    * @example
-   * 组织描述
+   * Organization description
    */
   description?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the organization was created.
    * 
    * @example
    * 2025-12-11T02:19:27Z
@@ -21,7 +21,7 @@ export class UpdateOrganizationResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The time when the organization was updated.
    * 
    * @example
    * 2025-07-08 13:59:11
@@ -29,15 +29,15 @@ export class UpdateOrganizationResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The organization name.
+   * The name of the organization.
    * 
    * @example
-   * 组织名称
+   * Organization name
    */
   name?: string;
   /**
    * @remarks
-   * The product namespace ID.
+   * The ID of the product namespace.
    * 
    * @example
    * namespace-1
@@ -45,7 +45,7 @@ export class UpdateOrganizationResponseBodyData extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The organization ID.
+   * The ID of the organization.
    * 
    * @example
    * org_123456789
@@ -53,7 +53,7 @@ export class UpdateOrganizationResponseBodyData extends $dara.Model {
   orgId?: string;
   /**
    * @remarks
-   * The business account identifier of the organization owner. The value is aliyunUid for the ALIYUN type and userIdentifier for the SSO type.
+   * The business account identifier of the organization owner. For the ALIYUN type, the value is aliyunUid. For the SSO type, the value is userIdentifier.
    * 
    * @example
    * 1269388320468566
@@ -70,6 +70,7 @@ export class UpdateOrganizationResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
+   * 
    * - ACTIVE
    * - FROZEN
    * 
@@ -146,7 +147,7 @@ export class UpdateOrganizationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * EC0B0D42-A88C-55F5-AF48-498B8207F6BC
@@ -154,10 +155,10 @@ export class UpdateOrganizationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call is successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
-   * - true: Successful.
-   * - false: Failed.
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * True

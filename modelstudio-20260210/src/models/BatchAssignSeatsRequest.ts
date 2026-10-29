@@ -10,7 +10,7 @@ export class BatchAssignSeatsRequest extends $dara.Model {
   accountIds?: string[];
   /**
    * @remarks
-   * The language. Valid values: zh-CN and en-US.
+   * The locale. Valid values: zh-CN and en-US.
    * 
    * @example
    * zh-CN
@@ -19,9 +19,9 @@ export class BatchAssignSeatsRequest extends $dara.Model {
   /**
    * @remarks
    * The seat type. Valid values:
-   * - standard: standard seat
-   * - pro: pro seat
-   * - max: premium seat
+   * - standard: Standard seat.
+   * - pro: Pro seat.
+   * - max: Max seat.
    * 
    * This parameter is required.
    * 

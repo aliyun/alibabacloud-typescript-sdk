@@ -14,9 +14,8 @@ export class UpdateModelLimitsRequestWorkspaceLimits extends $dara.Model {
   /**
    * @remarks
    * The throttling operation type. Valid values:
-   * 
    * - **OVERLAY**: Sets or overwrites the throttling configuration.
-   * - **DELETE**: Deletes the throttling configuration (restores to no throttling).
+   * - **DELETE**: Deletes the throttling configuration to restore the unlimited state.
    * 
    * @example
    * OVERLAY
@@ -24,7 +23,7 @@ export class UpdateModelLimitsRequestWorkspaceLimits extends $dara.Model {
   operationType?: string;
   /**
    * @remarks
-   * The request throttling value.
+   * The request throttling limit.
    * 
    * @example
    * 10
@@ -32,7 +31,7 @@ export class UpdateModelLimitsRequestWorkspaceLimits extends $dara.Model {
   requestLimit?: number;
   /**
    * @remarks
-   * The time period for request throttling. Unit: seconds.
+   * The time period for request throttling, in seconds.
    * 
    * @example
    * 1
@@ -40,7 +39,7 @@ export class UpdateModelLimitsRequestWorkspaceLimits extends $dara.Model {
   requestLimitPeriod?: number;
   /**
    * @remarks
-   * The usage throttling value.
+   * The usage throttling limit.
    * 
    * @example
    * 10
@@ -48,7 +47,7 @@ export class UpdateModelLimitsRequestWorkspaceLimits extends $dara.Model {
   usageLimit?: number;
   /**
    * @remarks
-   * The time period for usage throttling. Unit: seconds.
+   * The time period for usage throttling, in seconds.
    * 
    * @example
    * 1
@@ -98,7 +97,7 @@ export class UpdateModelLimitsRequest extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The throttling values for the workspace.
+   * The throttling limits for the workspace.
    */
   workspaceLimits?: UpdateModelLimitsRequestWorkspaceLimits[];
   static names(): { [key: string]: string } {

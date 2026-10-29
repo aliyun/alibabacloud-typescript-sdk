@@ -13,12 +13,12 @@ export class GetBillingOverviewResponseBodyDataGroups extends $dara.Model {
   amount?: string;
   /**
    * @remarks
-   * The list of commodity codes associated with the current group.
+   * The list of commodity codes involved in the current group.
    */
   articleCodes?: string[];
   /**
    * @remarks
-   * The grouping dimension value. A null value is returned as DIMENSION_FILTER_NULL_VALUE.
+   * The value of the grouping dimension. If the value is null, DIMENSION_FILTER_NULL_VALUE is returned.
    * 
    * @example
    * inference
@@ -26,7 +26,7 @@ export class GetBillingOverviewResponseBodyDataGroups extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The display name of the group, which is affected by the locale parameter. A null value is displayed as -.
+   * The display name of the group, which is affected by the locale parameter. If the value is null, a hyphen (-) is displayed.
    * 
    * @example
    * Model invocation
@@ -34,7 +34,7 @@ export class GetBillingOverviewResponseBodyDataGroups extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ratio of the group amount to the total amount of the top N groups.
+   * The proportion of the group amount to the total amount of the top N groups.
    * 
    * @example
    * 0.10
@@ -83,7 +83,7 @@ export class GetBillingOverviewResponseBodyData extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The top N groups sorted by amount in descending order.
+   * The list of top N groups sorted by amount in descending order.
    */
   groups?: GetBillingOverviewResponseBodyDataGroups[];
   /**
@@ -145,7 +145,7 @@ export class GetBillingOverviewResponseBodyData extends $dara.Model {
 export class GetBillingOverviewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request result code.
+   * The result code of the request.
    * 
    * @example
    * 200
@@ -153,12 +153,12 @@ export class GetBillingOverviewResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The bill overview data.
+   * The billing overview data.
    */
   data?: GetBillingOverviewResponseBodyData;
   /**
    * @remarks
-   * The request result message.
+   * The description of the request result.
    * 
    * @example
    * null
@@ -174,7 +174,7 @@ export class GetBillingOverviewResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -45,10 +45,10 @@ export class ListModelPermissionsRequestFilter extends $dara.Model {
 export class ListModelPermissionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorization query dimension. Valid values:
+   * The query dimension for the authorization scope.
    * 
-   * - **AUTHORIZED**: models that have been authorized for the specified modelAction. Use this value together with modelAction.
-   * - **AUTHORIZABLE**: full authorizable catalog.
+   * - **AUTHORIZED**: models that are authorized for the specified modelAction. This value must be used together with modelAction.
+   * - **AUTHORIZABLE**: all authorizable directories.
    * 
    * @example
    * AUTHORIZABLE
@@ -61,7 +61,7 @@ export class ListModelPermissionsRequest extends $dara.Model {
   filter?: ListModelPermissionsRequestFilter;
   /**
    * @remarks
-   * The maximum number of entries to return per page. Default value: 20. If the upper limit is exceeded, the error code InvalidParameter.maxResults is returned.
+   * The maximum number of entries to return on each page. Default value: 20. If the value exceeds the upper limit, the `InvalidParameter.maxResults` error is returned.
    * 
    * @example
    * 10
@@ -69,9 +69,9 @@ export class ListModelPermissionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The authorization action dimension. Valid values:
+   * The authorization action dimension.
    * 
-   * - **INFERENCE**: model inference authorization.
+   * - **INFERENCE**: model invocation authorization.
    * 
    * @example
    * INFERENCE
@@ -79,7 +79,7 @@ export class ListModelPermissionsRequest extends $dara.Model {
   modelAction?: string;
   /**
    * @remarks
-   * The pagination token (offset) for the next page. Do not pass this parameter for the first page.
+   * The pagination token that is used to retrieve the next page. This parameter is not required for the first page.
    * 
    * @example
    * lwytFRtLdNk=
@@ -87,7 +87,7 @@ export class ListModelPermissionsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The workspace ID. This parameter is required and cannot be empty.
+   * The ID of the workspace. This parameter is required.
    * 
    * This parameter is required.
    * 

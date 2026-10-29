@@ -10,7 +10,7 @@ export class UpdateOrganizationMemberRequest extends $dara.Model {
   accountIds?: string[];
   /**
    * @remarks
-   * The code of the new role. When you perform a batch operation, all specified accounts are changed to this role.
+   * The code of the new role. In batch operations, this role is applied to all specified accounts.
    * 
    * This parameter is required.
    * 

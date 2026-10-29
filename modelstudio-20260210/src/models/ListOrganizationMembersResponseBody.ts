@@ -3,14 +3,77 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListOrganizationMembersResponseBodyDataPackLimitInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The currently available quota.
+   * 
+   * @example
+   * 50000
+   */
   availableLimit?: number;
+  /**
+   * @remarks
+   * The end time of the current cycle.
+   * 
+   * @example
+   * 1792476000001
+   */
   cycleEndTime?: number;
+  /**
+   * @remarks
+   * The start time of the current cycle.
+   * 
+   * @example
+   * 1792476000000
+   */
   cycleStartTime?: number;
+  /**
+   * @remarks
+   * The frozen quota.
+   * 
+   * @example
+   * 0
+   */
   frozenCredits?: number;
+  /**
+   * @remarks
+   * Indicates whether a quota limit exists for the shared usage package.
+   * 
+   * @example
+   * true/false
+   */
   hasShareLimit?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the quota is currently available.
+   * 
+   * @example
+   * true/false
+   */
   isAvailable?: boolean;
+  /**
+   * @remarks
+   * The time when the quota limit configuration was last modified.
+   * 
+   * @example
+   * 1792476000000
+   */
   lastConfirmedTime?: number;
+  /**
+   * @remarks
+   * The upper limit of the quota.
+   * 
+   * @example
+   * 50000
+   */
   upperLimit?: number;
+  /**
+   * @remarks
+   * The used quota.
+   * 
+   * @example
+   * 0
+   */
   usedCredits?: number;
   static names(): { [key: string]: string } {
     return {
@@ -50,11 +113,53 @@ export class ListOrganizationMembersResponseBodyDataPackLimitInfo extends $dara.
 }
 
 export class ListOrganizationMembersResponseBodyDataSubscriptionInfoEquityList extends $dara.Model {
+  /**
+   * @remarks
+   * The start time of the current cycle.
+   * 
+   * @example
+   * 1792476000001
+   */
   cycleEndTime?: number;
+  /**
+   * @remarks
+   * The start time of the current cycle.
+   * 
+   * @example
+   * 1792476000000
+   */
   cycleStartTime?: number;
+  /**
+   * @remarks
+   * The remaining entitlement quota for the current cycle.
+   * 
+   * @example
+   * 32259
+   */
   cycleSurplusValue?: number;
+  /**
+   * @remarks
+   * The total entitlement quota for the current cycle.
+   * 
+   * @example
+   * 250000
+   */
   cycleTotalValue?: number;
+  /**
+   * @remarks
+   * The entitlement type.
+   * 
+   * @example
+   * CREDITS
+   */
   equityType?: string;
+  /**
+   * @remarks
+   * The unit of measurement for the entitlement.
+   * 
+   * @example
+   * Credit
+   */
   equityUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,13 +193,66 @@ export class ListOrganizationMembersResponseBodyDataSubscriptionInfoEquityList e
 }
 
 export class ListOrganizationMembersResponseBodyDataSubscriptionInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of the subscription.
+   * 
+   * @example
+   * 1792476000002
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The list of subscription entitlements.
+   */
   equityList?: ListOrganizationMembersResponseBodyDataSubscriptionInfoEquityList[];
+  /**
+   * @remarks
+   * The code of the subscription instance.
+   * 
+   * @example
+   * subs-1234567
+   */
   instanceCode?: string;
+  /**
+   * @remarks
+   * The billing method.
+   * 
+   * @example
+   * total
+   */
   payMode?: string;
+  /**
+   * @remarks
+   * The code of the subscription product.
+   * 
+   * @example
+   * sfm_tokenplanteams_dp_cn
+   */
   productCode?: string;
+  /**
+   * @remarks
+   * The specification type of the subscription.
+   * 
+   * @example
+   * standard
+   */
   specType?: string;
+  /**
+   * @remarks
+   * The start time of the subscription.
+   * 
+   * @example
+   * 1792476000000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The subscription status.
+   * 
+   * @example
+   * NORMAL
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -137,7 +295,7 @@ export class ListOrganizationMembersResponseBodyDataSubscriptionInfo extends $da
 export class ListOrganizationMembersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The member business ID.
+   * The business ID of the member.
    * 
    * @example
    * 112233
@@ -169,7 +327,7 @@ export class ListOrganizationMembersResponseBodyData extends $dara.Model {
   apiKeyId?: string;
   /**
    * @remarks
-   * The member email address.
+   * The email address of the member.
    * 
    * @example
    * test@email.com
@@ -193,21 +351,25 @@ export class ListOrganizationMembersResponseBodyData extends $dara.Model {
   maskedApiKey?: string;
   /**
    * @remarks
-   * The organization ID.
+   * The ID of the organization.
    * 
    * @example
    * org_123456789
    */
   orgId?: string;
+  /**
+   * @remarks
+   * The upper limit information for the shared usage package available to the member.
+   */
   packLimitInfo?: ListOrganizationMembersResponseBodyDataPackLimitInfo;
   /**
    * @remarks
-   * The list of member roles.
+   * The list of roles for the member.
    */
   roles?: string[];
   /**
    * @remarks
-   * The seat resource allocate ID.
+   * The resource allocation ID of the seat.
    * 
    * @example
    * seat_123456
@@ -215,10 +377,10 @@ export class ListOrganizationMembersResponseBodyData extends $dara.Model {
   seatId?: string;
   /**
    * @remarks
-   * The seat specification type. Valid values:
+   * The specification type of the seat. Valid values:
    * - standard: Standard seat.
    * - pro: Pro seat.
-   * - max: Max seat.
+   * - max: Premium seat.
    * 
    * @example
    * standard
@@ -226,12 +388,16 @@ export class ListOrganizationMembersResponseBodyData extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * The member status.
+   * The status of the member.
    * 
    * @example
    * ACTIVE
    */
   status?: string;
+  /**
+   * @remarks
+   * The subscription information of the member.
+   */
   subscriptionInfo?: ListOrganizationMembersResponseBodyDataSubscriptionInfo;
   static names(): { [key: string]: string } {
     return {

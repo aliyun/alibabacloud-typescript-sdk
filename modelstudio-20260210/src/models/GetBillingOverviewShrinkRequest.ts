@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBillingOverviewShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing month. This parameter is required.
+   * The billing month.
    * 
    * @example
    * 2026-08
@@ -13,9 +13,17 @@ export class GetBillingOverviewShrinkRequest extends $dara.Model {
   billMonth?: string;
   /**
    * @remarks
-   * The filter condition.
+   * The filter conditions.
    */
   filterShrink?: string;
+  /**
+   * @remarks
+   * The time granularity.
+   * 
+   * @example
+   * MONTH
+   */
+  granularity?: string;
   /**
    * @remarks
    * The list of grouping conditions. Currently, you must specify exactly one grouping dimension.
@@ -23,7 +31,7 @@ export class GetBillingOverviewShrinkRequest extends $dara.Model {
   groupByShrink?: string;
   /**
    * @remarks
-   * The response language. Default value: en-US.
+   * The language of the response. Default value: en-US.
    * 
    * @example
    * zh-CN
@@ -31,12 +39,17 @@ export class GetBillingOverviewShrinkRequest extends $dara.Model {
   locale?: string;
   /**
    * @remarks
-   * The region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The query time range, which includes the start and end times. Both the start and end times are included in the query range. The time format must be consistent with the granularity, and the start time cannot be later than the end time.
+   */
+  timePeriodShrink?: string;
   /**
    * @remarks
    * The number of groups to return. Valid values: 1 to 20. Default value: 20.
@@ -47,7 +60,7 @@ export class GetBillingOverviewShrinkRequest extends $dara.Model {
   topNum?: number;
   /**
    * @remarks
-   * Specifies whether to filter out groups with a zero amount. Default value: true.
+   * Specifies whether to filter out groups with an amount of 0. Default value: true.
    * 
    * @example
    * true
@@ -57,9 +70,11 @@ export class GetBillingOverviewShrinkRequest extends $dara.Model {
     return {
       billMonth: 'billMonth',
       filterShrink: 'filter',
+      granularity: 'granularity',
       groupByShrink: 'groupBy',
       locale: 'locale',
       regionId: 'regionId',
+      timePeriodShrink: 'timePeriod',
       topNum: 'topNum',
       zeroFilter: 'zeroFilter',
     };
@@ -69,9 +84,11 @@ export class GetBillingOverviewShrinkRequest extends $dara.Model {
     return {
       billMonth: 'string',
       filterShrink: 'string',
+      granularity: 'string',
       groupByShrink: 'string',
       locale: 'string',
       regionId: 'string',
+      timePeriodShrink: 'string',
       topNum: 'number',
       zeroFilter: 'boolean',
     };

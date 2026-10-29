@@ -10,12 +10,12 @@ export class AddOrganizationMemberRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 账号名称
+   * Account name
    */
   accountName?: string;
   /**
    * @remarks
-   * The organization role code. Only ORG_ADMIN or ORG_MEMBER is allowed. Default value: ORG_MEMBER.
+   * The organization role code. Valid values: ORG_ADMIN and ORG_MEMBER. Default value: ORG_MEMBER.
    * 
    * This parameter is required.
    * 
@@ -26,10 +26,9 @@ export class AddOrganizationMemberRequest extends $dara.Model {
   /**
    * @remarks
    * The seat specification. Valid values:
-   * 
-   * - standard: standard seat.
-   * - pro: premium seat.
-   * - max: exclusive seat.
+   * - standard: Standard seat.
+   * - pro: Pro seat.
+   * - max: Premium seat.
    * 
    * @example
    * standard

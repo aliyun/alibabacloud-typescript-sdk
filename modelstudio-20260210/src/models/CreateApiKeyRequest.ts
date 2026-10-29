@@ -11,7 +11,7 @@ export class CreateApiKeyRequestAuthModelAccessScope extends $dara.Model {
   accessibleModels?: string[];
   /**
    * @remarks
-   * Specifies whether all models with granted inference permissions in the workspace are accessible. Valid values:
+   * Specifies whether to allow access to all models that have been granted inference permissions in the workspace. Valid values:
    * 
    * - true
    * - false
@@ -49,23 +49,20 @@ export class CreateApiKeyRequestAuthModelAccessScope extends $dara.Model {
 export class CreateApiKeyRequestAuth extends $dara.Model {
   /**
    * @remarks
-   * The IP access whitelist.
+   * The IP address whitelist.
    * 
    * > 
-   * > - When you set custom permissions and leave the IP access whitelist empty, the server sets the default values to IPv4 (0.0.0.0/0) and IPv6 (::/0), which allows all traffic.
+   * > - If you select custom permissions and do not specify an IP address whitelist, the server defaults to IPv4 (0.0.0.0/0) and IPv6 (::/0), which allows all IP addresses.
    */
   accessIps?: string[];
   /**
    * @remarks
-   * The model access scope.
+   * The model access scope. If you configure this parameter, you can only call the selected models. If you do not configure this parameter, you can access all models that have been granted inference permissions in the specified workspace by default.
    */
   modelAccessScope?: CreateApiKeyRequestAuthModelAccessScope;
   /**
    * @remarks
-   * Valid values:
-   * 
-   * - All: all permissions.
-   * - Custom: custom permissions.
+   * The permission type. Valid values: All: all permissions. Custom: custom permissions.
    * 
    * @example
    * Custom
@@ -120,7 +117,7 @@ export class CreateApiKeyRequest extends $dara.Model {
    * @remarks
    * The workspace ID.
    * > 
-   * > - If you leave this parameter empty, the API key is automatically assigned to the default workspace.
+   * > - If you do not specify this parameter, the created API key is automatically assigned to the default workspace.
    * 
    * @example
    * ws-8af73c50f5596193

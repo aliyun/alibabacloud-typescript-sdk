@@ -40,7 +40,7 @@ export class BatchRevokeSeatsRequest extends $dara.Model {
   items?: BatchRevokeSeatsRequestItems[];
   /**
    * @remarks
-   * The language. Valid values: zh-CN and en-US.
+   * The locale. Valid values: zh-CN and en-US.
    * 
    * @example
    * zh-CN

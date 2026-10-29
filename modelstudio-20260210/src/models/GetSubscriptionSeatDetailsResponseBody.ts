@@ -13,7 +13,7 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItemsEquityList extends $
   cycleEndTime?: number;
   /**
    * @remarks
-   * The equity code (subscription code). This does not need to be consumed in CREDITS scenarios.
+   * The entitlement code (subscription code). Consumption is not required in the credits scenario.
    * 
    * @example
    * 123456
@@ -45,7 +45,7 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItemsEquityList extends $
   cycleTotalValue?: number;
   /**
    * @remarks
-   * The time-series version of the current cycle.
+   * The sequence version of the current cycle.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItemsEquityList extends $
   cycleVersion?: number;
   /**
    * @remarks
-   * The equity type, such as CREDITS, SPN, or resource plan.
+   * The entitlement type, such as CREDITS, SPN, or resource plan.
    * 
    * @example
    * CREDITS
@@ -138,7 +138,7 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItems extends $dara.Model
   endTime?: number;
   /**
    * @remarks
-   * The currently active equity instances. For TokenPlan products, this list contains only one active equity instance.
+   * The active entitlement instances. For the TokenPlan product, this list contains only one active entitlement instance.
    */
   equityList?: GetSubscriptionSeatDetailsResponseBodyDataItemsEquityList[];
   /**
@@ -161,9 +161,9 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItems extends $dara.Model
    * @remarks
    * The seat type. Valid values: 
    * 
-   * - standard: standard seat.
-   * - pro: pro seat.
-   * - max: premium seat.
+   * - standard: standard seat
+   * - pro: advanced seat
+   * - max: premium seat
    * 
    * @example
    * standard
@@ -180,12 +180,13 @@ export class GetSubscriptionSeatDetailsResponseBodyDataItems extends $dara.Model
   /**
    * @remarks
    * The seat status. Valid values:
-   * - CREATING: being created.
-   * - NORMAL: active.
-   * - LIMIT: restricted due to overdue payment.
-   * - RELEASE: released upon expiration.
-   * - STOP: stopped upon expiration.
-   * - REFUNDED: refunded.
+   * 
+   * - CREATING: creating
+   * - NORMAL: valid
+   * - LIMIT: restricted due to overdue payment
+   * - RELEASE: released upon expiration
+   * - STOP: stopped upon expiration
+   * - REFUNDED: refunded
    * 
    * @example
    * NORMAL
@@ -243,7 +244,7 @@ export class GetSubscriptionSeatDetailsResponseBodyData extends $dara.Model {
   items?: GetSubscriptionSeatDetailsResponseBodyDataItems[];
   /**
    * @remarks
-   * The page number. The value is greater than 0 and does not exceed the maximum value of the Integer data type.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type.
    * 
    * @example
    * 1
@@ -321,8 +322,8 @@ export class GetSubscriptionSeatDetailsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call is successful. Valid values:
    * 
-   * - true: Successful.
-   * - false: Failed.
+   * - true: successful
+   * - false: failed
    * 
    * @example
    * True

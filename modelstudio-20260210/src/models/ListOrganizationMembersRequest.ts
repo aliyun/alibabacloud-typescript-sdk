@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOrganizationMembersRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to filter by seat assignment.
+   * Specifies whether to filter by seat allocation status.
    * 
    * @example
    * true
@@ -13,15 +13,15 @@ export class ListOrganizationMembersRequest extends $dara.Model {
   hasSeat?: boolean;
   /**
    * @remarks
-   * Fuzzy filter by member name. Matches accountName or email, case-insensitive.
+   * The fuzzy filter for the member name. It matches the accountName or email and is case-insensitive.
    * 
    * @example
-   * MemberName
+   * Member name
    */
   name?: string;
   /**
    * @remarks
-   * The page number, starting from 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListOrganizationMembersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters by member status, such as ACTIVE or FROZEN. A value of null indicates no filtering.
+   * The filter for the member status, such as ACTIVE or FROZEN. A null value indicates no filtering.
    * 
    * @example
    * ACTIVE

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBillingTrendRequestFilterDimensions extends $dara.Model {
   /**
    * @remarks
-   * The filter dimension code. For more information, see the "Additional information" section below.
+   * The filter dimension code. For more information, see the "Additional notes" section below.
    * 
    * @example
    * CHARGE_TYPE
@@ -13,7 +13,7 @@ export class GetBillingTrendRequestFilterDimensions extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The filter method.
+   * The filtering method.
    * 
    * @example
    * IN
@@ -21,7 +21,7 @@ export class GetBillingTrendRequestFilterDimensions extends $dara.Model {
   selectType?: string;
   /**
    * @remarks
-   * The filter value list.
+   * The list of filter values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class GetBillingTrendRequestFilterDimensions extends $dara.Model {
 export class GetBillingTrendRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The dimension filter list.
+   * The list of dimension filters.
    */
   dimensions?: GetBillingTrendRequestFilterDimensions[];
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class GetBillingTrendRequestFilter extends $dara.Model {
 export class GetBillingTrendRequestGroupBy extends $dara.Model {
   /**
    * @remarks
-   * The grouping dimension code. For more information, see the "Additional information" section below.
+   * The grouping dimension code. For more information, see the "Additional notes" section below.
    * 
    * @example
    * BASE_MODEL
@@ -155,7 +155,7 @@ export class GetBillingTrendRequestTimePeriod extends $dara.Model {
 export class GetBillingTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The dimension filter conditions.
+   * The dimension filter condition.
    */
   filter?: GetBillingTrendRequestFilter;
   /**
@@ -168,12 +168,20 @@ export class GetBillingTrendRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
-   * The grouping conditions. This parameter must contain one and only one element.
+   * The grouping condition. This parameter must contain exactly one element.
    */
   groupBy?: GetBillingTrendRequestGroupBy[];
   /**
    * @remarks
-   * The response language. Default value: en-US.
+   * Specifies whether to query the previous non-overlapping period of the same length. Default value: false.
+   * 
+   * @example
+   * false
+   */
+  includeHistoryPeriod?: boolean;
+  /**
+   * @remarks
+   * The language of the response. Default value: en-US.
    * 
    * @example
    * zh-CN
@@ -189,12 +197,12 @@ export class GetBillingTrendRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The query time range, including the start time and end time. This parameter is required.
+   * The time range to query, including the start time and end time. This parameter is required.
    */
   timePeriod?: GetBillingTrendRequestTimePeriod;
   /**
    * @remarks
-   * The number of groups to return. Valid values: 1 to 20. Default value: 20. The remaining groups are merged into "Others".
+   * The number of groups to return. Valid values: 1 to 20. Default value: 20. The remaining groups are merged into "Other".
    * 
    * @example
    * 20
@@ -202,7 +210,7 @@ export class GetBillingTrendRequest extends $dara.Model {
   topNum?: number;
   /**
    * @remarks
-   * Specifies whether to filter out groups with a zero amount. Default value: true.
+   * Specifies whether to filter out groups with an amount of 0. Default value: true.
    * 
    * @example
    * true
@@ -213,6 +221,7 @@ export class GetBillingTrendRequest extends $dara.Model {
       filter: 'filter',
       granularity: 'granularity',
       groupBy: 'groupBy',
+      includeHistoryPeriod: 'includeHistoryPeriod',
       locale: 'locale',
       regionId: 'regionId',
       timePeriod: 'timePeriod',
@@ -226,6 +235,7 @@ export class GetBillingTrendRequest extends $dara.Model {
       filter: GetBillingTrendRequestFilter,
       granularity: 'string',
       groupBy: { 'type': 'array', 'itemType': GetBillingTrendRequestGroupBy },
+      includeHistoryPeriod: 'boolean',
       locale: 'string',
       regionId: 'string',
       timePeriod: GetBillingTrendRequestTimePeriod,

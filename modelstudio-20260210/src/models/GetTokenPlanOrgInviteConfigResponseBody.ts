@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTokenPlanOrgInviteConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The default organization role ID to assign. Valid values:
+   * The ID of the default assigned organization role. Valid values:
    * 
    * - SYSTEM_ROLE_ORG_ADMIN
    * - SYSTEM_ROLE_ORG_MEMBER
@@ -24,7 +24,7 @@ export class GetTokenPlanOrgInviteConfigResponseBodyData extends $dara.Model {
   orgId?: string;
   /**
    * @remarks
-   * The default seat allocation strategy. Valid values:
+   * The default seat assignment strategy. Valid values:
    * 
    * - HIGH_TO_LOW
    * - LOW_TO_HIGH 
@@ -70,7 +70,7 @@ export class GetTokenPlanOrgInviteConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data result of the current category statistics.
+   * The statistical data results for the current category.
    */
   data?: GetTokenPlanOrgInviteConfigResponseBodyData;
   /**
@@ -83,7 +83,7 @@ export class GetTokenPlanOrgInviteConfigResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the API call is successful. Valid values:
+   * Indicates whether the API call was successful. Valid values:
    * 
    * - true: Successful.
    * - false: Failed.

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelPermissionsResponseBodyListPermissions extends $dara.Model {
   /**
    * @remarks
-   * The model deployment authorization. A value of true indicates that the model has been granted authorization. A value of false indicates that the model has not been granted authorization.
+   * The model deployment permission. A value of true indicates that the model is authorized for deployment. A value of false indicates that the model is not authorized.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ListModelPermissionsResponseBodyListPermissions extends $dara.Model
   deploy?: boolean;
   /**
    * @remarks
-   * The model training authorization. A value of true indicates that the model has been granted training authorization. A value of false indicates that the model has not been granted authorization.
+   * The model training permission. A value of true indicates that the model is authorized for fine-tuning. A value of false indicates that the model is not authorized.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListModelPermissionsResponseBodyListPermissions extends $dara.Model
   fineTune?: boolean;
   /**
    * @remarks
-   * Indicates whether the model has inference permission. A value of true indicates that the model is authorized. A value of false indicates that the model is not authorized.
+   * The model invocation permission. A value of true indicates that the model is authorized for inference. A value of false indicates that the model is not authorized.
    * 
    * @example
    * true
@@ -63,7 +63,7 @@ export class ListModelPermissionsResponseBodyList extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The model name.
+   * The name of the model.
    * 
    * @example
    * qwen-plus
@@ -105,7 +105,7 @@ export class ListModelPermissionsResponseBodyList extends $dara.Model {
 export class ListModelPermissionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This value is empty when the call is successful.
+   * The error code. This parameter is empty if the call is successful.
    * 
    * @example
    * 200
@@ -134,7 +134,7 @@ export class ListModelPermissionsResponseBody extends $dara.Model {
   list?: ListModelPermissionsResponseBodyList[];
   /**
    * @remarks
-   * The maximum number of entries returned per request.
+   * The maximum number of records returned in a single call.
    * 
    * @example
    * 20
@@ -142,7 +142,7 @@ export class ListModelPermissionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next request.
+   * The pagination token for the next request.
    * 
    * @example
    * lwytFRtLdNk=
@@ -150,7 +150,7 @@ export class ListModelPermissionsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * The unique identifier of the request.
    * 
    * @example
    * 36045E0A-551D-592D-B1BC-4C56596CE59E
@@ -166,7 +166,7 @@ export class ListModelPermissionsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 20

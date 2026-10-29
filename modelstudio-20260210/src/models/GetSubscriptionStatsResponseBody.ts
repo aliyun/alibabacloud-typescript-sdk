@@ -13,7 +13,7 @@ export class GetSubscriptionStatsResponseBodyDataItems extends $dara.Model {
   assignedSeats?: number;
   /**
    * @remarks
-   * The total credits quota for the seat.
+   * The total credits quota for seats.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class GetSubscriptionStatsResponseBodyDataItems extends $dara.Model {
   seatCredits?: number;
   /**
    * @remarks
-   * The refresh time of the current cycle, in milliseconds.
+   * The refresh time of the current cycle in milliseconds.
    * 
    * @example
    * 1781422734
@@ -38,6 +38,7 @@ export class GetSubscriptionStatsResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
    * The seat type (specType). Valid values:
+   * 
    * - standard: Standard seat.
    * - pro: Pro seat.
    * - max: Premium seat.
@@ -88,12 +89,12 @@ export class GetSubscriptionStatsResponseBodyDataItems extends $dara.Model {
 export class GetSubscriptionStatsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of seat information, grouped by specType.
+   * The list of seat information grouped by specType.
    */
   items?: GetSubscriptionStatsResponseBodyDataItems[];
   /**
    * @remarks
-   * The subscription end time, in milliseconds.
+   * The subscription end time in milliseconds.
    * 
    * @example
    * 1781422734
@@ -101,7 +102,7 @@ export class GetSubscriptionStatsResponseBodyData extends $dara.Model {
   subscriptionEndTime?: number;
   /**
    * @remarks
-   * The subscription start time, in milliseconds.
+   * The subscription start time in milliseconds.
    * 
    * @example
    * 1781422733
@@ -159,7 +160,7 @@ export class GetSubscriptionStatsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the API call is successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
    * - true: Successful.
    * - false: Failed.

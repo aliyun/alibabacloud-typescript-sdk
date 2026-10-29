@@ -66,11 +66,11 @@ export class DeleteWorkspaceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Indicates whether the workspace is successfully deleted. Valid values:
+   * Indicates whether the deletion is successful. Valid values:
    * 
-   * - true: Succeeded.
+   * - true: successful
    * 
-   * - false: Failed.
+   * - false: failed
    * 
    * @example
    * true
@@ -96,8 +96,8 @@ export class DeleteWorkspaceResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the API call is successful. Valid values:
    * 
-   * - true: Succeeded.
-   * - false: Failed.
+   * - true: successful
+   * - false: failed
    * 
    * @example
    * true

@@ -21,7 +21,7 @@ export class BatchAssignSeatsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

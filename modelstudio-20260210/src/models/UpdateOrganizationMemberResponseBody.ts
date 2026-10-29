@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOrganizationMemberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is empty if the operation is successful.
+   * The error code. This parameter is empty if the request is successful.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class UpdateOrganizationMemberResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message. This parameter is empty if the operation is successful.
+   * The error message. This parameter is empty if the request is successful.
    * 
    * @example
    * Successful
@@ -29,7 +29,7 @@ export class UpdateOrganizationMemberResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 9531C132-DF05-5C7F-8BB0-96EA8C4D00D7
@@ -37,7 +37,7 @@ export class UpdateOrganizationMemberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

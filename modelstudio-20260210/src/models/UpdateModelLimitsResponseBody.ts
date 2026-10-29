@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateModelLimitsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is empty when the request is successful.
+   * The error code. This parameter is empty if the call is successful.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class UpdateModelLimitsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The unique request ID.
+   * The unique ID of the request.
    * 
    * @example
    * E4C14AE6-E987-5C2F-9230-9960AB48F4F2

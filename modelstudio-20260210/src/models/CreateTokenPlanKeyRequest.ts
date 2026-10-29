@@ -18,7 +18,7 @@ export class CreateTokenPlanKeyRequest extends $dara.Model {
    * The description of the key.
    * 
    * @example
-   * APIKEY描述
+   * API key description
    */
   description?: string;
   static names(): { [key: string]: string } {

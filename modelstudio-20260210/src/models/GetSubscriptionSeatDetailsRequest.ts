@@ -21,7 +21,11 @@ export class GetSubscriptionSeatDetailsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The seat assignment status filter. Set to true for assigned seats, false for unassigned seats, or null for all seats.
+   * The filter for the seat assignment status. Valid values:
+   * 
+   * - true: assigned
+   * - false: unassigned
+   * - null: all
    * 
    * @example
    * true
@@ -39,9 +43,9 @@ export class GetSubscriptionSeatDetailsRequest extends $dara.Model {
    * @remarks
    * The seat type (specType). Valid values:
    * 
-   * - standard: standard seat.
-   * - pro: pro seat.
-   * - max: premium seat.
+   * - standard: standard seat
+   * - pro: advanced seat
+   * - max: premium seat
    * 
    * @example
    * standard
@@ -49,7 +53,7 @@ export class GetSubscriptionSeatDetailsRequest extends $dara.Model {
   seatType?: string;
   /**
    * @remarks
-   * The list of seat statuses used for filtering.
+   * The list of seat statuses for filtering.
    */
   statusList?: string[];
   static names(): { [key: string]: string } {

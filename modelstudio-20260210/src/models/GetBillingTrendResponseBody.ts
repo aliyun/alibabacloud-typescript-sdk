@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBillingTrendResponseBodyDataCostTotals extends $dara.Model {
   /**
    * @remarks
-   * The total amount.
+   * The total cost amount.
    * 
    * @example
    * 100
@@ -73,7 +73,7 @@ export class GetBillingTrendResponseBodyDataGroupByTotal extends $dara.Model {
   amount?: string;
   /**
    * @remarks
-   * The grouping dimension value.
+   * The dimension value of the group.
    * 
    * @example
    * qwen-plus
@@ -81,7 +81,7 @@ export class GetBillingTrendResponseBodyDataGroupByTotal extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The display name of the group. This value is affected by the locale parameter.
+   * The display name of the group, which is affected by the locale input parameter.
    * 
    * @example
    * qwen-plus
@@ -132,18 +132,78 @@ export class GetBillingTrendResponseBodyDataGroupByTotal extends $dara.Model {
   }
 }
 
-export class GetBillingTrendResponseBodyDataResultByTimePeriodDetails extends $dara.Model {
+export class GetBillingTrendResponseBodyDataHistoryPeriodCostTotals extends $dara.Model {
   /**
    * @remarks
-   * The amount of the group within the current period.
+   * The total cost amount.
    * 
    * @example
-   * 20
+   * 1000
    */
   amount?: string;
   /**
    * @remarks
-   * The grouping dimension value. Data beyond the top N uses DIMENSION_GROUP_OTHERS_VALUE.
+   * The currency of the amount.
+   * 
+   * @example
+   * CNY
+   */
+  currency?: string;
+  /**
+   * @remarks
+   * The pretax amount.
+   * 
+   * @example
+   * 800
+   */
+  pretaxAmount?: string;
+  /**
+   * @remarks
+   * The tax amount.
+   * 
+   * @example
+   * 200
+   */
+  taxAmount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      currency: 'currency',
+      pretaxAmount: 'pretaxAmount',
+      taxAmount: 'taxAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      currency: 'string',
+      pretaxAmount: 'string',
+      taxAmount: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBillingTrendResponseBodyDataHistoryPeriodGroupByTotal extends $dara.Model {
+  /**
+   * @remarks
+   * The total amount of the current group.
+   * 
+   * @example
+   * 246
+   */
+  amount?: string;
+  /**
+   * @remarks
+   * The dimension value of the group. If the value is null, DIMENSION_FILTER_NULL_VALUE is returned.
    * 
    * @example
    * qwen-plus
@@ -151,7 +211,317 @@ export class GetBillingTrendResponseBodyDataResultByTimePeriodDetails extends $d
   key?: string;
   /**
    * @remarks
-   * The display name of the group. This value is affected by the locale parameter.
+   * The display name of the group, which is affected by the locale parameter. If the value is null, a hyphen (-) is displayed.
+   * 
+   * @example
+   * qwen-plus
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The total pretax amount.
+   * 
+   * @example
+   * 100
+   */
+  pretaxAmount?: string;
+  /**
+   * @remarks
+   * The total tax amount.
+   * 
+   * @example
+   * 146
+   */
+  taxAmount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      key: 'key',
+      name: 'name',
+      pretaxAmount: 'pretaxAmount',
+      taxAmount: 'taxAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      key: 'string',
+      name: 'string',
+      pretaxAmount: 'string',
+      taxAmount: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBillingTrendResponseBodyDataHistoryPeriodResultByTimePeriodDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The amount of the current group.
+   * 
+   * @example
+   * 526
+   */
+  amount?: string;
+  /**
+   * @remarks
+   * The dimension value of the group. If the value is null, DIMENSION_FILTER_NULL_VALUE is returned.
+   * 
+   * @example
+   * qwen-plus
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The display name of the group, which is affected by the locale parameter. If the value is null, a hyphen (-) is displayed.
+   * 
+   * @example
+   * qwen-plus
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The percentage of the group amount.
+   * 
+   * @example
+   * 0.5
+   */
+  percentage?: string;
+  /**
+   * @remarks
+   * The total pretax amount.
+   * 
+   * @example
+   * 100
+   */
+  pretaxAmount?: string;
+  /**
+   * @remarks
+   * The total tax amount.
+   * 
+   * @example
+   * 426
+   */
+  taxAmount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      key: 'key',
+      name: 'name',
+      percentage: 'percentage',
+      pretaxAmount: 'pretaxAmount',
+      taxAmount: 'taxAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      key: 'string',
+      name: 'string',
+      percentage: 'string',
+      pretaxAmount: 'string',
+      taxAmount: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBillingTrendResponseBodyDataHistoryPeriodResultByTimeTotal extends $dara.Model {
+  /**
+   * @remarks
+   * The total cost amount of the current period.
+   * 
+   * @example
+   * 600
+   */
+  amount?: string;
+  /**
+   * @remarks
+   * The currency of the amount.
+   * 
+   * @example
+   * CNY
+   */
+  currency?: string;
+  /**
+   * @remarks
+   * The total pretax amount.
+   * 
+   * @example
+   * 100
+   */
+  pretaxAmount?: string;
+  /**
+   * @remarks
+   * The total tax amount.
+   * 
+   * @example
+   * 500
+   */
+  taxAmount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      currency: 'currency',
+      pretaxAmount: 'pretaxAmount',
+      taxAmount: 'taxAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'string',
+      currency: 'string',
+      pretaxAmount: 'string',
+      taxAmount: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBillingTrendResponseBodyDataHistoryPeriodResultByTime extends $dara.Model {
+  /**
+   * @remarks
+   * The statistical period.
+   * 
+   * @example
+   * 20260801
+   */
+  period?: string;
+  /**
+   * @remarks
+   * The cost groups that actually exist in the current period.
+   */
+  periodDetails?: GetBillingTrendResponseBodyDataHistoryPeriodResultByTimePeriodDetails[];
+  /**
+   * @remarks
+   * The total costs of the current period.
+   */
+  total?: GetBillingTrendResponseBodyDataHistoryPeriodResultByTimeTotal;
+  static names(): { [key: string]: string } {
+    return {
+      period: 'period',
+      periodDetails: 'periodDetails',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      period: 'string',
+      periodDetails: { 'type': 'array', 'itemType': GetBillingTrendResponseBodyDataHistoryPeriodResultByTimePeriodDetails },
+      total: GetBillingTrendResponseBodyDataHistoryPeriodResultByTimeTotal,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.periodDetails)) {
+      $dara.Model.validateArray(this.periodDetails);
+    }
+    if(this.total && typeof (this.total as any).validate === 'function') {
+      (this.total as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBillingTrendResponseBodyDataHistoryPeriod extends $dara.Model {
+  /**
+   * @remarks
+   * The total costs within the historical range, including the top N items and Other.
+   */
+  costTotals?: GetBillingTrendResponseBodyDataHistoryPeriodCostTotals;
+  /**
+   * @remarks
+   * The total costs of the top N groups and the optional Other group within the historical period.
+   */
+  groupByTotal?: GetBillingTrendResponseBodyDataHistoryPeriodGroupByTotal[];
+  /**
+   * @remarks
+   * The list of cost trends sorted in ascending order by time.
+   */
+  resultByTime?: GetBillingTrendResponseBodyDataHistoryPeriodResultByTime[];
+  static names(): { [key: string]: string } {
+    return {
+      costTotals: 'costTotals',
+      groupByTotal: 'groupByTotal',
+      resultByTime: 'resultByTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costTotals: GetBillingTrendResponseBodyDataHistoryPeriodCostTotals,
+      groupByTotal: { 'type': 'array', 'itemType': GetBillingTrendResponseBodyDataHistoryPeriodGroupByTotal },
+      resultByTime: { 'type': 'array', 'itemType': GetBillingTrendResponseBodyDataHistoryPeriodResultByTime },
+    };
+  }
+
+  validate() {
+    if(this.costTotals && typeof (this.costTotals as any).validate === 'function') {
+      (this.costTotals as any).validate();
+    }
+    if(Array.isArray(this.groupByTotal)) {
+      $dara.Model.validateArray(this.groupByTotal);
+    }
+    if(Array.isArray(this.resultByTime)) {
+      $dara.Model.validateArray(this.resultByTime);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBillingTrendResponseBodyDataResultByTimePeriodDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The amount of the group in the current period.
+   * 
+   * @example
+   * 20
+   */
+  amount?: string;
+  /**
+   * @remarks
+   * The dimension value of the group. For data other than the top N items, DIMENSION_GROUP_OTHERS_VALUE is used.
+   * 
+   * @example
+   * qwen-plus
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The display name of the group, which is affected by the locale input parameter.
    * 
    * @example
    * qwen-plus
@@ -167,7 +537,7 @@ export class GetBillingTrendResponseBodyDataResultByTimePeriodDetails extends $d
   percentage?: string;
   /**
    * @remarks
-   * The pretax amount of the group within the current period.
+   * The pretax amount of the group in the current period.
    * 
    * @example
    * 18.87
@@ -175,7 +545,7 @@ export class GetBillingTrendResponseBodyDataResultByTimePeriodDetails extends $d
   pretaxAmount?: string;
   /**
    * @remarks
-   * The tax amount of the group within the current period.
+   * The tax amount of the group in the current period.
    * 
    * @example
    * 1.13
@@ -215,7 +585,7 @@ export class GetBillingTrendResponseBodyDataResultByTimePeriodDetails extends $d
 export class GetBillingTrendResponseBodyDataResultByTimeTotal extends $dara.Model {
   /**
    * @remarks
-   * The total amount for the current period.
+   * The total cost amount of the current period.
    * 
    * @example
    * 30
@@ -223,7 +593,7 @@ export class GetBillingTrendResponseBodyDataResultByTimeTotal extends $dara.Mode
   amount?: string;
   /**
    * @remarks
-   * The currency of the amount for the current period.
+   * The currency of the amount in the current period.
    * 
    * @example
    * CNY
@@ -231,7 +601,7 @@ export class GetBillingTrendResponseBodyDataResultByTimeTotal extends $dara.Mode
   currency?: string;
   /**
    * @remarks
-   * The pretax amount for the current period.
+   * The pretax amount of the current period.
    * 
    * @example
    * 28.30
@@ -239,7 +609,7 @@ export class GetBillingTrendResponseBodyDataResultByTimeTotal extends $dara.Mode
   pretaxAmount?: string;
   /**
    * @remarks
-   * The tax amount for the current period.
+   * The tax amount of the current period.
    * 
    * @example
    * 1.70
@@ -275,7 +645,7 @@ export class GetBillingTrendResponseBodyDataResultByTimeTotal extends $dara.Mode
 export class GetBillingTrendResponseBodyDataResultByTime extends $dara.Model {
   /**
    * @remarks
-   * The statistical period. DAY returns yyyyMMdd. MONTH returns yyyyMM.
+   * The statistical period. DAY returns yyyyMMdd, and MONTH returns yyyyMM.
    * 
    * @example
    * 20260801
@@ -288,7 +658,7 @@ export class GetBillingTrendResponseBodyDataResultByTime extends $dara.Model {
   periodDetails?: GetBillingTrendResponseBodyDataResultByTimePeriodDetails[];
   /**
    * @remarks
-   * The total cost for the current period.
+   * The total costs of the current period.
    */
   total?: GetBillingTrendResponseBodyDataResultByTimeTotal;
   static names(): { [key: string]: string } {
@@ -325,23 +695,29 @@ export class GetBillingTrendResponseBodyDataResultByTime extends $dara.Model {
 export class GetBillingTrendResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total cost for the entire query time range, including the top N groups and "Others".
+   * The total costs within the entire query time range, including the top N items and Other.
    */
   costTotals?: GetBillingTrendResponseBodyDataCostTotals;
   /**
    * @remarks
-   * The total cost of the top N groups and the optional "Others" group within the period.
+   * The total costs of the top N groups and the optional Other group within the period.
    */
   groupByTotal?: GetBillingTrendResponseBodyDataGroupByTotal[];
   /**
    * @remarks
-   * The cost trend list sorted by time in ascending order.
+   * The historical period data, which is returned when the includeHistoryPeriod input parameter is set to true.
+   */
+  historyPeriod?: GetBillingTrendResponseBodyDataHistoryPeriod;
+  /**
+   * @remarks
+   * The list of cost trends sorted in ascending order by time.
    */
   resultByTime?: GetBillingTrendResponseBodyDataResultByTime[];
   static names(): { [key: string]: string } {
     return {
       costTotals: 'costTotals',
       groupByTotal: 'groupByTotal',
+      historyPeriod: 'historyPeriod',
       resultByTime: 'resultByTime',
     };
   }
@@ -350,6 +726,7 @@ export class GetBillingTrendResponseBodyData extends $dara.Model {
     return {
       costTotals: GetBillingTrendResponseBodyDataCostTotals,
       groupByTotal: { 'type': 'array', 'itemType': GetBillingTrendResponseBodyDataGroupByTotal },
+      historyPeriod: GetBillingTrendResponseBodyDataHistoryPeriod,
       resultByTime: { 'type': 'array', 'itemType': GetBillingTrendResponseBodyDataResultByTime },
     };
   }
@@ -360,6 +737,9 @@ export class GetBillingTrendResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.groupByTotal)) {
       $dara.Model.validateArray(this.groupByTotal);
+    }
+    if(this.historyPeriod && typeof (this.historyPeriod as any).validate === 'function') {
+      (this.historyPeriod as any).validate();
     }
     if(Array.isArray(this.resultByTime)) {
       $dara.Model.validateArray(this.resultByTime);
@@ -383,12 +763,12 @@ export class GetBillingTrendResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: GetBillingTrendResponseBodyData;
   /**
    * @remarks
-   * The request result description.
+   * The description of the request result.
    * 
    * @example
    * null
@@ -404,7 +784,7 @@ export class GetBillingTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

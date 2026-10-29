@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOrganizationRequest extends $dara.Model {
   /**
    * @remarks
-   * The organization description.
+   * The description of the organization.
    * 
    * @example
-   * 新的组织描述
+   * New organization description
    */
   description?: string;
   /**
    * @remarks
-   * The organization name.
+   * The name of the organization.
    * 
    * @example
-   * 新的组织名称
+   * New organization name
    */
   name?: string;
   static names(): { [key: string]: string } {

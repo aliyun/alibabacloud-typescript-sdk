@@ -37,7 +37,7 @@ export class EnableApiKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful.
+   * Indicates whether the API call is successful.
    * 
    * @example
    * true
