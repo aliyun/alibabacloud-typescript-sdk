@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMonitorGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -23,7 +23,7 @@ export class CreateMonitorGroupResponseBody extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The returned message.
+   * The error message.
    * 
    * @example
    * The specified resource is not found.
@@ -39,11 +39,11 @@ export class CreateMonitorGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true
+   * - true: The operation was successful.
    * 
-   * - false
+   * - false: The operation failed.
    * 
    * @example
    * true

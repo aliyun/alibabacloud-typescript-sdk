@@ -533,9 +533,9 @@ export class DescribeMetricRuleListResponseBody extends $dara.Model {
   alarms?: DescribeMetricRuleListResponseBodyAlarms;
   /**
    * @remarks
-   * The status code.
+   * The HTTP status code.
    * 
-   * >A value of 200 indicates success.
+   * >200 indicates success.
    * 
    * @example
    * 200
@@ -561,9 +561,9 @@ export class DescribeMetricRuleListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: Successful.
    * 
-   * - false: The operation failed.
+   * - false: Failed.
    * 
    * @example
    * true

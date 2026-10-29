@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEventRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 indicates that the request was successful.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DeleteEventRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. You can use this ID to query logs.
+   * The UUID of the request, which is used to query logs.
    * 
    * @example
    * 45231A42-5A09-5AFF-953C-A5B3D4ED8925
@@ -29,11 +29,11 @@ export class DeleteEventRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: Successful.
    * 
-   * - false: The operation failed.
+   * - false: Failed.
    * 
    * @example
    * true

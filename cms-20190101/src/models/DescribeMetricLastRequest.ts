@@ -7,9 +7,9 @@ export class DescribeMetricLastRequest extends $dara.Model {
    * @remarks
    * The monitoring dimensions of the specified resource.
    * 
-   * Set the value to a collection of `key:value` pairs. Example: `{"userId":"120886317861****"}` or `{"instanceId":"i-2ze2d6j5uhg20x47****"}`.
+   * Format: a collection of `key:value` pairs. Example: `{"userId":"120886317861****"}` or `{"instanceId":"i-2ze2d6j5uhg20x47****"}`.
    * 
-   * > You can query a maximum of 50 instances in each request.
+   * > A maximum of 50 instances can be queried in a single request.
    * 
    * @example
    * [{"instanceId":"i-2ze2d6j5uhg20x47****"}]
@@ -17,13 +17,14 @@ export class DescribeMetricLastRequest extends $dara.Model {
   dimensions?: string;
   /**
    * @remarks
-   * The end of the time range to query monitoring data.
+   * The end time for querying the metric.
    * 
-   * - For second-level data, the start time is obtained by comparing the time that is specified by the StartTime parameter and 20 minutes earlier of the time that is specified by the EndTime parameter. The earlier one of the compared points in time is used as the start time.
+   * The system automatically limits the query start time (query window size) based on data granularity:
+   * 1. Second-level data: The maximum query span is 20 minutes (start time = Max(startTime, EndTime - 20min)).
+   * 2. Minute-level data: The maximum query span is 2 hours (start time = Max(startTime, EndTime - 2h)).
+   * 3. Hour-level data: The maximum query span is 2 days (start time = Max(startTime, EndTime - 2d)).
    * 
-   * - For minute-level data, the start time is obtained by comparing the time that is specified by the StartTime parameter and 2 hours earlier of the time that is specified by the EndTime parameter. The earlier one of the compared points in time is used as the start time.
-   * 
-   * - For hour-level data, the start time is obtained by comparing the time that is specified by the StartTime parameter and two days earlier of the time that is specified by the EndTime parameter. The earlier one of the compared points in time is used as the start time.
+   * > If the specified startTime is earlier than the limit, the system automatically uses the limit as the actual query start time.
    * 
    * @example
    * 2019-01-31 10:10:00
@@ -31,7 +32,7 @@ export class DescribeMetricLastRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The expression that is used to calculate the query results in real time.
+   * The expression for real-time computation on existing query results.
    * 
    * @example
    * {"groupby":["userId","instanceId"]}
@@ -39,11 +40,11 @@ export class DescribeMetricLastRequest extends $dara.Model {
   express?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for monitoring data. This parameter is used for paged query.
    * 
-   * Default value: 1000. This value indicates that a maximum of 1,000 entries of monitoring data can be returned on each page.
+   * Default value: 1000, which indicates 1000 entries of monitoring data per page.
    * 
-   * > The maximum value of the Length parameter for each request is 1440.
+   * > The maximum value of Length in a single request is 1440.
    * 
    * @example
    * 1000
@@ -51,9 +52,9 @@ export class DescribeMetricLastRequest extends $dara.Model {
   length?: string;
   /**
    * @remarks
-   * The metric that is used to monitor the cloud service.
+   * The metric name of the cloud service.
    * 
-   * For more information about metric names, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For information about metric names, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -65,7 +66,7 @@ export class DescribeMetricLastRequest extends $dara.Model {
    * @remarks
    * The namespace of the cloud service.
    * 
-   * For more information about the namespaces of cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For information about namespaces of cloud services, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -75,11 +76,10 @@ export class DescribeMetricLastRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The pagination token.
+   * The pagination cursor.
    * 
-   * - If the number of results exceeds the maximum number of entries allowed on a single page, a pagination token is returned.
-   * 
-   * - This token can be used as an input parameter to obtain the next page of results. If all results are obtained, no token is returned.
+   * - If the query results that match the filter conditions exceed the page size, a pagination cursor is returned.
+   * - To retrieve the next page of data, use the returned cursor value as the request parameter until no cursor value is returned, which indicates that all data has been retrieved.
    * 
    * @example
    * 15761432850009dd70bb64cff1f0fff6c0b08ffff073be5fb1e785e2b020f7fed9b5e137bd810a6d6cff5ae****
@@ -93,9 +93,8 @@ export class DescribeMetricLastRequest extends $dara.Model {
    * 
    * Unit: seconds.
    * 
-   * >
-   * 
-   * - If this parameter is not specified, monitoring data is queried based on the period in which metric values are reported. The statistical period of metrics (`MetricName`) varies for each cloud service. The statistical period of metrics is displayed in the `MinPeriods` column on the **Metrics** page for each cloud service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * > - If you do not set the statistical period, monitoring data is queried based on the reporting period that was specified when the metric was registered.
+   *     - The statistical period varies by metric (`MetricName`) for each cloud service. For more information, see the `Min Periods` column on the metric list page of the target cloud service in [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * 60
@@ -104,7 +103,11 @@ export class DescribeMetricLastRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start of the time range to query monitoring data.
+   * The start time.
+   * 
+   * Two formats are supported: 1. A UNIX timestamp string in milliseconds (ms), which represents the number of milliseconds elapsed since 1970-01-01 00:00:00 UTC. 2. A time string in the ISO 8601 format of YYYY-MM-DDThh:mm:ssZ in UTC.
+   * 
+   * > The query range uses a left-exclusive and right-inclusive mode. StartTime cannot be equal to or greater than EndTime, and the interval between them must be less than or equal to 31 days.
    * 
    * @example
    * 2019-01-31 10:00:00

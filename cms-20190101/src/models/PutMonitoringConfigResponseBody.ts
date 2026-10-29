@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class PutMonitoringConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -15,7 +15,7 @@ export class PutMonitoringConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The error message.
    * 
    * @example
    * Specified parameter EnableInstallAgentNewECS is not valid.
@@ -31,11 +31,11 @@ export class PutMonitoringConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true
+   * - true: Successful.
    * 
-   * - false
+   * - false: Failed.
    * 
    * @example
    * true

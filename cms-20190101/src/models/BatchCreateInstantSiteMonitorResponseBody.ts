@@ -45,9 +45,9 @@ export class BatchCreateInstantSiteMonitorResponseBodyData extends $dara.Model {
 export class BatchCreateInstantSiteMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The HTTP status code.
    * 
-   * > A value of 200 indicates that the request was successful.
+   * > A value of 200 indicates that the operation is successful.
    * 
    * @example
    * 200
@@ -79,11 +79,9 @@ export class BatchCreateInstantSiteMonitorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
-   * 
-   * - true: The operation was successful.
-   * 
-   * - false: The operation failed.
+   * Indicates whether the operation is successful. Valid values:
+   * * true: The operation is successful.
+   * * false: The operation fails.
    * 
    * @example
    * true

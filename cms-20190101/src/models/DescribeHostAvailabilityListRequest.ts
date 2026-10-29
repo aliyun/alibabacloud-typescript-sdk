@@ -21,7 +21,7 @@ export class DescribeHostAvailabilityListRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The IDs of the availability monitoring tasks. Separate multiple IDs with commas (,).
+   * The IDs of multiple availability monitoring tasks. Separate multiple IDs with commas (,).
    * 
    * @example
    * 123456,345678
@@ -31,7 +31,7 @@ export class DescribeHostAvailabilityListRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -41,7 +41,7 @@ export class DescribeHostAvailabilityListRequest extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * Minimum value: 1. Default value: 10
+   * Minimum value: 1. Default value: 10.
    * 
    * @example
    * 10

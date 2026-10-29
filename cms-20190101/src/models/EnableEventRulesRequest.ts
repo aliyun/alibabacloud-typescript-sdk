@@ -9,9 +9,6 @@ export class EnableEventRulesRequest extends $dara.Model {
    * The names of the event rules to enable.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * ruleName1
    */
   ruleNames?: string[];
   static names(): { [key: string]: string } {

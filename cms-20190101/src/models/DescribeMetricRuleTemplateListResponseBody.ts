@@ -132,7 +132,7 @@ export class DescribeMetricRuleTemplateListResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -156,11 +156,11 @@ export class DescribeMetricRuleTemplateListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true
+   * - true: The operation was successful.
    * 
-   * - false
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -169,7 +169,7 @@ export class DescribeMetricRuleTemplateListResponseBody extends $dara.Model {
   templates?: DescribeMetricRuleTemplateListResponseBodyTemplates;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Model {
   /**
    * @remarks
-   * The name of the area in Chinese.
+   * The Chinese name of the region.
    * 
    * @example
-   * 华北
+   * North China
    */
   areaCn?: string;
   /**
    * @remarks
-   * The name of the area in English.
+   * The English name of the region.
    * 
    * @example
    * Huabei
@@ -29,15 +29,15 @@ export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Mod
   city?: string;
   /**
    * @remarks
-   * The name of the city in Chinese.
+   * The Chinese name of the city.
    * 
    * @example
-   * 北京
+   * Beijing
    */
   cityCn?: string;
   /**
    * @remarks
-   * The name of the city in English.
+   * The English name of the city.
    * 
    * @example
    * Beijing
@@ -53,15 +53,15 @@ export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Mod
   country?: string;
   /**
    * @remarks
-   * The name of the country in Chinese.
+   * The Chinese name of the country.
    * 
    * @example
-   * 中国
+   * China
    */
   countryCn?: string;
   /**
    * @remarks
-   * The name of the country or region in English.
+   * The English name of the country or region.
    * 
    * @example
    * China
@@ -69,7 +69,7 @@ export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Mod
   countryEn?: string;
   /**
    * @remarks
-   * The number of IPv4 detection points in data centers.
+   * The number of IPv4 nodes in the IDC.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Mod
   idcV4ProbeCount?: number;
   /**
    * @remarks
-   * The number of IDC IPv6 nodes.
+   * The number of IPv6 nodes in the IDC.
    * 
    * @example
    * 1
@@ -98,15 +98,15 @@ export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Mod
   isp?: string;
   /**
    * @remarks
-   * The name of the carrier in Chinese.
+   * The Chinese name of the carrier.
    * 
    * @example
-   * 联通
+   * China Unicom
    */
   ispCn?: string;
   /**
    * @remarks
-   * The name of the carrier in English.
+   * The English name of the carrier.
    * 
    * @example
    * China-Unicom
@@ -114,7 +114,7 @@ export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Mod
   ispEn?: string;
   /**
    * @remarks
-   * The number of last-mile detection points.
+   * The number of Lastmile detection points.
    * 
    * @example
    * 1
@@ -138,15 +138,15 @@ export class DescribeSyntheticProbeListResponseBodyIspCityList extends $dara.Mod
   region?: string;
   /**
    * @remarks
-   * The name of the province in Chinese.
+   * The Chinese name of the province.
    * 
    * @example
-   * 江西省
+   * Jiangxi
    */
   regionCn?: string;
   /**
    * @remarks
-   * The name of the province in English.
+   * The English name of the province.
    * 
    * @example
    * Jiangxi
@@ -244,7 +244,10 @@ export class DescribeSyntheticProbeListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values: true: The operation was successful. false: The operation failed.
+   * Indicates whether the operation is successful. Valid values:
+   * 
+   * - true: The operation is successful.
+   * - false: The operation fails.
    * 
    * @example
    * true

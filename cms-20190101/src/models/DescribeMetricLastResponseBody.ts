@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetricLastResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
-   * 
-   * > The status code 200 indicates that the request was successful.
+   * The status code.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -15,7 +14,7 @@ export class DescribeMetricLastResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The monitoring data.
+   * The monitoring data list.
    * 
    * @example
    * [{"timestamp":1548777660000,"userId":"123456789876****","instanceId":"i-abcdefgh12****","Minimum":93.1,"Average":99.52,"Maximum":100}]
@@ -31,7 +30,7 @@ export class DescribeMetricLastResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token.
+   * The pagination cursor.
    * 
    * @example
    * xxxxxx
@@ -57,11 +56,11 @@ export class DescribeMetricLastResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true
+   * - true: Successful.
    * 
-   * - false
+   * - false: Failed.
    * 
    * @example
    * true

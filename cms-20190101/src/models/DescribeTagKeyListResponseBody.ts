@@ -31,8 +31,8 @@ export class DescribeTagKeyListResponseBodyTagKeys extends $dara.Model {
 export class DescribeTagKeyListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 状态码。
-   * >200表示成功。
+   * The status code.
+   * >A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -40,7 +40,7 @@ export class DescribeTagKeyListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 错误信息。
+   * The error message.
    * 
    * @example
    * Specified parameter PageSize is not valid.
@@ -48,7 +48,7 @@ export class DescribeTagKeyListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * B04B8CF3-4489-432D-83BA-6F128E5F2293
@@ -56,7 +56,7 @@ export class DescribeTagKeyListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 用于标识本次调用是否成功
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

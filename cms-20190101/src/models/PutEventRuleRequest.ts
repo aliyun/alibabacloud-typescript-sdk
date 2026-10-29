@@ -13,7 +13,7 @@ export class PutEventRuleRequestEventPattern extends $dara.Model {
   customFilters?: string;
   /**
    * @remarks
-   * The type of the Event-triggered Alert Rule. Valid values of N: 1 to 50. Valid values:
+   * The type of the event-triggered alert rule. Valid values of N: 1 to 50. Valid values:
    * 
    * - StatusNotification: fault notification.
    * 
@@ -29,7 +29,7 @@ export class PutEventRuleRequestEventPattern extends $dara.Model {
   eventTypeList?: string[];
   /**
    * @remarks
-   * The level of the Event-triggered Alert Rule. Valid values of N: 1 to 50. Valid values:
+   * The level of the event-triggered alert rule. Valid values of N: 1 to 50. Valid values:
    * 
    * - CRITICAL: critical.
    * 
@@ -45,7 +45,7 @@ export class PutEventRuleRequestEventPattern extends $dara.Model {
   levelList?: string[];
   /**
    * @remarks
-   * The name of the Event-triggered Alert Rule. Valid values of N: 1 to 50.
+   * The name of the event-triggered alert rule. Valid values of N: 1 to 50.
    * 
    * @example
    * Agent_Status_Stopped
@@ -55,7 +55,7 @@ export class PutEventRuleRequestEventPattern extends $dara.Model {
    * @remarks
    * The Alibaba Cloud service type. Valid values of N: 1 to 50.
    * 
-   * >For information about the Alibaba Cloud services supported by Event-triggered Alert Rules, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
+   * >For information about the Alibaba Cloud services supported by event-triggered alert rules, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
    * 
    * This parameter is required.
    * 
@@ -74,7 +74,7 @@ export class PutEventRuleRequestEventPattern extends $dara.Model {
   SQLFilter?: string;
   /**
    * @remarks
-   * The status of the Event-triggered Alert Rule. Valid values of N: 1 to 50.
+   * The status of the event-triggered alert rule. Valid values of N: 1 to 50.
    * 
    * @example
    * Failed
@@ -128,7 +128,7 @@ export class PutEventRuleRequestEventPattern extends $dara.Model {
 export class PutEventRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the Event-triggered Alert Rule.
+   * The description of the event-triggered alert rule.
    * 
    * @example
    * Event alert test
@@ -136,14 +136,14 @@ export class PutEventRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The pattern of the Event-triggered Alert Rule.
+   * The pattern of the event-triggered alert rule.
    * 
    * This parameter is required.
    */
   eventPattern?: PutEventRuleRequestEventPattern[];
   /**
    * @remarks
-   * The type of the Event-triggered Alert Rule. Valid values:
+   * The type of the event-triggered alert rule. Valid values:
    * 
    * - SYSTEM: system event.
    * - CUSTOM: custom event.
@@ -154,7 +154,7 @@ export class PutEventRuleRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The ID of the application group to which the Event-triggered Alert Rule belongs.
+   * The ID of the application group to which the event-triggered alert rule belongs.
    * 
    * @example
    * 7378****
@@ -163,7 +163,7 @@ export class PutEventRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the Event-triggered Alert Rule.
+   * The name of the event-triggered alert rule.
    * 
    * This parameter is required.
    * 
@@ -181,10 +181,10 @@ export class PutEventRuleRequest extends $dara.Model {
   silenceTime?: number;
   /**
    * @remarks
-   * The status of the Event-triggered Alert Rule. Valid values:
+   * The status of the event-triggered alert rule. Valid values:
    * 
-   * - ENABLED: enabled.
-   * - DISABLED: disabled.
+   * - ENABLED: Enabled.
+   * - DISABLED: Disabled.
    * 
    * @example
    * ENABLED

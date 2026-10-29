@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHybridMonitorTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The HTTP status code.
    * 
    * > 200 indicates success.
    * 
@@ -33,8 +33,8 @@ export class CreateHybridMonitorTaskResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: successful.
-   * - false: failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true
@@ -42,7 +42,7 @@ export class CreateHybridMonitorTaskResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The ID of the monitoring task.
+   * The monitoring task ID.
    * 
    * @example
    * 36****

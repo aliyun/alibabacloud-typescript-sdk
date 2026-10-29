@@ -13,7 +13,7 @@ export class DescribeSyntheticProbeListRequest extends $dara.Model {
   city?: string;
   /**
    * @remarks
-   * Specifies whether to return only detection points in data centers.
+   * Specifies whether to query only IDC detection points.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class DescribeSyntheticProbeListRequest extends $dara.Model {
   idcProbe?: boolean;
   /**
    * @remarks
-   * Specifies whether to return only IPv4 detection points.
+   * Specifies whether to show only IPv4 nodes.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class DescribeSyntheticProbeListRequest extends $dara.Model {
   ipv4?: boolean;
   /**
    * @remarks
-   * Specifies whether to return only IPv6 detection points.
+   * Specifies whether to show only IPv6 nodes.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class DescribeSyntheticProbeListRequest extends $dara.Model {
   ipv6?: boolean;
   /**
    * @remarks
-   * The name or ID of the carrier.
+   * The name or ID of the carrier detection point.
    * 
    * @example
    * China Unicom
@@ -45,7 +45,7 @@ export class DescribeSyntheticProbeListRequest extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * Specifies whether to return only last-mile detection points.
+   * Specifies whether to query only Lastmile residential broadband nodes.
    * 
    * @example
    * false
@@ -53,7 +53,7 @@ export class DescribeSyntheticProbeListRequest extends $dara.Model {
   lmProbe?: boolean;
   /**
    * @remarks
-   * Specifies whether to return only mobile detection points.
+   * Specifies whether to query only mobile detection points.
    * 
    * @example
    * false
@@ -64,8 +64,7 @@ export class DescribeSyntheticProbeListRequest extends $dara.Model {
    * @remarks
    * Specifies whether to return all detection points. Valid values:
    * 
-   * - false (default): Returns the detection points that are available to you.
-   * 
+   * - false: Returns only the detection points available to the user. This is the default value.
    * - true: Returns all detection points.
    * 
    * @example

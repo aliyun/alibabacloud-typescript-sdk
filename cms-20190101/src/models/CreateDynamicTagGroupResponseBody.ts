@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDynamicTagGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
-   * 
-   * > A status code of 200 indicates that the request was successful.
+   * The HTTP status code.
+   * > A status code of 200 indicates success.
    * 
    * @example
    * 200

@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class PutMonitoringConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated.
+   * This parameter is not required.
    * 
    * @example
    * true
    */
   autoInstall?: boolean;
+  dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to automatically install the CloudMonitor agent on new ECS instances. Valid values:
+   * Specifies whether to automatically install the CloudMonitor agent on newly purchased ECS instances. Valid values:
+   * - true (default): The CloudMonitor agent is automatically installed on newly purchased ECS instances.
    * 
-   * - true (default): The CloudMonitor agent is automatically installed on new ECS instances.
-   * 
-   * - false: The CloudMonitor agent is not automatically installed on new ECS instances.
+   * - false: The CloudMonitor agent is not automatically installed on newly purchased ECS instances.
    * 
    * @example
    * true
@@ -27,6 +27,7 @@ export class PutMonitoringConfigRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoInstall: 'AutoInstall',
+      dryRun: 'DryRun',
       enableInstallAgentNewECS: 'EnableInstallAgentNewECS',
       regionId: 'RegionId',
     };
@@ -35,6 +36,7 @@ export class PutMonitoringConfigRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoInstall: 'boolean',
+      dryRun: 'boolean',
       enableInstallAgentNewECS: 'boolean',
       regionId: 'string',
     };

@@ -73,6 +73,7 @@ export class CreateMonitorGroupInstancesRequestInstances extends $dara.Model {
 }
 
 export class CreateMonitorGroupInstancesRequest extends $dara.Model {
+  dryRun?: string;
   /**
    * @remarks
    * The ID of the application group.
@@ -93,6 +94,7 @@ export class CreateMonitorGroupInstancesRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       groupId: 'GroupId',
       instances: 'Instances',
       regionId: 'RegionId',
@@ -101,6 +103,7 @@ export class CreateMonitorGroupInstancesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'string',
       groupId: 'string',
       instances: { 'type': 'array', 'itemType': CreateMonitorGroupInstancesRequestInstances },
       regionId: 'string',

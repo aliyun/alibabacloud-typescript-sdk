@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutGroupMetricRuleResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The alert rule ID.
+   * The ID of the alert rule.
    * 
    * @example
    * 123456
@@ -35,9 +35,9 @@ export class PutGroupMetricRuleResponseBodyResult extends $dara.Model {
 export class PutGroupMetricRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The HTTP status code.
    * 
-   * >A value of 200 indicates success.
+   * > A status code of 200 indicates success.
    * 
    * @example
    * 200
@@ -66,11 +66,11 @@ export class PutGroupMetricRuleResponseBody extends $dara.Model {
   result?: PutGroupMetricRuleResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: The operation is successful.
    * 
-   * - false: The operation failed.
+   * - false: The operation fails.
    * 
    * @example
    * true

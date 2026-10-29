@@ -292,7 +292,7 @@ export class DescribeMonitorGroupsResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > A value of 200 indicates that the operation was successful.
+   * > The value 200 indicates success.
    * 
    * @example
    * 200
@@ -316,7 +316,7 @@ export class DescribeMonitorGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 30

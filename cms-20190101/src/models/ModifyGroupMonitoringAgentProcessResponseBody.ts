@@ -7,7 +7,7 @@ export class ModifyGroupMonitoringAgentProcessResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > A status code of 200 indicates that the request was successful.
+   * >A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -33,9 +33,8 @@ export class ModifyGroupMonitoringAgentProcessResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The operation was successful.
-   * 
-   * - false: The operation failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

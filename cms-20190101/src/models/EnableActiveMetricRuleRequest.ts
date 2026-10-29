@@ -5,29 +5,37 @@ import * as $dara from '@darabonba/typescript';
 export class EnableActiveMetricRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud service for which you want to enable initiative alert. Valid values:
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * - ECS: Elastic Compute Service (ECS)
+   * You can generate the value of this parameter on the client side. Make sure that the value is unique across different requests. The value can be up to 64 ASCII characters in length.
    * 
-   * - rds: ApsaraDB RDS
+   * @example
+   * 00000-xxxx-xxxxx--xxxx
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the availability of the webhook.
    * 
-   * - slb: Server Load Balancer (SLB)
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * The name of the Alibaba Cloud service that supports one-click alert rules. Valid values:
    * 
-   * - redis_standard: Redis Open-Source Edition (standard architecture)
-   * 
-   * - redis_sharding: Redis Open-Source Edition (cluster architecture)
-   * 
-   * - redis_splitrw: Redis Open-Source Edition (read/write splitting architecture)
-   * 
-   * - mongodb: ApsaraDB for MongoDB of the replica set architecture
-   * 
-   * - mongodb_sharding: ApsaraDB for MongoDB of the sharded cluster architecture
-   * 
-   * - hbase: ApsaraDB for HBase
-   * 
-   * - elasticsearch: Elasticsearch
-   * 
-   * - opensearch: OpenSearch
+   * * ecs: Elastic Compute Service (ECS).
+   * * rds: ApsaraDB RDS.
+   * * slb: Server Load Balancer (SLB).
+   * * redis_standard: Standard architecture of open-source Redis.
+   * * redis_sharding: Cluster architecture of open-source Redis.
+   * * redis_splitrw: Read/write splitting architecture of open-source Redis.
+   * * mongodb: ApsaraDB for MongoDB (replica set).
+   * * mongodb_sharding: ApsaraDB for MongoDB (sharded cluster).
+   * * hbase: ApsaraDB for HBase.
+   * * elasticsearch: Elasticsearch.
+   * * opensearch: OpenSearch.
    * 
    * This parameter is required.
    * 
@@ -38,6 +46,8 @@ export class EnableActiveMetricRuleRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       product: 'Product',
       regionId: 'RegionId',
     };
@@ -45,6 +55,8 @@ export class EnableActiveMetricRuleRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      dryRun: 'boolean',
       product: 'string',
       regionId: 'string',
     };

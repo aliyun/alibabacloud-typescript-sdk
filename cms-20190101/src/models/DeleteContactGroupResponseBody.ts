@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContactGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The value 200 indicates success.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -31,10 +31,7 @@ export class DeleteContactGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
-   * 
-   * - true: Successful.
-   * - false: Failed.
+   * Indicates whether the operation was successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * true

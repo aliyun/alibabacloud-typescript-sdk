@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMonitorGroupInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -31,11 +31,10 @@ export class DeleteMonitorGroupInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: The operation is successful.
+   * - false: The operation fails.
    * 
    * @example
    * true

@@ -5,10 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class InstallMonitoringAgentRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to perform a dry run on the request. The dry run includes checks on permissions and instance status. Valid values:
+   * 
+   * - **false** (default): Sends a normal request. After the request passes the check, the name and description of the route table are directly modified.
+   * - **true**: Sends a dry run request. Only checks are performed, and the name and description of the route table are not modified. Check items include whether required parameters are specified and the request format. If the check fails, an error is returned. If the check succeeds, the DryRunOperation error code is returned.
+   * 
+   * @example
+   * true
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * Specifies whether to forcibly install the CloudMonitor agent. Valid values:
-   * 
    * - true (default): Forcibly installs the agent.
-   * 
    * - false: Does not forcibly install the agent.
    * 
    * @example
@@ -17,15 +26,15 @@ export class InstallMonitoringAgentRequest extends $dara.Model {
   force?: boolean;
   /**
    * @remarks
-   * The installation command. This command installs the CloudMonitor agent on all Alibaba Cloud hosts that belong to your Alibaba Cloud account. Valid values:
+   * Installs the CloudMonitor agent on all Alibaba Cloud hosts within the current Alibaba Cloud account. Valid values:
    * 
-   * - `onlyInstallNotHasAgent`: Installs the latest version of the CloudMonitor agent only on Alibaba Cloud hosts where the agent is not installed.
+   * - onlyInstallNotHasAgent: Installs the latest version of the agent only on Alibaba Cloud hosts on which the CloudMonitor agent is not installed.
    * 
-   * - `onlyUpgradeAgent`: Upgrades the CloudMonitor agent only on Alibaba Cloud hosts where an earlier version of the agent is installed.
+   * - onlyUpgradeAgent: Upgrades the agent only on Alibaba Cloud hosts on which a non-latest version of the CloudMonitor agent is installed.
    * 
-   * - `installAndUpgrade`: Installs the latest version of the CloudMonitor agent on Alibaba Cloud hosts where the agent is not installed, and upgrades the agent on Alibaba Cloud hosts where an earlier version of the agent is installed.
+   * - installAndUpgrade: Installs the latest version of the agent on Alibaba Cloud hosts on which the CloudMonitor agent is not installed, and upgrades the agent on Alibaba Cloud hosts on which a non-latest version of the CloudMonitor agent is installed.
    * 
-   * > If you set this parameter, the `InstanceIds` parameter is invalid.
+   * > If you specify this parameter, the InstanceIds parameter becomes invalid.
    * 
    * @example
    * onlyInstallNotHasAgent
@@ -33,11 +42,11 @@ export class InstallMonitoringAgentRequest extends $dara.Model {
   installCommand?: string;
   /**
    * @remarks
-   * The IDs of the Alibaba Cloud hosts.
+   * The ID of the Alibaba Cloud host.
    * 
-   * You can specify from 1 to 10 instance IDs.
+   * Valid values of N: 1 to 10.
    * 
-   * > You must specify either `InstallCommand` or `InstanceIds`.
+   * > You must specify either InstallCommand or InstanceIds.
    * 
    * @example
    * i-m5e0k0bexac8tykr****
@@ -46,6 +55,7 @@ export class InstallMonitoringAgentRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       force: 'Force',
       installCommand: 'InstallCommand',
       instanceIds: 'InstanceIds',
@@ -55,6 +65,7 @@ export class InstallMonitoringAgentRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       force: 'boolean',
       installCommand: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },

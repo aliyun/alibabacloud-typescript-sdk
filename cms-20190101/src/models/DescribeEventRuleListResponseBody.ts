@@ -287,9 +287,7 @@ export class DescribeEventRuleListResponseBodyEventRules extends $dara.Model {
 export class DescribeEventRuleListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
-   * 
-   * > The status code 200 indicates that the request was successful.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -298,7 +296,7 @@ export class DescribeEventRuleListResponseBody extends $dara.Model {
   eventRules?: DescribeEventRuleListResponseBodyEventRules;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * User not authorized to operate on the specified resource.
@@ -314,11 +312,11 @@ export class DescribeEventRuleListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true
+   * - true: The operation was successful.
    * 
-   * - false
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -326,7 +324,7 @@ export class DescribeEventRuleListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 21

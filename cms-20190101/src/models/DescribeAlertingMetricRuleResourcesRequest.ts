@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlertingMetricRuleResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries the alerts that were triggered before the specified time. Timestamps in milliseconds are supported.
+   * Queries alerts that occurred before this point in time. The value is a millisecond-level timestamp.
    * 
    * @example
    * 1698827400000
@@ -13,7 +13,7 @@ export class DescribeAlertingMetricRuleResourcesRequest extends $dara.Model {
   alertBeforeTime?: string;
   /**
    * @remarks
-   * The dimensions that specify the resources whose monitoring data you want to query.
+   * The dimension map used to query monitoring data of a specified resource.
    * 
    * @example
    * {\\"userId\\":\\"120886317861****\\",\\"region\\":\\"cn-huhehaote\\",\\"queue\\":\\"test-0128\\"}
@@ -21,7 +21,7 @@ export class DescribeAlertingMetricRuleResourcesRequest extends $dara.Model {
   dimensions?: string;
   /**
    * @remarks
-   * The ID of the application group. For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
+   * The ID of the application group. For more information about how to query application group IDs, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
    * 
    * @example
    * 7671****
@@ -29,9 +29,9 @@ export class DescribeAlertingMetricRuleResourcesRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The namespace of the cloud service.
+   * The data namespace of the Alibaba Cloud service.
    * 
-   * For more information about the namespaces of cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For more information about how to obtain the data namespace of an Alibaba Cloud service, see [Alibaba Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * acs_mns_new
@@ -39,7 +39,7 @@ export class DescribeAlertingMetricRuleResourcesRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number. 
    * 
    * Default value: 1.
    * 
@@ -60,7 +60,7 @@ export class DescribeAlertingMetricRuleResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the alert rule. For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+   * The ID of the alert rule. For more information about how to query alert rule IDs, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
    * 
    * @example
    * putNewAlarm_user_7e78d765-0e3e-4671-ba6d-7ce39108****

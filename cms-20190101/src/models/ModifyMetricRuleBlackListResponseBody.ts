@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMetricRuleBlackListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -15,7 +15,7 @@ export class ModifyMetricRuleBlackListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number of blacklist policies that are modified.
+   * The number of alert blacklist policies that were successfully modified.
    * 
    * @example
    * 1
@@ -39,11 +39,11 @@ export class ModifyMetricRuleBlackListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true
+   * - true: The operation was successful.
    * 
-   * - false
+   * - false: The operation failed.
    * 
    * @example
    * true

@@ -142,7 +142,7 @@ export class DescribeExporterRuleListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:  
+   * Indicates whether the request was successful. Valid values:  
    * - `true`: Successful.
    * - `false`: Failed.
    * 
@@ -152,7 +152,7 @@ export class DescribeExporterRuleListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1000

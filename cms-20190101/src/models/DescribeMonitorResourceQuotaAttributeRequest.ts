@@ -6,11 +6,9 @@ export class DescribeMonitorResourceQuotaAttributeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to return information about used quotas. Valid values:
-   * 
-   * - true (default): yes
-   * 
-   * - false: no
+   * Specifies whether the response includes used quotas. Valid values:
+   * - true (default): Included.
+   * - false: Not included.
    * 
    * @example
    * true

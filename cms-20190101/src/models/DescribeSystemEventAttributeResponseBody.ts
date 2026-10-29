@@ -84,9 +84,8 @@ export class DescribeSystemEventAttributeResponseBodySystemEvents extends $dara.
 export class DescribeSystemEventAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
-   * 
-   * > The status code 200 indicates that the call is successful.
+   * The status code.
+   * >A value of 200 indicates that the call was successful.
    * 
    * @example
    * 200
@@ -94,7 +93,7 @@ export class DescribeSystemEventAttributeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message that is returned. If the call is successful, `success` is returned. If the call fails, an error message is returned.
+   * The returned message. If the call is successful, `success` is returned. If the call fails, an error message is returned.
    * 
    * @example
    * success
@@ -102,7 +101,7 @@ export class DescribeSystemEventAttributeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 60912C8D-B340-4253-ADE7-61ACDFD25CFC
@@ -110,7 +109,7 @@ export class DescribeSystemEventAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values: True: The call is successful. false: The call fails.
+   * Indicates whether the call was successful. A value of true indicates that the call was successful. A value of false indicates that the call failed.
    * 
    * @example
    * true

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyMetricRuleTemplateResponseBodyResourceAlertResults extends $dara.Model {
   /**
    * @remarks
-   * The responses code.
-   * 
-   * > The status code 200 indicates that the request was successful.
+   * The status code.
+   * >A status code of 200 indicates success.
    * 
    * @example
    * 200
@@ -39,11 +38,11 @@ export class ApplyMetricRuleTemplateResponseBodyResourceAlertResults extends $da
   ruleName?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true
+   * - true: The operation is successful.
    * 
-   * - false
+   * - false: The operation fails.
    * 
    * @example
    * true
@@ -81,7 +80,7 @@ export class ApplyMetricRuleTemplateResponseBodyResourceAlertResults extends $da
 export class ApplyMetricRuleTemplateResponseBodyResource extends $dara.Model {
   /**
    * @remarks
-   * The details of the generated alert rule.
+   * The detailed results of the generated alert rules.
    */
   alertResults?: ApplyMetricRuleTemplateResponseBodyResourceAlertResults[];
   /**
@@ -121,9 +120,8 @@ export class ApplyMetricRuleTemplateResponseBodyResource extends $dara.Model {
 export class ApplyMetricRuleTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The responses code.
-   * 
-   * > The status code 200 indicates that the request was successful.
+   * The status code.
+   * >A status code of 200 indicates success.
    * 
    * @example
    * 200
@@ -131,7 +129,7 @@ export class ApplyMetricRuleTemplateResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The error message.
    * 
    * @example
    * The specified resource is not found.
@@ -147,16 +145,16 @@ export class ApplyMetricRuleTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources that are affected by the alert rule.
+   * The resources affected by the alert rule.
    */
   resource?: ApplyMetricRuleTemplateResponseBodyResource;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true
+   * - true: The operation is successful.
    * 
-   * - false
+   * - false: The operation fails.
    * 
    * @example
    * true

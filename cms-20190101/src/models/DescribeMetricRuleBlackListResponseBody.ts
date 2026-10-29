@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackListMetrics extends $dara.Model {
   /**
    * @remarks
-   * The name of the metric.
+   * The name of the monitoring metrics.
    * 
    * @example
    * disk_utilization
@@ -13,7 +13,7 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackListM
   metricName?: string;
   /**
    * @remarks
-   * The extended dimension of the instance. For example, `{"device":"C:"}` means that the blacklist policy is applied to all C drives of an Elastic Compute Service (ECS) instance.
+   * The extension dimension information of the instance. For example, `{"device":"C:"}` indicates that the blacklist policy is applied to all C drives of the ECS instance under the Alibaba Cloud service.
    * 
    * @example
    * [{"device":"C:"}]
@@ -45,7 +45,7 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackListM
 export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList extends $dara.Model {
   /**
    * @remarks
-   * The category of the Alibaba Cloud service. For example, Redis has different editions, such as `kvstore_standard` (Standard Edition), `kvstore_sharding` (Cluster Edition), and `kvstore_splitrw` (Read/write Splitting Edition).
+   * The category of the Alibaba Cloud service. For example, ApsaraDB for Redis has `kvstore_standard` (Standard Edition), `kvstore_sharding` (Cluster Edition), and `kvstore_splitrw` (read/write splitting Edition).
    * 
    * @example
    * ecs
@@ -53,7 +53,7 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   category?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the blacklist policy was created.
+   * The timestamp when the alert blacklist policy was created.
    * 
    * Unit: milliseconds.
    * 
@@ -63,7 +63,9 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   createTime?: string;
   /**
    * @remarks
-   * The time range during which the blacklist policy is effective.
+   * The effective period of the alert blacklist policy.
+   * 
+   * The value is in the HH:mm-HH:mm format (24-hour clock). The default time zone is UTC+8. For example, "00:00-23:59" indicates that the policy takes effect all day.
    * 
    * @example
    * 00:00-23:59
@@ -71,9 +73,9 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   effectiveTime?: string;
   /**
    * @remarks
-   * The timestamp that indicates when the alert blacklist policy is no longer in effect.
+   * The start timestamp of the alert blacklist policy.
    * 
-   * The timestamp is measured in milliseconds.
+   * Unit: milliseconds.
    * 
    * @example
    * 1640608200000
@@ -81,9 +83,9 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   enableEndTime?: number;
   /**
    * @remarks
-   * The time when the alert blacklist policy expires.
+   * The end timestamp of the alert blacklist policy.
    * 
-   * This is a UNIX timestamp in milliseconds.
+   * Unit: milliseconds.
    * 
    * @example
    * 1640237400000
@@ -91,7 +93,7 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   enableStartTime?: number;
   /**
    * @remarks
-   * The ID of the blacklist policy.
+   * The ID of the alert blacklist policy.
    * 
    * @example
    * 93514c96-ceb8-47d8-8ee3-93b6d98b****
@@ -99,16 +101,16 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   id?: string;
   /**
    * @remarks
-   * The instances of the Alibaba Cloud service in the blacklist policy.
+   * The instances of the specified Alibaba Cloud service in the alert blacklist policy.
    */
   instances?: string[];
   /**
    * @remarks
-   * The status of the blacklist policy. Valid values:
+   * The status of the alert blacklist policy. Valid values:
    * 
-   * - true: enabled.
+   * - true: Enabled.
    * 
-   * - false: disabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -116,12 +118,12 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   isEnable?: boolean;
   /**
    * @remarks
-   * The metrics of the instance.
+   * The monitoring metrics of the instances.
    */
   metrics?: DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackListMetrics[];
   /**
    * @remarks
-   * The name of the blacklist policy.
+   * The name of the alert blacklist policy.
    * 
    * @example
    * Blacklist-01
@@ -137,11 +139,11 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   namespace?: string;
   /**
    * @remarks
-   * The scope of the blacklist policy. Valid values:
+   * The effective scope of the alert blacklist policy. Valid values:
    * 
-   * - USER: The blacklist policy takes effect only for the current Alibaba Cloud account.
+   * - USER: The alert blacklist policy takes effect only within the current Alibaba Cloud account.
    * 
-   * - GROUP: The blacklist policy takes effect for the specified application groups.
+   * - GROUP: The alert blacklist policy takes effect in the specified application groups.
    * 
    * @example
    * USER
@@ -154,7 +156,7 @@ export class DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList 
   scopeValue?: string[];
   /**
    * @remarks
-   * The timestamp that indicates when the blacklist policy was modified.
+   * The timestamp when the alert blacklist policy was last modified.
    * 
    * Unit: milliseconds.
    * 
@@ -223,7 +225,7 @@ export class DescribeMetricRuleBlackListResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > A value of 200 indicates that the request was successful.
+   * > The value 200 indicates success.
    * 
    * @example
    * 200
@@ -231,7 +233,7 @@ export class DescribeMetricRuleBlackListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The blacklist policies.
+   * The list of alert blacklist policies.
    */
   describeMetricRuleBlackList?: DescribeMetricRuleBlackListResponseBodyDescribeMetricRuleBlackList[];
   /**
@@ -254,9 +256,9 @@ export class DescribeMetricRuleBlackListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: Successful.
    * 
-   * - false: The operation failed.
+   * - false: Failed.
    * 
    * @example
    * true
@@ -264,7 +266,7 @@ export class DescribeMetricRuleBlackListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of blacklist policies.
+   * The total number of alert blacklist policies.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlertLogCountResponseBodyAlertLogCountLogs extends $dara.Model {
   /**
    * @remarks
-   * The name of the dimension field based on which alert logs are aggregated.
+   * The field name of the alert history statistics.
    * 
    * @example
    * product
@@ -13,7 +13,7 @@ export class DescribeAlertLogCountResponseBodyAlertLogCountLogs extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The value of the dimension field based on which alert logs are aggregated.
+   * The field value of the alert history statistics.
    * 
    * @example
    * ECS
@@ -45,7 +45,7 @@ export class DescribeAlertLogCountResponseBodyAlertLogCountLogs extends $dara.Mo
 export class DescribeAlertLogCountResponseBodyAlertLogCount extends $dara.Model {
   /**
    * @remarks
-   * The number of alert logs.
+   * The number of alert history statistics.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class DescribeAlertLogCountResponseBodyAlertLogCount extends $dara.Model 
   count?: number;
   /**
    * @remarks
-   * The details about alert logs.
+   * The details of the alert history statistics.
    */
   logs?: DescribeAlertLogCountResponseBodyAlertLogCountLogs[];
   static names(): { [key: string]: string } {
@@ -85,14 +85,14 @@ export class DescribeAlertLogCountResponseBodyAlertLogCount extends $dara.Model 
 export class DescribeAlertLogCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The statistics of alert logs.
+   * The alert history statistics.
    */
   alertLogCount?: DescribeAlertLogCountResponseBodyAlertLogCount[];
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > The value 200 indicates success.
    * 
    * @example
    * 200
@@ -116,11 +116,11 @@ export class DescribeAlertLogCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true
+   * - true: Successful.
    * 
-   * - false
+   * - false: Failed.
    * 
    * @example
    * true

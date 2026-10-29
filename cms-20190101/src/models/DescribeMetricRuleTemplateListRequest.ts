@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetricRuleTemplateListRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to display the history of applying the alert templates to application groups. Valid values:
+   * Specifies whether to display the history of applying the alert template to application groups. Valid values:
    * 
-   * - true
+   * - true: Displays the history.
    * 
-   * - false (default)
+   * - false: Does not display the history. This is the default value.
    * 
    * @example
    * false
@@ -17,7 +17,7 @@ export class DescribeMetricRuleTemplateListRequest extends $dara.Model {
   history?: boolean;
   /**
    * @remarks
-   * The keyword of the alert template name.
+   * The keyword in the alert template name.
    * 
    * @example
    * ECS
@@ -33,11 +33,11 @@ export class DescribeMetricRuleTemplateListRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sorting order. Valid values:
+   * The sort order. Valid values:
    * 
-   * - true (default): ascending order
+   * - true: Ascending order. This is the default value.   
    * 
-   * - false: descending order
+   * - false: Descending order.
    * 
    * @example
    * true
@@ -45,11 +45,11 @@ export class DescribeMetricRuleTemplateListRequest extends $dara.Model {
   order?: boolean;
   /**
    * @remarks
-   * The sorting basis. Valid values:
+   * The sort field. Valid values:
    * 
-   * - gmtMotified: sorts alert templates by modification time
+   * - gmtMotified: Modification date.  
    * 
-   * - gmtCreate (default): sorts alert templates by creation time
+   * - gmtCreate: Creation date. This is the default value.
    * 
    * @example
    * gmtCreate
@@ -67,7 +67,7 @@ export class DescribeMetricRuleTemplateListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10

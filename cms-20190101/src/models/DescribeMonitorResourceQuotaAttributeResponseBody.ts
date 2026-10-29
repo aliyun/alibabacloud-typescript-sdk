@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaApi extends $dara.Model {
   /**
    * @remarks
-   * The total quota of API calls. Unit: 10,000 calls.
+   * The total API quota. Unit: 10,000 calls.
    * 
    * @example
    * 500
@@ -13,7 +13,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaApi e
   quotaLimit?: number;
   /**
    * @remarks
-   * The quota of API calls in your resource plan. Unit: 10,000 calls.
+   * The API quota included in the plan. Unit: 10,000 calls.
    * 
    * @example
    * 500
@@ -21,7 +21,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaApi e
   quotaPackage?: number;
   /**
    * @remarks
-   * The used quota of API calls in your resource plan. Unit: calls.
+   * The used API quota in the plan. Unit: calls.
    * 
    * @example
    * 9987
@@ -55,7 +55,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaApi e
 export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaCustomMonitor extends $dara.Model {
   /**
    * @remarks
-   * The total quota of the time series for custom monitoring.
+   * The total quota of custom monitoring time series. Unit: time series.
    * 
    * @example
    * 1200
@@ -63,7 +63,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaCusto
   quotaLimit?: number;
   /**
    * @remarks
-   * The quota of the time series for custom monitoring in your resource plan.
+   * The quota of custom monitoring time series included in the plan. Unit: time series.
    * 
    * @example
    * 1000
@@ -71,7 +71,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaCusto
   quotaPackage?: number;
   /**
    * @remarks
-   * The used quota of the time series for custom monitoring in your resource plan.
+   * The used quota of custom monitoring time series in the plan. Unit: time series.
    * 
    * @example
    * 8
@@ -105,7 +105,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaCusto
 export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaEnterpriseQuota extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance monitored by Hybrid Cloud Monitoring.
+   * The instance ID of Hybrid Cloud Monitoring.
    * 
    * @example
    * cms_enterprise_public_cn-7mz27pd****
@@ -145,7 +145,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaEnter
 export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaEventMonitor extends $dara.Model {
   /**
    * @remarks
-   * The total quota of events that can be reported in event monitoring. The total quota is the value that is multiplied by 10,000.
+   * The total quota of event monitoring. Unit: 10,000 events.
    * 
    * @example
    * 55
@@ -153,7 +153,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaEvent
   quotaLimit?: number;
   /**
    * @remarks
-   * The quota of events that can be reported in event monitoring in your resource plan. The total quota is the value that is multiplied by 10,000.
+   * The quota of event monitoring included in the plan. Unit: 10,000 events.
    * 
    * @example
    * 50
@@ -161,7 +161,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaEvent
   quotaPackage?: number;
   /**
    * @remarks
-   * The used quota of events that can be reported in event monitoring in your resource plan. The total quota is the value that is multiplied by 10,000.
+   * The used quota of event monitoring in the plan. Unit: 10,000 events.
    * 
    * @example
    * 2
@@ -195,7 +195,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaEvent
 export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaLogMonitor extends $dara.Model {
   /**
    * @remarks
-   * The total quota of processed log data in log monitoring. Unit: MB/min.
+   * The total quota of Log Monitoring. Unit: MByte/Min.
    * 
    * @example
    * 150
@@ -203,7 +203,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaLogMo
   quotaLimit?: number;
   /**
    * @remarks
-   * The quota of processed log data in log monitoring in your resource plan. Unit: MB/min.
+   * The quota of Log Monitoring included in the plan. Unit: MByte/Min.
    * 
    * @example
    * 150
@@ -211,7 +211,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaLogMo
   quotaPackage?: number;
   /**
    * @remarks
-   * The used quota of processed log data in log monitoring in your resource plan. Unit: MB/min.
+   * The used quota of Log Monitoring in the plan. Unit: MByte/Min.
    * 
    * @example
    * 80
@@ -253,7 +253,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaPhone
   quotaLimit?: number;
   /**
    * @remarks
-   * The quota of alert phone calls in your resource plan. Unit: calls.
+   * The quota of alert phone call packages. Unit: calls.
    * 
    * @example
    * 500
@@ -261,7 +261,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaPhone
   quotaPackage?: number;
   /**
    * @remarks
-   * The used quota of alert phone calls in your resource plan. Unit: calls.
+   * The used quota of alert phone call packages. Unit: calls.
    * 
    * @example
    * 100
@@ -303,7 +303,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSMS e
   quotaLimit?: number;
   /**
    * @remarks
-   * The quota of alert text messages in your resource plan. Unit: messages.
+   * The quota of alert text message packages. Unit: messages.
    * 
    * @example
    * 500
@@ -311,7 +311,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSMS e
   quotaPackage?: number;
   /**
    * @remarks
-   * The used quota of alert text messages in your resource plan. Unit: messages.
+   * The used quota of alert text message packages. Unit: messages.
    * 
    * @example
    * 38
@@ -345,7 +345,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSMS e
 export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorBrowser extends $dara.Model {
   /**
    * @remarks
-   * The total quota of browser detection tasks.
+   * The total quota of browser-based monitoring tasks. Unit: tasks.
    * 
    * @example
    * 50
@@ -353,7 +353,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
   quotaLimit?: number;
   /**
    * @remarks
-   * The quota of browser detection tasks in your resource plan.
+   * The quota of browser-based monitoring tasks included in the plan. Unit: tasks.
    * 
    * @example
    * 50
@@ -361,7 +361,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
   quotaPackage?: number;
   /**
    * @remarks
-   * The used quota of browser detection tasks in your resource plan.
+   * The used quota of browser-based monitoring tasks in the plan. Unit: tasks.
    * 
    * @example
    * 15
@@ -397,7 +397,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
    * @remarks
    * The total quota of ECS detection points for site monitoring.
    * 
-   * > The value indicates the maximum number of ECS detection points that you can select for a site monitoring task.
+   * > The maximum number of ECS detection points that can be selected for a single site monitoring task.
    * 
    * @example
    * 5
@@ -405,7 +405,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
   quotaLimit?: number;
   /**
    * @remarks
-   * The quota of ECS detection points for site monitoring in your resource plan.
+   * The quota of ECS detection points for site monitoring included in the plan.
    * 
    * @example
    * 5
@@ -413,9 +413,9 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
   quotaPackage?: number;
   /**
    * @remarks
-   * The used quota of ECS detection points for site monitoring in your resource plan.
+   * The used quota of ECS detection points for site monitoring in the plan.
    * 
-   * > The value indicates the total number of ECS detection points that are used by existing site monitoring tasks.
+   * > The total number of ECS detection points across all site monitoring tasks that have been created.
    * 
    * @example
    * 20
@@ -449,7 +449,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
 export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorMobile extends $dara.Model {
   /**
    * @remarks
-   * The total quota of mobile detection tasks.
+   * The total quota of mobile monitoring tasks. Unit: tasks.
    * 
    * @example
    * 50
@@ -457,7 +457,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
   quotaLimit?: number;
   /**
    * @remarks
-   * The quota of mobile detection tasks in your resource plan.
+   * The quota of mobile monitoring tasks included in the plan. Unit: tasks.
    * 
    * @example
    * 50
@@ -465,7 +465,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
   quotaPackage?: number;
   /**
    * @remarks
-   * The used quota of mobile detection tasks in your resource plan.
+   * The used quota of mobile monitoring tasks in the plan. Unit: tasks.
    * 
    * @example
    * 15
@@ -507,7 +507,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
   quotaLimit?: number;
   /**
    * @remarks
-   * The quota of carrier detection points for site monitoring in your resource plan.
+   * The quota of carrier detection points for site monitoring included in the plan.
    * 
    * @example
    * 5
@@ -515,7 +515,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
   quotaPackage?: number;
   /**
    * @remarks
-   * The used quota of carrier detection points for site monitoring in your resource plan.
+   * The used quota of carrier detection points for site monitoring in the plan.
    * 
    * @example
    * 0
@@ -549,7 +549,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
 export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorTask extends $dara.Model {
   /**
    * @remarks
-   * The total quota of site monitoring tasks.
+   * The total quota of site monitoring tasks. Unit: tasks.
    * 
    * @example
    * 25
@@ -557,7 +557,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
   quotaLimit?: number;
   /**
    * @remarks
-   * The quota of site monitoring tasks in your resource plan.
+   * The quota of site monitoring tasks included in the plan. Unit: tasks.
    * 
    * @example
    * 20
@@ -565,7 +565,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
   quotaPackage?: number;
   /**
    * @remarks
-   * The used quota of site monitoring tasks in your resource plan.
+   * The used quota of site monitoring tasks in the plan. Unit: tasks.
    * 
    * @example
    * 15
@@ -599,27 +599,27 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteM
 export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuota extends $dara.Model {
   /**
    * @remarks
-   * The details about the quota of API calls.
+   * The API quota.
    */
   api?: DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaApi;
   /**
    * @remarks
-   * The details about the quota for custom monitoring.
+   * The quota of custom monitoring.
    */
   customMonitor?: DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaCustomMonitor;
   /**
    * @remarks
-   * The details about the quota of Hybrid Cloud Monitoring.
+   * The quota details of Hybrid Cloud Monitoring.
    */
   enterpriseQuota?: DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaEnterpriseQuota;
   /**
    * @remarks
-   * The details about the quota for event monitoring.
+   * The quota of event monitoring.
    */
   eventMonitor?: DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaEventMonitor;
   /**
    * @remarks
-   * The time when the resource plan expires.
+   * The expiration time of the plan. The time follows the ISO 8601 standard in the YYYY-MM-DD format. The default time zone is UTC+8.
    * 
    * @example
    * 2021-02-28
@@ -627,7 +627,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuota exte
   expireTime?: string;
   /**
    * @remarks
-   * The ID of the resource plan.
+   * The subscription plan ID.
    * 
    * @example
    * cms_edition-cn-n6w20rn****
@@ -635,37 +635,37 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuota exte
   instanceId?: string;
   /**
    * @remarks
-   * The details about the quota for log monitoring.
+   * The quota of Log Monitoring.
    */
   logMonitor?: DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaLogMonitor;
   /**
    * @remarks
-   * The details about the quota of alert phone calls.
+   * The quota of alert phone call packages.
    */
   phone?: DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaPhone;
   /**
    * @remarks
-   * The details about the quota of alert text messages.
+   * The quota of alert text message packages.
    */
   SMS?: DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSMS;
   /**
    * @remarks
-   * The quota of browser detection tasks.
+   * The quota of browser-based monitoring tasks.
    */
   siteMonitorBrowser?: DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorBrowser;
   /**
    * @remarks
-   * The details about the quota of ECS detection points for site monitoring.
+   * The quota of ECS detection points for site monitoring.
    */
   siteMonitorEcsProbe?: DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorEcsProbe;
   /**
    * @remarks
-   * The quota of mobile detection tasks.
+   * The quota of mobile monitoring tasks.
    */
   siteMonitorMobile?: DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorMobile;
   /**
    * @remarks
-   * The details about the quota of carrier detection points for site monitoring.
+   * The quota of carrier detection points for site monitoring.
    */
   siteMonitorOperatorProbe?: DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorOperatorProbe;
   /**
@@ -676,12 +676,9 @@ export class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuota exte
   /**
    * @remarks
    * The current edition of CloudMonitor. Valid values:
-   * 
-   * - free: Free Edition
-   * 
-   * - pro: Pro Edition
-   * 
-   * - cms_post: pay-as-you-go
+   * - free: Free Edition.
+   * - pro: Pro Edition.
+   * - cms_post: Pay-as-you-go.
    * 
    * @example
    * pro
@@ -777,7 +774,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBody extends $dara.Mod
    * @remarks
    * The status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -801,7 +798,7 @@ export class DescribeMonitorResourceQuotaAttributeResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The details about the resource quotas of CloudMonitor.
+   * The quota details of CloudMonitor.
    */
   resourceQuota?: DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuota;
   static names(): { [key: string]: string } {

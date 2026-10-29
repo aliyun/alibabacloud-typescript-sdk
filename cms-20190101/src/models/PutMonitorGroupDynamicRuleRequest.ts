@@ -135,6 +135,7 @@ export class PutMonitorGroupDynamicRuleRequestGroupRules extends $dara.Model {
 }
 
 export class PutMonitorGroupDynamicRuleRequest extends $dara.Model {
+  dryRun?: boolean;
   /**
    * @remarks
    * The ID of the application group.
@@ -167,6 +168,7 @@ export class PutMonitorGroupDynamicRuleRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       groupId: 'GroupId',
       groupRules: 'GroupRules',
       isAsync: 'IsAsync',
@@ -176,6 +178,7 @@ export class PutMonitorGroupDynamicRuleRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       groupId: 'number',
       groupRules: { 'type': 'array', 'itemType': PutMonitorGroupDynamicRuleRequestGroupRules },
       isAsync: 'boolean',

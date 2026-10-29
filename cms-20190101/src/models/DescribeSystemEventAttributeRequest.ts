@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSystemEventAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time.
    * 
-   * The value must be a UNIX timestamp. It is the number of seconds that have elapsed since 00:00:00 UTC, January 1, 1970.
+   * The value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970.
    * 
    * @example
    * 1552221584949
@@ -15,9 +15,9 @@ export class DescribeSystemEventAttributeRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The type of the system event.
+   * The event type.
    * 
-   * > You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the types of system events.
+   * >For more information about valid values for the event type, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
    * 
    * @example
    * Exception
@@ -33,13 +33,11 @@ export class DescribeSystemEventAttributeRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The level of the system event. Valid values:
+   * The event level. Valid values:
    * 
-   * - CRITICAL: critical
-   * 
-   * - WARN: warning
-   * 
-   * - INFO: information
+   * - CRITICAL: critical.
+   * - WARN: warning.
+   * - INFO: information.
    * 
    * @example
    * CRITICAL
@@ -47,9 +45,9 @@ export class DescribeSystemEventAttributeRequest extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The name of the system event.
+   * The event name.
    * 
-   * > You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the names of system events.
+   * >For more information about valid values for the event name, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
    * 
    * @example
    * BucketIngressBandwidth
@@ -57,7 +55,7 @@ export class DescribeSystemEventAttributeRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * Valid values: 1 to 100000000.
    * 
@@ -69,11 +67,11 @@ export class DescribeSystemEventAttributeRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * Valid values: 1 to 100.
    * 
-   * Default value: 10
+   * Default value: 10.
    * 
    * @example
    * 10
@@ -81,9 +79,9 @@ export class DescribeSystemEventAttributeRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The abbreviation of the service name.
+   * The abbreviation of the product name.
    * 
-   * > You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the abbreviations of service names.
+   * >For more information about valid values for the product name abbreviation, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
    * 
    * @example
    * oss
@@ -92,11 +90,11 @@ export class DescribeSystemEventAttributeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The keywords that are used to search for the system event. Valid values:
+   * The keywords used to search event content. Valid values:
    * 
-   * - If you want to search for the system event whose content contains a and b, set the value to `a and b`.
+   * - If the event content you want to search for includes both a and b, you can search for `a and b`.
    * 
-   * - If you want to search for the system event whose content contains a or b, set the value to `a or b`.
+   * - If the event content you want to search for includes either a or b, you can search for `a or b`.
    * 
    * @example
    * cms
@@ -104,9 +102,9 @@ export class DescribeSystemEventAttributeRequest extends $dara.Model {
   searchKeywords?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time.
    * 
-   * The value must be a UNIX timestamp. It is the number of seconds that have elapsed since 00:00:00 UTC, January 1, 1970.
+   * The value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970.
    * 
    * @example
    * 1552199984949
@@ -114,9 +112,9 @@ export class DescribeSystemEventAttributeRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the system event.
+   * The event status.
    * 
-   * > You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the statuses of system events.
+   * >For more information about valid values for the event status, see [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html).
    * 
    * @example
    * normal

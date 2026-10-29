@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CursorShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end timestamp.
    * 
    * Unit: milliseconds.
    * 
-   * > - Unix timestamp: the number of milliseconds that have elapsed since 00:00:00 on January 1, 1970. The value is in the YYYY-MM-DDThh:mm:ssZ format. For example, 2023-01-01T00:00:00Z indicates 00:00:00 on January 1, 2023 (GMT).
-   * - If you do not specify an end time, the end time is unlimited. You do not need to specify this parameter when you export data in real time.
-   * - The time to live (TTL) of monitoring data varies based on the statistical granularity in CloudMonitor. Configure a proper time range based on the TTL of the data that corresponds to the `Period` parameter.
+   * > - UNIX timestamp: the number of milliseconds that have elapsed since January 1, 1970. The format YYYY-MM-DDThh:mm:ssZ is supported. Example: 2023-01-01T00:00:00Z, which specifies 00:00:00 on January 1, 2023 (GMT).
+   * - If you do not specify the end time, the end time is considered infinite. In real-time export scenarios, you can leave this parameter empty.
+   * - The TTL of monitoring data in CloudMonitor varies with the time granularity. Refer to the data TTL corresponding to the Period request parameter to set a reasonable time interval.
    * 
    * @example
    * 1641645000000
@@ -24,9 +24,9 @@ export class CursorShrinkRequest extends $dara.Model {
   matchersShrink?: string;
   /**
    * @remarks
-   * The metric name of the cloud service.
+   * The name of the metric for the cloud service.
    * 
-   * For information about how to obtain the metric name of a cloud service, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For more information about how to obtain the metric name of a cloud service, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class CursorShrinkRequest extends $dara.Model {
    * @remarks
    * The data namespace of the cloud service.
    * 
-   * For information about how to obtain the data namespace of a cloud service, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For more information about how to obtain the data namespace of a cloud service, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -48,11 +48,11 @@ export class CursorShrinkRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The statistical period of the metric.
+   * The time interval of the metric.
    * 
    * Unit: seconds.
    * 
-   * > The statistical period of a metric is typically 60 seconds. For special values, see the `Period` parameter in [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * > The time interval of a metric is typically 60 seconds. For special values, see the Period parameter in [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -62,11 +62,11 @@ export class CursorShrinkRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start timestamp.
    * 
-   * The value is in the YYYY-MM-DDThh:mm:ssZ format. For example, 2023-01-01T00:00:00Z indicates 00:00:00 on January 1, 2023 (GMT).
+   * The format YYYY-MM-DDThh:mm:ssZ is supported. Example: 2023-01-01T00:00:00Z, which specifies 00:00:00 on January 1, 2023 (GMT).
    * 
-   * > The time to live (TTL) of monitoring data varies based on the statistical granularity in CloudMonitor. Configure a proper time range based on the TTL of the data that corresponds to the `Period` parameter.
+   * > The time-to-live (TTL) of monitoring data in CloudMonitor varies with the time granularity. Refer to the data TTL corresponding to the Period request parameter to set a reasonable time interval.
    * 
    * This parameter is required.
    * 

@@ -35,9 +35,9 @@ export class DeleteMetricRuleTemplateResponseBodyResource extends $dara.Model {
 export class DeleteMetricRuleTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The value 200 indicates success.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class DeleteMetricRuleTemplateResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message.
    * 
    * @example
    * success
@@ -66,10 +66,7 @@ export class DeleteMetricRuleTemplateResponseBody extends $dara.Model {
   resource?: DeleteMetricRuleTemplateResponseBodyResource;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
-   * 
-   * - true: The operation was successful.
-   * - false: The operation failed.
+   * Indicates whether the operation is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * true

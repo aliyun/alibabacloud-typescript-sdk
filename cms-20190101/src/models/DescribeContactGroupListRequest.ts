@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeContactGroupListRequest extends $dara.Model {
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeContactGroupListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of records per page.
+   * The number of records per page.
    * 
    * @example
    * 10

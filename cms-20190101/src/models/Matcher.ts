@@ -13,7 +13,7 @@ export class Matcher extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The matching mode of the metric dimension. Only EQUALS is supported. Default value: EQUALS.
+   * The matching method for the metric dimension. Only EQUALS is supported. Default value: EQUALS.
    * 
    * @example
    * EQUALS

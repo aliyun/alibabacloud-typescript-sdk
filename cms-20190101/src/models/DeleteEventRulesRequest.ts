@@ -5,12 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEventRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The names of the event-triggered alert rules to delete.
+   * The names of the rules to delete.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * rule1
    */
   ruleNames?: string[];
   static names(): { [key: string]: string } {

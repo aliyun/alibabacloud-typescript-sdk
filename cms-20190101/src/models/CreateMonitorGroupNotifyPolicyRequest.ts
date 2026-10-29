@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMonitorGroupNotifyPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The end timestamp for pausing notifications.
+   * The end timestamp.
    * 
-   * The value is a UNIX timestamp, which represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * Unit: milliseconds.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1623208500000
+   * 1551761781273
    */
   endTime?: number;
   /**
@@ -22,12 +22,14 @@ export class CreateMonitorGroupNotifyPolicyRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 7301****
+   * 6780****
    */
   groupId?: string;
   /**
    * @remarks
-   * The type of the pause notification. Currently, only PauseNotify is supported.
+   * The type of the pause notification.
+   * 
+   * Currently, only PauseNotify is supported.
    * 
    * This parameter is required.
    * 
@@ -38,14 +40,14 @@ export class CreateMonitorGroupNotifyPolicyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start timestamp for pausing notifications.
+   * The start timestamp.
    * 
-   * The value is a UNIX timestamp, which represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * Unit: milliseconds.
    * 
    * This parameter is required.
    * 
    * @example
-   * 1622949300000
+   * 1551761781273
    */
   startTime?: number;
   static names(): { [key: string]: string } {

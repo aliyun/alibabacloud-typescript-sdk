@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSiteMonitorListRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of detection points used by the task. Valid values:
+   * The type of monitoring nodes used by the task. Valid values:
    * 
    * - PC: PC-based detection points.
    * 
-   * - MOBILE: mobile-based detection points.
+   * - MOBILE: Mobile-based detection points.
    * 
-   * - FC: internal detection points.
+   * - FC: Internal detection points.
    * 
    * @example
    * PC

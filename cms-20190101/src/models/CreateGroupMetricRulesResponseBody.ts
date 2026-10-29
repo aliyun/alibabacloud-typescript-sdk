@@ -92,11 +92,11 @@ export class CreateGroupMetricRulesResponseBody extends $dara.Model {
   resources?: CreateGroupMetricRulesResponseBodyResources;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: Successful.
+   * - true: The operation is successful.
    * 
-   * - false: Failed.
+   * - false: The operation failed.
    * 
    * @example
    * true

@@ -15,7 +15,7 @@ export class PutEventRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number of rows affected when the Event-triggered Alert Rule is created or modified.
+   * The number of rows affected when the event-triggered alert rule is created or modified.
    * 
    * @example
    * 1

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMonitorGroupNotifyPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * >The value 200 indicates success.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -26,12 +26,12 @@ export class CreateMonitorGroupNotifyPolicyResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 13356BCA-3EC3-4748-A771-2064DA69AEF1
+   * B7AF834D-D38B-4A46-920B-FE974EB7E135
    */
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned for the creation result.
+   * The number of affected rows.
    * 
    * @example
    * 1

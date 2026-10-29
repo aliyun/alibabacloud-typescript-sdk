@@ -15,9 +15,9 @@ export class DescribeEventRuleListRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the event-triggered alert rule. Valid values:
    * 
-   * - true (default)
+   * - true: enabled. This is the default value.
    * 
-   * - false
+   * - false: disabled.
    * 
    * @example
    * true
@@ -25,7 +25,7 @@ export class DescribeEventRuleListRequest extends $dara.Model {
   isEnable?: boolean;
   /**
    * @remarks
-   * The prefix in the name of the event-triggered alert rule.
+   * The prefix of the event-triggered alert rule.
    * 
    * @example
    * test
@@ -33,9 +33,7 @@ export class DescribeEventRuleListRequest extends $dara.Model {
   namePrefix?: string;
   /**
    * @remarks
-   * The page number.
-   * 
-   * Pages start from page 1. Default value: 1.
+   * The page number. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -43,9 +41,7 @@ export class DescribeEventRuleListRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
-   * 
-   * Pages start from page 1. Default value: 10.
+   * The number of entries to return on each page. Minimum value: 1. Default value: 10.
    * 
    * @example
    * 10

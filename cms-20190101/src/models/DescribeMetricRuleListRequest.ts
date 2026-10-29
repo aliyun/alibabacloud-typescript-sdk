@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetricRuleListRequest extends $dara.Model {
   /**
    * @remarks
-   * The state of the alert rule. Valid values:
+   * The status of the alert rule. Valid values:
    * - OK: Normal.
    * - ALARM: Alert.
    * - INSUFFICIENT_DATA: No data.
@@ -18,7 +18,7 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
    * @remarks
    * The monitoring dimensions of the specified resource.
    * 
-   * Format: a collection of `key:value` pairs. Example: `{"userId":"120886317861****"}` and `{"instanceId":"i-2ze2d6j5uhg20x47****"}`.
+   * Format: A collection of `key:value` pairs, for example, `{"userId":"120886317861****"}` and `{"instanceId":"i-2ze2d6j5uhg20x47****"}`.
    * 
    * @example
    * {"instanceId":"i-2ze2d6j5uhg20x47****"}
@@ -27,8 +27,8 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
   /**
    * @remarks
    * The enabled state of the alert rule. Valid values:
-   * - true: enabled.
-   * - false: disabled.
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -48,9 +48,9 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
    * @remarks
    * The metric name.
    * 
-   * For information about how to obtain metric names, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For information about how to obtain metric names, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
-   * Note: For composite metrics, you can retrieve results only by the first metric.
+   * Note: For composite metrics, you can only search by the first metric.
    * 
    * @example
    * cpu_total
@@ -58,9 +58,9 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The namespace of the Alibaba Cloud service.
+   * The namespace of the cloud service.
    * 
-   * For information about how to obtain the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For information about how to obtain the namespace of a cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * acs_ecs_dashboard
@@ -89,7 +89,7 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the alert rules. Separate multiple IDs with commas (,). You can query up to 20 alert rules at a time.
+   * The IDs of alert rules. Separate multiple IDs with commas (,). You can query up to 20 alert rules at a time.
    * 
    * @example
    * applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****
@@ -99,7 +99,7 @@ export class DescribeMetricRuleListRequest extends $dara.Model {
    * @remarks
    * The name of the alert rule.
    * 
-   * This parameter supports fuzzy match.
+   * This parameter supports fuzzy search.
    * 
    * @example
    * Rule_01

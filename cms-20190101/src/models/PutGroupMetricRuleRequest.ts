@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class PutGroupMetricRuleRequestEscalationsCritical extends $dara.Model {
   /**
    * @remarks
-   * Critical级别阈值比较符。取值：
+   * The threshold comparison operator for Critical-level alerts. Valid values:
    * 
-   * - GreaterThanOrEqualToThreshold：大于等于。
-   * - GreaterThanThreshold：大于。
-   * - LessThanOrEqualToThreshold：小于等于。
-   * - LessThanThreshold：小于。
-   * - NotEqualToThreshold：不等于。
-   * - GreaterThanYesterday：同比昨天时间上涨。
-   * - LessThanYesterday：同比昨天时间下降。
-   * - GreaterThanLastWeek：同比上周同一时间上涨。
-   * - LessThanLastWeek：同比上周同一时间下降。
-   * - GreaterThanLastPeriod：环比上周期上涨。
-   * - LessThanLastPeriod：环比上周期下降。
+   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold.
+   * - GreaterThanThreshold: greater than the threshold.
+   * - LessThanOrEqualToThreshold: less than or equal to the threshold.
+   * - LessThanThreshold: less than the threshold.
+   * - NotEqualToThreshold: not equal to the threshold.
+   * - GreaterThanYesterday: greater than the value at the same time yesterday.
+   * - LessThanYesterday: less than the value at the same time yesterday.
+   * - GreaterThanLastWeek: greater than the value at the same time last week.
+   * - LessThanLastWeek: less than the value at the same time last week.
+   * - GreaterThanLastPeriod: greater than the value in the last period.
+   * - LessThanLastPeriod: less than the value in the last period.
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -25,9 +25,9 @@ export class PutGroupMetricRuleRequestEscalationsCritical extends $dara.Model {
   comparisonOperator?: string;
   /**
    * @remarks
-   * Critical级别报警统计方法。多个统计方法之间用半角逗号（,）分隔。
+   * The statistical method for Critical-level alerts. Separate multiple statistical methods with commas (,).
    * 
-   * 该参数的取值由指定云产品的`MetricName`对应的`Statistics`列决定，例如：Maximum、Minimum和Average。关于如何获取该参数的取值，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
+   * The valid values of this parameter are determined by the `Statistics` column corresponding to the `MetricName` of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For information about how to obtain the valid values of this parameter, see [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * Average
@@ -35,7 +35,7 @@ export class PutGroupMetricRuleRequestEscalationsCritical extends $dara.Model {
   statistics?: string;
   /**
    * @remarks
-   * Critical级别报警阈值。
+   * The threshold for Critical-level alerts.
    * 
    * @example
    * 90
@@ -43,7 +43,7 @@ export class PutGroupMetricRuleRequestEscalationsCritical extends $dara.Model {
   threshold?: string;
   /**
    * @remarks
-   * Critical级别报警重试次数。
+   * The number of retries for Critical-level alerts.
    * 
    * @example
    * 3
@@ -79,19 +79,19 @@ export class PutGroupMetricRuleRequestEscalationsCritical extends $dara.Model {
 export class PutGroupMetricRuleRequestEscalationsInfo extends $dara.Model {
   /**
    * @remarks
-   * Info级别阈值比较符。取值：
+   * The threshold comparison operator for Info-level alerts. Valid values:
    * 
-   * - GreaterThanOrEqualToThreshold：大于等于。
-   * - GreaterThanThreshold：大于。
-   * - LessThanOrEqualToThreshold：小于等于。
-   * - LessThanThreshold：小于。
-   * - NotEqualToThreshold：不等于。
-   * - GreaterThanYesterday：同比昨天时间上涨。
-   * - LessThanYesterday：同比昨天时间下降。
-   * - GreaterThanLastWeek：同比上周同一时间上涨。
-   * - LessThanLastWeek：同比上周同一时间下降。
-   * - GreaterThanLastPeriod：环比上周期上涨。
-   * - LessThanLastPeriod：环比上周期下降。
+   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold.
+   * - GreaterThanThreshold: greater than the threshold.
+   * - LessThanOrEqualToThreshold: less than or equal to the threshold.
+   * - LessThanThreshold: less than the threshold.
+   * - NotEqualToThreshold: not equal to the threshold.
+   * - GreaterThanYesterday: greater than the value at the same time yesterday.
+   * - LessThanYesterday: less than the value at the same time yesterday.
+   * - GreaterThanLastWeek: greater than the value at the same time last week.
+   * - LessThanLastWeek: less than the value at the same time last week.
+   * - GreaterThanLastPeriod: greater than the value in the last period.
+   * - LessThanLastPeriod: less than the value in the last period.
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -99,9 +99,9 @@ export class PutGroupMetricRuleRequestEscalationsInfo extends $dara.Model {
   comparisonOperator?: string;
   /**
    * @remarks
-   * Info级别报警统计方法。多个统计方法之间用半角逗号（,）分隔。
+   * The statistical method for Info-level alerts. Separate multiple statistical methods with commas (,).
    * 
-   * 该参数的取值由指定云产品的`MetricName`对应的`Statistics`列决定，例如：Maximum、Minimum和Average。关于如何获取该参数的取值，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
+   * The valid values of this parameter are determined by the `Statistics` column corresponding to the `MetricName` of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For information about how to obtain the valid values of this parameter, see [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * Average
@@ -109,7 +109,7 @@ export class PutGroupMetricRuleRequestEscalationsInfo extends $dara.Model {
   statistics?: string;
   /**
    * @remarks
-   * Info级别报警阈值。
+   * The threshold for Info-level alerts.
    * 
    * @example
    * 90
@@ -117,7 +117,7 @@ export class PutGroupMetricRuleRequestEscalationsInfo extends $dara.Model {
   threshold?: string;
   /**
    * @remarks
-   * Info级别报警重试次数。
+   * The number of retries for Info-level alerts.
    * 
    * @example
    * 3
@@ -153,19 +153,19 @@ export class PutGroupMetricRuleRequestEscalationsInfo extends $dara.Model {
 export class PutGroupMetricRuleRequestEscalationsWarn extends $dara.Model {
   /**
    * @remarks
-   * Warn级别阈值比较符。取值：
+   * The threshold comparison operator for Warn-level alerts. Valid values:
    * 
-   * - GreaterThanOrEqualToThreshold：大于等于。
-   * - GreaterThanThreshold：大于。
-   * - LessThanOrEqualToThreshold：小于等于。
-   * - LessThanThreshold：小于。
-   * - NotEqualToThreshold：不等于。
-   * - GreaterThanYesterday：同比昨天时间上涨。
-   * - LessThanYesterday：同比昨天时间下降。
-   * - GreaterThanLastWeek：同比上周同一时间上涨。
-   * - LessThanLastWeek：同比上周同一时间下降。
-   * - GreaterThanLastPeriod：环比上周期上涨。
-   * - LessThanLastPeriod：环比上周期下降。
+   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold.
+   * - GreaterThanThreshold: greater than the threshold.
+   * - LessThanOrEqualToThreshold: less than or equal to the threshold.
+   * - LessThanThreshold: less than the threshold.
+   * - NotEqualToThreshold: not equal to the threshold.
+   * - GreaterThanYesterday: greater than the value at the same time yesterday.
+   * - LessThanYesterday: less than the value at the same time yesterday.
+   * - GreaterThanLastWeek: greater than the value at the same time last week.
+   * - LessThanLastWeek: less than the value at the same time last week.
+   * - GreaterThanLastPeriod: greater than the value in the last period.
+   * - LessThanLastPeriod: less than the value in the last period.
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -173,9 +173,9 @@ export class PutGroupMetricRuleRequestEscalationsWarn extends $dara.Model {
   comparisonOperator?: string;
   /**
    * @remarks
-   * Warn级别报警统计方法。多个统计方法之间用半角逗号（,）分隔。
+   * The statistical method for Warn-level alerts. Separate multiple statistical methods with commas (,).
    * 
-   * 该参数的取值由指定云产品的`MetricName`对应的`Statistics`列决定，例如：Maximum、Minimum和Average。关于如何获取该参数的取值，请参见[云产品监控项](https://help.aliyun.com/document_detail/163515.html)。
+   * The valid values of this parameter are determined by the `Statistics` column corresponding to the `MetricName` of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For information about how to obtain the valid values of this parameter, see [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * Average
@@ -183,7 +183,7 @@ export class PutGroupMetricRuleRequestEscalationsWarn extends $dara.Model {
   statistics?: string;
   /**
    * @remarks
-   * Warn级别报警阈值。
+   * The threshold for Warn-level alerts.
    * 
    * @example
    * 90
@@ -191,7 +191,7 @@ export class PutGroupMetricRuleRequestEscalationsWarn extends $dara.Model {
   threshold?: string;
   /**
    * @remarks
-   * Warn级别报警重试次数。
+   * The number of retries for Warn-level alerts.
    * 
    * @example
    * 3
@@ -308,7 +308,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The abbreviation of the Alibaba Cloud service name.
    * 
-   * For information about how to obtain the abbreviation, see the `metricCategory` tag in the `Labels` response parameter of the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation.
+   * For information about how to obtain the abbreviation of an Alibaba Cloud service name, see the `metricCategory` field in the `Labels` response parameter of the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation.
    * 
    * @example
    * ECS
@@ -324,9 +324,9 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   contactGroups?: string;
   /**
    * @remarks
-   * The first-level dimensions of the alert rule in the application group.
+   * The first-level dimension of the alert rule in the application group.
    * 
-   * Format: a collection of `key:value` pairs, such as `{"userId":"120886317861****"}` and `{"instanceId":"i-m5e1qg6uo38rztr4****"}`.
+   * Format: a collection of `key:value` pairs. Examples: `{"userId":"120886317861****"}` and `{"instanceId":"i-m5e1qg6uo38rztr4****"}`.
    * 
    * @example
    * [{"instanceId":"i-m5e1qg6uo38rztr4****"}]
@@ -334,7 +334,17 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   dimensions?: string;
   /**
    * @remarks
-   * The effective period during which the alert rule takes effect.
+   * Specifies whether to only precheck the request. Valid values:
+   * - **true**: sends a check request. The system does not bind a security group to the instance. The check items include whether required parameters are specified, the request format, and service limits. If the check fails, the system returns an error. If the check succeeds, the system returns the error code `DryRunOperation`.
+   * - **false** (default value): sends a normal request. If the check succeeds, the system returns an HTTP 2xx status code and performs the operation.
+   * 
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * The effective period of the alert rule.
    * 
    * @example
    * 05:31-23:59
@@ -350,11 +360,11 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   emailSubject?: string;
   /**
    * @remarks
-   * The second-level or third-level dimensions of the alert rule in the application group.
+   * The second-level or third-level dimension of the alert rule in the application group.
    * 
-   * Format: a collection of `key:value` pairs, such as `port:80` and `/dev/xvda:d-m5e6yphgzn3aprwu****`.
+   * Format: a collection of `key:value` pairs. Examples: `port:80` and `/dev/xvda:d-m5e6yphgzn3aprwu****`.
    * 
-   * If the first-level dimension is `{"instanceId":"i-m5e1qg6uo38rztr4****"}`, the second-level dimension is a cloud disk of the instance: `{"/dev/xvda":"d-m5e6yphgzn3aprwu****"}`.
+   * If the first-level dimension of the alert rule is `{"instanceId":"i-m5e1qg6uo38rztr4****"}`, the second-level dimension is the cloud disk in the instance, such as `{"/dev/xvda":"d-m5e6yphgzn3aprwu****"}`.
    * 
    * @example
    * {"/dev/xvda":"d-m5e6yphgzn3aprwu****"}
@@ -362,9 +372,9 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   extraDimensionJson?: string;
   /**
    * @remarks
-   * The application group ID.
+   * The ID of the application group.
    * 
-   * For information about how to obtain the application group ID, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
+   * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
    * 
    * This parameter is required.
    * 
@@ -376,7 +386,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The detection period of the alert rule. Unit: seconds.
    * 
-   * > Keep the detection period consistent with the data reporting period. If the detection period is shorter than the data reporting period, alerts may not be triggered due to insufficient data.
+   * > Make sure the detection period of the alert rule is the same as the data reporting period. If the detection period is shorter than the data reporting period, alerts may not be triggered due to insufficient data.
    * 
    * @example
    * 60
@@ -386,14 +396,14 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The tags of the alert rule.
    * 
-   * Tags are included in alert notifications.
+   * Alert notifications include tags.
    */
   labels?: PutGroupMetricRuleRequestLabels[];
   /**
    * @remarks
-   * The metric name.
+   * The name of the metric.
    * 
-   * For information about how to obtain the metric name, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Cloud service monitoring](https://help.aliyun.com/document_detail/163515.html).
+   * For information about how to obtain the name of a metric, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -405,7 +415,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The namespace of the Alibaba Cloud service.
    * 
-   * For information about how to obtain the namespace, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Cloud service monitoring](https://help.aliyun.com/document_detail/163515.html).
+   * For information about how to obtain the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -415,10 +425,10 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The processing method when no monitoring data is found. Valid values:
-   * - KEEP_LAST_STATE (default): No action is performed.
-   * - INSUFFICIENT_DATA: An alert whose content is "Insufficient Data" is triggered.
-   * - OK: The status is considered normal.
+   * The action to take when no monitoring data is found. Valid values:
+   * - KEEP_LAST_STATE (default value): Takes no action.
+   * - INSUFFICIENT_DATA: Sends an alert notification indicating that no data is found.
+   * - OK: Sends an alert notification indicating that the status is normal.
    * 
    * @example
    * KEEP_LAST_STATE
@@ -426,7 +436,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   noDataPolicy?: string;
   /**
    * @remarks
-   * The time range during which the alert rule is ineffective.
+   * The time range during which the alert rule is inactive.
    * 
    * @example
    * 00:00-05:30
@@ -436,7 +446,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The advanced settings.
    * 
-   * Format: {"key1":"value1","key2":"value2"}. Example: {"NotSendOK":true}. This specifies whether to send a notification when the alert is cleared. The key is NotSendOK, and the value is true (do not send) or false (send, which is the default).
+   * Format: `{"key1":"value1","key2":"value2"}`. Example: `{"NotSendOK":true}`, which specifies whether to send alert recovery notifications. The key is `NotSendOK`, and the value is `true` (do not send) or `false` (send by default).
    * 
    * @example
    * {"NotSendOK":true}
@@ -446,7 +456,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The reporting period of monitoring data.
    * 
-   * The value of `Period` must be 60 or a multiple of 60. Unit: seconds. Default value: 300.
+   * The value of `Period` must be 60 or an integer multiple of 60. Unit: seconds. Default value: 300.
    * 
    * @example
    * 60
@@ -454,11 +464,11 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The alert rule ID.
+   * The ID of the alert rule.
    * 
    * - To create an alert rule for the application group, enter an alert rule ID.
    * 
-   * - To modify a specified alert rule in the application group, obtain the alert rule ID. For information about how to obtain the alert rule ID, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+   * - To modify a specified alert rule in the application group, you must obtain the alert rule ID. For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
    * 
    * This parameter is required.
    * 
@@ -468,11 +478,11 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The alert rule name.
+   * The name of the alert rule.
    * 
    * - To create an alert rule for the application group, enter an alert rule name.
    * 
-   * - To modify a specified alert rule in the application group, obtain the alert rule name. For information about how to obtain the alert rule name, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+   * - To modify a specified alert rule in the application group, you must obtain the alert rule name. For information about how to obtain the name of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
    * 
    * This parameter is required.
    * 
@@ -482,7 +492,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The mute period.
+   * The mute for epoch.
    * 
    * Unit: seconds. Default value: 86400.
    * 
@@ -492,9 +502,9 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   silenceTime?: number;
   /**
    * @remarks
-   * The callback URL to which a request is sent when an alert is triggered.
+   * The webhook URL that is called when an alert is triggered.
    * 
-   * Enter a publicly accessible URL. CloudMonitor sends a POST request to push alert information to this URL. Only the HTTP protocol is supported.
+   * Enter a publicly accessible URL. CloudMonitor pushes alert notifications to this URL by sending POST requests. Only HTTP is supported.
    * 
    * @example
    * https://www.aliyun.com
@@ -506,6 +516,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
       category: 'Category',
       contactGroups: 'ContactGroups',
       dimensions: 'Dimensions',
+      dryRun: 'DryRun',
       effectiveInterval: 'EffectiveInterval',
       emailSubject: 'EmailSubject',
       extraDimensionJson: 'ExtraDimensionJson',
@@ -531,6 +542,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
       category: 'string',
       contactGroups: 'string',
       dimensions: 'string',
+      dryRun: 'boolean',
       effectiveInterval: 'string',
       emailSubject: 'string',
       extraDimensionJson: 'string',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMetricRuleBlackListRequest extends $dara.Model {
   /**
    * @remarks
-   * The category of the Alibaba Cloud service. For example, Redis has different editions, such as `kvstore_standard` (Standard Edition), `kvstore_sharding` (Cluster Edition), and `kvstore_splitrw` (Read/write Splitting Edition).
+   * The category of the Alibaba Cloud service. For example, ApsaraDB for Redis has `kvstore_standard` (Standard Edition), `kvstore_sharding` (Cluster Edition), and `kvstore_splitrw` (read/write splitting Edition).
    * 
    * @example
    * ecs
@@ -13,23 +13,22 @@ export class DescribeMetricRuleBlackListRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The IDs of the blacklist policies.
+   * The IDs of the alert blacklist policies.
    */
   ids?: string[];
   /**
    * @remarks
-   * The IDs of instances in the blacklist policy.
+   * The instance ID list in the alert blacklist policy.
    * 
-   * The value of N can be an integer from 0 to 10.
+   * Valid values of N: 0 to 10.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The status of the blacklist policy. Valid values:
+   * The status of the alert blacklist policy. Valid values:
    * 
-   * - true: enabled.
-   * 
-   * - false: disabled.
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -37,9 +36,9 @@ export class DescribeMetricRuleBlackListRequest extends $dara.Model {
   isEnable?: boolean;
   /**
    * @remarks
-   * The name of the blacklist policy.
+   * The name of the alert blacklist policy.
    * 
-   * Fuzzy queries are supported.
+   * This parameter supports fuzzy match.
    * 
    * @example
    * Blacklist-01
@@ -49,7 +48,7 @@ export class DescribeMetricRuleBlackListRequest extends $dara.Model {
    * @remarks
    * The namespace of the Alibaba Cloud service.
    * 
-   * For more information, see [Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For information about the namespaces of Alibaba Cloud services, see [Cloud service metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * acs_ecs_dashboard
@@ -57,14 +56,14 @@ export class DescribeMetricRuleBlackListRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The order in which to sort the results by time. Valid values:
+   * The order in which the query results are sorted by time. Valid values:
    * 
-   * - DESC (default): descending order.
+   * 0: ascending order (ASC).
    * 
-   * - ASC: ascending order.
+   * 1: descending order (DESC). This is the default value.
    * 
    * @example
-   * DESC
+   * 1
    */
   order?: number;
   /**
@@ -79,7 +78,7 @@ export class DescribeMetricRuleBlackListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * Default value: 10.
    * 
@@ -90,11 +89,11 @@ export class DescribeMetricRuleBlackListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The scope of the blacklist policy. Valid values:
+   * The effective scope of the alert blacklist policy. Valid values:
    * 
-   * - USER: The blacklist policy takes effect only for the current Alibaba Cloud account.
+   * - USER: The alert blacklist policy takes effect only within the current Alibaba Cloud account.
    * 
-   * - GROUP: The blacklist policy takes effect for the specified application groups.
+   * - GROUP: The alert blacklist policy takes effect in the specified application groups.
    * 
    * @example
    * USER

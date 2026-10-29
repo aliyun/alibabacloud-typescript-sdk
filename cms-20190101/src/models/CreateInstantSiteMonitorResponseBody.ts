@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstantSiteMonitorResponseBodyCreateResultList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the detection task.
+   * The ID of the synthetic monitoring task.
    * 
    * @example
    * 2c8dbdf9-a3ab-46a1-85a4-f094965e****
@@ -13,7 +13,7 @@ export class CreateInstantSiteMonitorResponseBodyCreateResultList extends $dara.
   taskId?: string;
   /**
    * @remarks
-   * The name of the detection task.
+   * The name of the synthetic monitoring task.
    * 
    * @example
    * task1
@@ -47,7 +47,7 @@ export class CreateInstantSiteMonitorResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > A value of 200 indicates that the call is successful.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -55,7 +55,7 @@ export class CreateInstantSiteMonitorResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The results of the one-time detection task.
+   * The result list of the one-time synthetic monitoring task creation.
    */
   createResultList?: CreateInstantSiteMonitorResponseBodyCreateResultList[];
   /**
@@ -77,10 +77,8 @@ export class CreateInstantSiteMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the operation was successful. Valid values:
-   * 
-   * - true: The operation was successful.
-   * 
-   * - false: The operation failed.
+   * * true: Successful.
+   * * false: Failed.
    * 
    * @example
    * true

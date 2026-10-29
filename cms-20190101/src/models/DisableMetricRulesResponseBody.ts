@@ -7,7 +7,7 @@ export class DisableMetricRulesResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > A value of 200 indicates that the request was successful.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -31,7 +31,9 @@ export class DisableMetricRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. A value of \\`true\\` indicates success and a value of \\`false\\` indicates failure.
+   * Indicates whether the operation is successful. Valid values:
+   * - true: The operation is successful.
+   * - false: The operation fails.
    * 
    * @example
    * true

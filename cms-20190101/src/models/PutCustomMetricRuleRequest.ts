@@ -37,7 +37,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   contactGroups?: string;
   /**
    * @remarks
-   * The effective time range of the alert rule. Valid values: 00:00-23:59.
+   * The time range during which the alert rule is effective. Valid values: 00:00-23:59.
    * 
    * @example
    * 00:00-23:59
@@ -53,7 +53,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   emailSubject?: string;
   /**
    * @remarks
-   * The number of alert retries.
+   * The number of retries for the alert.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The alert level. Valid values:
+   * The severity level of the alert. Valid values:
    * - CRITICAL: critical.
    * - WARN: warning.
    * - INFO: information.
@@ -86,9 +86,9 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The metric name.
+   * The name of the metric.
    * 
-   * > For more information about how to obtain the metric name, see [DescribeCustomMetricList](https://help.aliyun.com/document_detail/115005.html).
+   * > For information about how to obtain the metric name, see [DescribeCustomMetricList](https://help.aliyun.com/document_detail/115005.html).
    * 
    * This parameter is required.
    * 
@@ -98,7 +98,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The aggregation period of the custom monitoring data. Unit: seconds. Set the value to 60 or a multiple of 60. Default value: the original reporting period of the custom monitoring data.
+   * The aggregation period of the custom monitoring data. Unit: seconds. The value must be 60 or a multiple of 60. Default value: the original reporting period of the custom monitoring data.
    * 
    * @example
    * 300
@@ -138,7 +138,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
    * @remarks
    * The mute for period. Unit: seconds. Default value: 86400 (1 day).
    * 
-   * > If the monitoring data continuously exceeds the alert threshold, only one alert notification is sent within each mute for period.
+   * > If monitoring data continuously exceeds the alert rule threshold, only one alert notification is sent within each mute for period.
    * 
    * @example
    * 86400
@@ -146,7 +146,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   silenceTime?: number;
   /**
    * @remarks
-   * The statistical method for alerts.
+   * The statistical method for the alert.
    * 
    * This parameter is required.
    * 
@@ -166,7 +166,7 @@ export class PutCustomMetricRuleRequest extends $dara.Model {
   threshold?: string;
   /**
    * @remarks
-   * The alert callback URL. An HTTP POST request is sent to the specified URL when an alert is triggered.
+   * The webhook URL that is called when an alert is triggered. A POST request is sent to this URL.
    * 
    * @example
    * https://www.aliyun.com

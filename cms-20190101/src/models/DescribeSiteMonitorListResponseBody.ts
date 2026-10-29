@@ -255,9 +255,9 @@ export class DescribeSiteMonitorListResponseBodySiteMonitors extends $dara.Model
 export class DescribeSiteMonitorListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
-   * > The value 200 indicates success.
+   * > 200 indicates success.
    * 
    * @example
    * 200
