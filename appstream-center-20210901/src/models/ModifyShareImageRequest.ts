@@ -3,22 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyShareImageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the Alibaba Cloud accounts to share the image with.
+   */
   addAccount?: number[];
   /**
+   * @remarks
+   * The business line. Only the Enterprise Edition scenario is supported. Default value: 1.
+   * 
    * @example
    * 1
    */
   bizType?: number;
   /**
+   * @remarks
+   * The ID of the source image.
+   * 
    * @example
    * img-bp13mu****
    */
   imageId?: string;
   /**
+   * @remarks
+   * The product type, such as Cloud Desktop, cloud application, or workstation.
+   * 
    * @example
    * CloudDesktop
    */
   productType?: string;
+  /**
+   * @remarks
+   * The IDs of the Alibaba Cloud accounts to remove from the image sharing list.
+   */
   removeAccount?: number[];
   static names(): { [key: string]: string } {
     return {

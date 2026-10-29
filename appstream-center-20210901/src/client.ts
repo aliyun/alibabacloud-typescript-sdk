@@ -2891,26 +2891,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization by paging, with support for fuzzy filtering by delivery group ID, delivery group name, application ID, or application name.
+   * Performs a paging query on the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization, with support for fuzzy filtering by delivery group ID, delivery group name, application ID, and application name.
    * 
    * @remarks
    * ## Operation description
-   * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. The response includes basic information about each delivery group (ID, name, status, region, creation time, expiration time, and more) and the list of applications deployed in the delivery group.
-   * Scope of returned results:
-   * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records authorized on a per-application basis through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
-   * - Only delivery groups whose product type matches the ProductType parameter and that have not been deleted are returned. A delivery group is not returned if its image contains no deployed applications.
-   * - Results are sorted in reverse chronological order by the update time of the authorization record. The most recently authorized or modified delivery groups appear first.
+   * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. It returns the basic information of each delivery group (such as ID, name, status, region, creation time, and expiration time) and the list of applications deployed in the delivery group.
+   * Return scope:
+   * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records of individual application authorizations granted through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
+   * - Only delivery groups that match the specified ProductType and are not deleted are returned. If no applications are deployed in the delivery group image, the delivery group is not returned.
+   * - Results are sorted in descending order based on the update time of the authorization records. The most recently authorized or modified delivery groups are listed first.
    * ## Before you begin
-   * - Call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation to authorize the delivery group to the user.
-   * ## Parameter description
-   * - **ProductType and EndUserId are required**. If ProductType is not specified, the error code `InvalidParameter.ProductType` is returned. If EndUserId is not specified, the error code `InvalidParameter.UserId` is returned.
-   * - EndUserId performs an **exact match** on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName all perform **fuzzy matching** (a hit occurs if the value is contained). When multiple filter conditions are specified, all conditions must be met simultaneously.
-   * - PageNumber starts from 1. Valid values of PageSize: 1 to 100.
-   * - If the user has no authorized delivery groups that match the conditions, the operation returns normally: AppInstanceGroupModels is an empty list and TotalCount is 0.
+   * - The [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation has been called to authorize the delivery group to the user.
+   * ## Metric description
+   * - **ProductType and EndUserId are required**. If ProductType is not specified, the `InvalidParameter.ProductType` error code is returned. If EndUserId is not specified, the `InvalidParameter.UserId` error code is returned.
+   * - EndUserId uses **exact match** based on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName use **fuzzy match** (a match is hit if the string is contained). If multiple filter conditions are specified, all conditions must be met.
+   * - PageNumber starts from 1. Valid values for PageSize: 1 to 100.
+   * - If the user does not have any authorization delivery groups that meet the conditional requirements, the operation returns a normal response: AppInstanceGroupModels is an empty list and TotalCount is 0.
    * ## Call sequence
    * 1. Call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID, and then call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation to authorize the delivery group to the user.
-   * 2. Call this operation to query the delivery groups authorized to the user and the applications deployed in each delivery group.
-   * 3. To obtain an application connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation with the AppInstanceGroupId and the AppId from the Apps list in the response.
+   * 2. Call this operation to query the delivery groups authorized for the user and the applications deployed in the delivery groups.
+   * 3. To obtain the application connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation by using the returned AppInstanceGroupId and the AppId in Apps.
    * 
    * @param request - ListAuthorizedAppInstanceGroupByUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2937,6 +2937,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endUserId)) {
       query["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -2969,26 +2973,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization by paging, with support for fuzzy filtering by delivery group ID, delivery group name, application ID, or application name.
+   * Performs a paging query on the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization, with support for fuzzy filtering by delivery group ID, delivery group name, application ID, and application name.
    * 
    * @remarks
    * ## Operation description
-   * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. The response includes basic information about each delivery group (ID, name, status, region, creation time, expiration time, and more) and the list of applications deployed in the delivery group.
-   * Scope of returned results:
-   * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records authorized on a per-application basis through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
-   * - Only delivery groups whose product type matches the ProductType parameter and that have not been deleted are returned. A delivery group is not returned if its image contains no deployed applications.
-   * - Results are sorted in reverse chronological order by the update time of the authorization record. The most recently authorized or modified delivery groups appear first.
+   * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. It returns the basic information of each delivery group (such as ID, name, status, region, creation time, and expiration time) and the list of applications deployed in the delivery group.
+   * Return scope:
+   * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records of individual application authorizations granted through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
+   * - Only delivery groups that match the specified ProductType and are not deleted are returned. If no applications are deployed in the delivery group image, the delivery group is not returned.
+   * - Results are sorted in descending order based on the update time of the authorization records. The most recently authorized or modified delivery groups are listed first.
    * ## Before you begin
-   * - Call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation to authorize the delivery group to the user.
-   * ## Parameter description
-   * - **ProductType and EndUserId are required**. If ProductType is not specified, the error code `InvalidParameter.ProductType` is returned. If EndUserId is not specified, the error code `InvalidParameter.UserId` is returned.
-   * - EndUserId performs an **exact match** on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName all perform **fuzzy matching** (a hit occurs if the value is contained). When multiple filter conditions are specified, all conditions must be met simultaneously.
-   * - PageNumber starts from 1. Valid values of PageSize: 1 to 100.
-   * - If the user has no authorized delivery groups that match the conditions, the operation returns normally: AppInstanceGroupModels is an empty list and TotalCount is 0.
+   * - The [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation has been called to authorize the delivery group to the user.
+   * ## Metric description
+   * - **ProductType and EndUserId are required**. If ProductType is not specified, the `InvalidParameter.ProductType` error code is returned. If EndUserId is not specified, the `InvalidParameter.UserId` error code is returned.
+   * - EndUserId uses **exact match** based on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName use **fuzzy match** (a match is hit if the string is contained). If multiple filter conditions are specified, all conditions must be met.
+   * - PageNumber starts from 1. Valid values for PageSize: 1 to 100.
+   * - If the user does not have any authorization delivery groups that meet the conditional requirements, the operation returns a normal response: AppInstanceGroupModels is an empty list and TotalCount is 0.
    * ## Call sequence
    * 1. Call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID, and then call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation to authorize the delivery group to the user.
-   * 2. Call this operation to query the delivery groups authorized to the user and the applications deployed in each delivery group.
-   * 3. To obtain an application connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation with the AppInstanceGroupId and the AppId from the Apps list in the response.
+   * 2. Call this operation to query the delivery groups authorized for the user and the applications deployed in the delivery groups.
+   * 3. To obtain the application connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation by using the returned AppInstanceGroupId and the AppId in Apps.
    * 
    * @param request - ListAuthorizedAppInstanceGroupByUserRequest
    * @returns ListAuthorizedAppInstanceGroupByUserResponse
@@ -4430,23 +4434,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries published delivery groups and their application information for a specified product type under the current Alibaba Cloud account by using paging. Supports filtering by delivery group, application, and user authorization status.
+   * Queries the published delivery groups and their application information for a specified product type under the current Alibaba Cloud account by using paging, and supports filtering by delivery group, application, and user authorization status.
    * 
    * @remarks
-   * ## Before you begin
-   * When calling this operation with a RAM user or STS credential, the `appstreaming:ListPublishedAppInstanceGroup` permission is required.
-   * A delivery group must be in the published state and have deployed applications in its image to appear in the query results. This operation only queries information. It does not create delivery groups, assign users, or grant application access permissions.
+   * ## Prerequisites
+   * When you call this operation as a RAM user or by using STS credentials, you must have the `appstreaming:ListPublishedAppInstanceGroup` permission.
+   * Only delivery groups that are in the published state and have deployed applications in their images are included in the query results. This operation only queries information. It does not create delivery groups, assign users, or grant application access permissions.
    * ## Query and pagination
-   * - **You must explicitly pass in `ProductType`, `PageNumber`, and `PageSize`.** Page numbers start from `1`, and the page size ranges from `1` to `100`.
-   * - `AppInstanceGroupId`, `AppInstanceGroupName`, `AppId`, and `AppName` all support substring matching. You can pass them individually or in combination. When multiple conditions are specified, all conditions must be met simultaneously. When both `AppId` and `AppName` are specified, the same application must satisfy both conditions.
-   * - If an optional filter parameter is not specified or is set to an empty string, that condition is not applied. Query results are sorted by delivery group creation time from newest to oldest. A delivery group is not returned multiple times even if it contains multiple matching applications.
-   * - `ExcludeUserId` excludes delivery groups in which all applications have been directly authorized to the specified user. It cannot be used to determine whether the user has no access permissions at all.
-   * - `AppId` and `AppName` only filter delivery groups. **They do not restrict the returned `Apps` list to only the matched applications.**
-   * ## Invoke sequence
-   * 1. Invoke a query with `PageNumber=1` and the desired `PageSize`. For WUYING Cloud Application common scenarios, use `ProductType=CloudApp`.
-   * 2. Read `AppInstanceGroupModels`. To retrieve the next page, keep the product type and filter conditions unchanged and increment `PageNumber`. If no delivery groups match, the total count is `0` and the list is empty. If the page number exceeds the result range, the list may also be empty, but the total count still represents the total number of matching delivery groups.
-   * 3. To retrieve details of a single delivery group, pass the full `AppInstanceGroupId` from the response and the same `ProductType` to [GetAppInstanceGroup](~~GetAppInstanceGroup~~).
-   * The masked identifiers in the examples are for format demonstration purposes. Replace them with your actual identifiers when invoking the operation.
+   * - **You must explicitly specify `ProductType`, `PageNumber`, and `PageSize`.** The page number starts from `1`, and the number of entries per page ranges from `1` to `100`.
+   * - `AppInstanceGroupId`, `AppInstanceGroupName`, `AppId`, and `AppName` all support partial matching. You can specify them individually or in combination. If multiple conditions are specified, all conditions must be met. If both `AppId` and `AppName` are specified, they must be met by the same application.
+   * - If an optional filter parameter is not specified or is set to an empty string, the results are not filtered by this condition. The query results are sorted in descending order of the delivery group creation time. A delivery group is not returned multiple times even if it contains multiple matched applications.
+   * - `ExcludeUserId` is used to exclude delivery groups for which all applications have been directly authorized to a specified user. It cannot be used to determine whether the user has no access permissions at all.
+   * - `AppId` and `AppName` only filter delivery groups and **do not restrict the returned `Apps` list to the matched applications**.
+   * ## Invocation sequence
+   * 1. Initiate a query with `PageNumber=1` and the desired `PageSize`. For common scenarios of Wuying Cloud App, set `ProductType` to `CloudApp`.
+   * 2. Read `AppInstanceGroupModels`. To retrieve the next page, keep the product type and filter conditions unchanged, and increment `PageNumber`. If no delivery groups match the conditions, the total count is `0` and the list is empty. If the page number exceeds the range of the current results, the list may also be empty, but the total count still represents the total number of all matched delivery groups.
+   * 3. To obtain the details of a single delivery group, pass the complete `AppInstanceGroupId` returned and the same `ProductType` to [GetAppInstanceGroup](~~GetAppInstanceGroup~~).
+   * The masked identity in the examples is used to demonstrate the format. Replace it with your actual identity when you invoke the operation.
    * 
    * @param request - ListPublishedAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4473,6 +4477,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.excludeUserId)) {
       query["ExcludeUserId"] = request.excludeUserId;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -4505,23 +4513,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries published delivery groups and their application information for a specified product type under the current Alibaba Cloud account by using paging. Supports filtering by delivery group, application, and user authorization status.
+   * Queries the published delivery groups and their application information for a specified product type under the current Alibaba Cloud account by using paging, and supports filtering by delivery group, application, and user authorization status.
    * 
    * @remarks
-   * ## Before you begin
-   * When calling this operation with a RAM user or STS credential, the `appstreaming:ListPublishedAppInstanceGroup` permission is required.
-   * A delivery group must be in the published state and have deployed applications in its image to appear in the query results. This operation only queries information. It does not create delivery groups, assign users, or grant application access permissions.
+   * ## Prerequisites
+   * When you call this operation as a RAM user or by using STS credentials, you must have the `appstreaming:ListPublishedAppInstanceGroup` permission.
+   * Only delivery groups that are in the published state and have deployed applications in their images are included in the query results. This operation only queries information. It does not create delivery groups, assign users, or grant application access permissions.
    * ## Query and pagination
-   * - **You must explicitly pass in `ProductType`, `PageNumber`, and `PageSize`.** Page numbers start from `1`, and the page size ranges from `1` to `100`.
-   * - `AppInstanceGroupId`, `AppInstanceGroupName`, `AppId`, and `AppName` all support substring matching. You can pass them individually or in combination. When multiple conditions are specified, all conditions must be met simultaneously. When both `AppId` and `AppName` are specified, the same application must satisfy both conditions.
-   * - If an optional filter parameter is not specified or is set to an empty string, that condition is not applied. Query results are sorted by delivery group creation time from newest to oldest. A delivery group is not returned multiple times even if it contains multiple matching applications.
-   * - `ExcludeUserId` excludes delivery groups in which all applications have been directly authorized to the specified user. It cannot be used to determine whether the user has no access permissions at all.
-   * - `AppId` and `AppName` only filter delivery groups. **They do not restrict the returned `Apps` list to only the matched applications.**
-   * ## Invoke sequence
-   * 1. Invoke a query with `PageNumber=1` and the desired `PageSize`. For WUYING Cloud Application common scenarios, use `ProductType=CloudApp`.
-   * 2. Read `AppInstanceGroupModels`. To retrieve the next page, keep the product type and filter conditions unchanged and increment `PageNumber`. If no delivery groups match, the total count is `0` and the list is empty. If the page number exceeds the result range, the list may also be empty, but the total count still represents the total number of matching delivery groups.
-   * 3. To retrieve details of a single delivery group, pass the full `AppInstanceGroupId` from the response and the same `ProductType` to [GetAppInstanceGroup](~~GetAppInstanceGroup~~).
-   * The masked identifiers in the examples are for format demonstration purposes. Replace them with your actual identifiers when invoking the operation.
+   * - **You must explicitly specify `ProductType`, `PageNumber`, and `PageSize`.** The page number starts from `1`, and the number of entries per page ranges from `1` to `100`.
+   * - `AppInstanceGroupId`, `AppInstanceGroupName`, `AppId`, and `AppName` all support partial matching. You can specify them individually or in combination. If multiple conditions are specified, all conditions must be met. If both `AppId` and `AppName` are specified, they must be met by the same application.
+   * - If an optional filter parameter is not specified or is set to an empty string, the results are not filtered by this condition. The query results are sorted in descending order of the delivery group creation time. A delivery group is not returned multiple times even if it contains multiple matched applications.
+   * - `ExcludeUserId` is used to exclude delivery groups for which all applications have been directly authorized to a specified user. It cannot be used to determine whether the user has no access permissions at all.
+   * - `AppId` and `AppName` only filter delivery groups and **do not restrict the returned `Apps` list to the matched applications**.
+   * ## Invocation sequence
+   * 1. Initiate a query with `PageNumber=1` and the desired `PageSize`. For common scenarios of Wuying Cloud App, set `ProductType` to `CloudApp`.
+   * 2. Read `AppInstanceGroupModels`. To retrieve the next page, keep the product type and filter conditions unchanged, and increment `PageNumber`. If no delivery groups match the conditions, the total count is `0` and the list is empty. If the page number exceeds the range of the current results, the list may also be empty, but the total count still represents the total number of all matched delivery groups.
+   * 3. To obtain the details of a single delivery group, pass the complete `AppInstanceGroupId` returned and the same `ProductType` to [GetAppInstanceGroup](~~GetAppInstanceGroup~~).
+   * The masked identity in the examples is used to demonstrate the format. Replace it with your actual identity when you invoke the operation.
    * 
    * @param request - ListPublishedAppInstanceGroupRequest
    * @returns ListPublishedAppInstanceGroupResponse
@@ -5543,6 +5551,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Shares an image with other WUYING users or cancels the sharing of a shared image.
+   * 
    * @param request - ModifyShareImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyShareImageResponse
@@ -5588,6 +5598,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Shares an image with other WUYING users or cancels the sharing of a shared image.
+   * 
    * @param request - ModifyShareImageRequest
    * @returns ModifyShareImageResponse
    */

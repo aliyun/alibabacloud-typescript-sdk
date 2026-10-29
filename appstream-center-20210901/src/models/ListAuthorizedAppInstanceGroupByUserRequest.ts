@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizedAppInstanceGroupByUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID. Fuzzy matching is supported: delivery groups that contain a deployed application whose ID includes the specified string are returned. You can obtain the application ID from the Apps list returned by this operation.
+   * The application ID. Fuzzy match is supported. Delivery groups in which the IDs of deployed applications contain this string are returned. You can obtain the application ID from the Apps list returned by this operation.
    * 
-   * If this parameter is not specified, no filtering by application ID is applied.
+   * If this parameter is not specified, delivery groups are not filtered by application ID.
    * 
    * @example
    * ca-i87mycyn419nu****
@@ -15,9 +15,9 @@ export class ListAuthorizedAppInstanceGroupByUserRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The delivery group ID. Fuzzy matching is supported: delivery groups whose IDs contain the specified string are returned. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID.
+   * The delivery group ID. Fuzzy match is supported. Delivery groups whose IDs contain this string are returned. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID.
    * 
-   * If this parameter is not specified, no filtering by delivery group ID is applied.
+   * If this parameter is not specified, delivery groups are not filtered by delivery group ID.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -25,29 +25,29 @@ export class ListAuthorizedAppInstanceGroupByUserRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The delivery group name. Fuzzy matching is supported. For example, if you set this parameter to `Office App`, delivery groups whose names contain `Office App` (such as `My Office App` or `Office App A`) are returned.
+   * The delivery group name. Fuzzy match is supported. For example, if you specify Office applications, delivery groups whose names contain Office applications (such as My office applications and Office applications A) are returned.
    * 
-   * If this parameter is not specified, no filtering by delivery group name is applied.
+   * If this parameter is not specified, delivery groups are not filtered by delivery group name.
    * 
    * @example
-   * Office App
+   * Office applications
    */
   appInstanceGroupName?: string;
   /**
    * @remarks
-   * The application name. Fuzzy matching is supported: delivery groups that contain a deployed application whose name includes the specified string are returned.
+   * The application name. Fuzzy match is supported. Delivery groups in which the names of deployed applications contain this string are returned.
    * 
-   * If this parameter is not specified, no filtering by application name is applied.
+   * If this parameter is not specified, delivery groups are not filtered by application name.
    * 
    * @example
-   * Office App
+   * Office applications
    */
   appName?: string;
   /**
    * @remarks
-   * The username. An **exact match** is performed on the username to query the delivery groups for which the user has been granted delivery group-level authorization.
+   * The username. Exact match is used to query the delivery groups for which the user has been granted delivery group-level authorization.
    * 
-   * > This parameter is required. If this parameter is not specified, the error code `InvalidParameter.UserId` is returned.
+   * > This parameter is required. If this parameter is not specified, the InvalidParameter.UserId error code is returned.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,15 @@ export class ListAuthorizedAppInstanceGroupByUserRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The office network ID.
+   * 
+   * @example
+   * cn-shenzhen+dir-436909****
+   */
+  officeSiteId?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from 1.
    * 
    * This parameter is required.
    * 
@@ -77,17 +85,17 @@ export class ListAuthorizedAppInstanceGroupByUserRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The product type. The value must match the product type of the delivery groups to query. Only delivery groups of the specified product type are returned.
+   * The product type. The value must be the same as the product type of the delivery groups to be queried. Only delivery groups of this product type are returned.
    * 
    * Valid values:
    * 
-   * - CloudApp: WUYING Cloud Application.
-   * - CloudBrowser: cloud browser.
+   * - CloudApp: Wuying Cloud App.
+   * - CloudBrowser: Cloud Browser.
    * - WuyingServer: Enterprise Edition workstation.
-   * - WuyingWorkstation: Personal Edition Lingjun container workstation.
-   * - WuyingWorkstationTeam: Team Edition Lingjun container workstation.
-   * - WuyingWorkstationBusiness: Dedicated Edition Lingjun container workstation.
-   * - AndroidCloud: cloud phone.
+   * - WuyingWorkstation: Personal Edition Linggou container workstation.
+   * - WuyingWorkstationTeam: Team Edition Linggou container workstation.
+   * - WuyingWorkstationBusiness: Exclusive Edition Linggou container workstation.
+   * - AndroidCloud: Cloud Phone.
    * - AIAgent: AgentBay (AI agent).
    * 
    * This parameter is required.
@@ -103,6 +111,7 @@ export class ListAuthorizedAppInstanceGroupByUserRequest extends $dara.Model {
       appInstanceGroupName: 'AppInstanceGroupName',
       appName: 'AppName',
       endUserId: 'EndUserId',
+      officeSiteId: 'OfficeSiteId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       productType: 'ProductType',
@@ -116,6 +125,7 @@ export class ListAuthorizedAppInstanceGroupByUserRequest extends $dara.Model {
       appInstanceGroupName: 'string',
       appName: 'string',
       endUserId: 'string',
+      officeSiteId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       productType: 'string',
