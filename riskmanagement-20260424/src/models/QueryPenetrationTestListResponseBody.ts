@@ -15,9 +15,9 @@ export class QueryPenetrationTestListResponseBodyDataList extends $dara.Model {
    * @remarks
    * The type of the asset. Valid values:
    * 
-   * - **EIP**: Public IP address of a VPC.
-   * - **SLB**: Server Load Balancer (SLB) instance for load balancing.
-   * - **ECS**: Public IP address of an ECS instance in the classic network.
+   * - **EIP**: The public IP address of a VPC.
+   * - **SLB**: Server Load Balancer.
+   * - **ECS**: The public IP address of an ECS instance in the classic network.
    * 
    * @example
    * EIP
@@ -25,9 +25,9 @@ export class QueryPenetrationTestListResponseBodyDataList extends $dara.Model {
   assetType?: string;
   /**
    * @remarks
-   * The unique identity ID of the alerting event record.
+   * The unique identifier of the alert event record.
    * 
-   * > The data type of this field is Long. Precision loss may occur during the procedure to serialize or deserialize the numeric sequence. Make sure that the value does not exceed 9007199254740991.
+   * > The data type of this field is Long. Precision loss may occur during the serialization or deserialization process. Make sure that the value does not exceed 9007199254740991.
    * 
    * @example
    * 710864062
@@ -43,13 +43,13 @@ export class QueryPenetrationTestListResponseBodyDataList extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The status of the task. Valid values:
    * 
    * - **early_end**: The user applied for early termination.
    * - **expired**: The authorization expired.
-   * - **auditing**: Under review.
-   * - **approved**: Approved.
-   * - **rejected**: Rejected.
+   * - **auditing**: The application is being reviewed.
+   * - **approved**: The application is approved.
+   * - **rejected**: The application is rejected.
    * 
    * @example
    * early_end
@@ -107,9 +107,9 @@ export class QueryPenetrationTestListResponseBodyDataList extends $dara.Model {
 export class QueryPenetrationTestListResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number from which the query results are displayed.
    * 
-   * > Default value: 1, which indicates the first page.
+   * > Default value: 1, which indicates that the query results are displayed starting from the first page.
    * 
    * @example
    * 1
@@ -201,8 +201,8 @@ export class QueryPenetrationTestListResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * - **200**: Successful.
-   * - **Other values (such as 400 and 500)**: Failed.
+   * - **200**: Success.
+   * - **Other values (such as 400 and 500)**: Failure.
    * 
    * @example
    * 200
@@ -231,9 +231,9 @@ export class QueryPenetrationTestListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the call is successful. Valid values:
    * 
-   * - **true**: The call was successful.                               
+   * - **true**: The call is successful.                               
    * - **false**: The call failed.
    * 
    * @example

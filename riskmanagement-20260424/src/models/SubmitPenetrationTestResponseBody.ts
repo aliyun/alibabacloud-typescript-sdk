@@ -7,9 +7,9 @@ export class SubmitPenetrationTestResponseBodyDataList extends $dara.Model {
    * @remarks
    * The type of the asset. Valid values:
    * 
-   * - **EIP**: The public IP address of a virtual private cloud (VPC).
+   * - **EIP**: the public IP address of a VPC.
    * - **SLB**: load balancing.
-   * - **ECS**: The public IP address of an Elastic Compute Service (ECS) instance in the classic network.
+   * - **ECS**: the public IP address of an ECS instance in the classic network.
    * 
    * @example
    * EIP
@@ -49,7 +49,7 @@ export class SubmitPenetrationTestResponseBodyDataList extends $dara.Model {
 export class SubmitPenetrationTestResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   list?: SubmitPenetrationTestResponseBodyDataList[];
   static names(): { [key: string]: string } {
@@ -87,7 +87,7 @@ export class SubmitPenetrationTestResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: SubmitPenetrationTestResponseBodyData;
   /**
@@ -108,10 +108,11 @@ export class SubmitPenetrationTestResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The call status. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - **true**: Successful.
-   * - **false**: Failed.
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
    * 
    * @example
    * true

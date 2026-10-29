@@ -10,8 +10,7 @@ export class QueryAccountSafetyIncidentShrinkRequest extends $dara.Model {
   actionCodesShrink?: string;
   /**
    * @remarks
-   * The internationalization language. Default value: zh. Valid values:
-   * 
+   * The language. Default value: zh. Valid values:
    * - **zh**: Chinese.
    * - **en**: English.
    * 
@@ -21,8 +20,13 @@ export class QueryAccountSafetyIncidentShrinkRequest extends $dara.Model {
   aliyunLang?: string;
   /**
    * @remarks
+   * The set of cloud service codes.
+   */
+  businessCodesShrink?: string;
+  /**
+   * @remarks
    * The event name code.
-   * > This parameter does not take effect when the CaseCodes parameter is not empty.
+   * > This parameter does not take effect if the CaseCodes parameter is not empty.
    * 
    * @example
    * RISKCONTROL_IMS_IMS_BAN_SUBUSER
@@ -44,7 +48,7 @@ export class QueryAccountSafetyIncidentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The event ID.
-   * > This parameter does not take effect when the EventIds parameter is not empty.
+   * > This parameter does not take effect if the EventIds parameter is not empty.
    * 
    * @example
    * 2PTOHhN3YUeaPWzq9FLmpdZ9EOW
@@ -57,7 +61,7 @@ export class QueryAccountSafetyIncidentShrinkRequest extends $dara.Model {
   eventIdsShrink?: string;
   /**
    * @remarks
-   * The number of records per page. Valid values: 1 to 100.
+   * The number of entries to return on each page. Valid values: 1 to 100.
    * 
    * @example
    * 20
@@ -94,13 +98,12 @@ export class QueryAccountSafetyIncidentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The event status. Valid values:
+   * - **Executing**: The event is being executed.
+   * - **Removed**: The event is removed.
+   * - **Alerting**: The event is in the alerting state.
+   * - **Ended**: The event has ended.
    * 
-   * - **Executing**: In progress.
-   * - **Removed**: Removed.
-   * - **Alerting**: Alerting.
-   * - **Ended**: Ended.
-   * 
-   * > This parameter does not take effect when the Statuses parameter is not empty.
+   * > This parameter does not take effect if the Statuses parameter is not empty.
    * 
    * @example
    * Executing
@@ -115,6 +118,7 @@ export class QueryAccountSafetyIncidentShrinkRequest extends $dara.Model {
     return {
       actionCodesShrink: 'ActionCodes',
       aliyunLang: 'AliyunLang',
+      businessCodesShrink: 'BusinessCodes',
       caseCode: 'CaseCode',
       caseCodesShrink: 'CaseCodes',
       current: 'Current',
@@ -133,6 +137,7 @@ export class QueryAccountSafetyIncidentShrinkRequest extends $dara.Model {
     return {
       actionCodesShrink: 'string',
       aliyunLang: 'string',
+      businessCodesShrink: 'string',
       caseCode: 'string',
       caseCodesShrink: 'string',
       current: 'string',

@@ -10,8 +10,7 @@ export class QueryAccountSafetyIncidentRequest extends $dara.Model {
   actionCodes?: string[];
   /**
    * @remarks
-   * The internationalization language. Default value: zh. Valid values:
-   * 
+   * The language. Default value: zh. Valid values:
    * - **zh**: Chinese.
    * - **en**: English.
    * 
@@ -21,8 +20,13 @@ export class QueryAccountSafetyIncidentRequest extends $dara.Model {
   aliyunLang?: string;
   /**
    * @remarks
+   * The set of cloud service codes.
+   */
+  businessCodes?: string[];
+  /**
+   * @remarks
    * The event name code.
-   * > This parameter does not take effect when the CaseCodes parameter is not empty.
+   * > This parameter does not take effect if the CaseCodes parameter is not empty.
    * 
    * @example
    * RISKCONTROL_IMS_IMS_BAN_SUBUSER
@@ -44,7 +48,7 @@ export class QueryAccountSafetyIncidentRequest extends $dara.Model {
   /**
    * @remarks
    * The event ID.
-   * > This parameter does not take effect when the EventIds parameter is not empty.
+   * > This parameter does not take effect if the EventIds parameter is not empty.
    * 
    * @example
    * 2PTOHhN3YUeaPWzq9FLmpdZ9EOW
@@ -57,7 +61,7 @@ export class QueryAccountSafetyIncidentRequest extends $dara.Model {
   eventIds?: string[];
   /**
    * @remarks
-   * The number of records per page. Valid values: 1 to 100.
+   * The number of entries to return on each page. Valid values: 1 to 100.
    * 
    * @example
    * 20
@@ -94,13 +98,12 @@ export class QueryAccountSafetyIncidentRequest extends $dara.Model {
   /**
    * @remarks
    * The event status. Valid values:
+   * - **Executing**: The event is being executed.
+   * - **Removed**: The event is removed.
+   * - **Alerting**: The event is in the alerting state.
+   * - **Ended**: The event has ended.
    * 
-   * - **Executing**: In progress.
-   * - **Removed**: Removed.
-   * - **Alerting**: Alerting.
-   * - **Ended**: Ended.
-   * 
-   * > This parameter does not take effect when the Statuses parameter is not empty.
+   * > This parameter does not take effect if the Statuses parameter is not empty.
    * 
    * @example
    * Executing
@@ -115,6 +118,7 @@ export class QueryAccountSafetyIncidentRequest extends $dara.Model {
     return {
       actionCodes: 'ActionCodes',
       aliyunLang: 'AliyunLang',
+      businessCodes: 'BusinessCodes',
       caseCode: 'CaseCode',
       caseCodes: 'CaseCodes',
       current: 'Current',
@@ -133,6 +137,7 @@ export class QueryAccountSafetyIncidentRequest extends $dara.Model {
     return {
       actionCodes: { 'type': 'array', 'itemType': 'string' },
       aliyunLang: 'string',
+      businessCodes: { 'type': 'array', 'itemType': 'string' },
       caseCode: 'string',
       caseCodes: { 'type': 'array', 'itemType': 'string' },
       current: 'string',
@@ -150,6 +155,9 @@ export class QueryAccountSafetyIncidentRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.actionCodes)) {
       $dara.Model.validateArray(this.actionCodes);
+    }
+    if(Array.isArray(this.businessCodes)) {
+      $dara.Model.validateArray(this.businessCodes);
     }
     if(Array.isArray(this.caseCodes)) {
       $dara.Model.validateArray(this.caseCodes);

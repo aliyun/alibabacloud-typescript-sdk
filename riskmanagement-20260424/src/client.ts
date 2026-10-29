@@ -619,7 +619,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Immediately terminates a penetration test.
+   * Immediately ends a penetration test.
    * 
    * @param request - EndPenetrationTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -650,7 +650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Immediately terminates a penetration test.
+   * Immediately ends a penetration test.
    * 
    * @param request - EndPenetrationTestRequest
    * @returns EndPenetrationTestResponse
@@ -1556,6 +1556,10 @@ export default class Client extends OpenApi {
       request.actionCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actionCodes, "ActionCodes", "json");
     }
 
+    if (!$dara.isNull(tmpReq.businessCodes)) {
+      request.businessCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.businessCodes, "BusinessCodes", "json");
+    }
+
     if (!$dara.isNull(tmpReq.caseCodes)) {
       request.caseCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.caseCodes, "CaseCodes", "json");
     }
@@ -1575,6 +1579,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.aliyunLang)) {
       query["AliyunLang"] = request.aliyunLang;
+    }
+
+    if (!$dara.isNull(request.businessCodesShrink)) {
+      query["BusinessCodes"] = request.businessCodesShrink;
     }
 
     if (!$dara.isNull(request.caseCode)) {
@@ -2285,7 +2293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a penetration test application.
+   * Submits a penetration test request.
    * 
    * @param request - SubmitPenetrationTestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2352,7 +2360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a penetration test application.
+   * Submits a penetration test request.
    * 
    * @param request - SubmitPenetrationTestRequest
    * @returns SubmitPenetrationTestResponse

@@ -13,11 +13,11 @@ export class QueryPenetrationTestDetailResponseBodyData extends $dara.Model {
   applyTime?: number;
   /**
    * @remarks
-   * The asset type. Valid values:
+   * The type of the asset. Valid values:
    * 
-   * - **EIP**: public IP address of a VPC
-   * - **SLB**: load balancing
-   * - **ECS**: public IP address of an ECS instance in the classic network
+   * - **EIP**: public IP address in a VPC.
+   * - **SLB**: load balancing.
+   * - **ECS**: public IP address in the classic network.
    * 
    * @example
    * EIP
@@ -25,9 +25,9 @@ export class QueryPenetrationTestDetailResponseBodyData extends $dara.Model {
   assetType?: string;
   /**
    * @remarks
-   * The unique ID of the application record.
+   * The unique identity of the application record.
    * 
-   * > This field is of the Long type. Precision loss may occur when you serialize or deserialize the value. Make sure that the value does not exceed 9007199254740991.
+   * > This field is of the Long type. Precision loss may occur during the procedure to serialize or deserialize the numeric sequence. Ensure that the value does not exceed 9007199254740991.
    * 
    * @example
    * 2387
@@ -43,9 +43,10 @@ export class QueryPenetrationTestDetailResponseBodyData extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * Indicates whether the test is performed by a third-party service provider.
+   * Indicates whether the test is performed by a third-party service provider. Valid values:
    * 
    * - true: Yes.
+   * 
    * - false: No.
    * 
    * @example
@@ -56,11 +57,11 @@ export class QueryPenetrationTestDetailResponseBodyData extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - **early_end**: The user applies for early termination.
+   * - **early_end**: The user applied for early termination.
    * - **expired**: The authorization has expired.
-   * - **auditing**: The application is being reviewed.
-   * - **approved**: The application is approved.
-   * - **rejected**: The application is rejected.
+   * - **auditing**: Under review.
+   * - **approved**: Approved.
+   * - **rejected**: Rejected.
    * 
    * @example
    * early_end
@@ -70,7 +71,7 @@ export class QueryPenetrationTestDetailResponseBodyData extends $dara.Model {
    * @remarks
    * The test content.
    * 
-   * > - The content must be within 500 characters. Carefully fill in the content to increase the chance of passing the review.
+   * > - Maximum 500 characters. Provide detailed information to increase the chance of passing the review.
    * 
    * @example
    * security test
@@ -88,7 +89,7 @@ export class QueryPenetrationTestDetailResponseBodyData extends $dara.Model {
    * @remarks
    * The source IP addresses used for the test.
    * 
-   * > You can specify up to 50 IP addresses. Separate multiple IP addresses with line breaks or commas (,). Specify 0.0.0.0 to allow all IP addresses. CIDR blocks are not supported, such as 140.168.0.0/16.
+   * > A maximum of 50 IP addresses are supported. Separate multiple IP addresses with line breaks or commas (,). Specify 0.0.0.0 to allow all IP addresses. CIDR blocks are not supported, such as 140.168.0.0/16.
    * 
    * @example
    * 1.1.1.1
@@ -106,7 +107,7 @@ export class QueryPenetrationTestDetailResponseBodyData extends $dara.Model {
    * @remarks
    * The test steps.
    * 
-   * > The content must be within 500 characters. Carefully fill in the content to increase the chance of passing the review.
+   * > Maximum 500 characters. Provide detailed information to increase the chance of passing the review.
    * 
    * @example
    * none
@@ -188,8 +189,8 @@ export class QueryPenetrationTestDetailResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * - **200**: success
-   * - **Other values (400, 500)**: failure
+   * - **200**: Success.
+   * - **Other values (400 and 500)**: Failure.
    * 
    * @example
    * 200
@@ -202,7 +203,7 @@ export class QueryPenetrationTestDetailResponseBody extends $dara.Model {
   data?: QueryPenetrationTestDetailResponseBodyData;
   /**
    * @remarks
-   * The description.
+   * The message.
    * 
    * @example
    * successful
@@ -218,10 +219,10 @@ export class QueryPenetrationTestDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the call is successful. Valid values:
    * 
    * - **true**: The call is successful.                               
-   * - **false**: The call failed.
+   * - **false**: The call fails.
    * 
    * @example
    * true

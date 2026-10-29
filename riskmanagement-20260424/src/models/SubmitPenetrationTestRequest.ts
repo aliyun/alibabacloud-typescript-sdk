@@ -7,7 +7,7 @@ export class SubmitPenetrationTestRequest extends $dara.Model {
    * @remarks
    * The asset list.
    * 
-   * > The array supports a maximum of 50 IP addresses.
+   * > The array supports up to 50 IP addresses.
    * 
    * @example
    * [{"AssetType":"SLB","Ip":"47.114.52.93"}]
@@ -29,7 +29,7 @@ export class SubmitPenetrationTestRequest extends $dara.Model {
    * @remarks
    * The test content.
    * 
-   * > The content must not exceed 500 characters. Provide detailed information to facilitate the approval process.
+   * > The content must be up to 500 characters in length. Provide detailed information to facilitate the approval process.
    * 
    * @example
    * security test
@@ -47,7 +47,7 @@ export class SubmitPenetrationTestRequest extends $dara.Model {
    * @remarks
    * The source IP addresses used for the test.
    * 
-   * > A maximum of 50 IP addresses are supported. Separate multiple IP addresses with line breaks or commas (,). 0.0.0.0 indicates that all IP addresses are allowed. CIDR blocks such as 140.168.0.0/16 are not supported.
+   * > Up to 50 IP addresses are supported. Separate multiple IP addresses with line breaks or commas (,). Enter 0.0.0.0 to allow all IP addresses. CIDR blocks such as 140.168.0.0/16 are not supported.
    * 
    * @example
    * 0.0.0.0
@@ -65,7 +65,7 @@ export class SubmitPenetrationTestRequest extends $dara.Model {
    * @remarks
    * The test steps.
    * 
-   * > The steps must not exceed 500 characters. Provide detailed information to facilitate the approval process.
+   * > The steps must be up to 500 characters in length. Provide detailed information to facilitate the approval process.
    * 
    * @example
    * none
@@ -89,7 +89,7 @@ export class SubmitPenetrationTestRequest extends $dara.Model {
   thirdpartyMobile?: string;
   /**
    * @remarks
-   * The third-party tester.
+   * The name of the third-party tester.
    * 
    * @example
    * zhangsan
