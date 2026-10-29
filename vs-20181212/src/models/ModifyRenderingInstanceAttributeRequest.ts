@@ -5,9 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRenderingInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * Password for the device.
+   * The name of the instance.
    * 
-   * This parameter is required.
+   * @example
+   * TestInstance
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The device password.
    * 
    * @example
    * Toehold2020
@@ -15,7 +21,7 @@ export class ModifyRenderingInstanceAttributeRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * ID of the cloud application service instance.
+   * The cloud application service instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,6 +31,7 @@ export class ModifyRenderingInstanceAttributeRequest extends $dara.Model {
   renderingInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceName: 'InstanceName',
       password: 'Password',
       renderingInstanceId: 'RenderingInstanceId',
     };
@@ -32,6 +39,7 @@ export class ModifyRenderingInstanceAttributeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceName: 'string',
       password: 'string',
       renderingInstanceId: 'string',
     };

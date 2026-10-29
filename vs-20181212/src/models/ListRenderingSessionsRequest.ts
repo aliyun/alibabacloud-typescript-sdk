@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRenderingSessionsRequest extends $dara.Model {
   /**
    * @remarks
-   * Cloud application ID
+   * The cloud application ID.
    * 
    * @example
    * cap-b06b26edfhytbn b94a75ae1a79efc90eb
@@ -13,7 +13,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Unique ID of the client.
+   * The unique ID of the end client.
    * 
    * @example
    * ae7990f4-203d-494b-a5ea-e0babe9fa13d
@@ -21,7 +21,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * Time range filter parameter. Represented in ISO8601 standard and must use UTC time, in the format yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2025-03-31T22:20:00Z
@@ -29,7 +29,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Page number, starting from 1
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page set for paged queries.
+   * The number of entries to return on each page during a paging query.
    * 
    * @example
    * 10
@@ -45,9 +45,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Cloud application patch ID.
-   * 
-   * 1. When you enter origin, only sessions that started the original version of the app are filtered.
+   * The ID of the cloud application patch package. If you set this parameter to origin, only sessions that use the original version of the application are returned.
    * 
    * @example
    * patch-03fa76e8e13a49b6a966b063d9d309b4
@@ -55,7 +53,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
   patchId?: string;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -65,7 +63,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * Cloud application service instance ID
+   * The instance ID of the cloud application service.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -73,7 +71,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * Session ID
+   * The session ID.
    * 
    * @example
    * session-i205217481741918129226
@@ -81,7 +79,7 @@ export class ListRenderingSessionsRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Time range filter parameter. Represented in ISO8601 standard and must use UTC time, in the format yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2025-03-25T02:00:00Z
@@ -89,21 +87,14 @@ export class ListRenderingSessionsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Session state. Valid values:
-   * 
-   * 1. SessionStarting: The session is starting.
-   * 
-   * 2. SessionStartSuspended: Session startup is paused. Retry by initiating start again.
-   * 
-   * 3. SessionStarted: The session has started/is in use.
-   * 
-   * 4. SessionStartFailed: Session startup failed.
-   * 
-   * 5. SessionAbnormal: The session is abnormal after successful startup.
-   * 
-   * 6. SessionStopping: The session is stopping.
-   * 
-   * 7. SessionStopFailed: Session stop failed.
+   * The session state. Valid values:
+   * - SessionStarting: The session is starting.
+   * - SessionStartSuspended: The session startup is suspended. You can retry by initiating a start request again.
+   * - SessionStarted: The session is started or in use.
+   * - SessionStartFailed: The session failed to start.
+   * - SessionAbnormal: An exception occurred after the session was successfully started.
+   * - SessionStopping: The session is stopping.
+   * - SessionStopFailed: The session failed to stop.
    * 
    * @example
    * SessionStarting

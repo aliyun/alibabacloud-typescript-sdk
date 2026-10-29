@@ -26,9 +26,7 @@ export class AddVsPullStreamInfoConfigRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The end time for stream pulling.
-   * 
-   * > The time must be in UTC format. The interval between StartTime and EndTime cannot exceed 7 days. EndTime must be later than the current time.
+   * The end time of stream pulling. Specify the time in UTC. The interval between StartTime and EndTime must be within 7 days, and EndTime must be later than the current time.
    * 
    * @example
    * 2017-08-28T09:30:30Z
@@ -37,9 +35,7 @@ export class AddVsPullStreamInfoConfigRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The source URL of the live stream.
-   * 
-   * > Multiple source URLs are supported. Separate them with semicolons (;).
+   * The origin server of the live stream. Separate multiple origin servers with semicolons (;).
    * 
    * This parameter is required.
    * 
@@ -49,9 +45,7 @@ export class AddVsPullStreamInfoConfigRequest extends $dara.Model {
   sourceUrl?: string;
   /**
    * @remarks
-   * The start time for stream pulling.
-   * 
-   * > The time must be in UTC format. The interval between StartTime and EndTime cannot exceed 7 days.
+   * The start time of stream pulling. Specify the time in UTC. The interval between StartTime and EndTime must be within 7 days.
    * 
    * @example
    * 2017-08-28T07:30:30Z

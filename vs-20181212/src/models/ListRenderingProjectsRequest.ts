@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRenderingProjectsRequest extends $dara.Model {
   /**
    * @remarks
-   * A parameter that specifies the time range to filter by. The time must be in UTC and follow the ISO 8601 format: yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2024-10-03T02:18:00Z
@@ -13,7 +13,7 @@ export class ListRenderingProjectsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Page number. The first page is 1.
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListRenderingProjectsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of items per page.
+   * The Settings for the number of entries to return on each page during paging in a paged query.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListRenderingProjectsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * @example
    * project-422bc38dfgh5eb44149f135ef76304f63b
@@ -37,7 +37,7 @@ export class ListRenderingProjectsRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * Project name
+   * The project name.
    * 
    * @example
    * idata_content
@@ -45,7 +45,7 @@ export class ListRenderingProjectsRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * Start time of the time range filter. Use ISO 8601 format in UTC, such as yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2024-09-29T16:00:00Z

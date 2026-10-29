@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateFileInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The file description.
+   * The description of the file.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试使用
+   * For testing purposes
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the file. Each file has a unique ID.
+   * The ID of the file, which uniquely identifies a file.
    * 
    * This parameter is required.
    * 

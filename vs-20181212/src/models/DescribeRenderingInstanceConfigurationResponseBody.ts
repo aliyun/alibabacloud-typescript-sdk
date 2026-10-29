@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenderingInstanceConfigurationResponseBodyConfigurationAttributes extends $dara.Model {
   /**
    * @remarks
-   * The name of the attribute.
+   * The attribute name.
    * 
    * @example
    * lon
@@ -13,7 +13,7 @@ export class DescribeRenderingInstanceConfigurationResponseBodyConfigurationAttr
   name?: string;
   /**
    * @remarks
-   * The value of the attribute.
+   * The attribute value.
    * 
    * @example
    * 100
@@ -45,30 +45,21 @@ export class DescribeRenderingInstanceConfigurationResponseBodyConfigurationAttr
 export class DescribeRenderingInstanceConfigurationResponseBodyConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The list of properties for the module.
+   * The list of attributes for the module.
    */
   attributes?: DescribeRenderingInstanceConfigurationResponseBodyConfigurationAttributes[];
   /**
    * @remarks
-   * The name of the device simulation feature module. Valid values:
-   * 
-   * 1. ctl: The control module.
-   * 
-   * 2. prop: The property module.
-   * 
-   * 3. location: The location module.
-   * 
-   * 4. battery: The battery module.
-   * 
-   * 5. network: The network module.
-   * 
-   * 6. bluetooth: The Bluetooth module.
-   * 
-   * 7. sim: The SIM card module.
-   * 
-   * 8. display: The device module.
-   * 
-   * 9. system: The basic module.
+   * The name of the real-device simulation feature module. Valid values:
+   * - ctl: Control module.
+   * - prop: Attribute module.
+   * - location: Location module.
+   * - battery: Battery module.
+   * - network: Network module.
+   * - bluetooth: Bluetooth module.
+   * - sim: SIM card module.
+   * - display: Device module.
+   * - system: Basic module.
    * 
    * @example
    * location
@@ -103,7 +94,7 @@ export class DescribeRenderingInstanceConfigurationResponseBodyConfiguration ext
 export class DescribeRenderingInstanceConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration.
+   * The configuration content.
    */
   configuration?: DescribeRenderingInstanceConfigurationResponseBodyConfiguration[];
   /**

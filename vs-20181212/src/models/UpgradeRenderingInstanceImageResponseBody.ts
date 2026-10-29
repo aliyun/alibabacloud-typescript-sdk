@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeRenderingInstanceImageResponseBodyFailedItems extends $dara.Model {
   /**
    * @remarks
-   * The error code of the failure.
+   * The error code for the failure.
    * 
    * @example
    * 200302
@@ -13,7 +13,7 @@ export class UpgradeRenderingInstanceImageResponseBodyFailedItems extends $dara.
   errCode?: string;
   /**
    * @remarks
-   * The error message of the failure.
+   * The error message for the failure.
    * 
    * @example
    * Not Applied
@@ -93,12 +93,12 @@ export class UpgradeRenderingInstanceImageResponseBody extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The information about failed instances.
+   * The information about the failed instances.
    */
   failedItems?: UpgradeRenderingInstanceImageResponseBodyFailedItems[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -106,7 +106,7 @@ export class UpgradeRenderingInstanceImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of successful instances.
+   * The number of successfully upgraded instances.
    * 
    * @example
    * 1
@@ -114,7 +114,7 @@ export class UpgradeRenderingInstanceImageResponseBody extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The information about successful instances.
+   * The information about the successfully upgraded instances.
    */
   successItems?: UpgradeRenderingInstanceImageResponseBodySuccessItems[];
   static names(): { [key: string]: string } {

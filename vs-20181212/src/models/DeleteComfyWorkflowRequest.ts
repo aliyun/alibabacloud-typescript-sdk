@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteComfyWorkflowRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the workflow.
+   * The workflow ID.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class DeleteComfyWorkflowResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The description.
    * 
    * @example
    * success

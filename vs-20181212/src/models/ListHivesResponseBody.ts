@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHivesResponseBodyHives extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time follows the ISO 8601 standard and includes the time zone offset. Format: YYYY-MM-DDTHH:mm:ss+HH:mm.
    * 
    * @example
    * 2025-05-14T15:20:37+08:00
@@ -78,7 +78,7 @@ export class ListHivesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 100

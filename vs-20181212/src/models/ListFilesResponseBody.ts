@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListFilesResponseBodyFiles extends $dara.Model {
   /**
    * @remarks
-   * File description.
+   * The description of the file.
    * 
    * @example
-   * 我的文件
+   * My file
    */
   description?: string;
   /**
    * @remarks
-   * File ID.
+   * The ID of the file.
    * 
    * @example
    * f-1671accd4dafdag3er256cvgewt13f7141db2f7
@@ -21,7 +21,7 @@ export class ListFilesResponseBodyFiles extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * File name.
+   * The name of the file.
    * 
    * @example
    * myfile
@@ -29,15 +29,11 @@ export class ListFilesResponseBodyFiles extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * Upload status. Valid values:
-   * 
-   * 1. Created
-   * 
-   * 2. Doing
-   * 
-   * 3. Success (desired state)
-   * 
-   * 4. Failed (desired state)
+   * The upload status of the file. Valid values:
+   * - Created
+   * - Doing
+   * - Success: final state
+   * - Failed: final state
    * 
    * @example
    * Success
@@ -45,7 +41,7 @@ export class ListFilesResponseBodyFiles extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Status description.
+   * The description of the status.
    * 
    * @example
    * upload success
@@ -53,7 +49,7 @@ export class ListFilesResponseBodyFiles extends $dara.Model {
   statusDescription?: string;
   /**
    * @remarks
-   * Destination path for pushing the file to the service instance.
+   * The target path for pushing the file to the cloud application service instance.
    * 
    * @example
    * /data/tmp/test/xxx.tar
@@ -61,7 +57,7 @@ export class ListFilesResponseBodyFiles extends $dara.Model {
   targetPath?: string;
   /**
    * @remarks
-   * Most recent status update time.
+   * The time when the status was last updated. The time follows the ISO 8601 standard and includes the time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-03-28T14:15:08+08:00
@@ -69,7 +65,7 @@ export class ListFilesResponseBodyFiles extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * Upload start time.
+   * The time when the upload started. The time follows the ISO 8601 standard and includes the time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-03-28T14:10:12+08:00
@@ -113,12 +109,12 @@ export class ListFilesResponseBodyFiles extends $dara.Model {
 export class ListFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of file information.
+   * The list of file information.
    */
   files?: ListFilesResponseBodyFiles[];
   /**
    * @remarks
-   * Page number of the list.
+   * The page number of the returned list.
    * 
    * @example
    * 1
@@ -126,7 +122,7 @@ export class ListFilesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of entries per page for paged queries.
+   * The Settings for the number of entries per page during paging in a paged query.
    * 
    * @example
    * 10
@@ -134,7 +130,7 @@ export class ListFilesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -142,7 +138,7 @@ export class ListFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of matching file records.
+   * The total number of matched file records.
    * 
    * @example
    * 200

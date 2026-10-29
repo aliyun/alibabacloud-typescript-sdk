@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDeviceAlarmResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 下次相同告警的最小间隔。（单位：秒）
+   * The minimum interval before the next identical alert. Unit: seconds.
    * 
    * @example
    * 60
@@ -13,7 +13,7 @@ export class CreateDeviceAlarmResponseBody extends $dara.Model {
   alarmDelay?: number;
   /**
    * @remarks
-   * 告警ID。
+   * The alert ID.
    * 
    * @example
    * 0hyNgTdgv2D000195842
@@ -21,7 +21,7 @@ export class CreateDeviceAlarmResponseBody extends $dara.Model {
   alarmId?: string;
   /**
    * @remarks
-   * URL的过期时长。（单位：秒）
+   * The expiration period of the URL. Unit: seconds.
    * 
    * @example
    * 3600
@@ -29,7 +29,7 @@ export class CreateDeviceAlarmResponseBody extends $dara.Model {
   expire?: number;
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * 76E11E6A-4441-51C9-AF60-D354362257A7
@@ -37,7 +37,7 @@ export class CreateDeviceAlarmResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 媒体上传的URL，可使用PUT上传。
+   * The media upload URL. You can use the PUT method to upload media.
    * 
    * @example
    * rtmp://demo.aliyundoc.com/live/310101*****7542007?auth_key=1639130258-0-0-b2b04fe85ece6*****a6b1a42bc7e

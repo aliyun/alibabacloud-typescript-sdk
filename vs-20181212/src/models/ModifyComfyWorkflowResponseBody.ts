@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyComfyWorkflowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is returned only if the request fails.
+   * The error code. If the activity status is Fail, a specific error code is returned. If the activity status is Success, this parameter is not returned.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ModifyComfyWorkflowResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2024-05-07T02:27:06Z
@@ -24,12 +24,12 @@ export class ModifyComfyWorkflowResponseBody extends $dara.Model {
    * The workflow description.
    * 
    * @example
-   * 这是一个图生视频的工作流
+   * This is an image-to-video workflow
    */
   description?: string;
   /**
    * @remarks
-   * The returned message. This parameter provides error details if the request fails.
+   * The message. If the status is Failed, this parameter contains the cause of the failure.
    * 
    * @example
    * conn failed!
@@ -40,7 +40,7 @@ export class ModifyComfyWorkflowResponseBody extends $dara.Model {
    * The workflow name.
    * 
    * @example
-   * 图生视频工作流示例
+   * Image-to-video workflow example
    */
   name?: string;
   /**
@@ -53,7 +53,7 @@ export class ModifyComfyWorkflowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time of the task. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2024-05-07T02:27:06Z

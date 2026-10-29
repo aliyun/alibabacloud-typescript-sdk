@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings extends $dara.Model {
   /**
    * @remarks
-   * Public port or port range, such as 22. For a port range, use a forward slash (/) to separate the start and end ports. Example: 10/20.
+   * The external port or port range, such as 22. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
    * 
    * @example
    * 11060/11079
@@ -13,7 +13,7 @@ export class DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings
   externalPort?: string;
   /**
    * @remarks
-   * Private port or port range. Each private port maps one-to-one with a public port. For a port range, use a forward slash (/) to separate the start and end ports. Example: 10/20.
+   * The internal port or port range. The internal ports correspond one-to-one to the external ports. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
    * 
    * @example
    * 11060/11079
@@ -45,7 +45,7 @@ export class DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings
 export class DescribeRenderingSessionResponseBodyAdditionalIngresses extends $dara.Model {
   /**
    * @remarks
-   * Domain name or IP address of the cloud application service instance
+   * The domain name or IP address of the cloud application service instance.
    * 
    * @example
    * 111.45.29.96
@@ -53,12 +53,9 @@ export class DescribeRenderingSessionResponseBodyAdditionalIngresses extends $da
   hostname?: string;
   /**
    * @remarks
-   * Carrier code. Valid values:
-   * 
+   * The ISP code. Valid values:
    * 1. cmcc
-   * 
    * 2. unicom
-   * 
    * 3. telecom
    * 
    * @example
@@ -67,7 +64,7 @@ export class DescribeRenderingSessionResponseBodyAdditionalIngresses extends $da
   isp?: string;
   /**
    * @remarks
-   * List of port mappings
+   * The port mapping list.
    */
   portMappings?: DescribeRenderingSessionResponseBodyAdditionalIngressesPortMappings[];
   static names(): { [key: string]: string } {
@@ -101,7 +98,7 @@ export class DescribeRenderingSessionResponseBodyAdditionalIngresses extends $da
 export class DescribeRenderingSessionResponseBodyLocation extends $dara.Model {
   /**
    * @remarks
-   * Province code of the cloud application service instance
+   * The province code of the cloud application service instance.
    * 
    * @example
    * 310000
@@ -131,7 +128,7 @@ export class DescribeRenderingSessionResponseBodyLocation extends $dara.Model {
 export class DescribeRenderingSessionResponseBodyPortMappings extends $dara.Model {
   /**
    * @remarks
-   * Public port or port range, such as 22. For a port range, use a forward slash (/) to separate the start and end ports. Example: 10/20.
+   * The external port or port range, such as 22. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
    * 
    * @example
    * 10013/10020
@@ -139,7 +136,7 @@ export class DescribeRenderingSessionResponseBodyPortMappings extends $dara.Mode
   externalPort?: string;
   /**
    * @remarks
-   * Private port or port range. Each private port maps one-to-one with a public port. For a port range, use a forward slash (/) to separate the start and end ports. Example: 10/20.
+   * The internal port or port range. The internal ports correspond one-to-one to the external ports. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
    * 
    * @example
    * 49008/49015
@@ -171,29 +168,22 @@ export class DescribeRenderingSessionResponseBodyPortMappings extends $dara.Mode
 export class DescribeRenderingSessionResponseBodyStateInfo extends $dara.Model {
   /**
    * @remarks
-   * State description
+   * The status description.
    * 
    * @example
-   * 已启动
+   * Started
    */
   comment?: string;
   /**
    * @remarks
-   * Session state. Valid values:
-   * 
-   * 1. SessionStarting: Starting the session
-   * 
-   * 2. SessionStartSuspended: Session start is suspended. Retry by calling Start again.
-   * 
-   * 3. SessionStarted: Session started or in use
-   * 
-   * 4. SessionStartFailed: Session failed to start
-   * 
-   * 5. SessionAbnormal: Session became abnormal after starting successfully
-   * 
-   * 6. SessionStopping: Stopping the session
-   * 
-   * 7. SessionStopFailed: Session failed to stop
+   * The session status. Valid values:
+   * 1. SessionStarting: The session is starting.
+   * 2. SessionStartSuspended: The session start is suspended. You can initiate start again to retry.
+   * 3. SessionStarted: The session is started or in use.
+   * 4. SessionStartFailed: The session failed to start.
+   * 5. SessionAbnormal: The session is abnormal after a successful start.
+   * 6. SessionStopping: The session is stopping.
+   * 7. SessionStopFailed: The session failed to stop.
    * 
    * @example
    * SessionStarted
@@ -201,7 +191,7 @@ export class DescribeRenderingSessionResponseBodyStateInfo extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * Time when the state was last updated
+   * The time when the status was last updated. The time follows the ISO 8601 standard and includes the time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
    * 
    * @example
    * 2024-10-15T10:05:20+08:00
@@ -235,12 +225,12 @@ export class DescribeRenderingSessionResponseBodyStateInfo extends $dara.Model {
 export class DescribeRenderingSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Additional optional ingress network information
+   * The additional optional ingress network information.
    */
   additionalIngresses?: DescribeRenderingSessionResponseBodyAdditionalIngresses[];
   /**
    * @remarks
-   * Cloud application ID
+   * The cloud application ID.
    * 
    * @example
    * cap-b06b26edfhytbn b94a75ae1a79efc90eb
@@ -248,7 +238,7 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * End client ID
+   * The client ID.
    * 
    * @example
    * c91263a0-f9ac-45bd-bbe9-6e293ad32d91
@@ -256,7 +246,7 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * Instance hostname. Defaults to the EIP address.
+   * The instance hostname. By default, the value is the elastic IP address (EIP) used for access.
    * 
    * @example
    * 111.45.29.96
@@ -264,12 +254,9 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * Carrier code. Valid values:
-   * 
+   * The ISP code. Valid values:
    * 1. cmcc
-   * 
    * 2. unicom
-   * 
    * 3. telecom
    * 
    * @example
@@ -278,12 +265,12 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * Cloud application service instance location
+   * The location information of the cloud application service instance.
    */
   location?: DescribeRenderingSessionResponseBodyLocation;
   /**
    * @remarks
-   * Cloud application patch package ID. An empty value means the original version.
+   * The cloud application patch package ID. An empty value indicates the original version.
    * 
    * @example
    * patch-03fa76e8e13a49b6a966b063d9d309b4
@@ -291,12 +278,12 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
   patchId?: string;
   /**
    * @remarks
-   * Port mapping information
+   * The port mapping information.
    */
   portMappings?: DescribeRenderingSessionResponseBodyPortMappings[];
   /**
    * @remarks
-   * Cloud application service instance ID
+   * The cloud application service instance ID.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -304,7 +291,7 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -312,7 +299,7 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Session ID
+   * The session ID.
    * 
    * @example
    * session-i205217481741918129226
@@ -320,7 +307,7 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Start time
+   * The start time. The time is in UTC and follows the ISO 8601 standard. The format is YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2025-05-18T02:20:00Z
@@ -328,7 +315,7 @@ export class DescribeRenderingSessionResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Session state information
+   * The session status information.
    */
   stateInfo?: DescribeRenderingSessionResponseBodyStateInfo;
   static names(): { [key: string]: string } {

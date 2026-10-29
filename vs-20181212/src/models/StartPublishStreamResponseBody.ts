@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartPublishStreamResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The return code.
+   * 
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @remarks
+   * The return message.
+   * 
+   * @example
+   * 0
+   */
   message?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BEA5625F-8FCF-48F4-851B-CA63946DA664
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

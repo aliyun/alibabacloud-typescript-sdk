@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRenderingSessionsResponseBodySessions extends $dara.Model {
   /**
    * @remarks
-   * Cloud application ID
+   * The cloud application ID.
    * 
    * @example
    * cap-4e1a6a425495458ba78693b8ac6600ea
@@ -13,7 +13,7 @@ export class ListRenderingSessionsResponseBodySessions extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Client ID
+   * The ID of the end client.
    * 
    * @example
    * fd6b2134-7954-4754-8915-5fb8b0469622
@@ -21,7 +21,7 @@ export class ListRenderingSessionsResponseBodySessions extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * Cloud application patch ID. An empty value indicates the original version.
+   * The ID of the cloud application patch package. A null value indicates the original version.
    * 
    * @example
    * patch-03fa76e8e13a49b6a966b063d9d309b4
@@ -29,7 +29,7 @@ export class ListRenderingSessionsResponseBodySessions extends $dara.Model {
   patchId?: string;
   /**
    * @remarks
-   * Cloud application service instance ID
+   * The instance ID of the cloud application service.
    * 
    * @example
    * render-a10722fb84b243f6ba02a89a2e5c838d
@@ -37,7 +37,7 @@ export class ListRenderingSessionsResponseBodySessions extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * Session ID
+   * The session ID.
    * 
    * @example
    * session-i205217481741918129226
@@ -45,7 +45,7 @@ export class ListRenderingSessionsResponseBodySessions extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Start time
+   * The start time. The time is in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format and is in UTC.
    * 
    * @example
    * 2024-07-04T01:23:00Z
@@ -85,7 +85,7 @@ export class ListRenderingSessionsResponseBodySessions extends $dara.Model {
 export class ListRenderingSessionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -93,12 +93,12 @@ export class ListRenderingSessionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Session list
+   * The session list.
    */
   sessions?: ListRenderingSessionsResponseBodySessions[];
   /**
    * @remarks
-   * Total number of matching sessions
+   * The total number of matched sessions.
    * 
    * @example
    * 8

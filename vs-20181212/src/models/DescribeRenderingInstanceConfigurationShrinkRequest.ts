@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenderingInstanceConfigurationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration to query. By default, the configurations of all modules are returned.
+   * The configuration content to be queried. By default, all modules are queried.
    */
   configurationShrink?: string;
   /**
    * @remarks
-   * The ID of the cloud application service instance.
+   * The instance ID of the cloud application service.
    * 
    * This parameter is required.
    * 

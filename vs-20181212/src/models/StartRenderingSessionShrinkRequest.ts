@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartRenderingSessionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Cloud application ID
+   * The cloud application ID.
    * 
    * @example
    * cap-b06b26edfhytbn b94a75ae1a79efc90eb
@@ -13,7 +13,7 @@ export class StartRenderingSessionShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Unique ID of the client
+   * The unique ID of the end user.
    * 
    * This parameter is required.
    * 
@@ -23,16 +23,14 @@ export class StartRenderingSessionShrinkRequest extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * Client parameter information
+   * The parameter information of the end user.
    */
   clientParamsShrink?: string;
   /**
    * @remarks
-   * Cloud application patch ID.
-   * 
-   * 1. By default, start the stable version of the AppId (if no stable patch version is set, the original version is used).
-   * 
-   * 2. If you enter "origin", start the original version.
+   * The cloud application patch package ID.
+   * 1. By default, the stable version of the application specified by AppId is started. If no stable patch version is set, the original version is started.
+   * 2. If you specify origin, the original version is started.
    * 
    * @example
    * patch-03fa76e8e13a49b63456b063dgh309b4
@@ -40,7 +38,7 @@ export class StartRenderingSessionShrinkRequest extends $dara.Model {
   patchId?: string;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * This parameter is required.
    * 

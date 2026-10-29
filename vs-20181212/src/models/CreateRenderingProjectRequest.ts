@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRenderingProjectRequestSessionAttribs extends $dara.Model {
   /**
    * @remarks
-   * The mode to start the cloud application service for the session. Valid values:
-   * 
-   * 1. Async: asynchronous
-   * 
-   * 2. Sync: synchronous
+   * The mode in which the session starts the cloud application service. Valid values:
+   * - Async: asynchronous mode.
+   * - Sync: synchronous mode.
    * 
    * @example
    * Async
@@ -39,22 +37,19 @@ export class CreateRenderingProjectRequestSessionAttribs extends $dara.Model {
 export class CreateRenderingProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the project. The description can be 0 to 255 characters in length.
+   * The description of the project. The description must be 0 to 255 characters in length.
    * 
    * @example
-   * 项目概述
+   * Project overview
    */
   description?: string;
   /**
    * @remarks
-   * The custom name of the project. This name is the unique identifier for the project.
-   * The name must meet the following requirements:
-   * 
-   * 1. Be 1 to 128 characters in length.
-   * 
-   * 2. Contain only lowercase letters, digits, underscores (_), hyphens (-), and periods (.).
-   * 
-   * 3. Start and end with a letter or a digit.
+   * The custom project name, which serves as the unique identifier for the project.
+   * Naming conventions:
+   * 1. The length must be 1 to 128 characters.
+   * 2. The name can contain lowercase letters, digits, underscores (_), hyphens (-), and periods (.).
+   * 3. The first and last characters must be letters or digits.
    * 
    * This parameter is required.
    * 
@@ -64,7 +59,7 @@ export class CreateRenderingProjectRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The session properties.
+   * The session attributes.
    */
   sessionAttribs?: CreateRenderingProjectRequestSessionAttribs;
   static names(): { [key: string]: string } {

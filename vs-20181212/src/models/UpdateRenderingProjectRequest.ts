@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRenderingProjectRequestSessionAttribs extends $dara.Model {
   /**
    * @remarks
-   * The mode used to start cloud application services for the session. Valid values:
-   * 
-   * 1. Async: asynchronous
-   * 
-   * 2. Sync: synchronization
+   * The mode in which the session starts the cloud application service. Valid values:
+   * - Async: asynchronous.
+   * - Sync: synchronous.
    * 
    * @example
    * Async
@@ -39,15 +37,15 @@ export class UpdateRenderingProjectRequestSessionAttribs extends $dara.Model {
 export class UpdateRenderingProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * Project description
+   * The project description.
    * 
    * @example
-   * 目录1
+   * Directory 1
    */
   description?: string;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -57,13 +55,7 @@ export class UpdateRenderingProjectRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * Default naming rules:
-   * 
-   * 1. Length 1-128
-   * 
-   * 2. Lowercase letters, numbers, underscores (_), hyphens (-), and periods (.).
-   * 
-   * 3. The first and last characters must be letters or digits. At least one of ProjectName, SessionAttribs, or Description must be specified.
+   * The custom project name, which serves as the unique identifier of the project. Default naming conventions: 1. The length must be 1 to 128 characters. 2. The name can contain lowercase letters, digits, underscores (_), hyphens (-), and periods (.). 3. The first and last characters must be letters or digits. At least one of ProjectName, SessionAttribs, or Description must be specified.
    * 
    * @example
    * idata_content
@@ -71,7 +63,7 @@ export class UpdateRenderingProjectRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * Session attributes
+   * The session attributes.
    */
   sessionAttribs?: UpdateRenderingProjectRequestSessionAttribs;
   static names(): { [key: string]: string } {

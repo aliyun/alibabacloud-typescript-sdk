@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRenderingInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of the cloud application service instance. You can only upgrade or downgrade to another instance type in the same series.
+   * The instance ID of the cloud application service instance. Note: Only Upgrade/Downgrade within the same instance family is supported.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyRenderingInstanceRequest extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * Instance type of the cloud application service instance.
+   * The specifications of the cloud application service instance.
    * 
    * @example
    * crs.cp.l1
@@ -23,7 +23,7 @@ export class ModifyRenderingInstanceRequest extends $dara.Model {
   renderingSpec?: string;
   /**
    * @remarks
-   * Cloud storage capacity used by the cloud application service instance. This is not local storage.
+   * The cloud storage capacity used by the cloud application service instance. Note: This is not local storage.
    * 
    * @example
    * 20

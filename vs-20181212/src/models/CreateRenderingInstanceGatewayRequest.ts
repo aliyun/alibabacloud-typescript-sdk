@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRenderingInstanceGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom gateway instance.
+   * The custom gateway instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateRenderingInstanceGatewayRequest extends $dara.Model {
   gatewayInstanceId?: string;
   /**
    * @remarks
-   * The ID of the cloud application service instance.
+   * The cloud application service instance ID.
    * 
    * This parameter is required.
    * 

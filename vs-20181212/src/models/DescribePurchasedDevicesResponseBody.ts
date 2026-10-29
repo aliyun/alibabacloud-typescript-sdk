@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePurchasedDevicesResponseBodyDevices extends $dara.Model {
   /**
    * @remarks
-   * The time the device was created.
+   * The time when the device was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2019-02-28T17:00:17Z
@@ -16,12 +16,12 @@ export class DescribePurchasedDevicesResponseBodyDevices extends $dara.Model {
    * The device description.
    * 
    * @example
-   * xxx路口摄像头
+   * XXX intersection camera
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the group to which the device belongs.
+   * The ID of the workspace to which the device belongs.
    * 
    * @example
    * 348*****174-cn-qingdao
@@ -29,10 +29,10 @@ export class DescribePurchasedDevicesResponseBodyDevices extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Group name.
+   * The workspace name.
    * 
    * @example
-   * 测试空间
+   * Test workspace
    */
   groupName?: string;
   /**
@@ -48,7 +48,7 @@ export class DescribePurchasedDevicesResponseBodyDevices extends $dara.Model {
    * The device name.
    * 
    * @example
-   * xxx路口摄像头
+   * XXX intersection camera
    */
   name?: string;
   /**
@@ -61,7 +61,7 @@ export class DescribePurchasedDevicesResponseBodyDevices extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The region to which the space belongs. This is the service center.
+   * The region of the workspace, which is the service center.
    * 
    * @example
    * cn-qingdao
@@ -78,12 +78,9 @@ export class DescribePurchasedDevicesResponseBodyDevices extends $dara.Model {
   /**
    * @remarks
    * The device subtype. Valid values:
-   * 
-   * - bullet (bullet camera)
-   * 
-   * - dome (dome camera)
-   * 
-   * - ptz (PTZ camera)
+   * - bullet: Bullet camera.
+   * - dome: Dome camera.
+   * - ptz: PTZ camera.
    * 
    * @example
    * dome
@@ -92,12 +89,9 @@ export class DescribePurchasedDevicesResponseBodyDevices extends $dara.Model {
   /**
    * @remarks
    * The device type. Valid values:
-   * 
-   * - ipc (camera)
-   * 
-   * - platform (platform)
-   * 
-   * - ied (intelligent edge device)
+   * - ipc: Camera.
+   * - platform: Platform.
+   * - ied: Intelligent device.
    * 
    * @example
    * ipc
@@ -108,7 +102,7 @@ export class DescribePurchasedDevicesResponseBodyDevices extends $dara.Model {
    * The device vendor.
    * 
    * @example
-   * 公司A
+   * Company A
    */
   vendor?: string;
   static names(): { [key: string]: string } {

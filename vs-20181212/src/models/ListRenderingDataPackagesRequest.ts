@@ -6,10 +6,8 @@ export class ListRenderingDataPackagesRequest extends $dara.Model {
   /**
    * @remarks
    * The category. Valid values:
-   * 
-   * - Package
-   * 
-   * - Baseline
+   * - Package: package
+   * - Baseline: baseline
    * 
    * @example
    * Baseline
@@ -17,7 +15,7 @@ export class ListRenderingDataPackagesRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The ID of the data pack.
+   * The ID of the data package.
    * 
    * @example
    * dp-449ea3d16c0841b8bf33ec5bbc86a152
@@ -25,7 +23,7 @@ export class ListRenderingDataPackagesRequest extends $dara.Model {
   dataPackageId?: string;
   /**
    * @remarks
-   * The parameter for filtering by time range. Use UTC time in ISO8601 format: yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the time range filter. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2021-09-24T03:30:46Z
@@ -33,7 +31,7 @@ export class ListRenderingDataPackagesRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number for the query list.
+   * The page number.
    * 
    * @example
    * 1
@@ -41,7 +39,7 @@ export class ListRenderingDataPackagesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries displayed per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -49,7 +47,7 @@ export class ListRenderingDataPackagesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The size of the data pack.
+   * The size of the data package.
    * 
    * @example
    * 20
@@ -57,7 +55,7 @@ export class ListRenderingDataPackagesRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The parameter for filtering by time range. Use UTC time in ISO8601 format: yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the time range filter. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2021-10-30T16:00:00Z
@@ -65,15 +63,11 @@ export class ListRenderingDataPackagesRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the data pack. Valid values:
-   * 
-   * - available
-   * 
-   * - packing
-   * 
-   * - failed
-   * 
-   * - bonded
+   * The status of the data package. Valid values:
+   * - available: available for binding
+   * - packing: in progress
+   * - failed: failed
+   * - bonded: bound
    * 
    * @example
    * available

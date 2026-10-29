@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyRenderingInstanceBandwidthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

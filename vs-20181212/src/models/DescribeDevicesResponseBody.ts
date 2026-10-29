@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDevicesResponseBodyDevicesDirectory extends $dara.Model {
   /**
    * @remarks
-   * The time when the directory was created.
+   * The time when the directory was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2019-02-28T17:00:17Z
@@ -13,15 +13,15 @@ export class DescribeDevicesResponseBodyDevicesDirectory extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The description of the directory.
+   * The directory description.
    * 
    * @example
-   * 目录1
+   * Directory 1
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the group to which the directory belongs.
+   * The ID of the workspace to which the directory belongs.
    * 
    * @example
    * 348*****174-cn-qingdao
@@ -37,10 +37,10 @@ export class DescribeDevicesResponseBodyDevicesDirectory extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the directory.
+   * The directory name.
    * 
    * @example
-   * 目录1
+   * Directory 1
    */
   name?: string;
   /**
@@ -155,17 +155,11 @@ export class DescribeDevicesResponseBodyDevicesStats extends $dara.Model {
 export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   /**
    * @remarks
-   * The GB/T 28181 alarm subscription method. Valid values:
-   * 
-   * - 0 (all)
-   * 
-   * - 5 (video alarm)
-   * 
-   * - 7 (other alarm)
-   * 
-   * > * An empty value indicates that no alarm is subscribed.
-   * >
-   * > * Specify multiple values. Separate them with commas (,).
+   * The subscribed national standard alarm methods. Valid values:
+   * - 0: All.
+   * - 5: Video alarm.
+   * - 7: Other alarms.
+   * An empty value indicates no subscription. You can specify multiple values separated by commas (,).
    * 
    * @example
    * 0
@@ -173,7 +167,7 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   alarmMethod?: string;
   /**
    * @remarks
-   * Indicates whether directory reporting is enabled for the platform device.
+   * Specifies whether to enable directory reporting for platform devices.
    * 
    * @example
    * true
@@ -181,7 +175,7 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   autoDirectory?: boolean;
   /**
    * @remarks
-   * Indicates whether to enable position subscription for the device.
+   * Specifies whether to enable device position subscription.
    * 
    * @example
    * false
@@ -189,7 +183,7 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   autoPos?: boolean;
   /**
    * @remarks
-   * Indicates whether to automatically start the stream.
+   * Specifies whether to automatically start the stream.
    * 
    * @example
    * false
@@ -197,7 +191,7 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   autoStart?: boolean;
   /**
    * @remarks
-   * The time when the channels were synchronized.
+   * The channel synchronization time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2019-02-28T17:01:17Z
@@ -205,7 +199,7 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   channelSyncTime?: string;
   /**
    * @remarks
-   * The time when the device was created.
+   * The time when the device was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2019-02-28T17:00:17Z
@@ -213,10 +207,10 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The description of the device.
+   * The device description.
    * 
    * @example
-   * xxx路口摄像头
+   * Camera at the XXX intersection
    */
   description?: string;
   /**
@@ -234,9 +228,7 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The serial number of the device.
-   * 
-   * > This parameter applies only to the AUVSP and ODCAP protocols.
+   * The device serial number. This parameter is applicable only to the AUVSP and ODCAP protocols.
    * 
    * @example
    * 7D0*****4C0
@@ -244,7 +236,7 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   dsn?: string;
   /**
    * @remarks
-   * Indicates whether the device is enabled.
+   * Specifies whether the device is enabled.
    * 
    * @example
    * true
@@ -252,9 +244,7 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The GB/T 28181 ID of the device.
-   * 
-   * > This parameter applies only to the GB/T 28181 protocol.
+   * The national standard ID of the device. This parameter is applicable only to the national standard protocol.
    * 
    * @example
    * 310000000****0000002
@@ -262,7 +252,7 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   gbId?: string;
   /**
    * @remarks
-   * The ID of the group to which the device belongs.
+   * The ID of the workspace to which the device belongs.
    * 
    * @example
    * 348*****174-cn-qingdao
@@ -305,7 +295,7 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
    * The device name.
    * 
    * @example
-   * xxx路口摄像头
+   * Camera at the XXX intersection
    */
   name?: string;
   /**
@@ -358,7 +348,7 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The time when the device was registered.
+   * The time when the device was registered. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2019-02-28T17:00:17Z
@@ -366,20 +356,16 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   registeredTime?: string;
   /**
    * @remarks
-   * The stream statistics of the device.
+   * The stream statistics information of the device.
    */
   stats?: DescribeDevicesResponseBodyDevicesStats;
   /**
    * @remarks
    * The device status. Valid values:
-   * 
-   * - on (online)
-   * 
-   * - off (offline)
-   * 
-   * - failed
-   * 
-   * - new (unregistered)
+   * - on: Online.
+   * - off: Offline.
+   * - failed: Locked.
+   * - new: Unregistered.
    * 
    * @example
    * on
@@ -388,12 +374,9 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   /**
    * @remarks
    * The device type. Valid values:
-   * 
-   * - ipc (camera)
-   * 
-   * - platform
-   * 
-   * - ied (intelligent edge device)
+   * - ipc: Camera.
+   * - platform: Platform.
+   * - ied: Intelligent device.
    * 
    * @example
    * ipc
@@ -409,7 +392,7 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   url?: string;
   /**
    * @remarks
-   * The username for the device.
+   * The device username.
    * 
    * @example
    * admin
@@ -417,10 +400,10 @@ export class DescribeDevicesResponseBodyDevices extends $dara.Model {
   username?: string;
   /**
    * @remarks
-   * The manufacturer of the device.
+   * The device vendor.
    * 
    * @example
-   * 公司A
+   * Company A
    */
   vendor?: string;
   static names(): { [key: string]: string } {

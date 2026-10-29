@@ -13,7 +13,7 @@ export class DescribeDevicesRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The serial number of the device. The value must be unique.
+   * The device serial number, which uniquely identifies the device.
    * 
    * @example
    * 7D0*****4C0
@@ -21,7 +21,7 @@ export class DescribeDevicesRequest extends $dara.Model {
   dsn?: string;
   /**
    * @remarks
-   * You can query by device national standard ID.
+   * The national standard ID of the device.
    * 
    * @example
    * 310000000****0000002
@@ -29,7 +29,7 @@ export class DescribeDevicesRequest extends $dara.Model {
   gbId?: string;
   /**
    * @remarks
-   * Query by device Space ID.
+   * The ID of the workspace to which the device belongs.
    * 
    * @example
    * 348*****174-cn-qingdao
@@ -37,9 +37,7 @@ export class DescribeDevicesRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The device ID.
-   * 
-   * > Specify multiple IDs. Separate them with commas (,).
+   * The device ID. You can specify multiple IDs separated by commas (,).
    * 
    * @example
    * 348*****380-cn-qingdao
@@ -55,7 +53,7 @@ export class DescribeDevicesRequest extends $dara.Model {
   includeDirectory?: boolean;
   /**
    * @remarks
-   * Specifies whether to return stream statistics. Default value: false.
+   * Specifies whether to return stream statistics information. Default value: false.
    * 
    * @example
    * false
@@ -63,12 +61,10 @@ export class DescribeDevicesRequest extends $dara.Model {
   includeStats?: boolean;
   /**
    * @remarks
-   * The device name.
-   * 
-   * > Specify multiple names. Separate them with commas (,).
+   * The device name. You can specify multiple names separated by commas (,).
    * 
    * @example
-   * 摄像头A
+   * Camera A
    */
   name?: string;
   ownerId?: number;
@@ -90,7 +86,7 @@ export class DescribeDevicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the parent device.
+   * The ID of the parent device to which the device belongs.
    * 
    * @example
    * 399*****774-cn-qingdao
@@ -98,9 +94,8 @@ export class DescribeDevicesRequest extends $dara.Model {
   parentId?: string;
   /**
    * @remarks
-   * The field by which to sort the results. Valid value:
-   * 
-   * > id (default)
+   * The field used for sorting. Valid value:
+   * - id: Sort by ID. This is the default value.
    * 
    * @example
    * id
@@ -109,10 +104,8 @@ export class DescribeDevicesRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * 
-   * - asc (ascending) (default)
-   * 
-   * - desc (descending)
+   * - asc: Ascending order. This is the default value.
+   * - desc: Descending order.
    * 
    * @example
    * asc
@@ -120,7 +113,7 @@ export class DescribeDevicesRequest extends $dara.Model {
   sortDirection?: string;
   /**
    * @remarks
-   * Query devices by status.
+   * The device status.
    * 
    * @example
    * on
@@ -129,12 +122,9 @@ export class DescribeDevicesRequest extends $dara.Model {
   /**
    * @remarks
    * The device type. Valid values:
-   * 
-   * - ipc (camera)
-   * 
-   * - platform
-   * 
-   * - ied (intelligent edge device)
+   * - ipc: Camera.
+   * - platform: Platform.
+   * - ied: Intelligent device.
    * 
    * @example
    * ipc
@@ -142,7 +132,7 @@ export class DescribeDevicesRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Query by device manufacturer.
+   * The device vendor.
    * 
    * @example
    * 8yd*****qem

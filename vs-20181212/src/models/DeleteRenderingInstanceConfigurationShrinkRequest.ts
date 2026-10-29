@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRenderingInstanceConfigurationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration content. Purge all configured modules by default.
+   * The configuration content. By default, all configured modules are cleared.
    */
   configurationShrink?: string;
   /**
    * @remarks
-   * Cloud application service instance ID.
+   * The cloud application service instance ID.
    * 
    * This parameter is required.
    * 

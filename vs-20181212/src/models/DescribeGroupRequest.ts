@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Space ID.
+   * The workspace ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeGroupRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Specifies whether to return the statistics of devices in the group. The default value is false.
+   * Specifies whether to return the statistics information of the devices in the workspace. Default value: false.
    * 
    * @example
    * false

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStreamsResponseBodyStreams extends $dara.Model {
   /**
    * @remarks
-   * Application that owns this stream.
+   * The application to which the stream belongs.
    * 
    * @example
    * live
@@ -13,7 +13,7 @@ export class DescribeStreamsResponseBodyStreams extends $dara.Model {
   app?: string;
   /**
    * @remarks
-   * Time when the stream was created.
+   * The time when the stream was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2018-12-10T17:00:00Z
@@ -21,7 +21,7 @@ export class DescribeStreamsResponseBodyStreams extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * Device ID of this stream.
+   * The ID of the device to which the stream belongs.
    * 
    * @example
    * 348*****380-cn-qingdao
@@ -37,7 +37,7 @@ export class DescribeStreamsResponseBodyStreams extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The ID of the group to which the stream belongs.
+   * The ID of the space to which the stream belongs.
    * 
    * @example
    * 348*****174-cn-qingdao
@@ -45,7 +45,7 @@ export class DescribeStreamsResponseBodyStreams extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Video stream height in pixels.
+   * The height of the video stream resolution.
    * 
    * @example
    * 720
@@ -53,7 +53,7 @@ export class DescribeStreamsResponseBodyStreams extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * Stream ID.
+   * The stream ID.
    * 
    * @example
    * 323*****997-cn-qingdao
@@ -61,7 +61,7 @@ export class DescribeStreamsResponseBodyStreams extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Stream name.
+   * The stream name.
    * 
    * @example
    * 31000000*****0000002
@@ -69,7 +69,7 @@ export class DescribeStreamsResponseBodyStreams extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Streaming domain for this stream.
+   * The playback domain name to which the stream belongs.
    * 
    * @example
    * demo.aliyundoc.com
@@ -77,7 +77,7 @@ export class DescribeStreamsResponseBodyStreams extends $dara.Model {
   playDomain?: string;
   /**
    * @remarks
-   * Stream protocol.
+   * The stream protocol.
    * 
    * @example
    * gb28181
@@ -85,7 +85,7 @@ export class DescribeStreamsResponseBodyStreams extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * Ingest domain for this stream.
+   * The ingest domain name to which the stream belongs.
    * 
    * @example
    * example.aliyundoc.com
@@ -93,11 +93,9 @@ export class DescribeStreamsResponseBodyStreams extends $dara.Model {
   pushDomain?: string;
   /**
    * @remarks
-   * Stream status. Valid values:
-   * 
-   * - on (online)
-   * 
-   * - off (offline)
+   * The stream status. Valid values:
+   * - on: online
+   * - off: offline
    * 
    * @example
    * on
@@ -105,7 +103,7 @@ export class DescribeStreamsResponseBodyStreams extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Video stream width in pixels.
+   * The width of the video stream resolution.
    * 
    * @example
    * 1280
@@ -159,7 +157,7 @@ export class DescribeStreamsResponseBodyStreams extends $dara.Model {
 export class DescribeStreamsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 5
@@ -167,7 +165,7 @@ export class DescribeStreamsResponseBody extends $dara.Model {
   pageCount?: number;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -175,7 +173,7 @@ export class DescribeStreamsResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Number of items per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -183,7 +181,7 @@ export class DescribeStreamsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -191,12 +189,12 @@ export class DescribeStreamsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of streams.
+   * The list of streams.
    */
   streams?: DescribeStreamsResponseBodyStreams[];
   /**
    * @remarks
-   * Total number of streams.
+   * The total number of streams.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadPublicKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * Base64-encoded public key content.
+   * The encoded content of the public key. The default encoding format is Base64.
    * 
    * This parameter is required.
    * 
@@ -15,21 +15,19 @@ export class UploadPublicKeyRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Description of the public key.
+   * The description of the public key.
    * 
    * @example
-   * 测试使用
+   * For testing purposes
    */
   description?: string;
   /**
    * @remarks
-   * Group for the public key. Used for public key management.
-   * 
-   * 1. Length: 0 to 255 characters.
-   * 
-   * 2. Valid characters: lowercase letters, digits, underscores (_), hyphens (-), and periods (.).
-   * 
-   * 3. First character must be a letter or digit.
+   * The group of the public key. Used for public key management.
+   * Naming conventions:
+   * 1. The length must be 0 to 255 characters.
+   * 2. The name can contain lowercase letters, digits, underscores (_), hyphens (-), and periods (.).
+   * 3. The first character must be a letter or a digit.
    * 
    * @example
    * g-test
@@ -37,15 +35,12 @@ export class UploadPublicKeyRequest extends $dara.Model {
   keyGroup?: string;
   /**
    * @remarks
-   * Name of the public key. Must be unique.
-   * 
-   * 1. Length: 8 to 255 characters.
-   * 
-   * 2. Valid characters: lowercase letters, digits, underscores (_), hyphens (-), and periods (.).
-   * 
-   * 3. First character must be a letter or digit.
-   * 
-   * 4. Prefix cannot be group-.
+   * The name of the public key. The name must be unique.
+   * Naming conventions:
+   * 1. The length must be 8 to 255 characters.
+   * 2. The name can contain lowercase letters, digits, underscores (_), hyphens (-), and periods (.).
+   * 3. The first character must be a letter or a digit.
+   * 4. The prefix cannot be "group-".
    * 
    * This parameter is required.
    * 
@@ -55,10 +50,9 @@ export class UploadPublicKeyRequest extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * Type of the public key. Valid values:
+   * The type of the public key. Valid values:
    * 
    * - **adb**: ADB key.
-   * 
    * - **ssh**: SSH key.
    * 
    * @example

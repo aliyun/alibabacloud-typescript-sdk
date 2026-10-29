@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRenderingInstanceStreamingInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Token for this connection
+   * The token for the current connection.
    * 
    * @example
    * 792fy125-594c-4dde-ab35-9ff8hrf0a86f
@@ -13,7 +13,7 @@ export class GetRenderingInstanceStreamingInfoResponseBody extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * Domain name of the cloud application service instance streaming gateway
+   * The domain name of the streaming gateway for the cloud application service instance.
    * 
    * @example
    * 10.178.208.22
@@ -21,7 +21,7 @@ export class GetRenderingInstanceStreamingInfoResponseBody extends $dara.Model {
   gateway?: string;
   /**
    * @remarks
-   * Hostname or IP address of the cloud application service instance stream
+   * The streaming domain name or IP address of the cloud application service instance.
    * 
    * @example
    * 10.18.20.2
@@ -29,7 +29,7 @@ export class GetRenderingInstanceStreamingInfoResponseBody extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * Streaming connection port
+   * The streaming connection port.
    * 
    * @example
    * 10003
@@ -37,7 +37,7 @@ export class GetRenderingInstanceStreamingInfoResponseBody extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * Cloud application service instance ID
+   * The cloud application service instance ID.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -45,7 +45,7 @@ export class GetRenderingInstanceStreamingInfoResponseBody extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

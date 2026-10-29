@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCloudAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud application ID, which corresponds to a unique application package.
+   * The ID of the cloud application, which corresponds to a unique application package.
    * 
    * This parameter is required.
    * 

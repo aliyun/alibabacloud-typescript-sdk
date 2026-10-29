@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCloudAppInfoShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud application ID, which corresponds to a unique application package.
+   * The ID of the cloud application, which corresponds to a unique application package.
    * 
    * This parameter is required.
    * 
@@ -18,32 +18,26 @@ export class UpdateCloudAppInfoShrinkRequest extends $dara.Model {
    * The description of the application.
    * 
    * @example
-   * For testing purposes
+   * Used for testing
    */
   description?: string;
   /**
    * @remarks
-   * The information about the patch package to upload.
-   * 1. Not supported when PkgType is set to android.
-   * 2. Only one patch can be in the uploading state at a time for the same AppId (only one patch in a non-final state is allowed per AppId).
+   * The information about the patch package to be uploaded. 1. This parameter is not supported when PkgType is set to android. 2. Only one patch package can be in the uploading state (non-final state) for the same AppId at a time.
    */
   patchShrink?: string;
   /**
    * @remarks
-   * The cloud application labels. You can select multiple labels. This operation resets the cloud application labels.
-   * 1. Valid values:
-   *   a. hot
-   *   b. game
-   *   c. app
-   * 2. Special cases:
-   *   a. To delete all labels, set this parameter to ["NULL"].
+   * The tags of the cloud application. You can specify multiple tags to reset the cloud application tags. Valid values:
+   * - hot
+   * - game
+   * - app
+   * To delete all tags, set the value to ["NULL"].
    */
   pkgLabelsShrink?: string;
   /**
    * @remarks
-   * The stable PatchId. When a PatchId is not specified during business operations (such as session startup), this PatchId is used by default. Not supported when PkgType is set to android.
-   * Special values:
-   * 1. origin: cancels the patch version and uses the initial version by default.
+   * The ID of the stable patch. This is the default patch ID used in customer business scenarios, such as session startup, when no patch ID is specified. This parameter is not supported when PkgType is set to android. Special value: origin: cancels the patch version and uses the initial version by default.
    * 
    * @example
    * patch-03fa76e8e13a49b6a966b063d9d309b4

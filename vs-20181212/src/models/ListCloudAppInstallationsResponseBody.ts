@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dara.Model {
   /**
    * @remarks
-   * Application ID.
+   * The ID of the application.
    * 
    * @example
    * cap-b06b26edfhytbn b94a75ae1a79efc90eb
@@ -13,7 +13,7 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
   appId?: string;
   /**
    * @remarks
-   * Application name.
+   * The name of the application.
    * 
    * @example
    * com.aaa.bbb
@@ -21,7 +21,7 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
   appName?: string;
   /**
    * @remarks
-   * Application version.
+   * The version of the application.
    * 
    * @example
    * 1.5.0
@@ -29,7 +29,7 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
   appVersion?: string;
   /**
    * @remarks
-   * Installation time.
+   * The installation time. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-05-28T14:48:34+08:00
@@ -37,7 +37,7 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
   installationTime?: string;
   /**
    * @remarks
-   * Patch package ID.
+   * The ID of the patch package.
    * 
    * @example
    * patch-7bdf679812484df08a956b73e0b3bdf6
@@ -45,7 +45,7 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
   patchId?: string;
   /**
    * @remarks
-   * Cloud application service instance ID.
+   * The cloud application service instance ID.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -53,11 +53,7 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
   renderingInstanceId?: string;
   /**
    * @remarks
-   * Cloud application installation status. Valid values:
-   * 
-   * 1. Intermediate states: install-init, installing
-   * 
-   * 2. Final states: installed, install-failed
+   * The installation status of the cloud application. Valid values: install-init and installing (intermediate states), and installed and install-failed (final states).
    * 
    * @example
    * installed
@@ -65,7 +61,7 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
   status?: string;
   /**
    * @remarks
-   * Status description.
+   * The description of the status.
    * 
    * @example
    * install success
@@ -73,7 +69,7 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
   statusDescription?: string;
   /**
    * @remarks
-   * Time when the status was last updated.
+   * The time when the status was last updated. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-05-28T14:50:04+08:00
@@ -119,12 +115,12 @@ export class ListCloudAppInstallationsResponseBodyInstallationInfos extends $dar
 export class ListCloudAppInstallationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of installation records.
+   * The list of installation information.
    */
   installationInfos?: ListCloudAppInstallationsResponseBodyInstallationInfos[];
   /**
    * @remarks
-   * Page number of the returned list.
+   * The page number of the returned list.
    * 
    * @example
    * 1
@@ -132,7 +128,7 @@ export class ListCloudAppInstallationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of entries per page for paged queries.
+   * The number of entries returned per page for a paged query.
    * 
    * @example
    * 10
@@ -140,7 +136,7 @@ export class ListCloudAppInstallationsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -148,7 +144,7 @@ export class ListCloudAppInstallationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of installation records.
+   * The total number of installation records.
    * 
    * @example
    * 100

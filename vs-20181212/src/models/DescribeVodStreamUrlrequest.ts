@@ -6,12 +6,12 @@ export class DescribeVodStreamURLRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The file URL of the VOD video.
+   * The file URL of the video-on-demand video.
    * 
    * This parameter is required.
    * 
    * @example
-   * http://xxx/xxx.mp4
+   * http://xxx/xxxx.mp4
    */
   url?: string;
   static names(): { [key: string]: string } {

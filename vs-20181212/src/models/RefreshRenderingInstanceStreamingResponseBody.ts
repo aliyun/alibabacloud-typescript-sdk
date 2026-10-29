@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefreshRenderingInstanceStreamingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Token for this connection.
+   * The token for the current connection.
    * 
    * @example
    * 792fy125-594c-4dde-ab35-9ff8hrf0a86f
@@ -13,7 +13,7 @@ export class RefreshRenderingInstanceStreamingResponseBody extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * Domain name of the streaming gateway for the cloud application service instance.
+   * The domain name of the streaming gateway for the cloud application service instance.
    * 
    * @example
    * 10.178.208.22
@@ -21,7 +21,7 @@ export class RefreshRenderingInstanceStreamingResponseBody extends $dara.Model {
   gateway?: string;
   /**
    * @remarks
-   * Streaming domain name/IP for the cloud application service instance.
+   * The streaming domain name or IP address of the cloud application service instance.
    * 
    * @example
    * cn-xxx.ecr.aliyuncs.com
@@ -29,7 +29,7 @@ export class RefreshRenderingInstanceStreamingResponseBody extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The port for the stream connection.
+   * The port for the streaming connection.
    * 
    * @example
    * 8080
@@ -37,7 +37,7 @@ export class RefreshRenderingInstanceStreamingResponseBody extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * Cloud application service instance ID.
+   * The instance ID of the cloud application service.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -45,7 +45,7 @@ export class RefreshRenderingInstanceStreamingResponseBody extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

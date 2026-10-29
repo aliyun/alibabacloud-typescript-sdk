@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenderingSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * Unique ID of the end client. Specify either SessionId or ClientId.
+   * The unique ID of the client. You must specify at least one of SessionId and ClientId.
    * 
    * @example
    * d27c89d6-4fe3-4855-a89c-ea721c708b0b
@@ -13,7 +13,7 @@ export class DescribeRenderingSessionRequest extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeRenderingSessionRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * Session ID. Specify either SessionId or ClientId.
+   * The session ID. You must specify at least one of SessionId and ClientId.
    * 
    * @example
    * session-i205217481741918129226

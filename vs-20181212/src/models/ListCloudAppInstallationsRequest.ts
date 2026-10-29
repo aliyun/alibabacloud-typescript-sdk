@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudAppInstallationsRequest extends $dara.Model {
   /**
    * @remarks
-   * Cloud application ID. Each ID maps to a unique application package.
+   * The ID of the cloud application, which corresponds to a unique application package.
    * 
    * @example
    * cap-b06b26edfhytbn b94a75ae1a79efc90eb
@@ -13,7 +13,7 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Application name.
+   * The name of the application.
    * 
    * @example
    * com.aaa.bbb
@@ -21,7 +21,7 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Application version.
+   * The version of the application.
    * 
    * @example
    * 1.0
@@ -29,7 +29,7 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * Time range filter. Use ISO 8601 format and UTC time, such as yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2025-06-02T02:18:00Z
@@ -37,7 +37,7 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Page number of the returned list. Minimum value: 1. Default value: 1.
+   * The page number of the list to query. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of entries per page for paged queries. Valid values: 1 to 100. Default value: 10.
+   * The number of entries to return on each page for a paged query. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -53,9 +53,7 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Patch package ID. Supported only in Windows scenarios.
-   * 
-   * 1. Set to origin to return only original versions.
+   * The ID of the patch package. This parameter is supported only in Windows scenarios. If you enter origin, only the original version is filtered.
    * 
    * @example
    * patch-7bdf679812484df08a956b73e0b3bdf6
@@ -63,7 +61,7 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
   patchId?: string;
   /**
    * @remarks
-   * Project ID.
+   * The ID of the project.
    * 
    * @example
    * project-b93ea81de76f48609eed3cd420f0399f
@@ -71,7 +69,7 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * Cloud application service instance ID. Use this to list installations on a specific instance.
+   * The cloud application service instance ID, which is used to query the cloud applications installed on the specified instance.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -79,7 +77,7 @@ export class ListCloudAppInstallationsRequest extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * Start time of the time range filter. Specify in ISO 8601 format using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2025-05-26T16:00:00Z

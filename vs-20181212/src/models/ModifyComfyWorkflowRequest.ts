@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyComfyWorkflowRequest extends $dara.Model {
   /**
    * @remarks
-   * The new workflow description.
+   * The description of the workflow template.
    * 
    * @example
-   * 这是一个图生视频的工作流
+   * This is an image-to-video workflow
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the workflow to modify.
+   * The workflow ID.
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,10 @@ export class ModifyComfyWorkflowRequest extends $dara.Model {
   workflowId?: string;
   /**
    * @remarks
-   * The new workflow name.
+   * The name of the workflow template.
    * 
    * @example
-   * 图生视频工作流示例
+   * Image-to-video workflow example
    */
   workflowName?: string;
   static names(): { [key: string]: string } {

@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRenderingDataPackageRequest extends $dara.Model {
   /**
    * @remarks
-   * Data type. Valid values:
-   * 
-   * - Package (default value).
-   * 
-   * - Baseline.
+   * The data type. Valid values:
+   * - Package (default)
+   * - Baseline
    * 
    * @example
    * Package
@@ -17,7 +15,7 @@ export class CreateRenderingDataPackageRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * testdescription
@@ -25,9 +23,9 @@ export class CreateRenderingDataPackageRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Billing type. Valid values:
+   * The billing type. Valid values:
    * 
-   * - Hour: Hour.
+   * - Hour: hourly.
    * 
    * @example
    * Hour
@@ -35,7 +33,7 @@ export class CreateRenderingDataPackageRequest extends $dara.Model {
   instanceBillingCycle?: string;
   /**
    * @remarks
-   * Cloud application service instance ID (Note: This operation is only for crs.cp.\\* series instance types.)
+   * The instance ID of the Cloud Application Service. Note: This operation applies only to crs.cp.* series instance types.
    * 
    * This parameter is required.
    * 

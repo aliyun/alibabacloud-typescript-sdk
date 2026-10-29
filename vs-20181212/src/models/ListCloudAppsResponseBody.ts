@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * cap-b06b26edfhytbn b94a75ae1a79efc90eb
@@ -13,7 +13,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * com.aaa.bbb
@@ -21,7 +21,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The application version.
+   * The version of the application.
    * 
    * @example
    * 1.5.0
@@ -29,7 +29,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * The application description.
+   * The description of the application.
    * 
    * @example
    * demo
@@ -37,7 +37,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The installation package format.
+   * The format of the installation package.
    * 
    * @example
    * apk
@@ -45,7 +45,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   pkgFormat?: string;
   /**
    * @remarks
-   * The installation package type. Valid values: android and win.
+   * The type of the installation package, such as android or win.
    * 
    * @example
    * android
@@ -53,7 +53,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   pkgType?: string;
   /**
    * @remarks
-   * The relative path of the post-command within the application package. Only win type applications are supported.
+   * The relative path of the post-command in the application package. This parameter is supported only for Windows applications.
    * 
    * @example
    * install.ps1
@@ -61,7 +61,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   postCommandPath?: string;
   /**
    * @remarks
-   * The timeout period for post-command execution, in seconds. Only win type applications are supported.
+   * The timeout period for executing the post-command, in seconds. This parameter is supported only for Windows applications.
    * 
    * @example
    * 10
@@ -69,7 +69,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   postCommandTimeoutSec?: number;
   /**
    * @remarks
-   * The ID of the stable version patch package.
+   * The ID of the stable patch package.
    * 
    * @example
    * patch-7bdf679812484df08a956b73e0b3bdf6
@@ -77,13 +77,11 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   stablePatchId?: string;
   /**
    * @remarks
-   * The application upload status. Valid values:
-   * 1. Created
-   * 2. Doing
-   * 3. Success: desired state.
-   * 4. Failed: desired state.
-   * 5. Deleting
-   * 6. DeleteFailed: desired state.
+   * The upload status of the application. Valid values:
+   * - Created
+   * - Doing
+   * - Success: This is a final state.
+   * - Failed: This is a final state.
    * 
    * @example
    * Success
@@ -91,7 +89,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The status description.
+   * The description of the status.
    * 
    * @example
    * upload success
@@ -99,7 +97,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   statusDescription?: string;
   /**
    * @remarks
-   * The latest status update time.
+   * The time when the status was last updated. The time is displayed in the ISO 8601 standard with a time zone offset, in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-05-28T14:48:34+08:00
@@ -107,7 +105,7 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The application upload time.
+   * The time when the application was uploaded. The time is displayed in the ISO 8601 standard with a time zone offset, in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-05-28T14:28:14+08:00
@@ -161,12 +159,12 @@ export class ListCloudAppsResponseBodyCloudApps extends $dara.Model {
 export class ListCloudAppsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of cloud application information.
+   * The list of cloud applications.
    */
   cloudApps?: ListCloudAppsResponseBodyCloudApps[];
   /**
    * @remarks
-   * The page number of the query list.
+   * The page number of the returned list.
    * 
    * @example
    * 1
@@ -174,7 +172,7 @@ export class ListCloudAppsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for the paged query.
+   * The Settings for the number of entries returned on each page during paging for a paged query.
    * 
    * @example
    * 10
@@ -182,7 +180,7 @@ export class ListCloudAppsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -190,7 +188,7 @@ export class ListCloudAppsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of matched cloud applications.
+   * The total number of cloud applications that match the query conditions.
    * 
    * @example
    * 100

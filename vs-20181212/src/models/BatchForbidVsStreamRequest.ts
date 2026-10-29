@@ -6,10 +6,8 @@ export class BatchForbidVsStreamRequest extends $dara.Model {
   /**
    * @remarks
    * The stream name.
-   * 
    * > - Format: AppName/StreamName.
-   * >
-   * > - Specify multiple names, separated by commas (,).
+   * > - You can specify multiple stream names separated by commas (,).
    * 
    * This parameter is required.
    * 
@@ -17,10 +15,17 @@ export class BatchForbidVsStreamRequest extends $dara.Model {
    * live/stream1,live/stream2
    */
   channel?: string;
+  /**
+   * @remarks
+   * The stream control action. Set the value to forbid, which indicates that stream push is forbidden.
+   * 
+   * @example
+   * forbid
+   */
   controlStreamAction?: string;
   /**
    * @remarks
-   * Your accelerated domain name.
+   * The accelerated domain name.
    * 
    * This parameter is required.
    * 
@@ -30,11 +35,10 @@ export class BatchForbidVsStreamRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Specifies whether the operation applies to stream ingest by a streamer or stream pulling by a client. Valid values:
+   * Specifies whether the stream is pushed by the streamer or pulled by the client. Valid values:
+   * - publisher: The stream is pushed by the streamer.
    * 
-   * - publisher (streamer ingest)
-   * 
-   * > Only publisher is supported.
+   * > Currently, only publisher is supported.
    * 
    * This parameter is required.
    * 
@@ -44,10 +48,8 @@ export class BatchForbidVsStreamRequest extends $dara.Model {
   liveStreamType?: string;
   /**
    * @remarks
-   * Specifies whether to stop ingest without adding the stream to the blacklist. Valid values:
-   * 
+   * Specifies whether to only interrupt the stream without adding it to the blacklist. Valid values:
    * - yes
-   * 
    * - no
    * 
    * @example
@@ -57,9 +59,8 @@ export class BatchForbidVsStreamRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The time to resume ingest.
-   * 
-   * > Use UTC format. Example: 2015-12-01T17:37:00Z
+   * The time to resume the stream.
+   * > Specify the time in UTC format, for example, 2015-12-01T17:37:00Z.
    * 
    * @example
    * 2015-12-01T17:37:00Z

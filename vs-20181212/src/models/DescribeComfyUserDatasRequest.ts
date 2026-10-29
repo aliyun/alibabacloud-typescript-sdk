@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyUserDatasRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the file to query, or the folder to query. For a folder, provide the path ending with a forward slash (/).
+   * The name of the file to query, or the directory to query. To query a directory, pass the path ending with a forward slash (/).
    * 
    * @example
    * myfile
@@ -13,7 +13,7 @@ export class DescribeComfyUserDatasRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The page number of the list to query.
+   * The page number.
    * 
    * @example
    * 1

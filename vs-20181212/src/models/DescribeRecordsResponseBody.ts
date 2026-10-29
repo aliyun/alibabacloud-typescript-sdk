@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecordsResponseBodyRecords extends $dara.Model {
   /**
    * @remarks
-   * The end time of the stored record.
+   * The end time of the storage record. The time is in the YYYY-MM-DDTHH:mm:ss format.
    * 
    * @example
    * 2021-11-23T18:33:48
@@ -13,14 +13,10 @@ export class DescribeRecordsResponseBodyRecords extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The format of the stored file. Valid values:
-   * 
+   * The format of the storage file. Valid values:
    * - mp4
-   * 
    * - flv
-   * 
    * - hls
-   * 
    * - jpg
    * 
    * @example
@@ -37,9 +33,8 @@ export class DescribeRecordsResponseBodyRecords extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The ID of the stored record.
-   * 
-   * > Applies only to recording queries.
+   * The ID of the storage record.
+   * > Only applicable to recording queries.
    * 
    * @example
    * 2be2a673-6033-4874-b6f2-f2bc0a1*****
@@ -47,7 +42,7 @@ export class DescribeRecordsResponseBodyRecords extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The bucket where the file is stored.
+   * The OSS bucket of the storage file.
    * 
    * @example
    * my_oss_bucket
@@ -63,7 +58,7 @@ export class DescribeRecordsResponseBodyRecords extends $dara.Model {
   ossEndpoint?: string;
   /**
    * @remarks
-   * The object of the stored file.
+   * The OSS object of the storage file.
    * 
    * @example
    * record/live/310*****007/2021-11-23-18-19-38_2021-11-23-18-33-48.m3u8
@@ -71,7 +66,7 @@ export class DescribeRecordsResponseBodyRecords extends $dara.Model {
   ossObject?: string;
   /**
    * @remarks
-   * The start time of the stored record.
+   * The start time of the storage record. The time is in the YYYY-MM-DDTHH:mm:ss format.
    * 
    * @example
    * 2021-11-23T18:19:32
@@ -95,11 +90,9 @@ export class DescribeRecordsResponseBodyRecords extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The type of the stored record. Valid values:
-   * 
-   * - record
-   * 
-   * - snapshot
+   * The type of the storage record. Valid values:
+   * - record: recording
+   * - snapshot: snapshot
    * 
    * @example
    * record
@@ -107,7 +100,7 @@ export class DescribeRecordsResponseBodyRecords extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The URL of the stored file.
+   * The URL of the storage file.
    * 
    * @example
    * http://my_oss_bucket.oss-cn-qingdao.aliyuncs.com/record/live/310*****007/2021-11-23-18-19-38_2021-11-23-18-33-48.m3u8
@@ -169,9 +162,8 @@ export class DescribeRecordsResponseBodyRecords extends $dara.Model {
 export class DescribeRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The start time to query the next record.
-   * 
-   * > Applies only to snapshot queries.
+   * The start time for querying the next record.
+   * > Only applicable to snapshot queries. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2018-12-10T11:00:00Z
@@ -180,8 +172,7 @@ export class DescribeRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The total number of pages.
-   * 
-   * > Applies only to recording queries.
+   * > Only applicable to recording queries.
    * 
    * @example
    * 5
@@ -190,8 +181,7 @@ export class DescribeRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.
-   * 
-   * > Applies only to recording queries.
+   * > Only applicable to recording queries.
    * 
    * @example
    * 1
@@ -199,9 +189,8 @@ export class DescribeRecordsResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The page size.
-   * 
-   * > Applies only to recording queries.
+   * The number of entries per page.
+   * > Only applicable to recording queries.
    * 
    * @example
    * 20
@@ -209,12 +198,12 @@ export class DescribeRecordsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of stored records.
+   * The list of storage records.
    */
   records?: DescribeRecordsResponseBodyRecords[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -222,9 +211,8 @@ export class DescribeRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of stored records.
-   * 
-   * > Applies only to recording queries.
+   * The total number of storage records.
+   * > Only applicable to recording queries.
    * 
    * @example
    * 100

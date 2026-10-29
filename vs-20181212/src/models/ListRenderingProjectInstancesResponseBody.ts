@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListRenderingProjectInstancesResponseBodyRenderingInstancesStateInfo extends $dara.Model {
   /**
    * @remarks
-   * Description of the current status
+   * The status description.
    * 
    * @example
-   * 正在会话中
+   * In a session
    */
   comment?: string;
   /**
    * @remarks
-   * Instance status
+   * The project instance status.
    * 
    * @example
    * InUse
@@ -21,7 +21,7 @@ export class ListRenderingProjectInstancesResponseBodyRenderingInstancesStateInf
   state?: string;
   /**
    * @remarks
-   * Time when the status was last updated
+   * The latest update time of the status. The time is in the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
    * 
    * @example
    * 2024-11-11T18:19:04+08:00
@@ -55,7 +55,7 @@ export class ListRenderingProjectInstancesResponseBodyRenderingInstancesStateInf
 export class ListRenderingProjectInstancesResponseBodyRenderingInstances extends $dara.Model {
   /**
    * @remarks
-   * Time when the instance was associated with the project
+   * The association time. The time is in the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
    * 
    * @example
    * 2024-09-11T18:19:04+08:00
@@ -63,7 +63,7 @@ export class ListRenderingProjectInstancesResponseBodyRenderingInstances extends
   associationTime?: string;
   /**
    * @remarks
-   * Cloud application service instance
+   * The ID of the cloud application service instance.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -71,7 +71,7 @@ export class ListRenderingProjectInstancesResponseBodyRenderingInstances extends
   renderingInstanceId?: string;
   /**
    * @remarks
-   * Status information for the project instance
+   * The project instance status information.
    */
   stateInfo?: ListRenderingProjectInstancesResponseBodyRenderingInstancesStateInfo;
   static names(): { [key: string]: string } {
@@ -105,12 +105,12 @@ export class ListRenderingProjectInstancesResponseBodyRenderingInstances extends
 export class ListRenderingProjectInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of cloud application service instances
+   * The list of cloud application service instances.
    */
   renderingInstances?: ListRenderingProjectInstancesResponseBodyRenderingInstances[];
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -118,7 +118,7 @@ export class ListRenderingProjectInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of cloud application service instances
+   * The total number of cloud application service instances.
    * 
    * @example
    * 8

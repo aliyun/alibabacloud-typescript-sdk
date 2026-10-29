@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRenderingProjectInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * End time of the time range. Use ISO 8601 format in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2024-11-30T02:18:00Z
@@ -13,7 +13,7 @@ export class ListRenderingProjectInstancesRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Page number. Start from 1.
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListRenderingProjectInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of entries per page.
+   * The Settings for the number of entries per page during paging in a paged query.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListRenderingProjectInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ListRenderingProjectInstancesRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * Cloud application service instance ID
+   * The cloud application service instance ID.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -47,7 +47,7 @@ export class ListRenderingProjectInstancesRequest extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * A parameter for filtering by a time range. The time must be in UTC and formatted according to the ISO 8601 standard as \\`yyyy-MM-ddTHH:mm:ssZ\\`.
+   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2024-11-27T16:00:00Z
@@ -55,13 +55,10 @@ export class ListRenderingProjectInstancesRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Instance status. Valid values:
-   * 
-   * 1. Idle
-   * 
-   * 2. Locked
-   * 
-   * 3. InUse
+   * The project instance status. Valid values:
+   * - Idle: idle
+   * - Locked: locked
+   * - InUse: in use
    * 
    * @example
    * Idle

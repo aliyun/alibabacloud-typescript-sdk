@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPublicKeysResponseBodyPublicKeys extends $dara.Model {
   /**
    * @remarks
-   * The content of the public key. The content is encoded in Base64 format by default.
+   * The encoded content of the public key. Default encoding format: Base64.
    * 
    * @example
    * verify_30d89ccb0905c8c7882c1d14a991954b
@@ -16,12 +16,12 @@ export class ListPublicKeysResponseBodyPublicKeys extends $dara.Model {
    * The description of the public key.
    * 
    * @example
-   * 测试使用
+   * For testing purposes
    */
   description?: string;
   /**
    * @remarks
-   * The public key group.
+   * The group of the public key.
    * 
    * @example
    * mygroup
@@ -40,7 +40,6 @@ export class ListPublicKeysResponseBodyPublicKeys extends $dara.Model {
    * The type of the public key. Valid values:
    * 
    * - **adb**: ADB key
-   * 
    * - **ssh**: SSH key
    * 
    * @example
@@ -49,7 +48,7 @@ export class ListPublicKeysResponseBodyPublicKeys extends $dara.Model {
   keyType?: string;
   /**
    * @remarks
-   * The time when the public key was uploaded.
+   * The time when the public key was uploaded. The time is specified in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-06-11T14:26:48+08:00
@@ -105,12 +104,12 @@ export class ListPublicKeysResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * A list of public keys.
+   * The list of user public keys.
    */
   publicKeys?: ListPublicKeysResponseBodyPublicKeys[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

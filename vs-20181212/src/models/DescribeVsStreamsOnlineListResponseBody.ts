@@ -87,7 +87,7 @@ export class DescribeVsStreamsOnlineListResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries displayed per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -103,7 +103,7 @@ export class DescribeVsStreamsOnlineListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that meet the criteria.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 10

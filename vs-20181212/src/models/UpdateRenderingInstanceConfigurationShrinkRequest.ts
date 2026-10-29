@@ -12,7 +12,7 @@ export class UpdateRenderingInstanceConfigurationShrinkRequest extends $dara.Mod
   configurationShrink?: string;
   /**
    * @remarks
-   * The ID of the cloud application service instance.
+   * The instance ID of the cloud application service.
    * 
    * This parameter is required.
    * 

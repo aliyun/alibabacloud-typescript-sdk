@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRenderingImagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud application service instance ID.
+   * The ID of the cloud application service instance.
    * 
    * @example
    * m-9timxhrrgopkec8ju
@@ -13,7 +13,7 @@ export class ListRenderingImagesRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The page number. The value starts from 1.
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListRenderingImagesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries to return on each page in a paged query.
    * 
    * @example
    * 10

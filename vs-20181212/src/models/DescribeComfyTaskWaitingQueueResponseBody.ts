@@ -43,7 +43,7 @@ export class DescribeComfyTaskWaitingQueueResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The description.
+   * The message.
    * 
    * @example
    * success
@@ -59,7 +59,7 @@ export class DescribeComfyTaskWaitingQueueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The waiting queue information.
+   * The task waiting queue information.
    */
   taskWaitingQueue?: DescribeComfyTaskWaitingQueueResponseBodyTaskWaitingQueue;
   static names(): { [key: string]: string } {

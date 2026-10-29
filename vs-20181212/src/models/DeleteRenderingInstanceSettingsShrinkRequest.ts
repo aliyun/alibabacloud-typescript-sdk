@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRenderingInstanceSettingsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * List of attribute names.
+   * The list of attribute names.
    */
   attributeNamesShrink?: string;
   /**
    * @remarks
-   * ID of the cloud application service instance.
+   * The cloud application service instance ID.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111

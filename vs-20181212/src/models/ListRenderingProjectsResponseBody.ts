@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRenderingProjectsResponseBodyProjectsSessionAttribs extends $dara.Model {
   /**
    * @remarks
-   * Startup mode
+   * The startup mode.
    * 
    * @example
    * Sync
@@ -35,7 +35,7 @@ export class ListRenderingProjectsResponseBodyProjectsSessionAttribs extends $da
 export class ListRenderingProjectsResponseBodyProjects extends $dara.Model {
   /**
    * @remarks
-   * Project creation time
+   * The time when the project was created. The time follows the ISO 8601 standard and includes a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-09-09T18:44:49+08:00
@@ -43,7 +43,7 @@ export class ListRenderingProjectsResponseBodyProjects extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Project description
+   * The project description.
    * 
    * @example
    * description
@@ -51,7 +51,7 @@ export class ListRenderingProjectsResponseBodyProjects extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * @example
    * project-422bc38dfgh5eb44149f135ef76304f63b
@@ -59,7 +59,7 @@ export class ListRenderingProjectsResponseBodyProjects extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * Project name
+   * The project name.
    * 
    * @example
    * prod-project
@@ -67,12 +67,12 @@ export class ListRenderingProjectsResponseBodyProjects extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * Project session attributes
+   * The session attributes of the project.
    */
   sessionAttribs?: ListRenderingProjectsResponseBodyProjectsSessionAttribs;
   /**
    * @remarks
-   * Last update time
+   * The time when the project was updated. The time follows the ISO 8601 standard and includes a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-10-09T18:44:49+08:00
@@ -115,12 +115,12 @@ export class ListRenderingProjectsResponseBodyProjects extends $dara.Model {
 export class ListRenderingProjectsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Project list
+   * The list of projects.
    */
   projects?: ListRenderingProjectsResponseBodyProjects[];
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -128,7 +128,7 @@ export class ListRenderingProjectsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of matching projects
+   * The total number of matched projects.
    * 
    * @example
    * 2

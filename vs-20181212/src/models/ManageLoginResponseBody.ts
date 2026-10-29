@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ManageLoginResponseBodyLoginInfo extends $dara.Model {
   /**
    * @remarks
-   * Port for ADB connections.
+   * The port for the ADB connection.
    * 
    * @example
    * 10005
@@ -13,7 +13,7 @@ export class ManageLoginResponseBodyLoginInfo extends $dara.Model {
   adbLoginPort?: number;
   /**
    * @remarks
-   * Host for SSH connections.
+   * The host for the SSH connection.
    * 
    * @example
    * 12.10.4.10
@@ -21,7 +21,7 @@ export class ManageLoginResponseBodyLoginInfo extends $dara.Model {
   loginHostname?: string;
   /**
    * @remarks
-   * Port for SSH connections.
+   * The port for the SSH connection.
    * 
    * @example
    * 10004
@@ -55,12 +55,12 @@ export class ManageLoginResponseBodyLoginInfo extends $dara.Model {
 export class ManageLoginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Connection information.
+   * The connection information.
    */
   loginInfo?: ManageLoginResponseBodyLoginInfo;
   /**
    * @remarks
-   * ID of the request.
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

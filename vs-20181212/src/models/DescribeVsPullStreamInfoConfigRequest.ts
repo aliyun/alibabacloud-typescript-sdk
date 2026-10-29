@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVsPullStreamInfoConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The stream pulling domain.
+   * The pull stream domain name.
    * 
    * This parameter is required.
    * 

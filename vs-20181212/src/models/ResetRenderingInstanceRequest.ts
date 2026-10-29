@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ResetRenderingInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the operation. Set the value to Reset.
+   * 
    * @example
    * Reset
    */
   actionName?: string;
   /**
    * @remarks
-   * Data baseline ID
+   * The ID of the data baseline.
    * 
    * @example
    * dp-449ea3d16c0841b8bf33ec5bbc86a152
@@ -18,7 +21,7 @@ export class ResetRenderingInstanceRequest extends $dara.Model {
   dataPackageId?: string;
   /**
    * @remarks
-   * Service instance ID
+   * The cloud application service instance ID.
    * 
    * This parameter is required.
    * 

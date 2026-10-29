@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopRenderingSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * Unique ID of the end customer. Specify either SessionId or ClientId.
+   * The unique ID of the end client. You must specify at least one of SessionId or ClientId.
    * 
    * @example
    * 04c30850-1d91-4da1-b811-66d0ee94af7d
@@ -13,7 +13,7 @@ export class StopRenderingSessionRequest extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class StopRenderingSessionRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * Session ID. Specify either SessionId or ClientId.
+   * The session ID. You must specify at least one of SessionId or ClientId.
    * 
    * @example
    * session-i205217481741918129226

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEdgeWorkersResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is expressed in the ISO 8601 standard and includes a time zone offset. Format: YYYY-MM-DDTHH:mm:ss+HH:mm.
    * 
    * @example
    * 2025-05-14T15:20:37+08:00
@@ -13,7 +13,7 @@ export class ListEdgeWorkersResponseBodyInstances extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The end time. The time is expressed in the ISO 8601 standard and includes a time zone offset. Format: YYYY-MM-DDTHH:mm:ss+HH:mm.
    * 
    * @example
    * 2025-05-14T15:20:37+08:00
@@ -29,7 +29,7 @@ export class ListEdgeWorkersResponseBodyInstances extends $dara.Model {
   hiveId?: string;
   /**
    * @remarks
-   * The load ID.
+   * The workload ID.
    * 
    * @example
    * as-d135ca4425c24b99b79cd0b6c552cac9
@@ -45,7 +45,7 @@ export class ListEdgeWorkersResponseBodyInstances extends $dara.Model {
   planId?: string;
   /**
    * @remarks
-   * The specification.
+   * The specifications.
    * 
    * @example
    * crs.xic.s1
@@ -95,12 +95,12 @@ export class ListEdgeWorkersResponseBodyInstances extends $dara.Model {
 export class ListEdgeWorkersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of loads.
+   * The list of workloads.
    */
   instances?: ListEdgeWorkersResponseBodyInstances[];
   /**
    * @remarks
-   * The page number of the query list. The value starts from 1. Default value: 1.
+   * The page number of the list to query. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -108,7 +108,7 @@ export class ListEdgeWorkersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Settings for paging. Maximum value: 100. Default value: 100.
+   * The Settings for the number of lines per page during paging and paged query. Maximum value: 100. Default value: 100.
    * 
    * @example
    * 20

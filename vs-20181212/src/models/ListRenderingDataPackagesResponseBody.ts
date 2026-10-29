@@ -6,10 +6,8 @@ export class ListRenderingDataPackagesResponseBodyDataPackages extends $dara.Mod
   /**
    * @remarks
    * The category. Valid values:
-   * 
-   * - Package
-   * 
-   * - Baseline
+   * - Package: package
+   * - Baseline: baseline
    * 
    * @example
    * Package
@@ -17,7 +15,7 @@ export class ListRenderingDataPackagesResponseBodyDataPackages extends $dara.Mod
   category?: string;
   /**
    * @remarks
-   * The creation time of the Graphic Computing Service instance.
+   * The creation time of the cloud rendering instance. The time is displayed in the YYYY-MM-DDTHH:mm:ss+HH:mm format and follows the ISO 8601 standard with a time zone offset.
    * 
    * @example
    * 2024-10-15T10:23:06+08:00
@@ -25,7 +23,7 @@ export class ListRenderingDataPackagesResponseBodyDataPackages extends $dara.Mod
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the data pack.
+   * The ID of the data package.
    * 
    * @example
    * dp-449ea3d16c0841b8bf33ec5bbc86a152
@@ -33,7 +31,7 @@ export class ListRenderingDataPackagesResponseBodyDataPackages extends $dara.Mod
   dataPackageId?: string;
   /**
    * @remarks
-   * Remarks.
+   * The description.
    * 
    * @example
    * test
@@ -41,7 +39,7 @@ export class ListRenderingDataPackagesResponseBodyDataPackages extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * The ID of the Graphic Computing Service instance.
+   * The ID of the cloud application service instance.
    * 
    * @example
    * render-342012a227dc4ddf91f024639e43051a
@@ -49,7 +47,7 @@ export class ListRenderingDataPackagesResponseBodyDataPackages extends $dara.Mod
   renderingInstanceId?: string;
   /**
    * @remarks
-   * The size of the data pack.
+   * The size of the data package.
    * 
    * @example
    * 10
@@ -57,11 +55,11 @@ export class ListRenderingDataPackagesResponseBodyDataPackages extends $dara.Mod
   size?: number;
   /**
    * @remarks
-   * The status of the data pack. Valid values:
-   * available
-   * packing
-   * failed
-   * bonded
+   * The status of the data package. Valid values:
+   * available: available for binding
+   * packing: in progress
+   * failed: failed
+   * bonded: bound
    * 
    * @example
    * available
@@ -69,7 +67,7 @@ export class ListRenderingDataPackagesResponseBodyDataPackages extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2024-12-06T02:03:59Z
@@ -113,7 +111,7 @@ export class ListRenderingDataPackagesResponseBodyDataPackages extends $dara.Mod
 export class ListRenderingDataPackagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of data packages for the cloud application service.
+   * The list of cloud application service data packages.
    */
   dataPackages?: ListRenderingDataPackagesResponseBodyDataPackages[];
   /**
@@ -126,7 +124,7 @@ export class ListRenderingDataPackagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of Graphic Computing Service instances.
+   * The total number of cloud rendering instances.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings extends $dara.Model {
   /**
    * @remarks
-   * The external port or port range, such as `22`. For a port range, use a forward slash (`/`) to separate the start and end ports, for example, `10/20`.
+   * The external port or port range, such as 22. If a port range is specified, separate the start and end ports with a forward slash (/), such as 10/20.
    * 
    * @example
    * 12500/12519
@@ -13,7 +13,7 @@ export class DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMapping
   externalPort?: string;
   /**
    * @remarks
-   * The internal port or port range. The ports correspond one-to-one with the external ports. For a port range, use a forward slash (`/`) to separate the start and end ports, for example, `10/20`.
+   * The internal port or port range. The internal ports correspond to the external ports one by one. If a port range is specified, separate the start and end ports with a forward slash (/), such as 10/20.
    * 
    * @example
    * 11120/11139
@@ -45,7 +45,7 @@ export class DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMapping
 export class DescribeRenderingInstanceResponseBodyAdditionalIngresses extends $dara.Model {
   /**
    * @remarks
-   * The domain name or IP address of the rendering instance.
+   * The domain name or IP address of the cloud application service instance.
    * 
    * @example
    * 101.66.165.213
@@ -54,12 +54,9 @@ export class DescribeRenderingInstanceResponseBodyAdditionalIngresses extends $d
   /**
    * @remarks
    * The ISP code. Valid values:
-   * 
-   * 1. `cmcc`
-   * 
-   * 2. `unicom`
-   * 
-   * 3. `telecom`
+   * - cmcc
+   * - unicom
+   * - telecom
    * 
    * @example
    * cmcc
@@ -67,7 +64,7 @@ export class DescribeRenderingInstanceResponseBodyAdditionalIngresses extends $d
   isp?: string;
   /**
    * @remarks
-   * A list of port mappings.
+   * The port mappings.
    */
   portMappings?: DescribeRenderingInstanceResponseBodyAdditionalIngressesPortMappings[];
   static names(): { [key: string]: string } {
@@ -101,7 +98,7 @@ export class DescribeRenderingInstanceResponseBodyAdditionalIngresses extends $d
 export class DescribeRenderingInstanceResponseBodyConfigInfoConfigurationAttributes extends $dara.Model {
   /**
    * @remarks
-   * The name of the attribute.
+   * The attribute name.
    * 
    * @example
    * lon
@@ -109,7 +106,7 @@ export class DescribeRenderingInstanceResponseBodyConfigInfoConfigurationAttribu
   name?: string;
   /**
    * @remarks
-   * The value of the attribute.
+   * The attribute value.
    * 
    * @example
    * 100
@@ -141,30 +138,21 @@ export class DescribeRenderingInstanceResponseBodyConfigInfoConfigurationAttribu
 export class DescribeRenderingInstanceResponseBodyConfigInfoConfiguration extends $dara.Model {
   /**
    * @remarks
-   * A list of attributes.
+   * The attributes.
    */
   attributes?: DescribeRenderingInstanceResponseBodyConfigInfoConfigurationAttributes[];
   /**
    * @remarks
    * The name of the physical device simulation module. Valid values:
-   * 
-   * 1. `ctl`: Control module
-   * 
-   * 2. `prop`: Property module
-   * 
-   * 3. `location`: Location module
-   * 
-   * 4. `battery`: Battery module
-   * 
-   * 5. `network`: Network module
-   * 
-   * 6. `bluetooth`: Bluetooth module
-   * 
-   * 7. `sim`: SIM card module
-   * 
-   * 8. `display`: Display module
-   * 
-   * 9. `system`: System module
+   * - ctl: control module
+   * - prop: property module
+   * - location: location module
+   * - battery: battery module
+   * - network: network module
+   * - bluetooth: Bluetooth module
+   * - sim: SIM card module
+   * - display: display module
+   * - system: basic module
    * 
    * @example
    * location
@@ -199,13 +187,10 @@ export class DescribeRenderingInstanceResponseBodyConfigInfoConfiguration extend
 export class DescribeRenderingInstanceResponseBodyConfigInfoNetworkConfig extends $dara.Model {
   /**
    * @remarks
-   * The status of the bandwidth configuration. Valid values:
-   * 
-   * 1. `waiting`: The configuration is being applied.
-   * 
-   * 2. `success`: The configuration change is complete.
-   * 
-   * 3. `failed`: The configuration change failed.
+   * The bandwidth application status. Valid values:
+   * - waiting: taking effect
+   * - success: taken effect
+   * - failed: failed to take effect
    * 
    * @example
    * success
@@ -213,7 +198,7 @@ export class DescribeRenderingInstanceResponseBodyConfigInfoNetworkConfig extend
   bandwidthStatus?: string;
   /**
    * @remarks
-   * The maximum egress bandwidth, in Mbps. A value of 0 indicates no limit.
+   * The maximum outbound bandwidth limit. Unit: Mbit/s. A value of 0 indicates that no bandwidth limit is configured.
    * 
    * @example
    * 100
@@ -221,7 +206,7 @@ export class DescribeRenderingInstanceResponseBodyConfigInfoNetworkConfig extend
   maxEgressBandwidth?: number;
   /**
    * @remarks
-   * The maximum ingress bandwidth, in Mbps. A value of 0 indicates no limit.
+   * The maximum inbound bandwidth limit. Unit: Mbit/s. A value of 0 indicates that no bandwidth limit is configured.
    * 
    * @example
    * 100
@@ -229,7 +214,7 @@ export class DescribeRenderingInstanceResponseBodyConfigInfoNetworkConfig extend
   maxIngressBandwidth?: number;
   /**
    * @remarks
-   * The time the configuration was last updated.
+   * The update time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2023-08-17T09:54:35Z
@@ -265,12 +250,12 @@ export class DescribeRenderingInstanceResponseBodyConfigInfoNetworkConfig extend
 export class DescribeRenderingInstanceResponseBodyConfigInfo extends $dara.Model {
   /**
    * @remarks
-   * A list of configured physical device simulation modules.
+   * The list of configured physical device simulation modules.
    */
   configuration?: DescribeRenderingInstanceResponseBodyConfigInfoConfiguration[];
   /**
    * @remarks
-   * Ingress and egress bandwidth limits, in Mbps.
+   * The outbound and inbound bandwidth throttling. Unit: Mbit/s.
    */
   networkConfig?: DescribeRenderingInstanceResponseBodyConfigInfoNetworkConfig;
   static names(): { [key: string]: string } {
@@ -305,7 +290,7 @@ export class DescribeRenderingInstanceResponseBodyConfigInfo extends $dara.Model
 export class DescribeRenderingInstanceResponseBodyPortMappings extends $dara.Model {
   /**
    * @remarks
-   * The external port or port range, such as `22`. For a port range, use a forward slash (`/`) to separate the start and end ports, for example, `10/20`.
+   * The external port or port range, such as 22. If a port range is specified, separate the start and end ports with a forward slash (/), such as 10/20.
    * 
    * @example
    * 10013/10020
@@ -313,7 +298,7 @@ export class DescribeRenderingInstanceResponseBodyPortMappings extends $dara.Mod
   externalPort?: string;
   /**
    * @remarks
-   * The internal port or port range. The ports correspond one-to-one with the external ports. For a port range, use a forward slash (`/`) to separate the start and end ports, for example, `10/20`.
+   * The internal port or port range. The internal ports correspond to the external ports one by one. If a port range is specified, separate the start and end ports with a forward slash (/), such as 10/20.
    * 
    * @example
    * 49008/49015
@@ -345,15 +330,15 @@ export class DescribeRenderingInstanceResponseBodyPortMappings extends $dara.Mod
 export class DescribeRenderingInstanceResponseBodyRenderingStatus extends $dara.Model {
   /**
    * @remarks
-   * Additional details about the current status.
+   * The status description.
    * 
    * @example
-   * 工作中
+   * Working
    */
   description?: string;
   /**
    * @remarks
-   * The name of the last action performed on the instance.
+   * The name of the latest instance operation.
    * 
    * @example
    * MigrateLocalData
@@ -361,17 +346,12 @@ export class DescribeRenderingInstanceResponseBodyRenderingStatus extends $dara.
   latestAction?: string;
   /**
    * @remarks
-   * The operational status of the instance. Valid values:
-   * 
-   * 1. `Preparing`: The instance is being initialized.
-   * 
-   * 2. `Rebooting`: The instance is rebooting.
-   * 
-   * 3. `Resetting`: The instance is being reset.
-   * 
-   * 4. `Working`: The instance is running normally. This is a terminal state.
-   * 
-   * 5. `Failure`: The instance has failed to start or operate. This is a terminal state.
+   * The instance operation status. Valid values:
+   * - Preparing: initializing
+   * - Rebooting: restarting
+   * - Resetting: resetting
+   * - Working: working. This is a final state.
+   * - Failure: operation failed. This is a final state.
    * 
    * @example
    * Working
@@ -405,11 +385,9 @@ export class DescribeRenderingInstanceResponseBodyRenderingStatus extends $dara.
 export class DescribeRenderingInstanceResponseBodyResourceAttributes extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the edge media service. Valid values:
-   * 
-   * 1. `ON`: Enabled.
-   * 
-   * 2. `OFF`: Disabled.
+   * The streaming service. Valid values:
+   * - ON: enabled
+   * - OFF: disabled
    * 
    * @example
    * ON
@@ -417,11 +395,9 @@ export class DescribeRenderingInstanceResponseBodyResourceAttributes extends $da
   edgeMediaService?: string;
   /**
    * @remarks
-   * The ingress network access configuration. Valid values:
-   * 
-   * 1. `ON`: Enabled. The rendering instance can be accessed from the public internet.
-   * 
-   * 2. `OFF`: Disabled.
+   * The inbound access configuration. Valid values:
+   * - ON: enabled. The resource can be accessed from external networks.
+   * - OFF: disabled.
    * 
    * @example
    * ON
@@ -429,11 +405,9 @@ export class DescribeRenderingInstanceResponseBodyResourceAttributes extends $da
   inAccess?: string;
   /**
    * @remarks
-   * The egress network access configuration. Valid values:
-   * 
-   * 1. `ON`: Enabled. The rendering instance can access the public internet.
-   * 
-   * 2. `OFF`: Disabled.
+   * The outbound access configuration. Valid values:
+   * - ON: enabled. The resource can access the Internet.
+   * - OFF: disabled.
    * 
    * @example
    * ON
@@ -441,7 +415,9 @@ export class DescribeRenderingInstanceResponseBodyResourceAttributes extends $da
   outAccess?: string;
   /**
    * @remarks
-   * The resource zone. Valid values: `Private` and `Public`.
+   * The resource zone. Valid values:
+   * - Private
+   * - Public
    * 
    * @example
    * Public
@@ -477,13 +453,10 @@ export class DescribeRenderingInstanceResponseBodyResourceAttributes extends $da
 export class DescribeRenderingInstanceResponseBodyResourceStatus extends $dara.Model {
   /**
    * @remarks
-   * The running status of the computing resource. Valid values:
-   * 
-   * 1. `running`: The edge instance is running normally.
-   * 
-   * 2. `operating`: The edge instance is under maintenance.
-   * 
-   * 3. `error`: An exception is detected on the edge instance.
+   * The running state of the compute resource. Valid values:
+   * 1. running: The edge instance status is normal.
+   * 2. operating: The edge instance is under maintenance.
+   * 3. error: An edge anomaly is detected.
    * 
    * @example
    * running
@@ -523,21 +496,21 @@ export class DescribeRenderingInstanceResponseBodySystemInfo extends $dara.Model
    * @remarks
    * The resolution. Valid values:
    * 
-   * - `1920*864`
+   * - 1920*864
    * 
-   * - `1080*1920`
+   * - 1080*1920
    * 
-   * - `1920*1080`
+   * - 1920*1080
    * 
-   * - `720*1280`
+   * - 720*1280
    * 
-   * - `2400*1080`
+   * - 2400*1080
    * 
-   * - `1080*2400`
+   * - 1080*2400
    * 
-   * - `1280*720`
+   * - 1280*720
    * 
-   * - `864*1920`
+   * - 864*1920
    * 
    * @example
    * 1920*1080
@@ -569,17 +542,17 @@ export class DescribeRenderingInstanceResponseBodySystemInfo extends $dara.Model
 export class DescribeRenderingInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of optional ingress network information.
+   * The additional optional ingress network information.
    */
   additionalIngresses?: DescribeRenderingInstanceResponseBodyAdditionalIngresses[];
   /**
    * @remarks
-   * The configuration information of the rendering instance.
+   * The instance configuration.
    */
   configInfo?: DescribeRenderingInstanceResponseBodyConfigInfo;
   /**
    * @remarks
-   * The instance creation time, in UTC (ISO 8601).
+   * The instance creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2024-05-07T02:27:06Z
@@ -595,7 +568,15 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
   egressIp?: string;
   /**
    * @remarks
-   * The domain name or access IP address of the rendering instance.
+   * The expiration time.
+   * 
+   * @example
+   * 2029-03-28T16:00Z
+   */
+  expiredTime?: string;
+  /**
+   * @remarks
+   * The domain name or access IP address of the cloud application service instance.
    * 
    * @example
    * cn-xxx.ecr.aliyuncs.com
@@ -603,12 +584,20 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The billing method of the instance.
+   * The instance billing method.
    * 
    * @example
    * PostPaid
    */
   instanceChargeType?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * TestInstance
+   */
+  instanceName?: string;
   /**
    * @remarks
    * The internal IP address.
@@ -620,12 +609,9 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ISP code. Valid values:
-   * 
-   * 1. `cmcc`
-   * 
-   * 2. `unicom`
-   * 
-   * 3. `telecom`
+   * - cmcc
+   * - unicom
+   * - telecom
    * 
    * @example
    * telecom
@@ -633,12 +619,12 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * A list of port mappings.
+   * The port mappings.
    */
   portMappings?: DescribeRenderingInstanceResponseBodyPortMappings[];
   /**
    * @remarks
-   * The ID of the rendering instance.
+   * The cloud application service instance ID.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -646,7 +632,7 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * The specification of the rendering instance.
+   * The instance type of the cloud application service instance.
    * 
    * @example
    * crs.cp.l1
@@ -654,7 +640,7 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
   renderingSpec?: string;
   /**
    * @remarks
-   * The operational status of the rendering instance.
+   * The instance operation status.
    */
   renderingStatus?: DescribeRenderingInstanceResponseBodyRenderingStatus;
   /**
@@ -667,17 +653,17 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The attributes of the rendering instance.
+   * The resource attributes of the cloud application service instance.
    */
   resourceAttributes?: DescribeRenderingInstanceResponseBodyResourceAttributes;
   /**
    * @remarks
-   * The status of the underlying computing resource.
+   * The compute resource status information.
    */
   resourceStatus?: DescribeRenderingInstanceResponseBodyResourceStatus;
   /**
    * @remarks
-   * The storage capacity of the rendering instance.
+   * The storage capacity of the cloud application service instance.
    * 
    * @example
    * 20
@@ -685,7 +671,7 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
   storageSize?: number;
   /**
    * @remarks
-   * The system information of the rendering instance, such as its resolution.
+   * The system information, including the resolution.
    */
   systemInfo?: DescribeRenderingInstanceResponseBodySystemInfo;
   static names(): { [key: string]: string } {
@@ -694,8 +680,10 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
       configInfo: 'ConfigInfo',
       creationTime: 'CreationTime',
       egressIp: 'EgressIp',
+      expiredTime: 'ExpiredTime',
       hostname: 'Hostname',
       instanceChargeType: 'InstanceChargeType',
+      instanceName: 'InstanceName',
       internalIp: 'InternalIp',
       isp: 'Isp',
       portMappings: 'PortMappings',
@@ -716,8 +704,10 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
       configInfo: DescribeRenderingInstanceResponseBodyConfigInfo,
       creationTime: 'string',
       egressIp: 'string',
+      expiredTime: 'string',
       hostname: 'string',
       instanceChargeType: 'string',
+      instanceName: 'string',
       internalIp: 'string',
       isp: 'string',
       portMappings: { 'type': 'array', 'itemType': DescribeRenderingInstanceResponseBodyPortMappings },

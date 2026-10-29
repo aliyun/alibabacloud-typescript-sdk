@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRenderingInstanceGatewayResponseBodyGatewayConfigurationInfos extends $dara.Model {
   /**
    * @remarks
-   * The time when the cloud application service instance was created.
+   * The creation time of the cloud application service instance. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-10-15 10:19:13
@@ -13,7 +13,7 @@ export class ListRenderingInstanceGatewayResponseBodyGatewayConfigurationInfos e
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the custom gateway instance.
+   * The instance ID of the custom gateway.
    * 
    * @example
    * render-xxx
@@ -21,7 +21,7 @@ export class ListRenderingInstanceGatewayResponseBodyGatewayConfigurationInfos e
   gatewayInstanceId?: string;
   /**
    * @remarks
-   * The ID of the cloud application service instance.
+   * The instance ID of the cloud application service.
    * 
    * @example
    * render-342012a227dc4ddf91f024639e43051a
@@ -30,10 +30,8 @@ export class ListRenderingInstanceGatewayResponseBodyGatewayConfigurationInfos e
   /**
    * @remarks
    * The status of the custom gateway. Valid values:
-   * 
-   * 1. Transitional states: creating, deleting
-   * 
-   * 2. Desired states: available, failed
+   * - Intermediate states: creating and deleting. 
+   * - Final states: available and failed.
    * 
    * @example
    * available
@@ -41,7 +39,7 @@ export class ListRenderingInstanceGatewayResponseBodyGatewayConfigurationInfos e
   status?: string;
   /**
    * @remarks
-   * The time when the information was last updated.
+   * The update time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-11-02 12:08:26
@@ -79,12 +77,12 @@ export class ListRenderingInstanceGatewayResponseBodyGatewayConfigurationInfos e
 export class ListRenderingInstanceGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of custom gateway information.
+   * The list of custom gateway information.
    */
   gatewayConfigurationInfos?: ListRenderingInstanceGatewayResponseBodyGatewayConfigurationInfos[];
   /**
    * @remarks
-   * The page number of the query results list
+   * The page number.
    * 
    * @example
    * 1
@@ -92,7 +90,7 @@ export class ListRenderingInstanceGatewayResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries per page in the paging Settings for a paged query.
    * 
    * @example
    * 10
@@ -108,7 +106,7 @@ export class ListRenderingInstanceGatewayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of installation records.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRenderingProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The project ID. Call ListRenderingProjects to view the project ID.
+   * The project ID. You can call the ListRenderingProjects operation to query the project ID.
    * 
    * @example
    * project-b93ea81de76f48609eed3cd420f0399f

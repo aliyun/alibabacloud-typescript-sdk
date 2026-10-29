@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DisassociateRenderingProjectInstancesResponseBodyFailedInstances extends $dara.Model {
   /**
    * @remarks
-   * The reason for failure.
+   * The cause of the failure.
    * 
    * @example
-   * 会话中
+   * In session
    */
   message?: string;
   /**
    * @remarks
-   * A cloud application service instance ID.
+   * The cloud application service instance ID.
    * 
    * @example
    * render-421cd2a1125947c19fcd5c7dd2c7d31e
@@ -45,7 +45,7 @@ export class DisassociateRenderingProjectInstancesResponseBodyFailedInstances ex
 export class DisassociateRenderingProjectInstancesResponseBodySuccessInstances extends $dara.Model {
   /**
    * @remarks
-   * The result message.
+   * The description.
    * 
    * @example
    * success
@@ -53,7 +53,7 @@ export class DisassociateRenderingProjectInstancesResponseBodySuccessInstances e
   message?: string;
   /**
    * @remarks
-   * A cloud application service instance ID.
+   * The cloud application service instance ID.
    * 
    * @example
    * render-e6cf423c787e4e43b460a788da254fe3
@@ -85,7 +85,7 @@ export class DisassociateRenderingProjectInstancesResponseBodySuccessInstances e
 export class DisassociateRenderingProjectInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of cloud application service instances that failed to dissociate.
+   * The number of cloud application service instances that failed to be dissociated.
    * 
    * @example
    * 0
@@ -93,12 +93,12 @@ export class DisassociateRenderingProjectInstancesResponseBody extends $dara.Mod
   failedInstanceCount?: string;
   /**
    * @remarks
-   * A list of instances that failed to dissociate.
+   * The list of instances that failed to be dissociated.
    */
   failedInstances?: DisassociateRenderingProjectInstancesResponseBodyFailedInstances[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -106,7 +106,7 @@ export class DisassociateRenderingProjectInstancesResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The number of cloud application service instances that were successfully dissociated.
+   * The number of successfully dissociated cloud application service instances.
    * 
    * @example
    * 5
@@ -114,7 +114,7 @@ export class DisassociateRenderingProjectInstancesResponseBody extends $dara.Mod
   successInstanceCount?: string;
   /**
    * @remarks
-   * A list of instances that were successfully dissociated.
+   * The list of successfully dissociated instances.
    */
   successInstances?: DisassociateRenderingProjectInstancesResponseBodySuccessInstances[];
   static names(): { [key: string]: string } {

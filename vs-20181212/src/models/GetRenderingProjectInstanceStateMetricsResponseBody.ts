@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRenderingProjectInstanceStateMetricsResponseBodyStateMetrics extends $dara.Model {
   /**
    * @remarks
-   * Number of instances
+   * The number of instances.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class GetRenderingProjectInstanceStateMetricsResponseBodyStateMetrics ext
   count?: string;
   /**
    * @remarks
-   * Project instance state
+   * The instance status of the project.
    * 
    * @example
    * Idle
@@ -45,7 +45,7 @@ export class GetRenderingProjectInstanceStateMetricsResponseBodyStateMetrics ext
 export class GetRenderingProjectInstanceStateMetricsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * Id of the request
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -53,7 +53,7 @@ export class GetRenderingProjectInstanceStateMetricsResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * List of project instance state statistics
+   * The list of statistics information for project instance status.
    */
   stateMetrics?: GetRenderingProjectInstanceStateMetricsResponseBodyStateMetrics[];
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class CreateComfyUserDataDirResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message. If the request fails, this parameter contains the failure reason.
+   * The description. If Status is Failed, this field contains the cause of the failure.
    * 
    * @example
    * conn failed!
@@ -21,7 +21,7 @@ export class CreateComfyUserDataDirResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

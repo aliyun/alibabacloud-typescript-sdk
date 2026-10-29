@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter filters data by time range. It must conform to the ISO 8601 standard and use UTC time in the format yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2021-10-31T06:00:00Z
@@ -13,7 +13,7 @@ export class ListFilesRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * File ID. Each ID corresponds to a unique active file.
+   * The ID of the file, which corresponds to a unique available file.
    * 
    * @example
    * f-1671accd4dafdag3er256cvgewt13f7141db2f7
@@ -21,7 +21,7 @@ export class ListFilesRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * File name.
+   * The name of the file.
    * 
    * @example
    * myfile
@@ -29,7 +29,7 @@ export class ListFilesRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The page number to retrieve. Page numbering starts at 1.Default value: 1.
+   * The page number of the list to query. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListFilesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page for a paged query. The value must be in the range of 1 to 100. The default is 10.
+   * The Settings for the number of entries per page during paging in a paged query. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class ListFilesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Start time of the time range filter. Specify in ISO 8601 format using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the time range filter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2021-10-30T16:00:00Z

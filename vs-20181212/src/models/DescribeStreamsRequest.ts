@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStreamsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filter by application.
+   * The application.
    * 
    * @example
    * live
@@ -13,7 +13,7 @@ export class DescribeStreamsRequest extends $dara.Model {
   app?: string;
   /**
    * @remarks
-   * Filter by device ID.
+   * The device ID.
    * 
    * @example
    * 348*****380-cn-qingdao
@@ -21,7 +21,7 @@ export class DescribeStreamsRequest extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
-   * Filter by domain name.
+   * The domain name.
    * 
    * @example
    * example.aliyundoc.com
@@ -29,7 +29,7 @@ export class DescribeStreamsRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The ID of the space to query.
+   * The space ID.
    * 
    * @example
    * 348*****174-cn-qingdao
@@ -37,9 +37,7 @@ export class DescribeStreamsRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Stream ID.
-   * 
-   * > Enter multiple IDs separated by commas (,).
+   * The stream ID. You can specify multiple IDs separated by commas (,).
    * 
    * @example
    * 323*****997-cn-qingdao
@@ -47,9 +45,7 @@ export class DescribeStreamsRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Filter by stream name.
-   * 
-   * > Enter multiple names separated by commas (,).
+   * The stream name. You can specify multiple names separated by commas (,).
    * 
    * @example
    * 3100000*****00000002
@@ -58,7 +54,7 @@ export class DescribeStreamsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Page number. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -66,7 +62,7 @@ export class DescribeStreamsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Number of items per page. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -74,7 +70,7 @@ export class DescribeStreamsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Parent device ID of the device that hosts this stream.
+   * The parent device ID of the device to which the stream belongs.
    * 
    * @example
    * 399*****774-cn-qingdao
@@ -82,19 +78,13 @@ export class DescribeStreamsRequest extends $dara.Model {
   parentId?: string;
   /**
    * @remarks
-   * Sort results by a field. Valid values:
-   * 
+   * The field by which to sort the results. Valid values:
    * - Id (default)
-   * 
    * - GroupId
-   * 
    * - Name
-   * 
    * - DeviceId
-   * 
    * - Protocol
-   * 
-   * > You can specify only one field.
+   * You can specify only one field.
    * 
    * @example
    * Id
@@ -102,11 +92,9 @@ export class DescribeStreamsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * Sort order. Valid values:
-   * 
-   * - asc (ascending, default)
-   * 
-   * - desc (descending)
+   * The sort order. Valid values:
+   * - asc: ascending order (default)
+   * - desc: descending order
    * 
    * @example
    * asc

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRenderingProjectShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Project description
+   * The project description.
    * 
    * @example
-   * 目录1
+   * Directory 1
    */
   description?: string;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -23,13 +23,7 @@ export class UpdateRenderingProjectShrinkRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * Default naming rules:
-   * 
-   * 1. Length 1-128
-   * 
-   * 2. Lowercase letters, numbers, underscores (_), hyphens (-), and periods (.).
-   * 
-   * 3. The first and last characters must be letters or digits. At least one of ProjectName, SessionAttribs, or Description must be specified.
+   * The custom project name, which serves as the unique identifier of the project. Default naming conventions: 1. The length must be 1 to 128 characters. 2. The name can contain lowercase letters, digits, underscores (_), hyphens (-), and periods (.). 3. The first and last characters must be letters or digits. At least one of ProjectName, SessionAttribs, or Description must be specified.
    * 
    * @example
    * idata_content
@@ -37,7 +31,7 @@ export class UpdateRenderingProjectShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * Session attributes
+   * The session attributes.
    */
   sessionAttribsShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRenderingInstanceGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The time range for filtering. The time must be in ISO 8601 format and in UTC, such as \\`yyyy-MM-ddTHH:mm:ssZ\\`.
+   * The time range filter parameter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2025-05-20T12:23:02Z
@@ -13,7 +13,7 @@ export class ListRenderingInstanceGatewayRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the gateway instance.
+   * The instance ID of the gateway.
    * 
    * @example
    * render-xxx
@@ -21,7 +21,7 @@ export class ListRenderingInstanceGatewayRequest extends $dara.Model {
   gatewayInstanceId?: string;
   /**
    * @remarks
-   * The page number of the list to query.
+   * The page number.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListRenderingInstanceGatewayRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page for a paged query.
+   * The number of entries per page in the paging Settings for a paged query.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class ListRenderingInstanceGatewayRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the cloud application service instance.
+   * The instance ID of the cloud application service.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -45,7 +45,7 @@ export class ListRenderingInstanceGatewayRequest extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * This parameter specifies the time range filter. The time must be in ISO 8601 format and UTC time, such as yyyy-MM-ddTHH:mm:ssZ.
+   * The time range filter parameter. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2025-05-18T02:20:00Z

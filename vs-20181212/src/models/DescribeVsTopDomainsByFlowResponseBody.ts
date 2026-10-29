@@ -72,7 +72,7 @@ export class DescribeVsTopDomainsByFlowResponseBodyTopDomains extends $dara.Mode
 export class DescribeVsTopDomainsByFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of domain names under your account.
+   * The total number of domains under the account.
    * 
    * @example
    * 20
@@ -80,7 +80,7 @@ export class DescribeVsTopDomainsByFlowResponseBody extends $dara.Model {
   domainCount?: number;
   /**
    * @remarks
-   * The total number of **running** domain names under your account.
+   * The total number of domains that are **running** under the account.
    * 
    * @example
    * 12
@@ -88,7 +88,7 @@ export class DescribeVsTopDomainsByFlowResponseBody extends $dara.Model {
   domainOnlineCount?: number;
   /**
    * @remarks
-   * The end time of the query time range.
+   * The end time of the query. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
    * 
    * @example
    * 2018-12-10T18:00:00Z
@@ -104,7 +104,7 @@ export class DescribeVsTopDomainsByFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query.
+   * The start time of the query. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
    * 
    * @example
    * 2021-12-10T10:00:00Z

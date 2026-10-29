@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specify the end time for the query.
+   * The end time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class DescribeRecordsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -40,9 +40,8 @@ export class DescribeRecordsRequest extends $dara.Model {
   privateBucket?: boolean;
   /**
    * @remarks
-   * The field to sort the records by. Valid value:
-   * 
-   * - Id (default)
+   * The field by which to sort. Valid values:
+   * - Id: default
    * 
    * @example
    * Id
@@ -50,11 +49,9 @@ export class DescribeRecordsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The sorting method. Valid values:
-   * 
-   * - asc (ascending, default)
-   * 
-   * - desc (descending)
+   * The sort order. Valid values:
+   * - asc: ascending order (default)
+   * - desc: descending order
    * 
    * @example
    * asc
@@ -62,7 +59,7 @@ export class DescribeRecordsRequest extends $dara.Model {
   sortDirection?: string;
   /**
    * @remarks
-   * Query records by start time.
+   * The start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -72,7 +69,7 @@ export class DescribeRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Query by stream ID.
+   * The ID of the stream.
    * 
    * This parameter is required.
    * 
@@ -82,11 +79,9 @@ export class DescribeRecordsRequest extends $dara.Model {
   streamId?: string;
   /**
    * @remarks
-   * The type of the recording record to query. Valid values:
-   * 
-   * - record (Recording)
-   * 
-   * - snapshot
+   * The type of the storage record. Valid values:
+   * - record: recording
+   * - snapshot: snapshot
    * 
    * This parameter is required.
    * 

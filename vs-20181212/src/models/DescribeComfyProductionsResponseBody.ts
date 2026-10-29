@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyProductionsResponseBodyProductions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Comfy task.
+   * The ComfyTask ID.
    * 
    * @example
    * 6c8234f4-d1e1-4cea-b08b-7926fbdea144
@@ -13,7 +13,7 @@ export class DescribeComfyProductionsResponseBodyProductions extends $dara.Model
   comfyTaskId?: string;
   /**
    * @remarks
-   * The creation time of the production, in ISO 8601 format.
+   * The creation time. The time follows the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
    * 
    * @example
    * 2026-02-06T20:20:26+08:00
@@ -29,7 +29,7 @@ export class DescribeComfyProductionsResponseBodyProductions extends $dara.Model
   fileName?: string;
   /**
    * @remarks
-   * The ID of the production.
+   * The production ID.
    * 
    * @example
    * 3e5bda20-5cd4-4d55-8d23-88d624a18caa
@@ -37,7 +37,7 @@ export class DescribeComfyProductionsResponseBodyProductions extends $dara.Model
   productionId?: string;
   /**
    * @remarks
-   * The state of the production.
+   * The production status.
    * 
    * @example
    * NORMAL
@@ -45,7 +45,7 @@ export class DescribeComfyProductionsResponseBodyProductions extends $dara.Model
   state?: string;
   /**
    * @remarks
-   * The last modification time of the production, as a Unix timestamp.
+   * The last modified time. The time is a UNIX timestamp in seconds.
    * 
    * @example
    * 1773707865
@@ -93,7 +93,7 @@ export class DescribeComfyProductionsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * The description.
    * 
    * @example
    * success
@@ -101,7 +101,7 @@ export class DescribeComfyProductionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The current page number.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -109,7 +109,7 @@ export class DescribeComfyProductionsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The page size.
    * 
    * @example
    * 20
@@ -117,12 +117,12 @@ export class DescribeComfyProductionsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * A list of productions.
+   * The list of productions.
    */
   productions?: DescribeComfyProductionsResponseBodyProductions[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -130,7 +130,7 @@ export class DescribeComfyProductionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of productions.
+   * The total number of alert rules.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RebootRenderingInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

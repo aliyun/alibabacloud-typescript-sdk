@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ManageLoginRequest extends $dara.Model {
   /**
    * @remarks
-   * Name of the management action. Valid values:
-   * 
-   * 1. open — Activate the public key. This is the default value.
-   * 
-   * 2. close — Deactivate the public key.
+   * The name of the management action. Valid values:
+   * 1. open - Activate the public key, default value
+   * 2. close - Deactivate the public key
    * 
    * @example
    * open
@@ -17,7 +15,7 @@ export class ManageLoginRequest extends $dara.Model {
   actionName?: string;
   /**
    * @remarks
-   * Name of the public key group. If you do not specify KeyName, all public keys in this group are applied.
+   * The public key group. If KeyName is not specified, all public keys in KeyGroup are delivered.
    * 
    * @example
    * mygroup
@@ -25,7 +23,7 @@ export class ManageLoginRequest extends $dara.Model {
   keyGroup?: string;
   /**
    * @remarks
-   * Name of the public key. You must specify either KeyName or KeyGroup.
+   * The name of the public key. At least one of KeyName and KeyGroup must be specified.
    * 
    * @example
    * mykey
@@ -33,7 +31,7 @@ export class ManageLoginRequest extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * ID of the Cloud Application Service instance.
+   * The instance ID of the cloud application service.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelComfyTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of 0 indicates success.
+   * The error code.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class CancelComfyTaskResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message. A `success` value indicates a successful request.
+   * The description.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class CancelComfyTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * Id of the request
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

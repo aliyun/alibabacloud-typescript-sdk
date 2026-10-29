@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchResumeVsStreamRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the stream in the AppName/StreamName format. To specify multiple streams, separate the stream names with commas.
+   * The stream name in the format of AppName/StreamName. Separate multiple stream names with commas (,).
    * 
    * This parameter is required.
    * 
@@ -13,6 +13,13 @@ export class BatchResumeVsStreamRequest extends $dara.Model {
    * live/stream1
    */
   channel?: string;
+  /**
+   * @remarks
+   * The stream control operation. Set the value to resume to resume the stream push.
+   * 
+   * @example
+   * resume
+   */
   controlStreamAction?: string;
   /**
    * @remarks
@@ -26,7 +33,7 @@ export class BatchResumeVsStreamRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The type of live stream. Only publisher is supported, which indicates that the stream is ingested by a streamer.
+   * Specifies whether the stream is pushed by the broadcaster or pulled by the client. Valid value: publisher (broadcaster push).
    * 
    * This parameter is required.
    * 

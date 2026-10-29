@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePurchasedDevicesRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries by the ID of the group to which the device belongs.
+   * The ID of the workspace to which the device belongs.
    * 
    * @example
    * 348*****174-cn-qingdao
@@ -13,7 +13,7 @@ export class DescribePurchasedDevicesRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Queries by device ID.
+   * The device ID.
    * 
    * @example
    * 4070*****1132-cn-qingdao
@@ -21,16 +21,16 @@ export class DescribePurchasedDevicesRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Queries by device name.
+   * The device name.
    * 
    * @example
-   * xxx路口摄像头
+   * XXX intersection camera
    */
   name?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The default is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -38,7 +38,7 @@ export class DescribePurchasedDevicesRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page. The default is 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -46,8 +46,7 @@ export class DescribePurchasedDevicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field to sort by. Valid value:
-   * 
+   * The field by which to sort the results. Valid values:
    * - id (default)
    * 
    * @example
@@ -56,11 +55,9 @@ export class DescribePurchasedDevicesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The sorting order. The default is ascending. Valid values:
-   * 
-   * - asc (ascending)
-   * 
-   * - desc (descending)
+   * The sort order. Default value: asc. Valid values:
+   * - asc: Ascending order.
+   * - desc: Descending order.
    * 
    * @example
    * asc
@@ -68,13 +65,10 @@ export class DescribePurchasedDevicesRequest extends $dara.Model {
   sortDirection?: string;
   /**
    * @remarks
-   * Queries by device subtype. Valid values:
-   * 
-   * - bullet (bullet camera)
-   * 
-   * - dome (dome camera)
-   * 
-   * - ptz (PTZ camera)
+   * The device subtype. Valid values:
+   * - bullet: Bullet camera.
+   * - dome: Dome camera.
+   * - ptz: PTZ camera.
    * 
    * @example
    * dome
@@ -82,13 +76,10 @@ export class DescribePurchasedDevicesRequest extends $dara.Model {
   subType?: string;
   /**
    * @remarks
-   * Queries by device type. Valid values:
-   * 
-   * - ipc (camera)
-   * 
-   * - platform (platform)
-   * 
-   * - ied (intelligent edge device)
+   * The device type. Valid values:
+   * - ipc: Camera.
+   * - platform: Platform.
+   * - ied: Intelligent device.
    * 
    * @example
    * ipc
@@ -96,10 +87,10 @@ export class DescribePurchasedDevicesRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Queries by device vendor.
+   * The device vendor.
    * 
    * @example
-   * 公司A
+   * Company A
    */
   vendor?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRenderingInstanceCommandsStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Description. When Status=Failed, this field contains the failure reason.
+   * The description. When Status is Failed, this field includes the cause of the failure.
    * 
    * @example
    * conn failed!
@@ -21,7 +21,7 @@ export class GetRenderingInstanceCommandsStatusResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Command execution result string
+   * The execution result string of the command.
    * 
    * @example
    * Thu Jun 27 16:06:26 CST 2024
@@ -29,13 +29,10 @@ export class GetRenderingInstanceCommandsStatusResponseBody extends $dara.Model 
   result?: string;
   /**
    * @remarks
-   * Command execution status. Valid values:
-   * 
-   * 1. Doing: Executing
-   * 
-   * 2. Success: Succeeded
-   * 
-   * 3. Failed: Failed. The system automatically retries within the timeout period. You can either wait or resend the request.
+   * The command execution status. Valid values:
+   * - Doing: Executing.
+   * - Success: Succeeded.
+   * - Failed: Failed. Within the timeout period, the system automatically retries the command. You can continue to wait or initiate a new request.
    * 
    * @example
    * Success

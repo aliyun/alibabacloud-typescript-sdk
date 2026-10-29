@@ -13,7 +13,7 @@ export class DescribeComfyUserDataDownloadUrlResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The download URL for the application package.
+   * The download URL of the application package.
    * 
    * @example
    * https://xxx.xxx.xxx.
@@ -21,7 +21,7 @@ export class DescribeComfyUserDataDownloadUrlResponseBody extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * The expiration time for the download link.
+   * The expiration time of the download URL. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1752805579553
@@ -29,7 +29,7 @@ export class DescribeComfyUserDataDownloadUrlResponseBody extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The result message.
+   * The message.
    * 
    * @example
    * success
@@ -37,7 +37,7 @@ export class DescribeComfyUserDataDownloadUrlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

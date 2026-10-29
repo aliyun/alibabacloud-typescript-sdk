@@ -13,7 +13,7 @@ export class CreateComfyWorkflowResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message. If `Status` is `Failed`, this parameter provides the reason for the failure.
+   * The description. If Status is Failed, it includes the cause of the failure.
    * 
    * @example
    * conn failed!
@@ -21,7 +21,7 @@ export class CreateComfyWorkflowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A list of missing nodes.
+   * The list of missing nodes.
    */
   missingNodes?: string[];
   /**

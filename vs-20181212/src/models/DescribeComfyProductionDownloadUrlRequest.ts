@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyProductionDownloadUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the production.
+   * The production ID.
    * 
    * This parameter is required.
    * 

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyWorkflowsRequest extends $dara.Model {
   /**
    * @remarks
-   * The workflow name.
+   * The name of the workflow.
    * 
    * @example
-   * 图生视频工作流
+   * Image-to-video workflow
    */
   name?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the list to query.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeComfyWorkflowsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of Comfy workflows per page.
+   * The number of entries per page.
    * 
    * @example
    * 20

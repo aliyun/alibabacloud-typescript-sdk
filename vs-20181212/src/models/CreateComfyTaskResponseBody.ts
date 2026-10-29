@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateComfyTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the call fails. For more information, see error codes.
+   * The error code returned if the call fails. For more information, see Error codes.
    * 
    * @example
    * 0

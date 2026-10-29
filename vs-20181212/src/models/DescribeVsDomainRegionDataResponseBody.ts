@@ -87,7 +87,7 @@ export class DescribeVsDomainRegionDataResponseBodyValue extends $dara.Model {
 export class DescribeVsDomainRegionDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Time interval, in seconds.
+   * The time interval.
    * 
    * @example
    * 3600
@@ -95,7 +95,7 @@ export class DescribeVsDomainRegionDataResponseBody extends $dara.Model {
   dataInterval?: string;
   /**
    * @remarks
-   * The domain name that is accelerated by Visual Edge Computing Service.
+   * The domain name of Visual Edge Computing Service.
    * 
    * @example
    * example.aliyundoc.com
@@ -103,7 +103,7 @@ export class DescribeVsDomainRegionDataResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * End time.
+   * The end time. The time is in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-10-31T15:59:59Z
@@ -111,7 +111,7 @@ export class DescribeVsDomainRegionDataResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -119,7 +119,7 @@ export class DescribeVsDomainRegionDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Start time.
+   * The start time in UTC. The time follows the ISO 8601 standard and is formatted as YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2021-10-30T16:00:00Z

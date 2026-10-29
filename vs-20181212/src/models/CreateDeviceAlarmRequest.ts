@@ -11,7 +11,7 @@ export class CreateDeviceAlarmRequest extends $dara.Model {
    * - 1: motion detection alerting
    * - 2: intelligent alerting
    * - 3: switch alerting
-   * - 4: video loss alerting.
+   * - 4: video loss alerting
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class CreateDeviceAlarmRequest extends $dara.Model {
    * - 0: none
    * - 1: JPEG image
    * - 2: video
-   * - 3: GIF image.
+   * - 3: GIF image
    * 
    * This parameter is required.
    * 
@@ -87,6 +87,9 @@ export class CreateDeviceAlarmRequest extends $dara.Model {
    * The alert subtype.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   subAlarm?: number;
   static names(): { [key: string]: string } {

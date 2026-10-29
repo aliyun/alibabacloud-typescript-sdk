@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

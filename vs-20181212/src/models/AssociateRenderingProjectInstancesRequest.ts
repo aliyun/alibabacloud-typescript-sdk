@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateRenderingProjectInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AssociateRenderingProjectInstancesRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * List of cloud application service instance IDs
+   * The instance IDs of the cloud application service.
    * 
    * This parameter is required.
    */

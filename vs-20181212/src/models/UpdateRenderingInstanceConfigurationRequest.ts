@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRenderingInstanceConfigurationRequestConfigurationAttributes extends $dara.Model {
   /**
    * @remarks
-   * The name of the property.
+   * The name of the attribute.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateRenderingInstanceConfigurationRequestConfigurationAttributes 
   name?: string;
   /**
    * @remarks
-   * The value of the property.
+   * The value of the attribute.
    * 
    * This parameter is required.
    * 
@@ -49,32 +49,23 @@ export class UpdateRenderingInstanceConfigurationRequestConfigurationAttributes 
 export class UpdateRenderingInstanceConfigurationRequestConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The list of properties for the module.
+   * The list of attributes corresponding to the module.
    * 
    * This parameter is required.
    */
   attributes?: UpdateRenderingInstanceConfigurationRequestConfigurationAttributes[];
   /**
    * @remarks
-   * The name of the real device simulation module. Valid values include the following:
-   * 
-   * 1. ctl: control module
-   * 
-   * 2. prop: property module
-   * 
-   * 3. location: location module
-   * 
-   * 4. battery: battery module
-   * 
-   * 5. network: network module
-   * 
-   * 6. bluetooth: bluetooth module
-   * 
-   * 7. sim: SIM card module
-   * 
-   * 8. display: device module
-   * 
-   * 9. system: basic module
+   * The name of the real-device simulation feature module. Valid values:
+   * - ctl: Control module.
+   * - prop: Property module.
+   * - location: Location module.
+   * - battery: Battery module.
+   * - network: Network module.
+   * - bluetooth: Bluetooth module.
+   * - sim: SIM card module.
+   * - display: Device module.
+   * - system: Basic module.
    * 
    * This parameter is required.
    * 
@@ -118,7 +109,7 @@ export class UpdateRenderingInstanceConfigurationRequest extends $dara.Model {
   configuration?: UpdateRenderingInstanceConfigurationRequestConfiguration[];
   /**
    * @remarks
-   * The ID of the cloud application service instance.
+   * The instance ID of the cloud application service.
    * 
    * This parameter is required.
    * 

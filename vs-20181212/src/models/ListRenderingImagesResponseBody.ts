@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRenderingImagesResponseBodyImages extends $dara.Model {
   /**
    * @remarks
-   * The image description.
+   * The description of the image.
    * 
    * @example
    * this is test.
@@ -13,7 +13,7 @@ export class ListRenderingImagesResponseBodyImages extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The image ID.
+   * The ID of the image.
    * 
    * @example
    * m-0nd0nxyl7zn220n2y
@@ -21,7 +21,7 @@ export class ListRenderingImagesResponseBodyImages extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The image name.
+   * The name of the image.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ListRenderingImagesResponseBodyImages extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The publish time.
+   * The time when the image was published. The time follows the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
    * 
    * @example
    * 2026-09-17T00:22:53+08:00
@@ -65,7 +65,7 @@ export class ListRenderingImagesResponseBodyImages extends $dara.Model {
 export class ListRenderingImagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The session list.
+   * The list of sessions.
    */
   images?: ListRenderingImagesResponseBodyImages[];
   /**
@@ -78,7 +78,7 @@ export class ListRenderingImagesResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -86,7 +86,7 @@ export class ListRenderingImagesResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

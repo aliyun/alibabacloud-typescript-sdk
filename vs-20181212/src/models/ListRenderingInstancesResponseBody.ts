@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListRenderingInstancesResponseBodyRenderingInstances extends $dara.Model {
   /**
    * @remarks
-   * Creation time of the cloud application service instance
+   * The billing method.
+   * 
+   * @example
+   * Postpaid
+   */
+  chargeType?: string;
+  /**
+   * @remarks
+   * The time when the cloud application service instance was created. The time is in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2023-11-17T02:18:04Z
@@ -13,7 +21,39 @@ export class ListRenderingInstancesResponseBodyRenderingInstances extends $dara.
   creationTime?: string;
   /**
    * @remarks
-   * ID of the cloud application service instance
+   * The expiration time.
+   * 
+   * @example
+   * 2023-11-17T02:18:04Z
+   */
+  expireTime?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * TestInstance
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The maximum outbound bandwidth limit. Unit: Mbit/s. A value of 0 indicates that no bandwidth limit is configured.
+   * 
+   * @example
+   * 20
+   */
+  maxEgressBandwidth?: string;
+  /**
+   * @remarks
+   * The maximum inbound bandwidth limit. Unit: Mbit/s. A value of 0 indicates that no bandwidth limit is configured.
+   * 
+   * @example
+   * 10
+   */
+  maxIngressBandwidth?: string;
+  /**
+   * @remarks
+   * The instance ID of the cloud application service.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -21,7 +61,7 @@ export class ListRenderingInstancesResponseBodyRenderingInstances extends $dara.
   renderingInstanceId?: string;
   /**
    * @remarks
-   * Instance type of the cloud application service
+   * The instance type of the cloud application service instance.
    * 
    * @example
    * crs.cp.l1
@@ -29,7 +69,23 @@ export class ListRenderingInstancesResponseBodyRenderingInstances extends $dara.
   renderingSpec?: string;
   /**
    * @remarks
-   * Storage capacity, in GB
+   * The status of the service host.
+   * 
+   * @example
+   * running
+   */
+  serverStatus?: string;
+  /**
+   * @remarks
+   * The instance status.
+   * 
+   * @example
+   * Working
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The cloud storage capacity. Unit: GB.
    * 
    * @example
    * 100
@@ -37,18 +93,32 @@ export class ListRenderingInstancesResponseBodyRenderingInstances extends $dara.
   storageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      chargeType: 'ChargeType',
       creationTime: 'CreationTime',
+      expireTime: 'ExpireTime',
+      instanceName: 'InstanceName',
+      maxEgressBandwidth: 'MaxEgressBandwidth',
+      maxIngressBandwidth: 'MaxIngressBandwidth',
       renderingInstanceId: 'RenderingInstanceId',
       renderingSpec: 'RenderingSpec',
+      serverStatus: 'ServerStatus',
+      status: 'Status',
       storageSize: 'StorageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      chargeType: 'string',
       creationTime: 'string',
+      expireTime: 'string',
+      instanceName: 'string',
+      maxEgressBandwidth: 'string',
+      maxIngressBandwidth: 'string',
       renderingInstanceId: 'string',
       renderingSpec: 'string',
+      serverStatus: 'string',
+      status: 'string',
       storageSize: 'number',
     };
   }
@@ -65,12 +135,12 @@ export class ListRenderingInstancesResponseBodyRenderingInstances extends $dara.
 export class ListRenderingInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of cloud application service instances
+   * The list of cloud application service instances.
    */
   renderingInstances?: ListRenderingInstancesResponseBodyRenderingInstances[];
   /**
    * @remarks
-   * Request ID
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -78,7 +148,7 @@ export class ListRenderingInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of cloud application service instances
+   * The total number of cloud application service instances.
    * 
    * @example
    * 100

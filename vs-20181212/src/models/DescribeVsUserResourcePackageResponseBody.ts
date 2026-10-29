@@ -67,6 +67,13 @@ export class DescribeVsUserResourcePackageResponseBodyResourcePackageInfos exten
 }
 
 export class DescribeVsUserResourcePackageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 84839536-2B7E-457D-9D8C-82E6C7D4E1A3
+   */
   requestId?: string;
   resourcePackageInfos?: DescribeVsUserResourcePackageResponseBodyResourcePackageInfos;
   static names(): { [key: string]: string } {

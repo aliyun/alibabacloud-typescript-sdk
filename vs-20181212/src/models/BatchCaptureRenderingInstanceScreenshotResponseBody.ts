@@ -35,7 +35,7 @@ export class BatchCaptureRenderingInstanceScreenshotResponseBodyDatatestResult e
 export class BatchCaptureRenderingInstanceScreenshotResponseBodyDatatest extends $dara.Model {
   /**
    * @remarks
-   * The dry run result.
+   * The pre-check result.
    */
   result?: BatchCaptureRenderingInstanceScreenshotResponseBodyDatatestResult;
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class BatchCaptureRenderingInstanceScreenshotResponseBodyDatatest extends
 export class BatchCaptureRenderingInstanceScreenshotResponseBodyFailedItems extends $dara.Model {
   /**
    * @remarks
-   * The error code of the failure.
+   * The error code for the failure.
    * 
    * @example
    * Success
@@ -73,7 +73,7 @@ export class BatchCaptureRenderingInstanceScreenshotResponseBodyFailedItems exte
   errCode?: string;
   /**
    * @remarks
-   * The error message of the failure.
+   * The reason for the failure.
    * 
    * @example
    * Not Applied
@@ -81,7 +81,7 @@ export class BatchCaptureRenderingInstanceScreenshotResponseBodyFailedItems exte
   errMessage?: string;
   /**
    * @remarks
-   * The instance ID of the cloud application service instance.
+   * The cloud application service instance ID.
    * 
    * @example
    * render-072da95539d3402da90353b244191722
@@ -115,7 +115,7 @@ export class BatchCaptureRenderingInstanceScreenshotResponseBodyFailedItems exte
 export class BatchCaptureRenderingInstanceScreenshotResponseBodySuccessItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the screenshot was created.
+   * The time when the screenshot was created. The time is displayed in the ISO 8601 standard with a time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2026-05-19T14:46:37+08:00
@@ -131,7 +131,7 @@ export class BatchCaptureRenderingInstanceScreenshotResponseBodySuccessItems ext
   downloadUrl?: string;
   /**
    * @remarks
-   * The instance ID of the cloud application service instance.
+   * The cloud application service instance ID.
    * 
    * @example
    * render-1ada8cd82783407b99fa202826fc6447
@@ -165,7 +165,7 @@ export class BatchCaptureRenderingInstanceScreenshotResponseBodySuccessItems ext
 export class BatchCaptureRenderingInstanceScreenshotResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dry run result.
+   * The data pre-check result.
    */
   datatest?: BatchCaptureRenderingInstanceScreenshotResponseBodyDatatest;
   /**
@@ -178,7 +178,7 @@ export class BatchCaptureRenderingInstanceScreenshotResponseBody extends $dara.M
   failedCount?: number;
   /**
    * @remarks
-   * The list of instances for which screenshots failed.
+   * The list of instances for which screenshot capture failed.
    */
   failedItems?: BatchCaptureRenderingInstanceScreenshotResponseBodyFailedItems[];
   /**

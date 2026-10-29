@@ -5,25 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class CreateComfyWorkflowRequest extends $dara.Model {
   /**
    * @remarks
-   * The workflow description.
+   * The description of the workflow.
    * 
    * @example
-   * 这是一个图生视频的工作流
+   * This is a workflow for image-to-video
    */
   description?: string;
   /**
    * @remarks
-   * The workflow name.
+   * The name of the workflow.
    * 
    * This parameter is required.
    * 
    * @example
-   * 图生视频的工作流示例
+   * Sample workflow for image-to-video
    */
   name?: string;
   /**
    * @remarks
-   * The JSON definition of the workflow.
+   * The workflow JSON.
    * 
    * This parameter is required.
    * 

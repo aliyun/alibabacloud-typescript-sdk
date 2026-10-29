@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallCloudAppResponseBodyFailedInstances extends $dara.Model {
   /**
    * @remarks
-   * Failure error code
+   * The failure error code.
    * 
    * @example
    * 300000
@@ -13,7 +13,7 @@ export class InstallCloudAppResponseBodyFailedInstances extends $dara.Model {
   errCode?: number;
   /**
    * @remarks
-   * Failure reason message
+   * The failure reason information.
    * 
    * @example
    * Rejected due to timeout
@@ -21,7 +21,7 @@ export class InstallCloudAppResponseBodyFailedInstances extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * Cloud application service instance ID
+   * The cloud application service instance ID.
    * 
    * @example
    * render-b45f28650ffe4591bf4c5c95996a428c
@@ -55,7 +55,7 @@ export class InstallCloudAppResponseBodyFailedInstances extends $dara.Model {
 export class InstallCloudAppResponseBodySuccessInstances extends $dara.Model {
   /**
    * @remarks
-   * Cloud application service instance ID
+   * The cloud application service instance ID.
    * 
    * @example
    * render-5130e2feb23f442fb9456a3d977f03d4
@@ -85,7 +85,7 @@ export class InstallCloudAppResponseBodySuccessInstances extends $dara.Model {
 export class InstallCloudAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Number of failed cloud application service instances
+   * The number of failed cloud application service instances.
    * 
    * @example
    * 0
@@ -93,12 +93,12 @@ export class InstallCloudAppResponseBody extends $dara.Model {
   failedInstanceCount?: number;
   /**
    * @remarks
-   * List of failed cloud application service instances
+   * The list of failed cloud application service instances.
    */
   failedInstances?: InstallCloudAppResponseBodyFailedInstances[];
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -106,7 +106,7 @@ export class InstallCloudAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Number of successful cloud application service instances
+   * The number of successful cloud application service instances.
    * 
    * @example
    * 5
@@ -114,7 +114,7 @@ export class InstallCloudAppResponseBody extends $dara.Model {
   successInstanceCount?: number;
   /**
    * @remarks
-   * List of successful cloud application service instances
+   * The list of successful cloud application service instances.
    */
   successInstances?: InstallCloudAppResponseBodySuccessInstances[];
   static names(): { [key: string]: string } {

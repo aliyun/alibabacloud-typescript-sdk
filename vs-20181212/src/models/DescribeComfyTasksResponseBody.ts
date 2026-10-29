@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time, represented as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1780387493000
@@ -13,7 +13,7 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The task end time.
+   * The end time of the task, represented as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1780387494000
@@ -21,7 +21,7 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The resource pool ID used by the task.
+   * The ID of the resource pool used by the task.
    * 
    * @example
    * hive-26cd567b35c04a0a90f017388207b2
@@ -29,7 +29,7 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   hiveId?: string;
   /**
    * @remarks
-   * The task status.
+   * The task error message.
    */
   taskErrorMessage?: string;
   /**
@@ -42,7 +42,7 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task status.
+   * The task state.
    * 
    * @example
    * RUNNING
@@ -50,12 +50,15 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   taskState?: string;
   /**
    * @remarks
-   * The task status.
+   * The task state message.
+   * 
+   * @example
+   * 任务执行成功
    */
   taskStateMessage?: string;
   /**
    * @remarks
-   * The last modified time.
+   * The last modified time, represented as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1780387494000
@@ -63,7 +66,7 @@ export class DescribeComfyTasksResponseBodyTasks extends $dara.Model {
   updatedTime?: string;
   /**
    * @remarks
-   * The Comfy workflow ID used by the task.
+   * The ID of the Comfy workflow used by the task.
    * 
    * @example
    * wf_adb32aed-ccdc-42ae-b4d4-a21181ac8a5f
@@ -117,7 +120,7 @@ export class DescribeComfyTasksResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The description.
+   * The message.
    * 
    * @example
    * success
@@ -134,7 +137,7 @@ export class DescribeComfyTasksResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page size.
-   * > Only available for recording queries.
+   * > Only for recording queries.
    * 
    * @example
    * 20
@@ -150,7 +153,7 @@ export class DescribeComfyTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task list.
+   * The list of tasks.
    */
   tasks?: DescribeComfyTasksResponseBodyTasks[];
   /**

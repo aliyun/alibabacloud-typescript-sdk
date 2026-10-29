@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHivesRequest extends $dara.Model {
   /**
    * @remarks
-   * The time range filter parameter. Specify the time in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The end time. The time follows the ISO 8601 standard and must be in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2025-05-14T15:20:37+08:00
@@ -13,7 +13,7 @@ export class ListHivesRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The cloud application service group ID.
+   * The ID of the cloud application service group.
    * 
    * @example
    * g-xxxx
@@ -29,7 +29,7 @@ export class ListHivesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number of the query list. Minimum value: 1. Default value: 1.
+   * The page number of the list to query. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListHivesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
+   * Settings for the number of entries per page during paging in a paged query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 20
@@ -45,7 +45,7 @@ export class ListHivesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time follows the ISO 8601 standard and includes the time zone offset. Format: YYYY-MM-DDTHH:mm:ss+HH:mm.
    * 
    * @example
    * 2025-05-14T15:20:37+08:00

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartRenderingSessionResponseBodyLocation extends $dara.Model {
   /**
    * @remarks
-   * Province code of the cloud application service instance
+   * The province code of the cloud application service instance.
    * 
    * @example
    * 610000
@@ -35,7 +35,7 @@ export class StartRenderingSessionResponseBodyLocation extends $dara.Model {
 export class StartRenderingSessionResponseBodyPortMappings extends $dara.Model {
   /**
    * @remarks
-   * External port or port range, such as 22. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
+   * The public port or port range, such as 22. For a port range, separate the start port and end port with a forward slash (/), for example, 10/20.
    * 
    * @example
    * 10013/10020
@@ -43,7 +43,7 @@ export class StartRenderingSessionResponseBodyPortMappings extends $dara.Model {
   externalPort?: string;
   /**
    * @remarks
-   * Internal port or port range. Ports correspond one-to-one with external ports. For a port range, separate the start and end ports with a forward slash (/), for example, 10/20.
+   * The internal port or port range. The internal port corresponds to the public port on a one-to-one basis. For a port range, separate the start port and end port with a forward slash (/), for example, 10/20.
    * 
    * @example
    * 49008/49015
@@ -75,15 +75,15 @@ export class StartRenderingSessionResponseBodyPortMappings extends $dara.Model {
 export class StartRenderingSessionResponseBodyStateInfo extends $dara.Model {
   /**
    * @remarks
-   * State description
+   * The state description.
    * 
    * @example
-   * 会话启动中
+   * Session starting
    */
   comment?: string;
   /**
    * @remarks
-   * Session state
+   * The session state.
    * 
    * @example
    * SessionStarting
@@ -91,7 +91,7 @@ export class StartRenderingSessionResponseBodyStateInfo extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * Last update time of the state
+   * The time when the state was last updated. The value is a UTC time in the YYYY-MM-DDTHH:mmZ format based on the ISO 8601 standard.
    * 
    * @example
    * 2021-05-06T06:37Z
@@ -125,7 +125,7 @@ export class StartRenderingSessionResponseBodyStateInfo extends $dara.Model {
 export class StartRenderingSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Instance hostname. By default, this is the EIP used for access.
+   * The instance hostname. The default value is the access elastic IP address (EIP).
    * 
    * @example
    * cn-xxx.ecr.aliyuncs.com
@@ -133,7 +133,7 @@ export class StartRenderingSessionResponseBody extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * Is this a repeated request
+   * Indicates whether the request is a repeated request.
    * 
    * @example
    * false
@@ -141,17 +141,17 @@ export class StartRenderingSessionResponseBody extends $dara.Model {
   isRepeatedRequest?: boolean;
   /**
    * @remarks
-   * Cloud application service instance location information
+   * The location information of the cloud application service instance.
    */
   location?: StartRenderingSessionResponseBodyLocation;
   /**
    * @remarks
-   * Port mapping information
+   * The port mapping information.
    */
   portMappings?: StartRenderingSessionResponseBodyPortMappings[];
   /**
    * @remarks
-   * Cloud application service instance ID
+   * The cloud application service instance ID.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -159,7 +159,7 @@ export class StartRenderingSessionResponseBody extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -167,7 +167,7 @@ export class StartRenderingSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Session ID
+   * The session ID.
    * 
    * @example
    * session-i205217481741918129226
@@ -175,7 +175,7 @@ export class StartRenderingSessionResponseBody extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Session state information
+   * The session state information.
    */
   stateInfo?: StartRenderingSessionResponseBodyStateInfo;
   static names(): { [key: string]: string } {

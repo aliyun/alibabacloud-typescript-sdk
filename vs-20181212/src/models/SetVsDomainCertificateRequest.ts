@@ -8,18 +8,15 @@ export class SetVsDomainCertificateRequest extends $dara.Model {
    * The certificate name.
    * 
    * @example
-   * Cert-77****7
+   * Cert-77****6
    */
   certName?: string;
   /**
    * @remarks
-   * The certificate type.
-   * 
-   * - upload: Upload certificate
-   * 
-   * - cas: Alibaba Cloud Security certificate
-   * 
-   * - free: Personal test certificate (Free Edition)
+   * The certificate type. Valid values:
+   * - upload: uploaded certificate
+   * - cas: SSL Certificates Service certificate
+   * - free: free certificate
    * 
    * @example
    * free
@@ -29,7 +26,7 @@ export class SetVsDomainCertificateRequest extends $dara.Model {
    * @remarks
    * The accelerated domain name to which the certificate belongs.
    * 
-   * > The domain must use HTTPS acceleration.
+   * > The domain name must use HTTPS acceleration.
    * 
    * This parameter is required.
    * 
@@ -39,7 +36,7 @@ export class SetVsDomainCertificateRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Set to 1 to skip the certificate name duplication check and overwrite an existing certificate with the same name.
+   * If you set this parameter to 1, the system ignores the validation for duplicate certificate names and overwrites the existing certificate with the same name.
    * 
    * @example
    * 1
@@ -56,7 +53,7 @@ export class SetVsDomainCertificateRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The private key content. Omit this parameter if you disable the certificate. Provide the private key content if you configure a certificate.
+   * The content of the private key. This parameter is not required if the certificate is disabled. If you configure a certificate, enter the private key content.
    * 
    * @example
    * xxxxxxx
@@ -64,11 +61,10 @@ export class SetVsDomainCertificateRequest extends $dara.Model {
   SSLPri?: string;
   /**
    * @remarks
-   * Whether to enable the HTTPS certificate. Valid values:
+   * Specifies whether the HTTPS certificate is enabled. Valid values:
    * 
-   * - **on**: Enable.
-   * 
-   * - **off** (default): Disable.
+   * - **on**: Enabled.
+   * - **off**: Disabled. This is the default value.
    * 
    * This parameter is required.
    * 
@@ -78,7 +74,7 @@ export class SetVsDomainCertificateRequest extends $dara.Model {
   SSLProtocol?: string;
   /**
    * @remarks
-   * The public certificate content. Omit this parameter if you disable the certificate. Provide the certificate content if you configure a certificate.
+   * The content of the security certificate. This parameter is not required if the certificate is disabled. If you configure a certificate, enter the certificate content.
    * 
    * @example
    * 328uiuii28****82dsada81

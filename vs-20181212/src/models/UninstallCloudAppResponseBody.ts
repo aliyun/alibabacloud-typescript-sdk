@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UninstallCloudAppResponseBodyFailedInstances extends $dara.Model {
   /**
    * @remarks
-   * Error code
+   * The error code for the failure.
    * 
    * @example
    * 300000
@@ -13,7 +13,7 @@ export class UninstallCloudAppResponseBodyFailedInstances extends $dara.Model {
   errCode?: number;
   /**
    * @remarks
-   * Error message
+   * The cause of the failure.
    * 
    * @example
    * Rejected due to timeout
@@ -21,7 +21,7 @@ export class UninstallCloudAppResponseBodyFailedInstances extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * Cloud application instance ID
+   * The cloud application service instance ID.
    * 
    * @example
    * render-b45f28650ffe4591bf4c5c95996a428c
@@ -55,7 +55,7 @@ export class UninstallCloudAppResponseBodyFailedInstances extends $dara.Model {
 export class UninstallCloudAppResponseBodySuccessInstances extends $dara.Model {
   /**
    * @remarks
-   * Cloud application instance ID
+   * The cloud application service instance ID.
    * 
    * @example
    * render-e6cf423c787e4e43b460a788da254fe3
@@ -85,7 +85,7 @@ export class UninstallCloudAppResponseBodySuccessInstances extends $dara.Model {
 export class UninstallCloudAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of cloud application service instances that failed.
+   * The number of cloud application service instances on which the operation failed.
    * 
    * @example
    * 0
@@ -93,12 +93,12 @@ export class UninstallCloudAppResponseBody extends $dara.Model {
   failedInstanceCount?: number;
   /**
    * @remarks
-   * List of failed cloud application service instances
+   * The list of cloud application service instances on which the operation failed.
    */
   failedInstances?: UninstallCloudAppResponseBodyFailedInstances[];
   /**
    * @remarks
-   * Request ID
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -106,7 +106,7 @@ export class UninstallCloudAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Number of successfully uninstalled cloud application instances
+   * The number of cloud application service instances on which the operation succeeded.
    * 
    * @example
    * 5
@@ -114,7 +114,7 @@ export class UninstallCloudAppResponseBody extends $dara.Model {
   successInstanceCount?: number;
   /**
    * @remarks
-   * A list of service instances for which the cloud application was uninstalled successfully.
+   * The list of cloud application service instances on which the operation succeeded.
    */
   successInstances?: UninstallCloudAppResponseBodySuccessInstances[];
   static names(): { [key: string]: string } {

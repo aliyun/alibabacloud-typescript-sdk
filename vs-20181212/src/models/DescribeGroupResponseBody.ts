@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGroupResponseBodyStats extends $dara.Model {
   /**
    * @remarks
-   * The total number of devices in the group.
+   * The total number of devices in the workspace.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DescribeGroupResponseBodyStats extends $dara.Model {
   deviceNum?: number;
   /**
    * @remarks
-   * The number of intelligent electronic devices (IEDs) in the group.
+   * The number of intelligent devices in the workspace.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribeGroupResponseBodyStats extends $dara.Model {
   iedNum?: number;
   /**
    * @remarks
-   * The number of cameras in the group.
+   * The number of cameras in the workspace.
    * 
    * @example
    * 100
@@ -29,7 +29,7 @@ export class DescribeGroupResponseBodyStats extends $dara.Model {
   ipcNum?: number;
   /**
    * @remarks
-   * The number of platforms in the group.
+   * The number of platforms in the workspace.
    * 
    * @example
    * 100
@@ -65,7 +65,7 @@ export class DescribeGroupResponseBodyStats extends $dara.Model {
 export class DescribeGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Alias for the space ID.
+   * The alias of the workspace ID.
    * 
    * @example
    * 337639*****24964-cn-qingdao
@@ -73,7 +73,7 @@ export class DescribeGroupResponseBody extends $dara.Model {
   aliasId?: string;
   /**
    * @remarks
-   * The name of the application used by the group.
+   * The name of the application used by the workspace.
    * 
    * @example
    * live
@@ -81,7 +81,7 @@ export class DescribeGroupResponseBody extends $dara.Model {
   app?: string;
   /**
    * @remarks
-   * The callback URL that is used to receive device status updates in the group.
+   * The callback triggered when the device status in the workspace is updated.
    * 
    * @example
    * http://example.com/callback
@@ -89,7 +89,7 @@ export class DescribeGroupResponseBody extends $dara.Model {
   callback?: string;
   /**
    * @remarks
-   * The time when the group was created.
+   * The time when the workspace was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2019-02-28T17:00:17Z
@@ -97,15 +97,15 @@ export class DescribeGroupResponseBody extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * A description of the group.
+   * The workspace description.
    * 
    * @example
-   * 上海高速监控
+   * Shanghai Expressway Monitoring
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the group is enabled.
+   * Indicates whether the workspace is enabled.
    * 
    * @example
    * true
@@ -113,9 +113,8 @@ export class DescribeGroupResponseBody extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The GB/T 28181 ID that is associated with the group.
-   * 
-   * > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
+   * The GB/T 28181 ID associated with the workspace.
+   * > This parameter is applicable only to workspaces that are accessed by using the GB/T 28181 protocol.
    * 
    * @example
    * 3100000*****0000001
@@ -123,9 +122,8 @@ export class DescribeGroupResponseBody extends $dara.Model {
   gbId?: string;
   /**
    * @remarks
-   * The IP address of the GB/T 28181 signaling server that is associated with the group.
-   * 
-   * > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
+   * The IP address of the GB/T 28181 signaling server associated with the workspace.
+   * > This parameter is applicable only to workspaces that are accessed by using the GB/T 28181 protocol.
    * 
    * @example
    * 10.10.10.10
@@ -133,9 +131,8 @@ export class DescribeGroupResponseBody extends $dara.Model {
   gbIp?: string;
   /**
    * @remarks
-   * The port of the GB/T 28181 signaling server that is associated with the group.
-   * 
-   * > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
+   * The server port of the GB/T 28181 signaling server associated with the workspace.
+   * > This parameter is applicable only to workspaces that are accessed by using the GB/T 28181 protocol.
    * 
    * @example
    * 5060
@@ -143,21 +140,19 @@ export class DescribeGroupResponseBody extends $dara.Model {
   gbPort?: number;
   /**
    * @remarks
-   * The TCP ports of the GB/T 28181 signaling server that are provided by the group.
-   * 
-   * > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
+   * The TCP port of the GB/T 28181 signaling server provided by the workspace.
+   * > This parameter is applicable only to workspaces that are accessed by using the GB/T 28181 protocol.
    */
   gbTcpPorts?: string[];
   /**
    * @remarks
-   * The UDP ports of the GB/T 28181 signaling server that are provided by the group.
-   * 
-   * > This parameter is returned only for groups that use the GB/T 28181 protocol for stream ingest.
+   * The UDP port of the GB/T 28181 signaling server provided by the workspace.
+   * > This parameter is applicable only to workspaces that are accessed by using the GB/T 28181 protocol.
    */
   gbUdpPorts?: string[];
   /**
    * @remarks
-   * The ID of the space.
+   * The workspace ID.
    * 
    * @example
    * 337639****224964-cn-qingdao
@@ -165,10 +160,8 @@ export class DescribeGroupResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The ingest protocol used by the group. Valid values:
-   * 
+   * The access protocol used by the workspace. Valid values:
    * - gb28181
-   * 
    * - rtmp
    * 
    * @example
@@ -185,23 +178,19 @@ export class DescribeGroupResponseBody extends $dara.Model {
   lazyPull?: boolean;
   /**
    * @remarks
-   * The name of the space.
+   * The workspace name.
    * 
    * @example
-   * 上海高速监控
+   * Shanghai Expressway Monitoring
    */
   name?: string;
   /**
    * @remarks
-   * The streaming protocol used by the group. Valid values:
-   * 
+   * The playback protocol used by the workspace. Valid values:
    * - flv
-   * 
    * - hls
-   * 
    * - rtmp
-   * 
-   * > You can specify multiple protocols. Separate them with commas (,).
+   * > You can specify multiple values. Separate multiple values with commas (,).
    * 
    * @example
    * flv,hls,rtmp
@@ -209,7 +198,7 @@ export class DescribeGroupResponseBody extends $dara.Model {
   outProtocol?: string;
   /**
    * @remarks
-   * The streaming domain used by the group.
+   * The streaming domain name used by the workspace.
    * 
    * @example
    * example.aliyundoc.com
@@ -217,7 +206,7 @@ export class DescribeGroupResponseBody extends $dara.Model {
   playDomain?: string;
   /**
    * @remarks
-   * The ingest domain used by the group.
+   * The ingest domain name used by the workspace.
    * 
    * @example
    * demo.aliyundoc.com
@@ -225,7 +214,7 @@ export class DescribeGroupResponseBody extends $dara.Model {
   pushDomain?: string;
   /**
    * @remarks
-   * The region where the space is located, which is the service center.
+   * The region to which the workspace belongs, which is the service center.
    * 
    * @example
    * cn-qingdao
@@ -241,12 +230,12 @@ export class DescribeGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The statistics of devices in the group.
+   * The statistics information of the devices in the workspace.
    */
   stats?: DescribeGroupResponseBodyStats;
   /**
    * @remarks
-   * The status of the group.
+   * The workspace status.
    * 
    * @example
    * on

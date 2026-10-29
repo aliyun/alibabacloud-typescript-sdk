@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVodStreamURLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 流播放协议
+   * The stream playback protocol.
    * 
    * @example
    * rtsp
@@ -13,7 +13,7 @@ export class DescribeVodStreamURLResponseBody extends $dara.Model {
   outProtocol?: string;
   /**
    * @remarks
-   * 流播放端口
+   * The stream playback port.
    * 
    * @example
    * 8080
@@ -21,7 +21,7 @@ export class DescribeVodStreamURLResponseBody extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * 该条任务请求ID。
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -29,7 +29,7 @@ export class DescribeVodStreamURLResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 流播放URL
+   * The stream playback URL.
    * 
    * @example
    * rtsp://domain/live/stream?sign=xxxxxx

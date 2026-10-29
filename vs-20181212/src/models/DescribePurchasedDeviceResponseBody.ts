@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePurchasedDeviceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Device creation time.
+   * The time when the device was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2018-12-10T21:00:00Z
@@ -13,15 +13,15 @@ export class DescribePurchasedDeviceResponseBody extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * Device description.
+   * The device description.
    * 
    * @example
-   * xxx路口摄像头
+   * Camera at xxx intersection
    */
   description?: string;
   /**
    * @remarks
-   * Space ID.
+   * The group ID.
    * 
    * @example
    * 348*****174-cn-qingdao
@@ -29,15 +29,15 @@ export class DescribePurchasedDeviceResponseBody extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Space name.
+   * The group name.
    * 
    * @example
-   * 测试空间
+   * Test group
    */
   groupName?: string;
   /**
    * @remarks
-   * Device ID.
+   * The device ID.
    * 
    * @example
    * 33763****77224964-cn-qingdao
@@ -45,7 +45,7 @@ export class DescribePurchasedDeviceResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Device name.
+   * The device name.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class DescribePurchasedDeviceResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Order ID.
+   * The order ID.
    * 
    * @example
    * 2117*****0447
@@ -61,7 +61,7 @@ export class DescribePurchasedDeviceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * Region where the space belongs, also known as the service center.
+   * The region to which the group belongs, which is the service center.
    * 
    * @example
    * cn-qingdao
@@ -69,7 +69,7 @@ export class DescribePurchasedDeviceResponseBody extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Device registration code.
+   * The device registration code.
    * 
    * @example
    * 12345*****67890
@@ -77,7 +77,7 @@ export class DescribePurchasedDeviceResponseBody extends $dara.Model {
   registerCode?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -85,13 +85,10 @@ export class DescribePurchasedDeviceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Device child type. Valid values:
-   * 
-   * - bullet (bullet camera)
-   * 
-   * - dome (dome camera)
-   * 
-   * - ptz (PTZ)
+   * The device subtype. Valid values:
+   * - bullet: Bullet camera.
+   * - dome: Dome camera.
+   * - ptz: PTZ camera.
    * 
    * @example
    * dome
@@ -99,13 +96,10 @@ export class DescribePurchasedDeviceResponseBody extends $dara.Model {
   subType?: string;
   /**
    * @remarks
-   * Device type. Valid values:
-   * 
-   * - ipc (camera)
-   * 
-   * - platform
-   * 
-   * - ied (intelligent device)
+   * The device type. Valid values:
+   * - ipc: Camera.
+   * - platform: Platform.
+   * - ied: Intelligent device.
    * 
    * @example
    * ipc
@@ -113,7 +107,7 @@ export class DescribePurchasedDeviceResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Device vendor.
+   * The device vendor.
    * 
    * @example
    * 8yd*****qem

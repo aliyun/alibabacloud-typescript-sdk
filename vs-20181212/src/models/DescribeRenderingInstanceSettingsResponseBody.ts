@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenderingInstanceSettingsResponseBodySettings extends $dara.Model {
   /**
    * @remarks
-   * The name of an instance configuration.
+   * The instance configuration name.
    * 
    * @example
    * navbar.hide
@@ -13,7 +13,7 @@ export class DescribeRenderingInstanceSettingsResponseBodySettings extends $dara
   attributeName?: string;
   /**
    * @remarks
-   * The value of an instance configuration.
+   * The content of the instance configuration.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeRenderingInstanceSettingsResponseBodySettings extends $dara
 export class DescribeRenderingInstanceSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664

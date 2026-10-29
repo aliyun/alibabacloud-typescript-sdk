@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyUserDatasResponseBodyUserDatas extends $dara.Model {
   /**
    * @remarks
-   * The name of the file or folder.
+   * The name of the file or directory.
    * 
    * @example
    * myfile
@@ -21,7 +21,7 @@ export class DescribeComfyUserDatasResponseBodyUserDatas extends $dara.Model {
   fileSize?: number;
   /**
    * @remarks
-   * The entry type. Valid values are \\`file\\` and \\`dir\\`.
+   * The file type. Valid values: file and dir.
    * 
    * @example
    * file
@@ -29,7 +29,7 @@ export class DescribeComfyUserDatasResponseBodyUserDatas extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time the file was last modified.
+   * The last modified time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1776646928000
@@ -73,7 +73,7 @@ export class DescribeComfyUserDatasResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The description.
+   * The error message.
    * 
    * @example
    * success
@@ -81,7 +81,7 @@ export class DescribeComfyUserDatasResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number of the returned list.
+   * The page number.
    * 
    * @example
    * 1
@@ -89,7 +89,7 @@ export class DescribeComfyUserDatasResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. The default value is 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -111,6 +111,10 @@ export class DescribeComfyUserDatasResponseBody extends $dara.Model {
    * 1
    */
   total?: number;
+  /**
+   * @remarks
+   * The list of user data.
+   */
   userDatas?: DescribeComfyUserDatasResponseBodyUserDatas[];
   static names(): { [key: string]: string } {
     return {

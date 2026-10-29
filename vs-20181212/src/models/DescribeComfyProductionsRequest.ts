@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyProductionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the results to return. Pages are 1-indexed. Default: 1.
+   * The page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeComfyProductionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The page size.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class DescribeComfyProductionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the Comfy task whose productions you want to list.
+   * The ID of the specified ComfyTask.
    * 
    * This parameter is required.
    * 

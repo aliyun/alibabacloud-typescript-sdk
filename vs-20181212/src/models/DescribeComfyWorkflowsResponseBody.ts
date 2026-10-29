@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeComfyWorkflowsResponseBodyWorkflows extends $dara.Model {
   /**
    * @remarks
-   * The time when the workflow was created.
+   * The creation time. The time follows the ISO 8601 standard and includes a time zone offset. The format is YYYY-MM-DDTHH:mm:ss+HH:mm.
    * 
    * @example
    * 2026-02-03T07:31:45+08:00
@@ -16,20 +16,20 @@ export class DescribeComfyWorkflowsResponseBodyWorkflows extends $dara.Model {
    * The workflow description.
    * 
    * @example
-   * 这是一个图生视频工作流
+   * This is an image-to-video workflow
    */
   description?: string;
   /**
    * @remarks
-   * The workflow name.
+   * The name of the workflow.
    * 
    * @example
-   * 图生视频工作流
+   * Image-to-video workflow
    */
   name?: string;
   /**
    * @remarks
-   * The time when the workflow was last updated.
+   * The update time. The time is a UNIX timestamp in seconds.
    * 
    * @example
    * 1778897586
@@ -83,7 +83,7 @@ export class DescribeComfyWorkflowsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * The message.
    * 
    * @example
    * success
@@ -91,7 +91,7 @@ export class DescribeComfyWorkflowsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -99,7 +99,7 @@ export class DescribeComfyWorkflowsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of workflows on the current page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -115,7 +115,7 @@ export class DescribeComfyWorkflowsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of workflows that match the query.
+   * The total number of workflows.
    * 
    * @example
    * 100
@@ -123,7 +123,7 @@ export class DescribeComfyWorkflowsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * A list of Comfy workflows.
+   * The list of workflows.
    */
   workflows?: DescribeComfyWorkflowsResponseBodyWorkflows[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFilePushStatusesResponseBodyPushStatuses extends $dara.Model {
   /**
    * @remarks
-   * The file ID.
+   * The ID of the file.
    * 
    * @example
    * f-1671accd4dafdag3er256cvgewt13f7141db2f7
@@ -13,7 +13,7 @@ export class ListFilePushStatusesResponseBodyPushStatuses extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * myfile
@@ -21,7 +21,7 @@ export class ListFilePushStatusesResponseBodyPushStatuses extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The scheduled push start time.
+   * The start time of the push. The time is displayed in the ISO 8601 standard with time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-03-26T16:32:20+08:00
@@ -29,7 +29,7 @@ export class ListFilePushStatusesResponseBodyPushStatuses extends $dara.Model {
   pushTime?: string;
   /**
    * @remarks
-   * The cloud application service instance ID.
+   * The instance ID of the cloud application service.
    * 
    * @example
    * render-9f8c57355d224ad7beaf95e145f22111
@@ -37,15 +37,11 @@ export class ListFilePushStatusesResponseBodyPushStatuses extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
-   * The file push status. Valid values:
-   * 
-   * 1. Created
-   * 
-   * 2. Doing
-   * 
-   * 3. Success: desired state
-   * 
-   * 4. Failed: desired state
+   * The push status of the file. Valid values:
+   * - Created
+   * - Doing
+   * - Success: final state.
+   * - Failed: final state.
    * 
    * @example
    * Success
@@ -53,7 +49,7 @@ export class ListFilePushStatusesResponseBodyPushStatuses extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The status description.
+   * The description of the status.
    * 
    * @example
    * push success
@@ -61,7 +57,7 @@ export class ListFilePushStatusesResponseBodyPushStatuses extends $dara.Model {
   statusDescription?: string;
   /**
    * @remarks
-   * The latest update time of the status.
+   * The latest update time of the status. The time is displayed in the ISO 8601 standard with time zone offset in the YYYY-MM-DDTHH:mm:ss+HH:mm format.
    * 
    * @example
    * 2024-03-26T17:02:10+08:00
@@ -103,7 +99,7 @@ export class ListFilePushStatusesResponseBodyPushStatuses extends $dara.Model {
 export class ListFilePushStatusesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned results.
+   * The page number of the returned list.
    * 
    * @example
    * 1
@@ -111,7 +107,7 @@ export class ListFilePushStatusesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The Settings for the number of entries per page during paging in a paged query.
    * 
    * @example
    * 10
@@ -119,12 +115,12 @@ export class ListFilePushStatusesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of file push status records.
+   * The list of file push statuses.
    */
   pushStatuses?: ListFilePushStatusesResponseBodyPushStatuses[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
@@ -132,7 +128,7 @@ export class ListFilePushStatusesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of matching file push records.
+   * The total number of matched file push records.
    * 
    * @example
    * 100
