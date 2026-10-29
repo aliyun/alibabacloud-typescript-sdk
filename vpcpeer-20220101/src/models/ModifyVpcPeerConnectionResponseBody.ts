@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyVpcPeerConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 880C99E1-449B-524A-B81F-1EC53D2A7EAC

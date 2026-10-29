@@ -13,10 +13,10 @@ export class MoveResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * Indicates whether the resource group was changed. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The resource group was changed.
+   * - **false**: The resource group failed to be changed.
    * 
    * @example
    * true

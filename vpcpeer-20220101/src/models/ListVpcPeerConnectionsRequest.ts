@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcPeerConnectionsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key. You can specify up to 20 tag keys. If you specify this parameter, it cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length. The tag key cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class ListVpcPeerConnectionsRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value. You can specify up to 20 tag values. If you specify this parameter, it can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,7 +49,7 @@ export class ListVpcPeerConnectionsRequestTags extends $dara.Model {
 export class ListVpcPeerConnectionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the VPC peering connection that you want to query.
+   * The instance ID of the VPC peering connection that you want to query.
    * 
    * @example
    * pcc-lnk0m24khwvtkm****
@@ -57,7 +57,7 @@ export class ListVpcPeerConnectionsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -73,10 +73,9 @@ export class ListVpcPeerConnectionsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token that is used to retrieve the next page of results. Valid values:
+   * - If this is your first request or no subsequent request is to be sent, leave this parameter empty.
+   * - If a subsequent request is to be sent, set the value to the NextToken value returned from the last API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -84,9 +83,9 @@ export class ListVpcPeerConnectionsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region where you want to query VPC peering connections.
+   * The region ID of the VPC peering connection that you want to query.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -96,20 +95,20 @@ export class ListVpcPeerConnectionsRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group.
    * 
-   * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html)
+   * For more information about resource groups, see [What is a resource group](https://help.aliyun.com/document_detail/94475.html).
    * 
    * @example
-   * rg-acfm2ggeub5uf3y
+   * rg-acfmxazb4ph6aiy****
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tag list.
+   * The list of tags.
    */
   tags?: ListVpcPeerConnectionsRequestTags[];
   /**
    * @remarks
-   * The ID of the requester VPC or accepter VPC of the VPC peering connection that you want to query.
+   * Filters the results by the VPC IDs of the initiator and acceptor. The filter does not distinguish between the initiator and the acceptor. If you specify only one VPC ID, the results are filtered based on the specified VPC ID.
    */
   vpcId?: string[];
   static names(): { [key: string]: string } {

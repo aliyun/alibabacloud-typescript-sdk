@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C46FF5A8-C5F0-4024-8262-B16B639225A0
@@ -13,10 +13,10 @@ export class TagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * Indicates whether the tags were created and attached. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The tags were created and attached.
+   * - **false**: The tags failed to be created and attached.
    * 
    * @example
    * true

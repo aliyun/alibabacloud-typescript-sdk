@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcPeerConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance on which the VPC peering connection is created.
+   * The instance ID of the created VPC peering connection.
    * 
    * @example
    * pcc-lnk0m24khwvtkm****

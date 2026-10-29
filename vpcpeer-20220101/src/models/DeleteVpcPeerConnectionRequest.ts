@@ -7,9 +7,9 @@ export class DeleteVpcPeerConnectionRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** for each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -17,10 +17,9 @@ export class DeleteVpcPeerConnectionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to check the request without performing the operation. Valid values:
-   * 
-   * *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+   * Specifies whether to perform only a dry run on the request. Valid values:
+   * - **true**: performs only a dry run and does not delete the VPC peering connection. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the dry run, an error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -28,10 +27,11 @@ export class DeleteVpcPeerConnectionRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to forcefully delete the VPC peering connection. Valid values:
+   * Specifies whether to force delete the VPC peering connection. Valid values:
    * 
-   * *   **false** (default): no.
-   * *   **true**: yes. If you forcefully delete the VPC peering connection, the system deletes the routes that point to the VPC peering connection from the VPC route table.
+   * - **false** (default): Does not force delete the VPC peering connection. Before you delete the connection, you must delete the route entry that points to the VPC peering connection from the routing table.
+   * 
+   * - **true**: The system will force delete the VPC peering connection. The system deletes the route entry that points to the VPC peering connection from the VPC routing table.
    * 
    * @example
    * false
@@ -39,7 +39,7 @@ export class DeleteVpcPeerConnectionRequest extends $dara.Model {
   force?: boolean;
   /**
    * @remarks
-   * The ID of the VPC peering connection that you want to delete.
+   * The instance ID of the VPC peering connection that you want to delete.
    * 
    * This parameter is required.
    * 

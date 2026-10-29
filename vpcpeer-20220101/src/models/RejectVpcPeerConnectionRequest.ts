@@ -7,9 +7,9 @@ export class RejectVpcPeerConnectionRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+   * You can generate the value from your client. Make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** for each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -17,10 +17,9 @@ export class RejectVpcPeerConnectionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to check the request without performing the operation. Valid values:
-   * 
-   * *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+   * Specifies whether to perform only a dry run on the request. Valid values:
+   * - **true**: performs a dry run and does not reject the connection request. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the dry run, an error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends the actual request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -28,7 +27,7 @@ export class RejectVpcPeerConnectionRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the VPC peering connection to be rejected by the acceptor VPC.
+   * The ID of the VPC peering connection instance denied by the acceptor.
    * 
    * This parameter is required.
    * 

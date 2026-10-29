@@ -13,10 +13,10 @@ export class UnTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the tags are removed. Valid values:
+   * Indicates whether the unbinding was successful. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: The creation and binding were successful.
+   * - **false**: The creation and binding failed.
    * 
    * @example
    * true

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcPeerConnectionRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You must specify at least one tag key and at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You must specify at least one tag key and can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length. It cannot start with `acs:` or `aliyun` and cannot contain `http://` or `https://`.
+   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,7 +15,7 @@ export class CreateVpcPeerConnectionRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You must specify at least one tag value and can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You must specify at least one tag value and can specify up to 20 tag values. The tag value can be an empty string.
    * 
    * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
@@ -49,12 +49,13 @@ export class CreateVpcPeerConnectionRequestTag extends $dara.Model {
 export class CreateVpcPeerConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the accepter VPC belongs.
+   * The ID of the Alibaba Cloud account to which the acceptor of the VPC peering connection belongs.
    * 
-   * *   To create a VPC peering connection within your Alibaba Cloud account, enter the ID of your Alibaba Cloud account.
-   * *   To create a VPC peering connection between your Alibaba Cloud account and another Alibaba Cloud account, enter the ID of the peer Alibaba Cloud account.
+   * - If you enter your own Alibaba Cloud account ID, a same-account VPC peering connection is created.
    * 
-   * >  If the accepter is a RAM user, set **AcceptingAliUid** to the ID of the Alibaba Cloud account that created the RAM user.
+   * - If you enter the ID of another Alibaba Cloud account, a cross-account VPC peering connection is created.
+   *    
+   * > If the acceptor account is a Resource Access Management (RAM) user, you must enter the ID of the Alibaba Cloud account to which the RAM user belongs in **AcceptingAliUid**.
    * 
    * This parameter is required.
    * 
@@ -64,10 +65,11 @@ export class CreateVpcPeerConnectionRequest extends $dara.Model {
   acceptingAliUid?: number;
   /**
    * @remarks
-   * The region ID of the accepter VPC of the VPC peering connection that you want to create.
+   * The ID of the region where the acceptor of the VPC peering connection is deployed.
    * 
-   * *   To create an intra-region VPC peering connection, enter a region ID that is the same as that of the requester VPC.
-   * *   To create an inter-region VPC peering connection, enter a region ID that is different from that of the requester VPC.
+   * - To create an intra-region VPC peering connection, enter the same region ID as the initiator.
+   * 
+   * - To create an inter-region VPC peering connection, enter a region ID different from that of the initiator.
    * 
    * This parameter is required.
    * 
@@ -77,7 +79,7 @@ export class CreateVpcPeerConnectionRequest extends $dara.Model {
   acceptingRegionId?: string;
   /**
    * @remarks
-   * The ID of the accepter VPC.
+   * The ID of the VPC that acts as the acceptor of the VPC peering connection.
    * 
    * This parameter is required.
    * 
@@ -87,7 +89,8 @@ export class CreateVpcPeerConnectionRequest extends $dara.Model {
   acceptingVpcId?: string;
   /**
    * @remarks
-   * The bandwidth of the VPC peering connection. Unit: Mbit/s. The value must be an integer greater than 0. Before you specify this parameter, make sure that you create an inter-region VPC peering connection.
+   * The bandwidth of the VPC peering connection. Unit: Mbit/s. The value must be a positive integer.
+   * > If you want to specify this parameter, make sure that you are creating an inter-region peering connection.
    * 
    * @example
    * 100
@@ -99,7 +102,7 @@ export class CreateVpcPeerConnectionRequest extends $dara.Model {
    * 
    * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -107,9 +110,7 @@ export class CreateVpcPeerConnectionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the VPC peering connection.
-   * 
-   * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+   * The description of the VPC peering connection. The description must be 2 to 256 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
    * 
    * @example
    * description
@@ -117,10 +118,10 @@ export class CreateVpcPeerConnectionRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform only a dry run for this request. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs a dry run and does not create a VPC peering connection. The system checks whether required parameters are specified, the request format, and service limits. If the request fails the dry run, the corresponding error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends a Normal request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -128,14 +129,22 @@ export class CreateVpcPeerConnectionRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The link type of the VPC peering connection that you want to create. Valid values:
+   * Specifies whether to enable the jumbo frame feature for the VPC peering connection. Valid values:
+   * - true: enabled.
+   * - false: disabled.
+   * > Note: If you want to specify this parameter, make sure that you are creating an inter-region peering connection.
    * 
-   * - Platinum.
+   * @example
+   * true
+   */
+  enableJumboFrame?: boolean;
+  /**
+   * @remarks
+   * The link type.
    * 
-   * - Gold: default value.
+   * Valid values: Platinum and Gold. Default value: Gold.
    * 
-   * > 
-   * > - If you need to specify this parameter, ensure that the VPC peering connection is an inter-region connection.
+   * > If you want to specify this parameter, make sure that you are creating an inter-region peering connection.
    * 
    * @example
    * Gold
@@ -143,9 +152,7 @@ export class CreateVpcPeerConnectionRequest extends $dara.Model {
   linkType?: string;
   /**
    * @remarks
-   * The name of the VPC peering connection.
-   * 
-   * The name must be 2 to 128 characters in length, and can contain digits, underscores (_), and hyphens (-). It must start with a letter.
+   * The name of the VPC peering connection. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and can contain digits, underscores (_), and hyphens (-).
    * 
    * @example
    * vpcpeer
@@ -153,9 +160,9 @@ export class CreateVpcPeerConnectionRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the region where you want to create a VPC peering connection.
+   * The ID of the region where you want to create a VPC peering connection. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -167,7 +174,7 @@ export class CreateVpcPeerConnectionRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group.
    * 
-   * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.html).
+   * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html).
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -175,12 +182,12 @@ export class CreateVpcPeerConnectionRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * The tag information.
    */
   tag?: CreateVpcPeerConnectionRequestTag[];
   /**
    * @remarks
-   * The ID of the requester VPC.
+   * The ID create a VPC that acts as the initiator create a VPC peering connection.
    * 
    * This parameter is required.
    * 
@@ -197,6 +204,7 @@ export class CreateVpcPeerConnectionRequest extends $dara.Model {
       clientToken: 'ClientToken',
       description: 'Description',
       dryRun: 'DryRun',
+      enableJumboFrame: 'EnableJumboFrame',
       linkType: 'LinkType',
       name: 'Name',
       regionId: 'RegionId',
@@ -215,6 +223,7 @@ export class CreateVpcPeerConnectionRequest extends $dara.Model {
       clientToken: 'string',
       description: 'string',
       dryRun: 'boolean',
+      enableJumboFrame: 'boolean',
       linkType: 'string',
       name: 'string',
       regionId: 'string',

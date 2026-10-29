@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * The region of the requester VPC.
+   * The region of the initiator of the VPC peering connection.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * pcc-bp16qjewdsunr41m1****
@@ -21,7 +21,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource. The value is set to **PeerConnection**, which indicates a VPC peering connection.
+   * The resource type. Valid values: **PeerConnection** (VPC peering connection).
    * 
    * @example
    * PeerConnection
@@ -83,10 +83,9 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * *   If **NextToken** is empty, it indicates that no next query is to be sent.
-   * *   If **NextToken** is returned, the value indicates the token that is used for the next query.
+   * The pagination token. Valid values:
+   * - If **NextToken** is empty, no subsequent queries are available.
+   * - If **NextToken** returns a value, the value indicates the token used to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -94,7 +93,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DE65F6B7-7566-4802-9007-96F2494AC512
@@ -102,7 +101,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources to which the tags are added.
+   * The information about the resources to which tags are bound.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

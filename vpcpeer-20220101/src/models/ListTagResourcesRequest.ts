@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. This parameter cannot be an empty string.
    * 
-   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
-   * >  You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value**.
+   * > You must specify at least one of the **ResourceId.N** and **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) parameters.
    * 
    * @example
    * FinanceDept
@@ -17,11 +17,11 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. This parameter can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
-   * >  You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value**.
+   * > You must specify at least one of the **ResourceId.N** and **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) parameters.
    * 
    * @example
    * FinanceJoshua
@@ -53,10 +53,11 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Tag Type:
+   * The tag type. Valid values:
+   * - All (default)
    * 
-   * - All(Default)
    * - Custom
+   * 
    * - System
    * 
    * @example
@@ -73,10 +74,11 @@ export class ListTagResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
+   * The pagination token. Valid values:
    * 
-   * *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
-   * *   If a next query is to be sent, set the value to the value of **NextToken** that is returned in the last call.
+   * - If this is your first request or no subsequent requests are to be made, leave this parameter empty.
+   * 
+   * - If a subsequent request is to be made, set this parameter to the value of **NextToken** returned from the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -86,7 +88,7 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The region ID of the resource.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -96,14 +98,14 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The resource IDs. You can specify up to 20 resource IDs.
    * 
    * @deprecated
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource. Set the value to **PeerConnection**, which specifies a VPC peering connection.
+   * The resource type. Valid values: **PeerConnection** (VPC peering connection).
    * 
    * This parameter is required.
    * 
@@ -113,7 +115,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The tag information.
    * 
    * @deprecated
    */
