@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFileSystemsResponseBodyFileSystemsMountTargets extends $dara.Model {
   /**
    * @remarks
-   * The path of the mount target.
+   * The mount target path.
    * 
    * @example
    * *.*.*.*:/${FileSystemName}/{MountTargetName}
@@ -13,7 +13,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsMountTargets extends $dar
   mountTargetDomain?: string;
   /**
    * @remarks
-   * The name of the mount target.
+   * The mount target name.
    * 
    * @example
    * target1
@@ -21,7 +21,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsMountTargets extends $dar
   mountTargetName?: string;
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * @example
    * n-****
@@ -29,15 +29,12 @@ export class DescribeFileSystemsResponseBodyFileSystemsMountTargets extends $dar
   netWorkId?: string;
   /**
    * @remarks
-   * The status of the mount target. Valid values:
+   * The mount target status. Valid values:
    * 
-   * - active: The mount target is available.
-   * 
-   * - inactive: The mount target is unavailable.
-   * 
-   * - pending: The task is running.
-   * 
-   * - deleting: The mount target is being deleted.
+   * - active: Available.
+   * - inactive: Unavailable.
+   * - pending: Processing a task.
+   * - deleting: Being deleted.
    * 
    * @example
    * active
@@ -73,7 +70,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsMountTargets extends $dar
 export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
   /**
    * @remarks
-   * The capacity of the file system. Unit: MiB.
+   * The capacity. Unit: MiB.
    * 
    * @example
    * 100000
@@ -89,7 +86,7 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * test
@@ -97,7 +94,7 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing-cmcc
@@ -105,7 +102,7 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * @example
    * c50f8*****
@@ -113,7 +110,7 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The name of the file system.
+   * The file system name.
    * 
    * @example
    * FileSystem1
@@ -121,7 +118,8 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileSystemName?: string;
   /**
    * @remarks
-   * The storage usage of the file system. The value of this parameter is the maximum storage usage of the file system over the last hour. Unit: bytes.
+   * The file system usage.
+   * Non-real-time usage. It indicates the maximum usage in the previous hour. Unit: bytes.
    * 
    * @example
    * 102400
@@ -129,12 +127,12 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
   meteredSize?: number;
   /**
    * @remarks
-   * The information about mount targets.
+   * The collection of mount target information.
    */
   mountTargets?: DescribeFileSystemsResponseBodyFileSystemsMountTargets[];
   /**
    * @remarks
-   * The billing method. PostPaid is returned. PostPaid indicates the pay-as-you-go billing method.
+   * The billing method. Valid values: PostPaid (pay-as-you-go).
    * 
    * @example
    * PostPaid
@@ -142,11 +140,10 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The protocol type of the file system. Valid values:
+   * The file system protocol type. Valid values:
    * 
-   * - NFS: Network File System (NFS)
-   * 
-   * - SMB: Server Message Block (SMB)
+   * - NFS: NFS protocol.
+   * - SMB: SMB protocol.
    * 
    * @example
    * NFS
@@ -154,18 +151,13 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
   protocolType?: string;
   /**
    * @remarks
-   * The status of the file system. Valid values:
+   * The file system status. Valid values:
    * 
-   * - pending: The file system is being created or modified.
-   * 
-   * - running: The file system is available. Before you create a mount target for the file system, make sure that the file system is in the running state.
-   * 
+   * - pending: The file system is processing a node.
+   * - running: The file system is active. You can perform What to do next, such as creating a mount target, only when the status is running.
    * - stopped: The file system is unavailable.
-   * 
-   * - extending: The file system is being scaled out.
-   * 
-   * - stopping: The file system is being disabled.
-   * 
+   * - extending: The file system is being expanded.
+   * - stopping: The file system is being stopped.
    * - deleting: The file system is being deleted.
    * 
    * @example
@@ -176,9 +168,8 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
    * @remarks
    * The storage type. Valid values:
    * 
-   * - capacity: Capacity NAS file systems
-   * 
-   * - performance: Performance NAS file systems
+   * - capacity: Storage-optimized.
+   * - performance: Extreme.
    * 
    * @example
    * capacity
@@ -233,7 +224,7 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
 export class DescribeFileSystemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the file systems.
+   * The collection of file system information.
    */
   fileSystems?: DescribeFileSystemsResponseBodyFileSystems[];
   /**
@@ -254,7 +245,7 @@ export class DescribeFileSystemsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 762DD527-358B-1E48-8005-CCE3ED4EB9E0
@@ -262,7 +253,7 @@ export class DescribeFileSystemsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count.
    * 
    * @example
    * 1

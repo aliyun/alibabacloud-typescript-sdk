@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLoadBalancerSpecResponseBodyLoadBalancerSpecs extends $dara.Model {
   /**
    * @remarks
-   * The display name of the instance type.
+   * The display name of the instance specification.
    * 
    * @example
    * elb.s1.small
@@ -13,7 +13,7 @@ export class DescribeLoadBalancerSpecResponseBodyLoadBalancerSpecs extends $dara
   displayName?: string;
   /**
    * @remarks
-   * The specifications of the ELB instance.
+   * The specification of the load balancing instance.
    * 
    * @example
    * elb.s1.small
@@ -45,12 +45,12 @@ export class DescribeLoadBalancerSpecResponseBodyLoadBalancerSpecs extends $dara
 export class DescribeLoadBalancerSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The specifications. Valid values:
+   * The specifications.
    */
   loadBalancerSpecs?: DescribeLoadBalancerSpecResponseBodyLoadBalancerSpecs[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the instance list.
    * 
    * @example
    * 10
@@ -58,7 +58,7 @@ export class DescribeLoadBalancerSpecResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100. Default value: 10.
+   * The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 100
@@ -66,7 +66,7 @@ export class DescribeLoadBalancerSpecResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -74,7 +74,7 @@ export class DescribeLoadBalancerSpecResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 7

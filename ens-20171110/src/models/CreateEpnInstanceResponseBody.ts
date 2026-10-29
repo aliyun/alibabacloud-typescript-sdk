@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEpnInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EPN instance.
+   * The Edge-to-Edge network instance ID.
    * 
    * @example
    * epn-xxxxx

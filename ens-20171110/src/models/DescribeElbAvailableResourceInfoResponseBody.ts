@@ -14,7 +14,7 @@ export class DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInf
   area?: string;
   /**
    * @remarks
-   * The quantity available for purchase.
+   * The Quantity available for purchase.
    * 
    * @example
    * 1
@@ -30,7 +30,7 @@ export class DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInf
   enName?: string;
   /**
    * @remarks
-   * The ID of the ENS edge zone.
+   * The edge zone ID.
    * 
    * @example
    * cn-guangdong-10
@@ -106,7 +106,7 @@ export class DescribeElbAvailableResourceInfoResponseBody extends $dara.Model {
   elbAvailableResourceInfo?: DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInfo[];
   /**
    * @remarks
-   * The common parameter. The ID of the request. Each request has a unique ID, which is active for troubleshooting.
+   * The common parameter. The ID of each request is unique and active for troubleshooting and locating issues.
    * 
    * @example
    * 25AAD194-4A37-51CF-B1CA-1E86FDAC23A6

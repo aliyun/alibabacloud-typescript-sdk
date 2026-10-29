@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceBootConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * The startup method.
+   * The boot method.
    * 
    * @example
    * legacy
@@ -13,7 +13,7 @@ export class DescribeInstanceBootConfigurationRequest extends $dara.Model {
   bootSet?: string;
   /**
    * @remarks
-   * The startup type.
+   * The boot type.
    * 
    * @example
    * pxe
@@ -21,7 +21,7 @@ export class DescribeInstanceBootConfigurationRequest extends $dara.Model {
   bootType?: string;
   /**
    * @remarks
-   * Specifies whether the startup depends on the disk.
+   * Specifies whether the boot process depends on disks.
    * 
    * @example
    * on
@@ -29,7 +29,7 @@ export class DescribeInstanceBootConfigurationRequest extends $dara.Model {
   diskSet?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

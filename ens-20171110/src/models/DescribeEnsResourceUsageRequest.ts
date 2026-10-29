@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnsResourceUsageRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Format: yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
+   * The end time of the query range for the expiration time of virtual machine instances. Format: yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2018-06-15T09:07:23Z
@@ -13,7 +13,7 @@ export class DescribeEnsResourceUsageRequest extends $dara.Model {
   expiredEndTime?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Format: yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
+   * The start time of the query range for the expiration time of virtual machine instances. Format: yyyy-MM-dd or yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2018-06-15T09:07:23Z

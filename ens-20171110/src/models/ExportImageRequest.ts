@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ExportImageRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The OSS bucket to which you want to export the image.
+   * The OSS bucket used to store the exported image.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ExportImageRequest extends $dara.Model {
   OSSBucket?: string;
   /**
    * @remarks
-   * The prefix of the object as which you want to store the image in the OSS bucket. The prefix must be 1 to 30 characters in length and can contain digits and letters.
+   * The prefix of the OSS object. The prefix must be 1 to 30 characters in length and can contain letters and digits.
    */
   OSSPrefix?: string;
   /**
@@ -40,7 +40,7 @@ export class ExportImageRequest extends $dara.Model {
   OSSRegionId?: string;
   /**
    * @remarks
-   * The name of the Resource Access Management (RAM) role.
+   * The name of the authorized role.
    * 
    * @example
    * AliyunMNSLoggingRole

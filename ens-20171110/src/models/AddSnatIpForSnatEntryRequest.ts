@@ -15,7 +15,7 @@ export class AddSnatIpForSnatEntryRequest extends $dara.Model {
   snatEntryId?: string;
   /**
    * @remarks
-   * The EIP specified in the SNAT entry.
+   * The EIP in the SNAT entry.
    * 
    * This parameter is required.
    * 

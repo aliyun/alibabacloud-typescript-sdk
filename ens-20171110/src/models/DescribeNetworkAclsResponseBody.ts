@@ -21,7 +21,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries extends 
   description?: string;
   /**
    * @remarks
-   * The ID of the outbound rule.
+   * The ID of the outbound rule entry.
    * 
    * @example
    * nae-a2d447uw4tillfvgb****
@@ -29,7 +29,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries extends 
   networkAclEntryId?: string;
   /**
    * @remarks
-   * The name of the outbound rule.
+   * The name of the outbound rule entry.
    * 
    * @example
    * acl-2
@@ -37,11 +37,10 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries extends 
   networkAclEntryName?: string;
   /**
    * @remarks
-   * The action that is performed on network traffic that matches the rule. Valid values:
+   * The authorization policy. Valid values:
    * 
-   * - **accept**: allows the network traffic.
-   * 
-   * - **drop**: blocks the network traffic.
+   * - **accept**: Allow.
+   * - **drop**: Deny.
    * 
    * @example
    * accept
@@ -51,9 +50,8 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries extends 
    * @remarks
    * The destination port range of the outbound rule.
    * 
-   * - If **Protocol** of the outbound rule is set to **all** or **icmp** the port range is **-1/-1**, which indicates all ports.
-   * 
-   * - If **Protocol** of the outbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1 to 65535**.
+   * - If the **Protocol** (Protocol Type) of the outbound rule is **all** or **icmp**, the port range is **-1/-1**, which indicates that all ports are allowed.
+   * - If the **Protocol** (Protocol Type) of the outbound rule is **tcp** or **udp**, the port range is **1~65535**. The format is **1/200** or **80/80**, which indicates ports 1 to 200 or port 80.
    * 
    * @example
    * -1/-1
@@ -61,7 +59,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries extends 
   portRange?: string;
   /**
    * @remarks
-   * The priority of the rule. Valid values: **1 to 100**. Default value: **1**.
+   * The priority of the rule. Valid values: **1** to **100**. Default value: **1**.
    * 
    * @example
    * 1
@@ -71,13 +69,10 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries extends 
    * @remarks
    * The protocol type. Valid values:
    * 
-   * - **icmp**: ICMP.
-   * 
-   * - **tcp**: TCP.
-   * 
-   * - **udp**: UDP.
-   * 
-   * - **all**: all protocols.
+   * - **icmp**: Internet Control Message Protocol.
+   * - **tcp**: Transmission Control Protocol.
+   * - **udp**: User Datagram Protocol.
+   * - **all**: All protocols.
    * 
    * @example
    * all
@@ -85,11 +80,9 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries extends 
   protocol?: string;
   /**
    * @remarks
-   * The type of the rule. Valid values:
-   * 
-   * - **system**: The rule is created by the system.
-   * 
-   * - **custom**: The rule is created by a user.
+   * The rule type. Valid values:
+   * - **system**: System-created.
+   * - **custom**: User-created.
    * 
    * @example
    * system
@@ -151,7 +144,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
   description?: string;
   /**
    * @remarks
-   * The destination network.
+   * The destination CIDR block.
    * 
    * @example
    * 10.0.0.0/24
@@ -159,7 +152,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The ID of the inbound rule.
+   * The ID of the inbound rule entry.
    * 
    * @example
    * nae-5dk86arlydmezasw****
@@ -167,7 +160,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
   networkAclEntryId?: string;
   /**
    * @remarks
-   * The name of the inbound rule.
+   * The name of the inbound rule entry.
    * 
    * @example
    * acl-3
@@ -175,11 +168,10 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
   networkAclEntryName?: string;
   /**
    * @remarks
-   * The action that is performed on network traffic that matches the rule. Valid values:
+   * The authorization policy. Valid values:
    * 
-   * - **accept**: allows the network traffic.
-   * 
-   * - **drop**: blocks the network traffic.
+   * - **accept**: Allow.
+   * - **drop**: Deny.
    * 
    * @example
    * accept
@@ -189,9 +181,8 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
    * @remarks
    * The destination port range of the inbound rule.
    * 
-   * - If **Protocol** of the inbound rule is set to **all** or **icmp**, the port range is **-1/-1**, which indicates all ports.
-   * 
-   * - If **Protocol** of the inbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1 to 65535**.
+   * - If the **Protocol** (Protocol Type) of the inbound rule is **all** or **icmp**, the port range is **-1/-1**, which indicates that all ports are allowed.
+   * - If the **Protocol** (Protocol Type) of the inbound rule is **tcp** or **udp**, the port range is **1~65535**. The format is **1/200** or **80/80**, which indicates ports 1 to 200 or port 80.
    * 
    * @example
    * -1/-1
@@ -199,7 +190,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
   portRange?: string;
   /**
    * @remarks
-   * The priority of the rule. Valid values: **1 to 100**. Default value: **1**.
+   * The priority of the rule. Valid values: **1** to **100**. Default value: **1**.
    * 
    * @example
    * 1
@@ -209,13 +200,10 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
    * @remarks
    * The protocol type. Valid values:
    * 
-   * - **icmp**: ICMP.
-   * 
-   * - **tcp**: TCP.
-   * 
-   * - **udp**: UDP.
-   * 
-   * - **all**: all protocols.
+   * - **icmp**: Internet Control Message Protocol.
+   * - **tcp**: Transmission Control Protocol.
+   * - **udp**: User Datagram Protocol.
+   * - **all**: All protocols.
    * 
    * @example
    * all
@@ -223,11 +211,9 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
   protocol?: string;
   /**
    * @remarks
-   * The type of the rule. Valid values:
-   * 
-   * - **system**: The rule is created by the system.
-   * 
-   * - **custom**: The rule is created by a user.
+   * The rule type. Valid values:
+   * - **system**: System-created.
+   * - **custom**: User-created.
    * 
    * @example
    * system
@@ -275,7 +261,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries extends
 export class DescribeNetworkAclsResponseBodyNetworkAclsResources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the edge node.
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-fuzhou-telecom
@@ -299,13 +285,11 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsResources extends $dara.M
   resourceType?: string;
   /**
    * @remarks
-   * The association status of the resource. Valid values:
+   * The status of the associated resource. Valid values:
    * 
-   * - **BINDED**: The resource is associated with the network ACL.
-   * 
-   * - **BINDING**: The resource is being associated with the network ACL.
-   * 
-   * - **UNBINDING**: The resource is being disassociated from the network ACL.
+   * - **BINDED**: Bound.
+   * - **BINDING**: Binding.
+   * - **UNBINDING**: Unbinding.
    * 
    * @example
    * BINDING
@@ -341,7 +325,7 @@ export class DescribeNetworkAclsResponseBodyNetworkAclsResources extends $dara.M
 export class DescribeNetworkAclsResponseBodyNetworkAcls extends $dara.Model {
   /**
    * @remarks
-   * The time when the network ACL was created. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The time when the network ACL was created. The time is displayed in UTC in the `yyyy-MM-ddTHH:mm:ssZ` format.
    * 
    * @example
    * 2019-11-01T06:08:46Z
@@ -357,12 +341,12 @@ export class DescribeNetworkAclsResponseBodyNetworkAcls extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Details of the outbound rules.
+   * The outbound rules.
    */
   egressAclEntries?: DescribeNetworkAclsResponseBodyNetworkAclsEgressAclEntries[];
   /**
    * @remarks
-   * Details of the inbound rules.
+   * The inbound rules.
    */
   ingressAclEntries?: DescribeNetworkAclsResponseBodyNetworkAclsIngressAclEntries[];
   /**
@@ -383,16 +367,15 @@ export class DescribeNetworkAclsResponseBodyNetworkAcls extends $dara.Model {
   networkAclName?: string;
   /**
    * @remarks
-   * Details of the associated resources.
+   * The associated resources.
    */
   resources?: DescribeNetworkAclsResponseBodyNetworkAclsResources[];
   /**
    * @remarks
    * The status of the network ACL. Valid values:
    * 
-   * - **Available**: The network ACL is available.
-   * 
-   * - **Modifying**: The network ACL is being configured.
+   * - **Available**: Active.
+   * - **Modifying**: Configuring.
    * 
    * @example
    * Available
@@ -445,12 +428,12 @@ export class DescribeNetworkAclsResponseBodyNetworkAcls extends $dara.Model {
 export class DescribeNetworkAclsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the network ACLs.
+   * The details of the network ACLs.
    */
   networkAcls?: DescribeNetworkAclsResponseBodyNetworkAcls[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -466,7 +449,7 @@ export class DescribeNetworkAclsResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A1707FC0-430C-423A-B624-284046B20399
@@ -474,7 +457,7 @@ export class DescribeNetworkAclsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 3

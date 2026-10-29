@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. You can call the ListApplications operation to obtain the application ID.
+   * The ID of the application. You can obtain the ID by calling the ListApplications operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeApplicationRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The version number of the application. Separate multiple version numbers with commas (,). If you want to query data of all versions of applications, specify All for this parameter. By default, only data of applications in the stable versions are queried.
+   * The business service version numbers of the application. Multiple values are supported and separated by commas (,). If you enter All, data of all versions is returned. By default, only data associated with the stable version number is returned.
    * 
    * @example
    * v1,v2
@@ -23,16 +23,12 @@ export class DescribeApplicationRequest extends $dara.Model {
   appVersions?: string;
   /**
    * @remarks
-   * The region level by which edge resources of the application are collected. The value is of the enumeration type. Valid values:
+   * The regional statistical level of the application edge resources. Valid values:
    * 
-   * - National: Chinese mainland
-   * 
-   * - Big: area
-   * 
+   * - National: nationwide
+   * - Big: region
    * - Middle: province
-   * 
    * - Small: city
-   * 
    * - RegionId: edge node
    * 
    * Default value: National.
@@ -43,7 +39,7 @@ export class DescribeApplicationRequest extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * Specifies whether to return other information about the application, such as statistics on resource instances and pods. The value must be a JSON string. By default, all information is returned.
+   * Specifies whether to return information about statistical resource instances and container pods. The value is a JSON string. By default, all information is returned.
    * 
    * @example
    * {\\"appInfo\\":true,\\"detailStat\\": true, \\"appVersionStat\\": true, \\"districtStat\\":true ,\\"instanceStat\\": true, \\"podCountStat\\": true}
@@ -51,7 +47,7 @@ export class DescribeApplicationRequest extends $dara.Model {
   outDetailStatParams?: string;
   /**
    * @remarks
-   * The resource filtering condition.
+   * The resource filter conditions.
    * 
    * @example
    * [{\\"regionCode\\": \\"cn-wuxi-telecom_unicom_cmcc-3\\",    \\"ispCode\\": \\"telecom\\",    \\"count\\": 2	},{    \\"regionCode\\": \\"cn-shanghai-cmcc\\",    \\"count\\": 4	}]

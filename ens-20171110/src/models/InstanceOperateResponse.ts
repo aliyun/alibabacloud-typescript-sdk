@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InstanceOperateResponse extends $dara.Model {
+  /**
+   * @remarks
+   * code
+   */
   code?: number;
+  /**
+   * @remarks
+   * instance id
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * message
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {

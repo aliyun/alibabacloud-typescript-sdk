@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLoadBalancerSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * The specifications of the ELB instance.
+   * The specification of the load balancing instance.
    * 
    * @example
    * elb.s2.small

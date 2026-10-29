@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnsNetDistrictRequest extends $dara.Model {
   /**
    * @remarks
-   * The code of the region.
+   * The region code.
    * 
-   * If you do not specify this parameter, only nodes in the regions of the level that is specified by the NetLevelCode parameter are queried.
+   * If this parameter is left empty, only the edge zones under the specified NetLevelCode are queried.
    * 
-   * If you specify this parameter, only nodes in the regions of the level that is specified by this parameter are queried.
+   * If this parameter is specified, only the child edge zones under the specified NetDistrictCode are queried.
    * 
    * @example
    * 100106
@@ -17,18 +17,18 @@ export class DescribeEnsNetDistrictRequest extends $dara.Model {
   netDistrictCode?: string;
   /**
    * @remarks
-   * Region code
+   * The region code.
    */
   netDistrictCodeNode?: boolean;
   /**
    * @remarks
-   * The level of the region.
+   * The region level. Valid values:
    * 
-   * - **Big**: area
+   * - **Big**: Area.
    * 
-   * - **Middle**: province
+   * - **Middle**: Province.
    * 
-   * - **Small**: city
+   * - **Small**: City.
    * 
    * This parameter is required.
    * 

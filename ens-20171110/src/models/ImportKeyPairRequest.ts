@@ -5,15 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ImportKeyPairRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the key pair. The name must conform to the following naming conventions:
+   * The name of the key pair. The name must meet the following requirements:
    * 
    * - The name must be 2 to 128 characters in length.
+   * - The name must start with a letter or a Chinese character, and cannot start with `http://` or `https://`.
+   * - The name can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
-   * - The name must start with a letter but cannot start with `http://` or `https://`.
-   * 
-   * - The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-   * 
-   * You can specify the name of only one key pair.
+   * Only one key pair name can be specified.
    * 
    * This parameter is required.
    * 
@@ -23,7 +21,7 @@ export class ImportKeyPairRequest extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * The public key of the key pair. You can specify only one public key.
+   * The public key content of the key pair. Only one public key can be specified.
    * 
    * This parameter is required.
    * 

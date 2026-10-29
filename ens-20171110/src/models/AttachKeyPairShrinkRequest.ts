@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachKeyPairShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of instance IDs.
+   * The list of instance IDs.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class AttachKeyPairShrinkRequest extends $dara.Model {
   keyPairId?: string;
   /**
    * @remarks
-   * The key pair name.
+   * The name of the key pair.
    * 
    * @example
    * test-kp

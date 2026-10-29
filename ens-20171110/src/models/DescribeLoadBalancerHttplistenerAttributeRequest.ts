@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLoadBalancerHTTPListenerAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The listener port that you want to query. Valid values: **1 to 65535**.
+   * The listener port to query. Valid values: **1** to **65535**.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeRequest extends $dara.Mode
   listenerPort?: number;
   /**
    * @remarks
-   * The ID of the ELB instance.
+   * The ID of the load balancing instance.
    * 
    * This parameter is required.
    * 

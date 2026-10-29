@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSnatEntryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the SNAT entry that you want to delete.
+   * The ID of the SNAT entry to be deleted.
    * 
    * This parameter is required.
    * 

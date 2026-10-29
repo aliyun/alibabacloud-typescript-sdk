@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnassignPrivateIpAddressesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ENI.
+   * The ID of the network interface controller (NIC).
    * 
    * This parameter is required.
    * 

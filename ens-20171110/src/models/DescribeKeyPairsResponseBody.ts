@@ -64,7 +64,7 @@ export class DescribeKeyPairsResponseBody extends $dara.Model {
   keyPairs?: DescribeKeyPairsResponseBodyKeyPairs;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -72,7 +72,7 @@ export class DescribeKeyPairsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10

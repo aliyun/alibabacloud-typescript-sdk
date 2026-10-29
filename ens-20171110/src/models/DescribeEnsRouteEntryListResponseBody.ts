@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnsRouteEntryListResponseBodyRouteEntrysNextHops extends $dara.Model {
   /**
    * @remarks
-   * The ID of the next hop.
+   * The instance ID of the next hop.
    * 
    * @example
    * i-bp1111yup9991890woxq
@@ -13,7 +13,7 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrysNextHops extends $d
   nextHopId?: string;
   /**
    * @remarks
-   * The instance ID of the next hop.
+   * The name of the next hop instance.
    * 
    * @example
    * testInstance
@@ -21,7 +21,7 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrysNextHops extends $d
   nextHopName?: string;
   /**
    * @remarks
-   * The type of the next hop. Valid values:
+   * The next hop type.
    * 
    * @example
    * Instance
@@ -55,7 +55,7 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrysNextHops extends $d
 export class DescribeEnsRouteEntryListResponseBodyRouteEntrys extends $dara.Model {
   /**
    * @remarks
-   * The time when the IP address was created. The time is displayed in UTC.
+   * The creation time in UTC.
    * 
    * @example
    * 2023-02-16T03:50:05Z
@@ -63,7 +63,7 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrys extends $dara.Mode
   creationTime?: string;
   /**
    * @remarks
-   * Enter a description for the route.
+   * The description of the route entry.
    * 
    * @example
    * Test
@@ -71,7 +71,7 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrys extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route.
+   * The destination CIDR block of the route entry.
    * 
    * @example
    * 101.0.45.0/24
@@ -79,12 +79,12 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrys extends $dara.Mode
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The information about the next hop.
+   * The next hop information.
    */
   nextHops?: DescribeEnsRouteEntryListResponseBodyRouteEntrysNextHops[];
   /**
    * @remarks
-   * The ID of the route.
+   * The ID of the route entry.
    * 
    * @example
    * rte-2zeksx7h436f5unk349m1
@@ -92,7 +92,7 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrys extends $dara.Mode
   routeEntryId?: string;
   /**
    * @remarks
-   * The name of the route.
+   * The name of the route entry.
    * 
    * @example
    * test0
@@ -108,7 +108,7 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrys extends $dara.Mode
   routeTableId?: string;
   /**
    * @remarks
-   * The source CIDR block. This field is used when you configure a route entry in the gateway route table. This field is not supported in the vSwitch route table.
+   * The source CIDR block. This parameter is used when you configure a routing entry in a gateway route table and is not supported in a vSwitch route table.
    * 
    * @example
    * 10.XXX.XXX.0/24
@@ -116,7 +116,7 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrys extends $dara.Mode
   sourceCidrBlock?: string;
   /**
    * @remarks
-   * The status of the route entry. Valid values:
+   * The status of the route entry.
    * 
    * @example
    * Available
@@ -124,7 +124,7 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrys extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The type of the route entry.
+   * The type of the routing entry.
    * 
    * @example
    * Custom
@@ -175,7 +175,7 @@ export class DescribeEnsRouteEntryListResponseBodyRouteEntrys extends $dara.Mode
 export class DescribeEnsRouteEntryListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -183,7 +183,7 @@ export class DescribeEnsRouteEntryListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10
@@ -199,12 +199,12 @@ export class DescribeEnsRouteEntryListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the routes.
+   * The route entry information.
    */
   routeEntrys?: DescribeEnsRouteEntryListResponseBodyRouteEntrys[];
   /**
    * @remarks
-   * The number of returned entries.
+   * The total number of entries.
    * 
    * @example
    * 7

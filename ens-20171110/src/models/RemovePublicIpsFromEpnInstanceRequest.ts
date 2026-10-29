@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemovePublicIpsFromEpnInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EPN instance.
+   * The edge-to-edge communication instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RemovePublicIpsFromEpnInstanceRequest extends $dara.Model {
   EPNInstanceId?: string;
   /**
    * @remarks
-   * The information about the public IP addresses that you want to delete.
+   * The information about the public IP addresses to be removed.
    * 
    * This parameter is required.
    * 

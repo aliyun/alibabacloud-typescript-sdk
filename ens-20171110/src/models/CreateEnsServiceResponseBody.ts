@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEnsServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The service code. 0 is returned for a successful request. An error code is returned for a failed request.
+   * The business code. A value of 0 is returned for a successful call, and an error code is returned for a failed call.
    * 
    * @example
    * 0

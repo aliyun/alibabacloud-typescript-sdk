@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunServiceScheduleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RunServiceScheduleRequest extends $dara.Model {
   clientIp?: string;
   /**
    * @remarks
-   * The directory to which the data file is mounted. The value must be a full path and cannot be \\"/../\\". Example: ["/data/app01", "/data/user"]. Specify the relative path of the virtual device for this parameter. For example, specify /data for this parameter when the actual path of the virtual device is /data/{input path}.
+   * The list of directories of user data files to be mounted. The directories must be absolute paths, and the \\"/../\\" format is not supported. Example: ["/data/app01", "/data/user"]. Note: The input directory path is relative to the /data directory of the virtual device. The actual path on the virtual device is /data/{input path}.
    * 
    * @example
    * [\\"/data/app01\\", \\"/data/user\\"]
@@ -33,7 +33,7 @@ export class RunServiceScheduleRequest extends $dara.Model {
   directorys?: string;
   /**
    * @remarks
-   * The parameter does not take effect.
+   * Invalid parameter.
    * 
    * @example
    * android
@@ -41,7 +41,7 @@ export class RunServiceScheduleRequest extends $dara.Model {
   podConfigName?: string;
   /**
    * @remarks
-   * The maximum duration for locking an idle device. Unit: seconds. This parameter takes effect only if you set ServiceAction to PreSchedule. Default value: 300.
+   * The maximum time to lock an idle device, in seconds. This parameter takes effect only when ServiceAction is set to PreSchedule. Default value: 300.
    * 
    * @example
    * 300
@@ -49,7 +49,7 @@ export class RunServiceScheduleRequest extends $dara.Model {
   preLockedTimeout?: number;
   /**
    * @remarks
-   * The scheduling policy of the device. The value must be a JSON string.
+   * The device scheduling policy. The value is a string in JSON format.
    * 
    * @example
    * {\\"selectLevel\\": \\"RegionId\\", \\"values\\": [\\"cn-chengdu-telecom-2\\"]  }
@@ -57,25 +57,20 @@ export class RunServiceScheduleRequest extends $dara.Model {
   scheduleStrategy?: string;
   /**
    * @remarks
-   * The scheduling operation. The value must be of the enumeration type. Valid values:
+   * The scheduling service operation. Valid values:
    * 
-   * Container scenario:
+   * Container scenarios:
    * 
-   * - Start: selects and activates an idle cloud device.
+   * - Start: Selects and activates a schedulable cloud device and starts the service.
+   * - Stop: Stops and releases the cloud device.
+   * - Console: Interacts with the device by using commands when the UUID is in the scheduling state.
    * 
-   * - Stop: stops and releases the cloud device.
-   * 
-   * - Console: performs the scheduling operation when the device is in the scheduling state.
-   * 
-   * Bare metal instance or virtual machine scenario:
-   * 
-   * - PreSchedule: locks a virtual machine instance for scheduling.
-   * 
-   * - Confirm: confirms the scheduling operation.
-   * 
-   * - Cancel: cancels the scheduling operation.
-   * 
-   * - Console: performs the scheduling operation when the device is in the scheduling state.
+   * Bare metal or virtual machine scenarios:
+   *   
+   * - PreSchedule: Pre-schedules and locks a virtual machine instance.
+   * - Confirm: Confirms the scheduling.
+   * - Cancel: Cancels the scheduling.
+   * - Console: Interacts with the device by using commands when the UUID is in the scheduling state.
    * 
    * This parameter is required.
    * 
@@ -85,7 +80,7 @@ export class RunServiceScheduleRequest extends $dara.Model {
   serviceAction?: string;
   /**
    * @remarks
-   * The service commands. The value must be a JSON string.
+   * The list of container service commands. The value is a string in JSON array format.
    * 
    * @example
    * [{\\"containerName\\": \\"android\\",       \\"commands\\":[\\"cat /tmp/token.json\\"]    },    {      \\"commands\\":[\\"ls -l /data/data\\"]    }]

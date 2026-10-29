@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeForwardEntryAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation time in UTC.
+   * The time when the DNAT entry was created. The time is displayed in UTC.
    * 
    * @example
    * 2020-04-26T15:38:27Z
@@ -13,7 +13,7 @@ export class DescribeForwardEntryAttributeResponseBody extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The Elastic IP Address (EIP) that provides public network access in the DNAT entry.
+   * The elastic IP address (EIP) that provides public network access in the DNAT entry.
    * 
    * @example
    * 36.XXX.XXX.72
@@ -21,11 +21,9 @@ export class DescribeForwardEntryAttributeResponseBody extends $dara.Model {
   externalIp?: string;
   /**
    * @remarks
-   * The external port or port range for port forwarding.
-   * 
-   * - The port range must be between 1 and 65535.
-   * 
-   * - To forward a port range, separate the start and end ports with a forward slash (/), such as 10/20.
+   * The external port or port range used for port forwarding.
+   * - The port range must be from 1 to 65535.
+   * - To forward traffic within a port range, separate the start port and the end port with a forward slash (/). Example: 10/20.
    * 
    * @example
    * 22
@@ -49,7 +47,7 @@ export class DescribeForwardEntryAttributeResponseBody extends $dara.Model {
   forwardEntryName?: string;
   /**
    * @remarks
-   * The probe port for DNAT. It must fall within the internal port range. The default value is empty.
+   * The health check port for the DNAT entry. The port must be within the internal port range. Default value: null.
    * 
    * @example
    * 80
@@ -57,7 +55,7 @@ export class DescribeForwardEntryAttributeResponseBody extends $dara.Model {
   healthCheckPort?: string;
   /**
    * @remarks
-   * The private IP address of the instance that communicates over the public network through the DNAT entry.
+   * The private IP address of the instance that communicates with the Internet through the DNAT entry.
    * 
    * @example
    * 10.XXX.XXX.50
@@ -65,11 +63,10 @@ export class DescribeForwardEntryAttributeResponseBody extends $dara.Model {
   internalIp?: string;
   /**
    * @remarks
-   * The internal port or port range for port forwarding.
+   * The internal port or port range used for port forwarding.
    * 
-   * - The port range must be between 1 and 65535.
-   * 
-   * - To forward a port range, separate the start and end ports with a forward slash (/), such as 10/20.
+   * - The port range must be from 1 to 65535.
+   * - To forward traffic within a port range, separate the start port and the end port with a forward slash (/). Example: 10/20.
    * 
    * @example
    * 22
@@ -79,11 +76,11 @@ export class DescribeForwardEntryAttributeResponseBody extends $dara.Model {
    * @remarks
    * The protocol type. Valid values:
    * 
-   * - **TCP**: Forwards TCP messages.
+   * - **TCP**: Forwards TCP packets.
    * 
-   * - **UDP**: Forwards UDP messages.
+   * - **UDP**: Forwards UDP packets.
    * 
-   * - **Any**: Forwards messages of all protocols.
+   * - **Any**: Forwards packets of all protocols.
    * 
    * @example
    * Any
@@ -91,7 +88,7 @@ export class DescribeForwardEntryAttributeResponseBody extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The ID of the NAT gateway.
    * 
    * @example
    * nat-5t7nh1cfm6kxiszlttr38****
@@ -107,7 +104,7 @@ export class DescribeForwardEntryAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The standby Elastic IP Address (EIP) that provides public network access. You must select a standby EIP attached to the NAT Gateway. The standby public IP becomes active after the DNAT entry is created.
+   * The standby elastic IP address (EIP) that provides public network access. You must select a standby EIP that is attached to the NAT gateway. The standby public IP address takes effect after the DNAT entry is created.
    * 
    * @example
    * 101.XXX.XXX.4
@@ -115,15 +112,11 @@ export class DescribeForwardEntryAttributeResponseBody extends $dara.Model {
   standbyExternalIp?: string;
   /**
    * @remarks
-   * The status of the standby EIP.
-   * 
-   * - Running: Enabled.
-   * 
-   * - Stopping: Being disabled.
-   * 
-   * - Stopped: Disabled.
-   * 
-   * - Starting: Being enabled.
+   * The status of the standby EIP. Valid values:
+   * - Running: The standby EIP is enabled.
+   * - Stopping: The standby EIP is being disabled.
+   * - Stopped: The standby EIP is disabled.
+   * - Starting: The standby EIP is being enabled.
    * 
    * @example
    * Stopped
@@ -131,13 +124,10 @@ export class DescribeForwardEntryAttributeResponseBody extends $dara.Model {
   standbyStatus?: string;
   /**
    * @remarks
-   * The status of the DNAT entry.
-   * 
-   * - Pending: The configuration is in progress, such as during creation or modification.
-   * 
-   * - Available: The entry is active.
-   * 
-   * - Deleting: The entry is being deleted.
+   * The status of the DNAT entry. Valid values:
+   * - Pending: The DNAT entry is being configured. It may be being created or modified.
+   * - Available: The DNAT entry is available.
+   * - Deleting: The DNAT entry is being deleted.
    * 
    * @example
    * Available

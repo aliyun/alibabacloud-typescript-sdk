@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnsResourceUsageResponseBodyEnsResourceUsage extends $dara.Model {
   /**
    * @remarks
-   * The number of edge services. This parameter is available only when you set the ServiceType parameter to 2.
+   * The number of edge services. This field returns data only when ServiceType is set to 2.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class DescribeEnsResourceUsageResponseBodyEnsResourceUsage extends $dara.
   cpuSum?: number;
   /**
    * @remarks
-   * The number of data disks.
+   * The number of data cloud disks.
    * 
    * @example
    * 4
@@ -29,7 +29,7 @@ export class DescribeEnsResourceUsageResponseBodyEnsResourceUsage extends $dara.
   diskCount?: number;
   /**
    * @remarks
-   * The number of stopped VMs.
+   * The number of stopped virtual machine instances.
    * 
    * @example
    * 7
@@ -37,7 +37,7 @@ export class DescribeEnsResourceUsageResponseBodyEnsResourceUsage extends $dara.
   downCount?: number;
   /**
    * @remarks
-   * The number of expired VM instances.
+   * The number of expired virtual machine instances.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeEnsResourceUsageResponseBodyEnsResourceUsage extends $dara.
   expiredCount?: number;
   /**
    * @remarks
-   * The number of VM instances that are about to expire.
+   * The number of virtual machine instances that are about to expire.
    * 
    * @example
    * 0
@@ -77,13 +77,10 @@ export class DescribeEnsResourceUsageResponseBodyEnsResourceUsage extends $dara.
   runningCount?: number;
   /**
    * @remarks
-   * The type of the service. Valid values:
-   * 
-   * - 1: subscription instance.
-   * 
-   * - 2: edge service instance.
-   * 
-   * - 3: pay-as-you-go instance.
+   * The service type. Valid values:
+   * - 1: Subscription instance.
+   * - 2: Edge service instance.
+   * - 3: Pay-as-you-go instance.
    * 
    * @example
    * 1
@@ -91,7 +88,7 @@ export class DescribeEnsResourceUsageResponseBodyEnsResourceUsage extends $dara.
   serviceType?: string;
   /**
    * @remarks
-   * The total disk size.
+   * The total disk storage capacity.
    * 
    * @example
    * 5000

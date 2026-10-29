@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachDiskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the disk.
+   * The disk ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DetachDiskRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

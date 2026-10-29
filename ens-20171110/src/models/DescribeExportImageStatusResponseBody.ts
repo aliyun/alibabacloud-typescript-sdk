@@ -5,15 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExportImageStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The export status of the image. Valid values:
-   * 
-   * - Exporting
-   * 
-   * - Exported
-   * 
-   * - ExportError
-   * 
-   * - Unexported
+   * The image export status. Valid values:
+   * - Exporting: The image is being exported.
+   * - Exported: The image is exported.
+   * - ExportError: An error occurred during the image export.
+   * - Unexported: The image is not exported.
    * 
    * @example
    * Exporting
@@ -21,7 +17,7 @@ export class DescribeExportImageStatusResponseBody extends $dara.Model {
   imageExportStatus?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 14BBB3A0-3DBE-54F5-AEC8-01D3F6B1EBE2

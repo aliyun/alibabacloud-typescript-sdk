@@ -61,7 +61,7 @@ export class RunServiceScheduleResponseBody extends $dara.Model {
   commandResults?: RunServiceScheduleResponseBodyCommandResults;
   /**
    * @remarks
-   * The index number of the scheduled virtual device (pod).
+   * The index of the scheduled target virtual device (container pod).
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class RunServiceScheduleResponseBody extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * The ID of the scheduled instance.
+   * The ID of the target instance.
    * 
    * @example
    * i-5qvji3mom4ec013dyygmtxlkj
@@ -77,7 +77,7 @@ export class RunServiceScheduleResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IP address of the scheduled instance.
+   * The IP address of the scheduled target instance.
    * 
    * @example
    * 172.16.246.11
@@ -85,7 +85,7 @@ export class RunServiceScheduleResponseBody extends $dara.Model {
   instanceIp?: string;
   /**
    * @remarks
-   * The start port of the scheduled instance.
+   * The start port of the scheduled target instance.
    * 
    * @example
    * 1024
@@ -93,7 +93,7 @@ export class RunServiceScheduleResponseBody extends $dara.Model {
   instancePort?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -101,7 +101,7 @@ export class RunServiceScheduleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is repeated. This parameter is not returned if ServcieAction is set to Console.
+   * Specifies whether the operation is repeated for ServiceAction values other than Console.
    * 
    * @example
    * false
@@ -109,7 +109,7 @@ export class RunServiceScheduleResponseBody extends $dara.Model {
   requestRepeated?: string;
   /**
    * @remarks
-   * The TCP port range of the scheduled instance or container. The value is in the ${from}-$-{to} format. Example: 80-88.
+   * The TCP service port range of the scheduled target virtual machine instance or container. Format: ${from}-${to}. Example: 80-88.
    * 
    * @example
    * "80-88"

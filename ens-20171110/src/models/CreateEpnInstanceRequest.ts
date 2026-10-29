@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEpnInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the EPN instance.
+   * The name of the Edge-to-Edge network instance.
    * 
    * @example
    * test EPNInstanceName
@@ -13,7 +13,7 @@ export class CreateEpnInstanceRequest extends $dara.Model {
   EPNInstanceName?: string;
   /**
    * @remarks
-   * The type of the EPN instance. Set the value to **EdgeToEdge**.
+   * The type of the Edge-to-Edge communication instance. Valid value: **EdgeToEdge**.
    * 
    * This parameter is required.
    * 
@@ -23,17 +23,14 @@ export class CreateEpnInstanceRequest extends $dara.Model {
   EPNInstanceType?: string;
   /**
    * @remarks
-   * The billing method for network usage. Valid values:
+   * The network billing type. Valid values:
    * 
-   * - **BandwidthByDay**: Pay by daily peak bandwidth.
+   * - **BandwidthByDay**: Daily peak bandwidth.
+   * - **95BandwidthByMonth**: Monthly 95th percentile peak bandwidth.
+   * - **PayByBandwidth4thMonth**: Monthly fourth peak bandwidth.
+   * - **PayByBandwidth**: Bandwidth with defined specifications.
    * 
-   * - **95BandwidthByMonth**: Pay by monthly 95th percentile bandwidth.
-   * 
-   * - **PayByBandwidth4thMonth**: Pay by monthly fourth peak bandwidth.
-   * 
-   * - **PayByBandwidth**: Pay by fixed bandwidth.
-   * 
-   * You can specify only one metering method for network usage and cannot overwrite the existing metering method.
+   * Only one of the Billable methods is supported. If a billing method already exists, the new value is invalid by default, and the existing one prevails.
    * 
    * This parameter is required.
    * 
@@ -43,7 +40,7 @@ export class CreateEpnInstanceRequest extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 1 to 100.
+   * The maximum outbound bandwidth to the Internet. Unit: Mbit/s. Valid values: 1 to 100.
    * 
    * This parameter is required.
    * 
@@ -54,12 +51,9 @@ export class CreateEpnInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The networking mode. Valid values:
-   * 
-   * - **SpeedUp**: intelligent acceleration network (Internet)
-   * 
-   * - **Connection**: internal network
-   * 
-   * - **SpeedUpAndConnection**: intelligent acceleration network and internal network
+   * - **SpeedUp**: Intelligent acceleration (Internet).
+   * - **Connection**: Internal network connectivity (internal network mode).
+   * - **SpeedUpAndConnection**: Intelligent acceleration and internal network connectivity (internal network mode).
    * 
    * This parameter is required.
    * 

@@ -21,7 +21,7 @@ export class DescribeNetworkAclsRequest extends $dara.Model {
   networkAclName?: string;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. Starting value: **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeNetworkAclsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for a paging query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10

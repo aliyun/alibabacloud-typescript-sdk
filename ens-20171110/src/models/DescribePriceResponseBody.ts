@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
-   * The type of currency.
+   * The currency. Valid values:
    * 
-   * - USD: US dollar
-   * 
-   * - JPY: Japanese Yen
+   * <props="china">- CNY: Chinese yuan.
+   * - USD: US dollar.
+   * - JPY: Japanese yen.
    * 
    * @example
    * USD
@@ -33,7 +33,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   originalPrice?: number;
   /**
    * @remarks
-   * The final price.
+   * The transaction price.
    * 
    * @example
    * 126.75
@@ -69,7 +69,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
 export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * The price.
+   * The price information.
    */
   price?: DescribePriceResponseBodyPriceInfoPrice;
   static names(): { [key: string]: string } {
@@ -99,12 +99,12 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
 export class DescribePriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price information.
+   * The price information list.
    */
   priceInfo?: DescribePriceResponseBodyPriceInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 694EB8FF-446C-5B1E-8146-9629E492551F

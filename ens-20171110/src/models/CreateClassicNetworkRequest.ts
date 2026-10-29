@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClassicNetworkRequest extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block of the network. You can use one of the following CIDR blocks or their subnets as the CIDR block of the network:
+   * The CIDR block of the network. You can use the following CIDR blocks or their subsets as the CIDR block of the network:
    * 
-   * - 10.0.0.0/8 (default)
-   * 
-   * - 172.16.0.0/12
-   * 
-   * - 192.168.0.0/16
+   * - 10.0.0.0/8 (default).
+   * - 172.16.0.0/12.
+   * - 192.168.0.0/16.
    * 
    * This parameter is required.
    * 
@@ -21,7 +19,9 @@ export class CreateClassicNetworkRequest extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * The description of the network. The name must be 2 to 256 characters in length. It must start with a letter but cannot start with http\\:// or https\\://.
+   * The description of the network. The description must meet the following rules:
+   * 
+   * * It must be 2 to 256 characters in length. It must start with a letter or a Chinese character, and cannot start with http:// or https://.
    * 
    * @example
    * This is my vswitch.
@@ -29,7 +29,7 @@ export class CreateClassicNetworkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the edge node.
+   * The edge zone ID of ENS.
    * 
    * This parameter is required.
    * 
@@ -39,13 +39,11 @@ export class CreateClassicNetworkRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The name of the network. The name must meet the following requirements:
+   * The name of the network. The name must meet the following rules:
    * 
-   * - The name must be 2 to 128 characters in length.
-   * 
-   * - The name must start with a letter but cannot start with http\\:// or https\\://.
-   * 
-   * - The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * - It must be 2 to 128 characters in length, and can contain English and Chinese characters.
+   * - It must start with an uppercase or lowercase letter or a Chinese character, and cannot start with http:// or https://.
+   * - It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * example

@@ -43,8 +43,8 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
   /**
    * @remarks
    * The listener status of the load balancing instance. Valid values:
-   * - **Active**: The listeners in the instance can forward accepted traffic based on rules.
-   * - **InActive**: The listeners in the instance no longer forward accepted traffic.
+   * - **Active**: The listeners in the instance can accept and forward traffic based on rules.
+   * - **InActive**: The listeners in the instance no longer accept and forward traffic.
    * 
    * @example
    * InActive
@@ -68,7 +68,7 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The page number of the list. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -76,7 +76,7 @@ export class DescribeLoadBalancersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The Settings for the number of entries per page during paging in a paged query. Default value: 10. Valid values: **10** to **100**.
+   * The Settings for the number of entries per page for paging in a paged query. Default value: 10. Valid values: **10** to **100**.
    * 
    * @example
    * 100

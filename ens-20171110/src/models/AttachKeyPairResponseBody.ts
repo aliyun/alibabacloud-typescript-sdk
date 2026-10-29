@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachKeyPairResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The status code for the operation. A value of `200` indicates success.
+   * The status code of the operation. A value of 200 indicates that the operation was successful.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class AttachKeyPairResponseBodyResults extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The response message. If the `Code` is `200`, this message is `successful`.
+   * The message returned for the operation. If the code is 200, the message is successful.
    * 
    * @example
    * successful
@@ -29,7 +29,7 @@ export class AttachKeyPairResponseBodyResults extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates if the operation succeeded for the instance.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true
@@ -65,7 +65,7 @@ export class AttachKeyPairResponseBodyResults extends $dara.Model {
 export class AttachKeyPairResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of instances where the attachment failed.
+   * The number of instances to which the key pair failed to be attached.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class AttachKeyPairResponseBody extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The key pair ID.
+   * The ID of the key pair.
    * 
    * @example
    * ssh-xxx
@@ -81,7 +81,7 @@ export class AttachKeyPairResponseBody extends $dara.Model {
   keyPairId?: string;
   /**
    * @remarks
-   * The key pair name.
+   * The name of the key pair.
    * 
    * @example
    * ssh-xxx
@@ -97,12 +97,12 @@ export class AttachKeyPairResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The attachment results for each instance.
+   * The result set that indicates the success or failure of the key pair attachment for each instance.
    */
   results?: AttachKeyPairResponseBodyResults[];
   /**
    * @remarks
-   * The total number of instances in the request.
+   * The total number of instances to which the key pair is attached.
    * 
    * @example
    * 3

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySnapshotAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the snapshot. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+   * The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * testDescription
@@ -13,7 +13,7 @@ export class ModifySnapshotAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the snapshot.
+   * The snapshot ID.
    * 
    * This parameter is required.
    * 
@@ -23,9 +23,7 @@ export class ModifySnapshotAttributeRequest extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-   * 
-   * The name cannot start with **auto** because snapshots whose names start with auto are recognized as automatic snapshots.
+   * The display name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, half-width colons (:), underscores (_), and hyphens (-). To prevent name conflicts with automatic snapshots, the name cannot start with **auto**.
    * 
    * @example
    * testSnapshotName

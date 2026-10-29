@@ -99,7 +99,7 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocols 
   forwardPort?: number;
   /**
    * @remarks
-   * Indicates whether listener forwarding is enabled.
+   * Specifies whether listener forwarding is enabled.
    * 
    * @example
    * off
@@ -163,7 +163,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The IP version of the load balancing instance. Valid values: ipv4 or ipv6.
+   * The IP version of the load balancing instance. Valid values: ipv4 and ipv6.
    * 
    * @example
    * ipv4
@@ -184,7 +184,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   backendServers?: DescribeLoadBalancerAttributeResponseBodyBackendServers[];
   /**
    * @remarks
-   * The peak bandwidth of the load balancing instance. The default value is -1, which indicates that bandwidth is not throttled.
+   * The peak bandwidth of the load balancing instance. Default value: -1, which indicates that bandwidth is not throttled.
    * 
    * @example
    * -1
@@ -192,7 +192,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The creation time of the load balancing instance (UTC).
+   * The time when the load balancing instance was created. The time is displayed in UTC.
    * 
    * @example
    * 2019-05-21T12:22:00Z
@@ -200,7 +200,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The end time of the load balancing instance in ISO 8601 UTC format (YYYY-MM-DDTHH:mm:ssZ).
+   * The expiration time of the load balancing instance. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2020-05-21T12:22:00Z
@@ -208,7 +208,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ENS node ID.
+   * The ID of the ENS edge zone.
    * 
    * @example
    * cn-chengdu-telecom
@@ -242,7 +242,7 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   loadBalancerName?: string;
   /**
    * @remarks
-   * The specification of the load balancing instance.
+   * The specifications of the load balancing instance.
    * 
    * @example
    * elb.s2.medium
@@ -251,8 +251,8 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The listener status of the load balancing instance. Valid values:
-   * - **Active**: The listeners of the instance can forward received traffic based on rules.
-   * - **InActive**: The listeners of the instance no longer forward received traffic.
+   * - **Active**: The listeners in the instance can forward accepted traffic based on rules.
+   * - **InActive**: The listeners in the instance no longer forward accepted traffic.
    * 
    * @example
    * Active

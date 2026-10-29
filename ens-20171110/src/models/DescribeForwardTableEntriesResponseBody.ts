@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends $dara.Model {
   /**
    * @remarks
-   * The EIP in the DNAT entry. The public IP address is used to access the Internet.
+   * The elastic IP address that provides public network access in the DNAT entry.
    * 
    * @example
    * 120.XXX.XXX.70
@@ -13,7 +13,7 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
   externalIp?: string;
   /**
    * @remarks
-   * The external port or port range that is used in port forwarding.
+   * The external port or port range used for port forwarding.
    * 
    * @example
    * 22
@@ -37,7 +37,7 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
   forwardEntryName?: string;
   /**
    * @remarks
-   * The probe port of DNAT.
+   * The health check port of the DNAT entry.
    * 
    * @example
    * 80
@@ -45,7 +45,7 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
   healthCheckPort?: string;
   /**
    * @remarks
-   * The private IP address of the instance that uses the DNAT entry for Internet communication.
+   * The private IP address of the instance that communicates with the Internet through the DNAT entry.
    * 
    * @example
    * 10.XXX.XXX.3
@@ -53,7 +53,7 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
   internalIp?: string;
   /**
    * @remarks
-   * The internal port or port range that is used for port forwarding.
+   * The internal port or port range used for port forwarding.
    * 
    * @example
    * 22
@@ -61,13 +61,13 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
   internalPort?: string;
   /**
    * @remarks
-   * The protocol. Valid values:
+   * The protocol type. Valid values:
    * 
-   * - **TCP**: forwards TCP packets.
+   * - **TCP**: Forwards TCP packets.
    * 
-   * - **UDP**: forwards UDP packets.
+   * - **UDP**: Forwards UDP packets.
    * 
-   * - **Any**: forwards all packets.
+   * - **Any**: Forwards packets of all protocols.
    * 
    * @example
    * Any
@@ -83,7 +83,7 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
   natGatewayId?: string;
   /**
    * @remarks
-   * The secondary EIP that is used to access the Internet.
+   * The standby elastic IP address that provides public network access.
    * 
    * @example
    * 101.XXX.XXX.7
@@ -91,15 +91,11 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
   standbyExternalIp?: string;
   /**
    * @remarks
-   * The status of the secondary EIP. Valid values:
-   * 
-   * - Running
-   * 
-   * - Stopping
-   * 
-   * - Stopped
-   * 
-   * - Starting
+   * The status of the standby elastic IP address. Valid values:
+   * - Running: Enabled.
+   * - Stopping: Disabling.
+   * - Stopped: Disabled.
+   * - Starting: Enabling.
    * 
    * @example
    * Stopped
@@ -108,12 +104,9 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
   /**
    * @remarks
    * The status of the DNAT entry. Valid values:
-   * 
-   * - Pending: The DNAT entry is being created or modified.
-   * 
-   * - Available: The DNAT entry is available.
-   * 
-   * - Deleting: The DNAT entry is being deleted.
+   * - Pending: The entry is being configured, created, or modified.
+   * - Available: The entry is available.
+   * - Deleting: The entry is being deleted.
    * 
    * @example
    * Available
@@ -165,12 +158,12 @@ export class DescribeForwardTableEntriesResponseBodyForwardTableEntries extends 
 export class DescribeForwardTableEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of DNAT entries.
+   * The details of the queried DNAT entries.
    */
   forwardTableEntries?: DescribeForwardTableEntriesResponseBodyForwardTableEntries[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -178,7 +171,7 @@ export class DescribeForwardTableEntriesResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page for paging in a paged query.
    * 
    * @example
    * 10
@@ -186,7 +179,7 @@ export class DescribeForwardTableEntriesResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -194,7 +187,7 @@ export class DescribeForwardTableEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

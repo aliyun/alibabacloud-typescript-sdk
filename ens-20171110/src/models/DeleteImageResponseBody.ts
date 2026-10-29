@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business code. The value 0 is returned for success.
+   * The business code. A value of 0 indicates success.
    * 
    * @example
    * 0

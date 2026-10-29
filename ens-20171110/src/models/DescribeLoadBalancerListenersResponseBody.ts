@@ -79,7 +79,7 @@ export class DescribeLoadBalancerListenersResponseBody extends $dara.Model {
   listeners?: DescribeLoadBalancerListenersResponseBodyListeners;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -87,7 +87,7 @@ export class DescribeLoadBalancerListenersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page during paging in a paged query.
    * 
    * @example
    * 10
@@ -95,7 +95,7 @@ export class DescribeLoadBalancerListenersResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F3B261DD-3858-4D3C-877D-303ADF374600

@@ -45,7 +45,7 @@ export class DescribeHaVipsResponseBodyHaVipsAssociatedEipAddresses extends $dar
 export class DescribeHaVipsResponseBodyHaVipsAssociatedInstances extends $dara.Model {
   /**
    * @remarks
-   * The time when the association was created. The time is in the ISO 8601 UTC format of YYYY-MM-DDTHH:mm:ssZ.
+   * The time when the instance was associated. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2023-01-05T07:09:28Z
@@ -61,10 +61,10 @@ export class DescribeHaVipsResponseBodyHaVipsAssociatedInstances extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * The type of the instance to attach to the HaVip. Valid values:
+   * The type of the instance to attach the HaVip to. Valid values:
    * 
-   * - EnsInstance: An ENS cloud server instance.
-   * - NetworkInterface: An elastic network interfaces (ENIs) instance, which is a network interface controller (NIC).
+   * - EnsInstance: ENS cloud server instance.
+   * - NetworkInterface: network interface controller (NIC).
    * 
    * @example
    * EnsInstance
@@ -80,9 +80,9 @@ export class DescribeHaVipsResponseBodyHaVipsAssociatedInstances extends $dara.M
   ipAddress?: string;
   /**
    * @remarks
-   * The association status of the HaVip instance. Valid values:
+   * The association status of the HaVip. Valid values:
    * - Associating: The HaVip is being associated.
-   * - InUse: The HaVip is available.
+   * - InUse: The HaVip is in use.
    * - Unassociating: The HaVip is being disassociated.
    * 
    * @example
@@ -121,17 +121,17 @@ export class DescribeHaVipsResponseBodyHaVipsAssociatedInstances extends $dara.M
 export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
   /**
    * @remarks
-   * The elastic IP addresses (EIPs) associated with the HaVip.
+   * The EIPs associated with the HaVip.
    */
   associatedEipAddresses?: DescribeHaVipsResponseBodyHaVipsAssociatedEipAddresses[];
   /**
    * @remarks
-   * The instances associated with the HaVip.
+   * The information about the instances associated with the HaVip.
    */
   associatedInstances?: DescribeHaVipsResponseBodyHaVipsAssociatedInstances[];
   /**
    * @remarks
-   * The time when the HaVip was created. The time is in the ISO 8601 UTC format of YYYY-MM-DDTHH:mm:ssZ.
+   * The time when the HaVip was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2023-03-29T11:17:38Z
@@ -147,7 +147,7 @@ export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the ENS node.
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-guiyang-14
@@ -187,7 +187,7 @@ export class DescribeHaVipsResponseBodyHaVips extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The HaVip status. Valid values:
+   * The status of the HaVip. Valid values:
    * - Creating: The HaVip is being created.
    * - Available: The HaVip is available.
    * - InUse: The HaVip is in use.
@@ -268,7 +268,7 @@ export class DescribeHaVipsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10

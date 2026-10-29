@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The URL that points to the exported image.
+   * The URL of the exported image.
    * 
    * @example
    * http://oss.url
@@ -13,7 +13,7 @@ export class ExportImageResponseBody extends $dara.Model {
   exportedImageURL?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 43A426AD-3F2E-5DD9-9C08-D4DBDCA48D85

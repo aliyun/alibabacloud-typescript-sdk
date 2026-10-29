@@ -15,7 +15,7 @@ export class DeleteSnatIpForSnatEntryRequest extends $dara.Model {
   snatEntryId?: string;
   /**
    * @remarks
-   * The EIP that you want to delete from the SNAT entry.
+   * The EIP in the SNAT entry.
    * 
    * This parameter is required.
    * 

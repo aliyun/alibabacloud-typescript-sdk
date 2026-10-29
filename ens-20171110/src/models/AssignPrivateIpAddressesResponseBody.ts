@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ENI.
+   * The ID of the elastic network interface controller (NIC).
    * 
    * @example
    * eni-uf620pb4d19ljnu4a64m
@@ -45,7 +45,7 @@ export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet e
 export class AssignPrivateIpAddressesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the ENI and the secondary private IP addresses that are assigned to the ENI.
+   * The set of information about the elastic network interface controller (NIC) to which secondary private IP addresses are assigned.
    */
   assignedPrivateIpAddressesSet?: AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet;
   /**

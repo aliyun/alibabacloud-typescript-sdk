@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InstanceActiveOpsGroup extends $dara.Model {
+  /**
+   * @remarks
+   * the instance list of instance active group
+   */
   instanceIds?: string[];
   static names(): { [key: string]: string } {
     return {

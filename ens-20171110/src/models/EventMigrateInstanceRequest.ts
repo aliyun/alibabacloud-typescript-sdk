@@ -6,12 +6,9 @@ export class EventMigrateInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The data migration policy. Valid values:
-   * 
-   * - `abandon`: Does not migrate data. This is the default value.
-   * 
-   * - `force_transfer`: Forces data migration.
-   * 
-   * - `try_transfer`: Attempts to migrate data.
+   * - abandon: Does not migrate data. This is the default value.
+   * - force_transfer: forcible migration of EPS resource.
+   * - try_transfer: Attempts to migrate data.
    * 
    * @example
    * abandon
@@ -29,11 +26,10 @@ export class EventMigrateInstanceRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The type of the O\\&M task. Valid values:
+   * The type of the O&M task. Valid values:
    * 
-   * - `immediate`: Executes the task immediately.
-   * 
-   * - `scheduled`: Executes the task at the specified time.
+   * - immediate: Executes the task immediately.
+   * - scheduled: Executes the task at a scheduled time.
    * 
    * This parameter is required.
    * 
@@ -43,11 +39,11 @@ export class EventMigrateInstanceRequest extends $dara.Model {
   opsType?: string;
   /**
    * @remarks
-   * The instance password. This parameter is optional. If you do not specify a password, the system generates a random one.
+   * The instance password. This parameter is optional. If you do not specify this parameter, a random password is used.
    * 
-   * The password must be 8 to 30 characters long and contain uppercase letters, lowercase letters, and digits.
+   * The password must be 8 to 30 characters in length and must contain uppercase letters, lowercase letters, and digits.
    * 
-   * Note: This parameter is not supported for scheduled execution.
+   * Note: You cannot specify a password when you schedule the execution time.
    * 
    * @example
    * AAaa1234
@@ -55,12 +51,17 @@ export class EventMigrateInstanceRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The scheduled execution time. This must be a Unix timestamp in milliseconds. This parameter is required when `OpsType` is set to `scheduled`.
+   * The scheduled execution time. The value is a timestamp in milliseconds.
+   * This parameter is required when OpsType is set to scheduled.
    * 
    * @example
    * 1742452232000
    */
   planTime?: number;
+  /**
+   * @remarks
+   * The scheduled UTC time.
+   */
   planUtcTime?: string;
   /**
    * @remarks

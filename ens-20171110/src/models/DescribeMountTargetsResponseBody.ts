@@ -21,7 +21,7 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The mount target path.
+   * The path of the mount target.
    * 
    * @example
    * LB:/fileSystemName/mountTargetName
@@ -29,7 +29,7 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
   mountTargetDomain?: string;
   /**
    * @remarks
-   * The mount target name.
+   * The name of the mount target.
    * 
    * @example
    * TestMountPath
@@ -45,12 +45,12 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
   netWorkId?: string;
   /**
    * @remarks
-   * The mount target status. Valid values:
+   * The status of the mount target. Valid values:
    * 
-   * - active: Active.
-   * - inactive: Inactive.
-   * - pending: Queued.
-   * - deleting: Being deleted.
+   * - active: The mount target is available.
+   * - inactive: The mount target is unavailable.
+   * - pending: The task is queued.
+   * - deleting: The mount target is being deleted.
    * 
    * @example
    * active
@@ -90,20 +90,17 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
 export class DescribeMountTargetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The collection of mount target information.
+   * The information about the mount targets.
    */
   mountTargets?: DescribeMountTargetsResponseBodyMountTargets[];
   /**
-   * @remarks
-   * The page number.
-   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 2

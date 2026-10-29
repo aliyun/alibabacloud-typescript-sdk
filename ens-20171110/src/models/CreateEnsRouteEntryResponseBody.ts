@@ -13,7 +13,7 @@ export class CreateEnsRouteEntryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the route.
+   * The route entry ID.
    * 
    * @example
    * rte-5vb5q8sk0lyoscx8539ds

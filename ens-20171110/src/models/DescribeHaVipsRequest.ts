@@ -13,7 +13,7 @@ export class DescribeHaVipsRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The IDs of ENS nodes. Array length: 1 to 100.
+   * The array of ENS edge zone IDs. The array length is 1 to 100.
    */
   ensRegionIds?: string[];
   /**
@@ -58,7 +58,7 @@ export class DescribeHaVipsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Settings for paging.
+   * The number of entries per page in paging queries.
    * 
    * @example
    * 10
@@ -66,7 +66,7 @@ export class DescribeHaVipsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The HaVip status. Valid values:
+   * The status of the HaVip. Valid values:
    * - Creating: The HaVip is being created.
    * - Available: The HaVip is available.
    * - InUse: The HaVip is in use.

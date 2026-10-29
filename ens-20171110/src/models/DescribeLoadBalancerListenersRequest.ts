@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLoadBalancerListenersRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the image.
+   * The description of the listener.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class DescribeLoadBalancerListenersRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The listener port.
+   * The frontend port used by the load balancing instance. Valid values: **1** to **65535**.
    * 
    * @example
    * 80
@@ -21,7 +21,7 @@ export class DescribeLoadBalancerListenersRequest extends $dara.Model {
   listenerPort?: number;
   /**
    * @remarks
-   * The ID of the ELB instance.
+   * The ID of the load balancing instance.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DescribeLoadBalancerListenersRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class DescribeLoadBalancerListenersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page during paging in a paged query.
    * 
    * @example
    * 10

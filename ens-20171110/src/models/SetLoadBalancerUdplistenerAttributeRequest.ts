@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the listener. The name must be **1** to **80** characters long.
-   * 
+   * The name of the listener. The name must be **1** to **80** characters in length.
    * > The name cannot start with `http://` or `https://`.
    * 
    * @example
@@ -15,11 +14,10 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable EIP passthrough. Valid values:
+   * Specifies whether to enable EIP pass-through. Valid values:
    * 
-   * - **on**: Enables EIP passthrough.
-   * 
-   * - **off** (default): Disables EIP passthrough.
+   * - **on**: Enables EIP pass-through.
+   * - **off**: Disables EIP pass-through. This is the default value.
    * 
    * @example
    * on
@@ -27,7 +25,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   eipTransmit?: string;
   /**
    * @remarks
-   * The timeout for established connections, in seconds. The value must be an integer from **10** to **900**. The default value is **900**.
+   * The connection timeout period. Valid values: **10** to **900**. Default value: **900**. Unit: seconds.
    * 
    * @example
    * 500
@@ -35,7 +33,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   establishedTimeout?: number;
   /**
    * @remarks
-   * The port used for health checks. Valid values: **1** to **65535**. Defaults to the backend server port (`BackendServerPort`) if not specified.
+   * The port used for health checks. Valid values: **1** to **65535**. If no Settings are specified for this parameter, the backend service port (BackendServerPort) is used.
    * 
    * @example
    * 8080
@@ -43,15 +41,12 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   healthCheckConnectPort?: number;
   /**
    * @remarks
-   * The timeout for a health check response. If a backend ENS instance does not respond within this timeout period, the health check fails.
+   * The timeout period for a health check response. If a backend ENS instance does not respond within the specified timeout period, the health check fails.
+   * - Default value: 5.
+   * - Valid values: **1** to **300**.
+   * - Unit: seconds.
    * 
-   * - Default value: 5
-   * 
-   * - Valid values: **1** to **300**
-   * 
-   * - Unit: seconds
-   * 
-   * > If the value of `HealthCheckConnectTimeout` is less than the value of `HealthCheckInterval`, the system ignores `HealthCheckConnectTimeout` and uses the value of `HealthCheckInterval` as the timeout period.
+   * > If the value of HealthCheckConnectTimeout is less than the value of HealthCheckInterval, HealthCheckConnectTimeout is invalid and the timeout period is the value of HealthCheckInterval.
    * 
    * @example
    * 100
@@ -59,7 +54,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   healthCheckConnectTimeout?: number;
   /**
    * @remarks
-   * The expected response string for a UDP listener health check. The string can contain only letters and digits and must be at most 64 characters long.
+   * The response string for UDP health checks. The string can contain only letters and digits and can be up to 64 characters in length.
    * 
    * @example
    * ok
@@ -67,7 +62,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   healthCheckExp?: string;
   /**
    * @remarks
-   * The interval, in seconds, between consecutive health checks. Valid values: **1** to **50**.
+   * The interval between two consecutive health checks. Valid values: **1** to **50**. Unit: seconds.
    * 
    * @example
    * 5
@@ -75,7 +70,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   healthCheckInterval?: number;
   /**
    * @remarks
-   * The request string for a UDP listener health check. The string can contain only letters and digits and must be at most 64 characters long.
+   * The request string for UDP health checks. The string can contain only letters and digits and can be up to 64 characters in length.
    * 
    * @example
    * hello
@@ -83,7 +78,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   healthCheckReq?: string;
   /**
    * @remarks
-   * The number of consecutive successful health checks required to mark an unhealthy backend server as healthy. Valid values: **2** to **10**.
+   * The number of consecutive successful health checks that must occur before a backend server is declared healthy (from fail to success). Valid values: **2** to **10**.
    * 
    * @example
    * 4
@@ -91,7 +86,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   healthyThreshold?: number;
   /**
    * @remarks
-   * The listener port to modify. Valid values: **1** to **65535**.
+   * The frontend port of the listener whose attributes you want to modify. Valid values: **1** to **65535**.
    * 
    * This parameter is required.
    * 
@@ -101,7 +96,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   listenerPort?: number;
   /**
    * @remarks
-   * The ID of the load balancer instance.
+   * The ID of the load balancing instance.
    * 
    * This parameter is required.
    * 
@@ -112,20 +107,13 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The scheduling algorithm. Valid values:
-   * 
-   * - **wrr**: Weighted Round Robin. Backend servers with higher weights receive a larger proportion of requests.
-   * 
-   * - **wlc**: Weighted Least Connections. Requests are distributed based on both the weights and the number of active connections of backend servers. If servers have the same weight, the server with the fewest active connections receives more requests.
-   * 
-   * - **rr**: Round Robin. Requests are distributed to backend servers in sequence.
-   * 
-   * - **sch**: Source IP Hash. A consistent hash based on the source IP address. Requests from the same source IP address are routed to the same backend server.
-   * 
-   * - **tch**: 4-Tuple Hash. A consistent hash based on the 4-tuple (source IP, destination IP, source port, and destination port). Flows with the same 4-tuple are routed to the same backend server.
-   * 
-   * - **qch**: QUIC Connection ID Hash. A consistent hash based on the QUIC Connection ID. Requests with the same QUIC Connection ID are routed to the same backend server.
-   * 
-   * - **iqch**: iQUIC CID Hash. A consistent hash based on three specific bytes (from the second to the fourth byte) of the iQUIC CID. Requests with identical values in these three bytes are routed to the same backend server.
+   * - **wrr**: Backend servers with higher weights receive more requests.
+   * - **wlc**: Requests are distributed based on the weights and actual loads (connections) of backend servers. If two backend servers have the same weight, the backend server with fewer connections receives more requests.
+   * - **rr**: Requests are evenly and sequentially distributed to backend servers.
+   * - **sch**: Consistent hashing based on source IP addresses. Requests from the same source IP address are distributed to the same backend server.
+   * - **tch**: Consistent hashing based on quadruples (source IP address, destination IP address, source port, and destination port). Requests from the same stream are distributed to the same backend server.
+   * - **qch**: Consistent hashing based on QUIC connection IDs. Requests with the same QUIC connection ID are distributed to the same backend server.
+   * - **iqch**: Consistent hashing based on specific three bytes of the iQUIC CID. Requests with the same second to fourth bytes are distributed to the same backend server.
    * 
    * @example
    * wrr
@@ -133,7 +121,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   scheduler?: string;
   /**
    * @remarks
-   * The number of consecutive failed health checks required to mark a healthy backend server as unhealthy. Valid values: **2** to **10**.
+   * The number of consecutive failed health checks that must occur before a backend server is declared unhealthy (from success to fail). Valid values: **2** to **10**.
    * 
    * @example
    * 4

@@ -60,7 +60,7 @@ export class DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttribut
 export class DescribeInstanceAutoRenewAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned service code. A value of 0 indicates that the operation was successful.
+   * The business code. A value of 0 indicates success.
    * 
    * @example
    * 0

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EventMigrateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 125B04C7-3D0D-4245-AF96-14E3758E3F06

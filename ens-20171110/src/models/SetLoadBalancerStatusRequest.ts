@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetLoadBalancerStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ELB instance.
+   * The instance ID of the load balancing instance.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,9 @@ export class SetLoadBalancerStatusRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The new instance status. Valid values:
-   * 
-   * - **Active**
-   * 
-   * - **InActive**
+   * The updated instance status. Valid values:
+   * - **Active**: Runs the load balancing instance. Listeners in the instance can forward accepted traffic based on rules.
+   * - **InActive**: Stops the load balancing instance. Listeners in the instance no longer forward accepted traffic.
    * 
    * This parameter is required.
    * 

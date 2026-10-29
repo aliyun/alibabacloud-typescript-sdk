@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class AttachDiskRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the disk to be attached is released with the instance. Valid values:
+   * Specifies whether the cloud disk to be mounted is released when the instance is released. Valid values:
    * 
-   * - true: The disk will be released when the ECS instance is released.
-   * 
-   * - false: The disk will be retained when the ECS instance is released.
-   * 
-   * - If you leave this parameter empty, the default value is used.
+   * - true: The cloud disk is released when the instance is released.
+   * - false: The cloud disk is retained when the instance is released.
+   * - Empty: The default value is false.
    * 
    * @example
    * false
@@ -19,7 +17,7 @@ export class AttachDiskRequest extends $dara.Model {
   deleteWithInstance?: string;
   /**
    * @remarks
-   * The ID of the disk to be attached. The cloud disk and the instance must belong to the same node.
+   * The ID of the cloud disk to mount. The cloud disk and the instance must be in the same edge zone.
    * 
    * This parameter is required.
    * 
@@ -29,7 +27,7 @@ export class AttachDiskRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

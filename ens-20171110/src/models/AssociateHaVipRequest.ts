@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateHaVipRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the HAVIP.
+   * The ID of the HaVip instance to be associated.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AssociateHaVipRequest extends $dara.Model {
   haVipId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,11 +25,9 @@ export class AssociateHaVipRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of the instance to be associated with the HAVIP. Valid values:
-   * 
-   * - EnsInstance (default): ENS instance
-   * 
-   * - NetworkInterface: elastic network interface (ENI)
+   * The type of the instance with which you want to associate the HaVip. Valid values:
+   * - EnsInstance: ENS instance. This is the default value.
+   * - NetworkInterface: elastic network interface controller (NIC). If the instance with which you want to associate the HaVip is an elastic network interface controller (NIC), you must specify this parameter.
    * 
    * @example
    * EnsInstance

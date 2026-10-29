@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The listener port. Valid values: **1** to **65535**.
+   * The listener port to be queried. Valid values: **1** to **65535**.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeLoadBalancerTCPListenerAttributeRequest extends $dara.Model
   listenerPort?: number;
   /**
    * @remarks
-   * The ID of the load balancer instance.
+   * The ID of the load balancing instance.
    * 
    * This parameter is required.
    * 

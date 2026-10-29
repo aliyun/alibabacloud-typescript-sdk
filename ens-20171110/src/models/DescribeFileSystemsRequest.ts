@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFileSystemsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region.
+   * The edge zone ID.
    * 
    * @example
    * cn-beijing-cmcc
@@ -13,7 +13,7 @@ export class DescribeFileSystemsRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The ID of the file system.
+   * The NAS file system ID.
    * 
    * @example
    * c50f8*****
@@ -21,7 +21,7 @@ export class DescribeFileSystemsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The name of the file system.
+   * The NAS file system name.
    * 
    * @example
    * FileSystem1
@@ -29,7 +29,7 @@ export class DescribeFileSystemsRequest extends $dara.Model {
   fileSystemName?: string;
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. Starting value: **1**. Default value: **1**.
    * 
    * @example
    * 1

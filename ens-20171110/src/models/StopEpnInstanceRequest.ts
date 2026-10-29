@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopEpnInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EPN instance.
+   * The edge-to-edge network instance ID.
    * 
    * This parameter is required.
    * 

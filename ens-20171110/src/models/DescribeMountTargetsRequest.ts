@@ -25,7 +25,7 @@ export class DescribeMountTargetsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The mount target name.
+   * The name of the mount target.
    * 
    * @example
    * TestMountPath
@@ -33,7 +33,7 @@ export class DescribeMountTargetsRequest extends $dara.Model {
   mountTargetName?: string;
   /**
    * @remarks
-   * The page number, starting from 1. Default value: 1.
+   * The page number. Starting value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -41,7 +41,7 @@ export class DescribeMountTargetsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of rows per page, with a maximum value of 100. Default value: 10.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10

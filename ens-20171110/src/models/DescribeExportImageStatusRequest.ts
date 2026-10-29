@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExportImageStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * This parameter is required.
    * 

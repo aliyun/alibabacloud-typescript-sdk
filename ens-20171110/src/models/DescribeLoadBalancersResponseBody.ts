@@ -88,7 +88,7 @@ export class DescribeLoadBalancersResponseBody extends $dara.Model {
   loadBalancers?: DescribeLoadBalancersResponseBodyLoadBalancers;
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1
@@ -96,7 +96,7 @@ export class DescribeLoadBalancersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The Settings for the number of entries per page during paging in a paged query. Default value: 10. Valid values: **10** to **100**.
+   * The Settings for the number of entries per page for paging in a paged query. Default value: 10. Valid values: **10** to **100**.
    * 
    * @example
    * 100
@@ -112,7 +112,7 @@ export class DescribeLoadBalancersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 1

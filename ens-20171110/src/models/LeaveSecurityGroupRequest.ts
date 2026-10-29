@@ -13,7 +13,7 @@ export class LeaveSecurityGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the ENI.
+   * The elastic network interface (ENI) ID.
    * 
    * @example
    * eni-58z57orgmt6d1****
@@ -21,7 +21,7 @@ export class LeaveSecurityGroupRequest extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * This parameter is required.
    * 

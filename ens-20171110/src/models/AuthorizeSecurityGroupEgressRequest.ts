@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeSecurityGroupEgressRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination IP addresses. CIDR blocks and IPv4 addresses are supported.
+   * The destination IP address range. CIDR blocks and IPv4 address ranges are supported.
    * 
-   * This parameter is empty by default.
+   * Default value: none.
    * 
    * This parameter is required.
    * 
@@ -17,17 +17,13 @@ export class AuthorizeSecurityGroupEgressRequest extends $dara.Model {
   destCidrIp?: string;
   /**
    * @remarks
-   * The transport layer protocol. The value of this parameter is case-sensitive. Valid values:
+   * The transport layer protocol. The value is case-sensitive. Valid values:
    * 
-   * - tcp
-   * 
-   * - udp
-   * 
-   * - icmp
-   * 
-   * - gre
-   * 
-   * - all: All protocols are supported.
+   * - tcp: TCP.
+   * - udp: UDP.
+   * - icmp: ICMP.
+   * - gre: GRE.
+   * - all: All protocols.
    * 
    * This parameter is required.
    * 
@@ -37,11 +33,10 @@ export class AuthorizeSecurityGroupEgressRequest extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The action of the security group rule. Valid values:
+   * Settings for access permissions. Valid values:
    * 
-   * - accept: allows access. This is the default value.
-   * 
-   * - drop: denies access and does not return responses.
+   * - accept (default): accept access.
+   * - drop: deny access without returning a deny message.
    * 
    * @example
    * accept
@@ -49,15 +44,11 @@ export class AuthorizeSecurityGroupEgressRequest extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * The range of destination ports that correspond to the transport layer protocol for security group rule N. Valid values:
-   * 
-   * - When the IpProtocol parameter is set to tcp or udp, the port number range is **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
-   * 
-   * - When the IpProtocol parameter is set to icmp, the port number range is **-1/-1**, which indicates all ports.
-   * 
-   * - When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
-   * 
-   * - When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
+   * The range of ports enabled for the transport layer protocol in the security group. Valid values:
+   * - For TCP or UDP: **1** to **65535**. Use a forward slash (/) to separate the start port and the end port. Correct example: **1/200**. Incorrect example: **200/1**.
+   * - For ICMP: **-1/-1**.
+   * - For GRE: **-1/-1**.
+   * - If IpProtocol is set to all: **-1/-1**.
    * 
    * This parameter is required.
    * 
@@ -67,7 +58,7 @@ export class AuthorizeSecurityGroupEgressRequest extends $dara.Model {
   portRange?: string;
   /**
    * @remarks
-   * The priority of security group rule N. Valid values: **1 to 100**. Default value: **1**.
+   * The priority of the security group rule. Valid values: **1** to **100**. Default value: **1**.
    * 
    * @example
    * 1
@@ -85,15 +76,12 @@ export class AuthorizeSecurityGroupEgressRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The range of port numbers that correspond to the transport layer protocol for the source security group. Valid values:
+   * The range of ports enabled for the transport layer protocol in the source security group. Valid values:
    * 
-   * - When the IpProtocol parameter is set to tcp or udp, the port number range is **1** to **65535**. The start port number and the end port number are separated by a forward slash (/). Correct example: **1/200**. Incorrect example: **200/1**.
-   * 
-   * - When the IpProtocol parameter is set to icmp, the port number range is **-1/-1**, which indicates all ports.
-   * 
-   * - When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
-   * 
-   * - When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
+   * - For TCP or UDP: **1** to **65535**. Use a forward slash (/) to separate the start port and the end port. Correct example: **1/200**. Incorrect example: **200/1**.
+   * - For ICMP: **-1/-1**.
+   * - For GRE: **-1/-1**.
+   * - If IpProtocol is set to all: **-1/-1**.
    * 
    * @example
    * 22/22

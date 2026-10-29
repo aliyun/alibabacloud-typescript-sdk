@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnsEipAddressesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EIP instance to query. You can specify up to 50 EIP instance IDs separated by commas (,).
+   * The ID of the EIP instance. You can specify up to 50 EIP instance IDs. Separate multiple instance IDs with commas (,).
    * 
    * @example
    * eip-5q9uwkd9bznjpxz8hr6cirnjk
@@ -21,11 +21,11 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   associatedInstanceId?: string;
   /**
    * @remarks
-   * The type of the cloud service instance to associate. Valid values: 
+   * The type of the cloud service instance to attach. Valid values: 
    * 
-   * - **EnsInstance**: a VPC-type ENS instance.
+   * - **EnsInstance**: ENS instance in a VPC.
    * 
-   * - **SlbInstance**: a load balancing instance.
+   * - **SlbInstance**: load balancing instance.
    * 
    * @example
    * SlbInstance
@@ -33,7 +33,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   associatedInstanceType?: string;
   /**
    * @remarks
-   * The IP address of the EIP to query. You can specify up to 50 EIP addresses separated by commas (,).
+   * The IP address of the EIP. You can specify up to 50 IP addresses. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * 120.XXX.XXX.4
@@ -49,7 +49,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   eipName?: string;
   /**
    * @remarks
-   * The ENS edge zone ID.
+   * The ID of the ENS edge zone.
    * 
    * @example
    * cn-chengdu-telecom
@@ -57,15 +57,15 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The array of ENS edge zone IDs. Array length: 1 to 100.
+   * The array of ENS edge zone IDs. The array must contain 1 to 100 IDs.
    */
   ensRegionIds?: string[];
   /**
    * @remarks
-   * Specifies whether ICMP echo reply is enabled. Valid values:
+   * Specifies whether to enable ICMP echo reply. Valid values:
    * 
-   * - **true** (default): enabled.
-   * - **false**: disabled.
+   * - **true**: ICMP echo reply is enabled. This is the default value.
+   * - **false**: ICMP echo reply is disabled.
    * 
    * @example
    * false
@@ -73,8 +73,8 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   icmpReplyEnabled?: boolean;
   /**
    * @remarks
-   * The lock type.
-   * - financial: locked due to overdue payment.
+   * The lock reason. Valid values:
+   * - **financial**: The EIP is locked due to an overdue payment.
    * 
    * @example
    * financial
@@ -82,7 +82,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   lockReason?: string;
   /**
    * @remarks
-   * The page number of the list. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -90,7 +90,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
+   * The number of entries per page in a paging query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 50
@@ -100,9 +100,9 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
    * @remarks
    * Specifies whether the EIP is a standby EIP. Valid values:
    * 
-   * - **true**: standby.
+   * - **true**: The EIP is a standby EIP.
    * 
-   * - **false**: not standby.
+   * - **false**: The EIP is not a standby EIP.
    * 
    * @example
    * true
@@ -110,7 +110,12 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   standby?: string;
   /**
    * @remarks
-   * The status of the EIP. Valid values: Associating: being associated. Unassociating: being disassociated. InUse: allocated. Available: available.
+   * The status of the EIP. Valid values:
+   * 
+   * - **Associating**: The EIP is being associated.
+   * - **Unassociating**: The EIP is being disassociated.
+   * - **InUse**: The EIP is allocated.
+   * - **Available**: The EIP is available.
    * 
    * @example
    * InUse

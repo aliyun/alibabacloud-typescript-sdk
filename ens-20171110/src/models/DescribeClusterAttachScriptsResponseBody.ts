@@ -13,7 +13,7 @@ export class DescribeClusterAttachScriptsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The cluster attachment script, Base64-encoded.
+   * The cluster onboarding script.
    * 
    * @example
    * Y2QgWnhiU0o=

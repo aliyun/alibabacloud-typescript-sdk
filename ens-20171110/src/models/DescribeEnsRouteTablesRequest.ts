@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnsRouteTablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the resource with which the route table is associated. Valid values:
+   * The type of resource associated with the route table. Valid values:
    * 
-   * - **VSwitch**
-   * 
-   * - **Gateway**
+   * - **VSwitch**: vSwitch
+   * - **Gateway**: gateway
    * 
    * @example
    * Gateway
@@ -17,7 +16,7 @@ export class DescribeEnsRouteTablesRequest extends $dara.Model {
   associateType?: string;
   /**
    * @remarks
-   * The ID of the ENS node.
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-xian-unicom
@@ -25,12 +24,12 @@ export class DescribeEnsRouteTablesRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The IDs of edge nodes. You can specify 1 to 100 IDs.
+   * The array of ENS edge zone IDs. Array length: 1 to 100.
    */
   ensRegionIds?: string[];
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * @example
    * n-257gqcdfvx6n****
@@ -38,7 +37,7 @@ export class DescribeEnsRouteTablesRequest extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -46,7 +45,7 @@ export class DescribeEnsRouteTablesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 30
@@ -70,9 +69,8 @@ export class DescribeEnsRouteTablesRequest extends $dara.Model {
   routeTableName?: string;
   /**
    * @remarks
-   * The SNAT type.
-   * 
-   * - FullCone: full cone NAT.
+   * The SNAT type. Valid values:
+   * - FullCone: full-cone NAT
    * 
    * @example
    * FullCone

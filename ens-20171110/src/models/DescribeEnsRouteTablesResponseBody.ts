@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
   /**
    * @remarks
-   * The type of the resource with which the route table is associated. Valid values:
+   * The type of resource associated with the route table. Valid values:
    * 
-   * - **VSwitch**
-   * 
-   * - **Gateway**
+   * - **VSwitch**: vSwitch
+   * - **Gateway**: gateway
    * 
    * @example
    * VSwitch
@@ -17,7 +16,7 @@ export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
   associateType?: string;
   /**
    * @remarks
-   * The time when the route table was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2024-03-08T08:35:18Z
@@ -33,7 +32,7 @@ export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the edge node.
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-beijing-15
@@ -41,7 +40,7 @@ export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * Specifies whether it is the default gateway route table.
+   * Indicates whether the route table is the default gateway route table.
    * 
    * @example
    * false
@@ -49,7 +48,7 @@ export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
   isDefaultGatewayRouteTable?: boolean;
   /**
    * @remarks
-   * The ID of the network.
+   * The network ID.
    * 
    * @example
    * n-5v9lufsezl4g****
@@ -57,7 +56,7 @@ export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
   networkId?: string;
   /**
    * @remarks
-   * The ID of the route table.
+   * The route table ID.
    * 
    * @example
    * rt-5xde2bit9****
@@ -65,9 +64,7 @@ export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
   routeTableId?: string;
   /**
    * @remarks
-   * The name of the route table that you want to query.
-   * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * The name of the route table.
    * 
    * @example
    * test-tf-vtb7
@@ -77,7 +74,7 @@ export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
    * @remarks
    * The status. Valid values:
    * 
-   * - Available: The route table is available.
+   * - Available: available
    * 
    * @example
    * Available
@@ -85,11 +82,9 @@ export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the route table. Examples:
-   * 
-   * - Custom: custom route table.
-   * 
-   * - System: system route table.
+   * The type of the route table. Valid values:
+   * - Custom: custom route table
+   * - System: system route table
    * 
    * @example
    * System
@@ -97,7 +92,7 @@ export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The vSwitches that are associated with the route table.
+   * The list of vSwitches associated with the route table.
    */
   vSwitchIds?: string[];
   static names(): { [key: string]: string } {
@@ -147,7 +142,7 @@ export class DescribeEnsRouteTablesResponseBodyRouteTables extends $dara.Model {
 export class DescribeEnsRouteTablesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -155,7 +150,7 @@ export class DescribeEnsRouteTablesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 30
@@ -163,7 +158,7 @@ export class DescribeEnsRouteTablesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DC51ACB0-460D-5CA0-BA2D-E1F3B5547AE9
@@ -171,12 +166,12 @@ export class DescribeEnsRouteTablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the route tables.
+   * The route table information.
    */
   routeTables?: DescribeEnsRouteTablesResponseBodyRouteTables[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

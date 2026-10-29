@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInfo extends $dara.Model {
   /**
    * @remarks
-   * Edge zone product capabilities.
+   * The product capabilities of the edge zone.
    */
   ability?: string[];
   /**
    * @remarks
-   * Area to which the ENS edge zone belongs.
+   * The area to which the ENS edge zone belongs.
    * 
    * @example
    * SouthWestChina
@@ -18,7 +18,7 @@ export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInf
   area?: string;
   /**
    * @remarks
-   * English name.
+   * The English name.
    * 
    * @example
    * cn-chenzhou-telecom_unicom_cmcc
@@ -26,7 +26,7 @@ export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInf
   enName?: string;
   /**
    * @remarks
-   * ENS edge zone ID.
+   * The ENS edge zone ID.
    * 
    * @example
    * cn-chenzhou-telecom_unicom_cmcc
@@ -34,7 +34,7 @@ export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInf
   ensRegionId?: string;
   /**
    * @remarks
-   * ENS edge zone name.
+   * The name of the ENS edge zone.
    * 
    * @example
    * China Hangzhou36
@@ -42,7 +42,7 @@ export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInf
   ensRegionName?: string;
   /**
    * @remarks
-   * Available NAS resource count.
+   * The resource count of active NAS resources.
    * 
    * @example
    * 1
@@ -50,7 +50,7 @@ export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInf
   nasAvailableAmount?: number;
   /**
    * @remarks
-   * Available NAS resource type.
+   * The type of available NAS resources.
    * 
    * @example
    * capacity
@@ -58,10 +58,10 @@ export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInf
   nasAvailableStorgeType?: string;
   /**
    * @remarks
-   * Province to which the ENS edge zone belongs.
+   * The province to which the ENS edge zone belongs.
    * 
    * @example
-   * 湖北省
+   * Hubei Province
    */
   province?: string;
   static names(): { [key: string]: string } {
@@ -105,7 +105,7 @@ export class DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInf
 export class DescribeNASAvailableResourceInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Business status code. Returns 0 on success.
+   * The business status code. A value of 0 indicates success.
    * 
    * @example
    * 0
@@ -113,7 +113,7 @@ export class DescribeNASAvailableResourceInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * you are not authorized to this workspace, or workspace not exists.
@@ -121,12 +121,12 @@ export class DescribeNASAvailableResourceInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Available NAS resource information.
+   * The available NAS resource information.
    */
   nasAvailableResourceInfo?: DescribeNASAvailableResourceInfoResponseBodyNasAvailableResourceInfo[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * AAE90880-4970-4D81-A534-A6C0F3631F74

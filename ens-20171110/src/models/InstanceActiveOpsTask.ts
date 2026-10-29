@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InstanceActiveOpsTask extends $dara.Model {
+  /**
+   * @remarks
+   * instance active ops task id
+   */
   instanceActiveOpsTaskId?: string;
+  /**
+   * @remarks
+   * the status of instance active ops task
+   */
   instanceActiveOpsTaskStatus?: string;
   static names(): { [key: string]: string } {
     return {
