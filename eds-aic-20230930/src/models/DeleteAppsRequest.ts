@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the applications.
+   * The list of application IDs.
    */
   appIdList?: string[];
   static names(): { [key: string]: string } {

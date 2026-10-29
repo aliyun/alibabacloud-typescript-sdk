@@ -39,7 +39,7 @@ export class CheckResourceStockRequest extends $dara.Model {
   gpuAcceleration?: boolean;
   /**
    * @remarks
-   * The zone to which the resource belongs.
+   * The zone of the resource.
    * 
    * @example
    * cn-hangzhou-i

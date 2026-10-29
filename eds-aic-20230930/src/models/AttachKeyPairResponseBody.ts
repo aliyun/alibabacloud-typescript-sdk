@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AttachKeyPairResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud phone instances to which the ADB key pair is successfully attached.
+   * The cloud phone instance ID list to which the key pair was successfully attached.
    */
   attachedInstanceIds?: string[];
   /**
    * @remarks
-   * The number of the cloud phone instances to which the ADB key pair failed to be attached.
+   * The number of instances to which the attachment failed.
    * 
    * @example
    * 0
@@ -26,7 +26,7 @@ export class AttachKeyPairResponseBodyData extends $dara.Model {
   keyPairId?: string;
   /**
    * @remarks
-   * The total number of the cloud phone instances.
+   * The total number of instances for which the attachment was attempted.
    * 
    * @example
    * 100
@@ -65,12 +65,12 @@ export class AttachKeyPairResponseBodyData extends $dara.Model {
 export class AttachKeyPairResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The object that is returned.
+   * The result object.
    */
   data?: AttachKeyPairResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 69BCBBE4-FCF2-59B8-AD9D-531EB422****

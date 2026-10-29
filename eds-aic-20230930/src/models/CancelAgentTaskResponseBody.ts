@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelAgentTaskResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The task\\"s cancellation time, in ISO 8601 format.
+   * The time when the task was canceled, in ISO 8601 format.
    * 
    * @example
    * 2026-04-13T17:42:19Z
@@ -13,11 +13,9 @@ export class CancelAgentTaskResponseBodyTasks extends $dara.Model {
   cancelAt?: string;
   /**
    * @remarks
-   * The task status after the cancellation request. Possible values include:
-   * 
-   * `CANCELLING` or `CANCELED`: The task is being or has been canceled.
-   * 
-   * `COMPLETED`: The task was already complete and could not be canceled.
+   * The current status of the task. Valid values:
+   * - CANCELLING: The task is being canceled.
+   * - CANCELED: The task is canceled.
    * 
    * @example
    * COMPLETED
@@ -25,7 +23,7 @@ export class CancelAgentTaskResponseBodyTasks extends $dara.Model {
   currentStatus?: string;
   /**
    * @remarks
-   * The failure reason.
+   * The reason why the task cancellation failed.
    * 
    * @example
    * Task status [COMPLETED] does not support cancellation, only PENDING/RUNNING/CANCELLING tasks can be canceled.
@@ -33,7 +31,7 @@ export class CancelAgentTaskResponseBodyTasks extends $dara.Model {
   failedReason?: string;
   /**
    * @remarks
-   * The mobile node ID.
+   * The ID of the Mobile node.
    * 
    * @example
    * acp-ek65k51zoxia3x8xz
@@ -41,11 +39,9 @@ export class CancelAgentTaskResponseBodyTasks extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The task status before cancellation. Valid values include:
-   * 
-   * PENDING: The task is being created.
-   * 
-   * RUNNING: The task is running.
+   * The status of the task before cancellation. Valid values:
+   * - PENDING: The task is being created.
+   * - RUNNING: The task is running.
    * 
    * @example
    * RUNNING
@@ -93,7 +89,7 @@ export class CancelAgentTaskResponseBodyTasks extends $dara.Model {
 export class CancelAgentTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The API status code.
    * 
    * @example
    * 200
@@ -101,7 +97,7 @@ export class CancelAgentTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned message.
+   * The message returned by the API.
    * 
    * @example
    * Success.
@@ -117,7 +113,7 @@ export class CancelAgentTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of task objects.
+   * The list of tasks.
    */
   tasks?: CancelAgentTaskResponseBodyTasks[];
   static names(): { [key: string]: string } {

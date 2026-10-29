@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefreshAuthTokensResponseBodyDataTokens extends $dara.Model {
   /**
    * @remarks
-   * The authorization token value.
+   * The value of the authorization token.
    * 
    * @example
    * cp******lp

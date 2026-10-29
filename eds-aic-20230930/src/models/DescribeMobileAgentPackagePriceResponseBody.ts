@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeMobileAgentPackagePriceResponseBodyPricePriceDetailModulePrice extends $dara.Model {
   /**
+   * @remarks
+   * The discounted price.
+   * 
    * @example
    * 800
    */
   discountPrice?: string;
   /**
+   * @remarks
+   * The name of the module.
+   * 
    * @example
-   * 高级版
+   * Advanced Edition
    */
   moduleName?: string;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 1000
    */
   originalPrice?: string;
   /**
+   * @remarks
+   * The transaction price.
+   * 
    * @example
    * 200
    */
@@ -52,22 +64,38 @@ export class DescribeMobileAgentPackagePriceResponseBodyPricePriceDetailModulePr
 
 export class DescribeMobileAgentPackagePriceResponseBodyPricePriceDetail extends $dara.Model {
   /**
+   * @remarks
+   * The discounted price.
+   * 
    * @example
    * 800
    */
   discountPrice?: number;
+  /**
+   * @remarks
+   * The prices of the modules.
+   */
   modulePrice?: DescribeMobileAgentPackagePriceResponseBodyPricePriceDetailModulePrice[];
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 1000
    */
   originalPrice?: number;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * CloudPhoneMobileAgent
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The transaction price.
+   * 
    * @example
    * 200
    */
@@ -106,26 +134,41 @@ export class DescribeMobileAgentPackagePriceResponseBodyPricePriceDetail extends
 
 export class DescribeMobileAgentPackagePriceResponseBodyPricePromotions extends $dara.Model {
   /**
+   * @remarks
+   * The coupon code.
+   * 
    * @example
    * daily
    */
   optionCode?: string;
   /**
+   * @remarks
+   * The coupon description.
+   * 
    * @example
-   * 日常优惠
+   * Regular discount
    */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The ID of the promotion.
+   * 
    * @example
    * 90712091****
    */
   promotionId?: string;
   /**
+   * @remarks
+   * The name of the promotion.
+   * 
    * @example
-   * 日常优惠
+   * Regular discount
    */
   promotionName?: string;
   /**
+   * @remarks
+   * Indicates whether the promotion is selected.
+   * 
    * @example
    * true
    */
@@ -161,23 +204,43 @@ export class DescribeMobileAgentPackagePriceResponseBodyPricePromotions extends 
 
 export class DescribeMobileAgentPackagePriceResponseBodyPrice extends $dara.Model {
   /**
+   * @remarks
+   * The currency.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discounted price.
+   * 
    * @example
    * 200
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 1000
    */
   originalPrice?: number;
+  /**
+   * @remarks
+   * The price details.
+   */
   priceDetail?: DescribeMobileAgentPackagePriceResponseBodyPricePriceDetail[];
+  /**
+   * @remarks
+   * The promotion information.
+   */
   promotions?: DescribeMobileAgentPackagePriceResponseBodyPricePromotions[];
   /**
+   * @remarks
+   * The transaction price.
+   * 
    * @example
    * 800
    */
@@ -221,11 +284,17 @@ export class DescribeMobileAgentPackagePriceResponseBodyPrice extends $dara.Mode
 
 export class DescribeMobileAgentPackagePriceResponseBodyRules extends $dara.Model {
   /**
+   * @remarks
+   * The rule description.
+   * 
    * @example
-   * 日常优惠
+   * Regular discount
    */
   description?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * f07tkae80jbiy****
    */
@@ -254,12 +323,23 @@ export class DescribeMobileAgentPackagePriceResponseBodyRules extends $dara.Mode
 }
 
 export class DescribeMobileAgentPackagePriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The price.
+   */
   price?: DescribeMobileAgentPackagePriceResponseBodyPrice;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The promotion rules.
+   */
   rules?: DescribeMobileAgentPackagePriceResponseBodyRules[];
   static names(): { [key: string]: string } {
     return {

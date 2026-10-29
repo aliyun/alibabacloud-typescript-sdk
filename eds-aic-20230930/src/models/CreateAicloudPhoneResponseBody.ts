@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAICloudPhoneResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 20230930123456
@@ -13,7 +13,7 @@ export class CreateAICloudPhoneResponseBodyData extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The list of package IDs. After the payment is successful, instances are created based on these IDs through a callback.
+   * The list of package IDs. After a successful payment, a callback creates instances based on these IDs.
    */
   packageIds?: string[];
   static names(): { [key: string]: string } {
@@ -50,7 +50,7 @@ export class CreateAICloudPhoneResponseBody extends $dara.Model {
   data?: CreateAICloudPhoneResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9A51B1DF-96FF-3BCC-B08C-783161D3****

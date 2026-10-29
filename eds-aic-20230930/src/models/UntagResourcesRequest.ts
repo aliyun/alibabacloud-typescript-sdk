@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all tags from the resources. This parameter applies only when TagKey.N is not specified. The default value is false.
+   * Specifies whether to remove all tags from the resources. This parameter takes effect only when TagKey.N is not specified. Default value: false.
    * 
    * @example
    * true
@@ -13,16 +13,15 @@ export class UntagResourcesRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
-   * The IDs of the resources. You can specify 1 to 50 resource IDs.
+   * The list of resource IDs, which are cloud phone IDs. You can specify 1 to 50 IDs.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource.
-   * 
-   * Valid value: ALIYUN::ACP::INSTANCE, which represents a cloud phone.
+   * The resource type. Valid values:
+   * - ALIYUN::ACP::INSTANCE: Cloud phone.
    * 
    * This parameter is required.
    * 
@@ -32,7 +31,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The keys of the tags to remove. You can specify 1 to 20 tag keys.
+   * The tag keys. You can specify 1 to 20 tag keys.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

@@ -4,11 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class RebootCloudPhoneNodesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to force a restart. Valid values:
+   * - true: Forces a restart without waiting for the instances to gracefully exit.
+   * - false: Performs a graceful restart.
+   * Default value: false.
+   * 
    * @example
    * false
    */
   force?: boolean;
   /**
+   * @remarks
+   * The IDs of the cloud phone matrices. Valid values of N: 1 to 100.
+   * 
    * @example
    * cpn-05e4d1cec2urdh1j****
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BackupFileResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the cloud phone.
+   * The Cloud Phone instance ID.
    * 
    * @example
    * acp-34pqe4r0kd9kn****
@@ -29,7 +29,7 @@ export class BackupFileResponseBodyData extends $dara.Model {
   backupFileName?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * t-22ex666a653gq****
@@ -81,7 +81,7 @@ export class BackupFileResponseBody extends $dara.Model {
   data?: BackupFileResponseBodyData[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****

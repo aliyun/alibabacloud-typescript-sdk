@@ -45,7 +45,7 @@ export class DescribeMobileAgentPackageResponseBodyPackageListTags extends $dara
 export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Model {
   /**
    * @remarks
-   * The expiration time. The time format is YYYY-MM-DD HH:mm:ss.
+   * The expiration time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-10-30 00:00:00
@@ -58,7 +58,7 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
   instanceIds?: string[];
   /**
    * @remarks
-   * The package credit quota.
+   * The credit quota of the package.
    * 
    * @example
    * 8000
@@ -83,6 +83,9 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
   /**
    * @remarks
    * The name of the package specification.
+   * 
+   * @example
+   * Flagship Edition (Custom)
    */
   packageSpecName?: string;
   /**
@@ -96,11 +99,17 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
   /**
    * @remarks
    * The end time of the package period.
+   * 
+   * @example
+   * 2026-11-02T15:59Z
    */
   periodEndTime?: string;
   /**
    * @remarks
    * The start time of the package period.
+   * 
+   * @example
+   * 2026-10-16T15:29Z
    */
   periodStartTime?: string;
   /**

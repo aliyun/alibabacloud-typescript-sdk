@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SendSystemPropertyTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of instance IDs.
+   * The list of instance IDs.
    */
   androidInstanceIds?: string[];
   /**
    * @remarks
-   * The ID of the property template.
+   * The property template ID.
    * 
    * @example
    * ap-angyvganxlf****
@@ -18,7 +18,7 @@ export class SendSystemPropertyTemplateRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * A list of property template IDs. If you provide multiple template IDs, the system randomly matches the specified instances with the provided templates.
+   * The list of property template IDs. If multiple templates are provided, the specified instances are randomly matched with all the provided property templates.
    */
   templateIds?: string[];
   static names(): { [key: string]: string } {

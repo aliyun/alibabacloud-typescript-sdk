@@ -6,19 +6,12 @@ export class ResumeAgentTaskResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
    * The current status of the task. Valid values:
-   * 
    * - PENDING: The task is being created.
-   * 
    * - RUNNING: The task is running.
-   * 
    * - COMPLETED: The task is completed.
-   * 
    * - FAILED: The task failed.
-   * 
    * - TIMEOUT: The task execution timed out.
-   * 
    * - PAUSING: The task is being paused.
-   * 
    * - PAUSED: The task is paused.
    * 
    * @example
@@ -27,7 +20,7 @@ export class ResumeAgentTaskResponseBodyTasks extends $dara.Model {
   currentStatus?: string;
   /**
    * @remarks
-   * The reason why the task resumption failed.
+   * The reason why the task failed to resume.
    * 
    * @example
    * Task status [COMPLETED] does not support resume, only PAUSED tasks can be resumed.
@@ -35,7 +28,7 @@ export class ResumeAgentTaskResponseBodyTasks extends $dara.Model {
   failedReason?: string;
   /**
    * @remarks
-   * The ID of the Mobile node.
+   * The Mobile node ID.
    * 
    * @example
    * acp-ek65k51zoxia3x8xz
@@ -89,7 +82,7 @@ export class ResumeAgentTaskResponseBodyTasks extends $dara.Model {
 export class ResumeAgentTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the API operation.
+   * The API status code.
    * 
    * @example
    * 200
@@ -97,7 +90,7 @@ export class ResumeAgentTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message returned by the API operation.
+   * The API response message.
    * 
    * @example
    * Success.

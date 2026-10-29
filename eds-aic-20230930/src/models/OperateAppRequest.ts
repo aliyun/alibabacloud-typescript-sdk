@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the app.
+   * The application ID.
    * 
    * @example
    * 1234
@@ -13,12 +13,12 @@ export class OperateAppRequest extends $dara.Model {
   appId?: number;
   /**
    * @remarks
-   * The IDs of the cloud phone instances.
+   * The list of instances.
    */
   instanceIdList?: string[];
   /**
    * @remarks
-   * The type of the operation.
+   * The operation type. Supported operations include starting, stopping, and restarting.
    * 
    * @example
    * start

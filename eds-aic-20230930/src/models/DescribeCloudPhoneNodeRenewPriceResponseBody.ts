@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCloudPhoneNodeRenewPriceResponseBodyPricePriceDetailModulePrice extends $dara.Model {
   /**
+   * @remarks
+   * The discounted price.
+   * 
    * @example
    * 878.15
    */
   discountPrice?: string;
   /**
+   * @remarks
+   * The name of the module.
+   * 
    * @example
    * PhoneData
    */
   moduleName?: string;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 1090
    */
   originalPrice?: string;
   /**
+   * @remarks
+   * The transaction price.
+   * 
    * @example
    * 73.87
    */
@@ -52,27 +64,46 @@ export class DescribeCloudPhoneNodeRenewPriceResponseBodyPricePriceDetailModuleP
 
 export class DescribeCloudPhoneNodeRenewPriceResponseBodyPricePriceDetail extends $dara.Model {
   /**
+   * @remarks
+   * The discounted price.
+   * 
    * @example
    * 274.75
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * The matrix ID.
+   * 
    * @example
    * cpn-9rz9ou1l0wq30****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The price of each module.
+   */
   modulePrice?: DescribeCloudPhoneNodeRenewPriceResponseBodyPricePriceDetailModulePrice[];
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 2087.0
    */
   originalPrice?: number;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * CloudPhoneMatrix
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The transaction price.
+   * 
    * @example
    * 1099.0
    */
@@ -113,26 +144,41 @@ export class DescribeCloudPhoneNodeRenewPriceResponseBodyPricePriceDetail extend
 
 export class DescribeCloudPhoneNodeRenewPriceResponseBodyPricePromotions extends $dara.Model {
   /**
+   * @remarks
+   * The promotion code.
+   * 
    * @example
    * youhui_quan
    */
   optionCode?: string;
   /**
+   * @remarks
+   * The promotion description.
+   * 
    * @example
-   * 日常优惠
+   * Daily promotion
    */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The promotion ID.
+   * 
    * @example
    * 91381816****
    */
   promotionId?: string;
   /**
+   * @remarks
+   * The promotion name.
+   * 
    * @example
-   * 日常优惠
+   * Daily promotion
    */
   promotionName?: string;
   /**
+   * @remarks
+   * Indicates whether the promotion is selected.
+   * 
    * @example
    * true
    */
@@ -168,23 +214,43 @@ export class DescribeCloudPhoneNodeRenewPriceResponseBodyPricePromotions extends
 
 export class DescribeCloudPhoneNodeRenewPriceResponseBodyPrice extends $dara.Model {
   /**
+   * @remarks
+   * The currency.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discounted price.
+   * 
    * @example
    * 274.75
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 1860
    */
   originalPrice?: number;
+  /**
+   * @remarks
+   * The price details.
+   */
   priceDetail?: DescribeCloudPhoneNodeRenewPriceResponseBodyPricePriceDetail[];
+  /**
+   * @remarks
+   * The promotion information.
+   */
   promotions?: DescribeCloudPhoneNodeRenewPriceResponseBodyPricePromotions[];
   /**
+   * @remarks
+   * The transaction price.
+   * 
    * @example
    * 769.3
    */
@@ -228,11 +294,17 @@ export class DescribeCloudPhoneNodeRenewPriceResponseBodyPrice extends $dara.Mod
 
 export class DescribeCloudPhoneNodeRenewPriceResponseBodyRules extends $dara.Model {
   /**
+   * @remarks
+   * The description of the rule.
+   * 
    * @example
-   * 满40减20
+   * 20 off for orders over 40
    */
   description?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 2023110611****
    */
@@ -261,12 +333,23 @@ export class DescribeCloudPhoneNodeRenewPriceResponseBodyRules extends $dara.Mod
 }
 
 export class DescribeCloudPhoneNodeRenewPriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The price.
+   */
   price?: DescribeCloudPhoneNodeRenewPriceResponseBodyPrice;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 1A923337-44D9-5CAD-9A53-95084BD4****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The promotion rules.
+   */
   rules?: DescribeCloudPhoneNodeRenewPriceResponseBodyRules[];
   static names(): { [key: string]: string } {
     return {

@@ -53,7 +53,7 @@ export class RecoveryFileResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The backup file that is restored.
+   * The returned result object.
    * 
    * @example
    * 6AD56E39-430B-5401-AB4A-7B086454****
@@ -61,7 +61,7 @@ export class RecoveryFileResponseBody extends $dara.Model {
   data?: RecoveryFileResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6AD56E39-430B-5401-AB4A-7B086454****
@@ -69,7 +69,7 @@ export class RecoveryFileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the batch task.
+   * The batch task ID.
    * 
    * @example
    * t-3eourrxaoliqq****

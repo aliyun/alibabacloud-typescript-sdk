@@ -13,7 +13,7 @@ export class BackupAndroidInstanceResponseBodyData extends $dara.Model {
   androidInstanceId?: string;
   /**
    * @remarks
-   * The ID of the backup file.
+   * The backup file ID.
    * 
    * @example
    * bf-b0qbg3pbpjkn7****
@@ -29,7 +29,7 @@ export class BackupAndroidInstanceResponseBodyData extends $dara.Model {
   backupFileName?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * t-bp67acfmxazb4p****
@@ -65,7 +65,7 @@ export class BackupAndroidInstanceResponseBodyData extends $dara.Model {
 export class BackupAndroidInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of instances that were backed up.
+   * The number of backed-up instances.
    * 
    * @example
    * 1
@@ -73,12 +73,12 @@ export class BackupAndroidInstanceResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The returned result objects.
+   * The returned result object.
    */
   data?: BackupAndroidInstanceResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 440D7342-5FC2-5E7C-B2DB-D0B4EAC2BDF1
@@ -86,7 +86,7 @@ export class BackupAndroidInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * t-14xwibw7pyrjd****

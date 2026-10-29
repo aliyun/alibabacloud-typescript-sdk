@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeAndroidInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * List of instance IDs.
+   * The list of instance IDs.
    */
   androidInstanceIds?: string[];
   /**
    * @remarks
-   * User ID to be assigned.
+   * The ID of the user to assign.
    * 
    * @example
    * test
@@ -18,7 +18,7 @@ export class AuthorizeAndroidInstanceRequest extends $dara.Model {
   authorizeUserId?: string;
   /**
    * @remarks
-   * User ID to be unassigned.
+   * The ID of the user to unassign.
    * 
    * @example
    * test

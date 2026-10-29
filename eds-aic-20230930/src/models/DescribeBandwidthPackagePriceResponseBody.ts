@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeBandwidthPackagePriceResponseBodyPricePromotions extends $dara.Model {
   /**
+   * @remarks
+   * The promotion code.
+   * 
    * @example
    * youhui_quan
    */
   optionCode?: string;
   /**
+   * @remarks
+   * The promotion description.
+   * 
    * @example
    * youhui
    */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The ID of the promotion.
+   * 
    * @example
    * 91381816****
    */
   promotionId?: string;
   /**
+   * @remarks
+   * The name of the promotion.
+   * 
    * @example
    * youhui
    */
   promotionName?: string;
   /**
+   * @remarks
+   * Indicates whether the promotion is selected.
+   * 
    * @example
    * ture
    */
@@ -59,22 +74,43 @@ export class DescribeBandwidthPackagePriceResponseBodyPricePromotions extends $d
 
 export class DescribeBandwidthPackagePriceResponseBodyPrice extends $dara.Model {
   /**
+   * @remarks
+   * <props="china">The currency unit (CNY).
+   * <props="intl">The currency unit (USD).
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discounted price.
+   * 
    * @example
    * 274.75
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * The original price.
+   * 
+   * <props="china">Unit: CNY.
+   * 
+   * <props="intl">Unit: USD.
+   * 
    * @example
    * 8800
    */
   originalPrice?: number;
+  /**
+   * @remarks
+   * The promotion information.
+   */
   promotions?: DescribeBandwidthPackagePriceResponseBodyPricePromotions[];
   /**
+   * @remarks
+   * The transaction price.
+   * 
    * @example
    * 213.52
    */
@@ -113,11 +149,17 @@ export class DescribeBandwidthPackagePriceResponseBodyPrice extends $dara.Model 
 
 export class DescribeBandwidthPackagePriceResponseBodyRules extends $dara.Model {
   /**
+   * @remarks
+   * The rule description.
+   * 
    * @example
    * description
    */
   description?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * a7gesyly7o34qy****
    */
@@ -146,12 +188,23 @@ export class DescribeBandwidthPackagePriceResponseBodyRules extends $dara.Model 
 }
 
 export class DescribeBandwidthPackagePriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The price.
+   */
   price?: DescribeBandwidthPackagePriceResponseBodyPrice;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The promotion rules.
+   */
   rules?: DescribeBandwidthPackagePriceResponseBodyRules[];
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. By default, this parameter is left empty. The token cannot exceed 100 characters in length. Requests with the same ClientToken triggers only one creation.
+   * The idempotency parameter. The default value is empty and the length cannot exceed 100 characters. Multiple calls with the same ClientToken perform only one creation operation.
    * 
    * @example
    * 20393E53-8FF1-524C-B494-B478A5369733
@@ -13,7 +13,7 @@ export class CreateCustomImageRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the custom image.
+   * The image description.
    * 
    * @example
    * create for cc5g group auth rules test
@@ -21,7 +21,7 @@ export class CreateCustomImageRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the custom image.
+   * The image name.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class CreateCustomImageRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The ID of the cloud phone instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetNetworkBlacklistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 2B9E6946-0E2A-5D2B-B275-361DF81F****

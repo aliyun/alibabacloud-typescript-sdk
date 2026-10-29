@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetAdbSecureResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of the cloud phone instances for which the ADB authentication feature failed to be enabled.
+   * The number of instances that failed to be configured.
    * 
    * @example
    * 0
@@ -13,12 +13,12 @@ export class SetAdbSecureResponseBodyData extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The IDs of the cloud phone instances for which the ADB authentication feature is enabled.
+   * The list of cloud phone instance IDs that were successfully configured.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The total number of the cloud phone instances.
+   * The total number of instances for which the configuration was attempted.
    * 
    * @example
    * 100
@@ -55,12 +55,12 @@ export class SetAdbSecureResponseBodyData extends $dara.Model {
 export class SetAdbSecureResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned object.
+   * The returned result object.
    */
   data?: SetAdbSecureResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 69BCBBE4-FCF2-59B8-AD9D-531EB422****

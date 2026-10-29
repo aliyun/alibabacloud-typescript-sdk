@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCustomImageNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image.
+   * The image ID.
    * 
    * @example
    * imgc-075cllfeuazh0****
@@ -13,7 +13,7 @@ export class UpdateCustomImageNameRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The name of the image.
+   * The image name.
    * 
    * @example
    * imagename

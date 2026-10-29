@@ -53,7 +53,7 @@ export class RecoverAndroidInstanceResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The returned result objects.
+   * The returned result object.
    */
   data?: RecoverAndroidInstanceResponseBodyData[];
   /**

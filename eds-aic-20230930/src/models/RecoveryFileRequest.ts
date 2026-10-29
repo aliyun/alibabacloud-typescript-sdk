@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class RecoveryFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the instances.
+   * The list of instance IDs.
    * 
    * This parameter is required.
    */
   androidInstanceIdList?: string[];
   /**
    * @remarks
-   * Specifies whether to back up the whole instance.
+   * Specifies whether to back up the entire device.
    * 
    * @example
    * false
@@ -28,16 +28,15 @@ export class RecoveryFileRequest extends $dara.Model {
   backupFileId?: string;
   /**
    * @remarks
-   * The OSS path to which the backup file is uploaded.
-   * 
-   * > When calling the describeBuckets operation to retrieve a bucket name, you must also call the ossObjectList operation to obtain the object key. Combine these to form the full path: oss\\://${bucketName}/${key}.
+   * The OSS URL to which the backup file is uploaded.
+   * <notice>Call the describeBuckets operation to obtain the bucketName, and select ossObjectList to obtain the key. The key is the path of the backup file. Concatenate them into "oss://${bucketName}/${key}".</notice>
    */
   backupFilePath?: string;
+  excludeAppList?: string[];
   /**
    * @remarks
-   * The endpoint of the OSS bucket that stores the backup file.
-   * 
-   * > : When calling the DescribeBuckets operation to query buckets, retrieve the IntranetEndpoint value if the cloud phone and the OSS bucket are in the same region. If they are in different regions, retrieve the ExtranetEndpoint value instead.
+   * The domain name of the backup address.
+   * <notice>Call the DescribeBuckets operation to obtain the bucket. If the cloud phone and the bucket are in the same region, obtain the IntranetEndpoint field. If they are in different regions, obtain the ExtranetEndpoint field.</notice>
    * 
    * @example
    * oss-cn-hangzhou-internal.aliyuncs.com
@@ -45,7 +44,7 @@ export class RecoveryFileRequest extends $dara.Model {
   uploadEndpoint?: string;
   /**
    * @remarks
-   * The type of the backup.
+   * The backup type.
    * 
    * @example
    * OSS
@@ -57,6 +56,7 @@ export class RecoveryFileRequest extends $dara.Model {
       backupAll: 'BackupAll',
       backupFileId: 'BackupFileId',
       backupFilePath: 'BackupFilePath',
+      excludeAppList: 'ExcludeAppList',
       uploadEndpoint: 'UploadEndpoint',
       uploadType: 'UploadType',
     };
@@ -68,6 +68,7 @@ export class RecoveryFileRequest extends $dara.Model {
       backupAll: 'boolean',
       backupFileId: 'string',
       backupFilePath: 'string',
+      excludeAppList: { 'type': 'array', 'itemType': 'string' },
       uploadEndpoint: 'string',
       uploadType: 'string',
     };
@@ -76,6 +77,9 @@ export class RecoveryFileRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.androidInstanceIdList)) {
       $dara.Model.validateArray(this.androidInstanceIdList);
+    }
+    if(Array.isArray(this.excludeAppList)) {
+      $dara.Model.validateArray(this.excludeAppList);
     }
     super.validate();
   }

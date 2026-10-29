@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BackupAppRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of instance IDs.
+   * The list of instance IDs.
    * 
    * This parameter is required.
    */
@@ -20,7 +20,7 @@ export class BackupAppRequest extends $dara.Model {
   backupFileName?: string;
   /**
    * @remarks
-   * The URL of the backup file.
+   * The path to the backup file.
    * 
    * This parameter is required.
    */
@@ -35,14 +35,14 @@ export class BackupAppRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * A list of package names for the applications to back up.
+   * The list of package names of the applications to back up.
    * 
    * This parameter is required.
    */
   sourceAppList?: string[];
   /**
    * @remarks
-   * Specifies the region where the backup is created.
+   * The backup region.
    * 
    * This parameter is required.
    * 

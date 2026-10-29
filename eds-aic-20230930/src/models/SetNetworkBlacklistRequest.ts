@@ -5,16 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class SetNetworkBlacklistRequest extends $dara.Model {
   /**
    * @remarks
-   * Domain name blacklist.
+   * The domain name blacklist.
    * 
-   * > Supports a maximum of 200 domain names.
+   * > A maximum of 200 domain names are supported.
    */
   domainBlacklist?: string[];
   /**
    * @remarks
-   * IP address blacklist.
-   * 
-   * > Supports a maximum of 200 IP addresses or IP address segments.
+   * The IP address blacklist.
+   * > A maximum of 200 IP addresses or CIDR blocks are supported.
    */
   ipBlacklist?: string[];
   static names(): { [key: string]: string } {

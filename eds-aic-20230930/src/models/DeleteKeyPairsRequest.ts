@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteKeyPairsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the ADB key pairs.
+   * The list of key pair IDs.
    */
   keyPairIds?: string[];
   static names(): { [key: string]: string } {

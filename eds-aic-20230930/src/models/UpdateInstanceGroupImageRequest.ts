@@ -15,7 +15,7 @@ export class UpdateInstanceGroupImageRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * A list of instance group IDs.
+   * The list of instance group IDs.
    * 
    * This parameter is required.
    */

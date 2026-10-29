@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class StartAndroidInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * List of instances.
+   * The list of instances.
    */
   androidInstanceIds?: string[];
   /**
    * @remarks
-   * The billing mode. This parameter is deprecated.
+   * The sales mode. **[Deprecated]**
    * 
    * @example
    * Instance

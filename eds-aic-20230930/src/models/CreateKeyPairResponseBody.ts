@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKeyPairResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the key pair was created.
+   * The creation time.
    * 
    * @example
    * 2024-06-30 08:45:09.0
@@ -13,7 +13,7 @@ export class CreateKeyPairResponseBodyData extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The ID of the key pair.
+   * The ID of the ADB key pair.
    * 
    * @example
    * kp-6v2q33ae4tw3*****
@@ -29,7 +29,7 @@ export class CreateKeyPairResponseBodyData extends $dara.Model {
   keyPairName?: string;
   /**
    * @remarks
-   * The private key of the key pair. The private key is PEM-encoded in PKCS#8 format and is compatible with ADB.
+   * The private key of the key pair. The private key is in the PEM-encoded PKCS#8 format that complies with ADB key pair specifications.
    * 
    * @example
    * MIIEpAIBAAKCAQEAtReyMzLIcBH78EV2zj****
@@ -65,7 +65,7 @@ export class CreateKeyPairResponseBodyData extends $dara.Model {
 export class CreateKeyPairResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned result object.
    */
   data?: CreateKeyPairResponseBodyData;
   /**

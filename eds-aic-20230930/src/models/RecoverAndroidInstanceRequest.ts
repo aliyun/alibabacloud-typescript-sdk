@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RecoverAndroidInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of instance IDs.
+   * The list of instance IDs.
    * 
    * This parameter is required.
    */
@@ -20,14 +20,19 @@ export class RecoverAndroidInstanceRequest extends $dara.Model {
   backupFileId?: string;
   /**
    * @remarks
-   * The OSS URL where the backup file is uploaded.
+   * The OSS address to which the backup file is uploaded.
    * 
    * This parameter is required.
    */
   backupFilePath?: string;
   /**
    * @remarks
-   * The region where the backup is located.
+   * The list of app package names excluded from the full-device restore. Excluded apps are not uninstalled and their APKs are not installed, which is compatible with legacy backups that contain APKs. Only user data is replaced. Empty shells must be installed by the customer by using the pm install command. If this parameter is not specified, no apps are excluded.
+   */
+  excludeAppList?: string[];
+  /**
+   * @remarks
+   * The backup region.
    * 
    * @example
    * oss-cn-hangzhou-internal.aliyuncs.com
@@ -48,6 +53,7 @@ export class RecoverAndroidInstanceRequest extends $dara.Model {
       androidInstanceIdList: 'AndroidInstanceIdList',
       backupFileId: 'BackupFileId',
       backupFilePath: 'BackupFilePath',
+      excludeAppList: 'ExcludeAppList',
       uploadEndpoint: 'UploadEndpoint',
       uploadType: 'UploadType',
     };
@@ -58,6 +64,7 @@ export class RecoverAndroidInstanceRequest extends $dara.Model {
       androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
       backupFileId: 'string',
       backupFilePath: 'string',
+      excludeAppList: { 'type': 'array', 'itemType': 'string' },
       uploadEndpoint: 'string',
       uploadType: 'string',
     };
@@ -66,6 +73,9 @@ export class RecoverAndroidInstanceRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.androidInstanceIdList)) {
       $dara.Model.validateArray(this.androidInstanceIdList);
+    }
+    if(Array.isArray(this.excludeAppList)) {
+      $dara.Model.validateArray(this.excludeAppList);
     }
     super.validate();
   }

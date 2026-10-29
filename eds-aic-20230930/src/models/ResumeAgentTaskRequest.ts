@@ -8,7 +8,7 @@ export class ResumeAgentTaskRequestClarificationAnswers extends $dara.Model {
    * The custom input content in the clarification answer.
    * 
    * @example
-   * Simply ****
+   * Return directly to the desktop
    */
   customValue?: string;
   /**
@@ -16,7 +16,7 @@ export class ResumeAgentTaskRequestClarificationAnswers extends $dara.Model {
    * The ID of the clarification item.
    * 
    * @example
-   * cl*****-1
+   * clarify-1
    */
   id?: string;
   /**
@@ -55,7 +55,7 @@ export class ResumeAgentTaskRequestClarificationAnswers extends $dara.Model {
 export class ResumeAgentTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The additional prompt. This parameter takes effect only when the task is passively paused, such as pausing to wait for user confirmation.
+   * The additional prompt. This parameter takes effect only when the task is passively paused, such as when waiting for user confirmation.
    * 
    * @example
    * The verification code is ***
@@ -75,10 +75,10 @@ export class ResumeAgentTaskRequest extends $dara.Model {
   taskIds?: string[];
   /**
    * @remarks
-   * The ID of the tool invoke to resume.
+   * The ID of the tool invocation to be resumed.
    * 
    * @example
-   * ca*****01
+   * call-0001
    */
   toolCallId?: string;
   static names(): { [key: string]: string } {

@@ -3,18 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMobileAgentPackagePriceForRenewRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the MobileAgent resource plans.
+   */
   mobileAgentPackageIds?: string[];
   /**
+   * @remarks
+   * The subscription period of the resource. The unit is specified by PeriodUnit. Valid values: 1 month, 2 months, 3 months, 6 months, and 1 year.
+   * 
    * @example
    * 3
    */
   period?: string;
   /**
+   * @remarks
+   * The unit of the subscription period. Valid values:
+   * - **Month**: Month.
+   * - **Year**: Year.
+   * 
    * @example
    * Month
    */
   periodUnit?: string;
   /**
+   * @remarks
+   * The promotion ID.
+   * 
    * @example
    * 50003308011****
    */

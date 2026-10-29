@@ -4,36 +4,59 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeMobileAgentPackagePriceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of MobileAgent packages.
+   * 
    * @example
    * 1
    */
   amount?: string;
   /**
+   * @remarks
+   * The region ID for the purchase.
+   * 
    * @example
    * cn-hangzhou
    */
   bizRegionId?: string;
   /**
+   * @remarks
+   * The number of credits.
+   * 
    * @example
    * 1000
    */
   creditAmount?: number;
   /**
+   * @remarks
+   * The specifications of the MobileAgent package.
+   * 
    * @example
    * advanced
    */
   mobileAgentPackageSpec?: string;
   /**
+   * @remarks
+   * The subscription duration of the purchased resource. The unit is specified by PeriodUnit. Valid value: 1 month.
+   * 
    * @example
    * 1
    */
   period?: string;
   /**
+   * @remarks
+   * The duration unit of the subscription billing method. Valid values:
+   * - **Year**: Year.
+   * - **Month** (default): Month.
+   * 
    * @example
    * Month
    */
   periodUnit?: string;
   /**
+   * @remarks
+   * The ID of the promotion.
+   * 
    * @example
    * 50003308011****
    */

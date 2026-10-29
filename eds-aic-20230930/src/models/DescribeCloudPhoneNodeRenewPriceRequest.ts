@@ -3,18 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCloudPhoneNodeRenewPriceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of cloud phone matrix IDs.
+   */
   nodeIds?: string[];
   /**
+   * @remarks
+   * The subscription period. The unit is specified by PeriodUnit.
+   * 
    * @example
    * 1
    */
   period?: number;
   /**
+   * @remarks
+   * The unit of the subscription period. Valid values:
+   * - **Month**: Month.
+   * - **Year**: Year.
+   * 
    * @example
    * Month
    */
   periodUnit?: string;
   /**
+   * @remarks
+   * The ID of the promotion.
+   * 
    * @example
    * 50003308011****
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RebootCloudPhoneNodesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 4610632D-D661-5982-B3D7-5D3FD183F****
    */

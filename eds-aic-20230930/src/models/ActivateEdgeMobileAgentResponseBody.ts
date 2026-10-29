@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class ActivateEdgeMobileAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The assigned API key. The plaintext value is returned only upon the first activation.
+   * The assigned API key. The plaintext is returned only upon the first activation.
    * 
    * @example
    * cpk-81vfd8t8zdfxdf*****

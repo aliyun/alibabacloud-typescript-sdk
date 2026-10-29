@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInstanceGroupPriceResponseBodyPricePromotions extends $dara.Model {
   /**
+   * @remarks
+   * The coupon code.
+   * 
    * @example
    * code
    */
   optionCode?: string;
   /**
+   * @remarks
+   * The coupon description.
+   * 
    * @example
-   * 日常优惠
+   * Regular promotion
    */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The promotion ID.
+   * 
    * @example
    * 86744342****
    */
   promotionId?: string;
   /**
+   * @remarks
+   * The coupon name.
+   * 
    * @example
-   * 日常优惠
+   * Regular promotion
    */
   promotionName?: string;
   /**
+   * @remarks
+   * Indicates whether the promotion is selected.
+   * 
    * @example
    * true
    */
@@ -59,22 +74,38 @@ export class DescribeInstanceGroupPriceResponseBodyPricePromotions extends $dara
 
 export class DescribeInstanceGroupPriceResponseBodyPrice extends $dara.Model {
   /**
+   * @remarks
+   * The currency unit.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discounted price.
+   * 
    * @example
    * 12618.0
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 18134.0
    */
   originalPrice?: number;
+  /**
+   * @remarks
+   * The promotion information.
+   */
   promotions?: DescribeInstanceGroupPriceResponseBodyPricePromotions[];
   /**
+   * @remarks
+   * The transaction price.
+   * 
    * @example
    * 70.0
    */
@@ -113,11 +144,17 @@ export class DescribeInstanceGroupPriceResponseBodyPrice extends $dara.Model {
 
 export class DescribeInstanceGroupPriceResponseBodyRules extends $dara.Model {
   /**
+   * @remarks
+   * The rule description.
+   * 
    * @example
-   * 日常优惠
+   * Regular promotion
    */
   description?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * yhpcxb4qhgp2k4****
    */
@@ -146,12 +183,23 @@ export class DescribeInstanceGroupPriceResponseBodyRules extends $dara.Model {
 }
 
 export class DescribeInstanceGroupPriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The price.
+   */
   price?: DescribeInstanceGroupPriceResponseBodyPrice;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 90E4F2B7-BBDA-534D-B872-CCC798996F69
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The rule information.
+   */
   rules?: DescribeInstanceGroupPriceResponseBodyRules[];
   static names(): { [key: string]: string } {
     return {

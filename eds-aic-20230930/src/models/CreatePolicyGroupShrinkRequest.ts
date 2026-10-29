@@ -13,7 +13,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
   cameraRedirect?: string;
   /**
    * @remarks
-   * The clipboard permission.
+   * The clipboard permissions.
    * 
    * @example
    * readwrite
@@ -21,7 +21,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
   clipboard?: string;
   /**
    * @remarks
-   * The file transfer policy for the web client.
+   * The file transfer policy for the Wuying web client.
    * 
    * @example
    * off
@@ -29,7 +29,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The local disk mapping permission.
+   * The local disk mapping permissions.
    * 
    * @example
    * off
@@ -45,7 +45,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
   lockResolution?: string;
   /**
    * @remarks
-   * Network redirection.
+   * The network redirection settings.
    */
   netRedirectPolicyShrink?: string;
   /**
@@ -66,7 +66,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The resolution height, in pixels.
+   * The height of the resolution. Unit: pixels.
    * 
    * @example
    * 1280
@@ -74,7 +74,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
   resolutionHeight?: number;
   /**
    * @remarks
-   * The resolution width, in pixels.
+   * The width of the resolution. Unit: pixels.
    * 
    * @example
    * 720
@@ -82,7 +82,7 @@ export class CreatePolicyGroupShrinkRequest extends $dara.Model {
   resolutionWidth?: number;
   /**
    * @remarks
-   * Screen watermark.
+   * The screen watermark settings.
    */
   watermarkShrink?: string;
   static names(): { [key: string]: string } {

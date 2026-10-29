@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeMobileAgentPackagePriceForRenewResponseBodyPricePriceDetailModulePrice extends $dara.Model {
   /**
+   * @remarks
+   * The discounted price.
+   * 
    * @example
    * 629.7
    */
   discountPrice?: string;
   /**
+   * @remarks
+   * The module name.
+   * 
    * @example
-   * 高级版
+   * Advanced Edition
    */
   moduleName?: string;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 1680
    */
   originalPrice?: string;
   /**
+   * @remarks
+   * The transaction price.
+   * 
    * @example
    * 94.85
    */
@@ -52,27 +64,46 @@ export class DescribeMobileAgentPackagePriceForRenewResponseBodyPricePriceDetail
 
 export class DescribeMobileAgentPackagePriceForRenewResponseBodyPricePriceDetail extends $dara.Model {
   /**
+   * @remarks
+   * The discounted price.
+   * 
    * @example
    * 200
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * cmag-shdbcudbaib****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The module prices.
+   */
   modulePrice?: DescribeMobileAgentPackagePriceForRenewResponseBodyPricePriceDetailModulePrice[];
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 1000
    */
   originalPrice?: number;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * CloudPhoneMobileAgent
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The transaction price.
+   * 
    * @example
    * 800
    */
@@ -113,26 +144,41 @@ export class DescribeMobileAgentPackagePriceForRenewResponseBodyPricePriceDetail
 
 export class DescribeMobileAgentPackagePriceForRenewResponseBodyPricePromotions extends $dara.Model {
   /**
+   * @remarks
+   * The coupon code.
+   * 
    * @example
    * daily
    */
   optionCode?: string;
   /**
+   * @remarks
+   * The coupon description.
+   * 
    * @example
-   * 日常优惠
+   * Regular discount
    */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The promotion ID.
+   * 
    * @example
    * 91381816****
    */
   promotionId?: string;
   /**
+   * @remarks
+   * The coupon name.
+   * 
    * @example
-   * 日常优惠
+   * Regular discount
    */
   promotionName?: string;
   /**
+   * @remarks
+   * Indicates whether the coupon is selected.
+   * 
    * @example
    * true
    */
@@ -168,23 +214,43 @@ export class DescribeMobileAgentPackagePriceForRenewResponseBodyPricePromotions 
 
 export class DescribeMobileAgentPackagePriceForRenewResponseBodyPrice extends $dara.Model {
   /**
+   * @remarks
+   * The currency.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discounted price.
+   * 
    * @example
    * 200
    */
   discountPrice?: number;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 1000
    */
   originalPrice?: number;
+  /**
+   * @remarks
+   * The price details.
+   */
   priceDetail?: DescribeMobileAgentPackagePriceForRenewResponseBodyPricePriceDetail[];
+  /**
+   * @remarks
+   * The promotion information.
+   */
   promotions?: DescribeMobileAgentPackagePriceForRenewResponseBodyPricePromotions[];
   /**
+   * @remarks
+   * The transaction price.
+   * 
    * @example
    * 800
    */
@@ -228,11 +294,17 @@ export class DescribeMobileAgentPackagePriceForRenewResponseBodyPrice extends $d
 
 export class DescribeMobileAgentPackagePriceForRenewResponseBodyRules extends $dara.Model {
   /**
+   * @remarks
+   * The rule description.
+   * 
    * @example
-   * 日常优惠
+   * Regular discount
    */
   description?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 20230629****
    */
@@ -261,12 +333,23 @@ export class DescribeMobileAgentPackagePriceForRenewResponseBodyRules extends $d
 }
 
 export class DescribeMobileAgentPackagePriceForRenewResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The price.
+   */
   price?: DescribeMobileAgentPackagePriceForRenewResponseBodyPrice;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 425F351C-3F8E-5218-A520-B6311D0D****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The rule information.
+   */
   rules?: DescribeMobileAgentPackagePriceForRenewResponseBodyRules[];
   static names(): { [key: string]: string } {
     return {

@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ActivateEdgeMobileAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The device form factor. Valid values:
-   * - BOX
-   * - PHONE
-   * - PAD
-   * - OTHER
+   * The device class. Valid values: BOX, PHONE, PAD, and OTHER.
    * 
    * @example
    * BOX
@@ -27,7 +23,7 @@ export class ActivateEdgeMobileAgentRequest extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
-   * The extended device metadata in JSON format. The string contains information such as fingerprint, deviceModel, and firmwareVersion.
+   * The extended metadata of the device. The value is a JSON string that contains information such as fingerprint, deviceModel, and firmwareVersion.
    * 
    * @example
    * {"frmwareVersion": "1.0.0"}

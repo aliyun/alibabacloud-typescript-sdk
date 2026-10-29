@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAICloudPhoneRequest extends $dara.Model {
   /**
    * @remarks
-   * The quantity to purchase.
+   * The quantity.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateAICloudPhoneRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The bandwidth package ID.
+   * The ID of the bandwidth plan.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateAICloudPhoneRequest extends $dara.Model {
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The region ID for the purchase.
+   * The ID of the region for the purchase.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CreateAICloudPhoneRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The image ID.
+   * The ID of the image.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class CreateAICloudPhoneRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The instance group name.
+   * The name of the instance group.
    * 
    * This parameter is required.
    * 
@@ -63,10 +63,9 @@ export class CreateAICloudPhoneRequest extends $dara.Model {
   instanceGroupName?: string;
   /**
    * @remarks
-   * The instance group specification. Valid values:
-   * 
-   * - STANDARD: standard.
-   * - MEDIUM: advanced.
+   * The specification of the instance group. Valid values:
+   * - STANDARD: Standard.
+   * - MEDIUM: Advanced.
    * 
    * This parameter is required.
    * 
@@ -76,7 +75,7 @@ export class CreateAICloudPhoneRequest extends $dara.Model {
   instanceGroupSpec?: string;
   /**
    * @remarks
-   * The purchase duration.
+   * The subscription duration.
    * 
    * This parameter is required.
    * 
@@ -86,7 +85,7 @@ export class CreateAICloudPhoneRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the purchase duration.
+   * The unit of the subscription duration.
    * 
    * This parameter is required.
    * 
@@ -96,7 +95,7 @@ export class CreateAICloudPhoneRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The policy group ID.
+   * The ID of the policy group.
    * 
    * @example
    * pg-0bjrh3oxk2q0xxxxx
@@ -104,7 +103,7 @@ export class CreateAICloudPhoneRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The coupon ID.
+   * The ID of the coupon.
    * 
    * @example
    * youhuiquan_promotion_xxx

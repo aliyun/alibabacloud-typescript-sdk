@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartInstanceAdbRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of 1 to 100 cloud phone instance IDs.
+   * The list of cloud phone instance IDs. You can specify 1 to 100 IDs.
    * 
    * This parameter is required.
    */

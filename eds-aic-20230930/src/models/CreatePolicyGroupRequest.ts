@@ -53,7 +53,7 @@ export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   customProxy?: string;
   /**
    * @remarks
-   * The IP address of the transparent proxy. The IP address must be in IPv4 format.
+   * The transparent proxy IP address. The format is an IPv4 address.
    * 
    * @example
    * 47.100.XX.XX
@@ -77,7 +77,7 @@ export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The proxy password. The password must be 1 to 256 characters in length. It cannot contain Chinese characters or whitespace characters.
+   * The proxy password. The password must be 1 to 256 characters in length and cannot contain Chinese characters or whitespace characters.
    * 
    * @example
    * password
@@ -93,7 +93,7 @@ export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   proxyType?: string;
   /**
    * @remarks
-   * The proxy username. The username must be 1 to 256 characters in length. It cannot contain Chinese characters or whitespace characters.
+   * The proxy username. The username must be 1 to 256 characters in length and cannot contain Chinese characters or whitespace characters.
    * 
    * @example
    * username
@@ -101,7 +101,7 @@ export class CreatePolicyGroupRequestNetRedirectPolicy extends $dara.Model {
   proxyUserName?: string;
   /**
    * @remarks
-   * The list of proxy rules. You can specify up to 100 rules.
+   * The list of proxy rules. A maximum of 100 rules can be configured.
    */
   rules?: CreatePolicyGroupRequestNetRedirectPolicyRules[];
   static names(): { [key: string]: string } {
@@ -153,7 +153,7 @@ export class CreatePolicyGroupRequestWatermark extends $dara.Model {
   watermarkColor?: number;
   /**
    * @remarks
-   * The custom text for the watermark. The text can be up to 10 characters long and cannot contain emojis.
+   * The custom text for the watermark. The text must be up to 10 characters in length and cannot contain emoji.
    * 
    * @example
    * custom text
@@ -169,7 +169,7 @@ export class CreatePolicyGroupRequestWatermark extends $dara.Model {
   watermarkFontSize?: number;
   /**
    * @remarks
-   * Specifies whether to enable the screen watermark.
+   * The screen watermark switch.
    * 
    * @example
    * off
@@ -233,7 +233,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   cameraRedirect?: string;
   /**
    * @remarks
-   * The clipboard permission.
+   * The clipboard permissions.
    * 
    * @example
    * readwrite
@@ -241,7 +241,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   clipboard?: string;
   /**
    * @remarks
-   * The file transfer policy for the web client.
+   * The file transfer policy for the Wuying web client.
    * 
    * @example
    * off
@@ -249,7 +249,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The local disk mapping permission.
+   * The local disk mapping permissions.
    * 
    * @example
    * off
@@ -265,7 +265,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   lockResolution?: string;
   /**
    * @remarks
-   * Network redirection.
+   * The network redirection settings.
    */
   netRedirectPolicy?: CreatePolicyGroupRequestNetRedirectPolicy;
   /**
@@ -286,7 +286,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The resolution height, in pixels.
+   * The height of the resolution. Unit: pixels.
    * 
    * @example
    * 1280
@@ -294,7 +294,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   resolutionHeight?: number;
   /**
    * @remarks
-   * The resolution width, in pixels.
+   * The width of the resolution. Unit: pixels.
    * 
    * @example
    * 720
@@ -302,7 +302,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   resolutionWidth?: number;
   /**
    * @remarks
-   * Screen watermark.
+   * The screen watermark settings.
    */
   watermark?: CreatePolicyGroupRequestWatermark;
   static names(): { [key: string]: string } {

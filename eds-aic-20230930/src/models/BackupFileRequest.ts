@@ -28,7 +28,7 @@ export class BackupFileRequest extends $dara.Model {
   backupFileName?: string;
   /**
    * @remarks
-   * The upload path of the backup file.
+   * The upload address of the backup file.
    * > If you upload the backup file to an OSS bucket, call the describeBuckets operation to obtain the bucketName, and select ossObjectList to obtain the key. The key is the folder path in the OSS bucket. Concatenate them into `oss://${bucketName}/${key}`.
    * 
    * This parameter is required.
@@ -44,12 +44,17 @@ export class BackupFileRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The list of application package names excluded from full instance backup. Matched applications only skip APK collection, and user data is backed up as usual. If this parameter is not specified, no applications are excluded.
+   */
+  excludeAppList?: string[];
+  /**
+   * @remarks
    * The list of file paths in the Android container to exclude from the backup.
    */
   excludeSourceFilePathList?: string[];
   /**
    * @remarks
-   * The list of application package names to back up.
+   * The list of package names of the applications to back up.
    */
   sourceAppList?: string[];
   /**
@@ -59,9 +64,9 @@ export class BackupFileRequest extends $dara.Model {
   sourceFilePathList?: string[];
   /**
    * @remarks
-   * The domain name of the backup endpoint.
+   * The domain name of the backup address.
    * 
-   * > If you upload the backup file to an OSS bucket, call the describeBuckets operation to obtain the bucket. If the cloud phone and the bucket are in the same region, obtain the intranetEndpoint field. If they are in different regions, obtain the extranetEndpoint field.
+   * > If you upload the backup file to an OSS bucket, call the describeBuckets operation to obtain the bucket. If the Cloud Phone instance and the bucket are in the same region, obtain the intranetEndpoint field. If they are in different regions, obtain the extranetEndpoint field.
    * 
    * @example
    * oss-cn-shanghai-internal.aliyuncs.com
@@ -82,6 +87,7 @@ export class BackupFileRequest extends $dara.Model {
       backupFileName: 'BackupFileName',
       backupFilePath: 'BackupFilePath',
       description: 'Description',
+      excludeAppList: 'ExcludeAppList',
       excludeSourceFilePathList: 'ExcludeSourceFilePathList',
       sourceAppList: 'SourceAppList',
       sourceFilePathList: 'SourceFilePathList',
@@ -97,6 +103,7 @@ export class BackupFileRequest extends $dara.Model {
       backupFileName: 'string',
       backupFilePath: 'string',
       description: 'string',
+      excludeAppList: { 'type': 'array', 'itemType': 'string' },
       excludeSourceFilePathList: { 'type': 'array', 'itemType': 'string' },
       sourceAppList: { 'type': 'array', 'itemType': 'string' },
       sourceFilePathList: { 'type': 'array', 'itemType': 'string' },
@@ -108,6 +115,9 @@ export class BackupFileRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.androidInstanceIdList)) {
       $dara.Model.validateArray(this.androidInstanceIdList);
+    }
+    if(Array.isArray(this.excludeAppList)) {
+      $dara.Model.validateArray(this.excludeAppList);
     }
     if(Array.isArray(this.excludeSourceFilePathList)) {
       $dara.Model.validateArray(this.excludeSourceFilePathList);

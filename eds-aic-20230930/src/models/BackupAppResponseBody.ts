@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BackupAppResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud phone instance.
+   * The instance ID of the cloud phone.
    * 
    * @example
    * acp-34pqe4r0kd9kn****
@@ -65,7 +65,7 @@ export class BackupAppResponseBodyData extends $dara.Model {
 export class BackupAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of instances that are backed up.
+   * The number of backed-up instances.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class BackupAppResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The response elements.
+   * The returned result object.
    */
   data?: BackupAppResponseBodyData[];
   /**

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SetAdbSecureRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
+   * The list of cloud phone instance IDs. Up to 50 instances are supported.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The status of the ADB authentication feature.
+   * The ADB authentication status.
    * 
    * This parameter is required.
    * 
