@@ -99,6 +99,9 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The business information.
+   * 
+   * @example
+   * {"rds_ai_app":"true"}
    */
   businessInfo?: string;
   /**

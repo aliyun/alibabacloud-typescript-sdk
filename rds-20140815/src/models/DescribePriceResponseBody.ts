@@ -178,7 +178,7 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
   ruleIds?: DescribePriceResponseBodyPriceInfoRuleIds;
   /**
    * @remarks
-   * The estimated hourly fee calculated based on the maximum number of RCUs selected by the user.
+   * The estimated hourly fee calculated based on the maximum number of RCUs selected.
    * 
    * @example
    * 1**
@@ -186,7 +186,7 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
   tradeMaxRCUAmount?: number;
   /**
    * @remarks
-   * The estimated hourly fee calculated based on the minimum number of RCUs selected by the user.
+   * The estimated hourly fee calculated based on the minimum number of RCUs selected.
    * 
    * @example
    * 2**
@@ -194,7 +194,7 @@ export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
   tradeMinRCUAmount?: number;
   /**
    * @remarks
-   * The final price, which is the original price minus the discount amount.
+   * The final price, which is the original price minus the discount.
    * 
    * @example
    * 10508
@@ -462,7 +462,7 @@ export class DescribePriceResponseBody extends $dara.Model {
   showDiscount?: boolean;
   /**
    * @remarks
-   * The estimated hourly fee calculated based on the maximum number of RCUs selected by the user.
+   * The estimated hourly fee calculated based on the maximum number of RCUs selected.
    * 
    * @example
    * 2**
@@ -470,7 +470,7 @@ export class DescribePriceResponseBody extends $dara.Model {
   tradeMaxRCUAmount?: number;
   /**
    * @remarks
-   * The estimated hourly fee calculated based on the minimum number of RCUs selected by the user.
+   * The estimated hourly fee calculated based on the minimum number of RCUs selected.
    * 
    * @example
    * 1**

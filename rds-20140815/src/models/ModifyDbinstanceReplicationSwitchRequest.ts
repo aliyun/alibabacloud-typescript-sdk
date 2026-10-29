@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceReplicationSwitchRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class ModifyDBInstanceReplicationSwitchRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to enable or disable native replication mode. Valid values:
-   * - **ON**: Enable native replication.
-   * - **OFF**: Disable native replication.
+   * Specifies whether to enable or disable the native replication mode. Valid values:
+   * - **ON**: enables the native replication mode.
+   * - **OFF**: disables the native replication mode.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class ModifyDBInstanceReplicationSwitchRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID. This parameter can be left empty.
+   * The ID of the resource group. This parameter can be left empty.
    * 
    * @example
    * rg-acfmy****

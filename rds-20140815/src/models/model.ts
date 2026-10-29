@@ -1001,6 +1001,9 @@ export { DescribeModifyPGHbaConfigLogResponse } from './DescribeModifyPghbaConfi
 export { DescribeModifyParameterLogRequest } from './DescribeModifyParameterLogRequest';
 export { DescribeModifyParameterLogResponseBody } from './DescribeModifyParameterLogResponseBody';
 export { DescribeModifyParameterLogResponse } from './DescribeModifyParameterLogResponse';
+export { DescribeOperatorPermissionRequest } from './DescribeOperatorPermissionRequest';
+export { DescribeOperatorPermissionResponseBody } from './DescribeOperatorPermissionResponseBody';
+export { DescribeOperatorPermissionResponse } from './DescribeOperatorPermissionResponse';
 export { DescribeOssDownloadsRequest } from './DescribeOssDownloadsRequest';
 export { DescribeOssDownloadsResponseBody } from './DescribeOssDownloadsResponseBody';
 export { DescribeOssDownloadsResponse } from './DescribeOssDownloadsResponse';

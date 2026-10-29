@@ -3759,16 +3759,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database in an ApsaraDB RDS instance.
+   * Creates a database on an ApsaraDB RDS instance.
    * 
    * @remarks
-   * ### Supported engines
+   * ### Supported database engines
    * - ApsaraDB RDS for MySQL
    * - ApsaraDB RDS for PostgreSQL
    * - ApsaraDB RDS for SQL Server
    * - ApsaraDB RDS for MariaDB
    * ### Related documentation
-   * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.
    * - [Create a database on an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96105.html)
    * - [Create a database on an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96758.html)
    * - [Create a database on an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95698.html)
@@ -3843,16 +3843,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a database in an ApsaraDB RDS instance.
+   * Creates a database on an ApsaraDB RDS instance.
    * 
    * @remarks
-   * ### Supported engines
+   * ### Supported database engines
    * - ApsaraDB RDS for MySQL
    * - ApsaraDB RDS for PostgreSQL
    * - ApsaraDB RDS for SQL Server
    * - ApsaraDB RDS for MariaDB
    * ### Related documentation
-   * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+   * >Notice: Before you call this operation, read the documentation carefully to fully understand the prerequisites and impacts.
    * - [Create a database on an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96105.html)
    * - [Create a database on an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96758.html)
    * - [Create a database on an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95698.html)
@@ -15988,6 +15988,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询操作权限
+   * 
+   * @param request - DescribeOperatorPermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOperatorPermissionResponse
+   */
+  async describeOperatorPermissionWithOptions(request: $_model.DescribeOperatorPermissionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOperatorPermissionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOperatorPermission",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOperatorPermissionResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOperatorPermissionResponse({}));
+  }
+
+  /**
+   * 查询操作权限
+   * 
+   * @param request - DescribeOperatorPermissionRequest
+   * @returns DescribeOperatorPermissionResponse
+   */
+  async describeOperatorPermission(request: $_model.DescribeOperatorPermissionRequest): Promise<$_model.DescribeOperatorPermissionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOperatorPermissionWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the file details of a backup data migration task for an ApsaraDB RDS for SQL Server instance.
    * 
    * @remarks
@@ -23859,16 +23917,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the minor version update policy for an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance.
+   * Modifies the minor version upgrade method for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server instances.
    * 
    * @remarks
    * ### Applicable engines
-   * - RDS MySQL
-   * - RDS PostgreSQL
-   * ### Related documentation
-   * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-   * - [Modify the automatic upgrade settings for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
-   * - [Modify the automatic upgrade settings for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
+   * - ApsaraDB RDS for MySQL
+   * - ApsaraDB RDS for PostgreSQL
+   * ### Related feature documentation
+   * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+   * - [Modify the automatic upgrade settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96059.html)
+   * - [Modify the automatic upgrade settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/146895.html)
    * 
    * @param request - ModifyDBInstanceAutoUpgradeMinorVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23919,16 +23977,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the minor version update policy for an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance.
+   * Modifies the minor version upgrade method for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server instances.
    * 
    * @remarks
    * ### Applicable engines
-   * - RDS MySQL
-   * - RDS PostgreSQL
-   * ### Related documentation
-   * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-   * - [Modify the automatic upgrade settings for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
-   * - [Modify the automatic upgrade settings for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
+   * - ApsaraDB RDS for MySQL
+   * - ApsaraDB RDS for PostgreSQL
+   * ### Related feature documentation
+   * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+   * - [Modify the automatic upgrade settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96059.html)
+   * - [Modify the automatic upgrade settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/146895.html)
    * 
    * @param request - ModifyDBInstanceAutoUpgradeMinorVersionRequest
    * @returns ModifyDBInstanceAutoUpgradeMinorVersionResponse
@@ -25275,15 +25333,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables native replication mode for an ApsaraDB RDS instance by calling the ModifyDBInstanceReplicationSwitch operation.
+   * Enables or disables the native replication mode for an ApsaraDB RDS instance.
    * 
    * @remarks
-   * ApsaraDB RDS for MySQL instances with native replication enabled must meet the following requirements:
-   * - Database engine version: MySQL 5.7
-   * - Instance edition: Basic Edition
+   * To enable the native replication feature for an ApsaraDB RDS for MySQL instance, the following requirements must be met:
+   * - DPI engine version: MySQL 5.7
+   * - Edition: Basic Edition
    * - Billing method: pay-as-you-go or subscription
-   * - Minor engine version: 20240930 or later
-   * For more information about native replication, see [RDS native replication](https://help.aliyun.com/document_detail/2856530.html).
+   * - Milvus version: 20240930 or later
+   * For more information about native replication, see [Native replication for ApsaraDB RDS](https://help.aliyun.com/document_detail/2856530.html).
    * 
    * @param request - ModifyDBInstanceReplicationSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25330,15 +25388,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables native replication mode for an ApsaraDB RDS instance by calling the ModifyDBInstanceReplicationSwitch operation.
+   * Enables or disables the native replication mode for an ApsaraDB RDS instance.
    * 
    * @remarks
-   * ApsaraDB RDS for MySQL instances with native replication enabled must meet the following requirements:
-   * - Database engine version: MySQL 5.7
-   * - Instance edition: Basic Edition
+   * To enable the native replication feature for an ApsaraDB RDS for MySQL instance, the following requirements must be met:
+   * - DPI engine version: MySQL 5.7
+   * - Edition: Basic Edition
    * - Billing method: pay-as-you-go or subscription
-   * - Minor engine version: 20240930 or later
-   * For more information about native replication, see [RDS native replication](https://help.aliyun.com/document_detail/2856530.html).
+   * - Milvus version: 20240930 or later
+   * For more information about native replication, see [Native replication for ApsaraDB RDS](https://help.aliyun.com/document_detail/2856530.html).
    * 
    * @param request - ModifyDBInstanceReplicationSwitchRequest
    * @returns ModifyDBInstanceReplicationSwitchResponse
