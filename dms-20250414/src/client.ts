@@ -4420,6 +4420,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the user security policy of the current Alibaba Cloud account by page and returns the enabled system default security policy.
+   * 
+   * @remarks
+   * This operation returns the enabled system default policies and the user policies of the current Alibaba Cloud account.
+   * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned. They are not filtered by PolicyStatus or IncludeArchived.
+   * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of items in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
+   * - TotalCount is the sum of the number of all enabled system default policies and the number of user policies that meet the filter conditions.
+   * - You can use Readonly to distinguish between the two types of policies: true indicates a system default policy, and false indicates a user policy.
+   * 
+   * @param request - ListAgenticSecurityPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgenticSecurityPoliciesResponse
+   */
+  async listAgenticSecurityPoliciesWithOptions(request: $_model.ListAgenticSecurityPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgenticSecurityPoliciesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.includeArchived)) {
+      query["IncludeArchived"] = request.includeArchived;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.policyStatus)) {
+      query["PolicyStatus"] = request.policyStatus;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgenticSecurityPolicies",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgenticSecurityPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.ListAgenticSecurityPoliciesResponse({}));
+  }
+
+  /**
+   * Queries the user security policy of the current Alibaba Cloud account by page and returns the enabled system default security policy.
+   * 
+   * @remarks
+   * This operation returns the enabled system default policies and the user policies of the current Alibaba Cloud account.
+   * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned. They are not filtered by PolicyStatus or IncludeArchived.
+   * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of items in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
+   * - TotalCount is the sum of the number of all enabled system default policies and the number of user policies that meet the filter conditions.
+   * - You can use Readonly to distinguish between the two types of policies: true indicates a system default policy, and false indicates a user policy.
+   * 
+   * @param request - ListAgenticSecurityPoliciesRequest
+   * @returns ListAgenticSecurityPoliciesResponse
+   */
+  async listAgenticSecurityPolicies(request: $_model.ListAgenticSecurityPoliciesRequest): Promise<$_model.ListAgenticSecurityPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAgenticSecurityPoliciesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
    * 
    * @param request - ListAgenticSqlExecutionHistoriesRequest
