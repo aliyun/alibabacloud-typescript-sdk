@@ -8,7 +8,7 @@ export class CreateEventSourceShrinkRequest extends $dara.Model {
    * The description of the event source.
    * 
    * @example
-   * RabbitMQ event source
+   * Event source of the RabbitMQ type
    */
   description?: string;
   /**
@@ -33,7 +33,7 @@ export class CreateEventSourceShrinkRequest extends $dara.Model {
   eventSourceName?: string;
   /**
    * @remarks
-   * The configuration of the external data source.
+   * The external data source configuration.
    */
   externalSourceConfigShrink?: string;
   /**
@@ -54,42 +54,42 @@ export class CreateEventSourceShrinkRequest extends $dara.Model {
   linkedExternalSource?: boolean;
   /**
    * @remarks
-   * Parameters for an HTTP endpoint event source.
+   * The request parameter SourceHttpEventParameters.
    */
   sourceHttpEventParametersShrink?: string;
   /**
    * @remarks
-   * Parameters for the Message Queue for Apache Kafka event source.
+   * The request parameter SourceKafkaParameters.
    */
   sourceKafkaParametersShrink?: string;
   /**
    * @remarks
-   * Parameters for the Message Service (MNS) event source. The `RegionId`, `IsBase64Decode`, and `QueueName` parameters are required for this type.
+   * The parameters for a Simple Message Queue (formerly MNS) event source. If you select Simple Message Queue (formerly MNS) as the event source, the RegionId, IsBase64Decode, and QueueName parameters are required.
    */
   sourceMNSParametersShrink?: string;
   /**
    * @remarks
-   * Parameters for the Object Storage Service (OSS) event source.
+   * The parameters for an OSS event source.
    */
   sourceOSSEventParametersShrink?: string;
   /**
    * @remarks
-   * Parameters for the Message Queue for RabbitMQ event source.
+   * The request parameter SourceRabbitMQParameters.
    */
   sourceRabbitMQParametersShrink?: string;
   /**
    * @remarks
-   * Parameters for the Message Queue for Apache RocketMQ event source.
+   * The request parameter SourceRocketMQParameters.
    */
   sourceRocketMQParametersShrink?: string;
   /**
    * @remarks
-   * Parameters for the Simple Log Service (SLS) event source.
+   * The parameters for a Simple Log Service event source.
    */
   sourceSLSParametersShrink?: string;
   /**
    * @remarks
-   * Parameters for a scheduled event source.
+   * The request parameter SourceScheduledEventParameters.
    */
   sourceScheduledEventParametersShrink?: string;
   static names(): { [key: string]: string } {

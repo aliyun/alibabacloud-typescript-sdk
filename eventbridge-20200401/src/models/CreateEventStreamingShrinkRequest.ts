@@ -6,11 +6,17 @@ export class CreateEventStreamingShrinkRequestTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
+   * 
+   * @example
+   * env
    */
   key?: string;
   /**
    * @remarks
    * The tag value.
+   * 
+   * @example
+   * prod
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -57,7 +63,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   eventStreamingName?: string;
   /**
    * @remarks
-   * The event filtering rule. If you do not specify this parameter, all events are matched.
+   * The event filtering rule. If this parameter is not specified, all events are matched.
    * 
    * @example
    * {
@@ -81,32 +87,35 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   filterPattern?: string;
   /**
    * @remarks
-   * The general JSON Configurations for the event provider. This parameter is mutually exclusive with Source. Specify one of the two parameters.
+   * The common JSON configurations for the event provider. This parameter is mutually exclusive with the Source parameter.
+   * 
+   * @example
+   * {"key":"value"}
    */
   metadata?: string;
   /**
    * @remarks
-   * The runtime parameters.
+   * The runtime environment parameters.
    */
   runOptionsShrink?: string;
   /**
    * @remarks
-   * The event target. You must select exactly one type of Sink.
+   * The event target. You must select one and only one sink.
    */
   sinkShrink?: string;
   /**
    * @remarks
-   * The event provider. You must select exactly one Source type.
+   * The event provider. You must specify exactly one source.
    */
   sourceShrink?: string;
   /**
    * @remarks
-   * The list of tags. A maximum of 20 tags can be specified.
+   * The list of tags. You can specify up to 20 tags.
    */
   tags?: CreateEventStreamingShrinkRequestTags[];
   /**
    * @remarks
-   * The Transform-related configurations.
+   * The transform configurations.
    */
   transformsShrink?: string;
   static names(): { [key: string]: string } {

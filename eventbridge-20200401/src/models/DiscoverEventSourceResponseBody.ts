@@ -125,11 +125,17 @@ export class DiscoverEventSourceResponseBodyDataSourceMySQLDiscovery extends $da
   /**
    * @remarks
    * The estimated number of rows. Unit: rows.
+   * 
+   * @example
+   * 0
    */
   estimatedRows?: number;
   /**
    * @remarks
    * The number of days before binary logs (binlogs) expire. Unit: days.
+   * 
+   * @example
+   * 0
    */
   expireLogsDays?: number;
   /**
@@ -153,6 +159,9 @@ export class DiscoverEventSourceResponseBodyDataSourceMySQLDiscovery extends $da
   /**
    * @remarks
    * The maximum idle time for a non-interactive connection. Unit: seconds.
+   * 
+   * @example
+   * 86400
    */
   waitTimeout?: number;
   static names(): { [key: string]: string } {

@@ -4,7 +4,21 @@ import { Metadata } from "./Metadata";
 
 
 export class Agent extends $dara.Model {
+  /**
+   * @remarks
+   * The creation time in UNIX milliseconds.
+   * 
+   * @example
+   * 1717200000000
+   */
   createdAt?: number;
+  /**
+   * @remarks
+   * The description of the agent.
+   * 
+   * @example
+   * IoT device data query agent
+   */
   description?: string;
   /**
    * @remarks
@@ -22,9 +36,34 @@ export class Agent extends $dara.Model {
    * data-analyze-agent
    */
   mcpServerName?: string;
+  /**
+   * @remarks
+   * The associated table metadata.
+   */
   metadata?: Metadata;
+  /**
+   * @remarks
+   * The name of the agent.
+   * 
+   * @example
+   * my-agent
+   */
   name?: string;
+  /**
+   * @remarks
+   * The custom prompt.
+   * 
+   * @example
+   * You are an IoT data analytics assistant...
+   */
   prompt?: string;
+  /**
+   * @remarks
+   * The update time in UNIX milliseconds.
+   * 
+   * @example
+   * 1717200000000
+   */
   updatedAt?: number;
   static names(): { [key: string]: string } {
     return {

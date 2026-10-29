@@ -6,7 +6,7 @@ import { KnowledgeBaseDocument } from "./KnowledgeBaseDocument";
 export class GetDocumentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of Success indicates a successful call. If the call fails, a specific error code is returned.
+   * The response code. A value of Success indicates that the call was successful. If the call fails, a specific error code is returned.
    * 
    * @example
    * Success
@@ -19,7 +19,7 @@ export class GetDocumentResponseBody extends $dara.Model {
   data?: KnowledgeBaseDocument;
   /**
    * @remarks
-   * The response message. A value of Operation success is returned if the call succeeds. A specific error description is returned if the call fails.
+   * The response message. The value is Operation success if the call is successful, or a specific error description if the call fails.
    * 
    * @example
    * Operation success
@@ -27,7 +27,7 @@ export class GetDocumentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****
@@ -35,7 +35,7 @@ export class GetDocumentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. A value of true indicates success.
+   * Indicates whether the call was successful. A value of true indicates that the call was successful.
    * 
    * @example
    * true

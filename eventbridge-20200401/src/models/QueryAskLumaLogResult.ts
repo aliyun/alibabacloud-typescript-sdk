@@ -6,17 +6,22 @@ import { AskLumaLogEntry } from "./AskLumaLogEntry";
 export class QueryAskLumaLogResult extends $dara.Model {
   /**
    * @remarks
-   * The log entries returned by the query.
+   * The list of log records returned by the query.
    */
   entries?: AskLumaLogEntry[];
   /**
    * @remarks
-   * Specifies whether more results are available. The value is `true` if more results can be retrieved, and `false` otherwise.
+   * Indicates whether more query results are available. Valid values:
+   * - true: More results are available.
+   * - false: No more results are available.
    */
   hasMore?: boolean;
   /**
    * @remarks
-   * The token to use for retrieving the next page of results. If present, pass this value as the `LastKey` parameter in a subsequent request to fetch more data. This field is omitted when all results have been retrieved.
+   * The token used to retrieve the next page of query results. Pass this value as LastKey in subsequent requests to continue the query. This field is not returned when all results have been returned.
+   * 
+   * @example
+   * eyJ0cyI6MTcxN...
    */
   lastKey?: string;
   static names(): { [key: string]: string } {

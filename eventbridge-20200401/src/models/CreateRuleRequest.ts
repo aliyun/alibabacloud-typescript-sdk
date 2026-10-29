@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRuleRequestEventTargetsConcurrentConfig extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of concurrent executions for the event target.
+   * The number of concurrent executions.
    * 
    * @example
    * 2
@@ -35,7 +35,7 @@ export class CreateRuleRequestEventTargetsConcurrentConfig extends $dara.Model {
 export class CreateRuleRequestEventTargetsDeadLetterQueue extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the dead-letter queue. Events that fail to be processed or exceed the retry limit are sent to this ARN. Supported services for this parameter include Message Service (MNS) and Message Queue for Apache RocketMQ.
+   * The ARN of the dead-letter queue. Unprocessed events or events that exceed the retry count are written to the dead-letter queue. Simple Message Queue (formerly MNS) and ApsaraMQ for RocketMQ are supported.
    * 
    * @example
    * acs:mns:cn-hangzhou:123456789098****:/queues/deadletterqueue
@@ -44,21 +44,33 @@ export class CreateRuleRequestEventTargetsDeadLetterQueue extends $dara.Model {
   /**
    * @remarks
    * The network type.
+   * 
+   * @example
+   * PrivateNetwork
    */
   network?: string;
   /**
    * @remarks
    * The security group ID.
+   * 
+   * @example
+   * sg-2d****
    */
   securityGroupId?: string;
   /**
    * @remarks
    * The vSwitch ID.
+   * 
+   * @example
+   * vsw-m12345****
    */
   vSwitchIds?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC where the dead-letter queue resides.
+   * 
+   * @example
+   * vpc-2z****
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -101,7 +113,7 @@ export class CreateRuleRequestEventTargetsParamList extends $dara.Model {
   form?: string;
   /**
    * @remarks
-   * The name of the target parameter. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
+   * The resource parameter of the event target. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
    * body
@@ -109,7 +121,7 @@ export class CreateRuleRequestEventTargetsParamList extends $dara.Model {
   resourceKey?: string;
   /**
    * @remarks
-   * The template for the event target parameter.
+   * The parameter template style of the event target.
    * 
    * @example
    * The value of ${key} is ${value}!
@@ -158,12 +170,12 @@ export class CreateRuleRequestEventTargets extends $dara.Model {
   concurrentConfig?: CreateRuleRequestEventTargetsConcurrentConfig;
   /**
    * @remarks
-   * The dead-letter queue. If an event fails to be processed or exceeds the retry limit, it is sent to the dead-letter queue. Supported services for the dead-letter queue include Message Queue for Apache RocketMQ, Message Service (MNS), Message Queue for Apache Kafka, and EventBridge event buses.
+   * The dead-letter queue. Unprocessed events or events that exceed the retry count are written to the dead-letter queue. Supported queue types include ApsaraMQ for RocketMQ, Simple Message Queue (formerly MNS), ApsaraMQ for Kafka, and EventBridge event buses.
    */
   deadLetterQueue?: CreateRuleRequestEventTargetsDeadLetterQueue;
   /**
    * @remarks
-   * The delivery endpoint for events.
+   * The endpoint URL for delivery.
    * 
    * @example
    * acs:mns:cn-hangzhou:123456789098****:queues/myqueue
@@ -171,7 +183,9 @@ export class CreateRuleRequestEventTargets extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The fault tolerance policy. Valid values:<br>`ALL`: Enables fault tolerance. Execution continues even if an error occurs. After all retry attempts fail, the event is sent to the dead-letter queue (if configured) or discarded.<br>`NONE`: Disables fault tolerance. Execution is blocked if an error occurs and all retry attempts fail.<br><br>
+   * The fault tolerance strategy. Valid values:
+   * - ALL: allows fault tolerance. Exceptions do not block execution. If the retry strategy is exhausted, messages are delivered to the dead-letter queue or discarded based on the configuration.
+   * - NONE: disables fault tolerance. Exceptions block execution when the retry strategy is exhausted.
    * 
    * @example
    * ALL
@@ -189,12 +203,14 @@ export class CreateRuleRequestEventTargets extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The parameters for the event target.
+   * The parameters of the event target.
    */
   paramList?: CreateRuleRequestEventTargetsParamList[];
   /**
    * @remarks
-   * The push retry strategy. Valid values:<br>`BACKOFF_RETRY`: A backoff retry strategy where the system makes three retry attempts at random intervals of 10 to 20 seconds.<br>`EXPONENTIAL_DECAY_RETRY`: An exponential decay retry strategy where the system makes 176 retry attempts over 24 hours. The interval starts at 1 second and doubles with each of the first 10 attempts (up to 512 seconds). Subsequent retries occur every 512 seconds.<br><br>
+   * The retry policy for pushing events. Valid values:
+   * - BACKOFF_RETRY: backoff retry policy. The system retries 3 times, with a random interval of 10 to 20 seconds between each retry.
+   * - EXPONENTIAL_DECAY_RETRY: exponential decay retry. The system retries 176 times, with the interval exponentially incrementing to 512 seconds. The total retry time is 1 day. The specific intervals are 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, and then 512 seconds for the remaining 167 retries.
    * 
    * @example
    * BACKOFF_RETRY
@@ -257,10 +273,10 @@ export class CreateRuleRequestEventTargets extends $dara.Model {
 export class CreateRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the event rule.
+   * The description of the event bus.
    * 
    * @example
-   * SMQ filter rule
+   * Filter rule for Simple Message Queue (formerly MNS) (SMQ)
    */
   description?: string;
   /**
@@ -275,12 +291,15 @@ export class CreateRuleRequest extends $dara.Model {
   eventBusName?: string;
   /**
    * @remarks
-   * A list of event targets.
+   * The list of event targets.
    */
   eventTargets?: CreateRuleRequestEventTargets[];
   /**
    * @remarks
-   * The event pattern, in JSON format. Supported pattern types are `stringEqual` and `stringExpression`. Each field can contain a maximum of five expressions in a map structure.
+   * The event pattern in JSON format. The following patterns are supported:
+   * - stringEqual pattern
+   * - stringExpression pattern
+   * Each field supports up to five expressions in a map structure.
    * 
    * This parameter is required.
    * 
@@ -317,7 +336,9 @@ export class CreateRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The status of the event rule. Valid values: `ENABLE`: The rule is enabled. This is the default value. `DISABLE`: The rule is disabled.
+   * The status of the rule. Valid values:
+   * - ENABLE: The rule is enabled. This is the default status.
+   * - DISABLE: The rule is disabled.
    * 
    * @example
    * ENABLE

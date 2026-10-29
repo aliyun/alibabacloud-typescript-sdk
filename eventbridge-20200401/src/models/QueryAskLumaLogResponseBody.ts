@@ -6,11 +6,11 @@ import { QueryAskLumaLogResult } from "./QueryAskLumaLogResult";
 export class QueryAskLumaLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Valid values:
+   * The return code of the API operation:
    * 
-   * 200: The request was successful.    
+   * 200: The call is successful.    
    * 
-   * Other values: An error occurred. For more information, see error codes.
+   * Other values: An error code. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -34,7 +34,7 @@ export class QueryAskLumaLogResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier that Alibaba Cloud generates for the request.
+   * The ID of the request.
    * 
    * @example
    * 6FB52207-7621-5292-BDF2-A17E2E984160
@@ -42,7 +42,7 @@ export class QueryAskLumaLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns true if the operation is successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

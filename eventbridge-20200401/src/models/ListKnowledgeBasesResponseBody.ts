@@ -14,7 +14,7 @@ export class ListKnowledgeBasesResponseBodyData extends $dara.Model {
   knowledgeBases?: KnowledgeBase[];
   /**
    * @remarks
-   * The maximum number of results per page that was applied to this request.
+   * The actual maximum number of results per page that takes effect for the current request.
    * 
    * @example
    * 20
@@ -22,7 +22,7 @@ export class ListKnowledgeBasesResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token (an opaque string) for the next page. Pass this value as the NextToken parameter in the next request to retrieve the next page. An empty value indicates that no more data is available.
+   * The pagination token for the next page. It is an opaque string. You can pass this token as the NextToken parameter in the next request to retrieve the next page. An empty value indicates that no more data is available.
    * 
    * @example
    * ca1eb85f5d99c7d6a97e6****
@@ -30,7 +30,7 @@ export class ListKnowledgeBasesResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of knowledge bases that match the filter conditions. Use an empty NextToken value as the termination condition for pagination.
+   * The total number of knowledge bases that meet the filter conditions. Pagination ends when NextToken is empty.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class ListKnowledgeBasesResponseBodyData extends $dara.Model {
 export class ListKnowledgeBasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of Success indicates that the call was successful. If the call failed, a specific error code is returned.
+   * The response code. A value of Success indicates that the call is successful. If the call fails, a specific error code is returned.
    * 
    * @example
    * Success
@@ -77,12 +77,12 @@ export class ListKnowledgeBasesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The query result of the knowledge base list, including knowledge base entries and pagination information.
+   * The query results of the knowledge base list, including knowledge base entries and pagination information.
    */
   data?: ListKnowledgeBasesResponseBodyData;
   /**
    * @remarks
-   * The message returned by the operation. The value Operation success is returned if the call was successful. A specific error description is returned if the call failed.
+   * The response message. If the call is successful, the value is Operation success. If the call fails, a specific error description is returned.
    * 
    * @example
    * Operation success
@@ -98,7 +98,7 @@ export class ListKnowledgeBasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. A value of true indicates success.
+   * Indicates whether the call is successful. A value of true indicates that the call is successful.
    * 
    * @example
    * true

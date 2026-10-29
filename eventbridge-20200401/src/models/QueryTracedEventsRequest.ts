@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTracedEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range for the query, specified as a UNIX timestamp in milliseconds.
+   * The end time of the time range to retrieve events. Unit: milliseconds.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class QueryTracedEventsRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page. Use this parameter with NextToken to paginate the results.>Notice: The maximum value is 100.
+   * The maximum number of entries to return per page. You can use this parameter together with NextToken to paginate query results. >Notice: The maximum number of entries returned per page cannot exceed 100.
    * 
    * @example
    * 50
@@ -57,7 +57,7 @@ export class QueryTracedEventsRequest extends $dara.Model {
   matchedRule?: string;
   /**
    * @remarks
-   * The token for retrieving the next page of results. It is returned in the response to a previous request if more results are available.
+   * The pagination token. If you specify Limit and more results are available, this token is returned.
    * 
    * @example
    * 1000
@@ -65,7 +65,7 @@ export class QueryTracedEventsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The beginning of the time range for the query, specified as a UNIX timestamp in milliseconds.
+   * The start time of the time range to retrieve events. Unit: milliseconds.
    * 
    * This parameter is required.
    * 
@@ -75,7 +75,10 @@ export class QueryTracedEventsRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The event subject.
+   * The subject of the event.
+   * 
+   * @example
+   * order-1001
    */
   subject?: string;
   static names(): { [key: string]: string } {

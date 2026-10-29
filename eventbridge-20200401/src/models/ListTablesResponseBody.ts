@@ -67,7 +67,7 @@ export class ListTablesResponseBody extends $dara.Model {
    * Response data
    * 
    * @example
-   * {"Tables":[{"Name":"my_table","Comment":"测试事件表"}],"NextToken":"10","Total":1}
+   * {"Tables":[{"Name":"my_table","Comment":"Test event table"}],"NextToken":"10","Total":1}
    */
   data?: ListTablesResponseBodyData;
   /**

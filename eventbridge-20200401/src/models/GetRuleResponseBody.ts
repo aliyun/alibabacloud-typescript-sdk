@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRuleResponseBodyDataTargetsConcurrentConfig extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of concurrent pushes.
+   * The concurrency.
    * 
    * @example
    * 2
@@ -35,7 +35,7 @@ export class GetRuleResponseBodyDataTargetsConcurrentConfig extends $dara.Model 
 export class GetRuleResponseBodyDataTargetsDeadLetterQueue extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the dead-letter queue.
+   * The Alibaba Cloud Resource Name (ARN) of the queried dead-letter queue.
    * 
    * @example
    * acs:eventbridge:cn-hangzhou:164901546557****:eventbus/my-event-bus/eventsource/myRocketMQ.source
@@ -44,21 +44,33 @@ export class GetRuleResponseBodyDataTargetsDeadLetterQueue extends $dara.Model {
   /**
    * @remarks
    * The network type of the dead-letter queue.
+   * 
+   * @example
+   * PrivateNetwork
    */
   network?: string;
   /**
    * @remarks
    * The security group ID.
+   * 
+   * @example
+   * sg-2v****
    */
   securityGroupId?: string;
   /**
    * @remarks
    * The vSwitch IDs.
+   * 
+   * @example
+   * vsw-m5e****
    */
   vSwitchIds?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC where the dead-letter queue resides.
+   * 
+   * @example
+   * vpc-2z****
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -101,7 +113,7 @@ export class GetRuleResponseBodyDataTargetsParamList extends $dara.Model {
   form?: string;
   /**
    * @remarks
-   * The resource key of the event target. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
+   * The resource parameter of the event target. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
    * body
@@ -109,7 +121,7 @@ export class GetRuleResponseBodyDataTargetsParamList extends $dara.Model {
   resourceKey?: string;
   /**
    * @remarks
-   * The template of the event target parameter.
+   * The style of the event target parameter template.
    * 
    * @example
    * The value of ${key} is ${value}!
@@ -153,7 +165,7 @@ export class GetRuleResponseBodyDataTargetsParamList extends $dara.Model {
 export class GetRuleResponseBodyDataTargets extends $dara.Model {
   /**
    * @remarks
-   * The concurrency settings.
+   * The concurrency configuration.
    */
   concurrentConfig?: GetRuleResponseBodyDataTargetsConcurrentConfig;
   /**
@@ -163,12 +175,12 @@ export class GetRuleResponseBodyDataTargets extends $dara.Model {
   deadLetterQueue?: GetRuleResponseBodyDataTargetsDeadLetterQueue;
   /**
    * @remarks
-   * The details of the event target.
+   * The detailed information.
    */
   detailMap?: { [key: string]: any };
   /**
    * @remarks
-   * The delivery endpoint for the event.
+   * The endpoint URL for delivery.
    * 
    * @example
    * acs:mns:cn-hangzhou:123456789098****:queues/myqueue
@@ -176,11 +188,10 @@ export class GetRuleResponseBodyDataTargets extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The fault tolerance policy. Valid values:
+   * The fault tolerance strategy. Valid values:
    * 
-   * - **ALL**: Enables fault tolerance. Errors do not block event delivery. If all retries fail, the system sends the event to the specified dead-letter queue or discards it.
-   * 
-   * - **NONE**: Disables fault tolerance. If an error persists after all retries, the system blocks event delivery.
+   * - **ALL**: Allows fault tolerance. When an exception occurs, the execution is not blocked. If the retry strategy is exhausted, the message is delivered to the dead-letter queue or discarded based on the configuration.
+   * - **NONE**: Disables fault tolerance. When an exception occurs and the retry strategy is exhausted, the execution is blocked.
    * 
    * @example
    * ALL
@@ -188,7 +199,7 @@ export class GetRuleResponseBodyDataTargets extends $dara.Model {
   errorsTolerance?: string;
   /**
    * @remarks
-   * The custom ID of the event target.
+   * The ID of the custom event target.
    * 
    * @example
    * Mlm123456JHd2RsRoKw
@@ -201,11 +212,10 @@ export class GetRuleResponseBodyDataTargets extends $dara.Model {
   paramList?: GetRuleResponseBodyDataTargetsParamList[];
   /**
    * @remarks
-   * The retry policy for pushing events. Valid values:
+   * The push retry policy. Valid values:
    * 
-   * - **BACKOFF_RETRY**: A backoff retry policy. The event is retried 3 times at a random interval between 10 and 20 seconds.
-   * 
-   * - **EXPONENTIAL_DECAY_RETRY**: An exponential decay retry policy. The event is retried 176 times over one day. The retry interval starts at 1 second and exponentially increases to a maximum of 512 seconds. The specific retry intervals are 1, 2, 4, 8, 16, 32, 64, 128, 256, and then 512 for the remaining 167 retries.
+   * - **BACKOFF_RETRY**: The backoff retry policy. The system retries three times. The interval between two consecutive retries is a random value between 10 seconds and 20 seconds.
+   * - **EXPONENTIAL_DECAY_RETRY**: The exponential decay retry. The system retries 176 times. The interval between two consecutive retries exponentially increments up to 512 seconds. The total retry time is one day. The specific intervals are 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, and 512 seconds (167 intervals of 512 seconds).
    * 
    * @example
    * BACKOFF_RETRY
@@ -281,7 +291,7 @@ export class GetRuleResponseBodyDataTargets extends $dara.Model {
 export class GetRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation timestamp of the rule.
+   * The creation timestamp.
    * 
    * @example
    * 1607071602000
@@ -305,11 +315,10 @@ export class GetRuleResponseBodyData extends $dara.Model {
   eventBusName?: string;
   /**
    * @remarks
-   * The event pattern in JSON format. The following modes are supported:
+   * The event pattern in JSON format. The following rules apply:
    * 
-   * - **stringEqual mode**: In the map structure, each field can contain up to five expressions.
-   * 
-   * - **stringExpression mode**: In the map structure, each field can contain up to five expressions.
+   * - **stringEqual mode**: A maximum of five expressions are allowed for each field (map structure).
+   * - **stringExpression mode**: A maximum of five expressions are allowed for each field (map structure).
    * 
    * @example
    * {\\"source\\":[\\"acs.oss\\"],\\"type\\":[\\"oss:BucketQueried:GetBucketStat\\"]}
@@ -335,8 +344,7 @@ export class GetRuleResponseBodyData extends $dara.Model {
    * @remarks
    * The status of the rule. Valid values:
    * 
-   * - **ENABLE**: The rule is enabled. This is the default.
-   * 
+   * - **ENABLE**: The rule is enabled. This is the default status.
    * - **DISABLE**: The rule is disabled.
    * 
    * @example
@@ -391,9 +399,8 @@ export class GetRuleResponseBody extends $dara.Model {
    * @remarks
    * The response code. Valid values:
    * 
-   * - **Success**: The request was successful.
-   * 
-   * - **Other values**: The request returned an error code. For more information, see Error codes.
+   * - **Success**: The request is successful.
+   * - **Other values**: The error code. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -401,7 +408,7 @@ export class GetRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned result.
    */
   data?: GetRuleResponseBodyData;
   /**
@@ -414,7 +421,7 @@ export class GetRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID generated by Alibaba Cloud.
+   * The unique identifier generated by Alibaba Cloud for the request.
    * 
    * @example
    * 2BC1857D-E633-5E79-B2C2-43EF5F7730D8
@@ -422,7 +429,7 @@ export class GetRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. A value of `true` indicates success.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

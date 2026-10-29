@@ -14,7 +14,7 @@ export class AskLumaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response body.
+   * The business response body.
    */
   data?: AskLumaResult;
   /**
@@ -27,7 +27,7 @@ export class AskLumaResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 97FB3BAE-XXXXXX-36435495B7EB
@@ -35,7 +35,7 @@ export class AskLumaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

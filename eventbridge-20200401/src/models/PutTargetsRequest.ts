@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutTargetsRequestTargetsConcurrentConfig extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of concurrent executions for the event target.
+   * The concurrency.
    * 
    * @example
    * 34
@@ -35,10 +35,10 @@ export class PutTargetsRequestTargetsConcurrentConfig extends $dara.Model {
 export class PutTargetsRequestTargetsDeadLetterQueue extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the dead-letter queue.
+   * The ARN of the dead-letter queue. Unprocessed events or events that exceed the maximum number of retries are written to the dead-letter queue.
    * 
    * @example
-   * Acs:mns:cn-hangzhou:123456789098****:/queues/deadletterqueue
+   * acs:mns:cn-hangzhou:123456789098****:/queues/deadletterqueue
    * or
    * acs:mq:cn-hangzhou:123456789098****:/instances/MQ_INST_123456789098****_BX8QbBPL/topic/deadlettertopic
    * or
@@ -50,21 +50,33 @@ export class PutTargetsRequestTargetsDeadLetterQueue extends $dara.Model {
   /**
    * @remarks
    * The network type of the dead-letter queue.
+   * 
+   * @example
+   * PrivateNetwork
    */
   network?: string;
   /**
    * @remarks
    * The security group ID.
+   * 
+   * @example
+   * sg-2vp****
    */
   securityGroupId?: string;
   /**
    * @remarks
-   * The VSwitch IDs.
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-m5****
    */
   vSwitchIds?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC where the dead-letter queue resides.
+   * 
+   * @example
+   * vpc-2z****
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -99,7 +111,7 @@ export class PutTargetsRequestTargetsDeadLetterQueue extends $dara.Model {
 export class PutTargetsRequestTargetsParamList extends $dara.Model {
   /**
    * @remarks
-   * The format of the parameter value. For more information, see [Event target parameters](https://help.aliyun.com/document_detail/185887.html).
+   * The format of the event target parameter. For more information, see [Event target parameters](https://help.aliyun.com/document_detail/185887.html).
    * 
    * @example
    * TEMPLATE
@@ -107,7 +119,7 @@ export class PutTargetsRequestTargetsParamList extends $dara.Model {
   form?: string;
   /**
    * @remarks
-   * The key of the parameter. For more information, see [Event target parameters](https://help.aliyun.com/document_detail/185887.html).
+   * The resource parameter of the event target. For more information, see [Event target parameters](https://help.aliyun.com/document_detail/185887.html).
    * 
    * @example
    * body
@@ -115,7 +127,7 @@ export class PutTargetsRequestTargetsParamList extends $dara.Model {
   resourceKey?: string;
   /**
    * @remarks
-   * The template for the parameter value. This parameter applies only when `Form` is set to `TEMPLATE`.
+   * The parameter template style of the event target.
    * 
    * @example
    * The value of ${key} is ${value}!
@@ -123,7 +135,7 @@ export class PutTargetsRequestTargetsParamList extends $dara.Model {
   template?: string;
   /**
    * @remarks
-   * The value of the parameter.
+   * The value of the event target parameter.
    * 
    * @example
    * {\\"key\\"=\\"value\\"}
@@ -159,17 +171,17 @@ export class PutTargetsRequestTargetsParamList extends $dara.Model {
 export class PutTargetsRequestTargets extends $dara.Model {
   /**
    * @remarks
-   * The concurrency control settings.
+   * The concurrency control configuration.
    */
   concurrentConfig?: PutTargetsRequestTargetsConcurrentConfig;
   /**
    * @remarks
-   * The dead-letter queue (DLQ) to which events are sent after all retry attempts fail. Supported DLQ types include Message Queue for Apache RocketMQ, Message Service (MNS), Message Queue for Apache Kafka, and EventBridge.
+   * The dead-letter queue. Unprocessed events or events that exceed the retry limit are written to the dead-letter queue. The supported queue types for the dead-letter queue include ApsaraMQ for RocketMQ, Simple Message Queue (formerly MNS), Message Queue for Apache Kafka, and EventBridge event bus.
    */
   deadLetterQueue?: PutTargetsRequestTargetsDeadLetterQueue;
   /**
    * @remarks
-   * The endpoint of the event target.
+   * The delivery endpoint URL.
    * 
    * @example
    * acs:fc:cn-hangzhou:123456789098****:services/guide.LATEST/functions/HelloFC
@@ -177,11 +189,11 @@ export class PutTargetsRequestTargets extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The fault tolerance policy. Valid values:
+   * The fault tolerance strategy. Valid values:
    * 
-   * - **ALL**: Enables fault tolerance. If an error occurs, execution continues. After the retry attempts defined by the retry strategy are exhausted, the event is sent to the configured dead-letter queue or discarded.
+   * - **ALL**: Allows fault tolerance. Exceptions are tolerated and do not block execution. If the retry strategy is exhausted, messages are delivered to the dead-letter queue or discarded based on the configuration.
    * 
-   * - **NONE**: Disables fault tolerance. If an error persists after all retry attempts fail, execution is blocked.
+   * - **NONE**: Disables fault tolerance. Exceptions are not tolerated. If an exception occurs and the retry strategy is exhausted, execution is blocked.
    * 
    * @example
    * ALL
@@ -199,16 +211,16 @@ export class PutTargetsRequestTargets extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * A list of parameters for the event target.
+   * The parameters of the event target.
    */
   paramList?: PutTargetsRequestTargetsParamList[];
   /**
    * @remarks
-   * The retry strategy for pushing events. Valid values:
+   * The push retry policy. Valid values:
    * 
-   * - **BACKOFF_RETRY**: The event is retried up to three times at random intervals between 10 and 20 seconds.
+   * - **BACKOFF_RETRY**: Backoff retry policy. The system retries three times, and the interval between each retry is a random value between 10 and 20 seconds.
    * 
-   * - **EXPONENTIAL_DECAY_RETRY**: The event is retried up to 176 times over 24 hours. The retry interval starts at 1 second, doubles with each attempt (1, 2, 4, ..., 256 seconds), and is capped at 512 seconds for all subsequent retries.
+   * - **EXPONENTIAL_DECAY_RETRY**: Exponential decay retry. The system retries 176 times, and the interval between retries increments exponentially up to 512 seconds. The total retry time is one day. The specific intervals are 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 512...512 seconds (167 intervals of 512 seconds in total).
    * 
    * @example
    * BACKOFFRETRY
@@ -291,7 +303,7 @@ export class PutTargetsRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * A list of event targets to create or update. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
+   * The list of event targets to be added or updated. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * This parameter is required.
    */

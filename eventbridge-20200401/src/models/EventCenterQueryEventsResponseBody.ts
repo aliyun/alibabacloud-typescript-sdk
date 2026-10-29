@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EventCenterQueryEventsResponseBodyDataTable extends $dara.Model {
   /**
    * @remarks
-   * A query result entry, represented as a key-value pair.
+   * The entries in the query results, represented as key-value pairs.
    * 
    * @example
    * {
@@ -41,7 +41,7 @@ export class EventCenterQueryEventsResponseBodyDataTable extends $dara.Model {
 export class EventCenterQueryEventsResponseBodyDataTimeSeries extends $dara.Model {
   /**
    * @remarks
-   * A query result entry, represented as a key-value pair.
+   * The entries in the query results, represented as key-value pairs.
    * 
    * @example
    * {
@@ -52,7 +52,7 @@ export class EventCenterQueryEventsResponseBodyDataTimeSeries extends $dara.Mode
   rowData?: { [key: string]: any };
   /**
    * @remarks
-   * The timestamp.
+   * The timestamp used for display.
    * 
    * @example
    * 1683561600000
@@ -87,7 +87,7 @@ export class EventCenterQueryEventsResponseBodyDataTimeSeries extends $dara.Mode
 export class EventCenterQueryEventsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of records returned for the current request.
    * 
    * @example
    * 100
@@ -95,7 +95,7 @@ export class EventCenterQueryEventsResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to retrieve the next page of results. If this parameter is empty, all results have been returned.
+   * The token that indicates the read position returned by the current call. An empty value indicates that all data has been read.
    * 
    * @example
    * 100
@@ -103,17 +103,17 @@ export class EventCenterQueryEventsResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The query results for the `table` query type.
+   * The query results for the table query type.
    */
   table?: EventCenterQueryEventsResponseBodyDataTable[];
   /**
    * @remarks
-   * The query results for the `time series` query type.
+   * The query results for the timeseries query type.
    */
   timeSeries?: EventCenterQueryEventsResponseBodyDataTimeSeries[];
   /**
    * @remarks
-   * The total number of entries that meet the filter conditions. This parameter is optional and is not returned by default.
+   * The total number of data entries that meet the request conditions. This parameter is optional and is not returned by default.
    * 
    * @example
    * 76
@@ -157,7 +157,7 @@ export class EventCenterQueryEventsResponseBodyData extends $dara.Model {
 export class EventCenterQueryEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the API call, which can be Success or a POP error code.
+   * The API status or POP error code. Valid values: Success: Successful.
    * 
    * @example
    * Success
@@ -165,7 +165,7 @@ export class EventCenterQueryEventsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: EventCenterQueryEventsResponseBodyData;
   /**
@@ -178,7 +178,7 @@ export class EventCenterQueryEventsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5DAF96FB-A4B6-548C-B999-XXXXXXXX
@@ -186,7 +186,7 @@ export class EventCenterQueryEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. `true` indicates success, and `false` indicates failure.
+   * Indicates whether the operation is successful. Valid values: true: Successful. false: Failed.
    * 
    * @example
    * true

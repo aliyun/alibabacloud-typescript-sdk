@@ -25,7 +25,7 @@ export class PutTargetsShrinkRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * A list of event targets to create or update. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
+   * The list of event targets to be added or updated. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * This parameter is required.
    */

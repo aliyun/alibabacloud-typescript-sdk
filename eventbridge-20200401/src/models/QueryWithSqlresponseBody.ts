@@ -6,7 +6,7 @@ import { Row } from "./Row";
 export class QueryWithSQLResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The query result rows.
+   * The rows in the query result.
    */
   rows?: Row[];
   /**
@@ -46,11 +46,11 @@ export class QueryWithSQLResponseBodyData extends $dara.Model {
 export class QueryWithSQLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Valid values:
+   * The response code returned by the API operation. Valid values:
    * 
-   * - Success: The request was successful.    
+   * - Success: The request is successful.    
    * 
-   * - Other values: An error occurred. For more information, see error codes.
+   * - Other values: An error code. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -79,7 +79,11 @@ export class QueryWithSQLResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the operation is successful. Valid values:
+   * 
+   * - true: The operation is successful.
+   * 
+   * - false: The operation fails.
    * 
    * @example
    * true

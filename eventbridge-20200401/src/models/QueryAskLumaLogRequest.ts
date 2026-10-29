@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAskLumaLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The cursor for pagination. Set this parameter to the messageId of the last entry on the previous page.
+   * The cursor, which is the message ID of the last record on the previous page.
    * 
    * @example
    * eyJ0cyI6MTcxN...
@@ -13,7 +13,7 @@ export class QueryAskLumaLogRequest extends $dara.Model {
   after?: string;
   /**
    * @remarks
-   * The agent name. If this parameter is not specified, all agent call logs are queried.
+   * The name of the agent. If this parameter is not specified, all agents are queried.
    * 
    * @example
    * demo-luma-agent

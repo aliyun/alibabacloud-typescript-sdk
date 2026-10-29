@@ -5,51 +5,39 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceHttpEventParameters extends $dara.Model {
   /**
    * @remarks
-   * The IP address range for security configuration. This parameter is required only when `SecurityConfig` is set to `ip`. You can specify a CIDR block or an IP address.
+   * The CIDR block security configuration. This parameter is required only when the SecurityConfig parameter is set to ip. You can enter a CIDR block or an IP address.
    */
   ip?: string[];
   /**
    * @remarks
-   * The HTTP request methods supported by the webhook. You can select one or more methods. Valid values:
-   * 
-   * - `GET`
-   * 
-   * - `POST`
-   * 
-   * - `PUT`
-   * 
-   * - `PATCH`
-   * 
-   * - `DELETE`
-   * 
-   * - `HEAD`
-   * 
-   * - `OPTIONS`
-   * 
-   * - `TRACE`
-   * 
-   * - `CONNECT`
+   * The HTTP request methods supported by the generated webhook. You can select multiple values. Valid values:
+   * - GET
+   * - POST
+   * - PUT
+   * - PATCH
+   * - DELETE
+   * - HEAD
+   * - OPTIONS
+   * - TRACE
+   * - CONNECT
    */
   method?: string[];
   /**
    * @remarks
-   * The public request URL.
+   * The public network request URL.
    */
   publicWebHookUrl?: string[];
   /**
    * @remarks
-   * The security domain settings. This parameter is required only when `SecurityConfig` is set to `referer`. You can specify one or more domain names.
+   * The secure domain name configuration. This parameter is required only when the SecurityConfig parameter is set to referer. You can enter a domain name.
    */
   referer?: string[];
   /**
    * @remarks
-   * The type of security configuration. Valid values:
-   * 
-   * - `none`: No configuration is required.
-   * 
-   * - `ip`: IP address range.
-   * 
-   * - `referer`: Security domain.
+   * The type of the security configuration. Valid values:
+   * - none: No configuration is required.
+   * - ip: CIDR block.
+   * - referer: Secure domain name.
    * 
    * @example
    * none
@@ -57,13 +45,10 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceHtt
   securityConfig?: string;
   /**
    * @remarks
-   * The protocol type supported by the webhook. Valid values:
-   * 
-   * - `HTTP`
-   * 
-   * - `HTTPS`
-   * 
-   * - `HTTP&HTTPS`
+   * The protocol type supported by the generated webhook. Valid values:
+   * - HTTP
+   * - HTTPS
+   * - HTTP&HTTPS
    * 
    * @example
    * HTTPS
@@ -125,7 +110,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceHtt
 export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceKafkaParameters extends $dara.Model {
   /**
    * @remarks
-   * The ID of the consumer group that subscribes to the topic.
+   * The group ID of the consumer that subscribes to the topic.
    * 
    * @example
    * test-gid
@@ -133,7 +118,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceKaf
   consumerGroup?: string;
   /**
    * @remarks
-   * The ID of the Kafka instance.
+   * The instance ID.
    * 
    * @example
    * i-2ze6kiwzkebf04s5h8ds
@@ -141,7 +126,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceKaf
   instanceId?: string;
   /**
    * @remarks
-   * The concurrent quota (number of consumers).
+   * The concurrency quota (number of consumers).
    * 
    * @example
    * 2
@@ -149,7 +134,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceKaf
   maximumTasks?: number;
   /**
    * @remarks
-   * The network type. Valid values: `Default` (default network) and `PublicNetwork` (self-managed network).
+   * The network configuration. Valid values: Default (default network) and PublicNetwork (self-managed network).
    * 
    * @example
    * Default
@@ -157,7 +142,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceKaf
   network?: string;
   /**
    * @remarks
-   * The position from which to start consumption if no offset is stored. For example, `earliest`.
+   * The consumption offset.
    * 
    * @example
    * earliest
@@ -189,7 +174,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceKaf
   topic?: string;
   /**
    * @remarks
-   * The vSwitch IDs.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1hcrxq3mkcik***e
@@ -245,7 +230,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceKaf
 export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNSParameters extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable Base64 decoding. The default value is `true`.
+   * Specifies whether to enable Base64 decoding. Default value: true.
    * 
    * @example
    * true
@@ -253,7 +238,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNS
   isBase64Decode?: boolean;
   /**
    * @remarks
-   * The name of the MNS queue.
+   * The name of the queue in Simple Message Queue (formerly MNS).
    * 
    * @example
    * queue.openapi-sign-callback
@@ -261,7 +246,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNS
   queueName?: string;
   /**
    * @remarks
-   * The region where the MNS queue is located.
+   * The region where the queue of Simple Message Queue (formerly MNS) resides.
    * 
    * @example
    * cn-hangzhou
@@ -301,11 +286,17 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSS
   /**
    * @remarks
    * The matching rules.
+   * 
+   * @example
+   * Event rules (if any)
    */
   matchRules?: any;
   /**
    * @remarks
-   * The ARN of the Security Token Service (STS) role.
+   * The ARN of the STS role.
+   * 
+   * @example
+   * acs:eventbridge:cn-hangzhou:**
    */
   stsRoleArn?: string;
   static names(): { [key: string]: string } {
@@ -339,7 +330,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSS
 export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRabbitMQParameters extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ApsaraMQ for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
+   * The instance ID of the ApsaraMQ for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
    * bastionhost-cn-0ju2x28fj07
@@ -347,7 +338,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRab
   instanceId?: string;
   /**
    * @remarks
-   * The name of the queue on the ApsaraMQ for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
+   * The queue name of the ApsaraMQ for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
    * file-upload-queue
@@ -355,7 +346,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRab
   queueName?: string;
   /**
    * @remarks
-   * The region where the ApsaraMQ for RabbitMQ instance is located.
+   * The region where the ApsaraMQ for RabbitMQ instance resides.
    * 
    * @example
    * cn-hangzhou
@@ -363,7 +354,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRab
   regionId?: string;
   /**
    * @remarks
-   * The name of the virtual host of the ApsaraMQ for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
+   * The vhost name of the ApsaraMQ for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
    * eb-connect
@@ -407,7 +398,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   authType?: string;
   /**
    * @remarks
-   * The group ID of the ApsaraMQ for RocketMQ instance.
+   * The group ID of ApsaraMQ for RocketMQ.
    * 
    * @example
    * GID-test
@@ -415,7 +406,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   groupId?: string;
   /**
    * @remarks
-   * The instance endpoint.
+   * The endpoint of the instance.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com
@@ -423,7 +414,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   instanceEndpoint?: string;
   /**
    * @remarks
-   * The ID of the ApsaraMQ for RocketMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
+   * The instance ID of the ApsaraMQ for RocketMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
    * bastionhost-cn-7mz293s9d1p
@@ -431,7 +422,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   instanceId?: string;
   /**
    * @remarks
-   * The instance network.
+   * The network type of the instance.
    * 
    * @example
    * PublicNetwork
@@ -439,10 +430,10 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   instanceNetwork?: string;
   /**
    * @remarks
-   * The instance password.
+   * The password of the instance.
    * 
    * @example
-   * ***
+   * yourPassword
    */
   instancePassword?: string;
   /**
@@ -455,7 +446,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   instanceSecurityGroupId?: string;
   /**
    * @remarks
-   * The instance type. You can set this parameter only to `CLOUD_4` (ApsaraMQ for RocketMQ 4.0 instance), `CLOUD_5` (ApsaraMQ for RocketMQ 5.0 instance), or `SELF_BUILT` (self-managed MQ instance).
+   * The instance type. Valid values: CLOUD_4 (cloud-based 4.0 instance), CLOUD_5 (cloud-based 5.0 instance), and SELF_BUILT (self-managed MQ).
    * 
    * @example
    * CLOUD_5
@@ -463,7 +454,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   instanceType?: string;
   /**
    * @remarks
-   * The instance username.
+   * The username of the instance.
    * 
    * @example
    * root
@@ -471,7 +462,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   instanceUsername?: string;
   /**
    * @remarks
-   * The vSwitch IDs.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp1iu***
@@ -479,7 +470,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   instanceVSwitchIds?: string;
   /**
    * @remarks
-   * The ID of the Virtual Private Cloud (VPC).
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-***
@@ -487,15 +478,11 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   instanceVpcId?: string;
   /**
    * @remarks
-   * The consumer offset. Valid values:
-   * 
-   * - `CONSUME_FROM_LAST_OFFSET`: Start consumption from the latest offset.
-   * 
-   * - `CONSUME_FROM_FIRST_OFFSET`: Start consumption from the earliest offset.
-   * 
-   * - `CONSUME_FROM_TIMESTAMP`: Start consumption from a specified timestamp.
-   * 
-   * The default value is `CONSUME_FROM_LAST_OFFSET`.
+   * The consumption offset of the message. Valid values:
+   * - CONSUME_FROM_LAST_OFFSET: Consumes messages from the latest offset.
+   * - CONSUME_FROM_FIRST_OFFSET: Consumes messages from the earliest offset.
+   * - CONSUME_FROM_TIMESTAMP: Consumes messages from the offset at a specified point in time.
+   * Default value: CONSUME_FROM_LAST_OFFSET.
    * 
    * @example
    * CONSUMEFROMLASTOFFSET
@@ -503,7 +490,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   offset?: string;
   /**
    * @remarks
-   * The region where the ApsaraMQ for RocketMQ instance is located.
+   * The region where the ApsaraMQ for RocketMQ instance resides.
    * 
    * @example
    * cn-shenzhen
@@ -511,7 +498,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   regionId?: string;
   /**
    * @remarks
-   * The tag used to filter messages.
+   * The filter tag of the message.
    * 
    * @example
    * dataact
@@ -519,7 +506,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   tag?: string;
   /**
    * @remarks
-   * The timestamp, in seconds. This parameter is required only when the `Offset` parameter is set to `CONSUME_FROM_TIMESTAMP`.
+   * The timestamp. This parameter is valid only when the Offset parameter is set to CONSUME_FROM_TIMESTAMP.
    * 
    * @example
    * 1664591760
@@ -527,7 +514,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
   timestamp?: number;
   /**
    * @remarks
-   * The name of the topic on the ApsaraMQ for RocketMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
+   * The topic name of the ApsaraMQ for RocketMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
    * migration_instance
@@ -587,7 +574,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRoc
 export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceSLSParameters extends $dara.Model {
   /**
    * @remarks
-   * The starting consumer offset. You can specify `begin` for the earliest offset, `end` for the latest offset, or a specific timestamp in seconds to start consumption.
+   * The starting consumption offset. You can select the earliest or latest offset, which corresponds to "begin" or "end". You can also start consumption from a specified point in time in seconds.
    * 
    * @example
    * end
@@ -595,7 +582,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceSLS
   consumePosition?: string;
   /**
    * @remarks
-   * The Log Service (SLS) Logstore.
+   * The Simple Log Service Logstore.
    * 
    * @example
    * cloudfirewall-logstore
@@ -603,7 +590,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceSLS
   logStore?: string;
   /**
    * @remarks
-   * The Log Service (SLS) Project.
+   * The Simple Log Service project.
    * 
    * @example
    * VideoTestProject
@@ -611,7 +598,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceSLS
   project?: string;
   /**
    * @remarks
-   * The name of the RAM role that EventBridge assumes to read logs from Log Service (SLS). When you create this role in the RAM console, select Alibaba Cloud Service as the trusted entity and EventBridge as the trusted service. For more information about the access policy for this role, see Custom event source for Log Service (SLS).
+   * The role name. To grant authorization for the event bus EventBridge to use this role to read Simple Log Service logs, the following conditions must be met: When creating the role for the service in the Resource Access Management (RAM) console, you must select Alibaba Cloud Service and set the trusted service to the event bus. For the access policy of this role, refer to Custom event source: Simple Log Service.
    * 
    * @example
    * testRole
@@ -655,7 +642,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceSch
   schedule?: string;
   /**
    * @remarks
-   * The time zone for the cron expression.
+   * The time zone for cron execution.
    * 
    * @example
    * GMT+0:00
@@ -663,7 +650,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceSch
   timeZone?: string;
   /**
    * @remarks
-   * A JSON string.
+   * The JSON string.
    * 
    * @example
    * {"a": "b"}
@@ -697,7 +684,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceSch
 export class ListUserDefinedEventSourcesResponseBodyDataEventSourceList extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the event source.
+   * The Alibaba Cloud Resource Name (ARN) of the queried event source.
    * 
    * @example
    * acs:eventbridge:cn-hangzhou:164901546557****:eventbus/my-event-bus/eventsource/myRocketMQ.source
@@ -705,7 +692,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceList extends 
   arn?: string;
   /**
    * @remarks
-   * The time when the event source was created.
+   * The creation timestamp.
    * 
    * @example
    * 1607071602000
@@ -721,7 +708,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceList extends 
   eventBusName?: string;
   /**
    * @remarks
-   * The type of the event provider.
+   * The type of the external event source.
    * 
    * @example
    * RabbitMQ
@@ -729,7 +716,7 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceList extends 
   externalSourceType?: string;
   /**
    * @remarks
-   * The name of the event source.
+   * The name of the queried event source.
    * 
    * @example
    * rocketmq.source
@@ -737,47 +724,48 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceList extends 
   name?: string;
   /**
    * @remarks
-   * The parameters for the webhook event source.
+   * The request parameter SourceHttpEventParameters.
    */
   sourceHttpEventParameters?: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceHttpEventParameters;
   /**
    * @remarks
-   * The parameters for the Kafka event source.
+   * The ApsaraMQ for Kafka event source parameters.
    */
   sourceKafkaParameters?: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceKafkaParameters;
   /**
    * @remarks
-   * The parameters for the Message Service (MNS) event source.
+   * The Simple Message Queue (formerly MNS) event source parameters.
    */
   sourceMNSParameters?: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceMNSParameters;
   /**
    * @remarks
-   * The parameters for the Object Storage Service (OSS) event source.
+   * The OSS event source parameters.
    */
   sourceOSSEventParameters?: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceOSSEventParameters;
   /**
    * @remarks
-   * The parameters for the ApsaraMQ for RabbitMQ event source.
+   * The request parameter SourceRabbitMQParameters.
    */
   sourceRabbitMQParameters?: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRabbitMQParameters;
   /**
    * @remarks
-   * The parameters for the ApsaraMQ for RocketMQ event source.
+   * The request parameter SourceRocketMQParameters.
    */
   sourceRocketMQParameters?: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceRocketMQParameters;
   /**
    * @remarks
-   * The parameters for the Log Service (SLS) event source.
+   * The request parameter SourceSLSParameters.
    */
   sourceSLSParameters?: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceSLSParameters;
   /**
    * @remarks
-   * The parameters for the scheduled event source.
+   * The scheduled event source parameters.
    */
   sourceScheduledEventParameters?: ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceScheduledEventParameters;
   /**
    * @remarks
-   * The status of the event source. Valid value: `Activated`.
+   * The status of the queried event source. Valid values:
+   * - Activated: The event source is activated.
    * 
    * @example
    * Activated
@@ -785,7 +773,8 @@ export class ListUserDefinedEventSourcesResponseBodyDataEventSourceList extends 
   status?: string;
   /**
    * @remarks
-   * The type of the event source. The value `UserDefined` indicates a custom event source.
+   * The type of the queried event source. Valid values:
+   * - UserDefined: Custom event source.
    * 
    * @example
    * UserDefined
@@ -872,7 +861,7 @@ export class ListUserDefinedEventSourcesResponseBodyData extends $dara.Model {
   eventSourceList?: ListUserDefinedEventSourcesResponseBodyDataEventSourceList[];
   /**
    * @remarks
-   * The token to retrieve the next page of results. This parameter is returned only when the results are truncated.
+   * The next token returned when the Limit parameter is specified and more results are available.
    * 
    * @example
    * 100
@@ -917,11 +906,11 @@ export class ListUserDefinedEventSourcesResponseBodyData extends $dara.Model {
 export class ListUserDefinedEventSourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code:
+   * The return code of the API operation.
    * 
-   * - `Success`: The call was successful.
+   * - Success: The operation is successful.
    * 
-   * - Other values indicate an error. For more information about error codes, see Error Codes.
+   * - Other values: An error code. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -942,7 +931,7 @@ export class ListUserDefinedEventSourcesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request, generated by Alibaba Cloud.
+   * The unique identifier generated by Alibaba Cloud for the request.
    * 
    * @example
    * 5169654A-7059-57E3-BFD9-33C7E012****
@@ -950,7 +939,7 @@ export class ListUserDefinedEventSourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of `true` indicates success.
+   * Returns true if the operation is successful.
    * 
    * @example
    * true

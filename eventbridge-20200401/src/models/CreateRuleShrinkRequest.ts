@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the event rule.
+   * The description of the event bus.
    * 
    * @example
-   * SMQ filter rule
+   * Filter rule for Simple Message Queue (formerly MNS) (SMQ)
    */
   description?: string;
   /**
@@ -23,12 +23,15 @@ export class CreateRuleShrinkRequest extends $dara.Model {
   eventBusName?: string;
   /**
    * @remarks
-   * A list of event targets.
+   * The list of event targets.
    */
   eventTargetsShrink?: string;
   /**
    * @remarks
-   * The event pattern, in JSON format. Supported pattern types are `stringEqual` and `stringExpression`. Each field can contain a maximum of five expressions in a map structure.
+   * The event pattern in JSON format. The following patterns are supported:
+   * - stringEqual pattern
+   * - stringExpression pattern
+   * Each field supports up to five expressions in a map structure.
    * 
    * This parameter is required.
    * 
@@ -65,7 +68,9 @@ export class CreateRuleShrinkRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The status of the event rule. Valid values: `ENABLE`: The rule is enabled. This is the default value. `DISABLE`: The rule is disabled.
+   * The status of the rule. Valid values:
+   * - ENABLE: The rule is enabled. This is the default status.
+   * - DISABLE: The rule is disabled.
    * 
    * @example
    * ENABLE

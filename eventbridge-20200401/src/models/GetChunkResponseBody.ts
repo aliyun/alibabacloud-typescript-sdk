@@ -6,7 +6,7 @@ import { KnowledgeBaseChunk } from "./KnowledgeBaseChunk";
 export class GetChunkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Success indicates a successful call. If the call fails, a specific error code is returned.
+   * The response code. A value of Success indicates that the call is successful. If the call fails, a specific error code is returned.
    * 
    * @example
    * Success
@@ -19,7 +19,7 @@ export class GetChunkResponseBody extends $dara.Model {
   data?: KnowledgeBaseChunk;
   /**
    * @remarks
-   * The response message. Operation success is returned if the call succeeds. A specific error description is returned if the call fails.
+   * The response message. If the call is successful, the value is Operation success. If the call fails, a specific error description is returned.
    * 
    * @example
    * Operation success
@@ -35,7 +35,7 @@ export class GetChunkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. A value of true indicates success.
+   * Indicates whether the call is successful. A value of true indicates that the call is successful.
    * 
    * @example
    * true

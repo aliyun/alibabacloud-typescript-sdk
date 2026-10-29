@@ -36,7 +36,7 @@ export class AskLumaRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Help me collect statistics on recent order data
+   * Help me summarize the recent order data
    */
   question?: string;
   static names(): { [key: string]: string } {

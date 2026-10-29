@@ -6,7 +6,7 @@ import { EventHouseRuntime } from "./EventHouseRuntime";
 export class DeleteEventHouseRuntimeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Success indicates that the operation was successful.
+   * The response code. A value of Success indicates that the operation was successful.
    * 
    * @example
    * Success
@@ -14,12 +14,12 @@ export class DeleteEventHouseRuntimeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The Runtime information.
+   * The runtime information.
    */
   data?: EventHouseRuntime;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API operation.
    * 
    * @example
    * Operation success
@@ -27,7 +27,7 @@ export class DeleteEventHouseRuntimeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****

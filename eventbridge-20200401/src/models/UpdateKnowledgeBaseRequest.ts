@@ -13,7 +13,7 @@ export class UpdateKnowledgeBaseRequestChunkConfigurationPreprocessRules extends
   removeUrlsAndEmails?: boolean;
   /**
    * @remarks
-   * Specifies whether to replace consecutive whitespace characters (spaces, line breaks, and tab characters) with a single space.
+   * Specifies whether to replace consecutive whitespace characters, such as spaces, line breaks, and tabs, with a single space.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class UpdateKnowledgeBaseRequestChunkConfigurationPreprocessRules extends
 export class UpdateKnowledgeBaseRequestChunkConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Required for the BY_HEADING strategy. Valid values: 1 to 6. This parameter is ignored for other strategies. Headings at or above the specified level are used as split boundaries. For example, if you set this parameter to 2, both H1 and H2 headings are used as split boundaries. Deeper-level headings are not used for splitting and are retained in the chunk body. If the content within a section exceeds MaxChunkSize, the content is split by paragraph or sentence as a fallback. Documents without headings fall back to intelligent chunking.
+   * Required for the BY_HEADING strategy. Valid values: 1 to 6. This parameter is ignored for other strategies. Headings at or above the specified level are used as split boundaries. For example, if you set this parameter to 2, both H1 and H2 headings are used for splitting. Deeper-level headings are not split and are retained in the chunk text. If the section content exceeds MaxChunkSize, the system falls back to splitting by paragraphs or sentences. For documents without headings, the system falls back to intelligent chunking.
    * 
    * @example
    * 2
@@ -74,7 +74,7 @@ export class UpdateKnowledgeBaseRequestChunkConfiguration extends $dara.Model {
   preprocessRules?: UpdateKnowledgeBaseRequestChunkConfigurationPreprocessRules;
   /**
    * @remarks
-   * The segment identifier for the LINE_BREAK strategy, such as a line feed.
+   * The paragraph identifier for the LINE_BREAK strategy, such as a line break.
    * 
    * @example
    * \\\\n\\\\n
@@ -82,9 +82,7 @@ export class UpdateKnowledgeBaseRequestChunkConfiguration extends $dara.Model {
   separator?: string;
   /**
    * @remarks
-   * The chunking strategy. Valid values:
-   * - AUTO: automatic chunking.
-   * - LINE_BREAK: chunking by segment identifier.
+   * The chunking strategy. Valid values: AUTO: Automatic chunking. LINE_BREAK: Chunking by paragraph identifier.
    * 
    * This parameter is required.
    * 
@@ -129,10 +127,7 @@ export class UpdateKnowledgeBaseRequestChunkConfiguration extends $dara.Model {
 export class UpdateKnowledgeBaseRequestSearchConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The retrieve mode. Valid values:
-   * - KEYWORD: keyword retrieve.
-   * - VECTOR: vector retrieve.
-   * - HYBRID: hybrid retrieve.
+   * The search mode. Valid values: KEYWORD: Keyword retrieve. VECTOR: AISearch. HYBRID: Hybrid retrieve.
    * 
    * @example
    * HYBRID
@@ -140,8 +135,7 @@ export class UpdateKnowledgeBaseRequestSearchConfiguration extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * Takes effect only in hybrid search mode. Valid values:
-   * - RRF: reciprocal rank fusion.
+   * The hybrid search fusion algorithm. This parameter takes effect only in hybrid search mode. Valid values: RRF: Reciprocal rank fusion.
    * 
    * @example
    * RRF
@@ -149,7 +143,7 @@ export class UpdateKnowledgeBaseRequestSearchConfiguration extends $dara.Model {
   rankAlgorithm?: string;
   /**
    * @remarks
-   * Takes effect only in hybrid search mode. This default value is used when the search request does not specify Rerank.
+   * Specifies whether to enable reranking by default. This parameter takes effect only in hybrid search mode and is used when a search request does not specify the Rerank parameter.
    * 
    * @example
    * false
@@ -157,7 +151,7 @@ export class UpdateKnowledgeBaseRequestSearchConfiguration extends $dara.Model {
   rerankEnabled?: boolean;
   /**
    * @remarks
-   * The default reranking model used when the search request does not specify RerankModel. Valid values: qwen3-rerank. Default value: qwen3-rerank.
+   * The default rerank model used when a search request does not specify the RerankModel parameter. Valid values: qwen3-rerank. Default value: qwen3-rerank.
    * 
    * @example
    * qwen3-rerank
@@ -165,7 +159,7 @@ export class UpdateKnowledgeBaseRequestSearchConfiguration extends $dara.Model {
   rerankModel?: string;
   /**
    * @remarks
-   * The parameter k for the RRF fusion algorithm. Default value: 60. The value must be greater than 0.
+   * The parameter k for the RRF fusion algorithm. The value must be greater than 0. Default value: 60.
    * 
    * @example
    * 60
@@ -173,7 +167,7 @@ export class UpdateKnowledgeBaseRequestSearchConfiguration extends $dara.Model {
   rrfK?: number;
   /**
    * @remarks
-   * The default number of results to return.
+   * The default number of returned results.
    * 
    * @example
    * 20
@@ -181,7 +175,7 @@ export class UpdateKnowledgeBaseRequestSearchConfiguration extends $dara.Model {
   topK?: number;
   /**
    * @remarks
-   * The vector path weight for the WEIGHTED fusion algorithm. Valid values: 0 to 1. The keyword path weight equals 1 minus this value. Default value: 0.7.
+   * The weight of the vector path in the WEIGHTED fusion algorithm. Valid values: 0 to 1. The weight of the keyword path is 1 minus this value. Default value: 0.7.
    * 
    * @example
    * 0.7
@@ -223,7 +217,7 @@ export class UpdateKnowledgeBaseRequestSearchConfiguration extends $dara.Model {
 export class UpdateKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The data catalog to which the knowledge base belongs. This parameter, together with Namespace and KnowledgeBaseName, uniquely identifies a knowledge base. You can call ListCatalogs to obtain the value.
+   * The data catalog to which the knowledge base belongs. It is used together with Namespace and KnowledgeBaseName to locate the knowledge base. You can call ListCatalogs to obtain the value.
    * 
    * This parameter is required.
    * 
@@ -233,12 +227,12 @@ export class UpdateKnowledgeBaseRequest extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * Optional. Updates the default chunking strategy of the knowledge base. The update takes effect only for documents uploaded after the update. Existing documents are not re-chunked. If this parameter is not specified, the configuration remains unchanged.
+   * Optional. Updates the default chunking strategy of the knowledge base. This update takes effect only for newly uploaded documents and does not re-chunk existing documents. If this parameter is not specified, the strategy is not modified.
    */
   chunkConfiguration?: UpdateKnowledgeBaseRequestChunkConfiguration;
   /**
    * @remarks
-   * The description of the knowledge base to update. If this parameter is not specified, the description remains unchanged.
+   * Updates the description of the knowledge base. If this parameter is not specified, the description is not modified.
    * 
    * @example
    * Product documentation knowledge base
@@ -246,7 +240,7 @@ export class UpdateKnowledgeBaseRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the knowledge base. The name must be unique within the namespace. The name is specified during creation and cannot be modified.
+   * The name of the knowledge base. The name must be unique within the namespace. It is specified during creation and cannot be modified.
    * 
    * This parameter is required.
    * 
@@ -256,7 +250,7 @@ export class UpdateKnowledgeBaseRequest extends $dara.Model {
   knowledgeBaseName?: string;
   /**
    * @remarks
-   * The namespace to which the knowledge base belongs. The namespace must belong to the specified data catalog. This parameter, together with Catalog and KnowledgeBaseName, uniquely identifies a knowledge base. You can call ListNamespaces to obtain the value.
+   * The namespace to which the knowledge base belongs. The namespace must belong to the specified data catalog. It is used together with Catalog and KnowledgeBaseName to locate the knowledge base. You can call ListNamespaces to obtain the value.
    * 
    * This parameter is required.
    * 
@@ -266,7 +260,7 @@ export class UpdateKnowledgeBaseRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * Optional. Updates the default search configuration at the knowledge base level. The update takes effect immediately for subsequent search requests. If this parameter is not specified, the configuration remains unchanged.
+   * Optional. Updates the default search configuration at the knowledge base level. The update takes effect immediately for subsequent search requests. If this parameter is not specified, the configuration is not modified.
    */
   searchConfiguration?: UpdateKnowledgeBaseRequestSearchConfiguration;
   static names(): { [key: string]: string } {

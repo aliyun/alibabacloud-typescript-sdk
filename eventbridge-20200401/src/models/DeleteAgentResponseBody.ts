@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status or POP error code. Valid values:
-   * - Success: the operation is successful.
+   * The API status or POP error code. Valid values: Success: The operation is successful.
    * 
    * @example
    * AgentNotFound

@@ -5,17 +5,30 @@ import { EventHouseRuntime } from "./EventHouseRuntime";
 
 export class ListEventHouseRuntimesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of runtimes returned per page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token for the next page. An empty value indicates that there are no more pages.
+   * 
+   * @example
+   * 10
+   */
   nextToken?: string;
   /**
    * @remarks
-   * The list of runtimes.
+   * The runtime list.
    */
   runtimes?: EventHouseRuntime[];
   /**
+   * @remarks
+   * The total number of runtimes that meet the query conditions.
+   * 
    * @example
    * 1
    */
@@ -53,7 +66,7 @@ export class ListEventHouseRuntimesResponseBodyData extends $dara.Model {
 export class ListEventHouseRuntimesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Success indicates that the operation was successful.
+   * The response code. A value of Success indicates that the request is successful.
    * 
    * @example
    * Success
@@ -61,12 +74,12 @@ export class ListEventHouseRuntimesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The runtime list result.
+   * The runtime list results.
    */
   data?: ListEventHouseRuntimesResponseBodyData;
   /**
    * @remarks
-   * The message returned by the operation.
+   * The response message.
    * 
    * @example
    * Operation success
@@ -82,7 +95,7 @@ export class ListEventHouseRuntimesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

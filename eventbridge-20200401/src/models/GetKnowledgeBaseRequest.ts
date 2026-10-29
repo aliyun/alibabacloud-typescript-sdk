@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The data catalog to which the knowledge base belongs. This parameter, together with Namespace and KnowledgeBaseName, uniquely identifies a knowledge base. You can call ListCatalogs to obtain the value.
+   * The data catalog to which the knowledge base belongs. This parameter, along with Namespace and KnowledgeBaseName, uniquely identifies the knowledge base. You can call ListCatalogs to obtain the value.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetKnowledgeBaseRequest extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * The name of the knowledge base. The name is unique within a namespace and is determined at creation time. It cannot be modified.
+   * The name of the knowledge base. The name must be unique within the namespace. It is specified upon creation and cannot be modified.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetKnowledgeBaseRequest extends $dara.Model {
   knowledgeBaseName?: string;
   /**
    * @remarks
-   * The namespace to which the knowledge base belongs. The namespace must belong to the specified data catalog. This parameter, together with Catalog and KnowledgeBaseName, uniquely identifies a knowledge base. You can call ListNamespaces to obtain the value.
+   * The namespace to which the knowledge base belongs. The namespace must belong to the specified data catalog. This parameter, along with Catalog and KnowledgeBaseName, uniquely identifies the knowledge base. You can call ListNamespaces to obtain the value.
    * 
    * This parameter is required.
    * 

@@ -6,6 +6,9 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
   /**
    * @remarks
    * The list of allowed CIDR blocks.
+   * 
+   * @example
+   * 192.0.2.0/24
    */
   allowedCIDRs?: string;
   /**
@@ -67,6 +70,9 @@ export class TestEventSourceConfigRequestSourceMySQLParameters extends $dara.Mod
   /**
    * @remarks
    * The snapshot mode.
+   * 
+   * @example
+   * when_needed
    */
   snapshotMode?: string;
   /**

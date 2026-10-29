@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTableRequestColumns extends $dara.Model {
   /**
    * @remarks
-   * The description of the field.
+   * The comment of the field.
    * 
    * @example
    * Isp
@@ -13,7 +13,7 @@ export class CreateTableRequestColumns extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The name of the connector.
+   * The connector name.
    * 
    * @example
    * kafka-default-agent-alikafka_pre-cn-28t3sfzno003
@@ -55,7 +55,7 @@ export class CreateTableRequestColumns extends $dara.Model {
 export class CreateTableRequestRetentionPolicy extends $dara.Model {
   /**
    * @remarks
-   * The cold storage retention time.
+   * The cold storage duration.
    * 
    * @example
    * 30
@@ -63,7 +63,7 @@ export class CreateTableRequestRetentionPolicy extends $dara.Model {
   coldTTL?: number;
   /**
    * @remarks
-   * The hot storage retention time.
+   * The hot storage duration.
    * 
    * @example
    * 30
@@ -95,7 +95,7 @@ export class CreateTableRequestRetentionPolicy extends $dara.Model {
 export class CreateTableRequest extends $dara.Model {
   /**
    * @remarks
-   * The data catalog to which the table belongs.
+   * The data catalog.
    * 
    * @example
    * my_catalog
@@ -114,20 +114,20 @@ export class CreateTableRequest extends $dara.Model {
    * The column definitions.
    * 
    * @example
-   * [{"Name":"id","Type":"bigint","Comment":"主键"}]
+   * [{"Name":"id","Type":"bigint","Comment":"Primary key"}]
    */
   columns?: CreateTableRequestColumns[];
   /**
    * @remarks
-   * The description.
+   * The comment.
    * 
    * @example
-   * 测试事件表
+   * Test event table
    */
   comment?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * This parameter is required.
    * 
@@ -137,7 +137,7 @@ export class CreateTableRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace to which the table belongs.
+   * The namespace.
    * 
    * @example
    * my_namespace

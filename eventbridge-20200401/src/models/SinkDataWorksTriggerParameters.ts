@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SinkDataWorksTriggerParameters extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the DataWorks trigger.
+   * 
+   * @example
+   * true
+   */
   enable?: string;
   static names(): { [key: string]: string } {
     return {

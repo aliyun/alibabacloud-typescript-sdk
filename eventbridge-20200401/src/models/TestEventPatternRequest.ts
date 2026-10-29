@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TestEventPatternRequest extends $dara.Model {
   /**
    * @remarks
-   * The event to test, which must be a JSON string.
+   * The event.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class TestEventPatternRequest extends $dara.Model {
   event?: string;
   /**
    * @remarks
-   * The event pattern to test, which must be a JSON string.
+   * The event pattern.
    * 
    * This parameter is required.
    * 

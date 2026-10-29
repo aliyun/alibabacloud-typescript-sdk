@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AguiMessageMetadataAttachments extends $dara.Model {
   /**
    * @remarks
-   * The name of the extension data.
+   * The name of the extended data.
    * 
    * @example
    * acs:eventbridge:cn-hangzhou:12345:eventhouse/system-rocketmq/namespace/rmq-cn-xxx/table/order
@@ -15,7 +15,7 @@ export class AguiMessageMetadataAttachments extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the extension data.
+   * The type of the extended data.
    * 
    * @example
    * inner-resource/event-table
@@ -47,7 +47,7 @@ export class AguiMessageMetadataAttachments extends $dara.Model {
 export class AguiMessageMetadata extends $dara.Model {
   /**
    * @remarks
-   * The extension data.
+   * The extended data.
    */
   attachments?: AguiMessageMetadataAttachments;
   static names(): { [key: string]: string } {
@@ -77,7 +77,7 @@ export class AguiMessageMetadata extends $dara.Model {
 export class AguiMessageToolCallsFunction extends $dara.Model {
   /**
    * @remarks
-   * The arguments of the tool calling function.
+   * The parameters of the tool invocation method.
    * 
    * @example
    * {}
@@ -85,7 +85,7 @@ export class AguiMessageToolCallsFunction extends $dara.Model {
   arguments?: string;
   /**
    * @remarks
-   * The name of the tool calling function.
+   * The name of the tool invocation method.
    * 
    * @example
    * discoverMetadata
@@ -117,12 +117,12 @@ export class AguiMessageToolCallsFunction extends $dara.Model {
 export class AguiMessageToolCalls extends $dara.Model {
   /**
    * @remarks
-   * The tool calling function.
+   * The tool invocation method.
    */
   function?: AguiMessageToolCallsFunction;
   /**
    * @remarks
-   * The tool calling ID.
+   * The tool invocation ID.
    * 
    * @example
    * call_xxx
@@ -130,7 +130,7 @@ export class AguiMessageToolCalls extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The tool calling type.
+   * The tool invocation type.
    * 
    * @example
    * function
@@ -170,7 +170,7 @@ export class AguiMessage extends $dara.Model {
    * The text content of the message.
    * 
    * @example
-   * 根据您的问题，我将查询过去7天的事件量...
+   * Based on your question, I will query the number of events over the past 7 days..
    */
   content?: string;
   /**
@@ -183,9 +183,16 @@ export class AguiMessage extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The extension metadata.
+   * The extended metadata.
    */
   metadata?: AguiMessageMetadata;
+  /**
+   * @remarks
+   * The reasoning content.
+   * 
+   * @example
+   * "The user asked me to execute ***"
+   */
   reasoning?: string;
   /**
    * @remarks

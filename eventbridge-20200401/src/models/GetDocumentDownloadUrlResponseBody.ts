@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDocumentDownloadUrlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A short-lived GET pre-signed URL that the client uses to download the original file.
+   * The short-lived presigned GET URL. Clients use this URL to download the original file.
    * 
    * @example
    * https://my-bucket.oss-cn-hangzhou.aliyuncs.com/kb/doc-bp1xxxxxxxxxxxx?Expires=1788000000&Signature=xxxx
@@ -13,7 +13,7 @@ export class GetDocumentDownloadUrlResponseBodyData extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * The expiration time of the pre-signed download URL, in ISO 8601 UTC format.
+   * The expiration time of the presigned download URL in ISO 8601 format and UTC.
    * 
    * @example
    * 1756022400000
@@ -45,7 +45,7 @@ export class GetDocumentDownloadUrlResponseBodyData extends $dara.Model {
 export class GetDocumentDownloadUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of Success indicates a successful call. If the call fails, a specific error code is returned.
+   * The response code. A value of Success indicates that the call was successful. If the call fails, a specific error code is returned.
    * 
    * @example
    * Success
@@ -58,7 +58,7 @@ export class GetDocumentDownloadUrlResponseBody extends $dara.Model {
   data?: GetDocumentDownloadUrlResponseBodyData;
   /**
    * @remarks
-   * The message returned by the operation. A value of Operation success indicates a successful call. If the call fails, a specific error description is returned.
+   * The response message. If the call is successful, the value is Operation success. If the call fails, a specific error description is returned.
    * 
    * @example
    * Operation success
@@ -66,7 +66,7 @@ export class GetDocumentDownloadUrlResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****
@@ -74,7 +74,7 @@ export class GetDocumentDownloadUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. A value of true indicates success.
+   * Indicates whether the call was successful. A value of true indicates that the call was successful.
    * 
    * @example
    * true

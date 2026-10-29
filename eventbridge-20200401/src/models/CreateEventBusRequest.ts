@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEventBusRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the event bus.
+   * The description.
    * 
    * @example
    * demo
@@ -13,7 +13,7 @@ export class CreateEventBusRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. The value true indicates that the request is successful.
+   * The name of the event bus.
    * 
    * This parameter is required.
    * 

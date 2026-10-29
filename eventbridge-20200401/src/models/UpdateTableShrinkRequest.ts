@@ -8,7 +8,7 @@ export class UpdateTableShrinkRequest extends $dara.Model {
    * Add column
    * 
    * @example
-   * {"Name":"id","Type":"bigint","Comment":"主键"}
+   * {"Name":"id","Type":"bigint","Comment":"Primary key"}
    */
   addColumnShrink?: string;
   /**
@@ -66,7 +66,7 @@ export class UpdateTableShrinkRequest extends $dara.Model {
    * Update column comment
    * 
    * @example
-   * {"Name":"id","Comment":"主键ID"}
+   * {"Name":"id","Comment":"Primary key ID"}
    */
   updateColumnCommentShrink?: string;
   /**

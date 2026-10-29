@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEventSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the event source.
+   * The resource ARN.
    * 
    * @example
    * acs:eventbridge:cn-hangzhou:164901546557****:eventbus/my-event-bus/eventsource/mymns.source
@@ -35,11 +35,10 @@ export class CreateEventSourceResponseBodyData extends $dara.Model {
 export class CreateEventSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
-   * 
-   * - `Success`: The request was successful.
-   * 
-   * - Other values indicate errors. For more information, see the "Error codes" section.
+   * The API response code. Valid values:
+   * - Success: The operation is successful.                                 
+   * - Other values: An error code.
+   * For more information, see Error codes.
    * 
    * @example
    * Success
@@ -47,12 +46,12 @@ export class CreateEventSourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned by the request.
+   * The returned data.
    */
   data?: CreateEventSourceResponseBodyData;
   /**
    * @remarks
-   * The error message returned if the request is unsuccessful.
+   * The error message.
    * 
    * @example
    * Remote error. requestId: [A8EFABD2-95B9-1C46-9E01-xxxx], error code: [CreateRelatedResourceFailed], message: [Create related resource failed, EntityNotExist.Role : The role not exists: xxxx. \\r\\nRequestId : xxxx-168C-54ED-8FEB-BF11CB70AEB7]
@@ -68,7 +67,7 @@ export class CreateEventSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of `true` indicates that the request was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

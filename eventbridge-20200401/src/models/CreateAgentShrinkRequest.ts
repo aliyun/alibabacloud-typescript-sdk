@@ -8,7 +8,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
    * The description of the event bus.
    * 
    * @example
-   * 连接配置描述信息
+   * Connection configuration description
    */
   description?: string;
   /**
@@ -31,7 +31,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
    * You are an IoT data analytics assistant...
    * 
    * @example
-   * 我想要她，你这样增加请求头获取用户IP CF-Connecting-IP%3B
+   * I want her, you add the request header to obtain the user IP CF-Connecting-IP%3B
    */
   prompt?: string;
   static names(): { [key: string]: string } {

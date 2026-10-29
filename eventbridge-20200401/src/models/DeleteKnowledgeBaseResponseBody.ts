@@ -6,7 +6,7 @@ import { KnowledgeBase } from "./KnowledgeBase";
 export class DeleteKnowledgeBaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Success indicates a successful call. If the call fails, a specific error code is returned.
+   * The response code of the API operation. A value of Success indicates that the call is successful. If the call fails, a specific error code is returned.
    * 
    * @example
    * Success
@@ -19,7 +19,7 @@ export class DeleteKnowledgeBaseResponseBody extends $dara.Model {
   data?: KnowledgeBase;
   /**
    * @remarks
-   * The response message. Operation success is returned if the call succeeds. A specific error description is returned if the call fails.
+   * The message returned by the API operation. If the call is successful, the value is Operation success. If the call fails, a specific error description is returned.
    * 
    * @example
    * Operation success
@@ -27,7 +27,7 @@ export class DeleteKnowledgeBaseResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****
@@ -35,7 +35,7 @@ export class DeleteKnowledgeBaseResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. A value of true indicates success.
+   * Indicates whether the call is successful. A value of true indicates that the call is successful.
    * 
    * @example
    * true

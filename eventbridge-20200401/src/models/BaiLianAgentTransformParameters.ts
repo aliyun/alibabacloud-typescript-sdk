@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BaiLianAgentTransformParametersPrompt extends $dara.Model {
+  /**
+   * @remarks
+   * The template form.
+   * 
+   * @example
+   * JSONPATH
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
+   */
   template?: string;
+  /**
+   * @remarks
+   * The template value.
+   * 
+   * @example
+   * $.data.message
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,10 +53,42 @@ export class BaiLianAgentTransformParametersPrompt extends $dara.Model {
 }
 
 export class BaiLianAgentTransformParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The API key for Model Studio.
+   * 
+   * @example
+   * Q34****
+   */
   apiKey?: string;
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 0123456789abcdef0123456789abcdef
+   */
   applicationId?: string;
+  /**
+   * @remarks
+   * The prompt.
+   */
   prompt?: BaiLianAgentTransformParametersPrompt;
+  /**
+   * @remarks
+   * The throttling limit in requests per minute.
+   * 
+   * @example
+   * 1000
+   */
   requestPerMinute?: number;
+  /**
+   * @remarks
+   * The throttling limit in tokens per minute.
+   * 
+   * @example
+   * 100000
+   */
   tokenPerMinute?: number;
   static names(): { [key: string]: string } {
     return {

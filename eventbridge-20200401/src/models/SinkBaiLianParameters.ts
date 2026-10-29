@@ -6,16 +6,25 @@ export class SinkBaiLianParametersAfter extends $dara.Model {
   /**
    * @remarks
    * The method for generating the value. The `JSONPATH` option extracts data from the event payload. Valid values: `CONSTANT`, `JSONPATH`, and `TEMPLATE`.
+   * 
+   * @example
+   * CONSTANT
    */
   form?: string;
   /**
    * @remarks
    * The template string for formatting the value. This parameter is used only when `Form` is set to `TEMPLATE`.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
    * The source content for the value, as specified by the `Form` parameter. For example, if `Form` is `JSONPATH`, this value must be a JSONPath expression.
+   * 
+   * @example
+   * example
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -47,16 +56,25 @@ export class SinkBaiLianParametersBefore extends $dara.Model {
   /**
    * @remarks
    * The method for generating the value. The `JSONPATH` option extracts data from the event payload. Valid values: `CONSTANT`, `JSONPATH`, and `TEMPLATE`.
+   * 
+   * @example
+   * CONSTANT
    */
   form?: string;
   /**
    * @remarks
    * The template string for formatting the value. This parameter is used only when `Form` is set to `TEMPLATE`.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
    * The source content for the value, as specified by the `Form` parameter. For example, if `Form` is `JSONPATH`, this value must be a JSONPath expression.
+   * 
+   * @example
+   * example
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -88,16 +106,25 @@ export class SinkBaiLianParametersOffset extends $dara.Model {
   /**
    * @remarks
    * The method for generating the value. The `JSONPATH` option extracts data from the event payload. Valid values: `CONSTANT`, `JSONPATH`, and `TEMPLATE`.
+   * 
+   * @example
+   * CONSTANT
    */
   form?: string;
   /**
    * @remarks
    * The template string for formatting the value. This parameter is used only when `Form` is set to `TEMPLATE`.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
    * The source content for the value, as specified by the `Form` parameter. For example, if `Form` is `JSONPATH`, this value must be a JSONPath expression.
+   * 
+   * @example
+   * example
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -129,16 +156,25 @@ export class SinkBaiLianParametersOp extends $dara.Model {
   /**
    * @remarks
    * The method for generating the value. The `JSONPATH` option extracts data from the event payload. Valid values: `CONSTANT`, `JSONPATH`, and `TEMPLATE`.
+   * 
+   * @example
+   * CONSTANT
    */
   form?: string;
   /**
    * @remarks
    * The template string for formatting the value. This parameter is used only when `Form` is set to `TEMPLATE`.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
    * The source content for the value, as specified by the `Form` parameter. For example, if `Form` is `JSONPATH`, this value must be a JSONPath expression.
+   * 
+   * @example
+   * example
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -170,16 +206,25 @@ export class SinkBaiLianParametersPartition extends $dara.Model {
   /**
    * @remarks
    * The method for generating the value. The `JSONPATH` option extracts data from the event payload. Valid values: `CONSTANT`, `JSONPATH`, and `TEMPLATE`.
+   * 
+   * @example
+   * CONSTANT
    */
   form?: string;
   /**
    * @remarks
    * The template string for formatting the value. This parameter is used only when `Form` is set to `TEMPLATE`.
+   * 
+   * @example
+   * ${partition}
    */
   template?: string;
   /**
    * @remarks
    * The source content for the value, as specified by the `Form` parameter. For example, if `Form` is `JSONPATH`, this value must be a JSONPath expression.
+   * 
+   * @example
+   * example
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -216,6 +261,9 @@ export class SinkBaiLianParameters extends $dara.Model {
   /**
    * @remarks
    * The type of the Model Studio application to invoke.
+   * 
+   * @example
+   * KnowledgeBase
    */
   applicationType?: string;
   /**
@@ -226,11 +274,17 @@ export class SinkBaiLianParameters extends $dara.Model {
   /**
    * @remarks
    * Context information for the application. The value must be a JSON object.
+   * 
+   * @example
+   * {"k1":"v1"}
    */
   context?: any;
   /**
    * @remarks
    * Additional key-value pairs to pass to the target. The value must be a valid JSON object.
+   * 
+   * @example
+   * {"k1":"v1"}
    */
   extend?: any;
   /**
@@ -251,6 +305,9 @@ export class SinkBaiLianParameters extends $dara.Model {
   /**
    * @remarks
    * The unique ID of the Model Studio workspace.
+   * 
+   * @example
+   * llm-a1b2c3d4e5f6g7h8
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

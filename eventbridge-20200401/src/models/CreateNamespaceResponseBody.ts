@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNamespaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Namespace ARN
+   * The ARN of the namespace.
    * 
    * @example
    * acs:eventbridge:cn-hangzhou:123456789:catalog/my_catalog/namespace/my_namespace
@@ -35,7 +35,7 @@ export class CreateNamespaceResponseBodyData extends $dara.Model {
 export class CreateNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API response code, 200 indicates success
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -43,12 +43,12 @@ export class CreateNamespaceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   data?: CreateNamespaceResponseBodyData;
   /**
    * @remarks
-   * API response message
+   * The response message.
    * 
    * @example
    * Operation success
@@ -56,7 +56,7 @@ export class CreateNamespaceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****
@@ -64,7 +64,7 @@ export class CreateNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the operation was successful
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

@@ -6,12 +6,12 @@ import { Namespace } from "./Namespace";
 export class ListNamespacesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Namespace list
+   * The list of namespaces.
    */
   namespaces?: Namespace[];
   /**
    * @remarks
-   * Next page token
+   * The next page token.
    * 
    * @example
    * 10
@@ -19,7 +19,7 @@ export class ListNamespacesResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Total count
+   * The total number of items.
    * 
    * @example
    * 1
@@ -56,7 +56,7 @@ export class ListNamespacesResponseBodyData extends $dara.Model {
 export class ListNamespacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code. 200 indicates success.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -64,12 +64,12 @@ export class ListNamespacesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response data
+   * The response data.
    */
   data?: ListNamespacesResponseBodyData;
   /**
    * @remarks
-   * Response message
+   * The response message.
    * 
    * @example
    * Operation success
@@ -77,7 +77,7 @@ export class ListNamespacesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 34AD682D-5B91-5773-8132-AA38C130****
@@ -85,7 +85,7 @@ export class ListNamespacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the operation succeeded
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

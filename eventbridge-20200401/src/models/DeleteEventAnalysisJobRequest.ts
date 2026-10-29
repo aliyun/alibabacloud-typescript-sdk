@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEventAnalysisJobRequestSourceResourceKafka extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the Kafka instance.
+   * The Kafka instance ID.
    * 
    * @example
    * alikafka_post-cn-xxx
@@ -55,7 +55,7 @@ export class DeleteEventAnalysisJobRequestSourceResourceKafka extends $dara.Mode
 export class DeleteEventAnalysisJobRequestSourceResourceRocketMQ extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the RocketMQ instance.
+   * The RocketMQ instance ID.
    * 
    * @example
    * rmq-cn-xxx
@@ -155,7 +155,7 @@ export class DeleteEventAnalysisJobRequestSourceResource extends $dara.Model {
 export class DeleteEventAnalysisJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the source resource.
+   * The source resource identifier.
    * 
    * This parameter is required.
    * 

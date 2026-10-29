@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryWithSQLRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of rows to return. Default value: 20. Maximum value: 50.
+   * The number of entries to return. Default value: 20. Maximum value: 50.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class QueryWithSQLRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The query statement. Typically uses a three-part table name in the format of catalog.namespace.table.
+   * The query statement. Typically, a three-part table name in the format of catalog.namespace.table is used.
    * 
    * This parameter is required.
    * 

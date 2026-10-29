@@ -35,7 +35,7 @@ export class CreateRuleResponseBodyData extends $dara.Model {
 export class CreateRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The value Success indicates that the request is successful. Other values indicate that the request failed. For more information about error codes, see Error codes.
+   * The response code. A value of Success indicates that the request is successful. Other values indicate error codes. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -43,7 +43,7 @@ export class CreateRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: CreateRuleResponseBodyData;
   /**
@@ -64,7 +64,7 @@ export class CreateRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. A value of true indicates that the operation is successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

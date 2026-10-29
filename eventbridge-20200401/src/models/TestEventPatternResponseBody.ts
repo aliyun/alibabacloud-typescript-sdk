@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TestEventPatternResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates if the event matches the event pattern.
+   * Indicates whether the event pattern matches the provided JSON-formatted event. A value of true indicates that the event pattern matches the event. A value of false indicates that the event pattern does not match the event.
    * 
    * @example
    * true
@@ -35,7 +35,7 @@ export class TestEventPatternResponseBodyData extends $dara.Model {
 export class TestEventPatternResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. `Success` indicates that the call was successful. For more information about other return codes, see Error codes.
+   * The return code of the API operation. A value of Success indicates that the request is successful. Other values indicate error codes. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -43,12 +43,15 @@ export class TestEventPatternResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of the test.
+   * The returned result.
    */
   data?: TestEventPatternResponseBodyData;
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * Operation success
    */
   message?: string;
   /**
@@ -61,7 +64,7 @@ export class TestEventPatternResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates if the request was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

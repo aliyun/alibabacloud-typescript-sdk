@@ -8,12 +8,12 @@ export class UpdateEventSourceShrinkRequest extends $dara.Model {
    * The description of the event source.
    * 
    * @example
-   * RabbitMQ event source
+   * Event source of the RabbitMQ type
    */
   description?: string;
   /**
    * @remarks
-   * The event bus with which the event source is associated.
+   * The name of the associated event bus.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateEventSourceShrinkRequest extends $dara.Model {
   eventSourceName?: string;
   /**
    * @remarks
-   * The configurations of the external data source.
+   * The external data source configuration.
    * 
    * @example
    * {\\"ConsumePosition\\":\\"end\\",\\"LogStore\\":\\"oss_log\\",\\"Project\\":\\"slsaudit-center-5795350335281001-cn-beijing\\",\\"RoleName\\":\\"sls-beijing-tf\\"}
@@ -57,38 +57,42 @@ export class UpdateEventSourceShrinkRequest extends $dara.Model {
   linkedExternalSource?: boolean;
   /**
    * @remarks
-   * The parameters that are configured if the event source is HTTP events.
+   * The SourceHttpEventParameters request parameter.
    */
   sourceHttpEventParametersShrink?: string;
   /**
    * @remarks
-   * The parameters that are configured if the event source is Message Queue for Apache Kafka.
+   * The SourceKafkaParameters request parameter.
    */
   sourceKafkaParametersShrink?: string;
   /**
    * @remarks
-   * The parameters that are configured if the event source is Message Service (MNS).
+   * The parameters for a Simple Message Queue (formerly MNS) event source.
    */
   sourceMNSParametersShrink?: string;
+  /**
+   * @remarks
+   * The parameters for an OSS event source.
+   */
   sourceOSSEventParametersShrink?: string;
   /**
    * @remarks
-   * The parameters that are configured if the event source is Message Queue for RabbitMQ.
+   * The SourceRabbitMQParameters request parameter.
    */
   sourceRabbitMQParametersShrink?: string;
   /**
    * @remarks
-   * The parameters that are configured if the event source is Message Queue for Apache RocketMQ.
+   * The SourceRocketMQParameters request parameter.
    */
   sourceRocketMQParametersShrink?: string;
   /**
    * @remarks
-   * SourceSLSParameters
+   * The parameters for a Simple Log Service event source.
    */
   sourceSLSParametersShrink?: string;
   /**
    * @remarks
-   * The parameters that are configured if you specify scheduled events as the event source.
+   * The SourceScheduledEventParameters request parameter.
    */
   sourceScheduledEventParametersShrink?: string;
   static names(): { [key: string]: string } {

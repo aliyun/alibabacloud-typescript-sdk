@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNamespacesRequest extends $dara.Model {
   /**
    * @remarks
-   * Data catalog
+   * The data catalog.
    * 
    * @example
    * my_catalog
@@ -13,7 +13,7 @@ export class ListNamespacesRequest extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * Items per page
+   * The number of items per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListNamespacesRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * Pagination Token
+   * The pagination token.
    * 
    * @example
    * 0

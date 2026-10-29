@@ -6,7 +6,7 @@ import { KnowledgeBase } from "./KnowledgeBase";
 export class CreateKnowledgeBaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of Success indicates a successful operation. An error code is returned if the operation fails.
+   * The response code. Success indicates that the call was successful. If the call fails, a specific error code is returned.
    * 
    * @example
    * Success
@@ -19,7 +19,7 @@ export class CreateKnowledgeBaseResponseBody extends $dara.Model {
   data?: KnowledgeBase;
   /**
    * @remarks
-   * The response message. A value of Operation success is returned if the operation succeeds. A specific error description is returned if the operation fails.
+   * The response message. Operation success is returned if the call is successful. A specific error description is returned if the call fails.
    * 
    * @example
    * Operation success
@@ -35,7 +35,7 @@ export class CreateKnowledgeBaseResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. A value of true indicates success.
+   * Indicates whether the call was successful. A value of true indicates success.
    * 
    * @example
    * true

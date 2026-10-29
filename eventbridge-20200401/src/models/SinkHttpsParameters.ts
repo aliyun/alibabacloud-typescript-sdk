@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SinkHttpsParametersBody extends $dara.Model {
+  /**
+   * @remarks
+   * Form
+   * 
+   * @example
+   * TEMPLATE
+   */
   form?: string;
+  /**
+   * @remarks
+   * Template
+   * 
+   * @example
+   * {"message":"${message}"}
+   */
   template?: string;
+  /**
+   * @remarks
+   * Value
+   * 
+   * @example
+   * {"message":"$.data.message"}
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,8 +53,29 @@ export class SinkHttpsParametersBody extends $dara.Model {
 }
 
 export class SinkHttpsParametersURL extends $dara.Model {
+  /**
+   * @remarks
+   * Form
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * Template
+   * 
+   * @example
+   * https://${host}/events
+   */
   template?: string;
+  /**
+   * @remarks
+   * Value
+   * 
+   * @example
+   * https://example.com/events
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,13 +103,63 @@ export class SinkHttpsParametersURL extends $dara.Model {
 }
 
 export class SinkHttpsParameters extends $dara.Model {
+  /**
+   * @remarks
+   * HTTP Body
+   */
   body?: SinkHttpsParametersBody;
+  /**
+   * @remarks
+   * The HTTP method.
+   * 
+   * @example
+   * POST
+   */
   method?: string;
+  /**
+   * @remarks
+   * The network type, PrivateNetwork/PublicNetwork.
+   * 
+   * @example
+   * PublicNetwork
+   */
   networkType?: string;
+  /**
+   * @remarks
+   * The security group.
+   * 
+   * @example
+   * sg-a1b2c3d4e5f6g7h8i9j0
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * HTTP Token
+   * 
+   * @example
+   * token-****
+   */
   token?: string;
+  /**
+   * @remarks
+   * The HTTP/HTTPS address.
+   */
   URL?: SinkHttpsParametersURL;
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   * 
+   * @example
+   * vsw-a1b2c3d4e5f6g7h8i9j0k
+   */
   vSwitchIds?: string;
+  /**
+   * @remarks
+   * vpc ID
+   * 
+   * @example
+   * vpc-a1b2c3d4e5f6g7h8i9j0k
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DashScopeTransformParametersMessages extends $dara.Model {
+  /**
+   * @remarks
+   * The template form.
+   * 
+   * @example
+   * JSONPATH
+   */
   form?: string;
+  /**
+   * @remarks
+   * The role.
+   * 
+   * @example
+   * USER
+   */
   role?: string;
+  /**
+   * @remarks
+   * The template.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
+   */
   template?: string;
+  /**
+   * @remarks
+   * The template value.
+   * 
+   * @example
+   * $.data.message
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,11 +63,50 @@ export class DashScopeTransformParametersMessages extends $dara.Model {
 }
 
 export class DashScopeTransformParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The API key for DashScope.
+   * 
+   * @example
+   * Q37sQ****
+   */
   apiKey?: string;
+  /**
+   * @remarks
+   * The prompts.
+   */
   messages?: DashScopeTransformParametersMessages[];
+  /**
+   * @remarks
+   * The model name.
+   * 
+   * @example
+   * qwen-max
+   */
   model?: string;
+  /**
+   * @remarks
+   * The rate limit in requests per minute.
+   * 
+   * @example
+   * 1000
+   */
   requestPerMinute?: number;
+  /**
+   * @remarks
+   * The structured output schema.
+   * 
+   * @example
+   * {"type":"object","properties":{"message":{"type":"string"}},"required":["message"]}
+   */
   structuredOutputJsonSchema?: string;
+  /**
+   * @remarks
+   * The rate limit in tokens per minute.
+   * 
+   * @example
+   * 10000
+   */
   tokenPerMinute?: number;
   static names(): { [key: string]: string } {
     return {

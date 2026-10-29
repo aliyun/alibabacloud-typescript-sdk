@@ -6,7 +6,7 @@ import { EventHouseRuntime } from "./EventHouseRuntime";
 export class UpdateEventHouseRuntimeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Success indicates that the operation is successful.
+   * The response code. A value of Success indicates that the operation was successful.
    * 
    * @example
    * Success
@@ -14,12 +14,12 @@ export class UpdateEventHouseRuntimeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The Runtime information.
+   * The runtime information.
    */
   data?: EventHouseRuntime;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API operation.
    * 
    * @example
    * Operation success
@@ -35,7 +35,7 @@ export class UpdateEventHouseRuntimeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

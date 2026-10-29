@@ -58,7 +58,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data using natural language.
+   * Performs a natural language query.
    * 
    * @param request - AskLumaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101,7 +101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data using natural language.
+   * Performs a natural language query.
    * 
    * @param request - AskLumaRequest
    * @returns AskLumaResponse
@@ -112,10 +112,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a service-linked role is authorized for an account.
+   * Checks whether the account has service-linked role authorization.
    * 
    * @remarks
-   * Checks for a service-linked role by name.
+   * Checks whether a service-linked role exists based on the name of the service-linked role.
    * 
    * @param request - CheckServiceLinkedRoleForProductRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -146,10 +146,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a service-linked role is authorized for an account.
+   * Checks whether the account has service-linked role authorization.
    * 
    * @remarks
-   * Checks for a service-linked role by name.
+   * Checks whether a service-linked role exists based on the name of the service-linked role.
    * 
    * @param request - CheckServiceLinkedRoleForProductRequest
    * @returns CheckServiceLinkedRoleForProductResponse
@@ -220,10 +220,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an API destination.
+   * Creates API destination information.
    * 
    * @remarks
-   * You can call this API operation to create an API destination.
+   * Creates API destination information.
    * 
    * @param tmpReq - CreateApiDestinationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -272,10 +272,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an API destination.
+   * Creates API destination information.
    * 
    * @remarks
-   * You can call this API operation to create an API destination.
+   * Creates API destination information.
    * 
    * @param request - CreateApiDestinationRequest
    * @returns CreateApiDestinationResponse
@@ -744,7 +744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Namespace
+   * Creates a namespace.
    * 
    * @param request - CreateNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -789,7 +789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Namespace
+   * Creates a namespace.
    * 
    * @param request - CreateNamespaceRequest
    * @returns CreateNamespaceResponse
@@ -874,10 +874,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates the service-linked role (SLR) that is associated with a specified product.
+   * Creates a service-linked role based on the service-linked role name associated with an Alibaba Cloud service.
    * 
    * @remarks
-   * Creates the service-linked role (SLR) that is associated with a specified product.
+   * Creates a service-linked role based on the service-linked role name associated with an Alibaba Cloud service.
    * 
    * @param request - CreateServiceLinkedRoleForProductRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -908,10 +908,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates the service-linked role (SLR) that is associated with a specified product.
+   * Creates a service-linked role based on the service-linked role name associated with an Alibaba Cloud service.
    * 
    * @remarks
-   * Creates the service-linked role (SLR) that is associated with a specified product.
+   * Creates a service-linked role based on the service-linked role name associated with an Alibaba Cloud service.
    * 
    * @param request - CreateServiceLinkedRoleForProductRequest
    * @returns CreateServiceLinkedRoleForProductResponse
@@ -922,10 +922,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a data catalog
+   * Creates a data catalog.
    * 
    * @remarks
-   * Creates an event target under the specified rule.
+   * Creates an event target under a specified rule.
    * 
    * @param tmpReq - CreateTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -990,10 +990,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a data catalog
+   * Creates a data catalog.
    * 
    * @remarks
-   * Creates an event target under the specified rule.
+   * Creates an event target under a specified rule.
    * 
    * @param request - CreateTableRequest
    * @returns CreateTableResponse
@@ -1049,7 +1049,7 @@ export default class Client extends OpenApi {
    * Deletes an API destination.
    * 
    * @remarks
-   * You can call this API operation to delete an API destination.
+   * Deletes a specified API destination.
    * 
    * @param request - DeleteApiDestinationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1083,7 +1083,7 @@ export default class Client extends OpenApi {
    * Deletes an API destination.
    * 
    * @remarks
-   * You can call this API operation to delete an API destination.
+   * Deletes a specified API destination.
    * 
    * @param request - DeleteApiDestinationRequest
    * @returns DeleteApiDestinationResponse
@@ -1094,10 +1094,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a connection.
+   * Deletes the specified connection configuration.
    * 
    * @remarks
-   * You can call this API operation to delete a connection.
+   * Deletes the specified connection configuration.
    * 
    * @param request - DeleteConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1128,10 +1128,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a connection.
+   * Deletes the specified connection configuration.
    * 
    * @remarks
-   * You can call this API operation to delete a connection.
+   * Deletes the specified connection configuration.
    * 
    * @param request - DeleteConnectionRequest
    * @returns DeleteConnectionResponse
@@ -1238,7 +1238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an EventHouse Runtime.
+   * Deletes an EventHouse runtime.
    * 
    * @param request - DeleteEventHouseRuntimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1269,7 +1269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an EventHouse Runtime.
+   * Deletes an EventHouse runtime.
    * 
    * @param request - DeleteEventHouseRuntimeRequest
    * @returns DeleteEventHouseRuntimeResponse
@@ -1814,7 +1814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries events from the event center.
+   * Queries events in the event analysis feature.
    * 
    * @param tmpReq - EventCenterQueryEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1865,7 +1865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries events from the event center.
+   * Queries events in the event analysis feature.
    * 
    * @param request - EventCenterQueryEventsRequest
    * @returns EventCenterQueryEventsResponse
@@ -2098,7 +2098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a chunk.
+   * Retrieves the details of a chunk.
    * 
    * @param request - GetChunkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2145,7 +2145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a chunk.
+   * Retrieves the details of a chunk.
    * 
    * @param request - GetChunkRequest
    * @returns GetChunkResponse
@@ -2258,7 +2258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the download URL of a document.
+   * Retrieves the download URL for a document.
    * 
    * @param request - GetDocumentDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2305,7 +2305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the download URL of a document.
+   * Retrieves the download URL for a document.
    * 
    * @param request - GetDocumentDownloadUrlRequest
    * @returns GetDocumentDownloadUrlResponse
@@ -2364,7 +2364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status and operation progress of an EventHouse Runtime.
+   * Queries the status and operation progress of an EventHouse runtime.
    * 
    * @param request - GetEventHouseRuntimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2395,7 +2395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status and operation progress of an EventHouse Runtime.
+   * Queries the status and operation progress of an EventHouse runtime.
    * 
    * @param request - GetEventHouseRuntimeRequest
    * @returns GetEventHouseRuntimeResponse
@@ -3026,10 +3026,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an event rule.
+   * Queries the details of an event rule.
    * 
    * @remarks
-   * Gets the details of an event rule.
+   * Retrieves the details of an event rule.
    * 
    * @param request - GetRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3064,10 +3064,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an event rule.
+   * Queries the details of an event rule.
    * 
    * @remarks
-   * Gets the details of an event rule.
+   * Retrieves the details of an event rule.
    * 
    * @param request - GetRuleRequest
    * @returns GetRuleResponse
@@ -3327,7 +3327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of document chunks.
+   * Queries a list of document chunks.
    * 
    * @param request - ListChunksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3386,7 +3386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of document chunks.
+   * Queries a list of document chunks.
    * 
    * @param request - ListChunksRequest
    * @returns ListChunksResponse
@@ -3461,7 +3461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of documents.
+   * Queries the list of documents.
    * 
    * @param request - ListDocumentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3516,7 +3516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of documents.
+   * Queries the list of documents.
    * 
    * @param request - ListDocumentsRequest
    * @returns ListDocumentsResponse
@@ -3697,7 +3697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of knowledge bases.
+   * Queries the list of knowledge bases.
    * 
    * @param request - ListKnowledgeBasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3740,7 +3740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of knowledge bases.
+   * Queries the list of knowledge bases.
    * 
    * @param request - ListKnowledgeBasesRequest
    * @returns ListKnowledgeBasesResponse
@@ -4151,7 +4151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query namespace list
+   * Queries the list of namespaces.
    * 
    * @param request - ListNamespacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4190,7 +4190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query namespace list
+   * Queries the list of namespaces.
    * 
    * @param request - ListNamespacesRequest
    * @returns ListNamespacesResponse
@@ -4373,10 +4373,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries all custom event sources.
+   * Queries all external event sources.
    * 
    * @remarks
-   * Queries all custom event sources.
+   * Queries all external event sources.
    * 
    * @param request - ListUserDefinedEventSourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4419,10 +4419,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries all custom event sources.
+   * Queries all external event sources.
    * 
    * @remarks
-   * Queries all custom event sources.
+   * Queries all external event sources.
    * 
    * @param request - ListUserDefinedEventSourcesRequest
    * @returns ListUserDefinedEventSourcesResponse
@@ -4585,10 +4585,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create or update event targets for the specified rule.
+   * Creates or updates an event target under a specified rule.
    * 
    * @remarks
-   * Creates or updates event targets for a specified rule.
+   * Creates or updates an event target under a specified rule.
    * 
    * @param tmpReq - PutTargetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4633,10 +4633,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create or update event targets for the specified rule.
+   * Creates or updates an event target under a specified rule.
    * 
    * @remarks
-   * Creates or updates event targets for a specified rule.
+   * Creates or updates an event target under a specified rule.
    * 
    * @param request - PutTargetsRequest
    * @returns PutTargetsResponse
@@ -4753,7 +4753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query event store data
+   * Queries event warehouse data.
    * 
    * @param request - QueryEventHouseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4788,7 +4788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query event store data
+   * Queries event warehouse data.
    * 
    * @param request - QueryEventHouseRequest
    * @returns QueryEventHouseResponse
@@ -5023,10 +5023,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries `event trace` data within a `time range`.
+   * Queries the event trace within a specified time range.
    * 
    * @remarks
-   * Queries for event traces within a specified time range.
+   * Queries the event trace within a specified time range.
    * 
    * @param request - QueryTracedEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5089,10 +5089,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries `event trace` data within a `time range`.
+   * Queries the event trace within a specified time range.
    * 
    * @remarks
-   * Queries for event traces within a specified time range.
+   * Queries the event trace within a specified time range.
    * 
    * @param request - QueryTracedEventsRequest
    * @returns QueryTracedEventsResponse
@@ -5103,7 +5103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a SQL statement to query event warehouse data. This operation is suitable for scenarios where the exact SQL is known, without natural language conversion or conversation context. Returns a structured result set.
+   * Executes an SQL statement to query data in the event warehouse. Applicable to scenarios where the exact SQL statement is known, requiring no natural language conversion or dialog context. Returns a structured result set.
    * 
    * @remarks
    * Queries event content.
@@ -5141,7 +5141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a SQL statement to query event warehouse data. This operation is suitable for scenarios where the exact SQL is known, without natural language conversion or conversation context. Returns a structured result set.
+   * Executes an SQL statement to query data in the event warehouse. Applicable to scenarios where the exact SQL statement is known, requiring no natural language conversion or dialog context. Returns a structured result set.
    * 
    * @remarks
    * Queries event content.
@@ -5231,7 +5231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves knowledge base search results.
+   * Searches a knowledge base.
    * 
    * @param request - SearchKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5306,7 +5306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves knowledge base search results.
+   * Searches a knowledge base.
    * 
    * @param request - SearchKnowledgeBaseRequest
    * @returns SearchKnowledgeBaseResponse
@@ -5317,10 +5317,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves content from a knowledge base bound to a Luma Agent and returns relevant text chunks along with their relevance scores.
+   * Retrieves content in the knowledge base bound to a Luma agent and returns relevant text chunks along with their relevance scores.
    * 
    * @remarks
-   * Retrieves content from a knowledge base bound to a Luma Agent and returns relevant text chunks along with their relevance scores.
+   * Retrieves content in the knowledge base bound to a Luma agent and returns relevant text chunks along with their relevance scores.
    * 
    * @param request - SearchLumaKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5383,10 +5383,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves content from a knowledge base bound to a Luma Agent and returns relevant text chunks along with their relevance scores.
+   * Retrieves content in the knowledge base bound to a Luma agent and returns relevant text chunks along with their relevance scores.
    * 
    * @remarks
-   * Retrieves content from a knowledge base bound to a Luma Agent and returns relevant text chunks along with their relevance scores.
+   * Retrieves content in the knowledge base bound to a Luma agent and returns relevant text chunks along with their relevance scores.
    * 
    * @param request - SearchLumaKnowledgeBaseRequest
    * @returns SearchLumaKnowledgeBaseResponse
@@ -5445,10 +5445,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tests if an event pattern matches a given event.
+   * Tests whether the event pattern matches the provided JSON-formatted event.
    * 
    * @remarks
-   * Use this action to test an event pattern before you apply it to a rule.
+   * Tests whether the event pattern matches the provided JSON-formatted event.
    * 
    * @param request - TestEventPatternRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5483,10 +5483,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tests if an event pattern matches a given event.
+   * Tests whether the event pattern matches the provided JSON-formatted event.
    * 
    * @remarks
-   * Use this action to test an event pattern before you apply it to a rule.
+   * Tests whether the event pattern matches the provided JSON-formatted event.
    * 
    * @param request - TestEventPatternRequest
    * @returns TestEventPatternResponse
@@ -5771,10 +5771,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an event bus.
+   * Modifies an event bus.
    * 
    * @remarks
-   * You can call this operation to update an event bus.
+   * Modifies an event bus.
    * 
    * @param request - UpdateEventBusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5809,10 +5809,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an event bus.
+   * Modifies an event bus.
    * 
    * @remarks
-   * You can call this operation to update an event bus.
+   * Modifies an event bus.
    * 
    * @param request - UpdateEventBusRequest
    * @returns UpdateEventBusResponse
@@ -5823,7 +5823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an EventHouse Runtime.
+   * Updates the EventHouse runtime.
    * 
    * @param request - UpdateEventHouseRuntimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5858,7 +5858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an EventHouse Runtime.
+   * Updates the EventHouse runtime.
    * 
    * @param request - UpdateEventHouseRuntimeRequest
    * @returns UpdateEventHouseRuntimeResponse
@@ -5869,10 +5869,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an event source.
+   * Updates the configuration of an event source.
    * 
    * @remarks
-   * You can call this API operation to update an event source.
+   * Updates the configuration of an event source.
    * 
    * @param tmpReq - UpdateEventSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5993,10 +5993,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an event source.
+   * Updates the configuration of an event source.
    * 
    * @remarks
-   * You can call this API operation to update an event source.
+   * Updates the configuration of an event source.
    * 
    * @param request - UpdateEventSourceRequest
    * @returns UpdateEventSourceResponse

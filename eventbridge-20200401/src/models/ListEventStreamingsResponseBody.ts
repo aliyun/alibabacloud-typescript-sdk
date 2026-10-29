@@ -32,7 +32,7 @@ import { SinkRabbitMQMsgSyncParameters } from "./SinkRabbitMqmsgSyncParameters";
 export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of events that the window can contain. When this threshold is reached, data in the window is pushed downstream. If multiple windows exist, a push is triggered when any window meets the condition.
+   * The maximum number of events that the window can accommodate. When this threshold is reached, data in the window is pushed downstream. If multiple windows exist, the push is triggered when the condition of any window is met.
    * 
    * @example
    * 100
@@ -40,7 +40,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWi
   countBasedWindow?: number;
   /**
    * @remarks
-   * The maximum time range (in seconds) of events that the window can contain. When this threshold is reached, data in the window is pushed downstream. If multiple windows exist, a push is triggered when any window meets the condition.
+   * The maximum time range in seconds for events that the window can accommodate. When this threshold is reached, data in the window is pushed downstream. If multiple windows exist, the push is triggered when the condition of any window is met.
    * 
    * @example
    * 10
@@ -70,8 +70,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWi
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusinessOption extends $dara.Model {
+  /**
+   * @remarks
+   * The business mode.
+   * 
+   * @example
+   * "BusinessMode"
+   */
   businessMode?: string;
+  /**
+   * @remarks
+   * The maximum number of capacity units.
+   * 
+   * @example
+   * 10
+   */
   maxCapacityUnitCount?: number;
+  /**
+   * @remarks
+   * The minimum number of capacity units.
+   * 
+   * @example
+   * 1
+   */
   minCapacityUnitCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -101,7 +122,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusines
 export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLetterQueue extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the dead-letter queue.
+   * The ARN of the dead-letter queue.
    * 
    * @example
    * acs:ram::159787121179****:role/aliyunsaedefaultrole
@@ -117,7 +138,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLet
   network?: string;
   /**
    * @remarks
-   * The security group ID of the instance where the dead-letter queue resides.
+   * The ID of the security group to which the instance of the dead-letter queue belongs.
    * 
    * @example
    * sg-2vcgdxz7o1n9zapp****
@@ -125,7 +146,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLet
   securityGroupId?: string;
   /**
    * @remarks
-   * The vSwitch ID of the dead-letter queue.
+   * The ID of the vSwitch to which the dead-letter queue belongs.
    * 
    * @example
    * vsw-m5ev8asdc6h12345****
@@ -133,7 +154,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLet
   vSwitchIds?: string;
   /**
    * @remarks
-   * The VPC ID of the dead-letter queue.
+   * The ID of the VPC to which the dead-letter queue belongs.
    * 
    * @example
    * vpc-2zehizpoendb3****
@@ -171,7 +192,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLet
 export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetryStrategy extends $dara.Model {
   /**
    * @remarks
-   * The retry policy. Valid values: BACKOFF_RETRY (backoff retry) and EXPONENTIAL_DECAY_RETRY (exponential decay retry).
+   * The retry policy. Valid values:
+   * - BACKOFF_RETRY: Backoff retry.
+   * - EXPONENTIAL_DECAY_RETRY: Exponential decay retry.
    * 
    * @example
    * EXPONENTIAL_DECAY_RETRY
@@ -204,15 +227,21 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptions extend
    * The batching window.
    */
   batchWindow?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBatchWindow;
+  /**
+   * @remarks
+   * The business options.
+   */
   businessOption?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsBusinessOption;
   /**
    * @remarks
-   * Indicates whether the dead-letter queue is enabled. By default, the dead-letter queue is disabled, and messages that exceed the retry policy are discarded.
+   * Specifies whether to enable the dead-letter queue. By default, the dead-letter queue is disabled, and messages that exceed the retry policy are discarded.
    */
   deadLetterQueue?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsDeadLetterQueue;
   /**
    * @remarks
-   * The fault tolerance policy. Valid values: NONE (no fault tolerance) and ALL (tolerate all faults).
+   * The error tolerance policy. Valid values:
+   * - NONE: No errors are tolerated.
+   * - ALL: All errors are tolerated.
    * 
    * @example
    * ALL
@@ -220,7 +249,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptions extend
   errorsTolerance?: string;
   /**
    * @remarks
-   * The concurrency.
+   * The number of concurrent tasks.
    * 
    * @example
    * 2
@@ -228,9 +257,16 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsRunOptions extend
   maximumTasks?: number;
   /**
    * @remarks
-   * The retry policy when event pushing fails.
+   * The retry policy used when an event push fails.
    */
   retryStrategy?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptionsRetryStrategy;
+  /**
+   * @remarks
+   * The throttling value.
+   * 
+   * @example
+   * 100
+   */
   throttling?: number;
   static names(): { [key: string]: string } {
     return {
@@ -289,6 +325,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRoc
   /**
    * @remarks
    * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -336,11 +375,14 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRoc
   /**
    * @remarks
    * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The Group ID of the consumer group.
+   * The group ID of the consumer group.
    * 
    * @example
    * GID_******
@@ -383,6 +425,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRoc
   /**
    * @remarks
    * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -421,7 +466,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRoc
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters extends $dara.Model {
   /**
    * @remarks
-   * The consumption checkpoint.
+   * The consumption timestamp.
    */
   consumeTimestamp?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParametersConsumeTimestamp;
   /**
@@ -442,7 +487,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRoc
    * The password of the Apache RocketMQ instance.
    * 
    * @example
-   * ****
+   * yourPassword
    */
   instancePassword?: string;
   /**
@@ -484,7 +529,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRoc
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-2zehizpoendb3****
@@ -588,7 +633,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomize
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters extends $dara.Model {
   /**
    * @remarks
-   * The OSS file download URL.
+   * The download URL of the OSS file.
    * 
    * @example
    * "https://examplebucket.oss-cn-hangzhou.aliyuncs.com/testDoc/Old_Homebrew/2024-06-26%2022%3A34%3A08/opt/homebrew/homebrew/Library/Homebrew/test/support/fixtures/cask/AppWithBinary.zip?OSSAccessKeyId=ri&Expires=1725539627&Signature=rb8q3OpV2i3gZJ"
@@ -676,8 +721,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomize
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersDashVectorSchemaParametersName extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The property name.
+   * 
+   * @example
+   * content
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -705,8 +771,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVecto
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersDashVectorSchemaParametersType extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The DashVector property type.
+   * 
+   * @example
+   * STRING
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -734,8 +821,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVecto
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersDashVectorSchemaParametersValue extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * JSONPATH
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * ${content}
+   */
   template?: string;
+  /**
+   * @remarks
+   * The property value.
+   * 
+   * @example
+   * $.data.content
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -763,8 +871,20 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVecto
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersDashVectorSchemaParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The property name.
+   */
   name?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersDashVectorSchemaParametersName;
+  /**
+   * @remarks
+   * The DashVector property type.
+   */
   type?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersDashVectorSchemaParametersType;
+  /**
+   * @remarks
+   * The property value.
+   */
   value?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersDashVectorSchemaParametersValue;
   static names(): { [key: string]: string } {
     return {
@@ -811,13 +931,16 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVecto
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * ${partition}
    */
   template?: string;
   /**
    * @remarks
-   * - If Form is set to CONSTANT: a constant value.
-   * - If Form is set to JSONPATH: the content extracted by JSONPath.
+   * - CONSTANT: The constant value.
+   * - JSONPATH: The content extracted by using JSONPath.
    * 
    * Note: The Value field cannot exceed 10,240 characters.
    * 
@@ -869,8 +992,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVecto
   template?: string;
   /**
    * @remarks
-   * - If Form is set to JSONPATH: the content extracted by JSONPath.
-   * - If Form is set to TEMPLATE: the template variable.
+   * - JSONPATH: The content extracted by using JSONPath.
+   * - TEMPLATE: The template variable.
    * 
    * Note: The Value field cannot exceed 10,240 characters.
    * 
@@ -914,12 +1037,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVecto
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * ${vector}
    */
   template?: string;
   /**
    * @remarks
-   * The content extracted by JSONPath.
+   * The content extracted by using JSONPath.
    * 
    * Note: The Value field cannot exceed 10,240 characters.
    * 
@@ -971,7 +1097,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVecto
   collection?: string;
   /**
    * @remarks
-   * The schema field definition for table entries when inserting into DashVector. The result after event content transformation must be in JSON format.
+   * The schema field definitions for table entries when inserting data into DashVector. The transformed event content must be in JSON format.
    */
   dashVectorSchemaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersDashVectorSchemaParameters[];
   /**
@@ -1005,12 +1131,12 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVecto
   partition?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersPartition;
   /**
    * @remarks
-   * The primary key ID for inserting or deleting records. If this field is not specified, a random primary key ID is used.
+   * The primary key ID used when you insert or delete a record. If you do not specify this field, a random primary key ID is used.
    */
   primaryKeyId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersPrimaryKeyId;
   /**
    * @remarks
-   * The vector of the DashVector record to insert.
+   * The vector of the DashVector record to be inserted.
    */
   vector?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersVector;
   static names(): { [key: string]: string } {
@@ -1073,12 +1199,20 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubPa
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The BLOB type. The record content template.
+   * The record content template for the BLOB type.
+   * 
+   * @example
+   * {
+   *   "key": "value"
+   * }
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -1117,7 +1251,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubPa
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -1164,12 +1301,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubPa
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * To grant authorization to the event bus EventBridge to use this role to read Simple Log Service (SLS) log content, the following conditions must be met: when you create the role used by the service in the Resource Access Management (RAM) console, set the trusted entity type to "Alibaba Cloud Service" and set the trusted service to "event bus".
+   * Requirements for the authorization of the event bus EventBridge to use this role to read Simple Log Service logs: when you create the role used by the service in the Resource Access Management (RAM) console, you must select Alibaba Cloud Service, and select the event bus as the trusted service.
    * 
    * @example
    * testRole
@@ -1211,12 +1351,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubPa
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The name of the DataHub topic.
+   * The DataHub topic name.
    * 
    * @example
    * demo-topic
@@ -1258,12 +1401,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubPa
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * {"k1":"${k1}","k2":"${k2}"}
    */
   template?: string;
   /**
    * @remarks
-   * The content schema of the topic. This parameter applies to the TUPLE type.
+   * The topic content schema for the TUPLE type.
    * 
    * @example
    * {"k1":"value1","k2":"value2"}
@@ -1305,13 +1451,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubPa
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The type of the topic. Valid values:
-   * 
+   * The topic type. Valid values:
    * - TUPLE
    * - BLOB
    * 
@@ -1347,7 +1495,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubPa
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters extends $dara.Model {
   /**
    * @remarks
-   * The BLOB type. The record content template.
+   * The record content template for the BLOB type.
    */
   body?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersBody;
   /**
@@ -1357,23 +1505,22 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubPa
   project?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersProject;
   /**
    * @remarks
-   * To grant authorization to the event bus EventBridge to use this role to read Simple Log Service (SLS) log content, the following conditions must be met: when you create the role used by the service in the Resource Access Management (RAM) console, set the trusted entity type to "Alibaba Cloud Service" and set the trusted service to "event bus".
+   * Requirements for the authorization of the event bus EventBridge to use this role to read Simple Log Service logs: when you create the role used by the service in the Resource Access Management (RAM) console, you must select Alibaba Cloud Service, and select the event bus as the trusted service.
    */
   roleName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersRoleName;
   /**
    * @remarks
-   * The name of the DataHub topic.
+   * The DataHub topic name.
    */
   topic?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersTopic;
   /**
    * @remarks
-   * The content schema of the topic. This parameter applies to the TUPLE type.
+   * The topic content schema for the TUPLE type.
    */
   topicSchema?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParametersTopicSchema;
   /**
    * @remarks
-   * The type of the topic. Valid values:
-   * 
+   * The topic type. Valid values:
    * - TUPLE
    * - BLOB
    */
@@ -1428,8 +1575,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubPa
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBeHttpEndpoint extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The public HTTP endpoint of the BE.
+   * 
+   * @example
+   * "BeHttpEndpoint"
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1457,8 +1625,31 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisPara
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBody extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The message content.
+   * 
+   * @example
+   * {
+   *   "key": "value"
+   * }
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1486,8 +1677,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisPara
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersDatabase extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The database.
+   * 
+   * @example
+   * "Database"
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1515,8 +1727,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisPara
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersFeHttpEndpoint extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The HTTP endpoint of the FE.
+   * 
+   * @example
+   * "FeHttpEndpoint"
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1544,8 +1777,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisPara
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersNetworkType extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The network type.
+   * 
+   * @example
+   * PublicNetwork
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1573,8 +1827,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisPara
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersPassword extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The password.
+   * 
+   * @example
+   * yourPassword
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1602,8 +1877,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisPara
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersQueryEndpoint extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The MySQL protocol endpoint.
+   * 
+   * @example
+   * "QueryEndpoint"
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1631,8 +1927,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisPara
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersSecurityGroupId extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-mw43*****
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1660,8 +1977,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisPara
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersTable extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The destination table.
+   * 
+   * @example
+   * "Table"
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1689,8 +2027,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisPara
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersUserName extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * "UserName"
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1718,8 +2077,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisPara
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVSwitchIds extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   * 
+   * @example
+   * vbr-8vb835n3zf9shwl****mp
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1747,8 +2127,29 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisPara
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVpcId extends $dara.Model {
+  /**
+   * @remarks
+   * The transformation format. Default value: CONSTANT.
+   * 
+   * @example
+   * CONSTANT
+   */
   form?: string;
+  /**
+   * @remarks
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
+   */
   template?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * i-2ze7u5i17mbqtx1p****
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1776,17 +2177,65 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisPara
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters extends $dara.Model {
+  /**
+   * @remarks
+   * The public HTTP endpoint of the BE.
+   */
   beHttpEndpoint?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBeHttpEndpoint;
+  /**
+   * @remarks
+   * The message content.
+   */
   body?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersBody;
+  /**
+   * @remarks
+   * The database.
+   */
   database?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersDatabase;
+  /**
+   * @remarks
+   * The HTTP endpoint of the FE.
+   */
   feHttpEndpoint?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersFeHttpEndpoint;
+  /**
+   * @remarks
+   * The network type.
+   */
   networkType?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersNetworkType;
+  /**
+   * @remarks
+   * The password.
+   */
   password?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersPassword;
+  /**
+   * @remarks
+   * The MySQL protocol endpoint.
+   */
   queryEndpoint?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersQueryEndpoint;
+  /**
+   * @remarks
+   * The security group ID.
+   */
   securityGroupId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersSecurityGroupId;
+  /**
+   * @remarks
+   * The destination table.
+   */
   table?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersTable;
+  /**
+   * @remarks
+   * The username.
+   */
   userName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersUserName;
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   */
   vSwitchIds?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVSwitchIds;
+  /**
+   * @remarks
+   * The VPC ID.
+   */
   vpcId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParametersVpcId;
   static names(): { [key: string]: string } {
     return {
@@ -2090,7 +2539,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParamet
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
@@ -2189,7 +2641,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParamet
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
@@ -2236,14 +2691,17 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParamet
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
    * The invocation type. Valid values:
-   * - Sync: synchronous.
-   * - Async: asynchronous.
+   * - Sync: Synchronous.
+   * - Async: Asynchronous.
    * 
    * @example
    * Async
@@ -2285,7 +2743,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParamet
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
@@ -2332,12 +2793,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParamet
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * myService
@@ -2371,7 +2835,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParamet
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters extends $dara.Model {
   /**
    * @remarks
-   * The content body sent to the function.
+   * The request body sent to the function.
    */
   body?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersBody;
   /**
@@ -2392,8 +2856,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParamet
   /**
    * @remarks
    * The invocation type. Valid values:
-   * - Sync: synchronous.
-   * - Async: asynchronous.
+   * - Sync: Synchronous.
+   * - Async: Asynchronous.
    */
   invocationType?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersInvocationType;
   /**
@@ -2403,7 +2867,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParamet
   qualifier?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersQualifier;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    */
   serviceName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParametersServiceName;
   static names(): { [key: string]: string } {
@@ -2472,11 +2936,14 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParame
   /**
    * @remarks
    * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The execution name.
+   * The name of the execution.
    * 
    * @example
    * 123
@@ -2519,11 +2986,14 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParame
   /**
    * @remarks
    * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The flow name.
+   * The name of the flow.
    * 
    * @example
    * test-streaming-fnf
@@ -2566,11 +3036,14 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParame
   /**
    * @remarks
    * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The execution input information.
+   * The input information for the execution.
    * 
    * @example
    * 123
@@ -2613,6 +3086,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParame
   /**
    * @remarks
    * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -2651,17 +3127,17 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParame
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters extends $dara.Model {
   /**
    * @remarks
-   * The execution name.
+   * The name of the execution.
    */
   executionName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersExecutionName;
   /**
    * @remarks
-   * The flow name.
+   * The name of the flow.
    */
   flowName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersFlowName;
   /**
    * @remarks
-   * The execution input information.
+   * The input information for the execution.
    */
   input?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersInput;
   /**
@@ -2719,15 +3195,18 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
-   * The acknowledgment mode for writing to Kafka:
-   * - acks=0: No response is required from the server. This mode delivers high performance but has a high risk of data loss.
-   * - acks=1: A response is returned after the primary node on the server successfully writes the data. This mode delivers moderate performance and has a moderate risk of data loss. Data loss may occur if the primary node goes down.
-   * - acks=all: A response is returned only after the primary node successfully writes the data and the secondary nodes complete synchronization. This mode delivers lower performance but provides higher data safety. Data loss occurs only if both the primary and secondary nodes go down.
+   * The acknowledgment mode for writing to Kafka. Valid values:
+   * - acks=0: No response from the server is required. This mode provides high performance but has a high risk of data loss.
+   * - acks=1: A response is returned after the primary node successfully writes the data. This mode provides medium performance and has a medium risk of data loss. Data may be lost if the primary node goes down.
+   * - acks=all: A response is returned after the primary node successfully writes the data and the secondary nodes successfully synchronize the data. This mode provides low performance but ensures high data security. Data is lost only when both the primary and secondary nodes go down.
    * 
    * @example
    * 1
@@ -2761,19 +3240,28 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersDynamicTopic extends $dara.Model {
   /**
    * @remarks
-   * The transformation type.
-   * CONSTANT: a constant.
-   * JSONPATH: extracts a value from the upstream source based on a path.
+   * The transformation type. Valid values:
+   * - CONSTANT: fixed value
+   * - JSONPATH: extracted from the upstream based on the path
+   * 
+   * @example
+   * CONSTANT
    */
   form?: string;
   /**
    * @remarks
    * The template.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
    * The value.
+   * 
+   * @example
+   * "DynamicTopic"
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -2812,7 +3300,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
@@ -2859,12 +3350,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
-   * The message key.
+   * The identifier of the message.
    * 
    * @example
    * key
@@ -2906,12 +3400,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
-   * The topic name.
+   * The name of the topic.
    * 
    * @example
    * topic
@@ -2997,18 +3494,25 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters extends $dara.Model {
   /**
    * @remarks
-   * The acknowledgment mode for writing to Kafka:
-   * - acks=0: No response is required from the server. This mode delivers high performance but has a high risk of data loss.
-   * - acks=1: A response is returned after the primary node on the server successfully writes the data. This mode delivers moderate performance and has a moderate risk of data loss. Data loss may occur if the primary node goes down.
-   * - acks=all: A response is returned only after the primary node successfully writes the data and the secondary nodes complete synchronization. This mode delivers lower performance but provides higher data safety. Data loss occurs only if both the primary and secondary nodes go down.
+   * The acknowledgment mode for writing to Kafka. Valid values:
+   * - acks=0: No response from the server is required. This mode provides high performance but has a high risk of data loss.
+   * - acks=1: A response is returned after the primary node successfully writes the data. This mode provides medium performance and has a medium risk of data loss. Data may be lost if the primary node goes down.
+   * - acks=all: A response is returned after the primary node successfully writes the data and the secondary nodes successfully synchronize the data. This mode provides low performance but ensures high data security. Data is lost only when both the primary and secondary nodes go down.
    */
   acks?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersAcks;
+  /**
+   * @remarks
+   * The compression type.
+   * 
+   * @example
+   * "CompressionType"
+   */
   compressionType?: string;
   /**
    * @remarks
-   * The target topic strategy for message routing. If both the topic parameter and the topics parameter are specified, the value of the topics parameter takes precedence. The following two configuration modes are supported:
-   *     1. **Static constant mode**: Enter a fixed topic name string (for example, "order_created"). All messages are sent to this topic.
-   *     2. **Dynamic extraction mode**: Enter a standard JSONPath expression (for example, "$.user.id" or "$.metadata.category"). The system parses the upstream message body and extracts the value of the matching field as the target topic name.
+   * The target topic routing policy for messages. If both the topic and topics parameters are specified, the value of the topics parameter prevails. The following configuration modes are supported:
+   * 1. **Static constant mode**: Enter a fixed topic name string, such as "order_created". All messages are sent to this topic.
+   * 2. **Dynamic extraction mode**: Enter a standard JSONPath expression, such as "$.user.id" or "$.metadata.category". The system parses the upstream message body and extracts the value of the matched field as the target topic name.
    */
   dynamicTopic?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersDynamicTopic;
   /**
@@ -3018,17 +3522,17 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
   instanceId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersInstanceId;
   /**
    * @remarks
-   * The message key.
+   * The identifier of the message.
    */
   key?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersKey;
   /**
    * @remarks
-   * The topic name.
+   * The name of the topic.
    */
   topic?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersTopic;
   /**
    * @remarks
-   * The message body.
+   * The content of the message body.
    */
   value?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersValue;
   static names(): { [key: string]: string } {
@@ -3145,12 +3649,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParame
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
-   * Indicates whether Base64 encoding is enabled.
+   * Specifies whether Base64 encoding is enabled.
    * 
    * @example
    * true
@@ -3192,12 +3699,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParame
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
-   * The name of the Simple MSMQ (formerly MNS) queue.
+   * The name of the queue in Simple MSMQ (formerly MNS).
    * 
    * @example
    * MyQueue
@@ -3231,12 +3741,12 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParame
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters extends $dara.Model {
   /**
    * @remarks
-   * The message body.
+   * The message content.
    */
   body?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParametersBody;
   /**
    * @remarks
-   * Indicates whether Base64 encoding is enabled.
+   * Specifies whether to enable Base64 encoding.
    */
   isBase64Encode?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParametersIsBase64Encode;
   /**
@@ -3453,7 +3963,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourc
   template?: string;
   /**
    * @remarks
-   * The routing rule of the message.
+   * The routing rule for the message.
    * 
    * @example
    * housekeeping
@@ -3495,12 +4005,12 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourc
   authType?: string;
   /**
    * @remarks
-   * The message body.
+   * The message content.
    */
   body?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersBody;
   /**
    * @remarks
-   * The RabbitMQ instance endpoint.
+   * The endpoint of the RabbitMQ instance.
    * 
    * @example
    * 192.168.1.1:9876
@@ -3529,15 +4039,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourc
   networkType?: string;
   /**
    * @remarks
-   * The username and password used for identity verification.
+   * The username and password used to authenticate for identity verification.
    * 
    * @example
-   * ****
+   * yourPassword
    */
   password?: string;
   /**
    * @remarks
-   * The filter properties.
+   * The filtering properties.
    */
   properties?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersProperties;
   /**
@@ -3550,7 +4060,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourc
   queueName?: string;
   /**
    * @remarks
-   * The routing rule of the message. This parameter is required only when the TargetType parameter is set to Exchange.
+   * The routing rule for the message. This parameter is required only when the TargetType parameter is set to Exchange.
    */
   routingKey?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParametersRoutingKey;
   /**
@@ -3571,7 +4081,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourc
   targetType?: string;
   /**
    * @remarks
-   * The username used for authentication.
+   * The username used to authenticate for identity verification.
    * 
    * @example
    * admin
@@ -3587,7 +4097,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourc
   vSwitchIds?: string;
   /**
    * @remarks
-   * The virtual host name of RabbitMQ.
+   * The name of the virtual host in RabbitMQ.
    * 
    * @example
    * Vhost1
@@ -3595,7 +4105,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourc
   virtualHostName?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-2zehizpoendb3****
@@ -3727,12 +4237,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
-   * The name of the Exchange on the ApsaraMQ for RabbitMQ instance.
+   * The name of the exchange in the MSMQ message queue RabbitMQ Edition instance.
    * 
    * @example
    * a_exchange
@@ -3774,12 +4287,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
-   * The instance ID of ApsaraMQ for RabbitMQ.
+   * The instance ID of the MSMQ message queue RabbitMQ Edition.
    * 
    * @example
    * si-296cd57939a1421b****
@@ -3925,12 +4441,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
-   * The name of the Queue on the instance.
+   * The name of the queue in the instance.
    * 
    * @example
    * MyQueue
@@ -3972,12 +4491,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
-   * The routing rule of the message.
+   * The routing rule for the message.
    * 
    * @example
    * housekeeping
@@ -4019,7 +4541,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
@@ -4068,12 +4593,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The name of the Vhost on the ApsaraMQ for RabbitMQ instance.
+   * The name of the vhost in the MSMQ message queue RabbitMQ Edition instance.
    * 
    * @example
    * rabbit-host
@@ -4107,17 +4635,17 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQP
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParameters extends $dara.Model {
   /**
    * @remarks
-   * The message body.
+   * The message content.
    */
   body?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParametersBody;
   /**
    * @remarks
-   * The Exchange mode. This parameter is required only when the TargetType parameter is set to Exchange.
+   * The exchange mode. This parameter is required only when the TargetType parameter is set to Exchange.
    */
   exchange?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParametersExchange;
   /**
    * @remarks
-   * The event target type is ApsaraMQ for RabbitMQ.
+   * The target service type is MSMQ message queue RabbitMQ Edition.
    */
   instanceId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParametersInstanceId;
   /**
@@ -4127,17 +4655,17 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQP
   messageId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParametersMessageId;
   /**
    * @remarks
-   * The filter properties.
+   * The filtering properties.
    */
   properties?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParametersProperties;
   /**
    * @remarks
-   * The Queue mode. This parameter is required only when the TargetType parameter is set to Queue.
+   * The queue mode. This parameter is required only when the TargetType parameter is set to Queue.
    */
   queueName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParametersQueueName;
   /**
    * @remarks
-   * The routing rule for messages. This parameter is required only when the TargetType parameter is set to Exchange.
+   * The routing rule for the message. This parameter is required only when the TargetType parameter is set to Exchange.
    */
   routingKey?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParametersRoutingKey;
   /**
@@ -4147,7 +4675,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQP
   targetType?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParametersTargetType;
   /**
    * @remarks
-   * The name of the Vhost on the ApsaraMQ for RabbitMQ instance.
+   * The name of the vhost in the MSMQ message queue RabbitMQ Edition instance.
    */
   virtualHostName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParametersVirtualHostName;
   static names(): { [key: string]: string } {
@@ -4226,6 +4754,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQC
   /**
    * @remarks
    * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -4273,11 +4804,14 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQC
   /**
    * @remarks
    * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The Group ID of the consumer group.
+   * The group ID of the consumer group.
    * 
    * @example
    * GID_******
@@ -4320,6 +4854,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQC
   /**
    * @remarks
    * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -4358,17 +4895,17 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQC
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParameters extends $dara.Model {
   /**
    * @remarks
-   * The consumption checkpoint.
+   * The consumption timestamp.
    */
   consumeTimestamp?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersConsumeTimestamp;
   /**
    * @remarks
-   * The consumer group information of ApsaraMQ for RocketMQ.
+   * The consumer group information of the MSMQ message queue RocketMQ Edition.
    */
   group?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersGroup;
   /**
    * @remarks
-   * The instance ID of ApsaraMQ for RocketMQ.
+   * The RocketMQ instance ID.
    * 
    * @example
    * MQ_INST_1825725063814405_BZ******
@@ -4376,7 +4913,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQC
   instanceId?: string;
   /**
    * @remarks
-   * The instance type of ApsaraMQ for RocketMQ.
+   * The instance type of the MSMQ message queue RocketMQ Edition.
    * 
    * @example
    * Cloud_5
@@ -4384,7 +4921,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQC
   instanceType?: string;
   /**
    * @remarks
-   * The topic of the ApsaraMQ for RocketMQ instance.
+   * The topic of the MSMQ message queue RocketMQ Edition instance.
    */
   topic?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParametersTopic;
   static names(): { [key: string]: string } {
@@ -4488,7 +5025,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -4535,12 +5075,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The instance endpoint.
+   * The endpoint of the instance.
    * 
    * @example
    * vbr-8vbsvkkbpf3vb0zef****
@@ -4582,12 +5125,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
-   * The instance ID of ApsaraMQ for RocketMQ.
+   * The instance ID of the message queue MSMQ for RocketMQ.
    * 
    * @example
    * MQ_INST_164901546557****_BAAN****
@@ -4629,12 +5175,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The instance password.
+   * The password of the instance.
    * 
    * @example
    * admin******
@@ -4676,16 +5225,18 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
    * The instance type. Valid values:
-   * 
    * - Cloud_4: ApsaraMQ for RocketMQ 4.0 instance (default).
    * - Cloud_5: ApsaraMQ for RocketMQ 5.0 instance.
-   * - SelfBuilt: self-managed Apache RocketMQ cluster.
+   * - SelfBuilt: Self-managed Apache RocketMQ cluster.
    * 
    * @example
    * Cloud_4
@@ -4727,7 +5278,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -4826,13 +5380,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
    * The network type. Valid values:
-   * 
    * - PublicNetwork
    * - PrivateNetwork
    * 
@@ -4928,7 +5484,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -4976,11 +5535,14 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   /**
    * @remarks
    * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The sharding key value.
+   * The value of the sharding key.
    * 
    * @example
    * order_id
@@ -5074,12 +5636,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * The value of ${key} is ${value}!
    */
   template?: string;
   /**
    * @remarks
-   * The topic of the MSMQ for RocketMQ instance.
+   * The topic of the message queue MSMQ for RocketMQ instance.
    * 
    * @example
    * topic
@@ -5121,7 +5686,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -5160,7 +5728,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersVpcId extends $dara.Model {
   /**
    * @remarks
-   * The format of the event transformation. Default value: CONSTANT.
+   * The event transformation format. Default value: CONSTANT.
    * 
    * @example
    * CONSTANT
@@ -5168,7 +5736,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -5207,27 +5778,27 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParameters extends $dara.Model {
   /**
    * @remarks
-   * The message body.
+   * The message content.
    */
   body?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersBody;
   /**
    * @remarks
-   * The delivery order type of messages.
+   * The delivery order type of the message.
    */
   deliveryOrderType?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersDeliveryOrderType;
   /**
    * @remarks
-   * The instance endpoint.
+   * The endpoint of the instance.
    */
   instanceEndpoint?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceEndpoint;
   /**
    * @remarks
-   * The event target type is ApsaraMQ for RocketMQ.
+   * The target service type is the message queue MSMQ for RocketMQ.
    */
   instanceId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceId;
   /**
    * @remarks
-   * The instance password.
+   * The password of the instance.
    */
   instancePassword?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstancePassword;
   /**
@@ -5242,7 +5813,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   instanceUsername?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersInstanceUsername;
   /**
    * @remarks
-   * The filter properties.
+   * The filtering properties.
    */
   keys?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersKeys;
   /**
@@ -5254,7 +5825,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   network?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersNetwork;
   /**
    * @remarks
-   * The filter properties.
+   * The filtering properties.
    */
   properties?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersProperties;
   /**
@@ -5269,12 +5840,12 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQP
   shardingKey?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersShardingKey;
   /**
    * @remarks
-   * The filter properties.
+   * The filtering properties.
    */
   tags?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTags;
   /**
    * @remarks
-   * The topic of the MSMQ for RocketMQ instance.
+   * The topic of the message queue MSMQ for RocketMQ instance.
    */
   topic?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParametersTopic;
   /**
@@ -5449,7 +6020,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -5496,12 +6070,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The SLS data format. You can use the default format or specify key-value pairs. Valid values:
+   * The data format of Simple Log Service (SLS). Valid values:
    * 
    * - JSON
    * - KeyValue
@@ -5546,7 +6123,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -5593,7 +6173,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
@@ -5640,12 +6223,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The role used for authorization of EventBridge to read SLS log content. To use this role, the following conditions must be met: when you create the role used by the service in the Resource Access Management (RAM) console, select Alibaba Cloud Service, and set the trusted service to EventBridge.
+   * When granting authorization to the event bus EventBridge to use this role to read SLS log content, the following conditions must be met: when creating the role used by the service in the Resource Access Management (RAM) console, you must select Alibaba Cloud Service, and select event bus as the trusted service.
    * 
    * @example
    * test-role
@@ -5687,12 +6273,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
   form?: string;
   /**
    * @remarks
-   * None.
+   * The template style.
+   * 
+   * @example
+   * Template string (if any)
    */
   template?: string;
   /**
    * @remarks
-   * The topic of the log, which corresponds to the SLS reserved field "topic".
+   * The topic of the log. This corresponds to the reserved field topic in SLS.
    * 
    * @example
    * topic
@@ -5726,17 +6315,17 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParameters extends $dara.Model {
   /**
    * @remarks
-   * The content sent to Simple Log Service (SLS).
+   * The content sent to Simple Log Service.
    */
   body?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersBody;
   /**
    * @remarks
-   * The custom log key-value pairs. This parameter takes effect only when ContentType is set to KeyValue. Each key-value pair is represented by Key_n and Value_n.
+   * The key-value pairs of the custom log. This parameter takes effect only when ContentType is set to KeyValue. Each key-value pair is represented by Key_n and Value_n.
    */
   contentSchema?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersContentSchema;
   /**
    * @remarks
-   * The SLS data format. You can use the default format or specify key-value pairs. Valid values:
+   * The data format of Simple Log Service (SLS). Valid values:
    * 
    * - JSON
    * - KeyValue
@@ -5754,12 +6343,12 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
   project?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersProject;
   /**
    * @remarks
-   * The role used for authorization of EventBridge to read SLS log content. To use this role, the following conditions must be met: when you create the role used by the service in the Resource Access Management (RAM) console, select Alibaba Cloud Service, and set the trusted service to EventBridge.
+   * When granting authorization to the event bus EventBridge to use this role to read SLS log content, the following conditions must be met: when creating the role used by the service in the Resource Access Management (RAM) console, you must select Alibaba Cloud Service, and select event bus as the trusted service.
    */
   roleName?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersRoleName;
   /**
    * @remarks
-   * The topic of the log, which corresponds to the SLS reserved field "topic".
+   * The topic of the log. This corresponds to the reserved field topic in SLS.
    */
   topic?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParametersTopic;
   static names(): { [key: string]: string } {
@@ -5817,10 +6406,14 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
 }
 
 export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dara.Model {
+  /**
+   * @remarks
+   * The delivery parameters for the agent runtime.
+   */
   sinkAgentRunParameters?: SinkAgentRunParameters;
   /**
    * @remarks
-   * The Sink Apache RocketMQ Checkpoint parameters.
+   * The sink Apache RocketMQ checkpoint parameters.
    */
   sinkApacheRocketMQCheckpointParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters;
   /**
@@ -5830,29 +6423,33 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
   sinkApiDestinationParameters?: SinkApiDestinationParameters;
   /**
    * @remarks
-   * The Sink BaiLian parameters.
+   * The sink BaiLian parameters.
    */
   sinkBaiLianParameters?: SinkBaiLianParameters;
   /**
    * @remarks
-   * The Sink Kafka connector parameters.
+   * The sink Kafka connector parameters.
    */
   sinkCustomizedKafkaConnectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters;
   /**
    * @remarks
-   * The Sink Kafka parameters.
+   * The sink Kafka parameters.
    */
   sinkCustomizedKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters;
   /**
    * @remarks
-   * The Sink DashVector parameters.
+   * The sink DashVector parameters.
    */
   sinkDashVectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters;
   /**
    * @remarks
-   * The Sink DataHub parameters.
+   * The DataHub sink parameters.
    */
   sinkDataHubParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters;
+  /**
+   * @remarks
+   * The event source type.
+   */
   sinkDorisParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters;
   /**
    * @remarks
@@ -5866,7 +6463,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
   sinkFcParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters;
   /**
    * @remarks
-   * The Sink Fnf parameters.
+   * The FnF parameters for the sink.
    */
   sinkFnfParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters;
   /**
@@ -5876,46 +6473,62 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $dar
   sinkHttpsParameters?: SinkHttpsParameters;
   /**
    * @remarks
-   * The sink Kafka parameters.
+   * The Kafka parameters for the sink.
    */
   sinkKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters;
   /**
    * @remarks
-   * The target parameters for delivering event streams to an EventHouse knowledge base. Specify this parameter only when the sink type is knowledge base.
+   * The knowledge base delivery parameters.
    */
   sinkKnowledgeBaseParameters?: SinkKnowledgeBaseParameters;
   /**
    * @remarks
-   * The Simple MSMQ (formerly MNS) event target.
+   * The event target for Simple MSMQ (formerly MNS).
    */
   sinkMNSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters;
+  /**
+   * @remarks
+   * The MQTT delivery parameters.
+   */
   sinkMQTTParameters?: SinkMQTTParameters;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) delivery parameters.
+   */
   sinkOSSParameters?: SinkOSSParameters;
   /**
    * @remarks
-   * The sink open-source RabbitMQ parameters.
+   * The open source RabbitMQ parameters for the sink.
    */
   sinkOpenSourceRabbitMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters;
+  /**
+   * @remarks
+   * The metadata delivery parameters for the MSMQ message queue RabbitMQ Edition.
+   */
   sinkRabbitMQMetaParameters?: SinkRabbitMQMetaParameters;
+  /**
+   * @remarks
+   * The message synchronization delivery parameters for the MSMQ message queue RabbitMQ Edition.
+   */
   sinkRabbitMQMsgSyncParameters?: SinkRabbitMQMsgSyncParameters;
   /**
    * @remarks
-   * The parameters for the sink RabbitMQ.
+   * The parameters for the RabbitMQ sink.
    */
   sinkRabbitMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRabbitMQParameters;
   /**
    * @remarks
-   * The parameters for the sink RocketMQ checkpoint.
+   * The parameters for the RocketMQ checkpoint sink.
    */
   sinkRocketMQCheckpointParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQCheckpointParameters;
   /**
    * @remarks
-   * The parameters for the sink RocketMQ source.
+   * The ApsaraMQ for RocketMQ sink parameters.
    */
   sinkRocketMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkRocketMQParameters;
   /**
    * @remarks
-   * Sink SLS Parameters
+   * The Simple Log Service sink parameters.
    */
   sinkSLSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParameters;
   static names(): { [key: string]: string } {
@@ -6076,7 +6689,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApach
    * The password of the Apache RocketMQ instance.
    * 
    * @example
-   * ****
+   * yourPassword
    */
   instancePassword?: string;
   /**
@@ -6126,7 +6739,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApach
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-adw1awdw*****
@@ -6222,7 +6835,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCusto
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaConnectorParameters extends $dara.Model {
   /**
    * @remarks
-   * The download URL of the OSS resource ZIP package.
+   * The download URL of the OSS ZIP package.
    * 
    * @example
    * "https://examplebucket.oss-cn-hangzhou.aliyuncs.com/testDoc/Old_Homebrew/2024-06-26%2022%3A34%3A08/opt/homebrew/homebrew/Library/Homebrew/test/support/fixtures/cask/AppWithBinary.zip?OSSAccessKeyId=ri&Expires=1725539627&Signature=rb8q3OpV2i3gZJ"
@@ -6235,7 +6848,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCusto
   connectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaConnectorParametersConnectorParameters;
   /**
    * @remarks
-   * The Kafka instance configuration.
+   * The Kafka instance configurations.
    * 
    * @example
    * {
@@ -6313,11 +6926,14 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSPa
   /**
    * @remarks
    * The network address and port number of the data subscription channel.
+   * 
+   * @example
+   * "BrokerUrl"
    */
   brokerUrl?: string;
   /**
    * @remarks
-   * The consumer offset, which is the timestamp when the SDK client consumes the first data record. The value is a UNIX timestamp.
+   * The consumption checkpoint, which is the timestamp when the SDK client consumes the first data record. The value is a UNIX timestamp.
    * 
    * @example
    * 1620962769
@@ -6349,7 +6965,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSPa
   taskId?: string;
   /**
    * @remarks
-   * The subscribed topic of the data subscription channel.
+   * The subscription topic of the data subscription channel.
    * 
    * @example
    * TP_TEST_UNDERWRITE_ISSUE
@@ -6399,7 +7015,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSPa
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceEventBusParameters extends $dara.Model {
   /**
    * @remarks
-   * The event bus name.
+   * The name of the event bus.
    * 
    * @example
    * my-event-bus
@@ -6407,7 +7023,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceEvent
   eventBusName?: string;
   /**
    * @remarks
-   * The event rule name.
+   * The name of the event rule.
    * 
    * @example
    * my-event-rule
@@ -6455,7 +7071,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafka
   instanceId?: string;
   /**
    * @remarks
-   * The network configuration. Default value: Default. Set the value to PublicNetwork for VPC networks.
+   * The network configuration. Default value: Default. Set the value to PublicNetwork for a VPC.
    * 
    * @example
    * Default
@@ -6563,7 +7179,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafka
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSParameters extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Base64 encoding is enabled.
+   * Specifies whether to enable Base64 encoding.
    * 
    * @example
    * true
@@ -6571,7 +7187,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSPa
   isBase64Decode?: boolean;
   /**
    * @remarks
-   * The name of the Simple Message Queue (formerly MNS) message queue.
+   * The name of the Simple Message Queue (formerly MNS) queue.
    * 
    * @example
    * work4
@@ -6613,7 +7229,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSPa
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters extends $dara.Model {
   /**
    * @remarks
-   * The encoding format of the message. Valid values:
+   * The message encoding format. Valid values:
    * 
    * - JSON
    * - Text
@@ -6634,6 +7250,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTP
   /**
    * @remarks
    * The network type.
+   * 
+   * @example
+   * PrivateNetwork
    */
   networkType?: string;
   /**
@@ -6647,6 +7266,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTP
   /**
    * @remarks
    * The security group ID.
+   * 
+   * @example
+   * sg-bp1iv19sp1msc7zot4****
    */
   securityGroupId?: string;
   /**
@@ -6659,12 +7281,18 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTP
   topic?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The vSwitch IDs.
+   * 
+   * @example
+   * vsw-bp179l3llg3jjxwrq72****
    */
   vSwitchIds?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-8vblalsi0vbhizr77****
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -6713,8 +7341,8 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSPa
   bucketName?: string;
   /**
    * @remarks
-   * The delimiter. In chunked loading mode, this delimiter is used as the chunk identifier for the text. By default, the newline character 
-   *  is used as the delimiter.
+   * The delimiter. In chunk loading mode, this delimiter is used as the chunk identifier for text. The default value is the newline character 
+   * .
    * 
    * @example
    * \\n
@@ -6730,7 +7358,10 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSPa
   loadFormat?: string;
   /**
    * @remarks
-   * The data loading mode. The value single indicates single-document loading, and the value element indicates chunked loading. Valid values: single/element. Default value: single.
+   * The data loading mode. Valid values:
+   * - single: Single document loading.
+   * - element: Chunk loading.
+   * Default value: single.
    * 
    * @example
    * single
@@ -6746,7 +7377,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSPa
   prefix?: string;
   /**
    * @remarks
-   * The name of the role that provides authorization for the event bus EventBridge to read OSS files. The role must have at least read-only permissions on OSS.
+   * The name of the RAM role that grants authorization to the EventBridge event bus to read OSS files. The role must have at least read-only permissions on OSS.
    * 
    * @example
    * eventbridge_oss_role
@@ -6794,7 +7425,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenS
   authType?: string;
   /**
    * @remarks
-   * The message body data type.
+   * The data type of the message body.
    * 
    * @example
    * Json
@@ -6802,7 +7433,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenS
   bodyDataType?: string;
   /**
    * @remarks
-   * The instance endpoint.
+   * The endpoint of the instance.
    * 
    * @example
    * 192.168.1.1:9876
@@ -6818,15 +7449,15 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenS
   networkType?: string;
   /**
    * @remarks
-   * The password used to connect to the open source RabbitMQ instance.
+   * The password used to connect to the open-source RabbitMQ instance.
    * 
    * @example
-   * ****
+   * yourPassword
    */
   password?: string;
   /**
    * @remarks
-   * The queue name of the open source RabbitMQ instance.
+   * The name of the queue in the open-source RabbitMQ instance.
    * 
    * @example
    * demo
@@ -6842,7 +7473,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenS
   securityGroupId?: string;
   /**
    * @remarks
-   * The username used to connect to the open source RabbitMQ instance.
+   * The username used to connect to the open-source RabbitMQ instance.
    * 
    * @example
    * admin
@@ -6858,7 +7489,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenS
   vSwitchIds?: string;
   /**
    * @remarks
-   * The virtual host name of the open source RabbitMQ instance.
+   * The name of the virtual host in the open-source RabbitMQ instance.
    * 
    * @example
    * Vhost1
@@ -6866,7 +7497,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenS
   virtualHostName?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-m5e3sv4b12345****
@@ -6956,7 +7587,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceProme
   regionId?: string;
   /**
    * @remarks
-   * The role used to access Prometheus data.
+   * The RAM role used to access Prometheus data.
    * 
    * @example
    * testRole
@@ -6996,7 +7627,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceProme
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbitMQParameters extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the ApsaraMQ for RabbitMQ instance.
+   * The ID of the Message Queue for RabbitMQ instance.
    * 
    * @example
    * dbaudit-cn-7mz2hqo****
@@ -7004,7 +7635,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbi
   instanceId?: string;
   /**
    * @remarks
-   * The queue name of the ApsaraMQ for RabbitMQ instance.
+   * The name of the queue in the Message Queue for RabbitMQ instance.
    * 
    * @example
    * liuyang
@@ -7020,7 +7651,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbi
   regionId?: string;
   /**
    * @remarks
-   * The vhost name of the ApsaraMQ for RabbitMQ instance.
+   * The name of the virtual host in the Message Queue for RabbitMQ instance.
    * 
    * @example
    * eb-connect
@@ -7056,7 +7687,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbi
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQCheckpointParameters extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the ApsaraMQ for RocketMQ instance.
+   * The ID of the Message Queue for RocketMQ instance.
    * 
    * @example
    * rmq-cn-jte3w******
@@ -7064,7 +7695,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   instanceId?: string;
   /**
    * @remarks
-   * The type of the ApsaraMQ for RocketMQ instance.
+   * The type of the Message Queue for RocketMQ instance.
    * 
    * @example
    * Cloud_5
@@ -7080,7 +7711,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   regionId?: string;
   /**
    * @remarks
-   * The topic of the ApsaraMQ for RocketMQ instance.
+   * The topics in the Message Queue for RocketMQ instance.
    */
   topics?: string[];
   static names(): { [key: string]: string } {
@@ -7124,7 +7755,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   authType?: string;
   /**
    * @remarks
-   * The encoding format of the message. Valid values:
+   * The message encoding format. Valid values:
    * 
    * - JSON
    * - Text
@@ -7144,7 +7775,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   filterSql?: string;
   /**
    * @remarks
-   * The message filter type.
+   * The message filtering type.
    * 
    * @example
    * Tag
@@ -7152,7 +7783,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   filterType?: string;
   /**
    * @remarks
-   * The group ID of the ApsaraMQ for RocketMQ instance.
+   * The group ID in Message Queue for RocketMQ.
    * 
    * @example
    * GID_group1
@@ -7160,7 +7791,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   groupID?: string;
   /**
    * @remarks
-   * The instance endpoint.
+   * The endpoint of the instance.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com
@@ -7168,7 +7799,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   instanceEndpoint?: string;
   /**
    * @remarks
-   * The instance ID of the ApsaraMQ for RocketMQ instance.
+   * The ID of the Message Queue for RocketMQ instance.
    * 
    * @example
    * i-f8zbher64dlm58pl****
@@ -7176,7 +7807,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   instanceId?: string;
   /**
    * @remarks
-   * The instance network information. Valid values:
+   * The network information of the instance. Valid values:
    * - PublicNetwork
    * - PrivateNetwork
    * 
@@ -7186,7 +7817,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   instanceNetwork?: string;
   /**
    * @remarks
-   * The instance password.
+   * The password of the instance.
    * 
    * @example
    * 123
@@ -7194,7 +7825,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   instancePassword?: string;
   /**
    * @remarks
-   * The security group ID of the instance.
+   * The security group information of the instance.
    * 
    * @example
    * sg-m5edtu24f12345****
@@ -7203,10 +7834,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   /**
    * @remarks
    * The instance type. Valid values:
-   * 
    * - Cloud_4: ApsaraMQ for RocketMQ 4.0 instance (default).
    * - Cloud_5: ApsaraMQ for RocketMQ 5.0 instance.
-   * - SelfBuilt: self-managed Apache RocketMQ cluster.
+   * - SelfBuilt: Self-managed Apache RocketMQ cluster.
    * 
    * @example
    * Cloud_4
@@ -7230,7 +7860,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   instanceVSwitchIds?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The ID of the VPC.
    * 
    * @example
    * vpc-bp1a4gmlk31hy***l3ss
@@ -7249,9 +7879,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   /**
    * @remarks
    * The consumption offset of the message. Valid values:
-   * - CONSUMEFROMLASTOFFSET: Consumption starts from the latest offset.
-   * - CONSUMEFROMFIRSTOFFSET: Consumption starts from the earliest offset.
-   * - CONSUMEFROMTIMESTAMP: Consumption starts from the offset of the specified point in time.
+   * - CONSUMEFROMLASTOFFSET: Consumes messages from the latest offset.
+   * - CONSUMEFROMFIRSTOFFSET: Consumes messages from the earliest offset.
+   * - CONSUMEFROMTIMESTAMP: Consumes messages from the offset at a specified point in time.
    * 
    * @example
    * CONSUMEFROMTIMESTAMP
@@ -7259,7 +7889,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   offset?: string;
   /**
    * @remarks
-   * The region ID of the ApsaraMQ for RocketMQ instance.
+   * The region ID of Message Queue for RocketMQ.
    * 
    * @example
    * cn-chengdu
@@ -7283,7 +7913,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   tag?: string;
   /**
    * @remarks
-   * The timestamp. This parameter is valid only if the Offset parameter is set to CONSUMEFROMTIMESTAMP.
+   * The timestamp. This parameter is valid only when the Offset parameter is set to CONSUMEFROMTIMESTAMP.
    * 
    * @example
    * 1670742074043
@@ -7299,7 +7929,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
   topic?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The vSwitch IDs.
    * 
    * @example
    * vsw-m5ev8asdc6h12345****
@@ -7381,7 +8011,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocke
 export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceSLSParameters extends $dara.Model {
   /**
    * @remarks
-   * The starting consumption offset. You can select the earliest or latest offset, which corresponds to "begin" or "end" respectively. You can also start consumption from a specified point in time, in seconds.
+   * The start consumption offset. You can set this parameter to begin for the earliest offset or end for the latest offset. You can also specify a point in time in seconds to start consumption.
    * 
    * @example
    * begin
@@ -7413,7 +8043,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceSLSPa
   project?: string;
   /**
    * @remarks
-   * The role name for authorization of the event bus EventBridge to read Simple Log Service log content. To use this role, create a role in the Resource Access Management (RAM) console, select "Alibaba Cloud Service" as the trusted entity, and select "event bus" as the trusted service.
+   * When granting authorization to the event bus EventBridge to use this role to read Simple Log Service (SLS) logs, you must select Alibaba Cloud Service as the trusted entity and event bus as the trusted service when you create the role in the Resource Access Management (RAM) console.
    * 
    * @example
    * testRole
@@ -7451,12 +8081,12 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceSLSPa
 export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $dara.Model {
   /**
    * @remarks
-   * The Source RocketMQ checkpoint parameters.
+   * The Apache RocketMQ checkpoint source.
    */
   sourceApacheRocketMQCheckpointParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceApacheRocketMQCheckpointParameters;
   /**
    * @remarks
-   * The custom connector Apache Kafka event source.
+   * The custom Apache Kafka connector event source.
    */
   sourceCustomizedKafkaConnectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaConnectorParameters;
   /**
@@ -7466,72 +8096,92 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSource extends $d
   sourceCustomizedKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceCustomizedKafkaParameters;
   /**
    * @remarks
-   * The Source DTS event source.
+   * The DTS source.
    */
   sourceDTSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceDTSParameters;
   /**
    * @remarks
-   * The Source event bus event source.
+   * The event bus source.
    */
   sourceEventBusParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceEventBusParameters;
+  /**
+   * @remarks
+   * The Lark document source parameters.
+   */
   sourceFeiShuDocsParameters?: SourceFeiShuDocsParameters;
+  /**
+   * @remarks
+   * The JDBC data source parameters.
+   */
   sourceJDBCParameters?: SourceJDBCParameters;
   /**
    * @remarks
-   * The Source Kafka event source.
+   * The Kafka source.
    */
   sourceKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceKafkaParameters;
   /**
    * @remarks
-   * The Source Simple Message Queue (formerly MNS) message event source.
+   * The Simple Message Queue (formerly MNS) source.
    */
   sourceMNSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMNSParameters;
   /**
    * @remarks
-   * The Source MQTT event source.
+   * The source MQTT event source.
    */
   sourceMQTTParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTParameters;
   /**
    * @remarks
-   * The Source MySQL event source.
+   * The source MySQL event source.
    */
   sourceMySQLParameters?: SourceMySQLParameters;
   /**
    * @remarks
-   * The Source OSS event source.
+   * The source OSS event source.
    */
   sourceOSSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOSSParameters;
   /**
    * @remarks
-   * The Source open source RabbitMQ event source.
+   * The source open-source RabbitMQ event source.
    */
   sourceOpenSourceRabbitMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceOpenSourceRabbitMQParameters;
+  /**
+   * @remarks
+   * The source PostgreSQL parameters.
+   */
   sourcePostgreSQLParameters?: SourcePostgreSQLParameters;
   /**
    * @remarks
-   * The Source Prometheus event source.
+   * The source Prometheus event source.
    */
   sourcePrometheusParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourcePrometheusParameters;
+  /**
+   * @remarks
+   * The metadata source parameters of Message Queue for RabbitMQ.
+   */
   sourceRabbitMQMetaParameters?: SourceRabbitMQMetaParameters;
+  /**
+   * @remarks
+   * The message synchronization source parameters of Message Queue for RabbitMQ.
+   */
   sourceRabbitMQMsgSyncParameters?: SourceRabbitMQMsgSyncParameters;
   /**
    * @remarks
-   * The Source RabbitMQ event source.
+   * The source ApsaraMQ for RabbitMQ event source.
    */
   sourceRabbitMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRabbitMQParameters;
   /**
    * @remarks
-   * The Source RocketMQ checkpoint parameters.
+   * The Apache RocketMQ checkpoint source.
    */
   sourceRocketMQCheckpointParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQCheckpointParameters;
   /**
    * @remarks
-   * The parameters that are returned if the event source is ApsaraMQ for RocketMQ.
+   * The source ApsaraMQ for RocketMQ event source.
    */
   sourceRocketMQParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQParameters;
   /**
    * @remarks
-   * The parameters that are returned if the event source is Simple Log Service.
+   * The source SLS event source.
    */
   sourceSLSParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceSLSParameters;
   static names(): { [key: string]: string } {
@@ -7671,7 +8321,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsTransforms extend
   aiClassifyTransformParameters?: AiClassifyTransformParameters;
   /**
    * @remarks
-   * The AI embedding parameters.
+   * The AI vectorization parameters.
    */
   aiEmbedTransformParameters?: AiEmbedTransformParameters;
   /**
@@ -7711,13 +8361,21 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsTransforms extend
   aiTranslateTransformParameters?: AiTranslateTransformParameters;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the cloud service, such as the ARN of a function in Function Compute.
+   * The ARN of the cloud service, such as the ARN of a function in Function Compute.
    * 
    * @example
    * acs:fc:cn-hangzhou:*****:services/demo-service.LATEST/functions/demo-func
    */
   arn?: string;
+  /**
+   * @remarks
+   * The Model Studio agent transform parameters.
+   */
   baiLianAgentTransformParameters?: BaiLianAgentTransformParameters;
+  /**
+   * @remarks
+   * The DashScope model transform parameters.
+   */
   dashScopeTransformParameters?: DashScopeTransformParameters;
   static names(): { [key: string]: string } {
     return {
@@ -7819,13 +8477,39 @@ export class ListEventStreamingsResponseBodyDataEventStreamings extends $dara.Mo
   eventStreamingName?: string;
   /**
    * @remarks
-   * The event filtering rule. If not specified, all events are matched.
+   * The event filtering rule. If this parameter is not specified, all events are matched.
+   * 
+   * @example
+   * {
+   * "source": [
+   * {
+   * "prefix": "acs:mns"
+   * }
+   * ],
+   * "type": [
+   * {
+   * "prefix": "mns:Queue"
+   * }
+   * ],
+   * "subject": [
+   * {
+   * "prefix": "acs:mns:cn-hangzhou:123456789098****:queues/zeus"
+   * }
+   * ]
+   * }
    */
   filterPattern?: string;
+  /**
+   * @remarks
+   * The common JSON Configurations of the event provider. This parameter and Source are mutually exclusive.
+   * 
+   * @example
+   * {"key":"value"}
+   */
   metadata?: string;
   /**
    * @remarks
-   * The runtime parameters.
+   * The runtime environment parameters.
    */
   runOptions?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptions;
   /**
@@ -7848,7 +8532,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamings extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The event transformer configurations.
+   * The transform configurations.
    */
   transforms?: ListEventStreamingsResponseBodyDataEventStreamingsTransforms[];
   static names(): { [key: string]: string } {
@@ -7903,12 +8587,12 @@ export class ListEventStreamingsResponseBodyDataEventStreamings extends $dara.Mo
 export class ListEventStreamingsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The event stream list.
+   * The list of event streams.
    */
   eventStreamings?: ListEventStreamingsResponseBodyDataEventStreamings[];
   /**
    * @remarks
-   * Indicates whether there is more data to return. A value of empty string indicates that all data has been returned. If the value is not empty, set this value to the NextToken request parameter in the next call.
+   * The token that indicates the position where the current call stops reading. An empty value indicates that all data has been read. Set this value to the NextToken request parameter in the next call.
    * 
    * @example
    * 177
@@ -7954,10 +8638,8 @@ export class ListEventStreamingsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code. Valid values:
-   * 
-   * Success: The request was successful.    
-   * 
-   * Other values: An error occurred. For more information about error codes, see Error codes.
+   * - Success: The request is successful.
+   * - Other values: Error codes. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -7965,7 +8647,7 @@ export class ListEventStreamingsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The event stream list.
+   * The list of event streams.
    */
   data?: ListEventStreamingsResponseBodyData;
   /**
@@ -7978,7 +8660,7 @@ export class ListEventStreamingsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 283FF852-C4B8-58C9-9777-F88A5A16****
@@ -7986,7 +8668,7 @@ export class ListEventStreamingsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. The value true is returned if the operation was successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

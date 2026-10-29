@@ -753,11 +753,15 @@ export { UpdateEventStreamingRequestSinkSinkRabbitMQParametersBody } from './Upd
 export { UpdateEventStreamingRequestSinkSinkRabbitMQParametersExchange } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkRabbitMQParametersInstanceId } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkRabbitMQParametersMessageId } from './UpdateEventStreamingRequest';
+export { UpdateEventStreamingRequestSinkSinkRabbitMQParametersNetworkType } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkRabbitMQParametersProperties } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkRabbitMQParametersQueueName } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkRabbitMQParametersRoutingKey } from './UpdateEventStreamingRequest';
+export { UpdateEventStreamingRequestSinkSinkRabbitMQParametersSecurityGroupId } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkRabbitMQParametersTargetType } from './UpdateEventStreamingRequest';
+export { UpdateEventStreamingRequestSinkSinkRabbitMQParametersVSwitchIds } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkRabbitMQParametersVirtualHostName } from './UpdateEventStreamingRequest';
+export { UpdateEventStreamingRequestSinkSinkRabbitMQParametersVpcId } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkRabbitMQParameters } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersConsumeTimestamp } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkRocketMQCheckpointParametersGroup } from './UpdateEventStreamingRequest';

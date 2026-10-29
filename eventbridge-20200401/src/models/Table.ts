@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class TableColumns extends $dara.Model {
   /**
+   * @remarks
+   * The comment of the column.
+   * 
    * @example
-   * 主键ID
+   * Primary key ID
    */
   comment?: string;
   /**
+   * @remarks
+   * The name of the column.
+   * 
    * @example
    * id
    */
   name?: string;
   /**
+   * @remarks
+   * The data type of the column.
+   * 
    * @example
    * bigint
    */
@@ -46,7 +55,7 @@ export class TableColumns extends $dara.Model {
 export class TableRetentionPolicy extends $dara.Model {
   /**
    * @remarks
-   * Retention days for cold data, used for low-cost archival storage
+   * The number of days to retain cold data in low-cost archive storage.
    * 
    * @example
    * 30
@@ -54,7 +63,7 @@ export class TableRetentionPolicy extends $dara.Model {
   coldTTL?: number;
   /**
    * @remarks
-   * Retention days for hot data, used for high-performance query storage
+   * The number of days to retain hot data in high-performance query storage.
    * 
    * @example
    * 7
@@ -86,7 +95,7 @@ export class TableRetentionPolicy extends $dara.Model {
 export class Table extends $dara.Model {
   /**
    * @remarks
-   * The name of the data catalog to which the table belongs
+   * The name of the data catalog to which the table belongs.
    * 
    * @example
    * my_catalog
@@ -94,7 +103,7 @@ export class Table extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * The column definition list of the table. Each column contains Name (column name), Type (data type), and Comment (remarks)
+   * The column definitions of the table. Each column includes the name, data type, and comment.
    * 
    * @example
    * [{"Name":"id","Type":"bigint","Comment":"Primary key"}]
@@ -102,15 +111,15 @@ export class Table extends $dara.Model {
   columns?: TableColumns[];
   /**
    * @remarks
-   * Comment description of the table
+   * The comment of the table.
    * 
    * @example
-   * 测试事件表
+   * Test event table
    */
   comment?: string;
   /**
    * @remarks
-   * The creation time of the table (Unix timestamp, in milliseconds)
+   * The creation time of the table. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1717948800000
@@ -118,7 +127,7 @@ export class Table extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The unique identifier name of the event table
+   * The unique name of the event table.
    * 
    * @example
    * my_table
@@ -126,7 +135,7 @@ export class Table extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the namespace to which the table belongs
+   * The name of the namespace to which the table belongs.
    * 
    * @example
    * my_namespace
@@ -134,12 +143,12 @@ export class Table extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * Data retention policy. Includes the retention days for hot data and cold data
+   * The data retention policy. This includes the retention periods for hot and cold data in days.
    */
   retentionPolicy?: TableRetentionPolicy;
   /**
    * @remarks
-   * The last update time of the table (Unix timestamp, in milliseconds)
+   * The last update time of the table. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1717948800000

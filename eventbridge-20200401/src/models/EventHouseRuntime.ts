@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EventHouseRuntime extends $dara.Model {
   /**
    * @remarks
-   * The number of CUs that last took effect for the EventHouse Runtime.
+   * The number of CUs last successfully applied to the EventHouse runtime.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class EventHouseRuntime extends $dara.Model {
   cu?: number;
   /**
    * @remarks
-   * The stable error code returned when the creation or specification change operation fails.
+   * The standard error code returned when a creation or specification change fails.
    * 
    * @example
    * RUNTIME_OPERATION_TIMEOUT
@@ -21,7 +21,7 @@ export class EventHouseRuntime extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The desensitized error message returned when the creation or specification change operation fails.
+   * The masked error message returned when a creation or specification change fails.
    * 
    * @example
    * Runtime operation timed out
@@ -29,7 +29,7 @@ export class EventHouseRuntime extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The name of the EventHouse Runtime. Typically set to default in the initial phase.
+   * The name of the EventHouse runtime. The initial value is typically default.
    * 
    * @example
    * default
@@ -53,7 +53,7 @@ export class EventHouseRuntime extends $dara.Model {
   stage?: string;
   /**
    * @remarks
-   * The current status of the EventHouse Runtime. RUNNING indicates that the Runtime is ready and can accept queries. Valid values: CREATING, RUNNING, UPDATING, RECOVERING, CLOSED, CREATE_FAILED, and UPDATE_FAILED.
+   * The current status of the EventHouse runtime. RUNNING indicates that the runtime is ready and can process queries. Valid values: CREATING, RUNNING, UPDATING, RECOVERING, CLOSED, CREATE_FAILED, and UPDATE_FAILED.
    * 
    * @example
    * RUNNING
@@ -61,7 +61,7 @@ export class EventHouseRuntime extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The target number of CUs during creation, specification change, or the corresponding failed state. This parameter is not returned when the Runtime is running stably.
+   * The target number of CUs during a creation, specification change, or corresponding failure state. This parameter is not returned when the runtime is stable.
    * 
    * @example
    * 2

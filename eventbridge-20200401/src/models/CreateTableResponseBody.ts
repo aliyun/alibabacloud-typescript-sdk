@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTableResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ARN of the table.
+   * The table ARN.
    * 
    * @example
    * acs:eventbridge:cn-hangzhou:123456789:catalog/my_catalog/namespace/my_namespace/table/my_table
@@ -35,7 +35,7 @@ export class CreateTableResponseBodyData extends $dara.Model {
 export class CreateTableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * 200
@@ -67,7 +67,7 @@ export class CreateTableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

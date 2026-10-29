@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTableShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The data catalog to which the table belongs.
+   * The data catalog.
    * 
    * @example
    * my_catalog
@@ -24,20 +24,20 @@ export class CreateTableShrinkRequest extends $dara.Model {
    * The column definitions.
    * 
    * @example
-   * [{"Name":"id","Type":"bigint","Comment":"主键"}]
+   * [{"Name":"id","Type":"bigint","Comment":"Primary key"}]
    */
   columnsShrink?: string;
   /**
    * @remarks
-   * The description.
+   * The comment.
    * 
    * @example
-   * 测试事件表
+   * Test event table
    */
   comment?: string;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateTableShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace to which the table belongs.
+   * The namespace.
    * 
    * @example
    * my_namespace

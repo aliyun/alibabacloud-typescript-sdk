@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Catalog extends $dara.Model {
   /**
    * @remarks
-   * The comment or description of the data catalog.
+   * The comment of the data catalog.
    * 
    * @example
    * Test data catalog
@@ -13,7 +13,7 @@ export class Catalog extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The connection name associated with a mounted catalog. This parameter has a value only when Provider is set to MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, or Iceberg.
+   * The name of the connection associated with a mounted catalog. This property has a value only when the provider is MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, or Iceberg.
    * 
    * @example
    * my_connection
@@ -21,7 +21,7 @@ export class Catalog extends $dara.Model {
   connectionName?: string;
   /**
    * @remarks
-   * The unique identifier name of the data catalog.
+   * The unique name of the data catalog.
    * 
    * @example
    * my_catalog
@@ -29,7 +29,7 @@ export class Catalog extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The extended properties (JSON object). For the Elasticsearch type, this includes information such as IndexPattern.
+   * The extended properties as a JSON object. The Elasticsearch type includes information such as IndexPattern.
    * 
    * @example
    * {"IndexPattern":"my-index-*"}
@@ -37,7 +37,7 @@ export class Catalog extends $dara.Model {
   properties?: { [key: string]: any };
   /**
    * @remarks
-   * The data source provider. EventHouse indicates built-in storage. MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, and Iceberg indicate externally mounted sources.
+   * The data source provider. EventHouse uses built-in storage, while MySQL, PostgreSQL, Elasticsearch, OSS_TABLES, SLS, OTS, MaxCompute, MongoDB, Redis, SQLServer, ClickHouse, Oracle, Hive, and Iceberg are externally mounted.
    * 
    * @example
    * EventHouse

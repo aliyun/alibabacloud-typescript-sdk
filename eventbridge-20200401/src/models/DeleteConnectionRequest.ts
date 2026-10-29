@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the connection that you want to delete.
+   * The name of the connection to delete.
    * 
    * This parameter is required.
    * 

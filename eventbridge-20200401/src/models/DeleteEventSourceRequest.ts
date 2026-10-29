@@ -6,6 +6,9 @@ export class DeleteEventSourceRequest extends $dara.Model {
   /**
    * @remarks
    * The event bus to which the event source is attached.
+   * 
+   * @example
+   * eEXaMPLEBUSNameAaAaAa
    */
   eventBusName?: string;
   /**
