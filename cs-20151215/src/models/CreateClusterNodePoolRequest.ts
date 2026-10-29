@@ -45,7 +45,9 @@ export class CreateClusterNodePoolRequestAutoMode extends $dara.Model {
 export class CreateClusterNodePoolRequestAutoScaling extends $dara.Model {
   /**
    * @remarks
-   * **[Deprecated]** Use internet_charge_type and internet_max_bandwidth_out instead. The peak bandwidth of the EIP. Unit: Mbit/s.
+   * **[Deprecated]** Use internet_charge_type and internet_max_bandwidth_out instead.
+   * 
+   * The peak bandwidth of the EIP. Unit: Mbit/s.
    * 
    * @example
    * null
@@ -55,10 +57,13 @@ export class CreateClusterNodePoolRequestAutoScaling extends $dara.Model {
   eipBandwidth?: number;
   /**
    * @remarks
-   * **[Deprecated]** Use internet_charge_type and internet_max_bandwidth_out instead. The billing method of the EIP. Valid values:
-   * - PayByBandwidth: pay-by-bandwidth.
-   * - PayByTraffic: pay-by-data-transfer.
-   * Default value: PayByBandwidth.
+   * **[Deprecated]** Use internet_charge_type and internet_max_bandwidth_out instead.
+   * 
+   * The billing method of the EIP. Valid values:
+   * - `PayByBandwidth`: pay-by-bandwidth.
+   * - `PayByTraffic`: pay-by-data-transfer.
+   * 
+   * Default value: `PayByBandwidth`.
    * 
    * @example
    * null
@@ -69,10 +74,14 @@ export class CreateClusterNodePoolRequestAutoScaling extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable auto scaling. Valid values:
-   * - true: enables auto scaling for the node pool. When the capacity planning of the cluster cannot meet the scheduling requirements of application pods, ACK automatically scales the node resources based on the configured minimum and maximum numbers of instances. For clusters running Kubernetes 1.24 or later, instant node elasticity is enabled by default. For clusters running Kubernetes versions earlier than 1.24, node auto scaling is enabled by default. For more information, see [Node auto scaling](https://help.aliyun.com/document_detail/2746785.html).
-   * - false: disables auto scaling. ACK adjusts the number of nodes in the node pool based on the configured expected number of nodes and always maintains the number of nodes at the expected value.
-   * When this parameter is set to false, other configuration parameters in auto_scaling do not take effect.
-   * Default value: false.
+   * 
+   * - `true`: enables auto scaling for the node pool. When the capacity planning of the cluster cannot meet the scheduling requirements of application pods, ACK automatically scales node resources based on the configured minimum and maximum numbers of instances. For clusters of version 1.24 and later, node instant elasticity is enabled by default. For clusters earlier than version 1.24, node auto scaling is enabled by default. For more information, see [Node auto scaling](https://help.aliyun.com/document_detail/2746785.html).
+   * 
+   * - `false`: disables auto scaling. ACK adjusts the number of nodes in the node pool based on the configured expected number of nodes to keep the number of nodes at the expected value.
+   * 
+   * If this parameter is set to false, other configuration parameters in `auto_scaling` do not take effect.
+   * 
+   * Default value: `false`.
    * 
    * @example
    * false
@@ -80,10 +89,15 @@ export class CreateClusterNodePoolRequestAutoScaling extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * **[Deprecated]** Use internet_charge_type and internet_max_bandwidth_out instead. Specifies whether to bind an EIP. Valid values:
-   * - true: binds an EIP.
-   * - false: does not bind an EIP.
-   * Default value: false.
+   * **[Deprecated]** Use internet_charge_type and internet_max_bandwidth_out instead.
+   * 
+   * Specifies whether to associate an EIP. Valid values:
+   * 
+   * - `true`: associates an EIP.
+   * 
+   * - `false`: does not associate an EIP.
+   * 
+   * Default value: `false`.
    * 
    * @example
    * null
@@ -93,7 +107,8 @@ export class CreateClusterNodePoolRequestAutoScaling extends $dara.Model {
   isBondEip?: boolean;
   /**
    * @remarks
-   * The maximum number of scalable instances in the node pool, excluding existing instances. This parameter takes effect only when enable is set to true.
+   * The maximum number of scalable instances in the node pool, excluding existing instances. This parameter takes effect only when `enable` is set to true.
+   * 
    * Valid values: [min_instances, 2000]. Default value: 0.
    * 
    * @example
@@ -102,12 +117,12 @@ export class CreateClusterNodePoolRequestAutoScaling extends $dara.Model {
   maxInstances?: number;
   /**
    * @remarks
-   * The minimum number of scalable instances in the node pool, excluding your existing instances. This parameter takes effect only when `enable=true`.
+   * The minimum number of scalable instances in the node pool, excluding existing instances. This parameter takes effect only when `enable` is set to true.
    * 
    * Valid values: [0, max_instances]. Default value: 0.
    * 
-   * > - If the minimum number of instances is not 0, the automatic creation of the corresponding number of ECS instances is triggered after the scaling group takes effect.
-   * > - We recommend that you set the maximum number of instances to a value no less than the current number of nodes in the node pool. Otherwise, the nodes in the node pool are scaled in immediately after the elastic scaling feature takes effect.
+   * > - If the minimum number of instances is not 0, the automatic creation of the corresponding number of ECS instances occurs after the scaling group takes effect.
+   * > - The recommended Settings for the maximum number of instances should not be less than the current number of nodes in the node pool. Otherwise, the elastic scaling feature scales in the nodes in the node pool immediately after it takes effect.
    * 
    * @example
    * 1
@@ -115,18 +130,18 @@ export class CreateClusterNodePoolRequestAutoScaling extends $dara.Model {
   minInstances?: number;
   /**
    * @remarks
-   * The instance type for elastic scaling. This parameter takes effect only when `enable=true`. Valid values:
+   * The instance type for elastic scaling. This parameter takes effect only when `enable` is set to true. Valid values:
    * 
    * - `cpu`: regular instance.
    * 
    * - `gpu`: GPU-accelerated instance.
    * 
-   * - `gpushare`: shared GPU instance.
+   * - `gpushare`: GPU-shared instance.
    * 
    * - `spot`: spot instance.
    * 
    * Default value: `cpu`.
-   * >Notice: This field cannot be modified after the node pool is created.</notice>
+   * >Notice: This parameter cannot be modified after the node pool is created.
    * 
    * @example
    * cpu
@@ -168,12 +183,12 @@ export class CreateClusterNodePoolRequestAutoScaling extends $dara.Model {
 export class CreateClusterNodePoolRequestEfloNodeGroup extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic addition to the Lingjun node pool.
+   * Specifies whether to enable auto-attach for the Lingjun node pool.
    */
   autoAttachEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the Lingjun cluster to associate when you create the Lingjun node pool.
+   * The ID of the Lingjun cluster to associate when creating the Lingjun node pool.
    * 
    * @example
    * i1169130516633730****
@@ -181,7 +196,7 @@ export class CreateClusterNodePoolRequestEfloNodeGroup extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the Lingjun group in the Lingjun cluster to associate when you create the Lingjun node pool.
+   * The ID of the Lingjun group in the Lingjun cluster to associate when creating the Lingjun node pool.
    * 
    * @example
    * ng-ec3c96ff0aa****
@@ -222,7 +237,9 @@ export class CreateClusterNodePoolRequestEfloNodeGroup extends $dara.Model {
 export class CreateClusterNodePoolRequestInterconnectConfig extends $dara.Model {
   /**
    * @remarks
-   * **[Deprecated]** The network bandwidth of the enhanced edge node pool. Unit: Mbit/s.
+   * **[Deprecated]**
+   * 
+   * The network bandwidth of the edge-enhanced node pool. Unit: Mbit/s.
    * 
    * @example
    * null
@@ -232,7 +249,7 @@ export class CreateClusterNodePoolRequestInterconnectConfig extends $dara.Model 
    * @remarks
    * **[Deprecated]**
    * 
-   * The Cloud Connect Network (CCN) instance ID attached to the enhanced edge node pool.
+   * The instance ID of the Cloud Connect Network (CCN) attached to the edge-enhanced node pool.
    * 
    * @example
    * null
@@ -240,7 +257,9 @@ export class CreateClusterNodePoolRequestInterconnectConfig extends $dara.Model 
   ccnId?: string;
   /**
    * @remarks
-   * **[Deprecated]** The region of the CCN instance bound to the enhanced edge node pool.
+   * **[Deprecated]**
+   * 
+   * The region of the CCN instance associated with the edge-enhanced node pool.
    * 
    * @example
    * null
@@ -250,7 +269,7 @@ export class CreateClusterNodePoolRequestInterconnectConfig extends $dara.Model 
    * @remarks
    * **[Deprecated]**
    * 
-   * The Cloud Enterprise Network (CEN) instance ID attached to the enhanced edge node pool.
+   * The instance ID of the Cloud Enterprise Network (CEN) attached to the edge-enhanced node pool.
    * 
    * @example
    * null
@@ -258,7 +277,9 @@ export class CreateClusterNodePoolRequestInterconnectConfig extends $dara.Model 
   cenId?: string;
   /**
    * @remarks
-   * **[Deprecated]** The subscription duration of the enhanced edge node pool. Unit: months.
+   * **[Deprecated]**
+   * 
+   * The subscription duration of the edge-enhanced node pool. Unit: months.
    * 
    * @example
    * null
@@ -296,12 +317,9 @@ export class CreateClusterNodePoolRequestInterconnectConfig extends $dara.Model 
 export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to install CloudMonitor on Elastic Compute Service (ECS) nodes. After installation, you can view the monitoring information of the created ECS instances in the CloudMonitor console. Enabling this feature is recommended. Valid values:
-   * 
-   * - `true`: installs CloudMonitor on ECS nodes.
-   * 
-   * - `false`: does not install CloudMonitor on ECS nodes.
-   * 
+   * Specifies whether to install the CloudMonitor agent on ECS nodes. After the agent is installed, you can view the monitoring information of the created ECS instances in the CloudMonitor console. Valid values:
+   * - `true`: The CloudMonitor agent is installed on ECS nodes.
+   * - `false`: The CloudMonitor agent is not installed on ECS nodes.
    * Default value: `false`.
    * 
    * @example
@@ -311,10 +329,8 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
   /**
    * @remarks
    * The CPU management policy for nodes. The following two policies are supported when the cluster version is 1.12.6 or later:
-   * 
-   * - `static`: allows you to enhance CPU affinity and exclusivity for pods with specific resource characteristics on the node.
-   * - `none`: enables the existing default CPU affinity scheme.
-   * 
+   * - `static`: Allows you to enhance CPU affinity and exclusivity for pods with specific resource characteristics on the node.
+   * - `none`: Uses the default CPU affinity scheme.
    * Default value: `none`.
    * 
    * @example
@@ -323,26 +339,22 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
   cpuPolicy?: string;
   /**
    * @remarks
-   * The labels added to the nodes in the Kubernetes cluster.
+   * The labels to be added to the nodes in the Kubernetes cluster.
    */
   labels?: Tag[];
   /**
    * @remarks
-   * The custom node name. After you customize the node name, the node name, ECS instance name, and ECS instance hostname are changed at the same time.
-   * > For Windows instances with custom node names enabled, the hostname is fixed to the IP address, with hyphens (-) replacing dots (.) in the IP address, and does not include prefixes or suffixes. 
+   * The custom node name. After you specify a custom node name, the node name, ECS instance name, and ECS instance hostname are changed accordingly.
+   * > For Windows instances with custom node names enabled, the hostname is fixed to the IP address, with hyphens (-) replacing periods (.) in the IP address, and without prefixes or suffixes. 
    * 
-   * The node name consists of three parts: a prefix, the node IP address, and a suffix:
-   * 
+   * The node name consists of a prefix, the node IP address, and a suffix:
    * - The total length is 2 to 64 characters. The node name must start and end with a lowercase letter or a digit.
-   * 
-   * - The prefix and suffix can contain uppercase and lowercase letters, digits, hyphens (-), and dots (.). They must start with a letter and cannot start or end with a hyphen (-) or a dot (.). Consecutive hyphens (-) or dots (.) are not allowed.
-   * - The prefix is required (due to ECS limits), and the suffix is optional.
+   * - The prefix and suffix can contain uppercase and lowercase letters, digits, hyphens (-), and periods (.). They must start with a letter and cannot start or end with a hyphen (-) or a period (.). Consecutive hyphens (-) or periods (.) are not allowed.
+   * - The prefix is required due to ECS limits, and the suffix is optional.
    * - The node IP address is the complete private IP address of the node.
    * 
-   * For example, if the node IP address is 192.XX.YY.55, the specified prefix is aliyun.com, and the suffix is test:
-   * 
+   * For example, if the node IP address is 192.XX.YY.55, the prefix is aliyun.com, and the suffix is test:
    * - If the node is a Linux node, the node name, ECS instance name, and ECS instance hostname are all aliyun.com192.XX.YY.55test.
-   * 
    * - If the node is a Windows node, the ECS instance hostname is 192-XX-YY-55, and both the node name and ECS instance name are aliyun.com192.XX.YY.55test.
    * 
    * @example
@@ -351,7 +363,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
   nodeNameMode?: string;
   /**
    * @remarks
-   * The pre-custom data of the instance. Before the node joins the cluster, the specified pre-custom data script is run. For more information, see [User data scripts](https://help.aliyun.com/document_detail/49121.html).
+   * The pre-custom data of the instance. Before the node is added to the cluster, the specified pre-custom data script is run. For more information, see [User data scripts](https://help.aliyun.com/document_detail/49121.html).
    * 
    * @example
    * dGhpcyBpcyBhIGV4YW1wbGU
@@ -359,13 +371,11 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
   preUserData?: string;
   /**
    * @remarks
-   * The name of the container runtime. Container Service for Kubernetes (ACK) supports the following three container runtimes:
-   * 
-   * - containerd: recommended. Supported by all cluster versions.
-   * - Sandboxed-Container.runv: secure sandboxed containers that provide higher isolation. Supported by clusters of version 1.31 and earlier.
-   * - docker: no longer maintained. Supported by clusters of version 1.22 and earlier.
-   * 
-   * Default value: containerd.
+   * The name of the container runtime. ACK supports the following three container runtimes:
+   * - `containerd`: Recommended. Supported by all cluster versions.
+   * - `Sandboxed-Container.runv`: Secure sandboxed containers that provide higher isolation. Supported by clusters of version 1.31 and earlier.
+   * - `docker`: Deprecated. Supported by clusters of version 1.22 and earlier.
+   * Default value: `containerd`.
    * 
    * @example
    * containerd
@@ -381,16 +391,14 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
   runtimeVersion?: string;
   /**
    * @remarks
-   * The taint configurations.
+   * The taint configuration.
    */
   taints?: Taint[];
   /**
    * @remarks
-   * Specifies whether the scaled-out nodes are unschedulable.
-   * 
-   * - true: unschedulable.
-   * 
-   * - false: schedulable.
+   * Specifies whether the scaled-out nodes are unschedulable. Valid values:
+   * - `true`: The nodes are unschedulable.
+   * - `false`: The nodes are schedulable.
    * 
    * @example
    * true
@@ -398,7 +406,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
   unschedulable?: boolean;
   /**
    * @remarks
-   * The instance user data. After a node joins the cluster, the specified instance user data script runs. For more information, see [User data scripts](https://help.aliyun.com/document_detail/49121.html).
+   * The instance user data. After the node is added to the cluster, the specified instance user data script is run. For more information, see [User data scripts](https://help.aliyun.com/document_detail/49121.html).
    * 
    * @example
    * dGhpcyBpcyBhIGV4YW1wbGU=
@@ -457,7 +465,15 @@ export class CreateClusterNodePoolRequestManagementAutoRepairPolicy extends $dar
   approvalRequired?: boolean;
   /**
    * @remarks
-   * The maximum number of parallel repairs. When a large number of abnormal nodes exist in the node pool, this parameter specifies the maximum number or percentage of nodes that can be repaired at the same time. You can specify a number (such as 5, valid values: 1 to 100000) or a percentage (such as 10%, valid values: 1% to 100%). Default value on the backend: 1.
+   * The ID of the auto-repair policy. If you do not specify this parameter or specify an empty string, no auto-healing rule is bound.
+   * 
+   * @example
+   * r-xxxxxxxxxx
+   */
+  autoRepairPolicyId?: string;
+  /**
+   * @remarks
+   * The maximum number of nodes or the percentage of nodes that can be repaired simultaneously when a large number of abnormal nodes exist in the node pool. You can specify a number (for example, 5, valid values: 1 to 100000) or a percentage (for example, 10%, valid values: 1% to 100%). Default value: 1.
    * 
    * @example
    * 5
@@ -465,7 +481,7 @@ export class CreateClusterNodePoolRequestManagementAutoRepairPolicy extends $dar
   maxParallelRepairingNodes?: string;
   /**
    * @remarks
-   * The circuit breaker condition for auto-healing. When the number or percentage of faulty nodes exceeds this threshold, auto-healing enters the circuit breaker state and stops initiating new auto-healing repair actions. You can specify a number (such as 10, valid values: 1 to 100000) or a percentage (such as 20%, valid values: 1% to 100%). Default circuit breaker condition on the backend: 100%.
+   * The circuit breaker threshold for auto-healing. When the number or percentage of faulty nodes exceeds this threshold, auto-healing enters the circuit breaker state and stops initiating new auto-healing repair actions. You can specify a number (for example, 10, valid values: 1 to 100000) or a percentage (for example, 20%, valid values: 1% to 100%). Default value: 100%.
    * 
    * @example
    * 20%
@@ -473,11 +489,9 @@ export class CreateClusterNodePoolRequestManagementAutoRepairPolicy extends $dar
   maxUnhealthyNodesThreshold?: string;
   /**
    * @remarks
-   * Specifies whether to allow node restarts. This parameter takes effect only when `auto_repair` is set to `true`. Valid values:
-   * 
-   * - `true`: allows node restarts.
-   * - `false`: does not allow node restarts.
-   * 
+   * Specifies whether to allow node restarts. This parameter takes effect only when auto_repair is set to true. Valid values:
+   * - `true`: Allows node restarts.
+   * - `false`: Does not allow node restarts.
    * Default value: `true`.
    * 
    * @example
@@ -487,6 +501,7 @@ export class CreateClusterNodePoolRequestManagementAutoRepairPolicy extends $dar
   static names(): { [key: string]: string } {
     return {
       approvalRequired: 'approval_required',
+      autoRepairPolicyId: 'auto_repair_policy_id',
       maxParallelRepairingNodes: 'max_parallel_repairing_nodes',
       maxUnhealthyNodesThreshold: 'max_unhealthy_nodes_threshold',
       restartNode: 'restart_node',
@@ -496,6 +511,7 @@ export class CreateClusterNodePoolRequestManagementAutoRepairPolicy extends $dar
   static types(): { [key: string]: any } {
     return {
       approvalRequired: 'boolean',
+      autoRepairPolicyId: 'string',
       maxParallelRepairingNodes: 'string',
       maxUnhealthyNodesThreshold: 'string',
       restartNode: 'boolean',
@@ -514,10 +530,9 @@ export class CreateClusterNodePoolRequestManagementAutoRepairPolicy extends $dar
 export class CreateClusterNodePoolRequestManagementAutoUpgradePolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow automatic kubelet upgrades. This parameter takes effect only when `auto_upgrade` is set to `true`. Valid values:
-   * - `true`: allows automatic kubelet upgrades.
-   * - `false`: does not allow automatic kubelet upgrades.
-   * 
+   * Specifies whether to allow automatic kubelet upgrades. This parameter takes effect only when auto_upgrade is set to true. Valid values:
+   * - `true`: Allows automatic kubelet upgrades.
+   * - `false`: Does not allow automatic kubelet upgrades.
    * Default value: `true`.
    * 
    * @example
@@ -526,10 +541,9 @@ export class CreateClusterNodePoolRequestManagementAutoUpgradePolicy extends $da
   autoUpgradeKubelet?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow automatic operating system upgrades. This parameter takes effect only when `auto_upgrade` is set to `true`. Valid values:
-   * - `true`: allows automatic operating system upgrades.
-   * - `false`: does not allow automatic operating system upgrades.
-   * 
+   * Specifies whether to allow automatic operating system upgrades. This parameter takes effect only when auto_upgrade is set to true. Valid values:
+   * - `true`: Allows automatic operating system upgrades.
+   * - `false`: Does not allow automatic operating system upgrades.
    * Default value: `false`.
    * 
    * @example
@@ -538,10 +552,9 @@ export class CreateClusterNodePoolRequestManagementAutoUpgradePolicy extends $da
   autoUpgradeOs?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow automatic runtime upgrades. This parameter takes effect only when `auto_upgrade` is set to `true`. Valid values:
-   * - `true`: allows automatic runtime upgrades.
-   * - `false`: does not allow automatic runtime upgrades.
-   * 
+   * Specifies whether to allow automatic runtime upgrades. This parameter takes effect only when auto_upgrade is set to true. Valid values:
+   * - `true`: Allows automatic runtime upgrades.
+   * - `false`: Does not allow automatic runtime upgrades.
    * Default value: `true`.
    * 
    * @example
@@ -576,9 +589,7 @@ export class CreateClusterNodePoolRequestManagementAutoUpgradePolicy extends $da
 export class CreateClusterNodePoolRequestManagementAutoVulFixPolicy extends $dara.Model {
   /**
    * @remarks
-   * The packages to be excluded during vulnerability repair.
-   * 
-   * Default value: `kernel`.
+   * The packages to be excluded during vulnerability repair. Default value: `kernel`.
    * 
    * @example
    * kernel
@@ -586,10 +597,9 @@ export class CreateClusterNodePoolRequestManagementAutoVulFixPolicy extends $dar
   excludePackages?: string;
   /**
    * @remarks
-   * Specifies whether to allow node restarts. This parameter takes effect only when `auto_vul_fix` is set to `true`. Valid values:
-   * - `true`: allows node restarts.
-   * - `false`: does not allow node restarts.
-   * 
+   * Specifies whether to allow node restarts. This parameter takes effect only when auto_vul_fix is set to true. Valid values:
+   * - `true`: Allows node restarts.
+   * - `false`: Does not allow node restarts.
    * Default value: `true`.
    * 
    * @example
@@ -598,12 +608,10 @@ export class CreateClusterNodePoolRequestManagementAutoVulFixPolicy extends $dar
   restartNode?: boolean;
   /**
    * @remarks
-   * The vulnerability levels that are allowed for auto-repair, separated by commas. Example: `asap,later`. Supported vulnerability levels:
-   * 
-   * - `asap`: high.
-   * - `later`: medium.
-   * - `nntf`: low.
-   * 
+   * The vulnerability levels that are allowed for automatic repair, separated by commas. Example: `asap,later`. Valid values:
+   * - `asap`: High.
+   * - `later`: Medium.
+   * - `nntf`: Low.
    * Default value: `asap`.
    * 
    * @example
@@ -638,13 +646,9 @@ export class CreateClusterNodePoolRequestManagementAutoVulFixPolicy extends $dar
 export class CreateClusterNodePoolRequestManagementUpgradeConfig extends $dara.Model {
   /**
    * @remarks
-   * **[Deprecated]** Use the upper-level `auto_upgrade` parameter instead.
-   * 
-   * Specifies whether to enable auto-upgrade. Valid values:
-   * 
-   * - `true`: enables auto-upgrade.
-   * 
-   * - `false`: disables auto-upgrade.
+   * **[Deprecated]** Use the auto_upgrade parameter at the upper level instead. Specifies whether to enable auto-upgrade. Valid values:
+   * - `true`: Enables auto-upgrade.
+   * - `false`: Disables auto-upgrade.
    * 
    * @example
    * null
@@ -654,10 +658,7 @@ export class CreateClusterNodePoolRequestManagementUpgradeConfig extends $dara.M
   autoUpgrade?: boolean;
   /**
    * @remarks
-   * The maximum number of unavailable nodes.
-   * Valid values: [1, 1000].
-   * 
-   * Default value: 1.
+   * The maximum number of unavailable nodes. Valid values: 1 to 1000. Default value: 1.
    * 
    * @example
    * 1
@@ -665,11 +666,8 @@ export class CreateClusterNodePoolRequestManagementUpgradeConfig extends $dara.M
   maxUnavailable?: number;
   /**
    * @remarks
-   * The number of extra nodes. This parameter and `surge_percentage` are mutually exclusive.
-   * 
-   * Nodes become unavailable during upgrades. You can create extra nodes to compensate for the cluster load.
-   * 
-   * > Do not create more extra nodes than the current number of nodes.
+   * The number of extra nodes. This parameter and surge_percentage are mutually exclusive. Nodes become unavailable during upgrades. You can create extra nodes to compensate for the cluster load.
+   * > The number of extra nodes should not exceed the current number of nodes.
    * 
    * @example
    * 0
@@ -677,9 +675,7 @@ export class CreateClusterNodePoolRequestManagementUpgradeConfig extends $dara.M
   surge?: number;
   /**
    * @remarks
-   * The percentage of extra nodes. This parameter and `surge` are mutually exclusive.
-   * 
-   * Number of extra nodes = Percentage of extra nodes × Number of nodes. For example, if the percentage of extra nodes is set to 50% and the number of existing nodes is 6, the number of extra nodes generated is 50% × 6 = 3.
+   * The percentage of extra nodes. This parameter and surge are mutually exclusive. Number of extra nodes = Percentage of extra nodes × Number of nodes. For example, if the percentage of extra nodes is set to 50% and the current number of nodes is 6, the number of extra nodes generated is 50% × 6 = 3.
    * 
    * @example
    * 0
@@ -720,12 +716,9 @@ export class CreateClusterNodePoolRequestManagement extends $dara.Model {
   autoFaultDiagnosis?: boolean;
   /**
    * @remarks
-   * Specifies whether to automatically repair nodes. This parameter takes effect only when `enable` is set to `true`.
-   * 
-   * - `true`: automatically repairs nodes.
-   * 
-   * - `false`: does not automatically repair nodes.
-   * 
+   * Specifies whether to automatically repair nodes. This parameter takes effect only when enable is set to true. Valid values:
+   * - `true`: Automatically repairs nodes.
+   * - `false`: Does not automatically repair nodes.
    * Default value: `true`.
    * 
    * @example
@@ -739,10 +732,9 @@ export class CreateClusterNodePoolRequestManagement extends $dara.Model {
   autoRepairPolicy?: CreateClusterNodePoolRequestManagementAutoRepairPolicy;
   /**
    * @remarks
-   * Specifies whether to automatically upgrade nodes. This parameter takes effect only when `enable` is set to `true`.
-   * - `true`: enables auto-upgrade.
-   * - `false`: disables auto-upgrade.
-   * 
+   * Specifies whether to automatically upgrade nodes. This parameter takes effect only when enable is set to true. Valid values:
+   * - `true`: Enables auto-upgrade.
+   * - `false`: Disables auto-upgrade.
    * Default value: `true`.
    * 
    * @example
@@ -756,11 +748,9 @@ export class CreateClusterNodePoolRequestManagement extends $dara.Model {
   autoUpgradePolicy?: CreateClusterNodePoolRequestManagementAutoUpgradePolicy;
   /**
    * @remarks
-   * Specifies whether to automatically repair Common Vulnerabilities and Exposures (CVE) vulnerabilities. This parameter takes effect only when `enable` is set to `true`.
-   * 
-   * - `true`: allows automatic CVE repairs.
-   * - `false`: does not allow automatic CVE repairs.
-   * 
+   * Specifies whether to automatically repair CVE vulnerabilities. This parameter takes effect only when enable is set to true. Valid values:
+   * - `true`: Allows automatic CVE repair.
+   * - `false`: Does not allow automatic CVE repair.
    * Default value: `true`.
    * 
    * @example
@@ -769,22 +759,19 @@ export class CreateClusterNodePoolRequestManagement extends $dara.Model {
   autoVulFix?: boolean;
   /**
    * @remarks
-   * The CVE auto-repair policy.
+   * The auto-repair policy for CVE vulnerabilities.
    */
   autoVulFixPolicy?: CreateClusterNodePoolRequestManagementAutoVulFixPolicy;
   /**
    * @remarks
-   * Specifies whether to enable the node rotation capability. This feature is supported only by intelligent managed node pools and is enabled by default. It is not supported by regular node pools.
+   * Specifies whether to enable the node rotation feature. This feature is supported only by intelligent managed node pools and is enabled by default. It is not supported by regular node pools.
    */
   driftEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the managed feature for the node pool. Valid values:
-   * 
-   * - `true`: enables the managed feature.
-   * 
-   * - `false`: disables the managed feature. Other related configurations take effect only when `enable` is set to `true`.
-   * 
+   * Specifies whether to enable the managed node pool feature. Valid values:
+   * - `true`: Enables the managed node pool feature.
+   * - `false`: Disables the managed node pool feature. Other related configurations take effect only when this parameter is set to true.
    * Default value: `false`.
    * 
    * @example
@@ -793,9 +780,7 @@ export class CreateClusterNodePoolRequestManagement extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * **[Deprecated]** Use the upper-level `auto_upgrade` parameter instead.
-   * 
-   * The auto-upgrade configurations. This parameter takes effect only when `enable` is set to `true`.
+   * **[Deprecated]** Use the auto_upgrade parameter at the upper level instead. The auto-upgrade configuration. This parameter takes effect only when enable is set to true.
    * 
    * @deprecated
    */
@@ -992,7 +977,7 @@ export class CreateClusterNodePoolRequestNodeConfigNodeOsConfig extends $dara.Mo
   hugepage?: Hugepage;
   /**
    * @remarks
-   * The sysctl kernel parameter settings. Only some kernel parameters are supported, and the cluster version must be 1.28 or later.
+   * The sysctl kernel parameter settings. Only specific kernel parameters are supported, and the cluster version must be 1.28 or later.
    * 
    * @example
    * {"fs.file-max":"1048576"}
@@ -1080,7 +1065,7 @@ export class CreateClusterNodePoolRequestNodepoolInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The resource group ID of the node pool. The instances created by the node pool belong to this resource group.
+   * The ID of the resource group to which the node pool belongs. Instances added to the node pool belong to this resource group.
    * 
    * A resource can belong to only one resource group. You can map resource groups to concepts such as projects, applications, or organizations based on your business scenarios.
    * 
@@ -1090,9 +1075,9 @@ export class CreateClusterNodePoolRequestNodepoolInfo extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The node pool type. Valid values:
+   * The type of the node pool. Valid values:
    * 
-   * - `ess`: standard node pool (includes managed and elastic scaling features).
+   * - `ess`: standard node pool, which supports managed features and automatic elastic scaling.
    * - `edge`: edge node pool.
    * - `lingjun`: Lingjun node pool.
    * - `hybrid`: hybrid cloud node pool.
@@ -1129,7 +1114,7 @@ export class CreateClusterNodePoolRequestNodepoolInfo extends $dara.Model {
 export class CreateClusterNodePoolRequestScalingGroupCpuOptions extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable nested virtualization. Valid values: `disabled`: disables nested virtualization. `enabled`: enables nested virtualization.
+   * Specifies whether to enable nested virtualization. Valid values: disabled: disables nested virtualization. enabled: enables nested virtualization.
    * 
    * @example
    * enabled
@@ -1159,7 +1144,7 @@ export class CreateClusterNodePoolRequestScalingGroupCpuOptions extends $dara.Mo
 export class CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the private pool, which is the ID of the elasticity assurance or capacity reservation. When `match_criteria` is set to `Target`, you must specify the private pool ID.
+   * The ID of the private pool. When `match_criteria` is set to `Target`, you must specify the private pool ID.
    * 
    * @example
    * eap-bp67acfmxazb4****
@@ -1167,9 +1152,9 @@ export class CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions extends 
   id?: string;
   /**
    * @remarks
-   * The private pool capacity matching mode for instance startup. After an elasticity assurance or capacity reservation takes effect, private pool capacity is generated for you to select when starting instances. Valid values:
-   * - `Open`: open mode. The system automatically matches the capacity of open private pools. If no matching private pool capacity is available, public pool resources are used. In this mode, you do not need to specify the PrivatePoolOptions.Id parameter.
-   * - `Target`: targeted mode. The system uses the capacity of the specified private pool to start instances. If the specified private pool capacity is unavailable, the instances fail to start. In this mode, you must specify the private pool ID by setting the PrivatePoolOptions.Id parameter.
+   * The private pool capacity matching mode for instance startup. After an elasticity assurance or capacity reservation takes effect, a private pool is generated for you to select when you start instances. Valid values:
+   * - `Open`: open mode. The system automatically matches the capacity of an open private pool. If no eligible private pool capacity is available, the system uses public pool resources to start the instances.
+   * - `Target`: specified mode. The system uses the capacity of the specified private pool to start instances. If the specified private pool capacity is unavailable, the instances fail to start.
    * - `None`: no private pool mode. The system does not use private pool capacity to start instances.
    * 
    * @example
@@ -1202,14 +1187,14 @@ export class CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions extends 
 export class CreateClusterNodePoolRequestScalingGroupResourcePoolOptions extends $dara.Model {
   /**
    * @remarks
-   * The list of private pool IDs, which are the IDs of elasticity assurances or capacity reservations. You can only specify the IDs of private pools in Target mode. Valid values of N: 1 to 20.
+   * The list of private pool IDs, which are the IDs of elasticity assurances or capacity reservations. You can specify only the IDs of private pools in Target mode. Valid values of N: 1 to 20.
    */
   privatePoolIds?: string[];
   /**
    * @remarks
-   * The resource pool strategy used to create instances. Resource pools include private pools generated after elasticity assurances or capacity reservations take effect, as well as public pools. Valid values:
-   * PrivatePoolFirst: Private pool first. If you select this strategy and specify resouce_pool_options.private_pool_ids, the specified private pools are used first. If no private pool is specified or the specified private pools do not have sufficient capacity, open private pools are automatically matched. If no eligible private pool is available, the public pool is used to create instances.
-   * PrivatePoolOnly: Private pool only. If you select this strategy, you must specify resouce_pool_options.private_pool_ids. If the specified private pools do not have sufficient capacity, the instances fail to start.
+   * The resource pool strategy used when creating instances. Resource pools include private pools generated after elasticity assurances or capacity reservations take effect, as well as public pools, which are available for selection during instance startup. Valid values:
+   * PrivatePoolFirst: Private pool first. When this strategy is selected and resouce_pool_options.private_pool_ids is specified, the specified private pools are used first. If no private pool is specified or the specified private pools have insufficient capacity, open private pools are automatically matched. If no eligible private pool is available, the public pool is used to create the instance.
+   * PrivatePoolOnly: Private pool only. When this strategy is selected, resouce_pool_options.private_pool_ids must be specified. If the specified private pools have insufficient capacity, the instance fails to start.
    * None: No resource pool strategy is used.
    * Default value: None.
    * 
@@ -1254,7 +1239,12 @@ export class CreateClusterNodePoolRequestScalingGroupSpotPriceLimit extends $dar
   instanceType?: string;
   /**
    * @remarks
-   * The maximum price per instance. <props="china">Unit: CNY/hour.  <props="intl">Unit: USD/hour.
+   * The maximum price per instance.
+   * <props="china">Unit: CNY/hour.
+   * 
+   * 
+   * 
+   * <props="intl">Unit: USD/hour.
    * 
    * @example
    * 0.39
@@ -1339,7 +1329,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The duration of each auto-renewal. Valid values:
+   * The duration of each auto-renewal cycle. Valid values:
    * - When PeriodUnit is set to Week: 1, 2, and 3.
    * - When PeriodUnit is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
    * 
@@ -1361,7 +1351,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   cisEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances when spot instances cannot be created due to price or inventory issues and `multi_az_policy` is set to `COST_OPTIMIZED`. Valid values:
+   * Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances when spot instances cannot be created due to price or inventory issues, provided that `multi_az_policy` is set to `COST_OPTIMIZED`. Valid values:
    * 
    * - `true`: automatically creates pay-as-you-go instances to meet the required number of ECS instances.
    * - `false`: does not automatically create pay-as-you-go instances.
@@ -1382,10 +1372,10 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   dataDisks?: DataDisk[];
   /**
    * @remarks
-   * The ID of the deployment set. You can use a deployment set to distribute ECS instances created by the node pool across different physical servers to ensure high availability and underlying disaster recovery capabilities. When creating ECS instances in a deployment set, the instances are started in a distributed manner in the specified region based on the predefined deployment policy.
+   * The ID of the deployment set. You can use a deployment set to distribute ECS instances created by the node pool across different physical servers to ensure high availability and underlying disaster recovery capabilities. When you create ECS instances in a deployment set, the instances are distributed and started in the specified region based on the predefined deployment policy.
    * 
    * 
-   * >Notice: After you select a deployment set, the maximum number of nodes in the node pool is limited. By default, a deployment set supports up to 20 × the number of zones nodes. The number of zones is determined by the vSwitches. Proceed with caution and ensure that the quota in the deployment set is sufficient to prevent node scale-out failures.</notice>
+   * >Notice: After you select a deployment set, the maximum number of nodes in the node pool is limited. By default, a deployment set supports a maximum of 20 × the number of zones nodes. The number of zones is determined by the vSwitches. Proceed with caution and ensure that the quota in the deployment set is sufficient to prevent node scale-out failures.
    * 
    * @example
    * ds-bp1d19mmbsv3jf6xxxxx
@@ -1426,7 +1416,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The type of the operating system image. We recommend that you use this field to specify the operating system for nodes. Valid values:
+   * The type of the operating system image. Valid values:
    * 
    * - `AliyunLinux`: Alinux2 image.
    * - `AliyunLinuxSecurity`: Alinux2 UEFI image.
@@ -1445,7 +1435,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The billing method for nodes in the node pool. Valid values:
+   * The billing method of nodes in the node pool. Valid values:
    *  
    * - `PrePaid`: subscription.
    * 
@@ -1473,7 +1463,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
    * @remarks
    * The list of instance types for nodes in the node pool. When the node pool scales out nodes, it selects instance types that meet the requirements from the specified list to create instances.
    * 
-   * Supported number of instance types: 1 to 10.
+   * Valid values for the number of instance types: 1 to 10.
    * 
    * 
    * > To ensure high availability, we recommend that you select multiple instance types.
@@ -1483,10 +1473,10 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   instanceTypes?: string[];
   /**
    * @remarks
-   * The billing method for the public IP address. Valid values:
+   * The billing method for public IP addresses. Valid values:
    * 
-   * - `PayByBandwidth`: pay-by-bandwidth.
-   * - `PayByTraffic`: pay-by-data-transfer.
+   * - PayByBandwidth: pay-by-bandwidth.
+   * - PayByTraffic: pay-by-data-transfer.
    * 
    * @example
    * PayByTraffic
@@ -1494,7 +1484,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The maximum outbound bandwidth for the public IP address of the node. Unit: Mbit/s. Valid values: 1 to 100.
+   * The maximum outbound bandwidth for public IP addresses of nodes. Unit: Mbit/s. Valid values: 1 to 100.
    * 
    * @example
    * 5
@@ -1502,7 +1492,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * The name of the key pair for passwordless logon. This parameter and `login_password` are mutually exclusive.
+   * The name of the key pair used for password-free logon. You must specify either this parameter or `login_password`.
    * 
    * > If the node pool uses the ContainerOS operating system, only `key_pair` is supported.
    * 
@@ -1512,11 +1502,11 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   keyPair?: string;
   /**
    * @remarks
-   * Specifies whether to log on to the created ECS instances as a non-root user. Valid values:
+   * Specifies whether to log on to the created ECS instances as a non-root user.
    *  
-   * - `true`: logs on as a non-root user (ecs-user).
+   * - true: logs on as a non-root user (ecs-user).
    * 
-   * - `false`: logs on as the root user.
+   * - false: logs on as the root user.
    * 
    * @example
    * true
@@ -1534,13 +1524,13 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
    * @remarks
    * The scaling policy for ECS instances in a multi-zone scaling group. Valid values:
    * 
-   * - `PRIORITY`: Scales instances based on the vSwitches (VSwitchIds.N) that you specify. If ECS instances cannot be created in the zone of the vSwitch with the highest priority, the system automatically uses the vSwitch with the next highest priority to create ECS instances.
+   * - `PRIORITY`: scales ECS instances based on the vSwitches (VSwitchIds.N) that you specify. If ECS instances cannot be created in the zone of the vSwitch with the highest priority, the system automatically uses the vSwitch with the next highest priority to create ECS instances.
    * 
-   * - `COST_OPTIMIZED`: Attempts to create instances based on the vCPU unit price from low to high. When the scaling configuration specifies multiple instance types with the spot billing method, the system preferentially creates the corresponding spot instances. You can use the `CompensateWithOnDemand` parameter to specify whether to automatically create pay-as-you-go instances when spot instances cannot be created due to inventory shortages or other reasons.
+   * - `COST_OPTIMIZED`: creates ECS instances based on the vCPU unit price in ascending order. When the scaling configuration specifies multiple instance types with the preemptible billing method, the system preferentially creates spot instances. You can use the `CompensateWithOnDemand` parameter to specify if it is to automatically create pay-as-you-go instances when spot instances cannot be created due to inventory shortages or other reasons.
    * 
    *   > `COST_OPTIMIZED` takes effect only when the scaling configuration specifies multiple instance types or uses spot instances.
    * 
-   * - `BALANCE`: Evenly allocates ECS instances across the multiple zones specified in the scaling group. If the instances are unevenly distributed across zones due to inventory shortages, you can call the [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html) API operation to balance the resources.
+   * - `BALANCE`: evenly allocates ECS instances across the zones specified in the scaling group. If the zones become unbalanced due to inventory shortages or other reasons, you can call the [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html) API operation to balance the resources.
    * 
    * Default value: `PRIORITY`.
    * 
@@ -1566,7 +1556,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   onDemandPercentageAboveBaseCapacity?: number;
   /**
    * @remarks
-   * The subscription duration for nodes in the node pool. This parameter is required and takes effect only when `instance_charge_type` is set to `PrePaid`.
+   * The subscription duration of nodes in the node pool. This parameter is required and takes effect only when `instance_charge_type` is set to `PrePaid`.
    * 
    * - When `period_unit` is set to `Week`, valid values for `period` are 1, 2, 3, and 4.
    * - When `period_unit` is set to `Month`, valid values for `period` are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
@@ -1577,10 +1567,10 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The billing cycle of nodes in the node pool. This parameter takes effect and is required only when `instance_charge_type` is set to `PrePaid`. Valid values:
+   * The billing cycle of nodes in the node pool. This parameter is required and takes effect only when `instance_charge_type` is set to `PrePaid`.
    * 
-   * - `Month`: Uses month as the time unit.
-   * - `Week`: Uses week as the time unit.
+   * - `Month`: month.
+   * - `Week`: week.
    * 
    * Default value: `Month`.
    * 
@@ -1608,7 +1598,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The private node pool configuration.
+   * The private pool configuration.
    */
   privatePoolOptions?: CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions;
   /**
@@ -1618,7 +1608,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
    * * If this parameter is left empty, the default worker RAM role created for the cluster is used.
    * * If this parameter is specified, the RAM role must be a **normal service role** and its **trusted service** must be set to **ECS**. For more information, see [Create a normal service role](https://help.aliyun.com/document_detail/116800.html). If the specified RAM role is not the default worker RAM role created for the cluster, the role name cannot start with `KubernetesMasterRole-` or `KubernetesWorkerRole-`.
    * 
-   * >Notice: This parameter is supported only by ACK managed clusters of version 1.22 and later.</notice>
+   * >Notice: This parameter is supported only by ACK managed clusters of version 1.22 and later.
    * 
    * @example
    * example-role
@@ -1631,17 +1621,17 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   rdsInstances?: string[];
   /**
    * @remarks
-   * The resource pool and resource pool policy used for creating instances. Take note of the following items when you configure this parameter:
+   * The resource pool and resource pool policy used for instance creation. Take note of the following items when you configure this parameter:
    * This parameter takes effect only when you create pay-as-you-go instances.
-   * This parameter cannot be configured at the same time as private_pool_options.match_criteria and private_pool_options.id.
+   * This parameter cannot be specified together with private_pool_options.match_criteria or private_pool_options.id.
    */
   resourcePoolOptions?: CreateClusterNodePoolRequestScalingGroupResourcePoolOptions;
   /**
    * @remarks
    * The scaling group mode. Valid values:
-   * - release: Standard mode. Instances are scaled by creating and releasing ECS instances based on the requested resource usage.
-   * - recycle: Swift mode. Instances are scaled by creating, stopping, and starting instances to improve the speed of subsequent scaling operations. When an instance is stopped, you are not charged for compute resources, but you are still charged for storage resources, except for instances with local disks.
-   * Default value: release.
+   * - `release`: Standard mode. Instances are scaled by creating and releasing ECS instances based on the requested resource usage.
+   * - `recycle`: Extreme mode. Instances are scaled by creating, stopping, and starting instances to improve the speed of subsequent scaling operations. When an instance is stopped, compute resources are not billed, and only storage fees are charged, except for instances with local disks.
+   * Default value: `release`.
    * 
    * @example
    * release
@@ -1649,7 +1639,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   scalingPolicy?: string;
   /**
    * @remarks
-   * The security group ID of the node pool. You can specify this parameter or security_group_ids. We recommend that you use security_group_ids.
+   * The security group ID of the node pool. Specify either this parameter or security_group_ids. We recommend that you use security_group_ids.
    * 
    * @example
    * sg-wz9a8g2mt6x5llu0****
@@ -1659,15 +1649,15 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The list of security group IDs. You can specify this parameter or security_group_id. We recommend that you use security_group_ids. If you specify both security_group_id and security_group_ids, security_group_ids takes precedence.
+   * The list of security group IDs. Specify either this parameter or security_group_id. We recommend that you use security_group_ids. If both security_group_id and security_group_ids are specified, security_group_ids takes precedence.
    */
   securityGroupIds?: string[];
   /**
    * @remarks
    * Specifies whether to enable Alibaba Cloud OS security hardening. Valid values:
-   * - true: enables Alibaba Cloud OS security hardening.
-   * - false: does not enable Alibaba Cloud OS security hardening.
-   * Default value: false.
+   * - `true`: Enables Alibaba Cloud OS security hardening.
+   * - `false`: Does not enable Alibaba Cloud OS security hardening.
+   * Default value: `false`.
    * 
    * @example
    * false
@@ -1675,7 +1665,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   securityHardeningOs?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable MLPS 2.0 security hardening. You can enable this feature for nodes only when the system image is Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3. Alibaba Cloud provides classified protection compliance baseline check standards and scanning programs for Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 MLPS 2.0 Level 3 images.
+   * Specifies whether to enable MLPS 2.0 security hardening. You can enable MLPS 2.0 security hardening for nodes only when the system image is Alibaba Cloud Linux 2 or Alibaba Cloud Linux 3. Alibaba Cloud provides baseline check standards and scanning programs for classified protection compliance for Alibaba Cloud Linux 2 and Alibaba Cloud Linux 3 MLPS 2.0 Level 3 images.
    * 
    * @example
    * false
@@ -1691,9 +1681,9 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   spotInstancePools?: number;
   /**
    * @remarks
-   * Specifies whether to enable spot instance replenishment. After this feature is enabled, when the scaling group receives a system message that a spot instance is to be reclaimed, the scaling group attempts to create a new instance to replace the spot instance to be reclaimed. Valid values:
-   * - true: enables spot instance replenishment.
-   * - false: does not enable spot instance replenishment.
+   * Specifies whether to enable spot instance replenishment. After this feature is enabled, when the scaling group receives a system message that a spot instance will be reclaimed, it attempts to create a new instance to replace the spot instance to be reclaimed. Valid values:
+   * - `true`: Enables spot instance replenishment.
+   * - `false`: Does not enable spot instance replenishment.
    * 
    * @example
    * false
@@ -1707,9 +1697,9 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   /**
    * @remarks
    * The spot instance strategy. Valid values:
-   * - NoSpot: pay-as-you-go instance.
-   * - SpotWithPriceLimit: sets the maximum price for spot instances.
-   * - SpotAsPriceGo: uses the system\\"s automatic bidding, which follows the actual market price.
+   * - `NoSpot`: Non-spot instance.
+   * - `SpotWithPriceLimit`: Sets a maximum price for spot instances.
+   * - `SpotAsPriceGo`: The system automatically bids based on the current market price.
    * For more information, see [Spot instances](https://help.aliyun.com/document_detail/165053.html).
    * 
    * @example
@@ -1718,10 +1708,10 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * Specifies whether to enable performance burst for the system disk of the node. Valid values:
-   * - true: yes.
-   * - false: no.
-   * This parameter is supported only when system_disk_category is set to cloud_auto. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
+   * Specifies whether to enable performance burst for the node system disk. Valid values:
+   * - true: Yes.
+   * - false: No.
+   * This parameter is supported only when system_disk_category is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * true
@@ -1729,18 +1719,18 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   systemDiskBurstingEnabled?: boolean;
   /**
    * @remarks
-   * The categories of the system disk. If the system disk cannot be created by using a disk category with a higher priority, the system automatically tries the next disk category in the priority list.
+   * The categories of the system disk. If a higher-priority disk category is unavailable, the system automatically attempts to use the next priority disk category to create the system disk.
    */
   systemDiskCategories?: string[];
   /**
    * @remarks
-   * The system disk category of the node. Valid values:
-   * - cloud_efficiency: ultra disk.
-   * - cloud_ssd: standard SSD.
-   * - cloud_essd: ESSD.
-   * - cloud_auto: ESSD AutoPL cloud disk.
-   * - cloud_essd_entry: ESSD Entry cloud disk.
-   * Default value: cloud_efficiency.
+   * The category of the node system disk. Valid values:
+   * - `cloud_efficiency`: Ultra cloud disk.
+   * - `cloud_ssd`: Standard SSD.
+   * - `cloud_essd`: ESSD.
+   * - `cloud_auto`: ESSD AutoPL cloud disk.
+   * - `cloud_essd_entry`: ESSD Entry cloud disk.
+   * Default value: `cloud_efficiency`.
    * 
    * @example
    * cloud_efficiency
@@ -1748,7 +1738,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The encryption algorithm used for the system disk. Valid value: aes-256.
+   * The encryption algorithm used for the system disk. Valid values: aes-256.
    * 
    * @example
    * aes-256
@@ -1757,8 +1747,8 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to encrypt the system disk. Valid values:
-   * - true: encrypts the system disk.
-   * - false: does not encrypt the system disk.
+   * - true: Encrypts the system disk.
+   * - false: Does not encrypt the system disk.
    * 
    * @example
    * false
@@ -1774,11 +1764,11 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   systemDiskKmsKeyId?: string;
   /**
    * @remarks
-   * The performance level of the system cloud disk for nodes. This parameter takes effect only for ESSDs, not standard SSD. The performance level varies based on the disk size. For more information, see [ESSD](https://help.aliyun.com/document_detail/122389.html). Valid values:
+   * The performance level of the node system disk. This parameter takes effect only for ESSD cloud disks. The performance level is related to the disk size. For more information, see [ESSD cloud disks](https://help.aliyun.com/document_detail/122389.html). Valid values:
    * - PL0: Medium concurrent I/O performance and relatively stable read/write latency.
    * - PL1: Medium concurrent I/O performance and relatively stable read/write latency.
    * - PL2: High concurrent I/O performance and stable read/write latency.
-   * - PL3: Ultra-high concurrent I/O performance and highly stable read/write latency.
+   * - PL3: Extremely high concurrent I/O performance and highly stable read/write latency.
    * 
    * @example
    * PL1
@@ -1786,9 +1776,8 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS for the system disk.
-   * Valid values: 0 to min{50,000, 1000 × Capacity - Baseline performance}. Baseline performance = min{1,800 + 50 × Capacity, 50000}.
-   * This parameter is supported only when system_disk_category is set to cloud_auto. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
+   * The provisioned read/write IOPS for the node system disk. Valid values: 0 to min{50,000, 1000 × capacity - baseline performance}. Baseline performance = min{1,800 + 50 × capacity, 50000}.
+   * This parameter is supported only when system_disk_category is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * 1000
@@ -1796,8 +1785,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   systemDiskProvisionedIops?: number;
   /**
    * @remarks
-   * The size of the system disk. Unit: GiB.
-   * Valid values: 20 to 2048.
+   * The size of the node system disk. Unit: GiB. Valid values: 20 to 2048.
    * 
    * @example
    * 120
@@ -1813,13 +1801,12 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
   systemDiskSnapshotPolicyId?: string;
   /**
    * @remarks
-   * Adds tags only to ECS instances.
-   * Tag keys must be unique and can be up to 128 characters in length. Tag keys and tag values cannot start with "aliyun" or "acs:", or contain "https://" or "http://".
+   * Adds tags only to ECS instances. Tag keys must be unique and can be up to 128 characters in length. Neither tag keys nor tag values can start with "aliyun" or "acs:", or contain "https://" or "http://".
    */
   tags?: CreateClusterNodePoolRequestScalingGroupTags[];
   /**
    * @remarks
-   * The list of vSwitch IDs. You can specify 1 to 8 vSwitch IDs.
+   * The list of vSwitch IDs. Valid values: 1 to 8.
    * > To ensure high availability, we recommend that you select vSwitches in different zones.
    * 
    * This parameter is required.
@@ -1994,9 +1981,7 @@ export class CreateClusterNodePoolRequestTeeConfig extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the confidential computing cluster. Valid values:
-   * 
    * - true: Enables confidential computing.
-   * 
    * - false: Does not enable confidential computing.
    * 
    * @example
@@ -2037,7 +2022,9 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
   autoScaling?: CreateClusterNodePoolRequestAutoScaling;
   /**
    * @remarks
-   * **[Deprecated]** Use desired_size instead. The number of nodes in the node pool.
+   * **[Deprecated]** Use desired_size instead.
+   * 
+   * The number of nodes in the node pool.
    * 
    * @example
    * null
@@ -2052,9 +2039,9 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
   efloNodeGroup?: CreateClusterNodePoolRequestEfloNodeGroup;
   /**
    * @remarks
-   * Specifies whether pods in the edge node pool use the host network mode. Valid values:
-   * - true: host network. Pods directly use the network stack of the host and share the IP address and ports with the host.
-   * - false: container network. Pods have independent network stacks and do not occupy the network ports of the host.
+   * Specifies whether the pod network mode uses the host network mode. Valid values:
+   * - `true`: host network. Pods directly use the network stack of the host and share the IP address and ports with the host.
+   * - `false`: container network. Pods have independent network stacks and do not occupy host network ports.
    * 
    * @example
    * true
@@ -2062,16 +2049,19 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
   hostNetwork?: boolean;
   /**
    * @remarks
-   * **[Deprecated]** The configuration of the edge node pool.
+   * **[Deprecated]**
+   * 
+   * The configuration of the edge node pool.
    * 
    * @deprecated
    */
   interconnectConfig?: CreateClusterNodePoolRequestInterconnectConfig;
   /**
    * @remarks
-   * The network type of the edge node pool. This parameter takes effect only when type is set to edge. Valid values:
-   * - basic: public network. Nodes in cloud node pool interact with cloud nodes over the public network. Applications in cloud node pool cannot directly access the internal network of the cloud VPC.
-   * - private: private network. Nodes in cloud node pool connect to the cloud network over Express Connect circuits, VPNs, or CEN. This provides higher cloud-edge communication quality and more effective security protection.
+   * The network type of the edge node pool. This parameter takes effect only when `type` is set to `edge`. Valid values:
+   * 
+   * - `basic`: Internet. Nodes in cloud node pool interact with cloud nodes over the Internet. Applications in cloud node pool cannot directly access the internal network of the cloud VPC.
+   * - `private`: private network. Nodes in cloud node pool connect to the cloud network through Express Connect circuits, VPNs, or CEN, which provides higher cloud-edge communication quality and more effective security protection.
    * 
    * @example
    * basic
@@ -2080,8 +2070,8 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether Layer 3 network connectivity is enabled between nodes in the edge node pool. Valid values:
-   * - true: enabled. Layer 3 network connectivity is enabled between all nodes in the node pool.
-   * - false: disabled. Layer 3 network connectivity is disabled between all hosts in the node pool.
+   * - `true`: enabled. Layer 3 network connectivity is enabled between all nodes in the node pool.
+   * - `false`: disabled. Layer 3 network connectivity is disabled between all hosts in the node pool.
    * 
    * @example
    * true
@@ -2099,7 +2089,7 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
   management?: CreateClusterNodePoolRequestManagement;
   /**
    * @remarks
-   * **[Deprecated]** The maximum number of nodes allowed in an edge node pool.
+   * **[Deprecated]** The maximum number of nodes that the edge node pool can accommodate.
    * 
    * @example
    * null

@@ -13,7 +13,7 @@ export class DescribeClusterUserKubeconfigResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The expiration time of the kubeconfig file. The time is displayed in UTC and follows the RFC 3339 format.
+   * The expiration time of the kubeconfig file. The time is displayed in UTC and follows the RFC 3339 standard.
    * 
    * @example
    * 2024-03-10T09:56:17Z

@@ -85,12 +85,12 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolatio
 export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolations extends $dara.Model {
   /**
    * @remarks
-   * The aggregated interception records.
+   * The summary of interception records.
    */
   deny?: DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsDeny[];
   /**
    * @remarks
-   * The aggregated alert records.
+   * The summary of alert records.
    */
   warn?: DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsWarn[];
   static names(): { [key: string]: string } {
@@ -133,7 +133,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsDen
   policyDescription?: string;
   /**
    * @remarks
-   * The policy name.
+   * The Policy Name.
    * 
    * @example
    * ACKNamespacesDeleteProtection
@@ -193,7 +193,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWar
   policyDescription?: string;
   /**
    * @remarks
-   * The policy name.
+   * The Policy Name.
    * 
    * @example
    * ACKRestrictALBCreation
@@ -245,12 +245,12 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWar
 export class DescribePolicyGovernanceInClusterResponseBodyViolationViolations extends $dara.Model {
   /**
    * @remarks
-   * The aggregated interception records.
+   * The summary of interception records.
    */
   deny?: DescribePolicyGovernanceInClusterResponseBodyViolationViolationsDeny[];
   /**
    * @remarks
-   * The aggregated alert information.
+   * The summary of alert information.
    */
   warn?: DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWarn[];
   static names(): { [key: string]: string } {
@@ -285,12 +285,12 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolations ex
 export class DescribePolicyGovernanceInClusterResponseBodyViolation extends $dara.Model {
   /**
    * @remarks
-   * The aggregated information.
+   * The summary information.
    */
   totalViolations?: DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolations;
   /**
    * @remarks
-   * The violation records aggregated by policy name.
+   * The violation records summarized by policy name.
    */
   violations?: DescribePolicyGovernanceInClusterResponseBodyViolationViolations;
   static names(): { [key: string]: string } {
@@ -334,8 +334,8 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   /**
    * @remarks
    * The action taken by the policy. Valid values:
-   * - warn: Alerts on policy violations but does not intercept the requests.
-   * - deny: Intercepts requests that violate the policy.
+   * - warn: Generates an alert for the policy violation but does not intercept the request.
+   * - deny: Intercepts the request that violates the policy.
    * 
    * @example
    * deny
@@ -367,7 +367,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   constraintGroup?: string;
   /**
    * @remarks
-   * The policy kind that corresponds to the policy name in policy management.
+   * The corresponding Policy Name in policy management.
    * 
    * @example
    * ACKNamespacesDeleteProtection
@@ -439,7 +439,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
   resourceName?: string;
   /**
    * @remarks
-   * The time when the policy violation occurred. The time is in ISO 8601 format and includes time zone information.
+   * The time when the policy was violated. The time is in ISO 8601 format and includes time zone information.
    * 
    * @example
    * 2025-10-27T11:31:40Z
@@ -505,7 +505,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara
   count?: number;
   /**
    * @remarks
-   * The Log Service project that stores the policy action information.
+   * The log project that stores the policy action information.
    * 
    * @example
    * k8s-log-clusterid
@@ -513,7 +513,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara
   logProject?: string;
   /**
    * @remarks
-   * The Log Service Logstore that stores the policy action information.
+   * The Logstore that stores the policy action information.
    * 
    * @example
    * policyadmit-clusterid
@@ -521,7 +521,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara
   logStore?: string;
   /**
    * @remarks
-   * The log entries for policy violations.
+   * The log information about policy violations.
    */
   logs?: DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs[];
   /**
@@ -619,17 +619,17 @@ export class DescribePolicyGovernanceInClusterResponseBodyOnState extends $dara.
 export class DescribePolicyGovernanceInClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The policy violation information aggregated by severity level.
+   * The policy violation information summarized by severity level.
    */
   violation?: DescribePolicyGovernanceInClusterResponseBodyViolation;
   /**
    * @remarks
-   * The policy governance audit logs of the cluster.
+   * The current policy governance audit logs of the cluster.
    */
   admitLog?: DescribePolicyGovernanceInClusterResponseBodyAdmitLog;
   /**
    * @remarks
-   * The counts of enabled policies at different severity levels in the current cluster.
+   * The counts of enabled policies at different severity levels in the cluster.
    */
   onState?: DescribePolicyGovernanceInClusterResponseBodyOnState[];
   static names(): { [key: string]: string } {

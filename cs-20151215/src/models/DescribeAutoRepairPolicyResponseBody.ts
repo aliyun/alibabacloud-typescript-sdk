@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutoRepairPolicyResponseBodyRulesIncidents extends $dara.Model {
   /**
    * @remarks
-   * The name of the incident.
+   * The fault name.
    * 
    * @example
    * Node.FaultNeedReboot.HOST
@@ -13,7 +13,7 @@ export class DescribeAutoRepairPolicyResponseBodyRulesIncidents extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The type of the incident.
+   * The fault type.
    * 
    * @example
    * system
@@ -45,7 +45,7 @@ export class DescribeAutoRepairPolicyResponseBodyRulesIncidents extends $dara.Mo
 export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionApprovedLabel extends $dara.Model {
   /**
    * @remarks
-   * The `key` of the label.
+   * The key of the label.
    * 
    * @example
    * k8s.aliyun.com/incident
@@ -125,12 +125,12 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventio
 export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureIntervention extends $dara.Model {
   /**
    * @remarks
-   * The label configuration for authorization confirmation. Adding the following labels to the node indicates that you authorize ACK to execute the operations in this stage. After completing the operations in this stage, ACK automatically removes the authorization inquiry and confirmation labels for this stage. If you do not add the following labels promptly, ACK will not execute the actions in this stage and subsequent stages, and the node may remain in a damaged state.
+   * The label configuration for authorization confirmation. When you add the following label to a node, you authorize ACK to perform the operations in this phase. After completing the operations in this phase, ACK automatically removes the inquiry and confirmation labels for this phase. If you do not add the following label in time, ACK will not perform the operations in this phase and subsequent phases, and the node may remain in a damaged state.
    */
   approvedLabel?: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionApprovedLabel;
   /**
    * @remarks
-   * Indicates whether manual approval is enabled.
+   * Specifies whether manual approval is enabled.
    * 
    * @example
    * true
@@ -138,7 +138,7 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventio
   enable?: boolean;
   /**
    * @remarks
-   * The label configuration for authorization inquiry. When this stage is reached, ACK adds the following labels to your node and waits for your authorization to execute the actions in this stage.
+   * The label configuration for authorization inquiry. When this phase is entered, ACK adds the following label to your node and waits for your authorization to perform the operations in this phase.
    */
   inquiringLabel?: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionInquiringLabel;
   /**
@@ -190,7 +190,7 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedure extends $d
   config?: { [key: string]: any };
   /**
    * @remarks
-   * The configuration of the manual intervention procedure.
+   * The manual intervention procedure.
    */
   intervention?: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureIntervention;
   /**
@@ -235,7 +235,7 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedure extends $d
 export class DescribeAutoRepairPolicyResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The list of identified incidents.
+   * The list of identified faults.
    */
   incidents?: DescribeAutoRepairPolicyResponseBodyRulesIncidents[];
   /**
@@ -275,7 +275,7 @@ export class DescribeAutoRepairPolicyResponseBodyRules extends $dara.Model {
 export class DescribeAutoRepairPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The self-healing rule ID.
+   * The ID of the self-healing rule.
    * 
    * @example
    * r-xxx
@@ -296,7 +296,7 @@ export class DescribeAutoRepairPolicyResponseBody extends $dara.Model {
   resourceIds?: string[];
   /**
    * @remarks
-   * The subtype of the resource bound to the self-healing rule.
+   * The resource subtype bound to the self-healing rule.
    * 
    * @example
    * ess
@@ -304,7 +304,7 @@ export class DescribeAutoRepairPolicyResponseBody extends $dara.Model {
   resourceSubType?: string;
   /**
    * @remarks
-   * The type of resource bound to the self-healing rule.
+   * The resource type bound to the self-healing rule.
    * 
    * @example
    * nodepool
@@ -315,6 +315,16 @@ export class DescribeAutoRepairPolicyResponseBody extends $dara.Model {
    * The list of self-healing sub-rules.
    */
   rules?: DescribeAutoRepairPolicyResponseBodyRules[];
+  /**
+   * @remarks
+   * The rule type. The value is case-sensitive. Valid values:
+   * - custom: user-defined rules that support modification and deletion
+   * - builtin: built-in system rules that are read-only and do not support creation, modification, or deletion
+   * 
+   * @example
+   * custom
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       id: 'id',
@@ -323,6 +333,7 @@ export class DescribeAutoRepairPolicyResponseBody extends $dara.Model {
       resourceSubType: 'resource_sub_type',
       resourceType: 'resource_type',
       rules: 'rules',
+      type: 'type',
     };
   }
 
@@ -334,6 +345,7 @@ export class DescribeAutoRepairPolicyResponseBody extends $dara.Model {
       resourceSubType: 'string',
       resourceType: 'string',
       rules: { 'type': 'array', 'itemType': DescribeAutoRepairPolicyResponseBodyRules },
+      type: 'string',
     };
   }
 
