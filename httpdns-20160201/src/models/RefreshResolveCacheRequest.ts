@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RefreshResolveCacheRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of domain names to refresh.
+   */
   domains?: string[];
   static names(): { [key: string]: string } {
     return {

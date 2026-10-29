@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDomainsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The number of the current page. Starting value: 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page for paging in a paged query. Settings: Maximum value: 100. Default value: 20.
+   * 
    * @example
    * 20
    */

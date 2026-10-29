@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RefreshResolveCacheShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of domain names to refresh.
+   */
   domainsShrink?: string;
   static names(): { [key: string]: string } {
     return {

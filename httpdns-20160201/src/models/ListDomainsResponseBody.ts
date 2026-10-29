@@ -78,21 +78,33 @@ export class ListDomainsResponseBodyDomainInfos extends $dara.Model {
 export class ListDomainsResponseBody extends $dara.Model {
   domainInfos?: ListDomainsResponseBodyDomainInfos;
   /**
+   * @remarks
+   * The total number of domain names in the list.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of domain names returned in this query.
+   * 
    * @example
    * 5
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 50F9C40E-188D-4208-BE2C-7427E531****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of domain names in the list.
+   * 
    * @example
    * 18
    */

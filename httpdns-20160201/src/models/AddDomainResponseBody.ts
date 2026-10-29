@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddDomainResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * www.example.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ADA27798-6911-4B06-AF34-53F62F62XXXX
    */

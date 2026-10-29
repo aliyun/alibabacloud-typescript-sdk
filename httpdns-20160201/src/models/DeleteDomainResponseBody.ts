@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDomainResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * www.example.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FA8C2599-362D-4113-8FB4-E88A40C2****
    */

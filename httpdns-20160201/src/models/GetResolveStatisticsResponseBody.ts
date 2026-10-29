@@ -57,6 +57,9 @@ export class GetResolveStatisticsResponseBodyDataPoints extends $dara.Model {
 export class GetResolveStatisticsResponseBody extends $dara.Model {
   dataPoints?: GetResolveStatisticsResponseBodyDataPoints;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 50F9C40E-188D-B00B-BE2C-7427E531****
    */

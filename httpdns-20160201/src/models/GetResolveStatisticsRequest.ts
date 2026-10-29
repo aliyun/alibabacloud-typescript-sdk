@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetResolveStatisticsRequest extends $dara.Model {
   /**
    * @remarks
+   * The domain name for which to retrieve statistics information.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetResolveStatisticsRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
+   * The data granularity. Valid values: **day** and **month**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class GetResolveStatisticsRequest extends $dara.Model {
    */
   granularity?: string;
   /**
+   * @remarks
+   * The protocol type for resolution. Valid values: http (default) and https.
+   * 
    * @example
    * https
    */
   protocolName?: string;
   /**
    * @remarks
+   * The length of the time span.
+   * 
    * This parameter is required.
    * 
    * @example

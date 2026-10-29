@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDomainRequest extends $dara.Model {
   /**
+   * @remarks
+   * The HTTPDNS account ID.
+   * 
    * @example
    * 12****
    */
   accountId?: string;
   /**
    * @remarks
+   * The domain name.
+   * 
    * This parameter is required.
    * 
    * @example

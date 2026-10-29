@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDomainsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The HTTPDNS account ID.
+   * 
    * @example
    * 123456
    */
   accountId?: string;
   /**
+   * @remarks
+   * The current page number. Minimum value: 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page for a paged query. Maximum value: 100. Default value: 20.
+   * 
    * @example
    * 10
    */

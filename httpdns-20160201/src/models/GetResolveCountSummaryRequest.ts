@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetResolveCountSummaryRequest extends $dara.Model {
   /**
    * @remarks
+   * The data granularity of the statistics. Valid values: **day** and **month**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetResolveCountSummaryRequest extends $dara.Model {
   granularity?: string;
   /**
    * @remarks
+   * The time span for the statistics.
+   * 
    * This parameter is required.
    * 
    * @example

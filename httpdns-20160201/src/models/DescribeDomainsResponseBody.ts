@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class DescribeDomainsResponseBodyDomainsDomain extends $dara.Model {
   domainName?: string;
   static names(): { [key: string]: string } {
@@ -56,21 +54,33 @@ export class DescribeDomainsResponseBodyDomains extends $dara.Model {
 export class DescribeDomainsResponseBody extends $dara.Model {
   domains?: DescribeDomainsResponseBodyDomains;
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A6B3BB61-69CB-50E0-9DC0-0C1658D44A47
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 12
    */

@@ -5,22 +5,34 @@ import * as $dara from '@darabonba/typescript';
 export class GetResolveCountSummaryResponseBodyResolveSummary extends $dara.Model {
   doh?: number;
   /**
+   * @remarks
+   * The number of IPv4 HTTP resolution requests.
+   * 
    * @example
    * 123
    */
   http?: number;
   /**
+   * @remarks
+   * The number of IPv6 HTTP resolution requests.
+   * 
    * @example
    * 123
    */
   http6?: number;
   httpAes?: string;
   /**
+   * @remarks
+   * The number of IPv4 HTTPS resolution requests.
+   * 
    * @example
    * 123
    */
   https?: number;
   /**
+   * @remarks
+   * The number of IPv6 HTTPS resolution requests.
+   * 
    * @example
    * 123
    */
@@ -61,10 +73,17 @@ export class GetResolveCountSummaryResponseBodyResolveSummary extends $dara.Mode
 
 export class GetResolveCountSummaryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3106FFF3-3612-542A-B2CD-3CF4CD48****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics result.
+   */
   resolveSummary?: GetResolveCountSummaryResponseBodyResolveSummary;
   static names(): { [key: string]: string } {
     return {
