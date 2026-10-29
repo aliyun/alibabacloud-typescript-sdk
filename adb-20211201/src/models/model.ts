@@ -229,6 +229,7 @@ export { DescribeWorkerDetectionResponseBodyDetectionItemsResultsTopAccessTables
 export { DescribeWorkerDetectionResponseBodyDetectionItemsResults } from './DescribeWorkerDetectionResponseBody';
 export { DescribeWorkerDetectionResponseBodyDetectionItems } from './DescribeWorkerDetectionResponseBody';
 export { ExecuteSparkReplStatementResponseBodyData } from './ExecuteSparkReplStatementResponseBody';
+export { ForkKnowledgeFileResponseBodyData } from './ForkKnowledgeFileResponseBody';
 export { GenerateSqlBySemanticSqlResponseBodyData } from './GenerateSqlBySemanticSqlResponseBody';
 export { GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail } from './GetAdbsparkNecessaryRampermissionsResponseBody';
 export { GetADBSparkNecessaryRAMPermissionsResponseBodyData } from './GetAdbsparkNecessaryRampermissionsResponseBody';
@@ -301,6 +302,7 @@ export { SetSparkAppLogRootPathResponseBodyData } from './SetSparkAppLogRootPath
 export { StartSparkReplSessionResponseBodyData } from './StartSparkReplSessionResponseBody';
 export { StartSparkSQLEngineResponseBodyData } from './StartSparkSqlengineResponseBody';
 export { SubmitSparkAppResponseBodyData } from './SubmitSparkAppResponseBody';
+export { TriggerKnowledgeFileParseResponseBodyData } from './TriggerKnowledgeFileParseResponseBody';
 export { UpdateApsWebhookRequestWebhook } from './UpdateApsWebhookRequest';
 export { UpdateLakeStorageRequestPermissions } from './UpdateLakeStorageRequest';
 export { UpdateLakeStorageResponseBodyDataPermissions } from './UpdateLakeStorageResponseBody';
@@ -836,6 +838,9 @@ export { ExecuteSparkWarehouseBatchSQLResponse } from './ExecuteSparkWarehouseBa
 export { ExistRunningSQLEngineRequest } from './ExistRunningSqlengineRequest';
 export { ExistRunningSQLEngineResponseBody } from './ExistRunningSqlengineResponseBody';
 export { ExistRunningSQLEngineResponse } from './ExistRunningSqlengineResponse';
+export { ForkKnowledgeFileRequest } from './ForkKnowledgeFileRequest';
+export { ForkKnowledgeFileResponseBody } from './ForkKnowledgeFileResponseBody';
+export { ForkKnowledgeFileResponse } from './ForkKnowledgeFileResponse';
 export { GenerateSqlBySemanticSqlRequest } from './GenerateSqlBySemanticSqlRequest';
 export { GenerateSqlBySemanticSqlResponseBody } from './GenerateSqlBySemanticSqlResponseBody';
 export { GenerateSqlBySemanticSqlResponse } from './GenerateSqlBySemanticSqlResponse';
@@ -1142,6 +1147,9 @@ export { SubmitSparkLogAnalyzeTaskResponse } from './SubmitSparkLogAnalyzeTaskRe
 export { SuspendApsJobRequest } from './SuspendApsJobRequest';
 export { SuspendApsJobResponseBody } from './SuspendApsJobResponseBody';
 export { SuspendApsJobResponse } from './SuspendApsJobResponse';
+export { TriggerKnowledgeFileParseRequest } from './TriggerKnowledgeFileParseRequest';
+export { TriggerKnowledgeFileParseResponseBody } from './TriggerKnowledgeFileParseResponseBody';
+export { TriggerKnowledgeFileParseResponse } from './TriggerKnowledgeFileParseResponse';
 export { UnbindAccountRequest } from './UnbindAccountRequest';
 export { UnbindAccountResponseBody } from './UnbindAccountResponseBody';
 export { UnbindAccountResponse } from './UnbindAccountResponse';

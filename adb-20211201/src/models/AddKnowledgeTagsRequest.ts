@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddKnowledgeTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The database cluster ID.
+   * The ID of the database cluster.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,9 @@ export class AddKnowledgeTagsRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @remarks
+   * The ID of the file.
+   * 
    * @example
    * 21321
    */

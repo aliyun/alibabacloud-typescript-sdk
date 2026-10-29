@@ -71,7 +71,7 @@ export class AddKnowledgeTagsResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The number of tags that were successfully updated.
+   * The number of tags that were successfully modified.
    * 
    * @example
    * 1
@@ -84,7 +84,7 @@ export class AddKnowledgeTagsResponseBodyData extends $dara.Model {
   skipped?: AddKnowledgeTagsResponseBodyDataSkipped[];
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Specifies whether the request was successful. Valid values:
    * - **true**: The request was successful.
    * - **false**: The request failed.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKnowledgeFilesResponseBodyDataFiles extends $dara.Model {
   /**
    * @remarks
-   * The time when the file was added to the knowledge base. The format is yyyy-MM-dd HH:mm:ss.
+   * The time when the file was added to the knowledge base. The time is in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2026-06-09 10:27:35
@@ -53,7 +53,7 @@ export class ListKnowledgeFilesResponseBodyDataFiles extends $dara.Model {
   isDirectory?: boolean;
   /**
    * @remarks
-   * The file_id of the content host.
+   * The `file_id` of the content host.
    * 
    * @example
    * 122
@@ -69,7 +69,7 @@ export class ListKnowledgeFilesResponseBodyDataFiles extends $dara.Model {
   pageCount?: number;
   /**
    * @remarks
-   * The processing information of the knowledge base file.
+   * The processing message of the knowledge base file.
    * 
    * @example
    * successful
@@ -89,7 +89,7 @@ export class ListKnowledgeFilesResponseBodyDataFiles extends $dara.Model {
   processStatus?: string;
   /**
    * @remarks
-   * The update time. The format is yyyy-MM-dd HH:mm:ss.
+   * The time when the file was updated. The time is in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2026-06-10 10:23:46
@@ -168,9 +168,9 @@ export class ListKnowledgeFilesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true
@@ -178,7 +178,7 @@ export class ListKnowledgeFilesResponseBodyData extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 100

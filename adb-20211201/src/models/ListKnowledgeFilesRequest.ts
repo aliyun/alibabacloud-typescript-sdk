@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKnowledgeFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ADB instance ID.
+   * The ID of the ADB instance.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,15 @@ export class ListKnowledgeFilesRequest extends $dara.Model {
   fileIds?: string;
   /**
    * @remarks
-   * The page number, starting from 1. If this parameter is not specified, the default value is 1.
+   * The URL of the knowledge base file.
+   * 
+   * @example
+   * oss://bucket_name/path/to/file
+   */
+  fileLocation?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from 1. If you do not specify this parameter, the default value is 1.
    * 
    * @example
    * 1
@@ -31,7 +39,7 @@ export class ListKnowledgeFilesRequest extends $dara.Model {
   page?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. If this parameter is not specified, the default value is 20.
+   * The number of entries per page. Valid values: 1 to 100. If you do not specify this parameter, the default value is 20.
    * 
    * @example
    * 20
@@ -47,7 +55,7 @@ export class ListKnowledgeFilesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The stable ID of the authorized user. If this parameter is not specified, all files in the knowledge base can be queried.
+   * The stable ID of the authorized user. If you do not specify this parameter, all files in the knowledge base can be queried.
    * 
    * @example
    * u123
@@ -57,6 +65,7 @@ export class ListKnowledgeFilesRequest extends $dara.Model {
     return {
       DBClusterId: 'DBClusterId',
       fileIds: 'FileIds',
+      fileLocation: 'FileLocation',
       page: 'Page',
       pageSize: 'PageSize',
       status: 'Status',
@@ -68,6 +77,7 @@ export class ListKnowledgeFilesRequest extends $dara.Model {
     return {
       DBClusterId: 'string',
       fileIds: 'string',
+      fileLocation: 'string',
       page: 'string',
       pageSize: 'string',
       status: 'string',

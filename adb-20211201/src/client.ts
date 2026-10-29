@@ -11115,6 +11115,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a reference record for a knowledge base file.
+   * 
+   * @param request - ForkKnowledgeFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ForkKnowledgeFileResponse
+   */
+  async forkKnowledgeFileWithOptions(request: $_model.ForkKnowledgeFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ForkKnowledgeFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.fileLocation)) {
+      query["FileLocation"] = request.fileLocation;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.uploadUser)) {
+      query["UploadUser"] = request.uploadUser;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ForkKnowledgeFile",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ForkKnowledgeFileResponse>(await this.callApi(params, req, runtime), new $_model.ForkKnowledgeFileResponse({}));
+  }
+
+  /**
+   * Creates a reference record for a knowledge base file.
+   * 
+   * @param request - ForkKnowledgeFileRequest
+   * @returns ForkKnowledgeFileResponse
+   */
+  async forkKnowledgeFile(request: $_model.ForkKnowledgeFileRequest): Promise<$_model.ForkKnowledgeFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.forkKnowledgeFileWithOptions(request, runtime);
+  }
+
+  /**
    * Generates an executable SQL statement from a semantic SQL statement.
    * 
    * @param request - GenerateSqlBySemanticSqlRequest
@@ -13276,6 +13334,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.fileIds)) {
       query["FileIds"] = request.fileIds;
+    }
+
+    if (!$dara.isNull(request.fileLocation)) {
+      query["FileLocation"] = request.fileLocation;
     }
 
     if (!$dara.isNull(request.page)) {
@@ -17389,6 +17451,56 @@ export default class Client extends OpenApi {
   async suspendApsJob(request: $_model.SuspendApsJobRequest): Promise<$_model.SuspendApsJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.suspendApsJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits a reparse task for a knowledge base file.
+   * 
+   * @param request - TriggerKnowledgeFileParseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TriggerKnowledgeFileParseResponse
+   */
+  async triggerKnowledgeFileParseWithOptions(request: $_model.TriggerKnowledgeFileParseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TriggerKnowledgeFileParseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.fileLocation)) {
+      query["FileLocation"] = request.fileLocation;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TriggerKnowledgeFileParse",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TriggerKnowledgeFileParseResponse>(await this.callApi(params, req, runtime), new $_model.TriggerKnowledgeFileParseResponse({}));
+  }
+
+  /**
+   * Submits a reparse task for a knowledge base file.
+   * 
+   * @param request - TriggerKnowledgeFileParseRequest
+   * @returns TriggerKnowledgeFileParseResponse
+   */
+  async triggerKnowledgeFileParse(request: $_model.TriggerKnowledgeFileParseRequest): Promise<$_model.TriggerKnowledgeFileParseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.triggerKnowledgeFileParseWithOptions(request, runtime);
   }
 
   /**
