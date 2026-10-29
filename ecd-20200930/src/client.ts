@@ -2422,7 +2422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a region-independent Cloud Desktop policy.
+   * Creates a region-independent cloud desktop policy.
    * 
    * @param request - CreateCenterPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2451,6 +2451,10 @@ export default class Client extends OpenApi {
       query["AppContentProtection"] = request.appContentProtection;
     }
 
+    if (!$dara.isNull(request.appScreenshotBuckets)) {
+      query["AppScreenshotBuckets"] = request.appScreenshotBuckets;
+    }
+
     if (!$dara.isNull(request.authorizeAccessPolicyRule)) {
       query["AuthorizeAccessPolicyRule"] = request.authorizeAccessPolicyRule;
     }
@@ -2461,6 +2465,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.autoReconnect)) {
       query["AutoReconnect"] = request.autoReconnect;
+    }
+
+    if (!$dara.isNull(request.autoSaveAppScreenshot)) {
+      query["AutoSaveAppScreenshot"] = request.autoSaveAppScreenshot;
     }
 
     if (!$dara.isNull(request.businessChannel)) {
@@ -2661,6 +2669,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxReconnectTime)) {
       query["MaxReconnectTime"] = request.maxReconnectTime;
+    }
+
+    if (!$dara.isNull(request.mcpService)) {
+      query["McpService"] = request.mcpService;
     }
 
     if (!$dara.isNull(request.memoryDownGradeDuration)) {
@@ -3021,7 +3033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a region-independent Cloud Desktop policy.
+   * Creates a region-independent cloud desktop policy.
    * 
    * @param request - CreateCenterPolicyRequest
    * @returns CreateCenterPolicyResponse
@@ -7709,7 +7721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of regionless policies.
+   * 查詢無地域策略的詳細資訊。
    * 
    * @param request - DescribeCenterPolicyListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7772,7 +7784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of regionless policies.
+   * 查詢無地域策略的詳細資訊。
    * 
    * @param request - DescribeCenterPolicyListRequest
    * @returns DescribeCenterPolicyListResponse
@@ -8149,7 +8161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of personal drives and their basic information for all users in an enterprise network drive.
+   * Queries the list and basic information of all personal drives in an enterprise drive.
    * 
    * @param request - DescribeCloudDriveUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8196,7 +8208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of personal drives and their basic information for all users in an enterprise network drive.
+   * Queries the list and basic information of all personal drives in an enterprise drive.
    * 
    * @param request - DescribeCloudDriveUsersRequest
    * @returns DescribeCloudDriveUsersResponse
@@ -11417,7 +11429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of cloud computer policies.
+   * Queries the details of cloud desktop policies.
    * 
    * @param request - DescribePolicyGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11480,7 +11492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of cloud computer policies.
+   * Queries the details of cloud desktop policies.
    * 
    * @param request - DescribePolicyGroupsRequest
    * @returns DescribePolicyGroupsResponse
@@ -12282,6 +12294,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceName)) {
+      query["ResourceName"] = request.resourceName;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -16017,7 +16033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a region-free policy.
+   * Modifies the configuration of a regionless policy.
    * 
    * @param request - ModifyCenterPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16046,6 +16062,10 @@ export default class Client extends OpenApi {
       query["AppContentProtection"] = request.appContentProtection;
     }
 
+    if (!$dara.isNull(request.appScreenshotBuckets)) {
+      query["AppScreenshotBuckets"] = request.appScreenshotBuckets;
+    }
+
     if (!$dara.isNull(request.authorizeAccessPolicyRule)) {
       query["AuthorizeAccessPolicyRule"] = request.authorizeAccessPolicyRule;
     }
@@ -16056,6 +16076,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.autoReconnect)) {
       query["AutoReconnect"] = request.autoReconnect;
+    }
+
+    if (!$dara.isNull(request.autoSaveAppScreenshot)) {
+      query["AutoSaveAppScreenshot"] = request.autoSaveAppScreenshot;
     }
 
     if (!$dara.isNull(request.businessChannel)) {
@@ -16252,6 +16276,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxReconnectTime)) {
       query["MaxReconnectTime"] = request.maxReconnectTime;
+    }
+
+    if (!$dara.isNull(request.mcpService)) {
+      query["McpService"] = request.mcpService;
     }
 
     if (!$dara.isNull(request.memoryDownGradeDuration)) {
@@ -16624,7 +16652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a region-free policy.
+   * Modifies the configuration of a regionless policy.
    * 
    * @param request - ModifyCenterPolicyRequest
    * @returns ModifyCenterPolicyResponse
@@ -19222,7 +19250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the settings of a configuration group, such as scheduled task configurations.
+   * Modifies the specific settings of a configuration group, such as the configuration of scheduled tasks.
    * 
    * @param request - ModifyTimerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19269,7 +19297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the settings of a configuration group, such as scheduled task configurations.
+   * Modifies the specific settings of a configuration group, such as the configuration of scheduled tasks.
    * 
    * @param request - ModifyTimerGroupRequest
    * @returns ModifyTimerGroupResponse

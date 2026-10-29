@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Model {
   /**
    * @remarks
-   * The appointment timer for executing scheduled tasks at specified time points.
+   * The appointment timer for scheduled tasks. After you specify this parameter, the scheduled task is executed at the specified time point.
    * 
    * @example
    * 1764660600967
@@ -18,7 +18,7 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
   createSnapshot?: boolean;
   /**
    * @remarks
-   * The cron expression for the end time of the scheduled task.
+   * The cron expression for ending the execution of the scheduled task.
    * 
    * @example
    * 0 0 18 ? * 1-5
@@ -26,12 +26,12 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
   endCronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to forcefully execute the task. If this parameter is set to true, the scheduled task is forcefully executed regardless of the cloud desktop and connection status.
+   * Specifies whether to forcibly execute the scheduled task. A value of true indicates that the system ignores the desktop and connection status checks and forcibly executes the scheduled task.
    */
   enforce?: boolean;
   /**
    * @remarks
-   * The image ID.
+   * The ID of the image.
    * 
    * @example
    * m-4zfb6zj728hhr****
@@ -47,12 +47,12 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
   interval?: number;
   /**
    * @remarks
-   * The list of IP CIDR blocks that take effect.
+   * The list of effective IP CIDR blocks.
    */
   ipSegments?: string[];
   /**
    * @remarks
-   * The duration of inactivity before the screen is locked for the no-operation lock screen feature. Unit: minutes. Only AD-joined cloud desktops are supported.
+   * The duration of inactivity before the screen is locked for the no-operation lock screen feature. Unit: minutes. Only AD cloud desktops are supported.
    * 
    * @example
    * 5
@@ -68,7 +68,7 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
   notificationTime?: number;
   /**
    * @remarks
-   * The operation type of the scheduled task. Currently, only disconnect scheduled tasks support this parameter.
+   * The operation type of the scheduled task. Currently, only disconnect scheduled tasks are supported.
    * 
    * @example
    * Shutdown
@@ -76,12 +76,12 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
   operationType?: string;
   /**
    * @remarks
-   * The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
+   * The process whitelist for intelligent judgment of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not executed.
    */
   processWhitelist?: string[];
   /**
    * @remarks
-   * The reset type, which determines whether to reset and the scope of cloud disks to reset.
+   * The reset type. This parameter specifies whether to reset the desktop and the scope of cloud disks to be reset.
    * 
    * @example
    * 1
@@ -89,7 +89,7 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
   resetType?: string;
   /**
    * @remarks
-   * The cron expression for the start time of the scheduled task.
+   * The cron expression for starting the execution of the scheduled task.
    * 
    * @example
    * 0 0 8 ? * 1-5
@@ -97,7 +97,7 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
   startCronExpression?: string;
   /**
    * @remarks
-   * The execution order number of the timer.
+   * The execution sequence number of the timer.
    * 
    * @example
    * 1
@@ -199,7 +199,7 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
 export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow end users to configure scheduled tasks on their own.
+   * Specifies whether to allow end users to configure scheduled tasks.
    * 
    * @example
    * true
@@ -209,7 +209,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
    * @remarks
    * The cron expression of the scheduled task.
    * 
-   * > Specify the time in UTC. For example, to schedule a task at 00:00 (UTC+8) every day, set this parameter to 0 0 16 ? * 1,2,3,4,5,6,7.
+   * > You must specify the time in UTC. For example, to specify 00:00:00 every day in UTC+8 (Beijing time), set this parameter to 0 0 16 ? * 1,2,3,4,5,6,7.
    * 
    * @example
    * 0 0 16 ? * 1,2,3,4,5,6,7
@@ -217,7 +217,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to forcefully execute the task. If this parameter is set to true, the scheduled task is forcefully executed regardless of the cloud desktop and connection status.
+   * Specifies whether to forcibly execute the scheduled task. A value of true indicates that the system ignores the desktop and connection status checks and forcibly executes the scheduled task.
    * 
    * @example
    * false
@@ -241,7 +241,7 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   notificationTime?: number;
   /**
    * @remarks
-   * The operation type of the scheduled task. Currently, only disconnect scheduled tasks support this parameter.
+   * The operation type of the scheduled task. Currently, only disconnect scheduled tasks are supported.
    * 
    * @example
    * Shutdown
@@ -249,12 +249,12 @@ export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   operationType?: string;
   /**
    * @remarks
-   * The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
+   * The process whitelist for intelligent judgment of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not executed.
    */
   processWhitelist?: string[];
   /**
    * @remarks
-   * The reset type, which determines whether to reset and the scope of cloud disks to reset.
+   * The reset type. This parameter specifies whether to reset the desktop and the scope of cloud disks to be reset.
    * 
    * @example
    * RESET_TYPE_SYSTEM
@@ -339,12 +339,12 @@ export class ModifyTimerGroupRequest extends $dara.Model {
    * The description of the configuration group.
    * 
    * @example
-   * ScheduledTask
+   * Scheduled task
    */
   description?: string;
   /**
    * @remarks
-   * The configuration group ID.
+   * The ID of the configuration group.
    * 
    * This parameter is required.
    * 
@@ -357,7 +357,7 @@ export class ModifyTimerGroupRequest extends $dara.Model {
    * The name of the configuration group.
    * 
    * @example
-   * ScheduledTask
+   * Scheduled task
    */
   name?: string;
   /**

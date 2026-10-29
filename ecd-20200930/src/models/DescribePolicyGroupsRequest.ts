@@ -15,12 +15,12 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The list of cloud computer policy IDs to exclude from the query results.
+   * The IDs of the cloud desktop policies to exclude from the query results.
    */
   externalPolicyGroupIds?: string[];
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries to return per page when paging in a paged query.
    * 
    * - Maximum value: 100.
    * - Default value: 10.
@@ -31,7 +31,7 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of NextToken that was returned from the last call to this operation. You do not need to set this parameter for the first request.
+   * The query token. Set the value to the NextToken value returned from the last call to this operation. You do not need to specify this parameter for the first call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -39,7 +39,7 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the current page for a paged query.
+   * The current page number when paging in a paged query.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query.    
+   * The maximum number of entries to return per page when paging in a paged query.    
    * Default value: 20.
    * 
    * @example
@@ -56,7 +56,7 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of cloud computer policy IDs.
+   * The IDs of the cloud desktop policies.
    * 
    * @example
    * system-all-enabled-policy
@@ -64,7 +64,7 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   policyGroupId?: string[];
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by Wuying Workspace.
    * 
    * This parameter is required.
    * 
@@ -74,7 +74,7 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The effective scope of the cloud computer policy.
+   * The effective scope of the cloud desktop policies.
    * 
    * @example
    * GLOBAL

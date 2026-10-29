@@ -2,10 +2,50 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAppScreenshotBuckets extends $dara.Model {
+  /**
+   * @remarks
+   * Bucket 名稱。
+   * 
+   * @example
+   * my-bucket-01
+   */
+  bucketName?: string;
+  /**
+   * @remarks
+   * 使用者 OSS Bucket 所在地域，必須與 Bucket 的實際地域一致。
+   * 
+   * @example
+   * cn-beijing
+   */
+  bucketRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      bucketRegionId: 'BucketRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      bucketRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules extends $dara.Model {
   /**
    * @remarks
-   * The client access IP CIDR block, in IPv4 CIDR notation.
+   * 用戶端存取 IP 位址區段。格式為 CIDR 格式的 IPv4 位址區段。
    * 
    * @example
    * 47.100.XX.XX/16
@@ -13,10 +53,10 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAc
   cidrIp?: string;
   /**
    * @remarks
-   * The description of the client access IP CIDR block.
+   * 用戶端存取 IP 位址區段備註資訊。
    * 
    * @example
-   * Corporate office network segment
+   * 公司辦公網段
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +85,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAc
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules extends $dara.Model {
   /**
    * @remarks
-   * The object of the security group rule, which is an IPv4 CIDR block.
+   * 安全性群組管控規則的對象，CIDR 格式的 IPv4 位址區段。
    * 
    * @example
    * 47.100.XX.XX/16
@@ -53,15 +93,15 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSe
   cidrIp?: string;
   /**
    * @remarks
-   * The description of the security group rule.
+   * 安全性群組管控規則的描述資訊。
    * 
    * @example
-   * Allow access to the internal R&D environment
+   * 允許存取內網研發環境
    */
   description?: string;
   /**
    * @remarks
-   * The protocol type of the security group rule.
+   * 安全性群組管控規則的通訊協定類型。
    * 
    * @example
    * tcp
@@ -69,7 +109,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSe
   ipProtocol?: string;
   /**
    * @remarks
-   * The authorization policy of the security group rule.
+   * 安全性群組管控規則的授權原則。
    * 
    * @example
    * accept
@@ -77,7 +117,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSe
   policy?: string;
   /**
    * @remarks
-   * The port range of the security group rule.
+   * 安全性群組管控規則的連接埠範圍。
    * 
    * @example
    * 22/22
@@ -85,7 +125,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSe
   portRange?: string;
   /**
    * @remarks
-   * The priority of the security group rule. A smaller value indicates a higher priority.
+   * 安全性群組管控規則的優先順序，數字越小，代表優先順序越高。
    * 
    * @example
    * 1
@@ -93,7 +133,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSe
   priority?: string;
   /**
    * @remarks
-   * The direction of the security group rule.
+   * 安全性群組管控規則的規則方向。
    * 
    * @example
    * inflow
@@ -135,7 +175,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSe
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes extends $dara.Model {
   /**
    * @remarks
-   * The client type.
+   * 用戶端類型。
    * 
    * @example
    * windows
@@ -143,7 +183,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes
   clientType?: string;
   /**
    * @remarks
-   * Indicates whether a specific type of client is allowed to log on to the cloud desktop.
+   * 是否允許某一類型的用戶端登入雲端桌面。
    * 
    * @example
    * on
@@ -175,7 +215,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects extends $dara.Model {
   /**
    * @remarks
-   * The peripheral device type.
+   * 周邊裝置類型。
    * 
    * @example
    * camera
@@ -183,7 +223,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedir
   deviceType?: string;
   /**
    * @remarks
-   * The redirection type.
+   * 重新導向類型。
    * 
    * @example
    * usbRedirect
@@ -215,7 +255,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedir
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules extends $dara.Model {
   /**
    * @remarks
-   * The device name.
+   * 裝置名稱。
    * 
    * @example
    * sandisk
@@ -223,7 +263,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
   deviceName?: string;
   /**
    * @remarks
-   * The product ID.
+   * 產品 ID。
    * 
    * @example
    * 0x55b1
@@ -231,7 +271,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
   devicePid?: string;
   /**
    * @remarks
-   * The peripheral device type.
+   * 周邊裝置類型。
    * 
    * @example
    * storage
@@ -239,7 +279,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
   deviceType?: string;
   /**
    * @remarks
-   * The vendor ID. See [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * 生產廠商 ID。參見 [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf)。
    * 
    * @example
    * 0x0781
@@ -247,7 +287,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
   deviceVid?: string;
   /**
    * @remarks
-   * The link optimization command.
+   * 連結最佳化指令。
    * 
    * @example
    * 2:0
@@ -255,7 +295,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
   optCommand?: string;
   /**
    * @remarks
-   * The platform types to which the device rule applies.
+   * 裝置規則適用的平台類型。
    * 
    * @example
    * Windows
@@ -263,7 +303,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
   platforms?: string;
   /**
    * @remarks
-   * The redirection type.
+   * 重新導向類型。
    * 
    * @example
    * usbRedirect
@@ -305,15 +345,15 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule extends $dara.Model {
   /**
    * @remarks
-   * The policy description.
+   * 原則描述。
    * 
    * @example
-   * Test rule
+   * 測試規則
    */
   description?: string;
   /**
    * @remarks
-   * The domain name.
+   * 網域。
    * 
    * @example
    * *.example.com
@@ -321,7 +361,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResol
   domain?: string;
   /**
    * @remarks
-   * The resolution policy.
+   * 解析原則。
    * 
    * @example
    * allow
@@ -355,7 +395,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResol
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule extends $dara.Model {
   /**
    * @remarks
-   * The domain name.
+   * 網域。
    * 
    * @example
    * *.example.com
@@ -363,7 +403,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirect
   domain?: string;
   /**
    * @remarks
-   * The redirection policy.
+   * 重新導向策略。
    * 
    * @example
    * allow
@@ -371,7 +411,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirect
   policy?: string;
   /**
    * @remarks
-   * The rule type.
+   * 規則類型。
    * 
    * @example
    * domain
@@ -405,15 +445,15 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirect
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule extends $dara.Model {
   /**
    * @remarks
-   * The rule description.
+   * 規則描述。
    * 
    * @example
-   * Test rule
+   * 測試規則
    */
   description?: string;
   /**
    * @remarks
-   * The product ID.
+   * 產品 ID。
    * 
    * @example
    * 08**
@@ -421,7 +461,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRe
   productId?: string;
   /**
    * @remarks
-   * The USB redirection type.
+   * USB 重新導向類型。
    * 
    * @example
    * 1
@@ -429,7 +469,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRe
   usbRedirectType?: number;
   /**
    * @remarks
-   * The USB redirection rule type.
+   * USB 重新導向規則類型。
    * 
    * @example
    * 1
@@ -437,7 +477,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRe
   usbRuleType?: number;
   /**
    * @remarks
-   * The vendor ID. See [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * 生產廠商 ID。參見 [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf)。
    * 
    * @example
    * 04**
@@ -475,9 +515,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRe
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the academic proxy feature. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 學術代理功能開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -485,9 +525,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   academicProxy?: string;
   /**
    * @remarks
-   * Indicates whether the user has administrator permissions after connecting to the cloud desktop.
+   * 使用者連線雲端電腦後是否具有管理員權限。
    * 
-   * > This feature is in invitational preview and is not publicly available.
+   * > 該功能處於定向邀測中，暫不對外開放。
    * 
    * @example
    * deny
@@ -495,9 +535,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   adminAccess?: string;
   /**
    * @remarks
-   * Specifies whether to enable administrator keyboard control in full-screen mode. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 全螢幕模式下管理員鍵盤控制開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -505,9 +545,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   adminKeyboardOnFullScreen?: string;
   /**
    * @remarks
-   * Specifies whether to enable administrator keyboard control within the Windows system. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Windows 系統內管理員鍵盤控制開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -515,9 +555,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   adminKeyboardOnWindows?: string;
   /**
    * @remarks
-   * Specifies whether to enable administrator monitoring. Valid values:
-   * - 1: Enabled.
-   * - 0: Disabled.
+   * 管理員監控開關。取值範圍：
+   * - 1：開啟。
+   * - 0：關閉。
    * 
    * @example
    * 0
@@ -525,7 +565,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   adminMonitor?: number;
   /**
    * @remarks
-   * Indicates whether the screenshot prevention feature is enabled.
+   * 是否開啟防截圖功能。
    * 
    * @example
    * off
@@ -533,17 +573,22 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   appContentProtection?: string;
   /**
    * @remarks
-   * The client access IP whitelist.
+   * 防截圖行動裝置截圖自訂 OSS Bucket 清單。
+   */
+  appScreenshotBuckets?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAppScreenshotBuckets[];
+  /**
+   * @remarks
+   * 用戶端存取 IP 白名單。
    */
   authorizeAccessPolicyRules?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules[];
   /**
    * @remarks
-   * The list of security group rules.
+   * 安全性群組管控規則清單。
    */
   authorizeSecurityPolicyRules?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules[];
   /**
    * @remarks
-   * Specifies whether to enable automatic reconnection on the client.
+   * 用戶端自動重新連線開關。
    * 
    * @example
    * off
@@ -551,7 +596,17 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   autoReconnect?: string;
   /**
    * @remarks
-   * Indicates whether local camera redirection is enabled.
+   * 自動儲存行動裝置截圖。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
+   * 
+   * @example
+   * off
+   */
+  autoSaveAppScreenshot?: string;
+  /**
+   * @remarks
+   * 是否開啟本機攝影機重新導向。
    * 
    * @example
    * on
@@ -559,9 +614,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cameraRedirect?: string;
   /**
    * @remarks
-   * The client control menu display switch. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 用戶端控制選單顯示開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * on
@@ -569,9 +624,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   clientControlMenu?: string;
   /**
    * @remarks
-   * Specifies whether to enable the custom snapshot creation feature on the client. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 用戶端建立自訂快照功能開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -579,9 +634,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   clientCreateSnapshot?: string;
   /**
    * @remarks
-   * Specifies whether to enable the hibernate option in the client menu. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 用戶端休眠選單開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -589,9 +644,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   clientHibernate?: string;
   /**
    * @remarks
-   * Specifies whether to enable the restart option in the client menu. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 用戶端重新啟動選單開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -599,9 +654,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   clientRestart?: string;
   /**
    * @remarks
-   * Specifies whether to enable the shutdown option in the client menu. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 用戶端關機選單開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -609,12 +664,12 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   clientShutdown?: string;
   /**
    * @remarks
-   * The logon method control rules.
+   * 登入方式管控規則。
    */
   clientTypes?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes[];
   /**
    * @remarks
-   * The clipboard permission.
+   * 剪貼簿權限。
    * 
    * @example
    * off
@@ -622,7 +677,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   clipboard?: string;
   /**
    * @remarks
-   * Specifies whether color enhancement is enabled for design and 3D common scenarios.
+   * 設計及 3D 應用場景選擇是否開啟色彩增強。
    * 
    * @example
    * off
@@ -630,9 +685,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   colorEnhancement?: string;
   /**
    * @remarks
-   * The local drive clipboard feature switch. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 本機驅動程式剪貼簿功能開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -640,7 +695,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpdDriveClipboard?: string;
   /**
    * @remarks
-   * The CPU downgrade duration. Valid values: 30 to 120. Unit: seconds.
+   * CPU 降頻時長，取值範圍： 30\\~120。單位：秒。
    * 
    * @example
    * 30
@@ -648,9 +703,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpuDownGradeDuration?: number;
   /**
    * @remarks
-   * Specifies whether to enable CPU overload protection. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * CPU 負載保護開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -658,12 +713,12 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpuOverload?: string;
   /**
    * @remarks
-   * The process name.
+   * 處理程序名稱。
    */
   cpuProcessors?: string[];
   /**
    * @remarks
-   * The CPU spike protection mode switch.
+   * CPU 保護模式開關。
    * 
    * @example
    * on
@@ -671,7 +726,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpuProtectedMode?: string;
   /**
    * @remarks
-   * The overall CPU usage percentage. Valid values: 70 to 90.
+   * CPU 整體使用率百分比，取值範圍： 70\\~90。
    * 
    * @example
    * 70
@@ -679,7 +734,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpuRateLimit?: number;
   /**
    * @remarks
-   * The overall CPU sampling duration. Valid values: 10 to 60. Unit: seconds.
+   * CPU 整體取樣時長，取值範圍： 10\\~60。單位：秒。
    * 
    * @example
    * 10
@@ -687,7 +742,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpuSampleDuration?: number;
   /**
    * @remarks
-   * The single-core CPU usage percentage. Valid values: 70 to 100.
+   * CPU 單核心使用率百分比，取值範圍： 70\\~100。
    * 
    * @example
    * 70
@@ -695,7 +750,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpuSingleRateLimit?: number;
   /**
    * @remarks
-   * The number of cloud desktops associated with the policy.
+   * 已關聯該原則的雲端電腦數量。
    * 
    * @example
    * 1
@@ -703,7 +758,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   desktopCount?: number;
   /**
    * @remarks
-   * The number of cloud desktop pools associated with the policy.
+   * 已關聯該原則的雲端電腦集區數量。
    * 
    * @example
    * 1
@@ -711,7 +766,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   desktopGroupCount?: number;
   /**
    * @remarks
-   * The peripheral connection notification control.
+   * 周邊裝置連線提示控制。
    * 
    * @example
    * off
@@ -719,18 +774,18 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   deviceConnectHint?: string;
   /**
    * @remarks
-   * The device redirection rules.
+   * 裝置重新導向規則。
    */
   deviceRedirects?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects[];
   /**
    * @remarks
-   * The custom peripheral device rules.
+   * 自訂周邊裝置規則。
    */
   deviceRules?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules[];
   /**
    * @remarks
-   * Specifies whether to retain the session after disconnection.
-   * > This applies only to cloud application policies.
+   * 工作階段斷線保留。
+   * > 僅適用於雲端應用程式原則。
    * 
    * @example
    * persistent
@@ -738,8 +793,8 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   disconnectKeepSession?: string;
   /**
    * @remarks
-   * The session retention duration after disconnection. Unit: seconds.
-   * > This applies only to cloud application policies.
+   * 工作階段斷線保留時長。單位：秒。
+   * > 僅適用於雲端應用程式原則。
    * 
    * @example
    * 120
@@ -747,9 +802,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   disconnectKeepSessionTime?: number;
   /**
    * @remarks
-   * Specifies whether to enable disk overload protection. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 磁碟負載保護開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -757,7 +812,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   diskOverload?: string;
   /**
    * @remarks
-   * The display mode.
+   * 顯示模式。
    * 
    * @example
    * adminCustom
@@ -765,7 +820,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   displayMode?: string;
   /**
    * @remarks
-   * The domain name resolution effective field.
+   * 網域解析生效欄位。
    * 
    * @example
    * example.com
@@ -773,12 +828,12 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   domainRegisterValue?: string;
   /**
    * @remarks
-   * The details of the domain name resolution policy.
+   * 網域解析原則詳情。
    */
   domainResolveRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule[];
   /**
    * @remarks
-   * The domain name resolution policy switch.
+   * 網域解析原則開關。
    * 
    * @example
    * on
@@ -786,7 +841,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   domainResolveRuleType?: string;
   /**
    * @remarks
-   * Indicates whether end users can request administrator assistance.
+   * 使用者請求管理員協助。
    * 
    * @example
    * off
@@ -794,7 +849,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   endUserApplyAdminCoordinate?: string;
   /**
    * @remarks
-   * The number of associated end users.
+   * 關聯的終端使用者數量。
    * 
    * @example
    * 3
@@ -802,7 +857,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   endUserCount?: string;
   /**
    * @remarks
-   * Indicates whether users within the same office network can share cloud desktops.
+   * 同一個辦公網路下使用者共享雲端電腦。
    * 
    * @example
    * off
@@ -810,9 +865,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   endUserGroupCoordinate?: string;
   /**
    * @remarks
-   * Specifies whether to enable the use of external storage devices. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 外接儲存裝置使用開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -820,7 +875,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   externalDrive?: string;
   /**
    * @remarks
-   * The file migration setting.
+   * 檔案遷移。
    * 
    * @example
    * off
@@ -828,7 +883,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   fileMigrate?: string;
   /**
    * @remarks
-   * The service address for the file transfer feature.
+   * 檔案傳輸功能的服務位址。
    * 
    * @example
    * filetransfer.example.com
@@ -836,7 +891,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   fileTransferAddress?: string;
   /**
    * @remarks
-   * The file size limit for a single transfer to the cloud desktop. This parameter must be used together with the inbound unit parameter.
+   * 單次傳入雲端電腦的檔案大小限制，需與傳入單位參數配合使用。
    * 
    * @example
    * 100
@@ -844,7 +899,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   fileTransferInSize?: string;
   /**
    * @remarks
-   * The unit for the file size limit of a single transfer to the cloud desktop.
+   * 單次傳入雲端電腦的檔案大小限制單位。
    * 
    * @example
    * MB
@@ -852,7 +907,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   fileTransferInUnit?: string;
   /**
    * @remarks
-   * The file size limit for a single transfer from the cloud desktop. This parameter must be used together with the outbound unit parameter.
+   * 單次從雲端電腦傳出的檔案大小限制，需與傳出單位參數配合使用。
    * 
    * @example
    * 100
@@ -860,7 +915,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   fileTransferOutSize?: string;
   /**
    * @remarks
-   * The unit for the file size limit of a single transfer from the cloud desktop.
+   * 單次從雲端電腦傳出的檔案大小限制單位。
    * 
    * @example
    * MB
@@ -868,9 +923,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   fileTransferOutUnit?: string;
   /**
    * @remarks
-   * Specifies whether to enable the file transfer size limit. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 檔案傳輸大小限制開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -878,7 +933,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   fileTransferSizeLimit?: string;
   /**
    * @remarks
-   * The file transfer speed level.
+   * 檔案傳輸速度檔位。
    * 
    * @example
    * default
@@ -886,20 +941,25 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   fileTransferSpeed?: string;
   /**
    * @remarks
-   * The location where the file transfer speed configured on the client takes effect.
+   * 用戶端設定的檔案傳輸速度生效位置。
    * 
    * @example
    * client
    */
   fileTransferSpeedLocation?: string;
   /**
+   * @remarks
+   * 檔案同步開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
+   * 
    * @example
    * off
    */
   folderSync?: string;
   /**
    * @remarks
-   * Indicates whether the image quality policy is enabled for GPU-accelerated cloud desktops. Enable this policy when high performance and user experience are required, such as in professional design scenarios.
+   * 是否為圖形型規格雲端電腦開啟畫質策略。對雲端電腦效能和使用體驗要求較高時，例如專業設計場景下，建議開啟該策略。
    * 
    * @example
    * off
@@ -907,9 +967,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   gpuAcceleration?: string;
   /**
    * @remarks
-   * Specifies whether to enable the configuration message notification on the floating ball. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 懸浮球設定訊息提示開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -917,9 +977,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   hoverConfigMsg?: string;
   /**
    * @remarks
-   * Specifies whether to enable the hibernate button on the floating ball. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 懸浮球休眠按鈕開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -927,9 +987,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   hoverHibernate?: string;
   /**
    * @remarks
-   * Specifies whether to enable the restart button on the floating ball. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 懸浮球重新啟動按鈕開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -937,9 +997,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   hoverRestart?: string;
   /**
    * @remarks
-   * Specifies whether to enable the shutdown button on the floating ball. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 懸浮球關機按鈕開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -947,7 +1007,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   hoverShutdown?: string;
   /**
    * @remarks
-   * The web client access policy.
+   * Web用戶端存取策略。
    * 
    * @example
    * off
@@ -955,7 +1015,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   html5Access?: string;
   /**
    * @remarks
-   * The web client file transfer policy.
+   * Web用戶端檔案傳輸策略。
    * 
    * @example
    * off
@@ -963,7 +1023,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The network communication protocol.
+   * 網路通訊協定。
    * 
    * @example
    * tcp
@@ -971,9 +1031,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   internetCommunicationProtocol?: string;
   /**
    * @remarks
-   * The network printer feature switch. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 網路印表機功能開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -981,9 +1041,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   internetPrinter?: string;
   /**
    * @remarks
-   * Specifies whether to enable keyboard control on the floating ball. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 懸浮球鍵盤控制開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -991,9 +1051,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   keyboardControl?: string;
   /**
    * @remarks
-   * Specifies whether to enable the KMS server. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * KMS 伺服器開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -1001,7 +1061,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   kmsServer?: string;
   /**
    * @remarks
-   * The KMS server configuration in the format of address:port.
+   * KMS 伺服器設定，格式為位址:連接埠。
    * 
    * @example
    * kms.example.com:1688
@@ -1009,7 +1069,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   kmsServerConfig?: string;
   /**
    * @remarks
-   * The local disk mapping permission.
+   * 本機磁碟映射權限。
    * 
    * @example
    * readwrite
@@ -1017,7 +1077,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   localDrive?: string;
   /**
    * @remarks
-   * The maximum reconnection retry time when the cloud desktop is disconnected due to external reasons. Valid values: 30 to 7200. Unit: seconds.
+   * 雲端電腦由於客觀原因造成中斷連線的最大連線重試時間。取值範圍：30\\~7200，單位：秒。
    * 
    * @example
    * 120
@@ -1025,7 +1085,17 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   maxReconnectTime?: number;
   /**
    * @remarks
-   * The memory downgrade duration of a single process. Valid values: 30 to 120. Unit: seconds.
+   * 開啟 MCP 服務。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
+   * 
+   * @example
+   * off
+   */
+  mcpService?: string;
+  /**
+   * @remarks
+   * 單個處理程序記憶體降頻時長，取值範圍： 30\\~120。單位：秒。
    * 
    * @example
    * 30
@@ -1033,9 +1103,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   memoryDownGradeDuration?: number;
   /**
    * @remarks
-   * Specifies whether to enable memory overload protection. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 記憶體負載保護開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -1043,12 +1113,12 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   memoryOverload?: string;
   /**
    * @remarks
-   * The process name.
+   * 處理程序名稱。
    */
   memoryProcessors?: string[];
   /**
    * @remarks
-   * The memory protection mode switch.
+   * 記憶體保護模式開關。
    * 
    * @example
    * off
@@ -1056,7 +1126,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   memoryProtectedMode?: string;
   /**
    * @remarks
-   * The overall memory usage percentage. Valid values: 70 to 90.
+   * 記憶體整體使用率百分比，取值範圍： 70\\~90。
    * 
    * @example
    * 70
@@ -1064,7 +1134,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   memoryRateLimit?: number;
   /**
    * @remarks
-   * The overall memory sampling duration. Valid values: 30 to 60. Unit: seconds.
+   * 記憶體整體取樣時長，取值範圍： 30\\~60。單位：秒。
    * 
    * @example
    * 30
@@ -1072,7 +1142,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   memorySampleDuration?: number;
   /**
    * @remarks
-   * The memory usage percentage of a single process. Valid values: 30 to 60.
+   * 單個處理程序記憶體使用率百分比，取值範圍： 30\\~60。
    * 
    * @example
    * 30
@@ -1080,9 +1150,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   memorySingleRateLimit?: number;
   /**
    * @remarks
-   * Specifies whether the restart button is provided in the cloud desktop floating ball when connecting to the cloud desktop from a mobile client (Android client<props="china"> and iOS client).
+   * 透過行動端（Android用戶端<props="china">和iOS用戶端）連線雲端電腦時，是否在雲端電腦懸浮球內提供重新啟動按鈕。
    * 
-   * > This applies only to mobile clients of V7.4 or later.
+   * > 僅適用於V7.4或更高版本的行動端。
    * 
    * @example
    * off
@@ -1090,7 +1160,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   mobileRestart?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Windows security control on mobile clients.
+   * 行動端Windows 安全性控制開關。
    * 
    * @example
    * off
@@ -1098,9 +1168,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   mobileSafeMenu?: string;
   /**
    * @remarks
-   * Specifies whether the shutdown button is provided in the cloud desktop floating ball when connecting to the cloud desktop from a mobile client (Android client<props="china"> and iOS client).
+   * 透過行動端（Android用戶端<props="china">和iOS用戶端）連線雲端電腦時，是否在雲端電腦懸浮球內提供關機按鈕。
    * 
-   * > This applies only to mobile clients of V7.4 or later.
+   * > 僅適用於V7.4或更高版本的行動端。
    * 
    * @example
    * off
@@ -1108,7 +1178,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   mobileShutdown?: string;
   /**
    * @remarks
-   * Specifies whether to enable WUYING Keeper on mobile clients.
+   * 行動端無影管家開關。
    * 
    * @example
    * off
@@ -1116,7 +1186,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   mobileWuyingKeeper?: string;
   /**
    * @remarks
-   * Specifies whether to enable the WUYING Assistant on mobile clients.
+   * 行動端小穎的開關。
    * 
    * @example
    * off
@@ -1124,9 +1194,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   mobileWyAssistant?: string;
   /**
    * @remarks
-   * Specifies whether to enable the model library feature. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 模型庫功能開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -1134,9 +1204,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   modelLibrary?: string;
   /**
    * @remarks
-   * Specifies whether to enable the multi-screen display feature. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 多螢幕顯示功能開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -1144,7 +1214,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   multiScreen?: string;
   /**
    * @remarks
-   * The policy name.
+   * 策略名稱。
    * 
    * @example
    * testPolicyGroupName
@@ -1152,9 +1222,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   name?: string;
   /**
    * @remarks
-   * The network redirection setting.
+   * 網路重新導向。
    * 
-   * > This feature is in invitational preview and is not publicly available.
+   * > 該功能處於定向邀測中，暫不對外開放。
    * 
    * @example
    * off
@@ -1162,17 +1232,17 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   netRedirect?: string;
   /**
    * @remarks
-   * The details of the network redirection policy.
+   * 網路重新導向策略詳細資訊。
    * 
-   * > This feature is in invitational preview and is not publicly available.
+   * > 該功能處於定向邀測中，暫不對外開放。
    * >
    */
   netRedirectRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule[];
   /**
    * @remarks
-   * The network printer feature switch. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 網路印表機功能開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -1180,8 +1250,8 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   networkPrinter?: string;
   /**
    * @remarks
-   * Specifies whether to disconnect the session when no operation is performed.
-   * > This applies only to cloud application policies.
+   * 無操作中斷連線。
+   * > 僅適用於雲端應用策略。
    * 
    * @example
    * off
@@ -1189,8 +1259,8 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   noOperationDisconnect?: string;
   /**
    * @remarks
-   * The idle disconnection duration. Unit: seconds.
-   * > This applies only to cloud application policies.
+   * 無操作中斷連線時長。單位：秒。
+   * > 僅適用於雲端應用策略。
    * 
    * @example
    * 120
@@ -1198,7 +1268,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   noOperationDisconnectTime?: number;
   /**
    * @remarks
-   * The number of associated organizations.
+   * 關聯的組織數量。
    * 
    * @example
    * 2
@@ -1206,7 +1276,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   organizationCount?: string;
   /**
    * @remarks
-   * The policy ID.
+   * 策略ID。
    * 
    * @example
    * pg-gx2x1dhsmthe9****
@@ -1214,7 +1284,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   policyGroupId?: string;
   /**
    * @remarks
-   * The policy type.
+   * 策略類型。
    * 
    * @example
    * SYSTEM
@@ -1222,7 +1292,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   policyGroupType?: string;
   /**
    * @remarks
-   * The status of the cloud desktop policy.
+   * 雲端電腦策略狀態。
    * 
    * @example
    * AVAILABLE
@@ -1230,9 +1300,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   policyStatus?: string;
   /**
    * @remarks
-   * Specifies whether to enable the port proxy feature. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 連接埠代理功能開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -1240,10 +1310,10 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   portProxy?: string;
   /**
    * @remarks
-   * The printer alert dialog setting. Valid values:
-   * - default: Default.
-   * - off: Disabled.
-   * - custom: Custom.
+   * 印表機彈出視窗提示。取值範圍：
+   * - default：預設值。
+   * - off：關閉。
+   * - custom：自訂。
    * 
    * @example
    * off
@@ -1251,7 +1321,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   printerAlert?: string;
   /**
    * @remarks
-   * The content of the printer alert dialog.
+   * 印表機彈出視窗提示內容。
    * 
    * @example
    * Print Content.
@@ -1259,7 +1329,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   printerAlertContent?: string;
   /**
    * @remarks
-   * The title of the printer alert dialog.
+   * 印表機彈出視窗提示標題。
    * 
    * @example
    * Print Title
@@ -1267,7 +1337,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   printerAlertTitle?: string;
   /**
    * @remarks
-   * The printer redirection policy.
+   * 印表機重新導向策略。
    * 
    * @example
    * off
@@ -1275,7 +1345,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   printerRedirection?: string;
   /**
    * @remarks
-   * Specifies whether image quality enhancement is enabled for design and 3D common scenarios.
+   * 設計及3D應用場景選擇是否開啟畫質增強。
    * 
    * @example
    * off
@@ -1283,7 +1353,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   qualityEnhancement?: string;
   /**
    * @remarks
-   * Indicates whether custom screen recording is enabled.
+   * 是否開啟自訂螢幕錄影。
    * 
    * @example
    * off
@@ -1291,7 +1361,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordContent?: string;
   /**
    * @remarks
-   * The expiration period of custom screen recording files. Default value: 30. Unit: days.
+   * 自訂螢幕錄影的檔案過期時間，預設30天。
    * 
    * @example
    * 30
@@ -1299,7 +1369,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordContentExpires?: number;
   /**
    * @remarks
-   * The screen recording duration after an event is detected in screen recording audit. Unit: minutes. Valid values: 10 to 60.
+   * 螢幕錄影稽核中偵測到事件發生後螢幕錄影的時長。單位：分鐘。取值範圍：10\\~60。
    * 
    * @example
    * 10
@@ -1307,17 +1377,17 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordEventDuration?: number;
   /**
    * @remarks
-   * The absolute paths for file monitoring in screen recording audit.
+   * 螢幕錄影稽核中的檔案監控絕對路徑。
    */
   recordEventFilePaths?: string[];
   /**
    * @remarks
-   * The absolute paths for registry monitoring in screen recording audit.
+   * 螢幕錄影稽核中的登錄檔監控絕對路徑。
    */
   recordEventRegisters?: string[];
   /**
    * @remarks
-   * Indicates whether screen recording is enabled.
+   * 是否開啟螢幕錄影。
    * 
    * @example
    * off
@@ -1325,7 +1395,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recording?: string;
   /**
    * @remarks
-   * The option for recording cloud desktop audio.
+   * 錄製雲端電腦聲音選項。
    * 
    * @example
    * on
@@ -1333,7 +1403,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingAudio?: string;
   /**
    * @remarks
-   * The duration of screen recording files, in minutes. Recording files are automatically split and uploaded to the storage space based on the specified duration. Files are rolled over when they reach 300 MB.
+   * 螢幕錄影檔案閱覽時長，單位為分鐘。錄製檔案會根據您設定的時長自動分割並上傳至儲存空間，檔案達到300MB時優先滾動更新。
    * 
    * @example
    * 10
@@ -1341,7 +1411,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingDuration?: number;
   /**
    * @remarks
-   * The end time of screen recording, in the format of HH:MM:SS. This response value is meaningful only when Recording is set to period.
+   * 螢幕錄影結束時間，取值：HH:MM:SS。只有Recording取值是period時，該傳回值有實際意義。
    * 
    * @example
    * 08:59:00
@@ -1349,7 +1419,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingEndTime?: string;
   /**
    * @remarks
-   * The retention period of screen recording files. Valid values: 1 to 180. Unit: days.
+   * 螢幕錄影檔案的保留時間。取值範圍為1\\~180天。
    * 
    * @example
    * 15
@@ -1357,7 +1427,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingExpires?: number;
   /**
    * @remarks
-   * The frame rate of screen recording. Unit: FPS (frames per second).
+   * 螢幕錄影幀率。單位：FPS（幀/秒）。
    * 
    * @example
    * 5
@@ -1365,7 +1435,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingFps?: number;
   /**
    * @remarks
-   * The start time of screen recording, in the format of HH:MM:SS. This response value is meaningful only when Recording is set to period.
+   * 螢幕錄影開始時間，取值：HH:MM:SS。只有Recording取值是period時，該傳回值有實際意義。
    * 
    * @example
    * 08:00:00
@@ -1373,7 +1443,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingStartTime?: string;
   /**
    * @remarks
-   * Indicates whether end users are notified that screen recording is enabled.
+   * 提示終端客戶已開啟螢幕錄影。
    * 
    * @example
    * off
@@ -1381,15 +1451,15 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingUserNotify?: string;
   /**
    * @remarks
-   * The notification message displayed to end users when screen recording is enabled.
+   * 提示終端客戶開啟螢幕錄影的資訊。
    * 
    * @example
-   * Screen recording is enabled
+   * 螢幕錄影已開啟
    */
   recordingUserNotifyMessage?: string;
   /**
    * @remarks
-   * The keyboard and mouse control permission for remote assistance.
+   * 遠端協助鍵盤與滑鼠控制權限。
    * 
    * @example
    * fullControl
@@ -1397,7 +1467,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   remoteCoordinate?: string;
   /**
    * @remarks
-   * The setting for resetting the cloud desktop.
+   * 重置雲端電腦。
    * 
    * @example
    * off
@@ -1405,7 +1475,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   resetDesktop?: string;
   /**
    * @remarks
-   * The DPI value of the screen resolution.
+   * 螢幕解析度的 DPI 值。
    * 
    * @example
    * 96
@@ -1413,7 +1483,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   resolutionDpi?: number;
   /**
    * @remarks
-   * The resolution height. Unit: pixels.
+   * 解析度的高度。單位：畫素。
    * 
    * @example
    * 1280
@@ -1421,7 +1491,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   resolutionHeight?: number;
   /**
    * @remarks
-   * The resolution type.
+   * 解析度類型。
    * 
    * @example
    * adaptive
@@ -1429,7 +1499,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   resolutionModel?: string;
   /**
    * @remarks
-   * The resolution width. Unit: pixels.
+   * 解析度的寬度。單位：畫素。
    * 
    * @example
    * 1920
@@ -1437,7 +1507,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   resolutionWidth?: number;
   /**
    * @remarks
-   * The number of resource groups associated with the policy.
+   * 已關聯該策略的資源群組數量。
    * 
    * @example
    * 1
@@ -1445,9 +1515,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   resourceGroupCount?: number;
   /**
    * @remarks
-   * The security center shortcut key switch. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 安全中心快速鍵開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -1455,7 +1525,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   safeMenu?: string;
   /**
    * @remarks
-   * The scope of the policy.
+   * 策略的生效範圍。
    * 
    * @example
    * GLOBAL
@@ -1463,12 +1533,12 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   scope?: string;
   /**
    * @remarks
-   * The CIDR block that the policy applies to.
+   * 生效的 CIDR Block。
    */
   scopeValue?: string[];
   /**
    * @remarks
-   * The screen display mode.
+   * 螢幕顯示模式。
    * 
    * @example
    * auto
@@ -1476,7 +1546,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   screenDisplayMode?: string;
   /**
    * @remarks
-   * Specifies whether smoothness enhancement is enabled for daily office scenarios.
+   * 日常辦公場景選擇，是否開啟平滑度增強。
    * 
    * @example
    * off
@@ -1484,7 +1554,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   smoothEnhancement?: string;
   /**
    * @remarks
-   * Specifies whether the status monitoring entry is provided in the cloud desktop floating ball.
+   * 是否在雲端電腦懸浮球內提供狀態監控功能入口。
    * 
    * @example
    * on
@@ -1492,7 +1562,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   statusMonitor?: string;
   /**
    * @remarks
-   * The streaming mode adaptation scenario.
+   * 串流模式適配場景。
    * 
    * @example
    * smooth
@@ -1500,7 +1570,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   streamingMode?: string;
   /**
    * @remarks
-   * The target frame rate. Valid values: 10 to 60.
+   * 目標幀率，取值範圍：10\\~60。
    * 
    * @example
    * 30
@@ -1508,8 +1578,8 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   targetFps?: number;
   /**
    * @remarks
-   * The application taskbar.
-   * > This applies only to cloud application policies.
+   * 應用程式工作列。
+   * > 僅適用於雲端應用程式策略。
    * 
    * @example
    * off
@@ -1517,9 +1587,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   taskbar?: string;
   /**
    * @remarks
-   * Specifies whether to enable the three-screen feature. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 三螢幕開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -1527,7 +1597,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   threeScreen?: string;
   /**
    * @remarks
-   * The USB redirection setting.
+   * USB 重新導向。
    * 
    * @example
    * off
@@ -1535,14 +1605,14 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   usbRedirect?: string;
   /**
    * @remarks
-   * The USB redirection rules.
+   * USB 重新導向規則。
    */
   usbSupplyRedirectRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule[];
   /**
    * @remarks
-   * Specifies whether to display the usage duration on the floating ball. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 懸浮球使用時長顯示開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -1550,7 +1620,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   useTime?: string;
   /**
    * @remarks
-   * The average bitrate for video encoding. Unit: Kbps. Valid values: 1000 to 50000.
+   * 影片編碼平均位元率。單位：Kbps。取值範圍：1000\\~50000。
    * 
    * @example
    * 1000
@@ -1558,7 +1628,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   videoEncAvgKbps?: number;
   /**
    * @remarks
-   * The maximum QP for video encoding, which represents the lowest quality. Valid values: 0 to 51.
+   * 影片編碼最大 QP，畫面最低品質，取值範圍：0\\~51。
    * 
    * @example
    * 20
@@ -1566,7 +1636,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   videoEncMaxQP?: number;
   /**
    * @remarks
-   * The minimum QP for video encoding, which represents the highest quality. Valid values: 0 to 51.
+   * 影片編碼最小 QP，最高品質。取值範圍：0\\~51。
    * 
    * @example
    * 20
@@ -1574,7 +1644,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   videoEncMinQP?: number;
   /**
    * @remarks
-   * The peak bitrate for video encoding. Unit: Kbps. Valid values: 1000 to 50000.
+   * 影片編碼峰值位元率。單位：Kbps。取值範圍：1000~50000。
    * 
    * @example
    * 2000
@@ -1582,7 +1652,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   videoEncPeakKbps?: number;
   /**
    * @remarks
-   * The video encoding policy.
+   * 影片編碼策略。
    * 
    * @example
    * qualityFirst
@@ -1590,7 +1660,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   videoEncPolicy?: string;
   /**
    * @remarks
-   * The multimedia redirection setting.
+   * 多媒體重新導向。
    * 
    * @example
    * off
@@ -1598,7 +1668,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   videoRedirect?: string;
   /**
    * @remarks
-   * The image display quality policy.
+   * 影像顯示品質策略。
    * 
    * @example
    * medium
@@ -1606,7 +1676,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   visualQuality?: string;
   /**
    * @remarks
-   * The watermark setting.
+   * 浮水印。
    * 
    * @example
    * on
@@ -1614,7 +1684,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermark?: string;
   /**
    * @remarks
-   * The invisible watermark anti-camera capture feature.
+   * 隱藏式浮水印防拍照功能。
    * 
    * @example
    * off
@@ -1622,7 +1692,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkAntiCam?: string;
   /**
    * @remarks
-   * The watermark font color. Valid values: 0 to 16777215.
+   * 浮水印字型顏色。取值範圍：0\\~16777215。
    * 
    * @example
    * 0
@@ -1630,7 +1700,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkColor?: number;
   /**
    * @remarks
-   * If the `WatermarkType` parameter is set to `custom`, you must also specify the custom text content by using the `WatermarkCustomText` parameter.
+   * 若參數 `WatermarkType` 傳入 `custom`，則必須同時透過參數 `WatermarkCustomText` 傳入自訂文字的內容。
    * 
    * @example
    * custom-watermark
@@ -1638,7 +1708,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkCustomText?: string;
   /**
    * @remarks
-   * The watermark tilt angle. Valid values: -10 to -30.
+   * 浮水印傾斜度。取值範圍：-10\\~-30。
    * 
    * @example
    * -10
@@ -1646,7 +1716,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkDegree?: number;
   /**
    * @remarks
-   * The watermark font size. Valid values: 10 to 20.
+   * 浮水印字型大小。取值範圍：10\\~20。
    * 
    * @example
    * 10
@@ -1654,7 +1724,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkFontSize?: number;
   /**
    * @remarks
-   * The watermark font style.
+   * 浮水印字型樣式。
    * 
    * @example
    * plain
@@ -1662,7 +1732,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkFontStyle?: string;
   /**
    * @remarks
-   * The invisible watermark enhancement feature.
+   * 隱藏式浮水印增強功能。
    * 
    * @example
    * medium
@@ -1670,7 +1740,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkPower?: string;
   /**
    * @remarks
-   * The number of watermark rows.
+   * 浮水印行數。
    * 
    * @example
    * 3
@@ -1678,7 +1748,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkRowAmount?: number;
   /**
    * @remarks
-   * The invisible watermark security-first rule.
+   * 隱藏式浮水印安全優先規則。
    * 
    * @example
    * on
@@ -1686,9 +1756,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkSecurity?: string;
   /**
    * @remarks
-   * Specifies whether to enable the watermark shadow effect. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * 浮水印陰影效果開關。取值範圍：
+   * - on：開啟。
+   * - off：關閉。
    * 
    * @example
    * off
@@ -1696,7 +1766,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkShadow?: string;
   /**
    * @remarks
-   * The watermark transparency. A larger value indicates lower transparency. Valid values: 10 to 100.
+   * 浮水印透明度，值越大，透明度越小。取值範圍：10\\~100。
    * 
    * @example
    * 10
@@ -1704,7 +1774,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkTransparencyValue?: number;
   /**
    * @remarks
-   * The watermark type.
+   * 浮水印類型。
    * 
    * @example
    * EndUserId
@@ -1712,7 +1782,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkType?: string;
   /**
    * @remarks
-   * Specifies whether to enable WUYING Keeper.
+   * 無影管家開關。
    * 
    * @example
    * off
@@ -1720,7 +1790,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   wuyingKeeper?: string;
   /**
    * @remarks
-   * Specifies whether the WUYING AI Assistant entry is provided in the cloud desktop floating ball.
+   * 是否在雲端電腦懸浮球內提供無影 AI 助手功能入口。
    * 
    * @example
    * on
@@ -1734,9 +1804,11 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       adminKeyboardOnWindows: 'AdminKeyboardOnWindows',
       adminMonitor: 'AdminMonitor',
       appContentProtection: 'AppContentProtection',
+      appScreenshotBuckets: 'AppScreenshotBuckets',
       authorizeAccessPolicyRules: 'AuthorizeAccessPolicyRules',
       authorizeSecurityPolicyRules: 'AuthorizeSecurityPolicyRules',
       autoReconnect: 'AutoReconnect',
+      autoSaveAppScreenshot: 'AutoSaveAppScreenshot',
       cameraRedirect: 'CameraRedirect',
       clientControlMenu: 'ClientControlMenu',
       clientCreateSnapshot: 'ClientCreateSnapshot',
@@ -1794,6 +1866,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       kmsServerConfig: 'KmsServerConfig',
       localDrive: 'LocalDrive',
       maxReconnectTime: 'MaxReconnectTime',
+      mcpService: 'McpService',
       memoryDownGradeDuration: 'MemoryDownGradeDuration',
       memoryOverload: 'MemoryOverload',
       memoryProcessors: 'MemoryProcessors',
@@ -1891,9 +1964,11 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       adminKeyboardOnWindows: 'string',
       adminMonitor: 'number',
       appContentProtection: 'string',
+      appScreenshotBuckets: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAppScreenshotBuckets },
       authorizeAccessPolicyRules: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules },
       authorizeSecurityPolicyRules: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules },
       autoReconnect: 'string',
+      autoSaveAppScreenshot: 'string',
       cameraRedirect: 'string',
       clientControlMenu: 'string',
       clientCreateSnapshot: 'string',
@@ -1951,6 +2026,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       kmsServerConfig: 'string',
       localDrive: 'string',
       maxReconnectTime: 'number',
+      mcpService: 'string',
       memoryDownGradeDuration: 'number',
       memoryOverload: 'string',
       memoryProcessors: { 'type': 'array', 'itemType': 'string' },
@@ -2041,6 +2117,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   }
 
   validate() {
+    if(Array.isArray(this.appScreenshotBuckets)) {
+      $dara.Model.validateArray(this.appScreenshotBuckets);
+    }
     if(Array.isArray(this.authorizeAccessPolicyRules)) {
       $dara.Model.validateArray(this.authorizeAccessPolicyRules);
     }
@@ -2091,12 +2170,12 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
 export class DescribeCenterPolicyListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the cloud desktop policies.
+   * 雲端電腦原則的詳細資訊。
    */
   describePolicyGroups?: DescribeCenterPolicyListResponseBodyDescribePolicyGroups[];
   /**
    * @remarks
-   * The request ID.
+   * 請求 ID。
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -2104,7 +2183,7 @@ export class DescribeCenterPolicyListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of query results.
+   * 查詢結果總數。
    * 
    * @example
    * 20

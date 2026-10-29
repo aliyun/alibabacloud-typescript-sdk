@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTimerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration group ID.
+   * The ID of the configuration group.
    * 
    * @example
    * cg-i1ruuudp92qpj****
@@ -13,7 +13,7 @@ export class ModifyTimerGroupResponseBody extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

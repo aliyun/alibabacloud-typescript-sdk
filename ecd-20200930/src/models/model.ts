@@ -11,6 +11,7 @@ export { BindConfigGroupRequestResourceInfos } from './BindConfigGroupRequest';
 export { CopyCdsFileResponseBodyCopyCdsFileModel } from './CopyCdsFileResponseBody';
 export { CreateADConnectorDirectoryResponseBodyAdConnectors } from './CreateAdconnectorDirectoryResponseBody';
 export { CreateCdsFileResponseBodyFileModel } from './CreateCdsFileResponseBody';
+export { CreateCenterPolicyRequestAppScreenshotBuckets } from './CreateCenterPolicyRequest';
 export { CreateCenterPolicyRequestAuthorizeAccessPolicyRule } from './CreateCenterPolicyRequest';
 export { CreateCenterPolicyRequestAuthorizeSecurityPolicyRule } from './CreateCenterPolicyRequest';
 export { CreateCenterPolicyRequestClientType } from './CreateCenterPolicyRequest';
@@ -64,6 +65,7 @@ export { DescribeBundlesResponseBodyBundles } from './DescribeBundlesResponseBod
 export { DescribeCensResponseBodyCensPackageIds } from './DescribeCensResponseBody';
 export { DescribeCensResponseBodyCensTags } from './DescribeCensResponseBody';
 export { DescribeCensResponseBodyCens } from './DescribeCensResponseBody';
+export { DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAppScreenshotBuckets } from './DescribeCenterPolicyListResponseBody';
 export { DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules } from './DescribeCenterPolicyListResponseBody';
 export { DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules } from './DescribeCenterPolicyListResponseBody';
 export { DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes } from './DescribeCenterPolicyListResponseBody';
@@ -161,6 +163,7 @@ export { DescribeOfficeSitesResponseBodyOfficeSitesLogs } from './DescribeOffice
 export { DescribeOfficeSitesResponseBodyOfficeSitesResourceAmounts } from './DescribeOfficeSitesResponseBody';
 export { DescribeOfficeSitesResponseBodyOfficeSites } from './DescribeOfficeSitesResponseBody';
 export { DescribePeripheralDriversResponseBodyDriverInfos } from './DescribePeripheralDriversResponseBody';
+export { DescribePolicyGroupsResponseBodyDescribePolicyGroupsAppScreenshotBuckets } from './DescribePolicyGroupsResponseBody';
 export { DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules } from './DescribePolicyGroupsResponseBody';
 export { DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules } from './DescribePolicyGroupsResponseBody';
 export { DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes } from './DescribePolicyGroupsResponseBody';
@@ -247,6 +250,7 @@ export { ListTransferFileDownloadUrlResponseBodyUrls } from './ListTransferFileD
 export { ListTransferFilesResponseBodyFiles } from './ListTransferFilesResponseBody';
 export { ListUserAdOrganizationUnitsResponseBodyOUNames } from './ListUserAdOrganizationUnitsResponseBody';
 export { ListVirtualBridgesResponseBodyBridges } from './ListVirtualBridgesResponseBody';
+export { ModifyCenterPolicyRequestAppScreenshotBuckets } from './ModifyCenterPolicyRequest';
 export { ModifyCenterPolicyRequestAuthorizeAccessPolicyRule } from './ModifyCenterPolicyRequest';
 export { ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule } from './ModifyCenterPolicyRequest';
 export { ModifyCenterPolicyRequestClientType } from './ModifyCenterPolicyRequest';

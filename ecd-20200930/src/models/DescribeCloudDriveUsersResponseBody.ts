@@ -29,7 +29,7 @@ export class DescribeCloudDriveUsersResponseBodyCloudDriveUsers extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * Maximum storage capacity for the user’s personal drive, in bytes.
+   * The maximum storage capacity of the user personal drive. Unit: bytes.
    * 
    * @example
    * 104857600
@@ -37,7 +37,7 @@ export class DescribeCloudDriveUsersResponseBodyCloudDriveUsers extends $dara.Mo
   totalSize?: number;
   /**
    * @remarks
-   * The used storage space, in bytes.
+   * The size of the used storage space. Unit: bytes.
    * 
    * @example
    * 10485760
@@ -95,12 +95,12 @@ export class DescribeCloudDriveUsersResponseBodyCloudDriveUsers extends $dara.Mo
 export class DescribeCloudDriveUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of user personal drives.
+   * The list of user personal drives.
    */
   cloudDriveUsers?: DescribeCloudDriveUsersResponseBodyCloudDriveUsers[];
   /**
    * @remarks
-   * The token for the next page of results. An empty value indicates that all results have been returned.
+   * The pagination token for the next query. If `NextToken` is empty, no more results are available.
    * 
    * @example
    * aGN4YzAxQGNuLWhhbmd6aG91LjExNzU5NTMyNjgzMTQ1****

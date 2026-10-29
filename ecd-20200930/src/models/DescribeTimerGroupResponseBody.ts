@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends $dara.Model {
   /**
    * @remarks
-   * The appointment timer used for executing scheduled tasks at specified time points. After this parameter is specified, the scheduled task is executed at the specified time points.
+   * Specifies the time to execute the scheduled task. After this parameter is specified, the scheduled task is executed at the specified time.
    * 
    * @example
    * 1764660600967
@@ -18,7 +18,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   createSnapshot?: boolean;
   /**
    * @remarks
-   * The cron expression for the end time of the scheduled task.
+   * The cron expression for ending the execution of the scheduled task.
    * 
    * @example
    * 0 0 18 ? * 1-5
@@ -26,12 +26,12 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   endCronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to forcefully execute the task. A value of true indicates that the desktop and connection status checks are ignored and the scheduled task is forcefully executed.
+   * Specifies whether to forcibly execute the task. A value of true indicates that the scheduled task is forcibly executed, ignoring the desktop and connection status checks.
    */
   enforce?: boolean;
   /**
    * @remarks
-   * The image ID specified for the image change scheduled task.
+   * Specifies the ID of the image to be replaced. This parameter is used for scheduled image replacement tasks.
    * 
    * @example
    * m-5b0vjqbiqu010XXXXXX
@@ -39,7 +39,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   imageId?: string;
   /**
    * @remarks
-   * The time interval. Unit: minutes.
+   * The time interval, in minutes.
    * 
    * @example
    * 10
@@ -52,7 +52,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   ipSegments?: string[];
   /**
    * @remarks
-   * The duration of inactivity before the screen is locked, used by the no-operation lock screen feature. Unit: minutes. Only AD-joined cloud desktops are supported.
+   * Specifies the duration of inactivity before the screen is locked, in minutes. This parameter is used for the no-operation lock screen feature and is supported only by AD cloud desktops.
    * 
    * @example
    * 5
@@ -60,7 +60,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   lockScreenTime?: number;
   /**
    * @remarks
-   * The advance notification time before the scheduled task is executed. Unit: seconds.
+   * The advance notification time before the scheduled task is executed, in seconds.
    * 
    * @example
    * 300
@@ -68,7 +68,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   notificationTime?: number;
   /**
    * @remarks
-   * The operation type of the scheduled task. Currently, only disconnect scheduled tasks are supported.
+   * The operation type of the scheduled task. Currently, only disconnection scheduled tasks are supported.
    * 
    * @example
    * Shutdown
@@ -84,12 +84,12 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   patchId?: string;
   /**
    * @remarks
-   * The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
+   * The process whitelist for the intelligent evaluation of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
    */
   processWhitelist?: string[];
   /**
    * @remarks
-   * The reset type, which determines whether to reset and the scope of cloud disks to reset.
+   * The reset type, which determines whether to reset and the scope of cloud disks to be reset.
    * 
    * @example
    * 1
@@ -97,7 +97,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   resetType?: string;
   /**
    * @remarks
-   * The cron expression for the start time of the scheduled task.
+   * The cron expression for starting the execution of the scheduled task.
    * 
    * @example
    * 0 0 8 ? * 1-5
@@ -105,7 +105,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   startCronExpression?: string;
   /**
    * @remarks
-   * The execution order number of the timer.
+   * The execution sequence number of the timer.
    * 
    * @example
    * 1
@@ -121,7 +121,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   timezone?: string;
   /**
    * @remarks
-   * The trigger configuration type of the no-operation scheduled task.
+   * The trigger configuration type for no-operation scheduled tasks.
    * 
    * @example
    * Standard
@@ -129,7 +129,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   triggerType?: string;
   /**
    * @remarks
-   * The advance notification time before verification is executed. Unit: seconds.
+   * The advance notification time before execution verification, in seconds.
    * 
    * @example
    * 300
@@ -137,7 +137,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   verificationNotificationTime?: number;
   /**
    * @remarks
-   * The verification wait duration. Unit: seconds.
+   * The verification wait duration, in seconds.
    * 
    * @example
    * 600
@@ -209,7 +209,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
 export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether end users are allowed to configure scheduled tasks on their own.
+   * Specifies whether end users are allowed to configure scheduled tasks.
    * 
    * @example
    * true
@@ -225,7 +225,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
   cronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to forcefully execute the task. A value of true indicates that the desktop and connection status checks are ignored and the scheduled task is forcefully executed.
+   * Specifies whether to forcibly execute the task. A value of true indicates that the scheduled task is forcibly executed, ignoring the desktop and connection status checks.
    * 
    * @example
    * false
@@ -233,7 +233,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
   enforce?: boolean;
   /**
    * @remarks
-   * The time interval. Unit: minutes.
+   * The time interval, in minutes.
    * 
    * @example
    * 10
@@ -241,7 +241,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
   interval?: number;
   /**
    * @remarks
-   * The advance notification time before the scheduled task is executed. Unit: seconds.
+   * The advance notification time before the scheduled task is executed, in seconds.
    * 
    * @example
    * 300
@@ -249,7 +249,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
   notificationTime?: number;
   /**
    * @remarks
-   * The type of the disconnect scheduled task.
+   * The type of the disconnection scheduled task.
    * 
    * @example
    * Shutdown
@@ -257,12 +257,12 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
   operationType?: string;
   /**
    * @remarks
-   * The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
+   * The process whitelist for the intelligent evaluation of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
    */
   processWhitelist?: string[];
   /**
    * @remarks
-   * The reset type of the reset scheduled task.
+   * The reset type for the scheduled reset task.
    * 
    * @example
    * RESET_TYPE_SYSTEM
@@ -283,7 +283,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
   timerType?: string;
   /**
    * @remarks
-   * The trigger configuration type of the no-operation scheduled task.
+   * The trigger configuration type for no-operation scheduled tasks.
    * 
    * @example
    * Standard
@@ -347,12 +347,12 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   bindCount?: number;
   /**
    * @remarks
-   * The quantity information of resources bound to the configuration.
+   * The information about the number of resources bound to the configuration.
    */
   bindCountMap?: { [key: string]: number };
   /**
    * @remarks
-   * The configuration information of scheduled tasks. This is a list structure.
+   * The configuration information of scheduled tasks.
    */
   configTimers?: DescribeTimerGroupResponseBodyDataConfigTimers[];
   /**
@@ -360,7 +360,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
    * The description of the configuration group.
    * 
    * @example
-   * ScheduledTask
+   * Scheduled task
    */
   description?: string;
   /**
@@ -373,7 +373,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The code of the system scheduled task description, used for frontend display.
+   * Used for frontend display. The description of the system scheduled task uses a code.
    * 
    * @example
    * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE_DESC
@@ -381,7 +381,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   innerTimerDesc?: string;
   /**
    * @remarks
-   * The mapping code of the system scheduled task name, used for frontend display.
+   * Used for frontend display. The name mapping of the system scheduled task uses a code.
    * 
    * @example
    * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE
@@ -389,12 +389,12 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   innerTimerName?: string;
   /**
    * @remarks
-   * Used for system scheduled task check. The current scheduled task does not support unbinding or binding.
+   * Used for system scheduled task checks. The current scheduled task cannot be bound or unbound.
    */
   isBind?: boolean;
   /**
    * @remarks
-   * Used for system scheduled task check. The current scheduled task does not support modification.
+   * Used for system scheduled task checks. The current scheduled task cannot be modified.
    */
   isUpdate?: boolean;
   /**
@@ -402,7 +402,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
    * The name of the configuration group.
    * 
    * @example
-   * ScheduledTask
+   * Scheduled task
    */
   name?: string;
   /**
@@ -423,7 +423,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the configuration group.
+   * The configuration group type.
    * 
    * @example
    * Timer

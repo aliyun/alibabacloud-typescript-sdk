@@ -58,7 +58,7 @@ export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList exten
   cpu?: number;
   /**
    * @remarks
-   * The target cloud desktop specification. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the specification IDs supported by WUYING Workspace.
+   * The target cloud desktop type. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the IDs of cloud desktop types supported by WUYING Workspace.
    * 
    * @example
    * eds.enterprise_office.8c32g
@@ -178,7 +178,7 @@ export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList exten
   resourceType?: string;
   /**
    * @remarks
-   * The status of the resource.
+   * The resource status.
    * 
    * @example
    * Stopped
@@ -245,7 +245,7 @@ export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList exten
 export class DescribeResourceByCenterPolicyIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total count.
+   * The total number of entries.
    * 
    * @example
    * 2
@@ -253,7 +253,7 @@ export class DescribeResourceByCenterPolicyIdResponseBody extends $dara.Model {
   count?: string;
   /**
    * @remarks
-   * The token for the next query. If NextToken is empty, no more results are available.
+   * The token that is used to start the next query. If NextToken is empty, no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

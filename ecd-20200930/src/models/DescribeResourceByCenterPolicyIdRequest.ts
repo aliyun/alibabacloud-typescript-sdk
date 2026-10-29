@@ -16,7 +16,7 @@ export class DescribeResourceByCenterPolicyIdRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query.
+   * The token that is used to start the next query.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6l69tQX7yFxx6/4dbooBAOc
@@ -48,6 +48,14 @@ export class DescribeResourceByCenterPolicyIdRequest extends $dara.Model {
    * ecd-ia2zw38bi6cm7****
    */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource name.
+   * 
+   * @example
+   * testName
+   */
+  resourceName?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
@@ -55,6 +63,7 @@ export class DescribeResourceByCenterPolicyIdRequest extends $dara.Model {
       policyGroupId: 'PolicyGroupId',
       productType: 'ProductType',
       resourceId: 'ResourceId',
+      resourceName: 'ResourceName',
     };
   }
 
@@ -65,6 +74,7 @@ export class DescribeResourceByCenterPolicyIdRequest extends $dara.Model {
       policyGroupId: 'string',
       productType: 'string',
       resourceId: 'string',
+      resourceName: 'string',
     };
   }
 
