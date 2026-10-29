@@ -15,7 +15,7 @@ export class ListCustomAgentsResponseBodyItemsArtifactCode extends $dara.Model {
   entrypoint?: string;
   /**
    * @remarks
-   * The identifier of the code runtime environment in the currently saved configuration. The runtime image uses a saved snapshot. Adding a new version to the directory does not automatically change the existing configuration.
+   * The identifier of the code runtime environment in the currently saved configuration. The runtime image uses the saved snapshot. Adding a new version to the directory does not automatically change the existing configuration.
    * 
    * This parameter is required.
    * 
@@ -69,9 +69,7 @@ export class ListCustomAgentsResponseBodyItemsArtifactContainer extends $dara.Mo
   entrypoint?: string;
   /**
    * @remarks
-   * The ID of the Container Registry Enterprise instance.
-   * 
-   * This parameter is required.
+   * The ID of the ACR Enterprise instance.
    * 
    * @example
    * cri-example
@@ -79,9 +77,7 @@ export class ListCustomAgentsResponseBodyItemsArtifactContainer extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The namespace of the Container Registry instance.
-   * 
-   * This parameter is required.
+   * The ACR namespace.
    * 
    * @example
    * team
@@ -89,9 +85,7 @@ export class ListCustomAgentsResponseBodyItemsArtifactContainer extends $dara.Mo
   namespace?: string;
   /**
    * @remarks
-   * The name of the Container Registry image repository.
-   * 
-   * This parameter is required.
+   * The name of the ACR image repository.
    * 
    * @example
    * app
@@ -99,9 +93,7 @@ export class ListCustomAgentsResponseBodyItemsArtifactContainer extends $dara.Mo
   repo?: string;
   /**
    * @remarks
-   * The tag of the image.
-   * 
-   * This parameter is required.
+   * The image tag.
    * 
    * @example
    * v1
@@ -315,7 +307,7 @@ export class ListCustomAgentsResponseBodyItemsProtocolPaths extends $dara.Model 
 export class ListCustomAgentsResponseBodyItemsProtocol extends $dara.Model {
   /**
    * @remarks
-   * The request header configuration for the current protocol. The key is the header name and the value is a string.
+   * The request header configuration of the current protocol. The key is the header name and the value is a string.
    */
   headers?: { [key: string]: string };
   /**
@@ -325,7 +317,10 @@ export class ListCustomAgentsResponseBodyItemsProtocol extends $dara.Model {
   paths?: ListCustomAgentsResponseBodyItemsProtocolPaths[];
   /**
    * @remarks
-   * The invoke Protocol Type. Valid values: agui (AG-UI protocol), openai-chat-completion (OpenAI Chat Completions compatible protocol), and custom (custom protocol).
+   * The invoke Protocol Type. Valid values:
+   * - agui: AG-UI protocol.
+   * - openai-chat-completion: OpenAI Chat Completions compatible protocol.
+   * - custom: Custom protocol.
    * 
    * This parameter is required.
    * 
@@ -446,7 +441,14 @@ export class ListCustomAgentsResponseBodyItems extends $dara.Model {
   runtime?: string;
   /**
    * @remarks
-   * The overall status of the agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted. To query the execution progress of the latest configuration, call the GetCustomAgent operation.
+   * The overall status of the agent. Valid values:
+   * - Creating: The agent is being created.
+   * - Running: The agent is running.
+   * - Failed: The agent failed.
+   * - Updating: The agent is being updated.
+   * - Deleting: The agent is being deleted.
+   * - Deleted: The agent is deleted.
+   * To query the execution progress of the latest configuration, call the GetCustomAgent operation.
    * 
    * @example
    * Running
@@ -527,7 +529,7 @@ export class ListCustomAgentsResponseBodyItems extends $dara.Model {
 export class ListCustomAgentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request result code. The value is SUCCESS when the request is successful.
+   * The request result code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -535,7 +537,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code of the current request. The value is 200 when the request is successful.
+   * The HTTP status code of the request. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -556,7 +558,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The message that describes the processing result of the request. The value is success if the request succeeds.
+   * The message that describes the result of the request. The value is success if the request is successful.
    * 
    * @example
    * success
@@ -564,7 +566,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The opaque token used to query the next page. An empty value indicates that no more pages exist. Pass this token as is in subsequent requests.
+   * The opaque token used to query the next page. An empty value indicates that no more pages are available. Pass this token as-is in subsequent requests.
    * 
    * @example
    * djE6YWdlbnRjb3JlLmFnZW50Lmxpc3QuY3VzdG9tOjIw
@@ -572,7 +574,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique identifier of the request, used to locate and troubleshoot issues.
+   * The unique identifier of the request. You can use this ID to locate and troubleshoot issues.
    * 
    * @example
    * 550E8400-E29B-41D4-A716-446655440000
@@ -580,7 +582,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was processed successfully. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operation is complete.
+   * Indicates whether the request was processed successfully. A value of true indicates that the request was successful. A successful creation, update, or deletion response does not mean that the background operation is complete.
    */
   success?: boolean;
   /**

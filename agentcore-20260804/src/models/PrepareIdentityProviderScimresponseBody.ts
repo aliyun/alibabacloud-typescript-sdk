@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PrepareIdentityProviderSCIMResponseBodyDataConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The URL configured for the external provisioning system. The presence of a URL does not indicate that the external configuration is completed or that AC synchronization is enabled.
+   * The URL configured for the external provisioning system. The presence of a URL does not indicate that the external configuration is completed or that access control synchronization is enabled.
    * 
    * @example
    * https://example.com/scim/v2
@@ -13,7 +13,7 @@ export class PrepareIdentityProviderSCIMResponseBodyDataConfiguration extends $d
   baseUrl?: string;
   /**
    * @remarks
-   * The AgentIdentity receiving status. Enabled indicates that SCIM receiving is enabled, and Disabled indicates that it is disabled. This status is not equivalent to the expected value of syncEnabled in AC.
+   * The receiving status of AgentIdentity. Enabled indicates that SCIM receiving is enabled, and Disabled indicates that it is disabled. This status is not equivalent to the expected value of syncEnabled for access control.
    * 
    * @example
    * Enabled
@@ -69,7 +69,7 @@ export class PrepareIdentityProviderSCIMResponseBodyDataCredential extends $dara
   expireTime?: string;
   /**
    * @remarks
-   * The AgentIdentity credential status. Only credentials that are in the Enabled state and have not expired are considered available. This field is not the operationStatus of a SCIM task.
+   * The credential status of AgentIdentity. Only credentials that are in the Enabled state and have not expired are considered available. This field is not the operationStatus of a SCIM task.
    * 
    * @example
    * Enabled
@@ -105,17 +105,17 @@ export class PrepareIdentityProviderSCIMResponseBodyDataCredential extends $dara
 export class PrepareIdentityProviderSCIMResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AgentIdentity receiving configuration. The actual SAML configuration is read on demand only by calling GetIdentityProvider. SCIM query and prepare operations return the actual receiving status and URL.
+   * The actual SAML configuration is read on demand only by using GetIdentityProvider. SCIM query and prepare operations return the actual receiving status and URL.
    */
   configuration?: PrepareIdentityProviderSCIMResponseBodyDataConfiguration;
   /**
    * @remarks
-   * The current credential summary, including credentialId, status, createTime, and expireTime. It does not include the repeatedly retrievable token.
+   * The current credential summary, which includes the credentialId, status, createTime, and expireTime fields. This summary does not include the token.
    */
   credential?: PrepareIdentityProviderSCIMResponseBodyDataCredential;
   /**
    * @remarks
-   * The plaintext token returned only when a new credential is created. If the prepare operation reuses a valid credential, this value is null. The token cannot be retrieved again from the list. If the response is lost, query the list first. The token is not automatically reissued. Do not write the token to logs or persistent frontend caches.
+   * The plaintext token is returned only when a new credential is created. If the prepare operation reuses a valid credential, this field is null. The token cannot be retrieved again from the list. If the response is lost, query the list first instead of automatically reissuing the token. Do not write the token to logs or persist it in frontend caches.
    * 
    * @example
    * example-scim-token
@@ -163,12 +163,12 @@ export class PrepareIdentityProviderSCIMResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The operation result. For the result structure, see the response fields of this API operation. For asynchronous write API operations, the response indicates that the request is accepted and does not guarantee that the background task is completed.
+   * The operation result. For the result structure, see the response fields of this API. For asynchronous write APIs, the response indicates that the request is accepted, but does not guarantee that the background task is completed.
    */
   data?: PrepareIdentityProviderSCIMResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code of the current request. This code indicates the processing status of the request and is not equivalent to the final result of the background task.
+   * The processing status of the current request. This status is not equivalent to the final result of the background task.
    * 
    * @example
    * 200
@@ -176,7 +176,7 @@ export class PrepareIdentityProviderSCIMResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The result message, which indicates that the request is accepted or contains an error message. For asynchronous tasks, check the task result by calling the corresponding query API operation.
+   * The request acceptance or error message. For asynchronous tasks, you must check the task result by using the corresponding query API.
    * 
    * @example
    * success
@@ -192,7 +192,7 @@ export class PrepareIdentityProviderSCIMResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the current request is successful. A value of true indicates that the request is processed successfully. For asynchronous write operations, you must continue to query the task result.
+   * Indicates whether the current request is processed successfully. A value of true indicates success. For asynchronous write operations, you must continue to query the task result.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class CreateCustomAgentResponseBodyDataAgenticFsMounts extends $dara.Mode
   mountPath?: string;
   /**
    * @remarks
-   * The relative directory within the mounted access point.
+   * The relative directory in the mounted access point.
    * 
    * @example
    * workspace/data
@@ -23,7 +23,7 @@ export class CreateCustomAgentResponseBodyDataAgenticFsMounts extends $dara.Mode
    * @remarks
    * Specifies whether the mount is read-only. Valid values:
    * - true: Read-only.
-   * - false: Readable and writable.
+   * - false: Read and write.
    * 
    * @example
    * false
@@ -67,7 +67,7 @@ export class CreateCustomAgentResponseBodyDataAgenticFsMounts extends $dara.Mode
 export class CreateCustomAgentResponseBodyDataArtifactCode extends $dara.Model {
   /**
    * @remarks
-   * The startup command for the code package. This parameter is required in code package mode. The working directory is the root directory of the extracted code, which is /code. Example: python main.py. Quotes and escapes are supported. Environment variables, pipes, and logical operations are not automatically expanded. For complex commands, use a script within the package.
+   * The startup command for the code package. This parameter is required in code package mode. The working directory is the extracted code root directory /code, such as python main.py. Quotes and escapes are supported. Environment variables, pipes, and logical operations are not automatically expanded. Use scripts within the package for complex commands.
    * 
    * This parameter is required.
    * 
@@ -87,7 +87,7 @@ export class CreateCustomAgentResponseBodyDataArtifactCode extends $dara.Model {
   languageRuntime?: string;
   /**
    * @remarks
-   * The oss:// address of the platform-fixed code package referenced in the currently saved configuration. This address does not include the signature parameters of the source HTTPS link. You can use this address to reuse an existing code package. To download the content, call GetAgentCodePackageDownloadUrl.
+   * The oss:// address of the platform-fixed code package referenced by the currently saved configuration. This address does not include the signature parameters of the source HTTPS link. You can use this address to reuse an existing code package. To download the content, call GetAgentCodePackageDownloadUrl.
    * 
    * This parameter is required.
    * 
@@ -133,8 +133,6 @@ export class CreateCustomAgentResponseBodyDataArtifactContainer extends $dara.Mo
    * @remarks
    * The ID of the ACR instance to which the image repository belongs.
    * 
-   * This parameter is required.
-   * 
    * @example
    * cri-a1b2c3d4e5f6
    */
@@ -142,8 +140,6 @@ export class CreateCustomAgentResponseBodyDataArtifactContainer extends $dara.Mo
   /**
    * @remarks
    * The namespace to which the ACR image repository belongs.
-   * 
-   * This parameter is required.
    * 
    * @example
    * my-agent
@@ -153,8 +149,6 @@ export class CreateCustomAgentResponseBodyDataArtifactContainer extends $dara.Mo
    * @remarks
    * The name of the image repository in the ACR namespace.
    * 
-   * This parameter is required.
-   * 
    * @example
    * chat-agent
    */
@@ -163,15 +157,13 @@ export class CreateCustomAgentResponseBodyDataArtifactContainer extends $dara.Mo
    * @remarks
    * The latest submitted image tag.
    * 
-   * This parameter is required.
-   * 
    * @example
    * v1.0.0
    */
   tag?: string;
   /**
    * @remarks
-   * The source type of the image. A value of acr indicates Alibaba Cloud Container Registry (ACR).
+   * The image source type. A value of acr indicates Alibaba Cloud Container Registry (ACR).
    * 
    * This parameter is required.
    * 
@@ -265,7 +257,7 @@ export class CreateCustomAgentResponseBodyDataArtifact extends $dara.Model {
 export class CreateCustomAgentResponseBodyDataCodePackageInfo extends $dara.Model {
   /**
    * @remarks
-   * The CRC64 checksum of the code package object.
+   * The CRC64 value of the code package object.
    * 
    * @example
    * 456
@@ -332,6 +324,296 @@ export class CreateCustomAgentResponseBodyDataCodePackageInfo extends $dara.Mode
   }
 }
 
+export class CreateCustomAgentResponseBodyDataCurrentImagePullNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the security group. This parameter is required when type is set to vpc. The security group must belong to the selected VPC.
+   * 
+   * @example
+   * sg-example
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The type of the pull network. This parameter is required when you submit pullNetwork and is verified by the backend. The default value is public network, which is independent of the agent runtime network.
+   * 
+   * @example
+   * public
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The ID of the security group. This parameter is required when type is set to vpc. The security group must belong to the selected VPC.
+   * 
+   * @example
+   * vsw-example
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC. This parameter is required when type is set to vpc. The account and region to which the VPC belongs are verified by the backend.
+   * 
+   * @example
+   * vpc-example
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'securityGroupId',
+      type: 'type',
+      vSwitchId: 'vSwitchId',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      type: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomAgentResponseBodyDataCurrentImage extends $dara.Model {
+  /**
+   * @remarks
+   * The original image address for the custom source.
+   * 
+   * @example
+   * registry.example.com/team/agent:v1
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The instance ID for the ACR source.
+   * 
+   * @example
+   * cri-example
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The namespace for the ACR source.
+   * 
+   * @example
+   * team
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * The dedicated pull network for the custom source.
+   */
+  pullNetwork?: CreateCustomAgentResponseBodyDataCurrentImagePullNetwork;
+  /**
+   * @remarks
+   * The repository name for the ACR source.
+   * 
+   * @example
+   * agent
+   */
+  repo?: string;
+  /**
+   * @remarks
+   * The certificate exception option for the custom source.
+   * 
+   * @example
+   * false
+   */
+  skipTlsVerify?: boolean;
+  /**
+   * @remarks
+   * The image source type of the current active version.
+   * 
+   * @example
+   * custom
+   */
+  sourceType?: string;
+  /**
+   * @remarks
+   * The tag of the ACR source.
+   * 
+   * @example
+   * v1
+   */
+  tag?: string;
+  /**
+   * @remarks
+   * The source snapshot from the current active configuration version. Omitted for anonymous sources. A new source failure does not overwrite this username, and the password is not returned.
+   * 
+   * @example
+   * reader
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'image',
+      instanceId: 'instanceId',
+      namespace: 'namespace',
+      pullNetwork: 'pullNetwork',
+      repo: 'repo',
+      skipTlsVerify: 'skipTlsVerify',
+      sourceType: 'sourceType',
+      tag: 'tag',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'string',
+      instanceId: 'string',
+      namespace: 'string',
+      pullNetwork: CreateCustomAgentResponseBodyDataCurrentImagePullNetwork,
+      repo: 'string',
+      skipTlsVerify: 'boolean',
+      sourceType: 'string',
+      tag: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    if(this.pullNetwork && typeof (this.pullNetwork as any).validate === 'function') {
+      (this.pullNetwork as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomAgentResponseBodyDataCustomImagePullNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the security group. This parameter is required when type is set to vpc. The security group must belong to the selected VPC.
+   * 
+   * @example
+   * sg-example
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The type of the pull network. This parameter is required when you submit pullNetwork and is verified by the backend. The default value is public network, which is independent of the agent runtime network.
+   * 
+   * @example
+   * public
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The ID of the security group. This parameter is required when type is set to vpc. The security group must belong to the selected VPC.
+   * 
+   * @example
+   * vsw-example
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the VPC. This parameter is required when type is set to vpc. The account and region to which the VPC belongs are verified by the backend.
+   * 
+   * @example
+   * vpc-example
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'securityGroupId',
+      type: 'type',
+      vSwitchId: 'vSwitchId',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+      type: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomAgentResponseBodyDataCustomImage extends $dara.Model {
+  /**
+   * @remarks
+   * The latest saved source address, which may still be in preparation.
+   * 
+   * @example
+   * registry.example.com/team/agent:v1
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The saved dedicated pull network.
+   */
+  pullNetwork?: CreateCustomAgentResponseBodyDataCustomImagePullNetwork;
+  /**
+   * @remarks
+   * The saved HTTPS certificate exception option.
+   * 
+   * @example
+   * false
+   */
+  skipTlsVerify?: boolean;
+  /**
+   * @remarks
+   * The username saved after the source is successfully prepared. Omitted for anonymous or unverified sources. This does not indicate the existence of a reusable password.
+   * 
+   * @example
+   * reader
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'image',
+      pullNetwork: 'pullNetwork',
+      skipTlsVerify: 'skipTlsVerify',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'string',
+      pullNetwork: CreateCustomAgentResponseBodyDataCustomImagePullNetwork,
+      skipTlsVerify: 'boolean',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    if(this.pullNetwork && typeof (this.pullNetwork as any).validate === 'function') {
+      (this.pullNetwork as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomAgentResponseBodyDataEnvironmentVariables extends $dara.Model {
   /**
    * @remarks
@@ -379,7 +661,7 @@ export class CreateCustomAgentResponseBodyDataEnvironmentVariables extends $dara
 export class CreateCustomAgentResponseBodyDataEnvironment extends $dara.Model {
   /**
    * @remarks
-   * The latest submitted list of environment variables.
+   * The list of recently submitted environment variables.
    */
   variables?: CreateCustomAgentResponseBodyDataEnvironmentVariables[];
   static names(): { [key: string]: string } {
@@ -413,11 +695,13 @@ export class CreateCustomAgentResponseBodyDataHealthCheck extends $dara.Model {
    * 
    * @example
    * 1
+   * 
+   * @deprecated
    */
   healthyThreshold?: number;
   /**
    * @remarks
-   * The interval between two consecutive health checks, in seconds.
+   * The interval between two health checks, in seconds.
    * 
    * @example
    * 10
@@ -425,7 +709,7 @@ export class CreateCustomAgentResponseBodyDataHealthCheck extends $dara.Model {
   intervalSeconds?: number;
   /**
    * @remarks
-   * The HTTP Health Check Path.
+   * The HTTP health check path.
    * 
    * @example
    * /healthz
@@ -542,10 +826,50 @@ export class CreateCustomAgentResponseBodyDataImageCachePreparation extends $dar
   }
 }
 
+export class CreateCustomAgentResponseBodyDataImagePreparation extends $dara.Model {
+  /**
+   * @remarks
+   * The image preparation phase for this request. Configuration acceptance does not mean successful deployment.
+   * 
+   * @example
+   * QUEUED
+   */
+  phase?: string;
+  /**
+   * @remarks
+   * The ID of the task submitted from the console. This is not the RM operationId.
+   * 
+   * @example
+   * agent-example:1
+   */
+  preparationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phase: 'phase',
+      preparationId: 'preparationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phase: 'string',
+      preparationId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomAgentResponseBodyDataLatestExecutionError extends $dara.Model {
   /**
    * @remarks
-   * The reason code for the wait or execution failure of the latest configuration, which is used to determine the subsequent handling method.
+   * The reason code for the wait or execution failure of the latest configuration, used to determine subsequent processing methods.
    * 
    * This parameter is required.
    * 
@@ -555,7 +879,7 @@ export class CreateCustomAgentResponseBodyDataLatestExecutionError extends $dara
   code?: string;
   /**
    * @remarks
-   * The description of the reason why the latest configuration failed to wait or execute. Use this field along with the code and retryable fields to determine What to do next.
+   * The description of the reason why the latest configuration is waiting or failed to execute. Refer to the code and retryable fields to determine what to do next.
    * 
    * This parameter is required.
    * 
@@ -565,7 +889,7 @@ export class CreateCustomAgentResponseBodyDataLatestExecutionError extends $dara
   message?: string;
   /**
    * @remarks
-   * Specifies whether the system automatically retries the operation. If the value is true, you can query the status again later. If the value is false, check and fix the configuration based on the failure reason, and then resubmit the request.
+   * Specifies whether the system automatically retries the operation. If the value is true, you can query again later. If the value is false, check and fix the configuration based on the reason, and then resubmit.
    * 
    * This parameter is required.
    */
@@ -598,7 +922,7 @@ export class CreateCustomAgentResponseBodyDataLatestExecutionError extends $dara
 export class CreateCustomAgentResponseBodyDataLoggingSls extends $dara.Model {
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore that receives agent logs.
+   * The name of the SLS Logstore that receives agent logs.
    * 
    * @example
    * agent-runtime
@@ -606,7 +930,7 @@ export class CreateCustomAgentResponseBodyDataLoggingSls extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project that receives agent logs.
+   * The name of the SLS project that receives agent logs.
    * 
    * @example
    * my-agent-logs
@@ -722,12 +1046,12 @@ export class CreateCustomAgentResponseBodyDataNetworkAccessVpc extends $dara.Mod
 export class CreateCustomAgentResponseBodyDataNetwork extends $dara.Model {
   /**
    * @remarks
-   * The Internet access configuration of the agent. If this field is not configured, Internet access is allowed on the agent side but is still restricted by the workspace.
+   * The Internet access configuration of the agent. If this parameter is not configured, Internet access is allowed on the agent side but is still restricted by the workspace.
    */
   accessInternet?: CreateCustomAgentResponseBodyDataNetworkAccessInternet;
   /**
    * @remarks
-   * The user VPC access configuration of the agent. If this field is not configured, user VPC access is allowed on the agent side but is still restricted by the workspace.
+   * The user VPC access configuration of the agent. If this parameter is not configured, user VPC access is allowed on the agent side but is still restricted by the workspace.
    */
   accessVpc?: CreateCustomAgentResponseBodyDataNetworkAccessVpc;
   static names(): { [key: string]: string } {
@@ -815,7 +1139,7 @@ export class CreateCustomAgentResponseBodyDataOssMounts extends $dara.Model {
    * @remarks
    * Specifies whether the mount is read-only. Valid values:
    * - true: Read-only.
-   * - false: Readable and writable.
+   * - false: Read and write.
    */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
@@ -848,7 +1172,7 @@ export class CreateCustomAgentResponseBodyDataOssMounts extends $dara.Model {
 export class CreateCustomAgentResponseBodyDataProtocolPaths extends $dara.Model {
   /**
    * @remarks
-   * The usage description of the current API path.
+   * The purpose description of the current API path.
    * 
    * @example
    * AG-UI conversation API
@@ -890,7 +1214,7 @@ export class CreateCustomAgentResponseBodyDataProtocolPaths extends $dara.Model 
 export class CreateCustomAgentResponseBodyDataProtocol extends $dara.Model {
   /**
    * @remarks
-   * The request header configuration for the current protocol. The key is the header name, and the value is a string.
+   * The request header configuration for the current protocol. The key is the header name and the value is a string.
    */
   headers?: { [key: string]: string };
   /**
@@ -900,7 +1224,10 @@ export class CreateCustomAgentResponseBodyDataProtocol extends $dara.Model {
   paths?: CreateCustomAgentResponseBodyDataProtocolPaths[];
   /**
    * @remarks
-   * The invocation protocol type. Valid values: agui: AG-UI protocol. openai-chat-completion: OpenAI Chat Completions compatible protocol. custom: Custom protocol.
+   * The invocation protocol type. Valid values:
+   * - agui: AG-UI protocol.
+   * - openai-chat-completion: OpenAI Chat Completions compatible protocol.
+   * - custom: Custom protocol.
    * 
    * This parameter is required.
    * 
@@ -942,7 +1269,10 @@ export class CreateCustomAgentResponseBodyDataProtocol extends $dara.Model {
 export class CreateCustomAgentResponseBodyDataRuntimeCompute extends $dara.Model {
   /**
    * @remarks
-   * The compute specification. Valid values: INTERACTIVE: 1 vCPU and 2 GiB of memory. STANDARD: 2 vCPUs and 4 GiB of memory. HEAVY: 4 vCPUs and 8 GiB of memory.
+   * The compute specification. Valid values:
+   * - INTERACTIVE: 1 vCPU and 2 GiB of memory.
+   * - STANDARD: 2 vCPUs and 4 GiB of memory.
+   * - HEAVY: 4 vCPUs and 8 GiB of memory.
    * 
    * This parameter is required.
    * 
@@ -1007,7 +1337,7 @@ export class CreateCustomAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   minSandboxCount?: number;
   /**
    * @remarks
-   * The maximum idle time for a session, in seconds.
+   * The maximum idle time configured for a session, in seconds.
    * 
    * @example
    * 600
@@ -1055,7 +1385,7 @@ export class CreateCustomAgentResponseBodyDataRuntimeSessionPolicy extends $dara
    * @remarks
    * The type of the session policy. Valid values:
    * - AFFINITY: Session affinity.
-   * - ISOLATED_HEADER_FIELD: Associates sessions by using the request header specified by headerName.
+   * - ISOLATED_HEADER_FIELD: Uses the request header specified by headerName to associate sessions.
    * ISOLATED_COOKIE is not recommended. The compatible value DISABLED in a request is returned as AFFINITY.
    * 
    * This parameter is required.
@@ -1169,7 +1499,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   codePackageInfo?: CreateCustomAgentResponseBodyDataCodePackageInfo;
   /**
    * @remarks
-   * The creation method of the agent. For custom agents, the value is CUSTOM.
+   * The creation method of the agent. The value is CUSTOM for custom agents.
    * 
    * @example
    * CUSTOM
@@ -1177,7 +1507,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   createMode?: string;
   /**
    * @remarks
-   * The time when the agent was created. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
+   * The creation time of the agent. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
    * 
    * @example
    * 2026-10-10T06:00:00Z
@@ -1185,7 +1515,17 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The deployment method of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED.
+   * The image source snapshot of the current active configuration version. The value is null before the first configuration takes effect. This field does not indicate the health status.
+   */
+  currentImage?: CreateCustomAgentResponseBodyDataCurrentImage;
+  /**
+   * @remarks
+   * The recently saved source and the verified username for this source. The source may be in preparation or failed, and the password is not returned.
+   */
+  customImage?: CreateCustomAgentResponseBodyDataCustomImage;
+  /**
+   * @remarks
+   * The deployment method of the agent. Custom agents are deployed and managed by the platform, and MANAGED is returned.
    * 
    * @example
    * MANAGED
@@ -1193,7 +1533,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   deployType?: string;
   /**
    * @remarks
-   * The description of the agent.
+   * The description of the agent\\"s purpose.
    * 
    * @example
    * Custom agent that provides conversation services
@@ -1201,7 +1541,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The effective configuration version.
+   * The active configuration version.
    * 
    * This parameter is required.
    * 
@@ -1219,7 +1559,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   environment?: CreateCustomAgentResponseBodyDataEnvironment;
   /**
    * @remarks
-   * The HTTP health check configuration of the agent. This field is empty if no health check is configured.
+   * The HTTP health check configuration for the agent. Empty if not configured.
    */
   healthCheck?: CreateCustomAgentResponseBodyDataHealthCheck;
   /**
@@ -1237,17 +1577,22 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   imageCacheId?: string;
   /**
    * @remarks
-   * The cache preparation acceptance summary for this request.
+   * The acceptance summary for the current cache preparation.
    */
   imageCachePreparation?: CreateCustomAgentResponseBodyDataImageCachePreparation;
   /**
    * @remarks
-   * The wait or execution error of the latest configuration version. This field is returned only when the version is waiting for a retry or fails to execute.
+   * The currently associated image preparation task. The phase indicates acceptance. Query the preparation API for real-time progress. A regular save does not create an image preparation task.
+   */
+  imagePreparation?: CreateCustomAgentResponseBodyDataImagePreparation;
+  /**
+   * @remarks
+   * The wait or execution error of the latest configuration version. Returned only when this version is waiting for a retry or has failed to execute.
    */
   latestExecutionError?: CreateCustomAgentResponseBodyDataLatestExecutionError;
   /**
    * @remarks
-   * The current latest configuration version number. Updates to the same configuration may retain the original version number. This field does not indicate that the configuration has taken effect.
+   * The latest configuration version number. Updates with the same configuration may retain the original version number. This field does not indicate that the configuration has taken effect.
    * 
    * This parameter is required.
    * 
@@ -1257,13 +1602,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   latestSpecVersion?: number;
   /**
    * @remarks
-   * The execution status corresponding to the latestSpecVersion. Valid values:
-   * - pending: Waiting for execution.
-   * - processing: Executing.
-   * - waiting_retry: Waiting for a retry.
-   * - succeeded: Execution succeeded.
-   * - failed: Execution failed.
-   * - superseded: Superseded by a subsequent version.
+   * The execution status corresponding to latestSpecVersion. pending indicates waiting for execution. processing indicates executing. waiting_retry indicates waiting for a retry. succeeded indicates execution succeeded. failed indicates execution failed. superseded indicates replaced by a subsequent version.
    * 
    * @example
    * succeeded
@@ -1274,12 +1613,12 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   latestVersionStatus?: string;
   /**
    * @remarks
-   * The latest submitted log delivery configuration.
+   * The recently submitted log delivery configuration.
    */
   logging?: CreateCustomAgentResponseBodyDataLogging;
   /**
    * @remarks
-   * The custom agent name.
+   * The name of the custom agent.
    * 
    * This parameter is required.
    * 
@@ -1299,7 +1638,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   observability?: CreateCustomAgentResponseBodyDataObservability;
   /**
    * @remarks
-   * The latest submitted list of OSS directory mounts.
+   * The list of OSS directory mounts in the latest submission.
    */
   ossMounts?: CreateCustomAgentResponseBodyDataOssMounts[];
   /**
@@ -1317,7 +1656,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role used by the agent to access user cloud resources.
+   * The ARN of the RAM role used by the agent to access user cloud resources.
    * 
    * @example
    * acs:ram::1234567890123456:role/agentcore-runtime-role
@@ -1325,12 +1664,12 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The runtime configuration of the latest commit, including compute specifications, session policy, and elastic policy.
+   * The runtime configuration in the latest commit, including compute specifications, session policy, and elastic policy.
    */
   runtime?: CreateCustomAgentResponseBodyDataRuntime;
   /**
    * @remarks
-   * The instance counts by sandbox phase. Keys include PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed). Only phases that actually occur are returned. Missing keys are treated as 0.
+   * The number of instances counted by running instance phase. Keys include PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed). Only phases that actually occur are returned. Missing keys are treated as 0.
    */
   sandboxPhaseCounts?: { [key: string]: number };
   /**
@@ -1360,7 +1699,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * Specifies whether the image cache is enabled.
+   * The image cache toggle.
    * 
    * This parameter is required.
    * 
@@ -1386,6 +1725,8 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
       codePackageInfo: 'codePackageInfo',
       createMode: 'createMode',
       createdAt: 'createdAt',
+      currentImage: 'currentImage',
+      customImage: 'customImage',
       deployType: 'deployType',
       description: 'description',
       effectiveSpecVersion: 'effectiveSpecVersion',
@@ -1393,6 +1734,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
       healthCheck: 'healthCheck',
       imageCacheId: 'imageCacheId',
       imageCachePreparation: 'imageCachePreparation',
+      imagePreparation: 'imagePreparation',
       latestExecutionError: 'latestExecutionError',
       latestSpecVersion: 'latestSpecVersion',
       latestVersionStatus: 'latestVersionStatus',
@@ -1421,6 +1763,8 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
       codePackageInfo: CreateCustomAgentResponseBodyDataCodePackageInfo,
       createMode: 'string',
       createdAt: 'string',
+      currentImage: CreateCustomAgentResponseBodyDataCurrentImage,
+      customImage: CreateCustomAgentResponseBodyDataCustomImage,
       deployType: 'string',
       description: 'string',
       effectiveSpecVersion: 'number',
@@ -1428,6 +1772,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
       healthCheck: CreateCustomAgentResponseBodyDataHealthCheck,
       imageCacheId: 'string',
       imageCachePreparation: CreateCustomAgentResponseBodyDataImageCachePreparation,
+      imagePreparation: CreateCustomAgentResponseBodyDataImagePreparation,
       latestExecutionError: CreateCustomAgentResponseBodyDataLatestExecutionError,
       latestSpecVersion: 'number',
       latestVersionStatus: 'string',
@@ -1458,6 +1803,12 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
     if(this.codePackageInfo && typeof (this.codePackageInfo as any).validate === 'function') {
       (this.codePackageInfo as any).validate();
     }
+    if(this.currentImage && typeof (this.currentImage as any).validate === 'function') {
+      (this.currentImage as any).validate();
+    }
+    if(this.customImage && typeof (this.customImage as any).validate === 'function') {
+      (this.customImage as any).validate();
+    }
     if(this.environment && typeof (this.environment as any).validate === 'function') {
       (this.environment as any).validate();
     }
@@ -1466,6 +1817,9 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
     }
     if(this.imageCachePreparation && typeof (this.imageCachePreparation as any).validate === 'function') {
       (this.imageCachePreparation as any).validate();
+    }
+    if(this.imagePreparation && typeof (this.imagePreparation as any).validate === 'function') {
+      (this.imagePreparation as any).validate();
     }
     if(this.latestExecutionError && typeof (this.latestExecutionError as any).validate === 'function') {
       (this.latestExecutionError as any).validate();
@@ -1512,7 +1866,7 @@ export class CreateCustomAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The latest submitted configuration and status of the custom agent. A successful response indicates that the request is accepted, but the configuration may not have taken effect.
+   * The latest submitted configuration and status of the custom agent. A successful response indicates that the request is accepted, but the configuration may not have taken effect yet.
    * 
    * This parameter is required.
    */
@@ -1529,7 +1883,7 @@ export class CreateCustomAgentResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The result message of the request. The value is success if the request succeeds.
+   * The description of the processing result for the request. The value is success if the request is successful.
    * 
    * This parameter is required.
    * 
@@ -1539,7 +1893,7 @@ export class CreateCustomAgentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the request. You can use this ID to locate and troubleshoot issues.
+   * The unique identifier of the request, which is used to locate and troubleshoot issues.
    * 
    * This parameter is required.
    * 
@@ -1549,7 +1903,7 @@ export class CreateCustomAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operation is complete.
+   * Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. A successful creation, update, or deletion does not mean that the background operation is complete.
    * 
    * This parameter is required.
    */

@@ -15,7 +15,7 @@ export class GetWorkspaceAcrRamAuthorizeUrlResponseBodyData extends $dara.Model 
   acrInstanceId?: string;
   /**
    * @remarks
-   * The RAM authorization URL used to create or append target ACR permissions for the shared role.
+   * The RAM authorization URL for creating or appending target ACR permissions for the shared role.
    * 
    * This parameter is required.
    * 

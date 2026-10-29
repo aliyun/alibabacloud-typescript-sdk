@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteIdentityProviderSCIMCredentialResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 失败时结合 HTTP 状态及 message 处理。
+   * The result code. Handle failures based on the HTTP status code and message.
    * 
    * @example
    * SUCCESS
@@ -13,7 +13,7 @@ export class DeleteIdentityProviderSCIMCredentialResponseBody extends $dara.Mode
   code?: string;
   /**
    * @remarks
-   * 本次请求的处理状态，不等同后台任务最终结果。
+   * The HTTP status code of the request. This does not indicate the final result of the background task.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DeleteIdentityProviderSCIMCredentialResponseBody extends $dara.Mode
   httpStatusCode?: number;
   /**
    * @remarks
-   * 请求受理或错误消息；异步任务结果需按对应查询接口核对。
+   * The message returned for the request. For asynchronous tasks, query the task result by calling the corresponding API operation.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class DeleteIdentityProviderSCIMCredentialResponseBody extends $dara.Mode
   message?: string;
   /**
    * @remarks
-   * 用于关联本次调用与排障，失败时请保留。
+   * The request ID. You can use this ID to troubleshoot issues. Keep the ID if the request fails.
    * 
    * @example
    * request-example
@@ -37,7 +37,7 @@ export class DeleteIdentityProviderSCIMCredentialResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * true 表示本次请求处理成功；异步写入仍需继续查询任务结果。
+   * Indicates whether the request was successful. A value of true indicates that the request was successful. For asynchronous write operations, you must still query the task result.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

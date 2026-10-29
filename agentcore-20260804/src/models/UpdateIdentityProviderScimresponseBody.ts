@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateIdentityProviderSCIMResponseBodyDataConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The SAML binding type. Valid values: HTTP-Redirect and HTTP-POST. This parameter is required when you manually enter the configuration. The query returns the short name.
+   * The SAML binding type. Valid values: HTTP-Redirect and HTTP-POST. This parameter is required when you manually enter the configuration. The query operation returns the short name.
    * 
    * @example
    * HTTP-Redirect
@@ -13,7 +13,7 @@ export class UpdateIdentityProviderSCIMResponseBodyDataConfiguration extends $da
   bindingType?: string;
   /**
    * @remarks
-   * The entity ID of the IdP. This parameter is required when you manually enter the configuration. It cannot be empty and cannot exceed 2,048 characters. Existing configurations cannot be replaced. This is different from the entity ID of the SP returned by the SP query.
+   * The entity ID of the IdP. This parameter is required when you manually enter the configuration. It must be non-empty and cannot exceed 2,048 characters. You cannot change the entity ID if it is already configured. This ID is different from the entity ID of the service provider (SP) returned by the query operation.
    * 
    * @example
    * https://idp.example.com/entity
@@ -29,7 +29,7 @@ export class UpdateIdentityProviderSCIMResponseBodyDataConfiguration extends $da
   loginUrl?: string;
   /**
    * @remarks
-   * The actual SSO logon status of AgentIdentity. The actual switch value is Enabled or Disabled, which is not equivalent to the expected loginEnabled value saved in AC.
+   * The actual SSO logon status of AgentIdentity. Valid values: Enabled and Disabled. This value is not equivalent to the expected value of loginEnabled saved in AC.
    * 
    * @example
    * Enabled
@@ -65,7 +65,7 @@ export class UpdateIdentityProviderSCIMResponseBodyDataConfiguration extends $da
 export class UpdateIdentityProviderSCIMResponseBodyDataMetadata extends $dara.Model {
   /**
    * @remarks
-   * The canonical SAML binding identifier. It is the SAML binding URI in the historical metadata snapshot. For CustomSSO updates, use saml.bindingType.
+   * The SAML binding URI in the historical metadata snapshot. To update CustomSSO, use the saml.bindingType field.
    * 
    * @example
    * urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
@@ -73,7 +73,7 @@ export class UpdateIdentityProviderSCIMResponseBodyDataMetadata extends $dara.Mo
   binding?: string;
   /**
    * @remarks
-   * The canonical SAML certificate content. It is the certificate string in the historical metadata snapshot. To edit the configuration, use saml.x509Certificates and do not submit the old metadata.
+   * The certificate string in the historical metadata snapshot. To edit the configuration, use the saml.x509Certificates field and do not submit the old metadata.
    * 
    * @example
    * MIICwDCCAaigAwIBAgIULlsHLfcADyBax5ZtFlj+YGzZVo0wDQYJKoZIhvcNAQELBQAwGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMB4XDTI2MDEwMTAwMDAwMFoXDTM2MDEwMTAwMDAwMFowGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAto0DN0W1CrPRzK9QZ9A1aApb4Lg8oGlp2c0PbN3LokXe/HzwxCMXx65IDnrenttxzTwp9BgUnUN/3LRzWaOL2UQ/vNYNW9LFLkI1T64UPyI7eyi28YlALhb41xkYhEp7rz+MjqifBzVZeTDUxBYtbK2hAhbYEL1+udwsXEx0KB7xuQ/rbI2OKeqAEAD1tfYg7T/SM2wrXNYhx+o1HtchM4/0I8Okkk27JQ4y3ofzC5sTySmFF1Y7XcpSd+5WSyazedhkAieo8AB01DkJV6nnKfH8sH0EBsnH3FP8FhqCLrIeEkjX9B9OcIRLGjiZqx4u/ryW1QhMldnv+pFfNjWy/wIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQC1hSQG8AwtGOoX2gKBK4Hi5XBrBreij8WlLTUWld0FINQ0Rg84f/27CjDthywj6wgxCesCuOVFhpxQa1UacsP/Gcai1aKABtLWImcaWECRYK5gDkwhTMFKM9mXA26hH1l4v/UR2iTpEK9H78egC4W7bs2LDTpPryuaNKTqP2O0tMbNkAHB8yecz5LxHXnxadL9Egow25g2RClvpifWqDnuS9TSbKkIWLcPLjocJj2K9ILpBwhXiXi/BiSgyYTLiYvVvih9vX4s+hKGZNJc0j92YLiOHDF0XH1oxgdVjfTmRiedeb2VZJZElptD92z0AqFR7z2d5B+OqpPA2gjuMLV5
@@ -81,7 +81,7 @@ export class UpdateIdentityProviderSCIMResponseBodyDataMetadata extends $dara.Mo
   certificates?: string;
   /**
    * @remarks
-   * The entity ID of the IdP. This parameter is required when you manually enter the configuration. It cannot be empty and cannot exceed 2,048 characters. Existing configurations cannot be replaced. This is different from the entity ID of the SP returned by the SP query.
+   * The entity ID of the IdP. This parameter is required when you manually enter the configuration. It must be non-empty and cannot exceed 2,048 characters. You cannot change the entity ID if it is already configured. This ID is different from the entity ID of the service provider (SP) returned by the query operation.
    * 
    * @example
    * https://idp.example.com/entity
@@ -125,7 +125,7 @@ export class UpdateIdentityProviderSCIMResponseBodyDataMetadata extends $dara.Mo
 export class UpdateIdentityProviderSCIMResponseBodyDataSaml extends $dara.Model {
   /**
    * @remarks
-   * The SAML binding type. Valid values: HTTP-Redirect and HTTP-POST. This parameter is required when you manually enter the configuration. The query returns the short name.
+   * The SAML binding type. Valid values: HTTP-Redirect and HTTP-POST. This parameter is required when you manually enter the configuration. The query operation returns the short name.
    * 
    * @example
    * HTTP-Redirect
@@ -133,7 +133,7 @@ export class UpdateIdentityProviderSCIMResponseBodyDataSaml extends $dara.Model 
   bindingType?: string;
   /**
    * @remarks
-   * The entity ID of the IdP. This parameter is required when you manually enter the configuration. It cannot be empty and cannot exceed 2,048 characters. Existing configurations cannot be replaced. This is different from the entity ID of the SP returned by the SP query.
+   * The entity ID of the IdP. This parameter is required when you manually enter the configuration. It must be non-empty and cannot exceed 2,048 characters. You cannot change the entity ID if it is already configured. This ID is different from the entity ID of the service provider (SP) returned by the query operation.
    * 
    * @example
    * https://idp.example.com/entity
@@ -149,7 +149,7 @@ export class UpdateIdentityProviderSCIMResponseBodyDataSaml extends $dara.Model 
   loginUrl?: string;
   /**
    * @remarks
-   * The list of IdP signing certificates. When you manually enter the configuration, this parameter is required and must be a non-empty array. Use PEM X.509 certificate text. The current validity period is verified. A maximum of two certificates are allowed after deduplication.
+   * The list of IdP signing certificates. This parameter is required when you manually enter the configuration. It must be a non-empty array and use PEM X.509 certificate text. The system verifies the current validity period. A maximum of two certificates are allowed after deduplication.
    * 
    * @example
    * ["-----BEGIN CERTIFICATE-----\\\\nMIICwDCCAaigAwIBAgIULlsHLfcADyBax5ZtFlj+YGzZVo0wDQYJKoZIhvcNAQEL\\\\nBQAwGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMB4XDTI2MDEwMTAwMDAwMFoX\\\\nDTM2MDEwMTAwMDAwMFowGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMIIBIjAN\\\\nBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAto0DN0W1CrPRzK9QZ9A1aApb4Lg8\\\\noGlp2c0PbN3LokXe/HzwxCMXx65IDnrenttxzTwp9BgUnUN/3LRzWaOL2UQ/vNYN\\\\nW9LFLkI1T64UPyI7eyi28YlALhb41xkYhEp7rz+MjqifBzVZeTDUxBYtbK2hAhbY\\\\nEL1+udwsXEx0KB7xuQ/rbI2OKeqAEAD1tfYg7T/SM2wrXNYhx+o1HtchM4/0I8Ok\\\\nkk27JQ4y3ofzC5sTySmFF1Y7XcpSd+5WSyazedhkAieo8AB01DkJV6nnKfH8sH0E\\\\nBsnH3FP8FhqCLrIeEkjX9B9OcIRLGjiZqx4u/ryW1QhMldnv+pFfNjWy/wIDAQAB\\\\nMA0GCSqGSIb3DQEBCwUAA4IBAQC1hSQG8AwtGOoX2gKBK4Hi5XBrBreij8WlLTUW\\\\nld0FINQ0Rg84f/27CjDthywj6wgxCesCuOVFhpxQa1UacsP/Gcai1aKABtLWImca\\\\nWECRYK5gDkwhTMFKM9mXA26hH1l4v/UR2iTpEK9H78egC4W7bs2LDTpPryuaNKTq\\\\nP2O0tMbNkAHB8yecz5LxHXnxadL9Egow25g2RClvpifWqDnuS9TSbKkIWLcPLjoc\\\\nJj2K9ILpBwhXiXi/BiSgyYTLiYvVvih9vX4s+hKGZNJc0j92YLiOHDF0XH1oxgdV\\\\njfTmRiedeb2VZJZElptD92z0AqFR7z2d5B+OqpPA2gjuMLV5\\\\n-----END CERTIFICATE-----"]
@@ -188,12 +188,12 @@ export class UpdateIdentityProviderSCIMResponseBodyDataSaml extends $dara.Model 
 export class UpdateIdentityProviderSCIMResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The actual upstream configuration. The actual SAML configuration is read back on demand only in GetIdentityProvider. SCIM query and prepare operations return the actual receiving status and URL.
+   * The actual upstream configuration. The actual SAML configuration is read back on demand only by calling GetIdentityProvider. The SCIM query and preparation operations return the actual receiving status and URL.
    */
   configuration?: UpdateIdentityProviderSCIMResponseBodyDataConfiguration;
   /**
    * @remarks
-   * The creation time recorded by the server.
+   * The time when the record was created on the server.
    * 
    * @example
    * 2026-10-26T00:00:00Z
@@ -201,7 +201,7 @@ export class UpdateIdentityProviderSCIMResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The event subscription callback URL. CustomSSO returns an empty string. You can obtain the SCIM receiving address through the SCIM query or prepare API. The example shows a JSON empty string "". The actual value does not contain double quotes.
+   * The event callback URL for SAML. CustomSSO returns an empty string. You can obtain the SCIM receiving address by calling the SCIM query or preparation API. The example shows an empty JSON string "". The actual value does not contain double quotes.
    * 
    * @example
    * ""
@@ -209,7 +209,7 @@ export class UpdateIdentityProviderSCIMResponseBodyData extends $dara.Model {
   eventSubscriptionCallbackUrl?: string;
   /**
    * @remarks
-   * The identity provider type. General CRUD operations support DingTalk, Feishu, and CustomSSO. SP queries only support CustomSSO. The SCIM path fixedly uses the CustomSSO shared pool.
+   * The type of the identity provider. Common CRUD operations support DingTalk, Feishu, and CustomSSO. The SP query operation supports only CustomSSO. The SCIM path uses the CustomSSO shared pool.
    * 
    * @example
    * CustomSSO
@@ -217,7 +217,7 @@ export class UpdateIdentityProviderSCIMResponseBodyData extends $dara.Model {
   identityProviderType?: string;
   /**
    * @remarks
-   * The logon callback URL. CustomSSO returns an empty string. You should obtain the ACS URL for SAML through the SP query API. The example shows a JSON empty string "". The actual value does not contain double quotes.
+   * The callback URL for SAML. CustomSSO returns an empty string. You can obtain the Assertion Consumer Service (ACS) URL of SAML by calling the SP query API. The example shows an empty JSON string "". The actual value does not contain double quotes.
    * 
    * @example
    * ""
@@ -225,17 +225,17 @@ export class UpdateIdentityProviderSCIMResponseBodyData extends $dara.Model {
   loginCallbackUrl?: string;
   /**
    * @remarks
-   * The logon switch. Do not set this parameter to true during CustomSSO initialization. You must save a valid SAML configuration before enabling it. Disabling it does not delete the configuration. When an asynchronous failure occurs, this expected value does not mean that it has taken effect on the upstream.
+   * Specifies whether logon is enabled. Do not set this parameter to true during CustomSSO initialization. You must save a valid SAML configuration before enabling logon. Disabling logon does not delete the configuration. If an asynchronous failure occurs, this expected value does not indicate that the upstream configuration has taken effect.
    */
   loginEnabled?: boolean;
   /**
    * @remarks
-   * The standard IdP metadata. Vendor parameters are used for DingTalk and Feishu. CustomSSO updates use protocol and saml, and do not accept this field. The return value does not contain vendor keys.
+   * The standard IdP metadata. Vendor parameters are used for DingTalk and Feishu. CustomSSO updates use the protocol and saml fields and do not accept this field. The returned value does not contain vendor keys.
    */
   metadata?: UpdateIdentityProviderSCIMResponseBodyDataMetadata;
   /**
    * @remarks
-   * PENDING/RUNNING 时轮询 GetIdentityProviderSCIM；保留失败、暂停和取消事实，不表示 SAML 状态。
+   * The status of the most recent SCIM operation. When the status is PENDING or RUNNING, poll the GetIdentityProviderSCIM API. This field retains the facts of failure, pause, and cancellation, and does not indicate the SAML status.
    * 
    * @example
    * PENDING
@@ -243,7 +243,7 @@ export class UpdateIdentityProviderSCIMResponseBodyData extends $dara.Model {
   operationStatus?: string;
   /**
    * @remarks
-   * The logon protocol. Currently, only SAML is supported. This field may not be returned if no valid configuration is saved. OIDC placeholder initialization is not supported.
+   * The logon protocol. Only SAML is supported. This field may not be returned if no valid configuration is saved. You cannot use OIDC as a placeholder for initialization.
    * 
    * @example
    * SAML
@@ -251,12 +251,12 @@ export class UpdateIdentityProviderSCIMResponseBodyData extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The SAML logon configuration. The input supports either XML or complete manual entry. The query returns the standardized configuration and does not echo the original XML. This field can be omitted if it is not configured.
+   * The SAML logon configuration. You can enter an XML file or manually enter the complete configuration. The query operation returns the standardized configuration and does not echo the original XML. This field can be omitted if it is not configured.
    */
   saml?: UpdateIdentityProviderSCIMResponseBodyDataSaml;
   /**
    * @remarks
-   * 独立 SCIM 状态；不改变原 status 的共享资源及登录配置含义。与查询接口的 data.status 对应。
+   * The independent SCIM configuration status. This field does not change the meaning of shared resources and logon configurations in the original status field. It corresponds to the data.status field in the query API.
    * 
    * @example
    * UPDATING
@@ -264,7 +264,7 @@ export class UpdateIdentityProviderSCIMResponseBodyData extends $dara.Model {
   scimStatus?: string;
   /**
    * @remarks
-   * The operation status of shared resources and logon configurations. It indicates the user pool lifecycle and logon configuration task status of CustomSSO, and does not represent the SCIM operation result. Query GetIdentityProviderSCIM.operationStatus for the SCIM switch result. You cannot use this field to determine whether all protocols are configured.
+   * The operation status of shared resources and logon configurations. It indicates the user pool lifecycle and logon configuration task status of CustomSSO, and does not indicate the SCIM operation result. You can query the SCIM switch result by using the operationStatus field returned by GetIdentityProviderSCIM. You cannot use this field to determine whether all protocols are configured.
    * 
    * @example
    * READY
@@ -272,12 +272,12 @@ export class UpdateIdentityProviderSCIMResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Do not set this parameter to true during CustomSSO initialization. You can only update it later by calling UpdateIdentityProviderSCIM. Determine the result based on operationStatus.
+   * Specifies whether to enable synchronization. Do not set this parameter to true during CustomSSO initialization. You can only update this parameter by calling UpdateIdentityProviderSCIM later. Determine the result based on the operationStatus field.
    */
   syncEnabled?: boolean;
   /**
    * @remarks
-   * The last update time recorded by the server.
+   * The time when the record was last updated on the server.
    * 
    * @example
    * 2026-10-26T00:00:00Z
@@ -360,12 +360,12 @@ export class UpdateIdentityProviderSCIMResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The shared binding after the request is accepted. The status indicates the status of shared resources and logon configurations, not the status of this SCIM task. Query GetIdentityProviderSCIM.operationStatus for the execution result.
+   * The original binding details and new SCIM status. The original fields and the meaning of the status field are retained. The new scimStatus field corresponds to the data.status field in the query API. The operationStatus field retains the status of the most recent SCIM task.
    */
   data?: UpdateIdentityProviderSCIMResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. It indicates the processing status of this request and is not equivalent to the final result of the background task.
+   * The HTTP status code of the current request. It indicates the processing status of the request and is not equivalent to the final result of the background task.
    * 
    * @example
    * 200
@@ -373,7 +373,7 @@ export class UpdateIdentityProviderSCIMResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Task result message. It is the request acceptance or error message. For asynchronous tasks, you must check task result by calling the corresponding query API.
+   * Task result message. It indicates the request acceptance or error message. You must check task result of an asynchronous task by calling the corresponding query API.
    * 
    * @example
    * success
@@ -381,7 +381,7 @@ export class UpdateIdentityProviderSCIMResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. It is used to associate this call with troubleshooting. Retain it when a failure occurs.
+   * The request ID. It is used to associate the current call with troubleshooting. Retain this ID if the request fails.
    * 
    * @example
    * request-example
@@ -389,7 +389,7 @@ export class UpdateIdentityProviderSCIMResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. A value of true indicates that the request is processed successfully. For asynchronous writes, you must continue to query the task result.
+   * Indicates whether the current request is successful. A value of true indicates that the request is processed successfully. For asynchronous write operations, you must continue to query the task result.
    */
   success?: boolean;
   static names(): { [key: string]: string } {
