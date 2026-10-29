@@ -1,411 +1,15 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
-export class ExecuteExtendServiceRequest extends $tea.Model {
-  region?: string;
-  service?: string;
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
 
-  static types(): { [key: string]: any } {
-    return {
-      region: 'string',
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteExtendServiceResponseBody extends $tea.Model {
-  code?: string;
-  data?: ExecuteExtendServiceResponseBodyData;
-  httpStatusCode?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ExecuteExtendServiceResponseBodyData,
-      httpStatusCode: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteExtendServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ExecuteExtendServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ExecuteExtendServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteRequestRequest extends $tea.Model {
-  service?: string;
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteRequestResponseBody extends $tea.Model {
-  code?: number;
-  data?: { [key: string]: any };
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteRequestResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ExecuteRequestResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ExecuteRequestResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteRequestMLRequest extends $tea.Model {
-  lang?: string;
-  service?: string;
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteRequestMLResponseBody extends $tea.Model {
-  code?: number;
-  data?: { [key: string]: any };
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteRequestMLResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ExecuteRequestMLResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ExecuteRequestMLResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteRequestSGRequest extends $tea.Model {
-  lang?: string;
-  service?: string;
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteRequestSGResponseBody extends $tea.Model {
-  code?: number;
-  data?: { [key: string]: any };
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteRequestSGResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ExecuteRequestSGResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ExecuteRequestSGResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RequestDecisionRequest extends $tea.Model {
-  eventCode?: string;
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventCode: 'EventCode',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventCode: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RequestDecisionResponseBody extends $tea.Model {
-  code?: number;
-  data?: { [key: string]: any };
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RequestDecisionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RequestDecisionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RequestDecisionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecuteExtendServiceResponseBodyData extends $tea.Model {
-  invokeResult?: string;
-  static names(): { [key: string]: string } {
-    return {
-      invokeResult: 'InvokeResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      invokeResult: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
+import * as $_model from './models/model';
+export * from './models/model';
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
@@ -417,56 +21,39 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async executeExtendServiceWithOptions(request: ExecuteExtendServiceRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteExtendServiceResponse> {
-    Util.validateModel(request);
+  /**
+   * Detects risks. This API operation supports public service invocation and allows you to invoke custom events.
+   * 
+   * @param request - ExecuteRequestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteRequestResponse
+   */
+  async executeRequestWithOptions(request: $_model.ExecuteRequestRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteRequestResponse> {
+    request.validate();
     let query = { };
-    query["Region"] = request.region;
-    query["Service"] = request.service;
-    query["ServiceParameters"] = request.serviceParameters;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "ExecuteExtendService",
-      version: "2019-05-21",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ExecuteExtendServiceResponse>(await this.callApi(params, req, runtime), new ExecuteExtendServiceResponse({}));
-  }
+    if (!$dara.isNull(request.service)) {
+      query["Service"] = request.service;
+    }
 
-  async executeExtendService(request: ExecuteExtendServiceRequest): Promise<ExecuteExtendServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.executeExtendServiceWithOptions(request, runtime);
-  }
+    if (!$dara.isNull(request.serviceParameters)) {
+      query["ServiceParameters"] = request.serviceParameters;
+    }
 
-  async executeRequestWithOptions(request: ExecuteRequestRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteRequestResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["Service"] = request.service;
-    query["ServiceParameters"] = request.serviceParameters;
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ExecuteRequest",
       version: "2019-05-21",
       protocol: "HTTPS",
@@ -474,28 +61,49 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExecuteRequestResponse>(await this.callApi(params, req, runtime), new ExecuteRequestResponse({}));
+    return $dara.cast<$_model.ExecuteRequestResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteRequestResponse({}));
   }
 
-  async executeRequest(request: ExecuteRequestRequest): Promise<ExecuteRequestResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * Detects risks. This API operation supports public service invocation and allows you to invoke custom events.
+   * 
+   * @param request - ExecuteRequestRequest
+   * @returns ExecuteRequestResponse
+   */
+  async executeRequest(request: $_model.ExecuteRequestRequest): Promise<$_model.ExecuteRequestResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.executeRequestWithOptions(request, runtime);
   }
 
-  async executeRequestMLWithOptions(request: ExecuteRequestMLRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteRequestMLResponse> {
-    Util.validateModel(request);
+  /**
+   * Detects risks. This operation supports only custom event calls and is available only in the Malaysia region.
+   * 
+   * @param request - ExecuteRequestMLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteRequestMLResponse
+   */
+  async executeRequestMLWithOptions(request: $_model.ExecuteRequestMLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteRequestMLResponse> {
+    request.validate();
     let query = { };
-    query["Lang"] = request.lang;
-    query["Service"] = request.service;
-    query["ServiceParameters"] = request.serviceParameters;
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.service)) {
+      query["Service"] = request.service;
+    }
+
+    if (!$dara.isNull(request.serviceParameters)) {
+      query["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ExecuteRequestML",
       version: "2019-05-21",
       protocol: "HTTPS",
@@ -503,28 +111,49 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExecuteRequestMLResponse>(await this.callApi(params, req, runtime), new ExecuteRequestMLResponse({}));
+    return $dara.cast<$_model.ExecuteRequestMLResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteRequestMLResponse({}));
   }
 
-  async executeRequestML(request: ExecuteRequestMLRequest): Promise<ExecuteRequestMLResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * Detects risks. This operation supports only custom event calls and is available only in the Malaysia region.
+   * 
+   * @param request - ExecuteRequestMLRequest
+   * @returns ExecuteRequestMLResponse
+   */
+  async executeRequestML(request: $_model.ExecuteRequestMLRequest): Promise<$_model.ExecuteRequestMLResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.executeRequestMLWithOptions(request, runtime);
   }
 
-  async executeRequestSGWithOptions(request: ExecuteRequestSGRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteRequestSGResponse> {
-    Util.validateModel(request);
+  /**
+   * Detects risks. This API allows you to invoke public services and custom events.
+   * 
+   * @param request - ExecuteRequestSGRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteRequestSGResponse
+   */
+  async executeRequestSGWithOptions(request: $_model.ExecuteRequestSGRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteRequestSGResponse> {
+    request.validate();
     let query = { };
-    query["Lang"] = request.lang;
-    query["Service"] = request.service;
-    query["ServiceParameters"] = request.serviceParameters;
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.service)) {
+      query["Service"] = request.service;
+    }
+
+    if (!$dara.isNull(request.serviceParameters)) {
+      query["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ExecuteRequestSG",
       version: "2019-05-21",
       protocol: "HTTPS",
@@ -532,27 +161,45 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExecuteRequestSGResponse>(await this.callApi(params, req, runtime), new ExecuteRequestSGResponse({}));
+    return $dara.cast<$_model.ExecuteRequestSGResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteRequestSGResponse({}));
   }
 
-  async executeRequestSG(request: ExecuteRequestSGRequest): Promise<ExecuteRequestSGResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * Detects risks. This API allows you to invoke public services and custom events.
+   * 
+   * @param request - ExecuteRequestSGRequest
+   * @returns ExecuteRequestSGResponse
+   */
+  async executeRequestSG(request: $_model.ExecuteRequestSGRequest): Promise<$_model.ExecuteRequestSGResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.executeRequestSGWithOptions(request, runtime);
   }
 
-  async requestDecisionWithOptions(request: RequestDecisionRequest, runtime: $Util.RuntimeOptions): Promise<RequestDecisionResponse> {
-    Util.validateModel(request);
+  /**
+   * Detects risks. This operation supports only custom event calls.
+   * 
+   * @param request - RequestDecisionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RequestDecisionResponse
+   */
+  async requestDecisionWithOptions(request: $_model.RequestDecisionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RequestDecisionResponse> {
+    request.validate();
     let query = { };
-    query["EventCode"] = request.eventCode;
-    query["ServiceParameters"] = request.serviceParameters;
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.eventCode)) {
+      query["EventCode"] = request.eventCode;
+    }
+
+    if (!$dara.isNull(request.serviceParameters)) {
+      query["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RequestDecision",
       version: "2019-05-21",
       protocol: "HTTPS",
@@ -560,14 +207,20 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RequestDecisionResponse>(await this.callApi(params, req, runtime), new RequestDecisionResponse({}));
+    return $dara.cast<$_model.RequestDecisionResponse>(await this.callApi(params, req, runtime), new $_model.RequestDecisionResponse({}));
   }
 
-  async requestDecision(request: RequestDecisionRequest): Promise<RequestDecisionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  /**
+   * Detects risks. This operation supports only custom event calls.
+   * 
+   * @param request - RequestDecisionRequest
+   * @returns RequestDecisionResponse
+   */
+  async requestDecision(request: $_model.RequestDecisionRequest): Promise<$_model.RequestDecisionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.requestDecisionWithOptions(request, runtime);
   }
 
