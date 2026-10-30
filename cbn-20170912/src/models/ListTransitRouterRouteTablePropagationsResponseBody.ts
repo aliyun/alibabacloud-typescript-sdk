@@ -13,11 +13,10 @@ export class ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPro
   resourceId?: string;
   /**
    * @remarks
-   * The network instance type. Valid values:
-   * 
-   * - **VPC**: virtual private cloud (VPC) instance.
-   * - **VBR**: virtual border router (VBR) instance.
-   * - **TR**: transit router instance.
+   * The type of the network instance. Valid values:
+   * - **VPC**: VPC.
+   * - **VBR**: VBR.
+   * - **TR**: transit router.
    * - **VPN**: VPN connection.
    * 
    * @example
@@ -26,11 +25,10 @@ export class ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPro
   resourceType?: string;
   /**
    * @remarks
-   * The status of the route learning relationship. Valid values:
-   * 
-   * - **Enabling**: being enabled.
-   * - **Disabling**: being disabled.
-   * - **Active**: active.
+   * The status of the route propagation. Valid values:
+   * - **Enabling**: Enabling.
+   * - **Disabling**: Disabling.
+   * - **Active**: Active.
    * 
    * @example
    * Active
@@ -38,7 +36,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPro
   status?: string;
   /**
    * @remarks
-   * The network instance connection ID.
+   * The ID of the network instance connection.
    * 
    * @example
    * tr-attach-vx6iwhjr1x1j78****
@@ -46,7 +44,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPro
   transitRouterAttachmentId?: string;
   /**
    * @remarks
-   * The ID of the Enterprise Edition transit router route table.
+   * The ID of the route table in the Enterprise Edition transit router.
    * 
    * @example
    * vtb-bp1dudbh2d5na6b50****
@@ -84,7 +82,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPro
 export class ListTransitRouterRouteTablePropagationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 50
@@ -92,7 +90,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBody extends $dara.M
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query in a paged query.
+   * The token used to retrieve the next page of results.
    * 
    * @example
    * dd20****
@@ -116,7 +114,7 @@ export class ListTransitRouterRouteTablePropagationsResponseBody extends $dara.M
   totalCount?: number;
   /**
    * @remarks
-   * The list of route learning relationships.
+   * The route propagations.
    */
   transitRouterPropagations?: ListTransitRouterRouteTablePropagationsResponseBodyTransitRouterPropagations[];
   static names(): { [key: string]: string } {

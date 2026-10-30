@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCenInterRegionTrafficQosQueueRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum inter-region bandwidth that the queue can use when bandwidth is allocated by absolute value. Unit: Mbit/s.
+   * The maximum cross-region bandwidth that the queue can use when bandwidth is allocated in absolute value mode. Unit: Mbit/s.
    * 
-   * - The bandwidth value is calculated as an absolute value. For example, if you enter 20, the queue can use up to 20 Mbit/s of inter-region bandwidth.
+   * - The bandwidth value is calculated as an absolute value. For example, if you enter 20, the queue can use up to 20 Mbit/s of the cross-region bandwidth.
    * 
-   * - The sum of the bandwidth values of all queues under an inter-region connection cannot exceed the inter-region bandwidth value.
+   * - The sum of the bandwidth of all queues under a cross-region connection instance cannot exceed the cross-region bandwidth.
    * 
    * @example
    * 20
@@ -19,9 +19,9 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can generate a parameter value on your client to ensure that the value is unique across different requests. The client token only supports ASCII characters.
    * 
-   * >  If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value of each API request is different.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426****
@@ -29,9 +29,9 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, the queue is created.
+   * Specifies whether to only precheck the request. Valid values:
+   * - **true**: sends a check request and does not create the queue. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the check, the system returns an error. If the request passes the check, the system returns the `DryRunOperation` error code.
+   * - **false** (default): sends a regular request and creates the queue after the request passes the check.
    * 
    * @example
    * false
@@ -39,9 +39,9 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The DSCP values to be matched by the queue.
+   * The Differentiated Services Code Point (DSCP) values to be matched by the queue.
    * 
-   * You can specify up to 20 DSCP values at a time. Separate multiple DSCP values with commas (,).
+   * You can enter up to 20 DSCP values at a time. Separate multiple DSCP values with commas (,).
    * 
    * This parameter is required.
    */
@@ -52,7 +52,7 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $dara.Model {
    * @remarks
    * The description of the queue.
    * 
-   * The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
+   * The description can be empty or 1 to 256 characters in length. It cannot start with http:// or https://.
    * 
    * @example
    * desctest
@@ -62,7 +62,7 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $dara.Model {
    * @remarks
    * The name of the queue.
    * 
-   * The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
+   * The name can be empty or 1 to 128 characters in length. It cannot start with http:// or https://.
    * 
    * @example
    * nametest
@@ -70,11 +70,11 @@ export class CreateCenInterRegionTrafficQosQueueRequest extends $dara.Model {
   qosQueueName?: string;
   /**
    * @remarks
-   * The maximum inter-region bandwidth that the queue can use when bandwidth is allocated by percentage.
+   * The maximum cross-region bandwidth that the queue can use when bandwidth is allocated in percentage mode.
    * 
-   * - The bandwidth value is calculated as a percentage. For example, if you enter 20, the queue can use up to 20% of the inter-region bandwidth.
+   * - The bandwidth value is calculated as a percentage. For example, if you enter 20, the queue can use up to 20% of the cross-region bandwidth.
    * 
-   * - The sum of the bandwidth percentages of all queues under an inter-region connection cannot exceed 100%.
+   * - The sum of the bandwidth percentages of all queues under a cross-region connection instance cannot exceed 100%.
    * 
    * @example
    * 20

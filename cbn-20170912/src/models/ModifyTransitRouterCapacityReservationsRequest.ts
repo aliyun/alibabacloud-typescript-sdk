@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyTransitRouterCapacityReservationsRequestDeploymentSets extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the deployment set instance used.
+   * 
    * @example
    * ds-badxcs*****
    */
   deploymentSetID?: string;
   /**
+   * @remarks
+   * The zone for which to modify the deployment set of the capacity reservation.
+   * 
+   * - To cancel the deployment set, specify the zone and leave the deployment set ID empty.
+   * 
    * @example
    * cn-shanghai-b
    */
@@ -38,6 +46,9 @@ export class ModifyTransitRouterCapacityReservationsRequestDeploymentSets extend
 
 export class ModifyTransitRouterCapacityReservationsRequestMinimumTransitRouterCapacitiesDataProcessGbps extends $dara.Model {
   /**
+   * @remarks
+   * The target reserved capacity for the specified zone.
+   * 
    * @example
    * 100
    */
@@ -64,8 +75,15 @@ export class ModifyTransitRouterCapacityReservationsRequestMinimumTransitRouterC
 }
 
 export class ModifyTransitRouterCapacityReservationsRequestMinimumTransitRouterCapacities extends $dara.Model {
+  /**
+   * @remarks
+   * The reserved capacity for the specified zone.
+   */
   dataProcessGbps?: ModifyTransitRouterCapacityReservationsRequestMinimumTransitRouterCapacitiesDataProcessGbps;
   /**
+   * @remarks
+   * The ID of the zone.
+   * 
    * @example
    * cn-shanghai-l
    */
@@ -98,6 +116,9 @@ export class ModifyTransitRouterCapacityReservationsRequestMinimumTransitRouterC
 
 export class ModifyTransitRouterCapacityReservationsRequestResetCapacityReservations extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the zone for which to cancel the capacity reservation.
+   * 
    * @example
    * cn-beijing-i
    */
@@ -125,15 +146,36 @@ export class ModifyTransitRouterCapacityReservationsRequestResetCapacityReservat
 
 export class ModifyTransitRouterCapacityReservationsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can generate the token on your client to ensure that the token is unique across different requests. The client token only supports ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the request ID of the API request as the client token. The request ID may be different for each API request.
+   * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The deployment set information for the capacity reservation.
+   */
   deploymentSets?: ModifyTransitRouterCapacityReservationsRequestDeploymentSets[];
+  /**
+   * @remarks
+   * The reserved capacity for each zone in the capacity reservation.
+   */
   minimumTransitRouterCapacities?: ModifyTransitRouterCapacityReservationsRequestMinimumTransitRouterCapacities[];
+  /**
+   * @remarks
+   * Cancels capacity reservations.
+   */
   resetCapacityReservations?: ModifyTransitRouterCapacityReservationsRequestResetCapacityReservations[];
   /**
    * @remarks
+   * The ID of the transit router instance for forward routing.
+   * 
    * This parameter is required.
    * 
    * @example

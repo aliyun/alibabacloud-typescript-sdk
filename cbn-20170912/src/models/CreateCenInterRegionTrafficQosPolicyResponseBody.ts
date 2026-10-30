@@ -13,7 +13,7 @@ export class CreateCenInterRegionTrafficQosPolicyResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The ID of the traffic scheduling policy.
+   * The ID of the traffic QoS policy.
    * 
    * @example
    * qos-eczzew0v1kzrb5****

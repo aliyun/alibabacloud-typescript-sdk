@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page for a paged query. Default value: **50**.
+   * The maximum number of entries to return per page. Default value: **50**.
    * 
    * @example
    * 50
@@ -13,7 +13,7 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query in a paged query.
+   * The token used to retrieve the next page of results.
    * 
    * @example
    * dd20****
@@ -25,10 +25,10 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the route learning relationship. Valid values:
-   * - **Active**: active.
-   * - **Enabling**: being enabled.
-   * - **Disabling**: being disabled.
+   * The status of the route propagation. Valid values:
+   * - **Active**: Active.
+   * - **Enabling**: Enabling.
+   * - **Disabling**: Disabling.
    * 
    * @example
    * Active
@@ -36,7 +36,7 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The network instance connection ID.
+   * The ID of the network instance connection.
    * 
    * @example
    * tr-attach-vx6iwhjr1x1j78****
@@ -52,11 +52,10 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   transitRouterAttachmentResourceId?: string;
   /**
    * @remarks
-   * The network instance type. Valid values:
-   * 
-   * - **VPC**: virtual private cloud (VPC) instance.
-   * - **VBR**: virtual border router (VBR) instance.
-   * - **TR**: transit router instance.
+   * The type of the network instance. Valid values:
+   * - **VPC**: VPC.
+   * - **VBR**: VBR.
+   * - **TR**: transit router.
    * - **VPN**: VPN connection.
    * 
    * @example
@@ -65,7 +64,7 @@ export class ListTransitRouterRouteTablePropagationsRequest extends $dara.Model 
   transitRouterAttachmentResourceType?: string;
   /**
    * @remarks
-   * The ID of the Enterprise Edition transit router route table.
+   * The ID of the route table in the Enterprise Edition transit router.
    * 
    * This parameter is required.
    * 

@@ -15,9 +15,9 @@ export class CreateCenChildInstanceRouteEntryToCenRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID to which the network instance belongs.
+   * The ID of the Alibaba Cloud account to which the network instance belongs.
    * 
-   * > This parameter is required if the network instance belongs to a different Alibaba Cloud account.
+   * > This parameter is required if the network instance belongs to another Alibaba Cloud account.
    * 
    * @example
    * 1787100000000000
@@ -37,7 +37,7 @@ export class CreateCenChildInstanceRouteEntryToCenRequest extends $dara.Model {
    * @remarks
    * The region ID of the network instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -49,8 +49,8 @@ export class CreateCenChildInstanceRouteEntryToCenRequest extends $dara.Model {
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * - **VPC**: a virtual private cloud (VPC) instance.
-   * - **VBR**: a virtual border router (VBR) instance.
+   * - **VPC**: VPC.
+   * - **VBR**: VBR.
    * 
    * This parameter is required.
    * 

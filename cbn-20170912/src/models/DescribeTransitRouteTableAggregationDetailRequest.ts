@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTransitRouteTableAggregationDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a unique value from your client for each request. The token can contain only ASCII characters.
+   * You can generate the value from your client. Make sure that the value is unique across different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -31,7 +31,7 @@ export class DescribeTransitRouteTableAggregationDetailRequest extends $dara.Mod
   transitRouteTableAggregationCidr?: string;
   /**
    * @remarks
-   * The ID of the route table of the Enterprise Edition transit router.
+   * The ID of the Enterprise Edition transit router route table.
    * 
    * This parameter is required.
    * 

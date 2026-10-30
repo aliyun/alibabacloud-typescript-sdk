@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTransitRouterMulticastDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 94E19C6F-206F-5223-9A63-64B85851BC04

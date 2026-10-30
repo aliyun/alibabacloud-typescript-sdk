@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFlowlogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The flow log ID.
+   * The ID of the flow log.
    * 
    * @example
    * flowlog-m5evbtbpt****
@@ -21,11 +21,11 @@ export class CreateFlowlogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call is successful.
+   * Indicates whether the call was successful.
    * 
-   * - **true**: successful.
+   * - **true**: The call was successful.
    * 
-   * - **false**: failed.
+   * - **false**: The call failed.
    * 
    * @example
    * true

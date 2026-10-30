@@ -13,7 +13,7 @@ export class CreateCenRouteMapResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the routing policy.
+   * The ID of the route map.
    * 
    * @example
    * cenrmap-w4yf7toozfol3q****

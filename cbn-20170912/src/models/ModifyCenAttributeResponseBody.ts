@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCenAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 13526224-5780-4426-8BDF-BC8B08700F22

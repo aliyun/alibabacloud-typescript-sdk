@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTransitRouterCapacityReservationsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Enterprise Edition transit router instance.
+   * 
    * This parameter is required.
    * 
    * @example

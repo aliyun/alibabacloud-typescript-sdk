@@ -74,7 +74,7 @@ export class DescribeRouteConflictResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page during paging.
+   * The number of entries returned per page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 10

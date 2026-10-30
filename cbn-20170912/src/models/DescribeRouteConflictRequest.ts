@@ -17,7 +17,7 @@ export class DescribeRouteConflictRequest extends $dara.Model {
    * @remarks
    * The region ID of the network instance.
    * 
-   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain region IDs.
+   * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -39,9 +39,9 @@ export class DescribeRouteConflictRequest extends $dara.Model {
    * @remarks
    * The type of the network instance. Valid values:
    * 
-   * - **VPC**: virtual private cloud.
+   * - **VPC**: VPC.
    * 
-   * - **VBR**: virtual border router.
+   * - **VBR**: VBR.
    * 
    * - **CCN**: Cloud Connect Network.
    * 
@@ -71,7 +71,7 @@ export class DescribeRouteConflictRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page during paging. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries to return per page in a paged query. This parameter is used for paging. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10

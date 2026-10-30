@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTransitRouteTableAggregationDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The message returned if the configuration of the aggregate route fails.
+   * The message returned when the aggregate route configuration fails.
    * 
    * @example
    * desctest
@@ -13,7 +13,7 @@ export class DescribeTransitRouteTableAggregationDetailResponseBodyData extends 
   description?: string;
   /**
    * @remarks
-   * The ID of the VPC instance for which the aggregate route is configured.
+   * The instance ID of the VPC-connected instance to which the aggregation routing is configured.
    * 
    * @example
    * vpc-6eh7fp9hdqa2wv85t****
@@ -23,14 +23,10 @@ export class DescribeTransitRouteTableAggregationDetailResponseBodyData extends 
    * @remarks
    * The configuration status of the aggregate route.
    * 
-   * - **Configured**: The aggregate route is advertised to the VPC instance.
-   * 
-   * - **Configuring**: The aggregate route is being advertised.
-   * 
-   * - **ConfigFailed**: The aggregate route failed to be advertised.
-   * 
-   * - **PartialConfigured**: The aggregate route was partially advertised.
-   * 
+   * - **Configured**: The aggregate route is delivered to the VPC-connected instance.
+   * - **Configuring**: The aggregate route is being delivered.
+   * - **ConfigFailed**: The aggregate route fails to be delivered.
+   * - **PartialConfigured**: The aggregate route is partially delivered.
    * - **Deleting**: The aggregate route is being deleted.
    * 
    * @example
@@ -65,7 +61,7 @@ export class DescribeTransitRouteTableAggregationDetailResponseBodyData extends 
 export class DescribeTransitRouteTableAggregationDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCenBandwidthPackageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the new bandwidth plan.
+   * The instance ID of the created bandwidth plan instance.
    * 
    * @example
    * cenbwp-4c2zaavbvh5fx****

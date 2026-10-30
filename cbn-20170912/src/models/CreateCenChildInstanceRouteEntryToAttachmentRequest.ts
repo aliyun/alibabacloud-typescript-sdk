@@ -17,9 +17,9 @@ export class CreateCenChildInstanceRouteEntryToAttachmentRequest extends $dara.M
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can generate the parameter value on your client. Make sure that the token is unique among different requests. The client token only supports ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -37,12 +37,12 @@ export class CreateCenChildInstanceRouteEntryToAttachmentRequest extends $dara.M
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. The dry run checks parameter validity, user permissions, and instance status. Valid values:
+   * Specifies whether to perform a dry run on the request, including permission and instance status checks. Valid values:
    * 
-   * - **false** (default): Sends a normal request. If the request passes the check, a route entry is added to the network instance.
-   * - **true**: Sends a check request. No route entry is added to the network instance. The system checks the required parameters, request format, and other conditions. If the check fails, the corresponding error is returned. If the check passes, the error code `DryRunOperation` is returned.
+   * - **false** (default): sends a normal request. If the request passes the check, a route entry is added for the network instance.
+   * - **true**: sends a dry run request. Only the check is performed, and no route entry is added for the network instance. Check items include whether required parameters are specified and the request format. If the check fails, the corresponding error is returned. If the check is passed, the error code `DryRunOperation` is returned.
    * 
-   * > This parameter is not currently in effect.
+   * > This parameter does not take effect.
    * 
    * @example
    * false

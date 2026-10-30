@@ -147,7 +147,7 @@ export class DescribePublishedRouteEntriesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries returned per page in a paging query.
    * 
    * @example
    * 10
