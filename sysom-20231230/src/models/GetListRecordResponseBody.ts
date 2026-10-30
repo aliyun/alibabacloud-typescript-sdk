@@ -21,7 +21,7 @@ export class GetListRecordResponseBodyData extends $dara.Model {
   analysisTime?: string;
   /**
    * @remarks
-   * The analysis parameters of the AI job analysis.
+   * The parameters for the AI job analysis.
    * 
    * @example
    * timeout=2000 ms
@@ -32,7 +32,7 @@ export class GetListRecordResponseBodyData extends $dara.Model {
    * The analysis failure log.
    * 
    * @example
-   * Analysis failed for instance i-wz9dej066kii4goqpnze. Failure reason: Not get GPU trace data for \\"e59ce870-dbd4-4c44-a814-174ac6ab5bcf\\" \\"[\\"118534\\"]\\"!
+   * Analysis failed for instance i-wz9dej066kii4goqpnze. Cause: Not get GPU trace data for \\"e59ce870-dbd4-4c44-a814-174ac6ab5bcf\\" \\"[\\"118534\\"]\\"!
    */
   failedLog?: string;
   /**
@@ -40,7 +40,7 @@ export class GetListRecordResponseBodyData extends $dara.Model {
    * The analysis status.
    * 
    * @example
-   * Completed/Analysis Failed
+   * Completed/Failed
    */
   status?: string;
   static names(): { [key: string]: string } {
@@ -83,7 +83,7 @@ export class GetListRecordResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: GetListRecordResponseBodyData[];
   /**

@@ -53,7 +53,7 @@ export class ListAifgJobsResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The sub-status of the data item.
+   * The sub-status of data item 0.
    * 
    * @example
    * processing
@@ -69,7 +69,7 @@ export class ListAifgJobsResponseBodyData extends $dara.Model {
   submitTime?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 123456
@@ -138,7 +138,7 @@ export class ListAifgJobsResponseBody extends $dara.Model {
   data?: ListAifgJobsResponseBodyData[];
   /**
    * @remarks
-   * The maximum number of records to retrieve in a single request.
+   * The maximum number of records to retrieve at a time.
    * 
    * @example
    * 20
@@ -146,19 +146,17 @@ export class ListAifgJobsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Indicates the position read by the current call. An empty value indicates that all data has been read.
+   * Indicates the read position returned by the current call. An empty value indicates that all data has been read.
    * 
    * This parameter is required.
    * 
    * @example
-   * Hello, World!
+   * Hello, world!
    */
   message?: string;
   /**
    * @remarks
-   * The pagination token.
-   * 
-   * > A non-empty value indicates that more data is available.
+   * The pagination cursor. A non-empty value indicates that more data is available.
    * 
    * @example
    * U+w1wv2R4ZWR5oZLXD0+Dp4dD+2BRJj42DLT6GrZysw=
@@ -174,7 +172,7 @@ export class ListAifgJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 100

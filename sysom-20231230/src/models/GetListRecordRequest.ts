@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetListRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the analysis record to query the status for.
+   * The ID of the specified analysis record.
    * 
    * @example
    * xxxxxxxxx-f37b-478d-87f6-2259ed8766bf

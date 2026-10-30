@@ -8,7 +8,7 @@ export class DeleteAgentConfigResponseBodyData extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * The ID of the currently executing task
+   * The ID of the currently running task
    */
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -36,8 +36,8 @@ export class DeleteAgentConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - `code == Success`: The authorization succeeded.
-   * - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed fault message.
+   * - `code == Success`: Authorization succeeded.
+   * - Other status codes indicate that authorization failed. If authorization failed, check the `message` field for detailed error messages.
    * 
    * @example
    * SysomOpenAPI.ServerError

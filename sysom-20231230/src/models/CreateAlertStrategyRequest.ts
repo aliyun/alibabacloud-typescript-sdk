@@ -15,7 +15,7 @@ export class CreateAlertStrategyRequestStrategy extends $dara.Model {
   destinations?: number[];
   /**
    * @remarks
-   * The collection of exception items that receive alerts.
+   * The collection of anomaly items that trigger alerts.
    */
   items?: string[];
   static names(): { [key: string]: string } {
@@ -70,7 +70,7 @@ export class CreateAlertStrategyRequest extends $dara.Model {
   k8sLabel?: boolean;
   /**
    * @remarks
-   * The Policy Name of the alerting policy.
+   * The alert policy name.
    * 
    * This parameter is required.
    * 

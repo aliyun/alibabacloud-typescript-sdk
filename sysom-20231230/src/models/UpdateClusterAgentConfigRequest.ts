@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateClusterAgentConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the component whose configuration is to be updated.
+   * The ID of the component whose configuration you want to update.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateClusterAgentConfigRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the component configuration to install on the cluster.
+   * The ID of the component configuration to be installed on the cluster.
    * 
    * This parameter is required.
    * 

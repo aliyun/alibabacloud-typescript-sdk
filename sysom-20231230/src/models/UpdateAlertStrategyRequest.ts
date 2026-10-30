@@ -15,7 +15,7 @@ export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
   destinations?: number[];
   /**
    * @remarks
-   * The collection of exception items that receive alerts.
+   * The collection of exception items that trigger alerts.
    */
   items?: string[];
   static names(): { [key: string]: string } {
@@ -80,7 +80,7 @@ export class UpdateAlertStrategyRequest extends $dara.Model {
   k8sLabel?: boolean;
   /**
    * @remarks
-   * The name of the alerting policy.
+   * The alert policy name.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the component for which you want to retrieve configurations.
+   * The ID of the component.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class GetAgentConfigRequest extends $dara.Model {
   configName?: string;
   /**
    * @remarks
-   * The current page number. This field is available when page-based pagination is used.
+   * The current page number. This parameter is available only when pagination by page number is used.
    * 
    * @example
    * 1

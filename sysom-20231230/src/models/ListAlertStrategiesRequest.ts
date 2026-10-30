@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertStrategiesRequest extends $dara.Model {
   /**
    * @remarks
-   * The current page number (starting from 1).
+   * The current page number, starting from 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListAlertStrategiesRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * The maximum number of records to retrieve in a single request.
+   * The maximum number of records to retrieve per request.
    * 
    * @example
    * 20

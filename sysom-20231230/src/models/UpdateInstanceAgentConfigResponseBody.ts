@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateInstanceAgentConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task ID. You can use this task ID to call the GetAgentTask operation to check the task execution status.
+   * The task ID.
+   * 
+   * You can use this task ID to call the GetAgentTask operation to check the task execution status.
    * 
    * @example
    * bbe94a98-4192-4172-b856-95777e0a55d7
@@ -43,12 +45,14 @@ export class UpdateInstanceAgentConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned results.
+   * The returned result.
    */
   data?: UpdateInstanceAgentConfigResponseBodyData;
   /**
    * @remarks
-   * The error message. If `code == Success`, this field is empty. Otherwise, this field contains the error message of the request.
+   * The error message.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error message.
    * 
    * @example
    * Analysis ID: 56dae746-ef55-4f77-8373-cb3594c41457

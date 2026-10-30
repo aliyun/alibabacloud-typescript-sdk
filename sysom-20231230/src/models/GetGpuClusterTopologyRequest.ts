@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGpuClusterTopologyRequest extends $dara.Model {
   /**
    * @remarks
-   * Used when viewing collective communication topology. Specifies the topology relationship for a given channel ID within a communication group, such as the inter-rank communication topology (tree or ring topology). Must be used together with communication_id and topo_type.
-   * 
-   * ⚠️ Use the channel filter parameter of the GetGpuClusterArgsOptions operation to retrieve the list of channel_id values for a specified communication_id.
+   * The ID of the channel. Used to view the collective communication topology and the topology relationships of a specified channel ID under a specified communication group, such as the communication, tree, or ring topology among ranks within a communication group. This parameter must be used together with communication_id and topo_type. You can call the GetGpuClusterArgsOptions operation with the channel filter parameter to obtain the list of channel_id values under a specified communication_id.
    * 
    * @example
    * communicationId =0x412523235123
@@ -17,7 +15,7 @@ export class GetGpuClusterTopologyRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
-   * The cluster name. Select a cluster from the cluster list returned by the GetListGpuCluster operation.
+   * The name of the cluster. You can select a cluster from the cluster list obtained by calling the GetListGpuCluster operation.
    * 
    * This parameter is required.
    * 
@@ -27,9 +25,7 @@ export class GetGpuClusterTopologyRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Used when viewing collective communication topology. Specifies the topology relationship for a given communication group ID, such as the inter-rank communication topology (tree or ring topology) within a communication group. Must be used together with channel_id and topo_type.
-   * 
-   * ⚠️ Use the communication filter type of the GetGpuClusterArgsOptions operation to retrieve the list of communication_id values.
+   * The ID of the communication group. Used to view the collective communication topology and the topology relationships of a specified communication group ID, such as the communication, tree, or ring topology among ranks within a communication group. This parameter must be used together with channel_id and topo_type. You can call the GetGpuClusterArgsOptions operation with the communication filter type to obtain the list of communication_id values.
    * 
    * @example
    * communicationId =0x412523235123
@@ -39,7 +35,7 @@ export class GetGpuClusterTopologyRequest extends $dara.Model {
   communicationId?: string;
   /**
    * @remarks
-   * The GPU topology information for the specified list of instances.
+   * The list of instances for which to query GPU topology information.
    * 
    * @example
    * ["instance1", "instance2","instance3"]
@@ -47,7 +43,7 @@ export class GetGpuClusterTopologyRequest extends $dara.Model {
   instanceIdList?: any;
   /**
    * @remarks
-   * The GPU topology information for the specified list of pods.
+   * The list of pods for which to query GPU topology information.
    * 
    * @example
    * ["pod1", "pod2","pod3"]
@@ -55,7 +51,7 @@ export class GetGpuClusterTopologyRequest extends $dara.Model {
   podList?: any;
   /**
    * @remarks
-   * The timestamp for the query. Defaults to the current time. Must be a second-level timestamp.
+   * The query timestamp. Default value: the current time. The timestamp must be accurate to seconds.
    * 
    * @example
    * 1709740800
@@ -63,7 +59,7 @@ export class GetGpuClusterTopologyRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The GPU topology information for the specified list of nodes.
+   * The list of tasks for which to query GPU topology information.
    * 
    * @example
    * ["task1", "task2"]
@@ -71,9 +67,7 @@ export class GetGpuClusterTopologyRequest extends $dara.Model {
   taskIdList?: any;
   /**
    * @remarks
-   * Used when viewing collective communication topology. Specifies the topology relationship for a given topology type within a communication group and channel, such as the inter-rank communication topology (tree or ring topology). Must be used together with communication_id and channel_id.
-   * 
-   * ⚠️ Use the topoType filter parameter of the GetGpuClusterArgsOptions operation to retrieve the list of topo_type values for a specified communication_id and channel_id.
+   * The topology type. Used to view the collective communication topology and the topology relationships of a specified topology type under a specified communication group and channel ID, such as the communication, tree, or ring topology among ranks within a communication group. This parameter must be used together with communication_id and channel_id. You can call the GetGpuClusterArgsOptions operation with the topoType filter parameter to obtain the list of topo_type values under a specified communication_id and channel_id.
    * 
    * @example
    * communicationId =0x412523235123

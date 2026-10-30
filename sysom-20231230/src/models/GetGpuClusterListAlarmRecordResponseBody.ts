@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGpuClusterListAlarmRecordResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The cluster where the alert was triggered.
+   * The cluster where the alert is triggered.
    * 
    * @example
    * cluster1
@@ -13,7 +13,7 @@ export class GetGpuClusterListAlarmRecordResponseBodyData extends $dara.Model {
   alarmCluster?: string;
   /**
    * @remarks
-   * The additional information about the alert.
+   * The extended information of the alert.
    * 
    * @example
    * {
@@ -35,7 +35,7 @@ export class GetGpuClusterListAlarmRecordResponseBodyData extends $dara.Model {
   alarmId?: string;
   /**
    * @remarks
-   * The event log associated with the alert.
+   * The alerting event log.
    * 
    * @example
    * cuda OOM：xxxxx
@@ -51,7 +51,7 @@ export class GetGpuClusterListAlarmRecordResponseBodyData extends $dara.Model {
   alarmTask?: string;
   /**
    * @remarks
-   * The date and time when the alert was triggered.
+   * The date and time when the alert is triggered.
    * 
    * @example
    * 2025-08-22 18:16:25
@@ -162,7 +162,7 @@ export class GetGpuClusterListAlarmRecordResponseBodyData extends $dara.Model {
   alarmTopology?: any;
   /**
    * @remarks
-   * The Alarm Metric for alerting.
+   * The alerting type.
    * 
    * @example
    * cuda OOM
@@ -170,7 +170,7 @@ export class GetGpuClusterListAlarmRecordResponseBodyData extends $dara.Model {
   alarmType?: string;
   /**
    * @remarks
-   * The task status.
+   * The status of the task.
    * 
    * @example
    * running、blocking、restart、exited、failed
@@ -226,7 +226,7 @@ export class GetGpuClusterListAlarmRecordResponseBodyData extends $dara.Model {
 export class GetGpuClusterListAlarmRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The value is "Success" or "Sysom.ServerError".
+   * The response code. Valid values: Success and Sysom.ServerError.
    * 
    * @example
    * Success or Sysom.ServerError
@@ -239,7 +239,7 @@ export class GetGpuClusterListAlarmRecordResponseBody extends $dara.Model {
   data?: GetGpuClusterListAlarmRecordResponseBodyData[];
   /**
    * @remarks
-   * When code is not "Success", message contains the error information.
+   * The error message returned when the code is not Success.
    * 
    * @example
    * server error

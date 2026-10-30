@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAifgResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The diagnostic result.
+   * The diagnostic results.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class GetAifgResultResponseBodyData extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The status of the root data.
+   * The root data status.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class GetAifgResultResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the data was created.
+   * The data creation time.
    * 
    * @example
    * 2023-01-01T00:00:00Z
@@ -37,7 +37,7 @@ export class GetAifgResultResponseBodyData extends $dara.Model {
   submitTime?: string;
   /**
    * @remarks
-   * The unique task ID.
+   * The unique identifier of the task.
    * 
    * @example
    * 1234567890
@@ -98,7 +98,7 @@ export class GetAifgResultResponseBody extends $dara.Model {
   data?: GetAifgResultResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The message content.
    * 
    * @example
    * "Execution succeeded"
@@ -106,7 +106,7 @@ export class GetAifgResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * The unique identifier of the request.
    * 
    * @example
    * 1234567890

@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The component configuration ID.
+   * 
+   * @example
+   * f0078fbb-4213-11f0-a19b-00163e4ae208
+   */
   agentConfigId?: string;
+  /**
+   * @remarks
+   * The component configuration name.
+   * 
+   * @example
+   * 123
+   */
   agentConfigName?: string;
   /**
    * @remarks
@@ -102,8 +116,8 @@ export class ListClusterAgentInstallRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+   * - `code == Success`: The authorization succeeded.
+   * - Other status codes: The authorization failed. If the authorization fails, check the `message` field for the detailed fault information.
    * 
    * @example
    * Success
@@ -118,7 +132,7 @@ export class ListClusterAgentInstallRecordsResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error information.
+   * - Otherwise, this field contains the request error message.
    * 
    * @example
    * success

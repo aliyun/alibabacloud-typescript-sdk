@@ -21,7 +21,7 @@ export class UpdateAlertDestinationRequestParams extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * The chatbot secret key.
+   * The secret of the chatbot.
    * 
    * @example
    * SECxxx
@@ -29,7 +29,7 @@ export class UpdateAlertDestinationRequestParams extends $dara.Model {
   sec?: string;
   /**
    * @remarks
-   * The webhook URL.
+   * The webhook URL of the chatbot.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=xxx
@@ -63,8 +63,26 @@ export class UpdateAlertDestinationRequestParams extends $dara.Model {
 }
 
 export class UpdateAlertDestinationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The app ID of the chatbot.
+   * 
+   * @example
+   * 0ab724ba952448eab4b5ed7ebe1d51ab
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The app secret of the chatbot.
+   * 
+   * @example
+   * ZzhtNzloZTY4ZzAwRE4rXFxMRCdNTmFCbV0mQUZIcEM
+   */
   appSecret?: string;
+  /**
+   * @remarks
+   * The group ID.
+   */
   groupId?: string[];
   /**
    * @remarks
@@ -74,6 +92,13 @@ export class UpdateAlertDestinationRequest extends $dara.Model {
    * 1
    */
   id?: string;
+  /**
+   * @remarks
+   * Specifies whether the contact is an IM chatbot.
+   * 
+   * @example
+   * true
+   */
   imbot?: boolean;
   /**
    * @remarks

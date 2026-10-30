@@ -36,8 +36,8 @@ export class UpdateAgentConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If `code` is `Success`, the authorization is successful.
-   * - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed fault information.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault message.
    * 
    * @example
    * SysomOpenAPI.ServerError
@@ -51,8 +51,8 @@ export class UpdateAgentConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
-   * - If `code` is `Success`, this field is empty.
-   * - Otherwise, this field contains the request error information.
+   * - If `code == Success`, this field is empty.
+   * - Otherwise, this field contains the request error message.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom

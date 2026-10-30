@@ -177,7 +177,7 @@ export class GetHotfixTaskResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * - If `code` is `Success`, the authorization is successful.
-   * - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed error message of the fault.
+   * - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault information.
    * 
    * @example
    * Success

@@ -166,7 +166,7 @@ export class GetAgentConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of returned records.
+   * The total number of returned records.
    * 
    * @example
    * 10

@@ -3,12 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The component configuration ID.
+   * 
+   * @example
+   * f0078fbb-4213-11f0-a19b-00163e4ae208
+   */
   agentConfigId?: string;
   /**
    * @remarks
-   * Filters results by cluster ID.
+   * Filters by cluster ID.
    * 
-   * > This cluster ID is not the ACK cluster ID. It is the `cluster_id` field returned by this operation or the `id` field returned by the ListCluster operation.
+   * > This cluster ID is not the ACK cluster ID. It is the `cluster_id` field in the data returned by this operation, or the `id` field in the data returned by the ListCluster operation.
    * 
    * @example
    * cbd80af02b9d6454ebdc579c5e022d0c8
@@ -16,7 +23,7 @@ export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The current page number (starting from 1).
+   * The current page number, starting from 1.
    * 
    * @example
    * 1
@@ -32,7 +39,7 @@ export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies the agent ID to filter the installation list. You can use this parameter together with the plugin_version parameter.
+   * Filters the installation list by the specified agent. You can use this parameter together with the plugin_version parameter.
    * 
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -40,7 +47,7 @@ export class ListClusterAgentInstallRecordsRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Cannot be used alone. Use this parameter together with plugin_id to filter the installation list by a specific agent version.
+   * This parameter cannot be used alone and must be used together with the plugin_id parameter to filter the installation list by the specified agent and version.
    * 
    * @example
    * 3.4.0-1

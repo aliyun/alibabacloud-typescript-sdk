@@ -21,7 +21,7 @@ export class CreateAlertDestinationRequestParams extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * The chatbot secret key.
+   * The secret key of the bot.
    * 
    * @example
    * SECxxx
@@ -29,7 +29,7 @@ export class CreateAlertDestinationRequestParams extends $dara.Model {
   sec?: string;
   /**
    * @remarks
-   * The webhook URL of the chatbot.
+   * The webhook URL of the bot.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=xxx
@@ -63,9 +63,34 @@ export class CreateAlertDestinationRequestParams extends $dara.Model {
 }
 
 export class CreateAlertDestinationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the IM bot.
+   * 
+   * @example
+   * 0ab724ba952448eab4b5ed7ebe1d51ab
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The secret key of the IM bot.
+   * 
+   * @example
+   * cmxjamd2a2MwbzAweHgqZ2U4TH55RjNOP0RUOy8tVVo
+   */
   appSecret?: string;
+  /**
+   * @remarks
+   * The ID of the group.
+   */
   groupId?: string[];
+  /**
+   * @remarks
+   * Specifies whether the IM bot is enabled.
+   * 
+   * @example
+   * true
+   */
   imbot?: boolean;
   /**
    * @remarks
@@ -90,7 +115,7 @@ export class CreateAlertDestinationRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The notification target. Currently, only DingTalk chatbots are supported.
+   * The push target. Currently, only DingTalk bots are supported.
    * 
    * @example
    * dingtalk

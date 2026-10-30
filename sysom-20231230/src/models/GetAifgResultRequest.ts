@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAifgResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The task ID.
+   * The task identifier.
    * 
    * This parameter is required.
    * 

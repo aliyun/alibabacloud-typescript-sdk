@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGpuClusterArgsOptionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Valid values: Success and Sysom.ServerError.
+   * The response code, which is Success or Sysom.ServerError.
    * 
    * @example
    * Success  Fail
@@ -37,7 +37,7 @@ export class GetGpuClusterArgsOptionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of returned items.
    * 
    * @example
    * 10

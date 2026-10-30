@@ -21,7 +21,7 @@ export class CreateAlertDestinationResponseBodyDataParams extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * The chatbot secret key.
+   * The secret key of the bot.
    * 
    * @example
    * SECxxx
@@ -29,7 +29,7 @@ export class CreateAlertDestinationResponseBodyDataParams extends $dara.Model {
   sec?: string;
   /**
    * @remarks
-   * The webhook URL of the chatbot.
+   * The webhook URL of the bot.
    * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=xxx
@@ -65,7 +65,7 @@ export class CreateAlertDestinationResponseBodyDataParams extends $dara.Model {
 export class CreateAlertDestinationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the contact was created.
+   * The creation time.
    * 
    * @example
    * 1753669116286
@@ -102,7 +102,7 @@ export class CreateAlertDestinationResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The notification target. Currently, only DingTalk chatbots are supported.
+   * The push target. Currently, only DingTalk bots are supported.
    * 
    * @example
    * dingtalk
@@ -118,7 +118,7 @@ export class CreateAlertDestinationResponseBodyData extends $dara.Model {
   uid?: string;
   /**
    * @remarks
-   * The time when the contact was last updated.
+   * The update time.
    * 
    * @example
    * 1751254826285
@@ -180,7 +180,7 @@ export class CreateAlertDestinationResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the error message of the request.
+   * - Otherwise, this field contains the request error message.
    * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict

@@ -13,7 +13,7 @@ export class GetListGpuClusterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The query time range, in milliseconds, in the format of [start, end]. Example: [13254125000, 52451241000].
+   * The time range to query. Unit: milliseconds. Format: [start,end]. Example: [13254125000, 52451241000].
    * 
    * @example
    * [1757820000, 1757823600]

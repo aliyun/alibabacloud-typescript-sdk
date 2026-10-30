@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which can be used for end-to-end diagnostics.
+   * The request ID. You can use it for end-to-end diagnostics.
    * 
    * @example
    * B149FD9C-ED5C-5765-B3AD-05AA4A4D64D7
@@ -29,7 +29,7 @@ export class ListRegionsResponseBody extends $dara.Model {
   data?: string[];
   /**
    * @remarks
-   * The error code description. This value is empty if no error occurs.
+   * The error message. This field is empty if no error occurs.
    * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom

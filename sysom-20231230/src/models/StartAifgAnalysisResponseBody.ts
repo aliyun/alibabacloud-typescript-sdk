@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartAifgAnalysisResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task ID.
+   * The identifier.
    * 
    * @example
    * 9cd7aee5-d365-4d4e-8236-58a110a4ea09

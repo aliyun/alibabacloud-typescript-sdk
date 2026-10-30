@@ -15,7 +15,7 @@ export class ListAifgJobsRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * The maximum number of records to retrieve in a single request.
+   * The maximum number of records to retrieve at a time.
    * 
    * @example
    * 20
@@ -23,9 +23,7 @@ export class ListAifgJobsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
-   * 
-   * > A non-empty value indicates that more data is available.
+   * The pagination cursor. A non-empty value indicates that more data is available.
    * 
    * @example
    * c2f78a783f49457caba6bace6f6f79e4
@@ -51,7 +49,7 @@ export class ListAifgJobsRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The service name of the diagnostic service.
+   * The diagnostic service name.
    * 
    * This parameter is required.
    * 

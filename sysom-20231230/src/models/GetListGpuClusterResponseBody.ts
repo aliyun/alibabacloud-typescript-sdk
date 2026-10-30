@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetListGpuClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Valid values: Success and Sysom.ACKClusterNotFound.
+   * The code. Valid values: Success and Sysom.ACKClusterNotFound.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class GetListGpuClusterResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of clusters returned.
+   * The list of clusters.
    * 
    * @example
    * ["cluster1", "cluster2"]
@@ -21,7 +21,7 @@ export class GetListGpuClusterResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * The error message returned when the code is not Success.
+   * The error message. If the code is not success, the message is the error information.
    * 
    * @example
    * success
@@ -37,7 +37,7 @@ export class GetListGpuClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of clusters returned.
+   * The total number of returned entries.
    * 
    * @example
    * 10

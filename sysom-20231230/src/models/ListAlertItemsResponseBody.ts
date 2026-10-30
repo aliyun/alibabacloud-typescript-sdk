@@ -6,8 +6,8 @@ export class ListAlertItemsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault message.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate authorization failure. If authorization fails, check the `message` field for detailed error messages.
    * 
    * @example
    * Success
@@ -15,46 +15,46 @@ export class ListAlertItemsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    * 
    * @example
    * {
    *     "NODE": {
-   *       "饱和度": [
-   *         "节点CPU使用率检测",
-   *         "节点内核态CPU使用检测",
-   *         "节点软中断CPU使用检测",
-   *         "节点内存使用检测",
-   *         "节点内核内存使用检测",
-   *         "节点文件描述符使用检测",
-   *         "节点根文件系统使用检测",
-   *         "节点cgroup泄漏检测",
-   *         "节点Sockets使用检测",
-   *         "节点TCP内存使用检测"
+   *       "Saturation": [
+   *         "Node CPU utilization detection",
+   *         "Node kernel-mode CPU utilization detection",
+   *         "Node softirq CPU utilization detection",
+   *         "Node memory usage detection",
+   *         "Node kernel memory usage detection",
+   *         "Node file descriptor usage detection",
+   *         "Node root file system usage detection",
+   *         "Node cgroup leak detection",
+   *         "Node socket usage detection",
+   *         "Node TCP memory usage detection"
    *       ],
-   *       "延时": [
-   *         "节点调度延时检测",
-   *         "节点网络延时检测",
-   *         "节点磁盘写入延迟检测",
-   *         "节点磁盘读取延迟检测"
+   *       "Latency": [
+   *         "Node scheduling latency detection",
+   *         "Node network latency detection",
+   *         "Node disk write latency detection",
+   *         "Node disk read latency detection"
    *       ],
-   *       "负载": [
-   *         "节点磁盘IO流量检测",
-   *         "节点load average检测"
+   *       "Load": [
+   *         "Node disk I/O traffic detection",
+   *         "Node load average detection"
    *       ],
-   *       "错误": [
-   *         "节点网络丢包检测",
-   *         "节点OOM夯机预测及检测"
+   *       "Errors": [
+   *         "Node network packet loss detection",
+   *         "Node OOM stall prediction and detection"
    *       ]
    *     },
    *     "POD": {
-   *       "饱和度": [
-   *         "Pod内存使用检测",
-   *         "Pod CPU使用率检测"
+   *       "Saturation": [
+   *         "Pod memory usage detection",
+   *         "Pod CPU utilization detection"
    *       ],
-   *       "错误": [
-   *         "Pod CPU限流检测",
-   *         "Pod OOM事件检测"
+   *       "Errors": [
+   *         "Pod CPU throttling detection",
+   *         "Pod OOM event detection"
    *       ]
    *     }
    * }
@@ -64,7 +64,7 @@ export class ListAlertItemsResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error information.
+   * - Otherwise, this field contains the request error message.
    * 
    * @example
    * success

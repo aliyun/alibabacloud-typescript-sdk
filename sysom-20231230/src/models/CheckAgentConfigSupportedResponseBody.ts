@@ -21,7 +21,7 @@ export class CheckAgentConfigSupportedResponseBodyData extends $dara.Model {
   instance?: string;
   /**
    * @remarks
-   * The reason why the instance is not supported for management. This field is not empty when success is false.
+   * The reason why the instance is not supported for management. This field is not empty when the success field is false.
    * 
    * @example
    * instance not found in ecs
@@ -56,8 +56,8 @@ export class CheckAgentConfigSupportedResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - If `code` is `Success`, the authorization is successful.
-   * - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed fault information.
+   * - If the value is `Success`, the authorization is successful.
+   * - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed fault message.
    * 
    * @example
    * Success  Fail
@@ -71,8 +71,8 @@ export class CheckAgentConfigSupportedResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
-   * - If code is Success, this field is empty.
-   * - Otherwise, this field contains the error information of the request.
+   * - If the value of `code` is `Success`, this field is empty.
+   * - Otherwise, this field contains the error message of the request.
    * 
    * @example
    * server error

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the component for the configuration. You can obtain the component ID from ListAgents.
+   * The ID of the agent associated with the configuration. You can obtain the agent ID from ListAgents.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAgentConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the component whose configuration you want to update.
+   * The ID of the component whose configuration is to be updated.
    * 
    * This parameter is required.
    * 

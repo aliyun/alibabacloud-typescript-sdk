@@ -141,7 +141,7 @@ export class GetGpuClusterTopologyResponseBodyData extends $dara.Model {
   data?: GetGpuClusterTopologyResponseBodyDataData;
   /**
    * @remarks
-   * The number of GPU cards returned.
+   * The total number of GPUs returned.
    * 
    * @example
    * 36
@@ -176,7 +176,7 @@ export class GetGpuClusterTopologyResponseBodyData extends $dara.Model {
 export class GetGpuClusterTopologyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result code. Valid values: Success, Sysom.ServerError, Sysom.InvalidParameter.
+   * The response code. Valid values: Success, Sysom.ServerError, and Sysom.InvalidParameter.
    * 
    * @example
    * Fail/Success

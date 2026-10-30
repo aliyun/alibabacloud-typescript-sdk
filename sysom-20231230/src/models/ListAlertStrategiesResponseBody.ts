@@ -15,7 +15,7 @@ export class ListAlertStrategiesResponseBodyDataStrategy extends $dara.Model {
   destinations?: number[];
   /**
    * @remarks
-   * The list of anomaly items that receive alerts.
+   * The list of exception items that receive alerts.
    */
   items?: string[];
   static names(): { [key: string]: string } {
@@ -79,7 +79,7 @@ export class ListAlertStrategiesResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Indicates whether Kubernetes labels are required.
+   * Indicates whether K8s labels are required.
    */
   k8sLabel?: boolean;
   /**
@@ -153,8 +153,8 @@ export class ListAlertStrategiesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+   * - If `code == Success`, the authorization is successful.
+   * - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed error message.
    * 
    * @example
    * Success
@@ -162,12 +162,12 @@ export class ListAlertStrategiesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   data?: ListAlertStrategiesResponseBodyData[];
   /**
    * @remarks
-   * The maximum number of entries returned.
+   * The maximum number of returned results.
    * 
    * @example
    * 20
@@ -177,7 +177,7 @@ export class ListAlertStrategiesResponseBody extends $dara.Model {
    * @remarks
    * The error message.
    * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error information.
+   * - Otherwise, this field contains the request error message.
    * 
    * @example
    * success

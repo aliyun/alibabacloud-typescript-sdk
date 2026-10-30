@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAifgUrlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The URL of the diagnostic details.
+   * The URL for diagnostic details.
    * 
    * @example
    * /diagnose/detail/qe3Z34sa
@@ -48,7 +48,7 @@ export class GetAifgUrlResponseBody extends $dara.Model {
   data?: GetAifgUrlResponseBodyData;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * success
