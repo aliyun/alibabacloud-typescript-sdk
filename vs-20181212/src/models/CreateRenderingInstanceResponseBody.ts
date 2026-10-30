@@ -13,6 +13,11 @@ export class CreateRenderingInstanceResponseBody extends $dara.Model {
   renderingInstanceId?: string;
   /**
    * @remarks
+   * The instance ID list of the cloud application service.
+   */
+  renderingInstanceIds?: string[];
+  /**
+   * @remarks
    * Id of the request
    * 
    * @example
@@ -22,6 +27,7 @@ export class CreateRenderingInstanceResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       renderingInstanceId: 'RenderingInstanceId',
+      renderingInstanceIds: 'RenderingInstanceIds',
       requestId: 'RequestId',
     };
   }
@@ -29,11 +35,15 @@ export class CreateRenderingInstanceResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       renderingInstanceId: 'string',
+      renderingInstanceIds: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.renderingInstanceIds)) {
+      $dara.Model.validateArray(this.renderingInstanceIds);
+    }
     super.validate();
   }
 
