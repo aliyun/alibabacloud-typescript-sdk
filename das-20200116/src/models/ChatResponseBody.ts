@@ -20,6 +20,9 @@ export class ChatResponseBody extends $dara.Model {
    */
   agentId?: string;
   /**
+   * @remarks
+   * direct_skill_rejected
+   * 
    * @example
    * direct_skill_rejected
    */
@@ -50,13 +53,16 @@ export class ChatResponseBody extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The display name of the child agent for STEP_STARTED.
+   * The display name of the sub-agent for STEP_STARTED.
    * 
    * @example
    * SQL performance diagnostics
    */
   label?: string;
   /**
+   * @remarks
+   * [HdmApiClient] instance is not managed by the agent
+   * 
    * @example
    * [HdmApiClient] instance is not managed by the agent
    */
@@ -119,7 +125,7 @@ export class ChatResponseBody extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * The execution step name.
+   * The name of the execution step.
    * 
    * @example
    * sub_agent_performance_diagnose_mysql
@@ -159,7 +165,7 @@ export class ChatResponseBody extends $dara.Model {
   timestamp?: number;
   /**
    * @remarks
-   * The error that occurred when invoking the tool.
+   * The fault that occurs when you invoke tool calling.
    * 
    * @example
    * error
@@ -167,7 +173,7 @@ export class ChatResponseBody extends $dara.Model {
   toolCallError?: string;
   /**
    * @remarks
-   * The tool call ID.
+   * The ID of the tool calling to invoke.
    * 
    * @example
    * call_edf9cdb69e0e4c9796a6a5a6
