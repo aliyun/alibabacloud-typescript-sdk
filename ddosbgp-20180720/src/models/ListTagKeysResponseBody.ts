@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagKeysResponseBodyTagKeys extends $dara.Model {
   /**
    * @remarks
-   * The total number of tag values that correspond to each key.
+   * The total number of tag values for the tag key.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class ListTagKeysResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -61,7 +61,7 @@ export class ListTagKeysResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 97935DF1-0289-4AA2-9DD1-72377838B16B
@@ -69,12 +69,12 @@ export class ListTagKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the tags.
+   * The tag information.
    */
   tagKeys?: ListTagKeysResponseBodyTagKeys[];
   /**
    * @remarks
-   * The total number of tags returned.
+   * The total number of tags.
    * 
    * @example
    * 6

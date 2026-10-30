@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExcpetionCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of assets that are in an abnormal state.
+   * The number of abnormal IP addresses (such as those in the Black Hole Activated state) among protected assets that are assigned public IP addresses (such as a cloud server ECS instance, a Server Load Balancer (SLB) instance, and an elastic IP address (EIP)).
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeExcpetionCountResponseBody extends $dara.Model {
   exceptionIpCount?: number;
   /**
    * @remarks
-   * The number of Anti-DDoS Origin instances that are about to expire.
+   * The number of Anti-DDoS Origin instances that are about to expire (with a remaining validity period of less than 7 days).
    * 
    * @example
    * 1

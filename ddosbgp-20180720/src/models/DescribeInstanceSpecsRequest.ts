@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceSpecsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Anti-DDoS Origin instance. This parameter is a string that consists of JSON arrays. Each element in a JSON array indicates an instance ID. If you want to query more than one instance, separate instance IDs with commas (,).
+   * The IDs of the Anti-DDoS Origin instances to query. The value is a JSON array converted to a string. Each element in the JSON array represents an instance ID in string format. Multiple IDs are separated by commas (,).
    * 
-   * >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances in a specific region.
+   * > You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances in a specified region.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeInstanceSpecsRequest extends $dara.Model {
    * @remarks
    * The region ID of the Anti-DDoS Origin instance. Default value: **cn-hangzhou**, which indicates the China (Hangzhou) region.
    * 
-   * >  If your instance does not reside in the China (Hangzhou) region, you must set this parameter to the region ID of your instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the regions of assets that can be protected by Anti-DDoS Origin in a specific region.
+   * > If your instance is not in the China (Hangzhou) region, you must specify the region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -27,9 +27,9 @@ export class DescribeInstanceSpecsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. This parameter is empty by default, which indicates that the Anti-DDoS Origin instance belongs to the default resource group.
+   * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. Default value: empty, which indicates the default resource group.
    * 
-   * For information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
    * 
    * @example
    * rg-acfm2pz25js****

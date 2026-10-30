@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page **1**. Default value: **1**.
+   * The page number. Pages start from **1**. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListTagKeysRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to **50**. Default value: **10**.
+   * The paging Settings for the number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListTagKeysRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region that you want to query.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ListTagKeysRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * test
@@ -39,7 +39,7 @@ export class ListTagKeysRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource type. Set the value to **INSTANCE**.
+   * The resource type. Valid values: **INSTANCE**.
    * 
    * This parameter is required.
    * 

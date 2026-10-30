@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the policy.
+   * The policy ID.
    * 
    * This parameter is required.
    * 

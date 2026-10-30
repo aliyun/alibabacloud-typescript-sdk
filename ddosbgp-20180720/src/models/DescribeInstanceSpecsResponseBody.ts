@@ -13,7 +13,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $d
   bandwidth?: number;
   /**
    * @remarks
-   * The number of IP addresses that are protected by the Anti-DDoS Origin Enterprise instance.
+   * The number of protected IP addresses.
    * 
    * @example
    * 0
@@ -29,10 +29,10 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $d
   elasticBwMbps?: number;
   /**
    * @remarks
-   * The metering method of burstable clean bandwidth. Valid values:
+   * The burstable clean bandwidth mode. Valid values:
    * 
-   * *   **month**: the monthly 95th percentile metering method.
-   * *   **day**: the daily 95th percentile metering method.
+   * - **month**: Monthly 95th percentile metering method.
+   * - **day**: Daily 95th percentile metering method.
    * 
    * @example
    * day
@@ -40,7 +40,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $d
   elasticBwMode?: string;
   /**
    * @remarks
-   * The burstable protection bandwidth of each protected IP address. Unit: Gbit/s.
+   * The burstable protection threshold for the protected IP address. Unit: Gbit/s.
    * 
    * @example
    * 300
@@ -48,7 +48,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $d
   ipAdvanceThre?: number;
   /**
    * @remarks
-   * The basic protection bandwidth of each protected IP address. Unit: Gbit/s.
+   * The basic protection threshold for the protected IP address. Unit: Gbit/s.
    * 
    * @example
    * 20
@@ -56,7 +56,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $d
   ipBasicThre?: number;
   /**
    * @remarks
-   * The number of IP addresses that can be protected by the Anti-DDoS Origin Enterprise instance.
+   * The number of IP addresses that can be added for protection.
    * 
    * @example
    * 100
@@ -64,7 +64,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $d
   ipSpec?: number;
   /**
    * @remarks
-   * The clean bandwidth. Unit: Mbit/s.
+   * The normal clean bandwidth. Unit: Mbit/s.
    * 
    * @example
    * 200
@@ -128,7 +128,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig extends $d
 export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $dara.Model {
   /**
    * @remarks
-   * The available best-effort protection sessions.
+   * The available best-effort protection times.
    * 
    * @example
    * 2
@@ -136,7 +136,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $dara.Model 
   availableDefenseTimes?: number;
   /**
    * @remarks
-   * The number of times that blackhole filtering can be deactivated.
+   * The available quota for deactivating blackhole filtering.
    * 
    * @example
    * 100
@@ -144,7 +144,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $dara.Model 
   availableDeleteBlackholeCount?: string;
   /**
    * @remarks
-   * The percentage of the used best-effort protection sessions. Unit: %.
+   * The usage percentage of best-effort protection times. Unit: %.
    * 
    * @example
    * 30
@@ -152,9 +152,9 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $dara.Model 
   defenseTimesPercent?: number;
   /**
    * @remarks
-   * Indicates whether the instance is downgraded. Valid value:
+   * The downgrade status of the instance. Valid values:
    * 
-   * *   **8**: The instance is downgraded due to excessive bandwidth usage.
+   * - **8**: The instance is downgraded because the clean bandwidth exceeds the limit.
    * 
    * @example
    * 8
@@ -170,10 +170,10 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $dara.Model 
   instanceId?: string;
   /**
    * @remarks
-   * Indicates whether best-effort protection is enabled. Valid values:
+   * Indicates whether best-effort protection mode is enabled for the instance. Valid values:
    * 
-   * *   **0**: Best-effort protection is disabled.
-   * *   **1**: Best-effort protection is enabled.
+   * - **0**: Best-effort protection mode is disabled.
+   * - **1**: Best-effort protection mode is enabled.
    * 
    * @example
    * 1
@@ -181,14 +181,14 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $dara.Model 
   isFullDefenseMode?: number;
   /**
    * @remarks
-   * The configurations of the Anti-DDoS Origin instance, including the number of protected IP addresses and protection bandwidth.
+   * The configuration information of the Anti-DDoS Origin instance, including the number of protected IP addresses and protection bandwidth information.
    */
   packConfig?: DescribeInstanceSpecsResponseBodyInstanceSpecsPackConfig;
   /**
    * @remarks
    * The region ID of the Anti-DDoS Origin instance.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the name of the region.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the details of region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -196,7 +196,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $dara.Model 
   region?: string;
   /**
    * @remarks
-   * The total best-effort protection sessions.
+   * The total available best-effort protection times.
    * 
    * @example
    * 2
@@ -245,7 +245,7 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $dara.Model 
 export class DescribeInstanceSpecsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The specifications of the Anti-DDoS Origin instance, including whether best-effort protection is enabled, the number of available best-effort protection sessions, and the number of used best-effort protection sessions.
+   * The specification information of the Anti-DDoS Origin instance, including the enabling status of best-effort protection, and the available and used best-effort protection times.
    */
   instanceSpecs?: DescribeInstanceSpecsResponseBodyInstanceSpecs[];
   /**

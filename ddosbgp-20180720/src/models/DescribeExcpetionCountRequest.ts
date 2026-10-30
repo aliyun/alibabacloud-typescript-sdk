@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExcpetionCountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region where the Anti-DDoS Origin instance resides.
+   * The region ID of the Anti-DDoS Origin instance.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all region IDs supported by Anti-DDoS Origin.
    * 
    * @example
    * cn-hangzhou
@@ -17,7 +17,7 @@ export class DescribeExcpetionCountRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
    * 
-   * If you do not specify this parameter, the instance belongs to the default resource group.
+   * If you do not specify this parameter, the default resource group is used.
    * 
    * @example
    * rg-acfm2pz25js****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDdosEventResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * The time when the DDoS attack stopped. This value is a UNIX timestamp. Unit: seconds.
+   * The end time of the attack. The time is a UNIX timestamp in seconds.
    * 
    * @example
    * 1637554335
@@ -21,7 +21,7 @@ export class DescribeDdosEventResponseBodyEvents extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The volume of the request traffic at the start of the DDoS attack. Unit: Mbit/s.
+   * The traffic volume at the start of the attack. Unit: Mbit/s.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescribeDdosEventResponseBodyEvents extends $dara.Model {
   mbps?: number;
   /**
    * @remarks
-   * The number of packets at the start of the DDoS attack. Unit: packets per second (PPS).
+   * The packet rate at the start of the attack. Unit: pps.
    * 
    * @example
    * 456
@@ -37,7 +37,7 @@ export class DescribeDdosEventResponseBodyEvents extends $dara.Model {
   pps?: number;
   /**
    * @remarks
-   * The time when the DDoS attack started. This value is a UNIX timestamp. Unit: seconds.
+   * The end time of the attack. The time is a UNIX timestamp in seconds.
    * 
    * @example
    * 1637554034
@@ -45,12 +45,12 @@ export class DescribeDdosEventResponseBodyEvents extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The status of the DDoS attack event. Valid values:
+   * The current status of the attack event. Valid values:
    * 
-   * *   **hole_begin**: indicates that blackhole filtering is triggered for the attacked IP address.
-   * *   **hole_end**: indicates that blackhole filtering is deactivated for the attacked IP address.
-   * *   **defense_begin**: indicates that attack traffic is being scrubbed.
-   * *   **defense_end**: indicates that attack traffic is scrubbed.
+   * - **hole_begin**: Indicates that the attacked IP address is in the blackhole filtering status.
+   * - **hole_end**: Indicates that the attacked IP address is removed from the blackhole filtering status.
+   * - **defense_begin**: Indicates that the system scrubs traffic.
+   * - **defense_end**: Indicates that the attack ends and the system scrubs traffic no more.
    * 
    * @example
    * defense_end
@@ -90,12 +90,12 @@ export class DescribeDdosEventResponseBodyEvents extends $dara.Model {
 export class DescribeDdosEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the DDoS attack event.
+   * The details of the DDoS attack events.
    */
   events?: DescribeDdosEventResponseBodyEvents[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F3B6C3F9-6B21-519D-B976-A1E14166F909
@@ -103,7 +103,7 @@ export class DescribeDdosEventResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of DDoS attack events that are returned.
+   * The total number of DDoS attack events returned.
    * 
    * @example
    * 1
