@@ -21,7 +21,9 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs extends 
   port?: number;
   /**
    * @remarks
-   * The connection type. **VPC** indicates an internal network connection, and **PUBLIC** indicates a public network connection.
+   * The connection type. Valid values:
+   * - **VPC**: internal network connection
+   * - **PUBLIC**: public network connection
    * 
    * @example
    * VPC
@@ -125,7 +127,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceDBNodes extends $d
   regionId?: string;
   /**
    * @remarks
-   * The name of the zone where the node is deployed.
+   * The zone name of the node.
    * 
    * @example
    * cn-hangzhou-a
@@ -165,7 +167,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceDBNodes extends $d
 export class DescribeDBInstanceAttributeResponseBodyDBInstanceGdnMemberList extends $dara.Model {
   /**
    * @remarks
-   * The name of the member, which is the name of the PolarDB-X instance.
+   * The member name, which is the PolarDB-X instance name.
    * 
    * @example
    * pxc
@@ -173,10 +175,9 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceGdnMemberList exte
   memberName?: string;
   /**
    * @remarks
-   * The role of the node. Valid values:
-   * 
-   * - **master**: The primary node.
-   * - **standby**: The secondary node.
+   * The node role. Valid values:
+   * - **master**: primary node
+   * - **standby**: secondary node
    * 
    * @example
    * polarx_cn
@@ -202,6 +203,46 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceGdnMemberList exte
     return {
       memberName: 'string',
       role: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceAttributeResponseBodyDBInstanceSearchInstance extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the Search engine instance.
+   * 
+   * @example
+   * pxs-***
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The status of the Search engine.
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
       status: 'string',
     };
   }
@@ -258,7 +299,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet extends $da
 export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the AI gateway is enabled.
+   * Indicates whether the AI gateway is enabled.
    * 
    * @example
    * true
@@ -266,7 +307,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   aiGatewayEnabled?: string;
   /**
    * @remarks
-   * Indicates whether the In-Memory Column Index (IMCI) feature is supported.
+   * Indicates whether the column store index feature is supported.
    * 
    * @example
    * true
@@ -275,17 +316,17 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   /**
    * @remarks
    * The CN node specifications. Valid values:
-   * - **polarx.x4.medium.2e**: 2 cores, 8 GB
-   * - **polarx.x4.large.2e**: 4 cores, 16 GB
-   * - **polarx.x8.large.2e**: 4 cores, 32 GB
-   * - **polarx.x4.xlarge.2e**: 8 cores, 32 GB
-   * - **polarx.x8.xlarge.2e**: 8 cores, 64 GB
-   * - **polarx.x4.2xlarge.2e**: 16 cores, 64 GB
-   * - **polarx.x8.2xlarge.2e**: 16 cores, 128 GB
-   * - **polarx.x4.4xlarge.2e**: 32 cores, 128 GB
-   * - **polarx.x8.4xlarge.2e**: 32 cores, 256 GB
-   * - **polarx.st.8xlarge.2e**: 60 cores, 470 GB
-   * - **polarx.st.12xlarge.2e**: 90 cores, 720 GB
+   * - **polarx.x4.medium.2e**: 2 cores and 8 GB of memory
+   * - **polarx.x4.large.2e**: 4 cores and 16 GB of memory
+   * - **polarx.x8.large.2e**: 4 cores and 32 GB of memory
+   * - **polarx.x4.xlarge.2e**: 8 cores and 32 GB of memory
+   * - **polarx.x8.xlarge.2e**: 8 cores and 64 GB of memory
+   * - **polarx.x4.2xlarge.2e**: 16 cores and 64 GB of memory
+   * - **polarx.x8.2xlarge.2e**: 16 cores and 128 GB of memory
+   * - **polarx.x4.4xlarge.2e**: 32 cores and 128 GB of memory
+   * - **polarx.x8.4xlarge.2e**: 32 cores and 256 GB of memory
+   * - **polarx.st.8xlarge.2e**: 60 cores and 470 GB of memory
+   * - **polarx.st.12xlarge.2e**: 90 cores and 720 GB of memory
    * 
    * @example
    * polarx.x4.xlarge.2e
@@ -309,12 +350,12 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   columnarInstanceName?: string;
   /**
    * @remarks
-   * The column store read-only instance information.
+   * The information about the column store read-only instances.
    */
   columnarReadDBInstances?: string[];
   /**
    * @remarks
-   * The commodity type of the instance. The value is fixed as drds_polarxpost_public_cn.
+   * The commodity type of the instance. The value is fixed to drds_polarxpost_public_cn.
    * 
    * @example
    * drds_polarxpost_public_cn
@@ -327,7 +368,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   connAddrs?: DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs[];
   /**
    * @remarks
-   * The internal network connection string.
+   * The internal network connection information.
    * 
    * @example
    * pxc-sprpx766vo****.polarx.singapore.rds.aliyuncs.com
@@ -335,7 +376,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   connectionString?: string;
   /**
    * @remarks
-   * The processor type. Default value: intel.
+   * The chip type. Default value: intel.
    * 
    * @example
    * intel | hygon
@@ -352,8 +393,8 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   /**
    * @remarks
    * The instance type. Valid values:
-   * - **ReadWrite**: Primary instance.
-   * - **ReadOnly**: Read-only instance.
+   * - **ReadWrite**: primary instance
+   * - **ReadOnly**: read-only instance
    * 
    * @example
    * ReadWrite
@@ -382,7 +423,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   DBNodes?: DescribeDBInstanceAttributeResponseBodyDBInstanceDBNodes[];
   /**
    * @remarks
-   * The database type. The value is fixed as polarx.
+   * The database type. The value is fixed to polarx.
    * 
    * @example
    * polarx
@@ -398,7 +439,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   DBVersion?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * The instance description.
    * 
    * @example
    * test instance
@@ -417,21 +458,21 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   /**
    * @remarks
    * The DN node specifications. Valid values:
-   * - **mysql.n2.medium.25**: 2 cores, 4 GB
-   * - **mysql.n4.medium.25**: 2 cores, 8 GB
-   * - **mysql.x8.medium.25**: 2 cores, 16 GB
-   * - **mysql.n2.large.25**: 4 cores, 8 GB
-   * - **mysql.n4.large.25**: 4 cores, 16 GB
-   * - **mysql.x8.large.25**: 4 cores, 32 GB
-   * - **mysql.n2.xlarge.25**: 8 cores, 16 GB
-   * - **mysql.n4.xlarge.25**: 8 cores, 32 GB
-   * - **mysql.x8.xlarge.25**: 8 cores, 64 GB
-   * - **mysql.n4.2xlarge.25**: 16 cores, 64 GB
-   * - **mysql.x8.2xlarge.25**: 16 cores, 128 GB
-   * - **mysql.x4.4xlarge.25**: 32 cores, 128 GB
-   * - **mysql.x8.4xlarge.25**: 32 cores, 256 GB
-   * - **mysql.st.8xlarge.25**: 60 cores, 470 GB
-   * - **mysql.st.12xlarge.25**: 90 cores, 720 GB
+   * - **mysql.n2.medium.25**: 2 cores and 4 GB of memory
+   * - **mysql.n4.medium.25**: 2 cores and 8 GB of memory
+   * - **mysql.x8.medium.25**: 2 cores and 16 GB of memory
+   * - **mysql.n2.large.25**: 4 cores and 8 GB of memory
+   * - **mysql.n4.large.25**: 4 cores and 16 GB of memory
+   * - **mysql.x8.large.25**: 4 cores and 32 GB of memory
+   * - **mysql.n2.xlarge.25**: 8 cores and 16 GB of memory
+   * - **mysql.n4.xlarge.25**: 8 cores and 32 GB of memory
+   * - **mysql.x8.xlarge.25**: 8 cores and 64 GB of memory
+   * - **mysql.n4.2xlarge.25**: 16 cores and 64 GB of memory
+   * - **mysql.x8.2xlarge.25**: 16 cores and 128 GB of memory
+   * - **mysql.x4.4xlarge.25**: 32 cores and 128 GB of memory
+   * - **mysql.x8.4xlarge.25**: 32 cores and 256 GB of memory
+   * - **mysql.st.8xlarge.25**: 60 cores and 470 GB of memory
+   * - **mysql.st.12xlarge.25**: 90 cores and 720 GB of memory
    * 
    * @example
    * mysql.x8.large.25
@@ -447,7 +488,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   dnNodeCount?: number;
   /**
    * @remarks
-   * The disk space of the storage node. Unit: GB.
+   * The disk space size of the storage node, in GB.
    * 
    * @example
    * 20
@@ -455,7 +496,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   dnStorageSpace?: string;
   /**
    * @remarks
-   * The database type. The value is fixed as polarx.
+   * The database type. The value is fixed to polarx.
    * 
    * @example
    * polarx
@@ -463,7 +504,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   engine?: string;
   /**
    * @remarks
-   * The database engine version. Default value: 2.0.
+   * The DPI engine version. Default value: 2.0.
    * 
    * @example
    * 2.0 | 3.0
@@ -480,8 +521,8 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   /**
    * @remarks
    * Indicates whether the instance has expired. Valid values:
-   * - **true**: Expired.
-   * - **false**: Normal.
+   * - **true**: expired
+   * - **false**: normal
    * 
    * @example
    * false
@@ -489,7 +530,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   expired?: string;
   /**
    * @remarks
-   * The GDN instance name.
+   * The name of the GDN instance.
    * 
    * @example
    * gdn-zkrkuykqglbizdhm
@@ -502,7 +543,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   gdnMemberList?: DescribeDBInstanceAttributeResponseBodyDBInstanceGdnMemberList[];
   /**
    * @remarks
-   * The role in the global database network (GDN).
+   * The GDN role.
    * 
    * @example
    * master | standby
@@ -518,7 +559,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   id?: string;
   /**
    * @remarks
-   * The database engine version of the instance DPI engine. This is an internal parameter.
+   * The instance DPI engine version. This is an internal parameter.
    * 
    * @example
    * 18
@@ -526,14 +567,14 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   kindCode?: number;
   /**
    * @remarks
-   * The instance version.
+   * The instance versions.
    * 
    * This parameter is required.
    */
   LTSVersions?: string[];
   /**
    * @remarks
-   * The latest kernel Milvus version supported by the instance.
+   * The latest Milvus version supported by the current instance.
    * 
    * @example
    * polarx-kernel_5.4.11-16301083_xcluster-20210805
@@ -542,12 +583,12 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   /**
    * @remarks
    * The lock mode of the instance. Valid values:
-   * - **Unlock**: Normal.
-   * - **ManualLock**: Manually locked.
-   * - **LockByExpiration**: Automatically locked due to expiration.
-   * - **LockByRestoration**: Automatically locked before a rollback.
-   * - **LockByDiskQuota**: Automatically locked due to full storage space.
-   * - **LockReadInstanceByDiskQuota**: Automatically locked due to full storage space of the read-only instance.
+   * - **Unlock**: normal
+   * - **ManualLock**: manually locked
+   * - **LockByExpiration**: automatically locked due to expiration
+   * - **LockByRestoration**: automatically locked before rollback
+   * - **LockByDiskQuota**: automatically locked due to full disk space
+   * - **LockReadInstanceByDiskQuota**: automatically locked due to full disk space of the read-only instance
    * 
    * @example
    * Unlock
@@ -555,7 +596,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   lockMode?: string;
   /**
    * @remarks
-   * The end time of the maintenance window for the instance. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
+   * The end time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
    * 
    * @example
    * 06:00
@@ -563,7 +604,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   maintainEndTime?: string;
   /**
    * @remarks
-   * The start time of the maintenance window for the instance. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
+   * The start time of the maintenance window. The time is in UTC. Add 8 hours to obtain the maintenance window displayed in the console.
    * 
    * @example
    * 06:00
@@ -571,7 +612,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   maintainStartTime?: string;
   /**
    * @remarks
-   * The current kernel Milvus version.
+   * The current Milvus version.
    * 
    * @example
    * polarx-kernel_5.4.11-16301083_xcluster-20210805
@@ -588,8 +629,8 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   /**
    * @remarks
    * The billing method of the instance. Valid values:
-   * - **Postpaid**: Pay-as-you-go.
-   * - **Prepaid**: Subscription.
+   * - **Postpaid**: pay-as-you-go
+   * - **Prepaid**: subscription
    * 
    * @example
    * Postpaid
@@ -628,7 +669,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   readDBInstances?: string[];
   /**
    * @remarks
-   * The region ID.
+   * The region of the instance.
    * 
    * @example
    * cn-hangzhou
@@ -644,9 +685,9 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   resourceGroupId?: string;
   /**
    * @remarks
-   * Indicates whether the three-role mode is enabled. Valid values:
-   * - **false**: Disabled.
-   * - **true**: Enabled.
+   * The status of the three-role mode. Valid values:
+   * - **false**: disabled
+   * - **true**: enabled
    * 
    * @example
    * false
@@ -654,16 +695,26 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   rightsSeparationEnabled?: boolean;
   /**
    * @remarks
-   * The three-role mode status. Valid values:
-   * - **disabled**: Disabled.
-   * - **enabled**: Enabled.
-   * - **processing**: Processing.
-   * - **unknown**: Unknown. This may be caused by a connection failure to the instance.
+   * The status of the three-role mode. Valid values:
+   * - **disabled**: disabled
+   * - **enabled**: enabled
+   * - **processing**: processing
+   * - **unknown**: unknown, which may be caused by the inability to connect to the instance
    * 
    * @example
    * disabled
    */
   rightsSeparationStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether an associated Search instance that is not deleted exists, including instances that are being created or deleted.
+   */
+  searchEnabled?: boolean;
+  /**
+   * @remarks
+   * The unique Search instance associated with the current primary instance. This parameter is empty if the feature is not enabled.
+   */
+  searchInstance?: DescribeDBInstanceAttributeResponseBodyDBInstanceSearchInstance;
   /**
    * @remarks
    * The secondary zone.
@@ -675,8 +726,8 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   /**
    * @remarks
    * The instance edition. Valid values:
-   * - **enterprise**: Enterprise Edition.
-   * - **standard**: Standard Edition.
+   * - **enterprise**: Enterprise Edition
+   * - **standard**: Standard Edition
    * 
    * @example
    * enterprise
@@ -684,9 +735,8 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   series?: string;
   /**
    * @remarks
-   * The specification category. Valid values:
-   * - exclusive: Dedicated.
-   * - general: General-purpose.
+   * exclusive: Exclusive.
+   * general: General.
    * 
    * @example
    * exclusive | general
@@ -694,7 +744,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   specCategory?: string;
   /**
    * @remarks
-   * The instance status.
+   * The instance status. For more information, see the following description.
    * 
    * @example
    * Running
@@ -710,7 +760,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   storageType?: string;
   /**
    * @remarks
-   * The used storage space, in bytes.
+   * The used storage capacity, in bytes.
    * 
    * @example
    * 17042505728
@@ -723,7 +773,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   tagSet?: DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet[];
   /**
    * @remarks
-   * The third zone in a Three-zone deployment.
+   * The third zone.
    * 
    * @example
    * cn-shenzhen-e
@@ -744,8 +794,8 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   /**
    * @remarks
    * The instance type. Valid values:
-   * - **ReadWrite**: Primary instance.
-   * - **ReadOnly**: Read-only instance.
+   * - **ReadWrite**: primary instance
+   * - **ReadOnly**: read-only instance
    * 
    * @example
    * ReadWrite
@@ -769,7 +819,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone where the instance is deployed.
+   * The zone where the instance is located.
    * 
    * @example
    * cn-hangzhou-a
@@ -824,6 +874,8 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
       resourceGroupId: 'ResourceGroupId',
       rightsSeparationEnabled: 'RightsSeparationEnabled',
       rightsSeparationStatus: 'RightsSeparationStatus',
+      searchEnabled: 'SearchEnabled',
+      searchInstance: 'SearchInstance',
       secondaryZone: 'SecondaryZone',
       series: 'Series',
       specCategory: 'SpecCategory',
@@ -889,6 +941,8 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
       resourceGroupId: 'string',
       rightsSeparationEnabled: 'boolean',
       rightsSeparationStatus: 'string',
+      searchEnabled: 'boolean',
+      searchInstance: DescribeDBInstanceAttributeResponseBodyDBInstanceSearchInstance,
       secondaryZone: 'string',
       series: 'string',
       specCategory: 'string',
@@ -923,6 +977,9 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Mod
     }
     if(Array.isArray(this.readDBInstances)) {
       $dara.Model.validateArray(this.readDBInstances);
+    }
+    if(this.searchInstance && typeof (this.searchInstance as any).validate === 'function') {
+      (this.searchInstance as any).validate();
     }
     if(Array.isArray(this.tagSet)) {
       $dara.Model.validateArray(this.tagSet);

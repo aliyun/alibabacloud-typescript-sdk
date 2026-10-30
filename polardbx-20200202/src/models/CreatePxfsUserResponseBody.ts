@@ -13,7 +13,7 @@ export class CreatePxfsUserResponseBodyAccessDeniedDetail extends $dara.Model {
   authAction?: string;
   /**
    * @remarks
-   * The display name of the authentication principal.
+   * The name of the authentication principal.
    * 
    * @example
    * xxx
@@ -29,7 +29,7 @@ export class CreatePxfsUserResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The authentication principal type.
+   * The description is as above.
    * 
    * @example
    * 222
@@ -37,7 +37,7 @@ export class CreatePxfsUserResponseBodyAccessDeniedDetail extends $dara.Model {
   authPrincipalType?: string;
   /**
    * @remarks
-   * The encoded diagnostic message.
+   * The diagnostic information.
    * 
    * @example
    * AQEAAAAAaKPfwjY0MzMyODRGLUZCQkQtNTA1RS04MUUxLTc5NTkzODk2MUIzMg==
@@ -95,7 +95,7 @@ export class CreatePxfsUserResponseBodyAccessDeniedDetail extends $dara.Model {
 export class CreatePxfsUserResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The identity name.
+   * The name of the identity.
    * 
    * @example
    * agent-runtime
@@ -119,7 +119,7 @@ export class CreatePxfsUserResponseBodyData extends $dara.Model {
   posixUid?: number;
   /**
    * @remarks
-   * The identity role.
+   * The role of the identity.
    * 
    * @example
    * MEMBER
@@ -135,7 +135,7 @@ export class CreatePxfsUserResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The ID of the tenant.
    * 
    * @example
    * tenant-001
@@ -185,7 +185,7 @@ export class CreatePxfsUserResponseBody extends $dara.Model {
   data?: CreatePxfsUserResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

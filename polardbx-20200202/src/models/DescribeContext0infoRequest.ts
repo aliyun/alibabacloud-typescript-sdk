@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeContext0InfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 

@@ -123,6 +123,7 @@ export { DescribeCustomEndpointListResponseBodyData } from './DescribeCustomEndp
 export { DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyDBInstanceDBNodes } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyDBInstanceGdnMemberList } from './DescribeDbinstanceAttributeResponseBody';
+export { DescribeDBInstanceAttributeResponseBodyDBInstanceSearchInstance } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceAttributeResponseBodyDBInstance } from './DescribeDbinstanceAttributeResponseBody';
 export { DescribeDBInstanceConfigResponseBodyData } from './DescribeDbinstanceConfigResponseBody';

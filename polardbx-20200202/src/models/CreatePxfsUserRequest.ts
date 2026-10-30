@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePxfsUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the PolarDB-X instance.
+   * The PolarDB-X instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreatePxfsUserRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The identity name.
+   * The name of the identity.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class CreatePxfsUserRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The identity role.
+   * The role of the identity.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class CreatePxfsUserRequest extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The ID of the tenant.
    * 
    * This parameter is required.
    * 

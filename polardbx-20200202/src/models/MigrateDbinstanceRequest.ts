@@ -15,7 +15,7 @@ export class MigrateDBInstanceRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The zone ID of the primary zone for a multi-zone instance. **This parameter is required if you want to create a multi-zone instance.**.
+   * The zone ID of the primary zone for a multi-zone instance. **This parameter is required if you want to create a multi-zone instance.**
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class MigrateDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The secondary zone ID.
-   * > This parameter cannot be set to the same value as ZoneId.
+   * > This parameter cannot be the same as the ZoneId property.
    * 
    * @example
    * cn-beijing-l
@@ -44,10 +44,10 @@ export class MigrateDBInstanceRequest extends $dara.Model {
   secondaryZoneId?: string;
   /**
    * @remarks
-   * The switchover mode. Valid values:
+   * The switch mode. Valid values:
    * 
-   * - 0: immediately switches over.
-   * - 1: switches over within the O&M window.
+   * - 0: Immediate switchover.
+   * - 1: Switchover within the O&M window.
    * 
    * @example
    * 0
@@ -55,7 +55,7 @@ export class MigrateDBInstanceRequest extends $dara.Model {
   switchMode?: string;
   /**
    * @remarks
-   * The zone ID for Three-zone deployment.
+   * The third active zone.
    * 
    * @example
    * cn-beijing-h
@@ -65,8 +65,8 @@ export class MigrateDBInstanceRequest extends $dara.Model {
    * @remarks
    * The topology type. Valid values:
    * 
-   * - **3azones**: three-zone deployment.
-   * - **1azone**: single-zone deployment.
+   * - **3azones**: Three-zone deployment.
+   * - **1azone**: Single-zone deployment.
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class MigrateDBInstanceRequest extends $dara.Model {
   topologyType?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) where the access endpoint resides.
+   * The ID of the VPC where the access endpoint resides.
    * 
    * @example
    * vpc-****

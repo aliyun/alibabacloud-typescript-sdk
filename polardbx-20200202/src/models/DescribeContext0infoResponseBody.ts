@@ -29,7 +29,7 @@ export class DescribeContext0InfoResponseBodyAccessDeniedDetail extends $dara.Mo
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * The authentication principal type.
+   * The type of the authentication principal.
    * 
    * @example
    * 222
@@ -45,7 +45,7 @@ export class DescribeContext0InfoResponseBodyAccessDeniedDetail extends $dara.Mo
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of missing permission.
+   * The no-permission type.
    * 
    * @example
    * ImplicitDeny
@@ -103,7 +103,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceConnAddrs extends $dara
   connectionString?: string;
   /**
    * @remarks
-   * The target node type: service or dashboard.
+   * The target node type. Valid values: service, dashboard.
    * 
    * @example
    * service
@@ -143,7 +143,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceConnAddrs extends $dara
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC-connected instance ID.
+   * The VPC instance ID.
    * 
    * @example
    * pxc-spsil01pww4hfzjayd-cn-20251013180429
@@ -193,7 +193,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSetsConnAddrs ex
   connectionString?: string;
   /**
    * @remarks
-   * The target node type: service or dashboard.
+   * The target node type. Valid values: service, dashboard.
    * 
    * @example
    * service
@@ -211,8 +211,8 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSetsConnAddrs ex
    * @remarks
    * The instance type. Valid values:
    * 
-   * - **ReadWrite**: Primary instance.
-   * - **ReadOnly**: Read-only instance.
+   * - **ReadWrite**: primary instance
+   * - **ReadOnly**: read-only instance
    * 
    * @example
    * RemoveHeader
@@ -236,7 +236,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSetsConnAddrs ex
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC-connected instance ID.
+   * The VPC instance ID.
    * 
    * @example
    * vpc-8vbdw66evguopfcfvieoi
@@ -278,7 +278,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSetsConnAddrs ex
 export class DescribeContext0InfoResponseBodyDataInstanceReplicaSets extends $dara.Model {
   /**
    * @remarks
-   * The instance specifications.
+   * The instance class.
    * 
    * @example
    * pg.x2.13large.2c
@@ -315,7 +315,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSets extends $da
   nodeCount?: number;
   /**
    * @remarks
-   * The target node type: service or dashboard.
+   * The target node type. Valid values: service, dashboard.
    * 
    * @example
    * service
@@ -325,13 +325,13 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSets extends $da
    * @remarks
    * The node status. Valid values:
    * 
-   * - **0**: Running.
-   * - **1**: Creating.
-   * - **2**: Abnormal.
-   * - **3**: Expired.
-   * - **4**: Releasing.
-   * - **5**: Released.
-   * - **6**: Locked.
+   * - **0**: running
+   * - **1**: creating
+   * - **2**: abnormal
+   * - **3**: expired
+   * - **4**: releasing
+   * - **5**: released
+   * - **6**: locked
    * 
    * @example
    * enabled
@@ -396,7 +396,7 @@ export class DescribeContext0InfoResponseBodyDataInstanceReplicaSets extends $da
 export class DescribeContext0InfoResponseBodyDataInstance extends $dara.Model {
   /**
    * @remarks
-   * The instance specifications.
+   * The instance class.
    * 
    * @example
    * mysql.x2.large.2c
@@ -417,7 +417,7 @@ export class DescribeContext0InfoResponseBodyDataInstance extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The database instance name.
+   * The name of the database instance.
    * 
    * @example
    * pxc-hzr9qzafkeury3
@@ -433,7 +433,7 @@ export class DescribeContext0InfoResponseBodyDataInstance extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Service 当前已确认的小版本完整 tag，未知时为空。
+   * The full tag of the minor version currently confirmed for the service. This parameter is empty when the version is unknown.
    * 
    * @example
    * polardb-2.6.0_release_contextdb-20261023
@@ -449,7 +449,7 @@ export class DescribeContext0InfoResponseBodyDataInstance extends $dara.Model {
   nodeCount?: number;
   /**
    * @remarks
-   * The PolarDB-X Search instance name.
+   * The name of the PolarDB-X Search instance.
    * 
    * @example
    * pxs-********
@@ -596,12 +596,12 @@ export class DescribeContext0InfoResponseBodyData extends $dara.Model {
 export class DescribeContext0InfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    */
   accessDeniedDetail?: DescribeContext0InfoResponseBodyAccessDeniedDetail;
   /**
    * @remarks
-   * The parameter details.
+   * The data details.
    */
   data?: DescribeContext0InfoResponseBodyData;
   /**
