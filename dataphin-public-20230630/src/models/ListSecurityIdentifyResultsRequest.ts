@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListSecurityIdentifyResultsRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * Business unit names.
+   * The names of the business units.
    */
   bizUnitNameList?: string[];
   /**
    * @remarks
-   * Data classification ID.
+   * The data classification ID.
    * 
    * @example
    * 1
@@ -18,12 +18,12 @@ export class ListSecurityIdentifyResultsRequestListQuery extends $dara.Model {
   classifyId?: number;
   /**
    * @remarks
-   * Data source names.
+   * The names of the data sources.
    */
   datasourceNameList?: string[];
   /**
    * @remarks
-   * Environment identifier of the data source, project, or business unit.
+   * The environment identifier of the associated data source, project, or business unit.
    * 
    * @example
    * DEV
@@ -31,12 +31,12 @@ export class ListSecurityIdentifyResultsRequestListQuery extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Whether it is locked.
+   * Specifies whether the item is locked.
    */
   isLocked?: boolean;
   /**
    * @remarks
-   * Keyword filter. Supports matching by table catalog, table name, table display name, and field name.
+   * The keyword filter. Supports matching by table catalog, table name, Chinese table name, or field name.
    * 
    * @example
    * test
@@ -44,7 +44,7 @@ export class ListSecurityIdentifyResultsRequestListQuery extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Page number. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -52,7 +52,7 @@ export class ListSecurityIdentifyResultsRequestListQuery extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Number of records per page. Default value: 20.
+   * The number of records per page. Default value: 20.
    * 
    * @example
    * 20
@@ -60,12 +60,14 @@ export class ListSecurityIdentifyResultsRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Project names.
+   * The names of the projects.
    */
   projectNameList?: string[];
   /**
    * @remarks
-   * Effective status filter: ENABLE or DISABLE.
+   * The filter for the effective status. Valid values:
+   * - ENABLE: Enabled.
+   * - DISABLE: Disabled.
    * 
    * @example
    * ENABLE
@@ -122,12 +124,12 @@ export class ListSecurityIdentifyResultsRequestListQuery extends $dara.Model {
 export class ListSecurityIdentifyResultsRequest extends $dara.Model {
   /**
    * @remarks
-   * Query conditions.
+   * The search criteria.
    */
   listQuery?: ListSecurityIdentifyResultsRequestListQuery;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -136,6 +138,9 @@ export class ListSecurityIdentifyResultsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

@@ -15,12 +15,12 @@ export class CreateSecurityClassifyCatalogRequestCreateCommand extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The list of administrator IDs. This parameter takes effect only when the parent folder is the root folder.
+   * The list of administrator IDs. This parameter is valid only when the parent folder is the root folder.
    */
   ownerList?: string[];
   /**
    * @remarks
-   * The full path of the parent folder. Default value: /.
+   * The full path of the parent classification folder. Default value: /.
    * 
    * @example
    * /d1/
@@ -28,10 +28,10 @@ export class CreateSecurityClassifyCatalogRequestCreateCommand extends $dara.Mod
   parentPath?: string;
   /**
    * @remarks
-   * The visibility scope of the classification folder. Valid values:
-   * - PUBLIC: visible to all users.
-   * - PRIVATE: visible only to administrators.
-   * Default value: PUBLIC. This parameter takes effect only when the parent folder is the root folder.
+   * The visibility scope of the classification. This parameter is valid only when the parent folder is the root folder. Valid values:
+   * - PUBLIC: Public.
+   * - PRIVATE: Visible only to administrators.
+   * Default value: PUBLIC.
    * 
    * @example
    * PUBLIC
@@ -70,7 +70,7 @@ export class CreateSecurityClassifyCatalogRequestCreateCommand extends $dara.Mod
 export class CreateSecurityClassifyCatalogRequest extends $dara.Model {
   /**
    * @remarks
-   * The create command.
+   * The creation command.
    * 
    * This parameter is required.
    */
@@ -86,6 +86,9 @@ export class CreateSecurityClassifyCatalogRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

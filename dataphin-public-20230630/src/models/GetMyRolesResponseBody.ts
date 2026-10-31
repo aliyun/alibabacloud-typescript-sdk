@@ -8,7 +8,7 @@ export class GetMyRolesResponseBodyRoleList extends $dara.Model {
    * The role description.
    * 
    * @example
-   * dataphin管理员
+   * Dataphin administrator
    */
   description?: string;
   /**
@@ -55,7 +55,7 @@ export class GetMyRolesResponseBodyRoleList extends $dara.Model {
 export class GetMyRolesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -92,7 +92,7 @@ export class GetMyRolesResponseBody extends $dara.Model {
   roleList?: GetMyRolesResponseBodyRoleList[];
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

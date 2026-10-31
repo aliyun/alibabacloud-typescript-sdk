@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeMonitorConfig extends $dara.Model {
   /**
    * @remarks
-   * Column to check.
+   * The field to be checked.
    * 
    * @example
    * column1
@@ -13,12 +13,12 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   columnName?: string;
   /**
    * @remarks
-   * Whether case-sensitive.
+   * Specifies whether the check is case-sensitive.
    */
   isCaseSensitive?: boolean;
   /**
    * @remarks
-   * Monitor type: METADATA for metadata monitoring, QUALITY for data quality monitoring.
+   * The monitoring method. Valid values: METADATA: metadata monitoring. QUALITY: data quality monitoring.
    * 
    * @example
    * METADATA
@@ -52,7 +52,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
 export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeRefAttributeAttributeFromInfoStandardReference extends $dara.Model {
   /**
    * @remarks
-   * Standard ID.
+   * The ID of the standard.
    * 
    * @example
    * 22
@@ -60,7 +60,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   standardId?: number;
   /**
    * @remarks
-   * Version number.
+   * The version number.
    * 
    * @example
    * 1
@@ -92,7 +92,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
 export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeRefAttributeAttributeFromInfo extends $dara.Model {
   /**
    * @remarks
-   * Attribute source: SYSTEM for system attribute, CUSTOM for custom attribute, STANDARD for standard.
+   * The source of the attribute. Valid values: SYSTEM: system attribute. CUSTOM: custom attribute. STANDARD: standard.
    * 
    * @example
    * CUSTOM
@@ -100,7 +100,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   attributeFrom?: string;
   /**
    * @remarks
-   * Corresponding standard, effective when attribute source is STANDARD.
+   * The corresponding standard. This parameter takes effect when the attribute source is set to STANDARD.
    */
   standardReference?: ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeRefAttributeAttributeFromInfoStandardReference;
   static names(): { [key: string]: string } {
@@ -132,12 +132,12 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
 export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeRefAttribute extends $dara.Model {
   /**
    * @remarks
-   * Attribute source.
+   * The source of the attribute.
    */
   attributeFromInfo?: ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeRefAttributeAttributeFromInfo;
   /**
    * @remarks
-   * Attribute ID.
+   * The ID of the attribute.
    * 
    * @example
    * 123
@@ -172,7 +172,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
 export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeValueConfigValueRangeLookupTableReference extends $dara.Model {
   /**
    * @remarks
-   * Referenced lookup table column.
+   * The referenced field in the lookup table.
    * 
    * @example
    * col1
@@ -180,7 +180,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   column?: string;
   /**
    * @remarks
-   * Lookup table ID.
+   * The ID of the lookup table.
    * 
    * @example
    * 11
@@ -212,17 +212,17 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
 export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeValueConfigValueRangeMinMaxValueConfig extends $dara.Model {
   /**
    * @remarks
-   * Whether to include the maximum value.
+   * Specifies whether to include the maximum value.
    */
   includeMaxValue?: boolean;
   /**
    * @remarks
-   * Whether to include the minimum value.
+   * Specifies whether to include the minimum value.
    */
   includeMinValue?: boolean;
   /**
    * @remarks
-   * Maximum value.
+   * The maximum value.
    * 
    * @example
    * 100
@@ -230,7 +230,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   maxValue?: string;
   /**
    * @remarks
-   * Minimum value.
+   * The minimum value.
    * 
    * @example
    * 0
@@ -266,7 +266,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
 export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeValueConfigValueRange extends $dara.Model {
   /**
    * @remarks
-   * Value range, effective when value constraint is DATAPHIN_ATTRIBUTE: BIZ_UNIT for data business unit, PROJECT for project, USER for user, USER_GROUP for user group.
+   * The value range. This parameter takes effect when the value source is set to DATAPHIN_ATTRIBUTE. Valid values: BIZ_UNIT: data block. PROJECT: project. USER: user. USER_GROUP: user group.
    * 
    * @example
    * DATAPHIN_ATTRIBUTE
@@ -274,17 +274,17 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   dataphinAttributeType?: string;
   /**
    * @remarks
-   * Value range, effective when value constraint is LOOKUP_TABLE.
+   * The value range. This parameter takes effect when the value source is set to LOOKUP_TABLE.
    */
   lookupTableReference?: ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeValueConfigValueRangeLookupTableReference;
   /**
    * @remarks
-   * Value range, effective when value constraint is MIN_MAX.
+   * The value range. This parameter takes effect when the value source is set to MIN_MAX.
    */
   minMaxValueConfig?: ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeValueConfigValueRangeMinMaxValueConfig;
   /**
    * @remarks
-   * Value constraint: NONE for no constraint, LIST for obtaining from a list, LOOKUP_TABLE for lookup table, MIN_MAX for values between minimum and maximum, DATAPHIN_ATTRIBUTE for Dataphin system attribute, BUILT_IN_DATA_TYPES for built-in data types, BUILT_IN_DATA_CLASSIFICATION for built-in data classification, BUILT_IN_DATA_LEVEL for built-in data security level.
+   * The value source. Valid values: NONE: no constraint. LIST: obtained from a list. LOOKUP_TABLE: lookup table. MIN_MAX: obtained between the maximum and minimum values. DATAPHIN_ATTRIBUTE: Dataphin system property. BUILT_IN_DATA_TYPES: built-in data type. BUILT_IN_DATA_CLASSIFICATION: built-in data categorization. BUILT_IN_DATA_LEVEL: built-in data security classification.
    * 
    * @example
    * NONE
@@ -292,7 +292,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   valueConstraint?: string;
   /**
    * @remarks
-   * Value range, effective when value constraint is LIST.
+   * The value range. This parameter takes effect when the value source is set to LIST.
    */
   valueList?: string[];
   static names(): { [key: string]: string } {
@@ -336,7 +336,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
 export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeValueConfig extends $dara.Model {
   /**
    * @remarks
-   * Data type of the attribute value: STRING for string, BIGINT for numeric type, DOUBLE for floating-point type, DATE for date accurate to day, DATETIME for date accurate to milliseconds, BOOLEAN for boolean.
+   * The data type of the attribute value. Valid values: STRING: string. BIGINT: numeric type. DOUBLE: floating-point type. DATE: date accurate to day. DATETIME: date accurate to millisecond. BOOLEAN: Boolean type.
    * 
    * @example
    * STRING
@@ -344,7 +344,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   dataType?: string;
   /**
    * @remarks
-   * Default value.
+   * The default value.
    * 
    * @example
    * test
@@ -352,7 +352,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   defaultValue?: string;
   /**
    * @remarks
-   * Attribute value length. If empty or -1, the length is not limited. Typically, only string types limit the attribute value length.
+   * The length of the attribute value. An empty value or -1 indicates that the length is not limited. Typically, only the string type limits the length of the attribute value.
    * 
    * @example
    * 1
@@ -360,7 +360,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   length?: number;
   /**
    * @remarks
-   * Attribute value type: CUSTOMIZED for custom input, SINGLE_ENUM for single enumeration value, MULTIPLE_ENUMS for multiple enumeration values, RANGE for range value.
+   * The attribute value type. Valid values: CUSTOMIZED: custom input. SINGLE_ENUM: single enum value. MULTIPLE_ENUMS: multiple enum values. RANGE: range value.
    * 
    * @example
    * CUSTOMIZED
@@ -368,7 +368,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   type?: string;
   /**
    * @remarks
-   * Value range.
+   * The value range.
    */
   valueRange?: ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeValueConfigValueRange;
   static names(): { [key: string]: string } {
@@ -406,7 +406,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
 export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttribute extends $dara.Model {
   /**
    * @remarks
-   * Attribute code.
+   * The attribute code.
    * 
    * @example
    * test_attr
@@ -414,7 +414,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   code?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * test
@@ -422,12 +422,12 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   description?: string;
   /**
    * @remarks
-   * Whether to enable monitor configuration.
+   * Specifies whether to enable the monitoring configuration.
    */
   enableMonitorConfig?: boolean;
   /**
    * @remarks
-   * Attribute ID.
+   * The ID of the attribute.
    * 
    * @example
    * 1011
@@ -435,12 +435,12 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   id?: number;
   /**
    * @remarks
-   * Monitor configuration.
+   * The monitoring configuration.
    */
   monitorConfig?: ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeMonitorConfig;
   /**
    * @remarks
-   * Attribute name.
+   * The attribute name.
    * 
    * @example
    * attr1
@@ -448,17 +448,17 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   name?: string;
   /**
    * @remarks
-   * Referenced attribute information.
+   * The referenced attribute information.
    */
   refAttribute?: ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeRefAttribute;
   /**
    * @remarks
-   * Whether it is required.
+   * Specifies whether the attribute is required.
    */
   required?: boolean;
   /**
    * @remarks
-   * Attribute type: BIZ_ATTRIBUTE for business attribute, TECH_ATTRIBUTE for technical attribute, MANAGEMENT_ATTRIBUTE for management attribute, QUALITY_ATTRIBUTE for quality attribute, MASTER_DATA_ATTRIBUTE for master data attribute, LIFECYCLE_ATTRIBUTE for lifecycle attribute, SECURITY_ATTRIBUTE for security attribute.
+   * The attribute type. Valid values: BIZ_ATTRIBUTE: business attribute. TECH_ATTRIBUTE: technical attribute. MANAGEMENT_ATTRIBUTE: management attribute. QUALITY_ATTRIBUTE: quality attribute. MASTER_DATA_ATTRIBUTE: master data attribute. LIFECYCLE_ATTRIBUTE: lifecycle attribute. SECURITY_ATTRIBUTE: security attribute.
    * 
    * @example
    * BIZ_ATTRIBUTE
@@ -466,7 +466,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
   type?: string;
   /**
    * @remarks
-   * Value configuration.
+   * The value configuration.
    */
   valueConfig?: ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttributeValueConfig;
   static names(): { [key: string]: string } {
@@ -520,12 +520,12 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
 export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueList extends $dara.Model {
   /**
    * @remarks
-   * Attribute details.
+   * The attribute details.
    */
   attribute?: ListStandardsResponseBodyPageResultStandardListAttributeWithValueListAttribute;
   /**
    * @remarks
-   * Attribute value.
+   * The attribute value.
    * 
    * @example
    * test
@@ -560,7 +560,7 @@ export class ListStandardsResponseBodyPageResultStandardListAttributeWithValueLi
 export class ListStandardsResponseBodyPageResultStandardListCreator extends $dara.Model {
   /**
    * @remarks
-   * User ID.
+   * The ID of the user.
    * 
    * @example
    * 300000913
@@ -568,7 +568,7 @@ export class ListStandardsResponseBodyPageResultStandardListCreator extends $dar
   id?: string;
   /**
    * @remarks
-   * User name.
+   * The name of the user.
    * 
    * @example
    * susan
@@ -600,7 +600,7 @@ export class ListStandardsResponseBodyPageResultStandardListCreator extends $dar
 export class ListStandardsResponseBodyPageResultStandardListEffectiveTimeConfig extends $dara.Model {
   /**
    * @remarks
-   * End time of the effective period.
+   * The end time of the effective period. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-12-30 00:00:00
@@ -608,7 +608,7 @@ export class ListStandardsResponseBodyPageResultStandardListEffectiveTimeConfig 
   endTime?: string;
   /**
    * @remarks
-   * Start time of the effective period.
+   * The start time of the effective period. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -616,7 +616,9 @@ export class ListStandardsResponseBodyPageResultStandardListEffectiveTimeConfig 
   startTime?: string;
   /**
    * @remarks
-   * Effective time type: FOREVER for permanent, TIME_PERIOD for a time period.
+   * The effective period type. Valid values:
+   * - FOREVER: Permanent.
+   * - TIME_PERIOD: Time period.
    * 
    * @example
    * TIME_PERIOD
@@ -650,7 +652,7 @@ export class ListStandardsResponseBodyPageResultStandardListEffectiveTimeConfig 
 export class ListStandardsResponseBodyPageResultStandardListLastModifier extends $dara.Model {
   /**
    * @remarks
-   * User ID.
+   * The ID of the user.
    * 
    * @example
    * 300000913
@@ -658,7 +660,7 @@ export class ListStandardsResponseBodyPageResultStandardListLastModifier extends
   id?: string;
   /**
    * @remarks
-   * User name.
+   * The name of the user.
    * 
    * @example
    * susan
@@ -690,7 +692,7 @@ export class ListStandardsResponseBodyPageResultStandardListLastModifier extends
 export class ListStandardsResponseBodyPageResultStandardListOwner extends $dara.Model {
   /**
    * @remarks
-   * User ID.
+   * The ID of the user.
    * 
    * @example
    * 300000913
@@ -698,7 +700,7 @@ export class ListStandardsResponseBodyPageResultStandardListOwner extends $dara.
   id?: string;
   /**
    * @remarks
-   * User name.
+   * The name of the user.
    * 
    * @example
    * susan
@@ -730,7 +732,7 @@ export class ListStandardsResponseBodyPageResultStandardListOwner extends $dara.
 export class ListStandardsResponseBodyPageResultStandardListStandardSet extends $dara.Model {
   /**
    * @remarks
-   * Standard set code.
+   * The code of the standard set.
    * 
    * @example
    * cc
@@ -738,7 +740,7 @@ export class ListStandardsResponseBodyPageResultStandardListStandardSet extends 
   code?: string;
   /**
    * @remarks
-   * Directory of the standard set.
+   * The folder to which the standard set belongs.
    * 
    * @example
    * /dir1
@@ -746,7 +748,7 @@ export class ListStandardsResponseBodyPageResultStandardListStandardSet extends 
   directory?: string;
   /**
    * @remarks
-   * Standard set ID.
+   * The ID of the standard set.
    * 
    * @example
    * 1
@@ -754,7 +756,7 @@ export class ListStandardsResponseBodyPageResultStandardListStandardSet extends 
   id?: number;
   /**
    * @remarks
-   * Standard set name.
+   * The name of the standard set.
    * 
    * @example
    * test
@@ -790,7 +792,7 @@ export class ListStandardsResponseBodyPageResultStandardListStandardSet extends 
 export class ListStandardsResponseBodyPageResultStandardListStandardTemplate extends $dara.Model {
   /**
    * @remarks
-   * Standard template code.
+   * The code of the standard template.
    * 
    * @example
    * 1121
@@ -798,7 +800,7 @@ export class ListStandardsResponseBodyPageResultStandardListStandardTemplate ext
   code?: string;
   /**
    * @remarks
-   * Standard template ID.
+   * The ID of the standard template.
    * 
    * @example
    * 1
@@ -806,7 +808,7 @@ export class ListStandardsResponseBodyPageResultStandardListStandardTemplate ext
   id?: number;
   /**
    * @remarks
-   * Standard template name.
+   * The name of the standard template.
    * 
    * @example
    * test
@@ -814,7 +816,9 @@ export class ListStandardsResponseBodyPageResultStandardListStandardTemplate ext
   name?: string;
   /**
    * @remarks
-   * Standard template source: CUSTOM for custom standard templates, SYSTEM for system built-in standard templates.
+   * The source of the standard template. Valid values:
+   * - CUSTOM: Custom standard template.
+   * - SYSTEM: Built-in standard template.
    * 
    * @example
    * SYSTEM
@@ -822,7 +826,7 @@ export class ListStandardsResponseBodyPageResultStandardListStandardTemplate ext
   templateFrom?: string;
   /**
    * @remarks
-   * Version number.
+   * The version number.
    * 
    * @example
    * 1
@@ -860,12 +864,12 @@ export class ListStandardsResponseBodyPageResultStandardListStandardTemplate ext
 export class ListStandardsResponseBodyPageResultStandardList extends $dara.Model {
   /**
    * @remarks
-   * Attribute value configuration list.
+   * The attribute value configuration.
    */
   attributeWithValueList?: ListStandardsResponseBodyPageResultStandardListAttributeWithValueList[];
   /**
    * @remarks
-   * Standard code.
+   * The code of the standard.
    * 
    * @example
    * zz
@@ -873,12 +877,12 @@ export class ListStandardsResponseBodyPageResultStandardList extends $dara.Model
   code?: string;
   /**
    * @remarks
-   * Creator.
+   * The creator.
    */
   creator?: ListStandardsResponseBodyPageResultStandardListCreator;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * test
@@ -886,12 +890,12 @@ export class ListStandardsResponseBodyPageResultStandardList extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * Effective time configuration.
+   * The effective period configuration.
    */
   effectiveTimeConfig?: ListStandardsResponseBodyPageResultStandardListEffectiveTimeConfig;
   /**
    * @remarks
-   * Standard English name.
+   * The English name of the standard.
    * 
    * @example
    * test
@@ -899,7 +903,7 @@ export class ListStandardsResponseBodyPageResultStandardList extends $dara.Model
   englishName?: string;
   /**
    * @remarks
-   * Standard ID.
+   * The standard ID.
    * 
    * @example
    * 1234
@@ -907,12 +911,12 @@ export class ListStandardsResponseBodyPageResultStandardList extends $dara.Model
   id?: number;
   /**
    * @remarks
-   * Last modifier.
+   * The user who last updated the standard.
    */
   lastModifier?: ListStandardsResponseBodyPageResultStandardListLastModifier;
   /**
    * @remarks
-   * Last modified time.
+   * The last modified time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -920,7 +924,7 @@ export class ListStandardsResponseBodyPageResultStandardList extends $dara.Model
   modifyTime?: string;
   /**
    * @remarks
-   * Standard name.
+   * The name of the standard.
    * 
    * @example
    * test
@@ -928,12 +932,12 @@ export class ListStandardsResponseBodyPageResultStandardList extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * Owner.
+   * The owner.
    */
   owner?: ListStandardsResponseBodyPageResultStandardListOwner;
   /**
    * @remarks
-   * Stage of the standard.
+   * The stage of the standard.
    * 
    * @example
    * dev
@@ -941,17 +945,17 @@ export class ListStandardsResponseBodyPageResultStandardList extends $dara.Model
   stage?: string;
   /**
    * @remarks
-   * Standard set that the current standard depends on.
+   * The standard set that the current standard depends on.
    */
   standardSet?: ListStandardsResponseBodyPageResultStandardListStandardSet;
   /**
    * @remarks
-   * Standard template that the current standard depends on.
+   * The standard template that the current standard depends on.
    */
   standardTemplate?: ListStandardsResponseBodyPageResultStandardListStandardTemplate;
   /**
    * @remarks
-   * Status of the standard.
+   * The status of the standard.
    * 
    * @example
    * draft
@@ -959,7 +963,7 @@ export class ListStandardsResponseBodyPageResultStandardList extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * Standard type.
+   * The type of the standard.
    * 
    * @example
    * zz
@@ -967,7 +971,7 @@ export class ListStandardsResponseBodyPageResultStandardList extends $dara.Model
   type?: string;
   /**
    * @remarks
-   * Version number.
+   * The version number.
    * 
    * @example
    * 1
@@ -1050,12 +1054,12 @@ export class ListStandardsResponseBodyPageResultStandardList extends $dara.Model
 export class ListStandardsResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * Standard list.
+   * The standard list.
    */
   standardList?: ListStandardsResponseBodyPageResultStandardList[];
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 68
@@ -1090,7 +1094,7 @@ export class ListStandardsResponseBodyPageResult extends $dara.Model {
 export class ListStandardsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -1098,7 +1102,7 @@ export class ListStandardsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP response code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -1106,7 +1110,7 @@ export class ListStandardsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Details of the backend response error.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -1114,7 +1118,7 @@ export class ListStandardsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Paginated query result.
+   * The paged query result.
    */
   pageResult?: ListStandardsResponseBodyPageResult;
   /**
@@ -1127,7 +1131,7 @@ export class ListStandardsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request is successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

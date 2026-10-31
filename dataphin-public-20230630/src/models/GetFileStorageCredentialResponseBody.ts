@@ -61,7 +61,7 @@ export class GetFileStorageCredentialResponseBodyStorageCredential extends $dara
   region?: string;
   /**
    * @remarks
-   * The temporary security token.
+   * The security token.
    * 
    * @example
    * temp.token
@@ -69,7 +69,7 @@ export class GetFileStorageCredentialResponseBodyStorageCredential extends $dara
   securityToken?: string;
   /**
    * @remarks
-   * The storage cluster type. Valid values: oss and ceph.
+   * The type of the storage cluster. Valid values: oss and ceph.
    * 
    * @example
    * oss
@@ -147,12 +147,12 @@ export class GetFileStorageCredentialResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the temporary read/write authorization.
+   * The details of the temporary read and write authorization.
    */
   storageCredential?: GetFileStorageCredentialResponseBodyStorageCredential;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

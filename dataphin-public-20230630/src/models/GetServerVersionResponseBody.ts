@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServerVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request is successful.
+   * The request error code. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class GetServerVersionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The Dataphin server version number.
+   * The version number of the Dataphin server.
    * 
    * @example
    * 6.4.0.994114
@@ -29,7 +29,7 @@ export class GetServerVersionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message of the request.
    * 
    * @example
    * successful
@@ -45,7 +45,7 @@ export class GetServerVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStandardLookupTableRequestCreateCommandDirectoryReference extends $dara.Model {
   /**
    * @remarks
-   * The directory to which the lookup table belongs.
+   * The parent folder.
    * 
    * This parameter is required.
    * 
@@ -68,7 +68,7 @@ export class CreateStandardLookupTableRequestCreateCommandLookupTableValueList e
    * This parameter is required.
    * 
    * @example
-   * 杭州
+   * Hangzhou
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -119,7 +119,7 @@ export class CreateStandardLookupTableRequestCreateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The directory to which the lookup table belongs.
+   * The parent folder.
    */
   directoryReference?: CreateStandardLookupTableRequestCreateCommandDirectoryReference;
   /**
@@ -134,12 +134,12 @@ export class CreateStandardLookupTableRequestCreateCommand extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 城市码表
+   * City lookup table
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the lookup table owner. Default value: the user ID of the caller.
+   * The ID of the lookup table owner. Default value: the ID of the caller.
    * 
    * @example
    * 30012021
@@ -185,7 +185,7 @@ export class CreateStandardLookupTableRequestCreateCommand extends $dara.Model {
 export class CreateStandardLookupTableRequest extends $dara.Model {
   /**
    * @remarks
-   * The create command.
+   * The creation command.
    * 
    * This parameter is required.
    */
@@ -201,6 +201,9 @@ export class CreateStandardLookupTableRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

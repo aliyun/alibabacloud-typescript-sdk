@@ -37,7 +37,7 @@ export class DeleteQualityRulesRequestDeleteCommand extends $dara.Model {
 export class DeleteQualityRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The delete instruction.
+   * The delete command.
    * 
    * This parameter is required.
    */
@@ -53,6 +53,9 @@ export class DeleteQualityRulesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

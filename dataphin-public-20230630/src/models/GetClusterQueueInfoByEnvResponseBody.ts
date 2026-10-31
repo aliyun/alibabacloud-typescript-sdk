@@ -29,7 +29,7 @@ export class GetClusterQueueInfoByEnvResponseBodyData extends $dara.Model {
   createAt?: string;
   /**
    * @remarks
-   * The Flink image registry address.
+   * The Flink image registry.
    * 
    * @example
    * xxxx-registry-vpc.cn-shanghai.cr.aliyuncs.com/xxxx/flink:1.15.4-scala_2.12
@@ -69,7 +69,7 @@ export class GetClusterQueueInfoByEnvResponseBodyData extends $dara.Model {
   labels?: string;
   /**
    * @remarks
-   * The maximum number of vCores provided by each queue.
+   * The maximum number of vCores provided for each queue.
    * 
    * @example
    * 10
@@ -93,7 +93,7 @@ export class GetClusterQueueInfoByEnvResponseBodyData extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The queue name, which serves as a unique identifier. For Kubernetes, this is the resource group name.
+   * The queue name, which is a unique identifier. In Kubernetes, it is the resource group name.
    * 
    * @example
    * default-queue
@@ -175,7 +175,7 @@ export class GetClusterQueueInfoByEnvResponseBodyData extends $dara.Model {
 export class GetClusterQueueInfoByEnvResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code of the request. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -183,7 +183,7 @@ export class GetClusterQueueInfoByEnvResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: GetClusterQueueInfoByEnvResponseBodyData[];
   /**
@@ -196,7 +196,7 @@ export class GetClusterQueueInfoByEnvResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message of the request.
    * 
    * @example
    * successful
@@ -212,7 +212,7 @@ export class GetClusterQueueInfoByEnvResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBizMetricShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The create request.
+   * The creation request.
    * 
    * This parameter is required.
    */
@@ -21,6 +21,9 @@ export class CreateBizMetricShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

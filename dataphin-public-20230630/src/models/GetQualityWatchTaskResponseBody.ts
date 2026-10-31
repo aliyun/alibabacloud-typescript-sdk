@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoStrongRuleCount extends $dara.Model {
   /**
    * @remarks
-   * The number of rules that failed to execute.
+   * The number of failed rules.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoStrongRule
   errorRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that have been executed.
+   * The number of completed rules.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoStrongRule
   finishedRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that were executed successfully.
+   * The number of successful rules.
    * 
    * @example
    * 1
@@ -65,7 +65,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoStrongRule
 export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoValidateRuleCount extends $dara.Model {
   /**
    * @remarks
-   * The number of rules that failed to execute.
+   * The number of failed rules.
    * 
    * @example
    * 0
@@ -73,7 +73,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoValidateRu
   errorRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that have been executed.
+   * The number of completed rules.
    * 
    * @example
    * 1
@@ -81,7 +81,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoValidateRu
   finishedRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that were executed successfully.
+   * The number of successful rules.
    * 
    * @example
    * 1
@@ -125,7 +125,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoValidateRu
 export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoWeakRuleCount extends $dara.Model {
   /**
    * @remarks
-   * The number of rules that failed to execute.
+   * The number of failed rules.
    * 
    * @example
    * 0
@@ -133,7 +133,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoWeakRuleCo
   errorRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that have been executed.
+   * The number of completed rules.
    * 
    * @example
    * 1
@@ -141,7 +141,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoWeakRuleCo
   finishedRuleCount?: number;
   /**
    * @remarks
-   * The number of rules that were executed successfully.
+   * The number of successful rules.
    * 
    * @example
    * 1
@@ -185,17 +185,17 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoWeakRuleCo
 export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfo extends $dara.Model {
   /**
    * @remarks
-   * The strong rule count.
+   * The number of strong rules.
    */
   strongRuleCount?: GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoStrongRuleCount;
   /**
    * @remarks
-   * The validation rule count.
+   * The validation rule counts.
    */
   validateRuleCount?: GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoValidateRuleCount;
   /**
    * @remarks
-   * The weak rule count.
+   * The number of weak rules.
    */
   weakRuleCount?: GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfoWeakRuleCount;
   static names(): { [key: string]: string } {
@@ -235,7 +235,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfo extends $
 export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
   /**
    * @remarks
-   * The business date.
+   * The business date. Format: YYYY-MM-DD.
    * 
    * @example
    * 2025-06-30
@@ -243,7 +243,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
   bizDate?: string;
   /**
    * @remarks
-   * The business date format.
+   * The format of the business date.
    * 
    * @example
    * yyyy-MM-dd
@@ -251,7 +251,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
   bizDateFormat?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -267,7 +267,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The end time. Time format: yyyy-MM-dd HH:mm:ss.
+   * The end time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-30 20:00:00
@@ -275,7 +275,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The quality watchtask ID.
+   * The watchtask ID.
    * 
    * @example
    * 1
@@ -283,7 +283,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The user ID of the last modifier.
+   * The ID of the last modifier.
    * 
    * @example
    * 30012011
@@ -291,7 +291,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
   modifier?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -299,7 +299,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The user ID of the quality owner.
+   * The ID of the quality owner.
    * 
    * @example
    * 30012011
@@ -315,17 +315,17 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
   qualityOwnerName?: string;
   /**
    * @remarks
-   * The quality rule count information.
+   * The quality rule counts.
    */
   ruleCountInfo?: GetQualityWatchTaskResponseBodyWatchTaskInfoRuleCountInfo;
   /**
    * @remarks
-   * The list of quality rule IDs.
+   * The IDs of the quality rules.
    */
   ruleIdList?: number[];
   /**
    * @remarks
-   * The start time. Time format: yyyy-MM-dd HH:mm:ss.
+   * The start time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-30 08:00:00
@@ -333,15 +333,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The task status. Valid values:
-   * - NOT_RUN: not executed.
-   * - WAITING: waiting.
-   * - RUNNING: executing.
-   * - SUCCESS: executed successfully.
-   * - FAILED: execution failed.
-   * - CANCEL: canceled.
-   * - TIMEOUT: timed out.
-   * - OFFLINE: offline.
+   * The task status. Valid values: NOT_RUN (not executed), WAITING (waiting), RUNNING (running), SUCCESS (successful), FAILED (failed), CANCEL (canceled), TIMEOUT (timed out), and OFFLINE (offline).
    * 
    * @example
    * RUNNING
@@ -349,7 +341,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The monitored object ID.
+   * The ID of the monitored object.
    * 
    * @example
    * 1
@@ -413,7 +405,7 @@ export class GetQualityWatchTaskResponseBodyWatchTaskInfo extends $dara.Model {
 export class GetQualityWatchTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The backend response code.
+   * The backend status code.
    * 
    * @example
    * OK
@@ -429,7 +421,7 @@ export class GetQualityWatchTaskResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -445,12 +437,12 @@ export class GetQualityWatchTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   /**
    * @remarks
-   * The details of the monitoring node task object.
+   * The monitoring node object details.
    */
   watchTaskInfo?: GetQualityWatchTaskResponseBodyWatchTaskInfo;
   static names(): { [key: string]: string } {

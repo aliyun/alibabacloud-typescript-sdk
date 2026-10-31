@@ -13,18 +13,15 @@ export class GetAlertEventResponseBodyAlertEventInfoAlertObject extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The source system type. Valid values:
-   * 
+   * The source system. Valid values:
    * - ALL: all systems
    * - DQE: data quality
    * - OS: data service
    * - STREAM: real-time computing
-   * - VDM_BATCH: batch computing
+   * - VDM_BATCH: offline computing
    * - SOP: O&M platform
    * - REAL_TIME_PIPELINE: real-time integration
    * - KGB: baseline monitoring
-   * 
-   * and more.
    * 
    * @example
    * ALL
@@ -32,7 +29,7 @@ export class GetAlertEventResponseBodyAlertEventInfoAlertObject extends $dara.Mo
   sourceSystemType?: string;
   /**
    * @remarks
-   * The alerting object type. Valid values:
+   * The alert object type. Valid values:
    * - OS_API: API operation
    * - OS_APPLICATION_SERVICE: service application
    * - STREAM_TASK: real-time computing
@@ -59,8 +56,6 @@ export class GetAlertEventResponseBodyAlertEventInfoAlertObject extends $dara.Mo
    * - DQE_INDEX: metric
    * - QD_DECISION_INVOKE: QD decision invocation
    * - BASELINE: baseline
-   * 
-   * and more.
    * 
    * @example
    * VDM_BATCH_PYTHON37
@@ -94,7 +89,7 @@ export class GetAlertEventResponseBodyAlertEventInfoAlertObject extends $dara.Mo
 export class GetAlertEventResponseBodyAlertEventInfoAlertReasonAlertReasonParamList extends $dara.Model {
   /**
    * @remarks
-   * The name of the alert reason parameter.
+   * The name of the alert cause parameter.
    * 
    * @example
    * biz_date
@@ -102,7 +97,7 @@ export class GetAlertEventResponseBodyAlertEventInfoAlertReasonAlertReasonParamL
   key?: string;
   /**
    * @remarks
-   * The value of the alert reason parameter.
+   * The value of the alert cause parameter.
    * 
    * @example
    * 2024-11-04 00:00:00
@@ -134,7 +129,7 @@ export class GetAlertEventResponseBodyAlertEventInfoAlertReasonAlertReasonParamL
 export class GetAlertEventResponseBodyAlertEventInfoAlertReason extends $dara.Model {
   /**
    * @remarks
-   * The list of alert reason parameters.
+   * The list of alert cause parameters.
    */
   alertReasonParamList?: GetAlertEventResponseBodyAlertEventInfoAlertReasonAlertReasonParamList[];
   /**
@@ -147,7 +142,7 @@ export class GetAlertEventResponseBodyAlertEventInfoAlertReason extends $dara.Mo
   bizDate?: string;
   /**
    * @remarks
-   * The type of the alert reason. Valid values:
+   * The type of the alert cause. Valid values:
    * - DQE_COLUMN: field rule exception
    * - DQE_DATA_SOURCE: data source rule exception
    * - DQE_CUSTOMIZE: custom rule exception
@@ -157,19 +152,19 @@ export class GetAlertEventResponseBodyAlertEventInfoAlertReason extends $dara.Mo
    * - OS_AVG_RESPONSE: average response time exception
    * - OS_CALL_TIMES: call count exception
    * - OS_ERROR_RATE: error rate exception
-   * - OS_OFFLINE: Offline percentage exception
-   * - STREAM_BIZ_DELAY: business delay too high
-   * - STREAM_DATA_RETENTION: data retention exceeds configuration
-   * - STREAM_MORE_THAN_FAILURE: failure frequency exceeds configuration
+   * - OS_OFFLINE: offline percentage exception
+   * - STREAM_BIZ_DELAY: high business latency
+   * - STREAM_DATA_RETENTION: data retention exceeds the configuration
+   * - STREAM_MORE_THAN_FAILURE: failure frequency exceeds the configuration
    * - STREAM_TPS_OUT_RANGE: TPS out of range
-   * - STREAM_CHECKPOINT_FAILURE: checkpoint failures exceed configuration
-   * - STREAM_BACKPRESSURE: backpressure duration exceeds configuration
-   * - STREAM_JOB_FAILURE: job failure
-   * - VDM_BATCH_ERROR: error
-   * - VDM_BATCH_FINISH: completed
-   * - VDM_BATCH_TIME_OUT: execution timeout
-   * - VDM_BATCH_UNDONE: incomplete
-   * - VDM_BATCH_LOGIC_DATA_DELAY: data delay
+   * - STREAM_CHECKPOINT_FAILURE: checkpoint failures exceed the configuration
+   * - STREAM_BACKPRESSURE: backpressure duration exceeds the configuration
+   * - STREAM_JOB_FAILURE: job execution failed
+   * - VDM_BATCH_ERROR: batch task error
+   * - VDM_BATCH_FINISH: batch task completed
+   * - VDM_BATCH_TIME_OUT: batch task timed out
+   * - VDM_BATCH_UNDONE: batch task unfinished
+   * - VDM_BATCH_LOGIC_DATA_DELAY: data latency
    * - QD_DECISION_CALL_TIMES: decision call count exception
    * - QD_DECISION_MAX_RESPONSE: maximum response time exception
    * - QD_DECISION_ERROR_RATE: error rate exception
@@ -181,9 +176,7 @@ export class GetAlertEventResponseBodyAlertEventInfoAlertReason extends $dara.Mo
    * - KGB_TASK_ERROR: baseline task error
    * - KGB_TASK_SLOW_DOWN: baseline task slowdown
    * - KGB_EARLY_WARNING: baseline early warning
-   * - KGB_BROKEN_LINE: baseline breach
-   * 
-   * and more.
+   * - KGB_BROKEN_LINE: baseline broken
    * 
    * @example
    * VDM_BATCH_FINISH
@@ -278,10 +271,10 @@ export class GetAlertEventResponseBodyAlertEventInfoAlertReceiverList extends $d
   onCallTableName?: string;
   /**
    * @remarks
-   * The type of the alert receiver. Valid values:
+   * The type of the alert recipient. Valid values:
    * - ON_CALL_TABLE: on-call schedule
    * - USER_DEFINED: custom user
-   * - OWNER: owner.
+   * - OWNER: owner
    * 
    * @example
    * OWNER
@@ -341,7 +334,7 @@ export class GetAlertEventResponseBodyAlertEventInfoBelongProject extends $dara.
   bizName?: string;
   /**
    * @remarks
-   * The name of the project.
+   * The name of the associated project.
    * 
    * @example
    * project_1
@@ -424,8 +417,8 @@ export class GetAlertEventResponseBodyAlertEventInfo extends $dara.Model {
   /**
    * @remarks
    * The alert frequency. Valid values:
-   * - ONCE: Instant alert.
-   * - PERIOD: Periodic alert. Format: 1HOUR, 1MINUTE, 1SECOND.
+   * - ONCE: immediate alert
+   * - PERIOD: periodic alert. Format: 1HOUR, 1MINUTE, or 1SECOND
    * 
    * @example
    * ONCE
@@ -438,22 +431,22 @@ export class GetAlertEventResponseBodyAlertEventInfo extends $dara.Model {
   alertObject?: GetAlertEventResponseBodyAlertEventInfoAlertObject;
   /**
    * @remarks
-   * The alert reason.
+   * The cause of the alert.
    */
   alertReason?: GetAlertEventResponseBodyAlertEventInfoAlertReason;
   /**
    * @remarks
-   * The list of alert receivers.
+   * The list of alert recipients.
    */
   alertReceiverList?: GetAlertEventResponseBodyAlertEventInfoAlertReceiverList[];
   /**
    * @remarks
-   * The project to which the alert event belongs.
+   * The associated project.
    */
   belongProject?: GetAlertEventResponseBodyAlertEventInfoBelongProject;
   /**
    * @remarks
-   * The expiration time of the do-not-disturb period.
+   * The expiration time of the do not disturb mode.
    * 
    * @example
    * 2024-11-05 00:00:00
@@ -461,7 +454,7 @@ export class GetAlertEventResponseBodyAlertEventInfo extends $dara.Model {
   doNotDisturbEndTime?: string;
   /**
    * @remarks
-   * The time of the first alert.
+   * The time when the first alert was triggered.
    * 
    * @example
    * 2024-11-05 16:19:33
@@ -469,7 +462,7 @@ export class GetAlertEventResponseBodyAlertEventInfo extends $dara.Model {
   firstAlertTime?: string;
   /**
    * @remarks
-   * The alert event ID.
+   * The ID of the alert event.
    * 
    * @example
    * 12345
@@ -477,7 +470,7 @@ export class GetAlertEventResponseBodyAlertEventInfo extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The time of the latest alert.
+   * The time when the latest alert was triggered.
    * 
    * @example
    * 2024-11-05 16:19:33
@@ -486,10 +479,10 @@ export class GetAlertEventResponseBodyAlertEventInfo extends $dara.Model {
   /**
    * @remarks
    * The alert status. Valid values:
-   * - ALERTING: Alerting.
-   * - DO_NOT_DISTURB: Do not disturb.
-   * - SILENCING: Alerting (cool-down period).
-   * - FINISH: Alert completed.
+   * - ALERTING: alerting
+   * - DO_NOT_DISTURB: do not disturb
+   * - SILENCING: alerting (silence period)
+   * - FINISH: alert completed
    * 
    * @example
    * FINISH
@@ -505,7 +498,7 @@ export class GetAlertEventResponseBodyAlertEventInfo extends $dara.Model {
   totalAlertTimes?: number;
   /**
    * @remarks
-   * The URL configuration.
+   * The URL information.
    */
   urlConfig?: GetAlertEventResponseBodyAlertEventInfoUrlConfig;
   static names(): { [key: string]: string } {
@@ -574,7 +567,7 @@ export class GetAlertEventResponseBody extends $dara.Model {
   alertEventInfo?: GetAlertEventResponseBodyAlertEventInfo;
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -606,7 +599,7 @@ export class GetAlertEventResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

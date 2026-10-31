@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTablesRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * The asset catalog, such as the project name or business unit name.
+   * The asset catalog: project name and business unit name.
    * 
    * @example
    * LD_test01_dev
@@ -13,13 +13,16 @@ export class ListTablesRequestListQuery extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * The keyword for searching. Table names are supported.
+   * The supported keyword: table name.
    * 
    * @example
    * test
    */
   keyword?: string;
   /**
+   * @remarks
+   * The ID of the owner.
+   * 
    * @example
    * 30012011
    */
@@ -34,12 +37,28 @@ export class ListTablesRequestListQuery extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of records per page. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The table types. If you do not specify this parameter or pass an empty list, all table types are queried. Valid values:
+   * - PHYSICAL_TABLE: Physical table of the compute source.
+   * - PHYSICAL_VIEW: View of the compute source.
+   * - PHYSICAL_MATERIALIZED_VIEW: Materialized view of the compute source.
+   * - STREAM_TABLE: Meta table.
+   * - MIRROR_TABLE: Mirror table.
+   * - DIM: Logical dimension table.
+   * - FACT: Logical fact table.
+   * - SUM_BIZ_UNIT: Logical aggregate table.
+   * - LOGIC_VIEW: Logical view.
+   * - DATASOURCE_TABLE: Data source table.
+   * - DATASOURCE_VIEW: Data source view.
+   * - DATASOURCE_MATERIALIZED_VIEW: Data source materialized view.
+   */
   subTypes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -92,6 +111,9 @@ export class ListTablesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

@@ -16,7 +16,7 @@ export class GetPhysicalNodeResponseBodyNodeInfoCreator extends $dara.Model {
    * The user ID.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -56,7 +56,7 @@ export class GetPhysicalNodeResponseBodyNodeInfoModifier extends $dara.Model {
    * The username.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -96,7 +96,7 @@ export class GetPhysicalNodeResponseBodyNodeInfoOwner extends $dara.Model {
    * The username.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -136,7 +136,7 @@ export class GetPhysicalNodeResponseBodyNodeInfoProjectInfo extends $dara.Model 
    * The project name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -173,12 +173,12 @@ export class GetPhysicalNodeResponseBodyNodeInfo extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The node creator.
+   * The creator of the node.
    */
   creator?: GetPhysicalNodeResponseBodyNodeInfoCreator;
   /**
    * @remarks
-   * The cron expression used to calculate the scheduling time.
+   * The cron expression, which is used to calculate the trigger time.
    * 
    * @example
    * 0 0 10 * * *
@@ -194,7 +194,7 @@ export class GetPhysicalNodeResponseBodyNodeInfo extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * The data source schema. This parameter takes effect only for data source types that require a schema, such as Oracle. If set to "default", the value is null.
+   * The schema of the data source. This parameter takes effect only for data source types that require a schema, such as Oracle. If it is set to "default", the value is null.
    * 
    * @example
    * null
@@ -205,15 +205,15 @@ export class GetPhysicalNodeResponseBodyNodeInfo extends $dara.Model {
    * The node description.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   description?: string;
   /**
    * @remarks
-   * The node source. Valid values:
-   * - DATA_PROCESS: code development.
-   * - BLACK_BOX: modeling development.
-   * - PIPELINE: pipeline.
+   * The source of the node. Valid values:
+   * - DATA_PROCESS: code development
+   * - BLACK_BOX: modeling development
+   * - PIPELINE: PIPELINE
    * 
    * @example
    * DATA_PROCESS
@@ -229,7 +229,7 @@ export class GetPhysicalNodeResponseBodyNodeInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The time of the last modification.
+   * The last update time.
    * 
    * @example
    * 1717343597000
@@ -237,7 +237,7 @@ export class GetPhysicalNodeResponseBodyNodeInfo extends $dara.Model {
   lastModifiedTime?: number;
   /**
    * @remarks
-   * The user who last modified the node.
+   * The user who last updated the node.
    */
   modifier?: GetPhysicalNodeResponseBodyNodeInfoModifier;
   /**
@@ -245,7 +245,7 @@ export class GetPhysicalNodeResponseBodyNodeInfo extends $dara.Model {
    * The node name.
    * 
    * @example
-   * 节点名称
+   * Node name
    */
   name?: string;
   /**
@@ -256,7 +256,7 @@ export class GetPhysicalNodeResponseBodyNodeInfo extends $dara.Model {
    * - SHELL
    * - PYTHON
    * - ONE_SERVICE_SQL
-   * - DATABASE_SQL and others.
+   * - DATABASE_SQL, etc.
    * 
    * @example
    * SHELL
@@ -269,18 +269,17 @@ export class GetPhysicalNodeResponseBodyNodeInfo extends $dara.Model {
   outputNameList?: string[];
   /**
    * @remarks
-   * The node owner.
+   * The owner of the node.
    */
   owner?: GetPhysicalNodeResponseBodyNodeInfoOwner;
   /**
    * @remarks
    * The scheduling priority. Valid values:
-   * 
    * - HIGHEST
    * - HIGH
    * - MIDDLE
    * - LOW
-   * - LOWEST.
+   * - LOWEST
    * 
    * @example
    * MIDDLE
@@ -299,7 +298,7 @@ export class GetPhysicalNodeResponseBodyNodeInfo extends $dara.Model {
    * - DAILY
    * - WEEKLY
    * - MONTHLY
-   * - QUARTERLY.
+   * - QUARTERLY
    * 
    * @example
    * DAILY
@@ -315,7 +314,7 @@ export class GetPhysicalNodeResponseBodyNodeInfo extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The trigger configuration, which is used to implement field-level dependencies on logical tables.
+   * The trigger configuration, which is used to implement field dependencies for logical tables.
    * 
    * @example
    * {"expression":"any_success"}
@@ -396,7 +395,7 @@ export class GetPhysicalNodeResponseBodyNodeInfo extends $dara.Model {
 export class GetPhysicalNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -433,7 +432,7 @@ export class GetPhysicalNodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

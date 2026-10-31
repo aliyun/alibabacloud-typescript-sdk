@@ -4,21 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListScheduleTemplatesRequestListScheduleTemplatesCommand extends $dara.Model {
   /**
+   * @remarks
+   * The keyword for fuzzy matching by template name. If this parameter is empty or not specified, no filtering is applied.
+   * 
    * @example
-   * 小时
+   * Hour
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Pages start from 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 50. Maximum value: 100.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The scheduling templatetype. Valid values:
+   * - BASE_SCHEDULE_TEMPLATE: basic scheduling template
+   * - CONDITION_SCHEDULE_TEMPLATE: conditional scheduling template
+   * If this parameter is not specified, all types are returned.
+   * 
    * @example
    * BASE_SCHEDULE_TEMPLATE
    */
@@ -53,11 +68,15 @@ export class ListScheduleTemplatesRequestListScheduleTemplatesCommand extends $d
 export class ListScheduleTemplatesRequest extends $dara.Model {
   /**
    * @remarks
+   * The query conditions for the scheduling template list. This is a JSON object that supports keyword search and pagination.
+   * 
    * This parameter is required.
    */
   listScheduleTemplatesCommand?: ListScheduleTemplatesRequestListScheduleTemplatesCommand;
   /**
    * @remarks
+   * The tenant ID, which indicates the tenant for the current operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,6 +84,9 @@ export class ListScheduleTemplatesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

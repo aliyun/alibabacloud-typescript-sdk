@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeMonitorConfig extends $dara.Model {
   /**
    * @remarks
-   * The field to check.
+   * The column to be checked.
    * 
    * @example
    * column1
@@ -13,14 +13,14 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeM
   columnName?: string;
   /**
    * @remarks
-   * Indicates whether the check is case-sensitive.
+   * Specifies whether the check is case-sensitive.
    */
   isCaseSensitive?: boolean;
   /**
    * @remarks
    * The monitoring method. Valid values:
-   * - METADATA: metadata monitoring.
-   * - QUALITY: data quality monitoring.
+   * - METADATA: metadata monitoring
+   * - QUALITY: data quality monitoring
    * 
    * @example
    * METADATA
@@ -95,9 +95,9 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeR
   /**
    * @remarks
    * The attribute source. Valid values:
-   * - SYSTEM: system attribute.
-   * - CUSTOM: custom attribute.
-   * - STANDARD: standard.
+   * - SYSTEM: system attribute
+   * - CUSTOM: custom attribute
+   * - STANDARD: standard
    * 
    * @example
    * CUSTOM
@@ -177,7 +177,7 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeR
 export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeValueConfigValueRangeLookupTableReference extends $dara.Model {
   /**
    * @remarks
-   * The referenced lookup table field.
+   * The referenced column in the lookup table.
    * 
    * @example
    * col1
@@ -185,7 +185,7 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeV
   column?: string;
   /**
    * @remarks
-   * The lookup table ID.
+   * The ID of the lookup table.
    * 
    * @example
    * 11
@@ -217,12 +217,12 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeV
 export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeValueConfigValueRangeMinMaxValueConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the maximum value is included.
+   * Specifies whether to include the maximum value.
    */
   includeMaxValue?: boolean;
   /**
    * @remarks
-   * Indicates whether the minimum value is included.
+   * Specifies whether to include the minimum value.
    */
   includeMinValue?: boolean;
   /**
@@ -271,11 +271,11 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeV
 export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeValueConfigValueRange extends $dara.Model {
   /**
    * @remarks
-   * The value range. This parameter takes effect when the value source is set to DATAPHIN_ATTRIBUTE. Valid values:
-   * - BIZ_UNIT: business unit.
-   * - PROJECT: project.
-   * - USER: user.
-   * - USER_GROUP: user group.
+   * The value range. This parameter takes effect when the value constraint is set to DATAPHIN_ATTRIBUTE. Valid values:
+   * - BIZ_UNIT: business unit
+   * - PROJECT: project
+   * - USER: user
+   * - USER_GROUP: user group
    * 
    * @example
    * DATAPHIN_ATTRIBUTE
@@ -283,25 +283,25 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeV
   dataphinAttributeType?: string;
   /**
    * @remarks
-   * The value range. This parameter takes effect when the value source is set to LOOKUP_TABLE.
+   * The value range. This parameter takes effect when the value constraint is set to LOOKUP_TABLE.
    */
   lookupTableReference?: GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeValueConfigValueRangeLookupTableReference;
   /**
    * @remarks
-   * The value range. This parameter takes effect when the value source is set to MIN_MAX.
+   * The value range. This parameter takes effect when the value constraint is set to MIN_MAX.
    */
   minMaxValueConfig?: GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeValueConfigValueRangeMinMaxValueConfig;
   /**
    * @remarks
-   * The value source. Valid values:
-   * - NONE: no constraint.
-   * - LIST: obtained from a list.
-   * - LOOKUP_TABLE: lookup table.
-   * - MIN_MAX: value between the minimum and maximum.
-   * - DATAPHIN_ATTRIBUTE: Dataphin system property.
-   * - BUILT_IN_DATA_TYPES: built-in data types.
-   * - BUILT_IN_DATA_CLASSIFICATION: built-in data categorization.
-   * - BUILT_IN_DATA_LEVEL: built-in data security classification.
+   * The value constraint. Valid values:
+   * - NONE: no constraint
+   * - LIST: obtained from a list
+   * - LOOKUP_TABLE: lookup table
+   * - MIN_MAX: value between the maximum and minimum values
+   * - DATAPHIN_ATTRIBUTE: Dataphin system property
+   * - BUILT_IN_DATA_TYPES: built-in data type
+   * - BUILT_IN_DATA_CLASSIFICATION: built-in data categorization
+   * - BUILT_IN_DATA_LEVEL: built-in data security classification
    * 
    * @example
    * NONE
@@ -309,7 +309,7 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeV
   valueConstraint?: string;
   /**
    * @remarks
-   * The value range. This parameter takes effect when the value source is set to LIST.
+   * The value range. This parameter takes effect when the value constraint is set to LIST.
    */
   valueList?: string[];
   static names(): { [key: string]: string } {
@@ -354,12 +354,12 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeV
   /**
    * @remarks
    * The data type of the attribute value. Valid values:
-   * - STRING: string.
-   * - BIGINT: numeric type.
-   * - DOUBLE: floating-point type.
-   * - DATE: date, accurate to the day.
-   * - DATETIME: date, accurate to milliseconds.
-   * - BOOLEAN: Boolean.
+   * - STRING: string
+   * - BIGINT: numeric type
+   * - DOUBLE: floating-point type
+   * - DATE: date, accurate to the day
+   * - DATETIME: date and time, accurate to the millisecond
+   * - BOOLEAN: Boolean
    * 
    * @example
    * STRING
@@ -375,7 +375,7 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeV
   defaultValue?: string;
   /**
    * @remarks
-   * The length of the attribute value. If empty or -1, the length is not limited. Typically, only string types have a length limit for attribute values.
+   * The length of the attribute value. An empty value or -1 indicates that the length is not limited. Typically, only the string type limits the length of the attribute value.
    * 
    * @example
    * 1
@@ -384,10 +384,10 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeV
   /**
    * @remarks
    * The attribute value type. Valid values:
-   * - CUSTOMIZED: custom input.
-   * - SINGLE_ENUM: single enumeration value.
-   * - MULTIPLE_ENUMS: multiple enumeration values.
-   * - RANGE: range value.
+   * - CUSTOMIZED: custom input
+   * - SINGLE_ENUM: single enum value
+   * - MULTIPLE_ENUMS: multiple enum values
+   * - RANGE: range value
    * 
    * @example
    * CUSTOMIZED
@@ -449,7 +449,7 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttribute 
   description?: string;
   /**
    * @remarks
-   * Indicates whether the monitoring configuration is enabled.
+   * Specifies whether to enable the monitoring configuration.
    */
   enableMonitorConfig?: boolean;
   /**
@@ -480,19 +480,19 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueListAttribute 
   refAttribute?: GetStandardResponseBodyStandardInfoAttributeWithValueListAttributeRefAttribute;
   /**
    * @remarks
-   * Indicates whether the attribute is required.
+   * Specifies whether the attribute is required.
    */
   required?: boolean;
   /**
    * @remarks
    * The attribute type. Valid values:
-   * - BIZ_ATTRIBUTE: business attribute.
-   * - TECH_ATTRIBUTE: technical attribute.
-   * - MANAGEMENT_ATTRIBUTE: management attribute.
-   * - QUALITY_ATTRIBUTE: quality attribute.
-   * - MASTER_DATA_ATTRIBUTE: master data attribute.
-   * - LIFECYCLE_ATTRIBUTE: lifecycle attribute.
-   * - SECURITY_ATTRIBUTE: security attribute.
+   * - BIZ_ATTRIBUTE: business attribute
+   * - TECH_ATTRIBUTE: technical attribute
+   * - MANAGEMENT_ATTRIBUTE: management attribute
+   * - QUALITY_ATTRIBUTE: quality attribute
+   * - MASTER_DATA_ATTRIBUTE: master data attribute
+   * - LIFECYCLE_ATTRIBUTE: lifecycle attribute
+   * - SECURITY_ATTRIBUTE: security attribute
    * 
    * @example
    * BIZ_ATTRIBUTE
@@ -594,7 +594,7 @@ export class GetStandardResponseBodyStandardInfoAttributeWithValueList extends $
 export class GetStandardResponseBodyStandardInfoCreator extends $dara.Model {
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 300000913
@@ -650,9 +650,7 @@ export class GetStandardResponseBodyStandardInfoEffectiveTimeConfig extends $dar
   startTime?: string;
   /**
    * @remarks
-   * The effective period type. Valid values:
-   * - FOREVER: permanent.
-   * - TIME_PERIOD: time period.
+   * The effective period type. Valid values: FOREVER: permanent. TIME_PERIOD: time period.
    * 
    * @example
    * TIME_PERIOD
@@ -686,7 +684,7 @@ export class GetStandardResponseBodyStandardInfoEffectiveTimeConfig extends $dar
 export class GetStandardResponseBodyStandardInfoLastModifier extends $dara.Model {
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 300000913
@@ -758,7 +756,7 @@ export class GetStandardResponseBodyStandardInfoLookupTableRelations extends $da
   lookupTableCode?: string;
   /**
    * @remarks
-   * The lookup table ID.
+   * The ID of the lookup table.
    * 
    * @example
    * 1121
@@ -796,7 +794,7 @@ export class GetStandardResponseBodyStandardInfoLookupTableRelations extends $da
 export class GetStandardResponseBodyStandardInfoOwner extends $dara.Model {
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 300000913
@@ -836,7 +834,7 @@ export class GetStandardResponseBodyStandardInfoOwner extends $dara.Model {
 export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStandardMonitorConfigListAttributeMonitorConfig extends $dara.Model {
   /**
    * @remarks
-   * The field to check.
+   * The column to be checked.
    * 
    * @example
    * column1
@@ -844,14 +842,14 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStan
   columnName?: string;
   /**
    * @remarks
-   * Indicates whether the check is case-sensitive.
+   * Specifies whether the check is case-sensitive.
    */
   isCaseSensitive?: boolean;
   /**
    * @remarks
    * The monitoring method. Valid values:
-   * - METADATA: metadata monitoring.
-   * - QUALITY: data quality monitoring.
+   * - METADATA: metadata monitoring
+   * - QUALITY: data quality monitoring
    * 
    * @example
    * METADATA
@@ -901,9 +899,7 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStan
   name?: string;
   /**
    * @remarks
-   * The template source. Valid values:
-   * - FROM_SYSTEM: system template.
-   * - CUSTOMIZED: custom template.
+   * The template source. Valid values: FROM_SYSTEM (system template) and CUSTOMIZED (custom template).
    * 
    * @example
    * CUSTOMIZED
@@ -945,7 +941,7 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStan
   key?: string;
   /**
    * @remarks
-   * The configuration item value.
+   * The value of the configuration item.
    * 
    * @example
    * v1
@@ -977,7 +973,7 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStan
 export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStandardMonitorConfigListRuleValidateConfigList extends $dara.Model {
   /**
    * @remarks
-   * The validation configuration ID. This ID is randomly generated by the business and must be unique.
+   * The validation configuration ID. This ID is randomly generated by the business system and must be unique.
    * 
    * @example
    * abc
@@ -1001,17 +997,7 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStan
   metricName?: string;
   /**
    * @remarks
-   * The operator. If the validation type is EXPRESSION, valid values:
-   * - EQUAL: equal to.
-   * - NOT_EQUAL: not equal to.
-   * - LARGER: greater than.
-   * - LARGE_OR_EQUAL: greater than or equal to.
-   * - SMALLER: less than.
-   * - SMALLER_OR_EQUAL: less than or equal to.
-   * 
-   * If the validation type is RELATION, valid values:
-   * - AND: and.
-   * - OR: or.
+   * The operator. If the validation type is EXPRESSION, valid values are EQUAL (equal to), NOT_EQUAL (not equal to), LARGER (greater than), LARGE_OR_EQUAL (greater than or equal to), SMALLER (less than), and SMALLER_OR_EQUAL (less than or equal to). If the validation type is RELATION, valid values are AND (and) and OR (or).
    * 
    * @example
    * AND
@@ -1027,9 +1013,7 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStan
   parentId?: string;
   /**
    * @remarks
-   * The rule validation type. Valid values:
-   * - RELATION: relation.
-   * - EXPRESSION: expression.
+   * The rule validation type. Valid values: RELATION (relationship) and EXPRESSION (expression).
    * 
    * @example
    * RELATION
@@ -1037,7 +1021,7 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStan
   type?: string;
   /**
    * @remarks
-   * The comparison value.
+   * The value to compare.
    * 
    * @example
    * 1
@@ -1079,7 +1063,7 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStan
 export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStandardMonitorConfigList extends $dara.Model {
   /**
    * @remarks
-   * The associated attribute ID.
+   * The ID of the associated attribute.
    * 
    * @example
    * 112
@@ -1108,7 +1092,7 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStan
   description?: string;
   /**
    * @remarks
-   * The monitoring configuration ID. If empty, a new monitoring configuration is created. If an existing monitoring configuration ID is specified, the corresponding monitoring configuration is updated.
+   * The monitoring configuration ID. If this parameter is left empty, a new monitoring configuration is created. If an existing monitoring configuration ID is provided, the corresponding monitoring configuration is updated.
    * 
    * @example
    * 1
@@ -1116,9 +1100,7 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStan
   id?: number;
   /**
    * @remarks
-   * The method by which the monitoring configuration is added. Valid values:
-   * - BY_USER: manually added.
-   * - BY_SYSTEM_ATTRIBUTE: preset by system attribute.
+   * The addition method. Valid values: BY_USER (manual addition) and BY_SYSTEM_ATTRIBUTE (preset by system attributes).
    * 
    * @example
    * BY_SYSTEM_ATTRIBUTE
@@ -1131,7 +1113,7 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStan
   qualityRuleTemplate?: GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStandardMonitorConfigListQualityRuleTemplate;
   /**
    * @remarks
-   * The rule configurations. This parameter is required when the monitoring type is QUALITY.
+   * The rule configuration. This parameter is required when the monitoring type is QUALITY.
    */
   ruleConfigList?: GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStandardMonitorConfigListRuleConfigList[];
   /**
@@ -1144,11 +1126,7 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStan
   ruleName?: string;
   /**
    * @remarks
-   * The rule subtype. Valid values:
-   * - BY_ATTRIBUTE: configured based on attributes.
-   * - CUSTOMIZED: custom configuration.
-   * 
-   * This parameter is required when the monitoring type is QUALITY.
+   * The rule subtype. This parameter is required when the monitoring type is QUALITY. Valid values: BY_ATTRIBUTE (configured based on attributes) and CUSTOMIZED (custom configuration).
    * 
    * @example
    * CUSTOMIZED
@@ -1156,14 +1134,12 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStan
   ruleSubType?: string;
   /**
    * @remarks
-   * The rule validation configurations. This parameter is required when the monitoring type is QUALITY.
+   * The rule validation configuration. This parameter is required when the monitoring type is QUALITY.
    */
   ruleValidateConfigList?: GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfigStandardMonitorConfigListRuleValidateConfigList[];
   /**
    * @remarks
-   * The monitoring type. Valid values:
-   * - METADATA: metadata monitoring.
-   * - QUALITY: data quality monitoring.
+   * The monitoring type. Valid values: METADATA (metadata monitoring) and QUALITY (data quality monitoring).
    * 
    * @example
    * METADATA
@@ -1257,8 +1233,7 @@ export class GetStandardResponseBodyStandardInfoStandardGeneralMonitorConfig ext
 export class GetStandardResponseBodyStandardInfoStandardRelations extends $dara.Model {
   /**
    * @remarks
-   * The association type. Valid values:
-   * - RELATIVE.
+   * The relation type. Valid value: RELATIVE.
    * 
    * @example
    * RELATIVE
@@ -1328,7 +1303,7 @@ export class GetStandardResponseBodyStandardInfoStandardRelations extends $dara.
 export class GetStandardResponseBodyStandardInfoStandardSet extends $dara.Model {
   /**
    * @remarks
-   * The standard set code.
+   * The code of the standard set.
    * 
    * @example
    * cc
@@ -1344,7 +1319,7 @@ export class GetStandardResponseBodyStandardInfoStandardSet extends $dara.Model 
   directory?: string;
   /**
    * @remarks
-   * The standard set ID.
+   * The ID of the standard set.
    * 
    * @example
    * 1
@@ -1352,7 +1327,7 @@ export class GetStandardResponseBodyStandardInfoStandardSet extends $dara.Model 
   id?: number;
   /**
    * @remarks
-   * The standard set name.
+   * The name of the standard set.
    * 
    * @example
    * test
@@ -1388,7 +1363,7 @@ export class GetStandardResponseBodyStandardInfoStandardSet extends $dara.Model 
 export class GetStandardResponseBodyStandardInfoStandardTemplate extends $dara.Model {
   /**
    * @remarks
-   * The standard template code.
+   * The code of the standard template.
    * 
    * @example
    * 1121
@@ -1396,7 +1371,7 @@ export class GetStandardResponseBodyStandardInfoStandardTemplate extends $dara.M
   code?: string;
   /**
    * @remarks
-   * The standard template ID.
+   * The ID of the standard template.
    * 
    * @example
    * 1
@@ -1404,7 +1379,7 @@ export class GetStandardResponseBodyStandardInfoStandardTemplate extends $dara.M
   id?: number;
   /**
    * @remarks
-   * The standard template name.
+   * The name of the standard template.
    * 
    * @example
    * test
@@ -1412,9 +1387,7 @@ export class GetStandardResponseBodyStandardInfoStandardTemplate extends $dara.M
   name?: string;
   /**
    * @remarks
-   * The source of the standard template. Valid values:
-   * - CUSTOM: Custom standard template.
-   * - SYSTEM: System built-in standard template.
+   * The source of the standard template. Valid values: CUSTOM: custom standard template. SYSTEM: built-in standard template.
    * 
    * @example
    * SYSTEM
@@ -1460,12 +1433,12 @@ export class GetStandardResponseBodyStandardInfoStandardTemplate extends $dara.M
 export class GetStandardResponseBodyStandardInfo extends $dara.Model {
   /**
    * @remarks
-   * The attribute value configurations.
+   * The attribute value configuration.
    */
   attributeWithValueList?: GetStandardResponseBodyStandardInfoAttributeWithValueList[];
   /**
    * @remarks
-   * The standard code.
+   * The code of the standard.
    * 
    * @example
    * zz
@@ -1507,7 +1480,7 @@ export class GetStandardResponseBodyStandardInfo extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The last modifier.
+   * The user who last updated the standard.
    */
   lastModifier?: GetStandardResponseBodyStandardInfoLastModifier;
   /**
@@ -1517,7 +1490,7 @@ export class GetStandardResponseBodyStandardInfo extends $dara.Model {
   lookupTableRelations?: GetStandardResponseBodyStandardInfoLookupTableRelations[];
   /**
    * @remarks
-   * The last modification time.
+   * The last modified time.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -1525,7 +1498,7 @@ export class GetStandardResponseBodyStandardInfo extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The standard name.
+   * The name of the standard.
    * 
    * @example
    * test
@@ -1574,7 +1547,7 @@ export class GetStandardResponseBodyStandardInfo extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The standard type.
+   * The type of the standard.
    * 
    * @example
    * zz
@@ -1696,7 +1669,7 @@ export class GetStandardResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -1717,7 +1690,7 @@ export class GetStandardResponseBody extends $dara.Model {
   standardInfo?: GetStandardResponseBodyStandardInfo;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

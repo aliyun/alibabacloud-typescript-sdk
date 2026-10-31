@@ -103,7 +103,7 @@ export class BatchCreateKgRelationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of batch relationship record creation.
+   * The result of creating relationship records in batches.
    */
   createResult?: BatchCreateKgRelationResponseBodyCreateResult;
   /**
@@ -132,7 +132,7 @@ export class BatchCreateKgRelationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

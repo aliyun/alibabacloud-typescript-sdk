@@ -13,7 +13,7 @@ export class ListAddableUsersRequestListQuery extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -71,6 +71,9 @@ export class ListAddableUsersRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

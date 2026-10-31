@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStandardRelationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of standard IDs that do not exist.
+   * The list of non-existent standard IDs.
    */
   notExistStandardIdList?: number[];
   /**
    * @remarks
-   * The number of successfully deleted associations.
+   * The number of successful operations.
    * 
    * @example
    * 2
@@ -66,7 +66,7 @@ export class DeleteStandardRelationsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -82,7 +82,7 @@ export class DeleteStandardRelationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

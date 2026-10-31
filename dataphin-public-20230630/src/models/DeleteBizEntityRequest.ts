@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBizEntityRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the business unit to which the entity belongs.
+   * The ID of the business unit.
    * 
    * This parameter is required.
    * 
@@ -34,13 +34,16 @@ export class DeleteBizEntityRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The type of the business entity. For more information, refer to the create business entity operation.
+   * The type of the business entity. For more information, see the Create a business entity operation.
    * 
    * This parameter is required.
    * 

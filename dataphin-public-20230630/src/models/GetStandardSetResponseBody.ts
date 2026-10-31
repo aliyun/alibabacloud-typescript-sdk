@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStandardSetResponseBodyStandardSetInfoApprovalConfig extends $dara.Model {
   /**
    * @remarks
-   * The approval process type. Valid values:
-   * - BY_DEFAULT: default approval type.
-   * - BY_TEMPLATE: approval based on an approval template.
+   * The approval flow type. Valid values: BY_DEFAULT (default approval type) and BY_TEMPLATE (based on an approval template).
    * 
    * @example
    * BY_DEFAULT
@@ -15,17 +13,17 @@ export class GetStandardSetResponseBodyStandardSetInfoApprovalConfig extends $da
   approvalType?: string;
   /**
    * @remarks
-   * Indicates whether approval is enabled.
+   * Specifies whether to enable approval.
    */
   enableApproval?: boolean;
   /**
    * @remarks
-   * Indicates whether batch approval submission is enabled.
+   * Specifies whether to submit approvals in batches.
    */
   isSubmitInBatch?: boolean;
   /**
    * @remarks
-   * The approval template ID. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
+   * The ID of the approval template. This parameter takes effect only when the approval flow type is set to BY_TEMPLATE.
    * 
    * @example
    * 1121
@@ -61,7 +59,7 @@ export class GetStandardSetResponseBodyStandardSetInfoApprovalConfig extends $da
 export class GetStandardSetResponseBodyStandardSetInfoCreator extends $dara.Model {
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 300000913
@@ -101,7 +99,7 @@ export class GetStandardSetResponseBodyStandardSetInfoCreator extends $dara.Mode
 export class GetStandardSetResponseBodyStandardSetInfoDirectoryReference extends $dara.Model {
   /**
    * @remarks
-   * The parent directory.
+   * The folder.
    * 
    * @example
    * /dir1
@@ -131,7 +129,7 @@ export class GetStandardSetResponseBodyStandardSetInfoDirectoryReference extends
 export class GetStandardSetResponseBodyStandardSetInfoLastModifier extends $dara.Model {
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 300000913
@@ -171,7 +169,7 @@ export class GetStandardSetResponseBodyStandardSetInfoLastModifier extends $dara
 export class GetStandardSetResponseBodyStandardSetInfoMaintainerList extends $dara.Model {
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 300000913
@@ -211,7 +209,7 @@ export class GetStandardSetResponseBodyStandardSetInfoMaintainerList extends $da
 export class GetStandardSetResponseBodyStandardSetInfoMemberGroupList extends $dara.Model {
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the user group.
    * 
    * @example
    * 1121
@@ -219,7 +217,7 @@ export class GetStandardSetResponseBodyStandardSetInfoMemberGroupList extends $d
   id?: string;
   /**
    * @remarks
-   * The user group name.
+   * The name of the user group.
    * 
    * @example
    * testGroup
@@ -251,7 +249,7 @@ export class GetStandardSetResponseBodyStandardSetInfoMemberGroupList extends $d
 export class GetStandardSetResponseBodyStandardSetInfoMemberList extends $dara.Model {
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 300000913
@@ -291,9 +289,7 @@ export class GetStandardSetResponseBodyStandardSetInfoMemberList extends $dara.M
 export class GetStandardSetResponseBodyStandardSetInfoOfflineApprovalConfig extends $dara.Model {
   /**
    * @remarks
-   * The approval process type. Valid values:
-   * - BY_DEFAULT: default approval type.
-   * - BY_TEMPLATE: approval based on an approval template.
+   * The approval flow type. Valid values: BY_DEFAULT (default approval type) and BY_TEMPLATE (based on an approval template).
    * 
    * @example
    * BY_DEFAULT
@@ -301,17 +297,17 @@ export class GetStandardSetResponseBodyStandardSetInfoOfflineApprovalConfig exte
   approvalType?: string;
   /**
    * @remarks
-   * Indicates whether approval is enabled.
+   * Specifies whether to enable approval.
    */
   enableApproval?: boolean;
   /**
    * @remarks
-   * Indicates whether batch approval submission is enabled.
+   * Specifies whether to submit approvals in batches.
    */
   isSubmitInBatch?: boolean;
   /**
    * @remarks
-   * The approval template ID. This parameter takes effect only when the approval process type is set to BY_TEMPLATE.
+   * The ID of the approval template. This parameter takes effect only when the approval flow type is set to BY_TEMPLATE.
    * 
    * @example
    * 1121
@@ -347,7 +343,7 @@ export class GetStandardSetResponseBodyStandardSetInfoOfflineApprovalConfig exte
 export class GetStandardSetResponseBodyStandardSetInfoVisibilityConfigSpecifiedUserList extends $dara.Model {
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 300000913
@@ -387,15 +383,12 @@ export class GetStandardSetResponseBodyStandardSetInfoVisibilityConfigSpecifiedU
 export class GetStandardSetResponseBodyStandardSetInfoVisibilityConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of specified users who can view the standard set. This parameter takes effect only when the visibility type is set to SPECIFIED.
+   * The list of specified users who have visibility. This parameter takes effect only when the visibility type is set to SPECIFIED.
    */
   specifiedUserList?: GetStandardSetResponseBodyStandardSetInfoVisibilityConfigSpecifiedUserList[];
   /**
    * @remarks
-   * The visibility type. Valid values:
-   * - PUBLIC: public.
-   * - PRIVATE: private. Only standard set members and administrators can view the standard set.
-   * - SPECIFIED: visible to specified users only.
+   * The visibility type. Valid values: PUBLIC (public), PRIVATE (private, visible only to standard set members and administrators), and SPECIFIED (specified users).
    * 
    * @example
    * PUBLIC
@@ -430,7 +423,7 @@ export class GetStandardSetResponseBodyStandardSetInfoVisibilityConfig extends $
 export class GetStandardSetResponseBodyStandardSetInfo extends $dara.Model {
   /**
    * @remarks
-   * The approval configuration for going online.
+   * The online approval configuration.
    */
   approvalConfig?: GetStandardSetResponseBodyStandardSetInfoApprovalConfig;
   /**
@@ -443,7 +436,7 @@ export class GetStandardSetResponseBodyStandardSetInfo extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the standard set was created.
+   * The creation time.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -472,12 +465,12 @@ export class GetStandardSetResponseBodyStandardSetInfo extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The directory to which the standard set belongs.
+   * The parent folder.
    */
   directoryReference?: GetStandardSetResponseBodyStandardSetInfoDirectoryReference;
   /**
    * @remarks
-   * The standard set ID.
+   * The ID of the standard set.
    * 
    * @example
    * 1234
@@ -485,27 +478,27 @@ export class GetStandardSetResponseBodyStandardSetInfo extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The user who last modified the standard set.
+   * The last modifier.
    */
   lastModifier?: GetStandardSetResponseBodyStandardSetInfoLastModifier;
   /**
    * @remarks
-   * The list of maintainers.
+   * The maintainers and owners.
    */
   maintainerList?: GetStandardSetResponseBodyStandardSetInfoMaintainerList[];
   /**
    * @remarks
-   * The list of member groups.
+   * The member groups.
    */
   memberGroupList?: GetStandardSetResponseBodyStandardSetInfoMemberGroupList[];
   /**
    * @remarks
-   * The list of members.
+   * The members.
    */
   memberList?: GetStandardSetResponseBodyStandardSetInfoMemberList[];
   /**
    * @remarks
-   * The time when the standard set was last modified.
+   * The last modification time.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -521,7 +514,7 @@ export class GetStandardSetResponseBodyStandardSetInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The approval configuration for going offline.
+   * The offline approval configuration.
    */
   offlineApprovalConfig?: GetStandardSetResponseBodyStandardSetInfoOfflineApprovalConfig;
   /**
@@ -626,7 +619,7 @@ export class GetStandardSetResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -642,12 +635,12 @@ export class GetStandardSetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the standard set.
+   * The standard set details.
    */
   standardSetInfo?: GetStandardSetResponseBodyStandardSetInfo;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

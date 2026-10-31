@@ -13,15 +13,15 @@ export class ListUserGroupsResponseBodyPageResultUserGroupListAdminList extends 
   accountName?: string;
   /**
    * @remarks
-   * The username.
+   * The display name of the user.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   displayName?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 32313131
@@ -71,12 +71,12 @@ export class ListUserGroupsResponseBodyPageResultUserGroupList extends $dara.Mod
    * The description of the user group.
    * 
    * @example
-   * xx 测试
+   * xx test
    */
   description?: string;
   /**
    * @remarks
-   * The user group ID.
+   * The ID of the user group.
    * 
    * @example
    * 31313232
@@ -92,10 +92,10 @@ export class ListUserGroupsResponseBodyPageResultUserGroupList extends $dara.Mod
   myRole?: string;
   /**
    * @remarks
-   * The user group name.
+   * The name of the user group.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -143,7 +143,7 @@ export class ListUserGroupsResponseBodyPageResult extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The paged list.
+   * The paginated list.
    */
   userGroupList?: ListUserGroupsResponseBodyPageResultUserGroupList[];
   static names(): { [key: string]: string } {
@@ -175,7 +175,7 @@ export class ListUserGroupsResponseBodyPageResult extends $dara.Model {
 export class ListUserGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -199,7 +199,7 @@ export class ListUserGroupsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The paged query result.
+   * The paging query result.
    */
   pageResult?: ListUserGroupsResponseBodyPageResult;
   /**
@@ -212,7 +212,7 @@ export class ListUserGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

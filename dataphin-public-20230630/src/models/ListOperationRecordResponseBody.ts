@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationRecordResponseBodyOperationLogListResponseResultData extends $dara.Model {
   /**
    * @remarks
-   * The start time.
+   * The start time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-01-15 10:30:00
@@ -21,7 +21,7 @@ export class ListOperationRecordResponseBodyOperationLogListResponseResultData e
   codeType?: number;
   /**
    * @remarks
-   * The execution duration, in milliseconds.
+   * The execution duration in milliseconds.
    * 
    * @example
    * 120
@@ -40,7 +40,7 @@ export class ListOperationRecordResponseBodyOperationLogListResponseResultData e
    * The name.
    * 
    * @example
-   * 测试任务
+   * Test task
    */
   name?: string;
   /**
@@ -69,12 +69,12 @@ export class ListOperationRecordResponseBodyOperationLogListResponseResultData e
   projectId?: number;
   /**
    * @remarks
-   * The list of related tables.
+   * The list of associated tables.
    */
   relationTables?: string[];
   /**
    * @remarks
-   * The ID of the executor.
+   * The executor ID.
    * 
    * @example
    * 30231123
@@ -82,15 +82,15 @@ export class ListOperationRecordResponseBodyOperationLogListResponseResultData e
   runner?: string;
   /**
    * @remarks
-   * The name of the executor.
+   * The runner name.
    * 
    * @example
-   * 张三
+   * John Doe
    */
   runnerName?: string;
   /**
    * @remarks
-   * The task status.
+   * The node status.
    * 
    * @example
    * 5
@@ -163,7 +163,7 @@ export class ListOperationRecordResponseBodyOperationLogListResponse extends $da
   count?: number;
   /**
    * @remarks
-   * The list of operation logs.
+   * The operation log list.
    */
   resultData?: ListOperationRecordResponseBodyOperationLogListResponseResultData[];
   static names(): { [key: string]: string } {
@@ -232,7 +232,7 @@ export class ListOperationRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

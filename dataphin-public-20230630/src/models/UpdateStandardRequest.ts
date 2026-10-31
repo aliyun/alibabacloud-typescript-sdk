@@ -21,9 +21,7 @@ export class UpdateStandardRequestUpdateCommandEffectiveTimeConfig extends $dara
   startTime?: string;
   /**
    * @remarks
-   * The effective period type. Valid values:
-   * - FOREVER: permanent.
-   * - TIME_PERIOD: time period.
+   * The effective period type. Valid values: FOREVER (permanent) and TIME_PERIOD (time period).
    * 
    * This parameter is required.
    * 
@@ -59,7 +57,7 @@ export class UpdateStandardRequestUpdateCommandEffectiveTimeConfig extends $dara
 export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStandardMonitorConfigListAttributeMonitorConfig extends $dara.Model {
   /**
    * @remarks
-   * The field to check.
+   * The field to be checked.
    * 
    * @example
    * column1
@@ -75,8 +73,8 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
   /**
    * @remarks
    * The monitoring method. Valid values:
-   * - METADATA: metadata monitoring.
-   * - QUALITY: data quality monitoring.
+   * - METADATA: Metadata monitoring.
+   * - QUALITY: Data quality monitoring.
    * 
    * This parameter is required.
    * 
@@ -133,8 +131,8 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
   /**
    * @remarks
    * The template source. Valid values:
-   * - FROM_SYSTEM: system template.
-   * - CUSTOMIZED: custom template.
+   * - FROM_SYSTEM: System template.
+   * - CUSTOMIZED: Custom template.
    * 
    * This parameter is required.
    * 
@@ -180,7 +178,7 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
   key?: string;
   /**
    * @remarks
-   * The configuration item value.
+   * The value of the configuration item.
    * 
    * This parameter is required.
    * 
@@ -241,16 +239,15 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
   /**
    * @remarks
    * The operator. If the validation type is EXPRESSION, valid values:
-   * - EQUAL: equal to.
-   * - NOT_EQUAL: not equal to.
-   * - LARGER: greater than.
-   * - LARGE_OR_EQUAL: greater than or equal to.
-   * - SMALLER: less than.
-   * - SMALLER_OR_EQUAL: less than or equal to.
-   * 
+   * - EQUAL: Equal to.
+   * - NOT_EQUAL: Not equal to.
+   * - LARGER: Greater than.
+   * - LARGE_OR_EQUAL: Greater than or equal to.
+   * - SMALLER: Less than.
+   * - SMALLER_OR_EQUAL: Less than or equal to.
    * If the validation type is RELATION, valid values:
-   * - AND: and.
-   * - OR: or.
+   * - AND: And.
+   * - OR: Or.
    * 
    * This parameter is required.
    * 
@@ -269,8 +266,8 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
   /**
    * @remarks
    * The rule validation type. Valid values:
-   * - RELATION: relation.
-   * - EXPRESSION: expression.
+   * - RELATION: Relationship.
+   * - EXPRESSION: Expression.
    * 
    * This parameter is required.
    * 
@@ -280,7 +277,7 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
   type?: string;
   /**
    * @remarks
-   * The value to compare against.
+   * The value to be compared.
    * 
    * @example
    * 1
@@ -322,7 +319,7 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
 export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStandardMonitorConfigList extends $dara.Model {
   /**
    * @remarks
-   * The associated attribute ID.
+   * The ID of the associated attribute.
    * 
    * @example
    * 112
@@ -330,7 +327,7 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
   attributeId?: number;
   /**
    * @remarks
-   * The monitoring configuration for the associated attribute.
+   * The monitoring configuration of the associated attribute.
    */
   attributeMonitorConfig?: UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStandardMonitorConfigListAttributeMonitorConfig;
   /**
@@ -351,7 +348,7 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
   description?: string;
   /**
    * @remarks
-   * The monitoring configuration ID. If left empty, a new monitoring configuration is created. If an existing monitoring configuration ID is specified, the corresponding monitoring configuration is updated.
+   * The monitoring configuration ID. If this parameter is left empty, a new monitoring configuration is created. If an existing monitoring configuration ID is specified, the corresponding monitoring configuration is updated.
    * 
    * @example
    * 1
@@ -359,9 +356,9 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
   id?: number;
   /**
    * @remarks
-   * The method used to add the monitoring configuration. Valid values:
-   * - BY_USER: manually added.
-   * - BY_SYSTEM_ATTRIBUTE: preset by system attribute.
+   * The addition method. Valid values:
+   * - BY_USER: Manual addition.
+   * - BY_SYSTEM_ATTRIBUTE: Preset by system attributes.
    * 
    * This parameter is required.
    * 
@@ -376,7 +373,7 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
   qualityRuleTemplate?: UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStandardMonitorConfigListQualityRuleTemplate;
   /**
    * @remarks
-   * The rule configurations. This parameter is required when the monitoring type is QUALITY.
+   * The rule configuration. This parameter is required when the monitoring type is QUALITY.
    */
   ruleConfigList?: UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStandardMonitorConfigListRuleConfigList[];
   /**
@@ -391,9 +388,10 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
   ruleName?: string;
   /**
    * @remarks
-   * The rule subtype. This parameter is required when the monitoring type is QUALITY. Valid values:
-   * - BY_ATTRIBUTE: configured based on attributes.
-   * - CUSTOMIZED: custom configuration.
+   * The rule subtype. Valid values:
+   * - BY_ATTRIBUTE: Attribute-based configuration.
+   * - CUSTOMIZED: Custom configuration.
+   * This parameter is required when the monitoring type is QUALITY.
    * 
    * @example
    * CUSTOMIZED
@@ -401,14 +399,14 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
   ruleSubType?: string;
   /**
    * @remarks
-   * The rule validation configurations. This parameter is required when the monitoring type is QUALITY.
+   * The rule validation configuration. This parameter is required when the monitoring type is QUALITY.
    */
   ruleValidateConfigList?: UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStandardMonitorConfigListRuleValidateConfigList[];
   /**
    * @remarks
    * The monitoring type. Valid values:
-   * - METADATA: metadata monitoring.
-   * - QUALITY: data quality monitoring.
+   * - METADATA: Metadata monitoring.
+   * - QUALITY: Data quality monitoring.
    * 
    * This parameter is required.
    * 
@@ -474,7 +472,7 @@ export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfigStand
 export class UpdateStandardRequestUpdateCommandStandardGeneralMonitorConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of standard monitoring configurations.
+   * The standard monitoring configuration list.
    * 
    * This parameter is required.
    */
@@ -578,7 +576,7 @@ export class UpdateStandardRequestUpdateCommandStandardTemplateReferenceAttribut
 export class UpdateStandardRequestUpdateCommandStandardTemplateReference extends $dara.Model {
   /**
    * @remarks
-   * The attribute values corresponding to the attributes in the referenced template. If left empty, default values are used.
+   * The attribute values for the attribute list in the referenced template. If this parameter is left empty, the default values are used.
    */
   attributeValueList?: UpdateStandardRequestUpdateCommandStandardTemplateReferenceAttributeValueList[];
   /**
@@ -593,7 +591,7 @@ export class UpdateStandardRequestUpdateCommandStandardTemplateReference extends
   id?: number;
   /**
    * @remarks
-   * The version number of the standard template. The latest version is used by default.
+   * The version number of the standard template. By default, the latest version is used.
    * 
    * @example
    * 1
@@ -643,12 +641,12 @@ export class UpdateStandardRequestUpdateCommand extends $dara.Model {
   effectiveTimeConfig?: UpdateStandardRequestUpdateCommandEffectiveTimeConfig;
   /**
    * @remarks
-   * Specifies whether to generate a standard code based on rules. If set to true, the standard code specified in the attribute values is ignored and regenerated.
+   * Specifies whether to generate standard codes based on rules. If this parameter is set to true, invalid standard codes entered in the attribute values are regenerated.
    */
   needGenerateStandardCode?: boolean;
   /**
    * @remarks
-   * The owner. If not specified, the current user is used.
+   * The owner. If this parameter is not specified, the current user is used as the owner.
    * 
    * @example
    * 300000913
@@ -671,7 +669,7 @@ export class UpdateStandardRequestUpdateCommand extends $dara.Model {
   standardId?: number;
   /**
    * @remarks
-   * The reference to the standard set that the current standard belongs to.
+   * The reference to the standard set to which the current standard belongs.
    * 
    * This parameter is required.
    */
@@ -688,7 +686,7 @@ export class UpdateStandardRequestUpdateCommand extends $dara.Model {
   standardStatus?: string;
   /**
    * @remarks
-   * The standard template to which the standard belongs.
+   * The reference to the standard template to which the standard belongs.
    * 
    * This parameter is required.
    */
@@ -764,6 +762,9 @@ export class UpdateStandardRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

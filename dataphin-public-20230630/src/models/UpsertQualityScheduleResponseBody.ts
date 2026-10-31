@@ -13,7 +13,7 @@ export class UpsertQualityScheduleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The schedule object ID.
+   * The ID of the schedule object.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class UpsertQualityScheduleResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -45,7 +45,7 @@ export class UpsertQualityScheduleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateStandardLookupTableRequestUpdateCommandDirectoryReference extends $dara.Model {
   /**
    * @remarks
-   * The directory to which the lookup table belongs.
+   * The parent folder.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class UpdateStandardLookupTableRequestUpdateCommandDirectoryReference ext
 export class UpdateStandardLookupTableRequestUpdateCommandLookupTableValueList extends $dara.Model {
   /**
    * @remarks
-   * The code description.
+   * The description of the code.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class UpdateStandardLookupTableRequestUpdateCommandLookupTableValueList e
   englishName?: string;
   /**
    * @remarks
-   * The code name.
+   * The name of the code.
    * 
    * This parameter is required.
    * 
@@ -68,7 +68,7 @@ export class UpdateStandardLookupTableRequestUpdateCommandLookupTableValueList e
    * This parameter is required.
    * 
    * @example
-   * 杭州
+   * Hangzhou
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -101,7 +101,7 @@ export class UpdateStandardLookupTableRequestUpdateCommandLookupTableValueList e
 export class UpdateStandardLookupTableRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * The lookup table code.
+   * The code of the lookup table.
    * 
    * This parameter is required.
    * 
@@ -111,7 +111,7 @@ export class UpdateStandardLookupTableRequestUpdateCommand extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The lookup table description.
+   * The description of the lookup table.
    * 
    * @example
    * test
@@ -119,12 +119,12 @@ export class UpdateStandardLookupTableRequestUpdateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The directory to which the lookup table belongs.
+   * The parent folder.
    */
   directoryReference?: UpdateStandardLookupTableRequestUpdateCommandDirectoryReference;
   /**
    * @remarks
-   * The lookup table ID.
+   * The ID of the lookup table.
    * 
    * This parameter is required.
    * 
@@ -139,17 +139,17 @@ export class UpdateStandardLookupTableRequestUpdateCommand extends $dara.Model {
   lookupTableValueList?: UpdateStandardLookupTableRequestUpdateCommandLookupTableValueList[];
   /**
    * @remarks
-   * The lookup table name.
+   * The name of the lookup table.
    * 
    * This parameter is required.
    * 
    * @example
-   * 城市码表
+   * City lookup table
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the lookup table owner. Default value: the user ID of the caller.
+   * The ID of the lookup table owner. Default value: the ID of the caller.
    * 
    * @example
    * 30012021
@@ -206,6 +206,9 @@ export class UpdateStandardLookupTableRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

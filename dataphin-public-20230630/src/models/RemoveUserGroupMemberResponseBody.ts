@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveUserGroupMemberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class RemoveUserGroupMemberResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The HTTP status code returned by the backend.
+   * The HTTP status code of the backend response.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class RemoveUserGroupMemberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

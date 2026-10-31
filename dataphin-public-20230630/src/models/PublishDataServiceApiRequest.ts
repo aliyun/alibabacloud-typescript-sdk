@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishDataServiceApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The API ID.
+   * The ID of the API.
    * 
    * This parameter is required.
    * 
@@ -24,13 +24,16 @@ export class PublishDataServiceApiRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The data service project ID.
+   * The ID of the data service project.
    * 
    * This parameter is required.
    * 
@@ -40,7 +43,7 @@ export class PublishDataServiceApiRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The API version number.
+   * The API version ID.
    * 
    * This parameter is required.
    * 

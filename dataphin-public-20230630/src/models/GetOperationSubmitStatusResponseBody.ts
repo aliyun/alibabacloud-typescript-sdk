@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOperationSubmitStatusResponseBodyOperationSubmitJob extends $dara.Model {
   /**
    * @remarks
-   * The business ID. If the operation is a data backfill, this value is the data backfill workflow ID.
+   * The business ID. If the operation is data backfill, this parameter indicates the data backfill workflow.
    * 
    * @example
    * f_122_232342
@@ -13,7 +13,7 @@ export class GetOperationSubmitStatusResponseBodyOperationSubmitJob extends $dar
   externalBizId?: string;
   /**
    * @remarks
-   * The submit ID of the data backfill request.
+   * The submit ID of the data backfill.
    * 
    * @example
    * 123456
@@ -22,7 +22,14 @@ export class GetOperationSubmitStatusResponseBodyOperationSubmitJob extends $dar
   /**
    * @remarks
    * The operation type. Valid values:
-   * - SUPPLY_DATA: data backfill.
+   * - SUPPLY_DATA: data backfill
+   * - UPDATE_OWNER: update owner
+   * - UPDATE_PRIORITY: update priority
+   * - UPDATE_TASK_GROUP: update task group
+   * - UPDATE_RESOURCE_GROUP: update resource group
+   * - PAUSE: pause
+   * - RESUME: resume
+   * - TRIGGER_EXECUTE: trigger execution
    * 
    * @example
    * SUPPLY_DATA
@@ -38,7 +45,7 @@ export class GetOperationSubmitStatusResponseBodyOperationSubmitJob extends $dar
   operationStatus?: string;
   /**
    * @remarks
-   * The user ID of the submitter.
+   * The ID of the user who submitted the request.
    * 
    * @example
    * 132344
@@ -86,7 +93,7 @@ export class GetOperationSubmitStatusResponseBodyOperationSubmitJob extends $dar
 export class GetOperationSubmitStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -94,7 +101,7 @@ export class GetOperationSubmitStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned by the backend.
+   * The backend HTTP status code.
    * 
    * @example
    * 200
@@ -110,7 +117,7 @@ export class GetOperationSubmitStatusResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The submit status of the operation.
+   * The operation submit status.
    */
   operationSubmitJob?: GetOperationSubmitStatusResponseBodyOperationSubmitJob;
   /**
@@ -123,7 +130,7 @@ export class GetOperationSubmitStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

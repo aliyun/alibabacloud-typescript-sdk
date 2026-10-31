@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OfflineStandardShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The offline instruction.
+   * The offline command.
    * 
    * This parameter is required.
    */
@@ -21,6 +21,9 @@ export class OfflineStandardShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

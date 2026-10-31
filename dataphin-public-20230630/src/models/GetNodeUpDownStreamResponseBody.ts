@@ -21,15 +21,15 @@ export class GetNodeUpDownStreamResponseBodyNodeDagInfoDownStreamNodeList extend
    * The node name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   /**
    * @remarks
    * The node type. Valid values:
-   * - DATA_PROCESS: code task.
-   * - BBOX_LOGIC_TABLE_NODE: logical table node.
-   * - PIPELINE_NODE: pipeline node.
+   * - DATA_PROCESS: Code task.
+   * - BBOX_LOGIC_TABLE_NODE: Logical table node.
+   * - PIPELINE_NODE: Pipeline node.
    * 
    * @example
    * DATA_PROCESS
@@ -84,15 +84,15 @@ export class GetNodeUpDownStreamResponseBodyNodeDagInfoStartNodeList extends $da
    * The node name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   /**
    * @remarks
    * The node type. Valid values:
-   * - DATA_PROCESS: code task.
-   * - BBOX_LOGIC_TABLE_NODE: logical table node.
-   * - PIPELINE_NODE: pipeline node.
+   * - DATA_PROCESS: Code task.
+   * - BBOX_LOGIC_TABLE_NODE: Logical table node.
+   * - PIPELINE_NODE: Pipeline node.
    * 
    * @example
    * DATA_PROCESS
@@ -147,15 +147,15 @@ export class GetNodeUpDownStreamResponseBodyNodeDagInfoUpStreamNodeList extends 
    * The node name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   /**
    * @remarks
    * The node type. Valid values:
-   * - DATA_PROCESS: code task.
-   * - BBOX_LOGIC_TABLE_NODE: black box logical table node.
-   * - PIPELINE_NODE: pipeline node.
+   * - DATA_PROCESS: Code task.
+   * - BBOX_LOGIC_TABLE_NODE: Black box logical table node.
+   * - PIPELINE_NODE: Pipeline node.
    * 
    * @example
    * DATA_PROCESS
@@ -199,7 +199,7 @@ export class GetNodeUpDownStreamResponseBodyNodeDagInfo extends $dara.Model {
   downStreamNodeList?: GetNodeUpDownStreamResponseBodyNodeDagInfoDownStreamNodeList[];
   /**
    * @remarks
-   * The center nodes.
+   * The central nodes.
    */
   startNodeList?: GetNodeUpDownStreamResponseBodyNodeDagInfoStartNodeList[];
   /**
@@ -244,7 +244,7 @@ export class GetNodeUpDownStreamResponseBodyNodeDagInfo extends $dara.Model {
 export class GetNodeUpDownStreamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -268,7 +268,7 @@ export class GetNodeUpDownStreamResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The dag data of the node.
+   * The dag information of the node.
    */
   nodeDagInfo?: GetNodeUpDownStreamResponseBodyNodeDagInfo;
   /**
@@ -281,7 +281,7 @@ export class GetNodeUpDownStreamResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

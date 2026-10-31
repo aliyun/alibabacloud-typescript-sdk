@@ -13,7 +13,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The DingTalk number.
+   * The DingTalk ID.
    * 
    * @example
    * 123@dingding
@@ -24,15 +24,15 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
    * The display name of the user.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   displayName?: string;
   /**
    * @remarks
-   * The display name of the user without status.
+   * The display name of the user without the status.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   displayNameWithoutStatus?: string;
   /**
@@ -45,7 +45,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
   enableWhiteIp?: string;
   /**
    * @remarks
-   * The Lark chatbot.
+   * The Lark bot.
    * 
    * @example
    * xx
@@ -53,7 +53,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
   feiShuRobot?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the user was created.
    * 
    * @example
    * 1717343597000
@@ -96,7 +96,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
    * The username.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   /**
@@ -104,12 +104,12 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
    * The nickname of the user.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   nickName?: string;
   /**
    * @remarks
-   * The ID of the primary account to which the user belongs.
+   * The ID of the Alibaba Cloud account to which the user belongs.
    * 
    * @example
    * 231231
@@ -120,12 +120,12 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
    * The real name of the user.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   realName?: string;
   /**
    * @remarks
-   * The source ID of the user.
+   * The ID of the user source.
    * 
    * @example
    * 123@xx.com
@@ -133,7 +133,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The source type of the user.
+   * The source of the user.
    * 
    * @example
    * ALIYUN
@@ -141,7 +141,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The WeCom chatbot.
+   * The WeCom bot.
    * 
    * @example
    * xx
@@ -149,7 +149,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
   weChatRobot?: string;
   /**
    * @remarks
-   * The IP whitelist.
+   * The whitelist.
    * 
    * @example
    * *
@@ -215,7 +215,7 @@ export class GetUsersResponseBodyUserList extends $dara.Model {
 export class GetUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -247,7 +247,7 @@ export class GetUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

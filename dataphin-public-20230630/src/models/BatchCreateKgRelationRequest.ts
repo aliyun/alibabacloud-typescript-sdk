@@ -49,7 +49,7 @@ export class BatchCreateKgRelationRequestCreateCommandRelationListPropertyList e
 export class BatchCreateKgRelationRequestCreateCommandRelationList extends $dara.Model {
   /**
    * @remarks
-   * The list of relationship record properties.
+   * The relationship record property list.
    */
   propertyList?: BatchCreateKgRelationRequestCreateCommandRelationListPropertyList[];
   /**
@@ -64,7 +64,7 @@ export class BatchCreateKgRelationRequestCreateCommandRelationList extends $dara
   relationType?: string;
   /**
    * @remarks
-   * The ID of the source entity record.
+   * The source entity record ID.
    * 
    * This parameter is required.
    * 
@@ -74,7 +74,7 @@ export class BatchCreateKgRelationRequestCreateCommandRelationList extends $dara
   sourceEntityId?: string;
   /**
    * @remarks
-   * The ID of the target entity record.
+   * The target entity record ID.
    * 
    * This parameter is required.
    * 
@@ -115,7 +115,7 @@ export class BatchCreateKgRelationRequestCreateCommandRelationList extends $dara
 export class BatchCreateKgRelationRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * The list of relationships.
+   * The relationship list.
    * 
    * This parameter is required.
    */
@@ -163,6 +163,9 @@ export class BatchCreateKgRelationRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

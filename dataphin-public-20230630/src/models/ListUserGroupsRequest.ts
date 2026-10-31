@@ -18,7 +18,7 @@ export class ListUserGroupsRequestListQuery extends $dara.Model {
   adminIdList?: string[];
   /**
    * @remarks
-   * Specifies whether to filter user groups that the current user belongs to.
+   * Specifies whether to filter out the user groups to which the current user belongs.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class ListUserGroupsRequestListQuery extends $dara.Model {
    * The keyword for the user group name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   keyword?: string;
   /**
@@ -89,7 +89,7 @@ export class ListUserGroupsRequestListQuery extends $dara.Model {
 export class ListUserGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The paged query parameters.
+   * The paging query.
    * 
    * This parameter is required.
    */
@@ -105,6 +105,9 @@ export class ListUserGroupsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

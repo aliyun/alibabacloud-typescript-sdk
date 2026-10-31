@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttributeListMonitorConfig extends $dara.Model {
   /**
    * @remarks
-   * The field to check.
+   * The column to be checked.
    * 
    * @example
    * column1
@@ -13,14 +13,12 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
   columnName?: string;
   /**
    * @remarks
-   * Indicates whether the check is case-sensitive.
+   * Specifies whether the check is case-sensitive.
    */
   isCaseSensitive?: boolean;
   /**
    * @remarks
-   * The monitoring method. Valid values:
-   * - METADATA: metadata monitoring.
-   * - QUALITY: data quality monitoring.
+   * The monitoring method. Valid values: METADATA (metadata monitoring) and QUALITY (data quality monitoring).
    * 
    * @example
    * METADATA
@@ -54,7 +52,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
 export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttributeListRefAttributeAttributeFromInfoStandardReference extends $dara.Model {
   /**
    * @remarks
-   * The standard ID.
+   * The ID of the standard.
    * 
    * @example
    * 22
@@ -94,10 +92,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
 export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttributeListRefAttributeAttributeFromInfo extends $dara.Model {
   /**
    * @remarks
-   * The attribute source. Valid values:
-   * - SYSTEM: system attribute.
-   * - CUSTOM: custom attribute.
-   * - STANDARD: standard.
+   * The source of the attribute. Valid values: SYSTEM (system attribute), CUSTOM (custom attribute), and STANDARD (standard).
    * 
    * @example
    * CUSTOM
@@ -137,12 +132,12 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
 export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttributeListRefAttribute extends $dara.Model {
   /**
    * @remarks
-   * The attribute source.
+   * The source of the attribute.
    */
   attributeFromInfo?: GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttributeListRefAttributeAttributeFromInfo;
   /**
    * @remarks
-   * The attribute ID.
+   * The ID of the attribute.
    * 
    * @example
    * 123
@@ -177,7 +172,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
 export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttributeListValueConfigValueRangeLookupTableReference extends $dara.Model {
   /**
    * @remarks
-   * The referenced lookup table field.
+   * The referenced field in the lookup table.
    * 
    * @example
    * col1
@@ -185,7 +180,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
   column?: string;
   /**
    * @remarks
-   * The lookup table ID.
+   * The ID of the lookup table.
    * 
    * @example
    * 11
@@ -217,12 +212,12 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
 export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttributeListValueConfigValueRangeMinMaxValueConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the maximum value is included.
+   * Specifies whether the maximum value is included.
    */
   includeMaxValue?: boolean;
   /**
    * @remarks
-   * Indicates whether the minimum value is included.
+   * Specifies whether to include the minimum value.
    */
   includeMinValue?: boolean;
   /**
@@ -271,11 +266,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
 export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttributeListValueConfigValueRange extends $dara.Model {
   /**
    * @remarks
-   * The value range. This parameter takes effect when the value source is set to DATAPHIN_ATTRIBUTE. Valid values:
-   * - BIZ_UNIT: data domain.
-   * - PROJECT: project.
-   * - USER: user.
-   * - USER_GROUP: user group.
+   * The value range. This parameter takes effect when the value source is set to DATAPHIN_ATTRIBUTE. Valid values: BIZ_UNIT (business unit), PROJECT (project), USER (user), and USER_GROUP (user group).
    * 
    * @example
    * DATAPHIN_ATTRIBUTE
@@ -293,15 +284,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
   minMaxValueConfig?: GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttributeListValueConfigValueRangeMinMaxValueConfig;
   /**
    * @remarks
-   * The value source. Valid values:
-   * - NONE: no constraint.
-   * - LIST: obtained from a list.
-   * - LOOKUP_TABLE: lookup table.
-   * - MIN_MAX: value between the minimum and maximum.
-   * - DATAPHIN_ATTRIBUTE: Dataphin system property.
-   * - BUILT_IN_DATA_TYPES: built-in data types.
-   * - BUILT_IN_DATA_CLASSIFICATION: built-in data categorization.
-   * - BUILT_IN_DATA_LEVEL: built-in data security classification.
+   * The value source. Valid values: NONE: no constraint. LIST: obtained from a list. LOOKUP_TABLE: lookup table. MIN_MAX: value between the minimum and maximum values. DATAPHIN_ATTRIBUTE: Dataphin system property. BUILT_IN_DATA_TYPES: built-in data type. BUILT_IN_DATA_CLASSIFICATION: built-in data categorization. BUILT_IN_DATA_LEVEL: built-in data security classification.
    * 
    * @example
    * NONE
@@ -353,13 +336,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
 export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttributeListValueConfig extends $dara.Model {
   /**
    * @remarks
-   * The data type of the attribute value. Valid values:
-   * - STRING: string.
-   * - BIGINT: numeric.
-   * - DOUBLE: floating-point.
-   * - DATE: date, accurate to the day.
-   * - DATETIME: date, accurate to the millisecond.
-   * - BOOLEAN: Boolean.
+   * The data type of the attribute value. Valid values: STRING: string. BIGINT: integer. DOUBLE: floating-point number. DATE: date accurate to day. DATETIME: date accurate to millisecond. BOOLEAN: Boolean.
    * 
    * @example
    * STRING
@@ -375,7 +352,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
   defaultValue?: string;
   /**
    * @remarks
-   * The length of the attribute value. If this parameter is left empty or set to -1, the length is not limited. Typically, only string types have a length limit for attribute values.
+   * The length of the attribute value. An empty value or -1 indicates no length limit. Typically, only string types have a length limit for attribute values.
    * 
    * @example
    * 1
@@ -383,11 +360,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
   length?: number;
   /**
    * @remarks
-   * The attribute value type. Valid values:
-   * - CUSTOMIZED: custom input.
-   * - SINGLE_ENUM: single enumeration value.
-   * - MULTIPLE_ENUMS: multiple enumeration values.
-   * - RANGE: range value.
+   * The attribute value type. Valid values: CUSTOMIZED: custom input. SINGLE_ENUM: single enum value. MULTIPLE_ENUMS: multiple enum values. RANGE: range value.
    * 
    * @example
    * CUSTOMIZED
@@ -449,12 +422,12 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
   description?: string;
   /**
    * @remarks
-   * Indicates whether monitoring configuration is enabled.
+   * Specifies whether to enable the monitoring configuration.
    */
   enableMonitorConfig?: boolean;
   /**
    * @remarks
-   * The attribute ID.
+   * The ID of the attribute.
    * 
    * @example
    * 1011
@@ -480,19 +453,12 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
   refAttribute?: GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttributeListRefAttribute;
   /**
    * @remarks
-   * Indicates whether the attribute is required.
+   * Specifies whether the attribute is required.
    */
   required?: boolean;
   /**
    * @remarks
-   * The attribute type. Valid values:
-   * - BIZ_ATTRIBUTE: business attribute.
-   * - TECH_ATTRIBUTE: technical attribute.
-   * - MANAGEMENT_ATTRIBUTE: management attribute.
-   * - QUALITY_ATTRIBUTE: quality attribute.
-   * - MASTER_DATA_ATTRIBUTE: master data attribute.
-   * - LIFECYCLE_ATTRIBUTE: lifecycle attribute.
-   * - SECURITY_ATTRIBUTE: security attribute.
+   * The attribute type. Valid values: BIZ_ATTRIBUTE: business attribute. TECH_ATTRIBUTE: technical attribute. MANAGEMENT_ATTRIBUTE: management attribute. QUALITY_ATTRIBUTE: quality attribute. MASTER_DATA_ATTRIBUTE: master data attribute. LIFECYCLE_ATTRIBUTE: lifecycle attribute. SECURITY_ATTRIBUTE: security attribute.
    * 
    * @example
    * BIZ_ATTRIBUTE
@@ -554,7 +520,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttribut
 export class GetStandardTemplateResponseBodyTemplateInfoAttributesConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of attributes.
+   * The attribute list.
    */
   attributeList?: GetStandardTemplateResponseBodyTemplateInfoAttributesConfigAttributeList[];
   static names(): { [key: string]: string } {
@@ -592,7 +558,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoCodeRuleConfigAutoConfig
   digit?: number;
   /**
    * @remarks
-   * Indicates whether zero-padding is required.
+   * Specifies whether to pad the sequence with zeros.
    */
   needPaddingZero?: boolean;
   /**
@@ -641,7 +607,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoCodeRuleConfigAutoConfig
 export class GetStandardTemplateResponseBodyTemplateInfoCodeRuleConfigAutoConfigCodeRuleList extends $dara.Model {
   /**
    * @remarks
-   * The auto-increment sequence configuration.
+   * The configuration of the auto-increment sequence.
    */
   autoIncrementSequenceConfig?: GetStandardTemplateResponseBodyTemplateInfoCodeRuleConfigAutoConfigCodeRuleListAutoIncrementSequenceConfig;
   /**
@@ -654,10 +620,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoCodeRuleConfigAutoConfig
   index?: number;
   /**
    * @remarks
-   * The code rule type. Valid values:
-   * - FIXED_STRING: fixed string.
-   * - AUTO_INCREMENT: auto-increment sequence.
-   * - STANDARD_SET_CODE: standard set code.
+   * The type of the code rule. Valid values: FIXED_STRING (fixed string), AUTO_INCREMENT (auto-increment sequence), and STANDARD_SET_CODE (standard set code).
    * 
    * @example
    * FIXED_STRING
@@ -709,7 +672,7 @@ export class GetStandardTemplateResponseBodyTemplateInfoCodeRuleConfigAutoConfig
   codeRuleList?: GetStandardTemplateResponseBodyTemplateInfoCodeRuleConfigAutoConfigCodeRuleList[];
   /**
    * @remarks
-   * Indicates whether strong validation is required.
+   * Specifies whether to enable strict validation.
    */
   needStrongValidate?: boolean;
   static names(): { [key: string]: string } {
@@ -741,14 +704,12 @@ export class GetStandardTemplateResponseBodyTemplateInfoCodeRuleConfigAutoConfig
 export class GetStandardTemplateResponseBodyTemplateInfoCodeRuleConfig extends $dara.Model {
   /**
    * @remarks
-   * The auto-generation configuration for the standard code rule. This parameter takes effect when the generation method is set to AUTO_GENERATE.
+   * The automatic generation configuration for standard code rules. This parameter takes effect when the generation method is set to AUTO_GENERATE.
    */
   autoConfig?: GetStandardTemplateResponseBodyTemplateInfoCodeRuleConfigAutoConfig;
   /**
    * @remarks
-   * The standard code generation method. Valid values:
-   * - CUSTOMIZED: custom.
-   * - AUTO_GENERATE: automatically generated based on the standard code rule.
+   * The generation method for standard codes. Valid values: CUSTOMIZED (custom) and AUTO_GENERATE (automatically generated based on standard code rules).
    * 
    * @example
    * CUSTOMIZED
@@ -908,7 +869,7 @@ export class GetStandardTemplateResponseBodyTemplateInfo extends $dara.Model {
   attributesConfig?: GetStandardTemplateResponseBodyTemplateInfoAttributesConfig;
   /**
    * @remarks
-   * The code of the standard template. This value is globally unique and cannot be modified when references exist.
+   * The code of the standard template. It is globally unique and cannot be modified when referenced.
    * 
    * @example
    * test01
@@ -916,12 +877,12 @@ export class GetStandardTemplateResponseBodyTemplateInfo extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The auto-generation rule configuration for the standard code.
+   * The configuration of the automatic generation rule for standard codes.
    */
   codeRuleConfig?: GetStandardTemplateResponseBodyTemplateInfoCodeRuleConfig;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -942,7 +903,7 @@ export class GetStandardTemplateResponseBodyTemplateInfo extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The standard template ID.
+   * The ID of the standard template.
    * 
    * @example
    * 22
@@ -955,12 +916,12 @@ export class GetStandardTemplateResponseBodyTemplateInfo extends $dara.Model {
   lastModifier?: GetStandardTemplateResponseBodyTemplateInfoLastModifier;
   /**
    * @remarks
-   * The list of maintainers.
+   * The maintainers.
    */
   maintainerList?: GetStandardTemplateResponseBodyTemplateInfoMaintainerList[];
   /**
    * @remarks
-   * The modification time.
+   * The modification time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -971,14 +932,12 @@ export class GetStandardTemplateResponseBodyTemplateInfo extends $dara.Model {
    * The name of the standard template.
    * 
    * @example
-   * 测试模板
+   * Test template
    */
   name?: string;
   /**
    * @remarks
-   * The source of the standard template. Valid values:
-   * - CUSTOM: custom standard template.
-   * - SYSTEM: system built-in standard template.
+   * The source of the standard template. Valid values: CUSTOM: custom standard template. SYSTEM: built-in standard template.
    * 
    * @example
    * SYSTEM
@@ -1081,7 +1040,7 @@ export class GetStandardTemplateResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -1097,7 +1056,7 @@ export class GetStandardTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   /**

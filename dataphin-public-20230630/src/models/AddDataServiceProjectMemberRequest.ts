@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDataServiceProjectMemberRequestAddCommandProjectMemberList extends $dara.Model {
   /**
    * @remarks
-   * The username of the user.
+   * The user account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AddDataServiceProjectMemberRequestAddCommandProjectMemberList exten
   accountName?: string;
   /**
    * @remarks
-   * The nickname of the user.
+   * The nickname.
    * 
    * This parameter is required.
    * 
@@ -25,10 +25,10 @@ export class AddDataServiceProjectMemberRequestAddCommandProjectMemberList exten
   displayName?: string;
   /**
    * @remarks
-   * The role of the user. Valid values:
-   * - 2: development user
-   * - 3: application member
-   * - 4: service project administrator
+   * The user role. Valid values:
+   * - 2: Developer.
+   * - 3: Application member.
+   * - 4: Service project administrator.
    * - 5: O&M user.
    * 
    * This parameter is required.
@@ -109,7 +109,7 @@ export class AddDataServiceProjectMemberRequestAddCommand extends $dara.Model {
 export class AddDataServiceProjectMemberRequest extends $dara.Model {
   /**
    * @remarks
-   * The command to add project members.
+   * The command to add a project member.
    * 
    * This parameter is required.
    */
@@ -125,13 +125,16 @@ export class AddDataServiceProjectMemberRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The data service project ID.
+   * The Data Service project ID.
    * 
    * This parameter is required.
    * 

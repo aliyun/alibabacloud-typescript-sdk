@@ -49,7 +49,7 @@ export class ExecuteAdHocTaskRequestExecuteCommandParamList extends $dara.Model 
 export class ExecuteAdHocTaskRequestExecuteCommand extends $dara.Model {
   /**
    * @remarks
-   * The node script.
+   * The task script.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class ExecuteAdHocTaskRequestExecuteCommand extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The catalog for a database SQL task. This parameter takes effect only for data source types that require a catalog, such as Presto.
+   * The data source catalog for database SQL tasks. This parameter takes effect only for data source types that require a catalog, such as Presto.
    * 
    * @example
    * mysql_catalog
@@ -67,7 +67,7 @@ export class ExecuteAdHocTaskRequestExecuteCommand extends $dara.Model {
   dataSourceCatalog?: string;
   /**
    * @remarks
-   * The data source ID for a database SQL task.
+   * The data source ID for database SQL tasks.
    * 
    * @example
    * 12131111
@@ -75,7 +75,7 @@ export class ExecuteAdHocTaskRequestExecuteCommand extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * The schema for a database SQL task. This parameter takes effect only for data source types that require a schema, such as Oracle.
+   * The data source schema for database SQL tasks. This parameter takes effect only for data source types that require a schema, such as Oracle.
    * 
    * @example
    * erp
@@ -83,7 +83,7 @@ export class ExecuteAdHocTaskRequestExecuteCommand extends $dara.Model {
   dataSourceSchema?: string;
   /**
    * @remarks
-   * The node type.
+   * The task type.
    * 
    * This parameter is required.
    * 
@@ -161,6 +161,9 @@ export class ExecuteAdHocTaskRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

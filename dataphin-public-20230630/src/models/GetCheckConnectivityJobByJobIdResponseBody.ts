@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCheckConnectivityJobByJobIdResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the data source. This parameter is empty if the check is performed before creation.
+   * 
    * @example
    * 192
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * The error message returned when the check fails.
+   * 
    * @example
    * notFoundIp
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * The ID of the connectivity check task.
+   * 
    * @example
    * 123123
    */
   jobId?: string;
   /**
+   * @remarks
+   * The job type.
+   * 
    * @example
    * application/cluster
    */
   jobType?: string;
   /**
+   * @remarks
+   * The job status. Valid values: NEW, IN_PROCESS, SUCCESS, and FAILED.
+   * 
    * @example
    * SUCCESS
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the tenant to which the check task belongs.
+   * 
    * @example
    * 30001011
    */
   tenantId?: string;
   /**
+   * @remarks
+   * The ID of the underlying execution task.
+   * 
    * @example
    * t_7572319950395080706_20251225_7572319950395080707
    */
@@ -73,27 +94,46 @@ export class GetCheckConnectivityJobByJobIdResponseBodyData extends $dara.Model 
 
 export class GetCheckConnectivityJobByJobIdResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The connectivity check task.
+   */
   data?: GetCheckConnectivityJobByJobIdResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message of the request.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

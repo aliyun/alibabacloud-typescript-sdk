@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceMyAppPermissionsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The query conditions.
+   * The search conditions.
    * 
    * This parameter is required.
    */
@@ -21,13 +21,16 @@ export class ListDataServiceMyAppPermissionsShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The ID of the data service project.
+   * The data service project ID.
    * 
    * This parameter is required.
    * 

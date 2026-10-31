@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishKgSchemaRequestPublishCommandDataAdjustmentPoliciesBackFillDefaultValuePolicy extends $dara.Model {
   /**
    * @remarks
-   * The default value to backfill for the property.
+   * The default value to be backfilled for the property.
    * 
    * This parameter is required.
    * 
@@ -49,16 +49,14 @@ export class PublishKgSchemaRequestPublishCommandDataAdjustmentPoliciesBackFillD
 export class PublishKgSchemaRequestPublishCommandDataAdjustmentPolicies extends $dara.Model {
   /**
    * @remarks
-   * The backfill property default value policy. This parameter takes effect only when PolicyType is set to BackFillDefault.
+   * The default value backfill policy for properties. This policy takes effect only when the policy type is BackFillDefault.
    * 
    * This parameter is required.
    */
   backFillDefaultValuePolicy?: PublishKgSchemaRequestPublishCommandDataAdjustmentPoliciesBackFillDefaultValuePolicy;
   /**
    * @remarks
-   * The policy type. Valid values:
-   * 
-   * - BackFillDefault: backfills default values when a property changes from optional to required.
+   * The policy type. Valid value: BackFillDefault (backfills default values when a property changes from optional to required).
    * 
    * This parameter is required.
    * 
@@ -68,10 +66,7 @@ export class PublishKgSchemaRequestPublishCommandDataAdjustmentPolicies extends 
   policyType?: string;
   /**
    * @remarks
-   * The type to which the policy applies. Valid values:
-   * 
-   * - ENTITY: applies to entity types.
-   * - RELATION: applies to relation types.
+   * The policy scope. Valid values: ENTITY (applies to entity types) and RELATION (applies to relationship types).
    * 
    * This parameter is required.
    * 
@@ -81,7 +76,7 @@ export class PublishKgSchemaRequestPublishCommandDataAdjustmentPolicies extends 
   type?: string;
   /**
    * @remarks
-   * The code of the entity type or relation type.
+   * The code of the entity type or relationship type.
    * 
    * This parameter is required.
    * 
@@ -173,13 +168,16 @@ export class PublishKgSchemaRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The publish command and its details.
+   * The publish command details.
    * 
    * This parameter is required.
    */

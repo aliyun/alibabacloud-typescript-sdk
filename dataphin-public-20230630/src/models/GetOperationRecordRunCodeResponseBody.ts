@@ -24,7 +24,7 @@ export class GetOperationRecordRunCodeResponseBodyOperationLogCodeResponse exten
    * The operator name.
    * 
    * @example
-   * SQL查询节点
+   * SQL query node
    */
   operatorName?: string;
   /**
@@ -89,7 +89,7 @@ export class GetOperationRecordRunCodeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The operation log code response.
+   * The operation record code response.
    */
   operationLogCodeResponse?: GetOperationRecordRunCodeResponseBodyOperationLogCodeResponse;
   /**
@@ -102,7 +102,7 @@ export class GetOperationRecordRunCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

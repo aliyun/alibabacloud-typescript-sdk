@@ -21,7 +21,7 @@ export class GetInstanceUpDownStreamResponseBodyInstanceDagInfoDownInstanceList 
    * The node name.
    * 
    * @example
-   * xx测试
+   * xx_test
    */
   name?: string;
   /**
@@ -91,7 +91,7 @@ export class GetInstanceUpDownStreamResponseBodyInstanceDagInfoStartInstanceList
    * The node name.
    * 
    * @example
-   * xx测试
+   * xx_test
    */
   name?: string;
   /**
@@ -105,9 +105,9 @@ export class GetInstanceUpDownStreamResponseBodyInstanceDagInfoStartInstanceList
   /**
    * @remarks
    * The node type. Valid values:
-   * - DATA_PROCESS: code node.
-   * - BBOX_LOGIC_TABLE_NODE: logical table node.
-   * - PIPELINE_NODE: pipeline node.
+   * - DATA_PROCESS: Code task.
+   * - BBOX_LOGIC_TABLE_NODE: Logical table node.
+   * - PIPELINE_NODE: Pipeline node.
    * 
    * @example
    * DATA_PROCESS
@@ -164,7 +164,7 @@ export class GetInstanceUpDownStreamResponseBodyInstanceDagInfoUpInstanceList ex
    * The node name.
    * 
    * @example
-   * xx测试
+   * xx_test
    */
   name?: string;
   /**
@@ -223,7 +223,7 @@ export class GetInstanceUpDownStreamResponseBodyInstanceDagInfo extends $dara.Mo
   downInstanceList?: GetInstanceUpDownStreamResponseBodyInstanceDagInfoDownInstanceList[];
   /**
    * @remarks
-   * The center instances.
+   * The central instances.
    */
   startInstanceList?: GetInstanceUpDownStreamResponseBodyInstanceDagInfoStartInstanceList[];
   /**
@@ -268,7 +268,7 @@ export class GetInstanceUpDownStreamResponseBodyInstanceDagInfo extends $dara.Mo
 export class GetInstanceUpDownStreamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -284,7 +284,7 @@ export class GetInstanceUpDownStreamResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The instance dag data, including the current instance and its upstream and downstream instances.
+   * The DAG of the instance, including the current instance and its upstream and downstream instances.
    */
   instanceDagInfo?: GetInstanceUpDownStreamResponseBodyInstanceDagInfo;
   /**
@@ -305,7 +305,7 @@ export class GetInstanceUpDownStreamResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -79,7 +79,7 @@ export class CreateDevProdProjectRequestCreateCommand extends $dara.Model {
   devDescription?: string;
   /**
    * @remarks
-   * The ID of the real-time compute source in the development environment.
+   * The ID of the streaming compute source in the development environment.
    * 
    * @example
    * 2002
@@ -90,7 +90,7 @@ export class CreateDevProdProjectRequestCreateCommand extends $dara.Model {
    * The display name of the project.
    * 
    * @example
-   * My project.
+   * My project
    */
   displayName?: string;
   /**
@@ -105,7 +105,7 @@ export class CreateDevProdProjectRequestCreateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace identifier.
+   * The namespace tag.
    * 
    * @example
    * dev
@@ -129,7 +129,7 @@ export class CreateDevProdProjectRequestCreateCommand extends $dara.Model {
   prodDescription?: string;
   /**
    * @remarks
-   * The ID of the real-time compute source in the production environment.
+   * The ID of the streaming compute source in the production environment.
    * 
    * @example
    * 2004
@@ -187,7 +187,7 @@ export class CreateDevProdProjectRequestCreateCommand extends $dara.Model {
 export class CreateDevProdProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The create command.
+   * The creation command.
    * 
    * This parameter is required.
    */
@@ -203,6 +203,9 @@ export class CreateDevProdProjectRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

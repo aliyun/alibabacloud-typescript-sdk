@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateStandardMappingToInvalidRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * Belonging GUID list, with an upper limit of 1000
+   * The list of parent GUIDs. The maximum number of items is 1,000.
    */
   belongGuidList?: string[];
   /**
    * @remarks
-   * GUID list, with an upper limit of 1000
+   * The list of GUIDs. The maximum number of items is 1,000.
    */
   guidList?: string[];
   /**
    * @remarks
-   * Standard ID
+   * The standard ID.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class UpdateStandardMappingToInvalidRequestUpdateCommand extends $dara.Mo
 export class UpdateStandardMappingToInvalidRequest extends $dara.Model {
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -66,13 +66,16 @@ export class UpdateStandardMappingToInvalidRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Update Command
+   * The update instruction.
    * 
    * This parameter is required.
    */

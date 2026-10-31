@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecurityClassifyCatalogRequestDeleteCommand extends $dara.Model {
   /**
    * @remarks
-   * The full path of the original catalog.
+   * The full path of the original folder.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteSecurityClassifyCatalogRequestDeleteCommand extends $dara.Mod
   path?: string;
   /**
    * @remarks
-   * Specifies whether to return deletion details. Default value: true.
+   * Specifies whether to return the deletion details. Default value: true.
    */
   returnRemovedDetails?: boolean;
   static names(): { [key: string]: string } {
@@ -44,7 +44,7 @@ export class DeleteSecurityClassifyCatalogRequestDeleteCommand extends $dara.Mod
 export class DeleteSecurityClassifyCatalogRequest extends $dara.Model {
   /**
    * @remarks
-   * The delete instruction.
+   * The delete command.
    * 
    * This parameter is required.
    */
@@ -60,6 +60,9 @@ export class DeleteSecurityClassifyCatalogRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The user ID of the operator.
+   * 
    * @example
    * 30001011
    */

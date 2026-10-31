@@ -13,7 +13,7 @@ export class ListBatchTemplatesShrinkRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The paged query conditions.
+   * The paging query conditions.
    */
   listQueryShrink?: string;
   /**
@@ -27,6 +27,9 @@ export class ListBatchTemplatesShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

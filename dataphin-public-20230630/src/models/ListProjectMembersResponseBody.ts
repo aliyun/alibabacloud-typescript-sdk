@@ -13,7 +13,7 @@ export class ListProjectMembersResponseBodyPageResultProjectMemberList extends $
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modified timestamp.
+   * The update timestamp.
    * 
    * @example
    * 1721720955000
@@ -29,7 +29,7 @@ export class ListProjectMembersResponseBodyPageResultProjectMemberList extends $
   id?: number;
   /**
    * @remarks
-   * The ID of the user who last modified the record.
+   * The ID of the editor.
    * 
    * @example
    * 101111
@@ -37,12 +37,17 @@ export class ListProjectMembersResponseBodyPageResultProjectMemberList extends $
   lastModifier?: string;
   /**
    * @remarks
-   * The name of the user who last modified the record.
+   * The name of the editor.
    * 
    * @example
-   * 测试用户
+   * Test User
    */
   lastModifierName?: string;
+  /**
+   * @remarks
+   * The list of role codes bound to the member, including system and custom project roles. This list can be used to add or edit project members.
+   */
+  roleCodeList?: string[];
   /**
    * @remarks
    * The roles.
@@ -61,7 +66,7 @@ export class ListProjectMembersResponseBodyPageResultProjectMemberList extends $
    * The username of the member.
    * 
    * @example
-   * 测试用户
+   * Test User
    */
   userName?: string;
   static names(): { [key: string]: string } {
@@ -71,6 +76,7 @@ export class ListProjectMembersResponseBodyPageResultProjectMemberList extends $
       id: 'Id',
       lastModifier: 'LastModifier',
       lastModifierName: 'LastModifierName',
+      roleCodeList: 'RoleCodeList',
       roleIdList: 'RoleIdList',
       userId: 'UserId',
       userName: 'UserName',
@@ -84,6 +90,7 @@ export class ListProjectMembersResponseBodyPageResultProjectMemberList extends $
       id: 'number',
       lastModifier: 'string',
       lastModifierName: 'string',
+      roleCodeList: { 'type': 'array', 'itemType': 'string' },
       roleIdList: { 'type': 'array', 'itemType': 'number' },
       userId: 'string',
       userName: 'string',
@@ -91,6 +98,9 @@ export class ListProjectMembersResponseBodyPageResultProjectMemberList extends $
   }
 
   validate() {
+    if(Array.isArray(this.roleCodeList)) {
+      $dara.Model.validateArray(this.roleCodeList);
+    }
     if(Array.isArray(this.roleIdList)) {
       $dara.Model.validateArray(this.roleIdList);
     }
@@ -145,7 +155,7 @@ export class ListProjectMembersResponseBodyPageResult extends $dara.Model {
 export class ListProjectMembersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The request error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -161,7 +171,7 @@ export class ListProjectMembersResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The request error message.
    * 
    * @example
    * successful
@@ -182,7 +192,7 @@ export class ListProjectMembersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

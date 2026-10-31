@@ -16,7 +16,7 @@ export class ListTenantMembersResponseBodyPageResultUserListUserGroupList extend
    * The description.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
@@ -32,7 +32,7 @@ export class ListTenantMembersResponseBodyPageResultUserListUserGroupList extend
    * The name of the user group.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -73,7 +73,7 @@ export class ListTenantMembersResponseBodyPageResultUserList extends $dara.Model
   accountName?: string;
   /**
    * @remarks
-   * The DingTalk number.
+   * The DingTalk ID.
    * 
    * @example
    * dd123123
@@ -89,7 +89,7 @@ export class ListTenantMembersResponseBodyPageResultUserList extends $dara.Model
   displayName?: string;
   /**
    * @remarks
-   * The display name of the user without status.
+   * The display name of the user without the status.
    * 
    * @example
    * zhangsan
@@ -97,7 +97,7 @@ export class ListTenantMembersResponseBodyPageResultUserList extends $dara.Model
   displayNameWithoutStatus?: string;
   /**
    * @remarks
-   * Indicates whether the IP address whitelist is enabled.
+   * Indicates whether the IP whitelist is enabled.
    * 
    * @example
    * true
@@ -105,7 +105,7 @@ export class ListTenantMembersResponseBodyPageResultUserList extends $dara.Model
   enableWhiteIp?: string;
   /**
    * @remarks
-   * The time when the user was created.
+   * The creation time.
    * 
    * @example
    * 1730000000000
@@ -113,7 +113,7 @@ export class ListTenantMembersResponseBodyPageResultUserList extends $dara.Model
   gmtCreate?: number;
   /**
    * @remarks
-   * The time when the user was last modified.
+   * The modification time.
    * 
    * @example
    * 1730000000000
@@ -164,17 +164,17 @@ export class ListTenantMembersResponseBodyPageResultUserList extends $dara.Model
    * The real name of the user.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   realName?: string;
   /**
    * @remarks
-   * The list of member roles.
+   * The member role.
    */
   roleList?: string[];
   /**
    * @remarks
-   * The user source ID.
+   * The ID of the user source.
    * 
    * @example
    * 213213232422222
@@ -182,7 +182,7 @@ export class ListTenantMembersResponseBodyPageResultUserList extends $dara.Model
   sourceId?: string;
   /**
    * @remarks
-   * The user source.
+   * The source of the user.
    * 
    * @example
    * aliyun
@@ -190,7 +190,7 @@ export class ListTenantMembersResponseBodyPageResultUserList extends $dara.Model
   sourceType?: string;
   /**
    * @remarks
-   * The list of user groups to which the user belongs.
+   * The resource groups to which the user belongs.
    */
   userGroupList?: ListTenantMembersResponseBodyPageResultUserListUserGroupList[];
   /**
@@ -265,7 +265,7 @@ export class ListTenantMembersResponseBodyPageResultUserList extends $dara.Model
 export class ListTenantMembersResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 110
@@ -273,7 +273,7 @@ export class ListTenantMembersResponseBodyPageResult extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of users.
+   * The user list.
    */
   userList?: ListTenantMembersResponseBodyPageResultUserList[];
   static names(): { [key: string]: string } {
@@ -305,7 +305,7 @@ export class ListTenantMembersResponseBodyPageResult extends $dara.Model {
 export class ListTenantMembersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. OK indicates a successful request.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -313,7 +313,7 @@ export class ListTenantMembersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -329,7 +329,7 @@ export class ListTenantMembersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The paginated query result.
+   * The paged query result.
    */
   pageResult?: ListTenantMembersResponseBodyPageResult;
   /**
@@ -342,7 +342,7 @@ export class ListTenantMembersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

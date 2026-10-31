@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResumePhysicalNodeResponseBodyNodeOperateResultList extends $dara.Model {
   /**
    * @remarks
-   * Error message returned when the operation fails.
+   * The error message returned when the operation fails.
    * 
    * @example
    * xx
@@ -13,7 +13,7 @@ export class ResumePhysicalNodeResponseBodyNodeOperateResultList extends $dara.M
   errorMessage?: string;
   /**
    * @remarks
-   * Node ID.
+   * The node ID.
    * 
    * @example
    * n_123456
@@ -21,7 +21,7 @@ export class ResumePhysicalNodeResponseBodyNodeOperateResultList extends $dara.M
   nodeId?: string;
   /**
    * @remarks
-   * Operation result.
+   * The operation result.
    * 
    * @example
    * SUCCESS
@@ -55,7 +55,7 @@ export class ResumePhysicalNodeResponseBodyNodeOperateResultList extends $dara.M
 export class ResumePhysicalNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. A value of OK indicates a successful request.
+   * The error code. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -63,7 +63,7 @@ export class ResumePhysicalNodeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code returned by the backend.
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -71,7 +71,7 @@ export class ResumePhysicalNodeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * successful
@@ -79,12 +79,12 @@ export class ResumePhysicalNodeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Results of the node resume scheduling operation.
+   * The results of the node scheduling resumption operations.
    */
   nodeOperateResultList?: ResumePhysicalNodeResponseBodyNodeOperateResultList[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -92,7 +92,7 @@ export class ResumePhysicalNodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

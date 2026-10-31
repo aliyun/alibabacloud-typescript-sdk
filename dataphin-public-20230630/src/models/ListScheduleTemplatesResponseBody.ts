@@ -4,36 +4,60 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListScheduleTemplatesResponseBodyListScheduleTemplatesResponseResultDataConditionScheduleParamList extends $dara.Model {
   /**
+   * @remarks
+   * The name of the condition.
+   * 
    * @example
-   * 失败重跑条件
+   * Rerun on failure condition
    */
   conditionName?: string;
   /**
+   * @remarks
+   * The cron expression used after the condition is met.
+   * 
    * @example
    * 0 30 * * * ?
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * Specifies whether the condition is enabled.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * Specifies whether to follow the main schedule parameter.
+   * 
    * @example
    * false
    */
   followScheduleParam?: boolean;
   /**
+   * @remarks
+   * The node schedule status after the condition is met. Valid values:
+   * - 1: Normal.
+   * - 2: Paused.
+   * - 3: Dry run.
+   * 
    * @example
    * 1
    */
   nodeStatus?: number;
   /**
+   * @remarks
+   * The conditional expression tree as a JSON character string. The keys are in lower camel case and must be parsed by the caller.
+   * 
    * @example
    * {"type":"EXPRESSION_GROUP","operator":"or"}
    */
   scheduleConditionJson?: string;
   /**
+   * @remarks
+   * The schedule time used after the condition is met.
+   * 
    * @example
    * 00:30
    */
@@ -73,26 +97,41 @@ export class ListScheduleTemplatesResponseBodyListScheduleTemplatesResponseResul
 
 export class ListScheduleTemplatesResponseBodyListScheduleTemplatesResponseResultDataCustomIntervalConfig extends $dara.Model {
   /**
+   * @remarks
+   * The end time of the effective period.
+   * 
    * @example
    * 23:59
    */
   endTime?: string;
   /**
+   * @remarks
+   * The interval value.
+   * 
    * @example
    * 30
    */
   interval?: number;
   /**
+   * @remarks
+   * The interval unit.
+   * 
    * @example
    * MINUTE
    */
   intervalUnit?: string;
   /**
+   * @remarks
+   * The schedule period to which the interval belongs.
+   * 
    * @example
    * DAY_INTERVAL
    */
   schedulePeriod?: string;
   /**
+   * @remarks
+   * The start time of the effective period.
+   * 
    * @example
    * 00:00
    */
@@ -128,26 +167,41 @@ export class ListScheduleTemplatesResponseBodyListScheduleTemplatesResponseResul
 
 export class ListScheduleTemplatesResponseBodyListScheduleTemplatesResponseResultDataCustomIntervalConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The end time of the effective period.
+   * 
    * @example
    * 23:59
    */
   endTime?: string;
   /**
+   * @remarks
+   * The interval value.
+   * 
    * @example
    * 30
    */
   interval?: number;
   /**
+   * @remarks
+   * The interval unit.
+   * 
    * @example
    * MINUTE
    */
   intervalUnit?: string;
   /**
+   * @remarks
+   * The schedule period to which the interval belongs.
+   * 
    * @example
    * DAY_INTERVAL
    */
   schedulePeriod?: string;
   /**
+   * @remarks
+   * The start time of the effective period.
+   * 
    * @example
    * 00:00
    */
@@ -182,100 +236,169 @@ export class ListScheduleTemplatesResponseBodyListScheduleTemplatesResponseResul
 }
 
 export class ListScheduleTemplatesResponseBodyListScheduleTemplatesResponseResultData extends $dara.Model {
+  /**
+   * @remarks
+   * The condition-based schedule parameters. This parameter has a value only for condition-based schedule templates.
+   */
   conditionScheduleParamList?: ListScheduleTemplatesResponseBodyListScheduleTemplatesResponseResultDataConditionScheduleParamList[];
   /**
+   * @remarks
+   * The cron expression for automatic scheduling. Refer to Linux cron expressions.
+   * 
    * @example
    * 0 0 1 * * ?
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * Specifies whether a custom cron expression is used.
+   * 
    * @example
    * true
    */
   customCronExpression?: boolean;
+  /**
+   * @remarks
+   * The custom schedule interval configuration. This configuration takes effect only when used together with CustomIntervalConfigType.
+   */
   customIntervalConfig?: ListScheduleTemplatesResponseBodyListScheduleTemplatesResponseResultDataCustomIntervalConfig;
   /**
+   * @remarks
+   * The type of the custom interval configuration. Valid values: TIME_POINT, TIME_PERIOD, CUSTOM_TIME_POINT, and CUSTOM_TIME_PERIOD.
+   * 
    * @example
    * CUSTOM_TIME_PERIOD
    */
   customIntervalConfigType?: string;
+  /**
+   * @remarks
+   * The custom schedule interval configurations. This parameter is valid only when CustomIntervalConfigType is set to CUSTOM_TIME_PERIOD.
+   */
   customIntervalConfigs?: ListScheduleTemplatesResponseBodyListScheduleTemplatesResponseResultDataCustomIntervalConfigs[];
   /**
+   * @remarks
+   * The creation time. The value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1704153600000
    */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The modification time. The value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1709516800000
    */
   gmtModify?: number;
   /**
+   * @remarks
+   * Specifies whether the schedule template is referenced by a node.
+   * 
    * @example
    * true
    */
   hasReference?: boolean;
   /**
+   * @remarks
+   * The ID of the modifier.
+   * 
    * @example
    * 30001012
    */
   modifierId?: string;
   /**
+   * @remarks
+   * The name of the modifier.
+   * 
    * @example
-   * 李四
+   * Li Si
    */
   modifierName?: string;
   /**
+   * @remarks
+   * The schedule interval type. Valid values: YEARLY, MONTHLY, WEEKLY, DAILY, HOURLY, and MINUTELY.
+   * 
    * @example
    * DAILY
    */
   scheduleIntervalType?: string;
   /**
+   * @remarks
+   * The description of the schedule template.
+   * 
    * @example
-   * 工作日每天凌晨1点调度
+   * Scheduled at 1:00 AM on weekdays
    */
   scheduleTemplateDesc?: string;
   /**
+   * @remarks
+   * The ID of the schedule template, which is used to bind a schedule template when updating a node.
+   * 
    * @example
    * 12345
    */
   scheduleTemplateId?: number;
   /**
+   * @remarks
+   * The name of the schedule template.
+   * 
    * @example
-   * 每天凌晨1点
+   * 1:00 AM every day
    */
   scheduleTemplateName?: string;
   /**
+   * @remarks
+   * The templatetype. Valid values: BASE_SCHEDULE_TEMPLATE: basic scheduling template, CONDITION_SCHEDULE_TEMPLATE: conditional scheduling template.
+   * 
    * @example
    * BASE_SCHEDULE_TEMPLATE
    */
   scheduleTemplateType?: string;
   /**
+   * @remarks
+   * The schedule type. Valid values: normal scheduling, dry run scheduling, and paused scheduling.
+   * 
    * @example
    * 1
    */
   scheduleType?: number;
   /**
+   * @remarks
+   * The ID of the tenant to which the schedule template belongs.
+   * 
    * @example
    * 30001011
    */
   tenantId?: number;
   /**
+   * @remarks
+   * The ID of the creator.
+   * 
    * @example
    * 30001011
    */
   userId?: string;
   /**
+   * @remarks
+   * The name of the creator.
+   * 
    * @example
-   * 张三
+   * Zhang San
    */
   userName?: string;
   /**
+   * @remarks
+   * The end date of the effective period, in the yyyy-MM-dd format.
+   * 
    * @example
    * 9999-01-01
    */
   validEndDate?: string;
   /**
+   * @remarks
+   * The start date of the effective period, in the yyyy-MM-dd format.
+   * 
    * @example
    * 2024-01-01
    */
@@ -354,10 +477,17 @@ export class ListScheduleTemplatesResponseBodyListScheduleTemplatesResponseResul
 
 export class ListScheduleTemplatesResponseBodyListScheduleTemplatesResponse extends $dara.Model {
   /**
+   * @remarks
+   * The total number of schedule templates that meet the specified conditions. This number is not limited by pagination.
+   * 
    * @example
    * 1
    */
   count?: number;
+  /**
+   * @remarks
+   * The schedule templates.
+   */
   resultData?: ListScheduleTemplatesResponseBodyListScheduleTemplatesResponseResultData[];
   static names(): { [key: string]: string } {
     return {
@@ -387,26 +517,46 @@ export class ListScheduleTemplatesResponseBodyListScheduleTemplatesResponse exte
 
 export class ListScheduleTemplatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. OK indicates that the request is successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code returned by the backend.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The schedule template list response.
+   */
   listScheduleTemplatesResponse?: ListScheduleTemplatesResponseBodyListScheduleTemplatesResponse;
   /**
+   * @remarks
+   * The error message of the request.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

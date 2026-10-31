@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStandardLookupTableResponseBodyLookupTableInfoDirectoryReference extends $dara.Model {
   /**
    * @remarks
-   * The directory to which the lookup table belongs.
+   * The parent folder.
    * 
    * @example
    * /dir1/dir2
@@ -35,7 +35,7 @@ export class GetStandardLookupTableResponseBodyLookupTableInfoDirectoryReference
 export class GetStandardLookupTableResponseBodyLookupTableInfoLookupTableValueList extends $dara.Model {
   /**
    * @remarks
-   * The code description.
+   * The description of the code.
    * 
    * @example
    * test
@@ -62,7 +62,7 @@ export class GetStandardLookupTableResponseBodyLookupTableInfoLookupTableValueLi
    * The code value.
    * 
    * @example
-   * 杭州
+   * Hangzhou
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -103,7 +103,7 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
   code?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -111,7 +111,7 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The user ID of the creator.
+   * The ID of the user who created the lookup table.
    * 
    * @example
    * 30012021
@@ -119,7 +119,7 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
   creator?: string;
   /**
    * @remarks
-   * The username of the creator.
+   * The username of the user who created the lookup table.
    * 
    * @example
    * test
@@ -135,12 +135,12 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * The directory to which the lookup table belongs.
+   * The parent folder.
    */
   directoryReference?: GetStandardLookupTableResponseBodyLookupTableInfoDirectoryReference;
   /**
    * @remarks
-   * The lookup table ID.
+   * The ID of the lookup table.
    * 
    * @example
    * 1234
@@ -148,7 +148,7 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
   id?: number;
   /**
    * @remarks
-   * The user ID of the last modifier.
+   * The ID of the user who last modified the lookup table.
    * 
    * @example
    * 30012021
@@ -156,7 +156,7 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
   lastModifier?: string;
   /**
    * @remarks
-   * The username of the last modifier.
+   * The username of the user who last modified the lookup table.
    * 
    * @example
    * test
@@ -169,7 +169,7 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
   lookupTableValueList?: GetStandardLookupTableResponseBodyLookupTableInfoLookupTableValueList[];
   /**
    * @remarks
-   * The modification time.
+   * The update time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -180,12 +180,12 @@ export class GetStandardLookupTableResponseBodyLookupTableInfo extends $dara.Mod
    * The name of the lookup table.
    * 
    * @example
-   * 城市码表
+   * City lookup table
    */
   name?: string;
   /**
    * @remarks
-   * The user ID of the owner.
+   * The ID of the owner.
    * 
    * @example
    * 30012021
@@ -292,7 +292,7 @@ export class GetStandardLookupTableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

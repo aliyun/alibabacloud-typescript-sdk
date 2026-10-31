@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDataSourceConnectivityOnResourceGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The check object.
+   * 
    * This parameter is required.
    */
   checkCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +21,9 @@ export class CheckDataSourceConnectivityOnResourceGroupShrinkRequest extends $da
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

@@ -13,7 +13,7 @@ export class ListProjectsRequestListQuery extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The keyword for fuzzy match.
+   * The keyword for fuzzy matching.
    * 
    * @example
    * test
@@ -92,7 +92,7 @@ export class ListProjectsRequest extends $dara.Model {
   listQuery?: ListProjectsRequestListQuery;
   /**
    * @remarks
-   * The tenant ID.
+   * The operator tenant ID.
    * 
    * This parameter is required.
    * 
@@ -101,6 +101,9 @@ export class ListProjectsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetStandardRequestStandardGetQuery extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return associated standards and associated lookup tables. Default value: false.
+   * Specifies whether to return related standards and lookup tables. Default value: false.
    */
   needRelation?: boolean;
   /**
    * @remarks
-   * Specifies whether to return a null value when the standard does not exist. If set to false, an exception is thrown. Default value: true.
+   * Specifies whether to allow a null value to be returned when the standard does not exist. If this parameter is set to false, an exception is thrown. Default value: true.
    */
   nullable?: boolean;
   /**
@@ -25,11 +25,7 @@ export class GetStandardRequestStandardGetQuery extends $dara.Model {
   standardId?: number;
   /**
    * @remarks
-   * The stage to which the standard belongs. Valid values:
-   * - dev: development stage.
-   * - prod: production stage.
-   * 
-   * Default value: prod.
+   * The stage to which the standard belongs. Valid values: dev and prod. Default value: prod.
    * 
    * @example
    * dev
@@ -37,7 +33,7 @@ export class GetStandardRequestStandardGetQuery extends $dara.Model {
   standardStage?: string;
   /**
    * @remarks
-   * The version number. If left empty, the latest version is used.
+   * The version number. An empty value indicates the latest version.
    * 
    * @example
    * 1
@@ -84,6 +80,9 @@ export class GetStandardRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

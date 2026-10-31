@@ -14,8 +14,9 @@ export class GetNodeUpDownStreamShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - DEV: development environment. 
-   * - PROD (default): production environment.
+   * - DEV: Development environment.
+   * - PROD: Production environment.
+   * Default value: PROD.
    * 
    * @example
    * DEV
@@ -39,6 +40,9 @@ export class GetNodeUpDownStreamShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

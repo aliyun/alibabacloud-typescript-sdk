@@ -13,7 +13,7 @@ export class CreateSecurityClassifyCatalogResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The full path of the newly created folder.
+   * The full path of the created folder.
    * 
    * @example
    * /d1/d2/
@@ -45,7 +45,7 @@ export class CreateSecurityClassifyCatalogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

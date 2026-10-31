@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OfflinePipelineRequestContext extends $dara.Model {
   /**
    * @remarks
-   * The current operating environment. Valid values:
-   * - DEV: the development environment.
-   * - PROD: the production environment.
+   * The current operation environment. Valid values: DEV: development environment. PROD: production environment.
    * 
    * This parameter is required.
    * 
@@ -17,7 +15,7 @@ export class OfflinePipelineRequestContext extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The ID of the project to which the integration pipeline node belongs.
+   * The ID of the project to which the integration pipeline task belongs.
    * 
    * This parameter is required.
    * 
@@ -51,7 +49,7 @@ export class OfflinePipelineRequestContext extends $dara.Model {
 export class OfflinePipelineRequestOfflineCommand extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
    * comment
@@ -59,14 +57,14 @@ export class OfflinePipelineRequestOfflineCommand extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Specifies whether to delete the node.
+   * Specifies whether to delete the task.
    * 
    * This parameter is required.
    */
   delete?: boolean;
   /**
    * @remarks
-   * The file ID of the integration node. You can specify any one of PipelineId, FileId, or NodeId.
+   * The ID of the integration task file. You can specify pipelineId, fileId, or nodeId.
    * 
    * @example
    * 123
@@ -74,7 +72,7 @@ export class OfflinePipelineRequestOfflineCommand extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * The scheduling node ID of the integration node. You can specify any one of PipelineId, FileId, or NodeId.
+   * The ID of the scheduling node for the integration task. You can specify pipelineId, fileId, or nodeId.
    * 
    * @example
    * n_123
@@ -82,7 +80,7 @@ export class OfflinePipelineRequestOfflineCommand extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The primary key of the integration pipeline. You can specify any one of PipelineId, FileId, or NodeId.
+   * The primary key of the integration pipeline. You can specify pipelineId, fileId, or nodeId.
    * 
    * @example
    * 123
@@ -127,7 +125,7 @@ export class OfflinePipelineRequest extends $dara.Model {
   context?: OfflinePipelineRequestContext;
   /**
    * @remarks
-   * The offline command for the pipeline node.
+   * The command to take the pipeline task offline.
    * 
    * This parameter is required.
    */
@@ -143,6 +141,9 @@ export class OfflinePipelineRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

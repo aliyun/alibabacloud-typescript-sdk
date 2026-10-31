@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceApiCallsResponseBodyPageResultCallLogList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the API.
+   * The API ID.
    * 
    * @example
    * 102112
@@ -22,7 +22,7 @@ export class ListDataServiceApiCallsResponseBodyPageResultCallLogList extends $d
   /**
    * @remarks
    * The application key.
-   * >Notice: This parameter is deprecated. Use AppKeyStr instead.
+   * >Notice: Deprecated. Use AppKeyStr instead.</notice>
    * 
    * @example
    * 12345
@@ -64,7 +64,7 @@ export class ListDataServiceApiCallsResponseBodyPageResultCallLogList extends $d
   bizCodeDescription?: string;
   /**
    * @remarks
-   * The IP address of the request.
+   * The client IP address.
    * 
    * @example
    * 192.168.1.1
@@ -88,7 +88,7 @@ export class ListDataServiceApiCallsResponseBodyPageResultCallLogList extends $d
   endTime?: string;
   /**
    * @remarks
-   * The environment. Valid values: 0 (dev) and 1 (prod).
+   * The environment. Valid values: 0: Development. 1: Production.
    * 
    * @example
    * 1
@@ -104,7 +104,7 @@ export class ListDataServiceApiCallsResponseBodyPageResultCallLogList extends $d
   executeCostTime?: number;
   /**
    * @remarks
-   * The execution mode. Valid values: 1 (synchronous) and 2 (asynchronous).
+   * The execution mode. Valid values: 1: Synchronous. 2: Asynchronous.
    * 
    * @example
    * 1
@@ -192,7 +192,7 @@ export class ListDataServiceApiCallsResponseBodyPageResultCallLogList extends $d
   responseSize?: number;
   /**
    * @remarks
-   * The number of returned data records.
+   * The number of returned records.
    * 
    * @example
    * 1
@@ -208,7 +208,7 @@ export class ListDataServiceApiCallsResponseBodyPageResultCallLogList extends $d
   sql?: string;
   /**
    * @remarks
-   * The start time of the request. Format: yyyy-MM-dd HH:mm:ss.SSS.
+   * The time when the request is initiated. Format: yyyy-MM-dd HH:mm:ss.SSS.
    * 
    * @example
    * 2024-11-01 01:01:01.000
@@ -216,7 +216,7 @@ export class ListDataServiceApiCallsResponseBodyPageResultCallLogList extends $d
   startTime?: string;
   /**
    * @remarks
-   * The call status of the job.
+   * The invocation status of the job.
    * 
    * @example
    * 1
@@ -224,7 +224,7 @@ export class ListDataServiceApiCallsResponseBodyPageResultCallLogList extends $d
   status?: number;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   successful?: boolean;
   static names(): { [key: string]: string } {
@@ -305,7 +305,7 @@ export class ListDataServiceApiCallsResponseBodyPageResultCallLogList extends $d
 export class ListDataServiceApiCallsResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The list of API call logs.
+   * The paged list of API calls.
    */
   callLogList?: ListDataServiceApiCallsResponseBodyPageResultCallLogList[];
   /**
@@ -345,7 +345,7 @@ export class ListDataServiceApiCallsResponseBodyPageResult extends $dara.Model {
 export class ListDataServiceApiCallsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -361,7 +361,7 @@ export class ListDataServiceApiCallsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -369,7 +369,7 @@ export class ListDataServiceApiCallsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The paginated query result.
+   * The paged query results.
    */
   pageResult?: ListDataServiceApiCallsResponseBodyPageResult;
   /**
@@ -382,7 +382,7 @@ export class ListDataServiceApiCallsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

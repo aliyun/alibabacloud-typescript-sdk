@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetSourceTableMetaShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The request context.
+   * 
    * This parameter is required.
    */
   contextShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +21,17 @@ export class GetSourceTableMetaShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
+   * The query conditions for the integration source table.
+   * 
    * This parameter is required.
    */
   queryShrink?: string;

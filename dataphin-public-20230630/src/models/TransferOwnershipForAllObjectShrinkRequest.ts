@@ -14,6 +14,9 @@ export class TransferOwnershipForAllObjectShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The user ID of the operator.
+   * 
    * @example
    * 30001011
    */

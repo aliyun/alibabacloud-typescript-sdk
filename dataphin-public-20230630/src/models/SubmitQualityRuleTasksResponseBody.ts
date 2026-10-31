@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitQualityRuleTasksResponseBodySubmitResult extends $dara.Model {
   /**
    * @remarks
-   * Rule task IDs, returned in the test run scenario
+   * The rule task IDs. Returned in test run scenarios.
    */
   ruleTaskIdList?: number[];
   /**
    * @remarks
-   * Monitoring object task IDs, returned in non-test run scenarios
+   * The monitored object task IDs. Returned in non-test run scenarios.
    */
   watchTaskIdList?: number[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class SubmitQualityRuleTasksResponseBodySubmitResult extends $dara.Model 
 export class SubmitQualityRuleTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend response code
+   * The backend response code.
    * 
    * @example
    * OK
@@ -53,7 +53,7 @@ export class SubmitQualityRuleTasksResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP response code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -61,7 +61,7 @@ export class SubmitQualityRuleTasksResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Details of the backend response exception
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -77,12 +77,12 @@ export class SubmitQualityRuleTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Execution result
+   * The execution result.
    */
   submitResult?: SubmitQualityRuleTasksResponseBodySubmitResult;
   /**
    * @remarks
-   * Whether the request was successful
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

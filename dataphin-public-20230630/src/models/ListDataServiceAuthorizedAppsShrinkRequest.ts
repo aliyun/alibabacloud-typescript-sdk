@@ -19,6 +19,9 @@ export class ListDataServiceAuthorizedAppsShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

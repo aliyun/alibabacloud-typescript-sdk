@@ -45,7 +45,7 @@ export class ListAddableUsersResponseBodyPageResultUserList extends $dara.Model 
   enableWhiteIp?: string;
   /**
    * @remarks
-   * The Lark chatbot.
+   * The Lark bot.
    * 
    * @example
    * xx
@@ -61,7 +61,7 @@ export class ListAddableUsersResponseBodyPageResultUserList extends $dara.Model 
   gmtCreate?: number;
   /**
    * @remarks
-   * The time when the user was last modified.
+   * The time when the user was modified.
    * 
    * @example
    * 1717343597000
@@ -125,7 +125,7 @@ export class ListAddableUsersResponseBodyPageResultUserList extends $dara.Model 
   realName?: string;
   /**
    * @remarks
-   * The source ID of the user.
+   * The ID of the user source.
    * 
    * @example
    * 123@xx.com
@@ -133,7 +133,7 @@ export class ListAddableUsersResponseBodyPageResultUserList extends $dara.Model 
   sourceId?: string;
   /**
    * @remarks
-   * The source type of the user.
+   * The source of the user.
    * 
    * @example
    * aliyun
@@ -141,7 +141,7 @@ export class ListAddableUsersResponseBodyPageResultUserList extends $dara.Model 
   sourceType?: string;
   /**
    * @remarks
-   * The WeCom chatbot.
+   * The WeCom bot.
    * 
    * @example
    * xx
@@ -149,7 +149,7 @@ export class ListAddableUsersResponseBodyPageResultUserList extends $dara.Model 
   weChatRobot?: string;
   /**
    * @remarks
-   * The IP whitelist.
+   * The IP address whitelist.
    * 
    * @example
    * *
@@ -223,7 +223,7 @@ export class ListAddableUsersResponseBodyPageResult extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of users.
+   * The user list.
    */
   userList?: ListAddableUsersResponseBodyPageResultUserList[];
   static names(): { [key: string]: string } {
@@ -255,7 +255,7 @@ export class ListAddableUsersResponseBodyPageResult extends $dara.Model {
 export class ListAddableUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -279,7 +279,7 @@ export class ListAddableUsersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The paging query result.
+   * The paged query result.
    */
   pageResult?: ListAddableUsersResponseBodyPageResult;
   /**
@@ -292,7 +292,7 @@ export class ListAddableUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

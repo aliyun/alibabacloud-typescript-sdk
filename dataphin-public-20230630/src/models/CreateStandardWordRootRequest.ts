@@ -38,7 +38,7 @@ export class CreateStandardWordRootRequestCreateCommand extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 平均值
+   * Average
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -71,7 +71,7 @@ export class CreateStandardWordRootRequestCreateCommand extends $dara.Model {
 export class CreateStandardWordRootRequest extends $dara.Model {
   /**
    * @remarks
-   * The create instruction.
+   * The creation command.
    * 
    * This parameter is required.
    */
@@ -87,6 +87,9 @@ export class CreateStandardWordRootRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

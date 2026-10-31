@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   /**
    * @remarks
-   * Change type. Valid values: 0: Create. 1: Update. 2: Delete.
+   * The change type. Valid values: 0: create. 1: update. 2: delete.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   changeType?: number;
   /**
    * @remarks
-   * Publish error message.
+   * The publish error message.
    * 
    * @example
    * error
@@ -21,7 +21,7 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * Publish completion time in the yyyy-MM-dd HH:mm:ss format.
+   * The publish completion time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-10-10 10:10:10
@@ -29,7 +29,7 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * Creation time in the yyyy-MM-dd HH:mm:ss format.
+   * The creation time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -37,7 +37,7 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Modification time in the yyyy-MM-dd HH:mm:ss format.
+   * The update time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -45,7 +45,7 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   gmtModify?: string;
   /**
    * @remarks
-   * Publish record ID, which is not the object ID and is globally unique in the publish list.
+   * The ID of the publish record. This is not the object ID and is globally unique in the publish list.
    * 
    * @example
    * 1241844456
@@ -53,7 +53,7 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Node ID.
+   * The node ID.
    * 
    * @example
    * n_123456
@@ -61,7 +61,7 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Object ID.
+   * The object ID.
    * 
    * @example
    * 1234567
@@ -69,15 +69,15 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * Object name.
+   * The object name.
    * 
    * @example
-   * 对象A
+   * Object A
    */
   objectName?: string;
   /**
    * @remarks
-   * Object type.
+   * The object type.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -85,7 +85,7 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * Object version.
+   * The object version.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   objectVersion?: string;
   /**
    * @remarks
-   * Project ID.
+   * The project ID.
    * 
    * @example
    * 1241844456
@@ -101,7 +101,7 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * Publish name.
+   * The publish name.
    * 
    * @example
    * test_lc__20241118171502
@@ -109,7 +109,7 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   publishName?: string;
   /**
    * @remarks
-   * Publish status. Valid values: 0: Failed. 1: Succeeded. 2: Publishing.
+   * The publish status. Valid values: 0: failed. 1: successful. 2: publishing.
    * 
    * @example
    * 1
@@ -117,7 +117,7 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   publishStatus?: number;
   /**
    * @remarks
-   * Publisher ID.
+   * The ID of the publisher.
    * 
    * @example
    * 307999999
@@ -125,10 +125,10 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
   publisher?: string;
   /**
    * @remarks
-   * Publisher name.
+   * The name of the publisher.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   publisherName?: string;
   static names(): { [key: string]: string } {
@@ -185,12 +185,12 @@ export class ListPublishRecordsResponseBodyListResultData extends $dara.Model {
 export class ListPublishRecordsResponseBodyListResult extends $dara.Model {
   /**
    * @remarks
-   * Publish record list.
+   * The publish record list.
    */
   data?: ListPublishRecordsResponseBodyListResultData[];
   /**
    * @remarks
-   * Total count.
+   * The total count.
    * 
    * @example
    * 100
@@ -225,7 +225,7 @@ export class ListPublishRecordsResponseBodyListResult extends $dara.Model {
 export class ListPublishRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -233,7 +233,7 @@ export class ListPublishRecordsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Backend response HTTP status code.
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -241,12 +241,12 @@ export class ListPublishRecordsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Query result.
+   * The query result.
    */
   listResult?: ListPublishRecordsResponseBodyListResult;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * successful
@@ -254,7 +254,7 @@ export class ListPublishRecordsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -262,7 +262,7 @@ export class ListPublishRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

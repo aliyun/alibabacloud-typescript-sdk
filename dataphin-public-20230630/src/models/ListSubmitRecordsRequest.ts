@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListSubmitRecordsRequestListQuerySearchFilter extends $dara.Model {
   /**
    * @remarks
-   * List of change types (0: Create / 1: Update / 2: Delete).
+   * The list of change types (0: Create, 1: Update, 2: Delete).
    */
   changeTypeList?: number[];
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class ListSubmitRecordsRequestListQuerySearchFilter extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -30,14 +30,14 @@ export class ListSubmitRecordsRequestListQuerySearchFilter extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Project ID.
+   * The project IDs.
    * 
    * This parameter is required.
    */
   projectIdList?: number[];
   /**
    * @remarks
-   * Submission end time in the yyyy-MM-dd HH:mm:ss format.
+   * The submission end time in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -45,7 +45,7 @@ export class ListSubmitRecordsRequestListQuerySearchFilter extends $dara.Model {
   submitEndTime?: string;
   /**
    * @remarks
-   * Submission start time in the yyyy-MM-dd HH:mm:ss format.
+   * The submission start time in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -53,7 +53,7 @@ export class ListSubmitRecordsRequestListQuerySearchFilter extends $dara.Model {
   submitStartTime?: string;
   /**
    * @remarks
-   * Submitter.
+   * The submitters.
    */
   submitterList?: string[];
   static names(): { [key: string]: string } {
@@ -101,7 +101,7 @@ export class ListSubmitRecordsRequestListQuerySearchFilter extends $dara.Model {
 export class ListSubmitRecordsRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * Search keyword.
+   * The search keyword.
    * 
    * @example
    * abc
@@ -109,7 +109,7 @@ export class ListSubmitRecordsRequestListQuery extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Pending deployment record filter.
+   * The filter for pending release records.
    * 
    * This parameter is required.
    */
@@ -143,14 +143,14 @@ export class ListSubmitRecordsRequestListQuery extends $dara.Model {
 export class ListSubmitRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * Query command.
+   * The query command.
    * 
    * This parameter is required.
    */
   listQuery?: ListSubmitRecordsRequestListQuery;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -159,6 +159,9 @@ export class ListSubmitRecordsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

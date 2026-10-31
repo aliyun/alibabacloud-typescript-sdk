@@ -6,8 +6,9 @@ export class GetOperationSubmitStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - DEV: Development environment. 
-   * - PROD (default): Production environment.
+   * - DEV: development environment
+   * - PROD: production environment
+   * Default value: PROD.
    * 
    * @example
    * PROD
@@ -15,7 +16,7 @@ export class GetOperationSubmitStatusRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The job ID returned after submission in batch mode.
+   * The job ID returned after submission in massive mode.
    * 
    * This parameter is required.
    * 
@@ -34,6 +35,9 @@ export class GetOperationSubmitStatusRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

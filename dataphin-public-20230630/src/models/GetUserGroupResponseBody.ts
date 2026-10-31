@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserGroupResponseBodyUserGroupInfoAdminList extends $dara.Model {
   /**
    * @remarks
-   * The account name of the user.
+   * The user account name.
    * 
    * @example
    * xx
@@ -16,7 +16,7 @@ export class GetUserGroupResponseBodyUserGroupInfoAdminList extends $dara.Model 
    * The username.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   displayName?: string;
   /**
@@ -68,7 +68,7 @@ export class GetUserGroupResponseBodyUserGroupInfo extends $dara.Model {
   adminList?: GetUserGroupResponseBodyUserGroupInfoAdminList[];
   /**
    * @remarks
-   * The description of the user group.
+   * The user group description.
    * 
    * @example
    * xx
@@ -92,10 +92,10 @@ export class GetUserGroupResponseBodyUserGroupInfo extends $dara.Model {
   myRole?: string;
   /**
    * @remarks
-   * The name of the user group.
+   * The user group name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class GetUserGroupResponseBodyUserGroupInfo extends $dara.Model {
 export class GetUserGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -167,7 +167,7 @@ export class GetUserGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

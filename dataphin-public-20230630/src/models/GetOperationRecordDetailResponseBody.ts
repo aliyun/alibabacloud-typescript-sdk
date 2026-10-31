@@ -21,7 +21,7 @@ export class GetOperationRecordDetailResponseBodyOperationRecordDetailResponseRe
   result?: string;
   /**
    * @remarks
-   * The result SQL statement.
+   * The result SQL.
    * 
    * @example
    * SELECT * FROM test_table
@@ -40,7 +40,7 @@ export class GetOperationRecordDetailResponseBodyOperationRecordDetailResponseRe
    * The result title.
    * 
    * @example
-   * 查询结果
+   * Query result
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -161,7 +161,7 @@ export class GetOperationRecordDetailResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The execution record detail response.
+   * The operation record detail response.
    */
   operationRecordDetailResponse?: GetOperationRecordDetailResponseBodyOperationRecordDetailResponse;
   /**
@@ -174,7 +174,7 @@ export class GetOperationRecordDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

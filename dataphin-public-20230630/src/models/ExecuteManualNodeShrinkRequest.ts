@@ -6,8 +6,8 @@ export class ExecuteManualNodeShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - DEV: development environment 
-   * - PROD (default): production environment.
+   * - DEV: Development environment. 
+   * - PROD: Production environment. This is the default value.
    * 
    * @example
    * PROD
@@ -15,7 +15,7 @@ export class ExecuteManualNodeShrinkRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The request for running a manual task.
+   * The request to run a manual task.
    * 
    * This parameter is required.
    */
@@ -31,6 +31,9 @@ export class ExecuteManualNodeShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

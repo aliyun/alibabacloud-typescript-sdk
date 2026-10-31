@@ -16,7 +16,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfoCreator 
    * The username.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -56,7 +56,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfoModifier
    * The username.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -96,7 +96,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfoOwnerLis
    * The username.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -128,12 +128,12 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfo extends
    * The business unit.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   bizUnitName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-01-30 10:08:49
@@ -141,7 +141,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfo extends
   createTime?: string;
   /**
    * @remarks
-   * The creator of the node.
+   * The node creator.
    */
   creator?: GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfoCreator;
   /**
@@ -149,12 +149,12 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfo extends
    * The node description.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the node is a dry run.
+   * Indicates whether the node runs in dry-run mode.
    * 
    * @example
    * true
@@ -163,7 +163,6 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfo extends
   /**
    * @remarks
    * The source business system. Valid values:
-   * 
    * - DATA_PROCESS: code development.
    * - BLACK_BOX: black box.
    * - ONE_ID: extraction.
@@ -175,7 +174,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfo extends
   from?: string;
   /**
    * @remarks
-   * Indicates whether the node exists in the development environment.
+   * Indicates whether a development environment exists.
    * 
    * @example
    * true
@@ -183,7 +182,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfo extends
   hasDev?: boolean;
   /**
    * @remarks
-   * Indicates whether the node exists in the production environment.
+   * Indicates whether a production environment exists.
    * 
    * @example
    * true
@@ -199,7 +198,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfo extends
   id?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The last modified time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-01-30 10:08:49
@@ -215,33 +214,32 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfo extends
    * The node name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   /**
    * @remarks
-   * The owners of the node.
+   * The node owners.
    */
   ownerList?: GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfoOwnerList[];
   /**
    * @remarks
    * The priority. Valid values:
-   * 
    * - HIGHEST
    * - HIGH
    * - MIDDLE
    * - LOW
-   * - LOWEST.
+   * - LOWEST
    */
   priorityList?: string[];
   /**
    * @remarks
-   * The schedule resource groups.
+   * The list of resource groups.
    */
   resourceGroupList?: string[];
   /**
    * @remarks
-   * Indicates whether the node is paused.
+   * Indicates whether the schedule is paused.
    * 
    * @example
    * true
@@ -249,14 +247,13 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfo extends
   schedulePaused?: boolean;
   /**
    * @remarks
-   * The scheduling period. Valid values:
-   * 
+   * The schedule cycle. Valid values:
    * - MINUTELY
    * - HOURLY
    * - DAILY
    * - WEEKLY
    * - MONTHLY
-   * - QUARTERLY.
+   * - QUARTERLY
    */
   schedulePeriodList?: string[];
   /**
@@ -270,8 +267,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfo extends
   /**
    * @remarks
    * The node type. Valid values:
-   * 
-   * - DATA_PROCESS: code node.
+   * - DATA_PROCESS: code task.
    * - BBOX_LOGIC_TABLE_NODE: black box logical table node.
    * - ONE_ID_LABEL: extraction label node.
    * - ONE_ID_RULE: extraction label node.
@@ -359,7 +355,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfo extends
 export class GetSupplementDagrunInstanceResponseBodyInstanceList extends $dara.Model {
   /**
    * @remarks
-   * The business date.
+   * The business date. The format is YYYY-MM-DD.
    * 
    * @example
    * 2024-04-01
@@ -367,7 +363,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceList extends $dara.M
   bizDate?: number;
   /**
    * @remarks
-   * The scheduled date.
+   * The scheduled date. The format is YYYY-MM-DD.
    * 
    * @example
    * 2024-04-02
@@ -383,7 +379,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceList extends $dara.M
   duration?: string;
   /**
    * @remarks
-   * The end time of the execution.
+   * The time when the execution ended.
    * 
    * @example
    * 2024-04-12 00:25:02
@@ -391,7 +387,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceList extends $dara.M
   endExecuteTime?: number;
   /**
    * @remarks
-   * The extended information. This field contains information specific to instances of different business systems, such as the fileId of a pipeline, whether a logical table is a hierarchy dimension table, mid-node information, and instance output names.
+   * The extended information. This includes specific information for instances of different business systems, such as the fileId of a pipeline, whether a logical table is a hierarchy dimension table, mid node information, and the instance output name.
    * 
    * @example
    * {"a":"b"}
@@ -407,7 +403,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceList extends $dara.M
   id?: string;
   /**
    * @remarks
-   * The sequence number of the hourly or minutely instance.
+   * The instance index for hourly or minutely instances.
    * 
    * @example
    * 1
@@ -415,12 +411,12 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceList extends $dara.M
   index?: number;
   /**
    * @remarks
-   * The details of the node associated with the instance.
+   * The node details corresponding to the instance.
    */
   nodeInfo?: GetSupplementDagrunInstanceResponseBodyInstanceListNodeInfo;
   /**
    * @remarks
-   * The start time of the execution.
+   * The time when the execution started.
    * 
    * @example
    * 2024-04-12 00:00:00
@@ -429,18 +425,16 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceList extends $dara.M
   /**
    * @remarks
    * The list of instance statuses. A physical instance list contains only one status. Valid values:
-   * 
-   * - NIT: init.
-   * - WATING: waiting.
+   * - NIT: initialized.
+   * - WATING: pending.
    * - RUNNING: running.
-   * - SUCCESS: succeeded.
+   * - SUCCESS: successful.
    * - FAILED: failed.
    */
   statusList?: string[];
   /**
    * @remarks
    * The instance type. Valid values:
-   * 
    * - NORMAL: periodic instance.
    * - SUPPLEMENT: data backfill instance.
    * - MANUAL: manual instance.
@@ -499,7 +493,7 @@ export class GetSupplementDagrunInstanceResponseBodyInstanceList extends $dara.M
 export class GetSupplementDagrunInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -536,7 +530,7 @@ export class GetSupplementDagrunInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -13,7 +13,7 @@ export class CreateDatasetResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The dataset ID (business primary key).
+   * The ID of the newly created dataset, which is the business primary key.
    * 
    * @example
    * 7280832407583104
@@ -29,7 +29,7 @@ export class CreateDatasetResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -45,7 +45,7 @@ export class CreateDatasetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

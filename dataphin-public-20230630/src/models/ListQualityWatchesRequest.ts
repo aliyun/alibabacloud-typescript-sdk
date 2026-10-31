@@ -5,30 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityWatchesRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * The business unit names.
+   * The name of the business unit.
    */
   bizUnitNameList?: string[];
   /**
    * @remarks
-   * Specifies whether to query only monitored objects owned by the current user.
+   * Specifies whether the monitoring object is owned by the current user.
    */
   currentUserOwned?: boolean;
   /**
    * @remarks
-   * The data source IDs.
+   * The data source ID.
    */
   dataSourceIdList?: number[];
   /**
    * @remarks
-   * The data source owners.
+   * The data source owner.
    */
   dataSourceOwnerList?: string[];
   /**
    * @remarks
-   * The data source scope. Valid values:
-   * - STREAMING: real-time only
-   * - OFFLINE: offline only
-   * - ALL: real-time and offline.
+   * The data source scope. Valid values: STREAMING (real-time only), OFFLINE (offline only), and ALL (real-time and offline).
    */
   dataSourceScopeList?: string[];
   /**
@@ -38,21 +35,17 @@ export class ListQualityWatchesRequestListQuery extends $dara.Model {
   dataSourceTypeList?: string[];
   /**
    * @remarks
-   * The metric computation type. Valid values:
-   * - AUTO: automated coding
-   * - CUSTOM: expert coding
-   * - MOUNT: external table registration
-   * - COMBINE: derived metric specific.
+   * The metric compute type. Valid values: AUTO (automated coding), CUSTOM (expert coding), MOUNT (external table registration), and COMBINE (specific to derived metrics).
    */
   indexComputeTypeList?: string[];
   /**
    * @remarks
-   * The metric owners.
+   * The metric owner.
    */
   indexOwnerList?: string[];
   /**
    * @remarks
-   * The search keyword. This is the name of the monitored table.
+   * The search keyword, which is the name of the monitored table.
    * 
    * @example
    * test
@@ -60,15 +53,7 @@ export class ListQualityWatchesRequestListQuery extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The task status. Valid values:
-   * - NOT_RUN: not executed
-   * - WAITING: waiting
-   * - RUNNING: executing
-   * - SUCCESS: executed successfully
-   * - FAILED: execution failed
-   * - CANCEL: canceled
-   * - TIMEOUT: timed out
-   * - OFFLINE: offline.
+   * The task status. Valid values: NOT_RUN (not run), WAITING (waiting), RUNNING (running), SUCCESS (successful), FAILED (failed), CANCEL (canceled), TIMEOUT (timed out), and OFFLINE (offline).
    */
   latestWatchTaskStatusList?: string[];
   /**
@@ -81,7 +66,7 @@ export class ListQualityWatchesRequestListQuery extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of records per page. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -89,45 +74,32 @@ export class ListQualityWatchesRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The project names.
+   * The name of the project.
    */
   projectNameList?: string[];
   /**
    * @remarks
-   * The quality owners.
+   * The quality owner.
    */
   qualityOwnerList?: string[];
   /**
    * @remarks
-   * The status of the monitored object. Valid values:
-   * - ENABLE: enabled
-   * - DISABLE: disabled.
+   * The effective status of the monitoring object. Valid values: ENABLE (enabled) and DISABLE (disabled).
    */
   statusList?: string[];
   /**
    * @remarks
-   * The table owners.
+   * The table owner.
    */
   tableOwnerList?: string[];
   /**
    * @remarks
-   * The table type. Valid values:
-   * - LOGIC_DIM_TABLE: logical dimension table
-   * - LOGIC_FACT_TABLE: logical fact table
-   * - LOGIC_SUM_TABLE: logical aggregate table
-   * - LOGIC_LABEL_TABLE: logical label table
-   * - PHYSICAL_TABLE: physical table
-   * - REALTIME_LOGICAL_TABLE: real-time meta table.
+   * The table type. Valid values: LOGIC_DIM_TABLE (logical dimension table), LOGIC_FACT_TABLE (logical fact table), LOGIC_SUM_TABLE (logical aggregate table), LOGIC_LABEL_TABLE (logical label table), PHYSICAL_TABLE (physical table), and REALTIME_LOGICAL_TABLE (real-time metadata table).
    */
   tableTypeList?: string[];
   /**
    * @remarks
-   * The monitored object type. Valid values:
-   * - TABLE: Dataphin table
-   * - DATASOURCE_TABLE: full-domain table
-   * - DATASOURCE: data source
-   * - INDEX: metric
-   * - REALTIME_LOGICAL_TABLE: real-time meta table.
+   * The monitoring object type. Valid values: TABLE (Dataphin table), DATASOURCE_TABLE (global table), DATASOURCE (data source), INDEX (metric), and REALTIME_LOGICAL_TABLE (real-time metadata table).
    */
   watchTypeList?: string[];
   static names(): { [key: string]: string } {
@@ -230,7 +202,7 @@ export class ListQualityWatchesRequestListQuery extends $dara.Model {
 export class ListQualityWatchesRequest extends $dara.Model {
   /**
    * @remarks
-   * The paged query conditions.
+   * The paging query conditions.
    */
   listQuery?: ListQualityWatchesRequestListQuery;
   /**
@@ -244,6 +216,9 @@ export class ListQualityWatchesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operating user.
+   * 
    * @example
    * 30001011
    */

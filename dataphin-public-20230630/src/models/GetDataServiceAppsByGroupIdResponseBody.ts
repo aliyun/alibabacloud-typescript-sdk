@@ -13,7 +13,7 @@ export class GetDataServiceAppsByGroupIdResponseBodyAppInfoList extends $dara.Mo
   id?: number;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class GetDataServiceAppsByGroupIdResponseBodyAppInfoList extends $dara.Mo
 export class GetDataServiceAppsByGroupIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of application groups.
+   * The list of applications.
    */
   appInfoList?: GetDataServiceAppsByGroupIdResponseBodyAppInfoList[];
   /**
@@ -82,7 +82,7 @@ export class GetDataServiceAppsByGroupIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

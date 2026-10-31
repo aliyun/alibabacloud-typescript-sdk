@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListPublishRecordsRequestListQuerySearchFilter extends $dara.Model {
   /**
    * @remarks
-   * List of change types (0: Create, 1: Update, 2: Delete).
+   * The list of change types (0: Create, 1: Update, 2: Delete).
    */
   changeTypeList?: number[];
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class ListPublishRecordsRequestListQuerySearchFilter extends $dara.Model 
   page?: number;
   /**
    * @remarks
-   * Page size.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -30,14 +30,14 @@ export class ListPublishRecordsRequestListQuerySearchFilter extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * List of project IDs.
+   * The list of project IDs.
    * 
    * This parameter is required.
    */
   projectIdList?: number[];
   /**
    * @remarks
-   * Publish end time in the yyyy-MM-dd HH:mm:ss format.
+   * The publish end time in yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -45,7 +45,7 @@ export class ListPublishRecordsRequestListQuerySearchFilter extends $dara.Model 
   publishEndTime?: string;
   /**
    * @remarks
-   * Publish start time in the yyyy-MM-dd HH:mm:ss format.
+   * The publish start time in yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -53,12 +53,12 @@ export class ListPublishRecordsRequestListQuerySearchFilter extends $dara.Model 
   publishStartTime?: string;
   /**
    * @remarks
-   * List of publish statuses (0: Failed, 1: Succeeded, 2: Publishing).
+   * The list of publish statuses (0: Failed, 1: Successful, 2: Publishing).
    */
   publishStatusList?: number[];
   /**
    * @remarks
-   * List of submitter IDs.
+   * The list of submitter IDs.
    */
   submitterList?: string[];
   static names(): { [key: string]: string } {
@@ -111,7 +111,7 @@ export class ListPublishRecordsRequestListQuerySearchFilter extends $dara.Model 
 export class ListPublishRecordsRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * Search keyword.
+   * The search keyword.
    * 
    * @example
    * abc
@@ -119,7 +119,7 @@ export class ListPublishRecordsRequestListQuery extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Publish record filter.
+   * The publish record filter.
    * 
    * This parameter is required.
    */
@@ -153,14 +153,14 @@ export class ListPublishRecordsRequestListQuery extends $dara.Model {
 export class ListPublishRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * Query command.
+   * The query command.
    * 
    * This parameter is required.
    */
   listQuery?: ListPublishRecordsRequestListQuery;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -169,6 +169,9 @@ export class ListPublishRecordsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

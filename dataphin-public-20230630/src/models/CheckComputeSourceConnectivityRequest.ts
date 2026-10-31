@@ -15,7 +15,7 @@ export class CheckComputeSourceConnectivityRequestCheckCommandConfigList extends
   key?: string;
   /**
    * @remarks
-   * The value of the configuration item.
+   * The configuration item value.
    * 
    * This parameter is required.
    * 
@@ -109,6 +109,9 @@ export class CheckComputeSourceConnectivityRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operating user.
+   * 
    * @example
    * 30001011
    */

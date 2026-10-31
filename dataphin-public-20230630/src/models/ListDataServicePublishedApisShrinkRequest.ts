@@ -27,8 +27,6 @@ export class ListDataServicePublishedApisShrinkRequest extends $dara.Model {
    * @remarks
    * Data service project ID.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 102102
    */

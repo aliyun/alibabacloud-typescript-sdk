@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpsertQualityTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class UpsertQualityTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Template ID.
+   * The ID of the template.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class UpsertQualityTemplateResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class UpsertQualityTemplateResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -45,7 +45,7 @@ export class UpsertQualityTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

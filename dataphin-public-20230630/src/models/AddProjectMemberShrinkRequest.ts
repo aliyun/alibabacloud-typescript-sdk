@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddProjectMemberShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The command for adding members.
+   * The command to add members.
    * 
    * This parameter is required.
    */
@@ -32,7 +32,7 @@ export class AddProjectMemberShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The operator user ID.
    * 
    * @example
    * 30001011

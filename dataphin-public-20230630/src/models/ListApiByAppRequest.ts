@@ -6,7 +6,7 @@ export class ListApiByAppRequestPageQuery extends $dara.Model {
   /**
    * @remarks
    * The application key.
-   * >Notice: Deprecated. Use AppKeyStr instead.</notice>.
+   * >Notice: Deprecated. Use AppKeyStr.</notice>
    * 
    * @example
    * 200000000
@@ -87,13 +87,16 @@ export class ListApiByAppRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The paged query parameters.
+   * The paging query parameters.
    * 
    * This parameter is required.
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataSourceConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -13,7 +13,7 @@ export class UpdateDataSourceConfigResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of editing the data source connection configuration items.
+   * The modification result of the datasource connection configuration items.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class UpdateDataSourceConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

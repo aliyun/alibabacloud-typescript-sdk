@@ -13,7 +13,7 @@ export class CreateBizMetricRequestCreateBizMetricCommandCustomAttribute extends
   code?: string;
   /**
    * @remarks
-   * The list of attribute values. 1. For custom input and single-select dropdown attributes, only the first value in the list is read. 2. For multi-select dropdown attributes, all values in the list are read. 3. For hyperlink attributes, the first value is used as the display text and the second value is used as the redirect link.
+   * The list of attribute values. Rules: 1. For custom input and drop-down single-select attributes, only the first attribute value in the list is read. 2. For drop-down multi-select attributes, all attribute values in the list are read. 3. For hyperlink attributes, the first attribute value in the list is read as the display text, and the second attribute value is read as the redirect URL.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -54,9 +54,9 @@ export class CreateBizMetricRequestCreateBizMetricCommandRelatedBizMetrics exten
   /**
    * @remarks
    * The relationship type. Valid values:
-   * - POSITIVE: positive correlation.
-   * - NEGATIVE: negative correlation.
-   * - OTHER: other.
+   * - POSITIVE: Positive correlation.
+   * - NEGATIVE: Negative correlation.
+   * - OTHER: Other.
    * 
    * @example
    * POSITIVE
@@ -89,9 +89,9 @@ export class CreateBizMetricRequestCreateBizMetricCommandViewScope extends $dara
   /**
    * @remarks
    * The visibility scope type. Valid values:
-   * - ALL_USERS_CAN_VIEW: visible to all users.
-   * - PART_USERS_CAN_VIEW: visible to specified users.
-   * - PART_USERS_CAN_NOT_VIEW: not visible to specified users.
+   * - ALL_USERS_CAN_VIEW: Visible to all users.
+   * - PART_USERS_CAN_VIEW: Visible to specific users.
+   * - PART_USERS_CAN_NOT_VIEW: Invisible to specific users.
    * 
    * @example
    * PART_USERS_CAN_VIEW
@@ -99,12 +99,12 @@ export class CreateBizMetricRequestCreateBizMetricCommandViewScope extends $dara
   scopeType?: string;
   /**
    * @remarks
-   * The names of user groups. This parameter is read only when the visibility scope is set to PART_USERS_CAN_VIEW or PART_USERS_CAN_NOT_VIEW.
+   * The names of the user groups. This information is read only when the visibility scope of the asset is set to Visible to specific users or Invisible to specific users.
    */
   userGroupNames?: string[];
   /**
    * @remarks
-   * The usernames of individual accounts. This parameter takes effect only when the visibility scope is set to PART_USERS_CAN_VIEW or PART_USERS_CAN_NOT_VIEW.
+   * The usernames of individual accounts. This parameter is valid only when the visibility scope of the asset is set to Visible to specific users or Invisible to specific users.
    */
   userNames?: string[];
   static names(): { [key: string]: string } {
@@ -141,12 +141,12 @@ export class CreateBizMetricRequestCreateBizMetricCommandViewScope extends $dara
 export class CreateBizMetricRequestCreateBizMetricCommand extends $dara.Model {
   /**
    * @remarks
-   * The list of full names of associated technical metrics. Enter the full name in the format of "OwnerTableFullName.MetricName", where "OwnerTableFullName" equals "AssetSource.OwnerTableName". A technical metric can be associated with only one business metric and cannot be associated repeatedly.
+   * The list of full names of associated technical metrics. Enter the technical metric in the format of "Full table name.Metric name", where "Full table name" is equal to "Asset source.Table name". A technical metric can be associated with only one business metric and cannot be associated repeatedly.
    */
   associatedTechMetricFullNames?: string[];
   /**
    * @remarks
-   * The name of the business owner. Enter the username of the owner account.
+   * The name of the business owner. Enter the username of the owner\\"s account.
    * 
    * @example
    * SuperAdmin
@@ -154,7 +154,7 @@ export class CreateBizMetricRequestCreateBizMetricCommand extends $dara.Model {
   bizOwnerName?: string;
   /**
    * @remarks
-   * The IDs of the folders to which the metric belongs.
+   * The IDs of the parent folders.
    */
   catalogIds?: number[];
   /**
@@ -185,7 +185,7 @@ export class CreateBizMetricRequestCreateBizMetricCommand extends $dara.Model {
   labels?: string[];
   /**
    * @remarks
-   * The metric definition. To reference other business metrics, enclose the metric name in square brackets [ ].
+   * The metric definition. To reference other business metrics, enclose the metric names in half-width square brackets [ ].
    * 
    * @example
    * [Metric1]+[Metric2]
@@ -193,7 +193,7 @@ export class CreateBizMetricRequestCreateBizMetricCommand extends $dara.Model {
   metricDefinition?: string;
   /**
    * @remarks
-   * This parameter is read only when the metric relationship diagram is enabled. Enter a calculation expression composed of metric names selected from the related business metrics. Supported operators include +, -, *, /, (, ), %, and ∑. Each metric name must be enclosed in square brackets [ ]. If no operator is specified between two metrics, the system automatically inserts a padding placeholder. If no metric relational expression is configured, the metric relationship diagram switch is automatically shutdown.
+   * The expression for the metric relationship diagram. This information is read only when the metric relationship diagram is enabled. You can only enter a calculation expression composed of metric names selected from the related business metrics. The supported operators are +, -, *, /, (), %, and ∑. Each metric name must be enclosed in half-width square brackets [ ]. If no operator is specified between two metrics, the system automatically adds padding as a placeholder. If the metric relational expression is not configured, the metric relationship diagram switch is automatically set to shutdown.
    * 
    * @example
    * [Metric1]+[Metric2]
@@ -204,8 +204,7 @@ export class CreateBizMetricRequestCreateBizMetricCommand extends $dara.Model {
    * Specifies whether to enable the metric relationship diagram. Valid values:
    * - true: Enabled.
    * - false: Disabled.
-   * 
-   * This parameter can be set to true only when at least one related business metric exists. Otherwise, the diagram is automatically disabled.
+   * This switch can be enabled only when at least one related business metric exists. Otherwise, it is automatically disabled.
    * 
    * @example
    * true
@@ -213,7 +212,7 @@ export class CreateBizMetricRequestCreateBizMetricCommand extends $dara.Model {
   metricRelationDiagramSwitchOpen?: boolean;
   /**
    * @remarks
-   * The name of the business metric. The name must be unique within the tenant. The name can contain letters, digits, and the following special characters: -_/\\·#$^&*()%+=. The name can be up to 256 characters in length.
+   * The name of the business metric. The name must be unique within the tenant. Only English letters, digits, and specific special characters (-_/\\·#$^&*()%+=) are supported. Maximum length: 256 characters.
    * 
    * This parameter is required.
    * 
@@ -231,7 +230,7 @@ export class CreateBizMetricRequestCreateBizMetricCommand extends $dara.Model {
   operateInstructionContent?: string;
   /**
    * @remarks
-   * Specifies whether to enable the operation instructions. Valid values:
+   * Specifies whether to enable operation instructions. Valid values:
    * - true: Enabled.
    * - false: Disabled.
    * 
@@ -241,7 +240,7 @@ export class CreateBizMetricRequestCreateBizMetricCommand extends $dara.Model {
   operateInstructionEnabled?: boolean;
   /**
    * @remarks
-   * The list of related business metrics. Enter the names of related business metrics and their relationships.
+   * The list of related business metrics. Enter the names of the related business metrics and their relationships.
    */
   relatedBizMetrics?: CreateBizMetricRequestCreateBizMetricCommandRelatedBizMetrics[];
   /**
@@ -319,7 +318,7 @@ export class CreateBizMetricRequestCreateBizMetricCommand extends $dara.Model {
 export class CreateBizMetricRequest extends $dara.Model {
   /**
    * @remarks
-   * The create request.
+   * The creation request.
    * 
    * This parameter is required.
    */
@@ -335,6 +334,9 @@ export class CreateBizMetricRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

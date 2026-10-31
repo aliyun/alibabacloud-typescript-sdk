@@ -50,7 +50,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   assetTagList?: string[];
   /**
    * @remarks
-   * The ID of the business unit.
+   * The business unit ID.
    * 
    * @example
    * 2011
@@ -58,7 +58,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
-   * The name of the business unit.
+   * The business unit name.
    * 
    * @example
    * LD_test01
@@ -66,7 +66,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   bizUnitName?: string;
   /**
    * @remarks
-   * The comment of the table.
+   * The table comment.
    * 
    * @example
    * test
@@ -82,7 +82,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the creator.
+   * The creator ID.
    * 
    * @example
    * 30011211
@@ -90,7 +90,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The ID of the data domain.
+   * The data domain ID.
    * 
    * @example
    * 211
@@ -98,7 +98,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   dataDomainId?: number;
   /**
    * @remarks
-   * The name of the data domain.
+   * The subject area name.
    * 
    * @example
    * 211
@@ -106,7 +106,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   dataDomainName?: string;
   /**
    * @remarks
-   * The ID of the data source.
+   * The data source ID.
    * 
    * @example
    * 3301
@@ -114,17 +114,15 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * The display name of the table.
+   * The table display name.
    * 
    * @example
-   * 学生
+   * Student
    */
   displayName?: string;
   /**
    * @remarks
-   * The environment. Valid values:
-   * - dev
-   * - prod.
+   * The environment. Valid values: dev and prod.
    * 
    * @example
    * dev
@@ -132,7 +130,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The file ID. This value is used to navigate to the ODM model.
+   * The file ID used to navigate to the ODM model.
    * 
    * @example
    * 2
@@ -140,7 +138,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The GUID of the table.
+   * The table GUID.
    * 
    * @example
    * 10011
@@ -148,12 +146,12 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   guid?: string;
   /**
    * @remarks
-   * Indicates whether the project or business version to which the table belongs is in Basic mode.
+   * Specifies whether the project or business version to which the table belongs is in Basic mode.
    */
   isBasicMode?: boolean;
   /**
    * @remarks
-   * Indicates whether the table is a partitioned table.
+   * Specifies whether the table is a partitioned table.
    */
   isPartitionTable?: boolean;
   /**
@@ -190,7 +188,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   lifeCycle?: number;
   /**
    * @remarks
-   * The name of the table.
+   * The table name.
    * 
    * @example
    * t_test01
@@ -198,7 +196,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Dataphin user ID of the table owner. This value may be empty if the owner is not bound.
+   * The user ID of the table owner in Dataphin. This parameter may be empty if the owner is not bound.
    * 
    * @example
    * 30011211
@@ -206,7 +204,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The ID of the parent model. This value is used to navigate to the ODM model.
+   * The parent model ID used to navigate to the ODM model.
    * 
    * @example
    * 1
@@ -214,7 +212,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   parentModelId?: string;
   /**
    * @remarks
-   * The ID of the logical project.
+   * The logical project ID.
    * 
    * @example
    * 1011
@@ -222,7 +220,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the logical project.
+   * The logical project name.
    * 
    * @example
    * testPrj
@@ -241,22 +239,20 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
    * The abbreviation of the security classification name.
    * 
    * @example
-   * 高级
+   * High
    */
   securityLevelAbbreviation?: string;
   /**
    * @remarks
-   * The name of the security classification.
+   * The security classification name.
    * 
    * @example
-   * 高级
+   * High
    */
   securityLevelName?: string;
   /**
    * @remarks
-   * The storage type. Valid values:
-   * - HIVE
-   * - MAX_COMPUTE.
+   * The storage type. Valid values: HIVE and MAX_COMPUTE.
    * 
    * @example
    * HIVE
@@ -264,7 +260,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The dynamic properties of the real-time meta table.
+   * The dynamic properties of the real-time metatable.
    */
   streamTableConfig?: ListTablesResponseBodyPageResultTableListStreamTableConfig[];
   /**
@@ -373,7 +369,7 @@ export class ListTablesResponseBodyPageResultTableList extends $dara.Model {
 export class ListTablesResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The list of tables.
+   * The table list.
    */
   tableList?: ListTablesResponseBodyPageResultTableList[];
   /**
@@ -421,7 +417,7 @@ export class ListTablesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP response code.
    * 
    * @example
    * 200
@@ -429,7 +425,7 @@ export class ListTablesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -450,7 +446,7 @@ export class ListTablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -51,14 +51,12 @@ export class ListBizUnitsResponseBodyDataBizUnitList extends $dara.Model {
    * The display name.
    * 
    * @example
-   * 测试
+   * Test
    */
   displayName?: string;
   /**
    * @remarks
-   * The environment identifier. Valid values:
-   * - DEV: development environment.
-   * - PROD: production environment.
+   * The environment identifier. Valid values: DEV (development environment) and PROD (production environment).
    * 
    * @example
    * DEV
@@ -82,7 +80,7 @@ export class ListBizUnitsResponseBodyDataBizUnitList extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The business unit icon.
+   * The icon of the business unit.
    * 
    * @example
    * icon-e-commerce
@@ -90,7 +88,7 @@ export class ListBizUnitsResponseBodyDataBizUnitList extends $dara.Model {
   icon?: string;
   /**
    * @remarks
-   * The business unit ID.
+   * The ID of the business unit.
    * 
    * @example
    * 101001201
@@ -98,7 +96,7 @@ export class ListBizUnitsResponseBodyDataBizUnitList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the user who last modified the business unit.
+   * The ID of the last modifier.
    * 
    * @example
    * 30010010
@@ -106,17 +104,15 @@ export class ListBizUnitsResponseBodyDataBizUnitList extends $dara.Model {
   lastModifier?: string;
   /**
    * @remarks
-   * The name of the user who last modified the business unit.
+   * The name of the last modifier.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   lastModifierName?: string;
   /**
    * @remarks
-   * The production mode. Valid values:
-   * - BASIC: single-environment mode.
-   * - DEV_PROD: development/production dual-environment mode.
+   * The production mode. Valid values: BASIC (single-environment mode) and DEV_PROD (development and production dual-environment mode).
    * 
    * @example
    * DEV_PROD
@@ -132,15 +128,15 @@ export class ListBizUnitsResponseBodyDataBizUnitList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The owner of the business object.
+   * The ID of the owner of the business object.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
    * @remarks
-   * The owner of the business object.
+   * The ID of the owner of the business object.
    * 
    * @example
    * 30010010
@@ -199,7 +195,7 @@ export class ListBizUnitsResponseBodyDataBizUnitList extends $dara.Model {
 export class ListBizUnitsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The business unit details.
+   * The details of the business units.
    */
   bizUnitList?: ListBizUnitsResponseBodyDataBizUnitList[];
   static names(): { [key: string]: string } {
@@ -229,7 +225,7 @@ export class ListBizUnitsResponseBodyData extends $dara.Model {
 export class ListBizUnitsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -266,7 +262,7 @@ export class ListBizUnitsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

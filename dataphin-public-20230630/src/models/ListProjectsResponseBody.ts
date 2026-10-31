@@ -21,7 +21,7 @@ export class ListProjectsResponseBodyPageResultProjectList extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * The name of the compute source.
+   * The compute source name.
    * 
    * @example
    * ds1
@@ -32,7 +32,7 @@ export class ListProjectsResponseBodyPageResultProjectList extends $dara.Model {
    * The description.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
@@ -40,7 +40,7 @@ export class ListProjectsResponseBodyPageResultProjectList extends $dara.Model {
    * The display name of the project.
    * 
    * @example
-   * 测试
+   * Test
    */
   displayName?: string;
   /**
@@ -53,7 +53,7 @@ export class ListProjectsResponseBodyPageResultProjectList extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The time when the project was created, in the yyyy-MM-dd HH:mm:ss format.
+   * The creation time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -61,7 +61,7 @@ export class ListProjectsResponseBodyPageResultProjectList extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the project was last modified, in the yyyy-MM-dd HH:mm:ss format.
+   * The update time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -104,7 +104,7 @@ export class ListProjectsResponseBodyPageResultProjectList extends $dara.Model {
    * The project owner.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
@@ -117,7 +117,7 @@ export class ListProjectsResponseBodyPageResultProjectList extends $dara.Model {
   realtimeDataSourceId?: number;
   /**
    * @remarks
-   * The name of the real-time compute source.
+   * The real-time compute source name.
    * 
    * @example
    * ds2
@@ -185,7 +185,7 @@ export class ListProjectsResponseBodyPageResultProjectList extends $dara.Model {
 export class ListProjectsResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The paginated list of projects.
+   * The paginated project list.
    */
   projectList?: ListProjectsResponseBodyPageResultProjectList[];
   /**
@@ -241,7 +241,7 @@ export class ListProjectsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -262,7 +262,7 @@ export class ListProjectsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

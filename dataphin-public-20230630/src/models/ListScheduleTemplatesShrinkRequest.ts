@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListScheduleTemplatesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The query conditions for the scheduling template list. This is a JSON object that supports keyword search and pagination.
+   * 
    * This parameter is required.
    */
   listScheduleTemplatesCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID, which indicates the tenant for the current operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +21,9 @@ export class ListScheduleTemplatesShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

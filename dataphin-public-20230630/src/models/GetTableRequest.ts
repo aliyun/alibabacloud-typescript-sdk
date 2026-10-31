@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableRequest extends $dara.Model {
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class GetTableRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
+   * @remarks
+   * The GUID of the table asset.
+   * 
    * @example
    * dp_ds_table.123.12344.db.table
    */

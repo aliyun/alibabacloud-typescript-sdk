@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDataSourceConnectivityShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The object to check.
+   * The check target.
    * 
    * This parameter is required.
    */
@@ -21,6 +21,9 @@ export class CheckDataSourceConnectivityShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

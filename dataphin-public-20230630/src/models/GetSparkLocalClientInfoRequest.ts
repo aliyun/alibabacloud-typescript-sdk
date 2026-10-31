@@ -6,9 +6,8 @@ export class GetSparkLocalClientInfoRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * 
-   * - DEV: development environment.
-   * - PROD: production environment.
+   * - DEV: Development environment.
+   * - PROD: Production environment.
    * 
    * This parameter is required.
    * 
@@ -27,6 +26,9 @@ export class GetSparkLocalClientInfoRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

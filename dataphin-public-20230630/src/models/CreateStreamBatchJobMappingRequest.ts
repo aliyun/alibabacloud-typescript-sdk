@@ -18,12 +18,12 @@ export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateComman
    * The description.
    * 
    * @example
-   * 这是一段任务的描述信息
+   * This is a sample description for the task
    */
   description?: string;
   /**
    * @remarks
-   * The folder in which the node is generated.
+   * The directory where the task is generated.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateComman
   directory?: string;
   /**
    * @remarks
-   * The Flink DPI engine version.
+   * The database engine version of the Flink DPI engine.
    * 
    * This parameter is required.
    * 
@@ -93,7 +93,7 @@ export class CreateStreamBatchJobMappingRequestStreamBatchJobMappingCreateComman
   queueName?: string;
   /**
    * @remarks
-   * The VVP cluster type. Valid values: SESSION and PREJOB. This parameter is specific to VVP. If not applicable, leave this parameter empty or do not pass it.
+   * The VVP cluster type. This parameter is specific to VVP. Valid values: SESSION and PREJOB. If it is not applicable, leave it empty or do not specify it.
    * 
    * This parameter is required.
    * 
@@ -152,13 +152,16 @@ export class CreateStreamBatchJobMappingRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The stream-batch integrated node information.
+   * The stream-batch integrated task information.
    * 
    * This parameter is required.
    */

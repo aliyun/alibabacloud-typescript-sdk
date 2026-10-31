@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   /**
    * @remarks
-   * The udf type. Valid values:
-   * - 1: window function.
-   * - 2: statistical function.
-   * - 3: numerical function.
-   * - 4: string function.
-   * - 5: time function.
-   * - 6: IP address utility function.
+   * The category. Valid values:
+   * - 1: Window function.
+   * - 2: Statistical function.
+   * - 3: Numerical function.
+   * - 4: String function.
+   * - 5: Time function.
+   * - 6: IP address helper function.
    * - 7: URL-related function.
-   * - 8: encoding and decoding function.
-   * - 9: business-related function.
-   * - 10: other.
+   * - 8: Encoding and decoding function.
+   * - 9: Business-related function.
+   * - 10: Other.
    * 
    * @example
    * 10
@@ -31,7 +31,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   className?: string;
   /**
    * @remarks
-   * The command help.
+   * The command help information.
    * 
    * @example
    * udf_to_lower(char x)
@@ -63,7 +63,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The directory where the function is stored.
+   * The storage directory.
    * 
    * @example
    * /
@@ -71,7 +71,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * The creation time, in the yyyy-MM-d HH:mm:ss format.
+   * The creation time. Format: yyyy-MM-d HH:mm:ss.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -79,7 +79,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time, in the yyyy-MM-d HH:mm:ss format.
+   * The update time. Format: yyyy-MM-d HH:mm:ss.
    * 
    * @example
    * 2025-06-10 10:01:01
@@ -87,7 +87,7 @@ export class GetUdfByVersionResponseBodyUdfInfo extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the user-defined function.
+   * The custom function ID.
    * 
    * @example
    * 1030111021
@@ -171,7 +171,7 @@ export class GetUdfByVersionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -187,12 +187,12 @@ export class GetUdfByVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   /**
    * @remarks
-   * The details of the user-defined function.
+   * The custom function details.
    */
   udfInfo?: GetUdfByVersionResponseBodyUdfInfo;
   static names(): { [key: string]: string } {

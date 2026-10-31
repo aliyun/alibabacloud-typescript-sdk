@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Model {
   /**
    * @remarks
-   * The approval flow ID.
+   * The ID of the approval process.
    * 
    * @example
    * 221323121212
@@ -15,11 +15,11 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Mo
    * @remarks
    * The approval status. Valid values:
    * - INIT: Not submitted.
-   * - APPROVING: Pending approval.
+   * - APPROVING: Under approval.
    * - AGREE: Approved.
    * - REJECT: Rejected.
-   * - FAILED: Validation failed.
-   * - REVOKE: Withdrawn.
+   * - FAILED: Verification failed.
+   * - REVOKE: Voluntarily withdrawn.
    * 
    * @example
    * APPROVING
@@ -27,7 +27,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Mo
   approvalStatus?: string;
   /**
    * @remarks
-   * The list of child business objects of the business object.
+   * The child business objects of the business object.
    */
   childBizEntityIdList?: number[];
   /**
@@ -48,7 +48,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Mo
   displayName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the business object was created.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -56,7 +56,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Mo
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the business object was last updated.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -64,7 +64,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Mo
   gmtModified?: string;
   /**
    * @remarks
-   * The business object ID.
+   * The ID of the business object.
    * 
    * @example
    * 1011
@@ -83,7 +83,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Mo
    * The name of the user who last modified the business object.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   lastModifierName?: string;
   /**
@@ -96,11 +96,11 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The publish status. Valid values: 
-   * - SUBMITTED: Not published.
-   * - APPROVING: Pending approval.
-   * - PUBLISHED: Published.
-   * - REJECT: Publish failed.
+   * The online status. Valid values: 
+   * - SUBMITTED: Not online.
+   * - APPROVING: Under approval.
+   * - PUBLISHED: Online.
+   * - REJECT: Failed to go online.
    * 
    * @example
    * SUBMITTED
@@ -108,15 +108,15 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Mo
   onlineStatus?: string;
   /**
    * @remarks
-   * The owner of the business object.
+   * The ID of the business object owner.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
    * @remarks
-   * The owner of the business object.
+   * The ID of the business object owner.
    * 
    * @example
    * 30010010
@@ -124,7 +124,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Mo
   ownerUserId?: string;
   /**
    * @remarks
-   * The parent entity that the business object inherits from. Only common business objects support inheritance, and the parent entity must be a published business object.
+   * The ID of the parent entity inherited by the business object. Only common business objects can be configured to inherit entities, and they can only inherit online business objects.
    * 
    * @example
    * 116306
@@ -132,7 +132,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Mo
   parentId?: number;
   /**
    * @remarks
-   * The list of associated published business entity IDs.
+   * The IDs of the associated online business entities.
    */
   refBizEntityIdList?: number[];
   /**
@@ -154,7 +154,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Mo
   /**
    * @remarks
    * The status. Valid values:
-   * - DRAFT: Draft or not published.
+   * - DRAFT: Draft or not online.
    * - SUBMITTING: Submitting.
    * - SUBMITTED: Submitted.
    * - DEVELOPING: Developing.
@@ -167,7 +167,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The object type of the business object. For more information, refer to the create business entity operation.
+   * The object type of the business object. For more information, see the Create business entity operation.
    * 
    * @example
    * NORMAL
@@ -241,7 +241,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizObject extends $dara.Mo
 export class GetBizEntityInfoResponseBodyBizEntityInfoBizProcess extends $dara.Model {
   /**
    * @remarks
-   * The approval flow ID.
+   * The ID of the approval process.
    * 
    * @example
    * 221323121212
@@ -263,12 +263,12 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizProcess extends $dara.M
   approvalStatus?: string;
   /**
    * @remarks
-   * The list of business event activity IDs contained in the business flow activity. This parameter is valid only when the entity is a business flow activity.
+   * The list of business event activity IDs included in the business process activity. This field is valid only when the current entity is a business process activity.
    */
   bizEventEntityIdList?: number[];
   /**
    * @remarks
-   * The description of the business process.
+   * The description of the business activity.
    * 
    * @example
    * test
@@ -276,15 +276,15 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizProcess extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The display name of the business process.
+   * The display name of the business activity.
    * 
    * @example
-   * 业务活动测试
+   * Business activity test
    */
   displayName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the business object was created.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -292,7 +292,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizProcess extends $dara.M
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the business object was last updated.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -300,12 +300,12 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizProcess extends $dara.M
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the business process is depended on by other entities.
+   * Indicates whether the business process activity has dependents.
    */
   hasDependent?: boolean;
   /**
    * @remarks
-   * The business process ID.
+   * The ID of the business activity.
    * 
    * @example
    * 1011
@@ -324,12 +324,12 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizProcess extends $dara.M
    * The name of the user who last modified the business object.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   lastModifierName?: string;
   /**
    * @remarks
-   * The name of the business process.
+   * The name of the business activity.
    * 
    * @example
    * create_process_code_name
@@ -337,11 +337,11 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizProcess extends $dara.M
   name?: string;
   /**
    * @remarks
-   * The publish status. Valid values: 
-   * - SUBMITTED: Not published.
-   * - APPROVING: Pending approval.
-   * - PUBLISHED: Published.
-   * - REJECT: Publish failed.
+   * The online status. Valid values: 
+   * - SUBMITTED: Not online.
+   * - APPROVING: Under approval.
+   * - PUBLISHED: Online.
+   * - REJECT: Failed to go online.
    * 
    * @example
    * SUBMITTED
@@ -349,15 +349,15 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizProcess extends $dara.M
   onlineStatus?: string;
   /**
    * @remarks
-   * The owner of the business object.
+   * The ID of the business object owner.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
    * @remarks
-   * The owner of the business object.
+   * The ID of the business object owner.
    * 
    * @example
    * 30010010
@@ -365,17 +365,17 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizProcess extends $dara.M
   ownerUserId?: string;
   /**
    * @remarks
-   * The preceding business flow activities of the business flow activity.
+   * The preceding business process activities of the business process activity.
    */
   preBizProcessIdList?: number[];
   /**
    * @remarks
-   * The list of associated published business entity IDs.
+   * The IDs of the associated online business entities.
    */
   refBizEntityIdList?: number[];
   /**
    * @remarks
-   * The number of associated fact tables.
+   * The number of associated logical fact tables.
    * 
    * @example
    * 1
@@ -384,7 +384,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizProcess extends $dara.M
   /**
    * @remarks
    * The status. Valid values:
-   * - DRAFT: Draft or not published.
+   * - DRAFT: Draft or not online.
    * - SUBMITTING: Submitting.
    * - SUBMITTED: Submitted.
    * - DEVELOPING: Developing.
@@ -397,7 +397,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfoBizProcess extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The type of the business process. For more information, refer to the create business entity operation.
+   * The type of the business activity. For more information, see the Create business entity operation.
    * 
    * @example
    * BIZ_EVENT
@@ -479,12 +479,12 @@ export class GetBizEntityInfoResponseBodyBizEntityInfo extends $dara.Model {
   bizObject?: GetBizEntityInfoResponseBodyBizEntityInfoBizObject;
   /**
    * @remarks
-   * The business process.
+   * The business activity.
    */
   bizProcess?: GetBizEntityInfoResponseBodyBizEntityInfoBizProcess;
   /**
    * @remarks
-   * The ID of the business unit to which the business process belongs.
+   * The ID of the business unit to which the business activity belongs.
    * 
    * @example
    * 6798087749072704
@@ -492,7 +492,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfo extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
-   * The ID of the data domain to which the business process belongs.
+   * The ID of the data domain to which the business activity belongs.
    * 
    * @example
    * 20101011
@@ -500,7 +500,7 @@ export class GetBizEntityInfoResponseBodyBizEntityInfo extends $dara.Model {
   dataDomainId?: number;
   /**
    * @remarks
-   * The business entity type. For more information, refer to the create business entity operation.
+   * The business entity type. For more information, see the Create business entity operation.
    * 
    * @example
    * BIZ_OBJECT
@@ -549,7 +549,7 @@ export class GetBizEntityInfoResponseBody extends $dara.Model {
   bizEntityInfo?: GetBizEntityInfoResponseBodyBizEntityInfo;
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -581,7 +581,7 @@ export class GetBizEntityInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

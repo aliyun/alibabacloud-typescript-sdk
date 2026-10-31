@@ -15,7 +15,7 @@ export class OfflineBatchTaskRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The node ID in the node directory tree.
+   * The node ID in the task directory tree.
    * 
    * This parameter is required.
    * 
@@ -34,6 +34,9 @@ export class OfflineBatchTaskRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

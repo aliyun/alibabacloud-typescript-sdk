@@ -12,7 +12,7 @@ export class ListProjectsShrinkRequest extends $dara.Model {
   listQueryShrink?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The operator tenant ID.
    * 
    * This parameter is required.
    * 
@@ -21,6 +21,9 @@ export class ListProjectsShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

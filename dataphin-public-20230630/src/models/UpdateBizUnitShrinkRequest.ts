@@ -14,6 +14,9 @@ export class UpdateBizUnitShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user that performs the operation.
+   * 
    * @example
    * 30001011
    */

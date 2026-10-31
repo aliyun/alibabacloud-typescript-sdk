@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBizMetricResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
    * success
@@ -13,8 +13,8 @@ export class CreateBizMetricResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the creation was successful. Valid values:
-   * - true: Succeeded.
+   * Indicates whether the creation is successful. Valid values:
+   * - true: Successful.
    * - false: Failed.
    * 
    * @example
@@ -68,7 +68,7 @@ export class CreateBizMetricResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error details from the backend.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -84,7 +84,7 @@ export class CreateBizMetricResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

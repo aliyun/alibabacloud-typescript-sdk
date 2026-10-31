@@ -13,7 +13,7 @@ export class GetStandardStatisticsResponseBodyDataStandardTypeCountList extends 
   count?: number;
   /**
    * @remarks
-   * The standard type.
+   * The type of the standard.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class GetStandardStatisticsResponseBodyDataStandardTypeCountList extends 
 export class GetStandardStatisticsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The mapping between standard types and the number of standards for each type. If the standard type is empty, the key is EMPTY.
+   * The mapping between each standard type and the number of standards of that type. If the standard type is empty, the key is EMPTY.
    */
   standardTypeCountList?: GetStandardStatisticsResponseBodyDataStandardTypeCountList[];
   /**
@@ -93,7 +93,7 @@ export class GetStandardStatisticsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The statistical results.
+   * The statistics result.
    */
   data?: GetStandardStatisticsResponseBodyData;
   /**
@@ -106,7 +106,7 @@ export class GetStandardStatisticsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The exception details returned by the backend.
    * 
    * @example
    * internal error

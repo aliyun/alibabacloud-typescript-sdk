@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAssetMappingRelationsResponseBodyMappingRelationList extends $dara.Model {
   /**
    * @remarks
-   * The Asset Type. Valid values:
-   * - COLUMN: field.
-   * - INDEX: metric.
+   * The asset type. Valid values: COLUMN (field) and INDEX (metric).
    * 
    * @example
    * COLUMN
@@ -23,7 +21,7 @@ export class GetAssetMappingRelationsResponseBodyMappingRelationList extends $da
   guid?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -63,7 +61,7 @@ export class GetAssetMappingRelationsResponseBodyMappingRelationList extends $da
   standardName?: string;
   /**
    * @remarks
-   * The folder in which the standard set resides.
+   * The folder where the standard set is located.
    * 
    * @example
    * /dir1
@@ -158,7 +156,7 @@ export class GetAssetMappingRelationsResponseBody extends $dara.Model {
   mappingRelationList?: GetAssetMappingRelationsResponseBodyMappingRelationList[];
   /**
    * @remarks
-   * The error details from the backend response.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -174,7 +172,7 @@ export class GetAssetMappingRelationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithValueListAttributeInfoValueConfigDefaultValue extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the maximum value is included.
+   * Specifies whether the maximum value is included.
    */
   includeMaxValue?: boolean;
   /**
    * @remarks
-   * Indicates whether the minimum value is included.
+   * Specifies whether the minimum value is included.
    */
   includeMinValue?: boolean;
   /**
    * @remarks
-   * The maximum value. This applies to range interval attributes.
+   * The maximum value. This parameter applies to range attributes.
    * 
    * @example
    * 100
@@ -23,7 +23,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithV
   maxValue?: string;
   /**
    * @remarks
-   * The minimum value. This applies to range interval attributes.
+   * The minimum value. This parameter applies to range attributes.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithV
   minValue?: string;
   /**
    * @remarks
-   * The list of attribute values. This applies to attributes with the input method set to custom input, single-select dropdown, or multi-select dropdown.
+   * The attribute value list. This parameter applies to attributes whose input method is custom input, single-select drop-down list, or multi-select drop-down list.
    */
   valueList?: string[];
   static names(): { [key: string]: string } {
@@ -69,13 +69,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithV
 export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithValueListAttributeInfoValueConfig extends $dara.Model {
   /**
    * @remarks
-   * The attribute field type. Valid values:
-   * - STRING: text.
-   * - BIGINT: integer.
-   * - DOUBLE: floating-point.
-   * - BOOLEAN: Boolean.
-   * - DATE: date.
-   * - DATETIME: datetime.
+   * The attribute field type. Valid values: STRING (text), BIGINT (integer), DOUBLE (floating-point number), BOOLEAN (boolean), DATE (date), and DATETIME (datetime).
    * 
    * @example
    * STRING
@@ -83,12 +77,12 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithV
   dataType?: string;
   /**
    * @remarks
-   * The attribute default value.
+   * The default value of the attribute.
    */
   defaultValue?: ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithValueListAttributeInfoValueConfigDefaultValue;
   /**
    * @remarks
-   * The attribute field length. This constrains the maximum length of text-type attribute values.
+   * The attribute field length. You can use this parameter to constrain the maximum length of text attribute values.
    * 
    * @example
    * 6997283
@@ -96,11 +90,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithV
   length?: number;
   /**
    * @remarks
-   * The attribute value input method. Valid values:
-   * - CUSTOMIZED: custom input.
-   * - SINGLE_ENUM: single-select dropdown.
-   * - MULTIPLE_ENUMS: multi-select dropdown.
-   * - RANGE: range interval.
+   * The attribute value input method. Valid values: CUSTOMIZED (custom input), SINGLE_ENUM (single-select drop-down list), MULTIPLE_ENUMS (multi-select drop-down list), and RANGE (range).
    * 
    * @example
    * CUSTOMIZED
@@ -108,7 +98,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithV
   type?: string;
   /**
    * @remarks
-   * The attribute option values. This applies only to attributes with the input method set to single-select dropdown or multi-select dropdown.
+   * The attribute option values. This parameter applies only to attributes whose input method is a single-select or multi-select drop-down list.
    */
   valueEnumList?: string[];
   static names(): { [key: string]: string } {
@@ -157,7 +147,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithV
   description?: string;
   /**
    * @remarks
-   * Indicates whether the attribute is enabled.
+   * Specifies whether the attribute is enabled.
    */
   enabled?: boolean;
   /**
@@ -178,12 +168,12 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithV
   name?: string;
   /**
    * @remarks
-   * Indicates whether the attribute is required.
+   * Specifies whether the attribute is required.
    */
   required?: boolean;
   /**
    * @remarks
-   * Indicates whether the attribute is searchable.
+   * Specifies whether the attribute is searchable.
    */
   searchable?: boolean;
   /**
@@ -230,17 +220,17 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithV
 export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithValueListAttributeValue extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the maximum value is included.
+   * Specifies whether the maximum value is included.
    */
   includeMaxValue?: boolean;
   /**
    * @remarks
-   * Indicates whether the minimum value is included.
+   * Specifies whether the minimum value is included.
    */
   includeMinValue?: boolean;
   /**
    * @remarks
-   * The maximum value. This applies to range interval attributes.
+   * The maximum value. This parameter applies to range attributes.
    * 
    * @example
    * 100
@@ -248,7 +238,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithV
   maxValue?: string;
   /**
    * @remarks
-   * The minimum value. This applies to range interval attributes.
+   * The minimum value. This parameter applies to range attributes.
    * 
    * @example
    * 1
@@ -256,7 +246,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithV
   minValue?: string;
   /**
    * @remarks
-   * The list of attribute values. This applies to attributes with the input method set to custom input, single-select dropdown, or multi-select dropdown.
+   * The attribute value list. This parameter applies to attributes whose input method is custom input, single-select drop-down list, or multi-select drop-down list.
    */
   valueList?: string[];
   static names(): { [key: string]: string } {
@@ -299,7 +289,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithV
   attributeInfo?: ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithValueListAttributeInfo;
   /**
    * @remarks
-   * The property value.
+   * The attribute value.
    */
   attributeValue?: ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithValueListAttributeValue;
   static names(): { [key: string]: string } {
@@ -334,7 +324,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithV
 export class ListQualityRulesResponseBodyPageResultQualityRuleListFormPropertyList extends $dara.Model {
   /**
    * @remarks
-   * The control type.
+   * The component type.
    * 
    * @example
    * expression
@@ -350,7 +340,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListFormPropertyLi
   name?: string;
   /**
    * @remarks
-   * The property value.
+   * The attribute value.
    * 
    * @example
    * abc
@@ -384,7 +374,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListFormPropertyLi
 export class ListQualityRulesResponseBodyPageResultQualityRuleListScheduleBindList extends $dara.Model {
   /**
    * @remarks
-   * The schedule ID.
+   * The ID of the schedule.
    * 
    * @example
    * 1
@@ -392,7 +382,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListScheduleBindLi
   scheduleId?: number;
   /**
    * @remarks
-   * The schedule name.
+   * The name of the schedule.
    * 
    * @example
    * test
@@ -424,7 +414,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListScheduleBindLi
 export class ListQualityRulesResponseBodyPageResultQualityRuleListValidateConditionList extends $dara.Model {
   /**
    * @remarks
-   * The condition node ID.
+   * The ID of the condition node.
    * 
    * @example
    * 268
@@ -440,7 +430,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListValidateCondit
   metric?: string;
   /**
    * @remarks
-   * The metric name.
+   * The name of the metric.
    * 
    * @example
    * test
@@ -448,7 +438,15 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListValidateCondit
   metricName?: string;
   /**
    * @remarks
-   * The operator. Valid values: EQUAL, NOT_EQUAL, LARGER, SMALLER, LARGE_OR_EQUAL, SMALLER_OR_EQUAL, AND, OR.
+   * The operator. Valid values:
+   * - EQUAL: Equal to.
+   * - NOT_EQUAL: Not equal to.
+   * - LARGER: Greater than.
+   * - SMALLER: Less than.
+   * - LARGE_OR_EQUAL: Greater than or equal to.
+   * - SMALLER_OR_EQUAL: Less than or equal to.
+   * - AND: AND.
+   * - OR: OR.
    * 
    * @example
    * AND
@@ -456,15 +454,15 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListValidateCondit
   operator?: string;
   /**
    * @remarks
-   * The operator name.
+   * The name of the operator.
    * 
    * @example
-   * 且
+   * AND
    */
   operatorName?: string;
   /**
    * @remarks
-   * The parent condition node ID.
+   * The ID of the parent condition node.
    * 
    * @example
    * 123
@@ -473,8 +471,8 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListValidateCondit
   /**
    * @remarks
    * The condition type. Valid values:
-   * - RELATION: relation.
-   * - EXPRESSION: expression.
+   * - RELATION: Relation.
+   * - EXPRESSION: Expression.
    * 
    * @example
    * RELATION
@@ -526,7 +524,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListValidateCondit
 export class ListQualityRulesResponseBodyPageResultQualityRuleListValidateObject extends $dara.Model {
   /**
    * @remarks
-   * The validation object name.
+   * The name of the validation object.
    * 
    * @example
    * test
@@ -534,7 +532,15 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListValidateObject
   name?: string;
   /**
    * @remarks
-   * The validation object type. Valid values: UNKNOWN, TABLE, COLUMN, DATASOURCE, DATASOURCE_TABLE, REALTIME, INDEX, CHAIN.
+   * The validation object type. Valid values:
+   * - UNKNOWN: Unknown.
+   * - TABLE: Table.
+   * - COLUMN: Column.
+   * - DATASOURCE: Data source.
+   * - DATASOURCE_TABLE: Data source table.
+   * - REALTIME: Real-time.
+   * - INDEX: Index.
+   * - CHAIN: Chain.
    * 
    * @example
    * TABLE
@@ -566,25 +572,17 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleListValidateObject
 export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara.Model {
   /**
    * @remarks
-   * The rule business attribute configurations.
+   * The business attribute configuration of the rule.
    */
   attributeWithValueList?: ListQualityRulesResponseBodyPageResultQualityRuleListAttributeWithValueList[];
   /**
    * @remarks
-   * The rule category. Valid values:
-   * - CONSISTENT: consistency.
-   * - EFFECTIVE: validity.
-   * - TIMELINESE: timeliness.
-   * - ACCURATE: accuracy.
-   * - UNIQUENESS: uniqueness.
-   * - COMPLETENESS: completeness.
-   * - STABILITY: stability.
-   * - CUSTOM: custom.
+   * The rule category. Valid values: CONSISTENT (consistency), EFFECTIVE (validity), TIMELINESE (timeliness), ACCURATE (accuracy), UNIQUENESS (uniqueness), COMPLETENESS (completeness), STABILITY (stability), and CUSTOM (custom).
    */
   catalogList?: string[];
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -616,17 +614,17 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   description?: string;
   /**
    * @remarks
-   * Indicates whether exception archiving is enabled.
+   * Specifies whether error archiving is enabled.
    */
   enableErrorArchive?: boolean;
   /**
    * @remarks
-   * The rule configuration key-value pairs. These vary by templatetype: different templatetypes return different form key-value pair configurations.
+   * The rule configuration key-value pairs. Different template types return different form key-value pair configurations.
    */
   formPropertyList?: ListQualityRulesResponseBodyPageResultQualityRuleListFormPropertyList[];
   /**
    * @remarks
-   * The quality rule ID.
+   * The ID of the quality rule.
    * 
    * @example
    * 1
@@ -634,7 +632,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   id?: number;
   /**
    * @remarks
-   * The ID of the user who last modified the rule.
+   * The ID of the user who last modified the quality rule.
    * 
    * @example
    * 30012011
@@ -642,7 +640,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   modifier?: string;
   /**
    * @remarks
-   * The name of the user who last modified the rule.
+   * The name of the user who last modified the quality rule.
    * 
    * @example
    * test
@@ -650,7 +648,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   modifierName?: string;
   /**
    * @remarks
-   * The modification time.
+   * The modification time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -658,7 +656,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   modifyTime?: string;
   /**
    * @remarks
-   * The quality rule name.
+   * The name of the quality rule.
    * 
    * @example
    * test
@@ -671,9 +669,17 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   scheduleBindList?: ListQualityRulesResponseBodyPageResultQualityRuleListScheduleBindList[];
   /**
    * @remarks
-   * The quality rule status. Valid values:
-   * - ENABLE
-   * - DISABLE.
+   * The SQL preview text of the saved rule. The text may contain multiple SQL statements. If preview is not supported or generation fails, null is returned.
+   * 
+   * @example
+   * select count(*) from test_table;
+   */
+  sql?: string;
+  /**
+   * @remarks
+   * The status of the quality rule. Valid values:
+   * - ENABLE: Enabled.
+   * - DISABLE: Disabled.
    * 
    * @example
    * ENABLE
@@ -681,9 +687,9 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   status?: string;
   /**
    * @remarks
-   * The rule strength. Valid values:
-   * - STRONG
-   * - WEAK.
+   * The strength of the rule. Valid values:
+   * - STRONG: Strong rule.
+   * - WEAK: Weak rule.
    * 
    * @example
    * STRONG
@@ -691,7 +697,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   strength?: string;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the template.
    * 
    * @example
    * 1
@@ -699,7 +705,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   templateId?: number;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
    * 1
@@ -707,11 +713,11 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   templateName?: string;
   /**
    * @remarks
-   * The templatetype group. Valid values:
-   * - SYSTEM: system preset.
-   * - CUSTOM: custom template.
-   * - TEMPLATE: union of SYSTEM and CUSTOM.
-   * - CUSTOM_SQL: custom SQL template.
+   * The template type group. Valid values:
+   * - SYSTEM: System preset template.
+   * - CUSTOM: Custom template.
+   * - TEMPLATE: Union of SYSTEM and CUSTOM.
+   * - CUSTOM_SQL: Custom SQL template.
    * 
    * @example
    * CUSTOM
@@ -719,38 +725,38 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   templateScope?: string;
   /**
    * @remarks
-   * The templatetype. Valid values:
-   *   - FIELD_NULL_VALUE_VALIDATE: field null value validation.
-   *   - FIELD_EMPTY_STRING_VALIDATE: field empty character string validation.
-   *   - FIELD_UNIQUE_VALIDATE: field uniqueness validation.
-   *   - FIELD_GROUP_COUNT_VALIDATE: field unique value count validation.
-   *   - FIELD_DUPLICATE_VALUE_COUNT_VALIDATE: field duplicate value count validation.
-   *   - FUNCTION_TIME_COMPARE: time function comparison.
-   *   - SINGLE_TABLE_TIME_COMPARE: non-partitioned table time field comparison.
-   *   - DOUBLE_TABLE_TIME_COMPARE: two-table time field comparison.
-   *   - FIELD_FORMAT_VALIDATE: field format validation.
-   *   - FIELD_LENGTH_VALIDATE: field length validation.
-   *   - FIELD_VALUE_RANGE_VALIDATE: field value range validation.
-   *   - CODE_TABLE_COMPARE: lookup table reference comparison.
-   *   - STANDARD_CODE_TABLE_COMPARE: data standard lookup table reference comparison.
-   *   - SINGLE_TABLE_FIELD_VALUE_COMPARE: non-partitioned table field value consistency comparison.
-   *   - SINGLE_TABLE_FIELD_STATISTICAL_COMPARE: non-partitioned table field statistical value consistency comparison.
-   *   - SINGLE_TABLE_FIELD_EXP_COMPARE: non-partitioned table field business logic consistency comparison.
-   *   - DOUBLE_TABLE_FIELD_VALUE_COMPARE: two-table field value consistency comparison.
-   *   - DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: two-table field statistical value consistency comparison.
-   *   - CROSS_DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: cross-source two-table field statistical value consistency comparison.
-   *   - DOUBLE_TABLE_FIELD_EXP_COMPARE: two-table field business logic consistency comparison.
-   *   - TABLE_STABILITY_VALIDATE: table stability validation.
-   *   - TABLE_FLUCTUATION_VALIDATE: table fluctuation validation.
-   *   - FIELD_STABILITY_VALIDATE: field stability validation.
-   *   - FIELD_FLUCTUATION_VALIDATE: field fluctuation validation.
-   *   - CUSTOM_STATISTICAL_VALIDATE: custom statistical metric validation.
-   *   - CUSTOM_DATA_DETAILS_VALIDATE: custom data details validation.
-   *   - DATASOURCE_AVAILABLE_CHECK: data source connectivity check.
-   *   - TABLE_SCHEMA_CHECK: table schema change detection.
-   *   - REAL_TIME_OFFLINE_COMPARE: real-time and offline comparison.
-   *   - REAL_TIME_STATISTICAL_VALIDATE: real-time statistical value monitoring.
-   *   - REAL_TIME_MULTI_CHAIN_COMPARE: real-time multi-link comparison, and more.
+   * The template type. Valid values:
+   * - FIELD_NULL_VALUE_VALIDATE: Field null value check.
+   * - FIELD_EMPTY_STRING_VALIDATE: Field empty character string check.
+   * - FIELD_UNIQUE_VALIDATE: Field uniqueness check.
+   * - FIELD_GROUP_COUNT_VALIDATE: Field unique value count check.
+   * - FIELD_DUPLICATE_VALUE_COUNT_VALIDATE: Field duplicate value count check.
+   * - FUNCTION_TIME_COMPARE: Time function comparison.
+   * - SINGLE_TABLE_TIME_COMPARE: Non-partitioned table time field comparison.
+   * - DOUBLE_TABLE_TIME_COMPARE: Two-table time field comparison.
+   * - FIELD_FORMAT_VALIDATE: Field format check.
+   * - FIELD_LENGTH_VALIDATE: Field length check.
+   * - FIELD_VALUE_RANGE_VALIDATE: Field value range check.
+   * - CODE_TABLE_COMPARE: Lookup table reference comparison.
+   * - STANDARD_CODE_TABLE_COMPARE: Data standard lookup table reference comparison.
+   * - SINGLE_TABLE_FIELD_VALUE_COMPARE: Non-partitioned table field value consistency comparison.
+   * - SINGLE_TABLE_FIELD_STATISTICAL_COMPARE: Non-partitioned table field statistical value consistency comparison.
+   * - SINGLE_TABLE_FIELD_EXP_COMPARE: Non-partitioned table field business logic consistency comparison.
+   * - DOUBLE_TABLE_FIELD_VALUE_COMPARE: Two-table field value consistency comparison.
+   * - DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: Two-table field statistical value consistency comparison.
+   * - CROSS_DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: Cross-source two-table field statistical value consistency comparison.
+   * - DOUBLE_TABLE_FIELD_EXP_COMPARE: Two-table field business logic consistency comparison.
+   * - TABLE_STABILITY_VALIDATE: Table stability check.
+   * - TABLE_FLUCTUATION_VALIDATE: Table fluctuation check.
+   * - FIELD_STABILITY_VALIDATE: Field stability check.
+   * - FIELD_FLUCTUATION_VALIDATE: Field fluctuation check.
+   * - CUSTOM_STATISTICAL_VALIDATE: Custom statistical metric check.
+   * - CUSTOM_DATA_DETAILS_VALIDATE: Custom data details check.
+   * - DATASOURCE_AVAILABLE_CHECK: Data source connectivity check.
+   * - TABLE_SCHEMA_CHECK: Table schema change check.
+   * - REAL_TIME_OFFLINE_COMPARE: Real-time and offline comparison.
+   * - REAL_TIME_STATISTICAL_VALIDATE: Real-time statistical value check.
+   * - REAL_TIME_MULTI_CHAIN_COMPARE: Real-time multi-link comparison.
    * 
    * @example
    * FIELD_NULL_VALUE_VALIDATE
@@ -758,7 +764,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   templateType?: string;
   /**
    * @remarks
-   * The ID of the most recent trial run task.
+   * The ID of the last test run task.
    * 
    * @example
    * 22
@@ -766,7 +772,12 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   testRunRuleTaskId?: number;
   /**
    * @remarks
-   * The status of the most recent trial run task. Valid values: NOT_RUN, WAITING, RUNNING, SUCCESS, FAILED.
+   * The status of the last test run task. Valid values:
+   * - NOT_RUN: Not run.
+   * - WAITING: Waiting.
+   * - RUNNING: Running.
+   * - SUCCESS: Succeeded.
+   * - FAILED: Failed.
    * 
    * @example
    * SUCCESS
@@ -774,7 +785,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   testRunRuleTaskStatus?: string;
   /**
    * @remarks
-   * Indicates whether the trial run validation passed.
+   * Indicates whether the test run validation passed.
    */
   testRunRuleValidateResult?: boolean;
   /**
@@ -789,7 +800,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
   validateObject?: ListQualityRulesResponseBodyPageResultQualityRuleListValidateObject;
   /**
    * @remarks
-   * The ID of the monitoring to which the rule belongs.
+   * The ID of the quality watchtask to which the rule belongs.
    * 
    * @example
    * 1
@@ -811,6 +822,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
       modifyTime: 'ModifyTime',
       name: 'Name',
       scheduleBindList: 'ScheduleBindList',
+      sql: 'Sql',
       status: 'Status',
       strength: 'Strength',
       templateId: 'TemplateId',
@@ -842,6 +854,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
       modifyTime: 'string',
       name: 'string',
       scheduleBindList: { 'type': 'array', 'itemType': ListQualityRulesResponseBodyPageResultQualityRuleListScheduleBindList },
+      sql: 'string',
       status: 'string',
       strength: 'string',
       templateId: 'number',
@@ -887,7 +900,7 @@ export class ListQualityRulesResponseBodyPageResultQualityRuleList extends $dara
 export class ListQualityRulesResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The list of quality rules returned by page.
+   * The paged quality rule task list.
    */
   qualityRuleList?: ListQualityRulesResponseBodyPageResultQualityRuleList[];
   /**
@@ -964,7 +977,7 @@ export class ListQualityRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -29,7 +29,7 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   cronExpression?: string;
   /**
    * @remarks
-   * The schedule object ID.
+   * The scheduling object ID.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   id?: number;
   /**
    * @remarks
-   * Indicates whether the schedule is referenced by a rule.
+   * Indicates whether the scheduling object is referenced by a rule.
    */
   isRefByRule?: boolean;
   /**
@@ -50,7 +50,7 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   modifier?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -58,7 +58,7 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   modifyTime?: string;
   /**
    * @remarks
-   * The schedule object name.
+   * The name of the scheduling object.
    * 
    * @example
    * test
@@ -66,7 +66,7 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   name?: string;
   /**
    * @remarks
-   * The partition expression. A custom expression.
+   * The custom partition expression.
    * 
    * @example
    * ds=${yyyyMMdd}
@@ -75,11 +75,11 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   /**
    * @remarks
    * The partition type. Valid values:
-   * - EVERY_DAY: every day.
-   * - PRE_DAY: yesterday.
-   * - TODAY: today.
-   * - FIRST_DAY_OF_WEEK: first day of the week (Sunday).
-   * - CUSTOM: custom.
+   * - EVERY_DAY: every day
+   * - PRE_DAY: previous day
+   * - TODAY: current day
+   * - FIRST_DAY_OF_WEEK: first day of the week (Sunday)
+   * - CUSTOM: custom
    * 
    * @example
    * CUSTOM
@@ -87,12 +87,12 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   partitionType?: string;
   /**
    * @remarks
-   * The interval type for timed scheduling. Valid values:
-   * - DAILY: day.
-   * - WEEKLY: week.
-   * - MONTHLY: month.
-   * - HOURLY: hour.
-   * - MINUTELY: minute.
+   * The schedule interval type for timed scheduling. Valid values:
+   * - DAILY: day
+   * - WEEKLY: week
+   * - MONTHLY: month
+   * - HOURLY: hour
+   * - MINUTELY: minute
    * 
    * @example
    * DAILY
@@ -100,15 +100,15 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   periodScheduleIntervalType?: string;
   /**
    * @remarks
-   * The interval values for timed scheduling.
+   * The schedule interval values for timed scheduling.
    */
   periodScheduleParamList?: string[];
   /**
    * @remarks
-   * The trigger method for fixed task triggers. Valid values:
-   * - ALL_TASKS_FINISHED
-   * - ONE_TASKS_FINISHED
-   * - PRE_ONE_TASKS_START.
+   * The trigger method for static task triggers. Valid values:
+   * - ALL_TASKS_FINISHED: all tasks finished
+   * - ONE_TASKS_FINISHED: one task finished
+   * - PRE_ONE_TASKS_START: previous one task started
    * 
    * @example
    * ONE_TASKS_FINISHED
@@ -116,14 +116,14 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   staticTaskTriggerType?: string;
   /**
    * @remarks
-   * The list of trigger nodes for trigger-based scheduling.
+   * The list of trigger tasks for trigger scheduling.
    */
   triggerNodeList?: string[];
   /**
    * @remarks
-   * The trigger method for trigger-based scheduling. Valid values:
-   * - STATIC_TASK_TRIGGER: fixed task trigger.
-   * - CODE_CHECK_TRIGGER: code check trigger.
+   * The trigger type for trigger scheduling. Valid values:
+   * - STATIC_TASK_TRIGGER: static task trigger
+   * - CODE_CHECK_TRIGGER: code check trigger
    * 
    * @example
    * STATIC_TASK_TRIGGER
@@ -131,12 +131,12 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   triggerType?: string;
   /**
    * @remarks
-   * The schedule type. Valid values:
-   * - PERIOD_SCHEDULE: timed scheduling.
-   * - MANUAL_SCHEDULE: manual trigger.
-   * - CODE_CHECK_TRIGGER: code check trigger.
-   * - STATIC_TASK_TRIGGER: fixed task trigger.
-   * - DEPENDENCY_SCHEDULE: dependency scheduling.
+   * The scheduling type. Valid values:
+   * - PERIOD_SCHEDULE: timed scheduling
+   * - MANUAL_SCHEDULE: manual trigger
+   * - CODE_CHECK_TRIGGER: code check trigger
+   * - STATIC_TASK_TRIGGER: static task trigger
+   * - DEPENDENCY_SCHEDULE: dependency scheduling
    * 
    * @example
    * PERIOD_SCHEDULE
@@ -145,8 +145,8 @@ export class GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList extends
   /**
    * @remarks
    * The validation scope. Valid values:
-   * - TASK_REFERRED_PARTITION: task-updated partition.
-   * - USER_DEFINED_PARTITION: custom partition.
+   * - TASK_REFERRED_PARTITION: task updated partition
+   * - USER_DEFINED_PARTITION: user-defined partition
    * 
    * @example
    * TASK_REFERRED_PARTITION
@@ -240,7 +240,7 @@ export class GetQualitySchedulesByWatchIdResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -248,7 +248,7 @@ export class GetQualitySchedulesByWatchIdResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The list of schedule objects.
+   * The list of scheduling objects.
    */
   qualityScheduleList?: GetQualitySchedulesByWatchIdResponseBodyQualityScheduleList[];
   /**
@@ -261,7 +261,7 @@ export class GetQualitySchedulesByWatchIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

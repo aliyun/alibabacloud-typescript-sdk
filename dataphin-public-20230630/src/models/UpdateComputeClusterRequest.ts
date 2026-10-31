@@ -134,6 +134,14 @@ export class UpdateComputeClusterRequestClusterConfig extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * 时区名称，例如 Asia/Shanghai。更新时不传则保留原值。
+   * 
+   * @example
+   * Asia/Shanghai
+   */
+  timeZone?: string;
+  /**
+   * @remarks
    * The cluster type.
    * 
    * This parameter is required.
@@ -157,6 +165,7 @@ export class UpdateComputeClusterRequestClusterConfig extends $dara.Model {
       configList: 'ConfigList',
       des: 'Des',
       name: 'Name',
+      timeZone: 'TimeZone',
       type: 'Type',
       typeVersion: 'TypeVersion',
     };
@@ -169,6 +178,7 @@ export class UpdateComputeClusterRequestClusterConfig extends $dara.Model {
       configList: { 'type': 'array', 'itemType': UpdateComputeClusterRequestClusterConfigConfigList },
       des: 'string',
       name: 'string',
+      timeZone: 'string',
       type: 'string',
       typeVersion: 'string',
     };

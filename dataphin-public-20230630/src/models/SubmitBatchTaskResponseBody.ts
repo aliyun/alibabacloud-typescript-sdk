@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitBatchTaskResponseBodySubmitResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the scheduling node.
+   * The ID of the task scheduling node.
    * 
    * @example
    * n_12113111
@@ -13,7 +13,7 @@ export class SubmitBatchTaskResponseBodySubmitResult extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The ID of the object pending publish.
+   * The ID of the object to be published.
    * 
    * @example
    * 1010312911
@@ -45,7 +45,7 @@ export class SubmitBatchTaskResponseBodySubmitResult extends $dara.Model {
 export class SubmitBatchTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code returned for the request. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -61,7 +61,7 @@ export class SubmitBatchTaskResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message returned for the request.
    * 
    * @example
    * successful
@@ -69,7 +69,7 @@ export class SubmitBatchTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -77,12 +77,12 @@ export class SubmitBatchTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The submit result.
+   * The edit result.
    */
   submitResult?: SubmitBatchTaskResponseBodySubmitResult;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

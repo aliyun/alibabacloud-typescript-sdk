@@ -13,7 +13,7 @@ export class UpdatePipelineByAsyncResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The query ID for the asynchronous execution.
+   * The query ID for asynchronous execution.
    * 
    * @example
    * 123
@@ -29,7 +29,7 @@ export class UpdatePipelineByAsyncResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error details returned by the backend.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -45,7 +45,7 @@ export class UpdatePipelineByAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

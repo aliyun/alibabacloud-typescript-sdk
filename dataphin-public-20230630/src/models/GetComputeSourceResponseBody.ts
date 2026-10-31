@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetComputeSourceResponseBodyComputeSourceInfo extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a project is associated.
+   * Indicates whether the compute source is bound to a project.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetComputeSourceResponseBodyComputeSourceInfo extends $dara.Model {
   bindProject?: boolean;
   /**
    * @remarks
-   * The ID of the associated project.
+   * The ID of the bound project.
    * 
    * @example
    * 10101101
@@ -21,7 +21,7 @@ export class GetComputeSourceResponseBodyComputeSourceInfo extends $dara.Model {
   bindProjectId?: number;
   /**
    * @remarks
-   * The name of the associated project.
+   * The name of the bound project.
    * 
    * @example
    * dp_mctest
@@ -69,7 +69,7 @@ export class GetComputeSourceResponseBodyComputeSourceInfo extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modification timestamp.
+   * The update timestamp.
    * 
    * @example
    * 1711881607000
@@ -165,7 +165,7 @@ export class GetComputeSourceResponseBodyComputeSourceInfo extends $dara.Model {
 export class GetComputeSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -186,7 +186,7 @@ export class GetComputeSourceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message of the request.
    * 
    * @example
    * successful
@@ -202,7 +202,7 @@ export class GetComputeSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -16,7 +16,7 @@ export class GetAccountByRowPermissionIdResponseBodyDataUserMappingListAccounts 
    * The name of the account bound to the rule.
    * 
    * @example
-   * John.
+   * Zhang San
    */
   accountName?: string;
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class GetAccountByRowPermissionIdResponseBodyData extends $dara.Model {
 export class GetAccountByRowPermissionIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -146,7 +146,7 @@ export class GetAccountByRowPermissionIdResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message.
    * 
    * @example
    * successful
@@ -162,7 +162,7 @@ export class GetAccountByRowPermissionIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

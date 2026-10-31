@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAssetMappingRelationsRequestAssetMappingQuery extends $dara.Model {
   /**
    * @remarks
-   * The object type of the asset. Valid values:
-   * - COLUMN: field.
-   * - INDEX: metric.
+   * The asset object type. Valid values: COLUMN (field) and INDEX (metric).
    * 
    * This parameter is required.
    * 
@@ -27,9 +25,7 @@ export class GetAssetMappingRelationsRequestAssetMappingQuery extends $dara.Mode
   guid?: string;
   /**
    * @remarks
-   * The type of the mapping relationship. Valid values:
-   * - VALID: mapped.
-   * - INVALID: invalid mapping.
+   * The mapping relationship type. Valid values: VALID (mapped) and INVALID (invalid mapping).
    * 
    * This parameter is required.
    * 
@@ -65,7 +61,7 @@ export class GetAssetMappingRelationsRequestAssetMappingQuery extends $dara.Mode
 export class GetAssetMappingRelationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The query instruction.
+   * The query command.
    */
   assetMappingQuery?: GetAssetMappingRelationsRequestAssetMappingQuery;
   /**
@@ -79,6 +75,9 @@ export class GetAssetMappingRelationsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

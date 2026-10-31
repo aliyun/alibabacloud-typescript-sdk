@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatisticsList extends $dara.Model {
   /**
    * @remarks
-   * API ID.
+   * The API code.
    * 
    * @example
    * 1003
@@ -13,7 +13,7 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatistic
   apiId?: number;
   /**
    * @remarks
-   * API name.
+   * The API name.
    * 
    * @example
    * test
@@ -21,12 +21,12 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatistic
   apiName?: string;
   /**
    * @remarks
-   * Authorized application names.
+   * The names of the authorized applications.
    */
   appNameList?: string[];
   /**
    * @remarks
-   * Number of authorized applications.
+   * The number of authorized applications.
    * 
    * @example
    * 1
@@ -34,7 +34,7 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatistic
   authorizedAppCount?: number;
   /**
    * @remarks
-   * Average response time, in milliseconds.
+   * The average response time, in milliseconds.
    * 
    * @example
    * 11
@@ -42,7 +42,7 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatistic
   avgResponseTime?: number;
   /**
    * @remarks
-   * Number of calls.
+   * The number of calls.
    * 
    * @example
    * 100
@@ -50,7 +50,7 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatistic
   callCount?: number;
   /**
    * @remarks
-   * Creator.
+   * The creator.
    * 
    * @example
    * 30012011
@@ -58,7 +58,7 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatistic
   creator?: string;
   /**
    * @remarks
-   * Number of call errors.
+   * The number of call exceptions.
    * 
    * @example
    * 22
@@ -66,7 +66,7 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatistic
   errorCount?: string;
   /**
    * @remarks
-   * Error rate.
+   * The error rate.
    * 
    * @example
    * 23.2%
@@ -74,7 +74,7 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatistic
   errorRate?: string;
   /**
    * @remarks
-   * Last call time. Format: yyyy-MM-dd HH:mm:ss.
+   * The time of the last call. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-06-30 08:00:00
@@ -82,7 +82,7 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatistic
   lastCallTime?: string;
   /**
    * @remarks
-   * Offline percentage.
+   * The offline percentage.
    * 
    * @example
    * 23.2%
@@ -90,7 +90,7 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatistic
   offlineRate?: string;
   /**
    * @remarks
-   * Data service project ID.
+   * The data service project ID.
    * 
    * @example
    * 101201
@@ -98,7 +98,7 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatistic
   projectId?: number;
   /**
    * @remarks
-   * Data service project.
+   * The name of the data service project.
    * 
    * @example
    * test
@@ -106,7 +106,7 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatistic
   projectName?: string;
   /**
    * @remarks
-   * SQL table primary key.
+   * The primary key of the SQL table.
    * 
    * @example
    * 1121
@@ -165,12 +165,12 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatistic
 export class ListDataServiceApiCallStatisticsResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * API call statistics list.
+   * The list of API call statistics.
    */
   callStatisticsList?: ListDataServiceApiCallStatisticsResponseBodyPageResultCallStatisticsList[];
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 68
@@ -205,7 +205,7 @@ export class ListDataServiceApiCallStatisticsResponseBodyPageResult extends $dar
 export class ListDataServiceApiCallStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -213,7 +213,7 @@ export class ListDataServiceApiCallStatisticsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -221,7 +221,7 @@ export class ListDataServiceApiCallStatisticsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Backend error details.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -229,7 +229,7 @@ export class ListDataServiceApiCallStatisticsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Paginated query result.
+   * The paged query result.
    */
   pageResult?: ListDataServiceApiCallStatisticsResponseBodyPageResult;
   /**
@@ -242,7 +242,7 @@ export class ListDataServiceApiCallStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

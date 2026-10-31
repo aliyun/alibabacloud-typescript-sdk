@@ -98,7 +98,7 @@ export class GetBizUnitInfoResponseBodyBizUnitInfoEnvList extends $dara.Model {
    * The display name.
    * 
    * @example
-   * 测试数据板块001_开发
+   * Test business unit 001_Development
    */
   displayName?: string;
   /**
@@ -145,7 +145,7 @@ export class GetBizUnitInfoResponseBodyBizUnitInfoEnvList extends $dara.Model {
 export class GetBizUnitInfoResponseBodyBizUnitInfo extends $dara.Model {
   /**
    * @remarks
-   * The architects of the data domain.
+   * The business unit architects.
    */
   accountList?: GetBizUnitInfoResponseBodyBizUnitInfoAccountList[];
   /**
@@ -171,7 +171,7 @@ export class GetBizUnitInfoResponseBodyBizUnitInfo extends $dara.Model {
   businessLeaderList?: GetBizUnitInfoResponseBodyBizUnitInfoBusinessLeaderList[];
   /**
    * @remarks
-   * The number of subject domains.
+   * The number of data domains.
    * 
    * @example
    * 1
@@ -195,12 +195,12 @@ export class GetBizUnitInfoResponseBodyBizUnitInfo extends $dara.Model {
    * The display name.
    * 
    * @example
-   * 测试
+   * Test
    */
   displayName?: string;
   /**
    * @remarks
-   * The English names of the data domain for the two environments: production and development.
+   * The English names of the business unit in the production and development environments.
    */
   envList?: GetBizUnitInfoResponseBodyBizUnitInfoEnvList[];
   /**
@@ -221,7 +221,7 @@ export class GetBizUnitInfoResponseBodyBizUnitInfo extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The icon of the data domain.
+   * The icon of the business unit.
    * 
    * @example
    * icon-e-commerce
@@ -229,7 +229,7 @@ export class GetBizUnitInfoResponseBodyBizUnitInfo extends $dara.Model {
   icon?: string;
   /**
    * @remarks
-   * The data domain ID.
+   * The data sector ID.
    * 
    * @example
    * 101001201
@@ -237,7 +237,7 @@ export class GetBizUnitInfoResponseBodyBizUnitInfo extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the user who last modified the data domain.
+   * The ID of the last modifier.
    * 
    * @example
    * 30010010
@@ -245,17 +245,15 @@ export class GetBizUnitInfoResponseBodyBizUnitInfo extends $dara.Model {
   lastModifier?: string;
   /**
    * @remarks
-   * The name of the user who last modified the data domain.
+   * The name of the last modifier.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   lastModifierName?: string;
   /**
    * @remarks
-   * The production mode. Valid values:
-   * - BASIC: single-environment mode.
-   * - DEV_PROD: development/production dual-environment mode.
+   * The production mode. Valid values: BASIC (single-environment mode) and DEV_PROD (development and production dual-environment mode).
    * 
    * @example
    * DEV_PROD
@@ -271,15 +269,15 @@ export class GetBizUnitInfoResponseBodyBizUnitInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The owner of the business object.
+   * The ID of the business object owner.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
    * @remarks
-   * The owner of the business object.
+   * The ID of the business object owner.
    * 
    * @example
    * 30010010
@@ -357,12 +355,12 @@ export class GetBizUnitInfoResponseBodyBizUnitInfo extends $dara.Model {
 export class GetBizUnitInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data domain.
+   * The business unit details.
    */
   bizUnitInfo?: GetBizUnitInfoResponseBodyBizUnitInfo;
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -394,7 +392,7 @@ export class GetBizUnitInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

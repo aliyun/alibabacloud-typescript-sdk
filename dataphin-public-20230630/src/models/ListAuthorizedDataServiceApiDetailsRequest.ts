@@ -6,6 +6,7 @@ export class ListAuthorizedDataServiceApiDetailsRequestListQuery extends $dara.M
   /**
    * @remarks
    * The application key.
+   * >Notice: Deprecated. Use AppKeyStr.</notice>
    * 
    * @example
    * 200000000
@@ -90,6 +91,9 @@ export class ListAuthorizedDataServiceApiDetailsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

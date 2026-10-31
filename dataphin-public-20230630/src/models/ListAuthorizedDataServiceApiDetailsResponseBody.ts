@@ -13,7 +13,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorized
   exampleValue?: string;
   /**
    * @remarks
-   * The field authorization status.
+   * The authorization status of the field.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorized
   isAuthorized?: number;
   /**
    * @remarks
-   * The parameter type.
+   * The data type of the parameter.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorized
   parameterDataType?: number;
   /**
    * @remarks
-   * The description.
+   * The description of the parameter.
    * 
    * @example
    * description1
@@ -37,7 +37,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorized
   parameterDescription?: string;
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * @example
    * param1
@@ -83,7 +83,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorized
   exampleValue?: string;
   /**
    * @remarks
-   * The field authorization status.
+   * The authorization status of the field.
    * 
    * @example
    * 1
@@ -91,7 +91,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorized
   isAuthorized?: number;
   /**
    * @remarks
-   * The parameter type.
+   * The data type of the parameter.
    * 
    * @example
    * 0
@@ -99,7 +99,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorized
   parameterDataType?: number;
   /**
    * @remarks
-   * The description.
+   * The description of the parameter.
    * 
    * @example
    * description1
@@ -107,7 +107,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorized
   parameterDescription?: string;
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * @example
    * param1
@@ -153,7 +153,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultData extends $
   apiId?: number;
   /**
    * @remarks
-   * The API name.
+   * The name of the API.
    * 
    * @example
    * GetData
@@ -161,7 +161,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultData extends $
   apiName?: string;
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * 12345
@@ -169,25 +169,25 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultData extends $
   appId?: number;
   /**
    * @remarks
-   * The permission type.
+   * The type of the permission.
    * 
    * @example
-   * Usage permission.
+   * Usage permission
    */
   authType?: string;
   /**
    * @remarks
-   * The list of fields authorized for the API in the development environment.
+   * The list of authorized fields for the API in the development environment.
    */
   authorizedDevReturnParameters?: ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorizedDevReturnParameters[];
   /**
    * @remarks
-   * The list of fields authorized for the API in the production environment.
+   * The list of authorized fields for the API in the production environment.
    */
   authorizedProdReturnParameters?: ListAuthorizedDataServiceApiDetailsResponseBodyResultDataAuthorizedProdReturnParameters[];
   /**
    * @remarks
-   * The API description.
+   * The description of the API.
    * 
    * @example
    * Description1
@@ -195,7 +195,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultData extends $
   description?: string;
   /**
    * @remarks
-   * The validity period of the API permission in the development environment.
+   * The validity period of API permissions in the development environment.
    * 
    * @example
    * 2035-12-31
@@ -203,7 +203,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultData extends $
   devAuthPeriod?: string;
   /**
    * @remarks
-   * The validity period of the API permission in the production environment.
+   * The validity period of API permissions in the production environment.
    * 
    * @example
    * 2035-12-31
@@ -211,7 +211,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResultData extends $
   prodAuthPeriod?: string;
   /**
    * @remarks
-   * The data service project ID.
+   * The ID of the data service project.
    * 
    * @example
    * 10000
@@ -270,7 +270,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResult extends $dara
   data?: ListAuthorizedDataServiceApiDetailsResponseBodyResultData[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 100
@@ -305,7 +305,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBodyResult extends $dara
 export class ListAuthorizedDataServiceApiDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -324,12 +324,12 @@ export class ListAuthorizedDataServiceApiDetailsResponseBody extends $dara.Model
    * The error message.
    * 
    * @example
-   * Invalid parameter.
+   * Invalid parameter
    */
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the request.
+   * The unique identifier of the request.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -342,7 +342,7 @@ export class ListAuthorizedDataServiceApiDetailsResponseBody extends $dara.Model
   result?: ListAuthorizedDataServiceApiDetailsResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

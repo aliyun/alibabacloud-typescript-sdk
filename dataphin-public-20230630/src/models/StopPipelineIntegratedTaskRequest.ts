@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopPipelineIntegratedTaskRequestContext extends $dara.Model {
   /**
    * @remarks
+   * The current operating environment. Valid values: DEV: development environment. PROD: production environment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class StopPipelineIntegratedTaskRequestContext extends $dara.Model {
   env?: string;
   /**
    * @remarks
+   * The ID of the project to which the integration pipeline task belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +49,8 @@ export class StopPipelineIntegratedTaskRequestContext extends $dara.Model {
 export class StopPipelineIntegratedTaskRequestStopCommand extends $dara.Model {
   /**
    * @remarks
+   * The list of instance IDs of the incremental instances to stop.
+   * 
    * This parameter is required.
    */
   taskIds?: string[];
@@ -75,11 +81,15 @@ export class StopPipelineIntegratedTaskRequestStopCommand extends $dara.Model {
 export class StopPipelineIntegratedTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The request context information.
+   * 
    * This parameter is required.
    */
   context?: StopPipelineIntegratedTaskRequestContext;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -87,12 +97,17 @@ export class StopPipelineIntegratedTaskRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30121101
    */
   opUserId?: string;
   /**
    * @remarks
+   * The stop parameters.
+   * 
    * This parameter is required.
    */
   stopCommand?: StopPipelineIntegratedTaskRequestStopCommand;

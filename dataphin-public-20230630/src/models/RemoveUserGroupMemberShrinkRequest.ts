@@ -14,13 +14,16 @@ export class RemoveUserGroupMemberShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operating user.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The command to remove user group members.
+   * The command to remove members from a user group.
    * 
    * This parameter is required.
    */

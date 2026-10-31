@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesSource extends $dara.Model {
   /**
    * @remarks
-   * The catalog property of the asset. For tables, the catalog of both compute source tables and logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The catalog of the asset. For tables, the catalog of compute source tables or logical tables is uniformly set to Dataphin. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * dataphin
@@ -13,7 +13,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesS
   catalog?: string;
   /**
    * @remarks
-   * The environment to which the asset belongs. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The environment to which the asset belongs. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * DEV, PROD
@@ -26,7 +26,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesS
   extProperties?: { [key: string]: any };
   /**
    * @remarks
-   * The GUID of the asset. This parameter is required when referenceType is set to BY_GUID.
+   * The GUID of the asset. This parameter is required when ReferenceType is set to BY_GUID.
    * 
    * @example
    * odps.300000001.project1.table1.column1
@@ -34,7 +34,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesS
   guid?: string;
   /**
    * @remarks
-   * The asset type. Set this parameter based on the actual scenario.
+   * The asset type. Specify this parameter based on the actual scenario.
    * 
    * @example
    * COLUMN
@@ -42,7 +42,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesS
   metadataType?: string;
   /**
    * @remarks
-   * The name of the asset. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The name of the asset. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * column1
@@ -50,7 +50,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesS
   name?: string;
   /**
    * @remarks
-   * The GUID of the parent asset. If the current object is a field, parentGuid is the GUID of the table to which the field belongs.
+   * The GUID of the parent asset. If the current object is a field, the parentGuid is the GUID of the table to which the field belongs.
    * 
    * @example
    * odps.300000001.project1.table1
@@ -66,7 +66,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesS
   referenceType?: string;
   /**
    * @remarks
-   * The schema property of the asset. For tables, this is typically the project or business unit. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The schema of the asset. For tables, this is generally a project or a business unit. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * project1, bizUnit1
@@ -115,7 +115,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesS
 export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesTarget extends $dara.Model {
   /**
    * @remarks
-   * The catalog property of the asset. For tables, the catalog of both compute source tables and logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The catalog of the asset. For tables, the catalog of compute source tables or logical tables is uniformly set to Dataphin. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * dataphin
@@ -123,7 +123,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesT
   catalog?: string;
   /**
    * @remarks
-   * The environment to which the asset belongs. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The environment to which the asset belongs. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * DEV, PROD
@@ -136,7 +136,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesT
   extProperties?: { [key: string]: any };
   /**
    * @remarks
-   * The GUID of the asset. This parameter is required when referenceType is set to BY_GUID.
+   * The GUID of the asset. This parameter is required when ReferenceType is set to BY_GUID.
    * 
    * @example
    * odps.300000001.project1.table1.column1
@@ -144,7 +144,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesT
   guid?: string;
   /**
    * @remarks
-   * The asset type. Set this parameter based on the actual scenario.
+   * The asset type. Specify this parameter based on the actual scenario.
    * 
    * @example
    * COLUMN
@@ -152,7 +152,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesT
   metadataType?: string;
   /**
    * @remarks
-   * The name of the asset. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The name of the asset. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * column1
@@ -160,7 +160,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesT
   name?: string;
   /**
    * @remarks
-   * The GUID of the parent asset. If the current object is a field, parentGuid is the GUID of the table to which the field belongs.
+   * The GUID of the parent asset. If the current object is a field, the parentGuid is the GUID of the table to which the field belongs.
    * 
    * @example
    * odps.300000001.project1.table1
@@ -176,7 +176,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesT
   referenceType?: string;
   /**
    * @remarks
-   * The schema property of the asset. For tables, this is typically the project or business unit. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The schema of the asset. For tables, this is generally a project or a business unit. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * project1, bizUnit1
@@ -225,7 +225,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineagesT
 export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineages extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether this is a direct lineage relationship. Default value: true.
+   * Specifies whether the lineage is direct. Default value: true.
    */
   isDirect?: boolean;
   /**
@@ -276,7 +276,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineages 
 export class AddRegisterLineageRequestAddRegisterLineageCommandSource extends $dara.Model {
   /**
    * @remarks
-   * The catalog property of the asset. For tables, the catalog of both compute source tables and logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The catalog of the asset. For tables, the catalog of compute source tables or logical tables is uniformly set to Dataphin. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * dataphin
@@ -284,7 +284,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandSource extends $d
   catalog?: string;
   /**
    * @remarks
-   * The environment to which the asset belongs. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The environment to which the asset belongs. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * DEV, PROD
@@ -297,7 +297,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandSource extends $d
   extProperties?: { [key: string]: any };
   /**
    * @remarks
-   * The GUID of the asset. This parameter is required when referenceType is set to BY_GUID.
+   * The GUID of the asset. This parameter is required when ReferenceType is set to BY_GUID.
    * 
    * @example
    * odps.300000001.project1.table1
@@ -305,7 +305,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandSource extends $d
   guid?: string;
   /**
    * @remarks
-   * The asset subtype. Specify this parameter only when metadataType is set to TABLE and referenceType is not set to BY_GUID.
+   * The subtype of the asset. Specify this parameter only when MetadataType is set to TABLE and ReferenceType is not set to BY_GUID.
    * 
    * @example
    * PHYSICAL_TABLE, PHYSICAL_VIEW, PHYSICAL_MATERIALIZED_VIEW, DATASOURCE_TABLE, DATASOURCE_VIEW, DATASOURCE_MATERIALIZED_VIEW, DIM_NORMAL, DIM_LEVEL, DIM_ENUM, DIM_VIRTUAL, FACT_EVENT, FACT_PROCESS, FACT_SNAPSHOT, SUM_BIZ_UNIT
@@ -313,7 +313,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandSource extends $d
   metadataSubType?: string;
   /**
    * @remarks
-   * The asset type. Set this parameter based on the actual scenario.
+   * The Asset Type. Specify this parameter as needed.
    * 
    * This parameter is required.
    * 
@@ -323,7 +323,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandSource extends $d
   metadataType?: string;
   /**
    * @remarks
-   * The name of the asset. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The name of the asset. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * table1
@@ -331,7 +331,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandSource extends $d
   name?: string;
   /**
    * @remarks
-   * The asset reference data type. Valid values: BY_GUID and BY_PROPERTY.
+   * The reference data type of the asset. Valid values: BY_GUID and BY_PROPERTY.
    * 
    * This parameter is required.
    * 
@@ -341,7 +341,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandSource extends $d
   referenceType?: string;
   /**
    * @remarks
-   * The schema property of the asset. For tables, this is typically the project or business unit. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The schema of the asset. For tables, this is generally a project or a business unit. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * project1, bizUnit1
@@ -390,7 +390,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandSource extends $d
 export class AddRegisterLineageRequestAddRegisterLineageCommandTarget extends $dara.Model {
   /**
    * @remarks
-   * The catalog property of the asset. For tables, the catalog of both compute source tables and logical tables is uniformly set to dataphin. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The catalog of the asset. For tables, the catalog of compute source tables or logical tables is uniformly set to Dataphin. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * dataphin
@@ -398,7 +398,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandTarget extends $d
   catalog?: string;
   /**
    * @remarks
-   * The environment to which the asset belongs. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The environment to which the asset belongs. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * DEV, PROD
@@ -411,7 +411,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandTarget extends $d
   extProperties?: { [key: string]: any };
   /**
    * @remarks
-   * The GUID of the asset. This parameter is required when referenceType is set to BY_GUID.
+   * The GUID of the asset. This parameter is required when ReferenceType is set to BY_GUID.
    * 
    * @example
    * odps.300000001.project1.table1
@@ -419,7 +419,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandTarget extends $d
   guid?: string;
   /**
    * @remarks
-   * The asset subtype. Specify this parameter only when metadataType is set to TABLE and referenceType is not set to BY_GUID.
+   * The subtype of the asset. Specify this parameter only when MetadataType is set to TABLE and ReferenceType is not set to BY_GUID.
    * 
    * @example
    * PHYSICAL_TABLE, PHYSICAL_VIEW, PHYSICAL_MATERIALIZED_VIEW, DATASOURCE_TABLE, DATASOURCE_VIEW, DATASOURCE_MATERIALIZED_VIEW, DIM_NORMAL, DIM_LEVEL, DIM_ENUM, DIM_VIRTUAL, FACT_EVENT, FACT_PROCESS, FACT_SNAPSHOT, SUM_BIZ_UNIT
@@ -427,7 +427,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandTarget extends $d
   metadataSubType?: string;
   /**
    * @remarks
-   * The asset type. Set this parameter based on the actual scenario.
+   * The Asset Type. Specify this parameter as needed.
    * 
    * This parameter is required.
    * 
@@ -437,7 +437,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandTarget extends $d
   metadataType?: string;
   /**
    * @remarks
-   * The name of the asset. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The name of the asset. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * table1
@@ -445,7 +445,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandTarget extends $d
   name?: string;
   /**
    * @remarks
-   * The asset reference data type. Valid values: BY_GUID and BY_PROPERTY.
+   * The reference data type of the asset. Valid values: BY_GUID and BY_PROPERTY.
    * 
    * This parameter is required.
    * 
@@ -455,7 +455,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandTarget extends $d
   referenceType?: string;
   /**
    * @remarks
-   * The schema property of the asset. For tables, this is typically the project or business unit. This property is used to identify the corresponding asset by property when referenceType is set to BY_PROPERTY. If referenceType is set to BY_GUID, this property does not need to be specified.
+   * The schema of the asset. For tables, this is generally a project or a business unit. This property is used to identify the corresponding asset based on properties when ReferenceType is set to BY_PROPERTY. If ReferenceType is set to BY_GUID, this property is not required.
    * 
    * @example
    * project1, bizUnit1
@@ -504,12 +504,12 @@ export class AddRegisterLineageRequestAddRegisterLineageCommandTarget extends $d
 export class AddRegisterLineageRequestAddRegisterLineageCommand extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to check the existence of the asset. By default, the existence is not checked.
+   * Specifies whether to check the existence of the asset itself. Default value: false.
    */
   checkAssetExist?: boolean;
   /**
    * @remarks
-   * The detailed lineage relationships. For tables, these are field-level lineage relationships. If you do not want to add field-level lineage, leave this parameter empty.
+   * The detailed lineages. For tables, the detailed lineages refer to field lineages. Leave this parameter empty if you do not want to add field lineages.
    */
   detailedLineages?: AddRegisterLineageRequestAddRegisterLineageCommandDetailedLineages[];
   /**
@@ -541,7 +541,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommand extends $dara.Mo
   tenantId?: number;
   /**
    * @remarks
-   * The ID of the current user.
+   * The current user ID.
    * 
    * @example
    * 300004567
@@ -595,7 +595,7 @@ export class AddRegisterLineageRequestAddRegisterLineageCommand extends $dara.Mo
 export class AddRegisterLineageRequest extends $dara.Model {
   /**
    * @remarks
-   * The command for registering and adding data lineage.
+   * The command to register data lineage.
    * 
    * This parameter is required.
    */
@@ -611,6 +611,9 @@ export class AddRegisterLineageRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

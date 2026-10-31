@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMyTenantsResponseBodyTenantList extends $dara.Model {
   /**
    * @remarks
-   * The time when the tenant was deleted.
+   * The deletion time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1717343597000
@@ -24,7 +24,7 @@ export class GetMyTenantsResponseBodyTenantList extends $dara.Model {
    * The tenant description.
    * 
    * @example
-   * xx 测试
+   * xx test
    */
   description?: string;
   /**
@@ -40,7 +40,7 @@ export class GetMyTenantsResponseBodyTenantList extends $dara.Model {
    * The tenant name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   /**
@@ -53,7 +53,7 @@ export class GetMyTenantsResponseBodyTenantList extends $dara.Model {
   opsTenant?: boolean;
   /**
    * @remarks
-   * The ID of the user to whom the tenant belongs.
+   * The ID of the tenant owner.
    * 
    * @example
    * 21323231
@@ -135,7 +135,7 @@ export class GetMyTenantsResponseBodyTenantList extends $dara.Model {
 export class GetMyTenantsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -167,7 +167,7 @@ export class GetMyTenantsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

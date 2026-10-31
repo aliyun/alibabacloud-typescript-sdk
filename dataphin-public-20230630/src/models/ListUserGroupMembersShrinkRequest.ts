@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserGroupMembersShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The paged query parameters.
+   * The paging query.
    * 
    * This parameter is required.
    */
@@ -21,6 +21,9 @@ export class ListUserGroupMembersShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

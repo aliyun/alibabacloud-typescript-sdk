@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStandardWordRootShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The create instruction.
+   * The creation command.
    * 
    * This parameter is required.
    */
@@ -21,6 +21,9 @@ export class CreateStandardWordRootShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

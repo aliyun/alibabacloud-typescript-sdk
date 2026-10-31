@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPipelineAsyncResultRequestContext extends $dara.Model {
   /**
    * @remarks
-   * The current operation environment. Valid values:
-   * - DEV: development environment.
-   * - PROD: production environment.
+   * The current operation environment. Valid values: DEV: development environment. PROD: production environment.
    * 
    * This parameter is required.
    * 
@@ -77,6 +75,9 @@ export class GetPipelineAsyncResultRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

@@ -12,7 +12,7 @@ export class OfflinePipelineByAsyncShrinkRequest extends $dara.Model {
   contextShrink?: string;
   /**
    * @remarks
-   * The offline pipeline node command.
+   * The command to take the pipeline task offline.
    * 
    * This parameter is required.
    */
@@ -28,6 +28,9 @@ export class OfflinePipelineByAsyncShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

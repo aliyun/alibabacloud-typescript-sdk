@@ -13,7 +13,7 @@ export class GetKgRelationResponseBodyRelationInfoPropertyList extends $dara.Mod
   code?: string;
   /**
    * @remarks
-   * The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (floating-point number), BOOLEAN (Boolean), DATE (date), LIST (list), and others.
+   * The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (floating-point number), BOOLEAN (Boolean), DATE (date), and LIST (list).
    * 
    * @example
    * STRING
@@ -55,12 +55,12 @@ export class GetKgRelationResponseBodyRelationInfoPropertyList extends $dara.Mod
 export class GetKgRelationResponseBodyRelationInfo extends $dara.Model {
   /**
    * @remarks
-   * The list of relationship record properties.
+   * The property list of the relation record.
    */
   propertyList?: GetKgRelationResponseBodyRelationInfoPropertyList[];
   /**
    * @remarks
-   * The relationship record ID.
+   * The relation record ID.
    * 
    * @example
    * abc-xxx
@@ -68,7 +68,7 @@ export class GetKgRelationResponseBodyRelationInfo extends $dara.Model {
   relationId?: string;
   /**
    * @remarks
-   * The relationship type code.
+   * The relation type code.
    * 
    * @example
    * BELONG_TO
@@ -149,7 +149,7 @@ export class GetKgRelationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The relationship record details.
+   * The relation record details.
    */
   relationInfo?: GetKgRelationResponseBodyRelationInfo;
   /**
@@ -162,7 +162,7 @@ export class GetKgRelationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

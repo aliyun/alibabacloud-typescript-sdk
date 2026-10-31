@@ -15,7 +15,7 @@ export class UpdateComputeSourceRequestUpdateCommandConfigList extends $dara.Mod
   key?: string;
   /**
    * @remarks
-   * The configuration item value.
+   * The value of the configuration item.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class UpdateComputeSourceRequestUpdateCommandConfigList extends $dara.Mod
 export class UpdateComputeSourceRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * The associated cluster ID. This parameter takes effect only when CreateType is left empty or set to COMPUTE_SOURCE (to create a compute source that references a cluster). This parameter is mutually exclusive with CreateType=CLUSTER.
+   * The ID of the associated cluster. This parameter takes effect only when CreateType is left empty or set to COMPUTE_SOURCE, which means creating a compute source that references a cluster. This parameter is mutually exclusive with CreateType=CLUSTER.
    * 
    * @example
    * 102311
@@ -57,16 +57,16 @@ export class UpdateComputeSourceRequestUpdateCommand extends $dara.Model {
   clusterId?: number;
   /**
    * @remarks
-   * The connection configuration items.
+   * The connection configurations.
    * 
    * This parameter is required.
    */
   configList?: UpdateComputeSourceRequestUpdateCommandConfigList[];
   /**
    * @remarks
-   * The creation entity type. Valid values:
-   * - CLUSTER: Creates the entity as a cluster. ClusterId cannot be specified.
-   * - COMPUTE_SOURCE: Creates the entity as a compute source. This is the default value.
+   * The type of the entity to create. Valid values:
+   * - CLUSTER: creates a cluster. You cannot specify ClusterId.
+   * - COMPUTE_SOURCE: creates a compute source. This is the default value.
    * 
    * @example
    * CLUSTER
@@ -84,7 +84,7 @@ export class UpdateComputeSourceRequestUpdateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The compute source ID.
+   * The ID of the compute source.
    * 
    * This parameter is required.
    * 
@@ -94,7 +94,7 @@ export class UpdateComputeSourceRequestUpdateCommand extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The compute source name.
+   * The name of the compute source.
    * 
    * This parameter is required.
    * 
@@ -104,7 +104,15 @@ export class UpdateComputeSourceRequestUpdateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The compute source type.
+   * The name of the time zone, such as Asia/Shanghai. If you do not specify this parameter when you update the compute source, the original value is retained.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
+  timeZone?: string;
+  /**
+   * @remarks
+   * The type of the compute source.
    * 
    * This parameter is required.
    * 
@@ -114,7 +122,7 @@ export class UpdateComputeSourceRequestUpdateCommand extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The compute source type version.
+   * The version of the compute source type.
    * 
    * @example
    * CDH6
@@ -128,6 +136,7 @@ export class UpdateComputeSourceRequestUpdateCommand extends $dara.Model {
       description: 'Description',
       id: 'Id',
       name: 'Name',
+      timeZone: 'TimeZone',
       type: 'Type',
       typeVersion: 'TypeVersion',
     };
@@ -141,6 +150,7 @@ export class UpdateComputeSourceRequestUpdateCommand extends $dara.Model {
       description: 'string',
       id: 'number',
       name: 'string',
+      timeZone: 'string',
       type: 'string',
       typeVersion: 'string',
     };
@@ -171,7 +181,7 @@ export class UpdateComputeSourceRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The operator user ID.
+   * The ID of the operator.
    * 
    * @example
    * 30001011
@@ -179,7 +189,7 @@ export class UpdateComputeSourceRequest extends $dara.Model {
   opUserId?: string;
   /**
    * @remarks
-   * The edit command.
+   * The update command.
    * 
    * This parameter is required.
    */

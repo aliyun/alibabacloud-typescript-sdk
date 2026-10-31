@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDevObjectDependencyResponseBodyDevObjectDependencyListDependencyPeriod extends $dara.Model {
   /**
    * @remarks
-   * Period offset. This parameter is required when the dependency period type is LAST_N_PERIOD.
+   * The period offset. This parameter is required when the dependency period type is LAST_N_PERIOD.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyListDependency
   periodOffset?: number;
   /**
    * @remarks
-   * Dependency period type.
+   * The dependency period type. Valid values:
    * - CURRENT_PERIOD
    * - LAST_PERIOD
    * - LAST_N_PERIOD
@@ -49,7 +49,7 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyListDependency
 export class GetDevObjectDependencyResponseBodyDevObjectDependencyListOutputContextParamList extends $dara.Model {
   /**
    * @remarks
-   * Default value.
+   * The default value.
    * 
    * @example
    * v1
@@ -57,7 +57,7 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyListOutputCont
   defaultValue?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * xxtest
@@ -65,7 +65,7 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyListOutputCont
   description?: string;
   /**
    * @remarks
-   * Parameter key.
+   * The parameter.
    * 
    * @example
    * v1
@@ -99,7 +99,7 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyListOutputCont
 export class GetDevObjectDependencyResponseBodyDevObjectDependencyListOwnerList extends $dara.Model {
   /**
    * @remarks
-   * Node ID.
+   * The node ID.
    * 
    * @example
    * 11123
@@ -107,10 +107,10 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyListOwnerList 
   id?: string;
   /**
    * @remarks
-   * Node name.
+   * The node name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -147,9 +147,9 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   autoParse?: boolean;
   /**
    * @remarks
-   * Business type.
-   * - SCRIPT: Script
-   * - LOGICAL_TABLE: Logical table
+   * The business type. Valid values:
+   * - SCRIPT: Script.
+   * - LOGICAL_TABLE: Logical table.
    * 
    * @example
    * SCRIPT
@@ -157,7 +157,7 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   bizType?: string;
   /**
    * @remarks
-   * Business unit ID.
+   * The business module ID.
    * 
    * @example
    * 13111
@@ -165,15 +165,15 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   bizUnitId?: string;
   /**
    * @remarks
-   * Business unit name.
+   * The business unit name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   bizUnitName?: string;
   /**
    * @remarks
-   * Cron expression for the scheduling node.
+   * The cron expression of the scheduling node.
    * 
    * @example
    * 0 0 0 * * ?
@@ -189,17 +189,17 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   customCronExpression?: boolean;
   /**
    * @remarks
-   * Dependency fields.
+   * The dependent fields.
    */
   dependFieldList?: string[];
   /**
    * @remarks
-   * Dependency period configuration.
+   * The dependency period configuration.
    */
   dependencyPeriod?: GetDevObjectDependencyResponseBodyDevObjectDependencyListDependencyPeriod;
   /**
    * @remarks
-   * Dependency strategy.
+   * The dependency strategy. Valid values:
    * - ALL
    * - FIRST
    * - LAST
@@ -211,7 +211,7 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   dependencyStrategy?: string;
   /**
    * @remarks
-   * Indicates whether the node is a dimension table intermediate node.
+   * Indicates whether the node is an intermediate node of a dimension table.
    * 
    * @example
    * true
@@ -219,15 +219,15 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   dimMidNode?: boolean;
   /**
    * @remarks
-   * Effect fields.
+   * The dependent fields.
    */
   effectFieldList?: string[];
   /**
    * @remarks
-   * Additional business information.
+   * The additional business information.
    * 
    * @example
-   * 所有字段信息/hasProd/hasDev等信息
+   * All field information, hasProd, hasDev, and other information
    */
   externalBizInfo?: string;
   /**
@@ -240,7 +240,7 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   manuallyAdd?: boolean;
   /**
    * @remarks
-   * Node ID.
+   * The node ID.
    * 
    * @example
    * n_13211
@@ -248,15 +248,15 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   nodeId?: string;
   /**
    * @remarks
-   * Node name.
+   * The node name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   nodeName?: string;
   /**
    * @remarks
-   * Node output name.
+   * The node output name.
    * 
    * @example
    * n_xx
@@ -264,7 +264,7 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   nodeOutputName?: string;
   /**
    * @remarks
-   * Output table information.
+   * The output table information.
    * 
    * @example
    * t_xx
@@ -272,12 +272,12 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   nodeOutputTableName?: string;
   /**
    * @remarks
-   * Node type.
-   * - DATA_PROCESS: Code task
-   * - BBOX_LOGIC_TABLE_NODE: Black box logical table node
-   * - ONE_ID_LABEL: ID label node
-   * - ONE_ID_RULE: ID rule node
-   * - PIPELINE_NODE: Pipeline node
+   * The node type. Valid values:
+   * - DATA_PROCESS: Code task.
+   * - BBOX_LOGIC_TABLE_NODE: Black-box logical table node.
+   * - ONE_ID_LABEL: Extracted tag node.
+   * - ONE_ID_RULE: Extracted tag node.
+   * - PIPELINE_NODE: Pipeline node.
    * 
    * @example
    * DATA_PROCESS
@@ -285,17 +285,17 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   nodeType?: string;
   /**
    * @remarks
-   * Cross-node output parameters.
+   * The cross-node output parameters.
    */
   outputContextParamList?: GetDevObjectDependencyResponseBodyDevObjectDependencyListOutputContextParamList[];
   /**
    * @remarks
-   * Node owners.
+   * The node owner.
    */
   ownerList?: GetDevObjectDependencyResponseBodyDevObjectDependencyListOwnerList[];
   /**
    * @remarks
-   * Dependency period difference.
+   * The dependency period difference.
    * 
    * @example
    * 1
@@ -303,7 +303,7 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   periodDiff?: number;
   /**
    * @remarks
-   * Project ID.
+   * The project ID.
    * 
    * @example
    * 123131
@@ -311,21 +311,15 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   projectId?: number;
   /**
    * @remarks
-   * Project name.
+   * The project name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   projectName?: string;
   /**
    * @remarks
-   * Schedule type.
-   * - MINUTELY: Minute
-   * - HOURLY: Hour
-   * - DAILY: Day
-   * - WEEKLY: Week
-   * - MONTHLY: Month
-   * - YEARLY: Year
+   * The scheduling type. Valid values: MINUTELY (minute), HOURLY (hour), DAILY (day), WEEKLY (week), MONTHLY (month), and YEARLY (year).
    * 
    * @example
    * DAILY
@@ -333,7 +327,7 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   scheduleType?: string;
   /**
    * @remarks
-   * Indicates whether the node has a self-dependency.
+   * Indicates whether self-dependency is enabled.
    * 
    * @example
    * true
@@ -341,13 +335,13 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   selfDepend?: boolean;
   /**
    * @remarks
-   * Sub-business type.
+   * The sub-business type. Valid values:
    * - MAX_COMPUTE_SQL
    * - HIVE_SQL
    * - SHELL
    * - PYTHON
    * - ONE_SERVICE_SQL
-   * - DATABASE_SQL, etc.
+   * - DATABASE_SQL
    * 
    * @example
    * SHELL
@@ -355,7 +349,7 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
   subBizType?: string;
   /**
    * @remarks
-   * Indicates whether the configuration is valid.
+   * Indicates whether the configuration is effective.
    * 
    * @example
    * true
@@ -452,7 +446,7 @@ export class GetDevObjectDependencyResponseBodyDevObjectDependencyList extends $
 export class GetDevObjectDependencyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -460,12 +454,12 @@ export class GetDevObjectDependencyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Dependency list.
+   * The dependency list.
    */
   devObjectDependencyList?: GetDevObjectDependencyResponseBodyDevObjectDependencyList[];
   /**
    * @remarks
-   * HTTP status code returned by the backend.
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -473,7 +467,7 @@ export class GetDevObjectDependencyResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * successful
@@ -481,7 +475,7 @@ export class GetDevObjectDependencyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -489,7 +483,7 @@ export class GetDevObjectDependencyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

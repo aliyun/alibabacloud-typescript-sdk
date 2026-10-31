@@ -15,7 +15,7 @@ export class RemoveProjectMemberRequestRemoveCommand extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The user IDs.
+   * The list of user IDs.
    */
   userIdList?: string[];
   static names(): { [key: string]: string } {
@@ -66,13 +66,16 @@ export class RemoveProjectMemberRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The command to remove a member.
+   * The member removal command.
    * 
    * This parameter is required.
    */

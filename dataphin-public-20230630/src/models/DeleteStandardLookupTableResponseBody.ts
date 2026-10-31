@@ -21,7 +21,7 @@ export class DeleteStandardLookupTableResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend error details.
    * 
    * @example
    * internal error
@@ -37,7 +37,7 @@ export class DeleteStandardLookupTableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

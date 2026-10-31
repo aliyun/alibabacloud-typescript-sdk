@@ -21,7 +21,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoDataSourceInfo
   creator?: string;
   /**
    * @remarks
-   * The name of the creator.
+   * The creator name.
    * 
    * @example
    * test
@@ -29,9 +29,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoDataSourceInfo
   creatorName?: string;
   /**
    * @remarks
-   * The environment identifier. Valid values:
-   * - PROD
-   * - DEV.
+   * The environment identifier. Valid values: PROD and DEV.
    * 
    * @example
    * DEV
@@ -39,7 +37,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoDataSourceInfo
   env?: string;
   /**
    * @remarks
-   * The datasource ID.
+   * The data source ID.
    * 
    * @example
    * 1
@@ -47,7 +45,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoDataSourceInfo
   id?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -55,7 +53,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoDataSourceInfo
   modifyTime?: string;
   /**
    * @remarks
-   * The datasource name.
+   * The data source name.
    * 
    * @example
    * 1
@@ -71,7 +69,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoDataSourceInfo
   owner?: string;
   /**
    * @remarks
-   * The name of the owner.
+   * The username of the owner.
    * 
    * @example
    * test
@@ -79,9 +77,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoDataSourceInfo
   ownerName?: string;
   /**
    * @remarks
-   * The datasource type. Valid values:
-   * - MAX_COMPUTE
-   * - HADOOP.
+   * The data source type. Valid values: MAX_COMPUTE and HADOOP.
    * 
    * @example
    * MAX_COMPUTE
@@ -153,7 +149,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoIndexInfo exte
   catalog?: string;
   /**
    * @remarks
-   * The name of the cell aggregate table.
+   * The name of the cell summary logical table.
    * 
    * @example
    * dws_all
@@ -161,11 +157,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoIndexInfo exte
   cellSumLogicTableName?: string;
   /**
    * @remarks
-   * The computation type of the metric. Valid values:
-   * - AUTO
-   * - CUSTOM
-   * - MOUNT
-   * - COMBINE.
+   * The compute type of the metric. Valid values: AUTO, CUSTOM, MOUNT, and COMBINE.
    * 
    * @example
    * AUTO
@@ -197,10 +189,10 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoIndexInfo exte
   displayName?: string;
   /**
    * @remarks
-   * The display name of the statistical granularity.
+   * The statistical granularity name.
    * 
    * @example
-   * 全站汇总表
+   * Site-wide summary table
    */
   granularityDisplayName?: string;
   /**
@@ -245,7 +237,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoIndexInfo exte
   owner?: string;
   /**
    * @remarks
-   * The name of the owner.
+   * The username of the owner.
    * 
    * @example
    * test
@@ -269,8 +261,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoIndexInfo exte
   projectName?: string;
   /**
    * @remarks
-   * The metric type. Valid values:
-   * - INDEX.
+   * The metric type. Valid value: INDEX.
    * 
    * @example
    * INDEX
@@ -358,7 +349,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoTableInfo exte
   catalog?: string;
   /**
    * @remarks
-   * The datasource ID.
+   * The data source ID.
    * 
    * @example
    * 22
@@ -366,7 +357,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoTableInfo exte
   dataSourceId?: string;
   /**
    * @remarks
-   * The datasource type.
+   * The data source type.
    * 
    * @example
    * MAX_COMPUTE
@@ -382,9 +373,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoTableInfo exte
   description?: string;
   /**
    * @remarks
-   * The environment identifier. Valid values:
-   * - DEV
-   * - PROD.
+   * The environment identifier. Valid values: DEV and PROD.
    * 
    * @example
    * DEV
@@ -421,7 +410,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoTableInfo exte
   owner?: string;
   /**
    * @remarks
-   * The name of the owner.
+   * The username of the owner.
    * 
    * @example
    * test
@@ -445,13 +434,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfoTableInfo exte
   projectName?: string;
   /**
    * @remarks
-   * The type. Valid values:
-   * - LOGIC_DIM_TABLE: logical dimension table.
-   * - LOGIC_FACT_TABLE: logical fact table.
-   * - LOGIC_SUM_TABLE: logical aggregate table.
-   * - LOGIC_LABEL_TABLE: logical label table.
-   * - PHYSICAL_TABLE: physical table.
-   * - REALTIME_LOGICAL_TABLE: real-time meta table.
+   * The type. Valid values: LOGIC_DIM_TABLE (logical dimension table), LOGIC_FACT_TABLE (logical fact table), LOGIC_SUM_TABLE (logical aggregate table), LOGIC_LABEL_TABLE (logical tag table), PHYSICAL_TABLE (physical table), and REALTIME_LOGICAL_TABLE (real-time metadata table).
    * 
    * @example
    * LOGIC_DIM_TABLE
@@ -525,7 +508,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfo extends $dara
   creator?: string;
   /**
    * @remarks
-   * The name of the creator.
+   * The creator name.
    * 
    * @example
    * test
@@ -533,7 +516,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfo extends $dara
   creatorName?: string;
   /**
    * @remarks
-   * The datasource details.
+   * The data source details.
    */
   dataSourceInfo?: GetQualityWatchByObjectIdResponseBodyQualityWatchInfoDataSourceInfo;
   /**
@@ -546,7 +529,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfo extends $dara
   enabledRuleCount?: number;
   /**
    * @remarks
-   * The monitoring ID.
+   * The monitor ID.
    * 
    * @example
    * 11
@@ -559,7 +542,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfo extends $dara
   indexInfo?: GetQualityWatchByObjectIdResponseBodyQualityWatchInfoIndexInfo;
   /**
    * @remarks
-   * The ID of the most recent quality watchtask for the monitored object.
+   * The ID of the latest quality watchtask.
    * 
    * @example
    * 1
@@ -567,7 +550,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfo extends $dara
   latestWatchTaskId?: number;
   /**
    * @remarks
-   * The status of the most recent quality watchtask for the monitored object.
+   * The status of the latest quality watchtask.
    * 
    * @example
    * SUCCESS
@@ -583,7 +566,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfo extends $dara
   modifier?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -591,7 +574,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfo extends $dara
   modifyTime?: string;
   /**
    * @remarks
-   * The monitoring name.
+   * The monitor name.
    * 
    * @example
    * test
@@ -623,9 +606,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfo extends $dara
   ruleCount?: number;
   /**
    * @remarks
-   * The status. Valid values:
-   * - ENABLE
-   * - DISABLE.
+   * The status. Valid values: ENABLE and DISABLE.
    * 
    * @example
    * ENABLE
@@ -638,12 +619,7 @@ export class GetQualityWatchByObjectIdResponseBodyQualityWatchInfo extends $dara
   tableInfo?: GetQualityWatchByObjectIdResponseBodyQualityWatchInfoTableInfo;
   /**
    * @remarks
-   * The monitored object type. Valid values:
-   * - TABLE: Dataphin table.
-   * - DATASOURCE_TABLE: global table.
-   * - DATASOURCE: datasource.
-   * - INDEX: metric.
-   * - REALTIME_LOGICAL_TABLE: real-time meta table.
+   * The monitored object type. Valid values: TABLE (Dataphin table), DATASOURCE_TABLE (global table), DATASOURCE (data source), INDEX (metric), and REALTIME_LOGICAL_TABLE (real-time metadata table).
    * 
    * @example
    * TABLE
@@ -732,7 +708,7 @@ export class GetQualityWatchByObjectIdResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error details from the backend.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -740,7 +716,7 @@ export class GetQualityWatchByObjectIdResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The details of the monitored object.
+   * The monitored object details.
    */
   qualityWatchInfo?: GetQualityWatchByObjectIdResponseBodyQualityWatchInfo;
   /**
@@ -753,7 +729,7 @@ export class GetQualityWatchByObjectIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

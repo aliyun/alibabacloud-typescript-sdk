@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class PublishObjectListRequestPublishCommand extends $dara.Model {
   /**
    * @remarks
-   * The publish comment. The string can be up to 1024 characters in length.
+   * The publish comment. The maximum length is 1,024 characters.
    * 
    * This parameter is required.
    * 
    * @example
-   * 发布
+   * Publish
    */
   comment?: string;
   /**
@@ -25,7 +25,7 @@ export class PublishObjectListRequestPublishCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The list of pending publish record IDs to be published. A maximum of 50 submit IDs can be specified.
+   * The list of submit record IDs for the items to be published. A maximum of 50 submit IDs are supported.
    * 
    * This parameter is required.
    */
@@ -70,6 +70,9 @@ export class PublishObjectListRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

@@ -87,8 +87,6 @@ export class ListDataServicePublishedApisRequest extends $dara.Model {
    * @remarks
    * Data service project ID.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 102102
    */

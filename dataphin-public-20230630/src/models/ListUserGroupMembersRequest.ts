@@ -23,7 +23,7 @@ export class ListUserGroupMembersRequestListQuery extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class ListUserGroupMembersRequestListQuery extends $dara.Model {
   userGroupId?: string;
   /**
    * @remarks
-   * The user ID.
+   * The user IDs.
    */
   userIdList?: string[];
   static names(): { [key: string]: string } {
@@ -79,7 +79,7 @@ export class ListUserGroupMembersRequestListQuery extends $dara.Model {
 export class ListUserGroupMembersRequest extends $dara.Model {
   /**
    * @remarks
-   * The paged query parameters.
+   * The paging query.
    * 
    * This parameter is required.
    */
@@ -95,6 +95,9 @@ export class ListUserGroupMembersRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

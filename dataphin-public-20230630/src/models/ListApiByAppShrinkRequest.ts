@@ -14,13 +14,16 @@ export class ListApiByAppShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The paged query parameters.
+   * The paging query parameters.
    * 
    * This parameter is required.
    */

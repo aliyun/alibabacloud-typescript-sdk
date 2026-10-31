@@ -13,12 +13,7 @@ export class GetOperationRecordByIdResponseBodyOperationLogDTO extends $dara.Mod
   beginTime?: string;
   /**
    * @remarks
-   * The code type. Valid values:
-   * - SQL0: SQL
-   * - shell1: Shell
-   * - Python2: Python
-   * - MR3: MR
-   * - Spark4: Spark
+   * The code type. Valid values: SQL0, shell1, Python2, MR3, and Spark4.
    * 
    * @example
    * 0
@@ -26,7 +21,7 @@ export class GetOperationRecordByIdResponseBodyOperationLogDTO extends $dara.Mod
   codeType?: number;
   /**
    * @remarks
-   * The execution duration, in milliseconds.
+   * The execution duration in milliseconds.
    * 
    * @example
    * 120
@@ -45,7 +40,7 @@ export class GetOperationRecordByIdResponseBodyOperationLogDTO extends $dara.Mod
    * The name.
    * 
    * @example
-   * 测试任务
+   * Test task
    */
   name?: string;
   /**
@@ -58,7 +53,7 @@ export class GetOperationRecordByIdResponseBodyOperationLogDTO extends $dara.Mod
   objectType?: string;
   /**
    * @remarks
-   * The operation log ID.
+   * The operation record ID.
    * 
    * @example
    * 987654321
@@ -74,12 +69,12 @@ export class GetOperationRecordByIdResponseBodyOperationLogDTO extends $dara.Mod
   projectId?: number;
   /**
    * @remarks
-   * The list of related tables.
+   * The associated tables.
    */
   relationTables?: string[];
   /**
    * @remarks
-   * The ID of the runner.
+   * The executor ID.
    * 
    * @example
    * 30231123
@@ -87,18 +82,15 @@ export class GetOperationRecordByIdResponseBodyOperationLogDTO extends $dara.Mod
   runner?: string;
   /**
    * @remarks
-   * The name of the runner.
+   * The executor name.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   runnerName?: string;
   /**
    * @remarks
-   * The node status. Valid values:
-   * - 4: Running.
-   * - 5: Succeeded.
-   * - 6: Failed.
+   * The task status. Valid values: 4 (Running), 5 (Successful), and 6 (Failed).
    * 
    * @example
    * 5
@@ -187,7 +179,7 @@ export class GetOperationRecordByIdResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The operation log details.
+   * The execution record details.
    */
   operationLogDTO?: GetOperationRecordByIdResponseBodyOperationLogDTO;
   /**
@@ -200,7 +192,7 @@ export class GetOperationRecordByIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

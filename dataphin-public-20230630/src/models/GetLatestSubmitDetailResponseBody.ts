@@ -13,7 +13,7 @@ export class GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObjectSub
   objectId?: string;
   /**
    * @remarks
-   * The object name.
+   * The name of the object.
    * 
    * @example
    * abc
@@ -63,7 +63,7 @@ export class GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObject ex
   changeType?: string;
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * 
    * @example
    * n_1234
@@ -71,7 +71,7 @@ export class GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObject ex
   nodeId?: string;
   /**
    * @remarks
-   * The object version.
+   * The version of the object.
    * 
    * @example
    * 1
@@ -79,7 +79,7 @@ export class GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObject ex
   objectVersion?: string;
   /**
    * @remarks
-   * The project ID.
+   * The ID of the project.
    * 
    * @example
    * 1234
@@ -87,15 +87,15 @@ export class GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObject ex
   projectId?: number;
   /**
    * @remarks
-   * The submit comment.
+   * The commit description.
    * 
    * @example
-   * 提交说明
+   * Commit description
    */
   submitComment?: string;
   /**
    * @remarks
-   * The submit object.
+   * The object to be published.
    */
   submitObject?: GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObjectSubmitObject;
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObject ex
 export class GetLatestSubmitDetailResponseBodySubmitDetailResult extends $dara.Model {
   /**
    * @remarks
-   * The submit record ID.
+   * The ID of the commit record.
    * 
    * @example
    * 1234
@@ -143,18 +143,18 @@ export class GetLatestSubmitDetailResponseBodySubmitDetailResult extends $dara.M
   id?: number;
   /**
    * @remarks
-   * The publish status. Valid values: 
-   * - NOT_VERIFIED: not verified.
-   * - APPROVING: approval in progress.
-   * - APPROVE_FAILED: approval failed.
-   * - APPROVE_SUCCESS: approval succeeded.
-   * - APPROVE_REVOKED: approval revoked.
-   * - CHECKING: publish verification in progress.
-   * - CHECK_FAILED: publish verification failed.
-   * - CHECK_SUCCESS: publish verification succeeded.
-   * - PUBLISHING: publishing in progress.
-   * - FAILED: publish failed.
-   * - SUCCESS: publish succeeded.
+   * The status of the publish record. Valid values: 
+   * - NOT_VERIFIED: Not verified.
+   * - APPROVING: Approving.
+   * - APPROVE_FAILED: Approval failed.
+   * - APPROVE_SUCCESS: Approval succeeded.
+   * - APPROVE_REVOKED: Approval revoked.
+   * - CHECKING: Checking.
+   * - CHECK_FAILED: Check failed.
+   * - CHECK_SUCCESS: Check succeeded.
+   * - PUBLISHING: Publishing.
+   * - FAILED: Failed.
+   * - SUCCESS: Succeeded.
    * 
    * @example
    * SUCCESS
@@ -162,18 +162,15 @@ export class GetLatestSubmitDetailResponseBodySubmitDetailResult extends $dara.M
   publishStatus?: string;
   /**
    * @remarks
-   * The pending submit record object.
+   * The object of the pending release record.
    */
   releaseObject?: GetLatestSubmitDetailResponseBodySubmitDetailResultReleaseObject;
   /**
    * @remarks
-   * The submit status. Valid values: 
-   * 
-   * - TO_BE_PUBLISHED: pending.
-   * 
-   * - PUBLISHED: published.
-   * 
-   * - PUBLISHING: publishing.
+   * The status of the pending release record. Valid values:
+   * - TO_BE_PUBLISHED: Pending release.
+   * - PUBLISHED: Published.
+   * - PUBLISHING: Publishing.
    * 
    * @example
    * TO_BE_PUBLISHED
@@ -181,7 +178,7 @@ export class GetLatestSubmitDetailResponseBodySubmitDetailResult extends $dara.M
   submitStatus?: string;
   /**
    * @remarks
-   * The record tag.
+   * The tag of the record.
    * 
    * @example
    * tag
@@ -222,7 +219,7 @@ export class GetLatestSubmitDetailResponseBodySubmitDetailResult extends $dara.M
 export class GetLatestSubmitDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -254,12 +251,12 @@ export class GetLatestSubmitDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The pending submit details.
+   * The details of the pending release.
    */
   submitDetailResult?: GetLatestSubmitDetailResponseBodySubmitDetailResult;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

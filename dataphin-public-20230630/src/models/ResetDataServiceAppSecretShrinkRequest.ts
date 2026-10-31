@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetDataServiceAppSecretShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -14,13 +14,16 @@ export class ResetDataServiceAppSecretShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Reset Data Service Application Key
+   * The update command to reset the application key of a data service.
    * 
    * This parameter is required.
    */

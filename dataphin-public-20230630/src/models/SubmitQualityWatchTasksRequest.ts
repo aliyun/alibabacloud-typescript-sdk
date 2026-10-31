@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitQualityWatchTasksRequestSubmitCommand extends $dara.Model {
   /**
    * @remarks
-   * The business date, in the yyyy-MM-dd format.
+   * The business date. Format: yyyy-MM-dd.
    * 
    * @example
    * 2025-06-30
@@ -13,7 +13,7 @@ export class SubmitQualityWatchTasksRequestSubmitCommand extends $dara.Model {
   bizDate?: string;
   /**
    * @remarks
-   * The partition expression. This is a custom expression.
+   * The custom partition expression.
    * 
    * @example
    * ds=${yyyyMMdd}
@@ -21,7 +21,7 @@ export class SubmitQualityWatchTasksRequestSubmitCommand extends $dara.Model {
   partitionExpression?: string;
   /**
    * @remarks
-   * The monitored object IDs.
+   * The IDs of the monitored objects.
    * 
    * This parameter is required.
    */
@@ -66,6 +66,9 @@ export class SubmitQualityWatchTasksRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

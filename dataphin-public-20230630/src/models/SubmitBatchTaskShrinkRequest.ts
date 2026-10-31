@@ -14,13 +14,16 @@ export class SubmitBatchTaskShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The submit request.
+   * The edit request.
    * 
    * This parameter is required.
    */

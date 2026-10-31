@@ -13,7 +13,15 @@ export class GetPipelineAsyncResultResponseBodyData extends $dara.Model {
   asyncId?: number;
   /**
    * @remarks
-   * The error code returned when the execution fails.
+   * The check result of the commit details. The value is a JSON character string and is returned only for asynchronous commit links. The structure is consistent with the commit details on the product page.
+   * 
+   * @example
+   * {"success":true}
+   */
+  checkDetail?: string;
+  /**
+   * @remarks
+   * The error code returned when an execution exception occurs.
    * 
    * @example
    * DPN.Pipeline.InnerError
@@ -21,7 +29,7 @@ export class GetPipelineAsyncResultResponseBodyData extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the execution fails.
+   * The error message returned when an execution exception occurs.
    * 
    * @example
    * NullPointException
@@ -29,7 +37,7 @@ export class GetPipelineAsyncResultResponseBodyData extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The information about the server host that processes the execution request.
+   * The server host information for request execution.
    * 
    * @example
    * hostName:hostIp
@@ -37,7 +45,7 @@ export class GetPipelineAsyncResultResponseBodyData extends $dara.Model {
   hostMachine?: string;
   /**
    * @remarks
-   * The scheduling node ID of the pipeline task.
+   * The ID of the scheduling node for the pipeline task.
    * 
    * @example
    * n_123
@@ -53,10 +61,7 @@ export class GetPipelineAsyncResultResponseBodyData extends $dara.Model {
   pipelineId?: number;
   /**
    * @remarks
-   * The current execution status. Valid values:
-   * - SUCCESS: execution succeeded.
-   * - FAILED: execution failed.
-   * - RUNNING: execution in progress.
+   * The current execution status. Valid values: SUCCESS: The execution is successful. FAILED: The execution fails. RUNNING: The execution is in progress.
    * 
    * @example
    * SUCCESS
@@ -72,7 +77,7 @@ export class GetPipelineAsyncResultResponseBodyData extends $dara.Model {
   submitId?: number;
   /**
    * @remarks
-   * The version number generated when the pipeline task is submitted.
+   * The version number generated after the pipeline task is submitted.
    * 
    * @example
    * 1
@@ -81,6 +86,7 @@ export class GetPipelineAsyncResultResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       asyncId: 'AsyncId',
+      checkDetail: 'CheckDetail',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       hostMachine: 'HostMachine',
@@ -95,6 +101,7 @@ export class GetPipelineAsyncResultResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       asyncId: 'number',
+      checkDetail: 'string',
       errorCode: 'string',
       errorMessage: 'string',
       hostMachine: 'string',
@@ -139,7 +146,7 @@ export class GetPipelineAsyncResultResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error details returned by the backend.
+   * The details of the backend response exception.
    * 
    * @example
    * internal error

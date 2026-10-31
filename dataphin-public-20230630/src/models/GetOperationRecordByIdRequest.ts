@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOperationRecordByIdRequestDetailCommand extends $dara.Model {
   /**
    * @remarks
-   * The operation log ID.
+   * The operation record ID.
    * 
    * This parameter is required.
    * 
@@ -65,6 +65,9 @@ export class GetOperationRecordByIdRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

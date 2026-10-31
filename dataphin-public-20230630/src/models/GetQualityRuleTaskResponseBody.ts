@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityRuleTaskResponseBodyRuleTaskInfo extends $dara.Model {
   /**
    * @remarks
-   * The business date.
+   * The business date. The format is YYYY-MM-DD.
    * 
    * @example
    * 2025-06-30
@@ -13,7 +13,7 @@ export class GetQualityRuleTaskResponseBodyRuleTaskInfo extends $dara.Model {
   bizDate?: string;
   /**
    * @remarks
-   * The business date format.
+   * The format of the business date.
    * 
    * @example
    * yyyy-MM-dd
@@ -21,7 +21,7 @@ export class GetQualityRuleTaskResponseBodyRuleTaskInfo extends $dara.Model {
   bizDateFormat?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -37,7 +37,7 @@ export class GetQualityRuleTaskResponseBodyRuleTaskInfo extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -53,7 +53,7 @@ export class GetQualityRuleTaskResponseBodyRuleTaskInfo extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the user who last modified the task.
+   * The ID of the user who last updated the task.
    * 
    * @example
    * 30012011
@@ -61,7 +61,7 @@ export class GetQualityRuleTaskResponseBodyRuleTaskInfo extends $dara.Model {
   modifier?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -77,7 +77,7 @@ export class GetQualityRuleTaskResponseBodyRuleTaskInfo extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The start time.
+   * The start time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -101,7 +101,7 @@ export class GetQualityRuleTaskResponseBodyRuleTaskInfo extends $dara.Model {
   templateId?: number;
   /**
    * @remarks
-   * The validation object name.
+   * The name of the validated object.
    * 
    * @example
    * test
@@ -109,7 +109,7 @@ export class GetQualityRuleTaskResponseBodyRuleTaskInfo extends $dara.Model {
   validateObjectName?: string;
   /**
    * @remarks
-   * The validation object type.
+   * The validated object type.
    * 
    * @example
    * column
@@ -117,7 +117,7 @@ export class GetQualityRuleTaskResponseBodyRuleTaskInfo extends $dara.Model {
   validateObjectType?: string;
   /**
    * @remarks
-   * The validation partition.
+   * The validated partition.
    * 
    * @example
    * 20251011
@@ -125,12 +125,12 @@ export class GetQualityRuleTaskResponseBodyRuleTaskInfo extends $dara.Model {
   validatePartition?: string;
   /**
    * @remarks
-   * Indicates whether the validation passed.
+   * Indicates whether the validation is successful.
    */
   validateSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the associated monitor.
+   * The watch ID.
    * 
    * @example
    * 1
@@ -138,7 +138,7 @@ export class GetQualityRuleTaskResponseBodyRuleTaskInfo extends $dara.Model {
   watchId?: number;
   /**
    * @remarks
-   * The monitor task ID. This ID is empty for trial-run rule tasks.
+   * The watch task ID. This ID is empty for rule tasks in a trial run.
    * 
    * @example
    * 1
@@ -218,7 +218,7 @@ export class GetQualityRuleTaskResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -239,7 +239,7 @@ export class GetQualityRuleTaskResponseBody extends $dara.Model {
   ruleTaskInfo?: GetQualityRuleTaskResponseBodyRuleTaskInfo;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

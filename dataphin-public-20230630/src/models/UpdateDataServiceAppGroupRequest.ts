@@ -20,7 +20,7 @@ export class UpdateDataServiceAppGroupRequestUpdateCommand extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 默认应用分组
+   * Default application group
    */
   groupName?: string;
   static names(): { [key: string]: string } {
@@ -58,6 +58,9 @@ export class UpdateDataServiceAppGroupRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The user ID of the operator.
+   * 
    * @example
    * 30001011
    */

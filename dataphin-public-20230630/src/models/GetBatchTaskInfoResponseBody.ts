@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetBatchTaskInfoResponseBodyTaskInfoConditionScheduleParamList extends $dara.Model {
   /**
    * @remarks
+   * The name of the condition.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 失败重跑
+   * Rerun on failure
    */
   conditionName?: string;
   /**
    * @remarks
+   * The cron expression used after the condition is met.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetBatchTaskInfoResponseBodyTaskInfoConditionScheduleParamList exte
   cronExpression?: string;
   /**
    * @remarks
+   * Specifies whether the condition is enabled.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class GetBatchTaskInfoResponseBodyTaskInfoConditionScheduleParamList exte
   enable?: boolean;
   /**
    * @remarks
+   * Specifies whether to follow the main scheduling parameter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,11 @@ export class GetBatchTaskInfoResponseBodyTaskInfoConditionScheduleParamList exte
   followScheduleParam?: boolean;
   /**
    * @remarks
+   * The scheduling status of the node after the condition is met. Valid values:
+   * - 1: Normal.
+   * - 2: Paused.
+   * - 3: Dry run.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,6 +58,8 @@ export class GetBatchTaskInfoResponseBodyTaskInfoConditionScheduleParamList exte
   nodeStatus?: number;
   /**
    * @remarks
+   * The conditional expression tree in JSON string format. The key names are lower camel case characters and must be parsed by the invoker.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +68,8 @@ export class GetBatchTaskInfoResponseBodyTaskInfoConditionScheduleParamList exte
   scheduleConditionJson?: string;
   /**
    * @remarks
+   * The scheduling time used after the condition is met.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -95,6 +112,8 @@ export class GetBatchTaskInfoResponseBodyTaskInfoConditionScheduleParamList exte
 export class GetBatchTaskInfoResponseBodyTaskInfoContextParamList extends $dara.Model {
   /**
    * @remarks
+   * The default value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -103,14 +122,18 @@ export class GetBatchTaskInfoResponseBodyTaskInfoContextParamList extends $dara.
   defaultValue?: string;
   /**
    * @remarks
+   * The parameter description.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 输出条数
+   * Number of output records
    */
   desc?: string;
   /**
    * @remarks
+   * The name of the parameter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -145,7 +168,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoContextParamList extends $dara.
 export class GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig extends $dara.Model {
   /**
    * @remarks
-   * The end time in the format of HH:mm.
+   * The end time in the HH:mm format.
    * 
    * @example
    * 20:59
@@ -161,7 +184,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig extends $d
   interval?: number;
   /**
    * @remarks
-   * The interval unit. Valid values: MINUTE and HOUR.
+   * The unit of the interval. Valid values: MINUTE and HOUR.
    * 
    * @example
    * HOUR
@@ -169,7 +192,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig extends $d
   intervalUnit?: string;
   /**
    * @remarks
-   * The scheduling period.
+   * The scheduling cycle.
    * 
    * @example
    * DAILY
@@ -177,7 +200,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig extends $d
   schedulePeriod?: string;
   /**
    * @remarks
-   * The start time in the format of HH:mm.
+   * The start time in the HH:mm format.
    * 
    * @example
    * 08:00
@@ -212,10 +235,200 @@ export class GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig extends $d
   }
 }
 
+export class GetBatchTaskInfoResponseBodyTaskInfoDatabricksPythonConnectInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP path for the development environment.
+   * 
+   * @example
+   * /sql/1.0/warehouses/dev
+   */
+  devHttpPath?: string;
+  /**
+   * @remarks
+   * Specifies whether Databricks Python Connect is enabled.
+   * 
+   * @example
+   * true
+   */
+  enableDatabricksPythonConnect?: boolean;
+  /**
+   * @remarks
+   * The HTTP path for the production environment.
+   * 
+   * @example
+   * /sql/1.0/warehouses/prod
+   */
+  prodHttpPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      devHttpPath: 'DevHttpPath',
+      enableDatabricksPythonConnect: 'EnableDatabricksPythonConnect',
+      prodHttpPath: 'ProdHttpPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      devHttpPath: 'string',
+      enableDatabricksPythonConnect: 'boolean',
+      prodHttpPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoResponseBodyTaskInfoExecuteRerunConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The custom failure retry interval.
+   * 
+   * @example
+   * 60
+   */
+  customRerunInterval?: string;
+  /**
+   * @remarks
+   * The custom number of failure retries.
+   * 
+   * @example
+   * 3
+   */
+  customRerunTimes?: string;
+  /**
+   * @remarks
+   * Specifies whether to inherit the system configuration.
+   * 
+   * @example
+   * false
+   */
+  followSystem?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      customRerunInterval: 'CustomRerunInterval',
+      customRerunTimes: 'CustomRerunTimes',
+      followSystem: 'FollowSystem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customRerunInterval: 'string',
+      customRerunTimes: 'string',
+      followSystem: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoResponseBodyTaskInfoExecuteTimeOutConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The custom timeout period.
+   * 
+   * @example
+   * 1800
+   */
+  customValues?: string;
+  /**
+   * @remarks
+   * Specifies whether to inherit the system configuration.
+   * 
+   * @example
+   * false
+   */
+  followSystem?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      customValues: 'CustomValues',
+      followSystem: 'FollowSystem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customValues: 'string',
+      followSystem: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBatchTaskInfoResponseBodyTaskInfoPaiConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the PAI experiment.
+   * 
+   * @example
+   * 789012
+   */
+  experimentId?: string;
+  /**
+   * @remarks
+   * The PAI region.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The ID of the PAI workspace.
+   * 
+   * @example
+   * 123456
+   */
+  workSpaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      experimentId: 'ExperimentId',
+      region: 'Region',
+      workSpaceId: 'WorkSpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      experimentId: 'string',
+      region: 'string',
+      workSpaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBatchTaskInfoResponseBodyTaskInfoParamList extends $dara.Model {
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * @example
    * key
@@ -223,7 +436,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoParamList extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The parameter value.
+   * The value of the parameter.
    * 
    * @example
    * Value
@@ -252,10 +465,70 @@ export class GetBatchTaskInfoResponseBodyTaskInfoParamList extends $dara.Model {
   }
 }
 
+export class GetBatchTaskInfoResponseBodyTaskInfoPythonModuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the third-party package.
+   * 
+   * @example
+   * 1001
+   */
+  moduleId?: number;
+  /**
+   * @remarks
+   * The name of the third-party package.
+   * 
+   * @example
+   * pandas
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The Python version that the third-party package depends on.
+   * 
+   * @example
+   * Python 3.7
+   */
+  pythonVersion?: string;
+  /**
+   * @remarks
+   * The version number of the third-party package.
+   * 
+   * @example
+   * 1.3.5
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      moduleId: 'ModuleId',
+      name: 'Name',
+      pythonVersion: 'PythonVersion',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleId: 'number',
+      name: 'string',
+      pythonVersion: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBatchTaskInfoResponseBodyTaskInfoSparkClientInfo extends $dara.Model {
   /**
    * @remarks
-   * The Spark client version name.
+   * The version name of the Spark client.
    * 
    * @example
    * abc
@@ -285,7 +558,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoSparkClientInfo extends $dara.M
 export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamListDependPeriod extends $dara.Model {
   /**
    * @remarks
-   * The period offset. This parameter is required when PeriodType is set to LAST_N_PERIOD.
+   * The period offset. This parameter is required when the period type is LAST_N_PERIOD.
    * 
    * @example
    * 1
@@ -334,7 +607,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamList extends $dara.Mode
   dependPeriod?: GetBatchTaskInfoResponseBodyTaskInfoUpStreamListDependPeriod;
   /**
    * @remarks
-   * The dependency strategy. Valid values: ALL, FIRST, LAST, NEAR.
+   * The dependency strategy. Valid values: ALL, FIRST, LAST, and NEAR.
    * 
    * @example
    * LAST
@@ -347,7 +620,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamList extends $dara.Mode
   fieldList?: string[];
   /**
    * @remarks
-   * The type of the upstream dependency node. Valid values:
+   * The upstream dependency node type. Valid values:
    * - PHYSICAL: physical node.
    * - LOGICAL: logical table dependency.
    * 
@@ -370,7 +643,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamList extends $dara.Mode
   sourceNodeEnabled?: boolean;
   /**
    * @remarks
-   * The upstream node ID.
+   * The ID of the upstream node.
    * 
    * @example
    * n_2001
@@ -378,7 +651,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamList extends $dara.Mode
   sourceNodeId?: string;
   /**
    * @remarks
-   * The upstream node name.
+   * The name of the upstream node.
    * 
    * @example
    * t_input1
@@ -394,10 +667,10 @@ export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamList extends $dara.Mode
   sourceNodeOutputName?: string;
   /**
    * @remarks
-   * The username of the upstream node owner.
+   * The upstream username.
    * 
    * @example
-   * John
+   * Zhang San
    */
   sourceNodeUserName?: string;
   /**
@@ -457,43 +730,90 @@ export class GetBatchTaskInfoResponseBodyTaskInfoUpStreamList extends $dara.Mode
 
 export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the base schedule template. This parameter is returned when the configuration method is set to schedule template.
+   * 
    * @example
    * 7305621095333696
    */
   baseScheduleTemplateId?: number;
   /**
+   * @remarks
+   * The name of the base schedule template.
+   * 
    * @example
-   * 天级调度模板
+   * Daily schedule template
    */
   baseScheduleTemplateName?: string;
   /**
    * @remarks
-   * The task code.
+   * The code of the node.
    * 
    * @example
    * show tables;
    */
   code?: string;
   /**
+   * @remarks
+   * The ID of the offline code template.
+   * 
+   * @example
+   * st_123456
+   */
+  codeTemplateId?: string;
+  /**
+   * @remarks
+   * The version of the offline code template.
+   * 
+   * @example
+   * 1
+   */
+  codeTemplateVersion?: number;
+  /**
+   * @remarks
+   * Specifies whether conditional scheduling is enabled.
+   * 
    * @example
    * true
    */
   conditionScheduleEnable?: boolean;
+  /**
+   * @remarks
+   * The details of the conditional scheduling configuration. This parameter has a value only when conditional scheduling is enabled.
+   */
   conditionScheduleParamList?: GetBatchTaskInfoResponseBodyTaskInfoConditionScheduleParamList[];
   /**
+   * @remarks
+   * The ID of the conditional schedule template.
+   * 
    * @example
    * 7305621095333697
    */
   conditionScheduleTemplateId?: number;
   /**
+   * @remarks
+   * The name of the conditional schedule template.
+   * 
    * @example
-   * 条件调度模板
+   * Conditional schedule template
    */
   conditionScheduleTemplateName?: string;
+  /**
+   * @remarks
+   * The cross-node parameters. These are the output parameters declared by the current node for downstream nodes to reference in the format of ${#n_NodeID:ParameterName}.
+   */
   contextParamList?: GetBatchTaskInfoResponseBodyTaskInfoContextParamList[];
   /**
    * @remarks
-   * The cron expression for automatic scheduling. Refer to the Linux cron expression syntax.
+   * The current configuration of the node. When queried by version, this parameter returns the configuration of the corresponding version.
+   * 
+   * @example
+   * 0.5
+   */
+  cpuResource?: string;
+  /**
+   * @remarks
+   * The cron expression for automatic scheduling. You can refer to Linux cron expressions.
    * 
    * @example
    * 0 0 1 * * ?
@@ -501,12 +821,12 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * The custom scheduling interval configuration.
+   * The custom schedule interval configuration.
    */
   customScheduleConfig?: GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig;
   /**
    * @remarks
-   * The ID of the DAG to which the task belongs.
+   * The ID of the DAG to which the node belongs.
    * 
    * @example
    * dag_102121211
@@ -514,7 +834,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   dagId?: string;
   /**
    * @remarks
-   * The catalog for database SQL nodes. This parameter takes effect only for data source types that require a catalog, such as Presto.
+   * The data source catalog for database SQL tasks. This parameter takes effect only for data source types that require a catalog, such as Presto.
    * 
    * @example
    * mysql_catalog
@@ -522,7 +842,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   dataSourceCatalog?: string;
   /**
    * @remarks
-   * The data source ID for database SQL nodes.
+   * The data source ID for database SQL tasks.
    * 
    * @example
    * 12131111
@@ -530,25 +850,39 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The schema for database SQL nodes. This parameter takes effect only for data source types that require a schema, such as Oracle.
+   * The data source schema for database SQL tasks. This parameter takes effect only for data source types that require a schema, such as Oracle.
    * 
    * @example
    * erp
    */
   dataSourceSchema?: string;
   /**
+   * @remarks
+   * The Python connection information.
+   */
+  databricksPythonConnectInfo?: GetBatchTaskInfoResponseBodyTaskInfoDatabricksPythonConnectInfo;
+  /**
+   * @remarks
+   * The HTTP path for the development environment, used for Databricks tasks.
+   * 
    * @example
    * /sql/protocolv1/o/xxx
    */
   devHttpPath?: string;
   /**
+   * @remarks
+   * The ID of the scheduling resource group for the development task.
+   * 
    * @example
    * rg-def456
    */
   devResourceGroupId?: string;
   /**
+   * @remarks
+   * The name of the scheduling resource group for the development task.
+   * 
    * @example
-   * 默认资源组
+   * Default resource group
    */
   devResourceGroupName?: string;
   /**
@@ -561,7 +895,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   developOwnerId?: string;
   /**
    * @remarks
-   * The list of development owner IDs.
+   * The list of user IDs of the development owners.
    */
   developOwnerIdList?: string[];
   /**
@@ -569,17 +903,27 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
    * The name of the development owner.
    * 
    * @example
-   * John
+   * Zhang San
    */
   developOwnerName?: string;
   /**
    * @remarks
-   * The list of development owner names.
+   * The list of names of the development owners.
    */
   developOwnerNameList?: string[];
   /**
    * @remarks
-   * The node ID in the directory tree.
+   * The failure retry configuration. This is the current configuration of the task. If queried by version, this is the configuration of the corresponding version.
+   */
+  executeRerunConfig?: GetBatchTaskInfoResponseBodyTaskInfoExecuteRerunConfig;
+  /**
+   * @remarks
+   * The execution timeout configuration. This is the current configuration of the task. If queried by version, this is the configuration of the corresponding version.
+   */
+  executeTimeOutConfig?: GetBatchTaskInfoResponseBodyTaskInfoExecuteTimeOutConfig;
+  /**
+   * @remarks
+   * The ID of the node in the task directory tree.
    * 
    * @example
    * 12113111
@@ -587,15 +931,23 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * Indicates whether the task has a development environment node.
+   * Indicates whether a development environment node exists.
    */
   hasDevNode?: boolean;
   /**
    * @remarks
-   * The task name.
+   * The current configuration of the node. When queried by version, this parameter returns the configuration of the corresponding version.
    * 
    * @example
-   * TestTask1
+   * 1024
+   */
+  memoryResource?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * Test task 1
    */
   name?: string;
   /**
@@ -605,15 +957,15 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   needPublish?: boolean;
   /**
    * @remarks
-   * The task description.
+   * The description of the task.
    * 
    * @example
-   * xxTest
+   * xx test
    */
   nodeDescription?: string;
   /**
    * @remarks
-   * The source of the node, indicating the organization or application that created the node.
+   * The source of the node. This indicates the organization or application that created the node.
    * 
    * @example
    * openapi
@@ -621,7 +973,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   nodeFrom?: string;
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * 
    * @example
    * n_1011_21232132322
@@ -629,10 +981,10 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The node name.
+   * The name of the node.
    * 
    * @example
-   * TestTask1
+   * Test task 1
    */
   nodeName?: string;
   /**
@@ -642,10 +994,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   nodeOutputNameList?: string[];
   /**
    * @remarks
-   * The node status. Valid values:
-   * - 1: Normal.
-   * - 2: Paused.
-   * - 3: Dry run.
+   * The status of the node. Valid values: 1 (Normal), 2 (Paused), and 3 (Dry run).
    * 
    * @example
    * 1
@@ -669,15 +1018,15 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   opsOwnerId?: string;
   /**
    * @remarks
-   * The list of O&M owner IDs.
+   * The list of user IDs of the O&M owners.
    */
   opsOwnerIdList?: string[];
   /**
    * @remarks
-   * The name of the O&M owner.
+   * The O&M owner name.
    * 
    * @example
-   * John
+   * Zhang San
    */
   opsOwnerName?: string;
   /**
@@ -690,7 +1039,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
    * The name of the node owner.
    * 
    * @example
-   * John
+   * Zhang San
    */
   ownerName?: string;
   /**
@@ -703,30 +1052,38 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   ownerUserId?: string;
   /**
    * @remarks
+   * The PAI configuration information.
+   */
+  paiConfig?: GetBatchTaskInfoResponseBodyTaskInfoPaiConfig;
+  /**
+   * @remarks
    * The list of custom parameters for the node.
    */
   paramList?: GetBatchTaskInfoResponseBodyTaskInfoParamList[];
   /**
    * @remarks
-   * Indicates whether the node is paused for scheduling.
+   * Indicates whether the scheduling of the node is paused.
    */
   paused?: boolean;
   /**
    * @remarks
-   * The scheduling priority of the node. Valid values: 1 to 9. A larger value indicates a lower priority.
+   * The scheduling priority of the task. Valid values: 1 to 9. A larger value indicates a lower priority.
    * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The HTTP path in the production environment. This parameter is used for Databricks tasks.
+   * 
    * @example
    * /sql/protocolv1/o/yyy
    */
   prodHttpPath?: string;
   /**
    * @remarks
-   * The project ID.
+   * The ID of the project.
    * 
    * @example
    * 131211211
@@ -739,7 +1096,20 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   published?: boolean;
   /**
    * @remarks
-   * The remarks.
+   * The list of third-party packages that the Python task depends on.
+   */
+  pythonModuleList?: GetBatchTaskInfoResponseBodyTaskInfoPythonModuleList[];
+  /**
+   * @remarks
+   * The Python version for the Python task, such as Python 3.7.
+   * 
+   * @example
+   * Python 3.7
+   */
+  pythonVersion?: string;
+  /**
+   * @remarks
+   * The remark.
    * 
    * @example
    * test xx
@@ -747,28 +1117,42 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * Indicates whether the node can be rerun.
+   * Indicates whether the task can be rerun.
    */
   rerunable?: boolean;
   /**
+   * @remarks
+   * The ID of the schedule resource group for the production task.
+   * 
    * @example
    * rg-abc123
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The name of the schedule resource group for the production task.
+   * 
    * @example
-   * 默认资源组
+   * Default resource group
    */
   resourceGroupName?: string;
   /**
    * @remarks
+   * Specifies whether to retry the task upon timeout. This is the current configuration of the task. If you query by version, this is the configuration of the corresponding version.
+   * 
+   * @example
+   * false
+   */
+  retryOnTimeoutEnable?: boolean;
+  /**
+   * @remarks
    * The scheduling period. Valid values:
-   * - YEARLY
-   * - MONTHLY
-   * - WEEKLY
-   * - DAILY
-   * - HOURLY
-   * - MINUTELY
+   * - YEARLY: Yearly.
+   * - MONTHLY: Monthly.
+   * - WEEKLY: Weekly.
+   * - DAILY: Daily.
+   * - HOURLY: Hourly.
+   * - MINUTELY: Minutely.
    * 
    * @example
    * DAILY
@@ -776,9 +1160,9 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   schedulePeriod?: string;
   /**
    * @remarks
-   * The node type. Valid values: 
-   * - 1: Periodic node.
-   * - 3: Manual node.
+   * The type of the node. Valid values: 
+   * - 1: Periodic task.
+   * - 3: Manual task.
    * 
    * @example
    * 3
@@ -791,19 +1175,52 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
   sparkClientInfo?: GetBatchTaskInfoResponseBodyTaskInfoSparkClientInfo;
   /**
    * @remarks
-   * The submit status. Valid values:
-   * - 0: Draft.
-   * - 1: Submitted.
-   * - 100: In development.
+   * The current configuration of the node. When queried by version, this parameter returns the configuration of the corresponding version.
    * 
    * @example
-   * TestTask1
+   * false
+   */
+  sparkDynamicResourceSwitch?: boolean;
+  /**
+   * @remarks
+   * The effective scope of the Spark resource configuration. A value of ONLY_PROD indicates the production environment only, and a value of PROD_AND_DEV indicates the production and development environments. This is the current configuration of the task. If you query by version, this is the configuration of the corresponding version.
+   * 
+   * @example
+   * ONLY_PROD
+   */
+  sparkResourceEffectScope?: string;
+  /**
+   * @remarks
+   * The Spark SQL resource configuration. The key is the configuration item name, and the value is a string. The entire configuration is returned as a JSON string. This is the current configuration of the task. If you query by version, this is the configuration of the corresponding version.
+   * 
+   * @example
+   * {"spark.executor.memory":"2g"}
+   */
+  sparkSqlResourceConfigMap?: string;
+  /**
+   * @remarks
+   * The MaxCompute Spark version.
+   * 
+   * @example
+   * Spark 3.1.1
+   */
+  sparkVersion?: string;
+  /**
+   * @remarks
+   * The publish status. Valid values: 0 (Draft), 1 (Submitted), and 100 (In development).
+   * 
+   * @example
+   * Test task 1
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of node tag names.
+   */
   taskTagList?: string[];
   /**
    * @remarks
-   * The task type. For more information, refer to the API operation for creating a batch task.
+   * The node type. For more information, see the API operation for creating an offline computing node.
    * 
    * @example
    * 21
@@ -815,11 +1232,17 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
    */
   upStreamList?: GetBatchTaskInfoResponseBodyTaskInfoUpStreamList[];
   /**
+   * @remarks
+   * The effective end date. Format: yyyy-MM-dd.
+   * 
    * @example
    * 9999-12-31
    */
   validEndDate?: string;
   /**
+   * @remarks
+   * The effective start date. Format: yyyy-MM-dd.
+   * 
    * @example
    * 2026-01-01
    */
@@ -829,17 +1252,21 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
       baseScheduleTemplateId: 'BaseScheduleTemplateId',
       baseScheduleTemplateName: 'BaseScheduleTemplateName',
       code: 'Code',
+      codeTemplateId: 'CodeTemplateId',
+      codeTemplateVersion: 'CodeTemplateVersion',
       conditionScheduleEnable: 'ConditionScheduleEnable',
       conditionScheduleParamList: 'ConditionScheduleParamList',
       conditionScheduleTemplateId: 'ConditionScheduleTemplateId',
       conditionScheduleTemplateName: 'ConditionScheduleTemplateName',
       contextParamList: 'ContextParamList',
+      cpuResource: 'CpuResource',
       cronExpression: 'CronExpression',
       customScheduleConfig: 'CustomScheduleConfig',
       dagId: 'DagId',
       dataSourceCatalog: 'DataSourceCatalog',
       dataSourceId: 'DataSourceId',
       dataSourceSchema: 'DataSourceSchema',
+      databricksPythonConnectInfo: 'DatabricksPythonConnectInfo',
       devHttpPath: 'DevHttpPath',
       devResourceGroupId: 'DevResourceGroupId',
       devResourceGroupName: 'DevResourceGroupName',
@@ -847,8 +1274,11 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
       developOwnerIdList: 'DevelopOwnerIdList',
       developOwnerName: 'DevelopOwnerName',
       developOwnerNameList: 'DevelopOwnerNameList',
+      executeRerunConfig: 'ExecuteRerunConfig',
+      executeTimeOutConfig: 'ExecuteTimeOutConfig',
       fileId: 'FileId',
       hasDevNode: 'HasDevNode',
+      memoryResource: 'MemoryResource',
       name: 'Name',
       needPublish: 'NeedPublish',
       nodeDescription: 'NodeDescription',
@@ -864,19 +1294,27 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
       opsOwnerNameList: 'OpsOwnerNameList',
       ownerName: 'OwnerName',
       ownerUserId: 'OwnerUserId',
+      paiConfig: 'PaiConfig',
       paramList: 'ParamList',
       paused: 'Paused',
       priority: 'Priority',
       prodHttpPath: 'ProdHttpPath',
       projectId: 'ProjectId',
       published: 'Published',
+      pythonModuleList: 'PythonModuleList',
+      pythonVersion: 'PythonVersion',
       remark: 'Remark',
       rerunable: 'Rerunable',
       resourceGroupId: 'ResourceGroupId',
       resourceGroupName: 'ResourceGroupName',
+      retryOnTimeoutEnable: 'RetryOnTimeoutEnable',
       schedulePeriod: 'SchedulePeriod',
       scheduleType: 'ScheduleType',
       sparkClientInfo: 'SparkClientInfo',
+      sparkDynamicResourceSwitch: 'SparkDynamicResourceSwitch',
+      sparkResourceEffectScope: 'SparkResourceEffectScope',
+      sparkSqlResourceConfigMap: 'SparkSqlResourceConfigMap',
+      sparkVersion: 'SparkVersion',
       status: 'Status',
       taskTagList: 'TaskTagList',
       taskType: 'TaskType',
@@ -891,17 +1329,21 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
       baseScheduleTemplateId: 'number',
       baseScheduleTemplateName: 'string',
       code: 'string',
+      codeTemplateId: 'string',
+      codeTemplateVersion: 'number',
       conditionScheduleEnable: 'boolean',
       conditionScheduleParamList: { 'type': 'array', 'itemType': GetBatchTaskInfoResponseBodyTaskInfoConditionScheduleParamList },
       conditionScheduleTemplateId: 'number',
       conditionScheduleTemplateName: 'string',
       contextParamList: { 'type': 'array', 'itemType': GetBatchTaskInfoResponseBodyTaskInfoContextParamList },
+      cpuResource: 'string',
       cronExpression: 'string',
       customScheduleConfig: GetBatchTaskInfoResponseBodyTaskInfoCustomScheduleConfig,
       dagId: 'string',
       dataSourceCatalog: 'string',
       dataSourceId: 'string',
       dataSourceSchema: 'string',
+      databricksPythonConnectInfo: GetBatchTaskInfoResponseBodyTaskInfoDatabricksPythonConnectInfo,
       devHttpPath: 'string',
       devResourceGroupId: 'string',
       devResourceGroupName: 'string',
@@ -909,8 +1351,11 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
       developOwnerIdList: { 'type': 'array', 'itemType': 'string' },
       developOwnerName: 'string',
       developOwnerNameList: { 'type': 'array', 'itemType': 'string' },
+      executeRerunConfig: GetBatchTaskInfoResponseBodyTaskInfoExecuteRerunConfig,
+      executeTimeOutConfig: GetBatchTaskInfoResponseBodyTaskInfoExecuteTimeOutConfig,
       fileId: 'number',
       hasDevNode: 'boolean',
+      memoryResource: 'string',
       name: 'string',
       needPublish: 'boolean',
       nodeDescription: 'string',
@@ -926,19 +1371,27 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
       opsOwnerNameList: { 'type': 'array', 'itemType': 'string' },
       ownerName: 'string',
       ownerUserId: 'string',
+      paiConfig: GetBatchTaskInfoResponseBodyTaskInfoPaiConfig,
       paramList: { 'type': 'array', 'itemType': GetBatchTaskInfoResponseBodyTaskInfoParamList },
       paused: 'boolean',
       priority: 'number',
       prodHttpPath: 'string',
       projectId: 'number',
       published: 'boolean',
+      pythonModuleList: { 'type': 'array', 'itemType': GetBatchTaskInfoResponseBodyTaskInfoPythonModuleList },
+      pythonVersion: 'string',
       remark: 'string',
       rerunable: 'boolean',
       resourceGroupId: 'string',
       resourceGroupName: 'string',
+      retryOnTimeoutEnable: 'boolean',
       schedulePeriod: 'string',
       scheduleType: 'number',
       sparkClientInfo: GetBatchTaskInfoResponseBodyTaskInfoSparkClientInfo,
+      sparkDynamicResourceSwitch: 'boolean',
+      sparkResourceEffectScope: 'string',
+      sparkSqlResourceConfigMap: 'string',
+      sparkVersion: 'string',
       status: 'string',
       taskTagList: { 'type': 'array', 'itemType': 'string' },
       taskType: 'number',
@@ -958,11 +1411,20 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
     if(this.customScheduleConfig && typeof (this.customScheduleConfig as any).validate === 'function') {
       (this.customScheduleConfig as any).validate();
     }
+    if(this.databricksPythonConnectInfo && typeof (this.databricksPythonConnectInfo as any).validate === 'function') {
+      (this.databricksPythonConnectInfo as any).validate();
+    }
     if(Array.isArray(this.developOwnerIdList)) {
       $dara.Model.validateArray(this.developOwnerIdList);
     }
     if(Array.isArray(this.developOwnerNameList)) {
       $dara.Model.validateArray(this.developOwnerNameList);
+    }
+    if(this.executeRerunConfig && typeof (this.executeRerunConfig as any).validate === 'function') {
+      (this.executeRerunConfig as any).validate();
+    }
+    if(this.executeTimeOutConfig && typeof (this.executeTimeOutConfig as any).validate === 'function') {
+      (this.executeTimeOutConfig as any).validate();
     }
     if(Array.isArray(this.nodeOutputNameList)) {
       $dara.Model.validateArray(this.nodeOutputNameList);
@@ -973,8 +1435,14 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
     if(Array.isArray(this.opsOwnerNameList)) {
       $dara.Model.validateArray(this.opsOwnerNameList);
     }
+    if(this.paiConfig && typeof (this.paiConfig as any).validate === 'function') {
+      (this.paiConfig as any).validate();
+    }
     if(Array.isArray(this.paramList)) {
       $dara.Model.validateArray(this.paramList);
+    }
+    if(Array.isArray(this.pythonModuleList)) {
+      $dara.Model.validateArray(this.pythonModuleList);
     }
     if(this.sparkClientInfo && typeof (this.sparkClientInfo as any).validate === 'function') {
       (this.sparkClientInfo as any).validate();
@@ -996,7 +1464,7 @@ export class GetBatchTaskInfoResponseBodyTaskInfo extends $dara.Model {
 export class GetBatchTaskInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -1028,7 +1496,7 @@ export class GetBatchTaskInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   /**

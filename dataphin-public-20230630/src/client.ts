@@ -90,7 +90,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds users to a data service project and assigns roles to them.
+   * Adds a user to a Data Service project and assigns a role.
    * 
    * @param tmpReq - AddDataServiceProjectMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -141,7 +141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds users to a data service project and assigns roles to them.
+   * Adds a user to a Data Service project and assigns a role.
    * 
    * @param request - AddDataServiceProjectMemberRequest
    * @returns AddDataServiceProjectMemberResponse
@@ -152,7 +152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds members to a project.
+   * Adds project members.
    * 
    * @param tmpReq - AddProjectMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -203,7 +203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds members to a project.
+   * Adds project members.
    * 
    * @param request - AddProjectMemberRequest
    * @returns AddProjectMemberResponse
@@ -214,7 +214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers data lineage. Available since version v5.4.0.
+   * Registers data lineage. Released in version 5.4.0.
    * 
    * @param tmpReq - AddRegisterLineageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -261,7 +261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers data lineage. Available since version v5.4.0.
+   * Registers data lineage. Released in version 5.4.0.
    * 
    * @param request - AddRegisterLineageRequest
    * @returns AddRegisterLineageResponse
@@ -272,7 +272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds users to a tenant in batches. Only super administrators (SuperAdmin) and system administrators can invoke this API operation.
+   * Adds users to a tenant in batches. This API operation can be invoked only by super administrators and system administration.
    * 
    * @param tmpReq - AddTenantMembersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -319,7 +319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds users to a tenant in batches. Only super administrators (SuperAdmin) and system administrators can invoke this API operation.
+   * Adds users to a tenant in batches. This API operation can be invoked only by super administrators and system administration.
    * 
    * @param request - AddTenantMembersRequest
    * @returns AddTenantMembersResponse
@@ -566,6 +566,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Applies for resource permissions at the table or column level. Available since version 6.4.0.
+   * 
+   * @param tmpReq - ApplyResourcePermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyResourcePermissionResponse
+   */
+  async applyResourcePermissionWithOptions(tmpReq: $_model.ApplyResourcePermissionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ApplyResourcePermissionResponse> {
+    tmpReq.validate();
+    let request = new $_model.ApplyResourcePermissionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.applyCommand)) {
+      request.applyCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applyCommand, "ApplyCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyCommandShrink)) {
+      body["ApplyCommand"] = request.applyCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ApplyResourcePermission",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ApplyResourcePermissionResponse>(await this.callApi(params, req, runtime), new $_model.ApplyResourcePermissionResponse({}));
+  }
+
+  /**
+   * Applies for resource permissions at the table or column level. Available since version 6.4.0.
+   * 
+   * @param request - ApplyResourcePermissionRequest
+   * @returns ApplyResourcePermissionResponse
+   */
+  async applyResourcePermission(request: $_model.ApplyResourcePermissionRequest): Promise<$_model.ApplyResourcePermissionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.applyResourcePermissionWithOptions(request, runtime);
+  }
+
+  /**
    * Binds specified quality rules to schedule settings.
    * Release version: v5.4.2.
    * 
@@ -626,7 +684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates knowledge graph entity records in batches. Available since version v6.1.1.
+   * Creates knowledge graph entity records in batches. Released in version v6.1.1.
    * 
    * @param tmpReq - BatchCreateKgEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -677,7 +735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates knowledge graph entity records in batches. Available since version v6.1.1.
+   * Creates knowledge graph entity records in batches. Released in version v6.1.1.
    * 
    * @param request - BatchCreateKgEntityRequest
    * @returns BatchCreateKgEntityResponse
@@ -688,7 +746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+   * Creates knowledge graph relationship records in batches. Released in version v6.1.1.
    * 
    * @param tmpReq - BatchCreateKgRelationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -739,7 +797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+   * Creates knowledge graph relationship records in batches. Released in version v6.1.1.
    * 
    * @param request - BatchCreateKgRelationRequest
    * @returns BatchCreateKgRelationResponse
@@ -750,7 +808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量交接资产。
+   * Transfers assets in batches. Released in version 6.3.2.
    * 
    * @param tmpReq - BatchHandoverAssetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -797,7 +855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量交接资产。
+   * Transfers assets in batches. Released in version 6.3.2.
    * 
    * @param request - BatchHandoverAssetRequest
    * @returns BatchHandoverAssetResponse
@@ -808,7 +866,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the connectivity of a compute source.
+   * Checks the connectivity of a saved cluster. Available since v6.4.0.
+   * 
+   * @param request - CheckComputeClusterConnectivityByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckComputeClusterConnectivityByIdResponse
+   */
+  async checkComputeClusterConnectivityByIdWithOptions(request: $_model.CheckComputeClusterConnectivityByIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckComputeClusterConnectivityByIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckComputeClusterConnectivityById",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckComputeClusterConnectivityByIdResponse>(await this.callApi(params, req, runtime), new $_model.CheckComputeClusterConnectivityByIdResponse({}));
+  }
+
+  /**
+   * Checks the connectivity of a saved cluster. Available since v6.4.0.
+   * 
+   * @param request - CheckComputeClusterConnectivityByIdRequest
+   * @returns CheckComputeClusterConnectivityByIdResponse
+   */
+  async checkComputeClusterConnectivityById(request: $_model.CheckComputeClusterConnectivityByIdRequest): Promise<$_model.CheckComputeClusterConnectivityByIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkComputeClusterConnectivityByIdWithOptions(request, runtime);
+  }
+
+  /**
+   * Validates the connectivity.
    * 
    * @param tmpReq - CheckComputeSourceConnectivityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -855,7 +963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the connectivity of a compute source.
+   * Validates the connectivity.
    * 
    * @param request - CheckComputeSourceConnectivityRequest
    * @returns CheckComputeSourceConnectivityResponse
@@ -866,7 +974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the connectivity of an existing compute source by compute source ID.
+   * Verifies the connectivity of an existing compute source by using the compute source ID.
    * 
    * @param request - CheckComputeSourceConnectivityByIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -905,7 +1013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the connectivity of an existing compute source by compute source ID.
+   * Verifies the connectivity of an existing compute source by using the compute source ID.
    * 
    * @param request - CheckComputeSourceConnectivityByIdRequest
    * @returns CheckComputeSourceConnectivityByIdResponse
@@ -916,7 +1024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the connectivity of a data source.
+   * Checks the connectivity of a datasource.
    * 
    * @param tmpReq - CheckDataSourceConnectivityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -963,7 +1071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the connectivity of a data source.
+   * Checks the connectivity of a datasource.
    * 
    * @param request - CheckDataSourceConnectivityRequest
    * @returns CheckDataSourceConnectivityResponse
@@ -1024,10 +1132,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在指定调度资源组上检查数据源连通性
+   * Checks the connectivity of a data source on a specified schedule resource group. Available since version 6.3.2.
    * 
    * @remarks
-   * 在指定调度资源组上异步发起数据源连通性检查，立即返回检查任务ID（Data）；任务结果通过 GetCheckConnectivityJobByJobId 轮询。与 CheckDataSourceConnectivity 的区别：本接口的检查任务在客户指定的调度资源组上执行，适用于 Dataphin 服务端与目标数据源网络不通的场景。
+   * Asynchronously initiates a data source connectivity check on a specified schedule resource group and immediately returns the check task ID in the Data field. You can poll the task result by calling GetCheckConnectivityJobByJobId. Difference from CheckDataSourceConnectivity: The check task of this operation is executed on the schedule resource group specified by the customer, which is applicable to scenarios where the network between the Dataphin server and the target data source is disconnected.
    * 
    * @param tmpReq - CheckDataSourceConnectivityOnResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1074,10 +1182,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在指定调度资源组上检查数据源连通性
+   * Checks the connectivity of a data source on a specified schedule resource group. Available since version 6.3.2.
    * 
    * @remarks
-   * 在指定调度资源组上异步发起数据源连通性检查，立即返回检查任务ID（Data）；任务结果通过 GetCheckConnectivityJobByJobId 轮询。与 CheckDataSourceConnectivity 的区别：本接口的检查任务在客户指定的调度资源组上执行，适用于 Dataphin 服务端与目标数据源网络不通的场景。
+   * Asynchronously initiates a data source connectivity check on a specified schedule resource group and immediately returns the check task ID in the Data field. You can poll the task result by calling GetCheckConnectivityJobByJobId. Difference from CheckDataSourceConnectivity: The check task of this operation is executed on the schedule resource group specified by the customer, which is applicable to scenarios where the network between the Dataphin server and the target data source is disconnected.
    * 
    * @param request - CheckDataSourceConnectivityOnResourceGroupRequest
    * @returns CheckDataSourceConnectivityOnResourceGroupResponse
@@ -1088,7 +1196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a project has data dependencies such as tasks.
+   * Checks whether the project is depended on by data dependencies such as nodes.
    * 
    * @param request - CheckProjectHasDependencyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1127,7 +1235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a project has data dependencies such as tasks.
+   * Checks whether the project is depended on by data dependencies such as nodes.
    * 
    * @param request - CheckProjectHasDependencyRequest
    * @returns CheckProjectHasDependencyResponse
@@ -1138,7 +1246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a user has the permission on a specified resource.
+   * Checks whether a user has the specified resource permissions.
    * 
    * @param tmpReq - CheckResourcePermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1185,7 +1293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a user has the permission on a specified resource.
+   * Checks whether a user has the specified resource permissions.
    * 
    * @param request - CheckResourcePermissionRequest
    * @returns CheckResourcePermissionResponse
@@ -1312,7 +1420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a batch task.
+   * Creates an offline computing task.
    * 
    * @param tmpReq - CreateBatchTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1359,7 +1467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a batch task.
+   * Creates an offline computing task.
    * 
    * @param request - CreateBatchTaskRequest
    * @returns CreateBatchTaskResponse
@@ -1367,6 +1475,68 @@ export default class Client extends OpenApi {
   async createBatchTask(request: $_model.CreateBatchTaskRequest): Promise<$_model.CreateBatchTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createBatchTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an offline computing template. Available since version 6.4.0.
+   * 
+   * @param tmpReq - CreateBatchTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBatchTemplateResponse
+   */
+  async createBatchTemplateWithOptions(tmpReq: $_model.CreateBatchTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBatchTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateBatchTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBatchTemplate",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBatchTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateBatchTemplateResponse({}));
+  }
+
+  /**
+   * Creates an offline computing template. Available since version 6.4.0.
+   * 
+   * @param request - CreateBatchTemplateRequest
+   * @returns CreateBatchTemplateResponse
+   */
+  async createBatchTemplate(request: $_model.CreateBatchTemplateRequest): Promise<$_model.CreateBatchTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBatchTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -1428,8 +1598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a business metric.
-   * Release version: v5.5.0.
+   * Creates a business metric. Release version: v5.5.0.
    * 
    * @param tmpReq - CreateBizMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1476,8 +1645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a business metric.
-   * Release version: v5.5.0.
+   * Creates a business metric. Release version: v5.5.0.
    * 
    * @param request - CreateBizMetricRequest
    * @returns CreateBizMetricResponse
@@ -1546,7 +1714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cluster. Online since version v6.3.0.
+   * Creates a cluster. Release version: v6.3.0.
    * 
    * @param tmpReq - CreateComputeClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1593,7 +1761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cluster. Online since version v6.3.0.
+   * Creates a cluster. Release version: v6.3.0.
    * 
    * @param request - CreateComputeClusterRequest
    * @returns CreateComputeClusterResponse
@@ -1604,7 +1772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
+   * Creates a compute source. Only business unit administrators and project administrators are authorized to perform this operation.
    * 
    * @param tmpReq - CreateComputeSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1651,7 +1819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
+   * Creates a compute source. Only business unit administrators and project administrators are authorized to perform this operation.
    * 
    * @param request - CreateComputeSourceRequest
    * @returns CreateComputeSourceResponse
@@ -1948,17 +2116,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new dataset in the specified project. Available since v6.2.0.
+   * Creates a dataset in a specified project. Available since v6.2.0.
    * 
    * @remarks
    * ## Request description
-   * - This API creates a new dataset in the specified project.
-   * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
-   * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
-   * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
-   * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
-   * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
-   * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
+   * - This API operation creates a dataset in a specified project.
+   * - ProjectId is a required parameter that specifies the ID of the project in which to create the dataset.
+   * - CreateCommand is a complex object that contains various configuration information required to create the dataset.
+   * - Name, Type, ContentType, and Scenario are required fields that specify the dataset name, type, content type, and Scenarios, respectively.
+   * - You can configure FileStorageConfig and MetadataStorageConfig in VersionConfig as needed.
+   * - If real-time metatable configuration is required, provide the RealtimeMetaTableConfig information.
+   * - Make sure that all required fields are correctly filled in. Otherwise, the request will be failed.
    * 
    * @param tmpReq - CreateDatasetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2009,17 +2177,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new dataset in the specified project. Available since v6.2.0.
+   * Creates a dataset in a specified project. Available since v6.2.0.
    * 
    * @remarks
    * ## Request description
-   * - This API creates a new dataset in the specified project.
-   * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
-   * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
-   * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
-   * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
-   * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
-   * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
+   * - This API operation creates a dataset in a specified project.
+   * - ProjectId is a required parameter that specifies the ID of the project in which to create the dataset.
+   * - CreateCommand is a complex object that contains various configuration information required to create the dataset.
+   * - Name, Type, ContentType, and Scenario are required fields that specify the dataset name, type, content type, and Scenarios, respectively.
+   * - You can configure FileStorageConfig and MetadataStorageConfig in VersionConfig as needed.
+   * - If real-time metatable configuration is required, provide the RealtimeMetaTableConfig information.
+   * - Make sure that all required fields are correctly filled in. Otherwise, the request will be failed.
    * 
    * @param request - CreateDatasetRequest
    * @returns CreateDatasetResponse
@@ -2270,9 +2438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * General-purpose data backfill operation that supports both list mode and batch mode data backfill:
-   * 1. Generates data backfill instances that run and affect data output of related tables.
-   * 2. Triggers node execution, which incurs compute and storage costs.
+   * Backfills data in list mode or massive mode. Take note of the following items: 1. Data backfill instances are generated and run, which affects the data output of related tables. 2. Nodes are run, which incurs computing and storage costs.
    * 
    * @param tmpReq - CreateNodeSupplementRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2323,9 +2489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * General-purpose data backfill operation that supports both list mode and batch mode data backfill:
-   * 1. Generates data backfill instances that run and affect data output of related tables.
-   * 2. Triggers node execution, which incurs compute and storage costs.
+   * Backfills data in list mode or massive mode. Take note of the following items: 1. Data backfill instances are generated and run, which affects the data output of related tables. 2. Nodes are run, which incurs computing and storage costs.
    * 
    * @param request - CreateNodeSupplementRequest
    * @returns CreateNodeSupplementResponse
@@ -2526,6 +2690,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a quality rectification process. Released in version 6.4.0.
+   * 
+   * @param tmpReq - CreateRectifyFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRectifyFlowResponse
+   */
+  async createRectifyFlowWithOptions(tmpReq: $_model.CreateRectifyFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRectifyFlowResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateRectifyFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRectifyFlow",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRectifyFlowResponse>(await this.callApi(params, req, runtime), new $_model.CreateRectifyFlowResponse({}));
+  }
+
+  /**
+   * Creates a quality rectification process. Released in version 6.4.0.
+   * 
+   * @param request - CreateRectifyFlowRequest
+   * @returns CreateRectifyFlowResponse
+   */
+  async createRectifyFlow(request: $_model.CreateRectifyFlowRequest): Promise<$_model.CreateRectifyFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRectifyFlowWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a resource file.
    * 
    * @param tmpReq - CreateResourceRequest
@@ -2645,6 +2867,64 @@ export default class Client extends OpenApi {
   async createRowPermission(request: $_model.CreateRowPermissionRequest): Promise<$_model.CreateRowPermissionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createRowPermissionWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a scheduling monitoring alerting configuration by specifying a monitored object and one or more alerting rules. Online version: v6.4.0.
+   * 
+   * @param tmpReq - CreateScheduleMonitorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScheduleMonitorResponse
+   */
+  async createScheduleMonitorWithOptions(tmpReq: $_model.CreateScheduleMonitorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateScheduleMonitorResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateScheduleMonitorShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.createCommand)) {
+      request.createCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.createCommand, "CreateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createCommandShrink)) {
+      body["CreateCommand"] = request.createCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateScheduleMonitor",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateScheduleMonitorResponse>(await this.callApi(params, req, runtime), new $_model.CreateScheduleMonitorResponse({}));
+  }
+
+  /**
+   * Creates a scheduling monitoring alerting configuration by specifying a monitored object and one or more alerting rules. Online version: v6.4.0.
+   * 
+   * @param request - CreateScheduleMonitorRequest
+   * @returns CreateScheduleMonitorResponse
+   */
+  async createScheduleMonitor(request: $_model.CreateScheduleMonitorRequest): Promise<$_model.CreateScheduleMonitorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createScheduleMonitorWithOptions(request, runtime);
   }
 
   /**
@@ -2882,8 +3162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a standard.
-   * Release version: v5.4.2.
+   * Creates a standard. Release version: v5.4.2.
    * 
    * @param tmpReq - CreateStandardRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2930,8 +3209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a standard.
-   * Release version: v5.4.2.
+   * Creates a standard. Release version: v5.4.2.
    * 
    * @param request - CreateStandardRequest
    * @returns CreateStandardResponse
@@ -2942,8 +3220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data standard lookup table.
-   * Release version: v5.4.2.
+   * Creates a data standard lookup table. Released in version v5.4.2.
    * 
    * @param tmpReq - CreateStandardLookupTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2990,8 +3267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data standard lookup table.
-   * Release version: v5.4.2.
+   * Creates a data standard lookup table. Released in version v5.4.2.
    * 
    * @param request - CreateStandardLookupTableRequest
    * @returns CreateStandardLookupTableResponse
@@ -3182,8 +3458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a data standard template.
-   * Release version: v5.4.2.
+   * Creates a data standard template. Release version: v5.4.2.
    * 
    * @param tmpReq - CreateStandardTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3230,8 +3505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a data standard template.
-   * Release version: v5.4.2.
+   * Creates a data standard template. Release version: v5.4.2.
    * 
    * @param request - CreateStandardTemplateRequest
    * @returns CreateStandardTemplateResponse
@@ -3242,8 +3516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data standard root word.
-   * Release version: v5.4.2.
+   * Creates a data standard root word. Released in version v5.4.2.
    * 
    * @param tmpReq - CreateStandardWordRootRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3290,8 +3563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data standard root word.
-   * Release version: v5.4.2.
+   * Creates a data standard root word. Released in version v5.4.2.
    * 
    * @param request - CreateStandardWordRootRequest
    * @returns CreateStandardWordRootResponse
@@ -3302,7 +3574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a stream-batch integrated node.
+   * Creates a stream-batch integrated task.
    * 
    * @param tmpReq - CreateStreamBatchJobMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3349,7 +3621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a stream-batch integrated node.
+   * Creates a stream-batch integrated task.
    * 
    * @param request - CreateStreamBatchJobMappingRequest
    * @returns CreateStreamBatchJobMappingResponse
@@ -3596,7 +3868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a batch task. If the node has not been offlined, you must offline it before deleting it.
+   * Deletes an offline computing task. If the task is not offline, you must take it offline before deleting it.
    * 
    * @param tmpReq - DeleteBatchTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3643,7 +3915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a batch task. If the node has not been offlined, you must offline it before deleting it.
+   * Deletes an offline computing task. If the task is not offline, you must take it offline before deleting it.
    * 
    * @param request - DeleteBatchTaskRequest
    * @returns DeleteBatchTaskResponse
@@ -4362,7 +4634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a project (applicable to both Basic and Dev-Prod projects).
+   * Deletes a project. This applies to both Basic and Dev-Prod projects.
    * 
    * @param request - DeleteProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4401,7 +4673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a project (applicable to both Basic and Dev-Prod projects).
+   * Deletes a project. This applies to both Basic and Dev-Prod projects.
    * 
    * @param request - DeleteProjectRequest
    * @returns DeleteProjectResponse
@@ -4412,8 +4684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes quality rule objects in batches.
-   * Release version: v5.4.2.
+   * Deletes quality rule objects in batches. Released in version 5.4.2.
    * 
    * @param tmpReq - DeleteQualityRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4460,8 +4731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes quality rule objects in batches.
-   * Release version: v5.4.2.
+   * Deletes quality rule objects in batches. Released in version 5.4.2.
    * 
    * @param request - DeleteQualityRulesRequest
    * @returns DeleteQualityRulesResponse
@@ -4472,8 +4742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes quality scheduling objects in batches.
-   * Release version: v5.4.2.
+   * Deletes multiple quality scheduling objects. Release version: v5.4.2.
    * 
    * @param tmpReq - DeleteQualitySchedulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4520,8 +4789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes quality scheduling objects in batches.
-   * Release version: v5.4.2.
+   * Deletes multiple quality scheduling objects. Release version: v5.4.2.
    * 
    * @param request - DeleteQualitySchedulesRequest
    * @returns DeleteQualitySchedulesResponse
@@ -4532,8 +4800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes quality template objects in batches.
-   * Online version: v5.4.2.
+   * Deletes quality template objects in batches. Available since version v5.4.2.
    * 
    * @param tmpReq - DeleteQualityTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4580,8 +4847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes quality template objects in batches.
-   * Online version: v5.4.2.
+   * Deletes quality template objects in batches. Available since version v5.4.2.
    * 
    * @param request - DeleteQualityTemplatesRequest
    * @returns DeleteQualityTemplatesResponse
@@ -4592,8 +4858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes monitored objects in batches.
-   * Release version: v5.4.2.
+   * Deletes quality monitored objects in batches. Release version: v5.4.2.
    * 
    * @param tmpReq - DeleteQualityWatchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4640,8 +4905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes monitored objects in batches.
-   * Release version: v5.4.2.
+   * Deletes quality monitored objects in batches. Release version: v5.4.2.
    * 
    * @param request - DeleteQualityWatchesRequest
    * @returns DeleteQualityWatchesResponse
@@ -4710,7 +4974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a resource file.
+   * Deletes a resource file.
    * 
    * @param request - DeleteResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4757,7 +5021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a resource file.
+   * Deletes a resource file.
    * 
    * @param request - DeleteResourceRequest
    * @returns DeleteResourceResponse
@@ -4768,7 +5032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a row-level permission.
+   * Deletes row-level permissions.
    * 
    * @param tmpReq - DeleteRowPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4815,7 +5079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a row-level permission.
+   * Deletes row-level permissions.
    * 
    * @param request - DeleteRowPermissionRequest
    * @returns DeleteRowPermissionResponse
@@ -4826,7 +5090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data categorization. Available since v5.4.2.
+   * Deletes a data category. Released in version v5.4.2.
    * 
    * @param tmpReq - DeleteSecurityClassifyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4873,7 +5137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data categorization. Available since v5.4.2.
+   * Deletes a data category. Released in version v5.4.2.
    * 
    * @param request - DeleteSecurityClassifyRequest
    * @returns DeleteSecurityClassifyResponse
@@ -4884,7 +5148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data classification catalog. Available since v5.4.2.
+   * Deletes a data classification catalog. Available since version v5.4.2.
    * 
    * @param tmpReq - DeleteSecurityClassifyCatalogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4931,7 +5195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data classification catalog. Available since v5.4.2.
+   * Deletes a data classification catalog. Available since version v5.4.2.
    * 
    * @param request - DeleteSecurityClassifyCatalogRequest
    * @returns DeleteSecurityClassifyCatalogResponse
@@ -4942,7 +5206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes security identification results in batches. Release version: v5.4.2.
+   * Deletes security identification results in batches. Released in version 5.4.2.
    * 
    * @param tmpReq - DeleteSecurityIdentifyResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4989,7 +5253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes security identification results in batches. Release version: v5.4.2.
+   * Deletes security identification results in batches. Released in version 5.4.2.
    * 
    * @param request - DeleteSecurityIdentifyResultsRequest
    * @returns DeleteSecurityIdentifyResultsResponse
@@ -5058,8 +5322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a standard.
-   * Online version: v5.4.2.
+   * Deletes a standard. Release version: v5.4.2.
    * 
    * @param tmpReq - DeleteStandardRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5106,8 +5369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a standard.
-   * Online version: v5.4.2.
+   * Deletes a standard. Release version: v5.4.2.
    * 
    * @param request - DeleteStandardRequest
    * @returns DeleteStandardResponse
@@ -5118,8 +5380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes invalid mapping relationships.
-   * Online version: v5.4.2.
+   * Deletes invalid mapping relationships. Released in version v5.4.2.
    * 
    * @param tmpReq - DeleteStandardInValidMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5166,8 +5427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes invalid mapping relationships.
-   * Online version: v5.4.2.
+   * Deletes invalid mapping relationships. Released in version v5.4.2.
    * 
    * @param request - DeleteStandardInValidMappingRequest
    * @returns DeleteStandardInValidMappingResponse
@@ -5178,7 +5438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data standard lookup table. Release version: v5.4.2.
+   * Deletes a data standard lookup table. Released in version 5.4.2.
    * 
    * @param request - DeleteStandardLookupTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5217,7 +5477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data standard lookup table. Release version: v5.4.2.
+   * Deletes a data standard lookup table. Released in version 5.4.2.
    * 
    * @param request - DeleteStandardLookupTableRequest
    * @returns DeleteStandardLookupTableResponse
@@ -5228,8 +5488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes standard associations in batches.
-   * Release version: v5.4.2.
+   * Deletes standard associations in batches. Available since version 5.4.2.
    * 
    * @param tmpReq - DeleteStandardRelationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5276,8 +5535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes standard associations in batches.
-   * Release version: v5.4.2.
+   * Deletes standard associations in batches. Available since version 5.4.2.
    * 
    * @param request - DeleteStandardRelationsRequest
    * @returns DeleteStandardRelationsResponse
@@ -5340,8 +5598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes valid mapping relationships.
-   * Release version: v5.4.2.
+   * Deletes valid mapping relationships. Release version: v5.4.2.
    * 
    * @param tmpReq - DeleteStandardValidMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5388,8 +5645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes valid mapping relationships.
-   * Release version: v5.4.2.
+   * Deletes valid mapping relationships. Release version: v5.4.2.
    * 
    * @param request - DeleteStandardValidMappingRequest
    * @returns DeleteStandardValidMappingResponse
@@ -5452,7 +5708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a user-defined function.
+   * Deletes a custom function.
    * 
    * @param request - DeleteUdfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5499,7 +5755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a user-defined function.
+   * Deletes a custom function.
    * 
    * @param request - DeleteUdfRequest
    * @returns DeleteUdfResponse
@@ -5866,7 +6122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a trigger-based node.
+   * Runs a trigger node.
    * 
    * @param request - ExecuteTriggerNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5921,7 +6177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a trigger-based node.
+   * Runs a trigger node.
    * 
    * @param request - ExecuteTriggerNodeRequest
    * @returns ExecuteTriggerNodeResponse
@@ -6052,7 +6308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves all authorized accounts under a specific row-level permission by row-level permission ID.
+   * Retrieves all authorized accounts for a row-level permission by using the row-level permission ID.
    * 
    * @param tmpReq - GetAccountByRowPermissionIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6099,7 +6355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves all authorized accounts under a specific row-level permission by row-level permission ID.
+   * Retrieves all authorized accounts for a row-level permission by using the row-level permission ID.
    * 
    * @param request - GetAccountByRowPermissionIdRequest
    * @returns GetAccountByRowPermissionIdResponse
@@ -6164,7 +6420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the runtime logs of an ad hoc query task.
+   * Retrieves the execution logs of an ad-hoc query task.
    * 
    * @param request - GetAdHocTaskLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6215,7 +6471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the runtime logs of an ad hoc query task.
+   * Retrieves the execution logs of an ad-hoc query task.
    * 
    * @param request - GetAdHocTaskLogRequest
    * @returns GetAdHocTaskLogResponse
@@ -6226,7 +6482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the task execution result of an ad hoc query.
+   * Retrieves the execution results of an ad hoc query task.
    * 
    * @param request - GetAdHocTaskResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6273,7 +6529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the task execution result of an ad hoc query.
+   * Retrieves the execution results of an ad hoc query task.
    * 
    * @param request - GetAdHocTaskResultRequest
    * @returns GetAdHocTaskResultResponse
@@ -6331,6 +6587,56 @@ export default class Client extends OpenApi {
   async getAlertEvent(request: $_model.GetAlertEventRequest): Promise<$_model.GetAlertEventResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAlertEventWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of an approval task based on the approval flow ID, including the approval process steps. Available from version 6.4.0.
+   * 
+   * @param request - GetApprovalTaskDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApprovalTaskDetailResponse
+   */
+  async getApprovalTaskDetailWithOptions(request: $_model.GetApprovalTaskDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetApprovalTaskDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApprovalTaskDetail",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApprovalTaskDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetApprovalTaskDetailResponse({}));
+  }
+
+  /**
+   * Queries the details of an approval task based on the approval flow ID, including the approval process steps. Available from version 6.4.0.
+   * 
+   * @param request - GetApprovalTaskDetailRequest
+   * @returns GetApprovalTaskDetailResponse
+   */
+  async getApprovalTaskDetail(request: $_model.GetApprovalTaskDetailRequest): Promise<$_model.GetApprovalTaskDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getApprovalTaskDetailWithOptions(request, runtime);
   }
 
   /**
@@ -6392,8 +6698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries mapping relationships by asset object GUID.
-   * Available since: v5.4.2.
+   * Queries the mapping relationships based on the asset object GUID. Released in version 5.4.2.
    * 
    * @param tmpReq - GetAssetMappingRelationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6440,8 +6745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries mapping relationships by asset object GUID.
-   * Available since: v5.4.2.
+   * Queries the mapping relationships based on the asset object GUID. Released in version 5.4.2.
    * 
    * @param request - GetAssetMappingRelationsRequest
    * @returns GetAssetMappingRelationsResponse
@@ -6502,7 +6806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an offline compute node.
+   * Retrieves the details of an offline computing task.
    * 
    * @param request - GetBatchTaskInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6553,7 +6857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an offline compute node.
+   * Retrieves the details of an offline computing task.
    * 
    * @param request - GetBatchTaskInfoRequest
    * @returns GetBatchTaskInfoResponse
@@ -6564,7 +6868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific version of a batch task.
+   * Retrieves the details of a specified version of an offline computing task.
    * 
    * @param request - GetBatchTaskInfoByVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6611,7 +6915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific version of a batch task.
+   * Retrieves the details of a specified version of an offline computing task.
    * 
    * @param request - GetBatchTaskInfoByVersionRequest
    * @returns GetBatchTaskInfoByVersionResponse
@@ -6622,7 +6926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the custom lineage of an offline task.
+   * Retrieves the custom lineage of an offline task.
    * 
    * @param request - GetBatchTaskUdfLineagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6665,7 +6969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the custom lineage of an offline task.
+   * Retrieves the custom lineage of an offline task.
    * 
    * @param request - GetBatchTaskUdfLineagesRequest
    * @returns GetBatchTaskUdfLineagesResponse
@@ -6676,7 +6980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the version list of a batch task.
+   * Queries a list of batch taskfile versions.
    * 
    * @param request - GetBatchTaskVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6719,7 +7023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the version list of a batch task.
+   * Queries a list of batch taskfile versions.
    * 
    * @param request - GetBatchTaskVersionsRequest
    * @returns GetBatchTaskVersionsResponse
@@ -6730,7 +7034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
+   * Retrieves the versions of a specified offline template. Available since v6.2.0.
    * 
    * @param request - GetBatchTemplateVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6777,7 +7081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
+   * Retrieves the versions of a specified offline template. Available since v6.2.0.
    * 
    * @param request - GetBatchTemplateVersionsRequest
    * @returns GetBatchTemplateVersionsResponse
@@ -6788,8 +7092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query mapping relationships by belonging asset GUID.
-   * Release version: v5.4.2.
+   * Queries the mapping relationships based on the GUID of the owning asset. Released in v5.4.2.
    * 
    * @param tmpReq - GetBelongAssetMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6836,8 +7139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query mapping relationships by belonging asset GUID.
-   * Release version: v5.4.2.
+   * Queries the mapping relationships based on the GUID of the owning asset. Released in v5.4.2.
    * 
    * @param request - GetBelongAssetMappingRequest
    * @returns GetBelongAssetMappingResponse
@@ -6960,8 +7262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query business metric details by name.
-   * Release version: v5.5.0.
+   * Queries the details of a business metric by name. Release version: v5.5.0.
    * 
    * @param tmpReq - GetBizMetricByNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7008,8 +7309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query business metric details by name.
-   * Release version: v5.5.0.
+   * Queries the details of a business metric by name. Release version: v5.5.0.
    * 
    * @param request - GetBizMetricByNameRequest
    * @returns GetBizMetricByNameResponse
@@ -7020,7 +7320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data domain.
+   * Retrieves the details of a data sector.
    * 
    * @param request - GetBizUnitInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7059,7 +7359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data domain.
+   * Retrieves the details of a data sector.
    * 
    * @param request - GetBizUnitInfoRequest
    * @returns GetBizUnitInfoResponse
@@ -7128,10 +7428,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按任务ID查询数据源连通性检查任务
+   * Queries a data source connectivity check task by task ID. Available since version 6.3.2.
    * 
    * @remarks
-   * 按任务ID查询数据源连通性检查任务的最新状态与错误信息，用于轮询 CheckDataSourceConnectivityOnResourceGroup 返回的异步任务。任务不存在时 Data 为空。
+   * Queries the latest status and error message of a data source connectivity check task by task ID. This operation is used to poll the asynchronous task returned by CheckDataSourceConnectivityOnResourceGroup. If the task does not exist, Data is empty.
    * 
    * @param request - GetCheckConnectivityJobByJobIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7170,10 +7470,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 按任务ID查询数据源连通性检查任务
+   * Queries a data source connectivity check task by task ID. Available since version 6.3.2.
    * 
    * @remarks
-   * 按任务ID查询数据源连通性检查任务的最新状态与错误信息，用于轮询 CheckDataSourceConnectivityOnResourceGroup 返回的异步任务。任务不存在时 Data 为空。
+   * Queries the latest status and error message of a data source connectivity check task by task ID. This operation is used to poll the asynchronous task returned by CheckDataSourceConnectivityOnResourceGroup. If the task does not exist, Data is empty.
    * 
    * @param request - GetCheckConnectivityJobByJobIdRequest
    * @returns GetCheckConnectivityJobByJobIdResponse
@@ -7184,11 +7484,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
-   * Release version: v5.5.0.
+   * Queries a list of connectivity check tasks based on the specified data source ID, including null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
    * 
    * @remarks
-   * Queries the details of connectivity tasks that have been tested for a specified data source ID.
+   * Queries the details of tested connectivity tasks based on the data source ID.
    * 
    * @param request - GetCheckConnectivityJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7227,11 +7526,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
-   * Release version: v5.5.0.
+   * Queries a list of connectivity check tasks based on the specified data source ID, including null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
    * 
    * @remarks
-   * Queries the details of connectivity tasks that have been tested for a specified data source ID.
+   * Queries the details of tested connectivity tasks based on the data source ID.
    * 
    * @param request - GetCheckConnectivityJobsRequest
    * @returns GetCheckConnectivityJobsResponse
@@ -7356,7 +7654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a compute source by compute source ID.
+   * Retrieves the details of a compute source by its ID.
    * 
    * @param request - GetComputeSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7395,7 +7693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a compute source by compute source ID.
+   * Retrieves the details of a compute source by its ID.
    * 
    * @param request - GetComputeSourceRequest
    * @returns GetComputeSourceResponse
@@ -7520,7 +7818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Service Monitoring: Retrieves the aggregate statistics of API calls.
+   * Retrieves the summary statistics of API calls for Service Monitoring.
    * 
    * @param request - GetDataServiceApiCallSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7567,7 +7865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Service Monitoring: Retrieves the aggregate statistics of API calls.
+   * Retrieves the summary statistics of API calls for Service Monitoring.
    * 
    * @param request - GetDataServiceApiCallSummaryRequest
    * @returns GetDataServiceApiCallSummaryResponse
@@ -7636,7 +7934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves API documentation.
+   * Retrieves the API documentation.
    * 
    * @param request - GetDataServiceApiDocumentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7679,7 +7977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves API documentation.
+   * Retrieves the API documentation.
    * 
    * @param request - GetDataServiceApiDocumentRequest
    * @returns GetDataServiceApiDocumentResponse
@@ -7798,8 +8096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a data service application, including the project, application name, authentication information, and IP whitelist. Only application members can view the details.
-   * Release version: v6.0.0.
+   * Queries the details of a data service application, including the project, application name, authentication information, and IP address whitelist. Only application members can view this information. Released in v6.0.0.
    * 
    * @param request - GetDataServiceAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7838,8 +8135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a data service application, including the project, application name, authentication information, and IP whitelist. Only application members can view the details.
-   * Release version: v6.0.0.
+   * Queries the details of a data service application, including the project, application name, authentication information, and IP address whitelist. Only application members can view this information. Released in v6.0.0.
    * 
    * @param request - GetDataServiceAppRequest
    * @returns GetDataServiceAppResponse
@@ -7850,7 +8146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of users who have permissions on an application.
+   * Retrieves the list of users who have permissions for the application.
    * 
    * @param request - GetDataServiceAppAuthorizedUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7893,7 +8189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of users who have permissions on an application.
+   * Retrieves the list of users who have permissions for the application.
    * 
    * @param request - GetDataServiceAppAuthorizedUsersRequest
    * @returns GetDataServiceAppAuthorizedUsersResponse
@@ -8006,7 +8302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of applications in a group.
+   * Queries the applications in a group.
    * 
    * @param request - GetDataServiceAppsByGroupIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8049,7 +8345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of applications in a group.
+   * Queries the applications in a group.
    * 
    * @param request - GetDataServiceAppsByGroupIdRequest
    * @returns GetDataServiceAppsByGroupIdResponse
@@ -8114,7 +8410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of projects that the current user has permissions to access.
+   * Queries the list of projects that the user has access to.
    * 
    * @param request - GetDataServiceAuthorizedProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8149,7 +8445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of projects that the current user has permissions to access.
+   * Queries the list of projects that the user has access to.
    * 
    * @param request - GetDataServiceAuthorizedProjectsRequest
    * @returns GetDataServiceAuthorizedProjectsResponse
@@ -8206,7 +8502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of users who can be added as project members.
+   * Retrieves a list of users that can be added as project members.
    * 
    * @param request - GetDataServiceProjectAddableUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8245,7 +8541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of users who can be added as project members.
+   * Retrieves a list of users that can be added as project members.
    * 
    * @param request - GetDataServiceProjectAddableUsersRequest
    * @returns GetDataServiceProjectAddableUsersResponse
@@ -8366,7 +8662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query upstream dependencies of development objects.
+   * Queries the upstream dependencies of a development object.
    * 
    * @param request - GetDevObjectDependencyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8417,7 +8713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query upstream dependencies of development objects.
+   * Queries the upstream dependencies of a development object.
    * 
    * @param request - GetDevObjectDependencyRequest
    * @returns GetDevObjectDependencyResponse
@@ -8482,7 +8778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains temporary read/write authorization for file storage.
+   * Retrieves temporary read and write authorization for file storage.
    * 
    * @param request - GetFileStorageCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8529,7 +8825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains temporary read/write authorization for file storage.
+   * Retrieves temporary read and write authorization for file storage.
    * 
    * @param request - GetFileStorageCredentialRequest
    * @returns GetFileStorageCredentialResponse
@@ -8537,6 +8833,74 @@ export default class Client extends OpenApi {
   async getFileStorageCredential(request: $_model.GetFileStorageCredentialRequest): Promise<$_model.GetFileStorageCredentialResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFileStorageCredentialWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the statistical granularity information of an aggregate logical table. Available from version 6.4.0.
+   * 
+   * @remarks
+   * Queries the statistical granularity of an aggregate logical table. Recursive objects are referenced by ID. Logical tree node IDs are valid only within the currently returned tree.
+   * 
+   * @param request - GetGranularityBySummaryIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGranularityBySummaryIdResponse
+   */
+  async getGranularityBySummaryIdWithOptions(request: $_model.GetGranularityBySummaryIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGranularityBySummaryIdResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.env)) {
+      query["Env"] = request.env;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      query["ModelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.queryDraft)) {
+      query["QueryDraft"] = request.queryDraft;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGranularityBySummaryId",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGranularityBySummaryIdResponse>(await this.callApi(params, req, runtime), new $_model.GetGranularityBySummaryIdResponse({}));
+  }
+
+  /**
+   * Retrieves the statistical granularity information of an aggregate logical table. Available from version 6.4.0.
+   * 
+   * @remarks
+   * Queries the statistical granularity of an aggregate logical table. Recursive objects are referenced by ID. Logical tree node IDs are valid only within the currently returned tree.
+   * 
+   * @param request - GetGranularityBySummaryIdRequest
+   * @returns GetGranularityBySummaryIdResponse
+   */
+  async getGranularityBySummaryId(request: $_model.GetGranularityBySummaryIdRequest): Promise<$_model.GetGranularityBySummaryIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGranularityBySummaryIdWithOptions(request, runtime);
   }
 
   /**
@@ -8610,7 +8974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dag of an instance. Logical tables and code nodes are supported.
+   * Queries the upstream and downstream nodes of an instance. Supports logical tables and code nodes.
    * 
    * @param tmpReq - GetInstanceUpDownStreamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8673,7 +9037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dag of an instance. Logical tables and code nodes are supported.
+   * Queries the upstream and downstream nodes of an instance. Supports logical tables and code nodes.
    * 
    * @param request - GetInstanceUpDownStreamRequest
    * @returns GetInstanceUpDownStreamResponse
@@ -8684,7 +9048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of workspaces with authorized knowledge graphs. Online version: v6.3.0.
+   * Retrieves a list of workspaces with authorized knowledge graphs. Release version: v6.3.0.
    * 
    * @param request - GetKgAuthorizedWorkspacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8719,7 +9083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of workspaces with authorized knowledge graphs. Online version: v6.3.0.
+   * Retrieves a list of workspaces with authorized knowledge graphs. Release version: v6.3.0.
    * 
    * @param request - GetKgAuthorizedWorkspacesRequest
    * @returns GetKgAuthorizedWorkspacesResponse
@@ -8730,7 +9094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a knowledge graph entity record. Online version: v6.1.1.
+   * Retrieves the details of a knowledge graph entity record. Available since version 6.1.1.
    * 
    * @param request - GetKgEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8777,7 +9141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a knowledge graph entity record. Online version: v6.1.1.
+   * Retrieves the details of a knowledge graph entity record. Available since version 6.1.1.
    * 
    * @param request - GetKgEntityRequest
    * @returns GetKgEntityResponse
@@ -8858,7 +9222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a knowledge graph relationship record. Online version: v6.1.1.
+   * Retrieves the details of a knowledge graph relation record. Released in version v6.1.1.
    * 
    * @param request - GetKgRelationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8905,7 +9269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a knowledge graph relationship record. Online version: v6.1.1.
+   * Retrieves the details of a knowledge graph relation record. Released in version v6.1.1.
    * 
    * @param request - GetKgRelationRequest
    * @returns GetKgRelationResponse
@@ -8916,7 +9280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the publish result of a knowledge graph model. Online version: v6.2.0.
+   * Retrieves the publish result of a graph model. Online version: v6.2.0.
    * 
    * @param request - GetKgSchemaPublishResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8959,7 +9323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the publish result of a knowledge graph model. Online version: v6.2.0.
+   * Retrieves the publish result of a graph model. Online version: v6.2.0.
    * 
    * @param request - GetKgSchemaPublishResultRequest
    * @returns GetKgSchemaPublishResultResponse
@@ -8970,7 +9334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of the latest pending submit record.
+   * Retrieves the details of the latest pending release record.
    * 
    * @param tmpReq - GetLatestSubmitDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9017,7 +9381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of the latest pending submit record.
+   * Retrieves the details of the latest pending release record.
    * 
    * @param request - GetLatestSubmitDetailRequest
    * @returns GetLatestSubmitDetailResponse
@@ -9124,7 +9488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of roles for the current user.
+   * Retrieves the list of user roles.
    * 
    * @param request - GetMyRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9159,7 +9523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of roles for the current user.
+   * Retrieves the list of user roles.
    * 
    * @param request - GetMyRolesRequest
    * @returns GetMyRolesResponse
@@ -9228,7 +9592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dag of a node. This is a general-purpose operation.
+   * Queries the upstream and downstream nodes of a node.
    * 
    * @param tmpReq - GetNodeUpDownStreamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9291,7 +9655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the dag of a node. This is a general-purpose operation.
+   * Queries the upstream and downstream nodes of a node.
    * 
    * @param request - GetNodeUpDownStreamRequest
    * @returns GetNodeUpDownStreamResponse
@@ -9302,7 +9666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an operation log by ID. Available since v6.2.0.
+   * Queries an execution record by ID. Available since version 6.2.0.
    * 
    * @param tmpReq - GetOperationRecordByIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9349,7 +9713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an operation log by ID. Available since v6.2.0.
+   * Queries an execution record by ID. Available since version 6.2.0.
    * 
    * @param request - GetOperationRecordByIdRequest
    * @returns GetOperationRecordByIdResponse
@@ -9360,7 +9724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an execution record. Released in version v6.2.0.
+   * Queries the details of an operation record. Available since version 6.2.0.
    * 
    * @param tmpReq - GetOperationRecordDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9407,7 +9771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an execution record. Released in version v6.2.0.
+   * Queries the details of an operation record. Available since version 6.2.0.
    * 
    * @param request - GetOperationRecordDetailRequest
    * @returns GetOperationRecordDetailResponse
@@ -9418,7 +9782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution code of an operation log. Online version: v6.2.0.
+   * Queries the executed code of operation records. Release version: v6.2.0.
    * 
    * @param tmpReq - GetOperationRecordRunCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9465,7 +9829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution code of an operation log. Online version: v6.2.0.
+   * Queries the executed code of operation records. Release version: v6.2.0.
    * 
    * @param request - GetOperationRecordRunCodeRequest
    * @returns GetOperationRecordRunCodeResponse
@@ -9476,7 +9840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the submit status of a data backfill request.
+   * Queries the submit status of data backfill.
    * 
    * @param request - GetOperationSubmitStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9519,7 +9883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the submit status of a data backfill request.
+   * Queries the submit status of data backfill.
    * 
    * @param request - GetOperationSubmitStatusRequest
    * @returns GetOperationSubmitStatusResponse
@@ -9530,7 +9894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets instance information.
+   * Retrieves instance information.
    * 
    * @param request - GetPhysicalInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9577,7 +9941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets instance information.
+   * Retrieves instance information.
    * 
    * @param request - GetPhysicalInstanceRequest
    * @returns GetPhysicalInstanceResponse
@@ -9646,7 +10010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a physical schedule resource.
+   * Queries physical scheduling nodes.
    * 
    * @param request - GetPhysicalNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9689,7 +10053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a physical schedule resource.
+   * Queries physical scheduling nodes.
    * 
    * @param request - GetPhysicalNodeRequest
    * @returns GetPhysicalNodeResponse
@@ -9700,7 +10064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a physical node by output name. Only offline code nodes and integration task nodes are supported.
+   * Queries physical nodes by output name. Only offline code nodes and integration task nodes are supported.
    * 
    * @param request - GetPhysicalNodeByOutputNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9743,7 +10107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a physical node by output name. Only offline code nodes and integration task nodes are supported.
+   * Queries physical nodes by output name. Only offline code nodes and integration task nodes are supported.
    * 
    * @param request - GetPhysicalNodeByOutputNameRequest
    * @returns GetPhysicalNodeByOutputNameResponse
@@ -9754,7 +10118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the code content of a schedule resource node.
+   * Queries the code content of a scheduling node.
    * 
    * @param request - GetPhysicalNodeContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9797,7 +10161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the code content of a schedule resource node.
+   * Queries the code content of a scheduling node.
    * 
    * @param request - GetPhysicalNodeContentRequest
    * @returns GetPhysicalNodeContentResponse
@@ -9808,7 +10172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operation logs of a node.
+   * Queries the node operation logs.
    * 
    * @param request - GetPhysicalNodeOperationLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9851,7 +10215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the operation logs of a node.
+   * Queries the node operation logs.
    * 
    * @param request - GetPhysicalNodeOperationLogRequest
    * @returns GetPhysicalNodeOperationLogResponse
@@ -9990,7 +10354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get project details by project ID.
+   * Retrieves the details of a project by project ID.
    * 
    * @param request - GetProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10033,7 +10397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get project details by project ID.
+   * Retrieves the details of a project by project ID.
    * 
    * @param request - GetProjectRequest
    * @returns GetProjectResponse
@@ -10094,7 +10458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the production account of a project. Only a super administrator (SuperAdmin) can call this API operation.
+   * Retrieves the production account for a project. Only super administrators can call this API operation.
    * 
    * @param request - GetProjectProduceUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10133,7 +10497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the production account of a project. Only a super administrator (SuperAdmin) can call this API operation.
+   * Retrieves the production account for a project. Only super administrators can call this API operation.
    * 
    * @param request - GetProjectProduceUserRequest
    * @returns GetProjectProduceUserResponse
@@ -10144,7 +10508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the whitelist of a project.
+   * Retrieves the project whitelist.
    * 
    * @param request - GetProjectWhiteListsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10183,7 +10547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the whitelist of a project.
+   * Retrieves the project whitelist.
    * 
    * @param request - GetProjectWhiteListsRequest
    * @returns GetProjectWhiteListsResponse
@@ -10294,8 +10658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality rule object.
-   * Release version: v5.4.2.
+   * Retrieves the quality rule object. Release version: v5.4.2.
    * 
    * @param request - GetQualityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10334,8 +10697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality rule object.
-   * Release version: v5.4.2.
+   * Retrieves the quality rule object. Release version: v5.4.2.
    * 
    * @param request - GetQualityRuleRequest
    * @returns GetQualityRuleResponse
@@ -10346,7 +10708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a quality node task object. Online version: v5.4.2.
+   * Retrieves the details of a quality task object. Released in version 5.4.2.
    * 
    * @param request - GetQualityRuleTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10385,7 +10747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a quality node task object. Online version: v5.4.2.
+   * Retrieves the details of a quality task object. Released in version 5.4.2.
    * 
    * @param request - GetQualityRuleTaskRequest
    * @returns GetQualityRuleTaskResponse
@@ -10448,8 +10810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality schedule object.
-   * Release version: v5.4.2.
+   * Retrieves the quality scheduling object. Available since v5.4.2.
    * 
    * @param request - GetQualityScheduleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10488,8 +10849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality schedule object.
-   * Release version: v5.4.2.
+   * Retrieves the quality scheduling object. Available since v5.4.2.
    * 
    * @param request - GetQualityScheduleRequest
    * @returns GetQualityScheduleResponse
@@ -10500,8 +10860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of schedule settings by monitored object ID.
-   * Release version: v5.4.2.
+   * Retrieves a list of scheduling settings by monitored object ID. Available since v5.4.2.
    * 
    * @param request - GetQualitySchedulesByWatchIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10540,8 +10899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of schedule settings by monitored object ID.
-   * Release version: v5.4.2.
+   * Retrieves a list of scheduling settings by monitored object ID. Available since v5.4.2.
    * 
    * @param request - GetQualitySchedulesByWatchIdRequest
    * @returns GetQualitySchedulesByWatchIdResponse
@@ -10552,8 +10910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality template object.
-   * Release version: v5.4.2.
+   * Retrieves a quality template object. Released in version 5.4.2.
    * 
    * @param request - GetQualityTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10592,8 +10949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality template object.
-   * Release version: v5.4.2.
+   * Retrieves a quality template object. Released in version 5.4.2.
    * 
    * @param request - GetQualityTemplateRequest
    * @returns GetQualityTemplateResponse
@@ -10656,8 +11012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a datasource, table, or metric.
-   * Release version: v5.4.2.
+   * Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a data source, table, or metric. Release version: v5.4.2.
    * 
    * @param request - GetQualityWatchByObjectIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10700,8 +11055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a datasource, table, or metric.
-   * Release version: v5.4.2.
+   * Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a data source, table, or metric. Release version: v5.4.2.
    * 
    * @param request - GetQualityWatchByObjectIdRequest
    * @returns GetQualityWatchByObjectIdResponse
@@ -10712,8 +11066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a monitoring node task object.
-   * Online version: v5.4.2.
+   * Retrieves a monitoring node object. Online version: v5.4.2.
    * 
    * @param request - GetQualityWatchTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10752,8 +11105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a monitoring node task object.
-   * Online version: v5.4.2.
+   * Retrieves a monitoring node object. Online version: v5.4.2.
    * 
    * @param request - GetQualityWatchTaskRequest
    * @returns GetQualityWatchTaskResponse
@@ -10882,6 +11234,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the quality rectification process. Released in version 6.4.0.
+   * 
+   * @param tmpReq - GetRectifyFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRectifyFlowResponse
+   */
+  async getRectifyFlowWithOptions(tmpReq: $_model.GetRectifyFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRectifyFlowResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetRectifyFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.getQuery)) {
+      request.getQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.getQuery, "GetQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.getQueryShrink)) {
+      body["GetQuery"] = request.getQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRectifyFlow",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRectifyFlowResponse>(await this.callApi(params, req, runtime), new $_model.GetRectifyFlowResponse({}));
+  }
+
+  /**
+   * Retrieves the quality rectification process. Released in version 6.4.0.
+   * 
+   * @param request - GetRectifyFlowRequest
+   * @returns GetRectifyFlowResponse
+   */
+  async getRectifyFlow(request: $_model.GetRectifyFlowRequest): Promise<$_model.GetRectifyFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRectifyFlowWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of a resource file.
    * 
    * @param request - GetResourceRequest
@@ -10994,7 +11404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves row permissions by table GUIDs. Online version: v5.4.2.
+   * Online version: v5.4.2.
    * 
    * @param tmpReq - GetRowPermissionByTableGuidsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11041,7 +11451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves row permissions by table GUIDs. Online version: v5.4.2.
+   * Online version: v5.4.2.
    * 
    * @param request - GetRowPermissionByTableGuidsRequest
    * @returns GetRowPermissionByTableGuidsResponse
@@ -11102,8 +11512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an identification result.
-   * Release version: v5.4.2.
+   * Retrieves the details of a recognition result. Release version: v5.4.2.
    * 
    * @param request - GetSecurityIdentifyResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11142,8 +11551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an identification result.
-   * Release version: v5.4.2.
+   * Retrieves the details of a recognition result. Release version: v5.4.2.
    * 
    * @param request - GetSecurityIdentifyResultRequest
    * @returns GetSecurityIdentifyResultResponse
@@ -11257,7 +11665,7 @@ export default class Client extends OpenApi {
    * Retrieves the Dataphin server version.
    * 
    * @remarks
-   * Queries the details of a published API based on the AppKey.
+   * Queries the details of published APIs based on the appKey.
    * 
    * @param request - GetServerVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11299,7 +11707,7 @@ export default class Client extends OpenApi {
    * Retrieves the Dataphin server version.
    * 
    * @remarks
-   * Queries the details of a published API based on the AppKey.
+   * Queries the details of published APIs based on the appKey.
    * 
    * @param request - GetServerVersionRequest
    * @returns GetServerVersionResponse
@@ -11310,7 +11718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集成源表的描述与元数据信息（表描述+字段列表）。支持项目/计算源表、数据源直查表、外部采集数据源三种来源；结果为实时查询；外部数据源需先完成元数据采集。
+   * Retrieves the description and metadata of an integration source table, including the table description and field list. This operation supports three sources: project or compute source tables, direct query tables of data sources, and externally collected data sources. The query results are returned in real time. For external data sources, metadata collection must be completed first. Release version: v6.3.2.
    * 
    * @param tmpReq - GetSourceTableMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11365,7 +11773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集成源表的描述与元数据信息（表描述+字段列表）。支持项目/计算源表、数据源直查表、外部采集数据源三种来源；结果为实时查询；外部数据源需先完成元数据采集。
+   * Retrieves the description and metadata of an integration source table, including the table description and field list. This operation supports three sources: project or compute source tables, direct query tables of data sources, and externally collected data sources. The query results are returned in real time. For external data sources, metadata collection must be completed first. Release version: v6.3.2.
    * 
    * @param request - GetSourceTableMetaRequest
    * @returns GetSourceTableMetaResponse
@@ -11376,7 +11784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the Spark client information of the cluster associated with a compute source.
+   * Retrieves the Spark client information for the cluster associated with the compute source.
    * 
    * @param request - GetSparkLocalClientInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11419,7 +11827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the Spark client information of the cluster associated with a compute source.
+   * Retrieves the Spark client information for the cluster associated with the compute source.
    * 
    * @param request - GetSparkLocalClientInfoRequest
    * @returns GetSparkLocalClientInfoResponse
@@ -11430,8 +11838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a standard.
-   * Release version: v5.4.2.
+   * Retrieves the details of a standard. Released in v5.4.2.
    * 
    * @param tmpReq - GetStandardRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11478,8 +11885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a standard.
-   * Release version: v5.4.2.
+   * Retrieves the details of a standard. Released in v5.4.2.
    * 
    * @param request - GetStandardRequest
    * @returns GetStandardResponse
@@ -11490,8 +11896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data standard lookup table.
-   * Online version: v5.4.2.
+   * Retrieves the details of a data standard lookup table. Released in version 5.4.2.
    * 
    * @param request - GetStandardLookupTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11534,8 +11939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data standard lookup table.
-   * Online version: v5.4.2.
+   * Retrieves the details of a data standard lookup table. Released in version 5.4.2.
    * 
    * @param request - GetStandardLookupTableRequest
    * @returns GetStandardLookupTableResponse
@@ -11546,8 +11950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a standard set.
-   * Release version: v5.4.2.
+   * Retrieves the details of a standard set. Release version: v5.4.2.
    * 
    * @param request - GetStandardSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11590,8 +11993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a standard set.
-   * Release version: v5.4.2.
+   * Retrieves the details of a standard set. Release version: v5.4.2.
    * 
    * @param request - GetStandardSetRequest
    * @returns GetStandardSetResponse
@@ -11602,8 +12004,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of standards grouped by standard type under a specified folder.
-   * Online version: v5.4.2.
+   * Queries the statistics of standards by standard type under a directory.
+   * Available since: v5.4.2.
    * 
    * @param tmpReq - GetStandardStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11650,8 +12052,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of standards grouped by standard type under a specified folder.
-   * Online version: v5.4.2.
+   * Queries the statistics of standards by standard type under a directory.
+   * Available since: v5.4.2.
    * 
    * @param request - GetStandardStatisticsRequest
    * @returns GetStandardStatisticsResponse
@@ -11662,8 +12064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data standard template.
-   * Online version: v5.4.2.
+   * Retrieves the details of a data standard template. Released in version v5.4.2.
    * 
    * @param tmpReq - GetStandardTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11718,8 +12119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data standard template.
-   * Online version: v5.4.2.
+   * Retrieves the details of a data standard template. Released in version v5.4.2.
    * 
    * @param request - GetStandardTemplateRequest
    * @returns GetStandardTemplateResponse
@@ -11730,8 +12130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data standard word root.
-   * Online version: v5.4.2.
+   * Queries the details of a data standard word root. Release version: v5.4.2.
    * 
    * @param request - GetStandardWordRootRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11774,8 +12173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a data standard word root.
-   * Online version: v5.4.2.
+   * Queries the details of a data standard word root. Release version: v5.4.2.
    * 
    * @param request - GetStandardWordRootRequest
    * @returns GetStandardWordRootResponse
@@ -11840,6 +12238,198 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the full text of JobManager or TaskManager logs. Available since version 6.4.0.
+   * 
+   * @remarks
+   * Retrieves the full text of JobManager or TaskManager logs in the production environment.
+   * 
+   * @param request - GetStreamLogContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStreamLogContentResponse
+   */
+  async getStreamLogContentWithOptions(request: $_model.GetStreamLogContentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStreamLogContentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deploymentInstanceId)) {
+      query["DeploymentInstanceId"] = request.deploymentInstanceId;
+    }
+
+    if (!$dara.isNull(request.logName)) {
+      query["LogName"] = request.logName;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.taskmanagerId)) {
+      query["TaskmanagerId"] = request.taskmanagerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStreamLogContent",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStreamLogContentResponse>(await this.callApi(params, req, runtime), new $_model.GetStreamLogContentResponse({}));
+  }
+
+  /**
+   * Retrieves the full text of JobManager or TaskManager logs. Available since version 6.4.0.
+   * 
+   * @remarks
+   * Retrieves the full text of JobManager or TaskManager logs in the production environment.
+   * 
+   * @param request - GetStreamLogContentRequest
+   * @returns GetStreamLogContentResponse
+   */
+  async getStreamLogContent(request: $_model.GetStreamLogContentRequest): Promise<$_model.GetStreamLogContentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStreamLogContentWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves a single start or stop operation record and the log content. Available since version 6.4.0.
+   * 
+   * @remarks
+   * Retrieves a single start or stop operation record and the log content by querying the production environment.
+   * 
+   * @param request - GetStreamOpsRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStreamOpsRecordResponse
+   */
+  async getStreamOpsRecordWithOptions(request: $_model.GetStreamOpsRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStreamOpsRecordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.opsRecordId)) {
+      query["OpsRecordId"] = request.opsRecordId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStreamOpsRecord",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStreamOpsRecordResponse>(await this.callApi(params, req, runtime), new $_model.GetStreamOpsRecordResponse({}));
+  }
+
+  /**
+   * Retrieves a single start or stop operation record and the log content. Available since version 6.4.0.
+   * 
+   * @remarks
+   * Retrieves a single start or stop operation record and the log content by querying the production environment.
+   * 
+   * @param request - GetStreamOpsRecordRequest
+   * @returns GetStreamOpsRecordResponse
+   */
+  async getStreamOpsRecord(request: $_model.GetStreamOpsRecordRequest): Promise<$_model.GetStreamOpsRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStreamOpsRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the basic information and running status of a real-time task. Available since v6.4.0.
+   * 
+   * @remarks
+   * Queries the basic information and running status of a real-time task. The DEV and PROD environments are supported.
+   * 
+   * @param request - GetStreamTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStreamTaskResponse
+   */
+  async getStreamTaskWithOptions(request: $_model.GetStreamTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetStreamTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.env)) {
+      query["Env"] = request.env;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStreamTask",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStreamTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetStreamTaskResponse({}));
+  }
+
+  /**
+   * Queries the basic information and running status of a real-time task. Available since v6.4.0.
+   * 
+   * @remarks
+   * Queries the basic information and running status of a real-time task. The DEV and PROD environments are supported.
+   * 
+   * @param request - GetStreamTaskRequest
+   * @returns GetStreamTaskResponse
+   */
+  async getStreamTask(request: $_model.GetStreamTaskRequest): Promise<$_model.GetStreamTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getStreamTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves dagrun information for all business dates of a data backfill instance workflow.
    * 
    * @param request - GetSupplementDagrunRequest
@@ -11894,7 +12484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the instances of all nodes for a specific business date in a data backfill workflow.
+   * Lists all node instances for a specific business date in a data backfill workflow.
    * 
    * @param request - GetSupplementDagrunInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11937,7 +12527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the instances of all nodes for a specific business date in a data backfill workflow.
+   * Lists all node instances for a specific business date in a data backfill workflow.
    * 
    * @param request - GetSupplementDagrunInstanceRequest
    * @returns GetSupplementDagrunInstanceResponse
@@ -11948,7 +12538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询表资产清单详情。
+   * Queries the details of a table asset inventory. Release version: v6.3.2.
    * 
    * @param request - GetTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11987,7 +12577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询表资产清单详情。
+   * Queries the details of a table asset inventory. Release version: v6.3.2.
    * 
    * @param request - GetTableRequest
    * @returns GetTableResponse
@@ -12120,7 +12710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the columns of a Dataphin table in the asset inventory. Supported table types: logical dimension table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view table. Release version: v5.4.2.
+   * Queries the fields of Dataphin tables in the asset inventory. Supported table types include logical dimension tables, logical fact tables, logical aggregate tables, logical tag tables, logical table views, physical tables, physical views, and materialized views. Released in version 5.4.2.
    * 
    * @param request - GetTableColumnsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12139,6 +12729,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.opUserId)) {
       query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
     }
 
     if (!$dara.isNull(request.tableName)) {
@@ -12163,7 +12757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the columns of a Dataphin table in the asset inventory. Supported table types: logical dimension table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view table. Release version: v5.4.2.
+   * Queries the fields of Dataphin tables in the asset inventory. Supported table types include logical dimension tables, logical fact tables, logical aggregate tables, logical tag tables, logical table views, physical tables, physical views, and materialized views. Released in version 5.4.2.
    * 
    * @param request - GetTableColumnsRequest
    * @returns GetTableColumnsResponse
@@ -12400,7 +12994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specific version of a user-defined function.
+   * Queries the details of a custom function version.
    * 
    * @param request - GetUdfByVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12447,7 +13041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specific version of a user-defined function.
+   * Queries the details of a custom function version.
    * 
    * @param request - GetUdfByVersionRequest
    * @returns GetUdfByVersionResponse
@@ -12666,7 +13260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants API authorization.
+   * Grants permissions for an API.
    * 
    * @param tmpReq - GrantDataServiceApiRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12717,7 +13311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants API authorization.
+   * Grants permissions for an API.
    * 
    * @param request - GrantDataServiceApiRequest
    * @returns GrantDataServiceApiResponse
@@ -12728,7 +13322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants permissions on resources to users by resource point.
+   * Grants resource permissions to users.
    * 
    * @param tmpReq - GrantResourcePermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12775,7 +13369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants permissions on resources to users by resource point.
+   * Grants resource permissions to users.
    * 
    * @param request - GrantResourcePermissionRequest
    * @returns GrantResourcePermissionResponse
@@ -12786,7 +13380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a knowledge graph model definition. Online version: v6.1.1.
+   * Imports the knowledge graph model definition. Release version: v6.1.1.
    * 
    * @param tmpReq - ImportKgSchemaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12837,7 +13431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a knowledge graph model definition. Online version: v6.1.1.
+   * Imports the knowledge graph model definition. Release version: v6.1.1.
    * 
    * @param request - ImportKgSchemaRequest
    * @returns ImportKgSchemaResponse
@@ -12894,7 +13488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries users that can be added to a tenant. Only the super administrator (SuperAdmin) and system administrator can call this operation. The users must already exist in the Dataphin instance member list but have not yet been added to the tenant member list.
+   * Queries the users that can be added to a tenant. Only super administrators and system administrators can invoke this operation. The users must be added to the member list of the Dataphin instance but have not yet been added to the tenant member list.
    * 
    * @param tmpReq - ListAddableUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12941,7 +13535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries users that can be added to a tenant. Only the super administrator (SuperAdmin) and system administrator can call this operation. The users must already exist in the Dataphin instance member list but have not yet been added to the tenant member list.
+   * Queries the users that can be added to a tenant. Only super administrators and system administrators can invoke this operation. The users must be added to the member list of the Dataphin instance but have not yet been added to the tenant member list.
    * 
    * @param request - ListAddableUsersRequest
    * @returns ListAddableUsersResponse
@@ -13068,10 +13662,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of APIs by application.
+   * Queries the API list for an application.
    * 
    * @remarks
-   * Queries the detailed information of published APIs by appKey.
+   * Queries the details of published APIs by AppKey.
    * 
    * @param tmpReq - ListApiByAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13118,10 +13712,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of APIs by application.
+   * Queries the API list for an application.
    * 
    * @remarks
-   * Queries the detailed information of published APIs by appKey.
+   * Queries the details of published APIs by AppKey.
    * 
    * @param request - ListApiByAppRequest
    * @returns ListApiByAppResponse
@@ -13306,10 +13900,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the specific field list of APIs that an application has requested.
+   * Queries the specific field list of the APIs that an application has applied for.
    * 
    * @remarks
-   * ## Request description.
+   * ## Request description
+   * This API allows you to query the APIs authorized to an application by providing the tenant ID, the AppKey of the data service application, or a keyword of the application name. Pagination is supported. The returned data includes the API ID, name, project, authorization validity period (for development and production environments), permission type, and field lists for production and development environments (including field or parameter name, parameter type, description, example value, and authorization status). Note that pagination parameters are required.
    * 
    * @param tmpReq - ListAuthorizedDataServiceApiDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13356,10 +13951,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the specific field list of APIs that an application has requested.
+   * Queries the specific field list of the APIs that an application has applied for.
    * 
    * @remarks
-   * ## Request description.
+   * ## Request description
+   * This API allows you to query the APIs authorized to an application by providing the tenant ID, the AppKey of the data service application, or a keyword of the application name. Pagination is supported. The returned data includes the API ID, name, project, authorization validity period (for development and production environments), permission type, and field lists for production and development environments (including field or parameter name, parameter type, description, example value, and authorization status). Note that pagination parameters are required.
    * 
    * @param request - ListAuthorizedDataServiceApiDetailsRequest
    * @returns ListAuthorizedDataServiceApiDetailsResponse
@@ -13370,7 +13966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID
+   * Queries a list of offline computing tasks. Supports fuzzy search by task name and exact matching by output table name to locate the task that generates the table and retrieve its file ID. Available since version 6.3.2.
    * 
    * @param tmpReq - ListBatchTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13417,7 +14013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID
+   * Queries a list of offline computing tasks. Supports fuzzy search by task name and exact matching by output table name to locate the task that generates the table and retrieve its file ID. Available since version 6.3.2.
    * 
    * @param request - ListBatchTasksRequest
    * @returns ListBatchTasksResponse
@@ -13428,7 +14024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries offline computing templates by paging. Online version: v6.2.0.
+   * Performs a paging query on offline computing templates. Released in version v6.2.0.
    * 
    * @param tmpReq - ListBatchTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13483,7 +14079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries offline computing templates by paging. Online version: v6.2.0.
+   * Performs a paging query on offline computing templates. Released in version v6.2.0.
    * 
    * @param request - ListBatchTemplatesRequest
    * @returns ListBatchTemplatesResponse
@@ -13552,7 +14148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves all business units under the current tenant.
+   * Queries all business units under the current tenant.
    * 
    * @param request - ListBizUnitsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13587,7 +14183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves all business units under the current tenant.
+   * Queries all business units under the current tenant.
    * 
    * @param request - ListBizUnitsRequest
    * @returns ListBizUnitsResponse
@@ -13844,7 +14440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * O&M analysis: API call statistics.
+   * Queries API invoke statistics information for O&M analysis.
    * 
    * @param tmpReq - ListDataServiceApiCallStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13895,7 +14491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * O&M analysis: API call statistics.
+   * Queries API invoke statistics information for O&M analysis.
    * 
    * @param request - ListDataServiceApiCallStatisticsRequest
    * @returns ListDataServiceApiCallStatisticsResponse
@@ -13906,7 +14502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data service call logs with pagination.
+   * Performs a paging query on data service invoke logs.
    * 
    * @param tmpReq - ListDataServiceApiCallsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13957,7 +14553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data service call logs with pagination.
+   * Performs a paging query on data service invoke logs.
    * 
    * @param request - ListDataServiceApiCallsRequest
    * @returns ListDataServiceApiCallsResponse
@@ -14338,7 +14934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search for data sources. The results include data source configuration items.
+   * Searches for data sources and returns results that include datasource config items.
    * 
    * @param tmpReq - ListDataSourceWithConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14385,7 +14981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search for data sources. The results include data source configuration items.
+   * Searches for data sources and returns results that include datasource config items.
    * 
    * @param request - ListDataSourceWithConfigRequest
    * @returns ListDataSourceWithConfigResponse
@@ -14396,11 +14992,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+   * Performs a conditional query to retrieve a list of datasets in a project. Online version: v6.2.0.
    * 
    * @remarks
-   * ## Operation description
-   * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+   * ## Request description
+   * This API allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query, and the returned packet includes the basic information of the datasets and their version details. Note that ProjectId is required, while other parameters are options that you can configure in Settings as needed to filter the results.
    * 
    * @param tmpReq - ListDatasetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14447,11 +15043,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+   * Performs a conditional query to retrieve a list of datasets in a project. Online version: v6.2.0.
    * 
    * @remarks
-   * ## Operation description
-   * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+   * ## Request description
+   * This API allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query, and the returned packet includes the basic information of the datasets and their version details. Note that ProjectId is required, while other parameters are options that you can configure in Settings as needed to filter the results.
    * 
    * @param request - ListDatasetsRequest
    * @returns ListDatasetsResponse
@@ -14645,6 +15241,52 @@ export default class Client extends OpenApi {
   async listInstances(request: $_model.ListInstancesRequest): Promise<$_model.ListInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the list of custom Kubernetes resource groups under a tenant. Released in version 6.4.0.
+   * 
+   * @param request - ListK8SResourceGroupIdsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListK8SResourceGroupIdsResponse
+   */
+  async listK8SResourceGroupIdsWithOptions(request: $_model.ListK8SResourceGroupIdsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListK8SResourceGroupIdsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListK8SResourceGroupIds",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListK8SResourceGroupIdsResponse>(await this.callApi(params, req, runtime), new $_model.ListK8SResourceGroupIdsResponse({}));
+  }
+
+  /**
+   * Retrieves the list of custom Kubernetes resource groups under a tenant. Released in version 6.4.0.
+   * 
+   * @param request - ListK8SResourceGroupIdsRequest
+   * @returns ListK8SResourceGroupIdsResponse
+   */
+  async listK8SResourceGroupIds(request: $_model.ListK8SResourceGroupIdsRequest): Promise<$_model.ListK8SResourceGroupIdsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listK8SResourceGroupIdsWithOptions(request, runtime);
   }
 
   /**
@@ -14904,7 +15546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query on the list of operation records. Online version: v6.2.0.
+   * Performs a paging query on the list of execution records. Online version: v6.2.0.
    * 
    * @param tmpReq - ListOperationRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14951,7 +15593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query on the list of operation records. Online version: v6.2.0.
+   * Performs a paging query on the list of execution records. Online version: v6.2.0.
    * 
    * @param request - ListOperationRecordRequest
    * @returns ListOperationRecordResponse
@@ -14962,7 +15604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of nodes. Supports querying batch integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, creator, and more. Results are returned with pagination.
+   * Queries a list of tasks, including offline integration, real-time integration, and unstructured workflows (data ingestion, offline workflows, and real-time workflows). Supports multi-dimensional filtering by directory, keyword, task type, submit status, schedule type, owner, tag, and creator, and returns paginated results.
    * 
    * @param tmpReq - ListPipelinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15017,7 +15659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of nodes. Supports querying batch integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, creator, and more. Results are returned with pagination.
+   * Queries a list of tasks, including offline integration, real-time integration, and unstructured workflows (data ingestion, offline workflows, and real-time workflows). Supports multi-dimensional filtering by directory, keyword, task type, submit status, schedule type, owner, tag, and creator, and returns paginated results.
    * 
    * @param request - ListPipelinesRequest
    * @returns ListPipelinesResponse
@@ -15090,13 +15732,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取项目角色列表
+   * Retrieves a list of project roles. Release version: v6.3.2.
    * 
    * @remarks
-   * 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
-   * - BUILD_IN：内置角色
-   * - CUSTOM：自定义角色
-   * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+   * Retrieves the list of project roles for a specified project type under a tenant. The roleType field in the returned role list indicates the role type:
+   * - BUILD_IN: built-in role.
+   * - CUSTOM: custom role.
+   * The ProjectType request parameter is required. Valid values:
+   * - BASIC: basic mode project.
+   * - DEV: development environment project.
+   * - PROD: production environment project.
+   * - TAG: tag platform project.
    * 
    * @param request - ListProjectRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15135,13 +15781,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取项目角色列表
+   * Retrieves a list of project roles. Release version: v6.3.2.
    * 
    * @remarks
-   * 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
-   * - BUILD_IN：内置角色
-   * - CUSTOM：自定义角色
-   * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+   * Retrieves the list of project roles for a specified project type under a tenant. The roleType field in the returned role list indicates the role type:
+   * - BUILD_IN: built-in role.
+   * - CUSTOM: custom role.
+   * The ProjectType request parameter is required. Valid values:
+   * - BASIC: basic mode project.
+   * - DEV: development environment project.
+   * - PROD: production environment project.
+   * - TAG: tag platform project.
    * 
    * @param request - ListProjectRolesRequest
    * @returns ListProjectRolesResponse
@@ -15268,6 +15918,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Performs a paged query on Python third-party packages with paging. Online version: v6.4.0.
+   * 
+   * @param tmpReq - ListPythonModulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPythonModulesResponse
+   */
+  async listPythonModulesWithOptions(tmpReq: $_model.ListPythonModulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPythonModulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListPythonModulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPythonModules",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPythonModulesResponse>(await this.callApi(params, req, runtime), new $_model.ListPythonModulesResponse({}));
+  }
+
+  /**
+   * Performs a paged query on Python third-party packages with paging. Online version: v6.4.0.
+   * 
+   * @param request - ListPythonModulesRequest
+   * @returns ListPythonModulesResponse
+   */
+  async listPythonModules(request: $_model.ListPythonModulesRequest): Promise<$_model.ListPythonModulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPythonModulesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the list of anomaly archived tables under a specified monitored object. Online version: v6.3.0.
    * 
    * @param tmpReq - ListQualityArchiveTablesRequest
@@ -15326,8 +16034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quality rule tasks by paging.
-   * Online version: v5.4.2.
+   * Performs a paging query of quality rule nodes. Online version: v5.4.2.
    * 
    * @param tmpReq - ListQualityRuleTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15374,8 +16081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quality rule tasks by paging.
-   * Online version: v5.4.2.
+   * Performs a paging query of quality rule nodes. Online version: v5.4.2.
    * 
    * @param request - ListQualityRuleTasksRequest
    * @returns ListQualityRuleTasksResponse
@@ -15386,8 +16092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quality rules by paging.
-   * Online version: v5.4.2.
+   * Performs a paged query of quality rules. Supports paging. Available online in version 5.4.2.
    * 
    * @param tmpReq - ListQualityRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15434,8 +16139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quality rules by paging.
-   * Online version: v5.4.2.
+   * Performs a paged query of quality rules. Supports paging. Available online in version 5.4.2.
    * 
    * @param request - ListQualityRulesRequest
    * @returns ListQualityRulesResponse
@@ -15446,8 +16150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quality templates by paging.
-   * Online version: v5.4.2.
+   * Performs a paging query on quality templates. Online version: v5.4.2.
    * 
    * @param tmpReq - ListQualityTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15494,8 +16197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quality templates by paging.
-   * Online version: v5.4.2.
+   * Performs a paging query on quality templates. Online version: v5.4.2.
    * 
    * @param request - ListQualityTemplatesRequest
    * @returns ListQualityTemplatesResponse
@@ -15566,8 +16268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of quality monitored objects.
-   * Online version: v5.4.2.
+   * Queries quality monitoring objects by using a paging query. Online version: v5.4.2.
    * 
    * @param tmpReq - ListQualityWatchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15614,8 +16315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of quality monitored objects.
-   * Online version: v5.4.2.
+   * Queries quality monitoring objects by using a paging query. Online version: v5.4.2.
    * 
    * @param request - ListQualityWatchesRequest
    * @returns ListQualityWatchesResponse
@@ -15623,6 +16323,64 @@ export default class Client extends OpenApi {
   async listQualityWatches(request: $_model.ListQualityWatchesRequest): Promise<$_model.ListQualityWatchesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listQualityWatchesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries quality rectification processes. Released in version v6.4.0.
+   * 
+   * @param tmpReq - ListRectifyFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRectifyFlowResponse
+   */
+  async listRectifyFlowWithOptions(tmpReq: $_model.ListRectifyFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRectifyFlowResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListRectifyFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRectifyFlow",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRectifyFlowResponse>(await this.callApi(params, req, runtime), new $_model.ListRectifyFlowResponse({}));
+  }
+
+  /**
+   * Queries quality rectification processes. Released in version v6.4.0.
+   * 
+   * @param request - ListRectifyFlowRequest
+   * @returns ListRectifyFlowResponse
+   */
+  async listRectifyFlow(request: $_model.ListRectifyFlowRequest): Promise<$_model.ListRectifyFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRectifyFlowWithOptions(request, runtime);
   }
 
   /**
@@ -15734,7 +16492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of row-level permissions.
+   * Performs a paging query on row-level permissions.
    * 
    * @param tmpReq - ListRowPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15781,7 +16539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of row-level permissions.
+   * Performs a paging query on row-level permissions.
    * 
    * @param request - ListRowPermissionRequest
    * @returns ListRowPermissionResponse
@@ -15792,7 +16550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries row-level permissions of a specified user by paging.
+   * Performs a paging query on the row-level permissions of a specified user.
    * 
    * @param tmpReq - ListRowPermissionByUserIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15839,7 +16597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries row-level permissions of a specified user by paging.
+   * Performs a paging query on the row-level permissions of a specified user.
    * 
    * @param request - ListRowPermissionByUserIdRequest
    * @returns ListRowPermissionByUserIdResponse
@@ -15850,7 +16608,65 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询租户下的调度模板列表
+   * Performs a paged query on the scheduling monitoring and alerting configuration list. Supports filtering by project, monitored object type, alerting cause, notification method, recipient, creator, on-call schedule, logical table or field, and keyword. Online version: v6.4.0.
+   * 
+   * @param tmpReq - ListScheduleMonitorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListScheduleMonitorResponse
+   */
+  async listScheduleMonitorWithOptions(tmpReq: $_model.ListScheduleMonitorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListScheduleMonitorResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListScheduleMonitorShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListScheduleMonitor",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListScheduleMonitorResponse>(await this.callApi(params, req, runtime), new $_model.ListScheduleMonitorResponse({}));
+  }
+
+  /**
+   * Performs a paged query on the scheduling monitoring and alerting configuration list. Supports filtering by project, monitored object type, alerting cause, notification method, recipient, creator, on-call schedule, logical table or field, and keyword. Online version: v6.4.0.
+   * 
+   * @param request - ListScheduleMonitorRequest
+   * @returns ListScheduleMonitorResponse
+   */
+  async listScheduleMonitor(request: $_model.ListScheduleMonitorRequest): Promise<$_model.ListScheduleMonitorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listScheduleMonitorWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of scheduling templates. Supports fuzzy search by template name and pagination, and is used to select a scheduling template when updating a task. Release version: v6.3.2.
    * 
    * @param tmpReq - ListScheduleTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15897,7 +16713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询租户下的调度模板列表
+   * Queries a list of scheduling templates. Supports fuzzy search by template name and pagination, and is used to select a scheduling template when updating a task. Release version: v6.3.2.
    * 
    * @param request - ListScheduleTemplatesRequest
    * @returns ListScheduleTemplatesResponse
@@ -16022,8 +16838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query security identification results by page.
-   * Release version: v5.4.2.
+   * Performs a paged query on security identification results with paging. The online version is v5.4.2.
    * 
    * @param tmpReq - ListSecurityIdentifyResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16070,8 +16885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query security identification results by page.
-   * Release version: v5.4.2.
+   * Performs a paged query on security identification results with paging. The online version is v5.4.2.
    * 
    * @param request - ListSecurityIdentifyResultsRequest
    * @returns ListSecurityIdentifyResultsResponse
@@ -16082,8 +16896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the standard list by page.
-   * Release version: v5.4.2.
+   * Performs a paging query on the standard list. Released in version v5.4.2.
    * 
    * @param tmpReq - ListStandardsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16130,8 +16943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the standard list by page.
-   * Release version: v5.4.2.
+   * Performs a paging query on the standard list. Released in version v5.4.2.
    * 
    * @param request - ListStandardsRequest
    * @returns ListStandardsResponse
@@ -16142,7 +16954,311 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paginate and retrieve the list of pending deployment records.
+   * Retrieves a list of historical running instances for a real-time task. Available since v6.4.0.
+   * 
+   * @remarks
+   * Retrieves the list of historical running instances for a real-time task in the production environment.
+   * 
+   * @param request - ListStreamInstanceRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListStreamInstanceRecordsResponse
+   */
+  async listStreamInstanceRecordsWithOptions(request: $_model.ListStreamInstanceRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListStreamInstanceRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListStreamInstanceRecords",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListStreamInstanceRecordsResponse>(await this.callApi(params, req, runtime), new $_model.ListStreamInstanceRecordsResponse({}));
+  }
+
+  /**
+   * Retrieves a list of historical running instances for a real-time task. Available since v6.4.0.
+   * 
+   * @remarks
+   * Retrieves the list of historical running instances for a real-time task in the production environment.
+   * 
+   * @param request - ListStreamInstanceRecordsRequest
+   * @returns ListStreamInstanceRecordsResponse
+   */
+  async listStreamInstanceRecords(request: $_model.ListStreamInstanceRecordsRequest): Promise<$_model.ListStreamInstanceRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listStreamInstanceRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the list of JobManager log files for a real-time task. Available since version 6.4.0.
+   * 
+   * @remarks
+   * Retrieves the list of JobManager log files for a real-time task in the production environment.
+   * 
+   * @param request - ListStreamJobManagerLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListStreamJobManagerLogsResponse
+   */
+  async listStreamJobManagerLogsWithOptions(request: $_model.ListStreamJobManagerLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListStreamJobManagerLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deploymentInstanceId)) {
+      query["DeploymentInstanceId"] = request.deploymentInstanceId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListStreamJobManagerLogs",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListStreamJobManagerLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListStreamJobManagerLogsResponse({}));
+  }
+
+  /**
+   * Retrieves the list of JobManager log files for a real-time task. Available since version 6.4.0.
+   * 
+   * @remarks
+   * Retrieves the list of JobManager log files for a real-time task in the production environment.
+   * 
+   * @param request - ListStreamJobManagerLogsRequest
+   * @returns ListStreamJobManagerLogsResponse
+   */
+  async listStreamJobManagerLogs(request: $_model.ListStreamJobManagerLogsRequest): Promise<$_model.ListStreamJobManagerLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listStreamJobManagerLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the start and stop operation records of real-time tasks. Available since v6.4.0.
+   * 
+   * @remarks
+   * Retrieves the start and stop operation records of real-time tasks in the production environment.
+   * 
+   * @param request - ListStreamOpsRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListStreamOpsRecordsResponse
+   */
+  async listStreamOpsRecordsWithOptions(request: $_model.ListStreamOpsRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListStreamOpsRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListStreamOpsRecords",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListStreamOpsRecordsResponse>(await this.callApi(params, req, runtime), new $_model.ListStreamOpsRecordsResponse({}));
+  }
+
+  /**
+   * Queries the start and stop operation records of real-time tasks. Available since v6.4.0.
+   * 
+   * @remarks
+   * Retrieves the start and stop operation records of real-time tasks in the production environment.
+   * 
+   * @param request - ListStreamOpsRecordsRequest
+   * @returns ListStreamOpsRecordsResponse
+   */
+  async listStreamOpsRecords(request: $_model.ListStreamOpsRecordsRequest): Promise<$_model.ListStreamOpsRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listStreamOpsRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the list of log files for a specified TaskManager. Available since v6.4.0.
+   * 
+   * @remarks
+   * Retrieves the list of log files for a specified TaskManager in the production environment.
+   * 
+   * @param request - ListStreamTaskManagerLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListStreamTaskManagerLogsResponse
+   */
+  async listStreamTaskManagerLogsWithOptions(request: $_model.ListStreamTaskManagerLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListStreamTaskManagerLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deploymentInstanceId)) {
+      query["DeploymentInstanceId"] = request.deploymentInstanceId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.taskmanagerId)) {
+      query["TaskmanagerId"] = request.taskmanagerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListStreamTaskManagerLogs",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListStreamTaskManagerLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListStreamTaskManagerLogsResponse({}));
+  }
+
+  /**
+   * Retrieves the list of log files for a specified TaskManager. Available since v6.4.0.
+   * 
+   * @remarks
+   * Retrieves the list of log files for a specified TaskManager in the production environment.
+   * 
+   * @param request - ListStreamTaskManagerLogsRequest
+   * @returns ListStreamTaskManagerLogsResponse
+   */
+  async listStreamTaskManagerLogs(request: $_model.ListStreamTaskManagerLogsRequest): Promise<$_model.ListStreamTaskManagerLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listStreamTaskManagerLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the list of TaskManagers for a real-time task. Available since v6.4.0.
+   * 
+   * @remarks
+   * Retrieves the list of TaskManagers for a real-time task in the production environment.
+   * 
+   * @param request - ListStreamTaskManagersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListStreamTaskManagersResponse
+   */
+  async listStreamTaskManagersWithOptions(request: $_model.ListStreamTaskManagersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListStreamTaskManagersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deploymentInstanceId)) {
+      query["DeploymentInstanceId"] = request.deploymentInstanceId;
+    }
+
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListStreamTaskManagers",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListStreamTaskManagersResponse>(await this.callApi(params, req, runtime), new $_model.ListStreamTaskManagersResponse({}));
+  }
+
+  /**
+   * Retrieves the list of TaskManagers for a real-time task. Available since v6.4.0.
+   * 
+   * @remarks
+   * Retrieves the list of TaskManagers for a real-time task in the production environment.
+   * 
+   * @param request - ListStreamTaskManagersRequest
+   * @returns ListStreamTaskManagersResponse
+   */
+  async listStreamTaskManagers(request: $_model.ListStreamTaskManagersRequest): Promise<$_model.ListStreamTaskManagersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listStreamTaskManagersWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves a paginated list of pending release records.
    * 
    * @param tmpReq - ListSubmitRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16189,7 +17305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Paginate and retrieve the list of pending deployment records.
+   * Retrieves a paginated list of pending release records.
    * 
    * @param request - ListSubmitRecordsRequest
    * @returns ListSubmitRecordsResponse
@@ -16200,8 +17316,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve asset table metadata.
-   * Online version: v5.4.2.
+   * Queries the metadata of asset tables by page.
+   * Available in version v5.4.2.
    * 
    * @param tmpReq - ListTablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16248,8 +17364,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve asset table metadata.
-   * Online version: v5.4.2.
+   * Queries the metadata of asset tables by page.
+   * Available in version v5.4.2.
    * 
    * @param request - ListTablesRequest
    * @returns ListTablesResponse
@@ -16260,7 +17376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of tenant members.
+   * Retrieves a list of tenant members.
    * 
    * @param tmpReq - ListTenantMembersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16307,7 +17423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of tenant members.
+   * Retrieves a list of tenant members.
    * 
    * @param request - ListTenantMembersRequest
    * @returns ListTenantMembersResponse
@@ -16318,13 +17434,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取租户角色列表
+   * Retrieves the list of tenant roles. Release version: v6.3.2.
    * 
    * @remarks
-   * 获取租户角色列表。返回角色列表中 roleType 字段标识角色类型：
-   * - BUILD_IN：内置角色
-   * - CUSTOM：自定义角色（即租户自定义创建的角色）
-   * 本接口无需额外业务入参，tenantId 由 POP 网关上下文自动注入。
+   * Retrieves the list of tenant roles. The roleType field in the returned role list indicates the role type:
+   * - BUILD_IN: built-in role
+   * - CUSTOM: custom role (created by the tenant)
+   * This operation does not require additional business request parameters. The tenantId parameter is automatically injected by the POP gateway context.
    * 
    * @param request - ListTenantRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16359,13 +17475,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取租户角色列表
+   * Retrieves the list of tenant roles. Release version: v6.3.2.
    * 
    * @remarks
-   * 获取租户角色列表。返回角色列表中 roleType 字段标识角色类型：
-   * - BUILD_IN：内置角色
-   * - CUSTOM：自定义角色（即租户自定义创建的角色）
-   * 本接口无需额外业务入参，tenantId 由 POP 网关上下文自动注入。
+   * Retrieves the list of tenant roles. The roleType field in the returned role list indicates the role type:
+   * - BUILD_IN: built-in role
+   * - CUSTOM: custom role (created by the tenant)
+   * This operation does not require additional business request parameters. The tenantId parameter is automatically injected by the POP gateway context.
    * 
    * @param request - ListTenantRolesRequest
    * @returns ListTenantRolesResponse
@@ -16376,7 +17492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query of user group members.
+   * Performs a paging query on the members of a user group.
    * 
    * @param tmpReq - ListUserGroupMembersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16423,7 +17539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query of user group members.
+   * Performs a paging query on the members of a user group.
    * 
    * @param request - ListUserGroupMembersRequest
    * @returns ListUserGroupMembersResponse
@@ -16434,7 +17550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries user groups by paging.
+   * Performs a paging query on the user group list.
    * 
    * @param tmpReq - ListUserGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16481,7 +17597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries user groups by paging.
+   * Performs a paging query on the user group list.
    * 
    * @param request - ListUserGroupsRequest
    * @returns ListUserGroupsResponse
@@ -16492,7 +17608,123 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Offlines a batch task.
+   * Queries the list of projects that a specified user participates in. Released in version v6.4.0.
+   * 
+   * @param tmpReq - ListUserProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserProjectsResponse
+   */
+  async listUserProjectsWithOptions(tmpReq: $_model.ListUserProjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserProjectsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListUserProjectsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUserProjects",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUserProjectsResponse>(await this.callApi(params, req, runtime), new $_model.ListUserProjectsResponse({}));
+  }
+
+  /**
+   * Queries the list of projects that a specified user participates in. Released in version v6.4.0.
+   * 
+   * @param request - ListUserProjectsRequest
+   * @returns ListUserProjectsResponse
+   */
+  async listUserProjects(request: $_model.ListUserProjectsRequest): Promise<$_model.ListUserProjectsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUserProjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * Performs a paged query for paging the user list. Online version: v6.4.0.
+   * 
+   * @param tmpReq - ListUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUsersResponse
+   */
+  async listUsersWithOptions(tmpReq: $_model.ListUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUsersResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListUsersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listQuery)) {
+      request.listQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listQuery, "ListQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listQueryShrink)) {
+      body["ListQuery"] = request.listQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUsers",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUsersResponse>(await this.callApi(params, req, runtime), new $_model.ListUsersResponse({}));
+  }
+
+  /**
+   * Performs a paged query for paging the user list. Online version: v6.4.0.
+   * 
+   * @param request - ListUsersRequest
+   * @returns ListUsersResponse
+   */
+  async listUsers(request: $_model.ListUsersRequest): Promise<$_model.ListUsersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUsersWithOptions(request, runtime);
+  }
+
+  /**
+   * Takes an offline computing task offline.
    * 
    * @param request - OfflineBatchTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16539,7 +17771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Offlines a batch task.
+   * Takes an offline computing task offline.
    * 
    * @param request - OfflineBatchTaskRequest
    * @returns OfflineBatchTaskResponse
@@ -16608,7 +17840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Offlines an integration pipeline node.
+   * Takes an integration pipeline task offline.
    * 
    * @param tmpReq - OfflinePipelineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16663,7 +17895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Offlines an integration pipeline node.
+   * Takes an integration pipeline task offline.
    * 
    * @param request - OfflinePipelineRequest
    * @returns OfflinePipelineResponse
@@ -16674,7 +17906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously offlines an integration pipeline node.
+   * Asynchronously takes an integration pipeline task offline.
    * 
    * @param tmpReq - OfflinePipelineByAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16729,7 +17961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously offlines an integration pipeline node.
+   * Asynchronously takes an integration pipeline task offline.
    * 
    * @param request - OfflinePipelineByAsyncRequest
    * @returns OfflinePipelineByAsyncResponse
@@ -16740,8 +17972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Offlines a standard.
-   * Online version: v5.4.2.
+   * Takes a standard offline. Introduced in version v5.4.2.
    * 
    * @param tmpReq - OfflineStandardRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16788,8 +18019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Offlines a standard.
-   * Online version: v5.4.2.
+   * Takes a standard offline. Introduced in version v5.4.2.
    * 
    * @param request - OfflineStandardRequest
    * @returns OfflineStandardResponse
@@ -16858,7 +18088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs batch O&M operations on instances. Both physical instances and logical table instances are supported.
+   * Performs batch O&M operations on instances, supporting physical instances and logical table instances.
    * 
    * @param tmpReq - OperateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16909,7 +18139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs batch O&M operations on instances. Both physical instances and logical table instances are supported.
+   * Performs batch O&M operations on instances, supporting physical instances and logical table instances.
    * 
    * @param request - OperateInstanceRequest
    * @returns OperateInstanceResponse
@@ -17098,7 +18328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a knowledge graph model. Online version: v6.2.0.
+   * Publishes a graph model. The online version is v6.2.0.
    * 
    * @param tmpReq - PublishKgSchemaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17149,7 +18379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a knowledge graph model. Online version: v6.2.0.
+   * Publishes a graph model. The online version is v6.2.0.
    * 
    * @param request - PublishKgSchemaRequest
    * @returns PublishKgSchemaResponse
@@ -17278,6 +18508,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the submit result of a real-time integration task based on the submit detail ID. Available since v6.4.0.
+   * 
+   * @param tmpReq - QueryPipelineSubmitResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPipelineSubmitResultResponse
+   */
+  async queryPipelineSubmitResultWithOptions(tmpReq: $_model.QueryPipelineSubmitResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPipelineSubmitResultResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryPipelineSubmitResultShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.submitId)) {
+      query["SubmitId"] = request.submitId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryPipelineSubmitResult",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryPipelineSubmitResultResponse>(await this.callApi(params, req, runtime), new $_model.QueryPipelineSubmitResultResponse({}));
+  }
+
+  /**
+   * Queries the submit result of a real-time integration task based on the submit detail ID. Available since v6.4.0.
+   * 
+   * @param request - QueryPipelineSubmitResultRequest
+   * @returns QueryPipelineSubmitResultResponse
+   */
+  async queryPipelineSubmitResult(request: $_model.QueryPipelineSubmitResultRequest): Promise<$_model.QueryPipelineSubmitResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryPipelineSubmitResultWithOptions(request, runtime);
+  }
+
+  /**
    * Remove regular members from a data service application. Only the application owner can perform this operation.
    * Released version: v6.0.0.
    * 
@@ -17338,7 +18630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a project member.
+   * Removes a project member.
    * 
    * @param tmpReq - RemoveProjectMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17389,7 +18681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a project member.
+   * Removes a project member.
    * 
    * @param request - RemoveProjectMemberRequest
    * @returns RemoveProjectMemberResponse
@@ -17457,6 +18749,64 @@ export default class Client extends OpenApi {
   async removeQualityRuleSchedules(request: $_model.RemoveQualityRuleSchedulesRequest): Promise<$_model.RemoveQualityRuleSchedulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeQualityRuleSchedulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes one or more scheduling monitoring alert configurations. Available since v6.4.0.
+   * 
+   * @param tmpReq - RemoveScheduleMonitorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveScheduleMonitorResponse
+   */
+  async removeScheduleMonitorWithOptions(tmpReq: $_model.RemoveScheduleMonitorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveScheduleMonitorResponse> {
+    tmpReq.validate();
+    let request = new $_model.RemoveScheduleMonitorShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.removeCommand)) {
+      request.removeCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.removeCommand, "RemoveCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.removeCommandShrink)) {
+      body["RemoveCommand"] = request.removeCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveScheduleMonitor",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveScheduleMonitorResponse>(await this.callApi(params, req, runtime), new $_model.RemoveScheduleMonitorResponse({}));
+  }
+
+  /**
+   * Deletes one or more scheduling monitoring alert configurations. Available since v6.4.0.
+   * 
+   * @param request - RemoveScheduleMonitorRequest
+   * @returns RemoveScheduleMonitorResponse
+   */
+  async removeScheduleMonitor(request: $_model.RemoveScheduleMonitorRequest): Promise<$_model.RemoveScheduleMonitorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeScheduleMonitorWithOptions(request, runtime);
   }
 
   /**
@@ -17638,8 +18988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reset the Data Service application key. Only the application owner can perform this operation.
-   * Release version: v6.0.0.
+   * Resets the application key of a data service. Only the application owner can perform this operation. Released in v6.0.0.
    * 
    * @param tmpReq - ResetDataServiceAppSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17686,8 +19035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reset the Data Service application key. Only the application owner can perform this operation.
-   * Release version: v6.0.0.
+   * Resets the application key of a data service. Only the application owner can perform this operation. Released in v6.0.0.
    * 
    * @param request - ResetDataServiceAppSecretRequest
    * @returns ResetDataServiceAppSecretResponse
@@ -17698,7 +19046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resume physical node scheduling.
+   * Resumes the scheduling of physical nodes.
    * 
    * @param tmpReq - ResumePhysicalNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17749,7 +19097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resume physical node scheduling.
+   * Resumes the scheduling of physical nodes.
    * 
    * @param request - ResumePhysicalNodeRequest
    * @returns ResumePhysicalNodeResponse
@@ -17815,6 +19163,64 @@ export default class Client extends OpenApi {
   async retryTransferOwnership(request: $_model.RetryTransferOwnershipRequest): Promise<$_model.RetryTransferOwnershipResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.retryTransferOwnershipWithOptions(request, runtime);
+  }
+
+  /**
+   * Reviews the quality rectification process. Release version: v6.4.0.
+   * 
+   * @param tmpReq - ReviewRectifyFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReviewRectifyFlowResponse
+   */
+  async reviewRectifyFlowWithOptions(tmpReq: $_model.ReviewRectifyFlowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReviewRectifyFlowResponse> {
+    tmpReq.validate();
+    let request = new $_model.ReviewRectifyFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.reviewCommand)) {
+      request.reviewCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.reviewCommand, "ReviewCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.reviewCommandShrink)) {
+      body["ReviewCommand"] = request.reviewCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReviewRectifyFlow",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReviewRectifyFlowResponse>(await this.callApi(params, req, runtime), new $_model.ReviewRectifyFlowResponse({}));
+  }
+
+  /**
+   * Reviews the quality rectification process. Release version: v6.4.0.
+   * 
+   * @param request - ReviewRectifyFlowRequest
+   * @returns ReviewRectifyFlowResponse
+   */
+  async reviewRectifyFlow(request: $_model.ReviewRectifyFlowRequest): Promise<$_model.ReviewRectifyFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.reviewRectifyFlowWithOptions(request, runtime);
   }
 
   /**
@@ -17996,7 +19402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动增全量一体化实例。
+   * Starts an integrated full and incremental instance. Release version: v6.3.2.
    * 
    * @param tmpReq - StartPipelineIntegratedTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18051,7 +19457,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动增全量一体化实例。
+   * Starts an integrated full and incremental instance. Release version: v6.3.2.
    * 
    * @param request - StartPipelineIntegratedTaskRequest
    * @returns StartPipelineIntegratedTaskResponse
@@ -18116,7 +19522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量停止增全量一体化实例。
+   * Stops multiple integrated incremental and full instances. Available since version v6.3.2.
    * 
    * @param tmpReq - StopPipelineIntegratedTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18171,7 +19577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量停止增全量一体化实例。
+   * Stops multiple integrated incremental and full instances. Available since version v6.3.2.
    * 
    * @param request - StopPipelineIntegratedTaskRequest
    * @returns StopPipelineIntegratedTaskResponse
@@ -18298,7 +19704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a batch task.
+   * Submits an offline computing task.
    * 
    * @param tmpReq - SubmitBatchTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18345,7 +19751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a batch task.
+   * Submits an offline computing task.
    * 
    * @param request - SubmitBatchTaskRequest
    * @returns SubmitBatchTaskResponse
@@ -18353,6 +19759,134 @@ export default class Client extends OpenApi {
   async submitBatchTask(request: $_model.SubmitBatchTaskRequest): Promise<$_model.SubmitBatchTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitBatchTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits an offline computing template. Available since v6.4.0.
+   * 
+   * @param tmpReq - SubmitBatchTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitBatchTemplateResponse
+   */
+  async submitBatchTemplateWithOptions(tmpReq: $_model.SubmitBatchTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitBatchTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitBatchTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.submitCommand)) {
+      request.submitCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.submitCommand, "SubmitCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.submitCommandShrink)) {
+      body["SubmitCommand"] = request.submitCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitBatchTemplate",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitBatchTemplateResponse>(await this.callApi(params, req, runtime), new $_model.SubmitBatchTemplateResponse({}));
+  }
+
+  /**
+   * Submits an offline computing template. Available since v6.4.0.
+   * 
+   * @param request - SubmitBatchTemplateRequest
+   * @returns SubmitBatchTemplateResponse
+   */
+  async submitBatchTemplate(request: $_model.SubmitBatchTemplateRequest): Promise<$_model.SubmitBatchTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitBatchTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Performs an asynchronous commit of a real-time integration pipeline task based on the OAQueryId. Online version: v6.4.0.
+   * 
+   * @param tmpReq - SubmitPipelineAsyncRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitPipelineAsyncResponse
+   */
+  async submitPipelineAsyncWithOptions(tmpReq: $_model.SubmitPipelineAsyncRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitPipelineAsyncResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitPipelineAsyncShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.context)) {
+      request.contextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.context, "Context", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.queryId)) {
+      request.queryIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryId, "QueryId", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextShrink)) {
+      body["Context"] = request.contextShrink;
+    }
+
+    if (!$dara.isNull(request.queryIdShrink)) {
+      body["QueryId"] = request.queryIdShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitPipelineAsync",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitPipelineAsyncResponse>(await this.callApi(params, req, runtime), new $_model.SubmitPipelineAsyncResponse({}));
+  }
+
+  /**
+   * Performs an asynchronous commit of a real-time integration pipeline task based on the OAQueryId. Online version: v6.4.0.
+   * 
+   * @param request - SubmitPipelineAsyncRequest
+   * @returns SubmitPipelineAsyncResponse
+   */
+  async submitPipelineAsync(request: $_model.SubmitPipelineAsyncRequest): Promise<$_model.SubmitPipelineAsyncResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitPipelineAsyncWithOptions(request, runtime);
   }
 
   /**
@@ -18418,8 +19952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch submit rule tasks with support for test runs.
-   * Release version: v5.4.2.
+   * Submits rule tasks in batches and supports test runs. Available since version 5.4.2.
    * 
    * @param tmpReq - SubmitQualityRuleTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18466,8 +19999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch submit rule tasks with support for test runs.
-   * Release version: v5.4.2.
+   * Submits rule tasks in batches and supports test runs. Available since version 5.4.2.
    * 
    * @param request - SubmitQualityRuleTasksRequest
    * @returns SubmitQualityRuleTasksResponse
@@ -18478,8 +20010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits quality watchtask check tasks in batches.
-   * Online version: v5.4.2.
+   * Submits multiple monitoring object check nodes in batches. Released in version v5.4.2.
    * 
    * @param tmpReq - SubmitQualityWatchTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18526,8 +20057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits quality watchtask check tasks in batches.
-   * Online version: v5.4.2.
+   * Submits multiple monitoring object check nodes in batches. Released in version v5.4.2.
    * 
    * @param request - SubmitQualityWatchTasksRequest
    * @returns SubmitQualityWatchTasksResponse
@@ -18535,6 +20065,64 @@ export default class Client extends OpenApi {
   async submitQualityWatchTasks(request: $_model.SubmitQualityWatchTasksRequest): Promise<$_model.SubmitQualityWatchTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitQualityWatchTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits a quality rectification process for review. Released in v6.4.0.
+   * 
+   * @param tmpReq - SubmitRectifyFlowForReviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitRectifyFlowForReviewResponse
+   */
+  async submitRectifyFlowForReviewWithOptions(tmpReq: $_model.SubmitRectifyFlowForReviewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitRectifyFlowForReviewResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitRectifyFlowForReviewShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.submitCommand)) {
+      request.submitCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.submitCommand, "SubmitCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.submitCommandShrink)) {
+      body["SubmitCommand"] = request.submitCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitRectifyFlowForReview",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitRectifyFlowForReviewResponse>(await this.callApi(params, req, runtime), new $_model.SubmitRectifyFlowForReviewResponse({}));
+  }
+
+  /**
+   * Submits a quality rectification process for review. Released in v6.4.0.
+   * 
+   * @param request - SubmitRectifyFlowForReviewRequest
+   * @returns SubmitRectifyFlowForReviewResponse
+   */
+  async submitRectifyFlowForReview(request: $_model.SubmitRectifyFlowForReviewRequest): Promise<$_model.SubmitRectifyFlowForReviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitRectifyFlowForReviewWithOptions(request, runtime);
   }
 
   /**
@@ -18605,11 +20193,11 @@ export default class Client extends OpenApi {
    * Synchronizes department member information.
    * 
    * @remarks
-   * 同步用户的部门映射关系。支持为指定用户设置部门，或通过传入空列表 departmentIdList 清除该用户已设置的全部部门。
-   * 使用说明：
-   * - departmentIdList 为 null（未传）：直接报错，防止调用方误清空；
-   * - departmentIdList 为空列表 []：显式清除该 sourceUserId 对应的全部部门映射；
-   * - departmentIdList 为非空列表：全量覆盖，先删除该用户全部旧部门映射，再插入新列表中的部门。
+   * Synchronizes the department mapping relationships of users. You can set departments for a specified user or clear all departments set for the user by passing an empty list for departmentIdList.
+   * Usage notes:
+   * - If departmentIdList is null (not passed): An error is returned directly to prevent the caller from accidentally clearing the data.
+   * - If departmentIdList is an empty list []: All department mappings corresponding to the sourceUserId are explicitly cleared.
+   * - If departmentIdList is a non-empty list: A full overwrite is performed. All old department mappings of the user are deleted first, and then the departments in the new list are inserted.
    * 
    * @param tmpReq - SyncDepartmentUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18659,11 +20247,11 @@ export default class Client extends OpenApi {
    * Synchronizes department member information.
    * 
    * @remarks
-   * 同步用户的部门映射关系。支持为指定用户设置部门，或通过传入空列表 departmentIdList 清除该用户已设置的全部部门。
-   * 使用说明：
-   * - departmentIdList 为 null（未传）：直接报错，防止调用方误清空；
-   * - departmentIdList 为空列表 []：显式清除该 sourceUserId 对应的全部部门映射；
-   * - departmentIdList 为非空列表：全量覆盖，先删除该用户全部旧部门映射，再插入新列表中的部门。
+   * Synchronizes the department mapping relationships of users. You can set departments for a specified user or clear all departments set for the user by passing an empty list for departmentIdList.
+   * Usage notes:
+   * - If departmentIdList is null (not passed): An error is returned directly to prevent the caller from accidentally clearing the data.
+   * - If departmentIdList is an empty list []: All department mappings corresponding to the sourceUserId are explicitly cleared.
+   * - If departmentIdList is a non-empty list: A full overwrite is performed. All old department mappings of the user are deleted first, and then the departments in the new list are inserted.
    * 
    * @param request - SyncDepartmentUserRequest
    * @returns SyncDepartmentUserResponse
@@ -18674,7 +20262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transfers ownership to a new owner in one click.
+   * Transfers the ownership with one click.
    * 
    * @param tmpReq - TransferOwnershipForAllObjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18721,7 +20309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transfers ownership to a new owner in one click.
+   * Transfers the ownership with one click.
    * 
    * @param request - TransferOwnershipForAllObjectRequest
    * @returns TransferOwnershipForAllObjectResponse
@@ -18848,7 +20436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+   * Updates a Basic (single-environment) project. The project name cannot be modified. You must specify the current project name.
    * 
    * @param tmpReq - UpdateBasicProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18895,7 +20483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+   * Updates a Basic (single-environment) project. The project name cannot be modified. You must specify the current project name.
    * 
    * @param request - UpdateBasicProjectRequest
    * @returns UpdateBasicProjectResponse
@@ -18906,7 +20494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an offline compute node.
+   * Updates an offline computing task.
    * 
    * @param tmpReq - UpdateBatchTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18953,7 +20541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an offline compute node.
+   * Updates an offline computing task.
    * 
    * @param request - UpdateBatchTaskRequest
    * @returns UpdateBatchTaskResponse
@@ -19022,6 +20610,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies an offline computing template. Available since v6.4.0.
+   * 
+   * @param tmpReq - UpdateBatchTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBatchTemplateResponse
+   */
+  async updateBatchTemplateWithOptions(tmpReq: $_model.UpdateBatchTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateBatchTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateBatchTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateBatchTemplate",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateBatchTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateBatchTemplateResponse({}));
+  }
+
+  /**
+   * Modifies an offline computing template. Available since v6.4.0.
+   * 
+   * @param request - UpdateBatchTemplateRequest
+   * @returns UpdateBatchTemplateResponse
+   */
+  async updateBatchTemplate(request: $_model.UpdateBatchTemplateRequest): Promise<$_model.UpdateBatchTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateBatchTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Updates a business entity.
    * 
    * @param tmpReq - UpdateBizEntityRequest
@@ -19080,8 +20730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a business metric.
-   * Release version: v5.5.0.
+   * Updates a business metric. Release version: v5.5.0.
    * 
    * @param tmpReq - UpdateBizMetricRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19128,8 +20777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a business metric.
-   * Release version: v5.5.0.
+   * Updates a business metric. Release version: v5.5.0.
    * 
    * @param request - UpdateBizMetricRequest
    * @returns UpdateBizMetricResponse
@@ -19140,7 +20788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data domain.
+   * Updates a business unit.
    * 
    * @param tmpReq - UpdateBizUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19187,7 +20835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data domain.
+   * Updates a business unit.
    * 
    * @param request - UpdateBizUnitRequest
    * @returns UpdateBizUnitResponse
@@ -19260,7 +20908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
+   * Updates a compute source. Only business unit administrators and project administrators have the permissions to perform this operation.
    * 
    * @param tmpReq - UpdateComputeSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19307,7 +20955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
+   * Updates a compute source. Only business unit administrators and project administrators have the permissions to perform this operation.
    * 
    * @param request - UpdateComputeSourceRequest
    * @returns UpdateComputeSourceResponse
@@ -19502,8 +21150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data service application group. Only superusers and system administrators can perform this operation.
-   * Online version: v6.0.0.
+   * Updates an application group for the data service. Only super administrators and system administrators can perform this operation. Online version: v6.0.0.
    * 
    * @param tmpReq - UpdateDataServiceAppGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19550,8 +21197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data service application group. Only superusers and system administrators can perform this operation.
-   * Online version: v6.0.0.
+   * Updates an application group for the data service. Only super administrators and system administrators can perform this operation. Online version: v6.0.0.
    * 
    * @param request - UpdateDataServiceAppGroupRequest
    * @returns UpdateDataServiceAppGroupResponse
@@ -19680,7 +21326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits the connection configuration items of a data source. Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permissions to perform this operation.
+   * Modifies the connection configuration items of a datasource. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators are authorized to perform this operation.
    * 
    * @param tmpReq - UpdateDataSourceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19727,7 +21373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits the connection configuration items of a data source. Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permissions to perform this operation.
+   * Modifies the connection configuration items of a datasource. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators are authorized to perform this operation.
    * 
    * @param request - UpdateDataSourceConfigRequest
    * @returns UpdateDataSourceConfigResponse
@@ -19738,10 +21384,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information of a dataset in a specified project. Available since v6.2.0.
+   * Updates the information of a dataset in a specified project. Available since version 6.2.0.
    * 
    * @remarks
-   * ## Request description.
+   * ## Request description
+   * - This API operation updates the details of an existing dataset in a specific project.
+   * - You must specify the `ProjectId` and `UpdateCommand` parameters. The `UpdateCommand` parameter contains the specific fields of the dataset to be updated.
+   * - The `Id` field in `UpdateCommand` is required to identify the dataset to be updated.
+   * - Other fields such as `Name`, `Type`, and `DataCellId` are optional. Specify them based on your actual requirements.
+   * - Version configuration (`VersionConfig`) and real-time metatable configuration (`RealtimeMetaTableConfig`) provide more detailed setting options, including storage paths and table schemas. These are also optional.
+   * - Make sure that all provided ID values, such as `ProjectId`, `Id`, and `DataSourceId`, are valid and correctly associated in the system.
    * 
    * @param tmpReq - UpdateDatasetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19792,10 +21444,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information of a dataset in a specified project. Available since v6.2.0.
+   * Updates the information of a dataset in a specified project. Available since version 6.2.0.
    * 
    * @remarks
-   * ## Request description.
+   * ## Request description
+   * - This API operation updates the details of an existing dataset in a specific project.
+   * - You must specify the `ProjectId` and `UpdateCommand` parameters. The `UpdateCommand` parameter contains the specific fields of the dataset to be updated.
+   * - The `Id` field in `UpdateCommand` is required to identify the dataset to be updated.
+   * - Other fields such as `Name`, `Type`, and `DataCellId` are optional. Specify them based on your actual requirements.
+   * - Version configuration (`VersionConfig`) and real-time metatable configuration (`RealtimeMetaTableConfig`) provide more detailed setting options, including storage paths and table schemas. These are also optional.
+   * - Make sure that all provided ID values, such as `ProjectId`, `Id`, and `DataSourceId`, are valid and correctly associated in the system.
    * 
    * @param request - UpdateDatasetRequest
    * @returns UpdateDatasetResponse
@@ -19806,7 +21464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a Dev-Prod (dual-environment) project.
+   * Modifies a Dev-Prod (dual-environment) project.
    * 
    * @param tmpReq - UpdateDevProdProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19853,7 +21511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a Dev-Prod (dual-environment) project.
+   * Modifies a Dev-Prod (dual-environment) project.
    * 
    * @param request - UpdateDevProdProjectRequest
    * @returns UpdateDevProdProjectResponse
@@ -20228,7 +21886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously updates a pipeline or unstructured workflow node.
+   * Asynchronously updates a pipeline or unstructured workflow task.
    * 
    * @param tmpReq - UpdatePipelineByAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20283,7 +21941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously updates a pipeline or unstructured workflow node.
+   * Asynchronously updates a pipeline or unstructured workflow task.
    * 
    * @param request - UpdatePipelineByAsyncRequest
    * @returns UpdatePipelineByAsyncResponse
@@ -20294,7 +21952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits project members.
+   * Modifies the members of a project.
    * 
    * @param tmpReq - UpdateProjectMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20345,7 +22003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits project members.
+   * Modifies the members of a project.
    * 
    * @param request - UpdateProjectMemberRequest
    * @returns UpdateProjectMemberResponse
@@ -20356,8 +22014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables quality rules in batches.
-   * Release version: v5.4.2.
+   * Enables or disables quality rules in batches. Release version: v5.4.2.
    * 
    * @param tmpReq - UpdateQualityRuleSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20404,8 +22061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables quality rules in batches.
-   * Release version: v5.4.2.
+   * Enables or disables quality rules in batches. Release version: v5.4.2.
    * 
    * @param request - UpdateQualityRuleSwitchRequest
    * @returns UpdateQualityRuleSwitchResponse
@@ -20416,8 +22072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts or stops quality monitored objects in batches.
-   * Release version: v5.4.2.
+   * Enables or disables quality monitored objects in batches. Release version: v5.4.2.
    * 
    * @param tmpReq - UpdateQualityWatchSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20464,8 +22119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts or stops quality monitored objects in batches.
-   * Release version: v5.4.2.
+   * Enables or disables quality monitored objects in batches. Release version: v5.4.2.
    * 
    * @param request - UpdateQualityWatchSwitchRequest
    * @returns UpdateQualityWatchSwitchResponse
@@ -20476,7 +22130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a resource file.
+   * Updates a resource file.
    * 
    * @param tmpReq - UpdateResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20523,7 +22177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a resource file.
+   * Updates a resource file.
    * 
    * @param request - UpdateResourceRequest
    * @returns UpdateResourceResponse
@@ -20589,6 +22243,64 @@ export default class Client extends OpenApi {
   async updateRowPermission(request: $_model.UpdateRowPermissionRequest): Promise<$_model.UpdateRowPermissionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRowPermissionWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates existing scheduling monitoring and alert configurations by modifying monitored objects or alert rules. Available since version 6.4.0.
+   * 
+   * @param tmpReq - UpdateScheduleMonitorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateScheduleMonitorResponse
+   */
+  async updateScheduleMonitorWithOptions(tmpReq: $_model.UpdateScheduleMonitorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateScheduleMonitorResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateScheduleMonitorShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.updateCommand)) {
+      request.updateCommandShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateCommand, "UpdateCommand", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    if (!$dara.isNull(request.opUserId)) {
+      query["OpUserId"] = request.opUserId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.updateCommandShrink)) {
+      body["UpdateCommand"] = request.updateCommandShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateScheduleMonitor",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateScheduleMonitorResponse>(await this.callApi(params, req, runtime), new $_model.UpdateScheduleMonitorResponse({}));
+  }
+
+  /**
+   * Updates existing scheduling monitoring and alert configurations by modifying monitored objects or alert rules. Available since version 6.4.0.
+   * 
+   * @param request - UpdateScheduleMonitorRequest
+   * @returns UpdateScheduleMonitorResponse
+   */
+  async updateScheduleMonitor(request: $_model.UpdateScheduleMonitorRequest): Promise<$_model.UpdateScheduleMonitorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateScheduleMonitorWithOptions(request, runtime);
   }
 
   /**
@@ -20710,8 +22422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the effective status of security identification results.
-   * Release version: v5.4.2.
+   * Updates the effective status of security identification results. Released in version 5.4.2.
    * 
    * @param tmpReq - UpdateSecurityIdentifyResultStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20758,8 +22469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the effective status of security identification results.
-   * Release version: v5.4.2.
+   * Updates the effective status of security identification results. Released in version 5.4.2.
    * 
    * @param request - UpdateSecurityIdentifyResultStatusRequest
    * @returns UpdateSecurityIdentifyResultStatusResponse
@@ -20830,8 +22540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a standard.
-   * Release version: v5.4.2.
+   * Updates a standard. Release version: v5.4.2.
    * 
    * @param tmpReq - UpdateStandardRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20878,8 +22587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a standard.
-   * Release version: v5.4.2.
+   * Updates a standard. Release version: v5.4.2.
    * 
    * @param request - UpdateStandardRequest
    * @returns UpdateStandardResponse
@@ -20890,8 +22598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data standard lookup table.
-   * Release version: v5.4.2.
+   * Updates a data standard lookup table. Release version: v5.4.2.
    * 
    * @param tmpReq - UpdateStandardLookupTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20938,8 +22645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a data standard lookup table.
-   * Release version: v5.4.2.
+   * Updates a data standard lookup table. Release version: v5.4.2.
    * 
    * @param request - UpdateStandardLookupTableRequest
    * @returns UpdateStandardLookupTableResponse
@@ -20950,8 +22656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the standard mapping relationship to invalid mapping.
-   * Release version: v5.4.2.
+   * Invalidates standard mapping relationships. Released in version 5.4.2.
    * 
    * @param tmpReq - UpdateStandardMappingToInvalidRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20998,8 +22703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the standard mapping relationship to invalid mapping.
-   * Release version: v5.4.2.
+   * Invalidates standard mapping relationships. Released in version 5.4.2.
    * 
    * @param request - UpdateStandardMappingToInvalidRequest
    * @returns UpdateStandardMappingToInvalidResponse
@@ -21190,7 +22894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the compute settings of a tenant.
+   * Modifies the computing settings of a tenant.
    * 
    * @param tmpReq - UpdateTenantComputeEngineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21237,7 +22941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the compute settings of a tenant.
+   * Modifies the computing settings of a tenant.
    * 
    * @param request - UpdateTenantComputeEngineRequest
    * @returns UpdateTenantComputeEngineResponse
@@ -21248,7 +22952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits tenant members.
+   * Modifies tenant members.
    * 
    * @param tmpReq - UpdateTenantMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21295,7 +22999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits tenant members.
+   * Modifies tenant members.
    * 
    * @param request - UpdateTenantMemberRequest
    * @returns UpdateTenantMemberResponse
@@ -21422,7 +23126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the enabled status of a user group.
+   * Updates the enabled status of a user group.
    * 
    * @param request - UpdateUserGroupSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21465,7 +23169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the enabled status of a user group.
+   * Updates the enabled status of a user group.
    * 
    * @param request - UpdateUserGroupSwitchRequest
    * @returns UpdateUserGroupSwitchResponse
@@ -21652,8 +23356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a schedule setting.
-   * Release version: v5.4.2.
+   * Creates or modifies scheduling settings. Released in version 5.4.2.
    * 
    * @param tmpReq - UpsertQualityScheduleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21700,8 +23403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a schedule setting.
-   * Release version: v5.4.2.
+   * Creates or modifies scheduling settings. Released in version 5.4.2.
    * 
    * @param request - UpsertQualityScheduleRequest
    * @returns UpsertQualityScheduleResponse
@@ -21712,8 +23414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a quality template.
-   * Release version: v5.4.2.
+   * Creates or updates a quality template. Released in version 5.4.2.
    * 
    * @param tmpReq - UpsertQualityTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21760,8 +23461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a quality template.
-   * Release version: v5.4.2.
+   * Creates or updates a quality template. Released in version 5.4.2.
    * 
    * @param request - UpsertQualityTemplateRequest
    * @returns UpsertQualityTemplateResponse
@@ -21772,8 +23472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time meta tables.
-   * Release version: v5.4.2.
+   * Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time metatables. Release version: v5.4.2.
    * 
    * @param tmpReq - UpsertQualityWatchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21820,8 +23519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time meta tables.
-   * Release version: v5.4.2.
+   * Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time metatables. Release version: v5.4.2.
    * 
    * @param request - UpsertQualityWatchRequest
    * @returns UpsertQualityWatchResponse

@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetBizMetricByNameRequestBizMetricByNameQuery extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to query draft or published asset details. Set this parameter to True to query draft details, or False to query published details.
+   * Specifies whether to query the details of a draft or published asset. Valid values:
+   * - True: Draft.
+   * - False: Published.
    * 
    * This parameter is required.
    * 
@@ -49,14 +51,14 @@ export class GetBizMetricByNameRequestBizMetricByNameQuery extends $dara.Model {
 export class GetBizMetricByNameRequest extends $dara.Model {
   /**
    * @remarks
-   * Query request.
+   * The query request.
    * 
    * This parameter is required.
    */
   bizMetricByNameQuery?: GetBizMetricByNameRequestBizMetricByNameQuery;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -65,6 +67,9 @@ export class GetBizMetricByNameRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

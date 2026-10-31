@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBasicProjectShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The create command.
+   * The creation command.
    * 
    * This parameter is required.
    */
@@ -21,6 +21,9 @@ export class CreateBasicProjectShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

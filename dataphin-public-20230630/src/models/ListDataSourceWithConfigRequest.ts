@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSourceWithConfigRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * Data source name
+   * The name of the data source.
    * 
    * @example
    * vcns-test
@@ -13,12 +13,12 @@ export class ListDataSourceWithConfigRequestListQuery extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Data source owner
+   * The owners of the data sources.
    */
   ownerList?: string[];
   /**
    * @remarks
-   * Page number. The value starts from 1.
+   * The page number. The starting page is 1.
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class ListDataSourceWithConfigRequestListQuery extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * Number of records per page
+   * The number of records per page.
    * 
    * This parameter is required.
    * 
@@ -38,27 +38,27 @@ export class ListDataSourceWithConfigRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Data source scope. Valid values:
-   * - STREAMING: Real-time
-   * - OFFLINE: Offline
-   * - DIP_META_SYNC: Meta warehouse initialization
-   * - DATA_DISTILL: Data distillation
-   * - CUMPUTE_SOURCE_SHADOW: Shadow compute source
-   * - LABEL: Label
-   * - ALL: Offline + Real-time
+   * The usage scopes of the data sources. Valid values:
+   * - STREAMING: Real-time.
+   * - OFFLINE: Offline.
+   * - DIP_META_SYNC: Metadata warehouse initialization.
+   * - DATA_DISTILL: Data distillation.
+   * - CUMPUTE_SOURCE_SHADOW: Shadow compute source.
+   * - LABEL: Label.
+   * - ALL: Offline and real-time.
    */
   scopeList?: string[];
   /**
    * @remarks
-   * Tag marked when creating the data source
+   * The tag specified during data source creation.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   tag?: string;
   /**
    * @remarks
-   * Data source type
+   * The data source types.
    */
   typeList?: string[];
   static names(): { [key: string]: string } {
@@ -106,14 +106,14 @@ export class ListDataSourceWithConfigRequestListQuery extends $dara.Model {
 export class ListDataSourceWithConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Paginated query
+   * The paged query parameters.
    * 
    * This parameter is required.
    */
   listQuery?: ListDataSourceWithConfigRequestListQuery;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -122,6 +122,9 @@ export class ListDataSourceWithConfigRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

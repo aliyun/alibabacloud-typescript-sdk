@@ -37,14 +37,14 @@ export class UpdateBizUnitRequestUpdateCommandBizUnitAccountList extends $dara.M
 export class UpdateBizUnitRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * The domain architects.
+   * The business unit architects.
    * 
    * This parameter is required.
    */
   bizUnitAccountList?: UpdateBizUnitRequestUpdateCommandBizUnitAccountList[];
   /**
    * @remarks
-   * The data domain ID.
+   * The business unit ID.
    * 
    * This parameter is required.
    * 
@@ -62,17 +62,17 @@ export class UpdateBizUnitRequestUpdateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name of the data domain.
+   * The display name of the business unit.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试
+   * Test
    */
   displayName?: string;
   /**
    * @remarks
-   * The preset icon. For more information, refer to the create data domain operation.
+   * The preset icon. For more information, refer to the Create business unit operation.
    * 
    * This parameter is required.
    * 
@@ -82,7 +82,7 @@ export class UpdateBizUnitRequestUpdateCommand extends $dara.Model {
   icon?: string;
   /**
    * @remarks
-   * The data domain code.
+   * The business unit code.
    * 
    * This parameter is required.
    * 
@@ -136,6 +136,9 @@ export class UpdateBizUnitRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user that performs the operation.
+   * 
    * @example
    * 30001011
    */

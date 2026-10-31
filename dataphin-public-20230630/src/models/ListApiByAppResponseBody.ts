@@ -83,7 +83,7 @@ export class ListApiByAppResponseBodyListResultDataPublicParamList extends $dara
   dateFormat?: string;
   /**
    * @remarks
-   * The default value for registered APIs.
+   * The default value for the registered API.
    * 
    * @example
    * default_public_value
@@ -94,7 +94,7 @@ export class ListApiByAppResponseBodyListResultDataPublicParamList extends $dara
    * The parameter description.
    * 
    * @example
-   * 这是一个示例公共参数
+   * This is a sample common parameter
    */
   description?: string;
   /**
@@ -179,7 +179,7 @@ export class ListApiByAppResponseBodyListResultDataPublicParamList extends $dara
   paramType?: string;
   /**
    * @remarks
-   * The request parameter location for registered APIs or the value path for response parameters.
+   * The request parameter location or response parameter value path for the registered API.
    * 
    * @example
    * /path/to/public_param
@@ -263,7 +263,7 @@ export class ListApiByAppResponseBodyListResultDataRegisterApi extends $dara.Mod
   apiId?: number;
   /**
    * @remarks
-   * The API datasource authentication mode.
+   * The API data source authentication method.
    * 
    * @example
    * OAuth2
@@ -271,7 +271,7 @@ export class ListApiByAppResponseBodyListResultDataRegisterApi extends $dara.Mod
   authenticationMode?: string;
   /**
    * @remarks
-   * The API datasource ID.
+   * The API data source ID.
    * 
    * @example
    * ds67890
@@ -279,7 +279,7 @@ export class ListApiByAppResponseBodyListResultDataRegisterApi extends $dara.Mod
   datasourceId?: string;
   /**
    * @remarks
-   * The API datasource name.
+   * The API data source name.
    * 
    * @example
    * registerDatasource
@@ -295,7 +295,7 @@ export class ListApiByAppResponseBodyListResultDataRegisterApi extends $dara.Mod
   failExample?: string;
   /**
    * @remarks
-   * The HTTP method of the registered API.
+   * The request method of the registered API.
    * 
    * @example
    * 1
@@ -303,7 +303,7 @@ export class ListApiByAppResponseBodyListResultDataRegisterApi extends $dara.Mod
   httpMethod?: number;
   /**
    * @remarks
-   * The model type.
+   * The mode.
    * 
    * @example
    * 0
@@ -319,7 +319,7 @@ export class ListApiByAppResponseBodyListResultDataRegisterApi extends $dara.Mod
   path?: string;
   /**
    * @remarks
-   * The API datasource request protocol.
+   * The API data source request protocol.
    * 
    * @example
    * HTTPS
@@ -343,7 +343,7 @@ export class ListApiByAppResponseBodyListResultDataRegisterApi extends $dara.Mod
   timeout?: number;
   /**
    * @remarks
-   * The API datasource URL.
+   * The URL of the API data source.
    * 
    * @example
    * https://example.com/register_api
@@ -473,7 +473,7 @@ export class ListApiByAppResponseBodyListResultDataRequestParamList extends $dar
   dateFormat?: string;
   /**
    * @remarks
-   * The default value for registered APIs.
+   * The default value for the registered API.
    * 
    * @example
    * default_value
@@ -484,7 +484,7 @@ export class ListApiByAppResponseBodyListResultDataRequestParamList extends $dar
    * The parameter description.
    * 
    * @example
-   * 这是一个示例参数
+   * This is a sample parameter
    */
   description?: string;
   /**
@@ -569,7 +569,7 @@ export class ListApiByAppResponseBodyListResultDataRequestParamList extends $dar
   paramType?: string;
   /**
    * @remarks
-   * The request parameter location for registered APIs or the value path for response parameters.
+   * The request parameter location or response parameter value path for the registered API.
    * 
    * @example
    * /path/to/param
@@ -723,7 +723,7 @@ export class ListApiByAppResponseBodyListResultDataResponseParamList extends $da
   dateFormat?: string;
   /**
    * @remarks
-   * The default value for registered APIs.
+   * The default value for the registered API.
    * 
    * @example
    * default_response_value
@@ -734,7 +734,7 @@ export class ListApiByAppResponseBodyListResultDataResponseParamList extends $da
    * The parameter description.
    * 
    * @example
-   * 这是一个示例响应参数
+   * This is a sample response parameter
    */
   description?: string;
   /**
@@ -819,7 +819,7 @@ export class ListApiByAppResponseBodyListResultDataResponseParamList extends $da
   paramType?: string;
   /**
    * @remarks
-   * The request parameter location for registered APIs or the value path for response parameters.
+   * The request parameter location or response parameter value path for the registered API.
    * 
    * @example
    * /path/to/response_param
@@ -940,7 +940,7 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
   cacheSwitch?: string;
   /**
    * @remarks
-   * The cache duration, in seconds.
+   * The cache duration in seconds.
    * 
    * @example
    * 60
@@ -949,11 +949,11 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
   /**
    * @remarks
    * The creation type. Valid values:
-   * SQL_MODE(0, "Logical table API - SQL mode"),
-   * WIZARD_MODE(1, "Logical table API - wizard mode"),
-   * DIRECT_API_MODE(2, "Direct datasource - SQL mode"),
-   * REGISTER_API_MODE(3, "Registered API mode"),
-   * COMPOSITE_API_MODE(4, "Composite API mode").
+   * - SQL_MODE: Logical table API - SQL mode.
+   * - WIZARD_MODE: Logical table API - wizard mode.
+   * - DIRECT_API_MODE: Direct connection data source - SQL mode.
+   * - REGISTER_API_MODE: Registered API mode.
+   * - COMPOSITE_API_MODE: Composite API mode.
    * 
    * @example
    * 1
@@ -972,12 +972,12 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
    * The description.
    * 
    * @example
-   * 这是一个示例API
+   * This is a sample API
    */
   description?: string;
   /**
    * @remarks
-   * The datasource ID of the direct API.
+   * The data source ID of the direct connection API.
    * 
    * @example
    * 54321
@@ -985,7 +985,7 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
   directDatasourceId?: number;
   /**
    * @remarks
-   * The datasource name of the direct API.
+   * The data source name of the direct connection API.
    * 
    * @example
    * directDatasource
@@ -1017,12 +1017,12 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Indicates whether the table is a logical table.
+   * Indicates whether it is a logical table.
    */
   isLogicalTable?: boolean;
   /**
    * @remarks
-   * Indicates whether the query is a paged query.
+   * Indicates whether it is a paging query.
    * 
    * @example
    * 0
@@ -1038,7 +1038,7 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
   maxReturnNum?: number;
   /**
    * @remarks
-   * The model type.
+   * The mode.
    * 
    * @example
    * 0
@@ -1081,7 +1081,7 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
    * The protocol name.
    * 
    * @example
-   * HTTP和HTTPS
+   * HTTP and HTTPS
    */
   protocolName?: string;
   /**
@@ -1130,7 +1130,7 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
   responseParamList?: ListApiByAppResponseBodyListResultDataResponseParamList[];
   /**
    * @remarks
-   * The sample call result.
+   * The call result sample.
    * 
    * @example
    * {"status":"success","data":[]}
@@ -1194,7 +1194,7 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The timeout duration, in seconds.
+   * The timeout duration in seconds.
    * 
    * @example
    * 10
@@ -1213,7 +1213,7 @@ export class ListApiByAppResponseBodyListResultData extends $dara.Model {
    * The update frequency name.
    * 
    * @example
-   * 每日更新
+   * Daily update
    */
   updateRateName?: string;
   /**
@@ -1352,7 +1352,7 @@ export class ListApiByAppResponseBodyListResult extends $dara.Model {
   data?: ListApiByAppResponseBodyListResultData[];
   /**
    * @remarks
-   * The total number of records.
+   * The total count.
    * 
    * @example
    * 100
@@ -1408,7 +1408,7 @@ export class ListApiByAppResponseBody extends $dara.Model {
   listResult?: ListApiByAppResponseBodyListResult;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -1424,7 +1424,7 @@ export class ListApiByAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

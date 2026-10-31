@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetDataServiceAppSecretResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The new application key
+   * The new application key.
    * 
    * @example
    * 200000001
@@ -13,7 +13,7 @@ export class ResetDataServiceAppSecretResponseBodyData extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * The new application secret
+   * The new application secret.
    * 
    * @example
    * abc123456789
@@ -45,7 +45,7 @@ export class ResetDataServiceAppSecretResponseBodyData extends $dara.Model {
 export class ResetDataServiceAppSecretResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend response code
+   * The backend response code.
    * 
    * @example
    * OK
@@ -53,12 +53,12 @@ export class ResetDataServiceAppSecretResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Reset Data Service application key result
+   * The update command to reset the application key of a data service.
    */
   data?: ResetDataServiceAppSecretResponseBodyData;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -66,7 +66,7 @@ export class ResetDataServiceAppSecretResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Backend exception details
+   * The exception details in the backend response.
    * 
    * @example
    * internal error
@@ -82,7 +82,7 @@ export class ResetDataServiceAppSecretResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

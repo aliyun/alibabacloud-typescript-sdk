@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateKgEntityResponseBodyCreateResultSuccessEntityList extends $dara.Model {
   /**
    * @remarks
-   * The entity record ID.
+   * The ID of the entity record.
    * 
    * @example
    * abc-xxx
@@ -45,7 +45,7 @@ export class BatchCreateKgEntityResponseBodyCreateResultSuccessEntityList extend
 export class BatchCreateKgEntityResponseBodyCreateResult extends $dara.Model {
   /**
    * @remarks
-   * The number of entity records that failed to be created.
+   * The number of failed records.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class BatchCreateKgEntityResponseBodyCreateResult extends $dara.Model {
   failCount?: number;
   /**
    * @remarks
-   * The number of successfully created entity records.
+   * The number of successfully created records.
    * 
    * @example
    * 10
@@ -116,7 +116,7 @@ export class BatchCreateKgEntityResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error

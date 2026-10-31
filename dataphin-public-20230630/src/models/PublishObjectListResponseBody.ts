@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishObjectListResponseBodyPublishResult extends $dara.Model {
   /**
    * @remarks
-   * The list of pending publish record IDs.
+   * The list of submit record IDs.
    */
   submitIdList?: number[];
   static names(): { [key: string]: string } {
@@ -35,7 +35,7 @@ export class PublishObjectListResponseBodyPublishResult extends $dara.Model {
 export class PublishObjectListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -72,7 +72,7 @@ export class PublishObjectListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

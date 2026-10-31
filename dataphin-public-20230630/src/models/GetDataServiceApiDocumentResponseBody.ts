@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataServiceApiDocumentResponseBodyDataApiRegisterInfo extends $dara.Model {
   /**
    * @remarks
-   * The authentication method for the API data source. Valid values:
-   * - 1: BearToken
-   * - 2: ApiKey
-   * - 3: None
-   * - 4: AppKeyAuth
+   * The authentication method of the API data source. Valid values:
+   * - 1: BearToken.
+   * - 2: ApiKey.
+   * - 3: None.
+   * - 4: AppKeyAuth.
    * - 5: BasicAuth.
    * 
    * @example
@@ -18,7 +18,7 @@ export class GetDataServiceApiDocumentResponseBodyDataApiRegisterInfo extends $d
   authType?: string;
   /**
    * @remarks
-   * The API data source ID.
+   * The ID of the API data source.
    * 
    * @example
    * 102311
@@ -26,7 +26,7 @@ export class GetDataServiceApiDocumentResponseBodyDataApiRegisterInfo extends $d
   datasourceId?: string;
   /**
    * @remarks
-   * The API data source name.
+   * The name of the API data source.
    * 
    * @example
    * test
@@ -34,8 +34,8 @@ export class GetDataServiceApiDocumentResponseBodyDataApiRegisterInfo extends $d
   datasourceName?: string;
   /**
    * @remarks
-   * The HTTP method for the registered API. Valid values:
-   * - 1: GET
+   * The HTTP method of the registered API. Valid values:
+   * - 1: GET.
    * - 2: POST.
    * 
    * @example
@@ -46,7 +46,7 @@ export class GetDataServiceApiDocumentResponseBodyDataApiRegisterInfo extends $d
    * @remarks
    * The mode. Valid values:
    * - 0: basic
-   * - 1: dev_prod.
+   * - 1: dev_prod
    * 
    * @example
    * 1
@@ -54,7 +54,7 @@ export class GetDataServiceApiDocumentResponseBodyDataApiRegisterInfo extends $d
   mode?: number;
   /**
    * @remarks
-   * The service path.
+   * The path of the service.
    * 
    * @example
    * /api/test
@@ -62,7 +62,7 @@ export class GetDataServiceApiDocumentResponseBodyDataApiRegisterInfo extends $d
   path?: string;
   /**
    * @remarks
-   * The request protocol for the API data source.
+   * The request protocol of the API data source.
    * 
    * @example
    * https
@@ -78,7 +78,7 @@ export class GetDataServiceApiDocumentResponseBodyDataApiRegisterInfo extends $d
   timeout?: number;
   /**
    * @remarks
-   * The API data source URL.
+   * The URL of the API data source.
    * 
    * @example
    * http://192.168.1.1:8080
@@ -127,14 +127,14 @@ export class GetDataServiceApiDocumentResponseBodyDataPublicParamList extends $d
    * The parameter description.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether the request parameter is required. Valid values:
-   * - 1: Required.
-   * - 0: Optional.
+   * Indicates whether the request parameter is required. Valid values:
+   * - 1: required
+   * - 0: optional
    */
   isRequired?: boolean;
   /**
@@ -204,14 +204,14 @@ export class GetDataServiceApiDocumentResponseBodyDataRequestParamList extends $
    * The parameter description.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether the request parameter is required. Valid values:
-   * - 1: Required.
-   * - 0: Optional.
+   * Indicates whether the request parameter is required. Valid values:
+   * - 1: required
+   * - 0: optional
    */
   isRequired?: boolean;
   /**
@@ -275,7 +275,7 @@ export class GetDataServiceApiDocumentResponseBodyDataResponseParamList extends 
    * The parameter description.
    * 
    * @example
-   * 测试
+   * Test
    */
   description?: string;
   /**
@@ -345,7 +345,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   apiRegisterInfo?: GetDataServiceApiDocumentResponseBodyDataApiRegisterInfo;
   /**
    * @remarks
-   * The timeout period of the direct API, in seconds.
+   * The timeout period for the direct API, in seconds.
    * 
    * @example
    * 60
@@ -353,7 +353,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   apiTimeout?: number;
   /**
    * @remarks
-   * The business unit name. This parameter has a value only for logical tables.
+   * The business unit name. This value is available only for logical tables.
    * 
    * @example
    * bizUnit_test
@@ -372,7 +372,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
    * The creation type. Valid values:
    * - 0: custom mode
    * - 1: wizard mode
-   * - 2: direct API.
+   * - 2: direct API connection
    * 
    * @example
    * 1
@@ -406,7 +406,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
    * @remarks
    * The environment. Valid values:
    * - 0: dev
-   * - 1: prod.
+   * - 1: prod
    * 
    * @example
    * 1
@@ -435,23 +435,23 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   isLogicalTable?: boolean;
   /**
    * @remarks
-   * Indicates whether the query is a paged query. Valid values:
-   * - 1: Yes.
-   * - 0: No.
+   * Specifies whether the query is a paged query. Valid values:
+   * - 1: yes.
+   * - 0: no.
    */
   isPagedQuery?: boolean;
   /**
    * @remarks
-   * Specifies whether the SQL is special. Valid values:
-   * - 0: No.
-   * - 1: Yes.
+   * Indicates whether the SQL is special. Valid values:
+   * - 0: no
+   * - 1: yes
    */
   isSpecialSql?: boolean;
   /**
    * @remarks
    * The mode. Valid values:
    * - 0: basic
-   * - 1: dev_prod.
+   * - 1: dev_prod
    * 
    * @example
    * 1
@@ -462,19 +462,19 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
    * The API name.
    * 
    * @example
-   * 测试
+   * Test
    */
   name?: string;
   /**
    * @remarks
-   * Specifies whether caching is enabled. Valid values:
-   * - 0: Disabled.
-   * - 1: Enabled.
+   * Specifies whether the cache is enabled. Valid values:
+   * - 0: disabled.
+   * - 1: enabled.
    */
   openCache?: boolean;
   /**
    * @remarks
-   * The data service project ID.
+   * The ID of the data service project.
    * 
    * @example
    * 10201
@@ -482,7 +482,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The data service project name.
+   * The name of the data service project.
    * 
    * @example
    * test
@@ -491,9 +491,9 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The protocol. Valid values:
-   * - 1: HTTPS
-   * - 2: HTTP
-   * - 3: both HTTP and HTTPS.
+   * - 1: https
+   * - 2: http
+   * - 3: http and https
    * 
    * @example
    * 1
@@ -501,14 +501,14 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   protocol?: number;
   /**
    * @remarks
-   * The list of common parameters.
+   * The common parameter list.
    */
   publicParamList?: GetDataServiceApiDocumentResponseBodyDataPublicParamList[];
   /**
    * @remarks
    * The request method. Valid values:
    * - 1: get
-   * - 2: list.
+   * - 2: list
    * 
    * @example
    * 1
@@ -516,12 +516,12 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   requestMethod?: number;
   /**
    * @remarks
-   * The list of request parameters.
+   * The request parameter list.
    */
   requestParamList?: GetDataServiceApiDocumentResponseBodyDataRequestParamList[];
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * 10021
@@ -529,7 +529,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource group name.
+   * The name of the resource group.
    * 
    * @example
    * test
@@ -537,12 +537,12 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   resourceGroupName?: string;
   /**
    * @remarks
-   * The list of response parameters.
+   * The response parameter list.
    */
   responseParamList?: GetDataServiceApiDocumentResponseBodyDataResponseParamList[];
   /**
    * @remarks
-   * The sample invocation result.
+   * The call result sample.
    * 
    * @example
    * {"count": 88}
@@ -559,7 +559,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The return data type. Valid values:
-   * - 1: JSON.
+   * - 1: JSON
    * 
    * @example
    * 1
@@ -568,8 +568,8 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The script type. Valid values:
-   * - NORMAL_SQL: basic SQL
-   * - MYBATIS_SQL: advanced SQL
+   * - NORMAL_SQL: basic SQL.
+   * - MYBATIS_SQL: advanced SQL.
    * - AVIATOR: Aviator expression.
    * 
    * @example
@@ -586,7 +586,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
   sql?: string;
   /**
    * @remarks
-   * The logical table name. This parameter has a value only for logical tables.
+   * The logical table name. This value is available only for logical tables.
    * 
    * @example
    * t_logical_test1
@@ -606,7 +606,7 @@ export class GetDataServiceApiDocumentResponseBodyData extends $dara.Model {
    * - 0: custom
    * - 1: daily
    * - 2: hourly
-   * - 3: every minute.
+   * - 3: every minute
    * 
    * @example
    * 1
@@ -747,7 +747,7 @@ export class GetDataServiceApiDocumentResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -763,7 +763,7 @@ export class GetDataServiceApiDocumentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

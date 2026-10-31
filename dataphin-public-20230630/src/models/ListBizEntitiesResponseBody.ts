@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBizEntitiesResponseBodyPageResultBizEntityList extends $dara.Model {
   /**
    * @remarks
-   * The list of parent business process IDs. This parameter is valid only when the entity type is business process.
+   * The list of IDs of the business processes to which the business entity belongs. This parameter is valid only when the business entity type is business process.
    */
   belongToBizEntityIdList?: number[];
   /**
@@ -18,7 +18,7 @@ export class ListBizEntitiesResponseBodyPageResultBizEntityList extends $dara.Mo
   bizUnitId?: number;
   /**
    * @remarks
-   * The list of child business object IDs. This parameter is valid only when the entity type is business object.
+   * The list of child business object IDs. This parameter is valid only when the business entity type is business object.
    */
   childBizEntityIdList?: number[];
   /**
@@ -42,7 +42,7 @@ export class ListBizEntitiesResponseBodyPageResultBizEntityList extends $dara.Mo
    * The display name of the business entity.
    * 
    * @example
-   * 业务活动测试
+   * Business process test
    */
   displayName?: string;
   /**
@@ -55,7 +55,7 @@ export class ListBizEntitiesResponseBodyPageResultBizEntityList extends $dara.Mo
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the business entity was last modified.
+   * The time when the business entity was last updated.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -63,7 +63,7 @@ export class ListBizEntitiesResponseBodyPageResultBizEntityList extends $dara.Mo
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether the entity is a child business object.
+   * Indicates whether the business entity has child business objects.
    */
   hasChildBizEntity?: boolean;
   /**
@@ -87,12 +87,12 @@ export class ListBizEntitiesResponseBodyPageResultBizEntityList extends $dara.Mo
    * The name of the user who last modified the business entity.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   lastModifierName?: string;
   /**
    * @remarks
-   * Indicates whether the entity is a sublevel of a hierarchy dimension.
+   * Indicates whether the business entity is a sub-level of a hierarchy dimension.
    */
   levelSubBizObject?: boolean;
   /**
@@ -107,9 +107,9 @@ export class ListBizEntitiesResponseBodyPageResultBizEntityList extends $dara.Mo
    * @remarks
    * The online status of the business entity. Valid values: 
    * - SUBMITTED: not online.
-   * - APPROVING: pending approval.
+   * - APPROVING: under approval.
    * - PUBLISHED: online.
-   * - REJECT: failed to go online.
+   * - REJECT: rejected.
    * 
    * @example
    * SUBMITTED
@@ -120,7 +120,7 @@ export class ListBizEntitiesResponseBodyPageResultBizEntityList extends $dara.Mo
    * The ID of the business entity owner.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
@@ -133,7 +133,7 @@ export class ListBizEntitiesResponseBodyPageResultBizEntityList extends $dara.Mo
   ownerUserId?: string;
   /**
    * @remarks
-   * The list of associated central business entity IDs.
+   * The list of IDs of the associated central business entities.
    */
   refBizEntityIdList?: number[];
   /**
@@ -148,10 +148,10 @@ export class ListBizEntitiesResponseBodyPageResultBizEntityList extends $dara.Mo
    * @remarks
    * The status of the business entity. Valid values:
    * - DRAFT: draft or not online.
-   * - SUBMITTING: being submitted.
+   * - SUBMITTING: submitting.
    * - SUBMITTED: submitted.
-   * - DEVELOPING: under development.
-   * - PUBLISHING: being published.
+   * - DEVELOPING: in development.
+   * - PUBLISHING: publishing.
    * - PUBLISHED: published.
    * 
    * @example
@@ -168,7 +168,7 @@ export class ListBizEntitiesResponseBodyPageResultBizEntityList extends $dara.Mo
   subType?: string;
   /**
    * @remarks
-   * The list of subsequent business process IDs. This parameter is valid only when the entity type is business process.
+   * The list of IDs of the subsequent business processes. This parameter is valid only when the business entity type is business process.
    */
   suffixBizEntityIdList?: number[];
   /**
@@ -301,7 +301,7 @@ export class ListBizEntitiesResponseBodyPageResult extends $dara.Model {
 export class ListBizEntitiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -338,7 +338,7 @@ export class ListBizEntitiesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -5,9 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AddProjectMemberRequestAddCommandUserList extends $dara.Model {
   /**
    * @remarks
-   * The member roles. Valid values: 1: project administrator. 2: developer. 3: visitor. 4: analyst. 5: O&M engineer.
-   * 
-   * This parameter is required.
+   * The list of role codes for members. System and custom project roles are supported and can be obtained from ListProjectRoles. Only one role is supported. If this parameter is not empty, it takes precedence over RoleList. You must specify at least one of RoleList and RoleCodeList.
+   */
+  roleCodeList?: string[];
+  /**
+   * @remarks
+   * The member role. Valid values: 1 (Project administrator), 2 (Developer), 3 (Guest), 4 (Analyst), and 5 (O&M engineer).
    */
   roleList?: number[];
   /**
@@ -22,6 +25,7 @@ export class AddProjectMemberRequestAddCommandUserList extends $dara.Model {
   userId?: string;
   static names(): { [key: string]: string } {
     return {
+      roleCodeList: 'RoleCodeList',
       roleList: 'RoleList',
       userId: 'UserId',
     };
@@ -29,12 +33,16 @@ export class AddProjectMemberRequestAddCommandUserList extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      roleCodeList: { 'type': 'array', 'itemType': 'string' },
       roleList: { 'type': 'array', 'itemType': 'number' },
       userId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.roleCodeList)) {
+      $dara.Model.validateArray(this.roleCodeList);
+    }
     if(Array.isArray(this.roleList)) {
       $dara.Model.validateArray(this.roleList);
     }
@@ -49,7 +57,7 @@ export class AddProjectMemberRequestAddCommandUserList extends $dara.Model {
 export class AddProjectMemberRequestAddCommand extends $dara.Model {
   /**
    * @remarks
-   * The environment identifier. Valid values: DEV, PROD.
+   * The environment identifier. Valid values: DEV and PROD.
    * 
    * This parameter is required.
    * 
@@ -59,7 +67,7 @@ export class AddProjectMemberRequestAddCommand extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The list of user members.
+   * The user members.
    * 
    * This parameter is required.
    */
@@ -93,7 +101,7 @@ export class AddProjectMemberRequestAddCommand extends $dara.Model {
 export class AddProjectMemberRequest extends $dara.Model {
   /**
    * @remarks
-   * The command for adding members.
+   * The command to add members.
    * 
    * This parameter is required.
    */
@@ -120,7 +128,7 @@ export class AddProjectMemberRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The operator user ID.
    * 
    * @example
    * 30001011

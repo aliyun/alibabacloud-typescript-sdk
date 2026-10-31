@@ -21,7 +21,7 @@ export class GetBizMetricByNameResponseBodyDataAssociatedTechMetrics extends $da
   displayName?: string;
   /**
    * @remarks
-   * The GUID.
+   * guid
    * 
    * @example
    * table1.a.b
@@ -37,7 +37,7 @@ export class GetBizMetricByNameResponseBodyDataAssociatedTechMetrics extends $da
   name?: string;
   /**
    * @remarks
-   * The type of the technical metric. Valid values: INDEX (modeling metric) and CUSTOM_INDEX (custom metric).
+   * The type of the technical metric. Valid values: INDEX: Modeling metric. CUSTOM_INDEX: Custom metric.
    * 
    * @example
    * CUSTOM_INDEX
@@ -75,7 +75,7 @@ export class GetBizMetricByNameResponseBodyDataAssociatedTechMetrics extends $da
 export class GetBizMetricByNameResponseBodyDataCatalogs extends $dara.Model {
   /**
    * @remarks
-   * The catalog description.
+   * The description of the folder.
    * 
    * @example
    * catalog desc
@@ -83,7 +83,7 @@ export class GetBizMetricByNameResponseBodyDataCatalogs extends $dara.Model {
   catalogDesc?: string;
   /**
    * @remarks
-   * The catalog ID.
+   * The ID of the folder.
    * 
    * @example
    * 1561740764851842
@@ -91,7 +91,7 @@ export class GetBizMetricByNameResponseBodyDataCatalogs extends $dara.Model {
   catalogId?: number;
   /**
    * @remarks
-   * The catalog name.
+   * The name of the folder.
    * 
    * @example
    * test catalog
@@ -99,7 +99,7 @@ export class GetBizMetricByNameResponseBodyDataCatalogs extends $dara.Model {
   catalogName?: string;
   /**
    * @remarks
-   * The parent catalog ID.
+   * The ID of the parent folder.
    * 
    * @example
    * 1561740764851841
@@ -107,7 +107,7 @@ export class GetBizMetricByNameResponseBodyDataCatalogs extends $dara.Model {
   parentCatalogId?: number;
   /**
    * @remarks
-   * The parent path of the catalog.
+   * The path of the parent folder.
    * 
    * @example
    * /catalog1/
@@ -115,7 +115,7 @@ export class GetBizMetricByNameResponseBodyDataCatalogs extends $dara.Model {
   parentPath?: string;
   /**
    * @remarks
-   * The topic ID to which the catalog belongs.
+   * The ID of the topic to which the folder belongs.
    * 
    * @example
    * 43297700
@@ -123,7 +123,7 @@ export class GetBizMetricByNameResponseBodyDataCatalogs extends $dara.Model {
   topicId?: number;
   /**
    * @remarks
-   * The topic name to which the catalog belongs.
+   * The name of the topic to which the folder belongs.
    * 
    * @example
    * test topic
@@ -165,7 +165,7 @@ export class GetBizMetricByNameResponseBodyDataCatalogs extends $dara.Model {
 export class GetBizMetricByNameResponseBodyDataCustomAttribute extends $dara.Model {
   /**
    * @remarks
-   * The code of the custom attribute.
+   * The custom attribute code.
    * 
    * @example
    * CustomAttributeCode
@@ -173,7 +173,7 @@ export class GetBizMetricByNameResponseBodyDataCustomAttribute extends $dara.Mod
   code?: string;
   /**
    * @remarks
-   * The list of attribute values. 1. For custom input and single-select dropdown attributes, the first value in the list is used. 2. For multi-select dropdown attributes, all values in the list are used. 3. For hyperlink attributes, the first value is the display text and the second value is the link URL.
+   * The attribute value list: 1. For custom input and drop-down single-select attributes, the first attribute value in the list is used. 2. For drop-down multi-select attributes, all attribute values in the list are used. 3. For hyperlink attributes, the first attribute value in the list is the display text, and the second attribute value is the redirect link.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -221,7 +221,7 @@ export class GetBizMetricByNameResponseBodyDataRelatedBizMetrics extends $dara.M
   displayName?: string;
   /**
    * @remarks
-   * The GUID.
+   * guid
    * 
    * @example
    * test
@@ -237,7 +237,7 @@ export class GetBizMetricByNameResponseBodyDataRelatedBizMetrics extends $dara.M
   name?: string;
   /**
    * @remarks
-   * The relation type. Valid values: POSITIVE (positive correlation), NEGATIVE (negative correlation), and OTHER (other).
+   * The relationship type. Valid values: POSITIVE: Positive correlation. NEGATIVE: Negative correlation. OTHER: Other.
    * 
    * @example
    * POSITIVE
@@ -275,7 +275,7 @@ export class GetBizMetricByNameResponseBodyDataRelatedBizMetrics extends $dara.M
 export class GetBizMetricByNameResponseBodyDataViewScope extends $dara.Model {
   /**
    * @remarks
-   * The type of view scope. Valid values: ALL_USERS_CAN_VIEW (visible to all users), PART_USERS_CAN_VIEW (visible to specific users), and PART_USERS_CAN_NOT_VIEW (invisible to specific users).
+   * The type of the visibility scope. Valid values: ALL_USERS_CAN_VIEW: Visible to all users. PART_USERS_CAN_VIEW: Visible to specific users. PART_USERS_CAN_NOT_VIEW: Invisible to specific users.
    * 
    * @example
    * PART_USERS_CAN_NOT_VIEW
@@ -283,12 +283,12 @@ export class GetBizMetricByNameResponseBodyDataViewScope extends $dara.Model {
   scopeType?: string;
   /**
    * @remarks
-   * The names of user groups. This parameter takes effect only when the view scope is set to PART_USERS_CAN_VIEW or PART_USERS_CAN_NOT_VIEW.
+   * The names of the user groups. This parameter is valid only when the visibility scope of the asset is set to Visible to specific users or Invisible to specific users.
    */
   userGroupNames?: string[];
   /**
    * @remarks
-   * The usernames of individual accounts. This parameter is valid only when the view scope is set to PART_USERS_CAN_VIEW or PART_USERS_CAN_NOT_VIEW.
+   * The usernames of individual accounts. This parameter is valid only when the visibility scope of the asset is set to Visible to specific users or Invisible to specific users.
    */
   userNames?: string[];
   static names(): { [key: string]: string } {
@@ -338,12 +338,12 @@ export class GetBizMetricByNameResponseBodyData extends $dara.Model {
   bizOwnerName?: string;
   /**
    * @remarks
-   * The list of affiliated catalogs.
+   * The list of associated folders.
    */
   catalogs?: GetBizMetricByNameResponseBodyDataCatalogs[];
   /**
    * @remarks
-   * The list of custom attributes.
+   * The custom attribute list.
    */
   customAttribute?: GetBizMetricByNameResponseBodyDataCustomAttribute[];
   /**
@@ -377,7 +377,7 @@ export class GetBizMetricByNameResponseBodyData extends $dara.Model {
   labels?: string[];
   /**
    * @remarks
-   * The metric definition.
+   * The definition of the metric.
    * 
    * @example
    * [Metric1]+[Metric2]
@@ -385,7 +385,7 @@ export class GetBizMetricByNameResponseBodyData extends $dara.Model {
   metricDefinition?: string;
   /**
    * @remarks
-   * The expression of the metric relation diagram.
+   * The expression of the metric relationship diagram.
    * 
    * @example
    * [Metric2]*10
@@ -393,7 +393,7 @@ export class GetBizMetricByNameResponseBodyData extends $dara.Model {
   metricRelationDiagramExpression?: string;
   /**
    * @remarks
-   * Indicates whether the metric relation diagram is enabled. A value of true indicates that the diagram is enabled. A value of false indicates that the diagram is disabled.
+   * Indicates whether the metric relationship diagram is enabled. Valid values: true: Enabled. false: Disabled.
    * 
    * @example
    * true
@@ -409,7 +409,7 @@ export class GetBizMetricByNameResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The text content of the operation instruction.
+   * The text content of the usage instructions.
    * 
    * @example
    * content
@@ -417,7 +417,7 @@ export class GetBizMetricByNameResponseBodyData extends $dara.Model {
   operateInstructionContent?: string;
   /**
    * @remarks
-   * Indicates whether the operation instruction is enabled. A value of true indicates that the operation instruction is enabled. A value of false indicates that the operation instruction is disabled.
+   * Indicates whether the usage instructions are enabled. Valid values: true: Enabled. false: Disabled.
    * 
    * @example
    * true
@@ -438,7 +438,7 @@ export class GetBizMetricByNameResponseBodyData extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * The view scope.
+   * The visibility scope.
    */
   viewScope?: GetBizMetricByNameResponseBodyDataViewScope;
   static names(): { [key: string]: string } {
@@ -515,7 +515,7 @@ export class GetBizMetricByNameResponseBodyData extends $dara.Model {
 export class GetBizMetricByNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -523,7 +523,7 @@ export class GetBizMetricByNameResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the business metric.
+   * The business metric details.
    */
   data?: GetBizMetricByNameResponseBodyData;
   /**
@@ -536,7 +536,7 @@ export class GetBizMetricByNameResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The details of the backend exception.
    * 
    * @example
    * SUCCESS
@@ -552,7 +552,7 @@ export class GetBizMetricByNameResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

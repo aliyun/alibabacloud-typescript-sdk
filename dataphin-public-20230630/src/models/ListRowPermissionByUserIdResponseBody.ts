@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRowPermissionByUserIdResponseBodyPageResultDataRulesExpressions extends $dara.Model {
   /**
    * @remarks
-   * The mapping field name.
+   * The name of the mapped field.
    * 
    * @example
    * business_id
@@ -13,7 +13,7 @@ export class ListRowPermissionByUserIdResponseBodyPageResultDataRulesExpressions
   mappingColumnName?: string;
   /**
    * @remarks
-   * The expression operator.
+   * The operator of the expression.
    * 
    * @example
    * EQUAL
@@ -26,7 +26,7 @@ export class ListRowPermissionByUserIdResponseBodyPageResultDataRulesExpressions
   subConditions?: any[];
   /**
    * @remarks
-   * The expression type.
+   * The type of the expression.
    * 
    * @example
    * EXPRESSION
@@ -34,7 +34,7 @@ export class ListRowPermissionByUserIdResponseBodyPageResultDataRulesExpressions
   type?: string;
   /**
    * @remarks
-   * The expression operation values.
+   * The operand values of the expression.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -145,12 +145,12 @@ export class ListRowPermissionByUserIdResponseBodyPageResultDataRulesUserMapping
 export class ListRowPermissionByUserIdResponseBodyPageResultDataRules extends $dara.Model {
   /**
    * @remarks
-   * The rule expressions.
+   * The expressions of the rule.
    */
   expressions?: ListRowPermissionByUserIdResponseBodyPageResultDataRulesExpressions[];
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the rule.
    * 
    * @example
    * 123
@@ -166,10 +166,10 @@ export class ListRowPermissionByUserIdResponseBodyPageResultDataRules extends $d
   isDelete?: boolean;
   /**
    * @remarks
-   * The rule name.
+   * The name of the rule.
    * 
    * @example
-   * 业务管控
+   * Business control
    */
   ruleName?: string;
   /**
@@ -182,7 +182,7 @@ export class ListRowPermissionByUserIdResponseBodyPageResultDataRules extends $d
   scopeType?: string;
   /**
    * @remarks
-   * The rule status.
+   * The status of the rule.
    * 
    * @example
    * 1
@@ -235,7 +235,7 @@ export class ListRowPermissionByUserIdResponseBodyPageResultDataRules extends $d
 export class ListRowPermissionByUserIdResponseBodyPageResultDataTables extends $dara.Model {
   /**
    * @remarks
-   * The table field.
+   * The field of the table.
    * 
    * @example
    * business_id
@@ -243,15 +243,15 @@ export class ListRowPermissionByUserIdResponseBodyPageResultDataTables extends $
   columnName?: string;
   /**
    * @remarks
-   * The mapping field name.
+   * The name of the mapped field.
    * 
    * @example
-   * 拦截规则
+   * Interception rule
    */
   mappingColumnName?: string;
   /**
    * @remarks
-   * The table GUID.
+   * The GUID of the table.
    * 
    * @example
    * odps.300199897.project_name.table_name
@@ -415,7 +415,7 @@ export class ListRowPermissionByUserIdResponseBodyPageResult extends $dara.Model
 export class ListRowPermissionByUserIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -452,7 +452,7 @@ export class ListRowPermissionByUserIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopPipelineIntegratedTaskResponseBodyDataDevOpsActionResDTOList extends $dara.Model {
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * eedsauto
    */
   jobName?: string;
   /**
+   * @remarks
+   * The job owner.
+   * 
    * @example
    * 1692173406264688
    */
   owner?: string;
   /**
+   * @remarks
+   * The operation status.
+   * 
    * @example
    * FAIED
    */
@@ -44,13 +53,23 @@ export class StopPipelineIntegratedTaskResponseBodyDataDevOpsActionResDTOList ex
 }
 
 export class StopPipelineIntegratedTaskResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The stop results for each instance.
+   */
   devOpsActionResDTOList?: StopPipelineIntegratedTaskResponseBodyDataDevOpsActionResDTOList[];
   /**
+   * @remarks
+   * The number of failed stops.
+   * 
    * @example
    * 0
    */
   fail?: number;
   /**
+   * @remarks
+   * The number of successful stops.
+   * 
    * @example
    * 1
    */
@@ -85,27 +104,46 @@ export class StopPipelineIntegratedTaskResponseBodyData extends $dara.Model {
 
 export class StopPipelineIntegratedTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The batch results of stopping integrated incremental and full instances.
+   */
   data?: StopPipelineIntegratedTaskResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * internal error
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

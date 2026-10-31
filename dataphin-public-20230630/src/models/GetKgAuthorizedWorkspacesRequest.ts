@@ -15,7 +15,7 @@ export class GetKgAuthorizedWorkspacesRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the specified operator.
    * 
    * @example
    * 30012011

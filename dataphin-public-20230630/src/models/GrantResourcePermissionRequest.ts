@@ -35,7 +35,7 @@ export class GrantResourcePermissionRequestGrantCommandResourceList extends $dar
 export class GrantResourcePermissionRequestGrantCommand extends $dara.Model {
   /**
    * @remarks
-   * The expiration timestamp, in milliseconds.
+   * The timestamp for the end of the validity period, in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -52,7 +52,7 @@ export class GrantResourcePermissionRequestGrantCommand extends $dara.Model {
   operateList?: string[];
   /**
    * @remarks
-   * The reason for the authorization.
+   * The reason for authorization.
    * 
    * @example
    * xx
@@ -60,7 +60,7 @@ export class GrantResourcePermissionRequestGrantCommand extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The list of resources.
+   * The resources.
    * 
    * This parameter is required.
    */
@@ -77,7 +77,7 @@ export class GrantResourcePermissionRequestGrantCommand extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The authorized users pending authorization.
+   * The users pending authorization.
    * 
    * This parameter is required.
    */
@@ -141,6 +141,9 @@ export class GrantResourcePermissionRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

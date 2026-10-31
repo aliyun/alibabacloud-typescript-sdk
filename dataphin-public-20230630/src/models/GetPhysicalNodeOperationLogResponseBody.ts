@@ -13,7 +13,7 @@ export class GetPhysicalNodeOperationLogResponseBodyOperationLogList extends $da
   context?: string;
   /**
    * @remarks
-   * The operation time.
+   * The operation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-05-30 16:47:13
@@ -22,14 +22,14 @@ export class GetPhysicalNodeOperationLogResponseBodyOperationLogList extends $da
   /**
    * @remarks
    * The operation type. Valid values:
-   * - TASK_UPDATE_PRIORITY: updates the node priority.
-   * - PAUSE_TASK: pauses scheduling.
-   * - RESUME_TASK: resumes scheduling.
-   * - CREATE_NODE: creates a node.
-   * - FORCE_DELETE_NODE: force deletes a node.
-   * - UPDATE_NODE: updates a node.
-   * - DELETE_NODE: deletes a node.
-   * - CHANGE_NODE_OWNER: changes the node owner.
+   * - TASK_UPDATE_PRIORITY: modifies the node priority
+   * - PAUSE_TASK: pauses scheduling
+   * - RESUME_TASK: resumes scheduling
+   * - CREATE_NODE: creates a node
+   * - FORCE_DELETE_NODE: force deletes a node
+   * - UPDATE_NODE: updates a node
+   * - DELETE_NODE: deletes a node
+   * - CHANGE_NODE_OWNER: changes the node owner
    * 
    * @example
    * PAUSE_TASK
@@ -37,7 +37,7 @@ export class GetPhysicalNodeOperationLogResponseBodyOperationLogList extends $da
   operationType?: string;
   /**
    * @remarks
-   * The operator ID.
+   * The ID of the operator.
    * 
    * @example
    * 132222
@@ -45,10 +45,10 @@ export class GetPhysicalNodeOperationLogResponseBodyOperationLogList extends $da
   operator?: string;
   /**
    * @remarks
-   * The operator name.
+   * The name of the operator.
    * 
    * @example
-   * xx测试
+   * xxTest
    */
   operatorName?: string;
   static names(): { [key: string]: string } {
@@ -83,7 +83,7 @@ export class GetPhysicalNodeOperationLogResponseBodyOperationLogList extends $da
 export class GetPhysicalNodeOperationLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -120,7 +120,7 @@ export class GetPhysicalNodeOperationLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

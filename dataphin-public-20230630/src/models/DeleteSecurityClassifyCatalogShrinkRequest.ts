@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecurityClassifyCatalogShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The delete instruction.
+   * The delete command.
    * 
    * This parameter is required.
    */
@@ -21,6 +21,9 @@ export class DeleteSecurityClassifyCatalogShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The user ID of the operator.
+   * 
    * @example
    * 30001011
    */

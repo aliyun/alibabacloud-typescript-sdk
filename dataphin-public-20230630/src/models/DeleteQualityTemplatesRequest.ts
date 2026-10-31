@@ -37,7 +37,7 @@ export class DeleteQualityTemplatesRequestDeleteCommand extends $dara.Model {
 export class DeleteQualityTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The delete instruction.
+   * The delete command.
    * 
    * This parameter is required.
    */
@@ -53,6 +53,9 @@ export class DeleteQualityTemplatesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

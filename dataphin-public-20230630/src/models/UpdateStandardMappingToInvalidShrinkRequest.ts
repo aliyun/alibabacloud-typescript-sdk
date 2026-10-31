@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateStandardMappingToInvalidShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -14,13 +14,16 @@ export class UpdateStandardMappingToInvalidShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Update Command
+   * The update instruction.
    * 
    * This parameter is required.
    */

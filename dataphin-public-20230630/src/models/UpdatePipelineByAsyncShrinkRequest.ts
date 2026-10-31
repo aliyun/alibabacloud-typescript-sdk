@@ -21,13 +21,16 @@ export class UpdatePipelineByAsyncShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The pipeline node update configuration.
+   * The update configuration for the pipeline task.
    * 
    * This parameter is required.
    */

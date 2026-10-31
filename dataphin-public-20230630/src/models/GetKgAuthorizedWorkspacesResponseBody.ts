@@ -16,7 +16,7 @@ export class GetKgAuthorizedWorkspacesResponseBodyDataWorkspaceListRoleList exte
    * The name of the workspace role.
    * 
    * @example
-   * Storage management
+   * Storage management administrator
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class GetKgAuthorizedWorkspacesResponseBodyDataWorkspaceListRoleList exte
 export class GetKgAuthorizedWorkspacesResponseBodyDataWorkspaceList extends $dara.Model {
   /**
    * @remarks
-   * The description of the knowledge graph workspace.
+   * The description of the graph workspace.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class GetKgAuthorizedWorkspacesResponseBodyDataWorkspaceList extends $dar
   description?: string;
   /**
    * @remarks
-   * The creation time of the knowledge graph workspace.
+   * The time when the graph workspace was created.
    * 
    * @example
    * 2026-08-25 12:34:56
@@ -61,7 +61,7 @@ export class GetKgAuthorizedWorkspacesResponseBodyDataWorkspaceList extends $dar
   gmtCreate?: string;
   /**
    * @remarks
-   * The latest publish time of the knowledge graph workspace. This value is empty if the workspace has never been published successfully.
+   * The latest publish time of the graph workspace. This parameter is empty if the workspace has never been successfully published.
    * 
    * @example
    * 2026-08-25 12:34:56
@@ -69,7 +69,7 @@ export class GetKgAuthorizedWorkspacesResponseBodyDataWorkspaceList extends $dar
   lastPublishTime?: string;
   /**
    * @remarks
-   * The latest publish version number of the knowledge graph workspace. This value is empty if the workspace has never been published successfully.
+   * The latest publish version of the graph workspace. This parameter is empty if the workspace has never been successfully published.
    * 
    * @example
    * 10
@@ -77,7 +77,7 @@ export class GetKgAuthorizedWorkspacesResponseBodyDataWorkspaceList extends $dar
   lastPublishVersion?: number;
   /**
    * @remarks
-   * The name of the knowledge graph workspace.
+   * The name of the graph workspace.
    * 
    * @example
    * test
@@ -85,12 +85,12 @@ export class GetKgAuthorizedWorkspacesResponseBodyDataWorkspaceList extends $dar
   name?: string;
   /**
    * @remarks
-   * The list of roles assigned to the specified user in the workspace. This is an empty list if the user is not a member of the workspace.
+   * The list of roles of the specified user in the workspace. This list is empty if the user is not a member of the workspace.
    */
   roleList?: GetKgAuthorizedWorkspacesResponseBodyDataWorkspaceListRoleList[];
   /**
    * @remarks
-   * The ID of the knowledge graph workspace.
+   * The ID of the graph workspace.
    * 
    * @example
    * abc1011
@@ -135,7 +135,7 @@ export class GetKgAuthorizedWorkspacesResponseBodyDataWorkspaceList extends $dar
 export class GetKgAuthorizedWorkspacesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of knowledge graph workspaces that the user has permissions on.
+   * The total number of authorized graph workspaces.
    * 
    * @example
    * 3
@@ -143,7 +143,7 @@ export class GetKgAuthorizedWorkspacesResponseBodyData extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of knowledge graph workspaces that the user has permissions on.
+   * The list of authorized graph workspaces.
    */
   workspaceList?: GetKgAuthorizedWorkspacesResponseBodyDataWorkspaceList[];
   static names(): { [key: string]: string } {
@@ -212,7 +212,7 @@ export class GetKgAuthorizedWorkspacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

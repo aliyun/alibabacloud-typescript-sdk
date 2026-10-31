@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSupplementDagrunInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The dagrun ID.
+   * Dagrun ID
    * 
    * This parameter is required.
    * 
@@ -16,8 +16,9 @@ export class GetSupplementDagrunInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - DEV: development environment. 
-   * - PROD (default): production environment.
+   * - DEV: development environment
+   * - PROD: production environment
+   * Default value: PROD.
    * 
    * @example
    * PROD
@@ -34,6 +35,9 @@ export class GetSupplementDagrunInstanceRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

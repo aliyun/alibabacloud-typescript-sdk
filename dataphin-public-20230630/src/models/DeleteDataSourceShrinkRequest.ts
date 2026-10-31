@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataSourceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request for deleting a data source.
+   * The data source deletion request.
    * 
    * This parameter is required.
    */
@@ -21,6 +21,9 @@ export class DeleteDataSourceShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

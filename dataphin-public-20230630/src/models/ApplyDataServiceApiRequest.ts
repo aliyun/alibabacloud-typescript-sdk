@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyDataServiceApiRequestApplyCommandDevFieldList extends $dara.Model {
   /**
    * @remarks
-   * The API permission field ID.
+   * The ID of the API permission field.
    * 
    * @example
    * 22
@@ -35,7 +35,7 @@ export class ApplyDataServiceApiRequestApplyCommandDevFieldList extends $dara.Mo
 export class ApplyDataServiceApiRequestApplyCommandProdFieldList extends $dara.Model {
   /**
    * @remarks
-   * The API permission field ID.
+   * The ID of the API permission field.
    * 
    * @example
    * 22
@@ -83,7 +83,7 @@ export class ApplyDataServiceApiRequestApplyCommand extends $dara.Model {
   appId?: number;
   /**
    * @remarks
-   * Specifies whether to apply for permissions on operation-type APIs in the development environment.
+   * Specifies whether to apply for permissions in the development environment for operation APIs.
    * 
    * @example
    * true
@@ -91,7 +91,7 @@ export class ApplyDataServiceApiRequestApplyCommand extends $dara.Model {
   applyDev?: boolean;
   /**
    * @remarks
-   * Specifies whether to apply for permissions on operation-type APIs in the production environment.
+   * Specifies whether to apply for permissions in the production environment for operation APIs.
    * 
    * @example
    * true
@@ -100,9 +100,8 @@ export class ApplyDataServiceApiRequestApplyCommand extends $dara.Model {
   /**
    * @remarks
    * The application type. Valid values:
-   * 
-   * - APP: application.
-   * - USER: individual account.
+   * - APP: application
+   * - USER: individual account
    * 
    * @example
    * APP
@@ -111,23 +110,21 @@ export class ApplyDataServiceApiRequestApplyCommand extends $dara.Model {
   /**
    * @remarks
    * The list of permission types.
-   * 
-   * - When the principal is an application, the following permission types are supported. To apply for delegation permissions, you must also apply for usage permissions.
-   * 
-   *   - USE: usage permission.
-   *   - DELEGATION: delegation permission.
-   * - When the principal is an individual, only USE (usage) permission is supported.
-   * - If this parameter is not specified, the default value is USE (usage) permission.
+   * - If the applicant is an application, the following permission types are supported. When applying for the delegation permission, you must also apply for the use permission:
+   *   - USE: use permission
+   *   - DELEGATION: delegation permission
+   * - If the applicant is an individual, only the USE permission is supported.
+   * - If this parameter is not specified, the default value is USE.
    */
   authTypes?: string[];
   /**
    * @remarks
-   * The list of permission fields for query-type APIs in the development environment. This parameter is required in dev-prod mode. DevFieldList and ProdFieldList cannot both be empty.
+   * The list of permission fields in the development environment for query APIs. This parameter is required in dev-prod mode. Either devFieldList or prodFieldList must be specified.
    */
   devFieldList?: ApplyDataServiceApiRequestApplyCommandDevFieldList[];
   /**
    * @remarks
-   * The expiration date in the format of yyyy-MM-dd.
+   * The expiration date. Format: yyyy-MM-dd.
    * 
    * This parameter is required.
    * 
@@ -137,7 +134,7 @@ export class ApplyDataServiceApiRequestApplyCommand extends $dara.Model {
   expireDate?: string;
   /**
    * @remarks
-   * The list of permission fields for query-type APIs in the production environment. This parameter is required in basic mode.
+   * The list of permission fields in the production environment for query APIs. This parameter is required in basic mode.
    */
   prodFieldList?: ApplyDataServiceApiRequestApplyCommandProdFieldList[];
   /**
@@ -201,7 +198,7 @@ export class ApplyDataServiceApiRequestApplyCommand extends $dara.Model {
 export class ApplyDataServiceApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The apply command.
+   * The application command.
    * 
    * This parameter is required.
    */
@@ -217,6 +214,9 @@ export class ApplyDataServiceApiRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

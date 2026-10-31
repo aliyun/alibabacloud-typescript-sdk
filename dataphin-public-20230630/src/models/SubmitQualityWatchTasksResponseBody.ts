@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitQualityWatchTasksResponseBodySubmitResult extends $dara.Model {
   /**
    * @remarks
-   * The list of quality watchtask IDs.
+   * The IDs of the monitoring object check nodes.
    */
   watchTaskIdList?: number[];
   static names(): { [key: string]: string } {
@@ -51,7 +51,7 @@ export class SubmitQualityWatchTasksResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -72,7 +72,7 @@ export class SubmitQualityWatchTasksResponseBody extends $dara.Model {
   submitResult?: SubmitQualityWatchTasksResponseBodySubmitResult;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

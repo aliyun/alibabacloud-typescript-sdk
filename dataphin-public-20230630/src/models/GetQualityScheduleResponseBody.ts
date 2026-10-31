@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -13,7 +13,7 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The user ID of the creator.
+   * The ID of the creator.
    * 
    * @example
    * 30012011
@@ -29,7 +29,7 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   cronExpression?: string;
   /**
    * @remarks
-   * The ID of the schedule object.
+   * The ID of the scheduling object.
    * 
    * @example
    * 1
@@ -37,12 +37,12 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   id?: number;
   /**
    * @remarks
-   * Indicates whether the schedule object is referenced by a rule.
+   * Indicates whether the scheduling object is referenced by a rule.
    */
   isRefByRule?: boolean;
   /**
    * @remarks
-   * The user ID of the last modifier.
+   * The ID of the last modifier.
    * 
    * @example
    * 30012011
@@ -50,7 +50,7 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   modifier?: string;
   /**
    * @remarks
-   * The modification time.
+   * The modification time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -58,7 +58,7 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   modifyTime?: string;
   /**
    * @remarks
-   * The name of the schedule object.
+   * The name of the scheduling object.
    * 
    * @example
    * test
@@ -75,11 +75,11 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   /**
    * @remarks
    * The partition type. Valid values:
-   * - EVERY_DAY: every day.
-   * - PRE_DAY: yesterday.
-   * - TODAY: today.
-   * - FIRST_DAY_OF_WEEK: first day of the week (Sunday).
-   * - CUSTOM: custom.
+   * - EVERY_DAY: Every day.
+   * - PRE_DAY: Previous day.
+   * - TODAY: Current day.
+   * - FIRST_DAY_OF_WEEK: First day of the week (Sunday).
+   * - CUSTOM: Custom.
    * 
    * @example
    * CUSTOM
@@ -87,12 +87,12 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   partitionType?: string;
   /**
    * @remarks
-   * The interval type for timed scheduling. Valid values:
-   * - DAILY: day.
-   * - WEEKLY: week.
-   * - MONTHLY: month.
-   * - HOURLY: hour.
-   * - MINUTELY: minute.
+   * The scheduling epoch type for timed scheduling. Valid values:
+   * - DAILY: Daily.
+   * - WEEKLY: Weekly.
+   * - MONTHLY: Monthly.
+   * - HOURLY: Hourly.
+   * - MINUTELY: Minutely.
    * 
    * @example
    * DAILY
@@ -100,15 +100,15 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   periodScheduleIntervalType?: string;
   /**
    * @remarks
-   * The interval values for timed scheduling.
+   * The scheduling epoch values for timed scheduling.
    */
   periodScheduleParamList?: string[];
   /**
    * @remarks
-   * The trigger type for fixed task triggers. Valid values:
-   * - ALL_TASKS_FINISHED: triggered when all tasks are finished.
-   * - ONE_TASKS_FINISHED: triggered when one task is finished.
-   * - PRE_ONE_TASKS_START: triggered when the previous task starts.
+   * The trigger method for fixed task triggers. Valid values:
+   * - ALL_TASKS_FINISHED: All tasks finished.
+   * - ONE_TASKS_FINISHED: One task finished.
+   * - PRE_ONE_TASKS_START: Previous task started.
    * 
    * @example
    * ONE_TASKS_FINISHED
@@ -116,14 +116,14 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   staticTaskTriggerType?: string;
   /**
    * @remarks
-   * The list of trigger nodes for trigger-based scheduling.
+   * The list of trigger tasks for trigger scheduling.
    */
   triggerNodeList?: string[];
   /**
    * @remarks
-   * The trigger type for trigger-based scheduling. Valid values:
-   * - STATIC_TASK_TRIGGER: fixed task trigger.
-   * - CODE_CHECK_TRIGGER: code check trigger.
+   * The trigger method for trigger scheduling. Valid values:
+   * - STATIC_TASK_TRIGGER: Fixed task trigger.
+   * - CODE_CHECK_TRIGGER: Code check trigger.
    * 
    * @example
    * STATIC_TASK_TRIGGER
@@ -131,12 +131,12 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   triggerType?: string;
   /**
    * @remarks
-   * The schedule type. Valid values:
-   * - PERIOD_SCHEDULE: timed scheduling.
-   * - MANUAL_SCHEDULE: manual trigger.
-   * - CODE_CHECK_TRIGGER: code check trigger.
-   * - STATIC_TASK_TRIGGER: fixed task trigger.
-   * - DEPENDENCY_SCHEDULE: dependency scheduling.
+   * The scheduling type. Valid values:
+   * - PERIOD_SCHEDULE: Timed scheduling.
+   * - MANUAL_SCHEDULE: Manual trigger.
+   * - CODE_CHECK_TRIGGER: Code check trigger.
+   * - STATIC_TASK_TRIGGER: Fixed node trigger.
+   * - DEPENDENCY_SCHEDULE: Dependency scheduling.
    * 
    * @example
    * PERIOD_SCHEDULE
@@ -145,8 +145,8 @@ export class GetQualityScheduleResponseBodyQualityScheduleInfo extends $dara.Mod
   /**
    * @remarks
    * The validation scope. Valid values:
-   * - TASK_REFERRED_PARTITION: partition updated by the task.
-   * - USER_DEFINED_PARTITION: custom partition.
+   * - TASK_REFERRED_PARTITION: Task updated partition.
+   * - USER_DEFINED_PARTITION: User-defined partition.
    * 
    * @example
    * TASK_REFERRED_PARTITION
@@ -240,7 +240,7 @@ export class GetQualityScheduleResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -248,7 +248,7 @@ export class GetQualityScheduleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The details of the schedule object.
+   * The details of the scheduling object.
    */
   qualityScheduleInfo?: GetQualityScheduleResponseBodyQualityScheduleInfo;
   /**
@@ -261,7 +261,7 @@ export class GetQualityScheduleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

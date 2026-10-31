@@ -63,7 +63,7 @@ export class UpdateBasicProjectRequestUpdateCommand extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
-   * The ID of the offline compute source.
+   * The offline compute source ID.
    * 
    * @example
    * 2001
@@ -82,7 +82,7 @@ export class UpdateBasicProjectRequestUpdateCommand extends $dara.Model {
    * The display name of the project.
    * 
    * @example
-   * MyProject.
+   * My Project
    */
   displayName?: string;
   /**
@@ -97,7 +97,7 @@ export class UpdateBasicProjectRequestUpdateCommand extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The project name. This value cannot be modified. Pass in the current project name.
+   * The project name. This parameter cannot be modified. Specify the current project name.
    * 
    * This parameter is required.
    * 
@@ -115,7 +115,7 @@ export class UpdateBasicProjectRequestUpdateCommand extends $dara.Model {
   nameSpaceTag?: string;
   /**
    * @remarks
-   * The ID of the real-time compute source.
+   * The real-time compute source ID.
    * 
    * @example
    * 2002
@@ -178,6 +178,9 @@ export class UpdateBasicProjectRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

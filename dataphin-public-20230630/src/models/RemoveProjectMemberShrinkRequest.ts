@@ -24,13 +24,16 @@ export class RemoveProjectMemberShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The command to remove a member.
+   * The member removal command.
    * 
    * This parameter is required.
    */

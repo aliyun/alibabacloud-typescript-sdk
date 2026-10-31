@@ -4,28 +4,51 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDatasetRequestUpdateCommandApiInfoRequestParamList extends $dara.Model {
   /**
+   * @remarks
+   * The default value.
+   * 
    * @example
    * 1
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   descr?: string;
+  /**
+   * @remarks
+   * Specifies whether the parameter is a URL parameter.
+   */
   isUrl?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the parameter is required.
+   */
   must?: boolean;
   /**
+   * @remarks
+   * The name of the parameter.
+   * 
    * @example
    * col01
    */
   paramName?: string;
   /**
+   * @remarks
+   * The type of the parameter.
+   * 
    * @example
    * int
    */
   paramType?: string;
   /**
+   * @remarks
+   * The example value.
+   * 
    * @example
    * 1
    */
@@ -65,22 +88,38 @@ export class UpdateDatasetRequestUpdateCommandApiInfoRequestParamList extends $d
 
 export class UpdateDatasetRequestUpdateCommandApiInfoResponseParamList extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   descr?: string;
+  /**
+   * @remarks
+   * Specifies whether the parameter is a URL parameter.
+   */
   isUrl?: boolean;
   /**
+   * @remarks
+   * The name of the parameter.
+   * 
    * @example
    * col01
    */
   paramName?: string;
   /**
+   * @remarks
+   * The type of the parameter.
+   * 
    * @example
    * int
    */
   paramType?: string;
   /**
+   * @remarks
+   * The example value.
+   * 
    * @example
    * 1
    */
@@ -116,38 +155,67 @@ export class UpdateDatasetRequestUpdateCommandApiInfoResponseParamList extends $
 
 export class UpdateDatasetRequestUpdateCommandApiInfo extends $dara.Model {
   /**
+   * @remarks
+   * The execution timeout period in seconds.
+   * 
    * @example
    * 60
    */
   execTimeout?: number;
   /**
+   * @remarks
+   * The execution mode. Valid values: 1: synchronous, 2: asynchronous.
+   * 
    * @example
    * 1
    */
   executeMode?: number;
   /**
+   * @remarks
+   * The data service API group.
+   * 
    * @example
    * 1011
    */
   osApiGroup?: number;
   /**
+   * @remarks
+   * The data service project.
+   * 
    * @example
    * 1012
    */
   osProject?: number;
   /**
+   * @remarks
+   * The protocol type. Valid values: 1: HTTPS, 2: HTTP, 3: HTTP and HTTPS.
+   * 
    * @example
    * 1
    */
   protocol?: number;
   /**
+   * @remarks
+   * The request method. Valid values: 1: GET, 2: LIST.
+   * 
    * @example
    * 1
    */
   requestMethod?: number;
+  /**
+   * @remarks
+   * The list of request parameters.
+   */
   requestParamList?: UpdateDatasetRequestUpdateCommandApiInfoRequestParamList[];
+  /**
+   * @remarks
+   * The list of response parameters.
+   */
   responseParamList?: UpdateDatasetRequestUpdateCommandApiInfoResponseParamList[];
   /**
+   * @remarks
+   * The timeout period in seconds.
+   * 
    * @example
    * 60
    */
@@ -211,15 +279,15 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigFileStorageConfig ext
    * The data source name.
    * 
    * @example
-   * Test data source.
+   * Test data source
    */
   dataSourceName?: string;
   /**
    * @remarks
-   * The development path (not required for basic projects).
+   * The development path. This parameter is not required for basic projects.
    * 
    * @example
-   * HTML正文提取/test423/
+   * HTML body extraction/test423/
    */
   devPath?: string;
   /**
@@ -239,7 +307,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigFileStorageConfig ext
    * This parameter is required.
    * 
    * @example
-   * HTML正文提取/test423/
+   * HTML body extraction/test423/
    */
   prodPath?: string;
   static names(): { [key: string]: string } {
@@ -294,7 +362,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig
   embeddingModel?: string;
   /**
    * @remarks
-   * The index build parameters. Different parameters are required based on the indexType. For example, HNSW requires {M:30, efConstruction:360}, and IVF_FLAT requires {nlist:128}.
+   * The index building parameters. Specify different parameters based on the index type. For example, specify {M:30, efConstruction:360} for HNSW and {nlist:128} for IVF_FLAT.
    * 
    * @example
    * {M:30, efConstruction:360}
@@ -302,7 +370,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig
   indexParams?: { [key: string]: any };
   /**
    * @remarks
-   * The index type. PostgreSQL supports IVFFlat and HNSW. Milvus supports all types.
+   * The index type. PostgreSQL supports IVFFlat and HNSW. Milvus supports all index types.
    * 
    * This parameter is required.
    * 
@@ -312,7 +380,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig
   indexType?: string;
   /**
    * @remarks
-   * The similarity type. Default value: COSINE. Valid values: COSINE, L2, and IP.
+   * The similarity type. Valid values: COSINE, L2, and IP. Default value: COSINE.
    * 
    * This parameter is required.
    * 
@@ -355,7 +423,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig
 export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfigTableSchemaColumns extends $dara.Model {
   /**
    * @remarks
-   * The field description.
+   * The column description.
    * 
    * @example
    * primary key
@@ -363,7 +431,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig
   comment?: string;
   /**
    * @remarks
-   * **The array element subtype. Valid only when type is set to ARRAY.**
+   * **The subtype of the array element. This parameter is valid only when the column type is ARRAY.**
    * 
    * @example
    * INT64
@@ -371,7 +439,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig
   elementType?: string;
   /**
    * @remarks
-   * The maximum capacity of the array. Valid only when type is set to ARRAY. Default value: 4096.
+   * The maximum capacity of the array. This parameter is valid only when the column type is ARRAY. Default value: 4096.
    * 
    * @example
    * 250
@@ -379,7 +447,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig
   maxCapacity?: number;
   /**
    * @remarks
-   * **The field name.**
+   * **The column name.**
    * 
    * This parameter is required.
    * 
@@ -389,7 +457,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig
   name?: string;
   /**
    * @remarks
-   * Indicates whether the field is a primary key.
+   * Specifies whether the column is a primary key.
    * 
    * @example
    * true
@@ -397,7 +465,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig
   pk?: boolean;
   /**
    * @remarks
-   * **The field type.**
+   * **The column type.**
    * 
    * This parameter is required.
    * 
@@ -407,7 +475,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig
   type?: string;
   /**
    * @remarks
-   * Indicates whether the field is a URL.
+   * Specifies whether the column is a URL.
    * 
    * @example
    * false
@@ -459,7 +527,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig
 export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfigTableSchema extends $dara.Model {
   /**
    * @remarks
-   * The field list.
+   * The list of columns.
    */
   columns?: UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfigTableSchemaColumns[];
   static names(): { [key: string]: string } {
@@ -502,20 +570,20 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig
    * **The data source name.**
    * 
    * @example
-   * Test data source.
+   * Test data source
    */
   dataSourceName?: string;
   /**
    * @remarks
-   * **The development database/schema.**
+   * **The development database or schema.**
    * 
    * @example
-   * HTML正文提取/test423/
+   * HTML body extraction/test423/
    */
   devSchema?: string;
   /**
    * @remarks
-   * Specifies whether to store metadata in a new table or an existing table.
+   * Specifies whether to store the metadata in a new table or an existing table.
    * 
    * This parameter is required.
    * 
@@ -533,12 +601,12 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig
   metadataStorageType?: string;
   /**
    * @remarks
-   * **The production database/schema.**
+   * **The production database or schema.**
    * 
    * This parameter is required.
    * 
    * @example
-   * HTML正文提取/test423/
+   * HTML body extraction/test423/
    */
   prodSchema?: string;
   /**
@@ -617,7 +685,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
   embeddingModel?: string;
   /**
    * @remarks
-   * The index build parameters. Different parameters are required based on the indexType. For example, HNSW requires {M:30, efConstruction:360}, and IVF_FLAT requires {nlist:128}.
+   * The index building parameters. Specify different parameters based on the index type. For example, specify {M:30, efConstruction:360} for HNSW and {nlist:128} for IVF_FLAT.
    * 
    * @example
    * {M:30, efConstruction:360}
@@ -625,7 +693,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
   indexParams?: { [key: string]: any };
   /**
    * @remarks
-   * The index type. PostgreSQL supports IVFFlat and HNSW. Milvus supports all types.
+   * The index type. PostgreSQL supports IVFFlat and HNSW. Milvus supports all index types.
    * 
    * This parameter is required.
    * 
@@ -635,7 +703,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
   indexType?: string;
   /**
    * @remarks
-   * The similarity type. Default value: COSINE. Valid values: COSINE, L2, and IP.
+   * The similarity type. Valid values: COSINE, L2, and IP. Default value: COSINE.
    * 
    * This parameter is required.
    * 
@@ -678,7 +746,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
 export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConfigTableSchemaColumns extends $dara.Model {
   /**
    * @remarks
-   * The field description.
+   * The column description.
    * 
    * @example
    * happen time
@@ -686,7 +754,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
   comment?: string;
   /**
    * @remarks
-   * **The array element subtype. Valid only when type is set to ARRAY.**
+   * **The subtype of the array element. This parameter is valid only when the column type is ARRAY.**
    * 
    * @example
    * INT64
@@ -694,7 +762,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
   elementType?: string;
   /**
    * @remarks
-   * **The maximum capacity of the array. This parameter is valid only when type is set to ARRAY. Default value: 4096.**
+   * **The maximum capacity of the array. This parameter takes effect only when type is set to ARRAY. Default value: 4096.**
    * 
    * @example
    * 10
@@ -702,7 +770,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
   maxCapacity?: number;
   /**
    * @remarks
-   * **The field name.**
+   * **The column name.**
    * 
    * This parameter is required.
    * 
@@ -712,7 +780,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
   name?: string;
   /**
    * @remarks
-   * Indicates whether the field is a primary key.
+   * Specifies whether the column is a primary key.
    * 
    * @example
    * false
@@ -720,7 +788,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
   pk?: boolean;
   /**
    * @remarks
-   * **The field type.**
+   * **The column type.**
    * 
    * This parameter is required.
    * 
@@ -730,7 +798,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
   type?: string;
   /**
    * @remarks
-   * Indicates whether the field is a URL.
+   * Specifies whether the column is a URL.
    * 
    * @example
    * false
@@ -738,7 +806,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
   url?: boolean;
   /**
    * @remarks
-   * The vector index configuration. Configure this parameter when the field type is FLOAT_VECTOR, FLOAT16_VECTOR, or BFLOAT16_VECTOR. This parameter is used to specify the dimensions, index type, and similarity metric.
+   * The vector index configuration. Configure this parameter when the field type is FLOAT_VECTOR, FLOAT16_VECTOR, or BFLOAT16_VECTOR to specify the dimensions, index type, and similarity metric.
    */
   vectorIndexConfig?: UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConfigTableSchemaColumnsVectorIndexConfig;
   static names(): { [key: string]: string } {
@@ -782,7 +850,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
 export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConfigTableSchema extends $dara.Model {
   /**
    * @remarks
-   * **The field list.**
+   * **The list of columns.**
    */
   columns?: UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConfigTableSchemaColumns[];
   static names(): { [key: string]: string } {
@@ -812,7 +880,7 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
 export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConfig extends $dara.Model {
   /**
    * @remarks
-   * The meta table data source type (only KAFKA is supported in the current release).
+   * The data source type of the metadata table. Only KAFKA is supported in the current version.
    * 
    * This parameter is required.
    * 
@@ -822,17 +890,17 @@ export class UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConf
   datasourceType?: string;
   /**
    * @remarks
-   * The meta table name.
+   * The name of the metadata table.
    * 
    * This parameter is required.
    * 
    * @example
-   * Test meta table.
+   * Test metadata table
    */
   metaTableName?: string;
   /**
    * @remarks
-   * The project ID to which the meta table belongs (cross-project access is supported).
+   * The ID of the project to which the metadata table belongs. Cross-project access is supported.
    * 
    * This parameter is required.
    * 
@@ -888,15 +956,15 @@ export class UpdateDatasetRequestUpdateCommandVersionConfig extends $dara.Model 
   metadataStorageConfig?: UpdateDatasetRequestUpdateCommandVersionConfigMetadataStorageConfig;
   /**
    * @remarks
-   * The real-time meta table configuration. Takes effect when metadataStorageType is set to STREAM_TABLE.
+   * The real-time metadata table configuration. This configuration takes effect only when the metadata storage type is STREAM_TABLE.
    */
   realtimeMetaTableConfig?: UpdateDatasetRequestUpdateCommandVersionConfigRealtimeMetaTableConfig;
   /**
    * @remarks
-   * **Version description**
+   * **The version description.**
    * 
    * @example
-   * Test dataset version.
+   * Test dataset version
    */
   versionDescription?: string;
   static names(): { [key: string]: string } {
@@ -936,10 +1004,14 @@ export class UpdateDatasetRequestUpdateCommandVersionConfig extends $dara.Model 
 }
 
 export class UpdateDatasetRequestUpdateCommand extends $dara.Model {
+  /**
+   * @remarks
+   * The API information for online datasets.
+   */
   apiInfo?: UpdateDatasetRequestUpdateCommandApiInfo;
   /**
    * @remarks
-   * **The content type.**
+   * The **content type**.
    * 
    * @example
    * GENERAL
@@ -947,7 +1019,7 @@ export class UpdateDatasetRequestUpdateCommand extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The subject area ID.
+   * The subject domain ID.
    * 
    * @example
    * 78201
@@ -955,15 +1027,15 @@ export class UpdateDatasetRequestUpdateCommand extends $dara.Model {
   dataCellId?: string;
   /**
    * @remarks
-   * **The description.**
+   * The **description**.
    * 
    * @example
-   * Test dataset.
+   * Test dataset
    */
   description?: string;
   /**
    * @remarks
-   * The file ID (the file ID at creation time).
+   * The file ID, which is the file ID used during creation.
    * 
    * This parameter is required.
    * 
@@ -973,7 +1045,7 @@ export class UpdateDatasetRequestUpdateCommand extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The dataset ID (business primary key).
+   * The dataset ID, which is the business primary key.
    * 
    * This parameter is required.
    * 
@@ -983,7 +1055,7 @@ export class UpdateDatasetRequestUpdateCommand extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * **The metastore type.**
+   * The **metastore type**.
    * 
    * @example
    * POSTGRESQL
@@ -999,7 +1071,7 @@ export class UpdateDatasetRequestUpdateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of owner IDs, separated by commas.
+   * The list of owner IDs. Separate multiple IDs with commas.
    * 
    * @example
    * 300001391
@@ -1007,7 +1079,7 @@ export class UpdateDatasetRequestUpdateCommand extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * **Scenarios:** `OFFLINE` (offline, default) / `REALTIME` (real-time).
+   * **Dataset Scenarios:** `OFFLINE` (offline, default) / `REALTIME` (real-time).
    * 
    * @example
    * OFFLINE
@@ -1015,7 +1087,7 @@ export class UpdateDatasetRequestUpdateCommand extends $dara.Model {
   scenario?: string;
   /**
    * @remarks
-   * **The storage type.**
+   * The **storage type**.
    * 
    * @example
    * OSS
@@ -1107,6 +1179,9 @@ export class UpdateDatasetRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
@@ -1123,7 +1198,7 @@ export class UpdateDatasetRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The update request struct.
+   * The update struct.
    * 
    * This parameter is required.
    */

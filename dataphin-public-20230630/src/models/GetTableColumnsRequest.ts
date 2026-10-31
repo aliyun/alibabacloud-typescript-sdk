@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTableColumnsRequest extends $dara.Model {
   /**
    * @remarks
-   * The asset table catalog, which is the name of the business unit or workspace.
-   * 
-   * This parameter is required.
+   * The catalog of the asset table, which is the name of the business unit or project workspace.
    * 
    * @example
    * LD_test01_dev
@@ -24,15 +22,24 @@ export class GetTableColumnsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The table name.
+   * The GUID of the table. If this parameter is specified, it takes precedence in the query, and the Catalog and TableName parameters are ignored even if they are provided.
    * 
-   * This parameter is required.
+   * @example
+   * dp_ds_table_xxx
+   */
+  tableGuid?: string;
+  /**
+   * @remarks
+   * The name of the table.
    * 
    * @example
    * t_test01
@@ -43,6 +50,7 @@ export class GetTableColumnsRequest extends $dara.Model {
       catalog: 'Catalog',
       opTenantId: 'OpTenantId',
       opUserId: 'OpUserId',
+      tableGuid: 'TableGuid',
       tableName: 'TableName',
     };
   }
@@ -52,6 +60,7 @@ export class GetTableColumnsRequest extends $dara.Model {
       catalog: 'string',
       opTenantId: 'number',
       opUserId: 'string',
+      tableGuid: 'string',
       tableName: 'string',
     };
   }

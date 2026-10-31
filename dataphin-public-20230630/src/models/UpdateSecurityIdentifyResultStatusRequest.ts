@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSecurityIdentifyResultStatusRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the result is effective.
+   * Specifies whether the result takes effect.
    * 
    * This parameter is required.
    */
@@ -55,13 +55,16 @@ export class UpdateSecurityIdentifyResultStatusRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The update instruction.
+   * The update command.
    * 
    * This parameter is required.
    */

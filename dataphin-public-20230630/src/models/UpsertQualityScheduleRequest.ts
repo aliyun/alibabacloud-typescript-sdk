@@ -13,7 +13,7 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * The schedule object ID. If this parameter is specified, the schedule is updated. If this parameter is not specified, a schedule is created.
+   * The ID of the schedule object. Pass this parameter to update the object, or omit it to create a new object.
    * 
    * @example
    * 1
@@ -43,7 +43,7 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
    * - EVERY_DAY: every day.
    * - PRE_DAY: yesterday.
    * - TODAY: today.
-   * - FIRST_DAY_OF_WEEK: first day of the week (Sunday).
+   * - FIRST_DAY_OF_WEEK: the first day of the week (Sunday).
    * - CUSTOM: custom.
    * 
    * @example
@@ -52,12 +52,12 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   partitionType?: string;
   /**
    * @remarks
-   * The schedule interval type for timed scheduling. Valid values:
-   * - DAILY: day.
-   * - WEEKLY: week.
-   * - MONTHLY: month.
-   * - HOURLY: hour.
-   * - MINUTELY: minute.
+   * The scheduling epoch type for timed scheduling. Valid values:
+   * - DAILY: daily.
+   * - WEEKLY: weekly.
+   * - MONTHLY: monthly.
+   * - HOURLY: hourly.
+   * - MINUTELY: minutely.
    * 
    * @example
    * DAILY
@@ -65,15 +65,15 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   periodScheduleIntervalType?: string;
   /**
    * @remarks
-   * The schedule interval values for timed scheduling.
+   * The scheduling epoch values for timed scheduling.
    */
   periodScheduleParamList?: string[];
   /**
    * @remarks
-   * The trigger method for fixed task triggers. Valid values:
-   * - ALL_TASKS_FINISHED: triggered when all tasks are finished.
-   * - ONE_TASKS_FINISHED: triggered when one task is finished.
-   * - PRE_ONE_TASKS_START: triggered when the previous task starts.
+   * The trigger method for static task triggers. Valid values:
+   * - ALL_TASKS_FINISHED: All tasks are finished.
+   * - ONE_TASKS_FINISHED: One task is finished.
+   * - PRE_ONE_TASKS_START: The previous task is started.
    * 
    * @example
    * ONE_TASKS_FINISHED
@@ -81,13 +81,13 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   staticTaskTriggerType?: string;
   /**
    * @remarks
-   * The list of trigger nodes for trigger scheduling.
+   * The list of trigger tasks for the trigger schedule.
    */
   triggerNodeList?: string[];
   /**
    * @remarks
-   * The trigger method for trigger scheduling. Valid values:
-   * - STATIC_TASK_TRIGGER: fixed task trigger.
+   * The trigger method for the trigger schedule. Valid values:
+   * - STATIC_TASK_TRIGGER: static task trigger.
    * - CODE_CHECK_TRIGGER: code check trigger.
    * 
    * @example
@@ -100,7 +100,7 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
    * - PERIOD_SCHEDULE: timed scheduling.
    * - MANUAL_SCHEDULE: manual trigger.
    * - CODE_CHECK_TRIGGER: code check trigger.
-   * - STATIC_TASK_TRIGGER: fixed task trigger.
+   * - STATIC_TASK_TRIGGER: static task trigger.
    * - DEPENDENCY_SCHEDULE: dependency scheduling.
    * 
    * This parameter is required.
@@ -112,7 +112,7 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   /**
    * @remarks
    * The validation scope. Valid values:
-   * - TASK_REFERRED_PARTITION: task update partition.
+   * - TASK_REFERRED_PARTITION: task updated partition.
    * - USER_DEFINED_PARTITION: custom partition.
    * 
    * @example
@@ -121,7 +121,7 @@ export class UpsertQualityScheduleRequestUpsertCommand extends $dara.Model {
   validatePartitionType?: string;
   /**
    * @remarks
-   * The monitored object ID.
+   * The ID of the monitored object.
    * 
    * This parameter is required.
    * 
@@ -192,13 +192,16 @@ export class UpsertQualityScheduleRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The update instruction.
+   * The upsert command.
    * 
    * This parameter is required.
    */

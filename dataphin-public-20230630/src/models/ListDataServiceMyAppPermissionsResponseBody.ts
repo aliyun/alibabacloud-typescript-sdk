@@ -13,7 +13,7 @@ export class ListDataServiceMyAppPermissionsResponseBodyPageResultPermissionList
   key?: string;
   /**
    * @remarks
-   * The configuration item value.
+   * The value of the configuration item.
    * 
    * @example
    * v1
@@ -77,10 +77,10 @@ export class ListDataServiceMyAppPermissionsResponseBodyPageResultPermissionList
   creator?: string;
   /**
    * @remarks
-   * The role of the current logon user relative to this record. Valid values:
-   * - SuperAdmin: the current user is a super administrator.
-   * - ProjMan: the current user is a project administrator for this record.
-   * - NormalUser: the current user is a regular user for this record, meaning the user is neither a super administrator nor a project administrator.
+   * The role of the current logged-on user for this record. Valid values:
+   * - SuperAdmin: The current user is a super administrator.
+   * - ProjMan: The current user is a project manager for this record.
+   * - NormalUser: The current user is a regular user for this record, meaning the user is neither a super administrator nor a project manager.
    * 
    * @example
    * NormalUser
@@ -104,7 +104,7 @@ export class ListDataServiceMyAppPermissionsResponseBodyPageResultPermissionList
   ownerUserName?: string;
   /**
    * @remarks
-   * The user to whom the permission belongs.
+   * The permission owner.
    * 
    * @example
    * 1121
@@ -112,8 +112,8 @@ export class ListDataServiceMyAppPermissionsResponseBodyPageResultPermissionList
   privilegeBelongTo?: string;
   /**
    * @remarks
-   * The source of the authorization. Valid values:
-   * - 0: owner.
+   * The authorization source. Valid values:
+   * - 0: Owner.
    * 
    * @example
    * 0
@@ -137,13 +137,13 @@ export class ListDataServiceMyAppPermissionsResponseBodyPageResultPermissionList
   projectName?: string;
   /**
    * @remarks
-   * The description, used for troubleshooting.
+   * The description used for troubleshooting.
    */
   remarkForDebugList?: ListDataServiceMyAppPermissionsResponseBodyPageResultPermissionListRemarkForDebugList[];
   /**
    * @remarks
    * The role. Valid values:
-   * - 0: owner.
+   * - 0: Owner.
    * 
    * @example
    * 0
@@ -256,7 +256,7 @@ export class ListDataServiceMyAppPermissionsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -277,7 +277,7 @@ export class ListDataServiceMyAppPermissionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

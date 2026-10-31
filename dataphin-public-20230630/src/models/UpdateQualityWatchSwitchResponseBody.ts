@@ -13,7 +13,7 @@ export class UpdateQualityWatchSwitchResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number of records that took effect.
+   * The number of affected records.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class UpdateQualityWatchSwitchResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -45,7 +45,7 @@ export class UpdateQualityWatchSwitchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

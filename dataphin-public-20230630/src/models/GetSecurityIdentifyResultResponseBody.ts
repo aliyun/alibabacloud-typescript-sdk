@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo extends $dara.Model {
   /**
    * @remarks
-   * The business date.
+   * The business date. Format: YYYY-MM-DD.
    * 
    * @example
    * 2025-06-30
@@ -13,7 +13,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   bizDate?: string;
   /**
    * @remarks
-   * The display name of the business unit in Chinese.
+   * The Chinese name of the business unit.
    * 
    * @example
    * LD_test
@@ -21,7 +21,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   bizUnitDisplayName?: string;
   /**
    * @remarks
-   * The business unit ID.
+   * The ID of the business unit.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   bizUnitId?: number;
   /**
    * @remarks
-   * The business unit name.
+   * The name of the business unit.
    * 
    * @example
    * LD_test
@@ -61,7 +61,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   classifyName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 10:30:30
@@ -77,7 +77,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   creator?: string;
   /**
    * @remarks
-   * The data source ID.
+   * The ID of the data source.
    * 
    * @example
    * 101121
@@ -85,7 +85,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   datasourceId?: number;
   /**
    * @remarks
-   * The data source name.
+   * The name of the data source.
    * 
    * @example
    * ds1
@@ -101,7 +101,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   fieldDescription?: string;
   /**
    * @remarks
-   * The field ID.
+   * The ID of the field.
    * 
    * @example
    * t_test.col1
@@ -109,7 +109,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   fieldId?: string;
   /**
    * @remarks
-   * The field name.
+   * The name of the field.
    * 
    * @example
    * col1
@@ -117,12 +117,12 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   fieldName?: string;
   /**
    * @remarks
-   * Indicates whether a better matching result exists.
+   * Indicates whether a better match is available.
    */
   hasBetterRule?: boolean;
   /**
    * @remarks
-   * The identification result ID.
+   * The recognition result ID.
    * 
    * @example
    * 1
@@ -130,7 +130,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   id?: number;
   /**
    * @remarks
-   * The identification record ID.
+   * The ID of the identification record.
    * 
    * @example
    * 99
@@ -138,17 +138,17 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   identifyRecordId?: number;
   /**
    * @remarks
-   * Indicates whether a custom tagging rule is used.
+   * Indicates whether a custom identification rule is used.
    */
   isCustomIdentify?: boolean;
   /**
    * @remarks
-   * Indicates whether the result is locked.
+   * Indicates whether the item is locked.
    */
   isLocked?: boolean;
   /**
    * @remarks
-   * The sensitivity level abbreviation.
+   * The abbreviation of the classification level.
    * 
    * @example
    * test
@@ -156,7 +156,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   levelAbbreviation?: string;
   /**
    * @remarks
-   * The sensitivity level color.
+   * The color of the classification level.
    * 
    * @example
    * 1
@@ -164,7 +164,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   levelColor?: number;
   /**
    * @remarks
-   * The sensitivity level index.
+   * The classification level.
    * 
    * @example
    * 1
@@ -172,7 +172,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   levelIndex?: number;
   /**
    * @remarks
-   * The sensitivity level name.
+   * The name of the classification level.
    * 
    * @example
    * test
@@ -188,7 +188,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   modifier?: string;
   /**
    * @remarks
-   * The modification time.
+   * The modification time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-30 10:30:30
@@ -196,7 +196,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   modifyTime?: string;
   /**
    * @remarks
-   * The display name of the project in Chinese.
+   * The Chinese name of the project.
    * 
    * @example
    * test
@@ -204,7 +204,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   projectDisplayName?: string;
   /**
    * @remarks
-   * The project ID.
+   * The ID of the project.
    * 
    * @example
    * 101121
@@ -212,7 +212,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   projectId?: number;
   /**
    * @remarks
-   * The project name.
+   * The name of the project.
    * 
    * @example
    * test
@@ -220,7 +220,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   projectName?: string;
   /**
    * @remarks
-   * The scan task ID.
+   * The ID of the scan task.
    * 
    * @example
    * 11
@@ -228,9 +228,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   scanTaskId?: number;
   /**
    * @remarks
-   * The status. Valid values:
-   * - ENABLE: enabled.
-   * - DISABLE: disabled.
+   * The status. Valid values: ENABLE (enabled) and DISABLE (disabled).
    * 
    * @example
    * ENABLE
@@ -262,7 +260,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   tableEnv?: string;
   /**
    * @remarks
-   * The table ID.
+   * The ID of the table.
    * 
    * @example
    * 1
@@ -270,7 +268,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   tableId?: string;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * @example
    * t_test
@@ -278,7 +276,7 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   tableName?: string;
   /**
    * @remarks
-   * The identification table task ID.
+   * The ID of the table identification task.
    * 
    * @example
    * 22
@@ -287,14 +285,14 @@ export class GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo ext
   /**
    * @remarks
    * The table type. Valid values:
-   * - LOGIC_TABLE: logical table.
-   * - LOGIC_DIM_TABLE: logical dimension table.
-   * - LOGIC_FACT_TABLE: fact logical table.
-   * - LOGIC_SUM_TABLE: aggregate logical table.
-   * - LOGIC_ODM_SOURCE: source table.
-   * - LOGIC_LABEL_TABLE: label logical table.
-   * - PHYSICAL_TABLE: physical table.
-   * - REAL_TIME_LOGIC_TABLE: real-time configured logical table.
+   * - LOGIC_TABLE: logical table
+   * - LOGIC_DIM_TABLE: logical dimension table
+   * - LOGIC_FACT_TABLE: logical fact table
+   * - LOGIC_SUM_TABLE: logical aggregate table
+   * - LOGIC_ODM_SOURCE: source table
+   * - LOGIC_LABEL_TABLE: logical label table
+   * - PHYSICAL_TABLE: physical table
+   * - REAL_TIME_LOGIC_TABLE: real-time configured logical table
    * 
    * @example
    * LOGIC_TABLE
@@ -412,7 +410,7 @@ export class GetSecurityIdentifyResultResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -433,7 +431,7 @@ export class GetSecurityIdentifyResultResponseBody extends $dara.Model {
   securityIdentifyResultInfo?: GetSecurityIdentifyResultResponseBodySecurityIdentifyResultInfo;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

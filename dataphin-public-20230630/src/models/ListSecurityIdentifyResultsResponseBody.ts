@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyResultList extends $dara.Model {
   /**
    * @remarks
-   * Business date.
+   * The business date.
    * 
    * @example
    * 2025-06-30
@@ -13,7 +13,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   bizDate?: string;
   /**
    * @remarks
-   * Business unit display name.
+   * The Chinese name of the business unit.
    * 
    * @example
    * LD_test
@@ -21,7 +21,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   bizUnitDisplayName?: string;
   /**
    * @remarks
-   * Business unit ID.
+   * The ID of the business unit.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   bizUnitId?: number;
   /**
    * @remarks
-   * Business unit name.
+   * The names of the business units.
    * 
    * @example
    * LD_test
@@ -37,7 +37,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   bizUnitName?: string;
   /**
    * @remarks
-   * Classification abbreviation.
+   * The abbreviation of the classification.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   classifyAbbreviation?: string;
   /**
    * @remarks
-   * Classification ID.
+   * The ID of the classification.
    * 
    * @example
    * 33
@@ -53,7 +53,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   classifyId?: number;
   /**
    * @remarks
-   * Classification name.
+   * The name of the classification.
    * 
    * @example
    * test
@@ -61,7 +61,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   classifyName?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2025-06-30 10:30:30
@@ -69,7 +69,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   createTime?: string;
   /**
    * @remarks
-   * Creator.
+   * The creator.
    * 
    * @example
    * 30012011
@@ -77,7 +77,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   creator?: string;
   /**
    * @remarks
-   * Data source ID.
+   * The ID of the data source.
    * 
    * @example
    * 101121
@@ -85,7 +85,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   datasourceId?: number;
   /**
    * @remarks
-   * Data source name.
+   * The names of the data sources.
    * 
    * @example
    * ds1
@@ -93,7 +93,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   datasourceName?: string;
   /**
    * @remarks
-   * Field description.
+   * The description of the field.
    * 
    * @example
    * test
@@ -101,7 +101,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   fieldDescription?: string;
   /**
    * @remarks
-   * Field ID.
+   * The ID of the field.
    * 
    * @example
    * t_test.col1
@@ -109,7 +109,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   fieldId?: string;
   /**
    * @remarks
-   * Field name.
+   * The name of the field.
    * 
    * @example
    * col1
@@ -117,12 +117,12 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   fieldName?: string;
   /**
    * @remarks
-   * Whether a better matching result exists.
+   * Indicates whether a better match exists.
    */
   hasBetterRule?: boolean;
   /**
    * @remarks
-   * Identification result ID.
+   * The ID of the identification result.
    * 
    * @example
    * 1
@@ -130,7 +130,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   id?: number;
   /**
    * @remarks
-   * Identification record ID.
+   * The ID of the identification record.
    * 
    * @example
    * 99
@@ -138,17 +138,17 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   identifyRecordId?: number;
   /**
    * @remarks
-   * Whether it is a custom tagging rule.
+   * Indicates whether a custom identification rule is used.
    */
   isCustomIdentify?: boolean;
   /**
    * @remarks
-   * Whether it is locked.
+   * Specifies whether the item is locked.
    */
   isLocked?: boolean;
   /**
    * @remarks
-   * Security level abbreviation.
+   * The abbreviation of the classification level.
    * 
    * @example
    * test
@@ -156,7 +156,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   levelAbbreviation?: string;
   /**
    * @remarks
-   * Security level color.
+   * The color of the classification level.
    * 
    * @example
    * 1
@@ -164,7 +164,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   levelColor?: number;
   /**
    * @remarks
-   * Security level index.
+   * The classification level.
    * 
    * @example
    * 1
@@ -172,7 +172,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   levelIndex?: number;
   /**
    * @remarks
-   * Security level name.
+   * The name of the classification level.
    * 
    * @example
    * test
@@ -180,7 +180,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   levelName?: string;
   /**
    * @remarks
-   * Modifier.
+   * The modifier.
    * 
    * @example
    * 30012011
@@ -188,7 +188,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   modifier?: string;
   /**
    * @remarks
-   * Modification time.
+   * The modification time.
    * 
    * @example
    * 2025-06-30 10:30:30
@@ -196,7 +196,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   modifyTime?: string;
   /**
    * @remarks
-   * Project display name.
+   * The Chinese name of the project.
    * 
    * @example
    * test
@@ -204,7 +204,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   projectDisplayName?: string;
   /**
    * @remarks
-   * Project ID.
+   * The ID of the project.
    * 
    * @example
    * 101121
@@ -212,7 +212,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   projectId?: number;
   /**
    * @remarks
-   * Project name.
+   * The names of the projects.
    * 
    * @example
    * test
@@ -220,7 +220,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   projectName?: string;
   /**
    * @remarks
-   * Scan task ID.
+   * The ID of the scan task.
    * 
    * @example
    * 11
@@ -228,7 +228,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   scanTaskId?: number;
   /**
    * @remarks
-   * Status. Valid values: ENABLE and DISABLE.
+   * The status. Valid values: ENABLE (enabled) and DISABLE (disabled).
    * 
    * @example
    * ENABLE
@@ -236,7 +236,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   status?: string;
   /**
    * @remarks
-   * Table catalog.
+   * The catalog of the table.
    * 
    * @example
    * testdb
@@ -244,7 +244,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   tableCatalog?: string;
   /**
    * @remarks
-   * Table description.
+   * The description of the table.
    * 
    * @example
    * test
@@ -252,7 +252,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   tableDescription?: string;
   /**
    * @remarks
-   * Table environment.
+   * The environment of the table.
    * 
    * @example
    * DEV
@@ -260,7 +260,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   tableEnv?: string;
   /**
    * @remarks
-   * Table ID.
+   * The ID of the table.
    * 
    * @example
    * 1
@@ -268,7 +268,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   tableId?: string;
   /**
    * @remarks
-   * Table name.
+   * The name of the table.
    * 
    * @example
    * t_test
@@ -276,7 +276,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   tableName?: string;
   /**
    * @remarks
-   * Table identification task ID.
+   * The ID of the table identification task.
    * 
    * @example
    * 22
@@ -284,7 +284,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
   tableTaskId?: number;
   /**
    * @remarks
-   * Table type. Valid values: LOGIC_TABLE (logical table), LOGIC_DIM_TABLE (dimension logical table), LOGIC_FACT_TABLE (fact logical table), LOGIC_SUM_TABLE (summary logical table), LOGIC_ODM_SOURCE (source table), LOGIC_LABEL_TABLE (label logical table), PHYSICAL_TABLE (physical table), REAL_TIME_LOGIC_TABLE (real-time configured logical table).
+   * The table type. Valid values: LOGIC_TABLE (logical table), LOGIC_DIM_TABLE (logical dimension table), LOGIC_FACT_TABLE (logical fact table), LOGIC_SUM_TABLE (logical aggregate table), LOGIC_ODM_SOURCE (source table), LOGIC_LABEL_TABLE (logical tag table), PHYSICAL_TABLE (physical table), and REAL_TIME_LOGIC_TABLE (real-time configured logical table).
    * 
    * @example
    * LOGIC_TABLE
@@ -386,12 +386,12 @@ export class ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyRe
 export class ListSecurityIdentifyResultsResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * Paginated identification result list.
+   * The paginated list of identification results.
    */
   securityIdentifyResultList?: ListSecurityIdentifyResultsResponseBodyPageResultSecurityIdentifyResultList[];
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 68
@@ -426,7 +426,7 @@ export class ListSecurityIdentifyResultsResponseBodyPageResult extends $dara.Mod
 export class ListSecurityIdentifyResultsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backend response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -434,7 +434,7 @@ export class ListSecurityIdentifyResultsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -442,7 +442,7 @@ export class ListSecurityIdentifyResultsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Backend response error details.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -450,7 +450,7 @@ export class ListSecurityIdentifyResultsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Paginated query result.
+   * The paging query result.
    */
   pageResult?: ListSecurityIdentifyResultsResponseBodyPageResult;
   /**
@@ -463,7 +463,7 @@ export class ListSecurityIdentifyResultsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request is successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

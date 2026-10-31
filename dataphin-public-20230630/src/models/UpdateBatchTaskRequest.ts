@@ -4,36 +4,60 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateBatchTaskRequestUpdateCommandConditionScheduleParamList extends $dara.Model {
   /**
+   * @remarks
+   * The condition name.
+   * 
    * @example
    * condition1
    */
   conditionName?: string;
   /**
+   * @remarks
+   * The cron expression used after the condition is met.
+   * 
    * @example
    * 0 0 1 * * ?
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the condition.
+   * 
    * @example
    * true
    */
   enable?: boolean;
   /**
+   * @remarks
+   * Specifies whether to follow the primary schedule parameter.
+   * 
    * @example
    * true
    */
   followScheduleParam?: boolean;
   /**
+   * @remarks
+   * The node schedule status after the condition is met. Valid values:
+   * - 1: Normal.
+   * - 2: Paused.
+   * - 3: Dry run.
+   * 
    * @example
    * 1
    */
   nodeStatus?: number;
   /**
+   * @remarks
+   * The JSON string of the conditional expression tree. The keys are in lower camel case characters and must be parsed by the invoker.
+   * 
    * @example
    * {"type":"EXPRESSION","operator":"or"}
    */
   scheduleConditionJson?: string;
   /**
+   * @remarks
+   * The schedule time used after the condition is met.
+   * 
    * @example
    * 01:00
    */
@@ -73,16 +97,25 @@ export class UpdateBatchTaskRequestUpdateCommandConditionScheduleParamList exten
 
 export class UpdateBatchTaskRequestUpdateCommandContextParamList extends $dara.Model {
   /**
+   * @remarks
+   * The default value.
+   * 
    * @example
    * 1
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * The parameter description.
+   * 
    * @example
-   * 测试参数
+   * Test parameter
    */
   desc?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * param1
    */
@@ -115,7 +148,7 @@ export class UpdateBatchTaskRequestUpdateCommandContextParamList extends $dara.M
 export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $dara.Model {
   /**
    * @remarks
-   * The end time in the format of HH:mm.
+   * The end time in the HH:mm format.
    * 
    * This parameter is required.
    * 
@@ -136,8 +169,8 @@ export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $da
   /**
    * @remarks
    * The interval unit. Valid values:
-   * - MINUTE: minute.
-   * - HOUR: hour.
+   * - MINUTE: Minutes.
+   * - HOUR: Hours.
    * 
    * This parameter is required.
    * 
@@ -148,12 +181,12 @@ export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $da
   /**
    * @remarks
    * The schedule period. Valid values:
-   * - YEARLY
-   * - MONTHLY
-   * - WEEKLY
-   * - DAILY
-   * - HOURLY
-   * - MINUTELY
+   * - YEARLY: Yearly.
+   * - MONTHLY: Monthly.
+   * - WEEKLY: Weekly.
+   * - DAILY: Daily.
+   * - HOURLY: Hourly.
+   * - MINUTELY: Minutely.
    * 
    * This parameter is required.
    * 
@@ -163,7 +196,7 @@ export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $da
   schedulePeriod?: string;
   /**
    * @remarks
-   * The start time in the format of HH:mm.
+   * The start time in the HH:mm format.
    * 
    * This parameter is required.
    * 
@@ -200,6 +233,96 @@ export class UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig extends $da
   }
 }
 
+export class UpdateBatchTaskRequestUpdateCommandExecuteRerunConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 自定义失败重试间隔。
+   * 
+   * @example
+   * 60
+   */
+  customRerunInterval?: string;
+  /**
+   * @remarks
+   * 自定义失败重试次数。
+   * 
+   * @example
+   * 3
+   */
+  customRerunTimes?: string;
+  /**
+   * @remarks
+   * 是否跟随系统配置。
+   * 
+   * @example
+   * false
+   */
+  followSystem?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      customRerunInterval: 'CustomRerunInterval',
+      customRerunTimes: 'CustomRerunTimes',
+      followSystem: 'FollowSystem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customRerunInterval: 'string',
+      customRerunTimes: 'string',
+      followSystem: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBatchTaskRequestUpdateCommandExecuteTimeOutConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 自定义超时时间。
+   * 
+   * @example
+   * 1800
+   */
+  customValues?: string;
+  /**
+   * @remarks
+   * 是否跟随系统配置。
+   * 
+   * @example
+   * false
+   */
+  followSystem?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      customValues: 'CustomValues',
+      followSystem: 'FollowSystem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customValues: 'string',
+      followSystem: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateBatchTaskRequestUpdateCommandParamList extends $dara.Model {
   /**
    * @remarks
@@ -213,7 +336,7 @@ export class UpdateBatchTaskRequestUpdateCommandParamList extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The parameter value.
+   * The value of the parameter.
    * 
    * This parameter is required.
    * 
@@ -279,7 +402,7 @@ export class UpdateBatchTaskRequestUpdateCommandSparkClientInfo extends $dara.Mo
 export class UpdateBatchTaskRequestUpdateCommandUpStreamListDependPeriod extends $dara.Model {
   /**
    * @remarks
-   * The period offset. This parameter is required when dependencyPeriodType is set to LAST_N_PERIOD.
+   * The cycle offset. This parameter is required when the PeriodType parameter is set to LAST_N_PERIOD.
    * 
    * @example
    * 1
@@ -287,11 +410,11 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamListDependPeriod extends
   periodOffset?: number;
   /**
    * @remarks
-   * The type of the dependency period. Valid values:
-   * - CURRENT_PERIOD: current period.
-   * - LAST_PERIOD: previous period.
-   * - LAST_N_PERIOD: last N days.
-   * - LAST_24_HOUR: last 24 hours.
+   * The type of the dependency cycle. Valid values:
+   * - CURRENT_PERIOD: Current cycle.
+   * - LAST_PERIOD: Last cycle.
+   * - LAST_N_PERIOD: Last N days.
+   * - LAST_24_HOUR: Last 24 hours.
    * 
    * This parameter is required.
    * 
@@ -325,16 +448,16 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamListDependPeriod extends
 export class UpdateBatchTaskRequestUpdateCommandUpStreamList extends $dara.Model {
   /**
    * @remarks
-   * The dependency period.
+   * The dependency cycle.
    */
   dependPeriod?: UpdateBatchTaskRequestUpdateCommandUpStreamListDependPeriod;
   /**
    * @remarks
    * The dependency strategy. Valid values:
-   * - ALL: all.
-   * - FIRST: first.
-   * - LAST: last.
-   * - NEAR: nearest.
+   * - ALL: All.
+   * - FIRST: First.
+   * - LAST: Last.
+   * - NEAR: Nearest.
    * 
    * @example
    * LAST
@@ -342,14 +465,14 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamList extends $dara.Model
   dependStrategy?: string;
   /**
    * @remarks
-   * The fields of the dependent logical table.
+   * The list of dependent logical table fields.
    */
   fieldList?: string[];
   /**
    * @remarks
    * The type of the upstream dependency node. Valid values:
-   * - PHYSICAL: physical node.
-   * - LOGICAL: logical table dependency.
+   * - PHYSICAL: Physical node.
+   * - LOGICAL: Logical table dependency.
    * 
    * @example
    * PHYSICAL
@@ -357,7 +480,7 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamList extends $dara.Model
   nodeType?: string;
   /**
    * @remarks
-   * The period difference. A value of 0 indicates same-period dependency. A positive number indicates dependency on the previous N periods.
+   * The cycle difference. A value of 0 indicates a dependency on the same cycle. A positive integer indicates a dependency on the previous N cycles.
    * 
    * This parameter is required.
    * 
@@ -367,7 +490,7 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamList extends $dara.Model
   periodDiff?: number;
   /**
    * @remarks
-   * Indicates whether the upstream node is enabled.
+   * Specifies whether the upstream node is enabled.
    */
   sourceNodeEnabled?: boolean;
   /**
@@ -441,13 +564,16 @@ export class UpdateBatchTaskRequestUpdateCommandUpStreamList extends $dara.Model
 
 export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   /**
+   * @remarks
+   * The base schedule template ID. This parameter takes effect when the configuration method is set to schedule template. If this parameter and all other schedule fields are not specified, the original binding is retained.
+   * 
    * @example
    * 7305621095333696
    */
   baseScheduleTemplateId?: number;
   /**
    * @remarks
-   * The code of the node.
+   * The task code.
    * 
    * This parameter is required.
    * 
@@ -456,20 +582,42 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    */
   code?: string;
   /**
+   * @remarks
+   * Specifies whether to enable conditional scheduling.
+   * 
    * @example
    * true
    */
   conditionScheduleEnable?: boolean;
+  /**
+   * @remarks
+   * The conditional scheduling configuration details. This parameter overwrites the existing configurations. If this parameter is not specified, the original configurations are retained. This parameter is supported only for periodic tasks.
+   */
   conditionScheduleParamList?: UpdateBatchTaskRequestUpdateCommandConditionScheduleParamList[];
   /**
+   * @remarks
+   * The conditional schedule template ID.
+   * 
    * @example
    * 7305621095333697
    */
   conditionScheduleTemplateId?: number;
+  /**
+   * @remarks
+   * The cross-node parameters. These are output parameters declared by the current node for downstream nodes to reference. This parameter overwrites the existing parameters. If this parameter is not specified, the original parameters are retained.
+   */
   contextParamList?: UpdateBatchTaskRequestUpdateCommandContextParamList[];
   /**
    * @remarks
-   * The cron expression for automatic scheduling. Refer to Linux cron expressions.
+   * 不传时保留任务当前配置。
+   * 
+   * @example
+   * 0.5
+   */
+  cpuResource?: string;
+  /**
+   * @remarks
+   * The cron expression for automatic scheduling. You can refer to Linux cron expressions.
    * 
    * @example
    * 0 0 1 * * ?
@@ -482,7 +630,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   customScheduleConfig?: UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig;
   /**
    * @remarks
-   * The catalog for database SQL nodes. This parameter applies only to datasource types that require a catalog, such as Presto.
+   * The data source catalog for database SQL tasks. This parameter takes effect only for data source types that require a catalog, such as Presto.
    * 
    * @example
    * mysql_catalog
@@ -490,7 +638,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   dataSourceCatalog?: string;
   /**
    * @remarks
-   * The datasource ID for database SQL nodes.
+   * The data source ID for database SQL tasks.
    * 
    * @example
    * 12131111
@@ -498,18 +646,24 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The schema for database SQL nodes. This parameter applies only to datasource types that require a schema, such as Oracle.
+   * The data source schema for database SQL tasks. This parameter takes effect only for data source types that require a schema, such as Oracle.
    * 
    * @example
    * erp
    */
   dataSourceSchema?: string;
   /**
+   * @remarks
+   * The HTTP path in the development environment for Databricks tasks.
+   * 
    * @example
    * /sql/protocolv1/o/xxx
    */
   devHttpPath?: string;
   /**
+   * @remarks
+   * The ID of the schedule resource group for development tasks.
+   * 
    * @example
    * rg-def456
    */
@@ -521,10 +675,10 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   developOwnerIdList?: string[];
   /**
    * @remarks
-   * The execution engine for the node, such as for Python nodes. Valid values:
-   * - PYTHON2_7
-   * - PYTHON3_7
-   * - PYTHON3_11
+   * The task execution engine, such as Python tasks. Valid values:
+   * - PYTHON2_7: Python 2.7.
+   * - PYTHON3_7: Python 3.7.
+   * - PYTHON3_11: Python 3.11.
    * 
    * @example
    * PYTHON3_7
@@ -532,7 +686,17 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The node ID in the folder tree.
+   * 失败重试配置。不传时保留任务当前配置。传入时整体替换该配置对象。
+   */
+  executeRerunConfig?: UpdateBatchTaskRequestUpdateCommandExecuteRerunConfig;
+  /**
+   * @remarks
+   * 执行超时配置。不传时保留任务当前配置。传入时整体替换该配置对象。
+   */
+  executeTimeOutConfig?: UpdateBatchTaskRequestUpdateCommandExecuteTimeOutConfig;
+  /**
+   * @remarks
+   * The ID of the task directory tree node.
    * 
    * This parameter is required.
    * 
@@ -542,7 +706,15 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * The name of the offline node.
+   * 不传时保留任务当前配置。
+   * 
+   * @example
+   * 1024
+   */
+  memoryResource?: string;
+  /**
+   * @remarks
+   * The name of the offline task.
    * 
    * This parameter is required.
    * 
@@ -555,7 +727,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    * The description of the node.
    * 
    * @example
-   * Test_description
+   * xx test
    */
   nodeDescription?: string;
   /**
@@ -565,7 +737,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   nodeOutputNameList?: string[];
   /**
    * @remarks
-   * The node status. Valid values:
+   * The status of the node. Valid values:
    * - 1: Normal.
    * - 2: Paused.
    * - 3: Dry run.
@@ -574,6 +746,10 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    * 1
    */
   nodeStatus?: number;
+  /**
+   * @remarks
+   * The list of O&M owner IDs. If you do not specify this parameter, the O&M owners are not modified.
+   */
   opsOwnerIdList?: string[];
   /**
    * @remarks
@@ -589,6 +765,9 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
    */
   priority?: number;
   /**
+   * @remarks
+   * The HTTP path in the production environment. This parameter is used for Databricks nodes.
+   * 
    * @example
    * /sql/protocolv1/o/yyy
    */
@@ -605,23 +784,35 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The third-party Python packages required by the node.
+   * The list of third-party Python packages on which the node depends.
    */
   pythonModuleList?: string[];
   /**
+   * @remarks
+   * The ID of the scheduling resource group for the production node.
+   * 
    * @example
    * rg-abc123
    */
   resourceGroupId?: string;
+  resourceReferenceList?: string[];
   /**
    * @remarks
-   * The schedule period. Valid values:
-   * - YEARLY
-   * - MONTHLY
-   * - WEEKLY
-   * - DAILY
-   * - HOURLY
-   * - MINUTELY
+   * 超时重试开关。不传时保留任务当前配置。显式传入false时关闭。
+   * 
+   * @example
+   * false
+   */
+  retryOnTimeoutEnable?: boolean;
+  /**
+   * @remarks
+   * The scheduling cycle. Valid values:
+   * - YEARLY: Yearly.
+   * - MONTHLY: Monthly.
+   * - WEEKLY: Weekly.
+   * - DAILY: Daily.
+   * - HOURLY: Hourly.
+   * - MINUTELY: Minutely.
    * 
    * @example
    * DAILY
@@ -629,15 +820,43 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   schedulePeriod?: string;
   /**
    * @remarks
-   * The Spark client information.
+   * The Spark client.
    */
   sparkClientInfo?: UpdateBatchTaskRequestUpdateCommandSparkClientInfo;
+  /**
+   * @remarks
+   * 不传时保留任务当前配置。显式传入false时关闭。
+   * 
+   * @example
+   * false
+   */
+  sparkDynamicResourceSwitch?: boolean;
+  /**
+   * @remarks
+   * ONLY_PROD表示仅生产环境，PROD_AND_DEV表示生产和开发环境。不传时保留任务当前配置。
+   * 
+   * @example
+   * ONLY_PROD
+   */
+  sparkResourceEffectScope?: string;
+  /**
+   * @remarks
+   * Spark SQL资源配置，键为配置项名称，值为字符串。不传时保留任务当前配置；传入空JSON对象{}时清空配置。
+   * 
+   * @example
+   * {"spark.executor.memory":"2g"}
+   */
+  sparkSqlResourceConfigMap?: string;
+  /**
+   * @remarks
+   * The list of node tags. This parameter overwrites all existing tags. If you do not specify this parameter, the original tags remain unchanged.
+   */
   taskTagList?: string[];
   /**
    * @remarks
-   * The node type. Valid values:
-   * - 1: Hive_SQL.
-   * - 5: MaxCompute_SQL.
+   * The type of the node. Valid values:
+   * - 1: Hive SQL.
+   * - 5: MaxCompute SQL.
    * - 10: Shell.
    * - 21: Python.
    * 
@@ -649,15 +868,21 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
   taskType?: number;
   /**
    * @remarks
-   * The upstream dependencies.
+   * The list of upstream dependencies.
    */
   upStreamList?: UpdateBatchTaskRequestUpdateCommandUpStreamList[];
   /**
+   * @remarks
+   * The end date of the validity period. Format: yyyy-MM-dd. This parameter must be specified together with the ValidStartDate parameter.
+   * 
    * @example
    * 9999-12-31
    */
   validEndDate?: string;
   /**
+   * @remarks
+   * The start date of the validity period. Format: yyyy-MM-dd. This parameter must be specified together with the ValidEndDate parameter.
+   * 
    * @example
    * 2026-01-01
    */
@@ -670,6 +895,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
       conditionScheduleParamList: 'ConditionScheduleParamList',
       conditionScheduleTemplateId: 'ConditionScheduleTemplateId',
       contextParamList: 'ContextParamList',
+      cpuResource: 'CpuResource',
       cronExpression: 'CronExpression',
       customScheduleConfig: 'CustomScheduleConfig',
       dataSourceCatalog: 'DataSourceCatalog',
@@ -679,7 +905,10 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
       devResourceGroupId: 'DevResourceGroupId',
       developOwnerIdList: 'DevelopOwnerIdList',
       engine: 'Engine',
+      executeRerunConfig: 'ExecuteRerunConfig',
+      executeTimeOutConfig: 'ExecuteTimeOutConfig',
       fileId: 'FileId',
+      memoryResource: 'MemoryResource',
       name: 'Name',
       nodeDescription: 'NodeDescription',
       nodeOutputNameList: 'NodeOutputNameList',
@@ -691,8 +920,13 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
       projectId: 'ProjectId',
       pythonModuleList: 'PythonModuleList',
       resourceGroupId: 'ResourceGroupId',
+      resourceReferenceList: 'ResourceReferenceList',
+      retryOnTimeoutEnable: 'RetryOnTimeoutEnable',
       schedulePeriod: 'SchedulePeriod',
       sparkClientInfo: 'SparkClientInfo',
+      sparkDynamicResourceSwitch: 'SparkDynamicResourceSwitch',
+      sparkResourceEffectScope: 'SparkResourceEffectScope',
+      sparkSqlResourceConfigMap: 'SparkSqlResourceConfigMap',
       taskTagList: 'TaskTagList',
       taskType: 'TaskType',
       upStreamList: 'UpStreamList',
@@ -709,6 +943,7 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
       conditionScheduleParamList: { 'type': 'array', 'itemType': UpdateBatchTaskRequestUpdateCommandConditionScheduleParamList },
       conditionScheduleTemplateId: 'number',
       contextParamList: { 'type': 'array', 'itemType': UpdateBatchTaskRequestUpdateCommandContextParamList },
+      cpuResource: 'string',
       cronExpression: 'string',
       customScheduleConfig: UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig,
       dataSourceCatalog: 'string',
@@ -718,7 +953,10 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
       devResourceGroupId: 'string',
       developOwnerIdList: { 'type': 'array', 'itemType': 'string' },
       engine: 'string',
+      executeRerunConfig: UpdateBatchTaskRequestUpdateCommandExecuteRerunConfig,
+      executeTimeOutConfig: UpdateBatchTaskRequestUpdateCommandExecuteTimeOutConfig,
       fileId: 'number',
+      memoryResource: 'string',
       name: 'string',
       nodeDescription: 'string',
       nodeOutputNameList: { 'type': 'array', 'itemType': 'string' },
@@ -730,8 +968,13 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
       projectId: 'number',
       pythonModuleList: { 'type': 'array', 'itemType': 'string' },
       resourceGroupId: 'string',
+      resourceReferenceList: { 'type': 'array', 'itemType': 'string' },
+      retryOnTimeoutEnable: 'boolean',
       schedulePeriod: 'string',
       sparkClientInfo: UpdateBatchTaskRequestUpdateCommandSparkClientInfo,
+      sparkDynamicResourceSwitch: 'boolean',
+      sparkResourceEffectScope: 'string',
+      sparkSqlResourceConfigMap: 'string',
       taskTagList: { 'type': 'array', 'itemType': 'string' },
       taskType: 'number',
       upStreamList: { 'type': 'array', 'itemType': UpdateBatchTaskRequestUpdateCommandUpStreamList },
@@ -753,6 +996,12 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
     if(Array.isArray(this.developOwnerIdList)) {
       $dara.Model.validateArray(this.developOwnerIdList);
     }
+    if(this.executeRerunConfig && typeof (this.executeRerunConfig as any).validate === 'function') {
+      (this.executeRerunConfig as any).validate();
+    }
+    if(this.executeTimeOutConfig && typeof (this.executeTimeOutConfig as any).validate === 'function') {
+      (this.executeTimeOutConfig as any).validate();
+    }
     if(Array.isArray(this.nodeOutputNameList)) {
       $dara.Model.validateArray(this.nodeOutputNameList);
     }
@@ -764,6 +1013,9 @@ export class UpdateBatchTaskRequestUpdateCommand extends $dara.Model {
     }
     if(Array.isArray(this.pythonModuleList)) {
       $dara.Model.validateArray(this.pythonModuleList);
+    }
+    if(Array.isArray(this.resourceReferenceList)) {
+      $dara.Model.validateArray(this.resourceReferenceList);
     }
     if(this.sparkClientInfo && typeof (this.sparkClientInfo as any).validate === 'function') {
       (this.sparkClientInfo as any).validate();
@@ -795,7 +1047,7 @@ export class UpdateBatchTaskRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

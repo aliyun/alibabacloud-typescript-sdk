@@ -14,13 +14,16 @@ export class GetKgRelationRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The relationship record ID.
+   * The relation record ID.
    * 
    * This parameter is required.
    * 
@@ -30,7 +33,7 @@ export class GetKgRelationRequest extends $dara.Model {
   relationId?: string;
   /**
    * @remarks
-   * The relationship type code.
+   * The relation type code.
    * 
    * This parameter is required.
    * 

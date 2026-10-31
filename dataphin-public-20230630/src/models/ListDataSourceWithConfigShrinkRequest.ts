@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSourceWithConfigShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Paginated query
+   * The paged query parameters.
    * 
    * This parameter is required.
    */
   listQueryShrink?: string;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -21,6 +21,9 @@ export class ListDataSourceWithConfigShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

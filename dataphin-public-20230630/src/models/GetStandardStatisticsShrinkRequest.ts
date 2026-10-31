@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStandardStatisticsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The tenant ID.
+   * The ID of the tenant.
    * 
    * This parameter is required.
    * 
@@ -14,13 +14,16 @@ export class GetStandardStatisticsShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The statistical query instruction.
+   * The statistics query instruction.
    * 
    * This parameter is required.
    */

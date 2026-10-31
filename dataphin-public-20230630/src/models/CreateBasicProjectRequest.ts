@@ -79,10 +79,10 @@ export class CreateBasicProjectRequestCreateCommand extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The project display name.
+   * The display name of the project.
    * 
    * @example
-   * My project.
+   * My project
    */
   displayName?: string;
   /**
@@ -113,7 +113,7 @@ export class CreateBasicProjectRequestCreateCommand extends $dara.Model {
   streamComputeSourceId?: number;
   /**
    * @remarks
-   * The project type. If this parameter is left empty, the default value GENERAL is used.
+   * The project type. Default value: GENERAL.
    * 
    * @example
    * GENERAL
@@ -167,7 +167,7 @@ export class CreateBasicProjectRequestCreateCommand extends $dara.Model {
 export class CreateBasicProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The create command.
+   * The creation command.
    * 
    * This parameter is required.
    */
@@ -183,6 +183,9 @@ export class CreateBasicProjectRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

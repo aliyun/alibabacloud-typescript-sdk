@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAdHocTaskResponseBodyExecuteResult extends $dara.Model {
   /**
    * @remarks
-   * The number of subtasks split from the parsed task.
+   * The number of subtasks generated after the task is parsed and split.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ExecuteAdHocTaskResponseBodyExecuteResult extends $dara.Model {
 export class ExecuteAdHocTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -82,7 +82,7 @@ export class ExecuteAdHocTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

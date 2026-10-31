@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckProjectHasDependencyRequest extends $dara.Model {
   /**
    * @remarks
-   * Project ID.
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CheckProjectHasDependencyRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,9 @@ export class CheckProjectHasDependencyRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

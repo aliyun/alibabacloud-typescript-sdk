@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishKgSchemaResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The expected latest model version number after the publish operation.
+   * The expected latest model version number after publishing.
    * 
    * @example
    * 1
@@ -82,7 +82,7 @@ export class PublishKgSchemaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

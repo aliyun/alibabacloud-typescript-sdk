@@ -14,13 +14,16 @@ export class GetLatestSubmitDetailShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The pending submit query request.
+   * The pending release query request.
    * 
    * This parameter is required.
    */

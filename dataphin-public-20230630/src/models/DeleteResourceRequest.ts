@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * Remarks.
+   * The comment.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试
+   * Test
    */
   comment?: string;
   /**
    * @remarks
-   * Resource file ID.
+   * The resource file ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteResourceRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -34,13 +34,16 @@ export class DeleteResourceRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Project ID.
+   * The project ID.
    * 
    * This parameter is required.
    * 

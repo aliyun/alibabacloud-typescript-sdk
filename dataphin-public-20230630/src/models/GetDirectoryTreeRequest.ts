@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetDirectoryTreeRequest extends $dara.Model {
   /**
    * @remarks
-   * Directory type.
-   * - Ad-hoc Query: tempCode
-   * - Code Task: codeManage
-   * - Offline Pipeline: offlinePipeline
-   * - Pipeline Custom Component: offlinePipelineCustomPlugin
-   * - Sync Task: dataX
-   * - Real-time Meta Table: streamMeta
-   * - Real-time Custom Source: streamCustomDataSource
-   * - Real-time Compute Template: streamTemplate
-   * - Resource Management: resourceManage
-   * - Offline Function: udfResource
-   * - Real-time Function: streamFunction
+   * The directory type. Valid values:
+   * - tempCode: Ad hoc query.
+   * - codeManage: Code task.
+   * - offlinePipeline: Offline pipeline.
+   * - offlinePipelineCustomPlugin: Custom pipeline component.
+   * - dataX: Synchronization task.
+   * - streamMeta: Real-time metadata table.
+   * - streamCustomDataSource: Real-time custom source.
+   * - streamTemplate: Real-time computing template.
+   * - resourceManage: Resource management.
+   * - udfResource: Offline function.
+   * - streamFunction: Real-time function.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class GetDirectoryTreeRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -35,13 +35,16 @@ export class GetDirectoryTreeRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operating user.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Project ID.
+   * The project ID.
    * 
    * This parameter is required.
    * 

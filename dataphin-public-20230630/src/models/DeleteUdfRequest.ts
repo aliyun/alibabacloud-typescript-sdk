@@ -10,12 +10,12 @@ export class DeleteUdfRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 测试
+   * Test
    */
   comment?: string;
   /**
    * @remarks
-   * The ID of the user-defined function.
+   * The ID of the custom function.
    * 
    * This parameter is required.
    * 
@@ -34,6 +34,9 @@ export class DeleteUdfRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator user.
+   * 
    * @example
    * 30001011
    */

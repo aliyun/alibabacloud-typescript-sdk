@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceApiCallsRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * The ID of the API.
+   * The code of the API.
    * 
    * @example
    * 20122
@@ -22,7 +22,7 @@ export class ListDataServiceApiCallsRequestListQuery extends $dara.Model {
   /**
    * @remarks
    * The application key.
-   * >Notice: This parameter is deprecated. Use AppKeyStr instead.
+   * >Notice: Deprecated. Use AppKeyStr instead.</notice>
    * 
    * @example
    * 12345
@@ -66,7 +66,7 @@ export class ListDataServiceApiCallsRequestListQuery extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The number of records per page. Default value: 20.
    * 
    * @example
    * 20
@@ -84,7 +84,7 @@ export class ListDataServiceApiCallsRequestListQuery extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Specifies whether the call is successful.
    */
   successful?: boolean;
   static names(): { [key: string]: string } {
@@ -129,14 +129,14 @@ export class ListDataServiceApiCallsRequestListQuery extends $dara.Model {
 export class ListDataServiceApiCallsRequest extends $dara.Model {
   /**
    * @remarks
-   * The query conditions.
+   * The search conditions.
    * 
    * This parameter is required.
    */
   listQuery?: ListDataServiceApiCallsRequestListQuery;
   /**
    * @remarks
-   * The ID of the tenant.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -145,6 +145,9 @@ export class ListDataServiceApiCallsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

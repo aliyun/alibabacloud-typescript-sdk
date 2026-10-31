@@ -6,8 +6,8 @@ export class GetPhysicalNodeContentRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - DEV: Development environment. 
-   * - PROD (default): Production environment.
+   * - DEV: development environment. 
+   * - PROD: production environment. This is the default value.
    * 
    * @example
    * PROD
@@ -34,6 +34,9 @@ export class GetPhysicalNodeContentRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

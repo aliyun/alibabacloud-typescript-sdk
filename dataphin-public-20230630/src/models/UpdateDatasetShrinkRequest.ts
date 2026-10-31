@@ -14,6 +14,9 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
@@ -30,7 +33,7 @@ export class UpdateDatasetShrinkRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The update request struct.
+   * The update struct.
    * 
    * This parameter is required.
    */

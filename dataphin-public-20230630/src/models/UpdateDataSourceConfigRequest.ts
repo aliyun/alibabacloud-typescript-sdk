@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataSourceConfigRequestUpdateCommandConfigItemList extends $dara.Model {
   /**
    * @remarks
-   * The key ID of the configuration item.
+   * The configuration item key ID.
    * 
    * This parameter is required.
    * 
@@ -56,7 +56,7 @@ export class UpdateDataSourceConfigRequestUpdateCommand extends $dara.Model {
   configItemList?: UpdateDataSourceConfigRequestUpdateCommandConfigItemList[];
   /**
    * @remarks
-   * The data source ID.
+   * The datasource ID.
    * 
    * This parameter is required.
    * 
@@ -102,13 +102,16 @@ export class UpdateDataSourceConfigRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The data source configuration item change.
+   * The changes to the datasource configuration items.
    * 
    * This parameter is required.
    */

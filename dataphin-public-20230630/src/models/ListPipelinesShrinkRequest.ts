@@ -29,7 +29,7 @@ export class ListPipelinesShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The user ID of the operator.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

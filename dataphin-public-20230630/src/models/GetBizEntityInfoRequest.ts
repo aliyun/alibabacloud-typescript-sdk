@@ -24,13 +24,16 @@ export class GetBizEntityInfoRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The business entity type. For more information, refer to the create business entity operation.
+   * The business entity type. For more information, see the Create business entity operation.
    * 
    * This parameter is required.
    * 

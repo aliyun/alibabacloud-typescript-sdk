@@ -14,13 +14,16 @@ export class GetDataServiceProjectAddableUsersRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The data service project ID.
+   * The Data Service project ID.
    * 
    * This parameter is required.
    * 

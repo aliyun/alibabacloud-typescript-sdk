@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPhysicalNodeContentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The node code content.
+   * The code content of the node.
    * 
    * @example
    * select 1;
@@ -24,7 +24,7 @@ export class GetPhysicalNodeContentResponseBodyData extends $dara.Model {
    * The node name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   nodeName?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class GetPhysicalNodeContentResponseBodyData extends $dara.Model {
 export class GetPhysicalNodeContentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -92,7 +92,7 @@ export class GetPhysicalNodeContentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

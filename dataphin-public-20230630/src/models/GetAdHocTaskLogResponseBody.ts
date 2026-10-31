@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAdHocTaskLogResponseBodyLogInfo extends $dara.Model {
   /**
    * @remarks
-   * The runtime log content.
+   * The execution log.
    * 
    * @example
    * test
@@ -13,17 +13,17 @@ export class GetAdHocTaskLogResponseBodyLogInfo extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Indicates whether the next log entry exists.
+   * Indicates whether more log entries exist.
    */
   hasNext?: boolean;
   /**
    * @remarks
-   * Indicates whether the current query produces a result.
+   * Indicates whether the current query will generate results.
    */
   hasResult?: boolean;
   /**
    * @remarks
-   * The start position of the next log entry.
+   * The starting position of the next log entry.
    * 
    * @example
    * 2021
@@ -47,7 +47,7 @@ export class GetAdHocTaskLogResponseBodyLogInfo extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task running status. Example: WAIT_RESOURCE indicates that the task is waiting for resources.
+   * The execution status of the task. Valid values: WAIT_RESOURCE (waiting for resources).
    * 
    * @example
    * WAIT_RESOURCE
@@ -89,7 +89,7 @@ export class GetAdHocTaskLogResponseBodyLogInfo extends $dara.Model {
 export class GetAdHocTaskLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -126,7 +126,7 @@ export class GetAdHocTaskLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ResumePhysicalNodeShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Environment identifier.
-   * - DEV: Development environment
-   * - PROD (default): Production environment
+   * The environment identifier. Valid values:
+   * - DEV: development environment 
+   * - PROD: production environment. This is the default value.
    * 
    * @example
    * PROD
@@ -15,7 +15,7 @@ export class ResumePhysicalNodeShrinkRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -24,13 +24,16 @@ export class ResumePhysicalNodeShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Resume scheduling request.
+   * The request to resume scheduling.
    * 
    * This parameter is required.
    */

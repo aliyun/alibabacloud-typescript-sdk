@@ -14,13 +14,16 @@ export class GetQualityWatchTaskRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The quality watchtask ID.
+   * The watchtask ID.
    * 
    * This parameter is required.
    * 

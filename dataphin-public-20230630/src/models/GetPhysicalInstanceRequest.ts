@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetPhysicalInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Environment identifier.
-   * DEV: Development environment.
-   * PROD (default): Production environment.
+   * The environment identifier. Valid values:
+   * - DEV: Development environment.
+   * - PROD: Production environment.
+   * Default value: PROD.
    * 
    * @example
    * PROD
@@ -15,7 +16,7 @@ export class GetPhysicalInstanceRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +26,7 @@ export class GetPhysicalInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -34,13 +35,16 @@ export class GetPhysicalInstanceRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * This parameter is required.
    * 

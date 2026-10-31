@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImportKgSchemaRequestImportCommand extends $dara.Model {
   /**
    * @remarks
-   * The knowledge graph definition content converted based on the specified format.
+   * The knowledge graph definition content converted based on the format.
    * 
    * @example
    * name:xxx
@@ -55,7 +55,7 @@ export class ImportKgSchemaRequestImportCommand extends $dara.Model {
 export class ImportKgSchemaRequest extends $dara.Model {
   /**
    * @remarks
-   * The command for importing the knowledge graph definition.
+   * The import command for the knowledge graph definition.
    * 
    * This parameter is required.
    * 
@@ -75,7 +75,7 @@ export class ImportKgSchemaRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

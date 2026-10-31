@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class BatchHandoverAssetShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The batch transfer command.
+   * 
    * This parameter is required.
    */
   handoverCommandShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +21,9 @@ export class BatchHandoverAssetShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

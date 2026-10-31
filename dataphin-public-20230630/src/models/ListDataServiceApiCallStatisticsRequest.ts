@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceApiCallStatisticsRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * End time. Format: yyyy-MM-dd HH:mm:ss.
+   * The end time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListDataServiceApiCallStatisticsRequestListQuery extends $dara.Mode
   endTime?: string;
   /**
    * @remarks
-   * Search keyword.
+   * The search keyword.
    * 
    * @example
    * test
@@ -23,7 +23,13 @@ export class ListDataServiceApiCallStatisticsRequestListQuery extends $dara.Mode
   keyword?: string;
   /**
    * @remarks
-   * Sort column. Valid values: CALL_COUNT (call count), ERROR_COUNT (error count), ERROR_RATE (error rate), AVG_RESPONSE_TIME (average response time), and OFFLINE_RATE (offline percentage). Default value: CALL_COUNT.
+   * The column by which to sort the results. Valid values:
+   * - CALL_COUNT: the number of calls.
+   * - ERROR_COUNT: the number of exceptions.
+   * - ERROR_RATE: the error rate.
+   * - AVG_RESPONSE_TIME: the average response time.
+   * - OFFLINE_RATE: the offline percentage.
+   * Default value: CALL_COUNT.
    * 
    * @example
    * CALL_COUNT
@@ -31,7 +37,10 @@ export class ListDataServiceApiCallStatisticsRequestListQuery extends $dara.Mode
   orderColumn?: string;
   /**
    * @remarks
-   * Sort order. Valid values: 1 (ascending) and 2 (descending). Default value: 1.
+   * The sort order. Valid values:
+   * - 1: ascending order.
+   * - 2: descending order.
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -39,7 +48,7 @@ export class ListDataServiceApiCallStatisticsRequestListQuery extends $dara.Mode
   orderType?: number;
   /**
    * @remarks
-   * Page number. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -47,7 +56,7 @@ export class ListDataServiceApiCallStatisticsRequestListQuery extends $dara.Mode
   pageNo?: number;
   /**
    * @remarks
-   * Number of entries per page. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -55,7 +64,7 @@ export class ListDataServiceApiCallStatisticsRequestListQuery extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * Start time. Format: yyyy-MM-dd HH:mm:ss.
+   * The start time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * This parameter is required.
    * 
@@ -99,14 +108,14 @@ export class ListDataServiceApiCallStatisticsRequestListQuery extends $dara.Mode
 export class ListDataServiceApiCallStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * Search conditions.
+   * The search conditions.
    * 
    * This parameter is required.
    */
   listQuery?: ListDataServiceApiCallStatisticsRequestListQuery;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -115,15 +124,20 @@ export class ListDataServiceApiCallStatisticsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Data service project ID.
+   * The data service project ID.
    * 
-   * This parameter is required.
+   * > If this parameter is not specified:
+   * > - Super administrators can query data of all service projects.
+   * > - Users other than super administrators can query data of service projects where they have the service project administrator or O&M user permissions.
    * 
    * @example
    * 102102

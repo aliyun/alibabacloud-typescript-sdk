@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckResourcePermissionResponseBodyResourcePermissionList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the user has the permission on the specified resource
+   * Indicates whether the user has the specified resource permissions.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class CheckResourcePermissionResponseBodyResourcePermissionList extends $
   hasPermission?: boolean;
   /**
    * @remarks
-   * Resource ID
+   * The resource ID.
    * 
    * @example
    * hadoop.300000806.data_distill.behavior_gameinfor_01
@@ -45,7 +45,7 @@ export class CheckResourcePermissionResponseBodyResourcePermissionList extends $
 export class CheckResourcePermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. OK indicates a successful request
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -53,7 +53,7 @@ export class CheckResourcePermissionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code returned by the backend
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -61,7 +61,7 @@ export class CheckResourcePermissionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * successful
@@ -69,7 +69,7 @@ export class CheckResourcePermissionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -77,12 +77,12 @@ export class CheckResourcePermissionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Resource permission list
+   * The resource permission list.
    */
   resourcePermissionList?: CheckResourcePermissionResponseBodyResourcePermissionList[];
   /**
    * @remarks
-   * Indicates whether the request was successful
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

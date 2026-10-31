@@ -21,11 +21,11 @@ export class GetDataServiceAuthorizedProjectsResponseBodyProjectList extends $da
   projectName?: string;
   /**
    * @remarks
-   * The role of the user. Valid values:
-   * - 1: super administrator
-   * - 2: developer
-   * - 3: application member
-   * - 4: service project administrator
+   * The user role. Valid values:
+   * - 1: Super administrator.
+   * - 2: Developer.
+   * - 3: Application member.
+   * - 4: Service project administrator.
    * - 5: O&M user.
    * 
    * @example
@@ -76,7 +76,7 @@ export class GetDataServiceAuthorizedProjectsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -97,7 +97,7 @@ export class GetDataServiceAuthorizedProjectsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

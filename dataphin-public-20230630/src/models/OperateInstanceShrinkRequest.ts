@@ -6,8 +6,8 @@ export class OperateInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - DEV: development environment. 
-   * - PROD (default): production environment.
+   * - DEV: Development environment. 
+   * - PROD: Production environment. This is the default value.
    * 
    * @example
    * PROD
@@ -24,6 +24,9 @@ export class OperateInstanceShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

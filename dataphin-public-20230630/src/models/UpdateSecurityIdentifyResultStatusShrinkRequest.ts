@@ -14,13 +14,16 @@ export class UpdateSecurityIdentifyResultStatusShrinkRequest extends $dara.Model
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The update instruction.
+   * The update command.
    * 
    * This parameter is required.
    */

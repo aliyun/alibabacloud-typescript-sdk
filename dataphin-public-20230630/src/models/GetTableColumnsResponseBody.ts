@@ -29,7 +29,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The creation time of the field.
+   * The creation time, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -37,7 +37,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The creator of the field.
+   * The creator.
    * 
    * @example
    * 30012011
@@ -61,7 +61,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The data type of the field.
+   * The data type.
    * 
    * @example
    * varchar
@@ -69,7 +69,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The default value of the field.
+   * The default value.
    * 
    * @example
    * test
@@ -85,7 +85,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The environment to which the column belongs. Valid values: dev and prod.
+   * The environment to which the field belongs. Valid values: dev and prod.
    * 
    * @example
    * dev
@@ -116,7 +116,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   isPrimaryKey?: boolean;
   /**
    * @remarks
-   * The last modifier of the field.
+   * The user who last modified the field.
    * 
    * @example
    * 30012011
@@ -124,7 +124,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   lastModifier?: string;
   /**
    * @remarks
-   * The abbreviation of the data level.
+   * The abbreviation of the data security level.
    * 
    * @example
    * L1
@@ -132,7 +132,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   levelAbbreviation?: string;
   /**
    * @remarks
-   * The modification time of the field.
+   * The modification time, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -148,12 +148,12 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the field allows null values.
+   * Indicates whether the field can be null.
    */
   nullable?: boolean;
   /**
    * @remarks
-   * The sequence number of the column.
+   * The sequence number.
    * 
    * @example
    * 1
@@ -169,7 +169,7 @@ export class GetTableColumnsResponseBodyColumnList extends $dara.Model {
   tableGuid?: string;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * @example
    * t_test
@@ -261,7 +261,7 @@ export class GetTableColumnsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of asset table columns.
+   * The list of columns in the asset table.
    */
   columnList?: GetTableColumnsResponseBodyColumnList[];
   /**
@@ -274,7 +274,7 @@ export class GetTableColumnsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -290,7 +290,7 @@ export class GetTableColumnsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

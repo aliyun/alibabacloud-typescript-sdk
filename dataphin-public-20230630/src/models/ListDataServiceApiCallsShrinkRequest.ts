@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceApiCallsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The query conditions.
+   * The search conditions.
    * 
    * This parameter is required.
    */
   listQueryShrink?: string;
   /**
    * @remarks
-   * The ID of the tenant.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -21,6 +21,9 @@ export class ListDataServiceApiCallsShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

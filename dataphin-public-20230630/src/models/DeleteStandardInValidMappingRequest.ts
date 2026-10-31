@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStandardInValidMappingRequestDeleteCommand extends $dara.Model {
   /**
    * @remarks
-   * The list of parent GUIDs. A maximum of 1000 GUIDs are supported.
+   * The list of parent GUIDs. The maximum number of items is 1,000.
    */
   belongGuidList?: string[];
   /**
    * @remarks
-   * The list of GUIDs. A maximum of 1000 GUIDs are supported.
+   * The list of GUIDs. The maximum number of items is 1,000.
    */
   guidList?: string[];
   /**
@@ -57,7 +57,7 @@ export class DeleteStandardInValidMappingRequestDeleteCommand extends $dara.Mode
 export class DeleteStandardInValidMappingRequest extends $dara.Model {
   /**
    * @remarks
-   * The delete instruction.
+   * The delete command.
    * 
    * This parameter is required.
    */
@@ -73,6 +73,9 @@ export class DeleteStandardInValidMappingRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

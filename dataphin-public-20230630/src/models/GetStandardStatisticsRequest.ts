@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStandardStatisticsRequestStatisticsQueryCreateTimePeriod extends $dara.Model {
   /**
    * @remarks
-   * The end time.
+   * The end time, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -13,12 +13,12 @@ export class GetStandardStatisticsRequestStatisticsQueryCreateTimePeriod extends
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to include the end time. Default value: false.
+   * Specifies whether to include the end time. Default: false.
    */
   includeEndTime?: boolean;
   /**
    * @remarks
-   * The start time.
+   * The start time, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-01 00:00:00
@@ -52,12 +52,12 @@ export class GetStandardStatisticsRequestStatisticsQueryCreateTimePeriod extends
 export class GetStandardStatisticsRequestStatisticsQuery extends $dara.Model {
   /**
    * @remarks
-   * The creation time period.
+   * The time period during which the standards were created.
    */
   createTimePeriod?: GetStandardStatisticsRequestStatisticsQueryCreateTimePeriod;
   /**
    * @remarks
-   * The folder to which the standards belong. The search includes all subfolders under this folder.
+   * The directory to query. Standards in this directory and all its subdirectories are included in the statistics.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class GetStandardStatisticsRequestStatisticsQuery extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * The stages to which the standards belong.
+   * The list of stages to which the standards belong.
    */
   standardStageList?: string[];
   static names(): { [key: string]: string } {
@@ -104,7 +104,7 @@ export class GetStandardStatisticsRequestStatisticsQuery extends $dara.Model {
 export class GetStandardStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The tenant ID.
+   * The ID of the tenant.
    * 
    * This parameter is required.
    * 
@@ -113,13 +113,16 @@ export class GetStandardStatisticsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The statistical query instruction.
+   * The statistics query instruction.
    * 
    * This parameter is required.
    */

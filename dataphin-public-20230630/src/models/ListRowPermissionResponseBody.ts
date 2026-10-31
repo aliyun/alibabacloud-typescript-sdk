@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListRowPermissionResponseBodyPageResultDataMappingColumns extends $dara.Model {
   /**
    * @remarks
-   * The description of the mapping field.
+   * The description of the mapped column.
    * 
    * @example
-   * 业务ID
+   * Business ID
    */
   columnDesc?: string;
   /**
    * @remarks
-   * The name of the mapping field.
+   * The name of the mapped column.
    * 
    * @example
    * business_id
@@ -21,7 +21,7 @@ export class ListRowPermissionResponseBodyPageResultDataMappingColumns extends $
   columnName?: string;
   /**
    * @remarks
-   * The type of the mapping field.
+   * The type of the mapped column.
    * 
    * @example
    * string
@@ -55,7 +55,7 @@ export class ListRowPermissionResponseBodyPageResultDataMappingColumns extends $
 export class ListRowPermissionResponseBodyPageResultDataRulesExpressions extends $dara.Model {
   /**
    * @remarks
-   * The name of the mapping field.
+   * The name of the mapped column.
    * 
    * @example
    * business_id
@@ -63,7 +63,7 @@ export class ListRowPermissionResponseBodyPageResultDataRulesExpressions extends
   mappingColumnName?: string;
   /**
    * @remarks
-   * The expression operator.
+   * The operator of the expression.
    * 
    * @example
    * 30008888
@@ -76,7 +76,7 @@ export class ListRowPermissionResponseBodyPageResultDataRulesExpressions extends
   subConditions?: any[];
   /**
    * @remarks
-   * The expression type.
+   * The type of the expression.
    * 
    * @example
    * EXPRESSION
@@ -84,7 +84,7 @@ export class ListRowPermissionResponseBodyPageResultDataRulesExpressions extends
   type?: string;
   /**
    * @remarks
-   * The operation values of the expression.
+   * The values of the expression operands.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -216,7 +216,7 @@ export class ListRowPermissionResponseBodyPageResultDataRules extends $dara.Mode
    * The rule name.
    * 
    * @example
-   * 管控ID 100以内数据
+   * Manage data with IDs less than 100
    */
   ruleName?: string;
   /**
@@ -229,7 +229,7 @@ export class ListRowPermissionResponseBodyPageResultDataRules extends $dara.Mode
   scopeType?: string;
   /**
    * @remarks
-   * The rule status.
+   * The status of the rule.
    * 
    * @example
    * 1
@@ -282,7 +282,7 @@ export class ListRowPermissionResponseBodyPageResultDataRules extends $dara.Mode
 export class ListRowPermissionResponseBodyPageResultDataTables extends $dara.Model {
   /**
    * @remarks
-   * The table field.
+   * The column of the table.
    * 
    * @example
    * business_id
@@ -290,7 +290,7 @@ export class ListRowPermissionResponseBodyPageResultDataTables extends $dara.Mod
   columnName?: string;
   /**
    * @remarks
-   * The name of the mapping field.
+   * The name of the mapped column.
    * 
    * @example
    * business_id
@@ -356,7 +356,7 @@ export class ListRowPermissionResponseBodyPageResultData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The mapping fields.
+   * The mapped columns.
    */
   mappingColumns?: ListRowPermissionResponseBodyPageResultDataMappingColumns[];
   /**
@@ -369,10 +369,10 @@ export class ListRowPermissionResponseBodyPageResultData extends $dara.Model {
   modifier?: string;
   /**
    * @remarks
-   * The description of the row-level permission.
+   * The row-level permission description.
    * 
    * @example
-   * 管控业务数据
+   * Manage business data
    */
   rowPermissionDesc?: string;
   /**
@@ -385,10 +385,10 @@ export class ListRowPermissionResponseBodyPageResultData extends $dara.Model {
   rowPermissionId?: number;
   /**
    * @remarks
-   * The name of the row-level permission.
+   * The row-level permission name.
    * 
    * @example
-   * 业务管控
+   * Business control
    */
   rowPermissionName?: string;
   /**
@@ -502,7 +502,7 @@ export class ListRowPermissionResponseBodyPageResult extends $dara.Model {
 export class ListRowPermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -539,7 +539,7 @@ export class ListRowPermissionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

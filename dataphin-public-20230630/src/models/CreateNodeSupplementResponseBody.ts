@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodeSupplementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -38,8 +38,8 @@ export class CreateNodeSupplementResponseBody extends $dara.Model {
   /**
    * @remarks
    * The submit ID.
-   * - List mode: Returns the FlowId.
-   * - Batch mode: Returns the JobId. You can call the GetOperationSubmitStatus operation to query the submit status. After the submission succeeds, the FlowId is returned.
+   * - Normal mode: The flow ID is returned.
+   * - Massive mode: The submitted job ID is returned. You can call GetOperationSubmitStatus to query the submission status. After the submission succeeds, the flow ID is returned.
    * 
    * @example
    * f_2264518792396800000_20210223_2329354897145659392
@@ -47,7 +47,7 @@ export class CreateNodeSupplementResponseBody extends $dara.Model {
   submitId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true/false

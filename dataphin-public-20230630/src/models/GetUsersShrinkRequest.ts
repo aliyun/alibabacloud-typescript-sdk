@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUsersShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The tenant ID.
+   * The operator tenant ID.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,9 @@ export class GetUsersShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

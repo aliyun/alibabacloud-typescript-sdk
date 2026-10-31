@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetDataServiceAppSecretRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * Application ID
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,7 @@ export class ResetDataServiceAppSecretRequestUpdateCommand extends $dara.Model {
   appId?: number;
   /**
    * @remarks
-   * The new application key, which must be globally unique and is used when calling APIs.
-   * The length is 8 to 128 English characters, and can contain digits, underscores (_), and hyphens (-).
-   * Customization is supported only when using Alibaba Cloud API Gateway or the built-in gateway. This configuration is ignored when using a dedicated cloud gateway.
+   * The new application key. The key must be globally unique and is used when you call API operations. The key must be 8 to 128 characters in length, and can contain digits, underscores (_), and hyphens (-). You can customize this parameter only when you use Alibaba Cloud API Gateway or the built-in gateway. If you use Apsara Stack Gateway, this parameter is ignored.
    * 
    * @example
    * 200000001
@@ -25,10 +23,7 @@ export class ResetDataServiceAppSecretRequestUpdateCommand extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * The new application secret.
-   * If this parameter is left empty, the system automatically generates a new AppSecret value.
-   * The length is 8 to 127 English characters, and can contain digits, underscores (_), and hyphens (-).
-   * Customization is supported only when using Alibaba Cloud API Gateway or the built-in gateway. This configuration is ignored when using a dedicated cloud gateway.
+   * The new application secret. If you leave this parameter empty, the system automatically generates a new AppSecret value. The secret must be 8 to 127 characters in length, and can contain digits, underscores (_), and hyphens (-). You can customize this parameter only when you use Alibaba Cloud API Gateway or the built-in gateway. If you use Apsara Stack Gateway, this parameter is ignored.
    * 
    * @example
    * abc123456789
@@ -62,7 +57,7 @@ export class ResetDataServiceAppSecretRequestUpdateCommand extends $dara.Model {
 export class ResetDataServiceAppSecretRequest extends $dara.Model {
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -71,13 +66,16 @@ export class ResetDataServiceAppSecretRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Reset Data Service Application Key
+   * The update command to reset the application key of a data service.
    * 
    * This parameter is required.
    */

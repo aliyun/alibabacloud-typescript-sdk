@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataServiceProjectAddableUsersResponseBodyUserList extends $dara.Model {
   /**
    * @remarks
-   * The username of the user.
+   * The user account.
    * 
    * @example
    * xx@aliyuncs.com
@@ -13,7 +13,7 @@ export class GetDataServiceProjectAddableUsersResponseBodyUserList extends $dara
   accountName?: string;
   /**
    * @remarks
-   * The nickname of the user.
+   * The user nickname.
    * 
    * @example
    * test
@@ -71,7 +71,7 @@ export class GetDataServiceProjectAddableUsersResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -87,7 +87,7 @@ export class GetDataServiceProjectAddableUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   /**

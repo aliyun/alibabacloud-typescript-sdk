@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitQualityRuleTasksRequestSubmitCommandWatchRuleIdList extends $dara.Model {
   /**
    * @remarks
-   * Rule ID
+   * The rule ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SubmitQualityRuleTasksRequestSubmitCommandWatchRuleIdList extends $
   ruleId?: number;
   /**
    * @remarks
-   * Monitoring object ID
+   * The monitored object ID.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class SubmitQualityRuleTasksRequestSubmitCommandWatchRuleIdList extends $
 export class SubmitQualityRuleTasksRequestSubmitCommand extends $dara.Model {
   /**
    * @remarks
-   * Business date, format: yyyy-MM-dd
+   * The business date. Format: yyyy-MM-dd.
    * 
    * @example
    * 2025-06-30
@@ -57,14 +57,16 @@ export class SubmitQualityRuleTasksRequestSubmitCommand extends $dara.Model {
   bizDate?: string;
   /**
    * @remarks
-   * Whether it is a test run: true for test run, false for formal run.
+   * Specifies whether to perform a test run. Valid values:
+   * - true: performs a test run.
+   * - false: performs a formal run.
    * 
    * This parameter is required.
    */
   isTestRun?: boolean;
   /**
    * @remarks
-   * Partition expression - custom expression
+   * The custom partition expression.
    * 
    * @example
    * ds=${yyyyMMdd}
@@ -72,7 +74,9 @@ export class SubmitQualityRuleTasksRequestSubmitCommand extends $dara.Model {
   partitionExpression?: string;
   /**
    * @remarks
-   * Source of the test run partition expression: SCHEDULE for existing schedule, CUSTOM for custom.
+   * The source of the partition expression for the test run. Valid values:
+   * - SCHEDULE: existing schedule.
+   * - CUSTOM: custom expression.
    * 
    * @example
    * CUSTOM
@@ -80,7 +84,7 @@ export class SubmitQualityRuleTasksRequestSubmitCommand extends $dara.Model {
   partitionExpressionFrom?: string;
   /**
    * @remarks
-   * Existing schedule ID
+   * The ID of the existing schedule.
    * 
    * @example
    * 1
@@ -88,7 +92,7 @@ export class SubmitQualityRuleTasksRequestSubmitCommand extends $dara.Model {
   scheduleId?: number;
   /**
    * @remarks
-   * Monitoring object and rule IDs
+   * The monitored object and rule IDs.
    * 
    * This parameter is required.
    */
@@ -130,7 +134,7 @@ export class SubmitQualityRuleTasksRequestSubmitCommand extends $dara.Model {
 export class SubmitQualityRuleTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * Tenant ID
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -139,13 +143,16 @@ export class SubmitQualityRuleTasksRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Submit command
+   * The submit command.
    * 
    * This parameter is required.
    */

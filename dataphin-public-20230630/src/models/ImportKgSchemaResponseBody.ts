@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImportKgSchemaResponseBodyImportResult extends $dara.Model {
   /**
    * @remarks
-   * The number of entity types that were changed.
+   * The number of changed entity types.
    * 
    * @example
    * 1032591
@@ -13,7 +13,7 @@ export class ImportKgSchemaResponseBodyImportResult extends $dara.Model {
   entityTypeCount?: number;
   /**
    * @remarks
-   * The number of relation types that were changed.
+   * The number of changed relation types.
    * 
    * @example
    * 3380766
@@ -82,7 +82,7 @@ export class ImportKgSchemaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

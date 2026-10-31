@@ -14,13 +14,16 @@ export class UpdateDataSourceConfigShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The data source configuration item change.
+   * The changes to the datasource configuration items.
    * 
    * This parameter is required.
    */

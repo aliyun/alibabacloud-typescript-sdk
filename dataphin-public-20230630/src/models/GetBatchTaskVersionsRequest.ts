@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBatchTaskVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The node ID in the node directory tree.
+   * The node ID in the directory tree.
    * 
    * This parameter is required.
    * 
@@ -24,13 +24,16 @@ export class GetBatchTaskVersionsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The ID of the project to which the node belongs.
+   * The project to which the node belongs.
    * 
    * This parameter is required.
    * 

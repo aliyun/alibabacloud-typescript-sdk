@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBatchTaskRequestDeleteCommand extends $dara.Model {
   /**
    * @remarks
-   * The description of the delete operation.
+   * The description of the deletion operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteBatchTaskRequestDeleteCommand extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The ID of the node in the folder.
+   * The ID of the node in the task directory tree.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteBatchTaskRequestDeleteCommand extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * The ID of the project to which the node belongs.
+   * The ID of the project to which the task belongs.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class DeleteBatchTaskRequestDeleteCommand extends $dara.Model {
 export class DeleteBatchTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The delete request.
+   * The deletion request.
    * 
    * This parameter is required.
    */
@@ -77,6 +77,9 @@ export class DeleteBatchTaskRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

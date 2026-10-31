@@ -59,7 +59,7 @@ export class BatchCreateKgEntityRequestCreateCommandEntityList extends $dara.Mod
   entityType?: string;
   /**
    * @remarks
-   * The list of entity record properties.
+   * The list of properties for the entity record.
    * 
    * This parameter is required.
    */
@@ -142,7 +142,7 @@ export class BatchCreateKgEntityRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetServerVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * **[Deprecated]** The environment identifier. Valid values:
-   * - DEV: Development environment. 
-   * - PROD (default): Production environment.
+   * The environment identifier. **[Deprecated]** Valid values:
+   * - DEV: development environment. 
+   * - PROD: production environment. This is the default value.
    * 
    * @example
    * PROD
@@ -25,7 +25,7 @@ export class GetServerVersionRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operation user.
+   * The ID of the operating user.
    * 
    * @example
    * 30010012

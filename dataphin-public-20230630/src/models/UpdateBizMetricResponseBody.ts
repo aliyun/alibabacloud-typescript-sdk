@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBizMetricResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Exception message
+   * The exception message.
    * 
    * @example
    * npe
@@ -13,7 +13,9 @@ export class UpdateBizMetricResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the update was successful. Valid values: true (success) and false (failure)
+   * Indicates whether the update is successful. Valid values:
+   * - true: The update is successful.
+   * - false: The update fails.
    * 
    * @example
    * true
@@ -45,7 +47,7 @@ export class UpdateBizMetricResponseBodyData extends $dara.Model {
 export class UpdateBizMetricResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. A value of OK indicates the request was successful
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -53,12 +55,12 @@ export class UpdateBizMetricResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Operation result
+   * The operation result.
    */
   data?: UpdateBizMetricResponseBodyData;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -66,7 +68,7 @@ export class UpdateBizMetricResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * successful
@@ -74,7 +76,7 @@ export class UpdateBizMetricResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -82,7 +84,7 @@ export class UpdateBizMetricResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListSubmitRecordsResponseBodyListResultData extends $dara.Model {
   /**
    * @remarks
-   * Change type. 0: Create / 1: Update / 2: Delete.
+   * The change type. Valid values:
+   * - 0: create
+   * - 1: update
+   * - 2: delete
    * 
    * @example
    * 0
@@ -13,7 +16,7 @@ export class ListSubmitRecordsResponseBodyListResultData extends $dara.Model {
   changeType?: number;
   /**
    * @remarks
-   * Creation time in the yyyy-MM-dd HH:mm:ss format.
+   * The time when the record was created. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -21,7 +24,7 @@ export class ListSubmitRecordsResponseBodyListResultData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Modification time in the yyyy-MM-dd HH:mm:ss format.
+   * The time when the record was updated. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -29,7 +32,7 @@ export class ListSubmitRecordsResponseBodyListResultData extends $dara.Model {
   gmtModify?: string;
   /**
    * @remarks
-   * Pending deployment record ID.
+   * The ID of the pending publish record.
    * 
    * @example
    * 1241844456
@@ -37,7 +40,7 @@ export class ListSubmitRecordsResponseBodyListResultData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Node ID.
+   * The ID of the node.
    * 
    * @example
    * n_123456
@@ -45,7 +48,7 @@ export class ListSubmitRecordsResponseBodyListResultData extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * Object ID.
+   * The ID of the object.
    * 
    * @example
    * 1234567
@@ -53,60 +56,60 @@ export class ListSubmitRecordsResponseBodyListResultData extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * Object name.
+   * The name of the object.
    * 
    * @example
-   * 对象A
+   * Object A
    */
   objectName?: string;
   /**
    * @remarks
-   * Object type. Valid values:
-   * - MaxCompute SQL task: MAX_COMPUTE_SQL
-   * - MaxCompute MR task: MAX_COMPUTE_MR
-   * - Spark JAR on MaxCompute: SPARK_JAR_ON_MAX_COMPUTE
-   * - Shell task: SHELL
-   * - Python task: PYTHON
-   * - Perl script: PERL
-   * - Check: CHECK
-   * - Sync task: DATA_X
-   * - Virtual node: VIRTUAL
-   * - Resource: IDE_RESOURCE
-   * - Function: UDF
-   * - Hive SQL task: HIVE_SQL
-   * - Hadoop MR task: HADOOP_MR
-   * - Spark JAR on Hive task: SPARK_JAR_ON_HIVE
-   * - Flink SQL task: FLINK_SQL
-   * - Flink SQL template task: FLINK_TEMPLATE_SQL
-   * - Stream computing template: STREAM_TEMPLATE
-   * - Metatable: META_TABLE
-   * - Stream computing function: STREAM_UDF
-   * - Real-time Flink DataStream: FLINK_DATASTREAM
-   * - Real-time custom data source: STREAM_CUSTOM_DATASOURCE
-   * - AnalyticDB for PostgreSQL task: ADB_FOR_PG
-   * - TDH SQL task: INCEPTOR_SQL
-   * - Mirror table: MIRROR_TABLE
-   * - Intermediate table: MIDDLE_TABLE
-   * - Application table: APPLICATION_TABLE
-   * - Impala SQL task: IMPALA_SQL
-   * - Offline pipeline task: OFFLINE_PIPELINE
-   * - Real-time pipeline task: REAL_TIME_PIPELINE
-   * - Dimension logical table: DIM_LOGICAL_TABLE
-   * - Fact logical table: FCT_LOGICAL_TABLE
-   * - Business condition: BIZ_CONDITION
-   * - Atomic metric: ATOM_INDEX
-   * - Derived metric: DERIVED_INDEX
-   * - Calculated derived metric: CALC_DERIVED_INDEX
-   * - PAI task: PAI_DESIGNER
-   * - ArgoDB SQL task: ARGODB_SQL
-   * - Hologres SQL task: HOLOGRES_SQL
-   * - Impala SQL task: IMPALA_SQL
-   * - StarRocks SQL task: STARROCKS_SQL
-   * - Database SQL task: DATABASE_SQL
-   * - Spark SQL task: SPARK_SQL
-   * - Compute template: TASK_TEMPLATE
-   * - External trigger node: EXTERNAL_TRIGGER
-   * - Gauss SQL task: GAUSS_SQL
+   * The object type. Valid values:
+   * - MAX_COMPUTE_SQL: MaxCompute SQL node
+   * - MAX_COMPUTE_MR: MaxCompute MR node
+   * - SPARK_JAR_ON_MAX_COMPUTE: Spark JAR on MaxCompute node
+   * - SHELL: Shell node
+   * - PYTHON: Python node
+   * - PERL: Perl script
+   * - CHECK: Check node
+   * - DATA_X: Data synchronization node
+   * - VIRTUAL: Virtual node
+   * - IDE_RESOURCE: Resource
+   * - UDF: Function
+   * - HIVE_SQL: Hive SQL node
+   * - HADOOP_MR: Hadoop MR node
+   * - SPARK_JAR_ON_HIVE: Spark JAR on Hive node
+   * - FLINK_SQL: Flink SQL node
+   * - FLINK_TEMPLATE_SQL: Flink SQL template node
+   * - STREAM_TEMPLATE: Stream computing template
+   * - META_TABLE: Metatable
+   * - STREAM_UDF: Stream computing function
+   * - FLINK_DATASTREAM: Real-time Flink DataStream node
+   * - STREAM_CUSTOM_DATASOURCE: Real-time custom data source
+   * - ADB_FOR_PG: AnalyticDB for PostgreSQL node
+   * - INCEPTOR_SQL: Inceptor SQL node
+   * - MIRROR_TABLE: Mirror table
+   * - MIDDLE_TABLE: Intermediate table
+   * - APPLICATION_TABLE: Application table
+   * - IMPALA_SQL: Impala SQL node
+   * - OFFLINE_PIPELINE: Offline pipeline node
+   * - REAL_TIME_PIPELINE: Real-time pipeline node
+   * - DIM_LOGICAL_TABLE: Logical dimension table
+   * - FCT_LOGICAL_TABLE: Logical fact table
+   * - BIZ_CONDITION: Business filter
+   * - ATOM_INDEX: Atomic metric
+   * - DERIVED_INDEX: Derived metric
+   * - CALC_DERIVED_INDEX: Derivative metric
+   * - PAI_DESIGNER: PAI Designer node
+   * - ARGODB_SQL: ArgoDB SQL node
+   * - HOLOGRES_SQL: Hologres SQL node
+   * - IMPALA_SQL: Impala SQL node
+   * - STARROCKS_SQL: StarRocks SQL node
+   * - DATABASE_SQL: Database SQL node
+   * - SPARK_SQL: Spark SQL node
+   * - TASK_TEMPLATE: Task template
+   * - EXTERNAL_TRIGGER: External trigger node
+   * - GAUSS_SQL: Gauss SQL node
    * 
    * @example
    * 2024-10-10 10:00:00
@@ -114,7 +117,7 @@ export class ListSubmitRecordsResponseBodyListResultData extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * Object version.
+   * The version of the object.
    * 
    * @example
    * 1
@@ -122,7 +125,7 @@ export class ListSubmitRecordsResponseBodyListResultData extends $dara.Model {
   objectVersion?: string;
   /**
    * @remarks
-   * Project ID.
+   * The project ID.
    * 
    * @example
    * 1241844456
@@ -130,15 +133,15 @@ export class ListSubmitRecordsResponseBodyListResultData extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * Submission comment.
+   * The submission comment.
    * 
    * @example
-   * 提交信息
+   * Submission comment
    */
   submitComment?: string;
   /**
    * @remarks
-   * Submitter ID.
+   * The ID of the submitter.
    * 
    * @example
    * 307999999
@@ -146,10 +149,10 @@ export class ListSubmitRecordsResponseBodyListResultData extends $dara.Model {
   submitter?: string;
   /**
    * @remarks
-   * Submitter name.
+   * The name of the submitter.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   submitterName?: string;
   static names(): { [key: string]: string } {
@@ -200,12 +203,12 @@ export class ListSubmitRecordsResponseBodyListResultData extends $dara.Model {
 export class ListSubmitRecordsResponseBodyListResult extends $dara.Model {
   /**
    * @remarks
-   * List of pending deployment records.
+   * The list of pending publish records.
    */
   data?: ListSubmitRecordsResponseBodyListResultData[];
   /**
    * @remarks
-   * Total count.
+   * The total count.
    * 
    * @example
    * 100
@@ -240,7 +243,7 @@ export class ListSubmitRecordsResponseBodyListResult extends $dara.Model {
 export class ListSubmitRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. OK indicates a successful request.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -248,7 +251,7 @@ export class ListSubmitRecordsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code returned by the backend.
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -256,12 +259,12 @@ export class ListSubmitRecordsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Query result.
+   * The query result.
    */
   listResult?: ListSubmitRecordsResponseBodyListResult;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * successful
@@ -269,7 +272,7 @@ export class ListSubmitRecordsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -277,7 +280,7 @@ export class ListSubmitRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request is successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPhysicalInstanceResponseBodyInstanceNodeInfoCreator extends $dara.Model {
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 2323111
@@ -13,7 +13,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfoCreator extends $dar
   id?: string;
   /**
    * @remarks
-   * Username
+   * The username.
    * 
    * @example
    * zhangsan
@@ -45,7 +45,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfoCreator extends $dar
 export class GetPhysicalInstanceResponseBodyInstanceNodeInfoModifier extends $dara.Model {
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 2323111
@@ -53,7 +53,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfoModifier extends $da
   id?: string;
   /**
    * @remarks
-   * Username
+   * The username.
    * 
    * @example
    * zhangsan
@@ -85,7 +85,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfoModifier extends $da
 export class GetPhysicalInstanceResponseBodyInstanceNodeInfoOwnerList extends $dara.Model {
   /**
    * @remarks
-   * User ID
+   * The user ID.
    * 
    * @example
    * 2323111
@@ -93,7 +93,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfoOwnerList extends $d
   id?: string;
   /**
    * @remarks
-   * Username
+   * The username.
    * 
    * @example
    * zhangsan
@@ -125,7 +125,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfoOwnerList extends $d
 export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model {
   /**
    * @remarks
-   * Business unit name
+   * The business unit name.
    * 
    * @example
    * xx
@@ -133,7 +133,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
   bizUnitName?: string;
   /**
    * @remarks
-   * Creation time
+   * The creation time.
    * 
    * @example
    * 2023-02-02 23:53:17
@@ -141,20 +141,20 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * Creator
+   * The creator.
    */
   creator?: GetPhysicalInstanceResponseBodyInstanceNodeInfoCreator;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
-   * xx 测试
+   * xx test
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether this is a dry run.
+   * Indicates whether a dry run is performed.
    * 
    * @example
    * false
@@ -162,7 +162,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
   dryRun?: boolean;
   /**
    * @remarks
-   * Source system of the node
+   * The source system of the node.
    * 
    * @example
    * DATA_PROCESS
@@ -170,7 +170,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
   from?: string;
   /**
    * @remarks
-   * Indicates whether the development environment exists.
+   * Indicates whether a development environment is available.
    * 
    * @example
    * true
@@ -178,7 +178,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
   hasDev?: boolean;
   /**
    * @remarks
-   * Indicates whether the production environment exists.
+   * Indicates whether a production environment is available.
    * 
    * @example
    * true
@@ -186,7 +186,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
   hasProd?: boolean;
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * n_3232312
@@ -194,7 +194,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
   id?: string;
   /**
    * @remarks
-   * Last modified time
+   * The last modified time.
    * 
    * @example
    * 2024-02-02 23:53:17
@@ -202,25 +202,25 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
   lastModifiedTime?: string;
   /**
    * @remarks
-   * Modifier
+   * The modifier.
    */
   modifier?: GetPhysicalInstanceResponseBodyInstanceNodeInfoModifier;
   /**
    * @remarks
-   * Node name
+   * The node name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   /**
    * @remarks
-   * Owner list
+   * The owners.
    */
   ownerList?: GetPhysicalInstanceResponseBodyInstanceNodeInfoOwnerList[];
   /**
    * @remarks
-   * Priority
+   * The priority. Valid values:
    * - HIGHEST
    * - HIGH
    * - MIDDLE
@@ -230,7 +230,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
   priorityList?: string[];
   /**
    * @remarks
-   * Resource group list
+   * The resource group.
    */
   resourceGroupList?: string[];
   /**
@@ -243,7 +243,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
   schedulePaused?: boolean;
   /**
    * @remarks
-   * Scheduling period
+   * The scheduling cycle. Valid values:
    * - YEARLY
    * - MONTHLY
    * - WEEKLY
@@ -254,7 +254,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
   schedulePeriodList?: string[];
   /**
    * @remarks
-   * Sub-business type
+   * The sub-business type. Valid values:
    * - MAX_COMPUTE_SQL
    * - HIVE_SQL
    * - SHELL
@@ -268,14 +268,14 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
   subDetailType?: string;
   /**
    * @remarks
-   * Node type
-   * - BBOX_LOGIC_TABLE_NODE: Logical table node
-   * - BBOX_LOGIC_FIELD_NODE: Logical field node
-   * - BBOX_LOGIC_FIELD_GROUP_NODE: Field group node
-   * - BBOX_INNER_TEMP_NODE: Logical table temp node
-   * - DATA_PROCESS: Code task
-   * - STREAM_TASK_NODE: Real-time task
-   * - PIPELINE_NODE: Pipeline node
+   * The node type. Valid values:
+   * - BBOX_LOGIC_TABLE_NODE: logical table node
+   * - BBOX_LOGIC_FIELD_NODE: logical field node
+   * - BBOX_LOGIC_FIELD_GROUP_NODE: field group node
+   * - BBOX_INNER_TEMP_NODE: logical table temporary node
+   * - DATA_PROCESS: code task
+   * - STREAM_TASK_NODE: real-time task
+   * - PIPELINE_NODE: pipeline node
    * - FLINK_BATCH: Flink batch task
    * - ODM_NODE: ODM node
    * 
@@ -361,7 +361,7 @@ export class GetPhysicalInstanceResponseBodyInstanceNodeInfo extends $dara.Model
 export class GetPhysicalInstanceResponseBodyInstance extends $dara.Model {
   /**
    * @remarks
-   * Business date
+   * The business date.
    * 
    * @example
    * 2023-06-25
@@ -369,7 +369,7 @@ export class GetPhysicalInstanceResponseBodyInstance extends $dara.Model {
   bizDate?: string;
   /**
    * @remarks
-   * Scheduled time
+   * The scheduled time.
    * 
    * @example
    * 2023-06-27 00:30:00
@@ -377,7 +377,7 @@ export class GetPhysicalInstanceResponseBodyInstance extends $dara.Model {
   dueTime?: string;
   /**
    * @remarks
-   * Execution duration
+   * The execution duration.
    * 
    * @example
    * 3600s
@@ -385,7 +385,7 @@ export class GetPhysicalInstanceResponseBodyInstance extends $dara.Model {
   duration?: string;
   /**
    * @remarks
-   * End execution time
+   * The end time of the execution.
    * 
    * @example
    * 2023-06-27 02:30:00
@@ -393,7 +393,7 @@ export class GetPhysicalInstanceResponseBodyInstance extends $dara.Model {
   endExecuteTime?: number;
   /**
    * @remarks
-   * Extended information
+   * The extended information.
    * 
    * @example
    * xx
@@ -401,7 +401,7 @@ export class GetPhysicalInstanceResponseBodyInstance extends $dara.Model {
   extendInfo?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * t_23231
@@ -409,7 +409,7 @@ export class GetPhysicalInstanceResponseBodyInstance extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Running instance index
+   * The sequence number of the instance.
    * 
    * @example
    * 1
@@ -417,12 +417,12 @@ export class GetPhysicalInstanceResponseBodyInstance extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * Node details
+   * The node details.
    */
   nodeInfo?: GetPhysicalInstanceResponseBodyInstanceNodeInfo;
   /**
    * @remarks
-   * Start execution time
+   * The start time of the execution.
    * 
    * @example
    * 2023-06-27 01:30:00
@@ -430,7 +430,7 @@ export class GetPhysicalInstanceResponseBodyInstance extends $dara.Model {
   startExecuteTime?: number;
   /**
    * @remarks
-   * Status list
+   * The status list.
    */
   statusList?: string[];
   static names(): { [key: string]: string } {
@@ -481,7 +481,7 @@ export class GetPhysicalInstanceResponseBodyInstance extends $dara.Model {
 export class GetPhysicalInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -489,7 +489,7 @@ export class GetPhysicalInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP status code
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -497,12 +497,12 @@ export class GetPhysicalInstanceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Instance details
+   * The instance details.
    */
   instance?: GetPhysicalInstanceResponseBodyInstance;
   /**
    * @remarks
-   * Error message
+   * The error message.
    * 
    * @example
    * successful
@@ -510,7 +510,7 @@ export class GetPhysicalInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
@@ -518,7 +518,7 @@ export class GetPhysicalInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

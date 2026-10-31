@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserGroupMembersResponseBodyPageResultMemberListCreator extends $dara.Model {
   /**
    * @remarks
-   * The account name of the user.
+   * The user account name.
    * 
    * @example
    * 12121111
@@ -13,7 +13,7 @@ export class ListUserGroupMembersResponseBodyPageResultMemberListCreator extends
   accountName?: string;
   /**
    * @remarks
-   * The username.
+   * The display name.
    * 
    * @example
    * zhangsan
@@ -21,7 +21,7 @@ export class ListUserGroupMembersResponseBodyPageResultMemberListCreator extends
   displayName?: string;
   /**
    * @remarks
-   * The user ID.
+   * The user IDs.
    * 
    * @example
    * 12121111
@@ -55,7 +55,7 @@ export class ListUserGroupMembersResponseBodyPageResultMemberListCreator extends
 export class ListUserGroupMembersResponseBodyPageResultMemberListUserInfo extends $dara.Model {
   /**
    * @remarks
-   * The account name of the user.
+   * The user account name.
    * 
    * @example
    * atest
@@ -63,15 +63,15 @@ export class ListUserGroupMembersResponseBodyPageResultMemberListUserInfo extend
   accountName?: string;
   /**
    * @remarks
-   * The username.
+   * The display name.
    * 
    * @example
-   * xx测试
+   * xx Test
    */
   displayName?: string;
   /**
    * @remarks
-   * The user ID.
+   * The user IDs.
    * 
    * @example
    * 13232
@@ -105,12 +105,12 @@ export class ListUserGroupMembersResponseBodyPageResultMemberListUserInfo extend
 export class ListUserGroupMembersResponseBodyPageResultMemberList extends $dara.Model {
   /**
    * @remarks
-   * The user who added the member.
+   * The creator.
    */
   creator?: ListUserGroupMembersResponseBodyPageResultMemberListCreator;
   /**
    * @remarks
-   * The time when the member was added to the user group.
+   * The time when the user group member was added.
    * 
    * @example
    * zhangsan
@@ -139,7 +139,7 @@ export class ListUserGroupMembersResponseBodyPageResultMemberList extends $dara.
   userInfo?: ListUserGroupMembersResponseBodyPageResultMemberListUserInfo;
   /**
    * @remarks
-   * The role of the member in the user group.
+   * The role of the user group member in the user group.
    * 
    * @example
    * SECURITY_ADMIN
@@ -185,7 +185,7 @@ export class ListUserGroupMembersResponseBodyPageResultMemberList extends $dara.
 export class ListUserGroupMembersResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The paged list.
+   * The paginated list.
    */
   memberList?: ListUserGroupMembersResponseBodyPageResultMemberList[];
   /**
@@ -225,7 +225,7 @@ export class ListUserGroupMembersResponseBodyPageResult extends $dara.Model {
 export class ListUserGroupMembersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -233,7 +233,7 @@ export class ListUserGroupMembersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned by the backend.
+   * The HTTP status code of the backend response.
    * 
    * @example
    * 200
@@ -249,7 +249,7 @@ export class ListUserGroupMembersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The paged query result.
+   * The paging query result.
    */
   pageResult?: ListUserGroupMembersResponseBodyPageResult;
   /**
@@ -262,7 +262,7 @@ export class ListUserGroupMembersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

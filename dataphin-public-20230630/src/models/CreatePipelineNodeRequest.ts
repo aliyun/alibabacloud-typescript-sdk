@@ -13,7 +13,7 @@ export class CreatePipelineNodeRequestCreatePipelineNodeCommandFileInfo extends 
   description?: string;
   /**
    * @remarks
-   * The full path of the parent directory of the file. If this parameter is left empty, the root path (/) is used.
+   * The full path of the parent directory of the file. If this parameter is left empty, the root directory \\"/\\" is used.
    * 
    * @example
    * test
@@ -64,7 +64,7 @@ export class CreatePipelineNodeRequestCreatePipelineNodeCommand extends $dara.Mo
   fileInfo?: CreatePipelineNodeRequestCreatePipelineNodeCommandFileInfo;
   /**
    * @remarks
-   * The node type. Valid values: NORMAL, MANUAL, and REAL_TIME.
+   * The node type.
    * 
    * This parameter is required.
    * 
@@ -84,7 +84,7 @@ export class CreatePipelineNodeRequestCreatePipelineNodeCommand extends $dara.Mo
   pipelineName?: string;
   /**
    * @remarks
-   * The pipeline type. Valid values: OFFLINE_PIPELINE and REAL_TIME_PIPELINE.
+   * The pipeline type.
    * 
    * This parameter is required.
    * 
@@ -137,7 +137,7 @@ export class CreatePipelineNodeRequestCreatePipelineNodeCommand extends $dara.Mo
 export class CreatePipelineNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The command to create a pipeline. Both offline and real-time pipelines are supported.
+   * Creates a pipeline, which supports offline and real-time pipelines.
    * 
    * This parameter is required.
    */
@@ -153,6 +153,9 @@ export class CreatePipelineNodeRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

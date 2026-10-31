@@ -14,13 +14,16 @@ export class CreateStreamBatchJobMappingShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The stream-batch integrated node information.
+   * The stream-batch integrated task information.
    * 
    * This parameter is required.
    */

@@ -56,7 +56,7 @@ export class CheckDataSourceConnectivityRequestCheckCommand extends $dara.Model 
   configItemList?: CheckDataSourceConnectivityRequestCheckCommandConfigItemList[];
   /**
    * @remarks
-   * The data source type. For supported data source types, see the documentation for creating a data source.
+   * The datasource type. For supported datasources, see Create a datasource.
    * 
    * This parameter is required.
    * 
@@ -93,7 +93,7 @@ export class CheckDataSourceConnectivityRequestCheckCommand extends $dara.Model 
 export class CheckDataSourceConnectivityRequest extends $dara.Model {
   /**
    * @remarks
-   * The object to check.
+   * The check target.
    * 
    * This parameter is required.
    */
@@ -109,6 +109,9 @@ export class CheckDataSourceConnectivityRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

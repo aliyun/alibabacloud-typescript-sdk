@@ -15,7 +15,7 @@ export class OnlineBizEntityRequestOnlineCommand extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
-   * The remarks for the offline operation.
+   * The offline comment.
    * 
    * This parameter is required.
    * 
@@ -35,9 +35,7 @@ export class OnlineBizEntityRequestOnlineCommand extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The business type. Valid values:
-   * - BIZ_OBJECT
-   * - BIZ_PROCESS.
+   * The business type. Valid values: BIZ_OBJECT and BIZ_PROCESS.
    * 
    * This parameter is required.
    * 
@@ -91,6 +89,9 @@ export class OnlineBizEntityRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

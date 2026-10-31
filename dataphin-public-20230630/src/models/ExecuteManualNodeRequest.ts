@@ -45,7 +45,7 @@ export class ExecuteManualNodeRequestExecuteCommandParamList extends $dara.Model
 export class ExecuteManualNodeRequestExecuteCommand extends $dara.Model {
   /**
    * @remarks
-   * The end business date.
+   * The end business date, in the YYYY-MM-DD format.
    * 
    * This parameter is required.
    * 
@@ -58,7 +58,7 @@ export class ExecuteManualNodeRequestExecuteCommand extends $dara.Model {
    * The workflow name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   flowName?: string;
   /**
@@ -73,7 +73,7 @@ export class ExecuteManualNodeRequestExecuteCommand extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The runtime parameters.
+   * The run parameters.
    */
   paramList?: ExecuteManualNodeRequestExecuteCommandParamList[];
   /**
@@ -88,7 +88,7 @@ export class ExecuteManualNodeRequestExecuteCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The start business date.
+   * The start business date, in the YYYY-MM-DD format.
    * 
    * This parameter is required.
    * 
@@ -134,8 +134,8 @@ export class ExecuteManualNodeRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - DEV: development environment 
-   * - PROD (default): production environment.
+   * - DEV: Development environment. 
+   * - PROD: Production environment. This is the default value.
    * 
    * @example
    * PROD
@@ -143,7 +143,7 @@ export class ExecuteManualNodeRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The request for running a manual task.
+   * The request to run a manual task.
    * 
    * This parameter is required.
    */
@@ -159,6 +159,9 @@ export class ExecuteManualNodeRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

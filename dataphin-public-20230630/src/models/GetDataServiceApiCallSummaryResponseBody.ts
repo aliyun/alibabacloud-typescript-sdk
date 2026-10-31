@@ -13,7 +13,7 @@ export class GetDataServiceApiCallSummaryResponseBodyData extends $dara.Model {
   callCount?: number;
   /**
    * @remarks
-   * The number of APIs with call errors.
+   * The number of APIs that have call exceptions.
    * 
    * @example
    * 8
@@ -21,7 +21,7 @@ export class GetDataServiceApiCallSummaryResponseBodyData extends $dara.Model {
   errorApiCount?: number;
   /**
    * @remarks
-   * The number of applications affected by errors.
+   * The number of apps affected by exceptions.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class GetDataServiceApiCallSummaryResponseBodyData extends $dara.Model {
   errorAppCount?: number;
   /**
    * @remarks
-   * The number of failed calls.
+   * The number of call exceptions.
    * 
    * @example
    * 102
@@ -93,7 +93,7 @@ export class GetDataServiceApiCallSummaryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The aggregate statistics of API calls.
+   * The call summary.
    */
   data?: GetDataServiceApiCallSummaryResponseBodyData;
   /**
@@ -122,7 +122,7 @@ export class GetDataServiceApiCallSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

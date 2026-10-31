@@ -13,15 +13,7 @@ export class ListQualityRuleTasksRequestListQuery extends $dara.Model {
   bizDate?: string;
   /**
    * @remarks
-   * The rule type. Valid values:
-   * - CONSISTENT: consistency
-   * - EFFECTIVE: validity
-   * - TIMELINESE: timeliness
-   * - ACCURATE: accuracy
-   * - UNIQUENESS: uniqueness
-   * - COMPLETENESS: completeness
-   * - STABILITY: stability
-   * - CUSTOM: custom.
+   * The rule types. Valid values: CONSISTENT (consistency), EFFECTIVE (effectiveness), TIMELINESE (timeliness), ACCURATE (accuracy), UNIQUENESS (uniqueness), COMPLETENESS (completeness), STABILITY (stability), and CUSTOM (custom).
    */
   catalogList?: string[];
   /**
@@ -50,51 +42,27 @@ export class ListQualityRuleTasksRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The rule strength. Valid values:
-   * - STRONG: strong
-   * - WEAK: weak.
+   * The rule strengths. Valid values: STRONG (strong) and WEAK (weak).
    */
   ruleStrengthList?: string[];
   /**
    * @remarks
-   * The rule label. Valid values:
-   * - DEFAULT: default label
-   * - DATA_STANDARD_MANUAL: standard rule manually created
-   * - DATA_STANDARD_AUTO: quality rule created by automatic creation from a standard
-   * - PIPELINE: rule created by a pipeline
-   * - DATA_MODELING: data modeling diagnostics.
+   * The rule labels. Valid values: DEFAULT (default label), DATA_STANDARD_MANUAL (manually created standard rules), DATA_STANDARD_AUTO (standard quality rules created by automatic creation), PIPELINE (rules created by pipelines), and DATA_MODELING (data modeling).
    */
   ruleTagList?: string[];
   /**
    * @remarks
-   * The task status. Valid values:
-   * - NOT_RUN: not executed
-   * - WAITING: waiting
-   * - RUNNING: running
-   * - SUCCESS: succeeded
-   * - FAILED: failed
-   * - CANCEL: canceled
-   * - TIMEOUT: timed out
-   * - OFFLINE: offline.
+   * The task statuses. Valid values: NOT_RUN (not run), WAITING (waiting), RUNNING (running), SUCCESS (successful), FAILED (failed), CANCEL (canceled), TIMEOUT (timed out), and OFFLINE (offline).
    */
   statusList?: string[];
   /**
    * @remarks
-   * The validation result. Valid values:
-   * - NOT_RUN: not executed
-   * - WAITING: waiting for execution
-   * - RUNNING: running
-   * - PASS: passed
-   * - NOT_PASS: not passed
-   * - FAILED: execution failed
-   * - OFFLINE: offline and needs to be restarted
-   * - CANCEL: task canceled
-   * - TIMEOUT: task timed out.
+   * The validation results. Valid values: NOT_RUN (not run), WAITING (waiting), RUNNING (running), PASS (passed), NOT_PASS (not passed), FAILED (failed), OFFLINE (offline and requires restart), CANCEL (canceled), and TIMEOUT (timed out).
    */
   validateResultList?: string[];
   /**
    * @remarks
-   * The ID of the quality watchtask.
+   * The quality watchtask ID.
    * 
    * @example
    * 1
@@ -157,7 +125,7 @@ export class ListQualityRuleTasksRequestListQuery extends $dara.Model {
 export class ListQualityRuleTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The paged query conditions.
+   * The paging query conditions.
    */
   listQuery?: ListQualityRuleTasksRequestListQuery;
   /**
@@ -171,6 +139,9 @@ export class ListQualityRuleTasksRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

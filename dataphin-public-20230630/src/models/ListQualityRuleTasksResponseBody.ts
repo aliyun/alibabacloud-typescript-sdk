@@ -45,7 +45,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   endTime?: string;
   /**
    * @remarks
-   * The ID of the rule task.
+   * The rule task ID.
    * 
    * @example
    * 1
@@ -109,7 +109,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   validateObjectName?: string;
   /**
    * @remarks
-   * The object type of the validated object.
+   * The validated object type.
    * 
    * @example
    * column
@@ -117,7 +117,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   validateObjectType?: string;
   /**
    * @remarks
-   * The validation partition.
+   * The validated partition.
    * 
    * @example
    * 20251011
@@ -125,12 +125,12 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   validatePartition?: string;
   /**
    * @remarks
-   * Indicates whether the validation passed.
+   * Indicates whether the validation is successful.
    */
   validateSuccess?: boolean;
   /**
    * @remarks
-   * The ID of the associated quality watchtask.
+   * The watch ID.
    * 
    * @example
    * 1
@@ -138,7 +138,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
   watchId?: number;
   /**
    * @remarks
-   * The ID of the quality watchtask. This ID is empty for trial-run rule tasks.
+   * The watch task ID. This ID is empty for trial run tasks.
    * 
    * @example
    * 1
@@ -202,7 +202,7 @@ export class ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList exten
 export class ListQualityRuleTasksResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The list of quality rule tasks.
+   * The paged quality rule task list.
    */
   qualityRuleTaskList?: ListQualityRuleTasksResponseBodyPageResultQualityRuleTaskList[];
   /**
@@ -242,7 +242,7 @@ export class ListQualityRuleTasksResponseBodyPageResult extends $dara.Model {
 export class ListQualityRuleTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -258,7 +258,7 @@ export class ListQualityRuleTasksResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error details.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -279,7 +279,7 @@ export class ListQualityRuleTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

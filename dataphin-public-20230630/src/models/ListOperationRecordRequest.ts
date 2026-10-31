@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationRecordRequestListCommand extends $dara.Model {
   /**
    * @remarks
-   * The end of the start time range. Format: yyyy-MM-dd HH:mm:ss.
+   * The end time of the time range. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-12-31 23:59:59
@@ -13,7 +13,7 @@ export class ListOperationRecordRequestListCommand extends $dara.Model {
   beginTimeEnd?: string;
   /**
    * @remarks
-   * The beginning of the start time range. Format: yyyy-MM-dd HH:mm:ss.
+   * The start time of the time range. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-01-01 00:00:00
@@ -34,7 +34,7 @@ export class ListOperationRecordRequestListCommand extends $dara.Model {
   codeType?: number[];
   /**
    * @remarks
-   * The list of duration ranges.
+   * The list of durations.
    */
   duration?: number[];
   /**
@@ -42,7 +42,7 @@ export class ListOperationRecordRequestListCommand extends $dara.Model {
    * The script name.
    * 
    * @example
-   * 测试脚本
+   * Test script
    */
   fileName?: string;
   /**
@@ -82,7 +82,7 @@ export class ListOperationRecordRequestListCommand extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The sort type. Valid values: 0 (start time ascending), 1 (start time descending), 2 (object name).
+   * The sort type. Valid values: 0: Ascending order by start time. 1: Descending order by start time. 2: Object name.
    * 
    * @example
    * 1
@@ -177,6 +177,9 @@ export class ListOperationRecordRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

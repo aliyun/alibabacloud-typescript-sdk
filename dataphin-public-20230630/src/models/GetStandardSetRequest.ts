@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStandardSetRequest extends $dara.Model {
   /**
    * @remarks
-   * The standard set ID.
+   * The ID of the standard set.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetStandardSetRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Specifies whether to allow a null value to be returned when the standard set does not exist. If set to false, an exception is thrown. Default value: true.
+   * Specifies whether to return a null value if the standard set does not exist. If this parameter is set to false, an exception is thrown. Default value: true.
    */
   nullable?: boolean;
   /**
@@ -29,6 +29,9 @@ export class GetStandardSetRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListBatchTemplatesRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * The template name keyword.
+   * The keyword in the template name.
    * 
    * @example
-   * 数据处理模板
+   * Data processing template
    */
   keyword?: string;
   /**
@@ -27,11 +27,20 @@ export class ListBatchTemplatesRequestListQuery extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The template ID. The query is based on the template ID.
+   * 
+   * @example
+   * 123456
+   */
+  templateId?: number;
   static names(): { [key: string]: string } {
     return {
       keyword: 'Keyword',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      templateId: 'TemplateId',
     };
   }
 
@@ -40,6 +49,7 @@ export class ListBatchTemplatesRequestListQuery extends $dara.Model {
       keyword: 'string',
       pageNum: 'number',
       pageSize: 'number',
+      templateId: 'number',
     };
   }
 
@@ -63,7 +73,7 @@ export class ListBatchTemplatesRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The paged query conditions.
+   * The paging query conditions.
    */
   listQuery?: ListBatchTemplatesRequestListQuery;
   /**
@@ -77,6 +87,9 @@ export class ListBatchTemplatesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

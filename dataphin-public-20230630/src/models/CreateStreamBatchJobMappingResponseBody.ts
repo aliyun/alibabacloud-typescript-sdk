@@ -21,7 +21,7 @@ export class CreateStreamBatchJobMappingResponseBodyData extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The redirect relative path.
+   * The relative path for redirection.
    * 
    * @example
    * /dev/streamJob/7083701105376640?env=DEV&projectId=7081229106458752&tenantId=300001420
@@ -55,7 +55,7 @@ export class CreateStreamBatchJobMappingResponseBodyData extends $dara.Model {
 export class CreateStreamBatchJobMappingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -63,7 +63,7 @@ export class CreateStreamBatchJobMappingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result returned when the node is created.
+   * The return result of a successful task creation.
    */
   data?: CreateStreamBatchJobMappingResponseBodyData;
   /**
@@ -92,7 +92,7 @@ export class CreateStreamBatchJobMappingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

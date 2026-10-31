@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SyncDepartmentUserRequestSyncDepartmentUserCommandDeptUserMapping extends $dara.Model {
   /**
    * @remarks
-   * The list of department IDs to which the user belongs. If this parameter is left empty, the user affiliation is deleted.
+   * The list of department IDs to which the user belongs. If the list is empty, the user membership is deleted.
    */
   departmentIdList?: string[];
   /**
    * @remarks
-   * The user source type.
+   * The source type of the user.
    * 
    * @example
    * aliyun
@@ -18,7 +18,7 @@ export class SyncDepartmentUserRequestSyncDepartmentUserCommandDeptUserMapping e
   sourceType?: string;
   /**
    * @remarks
-   * The user ID in the user system. This is the unique identifier of the user.
+   * The user ID in the user system, which serves as the unique identifier of the user.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class SyncDepartmentUserRequestSyncDepartmentUserCommandDeptUserMapping e
 export class SyncDepartmentUserRequestSyncDepartmentUserCommand extends $dara.Model {
   /**
    * @remarks
-   * The mapping between users and their affiliated departments.
+   * The department membership relationships of the user.
    * 
    * This parameter is required.
    */
@@ -99,7 +99,7 @@ export class SyncDepartmentUserRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the user who performs the operation.
    * 
    * @example
    * 30001011

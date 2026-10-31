@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStandardLookupTableRequest extends $dara.Model {
   /**
    * @remarks
-   * The lookup table ID.
+   * The ID of the lookup table.
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,9 @@ export class DeleteStandardLookupTableRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

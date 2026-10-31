@@ -49,7 +49,7 @@ export class CreateComputeSourceRequestCreateCommandConfigList extends $dara.Mod
 export class CreateComputeSourceRequestCreateCommand extends $dara.Model {
   /**
    * @remarks
-   * The ID of the associated cluster. This parameter takes effect only when CreateType is not specified or is set to COMPUTE_SOURCE, which creates a compute source that references a cluster. This parameter is mutually exclusive with CreateType=CLUSTER.
+   * The ID of the associated cluster. This parameter takes effect only when CreateType is left empty or set to COMPUTE_SOURCE, which indicates that a compute source referencing a cluster is created. This parameter is mutually exclusive with CreateType set to CLUSTER.
    * 
    * @example
    * 102311
@@ -64,10 +64,9 @@ export class CreateComputeSourceRequestCreateCommand extends $dara.Model {
   configList?: CreateComputeSourceRequestCreateCommandConfigList[];
   /**
    * @remarks
-   * The type of entity to create. Valid values:
-   * 
-   * - CLUSTER: Creates a cluster. ClusterId cannot be specified.
-   * - COMPUTE_SOURCE: Creates a compute source. This is the default value.
+   * The type of the entity to create. Valid values:
+   * - CLUSTER: creates a cluster. You cannot specify ClusterId.
+   * - COMPUTE_SOURCE: creates a compute source. This is the default value.
    * 
    * @example
    * CLUSTER
@@ -93,6 +92,14 @@ export class CreateComputeSourceRequestCreateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The name of the time zone, such as Asia/Shanghai. If this parameter is not specified during an update, the original value is retained.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
+  timeZone?: string;
+  /**
+   * @remarks
    * The type of the compute source.
    * 
    * This parameter is required.
@@ -116,6 +123,7 @@ export class CreateComputeSourceRequestCreateCommand extends $dara.Model {
       createType: 'CreateType',
       description: 'Description',
       name: 'Name',
+      timeZone: 'TimeZone',
       type: 'Type',
       typeVersion: 'TypeVersion',
     };
@@ -128,6 +136,7 @@ export class CreateComputeSourceRequestCreateCommand extends $dara.Model {
       createType: 'string',
       description: 'string',
       name: 'string',
+      timeZone: 'string',
       type: 'string',
       typeVersion: 'string',
     };
@@ -165,7 +174,7 @@ export class CreateComputeSourceRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator.
+   * The ID of the operating user.
    * 
    * @example
    * 30001011

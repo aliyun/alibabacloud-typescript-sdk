@@ -8,7 +8,7 @@ export class ListRowPermissionRequestPageRowPermissionQuery extends $dara.Model 
    * The search keyword.
    * 
    * @example
-   * 业务
+   * Business
    */
   keyword?: string;
   /**
@@ -68,6 +68,9 @@ export class ListRowPermissionRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

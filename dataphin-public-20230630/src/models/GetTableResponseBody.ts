@@ -4,33 +4,51 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetTableResponseBodyDataInstructions extends $dara.Model {
   /**
+   * @remarks
+   * The content in rich text format.
+   * 
    * @example
-   * <p>示例内容</p>
+   * <p>Sample content</p>
    */
   content?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The creator ID.
+   * 
    * @example
    * 30011211
    */
   ownerId?: string;
   /**
+   * @remarks
+   * The creator nickname.
+   * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerNickName?: string;
   /**
+   * @remarks
+   * The title.
+   * 
    * @example
-   * 使用指南
+   * User guide
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -66,16 +84,25 @@ export class GetTableResponseBodyDataInstructions extends $dara.Model {
 
 export class GetTableResponseBodyDataSimpleNodeInfosBizUnit extends $dara.Model {
   /**
+   * @remarks
+   * The Chinese name of the business unit.
+   * 
    * @example
    * 测试板块
    */
   bizUnitDisplayName?: string;
   /**
+   * @remarks
+   * The business unit ID.
+   * 
    * @example
    * 2011
    */
   bizUnitId?: string;
   /**
+   * @remarks
+   * The business unit name.
+   * 
    * @example
    * LD_test01
    */
@@ -107,11 +134,17 @@ export class GetTableResponseBodyDataSimpleNodeInfosBizUnit extends $dara.Model 
 
 export class GetTableResponseBodyDataSimpleNodeInfosOwners extends $dara.Model {
   /**
+   * @remarks
+   * The display name of the user.
+   * 
    * @example
-   * 张三
+   * Zhang San
    */
   displayName?: string;
   /**
+   * @remarks
+   * The ID of the user.
+   * 
    * @example
    * 12345
    */
@@ -141,16 +174,25 @@ export class GetTableResponseBodyDataSimpleNodeInfosOwners extends $dara.Model {
 
 export class GetTableResponseBodyDataSimpleNodeInfosProject extends $dara.Model {
   /**
+   * @remarks
+   * The Chinese name of the project.
+   * 
    * @example
    * 测试项目
    */
   projectDisplayName?: string;
   /**
+   * @remarks
+   * The ID of the project.
+   * 
    * @example
    * 1011
    */
   projectId?: string;
   /**
+   * @remarks
+   * The name of the project.
+   * 
    * @example
    * testPrj
    */
@@ -181,30 +223,57 @@ export class GetTableResponseBodyDataSimpleNodeInfosProject extends $dara.Model 
 }
 
 export class GetTableResponseBodyDataSimpleNodeInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The business unit to which the node belongs.
+   */
   bizUnit?: GetTableResponseBodyDataSimpleNodeInfosBizUnit;
   /**
+   * @remarks
+   * The environment to which the node belongs. Valid values: DEV and PROD.
+   * 
    * @example
    * DEV
    */
   env?: string;
   /**
+   * @remarks
+   * The ID of the physical node.
+   * 
    * @example
    * n_7443xxxx
    */
   nodeId?: string;
   /**
+   * @remarks
+   * The name of the node.
+   * 
    * @example
    * 2345
    */
   nodeName?: string;
   /**
+   * @remarks
+   * The scheduling type of the node. Valid values: NORMAL (periodic scheduling) and MANUAL (manual scheduling).
+   * 
    * @example
    * NORMAL
    */
   nodeScheduleType?: string;
+  /**
+   * @remarks
+   * The O&M owners of the node.
+   */
   owners?: GetTableResponseBodyDataSimpleNodeInfosOwners[];
+  /**
+   * @remarks
+   * The project to which the node belongs.
+   */
   project?: GetTableResponseBodyDataSimpleNodeInfosProject;
   /**
+   * @remarks
+   * The type of the node. Valid values: DLINK (offline integration) and PYTHON37 (Python computing node).
+   * 
    * @example
    * DLINK
    */
@@ -255,11 +324,17 @@ export class GetTableResponseBodyDataSimpleNodeInfos extends $dara.Model {
 
 export class GetTableResponseBodyDataStreamTableConfig extends $dara.Model {
   /**
+   * @remarks
+   * The configuration item.
+   * 
    * @example
    * k1
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the configuration item.
+   * 
    * @example
    * v1
    */
@@ -288,144 +363,253 @@ export class GetTableResponseBodyDataStreamTableConfig extends $dara.Model {
 }
 
 export class GetTableResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The asset inventory tags.
+   */
   assetTags?: string[];
   /**
+   * @remarks
+   * The business unit ID.
+   * 
    * @example
    * 2011
    */
   bizUnitId?: number;
   /**
+   * @remarks
+   * The business unit name.
+   * 
    * @example
    * LD_test01
    */
   bizUnitName?: string;
   /**
+   * @remarks
+   * The table comment.
+   * 
    * @example
    * test
    */
   comment?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The creator ID.
+   * 
    * @example
    * 30011211
    */
   creator?: string;
   /**
+   * @remarks
+   * The data domain ID.
+   * 
    * @example
    * 211
    */
   dataDomainId?: number;
   /**
+   * @remarks
+   * The subject domain name.
+   * 
    * @example
-   * 课程域
+   * Course domain
    */
   dataDomainName?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 3301
    */
   dataSourceId?: number;
   /**
+   * @remarks
+   * The table display name.
+   * 
    * @example
-   * 学生
+   * Student
    */
   displayName?: string;
   /**
+   * @remarks
+   * The environment. Valid values: dev and prod.
+   * 
    * @example
    * dev
    */
   env?: string;
   /**
+   * @remarks
+   * The file ID, which is used to redirect to the ODM model.
+   * 
    * @example
    * 2
    */
   fileId?: string;
   /**
+   * @remarks
+   * The table GUID.
+   * 
    * @example
    * dp_ds_table.300023201.7311626611751680256.load_test.abc
    */
   guid?: string;
+  /**
+   * @remarks
+   * The list of usage instructions.
+   */
   instructions?: GetTableResponseBodyDataInstructions[];
+  /**
+   * @remarks
+   * Indicates whether the project or business unit to which the table belongs is in Basic mode.
+   */
   isBasicMode?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the table is a partitioned table.
+   */
   isPartitionTable?: boolean;
   /**
+   * @remarks
+   * The time when the table DDL was last modified.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   lastDdlTime?: string;
   /**
+   * @remarks
+   * The time when the table data was last updated.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   lastDmlTime?: string;
   /**
+   * @remarks
+   * The time when the data was last viewed.
+   * 
    * @example
    * 2025-06-30 00:00:00
    */
   lastQueryTime?: string;
   /**
+   * @remarks
+   * The lifecycle of the table, in days.
+   * 
    * @example
    * 30
    */
   lifeCycle?: number;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * t_test01
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of associated node IDs.
+   */
   nodeIds?: string[];
   /**
+   * @remarks
+   * The user ID of the table owner in Dataphin. This parameter may be empty if the owner is not bound.
+   * 
    * @example
    * 30011211
    */
   owner?: string;
   /**
+   * @remarks
+   * The parent model ID, which is used to redirect to the ODM model.
+   * 
    * @example
    * 1
    */
   parentModelId?: string;
   /**
+   * @remarks
+   * The logical project ID.
+   * 
    * @example
    * 1011
    */
   projectId?: number;
   /**
+   * @remarks
+   * The logical project name.
+   * 
    * @example
    * testPrj
    */
   projectName?: string;
   /**
+   * @remarks
+   * The security classification.
+   * 
    * @example
    * 1
    */
   securityLevel?: number;
   /**
+   * @remarks
+   * The abbreviation of the security classification name.
+   * 
    * @example
-   * 高
+   * High
    */
   securityLevelAbbreviation?: string;
   /**
+   * @remarks
+   * The name of the security classification.
+   * 
    * @example
-   * 高级
+   * High
    */
   securityLevelName?: string;
+  /**
+   * @remarks
+   * The list of output nodes.
+   */
   simpleNodeInfos?: GetTableResponseBodyDataSimpleNodeInfos[];
   /**
+   * @remarks
+   * The storage type. Valid values: HIVE and MAX_COMPUTE.
+   * 
    * @example
    * HIVE
    */
   storageType?: string;
+  /**
+   * @remarks
+   * The dynamic properties of the real-time metatable.
+   */
   streamTableConfig?: GetTableResponseBodyDataStreamTableConfig[];
   /**
+   * @remarks
+   * The total storage size of the table, in bytes.
+   * 
    * @example
    * 10241024
    */
   tableSizeInBytes?: number;
   /**
+   * @remarks
+   * The number of visits in the last 30 days.
+   * 
    * @example
    * 22
    */
@@ -534,26 +718,46 @@ export class GetTableResponseBodyData extends $dara.Model {
 
 export class GetTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The backend response code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetTableResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The details of the backend response exception.
+   * 
    * @example
    * internal error
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 82E78D6B-AA8F-1FEF-8AA3-5C9DA2A79140
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

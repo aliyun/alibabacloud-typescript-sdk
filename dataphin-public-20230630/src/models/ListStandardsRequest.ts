@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStandardsRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * Directory of the standard.
+   * The folder to which the standard belongs.
    * 
    * @example
    * /dir1/dir2
@@ -13,7 +13,7 @@ export class ListStandardsRequestListQuery extends $dara.Model {
   directory?: string;
   /**
    * @remarks
-   * Search keyword: fuzzy search by standard name, English name, or code. Case-insensitive, sorted by relevance.
+   * The search keyword. Supports case-insensitive fuzzy search by standard name, English name, or code, and sorts results by relevance.
    * 
    * @example
    * Test
@@ -21,7 +21,7 @@ export class ListStandardsRequestListQuery extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Page number. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListStandardsRequestListQuery extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Number of records per page. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -37,12 +37,12 @@ export class ListStandardsRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Standard set ID list.
+   * The IDs of the standard sets to which the standards belong.
    */
   standardSetIdList?: number[];
   /**
    * @remarks
-   * Stage of the standard: DEV or PROD.
+   * The stages of the standards. Valid values: DEV and PROD.
    * 
    * This parameter is required.
    * 
@@ -52,22 +52,22 @@ export class ListStandardsRequestListQuery extends $dara.Model {
   standardStage?: string;
   /**
    * @remarks
-   * Standard status list. Standard statuses under DEV stage: DRAFT, UNDER_REVISION, UNDER_REVIEW, REVIEW_PASSED, IN_PUBLISH. Standard statuses under PROD stage: NOT_ACTIVATED, ACTIVE, EXPIRED.
+   * The list of standard statuses. For the DEV stage, the standard statuses are: DRAFT (Draft), UNDER_REVISION (Under Revision), UNDER_REVIEW (Under Review), REVIEW_PASSED (Approved), and IN_PUBLISH (Publishing). For the PROD stage, the standard statuses are: NOT_ACTIVATED (Not Activated), ACTIVE (Active), and EXPIRED (Expired).
    */
   standardStatusList?: string[];
   /**
    * @remarks
-   * Standard template ID list.
+   * The IDs of the standard templates to which the standards belong.
    */
   standardTemplateIdList?: number[];
   /**
    * @remarks
-   * Standard type: Basic, EMPTY indicates the standard type is empty.
+   * The list of standard types. Valid values: Basic, and EMPTY (the standard type is empty).
    */
   standardTypeList?: string[];
   /**
    * @remarks
-   * User ID: only queries standards visible to this user ID. If empty, queries standards visible to the current user.
+   * The user ID. If specified, only standards visible to this user are queried. If left empty, standards visible to the current user are queried.
    * 
    * @example
    * 30012011
@@ -127,14 +127,14 @@ export class ListStandardsRequestListQuery extends $dara.Model {
 export class ListStandardsRequest extends $dara.Model {
   /**
    * @remarks
-   * Search conditions.
+   * The search conditions.
    * 
    * This parameter is required.
    */
   listQuery?: ListStandardsRequestListQuery;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -143,6 +143,9 @@ export class ListStandardsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

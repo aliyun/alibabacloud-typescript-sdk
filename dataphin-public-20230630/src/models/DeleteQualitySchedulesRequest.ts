@@ -37,7 +37,7 @@ export class DeleteQualitySchedulesRequestDeleteCommand extends $dara.Model {
 export class DeleteQualitySchedulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The delete instruction.
+   * The delete command.
    * 
    * This parameter is required.
    */
@@ -53,6 +53,9 @@ export class DeleteQualitySchedulesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

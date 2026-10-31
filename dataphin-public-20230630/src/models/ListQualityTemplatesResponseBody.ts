@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityTemplatesResponseBodyPageResultQualityTemplateListFormPropertyList extends $dara.Model {
   /**
    * @remarks
-   * The control type.
+   * The type of the control.
    * 
    * @example
    * expression
@@ -13,7 +13,7 @@ export class ListQualityTemplatesResponseBodyPageResultQualityTemplateListFormPr
   componentType?: string;
   /**
    * @remarks
-   * The property name.
+   * The name of the property.
    * 
    * @example
    * col
@@ -21,7 +21,7 @@ export class ListQualityTemplatesResponseBodyPageResultQualityTemplateListFormPr
   name?: string;
   /**
    * @remarks
-   * The property value.
+   * The value of the property.
    * 
    * @example
    * abc
@@ -56,14 +56,14 @@ export class ListQualityTemplatesResponseBodyPageResultQualityTemplateList exten
   /**
    * @remarks
    * The template category. Valid values:
-   * - CONSISTENT: consistency
-   * - EFFECTIVE: validity
-   * - TIMELINESE: timeliness
-   * - ACCURATE: accuracy
-   * - UNIQUENESS: uniqueness
-   * - COMPLETENESS: completeness
-   * - STABILITY: stability
-   * - CUSTOM: custom.
+   * - CONSISTENT: Consistency.
+   * - EFFECTIVE: Effectiveness.
+   * - TIMELINESE: Timeliness.
+   * - ACCURATE: Accuracy.
+   * - UNIQUENESS: Uniqueness.
+   * - COMPLETENESS: Completeness.
+   * - STABILITY: Stability.
+   * - CUSTOM: Custom.
    * 
    * @example
    * CONSISTENT
@@ -74,7 +74,7 @@ export class ListQualityTemplatesResponseBodyPageResultQualityTemplateList exten
    * The display name of the template category.
    * 
    * @example
-   * 一致性
+   * Consistency
    */
   catalogName?: string;
   /**
@@ -103,7 +103,7 @@ export class ListQualityTemplatesResponseBodyPageResultQualityTemplateList exten
   creatorName?: string;
   /**
    * @remarks
-   * The template description.
+   * The description of the template.
    * 
    * @example
    * test
@@ -111,12 +111,12 @@ export class ListQualityTemplatesResponseBodyPageResultQualityTemplateList exten
   description?: string;
   /**
    * @remarks
-   * The rule configuration key-value pairs.
+   * The key-value pairs for rule configuration.
    */
   formPropertyList?: ListQualityTemplatesResponseBodyPageResultQualityTemplateListFormPropertyList[];
   /**
    * @remarks
-   * The template ID.
+   * The ID of the template.
    * 
    * @example
    * 1
@@ -129,7 +129,7 @@ export class ListQualityTemplatesResponseBodyPageResultQualityTemplateList exten
   isSystemTemplate?: boolean;
   /**
    * @remarks
-   * The user ID of the last modifier.
+   * The user ID of the last updater.
    * 
    * @example
    * 30012011
@@ -137,7 +137,7 @@ export class ListQualityTemplatesResponseBodyPageResultQualityTemplateList exten
   modifier?: string;
   /**
    * @remarks
-   * The name of the last modifier.
+   * The name of the last updater.
    * 
    * @example
    * test
@@ -145,7 +145,7 @@ export class ListQualityTemplatesResponseBodyPageResultQualityTemplateList exten
   modifierName?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -153,7 +153,7 @@ export class ListQualityTemplatesResponseBodyPageResultQualityTemplateList exten
   modifyTime?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
    * test
@@ -182,43 +182,43 @@ export class ListQualityTemplatesResponseBodyPageResultQualityTemplateList exten
   supportAllDataSourceType?: boolean;
   /**
    * @remarks
-   * The supported data source types, such as MySQL, Oracle, Microsoft SQL Server, MaxCompute, and Hive.
+   * The specific data source types that are supported, such as MySQL, Oracle, Microsoft SQL Server, MaxCompute, and Hive.
    */
   supportDataSourceTypeList?: string[];
   /**
    * @remarks
-   * The templatetype. Valid values:
-   * - FIELD_NULL_VALUE_VALIDATE: field null value check
-   * - FIELD_EMPTY_STRING_VALIDATE: field empty character string check
-   * - FIELD_UNIQUE_VALIDATE: field uniqueness check
-   * - FIELD_GROUP_COUNT_VALIDATE: field unique value count check
-   * - FIELD_DUPLICATE_VALUE_COUNT_VALIDATE: field duplicate value count check
-   * - FUNCTION_TIME_COMPARE: time function comparison
-   * - SINGLE_TABLE_TIME_COMPARE: non-partitioned table time field comparison
-   * - DOUBLE_TABLE_TIME_COMPARE: two-table time field comparison
-   * - FIELD_FORMAT_VALIDATE: field format check
-   * - FIELD_LENGTH_VALIDATE: field length check
-   * - FIELD_VALUE_RANGE_VALIDATE: field value range check
-   * - CODE_TABLE_COMPARE: lookup table reference comparison
-   * - STANDARD_CODE_TABLE_COMPARE: data standard lookup table reference comparison
-   * - SINGLE_TABLE_FIELD_VALUE_COMPARE: non-partitioned table field value consistency comparison
-   * - SINGLE_TABLE_FIELD_STATISTICAL_COMPARE: non-partitioned table field statistical value consistency comparison
-   * - SINGLE_TABLE_FIELD_EXP_COMPARE: non-partitioned table field business logic consistency comparison
-   * - DOUBLE_TABLE_FIELD_VALUE_COMPARE: two-table field value consistency comparison
-   * - DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: two-table field statistical value consistency comparison
-   * - CROSS_DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: cross-source two-table field statistical value consistency comparison
-   * - DOUBLE_TABLE_FIELD_EXP_COMPARE: two-table field business logic consistency comparison
-   * - TABLE_STABILITY_VALIDATE: table stability check
-   * - TABLE_FLUCTUATION_VALIDATE: table fluctuation check
-   * - FIELD_STABILITY_VALIDATE: field stability check
-   * - FIELD_FLUCTUATION_VALIDATE: field fluctuation check
-   * - CUSTOM_STATISTICAL_VALIDATE: custom statistical metric check
-   * - CUSTOM_DATA_DETAILS_VALIDATE: custom data details check
-   * - DATASOURCE_AVAILABLE_CHECK: data source connectivity monitoring
-   * - TABLE_SCHEMA_CHECK: table schema change monitoring
-   * - REAL_TIME_OFFLINE_COMPARE: real-time and offline comparison
-   * - REAL_TIME_STATISTICAL_VALIDATE: real-time statistical value monitoring
-   * - REAL_TIME_MULTI_CHAIN_COMPARE: real-time multi-link comparison.
+   * The template type. Valid values:
+   * - FIELD_NULL_VALUE_VALIDATE: Field null value check.
+   * - FIELD_EMPTY_STRING_VALIDATE: Field empty string check.
+   * - FIELD_UNIQUE_VALIDATE: Field uniqueness check.
+   * - FIELD_GROUP_COUNT_VALIDATE: Field unique value count check.
+   * - FIELD_DUPLICATE_VALUE_COUNT_VALIDATE: Field duplicate value count check.
+   * - FUNCTION_TIME_COMPARE: Time function comparison.
+   * - SINGLE_TABLE_TIME_COMPARE: Non-partitioned table time field comparison.
+   * - DOUBLE_TABLE_TIME_COMPARE: Two-table time field comparison.
+   * - FIELD_FORMAT_VALIDATE: Field format check.
+   * - FIELD_LENGTH_VALIDATE: Field length check.
+   * - FIELD_VALUE_RANGE_VALIDATE: Field value range check.
+   * - CODE_TABLE_COMPARE: Lookup table reference comparison.
+   * - STANDARD_CODE_TABLE_COMPARE: Data standard lookup table reference comparison.
+   * - SINGLE_TABLE_FIELD_VALUE_COMPARE: Non-partitioned table field value consistency comparison.
+   * - SINGLE_TABLE_FIELD_STATISTICAL_COMPARE: Non-partitioned table field statistical value consistency comparison.
+   * - SINGLE_TABLE_FIELD_EXP_COMPARE: Non-partitioned table field business logic consistency comparison.
+   * - DOUBLE_TABLE_FIELD_VALUE_COMPARE: Two-table field value consistency comparison.
+   * - DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: Two-table field statistical value consistency comparison.
+   * - CROSS_DOUBLE_TABLE_FIELD_STATISTICAL_COMPARE: Cross-source two-table field statistical value consistency comparison.
+   * - DOUBLE_TABLE_FIELD_EXP_COMPARE: Two-table field business logic consistency comparison.
+   * - TABLE_STABILITY_VALIDATE: Table stability check.
+   * - TABLE_FLUCTUATION_VALIDATE: Table fluctuation check.
+   * - FIELD_STABILITY_VALIDATE: Field stability check.
+   * - FIELD_FLUCTUATION_VALIDATE: Field fluctuation check.
+   * - CUSTOM_STATISTICAL_VALIDATE: Custom statistical metric check.
+   * - CUSTOM_DATA_DETAILS_VALIDATE: Custom data details check.
+   * - DATASOURCE_AVAILABLE_CHECK: Data source connectivity check.
+   * - TABLE_SCHEMA_CHECK: Table schema change check.
+   * - REAL_TIME_OFFLINE_COMPARE: Real-time and offline comparison.
+   * - REAL_TIME_STATISTICAL_VALIDATE: Real-time statistical value check.
+   * - REAL_TIME_MULTI_CHAIN_COMPARE: Real-time multi-link comparison.
    * 
    * @example
    * FIELD_NULL_VALUE_VALIDATE
@@ -226,10 +226,10 @@ export class ListQualityTemplatesResponseBodyPageResultQualityTemplateList exten
   type?: string;
   /**
    * @remarks
-   * The display name of the templatetype.
+   * The display name of the template type.
    * 
    * @example
-   * 字段空值校验
+   * Field null value check
    */
   typeName?: string;
   static names(): { [key: string]: string } {
@@ -298,7 +298,7 @@ export class ListQualityTemplatesResponseBodyPageResultQualityTemplateList exten
 export class ListQualityTemplatesResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The list of quality templates.
+   * The paged list of quality templates.
    */
   qualityTemplateList?: ListQualityTemplatesResponseBodyPageResultQualityTemplateList[];
   /**
@@ -354,7 +354,7 @@ export class ListQualityTemplatesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -375,7 +375,7 @@ export class ListQualityTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

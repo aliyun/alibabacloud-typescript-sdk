@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OfflinePipelineByAsyncRequestContext extends $dara.Model {
   /**
    * @remarks
-   * The environment for the current operation. Valid values:
-   * 
-   * - DEV: the development environment.
-   * - PROD: the production environment.
+   * The current operation environment. Valid values: DEV: development environment. PROD: production environment.
    * 
    * This parameter is required.
    * 
@@ -18,7 +15,7 @@ export class OfflinePipelineByAsyncRequestContext extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The ID of the project to which the integration pipeline node belongs.
+   * The ID of the project to which the integration pipeline task belongs.
    * 
    * This parameter is required.
    * 
@@ -52,7 +49,7 @@ export class OfflinePipelineByAsyncRequestContext extends $dara.Model {
 export class OfflinePipelineByAsyncRequestOfflineCommand extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
    * comment
@@ -60,14 +57,14 @@ export class OfflinePipelineByAsyncRequestOfflineCommand extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Specifies whether to delete the node.
+   * Specifies whether to delete the task.
    * 
    * This parameter is required.
    */
   delete?: boolean;
   /**
    * @remarks
-   * The file ID of the integration node. You can use this parameter to query the node.
+   * The ID of the integration task file.
    * 
    * @example
    * 123
@@ -75,7 +72,7 @@ export class OfflinePipelineByAsyncRequestOfflineCommand extends $dara.Model {
   fileId?: number;
   /**
    * @remarks
-   * The schedule node ID of the integration node. You can use this parameter to query the node.
+   * The ID of the scheduling node for the integration task.
    * 
    * @example
    * n_123
@@ -83,7 +80,7 @@ export class OfflinePipelineByAsyncRequestOfflineCommand extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The primary key ID of the integration pipeline. You can use this parameter to query the node.
+   * The primary key of the integration pipeline.
    * 
    * @example
    * 123
@@ -128,7 +125,7 @@ export class OfflinePipelineByAsyncRequest extends $dara.Model {
   context?: OfflinePipelineByAsyncRequestContext;
   /**
    * @remarks
-   * The offline pipeline node command.
+   * The command to take the pipeline task offline.
    * 
    * This parameter is required.
    */
@@ -144,6 +141,9 @@ export class OfflinePipelineByAsyncRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

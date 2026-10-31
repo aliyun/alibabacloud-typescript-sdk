@@ -13,7 +13,7 @@ export class GetProjectResponseBodyProjectInfoWhiteLists extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The IP address.
+   * ip
    * 
    * @example
    * 10.209.47.198
@@ -55,18 +55,18 @@ export class GetProjectResponseBodyProjectInfoWhiteLists extends $dara.Model {
 export class GetProjectResponseBodyProjectInfo extends $dara.Model {
   /**
    * @remarks
-   * The dependent data module display name.
+   * The display name of the dependent data module.
    * 
    * @example
-   * 业务板块显示名
+   * Business unit display name
    */
   bizUnitDisplayName?: string;
   /**
    * @remarks
-   * The dependent data module ID.
+   * The ID of the dependent data module.
    * 
    * @example
-   * 业务板块Id
+   * Business unit ID
    */
   bizUnitId?: number;
   /**
@@ -74,7 +74,7 @@ export class GetProjectResponseBodyProjectInfo extends $dara.Model {
    * The compute source ID.
    * 
    * @example
-   * 项目依赖计算源Id
+   * Dependent compute source ID
    */
   computeSourceId?: number;
   /**
@@ -82,7 +82,7 @@ export class GetProjectResponseBodyProjectInfo extends $dara.Model {
    * The compute source name.
    * 
    * @example
-   * 项目依赖计算源名
+   * Dependent compute source name
    */
   computeSourceName?: string;
   /**
@@ -98,7 +98,7 @@ export class GetProjectResponseBodyProjectInfo extends $dara.Model {
    * The project display name.
    * 
    * @example
-   * 项目显示名
+   * Project display name
    */
   displayName?: string;
   /**
@@ -161,7 +161,7 @@ export class GetProjectResponseBodyProjectInfo extends $dara.Model {
   nameSpaceTag?: string;
   /**
    * @remarks
-   * The project owner ID.
+   * The ID of the project owner.
    * 
    * @example
    * 101111
@@ -172,23 +172,23 @@ export class GetProjectResponseBodyProjectInfo extends $dara.Model {
    * The project owner.
    * 
    * @example
-   * 测试用户
+   * Test user
    */
   ownerName?: string;
   /**
    * @remarks
-   * The stream compute source ID.
+   * The real-time compute source ID.
    * 
    * @example
-   * 项目依赖实时计算源Id
+   * Dependent real-time compute source ID
    */
   streamComputeSourceId?: number;
   /**
    * @remarks
-   * The stream compute source name.
+   * The real-time compute source name.
    * 
    * @example
-   * 项目依赖实时计算源名
+   * Dependent real-time compute source name
    */
   streamComputeSourceName?: string;
   /**
@@ -201,7 +201,7 @@ export class GetProjectResponseBodyProjectInfo extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The whitelists.
+   * The whitelist.
    */
   whiteLists?: GetProjectResponseBodyProjectInfoWhiteLists[];
   static names(): { [key: string]: string } {
@@ -267,7 +267,7 @@ export class GetProjectResponseBodyProjectInfo extends $dara.Model {
 export class GetProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -275,7 +275,7 @@ export class GetProjectResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -304,7 +304,7 @@ export class GetProjectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

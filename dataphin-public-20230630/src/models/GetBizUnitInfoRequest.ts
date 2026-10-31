@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBizUnitInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The data domain ID.
+   * The data sector ID.
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,9 @@ export class GetBizUnitInfoRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

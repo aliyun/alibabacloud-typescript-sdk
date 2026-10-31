@@ -5,20 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityRulesRequestListQuery extends $dara.Model {
   /**
    * @remarks
-   * The rule type. Valid values:
-   * - CONSISTENT: consistency.
-   * - EFFECTIVE: validity.
-   * - TIMELINESE: timeliness.
-   * - ACCURATE: accuracy.
-   * - UNIQUENESS: uniqueness.
-   * - COMPLETENESS: completeness.
-   * - STABILITY: stability.
-   * - CUSTOM: custom.
+   * The rule type. Valid values: CONSISTENT (Consistency), EFFECTIVE (Effectiveness), TIMELINESE (Timeliness), ACCURATE (Accuracy), UNIQUENESS (Uniqueness), COMPLETENESS (Completeness), STABILITY (Stability), and CUSTOM (Custom).
    */
   catalogList?: string[];
   /**
    * @remarks
-   * The search keyword for filtering. Supports searching by rule name and validation object.
+   * The search keyword. Supports searching by rule name and validation object.
    * 
    * @example
    * test
@@ -34,7 +26,7 @@ export class ListQualityRulesRequestListQuery extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of records per page. Default value: 20.
+   * The number of entries per page. Default value: 20.
    * 
    * @example
    * 20
@@ -42,16 +34,12 @@ export class ListQualityRulesRequestListQuery extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The rule strength. Valid values:
-   * - STRONG: strong.
-   * - WEAK: weak.
+   * The rule strength. Valid values: STRONG (Strong) and WEAK (Weak).
    */
   ruleStrengthList?: string[];
   /**
    * @remarks
-   * The rule effective status. Valid values:
-   * - ENABLE: enabled.
-   * - DISABLE: disabled.
+   * The effective status of the rule. Valid values: ENABLE (Enabled) and DISABLE (Disabled).
    */
   statusList?: string[];
   /**
@@ -61,29 +49,12 @@ export class ListQualityRulesRequestListQuery extends $dara.Model {
   templateIdList?: number[];
   /**
    * @remarks
-   * The task status. Valid values:
-   * - NOT_RUN: not executed.
-   * - WAITING: waiting.
-   * - RUNNING: executing.
-   * - SUCCESS: execution succeeded.
-   * - FAILED: execution failed.
-   * - CANCEL: canceled.
-   * - TIMEOUT: timed out.
-   * - OFFLINE: offline.
+   * The task status. Valid values: NOT_RUN (Not run), WAITING (Waiting), RUNNING (Running), SUCCESS (Succeeded), FAILED (Failed), CANCEL (Canceled), TIMEOUT (Timed out), and OFFLINE (Offline).
    */
   testRunTaskStatusList?: string[];
   /**
    * @remarks
-   * The trial run validation result. Valid values:
-   * - NOT_RUN: not executed.
-   * - WAITING: waiting for execution.
-   * - RUNNING: executing.
-   * - PASS: passed.
-   * - NOT_PASS: not passed.
-   * - FAILED: execution failed.
-   * - OFFLINE: offline. The task needs to be restarted.
-   * - CANCEL: task canceled.
-   * - TIMEOUT: task timed out.
+   * The validation result of the rule test run. Valid values: NOT_RUN (Not run), WAITING (Waiting), RUNNING (Running), PASS (Passed), NOT_PASS (Not passed), FAILED (Failed), OFFLINE (Offline, requires restart), CANCEL (Canceled), and TIMEOUT (Timed out).
    */
   testRunTaskValidateResultList?: string[];
   /**
@@ -154,7 +125,7 @@ export class ListQualityRulesRequestListQuery extends $dara.Model {
 export class ListQualityRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The paged query conditions.
+   * The paged query conditions, including paging parameters.
    */
   listQuery?: ListQualityRulesRequestListQuery;
   /**
@@ -168,6 +139,9 @@ export class ListQualityRulesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

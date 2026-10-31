@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAdHocTaskResultResponseBodyExecuteResult extends $dara.Model {
   /**
    * @remarks
-   * The task execution result.
+   * The execution result of the task.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetAdHocTaskResultResponseBodyExecuteResult extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The ID of the corresponding scheduling task.
+   * The ID of the corresponding scheduled task.
    * 
    * @example
    * t_2242892326444990464_20210125_2242892326444990465
@@ -55,7 +55,7 @@ export class GetAdHocTaskResultResponseBodyExecuteResult extends $dara.Model {
 export class GetAdHocTaskResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -92,7 +92,7 @@ export class GetAdHocTaskResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

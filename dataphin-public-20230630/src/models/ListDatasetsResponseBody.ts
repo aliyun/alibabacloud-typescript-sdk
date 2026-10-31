@@ -16,7 +16,7 @@ export class ListDatasetsResponseBodyPageResultResultDataOwnerList extends $dara
    * The username.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   userName?: string;
   static names(): { [key: string]: string } {
@@ -44,54 +44,96 @@ export class ListDatasetsResponseBodyPageResultResultDataOwnerList extends $dara
 
 export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoRequestParamList extends $dara.Model {
   /**
+   * @remarks
+   * The date format.
+   * 
    * @example
    * yyyyMMdd
    */
   dateFormat?: string;
   /**
+   * @remarks
+   * The default value.
+   * 
    * @example
    * test
    */
   defaultValue?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   descr?: string;
+  /**
+   * @remarks
+   * Specifies whether the parameter is a URL parameter.
+   */
   isUrl?: boolean;
   /**
+   * @remarks
+   * The mapping column.
+   * 
    * @example
    * col02
    */
   mappingColumn?: string;
+  /**
+   * @remarks
+   * Specifies whether the parameter is required.
+   */
   must?: boolean;
   /**
+   * @remarks
+   * The operator.
+   * 
    * @example
    * =
    */
   operator?: string;
+  /**
+   * @remarks
+   * Specifies whether the parameter is optional.
+   */
   optional?: boolean;
   /**
+   * @remarks
+   * The original column name.
+   * 
    * @example
    * colx
    */
   originalColumn?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * p1
    */
   paramName?: string;
   /**
+   * @remarks
+   * The parameter type.
+   * 
    * @example
    * int
    */
   paramType?: string;
   /**
+   * @remarks
+   * The example value.
+   * 
    * @example
    * test
    */
   sample?: string;
   /**
+   * @remarks
+   * The sequence number.
+   * 
    * @example
    * 1
    */
@@ -143,42 +185,70 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoReque
 
 export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoResponseParamList extends $dara.Model {
   /**
+   * @remarks
+   * The date format.
+   * 
    * @example
    * yyyyMMdd
    */
   dateFormat?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   descr?: string;
+  /**
+   * @remarks
+   * Specifies whether the parameter is a URL parameter.
+   */
   isUrl?: boolean;
   /**
+   * @remarks
+   * The mapping column.
+   * 
    * @example
    * col1
    */
   mappingColumn?: string;
   /**
+   * @remarks
+   * The original column name.
+   * 
    * @example
    * colx
    */
   originalColumn?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * p2
    */
   paramName?: string;
   /**
+   * @remarks
+   * The parameter type.
+   * 
    * @example
    * int
    */
   paramType?: string;
   /**
+   * @remarks
+   * The example value.
+   * 
    * @example
    * test
    */
   sample?: string;
   /**
+   * @remarks
+   * The sequence number.
+   * 
    * @example
    * 1
    */
@@ -222,12 +292,17 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoRespo
 
 export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo extends $dara.Model {
   /**
+   * @remarks
+   * The business ID.
+   * 
    * @example
    * 1012
    */
   apiNo?: number;
   /**
    * @remarks
+   * The execution timeout period in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -236,6 +311,8 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo exte
   execTimeout?: number;
   /**
    * @remarks
+   * The execution mode. Valid values: 1: Synchronous, 2: Asynchronous.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -244,6 +321,8 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo exte
   executeMode?: number;
   /**
    * @remarks
+   * The data service API group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -251,12 +330,17 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo exte
    */
   osApiGroup?: number;
   /**
+   * @remarks
+   * The name of the data service API group.
+   * 
    * @example
    * test
    */
   osApiGroupName?: string;
   /**
    * @remarks
+   * The data service project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -264,12 +348,17 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo exte
    */
   osProject?: number;
   /**
+   * @remarks
+   * The name of the data service project.
+   * 
    * @example
    * test
    */
   osProjectName?: string;
   /**
    * @remarks
+   * The protocol type. Valid values: 1: HTTPS, 2: HTTP, 3: HTTP and HTTPS.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -278,6 +367,8 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo exte
   protocol?: number;
   /**
    * @remarks
+   * The request method. Valid values: 1: GET, 2: LIST.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -286,12 +377,20 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo exte
   requestMethod?: number;
   /**
    * @remarks
+   * The list of request parameters.
+   * 
    * This parameter is required.
    */
   requestParamList?: ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoRequestParamList[];
+  /**
+   * @remarks
+   * The list of response parameters.
+   */
   responseParamList?: ListDatasetsResponseBodyPageResultResultDataVersionListApiInfoResponseParamList[];
   /**
    * @remarks
+   * The timeout period in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -363,7 +462,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
    * The data source name.
    * 
    * @example
-   * 测试数据源
+   * Test data source
    */
   dataSourceName?: string;
   /**
@@ -371,7 +470,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
    * The development path (not required for basic projects).
    * 
    * @example
-   * HTML正文提取/test423/
+   * HTML content extraction/test423/
    */
   devPath?: string;
   /**
@@ -391,7 +490,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
    * This parameter is required.
    * 
    * @example
-   * HTML正文提取/test423/
+   * HTML content extraction/test423/
    */
   prodPath?: string;
   static names(): { [key: string]: string } {
@@ -446,12 +545,12 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   embeddingModel?: string;
   /**
    * @remarks
-   * The index build parameters.
+   * The index building parameters.
    */
   indexParams?: { [key: string]: any };
   /**
    * @remarks
-   * The index type. PG supports IVFFlat and HNSW. Milvus supports all index types.
+   * The index type. PostgreSQL supports IVFFlat and HNSW. Milvus supports all index types.
    * 
    * This parameter is required.
    * 
@@ -504,15 +603,15 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
 export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigMetadataStorageConfigTableSchemaColumns extends $dara.Model {
   /**
    * @remarks
-   * The field description.
+   * The column description.
    * 
    * @example
-   * 主键
+   * Primary key
    */
   comment?: string;
   /**
    * @remarks
-   * The array element subtype. This parameter takes effect only when type is set to ARRAY.
+   * The subtype of the array element. Valid only when type is ARRAY.
    * 
    * @example
    * INT64
@@ -520,7 +619,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   elementType?: string;
   /**
    * @remarks
-   * The maximum array capacity. This parameter takes effect only when type is set to ARRAY. Default value: 4096.
+   * The maximum capacity of the array. Valid only when type is ARRAY. Default value: 4096.
    * 
    * @example
    * 20
@@ -528,7 +627,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   maxCapacity?: number;
   /**
    * @remarks
-   * The field name.
+   * The column name.
    * 
    * This parameter is required.
    * 
@@ -538,7 +637,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   name?: string;
   /**
    * @remarks
-   * Indicates whether the field is a primary key.
+   * Specifies whether the column is a primary key.
    * 
    * This parameter is required.
    * 
@@ -548,7 +647,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   pk?: boolean;
   /**
    * @remarks
-   * The field type.
+   * The column type.
    * 
    * This parameter is required.
    * 
@@ -558,7 +657,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   type?: string;
   /**
    * @remarks
-   * Indicates whether the field is a URL.
+   * Specifies whether the column is a URL.
    * 
    * @example
    * false
@@ -610,7 +709,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
 export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigMetadataStorageConfigTableSchema extends $dara.Model {
   /**
    * @remarks
-   * The field list.
+   * The list of columns.
    */
   columns?: ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigMetadataStorageConfigTableSchemaColumns[];
   static names(): { [key: string]: string } {
@@ -653,15 +752,15 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
    * The data source name.
    * 
    * @example
-   * 测试数据源
+   * Test data source
    */
   dataSourceName?: string;
   /**
    * @remarks
-   * The development database/schema.
+   * The development database or schema.
    * 
    * @example
-   * HTML正文提取/test423/
+   * HTML content extraction/test423/
    */
   devSchema?: string;
   /**
@@ -684,12 +783,12 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   metadataStorageType?: string;
   /**
    * @remarks
-   * The production database/schema.
+   * The production database or schema.
    * 
    * This parameter is required.
    * 
    * @example
-   * HTML正文提取/test423/
+   * HTML content extraction/test423/
    */
   prodSchema?: string;
   /**
@@ -768,12 +867,12 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   embeddingModel?: string;
   /**
    * @remarks
-   * The index build parameters.
+   * The index building parameters.
    */
   indexParams?: { [key: string]: any };
   /**
    * @remarks
-   * The index type. PG supports IVFFlat and HNSW. Milvus supports all index types.
+   * The index type. PostgreSQL supports IVFFlat and HNSW. Milvus supports all index types.
    * 
    * This parameter is required.
    * 
@@ -829,12 +928,12 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
    * **The field description.**
    * 
    * @example
-   * 录入时间
+   * Entry time
    */
   comment?: string;
   /**
    * @remarks
-   * **The array element subtype. This parameter takes effect only when type is set to ARRAY.**
+   * **The subtype of the array element. Valid only when type is ARRAY.**
    * 
    * @example
    * INT64
@@ -842,7 +941,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   elementType?: string;
   /**
    * @remarks
-   * **The maximum array capacity. This parameter takes effect only when type is set to ARRAY. Default value: 4096.**
+   * **The maximum capacity of the array. Valid only when type is ARRAY. Default value: 4096.**
    * 
    * @example
    * 35
@@ -850,7 +949,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   maxCapacity?: number;
   /**
    * @remarks
-   * **The field name.**
+   * **The column name.**
    * 
    * This parameter is required.
    * 
@@ -860,7 +959,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   name?: string;
   /**
    * @remarks
-   * Indicates whether the field is a primary key.
+   * Specifies whether the column is a primary key.
    * 
    * This parameter is required.
    * 
@@ -870,7 +969,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   pk?: boolean;
   /**
    * @remarks
-   * **The field type.**
+   * **The column type.**
    * 
    * This parameter is required.
    * 
@@ -880,7 +979,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   type?: string;
   /**
    * @remarks
-   * Indicates whether the field is a URL.
+   * Specifies whether the column is a URL.
    * 
    * @example
    * false
@@ -932,7 +1031,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
 export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigRealtimeMetaTableConfigTableSchema extends $dara.Model {
   /**
    * @remarks
-   * The field list.
+   * The list of columns.
    */
   columns?: ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigRealtimeMetaTableConfigTableSchemaColumns[];
   static names(): { [key: string]: string } {
@@ -962,7 +1061,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
 export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigRealtimeMetaTableConfig extends $dara.Model {
   /**
    * @remarks
-   * The meta table data source type (only KAFKA is available in this release).
+   * The data source type of the metatable. Only KAFKA is supported in the current release.
    * 
    * This parameter is required.
    * 
@@ -972,17 +1071,17 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   datasourceType?: string;
   /**
    * @remarks
-   * The meta table name.
+   * The metatable name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 测试元表
+   * Test metatable
    */
   metaTableName?: string;
   /**
    * @remarks
-   * The project ID of the meta table (cross-project access is supported).
+   * The ID of the project to which the metatable belongs. Cross-project access is supported.
    * 
    * This parameter is required.
    * 
@@ -992,7 +1091,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   projectId?: number;
   /**
    * @remarks
-   * The table schema configuration (reuses `MetadataStorageConfigDTO.TableSchemaDTO`).
+   * The table schema configuration. This configuration reuses `MetadataStorageConfigDTO.TableSchemaDTO`.
    */
   tableSchema?: ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigRealtimeMetaTableConfigTableSchema;
   static names(): { [key: string]: string } {
@@ -1038,7 +1137,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
   metadataStorageConfig?: ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigMetadataStorageConfig;
   /**
    * @remarks
-   * The real-time meta table configuration (takes effect only when `metadataStorageType=REALTIME_META_TABLE`).
+   * The real-time metatable configuration. This configuration is valid only when `metadataStorageType` is `REALTIME_META_TABLE`.
    */
   realtimeMetaTableConfig?: ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionConfigRealtimeMetaTableConfig;
   /**
@@ -1046,7 +1145,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
    * The version description.
    * 
    * @example
-   * 测试数据集版本
+   * Test dataset version
    */
   versionDescription?: string;
   static names(): { [key: string]: string } {
@@ -1086,10 +1185,14 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionListDataVersionC
 }
 
 export class ListDatasetsResponseBodyPageResultResultDataVersionList extends $dara.Model {
+  /**
+   * @remarks
+   * The API information of the online dataset.
+   */
   apiInfo?: ListDatasetsResponseBodyPageResultResultDataVersionListApiInfo;
   /**
    * @remarks
-   * The creator ID.
+   * The ID of the creator.
    * 
    * @example
    * 300001391
@@ -1118,7 +1221,7 @@ export class ListDatasetsResponseBodyPageResultResultDataVersionList extends $da
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 1749450490000
@@ -1192,7 +1295,7 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The creator ID.
+   * The ID of the creator.
    * 
    * @example
    * 300001391
@@ -1200,15 +1303,15 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The creator name.
+   * The name of the creator.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   creatorName?: string;
   /**
    * @remarks
-   * The data domain ID.
+   * The subject area ID.
    * 
    * @example
    * 74280
@@ -1216,10 +1319,10 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   dataCellId?: string;
   /**
    * @remarks
-   * **The data domain name.**
+   * **The subject area name.**
    * 
    * @example
-   * 离线数据主题域
+   * Offline data subject area
    */
   dataCellName?: string;
   /**
@@ -1227,12 +1330,12 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
    * The description.
    * 
    * @example
-   * 测试数据集
+   * Test dataset
    */
   description?: string;
   /**
    * @remarks
-   * The directory (retrieved from the file service by fileId).
+   * The directory, which is obtained from the file service by using the file ID.
    * 
    * @example
    * /
@@ -1256,7 +1359,7 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2026-05-18 17:07:54.237771
@@ -1264,7 +1367,7 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The dataset ID (business primary key).
+   * The dataset ID, which is the business primary key.
    * 
    * @example
    * 7128268454335680
@@ -1272,7 +1375,7 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The development owner ID.
+   * The ID of the development owner.
    * 
    * @example
    * 300001391
@@ -1280,10 +1383,10 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   lockOwner?: string;
   /**
    * @remarks
-   * The name of the development owner (interface Displayed Fields).
+   * The name of the development owner (interface display field).
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   lockOwnerName?: string;
   /**
@@ -1296,7 +1399,7 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   metadataStorageType?: string;
   /**
    * @remarks
-   * The dataset name.
+   * The name of the dataset.
    * 
    * @example
    * audio_dataset
@@ -1304,12 +1407,12 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The owner list.
+   * The list of owners.
    */
   ownerList?: ListDatasetsResponseBodyPageResultResultDataOwnerList[];
   /**
    * @remarks
-   * The project ID.
+   * The ID of the project to which the dataset belongs.
    * 
    * @example
    * 7290731813137728
@@ -1317,7 +1420,7 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The project name.
+   * The name of the project to which the dataset belongs.
    * 
    * @example
    * ds_tm
@@ -1325,9 +1428,7 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The dataset scenarios. Valid values:
-   * - OFFLINE: offline (default).
-   * - REALTIME: real-time.
+   * The scenarios of the dataset. Valid values: OFFLINE (offline, default) and REALTIME (real-time).
    * 
    * @example
    * OFFLINE
@@ -1359,7 +1460,7 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The version list.
+   * The list of versions.
    */
   versionList?: ListDatasetsResponseBodyPageResultResultDataVersionList[];
   static names(): { [key: string]: string } {
@@ -1436,7 +1537,7 @@ export class ListDatasetsResponseBodyPageResultResultData extends $dara.Model {
 export class ListDatasetsResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The total count.
+   * The actual total count.
    * 
    * @example
    * 12
@@ -1444,7 +1545,7 @@ export class ListDatasetsResponseBodyPageResult extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The object.
+   * The objects.
    */
   resultData?: ListDatasetsResponseBodyPageResultResultData[];
   static names(): { [key: string]: string } {
@@ -1500,7 +1601,7 @@ export class ListDatasetsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The paged result.
+   * The paginated result.
    */
   pageResult?: ListDatasetsResponseBodyPageResult;
   /**
@@ -1513,7 +1614,7 @@ export class ListDatasetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

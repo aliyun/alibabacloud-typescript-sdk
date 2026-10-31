@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSecurityIdentifyResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The identification result ID.
+   * The recognition result ID.
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,9 @@ export class GetSecurityIdentifyResultRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

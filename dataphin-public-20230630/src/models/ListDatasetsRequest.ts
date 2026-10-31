@@ -13,7 +13,7 @@ export class ListDatasetsRequestDatasetQuery extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The data domain ID.
+   * The subject domain ID.
    * 
    * @example
    * 74280
@@ -21,7 +21,7 @@ export class ListDatasetsRequestDatasetQuery extends $dara.Model {
   dataUnit?: string;
   /**
    * @remarks
-   * Specifies whether to include version details. Default value: FALSE.
+   * Specifies whether to include version details. Default value: false.
    */
   includeVersionList?: boolean;
   /**
@@ -50,7 +50,7 @@ export class ListDatasetsRequestDatasetQuery extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10
@@ -68,9 +68,7 @@ export class ListDatasetsRequestDatasetQuery extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The dataset scenario. Valid values:
-   * - OFFLINE: offline.
-   * - REALTIME: real-time.
+   * The dataset scenario. Valid values: OFFLINE (offline) and REALTIME (real-time).
    * 
    * @example
    * OFFLINE
@@ -94,7 +92,7 @@ export class ListDatasetsRequestDatasetQuery extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * The dataset type. If left empty, all types are queried.
+   * The dataset types. If this parameter is left empty, all types are queried.
    */
   typeList?: string[];
   static names(): { [key: string]: string } {
@@ -160,6 +158,9 @@ export class ListDatasetsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

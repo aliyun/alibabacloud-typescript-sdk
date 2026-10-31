@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAssetMappingRelationsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The query instruction.
+   * The query command.
    */
   assetMappingQueryShrink?: string;
   /**
@@ -19,6 +19,9 @@ export class GetAssetMappingRelationsShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

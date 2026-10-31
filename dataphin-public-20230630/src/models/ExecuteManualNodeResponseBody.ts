@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteManualNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code of the request. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class ExecuteManualNodeResponseBody extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * The HTTP status code returned by the backend.
+   * The HTTP status code of the backend response.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class ExecuteManualNodeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The error message of the request.
    * 
    * @example
    * successful
@@ -45,7 +45,7 @@ export class ExecuteManualNodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

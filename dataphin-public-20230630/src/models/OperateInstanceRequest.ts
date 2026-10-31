@@ -47,19 +47,19 @@ export class OperateInstanceRequestOperateCommandInstanceIdList extends $dara.Mo
 export class OperateInstanceRequestOperateCommand extends $dara.Model {
   /**
    * @remarks
-   * The list of instances to operate on.
+   * The O&M instance list.
    * 
    * This parameter is required.
    */
   instanceIdList?: OperateInstanceRequestOperateCommandInstanceIdList[];
   /**
    * @remarks
-   * The operation to perform. Valid values:	
-   * - RERUN: Reruns the instance.
-   * - PAUSE: Pauses the instance.
-   * - RESUME: Resumes the instance.
-   * - TERMINATE: Stops the instance.
-   * - SET_SUCCESS: Sets the instance status to successful.
+   * The operation. Valid values:	
+   * - RERUN: Rerun.
+   * - PAUSE: Pause.
+   * - RESUME: Resume.
+   * - TERMINATE: Stop.
+   * - SET_SUCCESS: Set to success.
    * 
    * This parameter is required.
    * 
@@ -109,8 +109,8 @@ export class OperateInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - DEV: development environment. 
-   * - PROD (default): production environment.
+   * - DEV: Development environment. 
+   * - PROD: Production environment. This is the default value.
    * 
    * @example
    * PROD
@@ -127,6 +127,9 @@ export class OperateInstanceRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

@@ -13,7 +13,7 @@ export class AddTenantMembersRequestAddCommandUserList extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The list of roles. Valid values:
+   * The role list. Valid values:
    * - SYSTEM_ADMIN
    * - DATASOURCE_MANAGER
    * - SECURITY_ADMIN
@@ -21,7 +21,7 @@ export class AddTenantMembersRequestAddCommandUserList extends $dara.Model {
    * - EXPORT_ADMIN
    * - DATA_STANDARD_MANAGER
    * - LABELS_BUSINESS_PLANNER
-   * - BUSINESS_MEMBER.
+   * - BUSINESS_MEMBER
    */
   roleList?: string[];
   static names(): { [key: string]: string } {
@@ -53,7 +53,7 @@ export class AddTenantMembersRequestAddCommandUserList extends $dara.Model {
 export class AddTenantMembersRequestAddCommand extends $dara.Model {
   /**
    * @remarks
-   * The list of members.
+   * The member list.
    * 
    * This parameter is required.
    */
@@ -101,6 +101,9 @@ export class AddTenantMembersRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

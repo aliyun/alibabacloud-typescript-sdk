@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetQualityScheduleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the schedule object.
+   * The ID of the scheduling object.
    * 
    * This parameter is required.
    * 
@@ -24,6 +24,9 @@ export class GetQualityScheduleRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

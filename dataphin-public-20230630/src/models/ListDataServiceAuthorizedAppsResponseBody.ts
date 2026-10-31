@@ -53,7 +53,7 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   appId?: number;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * test
@@ -61,7 +61,7 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   appName?: string;
   /**
    * @remarks
-   * The ID of the permission account, which is the applicant ID.
+   * The ID of the authorized account, which is the ID of the applicant.
    * 
    * @example
    * 30012101
@@ -69,15 +69,15 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   applyUserId?: string;
   /**
    * @remarks
-   * The permission account, which is the applicant.
+   * The name of the authorized account, which is the name of the applicant.
    * 
    * @example
-   * 测试
+   * Test
    */
   applyUserName?: string;
   /**
    * @remarks
-   * The expiration date in the format of yyyy-MM-dd.
+   * The expiration date. Format: yyyy-MM-dd.
    * 
    * @example
    * 2025-06-30
@@ -85,7 +85,7 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   expireDate?: string;
   /**
    * @remarks
-   * The application ID.
+   * The ID of the authorization request.
    * 
    * @example
    * 1121
@@ -93,7 +93,7 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   id?: number;
   /**
    * @remarks
-   * Indicates whether the current user is a project administrator.
+   * Indicates whether the current user is a project manager.
    */
   isProjectManager?: boolean;
   /**
@@ -114,7 +114,8 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   ownerUserName?: string;
   /**
    * @remarks
-   * The permission account. Valid values: 0: individual account.
+   * The authorized account type. Valid values:
+   * - 0: Individual account.
    * 
    * @example
    * 0
@@ -122,7 +123,9 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   privilegeAccount?: number;
   /**
    * @remarks
-   * The permission type. Valid values: 0: usage permission. 1: development permission.
+   * The permission type. Valid values:
+   * - 0: Usage permissions.
+   * - 1: Development permissions.
    * 
    * @example
    * 1
@@ -146,27 +149,33 @@ export class ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppLis
   projectName?: string;
   /**
    * @remarks
-   * Indicates whether the user actually has owner permissions on this application. The user may lack permissions because of expiration or other reasons.
+   * Indicates whether the user actually has the owner permissions for the application. The user may not have the permissions due to expiration or other reasons.
    */
   realHasOwnerPrivilege?: boolean;
   /**
    * @remarks
-   * Indicates whether the user actually has permissions.
+   * Indicates whether the user actually has the permissions.
    */
   realHasPrivilege?: boolean;
   /**
    * @remarks
-   * The descriptions used for troubleshooting.
+   * The description used for troubleshooting.
    */
   remarkForDebugList?: ListDataServiceAuthorizedAppsResponseBodyPageResultAuthorizedAppListRemarkForDebugList[];
   /**
    * @remarks
-   * Indicates whether the permissions can be returned or revoked.
+   * Indicates whether the permission can be returned or revoked.
    */
   revocable?: boolean;
   /**
    * @remarks
-   * The detailed status of the revoke button. Valid values: -1: super administrators cannot revoke. -2: owners cannot revoke. -3: project administrators without actual permissions are grayed out. -4: regular users without permissions cannot revoke. 1: project administrators with actual permissions can revoke. 2: regular users with permissions can revoke.
+   * The detailed status of the revocation button. Valid values:
+   * - -1: Super administrators cannot relinquish the permission.
+   * - -2: Owners cannot relinquish the permission.
+   * - -3: Project managers without actual permissions (grayed out).
+   * - -4: Regular users without permissions cannot relinquish the permission.
+   * - 1: Project managers with actual permissions can relinquish the permission.
+   * - 2: Regular users with permissions can relinquish the permission.
    * 
    * @example
    * -1
@@ -297,7 +306,7 @@ export class ListDataServiceAuthorizedAppsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The paging query result.
+   * The paging query results.
    */
   pageResult?: ListDataServiceAuthorizedAppsResponseBodyPageResult;
   /**
@@ -310,7 +319,7 @@ export class ListDataServiceAuthorizedAppsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class GetStandardWordRootResponseBodyWordRootInfo extends $dara.Model {
   abbreviation?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -69,7 +69,7 @@ export class GetStandardWordRootResponseBodyWordRootInfo extends $dara.Model {
   lastModifierName?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -80,7 +80,7 @@ export class GetStandardWordRootResponseBodyWordRootInfo extends $dara.Model {
    * The name of the word root.
    * 
    * @example
-   * 平均值
+   * Average
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -141,7 +141,7 @@ export class GetStandardWordRootResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -157,7 +157,7 @@ export class GetStandardWordRootResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   /**

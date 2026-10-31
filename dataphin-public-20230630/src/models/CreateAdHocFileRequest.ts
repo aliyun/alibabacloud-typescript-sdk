@@ -15,7 +15,7 @@ export class CreateAdHocFileRequestCreateCommand extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The directory where the file is located.
+   * The directory of the file.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class CreateAdHocFileRequestCreateCommand extends $dara.Model {
 export class CreateAdHocFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The request for creating an ad hoc query file.
+   * The request to create an ad hoc query file.
    * 
    * This parameter is required.
    */
@@ -89,6 +89,9 @@ export class CreateAdHocFileRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

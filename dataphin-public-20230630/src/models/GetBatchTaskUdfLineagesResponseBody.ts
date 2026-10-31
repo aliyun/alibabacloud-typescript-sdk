@@ -21,7 +21,7 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineage
   description?: string;
   /**
    * @remarks
-   * The column ID.
+   * The ID of the field.
    * 
    * @example
    * c011
@@ -29,7 +29,7 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineage
   id?: string;
   /**
    * @remarks
-   * The column name.
+   * The name of the field.
    * 
    * @example
    * c011
@@ -37,12 +37,12 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineage
   name?: string;
   /**
    * @remarks
-   * Indicates whether the column is a partition key.
+   * Indicates whether the field is a partition key.
    */
   partitionKey?: boolean;
   /**
    * @remarks
-   * Indicates whether the column is a primary key.
+   * Indicates whether the field is a primary key.
    */
   primaryKey?: boolean;
   static names(): { [key: string]: string } {
@@ -79,7 +79,7 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineage
 export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineageList extends $dara.Model {
   /**
    * @remarks
-   * The business unit ID.
+   * The ID of the business unit.
    * 
    * @example
    * 103111231
@@ -87,15 +87,15 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineage
   bizUnitId?: string;
   /**
    * @remarks
-   * The business unit name.
+   * The name of the business unit.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   bizUnitName?: string;
   /**
    * @remarks
-   * The list of lineage columns.
+   * The list of lineage fields.
    */
   columnList?: GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineageListColumnList[];
   /**
@@ -124,12 +124,12 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineage
   env?: string;
   /**
    * @remarks
-   * Indicates whether the full table is selected.
+   * Indicates whether the entire table is selected.
    */
   fullTable?: boolean;
   /**
    * @remarks
-   * The globally unique ID.
+   * The global ID.
    * 
    * @example
    * Guid_101121
@@ -137,7 +137,7 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineage
   guid?: string;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * @example
    * t_input
@@ -148,7 +148,7 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineage
    * The owner of the table.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
@@ -177,7 +177,7 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListInputLineage
   projectName?: string;
   /**
    * @remarks
-   * The table subtype. For example, dim indicates a dimension logical table.
+   * The subtype of the table. For example, dim indicates a logical dimension table.
    * 
    * @example
    * dim
@@ -252,7 +252,7 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineag
   description?: string;
   /**
    * @remarks
-   * The column ID.
+   * The ID of the field.
    * 
    * @example
    * c011
@@ -260,7 +260,7 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineag
   id?: string;
   /**
    * @remarks
-   * The column name.
+   * The name of the field.
    * 
    * @example
    * c011
@@ -268,12 +268,12 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineag
   name?: string;
   /**
    * @remarks
-   * Indicates whether the column is a partition key.
+   * Indicates whether the field is a partition key.
    */
   partitionKey?: boolean;
   /**
    * @remarks
-   * Indicates whether the column is a primary key.
+   * Indicates whether the field is a primary key.
    */
   primaryKey?: boolean;
   static names(): { [key: string]: string } {
@@ -310,7 +310,7 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineag
 export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineageList extends $dara.Model {
   /**
    * @remarks
-   * The business unit ID.
+   * The ID of the business unit.
    * 
    * @example
    * 103111231
@@ -318,15 +318,15 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineag
   bizUnitId?: string;
   /**
    * @remarks
-   * The business unit name.
+   * The name of the business unit.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   bizUnitName?: string;
   /**
    * @remarks
-   * The list of lineage columns.
+   * The list of lineage fields.
    */
   columnList?: GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineageListColumnList[];
   /**
@@ -355,12 +355,12 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineag
   env?: string;
   /**
    * @remarks
-   * Indicates whether the full table is selected.
+   * Indicates whether the entire table is selected.
    */
   fullTable?: boolean;
   /**
    * @remarks
-   * The globally unique ID.
+   * The global ID.
    * 
    * @example
    * Guid_101121
@@ -368,7 +368,7 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineag
   guid?: string;
   /**
    * @remarks
-   * The table name.
+   * The name of the table.
    * 
    * @example
    * t_input
@@ -379,7 +379,7 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineag
    * The owner of the table.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   ownerName?: string;
   /**
@@ -408,7 +408,7 @@ export class GetBatchTaskUdfLineagesResponseBodyDataLineageGroupListOutputLineag
   projectName?: string;
   /**
    * @remarks
-   * The table subtype. For example, dim indicates a dimension logical table.
+   * The subtype of the table. For example, dim indicates a logical dimension table.
    * 
    * @example
    * dim
@@ -537,7 +537,7 @@ export class GetBatchTaskUdfLineagesResponseBodyData extends $dara.Model {
 export class GetBatchTaskUdfLineagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. The value OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -545,12 +545,12 @@ export class GetBatchTaskUdfLineagesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The request result.
    */
   data?: GetBatchTaskUdfLineagesResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP status code returned by the backend.
    * 
    * @example
    * 200
@@ -574,7 +574,7 @@ export class GetBatchTaskUdfLineagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

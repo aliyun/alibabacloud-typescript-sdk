@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListQualityWatchesResponseBodyPageResultQualityWatchListDataSourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -29,9 +29,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListDataSourceI
   creatorName?: string;
   /**
    * @remarks
-   * The environment identifier. Valid values:
-   * - PROD
-   * - DEV.
+   * The environment identifier. Valid values: PROD and DEV.
    * 
    * @example
    * DEV
@@ -39,7 +37,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListDataSourceI
   env?: string;
   /**
    * @remarks
-   * The data source IDs.
+   * The data source ID.
    * 
    * @example
    * 1
@@ -47,7 +45,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListDataSourceI
   id?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -63,7 +61,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListDataSourceI
   name?: string;
   /**
    * @remarks
-   * The owner user ID.
+   * The user ID of the owner.
    * 
    * @example
    * 30012011
@@ -71,7 +69,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListDataSourceI
   owner?: string;
   /**
    * @remarks
-   * The owner name.
+   * The name of the owner.
    * 
    * @example
    * test
@@ -79,7 +77,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListDataSourceI
   ownerName?: string;
   /**
    * @remarks
-   * The data source type, such as MAX_COMPUTE or HADOOP.
+   * The data source type. Valid values: MAX_COMPUTE and HADOOP.
    * 
    * @example
    * MAX_COMPUTE
@@ -159,11 +157,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListIndexInfo e
   cellSumLogicTableName?: string;
   /**
    * @remarks
-   * The metric computation type. Valid values:
-   * - AUTO
-   * - CUSTOM
-   * - MOUNT
-   * - COMBINE.
+   * The metric computation type. Valid values: AUTO, CUSTOM, MOUNT, and COMBINE.
    * 
    * @example
    * AUTO
@@ -198,7 +192,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListIndexInfo e
    * The statistical granularity name.
    * 
    * @example
-   * 全站汇总表
+   * Site-wide aggregate table
    */
   granularityDisplayName?: string;
   /**
@@ -235,7 +229,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListIndexInfo e
   name?: string;
   /**
    * @remarks
-   * The owner user ID.
+   * The user ID of the owner.
    * 
    * @example
    * 30012011
@@ -243,7 +237,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListIndexInfo e
   owner?: string;
   /**
    * @remarks
-   * The owner name.
+   * The name of the owner.
    * 
    * @example
    * test
@@ -267,8 +261,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListIndexInfo e
   projectName?: string;
   /**
    * @remarks
-   * The metric type. Valid values:
-   * - INDEX.
+   * The metric type. Valid value: INDEX.
    * 
    * @example
    * INDEX
@@ -380,9 +373,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListTableInfo e
   description?: string;
   /**
    * @remarks
-   * The environment identifier. Valid values:
-   * - DEV
-   * - PROD.
+   * The environment identifier. Valid values: DEV and PROD.
    * 
    * @example
    * DEV
@@ -398,7 +389,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListTableInfo e
   id?: string;
   /**
    * @remarks
-   * Indicates whether the table is a partitioned table.
+   * Specifies whether the table is a partitioned table.
    */
   isPartitionTable?: boolean;
   /**
@@ -411,7 +402,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListTableInfo e
   name?: string;
   /**
    * @remarks
-   * The owner user ID.
+   * The user ID of the owner.
    * 
    * @example
    * 30012011
@@ -419,7 +410,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListTableInfo e
   owner?: string;
   /**
    * @remarks
-   * The owner name.
+   * The name of the owner.
    * 
    * @example
    * test
@@ -443,13 +434,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListTableInfo e
   projectName?: string;
   /**
    * @remarks
-   * The type. Valid values:
-   * - LOGIC_DIM_TABLE: logical dimension table
-   * - LOGIC_FACT_TABLE: logical fact table
-   * - LOGIC_SUM_TABLE: logical aggregate table
-   * - LOGIC_LABEL_TABLE: logical label table
-   * - PHYSICAL_TABLE: physical table
-   * - REALTIME_LOGICAL_TABLE: real-time meta table.
+   * The type. Valid values: LOGIC_DIM_TABLE (logical dimension table), LOGIC_FACT_TABLE (logical fact table), LOGIC_SUM_TABLE (logical aggregate table), LOGIC_LABEL_TABLE (logical tag table), PHYSICAL_TABLE (physical table), and REALTIME_LOGICAL_TABLE (real-time metatable).
    * 
    * @example
    * LOGIC_DIM_TABLE
@@ -507,7 +492,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchListTableInfo e
 export class ListQualityWatchesResponseBodyPageResultQualityWatchList extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -544,7 +529,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchList extends $d
   enabledRuleCount?: number;
   /**
    * @remarks
-   * The monitored object ID.
+   * The monitor ID.
    * 
    * @example
    * 11
@@ -557,7 +542,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchList extends $d
   indexInfo?: ListQualityWatchesResponseBodyPageResultQualityWatchListIndexInfo;
   /**
    * @remarks
-   * The record ID of the latest quality watchtask for the monitored object.
+   * The ID of the latest quality watchtask.
    * 
    * @example
    * 1
@@ -565,7 +550,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchList extends $d
   latestWatchTaskId?: number;
   /**
    * @remarks
-   * The record status of the latest quality watchtask for the monitored object.
+   * The status of the latest quality watchtask.
    * 
    * @example
    * SUCCESS
@@ -581,7 +566,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchList extends $d
   modifier?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-06-30 00:00:00
@@ -589,7 +574,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchList extends $d
   modifyTime?: string;
   /**
    * @remarks
-   * The monitored object name.
+   * The monitor name.
    * 
    * @example
    * test
@@ -597,7 +582,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchList extends $d
   name?: string;
   /**
    * @remarks
-   * The quality owner user ID.
+   * The user ID of the quality owner.
    * 
    * @example
    * 30012011
@@ -605,7 +590,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchList extends $d
   qualityOwner?: string;
   /**
    * @remarks
-   * The quality owner display name.
+   * The display name of the quality owner.
    * 
    * @example
    * test
@@ -621,9 +606,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchList extends $d
   ruleCount?: number;
   /**
    * @remarks
-   * The status. Valid values:
-   * - ENABLE
-   * - DISABLE.
+   * The status. Valid values: ENABLE and DISABLE.
    * 
    * @example
    * ENABLE
@@ -636,12 +619,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchList extends $d
   tableInfo?: ListQualityWatchesResponseBodyPageResultQualityWatchListTableInfo;
   /**
    * @remarks
-   * The monitored object type. Valid values:
-   * - TABLE: Dataphin table
-   * - DATASOURCE_TABLE: full-domain table
-   * - DATASOURCE: data source
-   * - INDEX: metric
-   * - REALTIME_LOGICAL_TABLE: real-time meta table.
+   * The monitored object type. Valid values: TABLE (Dataphin table), DATASOURCE_TABLE (global table), DATASOURCE (data source), INDEX (metric), and REALTIME_LOGICAL_TABLE (real-time metatable).
    * 
    * @example
    * TABLE
@@ -714,7 +692,7 @@ export class ListQualityWatchesResponseBodyPageResultQualityWatchList extends $d
 export class ListQualityWatchesResponseBodyPageResult extends $dara.Model {
   /**
    * @remarks
-   * The paged list of quality watchtasks.
+   * The paged quality alert list.
    */
   qualityWatchList?: ListQualityWatchesResponseBodyPageResultQualityWatchList[];
   /**
@@ -770,7 +748,7 @@ export class ListQualityWatchesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The details of the backend exception.
+   * The backend exception details.
    * 
    * @example
    * internal error
@@ -791,7 +769,7 @@ export class ListQualityWatchesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

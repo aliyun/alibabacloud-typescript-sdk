@@ -25,7 +25,7 @@ export class TransferOwnershipForAllObjectRequestPrivilegeTransferRecord extends
   oldOwner?: string;
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
    * comment
@@ -68,6 +68,9 @@ export class TransferOwnershipForAllObjectRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The user ID of the operator.
+   * 
    * @example
    * 30001011
    */

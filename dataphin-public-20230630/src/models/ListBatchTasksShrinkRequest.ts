@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListBatchTasksShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The task query conditions.
+   * 
    * This parameter is required.
    */
   batchTaskQueryShrink?: string;
   /**
    * @remarks
+   * The tenant ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +21,9 @@ export class ListBatchTasksShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

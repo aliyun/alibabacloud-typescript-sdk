@@ -13,7 +13,7 @@ export class UpdateBizEntityRequestUpdateCommandBizObject extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name of the business object. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores, and hyphens.
+   * The display name of the business object. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores (_), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateBizEntityRequestUpdateCommandBizObject extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The code name of the business object. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For the ADB_PG engine, the code name can be up to 40 characters in length.
+   * The coded name of the business object. The name can be up to 64 characters in length and can contain only letters, digits, and underscores (_). If the ADB_PG engine is used, the coded name can be up to 40 characters in length.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateBizEntityRequestUpdateCommandBizObject extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The user ID of the business object owner.
+   * The ID of the user who is the owner of the business object.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class UpdateBizEntityRequestUpdateCommandBizObject extends $dara.Model {
   ownerUserId?: string;
   /**
    * @remarks
-   * The inherited entity of the business object. Only common business objects support inherited entity configuration, and only online business objects can be inherited.
+   * The ID of the parent entity inherited by the business object. Only common business objects can be configured to inherit entities, and they can only inherit online business objects.
    * 
    * @example
    * 116306
@@ -51,7 +51,7 @@ export class UpdateBizEntityRequestUpdateCommandBizObject extends $dara.Model {
   parentId?: number;
   /**
    * @remarks
-   * The list of associated online business entity IDs. If this parameter is not specified, the existing values are cleared.
+   * The list of IDs of associated online business entities. If you do not specify this parameter, the original values are cleared.
    */
   refBizEntityIdList?: number[];
   static names(): { [key: string]: string } {
@@ -91,12 +91,12 @@ export class UpdateBizEntityRequestUpdateCommandBizObject extends $dara.Model {
 export class UpdateBizEntityRequestUpdateCommandBizProcess extends $dara.Model {
   /**
    * @remarks
-   * The list of business event activity IDs contained in the business flow activity. This parameter is valid only when the current entity is a business flow activity.
+   * The list of IDs of business event activities included in the business process activity. This parameter is valid only when the current activity is a business process activity.
    */
   bizEventEntityIdList?: number[];
   /**
    * @remarks
-   * The description of the business process. The description can be up to 128 characters in length.
+   * The description of the business activity. The description can be up to 128 characters in length.
    * 
    * @example
    * test
@@ -104,7 +104,7 @@ export class UpdateBizEntityRequestUpdateCommandBizProcess extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name of the business process. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores, and hyphens.
+   * The display name of the business activity. The name can be up to 64 characters in length and can contain only Chinese characters, letters, digits, underscores (_), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -114,7 +114,7 @@ export class UpdateBizEntityRequestUpdateCommandBizProcess extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The code name of the business process. The name can be up to 64 characters in length and can contain only letters, digits, and underscores. For the ADB_PG engine, the code name can be up to 40 characters in length.
+   * The coded name of the business activity. The name can be up to 64 characters in length and can contain only letters, digits, and underscores (_). If the ADB_PG engine is used, the coded name can be up to 40 characters in length.
    * 
    * This parameter is required.
    * 
@@ -124,7 +124,7 @@ export class UpdateBizEntityRequestUpdateCommandBizProcess extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The user ID of the business process owner.
+   * The ID of the user who is the owner of the business activity.
    * 
    * This parameter is required.
    * 
@@ -134,12 +134,12 @@ export class UpdateBizEntityRequestUpdateCommandBizProcess extends $dara.Model {
   ownerUserId?: string;
   /**
    * @remarks
-   * The preceding business flow activities of the business flow activity.
+   * The preceding business process activities of the business process activity.
    */
   preBizProcessIdList?: number[];
   /**
    * @remarks
-   * The list of associated online business entity IDs. If this parameter is not specified, the existing values are cleared.
+   * The list of IDs of associated online business entities. If you do not specify this parameter, the original values are cleared.
    */
   refBizEntityIdList?: number[];
   static names(): { [key: string]: string } {
@@ -192,12 +192,12 @@ export class UpdateBizEntityRequestUpdateCommand extends $dara.Model {
   bizObject?: UpdateBizEntityRequestUpdateCommandBizObject;
   /**
    * @remarks
-   * The business process.
+   * The business activity.
    */
   bizProcess?: UpdateBizEntityRequestUpdateCommandBizProcess;
   /**
    * @remarks
-   * The ID of the business unit to which the business process belongs.
+   * The ID of the business unit to which the business activity belongs.
    * 
    * This parameter is required.
    * 
@@ -207,7 +207,7 @@ export class UpdateBizEntityRequestUpdateCommand extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
-   * The ID of the data domain to which the business process belongs.
+   * The ID of the subject domain to which the business activity belongs.
    * 
    * This parameter is required.
    * 
@@ -227,7 +227,7 @@ export class UpdateBizEntityRequestUpdateCommand extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The type of the business entity. For more information, refer to the create business entity operation.
+   * The type of the business entity. For more information, see the Create a business entity operation.
    * 
    * This parameter is required.
    * 
@@ -284,6 +284,9 @@ export class UpdateBizEntityRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the user who performs the operation.
+   * 
    * @example
    * 30001011
    */

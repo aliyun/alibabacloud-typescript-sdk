@@ -63,7 +63,7 @@ export class UpdateDevProdProjectRequestUpdateCommand extends $dara.Model {
   bizUnitId?: number;
   /**
    * @remarks
-   * The ID of the offline compute source in the development environment.
+   * The ID of the offline compute source for the development environment.
    * 
    * @example
    * 2001
@@ -79,7 +79,7 @@ export class UpdateDevProdProjectRequestUpdateCommand extends $dara.Model {
   devDescription?: string;
   /**
    * @remarks
-   * The ID of the real-time compute source in the development environment.
+   * The ID of the real-time compute source for the development environment.
    * 
    * @example
    * 2002
@@ -87,10 +87,10 @@ export class UpdateDevProdProjectRequestUpdateCommand extends $dara.Model {
   devStreamComputeSourceId?: number;
   /**
    * @remarks
-   * The display name of the project.
+   * The project display name.
    * 
    * @example
-   * My project.
+   * My project
    */
   displayName?: string;
   /**
@@ -113,7 +113,7 @@ export class UpdateDevProdProjectRequestUpdateCommand extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace identifier.
+   * The namespace tag.
    * 
    * @example
    * dev
@@ -121,7 +121,7 @@ export class UpdateDevProdProjectRequestUpdateCommand extends $dara.Model {
   nameSpaceTag?: string;
   /**
    * @remarks
-   * The ID of the offline compute source in the production environment.
+   * The ID of the offline compute source for the production environment.
    * 
    * @example
    * 2003
@@ -137,7 +137,7 @@ export class UpdateDevProdProjectRequestUpdateCommand extends $dara.Model {
   prodDescription?: string;
   /**
    * @remarks
-   * The ID of the real-time compute source in the production environment.
+   * The ID of the real-time compute source for the production environment.
    * 
    * @example
    * 2004
@@ -145,7 +145,7 @@ export class UpdateDevProdProjectRequestUpdateCommand extends $dara.Model {
   prodStreamComputeSourceId?: number;
   /**
    * @remarks
-   * The sandbox whitelist.
+   * The sandbox whitelists.
    */
   whiteLists?: UpdateDevProdProjectRequestUpdateCommandWhiteLists[];
   static names(): { [key: string]: string } {
@@ -206,6 +206,9 @@ export class UpdateDevProdProjectRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

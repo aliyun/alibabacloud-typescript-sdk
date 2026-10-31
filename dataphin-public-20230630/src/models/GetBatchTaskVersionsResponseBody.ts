@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBatchTaskVersionsResponseBodyDataBatchTaskVersionList extends $dara.Model {
   /**
    * @remarks
-   * The comment for the submission.
+   * The submission comment.
    * 
    * @example
    * test
@@ -50,7 +50,7 @@ export class GetBatchTaskVersionsResponseBodyDataBatchTaskVersionList extends $d
   published?: boolean;
   /**
    * @remarks
-   * The ID of the user who submitted the version.
+   * The ID of the submitter.
    * 
    * @example
    * 20110110
@@ -58,10 +58,10 @@ export class GetBatchTaskVersionsResponseBodyDataBatchTaskVersionList extends $d
   userId?: string;
   /**
    * @remarks
-   * The ID of the user who submitted the version.
+   * The ID of the submitter.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   userName?: string;
   /**
@@ -112,7 +112,7 @@ export class GetBatchTaskVersionsResponseBodyDataBatchTaskVersionList extends $d
 export class GetBatchTaskVersionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of batch task versions.
+   * The list of batch taskfile versions.
    */
   batchTaskVersionList?: GetBatchTaskVersionsResponseBodyDataBatchTaskVersionList[];
   static names(): { [key: string]: string } {
@@ -142,7 +142,7 @@ export class GetBatchTaskVersionsResponseBodyData extends $dara.Model {
 export class GetBatchTaskVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -150,7 +150,7 @@ export class GetBatchTaskVersionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The request result.
+   * The response data.
    */
   data?: GetBatchTaskVersionsResponseBodyData;
   /**
@@ -179,7 +179,7 @@ export class GetBatchTaskVersionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

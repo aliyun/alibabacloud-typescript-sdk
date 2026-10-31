@@ -55,7 +55,7 @@ export class GetRowPermissionByTableGuidsResponseBodyData extends $dara.Model {
 export class GetRowPermissionByTableGuidsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -76,7 +76,7 @@ export class GetRowPermissionByTableGuidsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message.
    * 
    * @example
    * successful
@@ -92,7 +92,7 @@ export class GetRowPermissionByTableGuidsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

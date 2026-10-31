@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePipelineNodeShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The command to create a pipeline. Both offline and real-time pipelines are supported.
+   * Creates a pipeline, which supports offline and real-time pipelines.
    * 
    * This parameter is required.
    */
@@ -21,6 +21,9 @@ export class CreatePipelineNodeShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 30001011
    */

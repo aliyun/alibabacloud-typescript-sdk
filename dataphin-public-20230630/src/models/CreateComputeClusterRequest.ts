@@ -13,12 +13,12 @@ export class CreateComputeClusterRequestClusterConfigClusterSafetyControl extend
   clusterSafetyAuthType?: string;
   /**
    * @remarks
-   * The list of whitelist user group IDs.
+   * The list of whitelisted user group IDs.
    */
   userGroupIds?: string[];
   /**
    * @remarks
-   * The list of whitelist user IDs.
+   * The list of whitelisted user IDs.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class CreateComputeClusterRequestClusterConfigClusterSafetyControl extend
 export class CreateComputeClusterRequestClusterConfigConfigList extends $dara.Model {
   /**
    * @remarks
-   * The configuration item.
+   * The configuration key.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class CreateComputeClusterRequestClusterConfigConfigList extends $dara.Mo
   key?: string;
   /**
    * @remarks
-   * The value of the configuration item.
+   * The configuration value.
    * 
    * This parameter is required.
    * 
@@ -134,6 +134,14 @@ export class CreateComputeClusterRequestClusterConfig extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The time zone name, such as Asia/Shanghai. If this parameter is not specified during an update, the original value is retained.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
+  timeZone?: string;
+  /**
+   * @remarks
    * The cluster type.
    * 
    * This parameter is required.
@@ -157,6 +165,7 @@ export class CreateComputeClusterRequestClusterConfig extends $dara.Model {
       configList: 'ConfigList',
       des: 'Des',
       name: 'Name',
+      timeZone: 'TimeZone',
       type: 'Type',
       typeVersion: 'TypeVersion',
     };
@@ -169,6 +178,7 @@ export class CreateComputeClusterRequestClusterConfig extends $dara.Model {
       configList: { 'type': 'array', 'itemType': CreateComputeClusterRequestClusterConfigConfigList },
       des: 'string',
       name: 'string',
+      timeZone: 'string',
       type: 'string',
       typeVersion: 'string',
     };
@@ -212,7 +222,7 @@ export class CreateComputeClusterRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataServiceApiCallStatisticsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Search conditions.
+   * The search conditions.
    * 
    * This parameter is required.
    */
   listQueryShrink?: string;
   /**
    * @remarks
-   * Tenant ID.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 
@@ -21,15 +21,20 @@ export class ListDataServiceApiCallStatisticsShrinkRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * Data service project ID.
+   * The data service project ID.
    * 
-   * This parameter is required.
+   * > If this parameter is not specified:
+   * > - Super administrators can query data of all service projects.
+   * > - Users other than super administrators can query data of service projects where they have the service project administrator or O&M user permissions.
    * 
    * @example
    * 102102

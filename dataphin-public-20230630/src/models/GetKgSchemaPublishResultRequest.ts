@@ -14,13 +14,16 @@ export class GetKgSchemaPublishResultRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
   opUserId?: string;
   /**
    * @remarks
-   * The version number. If this parameter is left empty, the most recent publish record is returned.
+   * The version ID. If this parameter is left empty, the latest publish record is retrieved.
    * 
    * @example
    * 1

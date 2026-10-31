@@ -21,7 +21,7 @@ export class UpdateDatasetResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The backend exception details.
+   * The details of the backend error.
    * 
    * @example
    * internal error
@@ -37,7 +37,7 @@ export class UpdateDatasetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

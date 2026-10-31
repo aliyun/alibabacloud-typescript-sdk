@@ -10,12 +10,12 @@ export class GetStandardWordRootRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 平均值
+   * Average
    */
   name?: string;
   /**
    * @remarks
-   * Specifies whether to allow a null value to be returned when the word root does not exist. If set to false, an exception is thrown. Default value: true.
+   * Specifies whether to allow a null value to be returned when the word root does not exist. If this parameter is set to false, an exception is thrown. Default value: true.
    */
   nullable?: boolean;
   /**
@@ -29,6 +29,9 @@ export class GetStandardWordRootRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

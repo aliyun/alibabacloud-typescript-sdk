@@ -5,22 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ListBizEntitiesRequestListQueryFilterCriteria extends $dara.Model {
   /**
    * @remarks
-   * The list of business unit IDs.
+   * The IDs of the business units.
    */
   bizUnitIdList?: number[];
   /**
    * @remarks
-   * The list of business unit IDs.
+   * The IDs of the business units.
    */
   bizUnitNameList?: string[];
   /**
    * @remarks
-   * The list of data domain IDs.
+   * The IDs of the data domains.
    */
   dataDomainIdList?: number[];
   /**
    * @remarks
-   * The list of data domain IDs.
+   * The IDs of the data domains.
    */
   dataDomainNameList?: string[];
   /**
@@ -30,17 +30,17 @@ export class ListBizEntitiesRequestListQueryFilterCriteria extends $dara.Model {
   hasTableRef?: boolean;
   /**
    * @remarks
-   * The list of owner user IDs.
+   * The IDs of the owners.
    */
   ownerUserIdList?: string[];
   /**
    * @remarks
-   * The list of business entity statuses. For more information, refer to the API operation for querying business entity details.
+   * The status of the business entity. For more information, refer to the "Get business entity details" API operation.
    */
   statusList?: string[];
   /**
    * @remarks
-   * The list of business entity subtypes. For more information, refer to the API operation for querying business entity details.
+   * The subtypes of the business entity. For more information, refer to the "Get business entity details" API operation.
    */
   subTypeList?: string[];
   static names(): { [key: string]: string } {
@@ -178,6 +178,9 @@ export class ListBizEntitiesRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

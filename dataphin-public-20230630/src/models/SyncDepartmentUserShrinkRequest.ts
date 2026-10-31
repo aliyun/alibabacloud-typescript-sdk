@@ -15,7 +15,7 @@ export class SyncDepartmentUserShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the user who performs the operation.
    * 
    * @example
    * 30001011

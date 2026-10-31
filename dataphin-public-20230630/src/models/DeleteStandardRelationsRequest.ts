@@ -37,7 +37,7 @@ export class DeleteStandardRelationsRequestDeleteCommandStandardRefList extends 
 export class DeleteStandardRelationsRequestDeleteCommand extends $dara.Model {
   /**
    * @remarks
-   * The standard association type: RELATIVE.
+   * The standard association type. Valid value: RELATIVE.
    * 
    * This parameter is required.
    * 
@@ -93,7 +93,7 @@ export class DeleteStandardRelationsRequestDeleteCommand extends $dara.Model {
 export class DeleteStandardRelationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The delete instruction.
+   * The delete command.
    * 
    * This parameter is required.
    */
@@ -109,6 +109,9 @@ export class DeleteStandardRelationsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */

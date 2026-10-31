@@ -13,8 +13,8 @@ export class CreateNodeSupplementShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The environment identifier. Valid values:
-   * - DEV: Development environment. 
-   * - PROD (default): Production environment.
+   * - DEV: development environment 
+   * - PROD: production environment (default)
    * 
    * @example
    * PROD
@@ -32,7 +32,7 @@ export class CreateNodeSupplementShrinkRequest extends $dara.Model {
   opTenantId?: number;
   /**
    * @remarks
-   * The ID of the operator user.
+   * The ID of the operator.
    * 
    * @example
    * 30001011

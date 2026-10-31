@@ -35,7 +35,7 @@ export class CreateComputeSourceResponseBodyCreateResult extends $dara.Model {
 export class CreateComputeSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The request error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -56,7 +56,7 @@ export class CreateComputeSourceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The request error message.
    * 
    * @example
    * successful
@@ -72,7 +72,7 @@ export class CreateComputeSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

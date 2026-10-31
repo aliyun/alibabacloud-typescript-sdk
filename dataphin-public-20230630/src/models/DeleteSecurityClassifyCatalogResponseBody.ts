@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecurityClassifyCatalogResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of full paths of child catalogs that were deleted as a result of the cascading deletion.
+   * The list of full paths of the subdirectories that are cascade-deleted.
    */
   childCatalogFullPathList?: string[];
   /**
    * @remarks
-   * The list of classification IDs that were deleted as a result of the cascading deletion.
+   * The list of IDs of the classifications that are cascade-deleted.
    */
   classifyIdList?: number[];
   /**
    * @remarks
-   * Indicates whether the deletion was successful.
+   * Indicates whether the deletion is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -89,7 +89,7 @@ export class DeleteSecurityClassifyCatalogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

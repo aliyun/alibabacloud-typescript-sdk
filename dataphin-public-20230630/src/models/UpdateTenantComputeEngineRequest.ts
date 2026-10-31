@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTenantComputeEngineRequestUpdateCommand extends $dara.Model {
   /**
    * @remarks
-   * The list of cluster node endpoints.
+   * The cluster node connection list.
    * 
    * This parameter is required.
    */
@@ -68,6 +68,9 @@ export class UpdateTenantComputeEngineRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The operator user ID.
+   * 
    * @example
    * 30001011
    */

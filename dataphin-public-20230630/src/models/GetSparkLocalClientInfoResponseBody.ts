@@ -29,7 +29,7 @@ export class GetSparkLocalClientInfoResponseBodyData extends $dara.Model {
   clientName?: string;
   /**
    * @remarks
-   * Indicates whether the client information is editable.
+   * Indicates whether it is editable.
    * 
    * @example
    * true/false
@@ -65,7 +65,7 @@ export class GetSparkLocalClientInfoResponseBodyData extends $dara.Model {
 export class GetSparkLocalClientInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is successful.
    * 
    * @example
    * OK
@@ -102,7 +102,7 @@ export class GetSparkLocalClientInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

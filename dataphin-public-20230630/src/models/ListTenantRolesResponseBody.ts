@@ -4,61 +4,102 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTenantRolesResponseBodyRoleList extends $dara.Model {
   /**
+   * @remarks
+   * The JSON string of the permission set.
+   * 
    * @example
    * {}
    */
   authJson?: string;
   /**
+   * @remarks
+   * The user ID of the creator.
+   * 
    * @example
    * 30121201
    */
   creator?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2026-01-07 16:45:30
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 2026-01-07 16:45:30
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The user ID of the modifier.
+   * 
    * @example
    * 30121201
    */
   modifier?: string;
   /**
+   * @remarks
+   * The role description.
+   * 
    * @example
    * test
    */
   roleDesc?: string;
   /**
+   * @remarks
+   * The role key.
+   * 
    * @example
    * test::1212
    */
   roleKey?: string;
   /**
+   * @remarks
+   * The role name.
+   * 
    * @example
    * test
    */
   roleName?: string;
   /**
+   * @remarks
+   * The role type. Valid values:
+   * - BUILD_IN: built-in role
+   * - CUSTOM: custom role
+   * 
    * @example
    * CUSTOM
    */
   roleType?: string;
   /**
+   * @remarks
+   * The role status. Valid values:
+   * - ON: enabled
+   * - OFF: disabled
+   * - DEL: deleted
+   * 
    * @example
    * ON
    */
   status?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 30121001
    */
   tenantId?: number;
   /**
+   * @remarks
+   * The tenant type.
+   * 
    * @example
    * CUSTOM
    */
@@ -108,27 +149,46 @@ export class ListTenantRolesResponseBodyRoleList extends $dara.Model {
 
 export class ListTenantRolesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request error code. OK indicates that the request is successful.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code of the backend response.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message of the request.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The role list.
+   */
   roleList?: ListTenantRolesResponseBodyRoleList[];
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

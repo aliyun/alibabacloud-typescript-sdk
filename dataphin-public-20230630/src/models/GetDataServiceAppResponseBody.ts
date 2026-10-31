@@ -16,7 +16,7 @@ export class GetDataServiceAppResponseBodyDataOwnerList extends $dara.Model {
    * The username.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -45,10 +45,10 @@ export class GetDataServiceAppResponseBodyDataOwnerList extends $dara.Model {
 export class GetDataServiceAppResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The application group name.
+   * The name of the application group.
    * 
    * @example
-   * 默认分组
+   * Default group
    */
   appGroup?: string;
   /**
@@ -64,15 +64,15 @@ export class GetDataServiceAppResponseBodyData extends $dara.Model {
    * The AppKey of the application.
    * 
    * @example
-   * 默认应用
+   * Default application
    */
   appKey?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
-   * 默认应用
+   * Default application
    */
   appName?: string;
   /**
@@ -80,12 +80,12 @@ export class GetDataServiceAppResponseBodyData extends $dara.Model {
    * The AppSecret of the application.
    * 
    * @example
-   * 默认应用
+   * Default application
    */
   appSecret?: string;
   /**
    * @remarks
-   * The IP whitelist addresses. Specify IP addresses or CIDR blocks separated by semicolons (;). CIDR blocks end with a slash (/) followed by a number in the range of 1 to 32. Example: 192.168.3.12/24.
+   * The IP address whitelist. Separate IP addresses or CIDR blocks with semicolons. For CIDR blocks, use a forward slash (/) to separate the IP address and the prefix length, which ranges from 1 to 32. Example: 192.168.3.12/24.
    * 
    * @example
    * true
@@ -93,7 +93,7 @@ export class GetDataServiceAppResponseBodyData extends $dara.Model {
   ipWhitelist?: string;
   /**
    * @remarks
-   * Indicates whether the IP whitelist is enabled. Valid values:
+   * Indicates whether the IP address whitelist is enabled. Valid values:
    * - true: Enabled.
    * - false: Disabled.
    */
@@ -108,7 +108,7 @@ export class GetDataServiceAppResponseBodyData extends $dara.Model {
    * The common scenarios.
    * 
    * @example
-   * 数据分析
+   * Data analytics
    */
   scenarios?: string;
   static names(): { [key: string]: string } {
@@ -154,7 +154,7 @@ export class GetDataServiceAppResponseBodyData extends $dara.Model {
 export class GetDataServiceAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned by the backend.
+   * The backend response code.
    * 
    * @example
    * OK
@@ -175,7 +175,7 @@ export class GetDataServiceAppResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned by the backend.
+   * The details of the backend exception.
    * 
    * @example
    * internal error
@@ -191,7 +191,7 @@ export class GetDataServiceAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

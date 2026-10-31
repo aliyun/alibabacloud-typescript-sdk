@@ -8,7 +8,7 @@ export class OperateInstanceResponseBodyInstanceStatusList extends $dara.Model {
    * The display name of the instance.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   displayName?: string;
   /**
@@ -32,7 +32,7 @@ export class OperateInstanceResponseBodyInstanceStatusList extends $dara.Model {
    * The instance name.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   name?: string;
   /**
@@ -48,7 +48,7 @@ export class OperateInstanceResponseBodyInstanceStatusList extends $dara.Model {
    * The owner of the instance.
    * 
    * @example
-   * xx测试
+   * xx test
    */
   ownerName?: string;
   /**
@@ -95,7 +95,7 @@ export class OperateInstanceResponseBodyInstanceStatusList extends $dara.Model {
 export class OperateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of OK indicates that the request was successful.
+   * The error code. A value of OK indicates that the request is normal.
    * 
    * @example
    * OK
@@ -132,7 +132,7 @@ export class OperateInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

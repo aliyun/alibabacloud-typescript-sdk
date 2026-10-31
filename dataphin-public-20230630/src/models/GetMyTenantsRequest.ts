@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMyTenantsRequest extends $dara.Model {
   /**
    * @remarks
-   * The feature codes owned by the tenant.
+   * The feature codes of the tenant.
    */
   featureCodeList?: string[];
   /**
@@ -19,6 +19,9 @@ export class GetMyTenantsRequest extends $dara.Model {
    */
   opTenantId?: number;
   /**
+   * @remarks
+   * The ID of the operator.
+   * 
    * @example
    * 30001011
    */
