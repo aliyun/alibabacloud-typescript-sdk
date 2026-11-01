@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomAgentsResponseBodyItemsArtifactCode extends $dara.Model {
   /**
    * @remarks
-   * The startup command for the code package. This parameter is required in code package mode. The working directory is the root directory of the extracted code, which is /code. Example: python main.py. Quotes and escape characters are supported. Environment variables, pipes, and logical operations are not automatically expanded. For complex commands, use a script within the package.
+   * The startup command for the code package. This parameter is required in code package mode. The working directory is the root directory of the extracted code, which is /code. Example: python main.py. Quotes and escapes are supported. Environment variables, pipes, and logical operations are not automatically expanded. For complex commands, use a script within the package.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class ListCustomAgentsResponseBodyItemsArtifactContainer extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The ACR namespace.
+   * The namespace of Container Registry.
    * 
    * @example
    * team
@@ -85,7 +85,7 @@ export class ListCustomAgentsResponseBodyItemsArtifactContainer extends $dara.Mo
   namespace?: string;
   /**
    * @remarks
-   * The name of the ACR image repository.
+   * The name of the Container Registry image repository.
    * 
    * @example
    * app
@@ -265,7 +265,7 @@ export class ListCustomAgentsResponseBodyItemsCodePackageInfo extends $dara.Mode
 export class ListCustomAgentsResponseBodyItemsProtocolPaths extends $dara.Model {
   /**
    * @remarks
-   * The purpose description of the current API path.
+   * The description of the purpose for the current API path.
    * 
    * @example
    * AG-UI conversation API
@@ -307,7 +307,7 @@ export class ListCustomAgentsResponseBodyItemsProtocolPaths extends $dara.Model 
 export class ListCustomAgentsResponseBodyItemsProtocol extends $dara.Model {
   /**
    * @remarks
-   * The request header configuration of the current protocol. The key is the header name and the value is a string.
+   * The request header configuration for the current protocol. The key is the header name and the value is a string.
    */
   headers?: { [key: string]: string };
   /**
@@ -362,6 +362,22 @@ export class ListCustomAgentsResponseBodyItemsProtocol extends $dara.Model {
 export class ListCustomAgentsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
+   * The inbound access mode.
+   * 
+   * @example
+   * API_KEY
+   */
+  accessMode?: string;
+  /**
+   * @remarks
+   * The user access scope.
+   * 
+   * @example
+   * ALL
+   */
+  accessScope?: string;
+  /**
+   * @remarks
    * The unique identifier of the custom agent. You can obtain this ID from the response of the CreateCustomAgent or ListCustomAgents operation.
    * 
    * @example
@@ -380,7 +396,7 @@ export class ListCustomAgentsResponseBodyItems extends $dara.Model {
   codePackageInfo?: ListCustomAgentsResponseBodyItemsCodePackageInfo;
   /**
    * @remarks
-   * The creation method of the agent. The value is CUSTOM for custom agents.
+   * The creation mode of the agent. The value is CUSTOM for custom agents.
    * 
    * @example
    * CUSTOM
@@ -388,7 +404,7 @@ export class ListCustomAgentsResponseBodyItems extends $dara.Model {
   createMode?: string;
   /**
    * @remarks
-   * The time when the agent was created. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
+   * The time when the agent was created. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
    * 
    * @example
    * 2026-10-10T06:00:00Z
@@ -396,7 +412,7 @@ export class ListCustomAgentsResponseBodyItems extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The deployment method of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED for custom agents.
+   * The deployment mode of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED for custom agents.
    * 
    * @example
    * MANAGED
@@ -456,7 +472,7 @@ export class ListCustomAgentsResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the agent was last updated. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
+   * The time when the agent was last updated. The time follows the ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds are supported.
    * 
    * @example
    * 2026-10-10T06:05:00Z
@@ -472,6 +488,8 @@ export class ListCustomAgentsResponseBodyItems extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessMode: 'accessMode',
+      accessScope: 'accessScope',
       agentId: 'agentId',
       artifact: 'artifact',
       codePackageInfo: 'codePackageInfo',
@@ -491,6 +509,8 @@ export class ListCustomAgentsResponseBodyItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessMode: 'string',
+      accessScope: 'string',
       agentId: 'string',
       artifact: ListCustomAgentsResponseBodyItemsArtifact,
       codePackageInfo: ListCustomAgentsResponseBodyItemsCodePackageInfo,
@@ -537,7 +557,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code of the request. The value is 200 if the request is successful.
+   * The HTTP status code of the current request. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -550,7 +570,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   items?: ListCustomAgentsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of results returned per page for the current query.
+   * The maximum number of items to return per page in this query.
    * 
    * @example
    * 20
@@ -558,7 +578,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The message that describes the result of the request. The value is success if the request is successful.
+   * The processing result message for this request. The value is success if the request succeeds.
    * 
    * @example
    * success
@@ -566,7 +586,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The opaque token used to query the next page. An empty value indicates that no more pages are available. Pass this token as-is in subsequent requests.
+   * The opaque token used to query the next page. An empty value indicates that no more pages are available. Pass this token as is in subsequent requests.
    * 
    * @example
    * djE6YWdlbnRjb3JlLmFnZW50Lmxpc3QuY3VzdG9tOjIw
@@ -574,7 +594,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique identifier of the request. You can use this ID to locate and troubleshoot issues.
+   * The unique identifier of the request, used to locate and troubleshoot issues.
    * 
    * @example
    * 550E8400-E29B-41D4-A716-446655440000
@@ -582,7 +602,7 @@ export class ListCustomAgentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was processed successfully. A value of true indicates that the request was successful. A successful creation, update, or deletion response does not mean that the background operation is complete.
+   * Indicates whether the request was processed successfully. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operation is complete.
    */
   success?: boolean;
   /**

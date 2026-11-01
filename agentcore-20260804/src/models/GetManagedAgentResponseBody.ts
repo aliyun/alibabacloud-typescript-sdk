@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetManagedAgentResponseBodyDataAgenticFsMounts extends $dara.Model {
   /**
    * @remarks
-   * The subdirectory under /mnt/agenticfs/ in the container. This parameter is required and validated by the backend. Mount targets cannot be duplicated or overlap in parent-child relationships.
+   * The subdirectory under /mnt/agenticfs/ in the container. This field is required and validated by the backend. Mount targets must not overlap or have parent-child conflicts.
    * 
    * @example
    * /mnt/agenticfs/data
@@ -13,7 +13,7 @@ export class GetManagedAgentResponseBodyDataAgenticFsMounts extends $dara.Model 
   mountPath?: string;
   /**
    * @remarks
-   * The existing non-empty relative directory under the access point. This parameter is required and validated by the backend. Root directories, absolute paths, and parent directory segments are not allowed.
+   * The existing non-empty relative directory under the access point. This field is required and validated by the backend. Root directories, absolute paths, and parent directory segments are not allowed.
    * 
    * @example
    * workspace/data
@@ -21,7 +21,7 @@ export class GetManagedAgentResponseBodyDataAgenticFsMounts extends $dara.Model 
   path?: string;
   /**
    * @remarks
-   * Specifies whether the mount is read-only. Default value: false. This does not represent a read-only policy for a RAM role.
+   * Specifies whether the mount is read-only. If omitted, the default value is false. This is not a read-only policy for a RAM role.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class GetManagedAgentResponseBodyDataAgenticFsMounts extends $dara.Model 
   readOnly?: boolean;
   /**
    * @remarks
-   * The domain name of the access point. This parameter is required and validated by the backend. Do not include the protocol, port, or path. Use the DomainName value from the NAS ListAccessPoints response.
+   * The domain name of the access point. This field is required and validated by the backend. Do not include the protocol, port, or path. Use the DomainName value from the NAS ListAccessPoints response.
    * 
    * @example
    * ap-0123456789abcdef0.0123456789-vlm36.cn-hangzhou.nas.aliyuncs.com
@@ -73,7 +73,7 @@ export class GetManagedAgentResponseBodyDataConfiguredSkillsVersionSelector exte
   type?: string;
   /**
    * @remarks
-   * The value of the selector. If the type is LABEL, this is the tag name, such as latest. If the type is VERSION, this is the specific version number.
+   * The value of the selector. If the type is LABEL, the value is a tag name such as latest. If the type is VERSION, the value is a specific version number.
    * 
    * @example
    * latest
@@ -115,7 +115,7 @@ export class GetManagedAgentResponseBodyDataConfiguredSkills extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * The source type of the skill. Valid values: REFERENCE (references the AI Registry) and STATIC (provided statically with the package).
+   * The source type of the skill. Valid values: REFERENCE (references the AI Registry) and STATIC (statically provided with the package).
    * 
    * @example
    * REFERENCE
@@ -123,7 +123,7 @@ export class GetManagedAgentResponseBodyDataConfiguredSkills extends $dara.Model
   sourceType?: string;
   /**
    * @remarks
-   * The legacy compatibility field. For new requests, use sourceType and versionSelector.
+   * The legacy compatibility field. Use sourceType and versionSelector for new requests.
    * 
    * @example
    * 1.0.0
@@ -131,7 +131,7 @@ export class GetManagedAgentResponseBodyDataConfiguredSkills extends $dara.Model
   version?: string;
   /**
    * @remarks
-   * The version selector for the reference. If omitted, the default value is LABEL/latest. Currently, only LABEL/latest is supported.
+   * The referenced version selector. If omitted, the default value is LABEL/latest. Currently, only LABEL/latest is supported.
    */
   versionSelector?: GetManagedAgentResponseBodyDataConfiguredSkillsVersionSelector;
   static names(): { [key: string]: string } {
@@ -323,7 +323,7 @@ export class GetManagedAgentResponseBodyDataHarnessConfiguration extends $dara.M
 export class GetManagedAgentResponseBodyDataHarness extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the runtime framework.
+   * The runtime framework configuration.
    */
   configuration?: GetManagedAgentResponseBodyDataHarnessConfiguration;
   /**
@@ -379,7 +379,7 @@ export class GetManagedAgentResponseBodyDataModelQuota extends $dara.Model {
   limitType?: string;
   /**
    * @remarks
-   * Indicates whether the quota has been exceeded in the current period. This is a read-only field returned by the backend.
+   * Indicates whether the quota is exceeded for the current period. This is a read-only field returned by the backend.
    * 
    * @example
    * false
@@ -387,7 +387,7 @@ export class GetManagedAgentResponseBodyDataModelQuota extends $dara.Model {
   overLimit?: boolean;
   /**
    * @remarks
-   * The statistical period for the quota. Valid values: day (daily) and month (monthly).
+   * The quota statistical period. Valid values: day (daily) and month (monthly).
    * 
    * @example
    * day
@@ -395,7 +395,7 @@ export class GetManagedAgentResponseBodyDataModelQuota extends $dara.Model {
   periodType?: string;
   /**
    * @remarks
-   * The status of the gateway quota rule. This is a read-only field returned by the backend.
+   * The gateway quota rule status. This is a read-only field returned by the backend.
    * 
    * @example
    * ACTIVE
@@ -469,7 +469,7 @@ export class GetManagedAgentResponseBodyDataModel extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model token quota configuration and the quota usage status for the current period. This field is empty if no quota is configured.
+   * The model token quota configuration and usage status for the current period. This field is empty if no quota is configured.
    */
   quota?: GetManagedAgentResponseBodyDataModelQuota;
   static names(): { [key: string]: string } {
@@ -603,7 +603,7 @@ export class GetManagedAgentResponseBodyDataNetwork extends $dara.Model {
 export class GetManagedAgentResponseBodyDataOssMounts extends $dara.Model {
   /**
    * @remarks
-   * The name of the OSS bucket. This parameter is required and validated by the backend for each mount.
+   * The name of the OSS bucket. This parameter is required and validated by the backend for each mount item.
    * 
    * @example
    * bucket-001
@@ -611,7 +611,7 @@ export class GetManagedAgentResponseBodyDataOssMounts extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The absolute mount path in the container. Each mount item is validated as required by the backend.
+   * The absolute mount path in the container. This parameter is required and validated by the backend for each mount item.
    * 
    * @example
    * /mnt/oss/datasets
@@ -619,7 +619,7 @@ export class GetManagedAgentResponseBodyDataOssMounts extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * The relative object prefix in the bucket. If not specified, the entire bucket is mounted.
+   * The relative object prefix in the bucket. If you do not specify this parameter, the entire bucket is mounted.
    * 
    * @example
    * datasets
@@ -668,7 +668,7 @@ export class GetManagedAgentResponseBodyDataPromptVariables extends $dara.Model 
   defaultValue?: string;
   /**
    * @remarks
-   * The variable description.
+   * The description of the variable.
    * 
    * @example
    * desc
@@ -676,7 +676,7 @@ export class GetManagedAgentResponseBodyDataPromptVariables extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * The variable name.
+   * The name of the variable.
    * 
    * @example
    * brand
@@ -710,7 +710,7 @@ export class GetManagedAgentResponseBodyDataPromptVariables extends $dara.Model 
 export class GetManagedAgentResponseBodyDataRuntimeCompute extends $dara.Model {
   /**
    * @remarks
-   * The compute class.
+   * The compute specifications.
    * 
    * This parameter is required.
    * 
@@ -742,12 +742,12 @@ export class GetManagedAgentResponseBodyDataRuntimeCompute extends $dara.Model {
 export class GetManagedAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto scaling. This parameter is required and validated by the backend when HPA is present.
+   * Specifies whether auto scaling is enabled. This parameter is required and validated by the backend when HPA is specified.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of active sessions per sandbox. This parameter is required and validated by the backend when HPA is present.
+   * The maximum number of active sessions per sandbox. This parameter is required and validated by the backend when HPA is specified.
    * 
    * @example
    * 5
@@ -755,7 +755,7 @@ export class GetManagedAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   maxConcurrentSessionsPerSandbox?: number;
   /**
    * @remarks
-   * The maximum number of sandboxes. This parameter is required and must not be less than the minimum value when HPA is enabled.
+   * The maximum number of sandboxes. This parameter is required and must be greater than or equal to the minimum value when HPA is enabled.
    * 
    * @example
    * 3
@@ -771,7 +771,7 @@ export class GetManagedAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   minSandboxCount?: number;
   /**
    * @remarks
-   * The time-to-live (TTL) in seconds for a session after it becomes inactive. This parameter is required and validated by the backend when HPA is present.
+   * The time-to-live (TTL) in seconds for a session after it becomes inactive. This parameter is required and validated by the backend when HPA is specified.
    * 
    * @example
    * 3600
@@ -809,7 +809,7 @@ export class GetManagedAgentResponseBodyDataRuntimeHpa extends $dara.Model {
 export class GetManagedAgentResponseBodyDataRuntimeSessionPolicy extends $dara.Model {
   /**
    * @remarks
-   * The HTTP header name used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
+   * The name of the HTTP header used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
    * 
    * @example
    * X-Session-Id
@@ -817,7 +817,7 @@ export class GetManagedAgentResponseBodyDataRuntimeSessionPolicy extends $dara.M
   headerName?: string;
   /**
    * @remarks
-   * The session policy type.
+   * The type of the session policy.
    * 
    * This parameter is required.
    * 
@@ -913,7 +913,7 @@ export class GetManagedAgentResponseBodyDataSkillsVersionSelector extends $dara.
   type?: string;
   /**
    * @remarks
-   * The value of the selector. If the type is LABEL, this is the tag name, such as latest. If the type is VERSION, this is the specific version number.
+   * The value of the selector. If the type is LABEL, the value is a tag name such as latest. If the type is VERSION, the value is a specific version number.
    * 
    * @example
    * latest
@@ -945,7 +945,7 @@ export class GetManagedAgentResponseBodyDataSkillsVersionSelector extends $dara.
 export class GetManagedAgentResponseBodyDataSkills extends $dara.Model {
   /**
    * @remarks
-   * The applied runtime version. This field is read-only.
+   * The applied runtime version. This parameter is read-only.
    * 
    * @example
    * 1.0.0
@@ -953,7 +953,7 @@ export class GetManagedAgentResponseBodyDataSkills extends $dara.Model {
   appliedVersion?: string;
   /**
    * @remarks
-   * Specifies whether the skill is from a fixed template. This field is read-only and template items cannot be removed.
+   * Specifies whether the skill is from a fixed template. This parameter is read-only. Template items cannot be removed.
    * 
    * @example
    * false
@@ -961,7 +961,7 @@ export class GetManagedAgentResponseBodyDataSkills extends $dara.Model {
   fromTemplate?: boolean;
   /**
    * @remarks
-   * The skill name.
+   * The name of the skill.
    * 
    * @example
    * code-analysis
@@ -969,7 +969,7 @@ export class GetManagedAgentResponseBodyDataSkills extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The current target version. This field is read-only.
+   * The current target version. This parameter is read-only.
    * 
    * @example
    * 1.0.0
@@ -977,7 +977,7 @@ export class GetManagedAgentResponseBodyDataSkills extends $dara.Model {
   resolvedVersion?: string;
   /**
    * @remarks
-   * The source type of the skill. Valid values: REFERENCE (references the AI Registry) and STATIC (provided statically with the package).
+   * The source type of the skill. Valid values: REFERENCE (references the AI Registry) and STATIC (statically provided with the package).
    * 
    * @example
    * REFERENCE
@@ -985,7 +985,7 @@ export class GetManagedAgentResponseBodyDataSkills extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The skill version.
+   * The version of the skill.
    * 
    * @example
    * 1.0.0
@@ -1035,7 +1035,7 @@ export class GetManagedAgentResponseBodyDataSkills extends $dara.Model {
 export class GetManagedAgentResponseBodyDataSubAgentsSkills extends $dara.Model {
   /**
    * @remarks
-   * The skill name.
+   * The name of the skill.
    * 
    * @example
    * web-search
@@ -1043,7 +1043,7 @@ export class GetManagedAgentResponseBodyDataSubAgentsSkills extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The skill version.
+   * The version of the skill.
    * 
    * @example
    * 1.0.0
@@ -1075,7 +1075,7 @@ export class GetManagedAgentResponseBodyDataSubAgentsSkills extends $dara.Model 
 export class GetManagedAgentResponseBodyDataSubAgents extends $dara.Model {
   /**
    * @remarks
-   * The sub-agent instruction.
+   * The instruction for the sub-agent.
    * 
    * This parameter is required.
    * 
@@ -1085,7 +1085,7 @@ export class GetManagedAgentResponseBodyDataSubAgents extends $dara.Model {
   instruction?: string;
   /**
    * @remarks
-   * The sub-agent name.
+   * The name of the sub-agent.
    * 
    * This parameter is required.
    * 
@@ -1095,7 +1095,7 @@ export class GetManagedAgentResponseBodyDataSubAgents extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sub-agent skill list.
+   * The list of skills for the sub-agent.
    */
   skills?: GetManagedAgentResponseBodyDataSubAgentsSkills[];
   static names(): { [key: string]: string } {
@@ -1201,7 +1201,7 @@ export class GetManagedAgentResponseBodyDataTemplate extends $dara.Model {
 export class GetManagedAgentResponseBodyDataTools extends $dara.Model {
   /**
    * @remarks
-   * The tool name.
+   * The name of the tool.
    * 
    * This parameter is required.
    * 
@@ -1211,7 +1211,7 @@ export class GetManagedAgentResponseBodyDataTools extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The tool type.
+   * The type of the tool.
    * 
    * This parameter is required.
    * 
@@ -1243,6 +1243,22 @@ export class GetManagedAgentResponseBodyDataTools extends $dara.Model {
 }
 
 export class GetManagedAgentResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The inbound access mode.
+   * 
+   * @example
+   * API_KEY
+   */
+  accessMode?: string;
+  /**
+   * @remarks
+   * The user access scope.
+   * 
+   * @example
+   * ALL
+   */
+  accessScope?: string;
   /**
    * @remarks
    * The ID of the managed agent.
@@ -1300,7 +1316,7 @@ export class GetManagedAgentResponseBodyData extends $dara.Model {
   environment?: GetManagedAgentResponseBodyDataEnvironment;
   /**
    * @remarks
-   * The runtime framework of the agent.
+   * The agent runtime framework.
    */
   harness?: GetManagedAgentResponseBodyDataHarness;
   /**
@@ -1321,7 +1337,7 @@ export class GetManagedAgentResponseBodyData extends $dara.Model {
   latestSpecVersion?: number;
   /**
    * @remarks
-   * The status of the latest version.
+   * The latest version status.
    * 
    * @example
    * succeeded
@@ -1347,7 +1363,7 @@ export class GetManagedAgentResponseBodyData extends $dara.Model {
   network?: GetManagedAgentResponseBodyDataNetwork;
   /**
    * @remarks
-   * The list of OSS mounts. A maximum of 10 mounts are allowed.
+   * The list of OSS mounts. Up to 10 items are supported.
    */
   ossMounts?: GetManagedAgentResponseBodyDataOssMounts[];
   /**
@@ -1370,17 +1386,17 @@ export class GetManagedAgentResponseBodyData extends $dara.Model {
   runtime?: GetManagedAgentResponseBodyDataRuntime;
   /**
    * @remarks
-   * The number of managed agent instances grouped by sandbox phase. Current keys include PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed at runtime). Only phases that actually occur are returned. Missing keys are treated as 0. This field is a dynamic map and new keys may be added in the future. The frontend can use FAILED > 0 to determine whether abnormal instances exist.
+   * The number of managed agent instances by sandbox phase. Current keys: PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed at runtime). Only phases that actually occur are returned. Missing keys are treated as 0. This field is a dynamic map and new keys may be added in the future. The frontend can use FAILED > 0 to determine whether abnormal instances exist.
    */
   sandboxPhaseCounts?: { [key: string]: number };
   /**
    * @remarks
-   * The skill configuration list.
+   * The list of skill configurations.
    */
   skills?: GetManagedAgentResponseBodyDataSkills[];
   /**
    * @remarks
-   * The managed agent status.
+   * The status of the managed agent.
    * 
    * @example
    * Running
@@ -1388,7 +1404,7 @@ export class GetManagedAgentResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The sub-agent configuration list.
+   * The list of sub-agent configurations.
    */
   subAgents?: GetManagedAgentResponseBodyDataSubAgents[];
   /**
@@ -1398,7 +1414,7 @@ export class GetManagedAgentResponseBodyData extends $dara.Model {
   template?: GetManagedAgentResponseBodyDataTemplate;
   /**
    * @remarks
-   * The tool configuration list.
+   * The list of tool configurations.
    */
   tools?: GetManagedAgentResponseBodyDataTools[];
   /**
@@ -1419,6 +1435,8 @@ export class GetManagedAgentResponseBodyData extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessMode: 'accessMode',
+      accessScope: 'accessScope',
       agentId: 'agentId',
       agenticFsMounts: 'agenticFsMounts',
       configuredSkills: 'configuredSkills',
@@ -1451,6 +1469,8 @@ export class GetManagedAgentResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessMode: 'string',
+      accessScope: 'string',
       agentId: 'string',
       agenticFsMounts: { 'type': 'array', 'itemType': GetManagedAgentResponseBodyDataAgenticFsMounts },
       configuredSkills: { 'type': 'array', 'itemType': GetManagedAgentResponseBodyDataConfiguredSkills },
@@ -1535,7 +1555,7 @@ export class GetManagedAgentResponseBodyData extends $dara.Model {
 export class GetManagedAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS when the request succeeds.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS

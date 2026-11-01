@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The JSON configuration of the custom agent. You must specify name, artifact, roleArn, and runtime.
+   * The JSON configuration of the custom agent. You must specify the name, artifact, roleArn, and runtime parameters.
    */
   bodyShrink?: string;
   /**

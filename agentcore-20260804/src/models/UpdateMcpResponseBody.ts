@@ -24,7 +24,7 @@ export class UpdateMcpResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * The request was processed successfully
+   * The request is processed successfully
    */
   message?: string;
   /**
@@ -37,7 +37,7 @@ export class UpdateMcpResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

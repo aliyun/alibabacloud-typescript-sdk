@@ -5,6 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
+   * The inbound access mode.
+   * 
+   * @example
+   * API_KEY
+   */
+  accessMode?: string;
+  /**
+   * @remarks
+   * The user access scope.
+   * 
+   * @example
+   * ALL
+   */
+  accessScope?: string;
+  /**
+   * @remarks
    * The unique identifier of the custom agent. You can obtain it from the response of CreateCustomAgent or ListCustomAgents.
    * 
    * @example
@@ -13,7 +29,7 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The creation method of the agent. The value is CUSTOM for custom agents.
+   * The creation mode of the agent. The value is CUSTOM for custom agents.
    * 
    * @example
    * CUSTOM
@@ -29,7 +45,7 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The deployment method of the agent. Custom agents are deployed and managed by the platform. The value is MANAGED.
+   * The deployment mode of the agent. Custom agents are deployed and managed by the platform, so the value is MANAGED.
    * 
    * @example
    * MANAGED
@@ -37,7 +53,7 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   deployType?: string;
   /**
    * @remarks
-   * The description of the agent\\"s purpose.
+   * The description of the agent.
    * 
    * @example
    * Custom agent that provides conversation services
@@ -72,11 +88,11 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
    * The overall status of the agent. Valid values:
    * - Creating: The agent is being created.
    * - Running: The agent is running.
-   * - Failed: The agent is in a failed state.
+   * - Failed: The agent failed.
    * - Updating: The agent is being updated.
    * - Deleting: The agent is being deleted.
-   * - Deleted: The agent has been deleted.
-   * Call GetCustomAgent to retrieve the latest configuration execution progress.
+   * - Deleted: The agent is deleted.
+   * Call GetCustomAgent to query the execution progress of the latest configuration.
    * 
    * @example
    * Running
@@ -100,6 +116,8 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessMode: 'accessMode',
+      accessScope: 'accessScope',
       agentId: 'agentId',
       createMode: 'createMode',
       createdAt: 'createdAt',
@@ -116,6 +134,8 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessMode: 'string',
+      accessScope: 'string',
       agentId: 'string',
       createMode: 'string',
       createdAt: 'string',
@@ -179,7 +199,7 @@ export class DeleteCustomAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operation is complete.
+   * Indicates whether the request was processed successfully. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operations are complete.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

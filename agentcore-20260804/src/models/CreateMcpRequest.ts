@@ -1334,6 +1334,14 @@ export class CreateMcpRequestBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * PUBLIC 表示公开访问；CONTROLLED 表示根据权限规则控制访问。
+   * 
+   * @example
+   * CONTROLLED
+   */
+  permissionMode?: string;
+  /**
+   * @remarks
    * The MCP protocol.
    * 
    * @example
@@ -1366,6 +1374,7 @@ export class CreateMcpRequestBody extends $dara.Model {
       deploymentConfig: 'deploymentConfig',
       description: 'description',
       name: 'name',
+      permissionMode: 'permissionMode',
       protocol: 'protocol',
       swaggerConfig: 'swaggerConfig',
       type: 'type',
@@ -1380,6 +1389,7 @@ export class CreateMcpRequestBody extends $dara.Model {
       deploymentConfig: CreateMcpRequestBodyDeploymentConfig,
       description: 'string',
       name: 'string',
+      permissionMode: 'string',
       protocol: 'string',
       swaggerConfig: 'string',
       type: 'string',

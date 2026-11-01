@@ -5,6 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteExternalAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
+   * The inbound access mode.
+   * 
+   * @example
+   * API_KEY
+   */
+  accessMode?: string;
+  /**
+   * @remarks
+   * The user access scope.
+   * 
+   * @example
+   * ALL
+   */
+  accessScope?: string;
+  /**
+   * @remarks
    * The external agent ID.
    * 
    * @example
@@ -93,6 +109,8 @@ export class DeleteExternalAgentResponseBodyData extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessMode: 'accessMode',
+      accessScope: 'accessScope',
       agentId: 'agentId',
       createMode: 'createMode',
       createdAt: 'createdAt',
@@ -109,6 +127,8 @@ export class DeleteExternalAgentResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessMode: 'string',
+      accessScope: 'string',
       agentId: 'string',
       createMode: 'string',
       createdAt: 'string',
@@ -135,7 +155,7 @@ export class DeleteExternalAgentResponseBodyData extends $dara.Model {
 export class DeleteExternalAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS if the request is successful.
+   * The business status code. The value is SUCCESS when the request is successful.
    * 
    * @example
    * SUCCESS
@@ -148,7 +168,7 @@ export class DeleteExternalAgentResponseBody extends $dara.Model {
   data?: DeleteExternalAgentResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 if the request is successful.
+   * The HTTP status code. The value is 200 when the request is successful.
    * 
    * @example
    * 200
@@ -156,7 +176,7 @@ export class DeleteExternalAgentResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message about the request processing result.
+   * The request processing result message.
    * 
    * @example
    * success

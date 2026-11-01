@@ -55,7 +55,15 @@ export class GetWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dara.M
 export class GetWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Returns the target configuration value. Updating indicates that the change is still being executed, and UpdateFailed indicates that the current change failed. This setting only controls the use of the platform public egress for the latest versions of managed and custom agents. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+   * Indicates whether private network ingress access is enabled for the workspace. A value of true indicates that the feature is enabled, and a value of false indicates that the feature is disabled. This switch is independent of the enabled field in the user VPC network configuration.
+   * 
+   * @example
+   * true
+   */
+  privateIngressEnabled?: boolean;
+  /**
+   * @remarks
+   * Returns the target configuration value. Updating indicates that the change is still being executed, and UpdateFailed indicates that the change failed in the current round. This parameter only controls the use of the platform public network egress by the latest versions of managed and custom agents. It does not control fixed historical versions, model or MCP proxy egress, or the public network egress of the user VPC.
    * 
    * @example
    * true
@@ -63,7 +71,7 @@ export class GetWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Mode
   publicEgressEnabled?: boolean;
   /**
    * @remarks
-   * The public egress IP address of the workspace.
+   * The public network egress IP address of the workspace.
    * 
    * @example
    * 203.0.113.10
@@ -71,7 +79,7 @@ export class GetWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Mode
   publicEgressIp?: string;
   /**
    * @remarks
-   * Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. When disabled, the public ingress for all agent endpoints in the workspace is closed. When re-enabled, the original public ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this setting.
+   * Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. After this feature is disabled, the public network ingress of all agent endpoints in the workspace is disabled. After this feature is re-enabled, the original public network ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this feature.
    * 
    * @example
    * true
@@ -84,6 +92,7 @@ export class GetWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Mode
   vpc?: GetWorkspaceResponseBodyDataNetworkConfigurationVpc;
   static names(): { [key: string]: string } {
     return {
+      privateIngressEnabled: 'privateIngressEnabled',
       publicEgressEnabled: 'publicEgressEnabled',
       publicEgressIp: 'publicEgressIp',
       publicIngressEnabled: 'publicIngressEnabled',
@@ -93,6 +102,7 @@ export class GetWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Mode
 
   static types(): { [key: string]: any } {
     return {
+      privateIngressEnabled: 'boolean',
       publicEgressEnabled: 'boolean',
       publicEgressIp: 'string',
       publicIngressEnabled: 'boolean',

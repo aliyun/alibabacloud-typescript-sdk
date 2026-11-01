@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListManagedAgentsResponseBodyItemsHarnessConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Binds a Service Account Key of the QoderCLI Connector by Key ID. This parameter can be omitted when only one key exists, but is required when multiple keys exist.
+   * Connector Service Account Key
    * 
    * @example
    * key-xxxx
@@ -13,7 +13,7 @@ export class ListManagedAgentsResponseBodyItemsHarnessConfiguration extends $dar
   connectorServiceAccountKey?: string;
   /**
    * @remarks
-   * The Connector Key name populated during queries. This value is not used as a binding reference during writes.
+   * Connector Service Account Name
    * 
    * @example
    * my-connector-key
@@ -45,12 +45,12 @@ export class ListManagedAgentsResponseBodyItemsHarnessConfiguration extends $dar
 export class ListManagedAgentsResponseBodyItemsHarness extends $dara.Model {
   /**
    * @remarks
-   * The Connector binding configuration for the qodercli framework.
+   * The runtime framework configuration.
    */
   configuration?: ListManagedAgentsResponseBodyItemsHarnessConfiguration;
   /**
    * @remarks
-   * The runtime framework type. Valid values: qwenpaw and qodercli. The qodercli type binds by configuration.connectorServiceAccountKey, and the name is also populated during queries.
+   * The runtime framework type.
    * 
    * @example
    * qodercli
@@ -85,7 +85,23 @@ export class ListManagedAgentsResponseBodyItemsHarness extends $dara.Model {
 export class ListManagedAgentsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The managed agent ID.
+   * API_KEY 表示使用 API Key；USER 表示使用用户身份。
+   * 
+   * @example
+   * API_KEY
+   */
+  accessMode?: string;
+  /**
+   * @remarks
+   * 仅 accessMode 为 USER 时返回：ALL 表示全部用户，SPECIFIED 表示指定用户。
+   * 
+   * @example
+   * ALL
+   */
+  accessScope?: string;
+  /**
+   * @remarks
+   * The ID of the managed agent.
    * 
    * @example
    * agent-1
@@ -120,7 +136,7 @@ export class ListManagedAgentsResponseBodyItems extends $dara.Model {
    * The description of the managed agent.
    * 
    * @example
-   * An agent for code review
+   * Agent for code review
    */
   description?: string;
   /**
@@ -178,6 +194,8 @@ export class ListManagedAgentsResponseBodyItems extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessMode: 'accessMode',
+      accessScope: 'accessScope',
       agentId: 'agentId',
       createMode: 'createMode',
       createdAt: 'createdAt',
@@ -195,6 +213,8 @@ export class ListManagedAgentsResponseBodyItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessMode: 'string',
+      accessScope: 'string',
       agentId: 'string',
       createMode: 'string',
       createdAt: 'string',
@@ -225,7 +245,7 @@ export class ListManagedAgentsResponseBodyItems extends $dara.Model {
 export class ListManagedAgentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of SUCCESS indicates success.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -233,7 +253,7 @@ export class ListManagedAgentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code. A value of 200 indicates success.
+   * The HTTP status code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -257,7 +277,7 @@ export class ListManagedAgentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The result message of the request.
+   * The message about the request processing result.
    * 
    * @example
    * success
@@ -265,7 +285,7 @@ export class ListManagedAgentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token for the next page. An empty value indicates the last page.
+   * The token for the next page. An empty value indicates that the last page is reached.
    * 
    * @example
    * next-token-1
@@ -281,7 +301,7 @@ export class ListManagedAgentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

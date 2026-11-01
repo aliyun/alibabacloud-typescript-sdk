@@ -5,6 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteManagedAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
+   * API_KEY 表示使用 API Key；USER 表示使用用户身份。
+   * 
+   * @example
+   * API_KEY
+   */
+  accessMode?: string;
+  /**
+   * @remarks
+   * 仅 accessMode 为 USER 时返回：ALL 表示全部用户，SPECIFIED 表示指定用户。
+   * 
+   * @example
+   * SPECIFIED
+   */
+  accessScope?: string;
+  /**
+   * @remarks
    * The managed agent ID.
    * 
    * @example
@@ -93,6 +109,8 @@ export class DeleteManagedAgentResponseBodyData extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessMode: 'accessMode',
+      accessScope: 'accessScope',
       agentId: 'agentId',
       createMode: 'createMode',
       createdAt: 'createdAt',
@@ -109,6 +127,8 @@ export class DeleteManagedAgentResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessMode: 'string',
+      accessScope: 'string',
       agentId: 'string',
       createMode: 'string',
       createdAt: 'string',

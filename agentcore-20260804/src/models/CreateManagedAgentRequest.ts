@@ -21,7 +21,7 @@ export class CreateManagedAgentRequestBodyAgenticFsMounts extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * Specifies whether the mount is read-only. Default value: false. This parameter does not represent a read-only policy for a RAM role.
+   * Specifies whether the mount is read-only. If omitted, the default value is false. This parameter does not represent a read-only policy for a RAM role.
    * 
    * @example
    * false
@@ -261,7 +261,7 @@ export class CreateManagedAgentRequestBodyHarness extends $dara.Model {
 export class CreateManagedAgentRequestBodyModelQuota extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the token quota. Default value: true. If you set this parameter to false, the quota is disabled and existing quota rules are deleted.
+   * Specifies whether to enable the token quota. If not specified, the default value is true. A value of false disables the quota and deletes existing quota rules.
    * 
    * @example
    * true
@@ -285,7 +285,7 @@ export class CreateManagedAgentRequestBodyModelQuota extends $dara.Model {
   periodType?: string;
   /**
    * @remarks
-   * The maximum number of tokens that can be consumed within a single period. This parameter is required and validated by the backend when the quota is enabled. The value must be greater than 0.
+   * The maximum number of tokens allowed to be consumed in a single period. This parameter is required and validated by the backend when the quota is enabled. The value must be greater than 0.
    * 
    * @example
    * 1000000
@@ -331,7 +331,7 @@ export class CreateManagedAgentRequestBodyModel extends $dara.Model {
   modelConnectionId?: string;
   /**
    * @remarks
-   * The upstream model name.
+   * The name of the upstream model.
    * 
    * @example
    * qwen-max
@@ -373,7 +373,7 @@ export class CreateManagedAgentRequestBodyModel extends $dara.Model {
 export class CreateManagedAgentRequestBodyNetworkAccessInternet extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow Internet access.
+   * Specifies whether to allow access to the Internet.
    * 
    * @example
    * false
@@ -403,7 +403,7 @@ export class CreateManagedAgentRequestBodyNetworkAccessInternet extends $dara.Mo
 export class CreateManagedAgentRequestBodyNetworkAccessVpc extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow VPC access.
+   * Specifies whether to allow access to the VPC.
    * 
    * @example
    * true
@@ -489,7 +489,7 @@ export class CreateManagedAgentRequestBodyOssMounts extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * The relative object prefix in the bucket. If this parameter is not specified, the entire bucket is mounted.
+   * The relative object prefix in the bucket. If not specified, the entire bucket is mounted.
    * 
    * @example
    * datasets
@@ -497,7 +497,7 @@ export class CreateManagedAgentRequestBodyOssMounts extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * Specifies whether the mount is read-only. Default value: false.
+   * Specifies whether the mount is read-only. If not specified, the default value is false.
    */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
@@ -612,12 +612,12 @@ export class CreateManagedAgentRequestBodyRuntimeCompute extends $dara.Model {
 export class CreateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether auto-scaling is enabled. This parameter is required and validated by the backend when HPA is present.
+   * Specifies whether to enable auto-scaling. This parameter is required and validated by the backend when HPA is specified.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of active sessions per sandbox. This parameter is required and validated by the backend when HPA is present.
+   * The maximum number of active sessions per sandbox. This parameter is required and validated by the backend when HPA is specified.
    * 
    * @example
    * 5
@@ -625,7 +625,7 @@ export class CreateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   maxConcurrentSessionsPerSandbox?: number;
   /**
    * @remarks
-   * The maximum number of sandboxes. This parameter is required and must not be less than the minimum value when HPA is enabled.
+   * The maximum number of sandboxes. This parameter is required when HPA is enabled and must not be less than the minimum value.
    * 
    * @example
    * 3
@@ -641,7 +641,7 @@ export class CreateManagedAgentRequestBodyRuntimeHpa extends $dara.Model {
   minSandboxCount?: number;
   /**
    * @remarks
-   * The timeout period in seconds for reclaiming an inactive session. This parameter is required and validated by the backend when HPA is present.
+   * The idle timeout period for a session before it is reclaimed, in seconds. This parameter is required and validated by the backend when HPA is specified.
    * 
    * @example
    * 3600
@@ -775,7 +775,9 @@ export class CreateManagedAgentRequestBodyRuntime extends $dara.Model {
 export class CreateManagedAgentRequestBodySkillsVersionSelector extends $dara.Model {
   /**
    * @remarks
-   * The version selector type. Valid values: LABEL: selects by label. VERSION: selects by specific version.
+   * The version selector type. Valid values:
+   * - LABEL: selects by label
+   * - VERSION: selects by specific version
    * 
    * @example
    * LABEL
@@ -783,7 +785,7 @@ export class CreateManagedAgentRequestBodySkillsVersionSelector extends $dara.Mo
   type?: string;
   /**
    * @remarks
-   * The selector value. When the type is LABEL, this is the label name, such as latest. When the type is VERSION, this is the specific version number.
+   * The selector value. When the type is LABEL, this value is the label name, such as latest. When the type is VERSION, this value is the specific version number.
    * 
    * @example
    * latest
@@ -825,7 +827,9 @@ export class CreateManagedAgentRequestBodySkills extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The skill source type. Valid values: REFERENCE: references the AI registry. STATIC: statically provided with the package.
+   * The skill source type. Valid values:
+   * - REFERENCE: references the AI Registry
+   * - STATIC: statically provided with the package
    * 
    * @example
    * REFERENCE
@@ -922,7 +926,7 @@ export class CreateManagedAgentRequestBodySubAgents extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Please review the code
+   * Review the code
    */
   instruction?: string;
   /**
@@ -1087,7 +1091,23 @@ export class CreateManagedAgentRequestBodyTools extends $dara.Model {
 export class CreateManagedAgentRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The AgenticFS mounts. Omitting this parameter or passing an empty array indicates no AgenticFS mounts. Null values are rejected. The total number of AgenticFS and OSS mounts cannot exceed 10.
+   * The inbound access mode.
+   * 
+   * @example
+   * API_KEY
+   */
+  accessMode?: string;
+  /**
+   * @remarks
+   * The user access scope.
+   * 
+   * @example
+   * ALL
+   */
+  accessScope?: string;
+  /**
+   * @remarks
+   * The list of AgenticFS mounts. If omitted or set to an empty array during creation, no AgenticFS mounts are configured. A null value is rejected. The total number of AgenticFS and OSS mounts cannot exceed 10.
    */
   agenticFsMounts?: CreateManagedAgentRequestBodyAgenticFsMounts[];
   /**
@@ -1177,6 +1197,8 @@ export class CreateManagedAgentRequestBody extends $dara.Model {
   tools?: CreateManagedAgentRequestBodyTools[];
   static names(): { [key: string]: string } {
     return {
+      accessMode: 'accessMode',
+      accessScope: 'accessScope',
       agenticFsMounts: 'agenticFsMounts',
       description: 'description',
       environment: 'environment',
@@ -1197,6 +1219,8 @@ export class CreateManagedAgentRequestBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessMode: 'string',
+      accessScope: 'string',
       agenticFsMounts: { 'type': 'array', 'itemType': CreateManagedAgentRequestBodyAgenticFsMounts },
       description: 'string',
       environment: CreateManagedAgentRequestBodyEnvironment,

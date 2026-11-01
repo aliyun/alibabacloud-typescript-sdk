@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkspacePluginResponseBodyDataConfigAgentLoop extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpace name associated with the AgentLoop plug-in.
+   * The name of the AgentSpace associated with the AgentLoop plugin.
    * 
    * @example
    * agentcore-ws-123456
@@ -13,7 +13,7 @@ export class GetWorkspacePluginResponseBodyDataConfigAgentLoop extends $dara.Mod
   agentSpaceName?: string;
   /**
    * @remarks
-   * The creation time of the AgentSpace in UTC in RFC 3339 format.
+   * The creation time of the AgentSpace, in UTC format compliant with RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -21,7 +21,7 @@ export class GetWorkspacePluginResponseBodyDataConfigAgentLoop extends $dara.Mod
   createdAt?: string;
   /**
    * @remarks
-   * The region ID where the AgentSpace resides.
+   * The region ID of the AgentSpace.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,7 @@ export class GetWorkspacePluginResponseBodyDataConfigAgentLoop extends $dara.Mod
 export class GetWorkspacePluginResponseBodyDataConfigNetworkInternet extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether public network access is enabled.
+   * Specifies whether public network access is enabled.
    * 
    * @example
    * true
@@ -85,7 +85,7 @@ export class GetWorkspacePluginResponseBodyDataConfigNetworkInternet extends $da
 export class GetWorkspacePluginResponseBodyDataConfigNetworkVpc extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether VPC network access is enabled for the collaboration plug-in.
+   * Indicates whether VPC networking is currently enabled for the collaboration plugin.
    * 
    * @example
    * true
@@ -93,12 +93,12 @@ export class GetWorkspacePluginResponseBodyDataConfigNetworkVpc extends $dara.Mo
   enabled?: boolean;
   /**
    * @remarks
-   * The list of vSwitch IDs used for plug-in deployment.
+   * The list of vSwitch IDs used for plugin deployment.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID used for plug-in deployment.
+   * The VPC ID used for plugin deployment.
    * 
    * @example
    * vpc-bp1example
@@ -175,12 +175,12 @@ export class GetWorkspacePluginResponseBodyDataConfigNetwork extends $dara.Model
 export class GetWorkspacePluginResponseBodyDataConfig extends $dara.Model {
   /**
    * @remarks
-   * The AgentLoop plug-in configuration.
+   * The AgentLoop plugin configuration.
    */
   agentLoop?: GetWorkspacePluginResponseBodyDataConfigAgentLoop;
   /**
    * @remarks
-   * The network configuration of the plug-in, including public network access configuration and VPC configuration.
+   * The network configuration of the plugin, including the public network access configuration and VPC configuration.
    */
   network?: GetWorkspacePluginResponseBodyDataConfigNetwork;
   static names(): { [key: string]: string } {
@@ -215,17 +215,17 @@ export class GetWorkspacePluginResponseBodyDataConfig extends $dara.Model {
 export class GetWorkspacePluginResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The user-configurable properties currently in effect for the plug-in. This field is empty if the plug-in is not installed.
+   * The user-configurable properties that are currently in effect for the plugin. This field is empty if the plugin is not installed.
    */
   config?: GetWorkspacePluginResponseBodyDataConfig;
   /**
    * @remarks
-   * Indicates whether the plug-in is enabled. The value is true when the status is ENABLED.
+   * Indicates whether the plugin is enabled. The value is true if the status is ENABLED.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The plug-in name.
+   * The plugin name.
    * 
    * @example
    * collaboration
@@ -233,7 +233,7 @@ export class GetWorkspacePluginResponseBodyData extends $dara.Model {
   pluginName?: string;
   /**
    * @remarks
-   * The plug-in status. Valid values: DISABLED, ENABLING, ENABLED, ENABLE_FAILED, DISABLING, DISABLE_FAILED.
+   * The plugin status. Valid values: DISABLED, ENABLING, ENABLED, ENABLE_FAILED, DISABLING, and DISABLE_FAILED.
    * 
    * @example
    * ENABLED
@@ -290,7 +290,7 @@ export class GetWorkspacePluginResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The plug-in details.
+   * The plugin details.
    */
   data?: GetWorkspacePluginResponseBodyData;
   /**
@@ -319,7 +319,7 @@ export class GetWorkspacePluginResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

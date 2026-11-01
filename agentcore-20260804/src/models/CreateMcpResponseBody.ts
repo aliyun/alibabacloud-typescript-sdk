@@ -1464,6 +1464,14 @@ export class CreateMcpResponseBodyData extends $dara.Model {
   officialTag?: string;
   /**
    * @remarks
+   * PUBLIC 表示公开访问；CONTROLLED 表示根据权限规则控制访问。
+   * 
+   * @example
+   * CONTROLLED
+   */
+  permissionMode?: string;
+  /**
+   * @remarks
    * The MCP protocol.
    * 
    * @example
@@ -1526,6 +1534,7 @@ export class CreateMcpResponseBodyData extends $dara.Model {
       mcpServerId: 'mcpServerId',
       name: 'name',
       officialTag: 'officialTag',
+      permissionMode: 'permissionMode',
       protocol: 'protocol',
       status: 'status',
       statusReason: 'statusReason',
@@ -1550,6 +1559,7 @@ export class CreateMcpResponseBodyData extends $dara.Model {
       mcpServerId: 'string',
       name: 'string',
       officialTag: 'string',
+      permissionMode: 'string',
       protocol: 'string',
       status: 'string',
       statusReason: 'string',
