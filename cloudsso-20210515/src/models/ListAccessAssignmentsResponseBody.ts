@@ -21,13 +21,16 @@ export class ListAccessAssignmentsResponseBodyAccessAssignments extends $dara.Mo
   accessConfigurationName?: string;
   /**
    * @remarks
-   * The time when the access permissions were assigned.
+   * The time when the access assignment was successful. The time follows the RFC 3339 standard and is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-11-04T10:03:08Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the authorization target belongs.
+   * 
    * @example
    * 114240524784****
    */
@@ -52,9 +55,8 @@ export class ListAccessAssignmentsResponseBodyAccessAssignments extends $dara.Mo
    * @remarks
    * The type of the CloudSSO identity. Valid values:
    * 
-   * - User
-   * 
-   * - Group
+   * - User: user.
+   * - Group: group.
    * 
    * @example
    * User
@@ -62,7 +64,7 @@ export class ListAccessAssignmentsResponseBodyAccessAssignments extends $dara.Mo
   principalType?: string;
   /**
    * @remarks
-   * The ID of the task object.
+   * The ID of the task target.
    * 
    * @example
    * 114240524784****
@@ -70,7 +72,7 @@ export class ListAccessAssignmentsResponseBodyAccessAssignments extends $dara.Mo
   targetId?: string;
   /**
    * @remarks
-   * The name of the task object.
+   * The name of the task target.
    * 
    * @example
    * dev-test
@@ -78,19 +80,20 @@ export class ListAccessAssignmentsResponseBodyAccessAssignments extends $dara.Mo
   targetName?: string;
   /**
    * @remarks
-   * The path ID of the task object in the resource directory.
+   * The path ID of the task target in the resource directory.
    */
   targetPath?: string;
   /**
    * @remarks
-   * The path name of the task object in the resource directory.
+   * The path name of the task target in the resource directory.
    */
   targetPathName?: string;
   /**
    * @remarks
-   * The type of the task object.
+   * The type of the task target.
    * 
-   * The value is fixed as RD-Account, which indicates the accounts in the resource directory.
+   * Valid values:
+   * - RD-Account: The task target is an account in a resource directory.
    * 
    * @example
    * RD-Account
@@ -142,16 +145,15 @@ export class ListAccessAssignmentsResponseBodyAccessAssignments extends $dara.Mo
 export class ListAccessAssignmentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access permissions that are assigned.
+   * The list of access assignments.
    */
   accessAssignments?: ListAccessAssignmentsResponseBodyAccessAssignments[];
   /**
    * @remarks
-   * Indicates whether the queried entries are truncated. Valid values:
+   * Indicates whether the returned result is truncated. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: The result is truncated.
+   * - false: The result is not truncated.
    * 
    * @example
    * false
@@ -159,7 +161,7 @@ export class ListAccessAssignmentsResponseBody extends $dara.Model {
   isTruncated?: boolean;
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of entries returned on each page.
    * 
    * @example
    * 10
@@ -167,9 +169,9 @@ export class ListAccessAssignmentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * The token for the next page of query results.
    * 
-   * > This parameter is returned only when the value of IsTruncated is `true`.\\`\\`
+   * > This parameter is returned only when `IsTruncated` is set to `true`.
    * 
    * @example
    * K1c3o9K7pFxoTtxH1Nm7MMLb7zrDGvftYBQBPDVv7AD3a8yhRb3Mk8L9ivmN6bFSjfkZNTAg3h4****
@@ -177,7 +179,7 @@ export class ListAccessAssignmentsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 66898413-EB80-556D-9429-06FE3548F672
@@ -185,7 +187,7 @@ export class ListAccessAssignmentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the filter conditions specified in the request parameters.
    * 
    * @example
    * 1

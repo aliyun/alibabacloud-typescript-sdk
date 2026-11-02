@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access configuration. The ID can be used to filter access permissions.
+   * The ID of the access configuration. This parameter is used as a filter condition for the query.
    * 
    * @example
    * ac-00jhtfl8thteu6uj****
@@ -23,11 +23,11 @@ export class ListTasksRequest extends $dara.Model {
    * @remarks
    * The filter condition.
    * 
-   * The condition is not case-sensitive. The condition must be in the StartTime ge YYYY-MM-DDTHH:mm:SSZ format. You must set YYYY-MM-DDTHH:mm:SSZ to a value that is no more than 7 days from the current time. ge indicates Greater Than or Equals.
+   * Format: <Attribute> <Operator> <Value>. The format is not case-sensitive. <Attribute> only supports StartTime. <Operator> only supports ge (greater than or equal to). <Value> must be in the YYYY-MM-DDTHH:mm:ssZ format and can only be a time within the last 7 days.
    * 
-   * For example, if you set the Filter parameter to StartTime ge 2021-03-15T01:12:23Z, the operation queries the tasks from 2021-03-15T01:12:23 GMT.
+   * Example: Filter = "StartTime ge 2021-03-15T01:12:23Z". This example queries the list of tasks starting from 2021-03-15T01:12:23Z.
    * 
-   * > If you do not specify this parameter, the operation queries the tasks within the previous 24 hours by default.
+   * > If you do not specify this parameter, the list of tasks created within the last 24 hours is returned by default.
    * 
    * @example
    * StartTime ge 2021-03-15T01:12:23Z
@@ -35,7 +35,7 @@ export class ListTasksRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of entries to return on each page.
    * 
    * Valid values: 1 to 20.
    * 
@@ -47,9 +47,9 @@ export class ListTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If this is your first time to call this operation, you do not need to specify the `NextToken` parameter.
+   * The token used to return the next page of the query results. You do not need to specify NextToken when you call this operation for the first time.
    * 
-   * When you call this operation for the first time, if the total number of entries to return exceeds the value of `MaxResults`, the entries are truncated. Only the entries that match the value of `MaxResults` are returned, and the excess entries are not returned. In this case, the value of the response parameter `IsTruncated` is `true`, and `NextToken` is returned. In the next call, you can use the value of `NextToken` and maintain the settings of the other request parameters to query the excess entries. You can repeat the call until the value of `IsTruncated` becomes `false`. This way, all entries are returned.
+   * When you call this operation for the first time, if the total number of returned entries exceeds the value of MaxResults, the returned data is truncated. Only the number of entries specified by MaxResults is returned, the IsTruncated response parameter is set to true, and a NextToken value is returned. You can use the returned NextToken value to call this operation again while keeping other request parameters unchanged to query the truncated data. You can repeat this process until IsTruncated is set to false, which indicates that all data is returned.
    * 
    * @example
    * K1c3o9K7pFxoTtxH1Nm7MMLb7zrDGvftYBQBPDVv7AD3a8yhRb3Mk8L9ivmN6bFSjfkZNTAg3h4****
@@ -57,13 +57,12 @@ export class ListTasksRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the CloudSSO identity. The ID can be used to filter access permissions.
+   * The ID of the CloudSSO identity. This parameter is used as a filter condition for the query. Details:
    * 
-   * - If you set `PrincipalType` to `User`, set `PrincipalId` to the ID of the CloudSSO user.
+   * - If PrincipalType is set to User, PrincipalId is the ID of the CloudSSO user.
+   * - If PrincipalType is set to Group, PrincipalId is the ID of the CloudSSO group.
    * 
-   * - If you set `PrincipalType` to `Group`, set `PrincipalId` to the ID of the CloudSSO group.
-   * 
-   * > You can use the type to filter access permissions only if you specify both `PrincipalId` and `PrincipalType`.
+   * > PrincipalId and PrincipalType must be specified at the same time to serve as a valid filter condition.
    * 
    * @example
    * u-00q8wbq42wiltcrk****
@@ -71,13 +70,12 @@ export class ListTasksRequest extends $dara.Model {
   principalId?: string;
   /**
    * @remarks
-   * The type of the CloudSSO identity. The type can be used to filter access permissions. Valid values:
+   * The type of the CloudSSO identity. This parameter is used as a filter condition for the query. Valid values:
    * 
-   * - User
+   * - User: The CloudSSO user.
+   * - Group: The CloudSSO group.
    * 
-   * - Group
-   * 
-   * > You can use the type to filter access permissions only if you specify both `PrincipalId` and `PrincipalType`.
+   * > PrincipalId and PrincipalType must be specified at the same time to serve as a valid filter condition.
    * 
    * @example
    * User
@@ -85,12 +83,10 @@ export class ListTasksRequest extends $dara.Model {
   principalType?: string;
   /**
    * @remarks
-   * The ID of the task. The ID can be used to filter tasks. Valid values:
+   * The status of the task. This parameter is used as a filter condition for the query. Valid values:
    * 
    * - InProgress: The task is running.
-   * 
-   * - Success: The task is successful.
-   * 
+   * - Success: The task succeeded.
    * - Failed: The task failed.
    * 
    * @example
@@ -99,9 +95,9 @@ export class ListTasksRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the task object. The ID can be used to filter access permissions.
+   * The ID of the task target. This parameter is used as a filter condition for the query.
    * 
-   * > You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
+   * > TargetId and TargetType must be specified at the same time to serve as a valid filter condition.
    * 
    * @example
    * 114240524784****
@@ -109,11 +105,11 @@ export class ListTasksRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The type of the task object. The type can be used to filter access permissions.
+   * The type of the task target. This parameter is used as a filter condition for the query. Valid values:
    * 
-   * Set the value to RD-Account, which specifies the accounts in the resource directory.
+   * - RD-Account: The task target is an account in a resource directory.
    * 
-   * > You can use the type to filter access permissions only if you specify both `TargetId` and `TargetType`.
+   * > TargetId and TargetType must be specified at the same time to serve as a valid filter condition.
    * 
    * @example
    * RD-Account
@@ -121,15 +117,12 @@ export class ListTasksRequest extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The type of the task. The type can be used to filter tasks. Valid values:
+   * The type of the node. This parameter is used as a filter condition for the query. Valid values:
    * 
-   * - ProvisionAccessConfiguration: An access configuration is provisioned.
-   * 
-   * - DeprovisionAccessConfiguration: An access configuration is de-provisioned.
-   * 
-   * - CreateAccessAssignment: Access permissions on an account in the resource directory are assigned.
-   * 
-   * - DeleteAccessAssignment: Access permissions on an account in the resource directory are removed.
+   * - ProvisionAccessConfiguration: Access configuration deployment.
+   * - DeprovisionAccessConfiguration: Removes access configuration provisioning.
+   * - CreateAccessAssignment: Grants authorization to an account in a resource directory.
+   * - DeleteAccessAssignment: Removes authorization from an account in a resource directory.
    * 
    * @example
    * CreateAccessAssignment

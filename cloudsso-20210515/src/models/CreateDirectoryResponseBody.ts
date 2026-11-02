@@ -13,7 +13,7 @@ export class CreateDirectoryResponseBodyDirectory extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****
@@ -37,7 +37,7 @@ export class CreateDirectoryResponseBodyDirectory extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The time when the directory was modified. The time is displayed in UTC.
+   * The time when the directory was updated. The time is displayed in UTC.
    * 
    * @example
    * 2021-10-10T04:04:04Z
@@ -75,7 +75,7 @@ export class CreateDirectoryResponseBodyDirectory extends $dara.Model {
 export class CreateDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the directory.
+   * The directory information.
    */
   directory?: CreateDirectoryResponseBodyDirectory;
   /**

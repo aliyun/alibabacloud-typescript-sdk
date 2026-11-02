@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access configuration.
+   * The access configuration ID.
    * 
    * @example
    * ac-00jhtfl8thteu6uj****
@@ -13,20 +13,23 @@ export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
   accessConfigurationId?: string;
   /**
    * @remarks
-   * The name of the access configuration.
+   * The access configuration name.
    * 
    * @example
    * ECS-Admin
    */
   accessConfigurationName?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud account ID of the authorization target.
+   * 
    * @example
    * 114240524784****
    */
   originTargetId?: string;
   /**
    * @remarks
-   * The ID of the CloudSSO identity.
+   * The CloudSSO identity ID.
    * 
    * @example
    * u-00q8wbq42wiltcrk****
@@ -34,7 +37,7 @@ export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
   principalId?: string;
   /**
    * @remarks
-   * The name of the CloudSSO identity.
+   * The CloudSSO identity name.
    * 
    * @example
    * Alice
@@ -42,11 +45,10 @@ export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
   principalName?: string;
   /**
    * @remarks
-   * The type of the CloudSSO identity. Valid values:
+   * The CloudSSO identity type. Valid values:
    * 
-   * - User
-   * 
-   * - Group
+   * - User: user
+   * - Group: group
    * 
    * @example
    * User
@@ -56,10 +58,8 @@ export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * - InProgress: The task is running.
-   * 
+   * - InProgress: The task is in progress.
    * - Success: The task is successful.
-   * 
    * - Failed: The task failed.
    * 
    * @example
@@ -68,7 +68,7 @@ export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the task object.
+   * The target ID of the task.
    * 
    * @example
    * 114240524784****
@@ -76,7 +76,7 @@ export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The name of the task object.
+   * The name of the task target.
    * 
    * @example
    * dev-test
@@ -84,17 +84,18 @@ export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
   targetName?: string;
   /**
    * @remarks
-   * The path ID of the task object in the resource directory.
+   * The path ID of the task target in the resource directory.
    */
   targetPath?: string;
   /**
    * @remarks
-   * The path name of the task object in the resource directory.
+   * The path name of the task target in the resource directory.
    */
   targetPathName?: string;
   /**
    * @remarks
-   * The type of the task object. The value is fixed as RD-Account, which indicates the accounts in the resource directory.
+   * The target type of the task. Valid values:
+   * - RD-Account: The task target is an account in a resource directory.
    * 
    * @example
    * RD-Account
@@ -110,7 +111,8 @@ export class DeleteAccessAssignmentResponseBodyTask extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task type. The value is fixed as DeleteAccessAssignment, which indicates that access permissions on an account in your resource directory are removed.
+   * The task type. Valid values:
+   * - DeleteAccessAssignment: The task removes an authorization from an account in a resource directory.
    * 
    * @example
    * DeleteAccessAssignment

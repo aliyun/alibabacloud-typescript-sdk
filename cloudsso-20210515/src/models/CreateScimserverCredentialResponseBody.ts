@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSCIMServerCredentialResponseBodySCIMServerCredential extends $dara.Model {
   /**
    * @remarks
-   * The time when the SCIM credential was created.
+   * The time when the SCIM credential was created. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-11-09T08:12:52Z
@@ -21,9 +21,9 @@ export class CreateSCIMServerCredentialResponseBodySCIMServerCredential extends 
   credentialId?: string;
   /**
    * @remarks
-   * The SCIM credential.
+   * The SCIM credential secret.
    * 
-   * > The SCIM credential is returned only when it is created. After the SCIM credential is created, you cannot query it. Keep the SCIM credential confidential.
+   * > The SCIM credential secret is returned only when the credential is created and cannot be queried later. Keep it secure.
    * 
    * @example
    * 8aAJCtpbyPJ8saXeYDgyw****
@@ -39,7 +39,7 @@ export class CreateSCIMServerCredentialResponseBodySCIMServerCredential extends 
   credentialType?: string;
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****
@@ -47,7 +47,7 @@ export class CreateSCIMServerCredentialResponseBodySCIMServerCredential extends 
   directoryId?: string;
   /**
    * @remarks
-   * The time when the SCIM credential expires.
+   * The time when the SCIM credential expires. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2022-11-09T08:12:52Z
@@ -55,7 +55,8 @@ export class CreateSCIMServerCredentialResponseBodySCIMServerCredential extends 
   expireTime?: string;
   /**
    * @remarks
-   * The status of the SCIM credential. The value is fixed as Enabled, which indicates that the SCIM credential is enabled.
+   * The status of the SCIM credential. Valid values:
+   * - Enabled: The SCIM credential is enabled.
    * 
    * @example
    * Enabled
@@ -105,7 +106,7 @@ export class CreateSCIMServerCredentialResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the SCIM credential.
+   * The SCIM credential information.
    */
   SCIMServerCredential?: CreateSCIMServerCredentialResponseBodySCIMServerCredential;
   static names(): { [key: string]: string } {

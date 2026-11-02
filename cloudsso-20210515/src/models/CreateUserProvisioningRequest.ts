@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateUserProvisioningRequest extends $dara.Model {
   /**
    * @remarks
-   * The deletion policy. The policy is used to manage synchronized users when you delete the RAM user provisioning. Valid values:
+   * The deletion policy. Specifies the action to take for synchronized Resource Access Management (RAM) users when a Resource Access Management (RAM) user synchronization is deleted. Valid values:
    * 
-   * - Delete: When you delete the RAM user provisioning, the system deletes the synchronized users.
-   * 
-   * - Keep: When you delete the RAM user provisioning, the system retains the synchronized users.
+   * - Delete: Delete. When a Resource Access Management (RAM) user synchronization is deleted, the system deletes the Resource Access Management (RAM) users that have been synchronized from CloudSSO to RAM.
+   * - Keep: Keep. When a Resource Access Management (RAM) user synchronization is deleted, the system retains the Resource Access Management (RAM) users that have been synchronized from CloudSSO to RAM.
    * 
    * @example
    * Delete
@@ -25,7 +24,7 @@ export class CreateUserProvisioningRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the resource directory.
+   * The ID of the directory.
    * 
    * @example
    * d-003qew84****
@@ -33,11 +32,10 @@ export class CreateUserProvisioningRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The conflict handling policy. The policy is used when a RAM user has the same username as the CloudSSO user who is synchronized to RAM. Valid values:
+   * The conflict resolution policy. Specifies the action to take when a CloudSSO user is synchronized to Resource Access Management (RAM) user with the same name already exists. Valid values:
    * 
-   * - KeepBoth: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system creates a RAM user whose username is the username of the CloudSSO user plus the suffix `_sso`.
-   * 
-   * - TakeOver: When a CloudSSO user is synchronized to RAM, if a RAM user who has the same username as the CloudSSO user exists, the system replaces the RAM user with the CloudSSO user.
+   * - KeepBoth: Keep both. When a CloudSSO user is synchronized to Resource Access Management (RAM) user with the same name already exists, the system adds the `_sso` suffix to the username of the CloudSSO user and attempts to create a RAM user with the suffixed username.
+   * - TakeOver: Take over. When a CloudSSO user is synchronized to Resource Access Management (RAM) user with the same name already exists, the system replaces the existing RAM user with the synchronized CloudSSO user.
    * 
    * @example
    * KeepBoth
@@ -45,11 +43,10 @@ export class CreateUserProvisioningRequest extends $dara.Model {
   duplicationStrategy?: string;
   /**
    * @remarks
-   * The identity ID of the RAM user provisioning. Valid values:
+   * The ID of the identity for the Resource Access Management (RAM) user synchronization. Valid values:
    * 
-   * - If you set the `PrincipalType` parameter to `Group`, the value of this parameter is the ID of a CloudSSO user group (g-\\*\\*\\*\\*\\*\\*\\*\\*).
-   * 
-   * - If you set the `PrincipalType` parameter to `User`, the value of this parameter is the ID of a CloudSSO user (u-\\*\\*\\*\\*\\*\\*\\*\\*).
+   * - When `PrincipalType` is set to `Group`, the value is the ID of the CloudSSO group (g-********).
+   * - When `PrincipalType` is set to `User`, the value is the ID of the CloudSSO user (u-********).
    * 
    * @example
    * g-02ha881d*****
@@ -57,11 +54,9 @@ export class CreateUserProvisioningRequest extends $dara.Model {
   principalId?: string;
   /**
    * @remarks
-   * The identity type of the RAM user provisioning. Valid values:
-   * 
-   * - User: The identity of the RAM user provisioning is a CloudSSO user.
-   * 
-   * - Group: The identity of the RAM user provisioning is a CloudSSO user group.
+   * The type of the Resource Access Management (RAM) user synchronization. Valid values:
+   * - User: The Resource Access Management (RAM) user synchronization is a CloudSSO user.
+   * - Group: The Resource Access Management (RAM) user synchronization is a CloudSSO group.
    * 
    * @example
    * Group
@@ -69,7 +64,7 @@ export class CreateUserProvisioningRequest extends $dara.Model {
   principalType?: string;
   /**
    * @remarks
-   * The ID of the object for which you create the RAM user provisioning. The value is fixed as the ID of the member in the resource directory.
+   * The ID of the destination for the Resource Access Management (RAM) user synchronization. Currently, the value is the ID of the account in a resource directory.
    * 
    * @example
    * 1743382******
@@ -77,7 +72,7 @@ export class CreateUserProvisioningRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The object for which you create the RAM user provisioning. The value is fixed as `RD-Account`.
+   * The type of the destination for the Resource Access Management (RAM) user synchronization. Currently, the only valid value is `RD-Account`.
    * 
    * @example
    * RD-Account

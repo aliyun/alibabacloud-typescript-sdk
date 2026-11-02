@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserProvisioningEventRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource directory.
+   * The directory ID.
    * 
    * @example
    * d-003qew84****
@@ -13,9 +13,9 @@ export class DeleteUserProvisioningEventRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The ID of the RAM user provisioning event.
+   * The ID of the Resource Access Management (RAM) user synchronization event.
    * 
-   * You can call the [ListUserProvisioningEvents](https://help.aliyun.com/document_detail/2636305.html) operation to query the value of `EventId`.
+   * You can invoke [ListUserProvisioningEvents](https://help.aliyun.com/document_detail/2636305.html) to retrieve the `EventId`.
    * 
    * @example
    * upe-wjKyNDmZvyZOiRcJ****
@@ -23,7 +23,7 @@ export class DeleteUserProvisioningEventRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The ID of the RAM user provisioning.
+   * The ID of the Resource Access Management (RAM) user synchronization.
    * 
    * @example
    * up-002axzhapcbz6e63****

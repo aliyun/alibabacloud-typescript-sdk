@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ProvisionAccessConfigurationResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access configuration.
+   * The access configuration ID.
    * 
    * @example
    * ac-00jhtfl8thteu6uj****
@@ -20,18 +20,19 @@ export class ProvisionAccessConfigurationResponseBodyTasks extends $dara.Model {
    */
   accessConfigurationName?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the deployment target belongs.
+   * 
    * @example
    * 114240524784****
    */
   originTargetId?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The status of the task. Valid values:
    * 
-   * - InProgress: The task is running.
-   * 
-   * - Success: The task is successful.
-   * 
+   * - InProgress: The task is in progress.
+   * - Success: The task succeeded.
    * - Failed: The task failed.
    * 
    * @example
@@ -40,7 +41,7 @@ export class ProvisionAccessConfigurationResponseBodyTasks extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the task object.
+   * The ID of the deployment target.
    * 
    * @example
    * 114240524784****
@@ -48,7 +49,7 @@ export class ProvisionAccessConfigurationResponseBodyTasks extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The name of the task object.
+   * The name of the task target.
    * 
    * @example
    * dev-test
@@ -56,17 +57,18 @@ export class ProvisionAccessConfigurationResponseBodyTasks extends $dara.Model {
   targetName?: string;
   /**
    * @remarks
-   * The path ID of the task object in the resource directory.
+   * The path ID of the task target in the resource directory.
    */
   targetPath?: string;
   /**
    * @remarks
-   * The path name of the task object in the resource directory.
+   * The path name of the task target in the resource directory.
    */
   targetPathName?: string;
   /**
    * @remarks
-   * The type of the task object. The value is fixed as RD-Account, which indicates the accounts in the resource directory.
+   * The target type of the task. Valid values:
+   * - RD-Account: The task target is an account in a resource directory.
    * 
    * @example
    * RD-Account
@@ -82,7 +84,8 @@ export class ProvisionAccessConfigurationResponseBodyTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task type. The value is fixed as ProvisionAccessConfiguration, which indicates that an access configuration is provisioned.
+   * The task type. Valid values:
+   * - ProvisionAccessConfiguration: The task provisions an access configuration.
    * 
    * @example
    * ProvisionAccessConfiguration

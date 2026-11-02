@@ -21,7 +21,7 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   accessConfigurationName?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * The end time of the task. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-11-09T05:50:50Z
@@ -29,15 +29,18 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The cause of the task failure.
+   * The reason why the task failed.
    * 
-   * > This parameter is returned only when the value of `Status` is `Failed`.
+   * > This parameter is returned only if Status is set to Failed.
    * 
    * @example
    * No Permission.
    */
   failureReason?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the authorization target belongs.
+   * 
    * @example
    * 114240524784****
    */
@@ -62,9 +65,8 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
    * @remarks
    * The type of the CloudSSO identity. Valid values:
    * 
-   * - User
-   * 
-   * - Group
+   * - User: The CloudSSO user.
+   * - Group: The CloudSSO group.
    * 
    * @example
    * User
@@ -72,7 +74,7 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   principalType?: string;
   /**
    * @remarks
-   * The start time of the task.
+   * The start time of the task. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-11-09T05:50:50Z
@@ -80,12 +82,10 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The status of the task. Valid values:
    * 
    * - InProgress: The task is running.
-   * 
-   * - Success: The task is successful.
-   * 
+   * - Success: The task succeeded.
    * - Failed: The task failed.
    * 
    * @example
@@ -94,7 +94,7 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the task object.
+   * The ID of the task target.
    * 
    * @example
    * 114240524784****
@@ -102,7 +102,7 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The name of the task object.
+   * The name of the task target.
    * 
    * @example
    * dev-test
@@ -110,19 +110,21 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   targetName?: string;
   /**
    * @remarks
-   * The path ID of the task object in the resource directory.
+   * The path ID of the task target in the resource directory.
    */
   targetPath?: string;
   /**
    * @remarks
-   * The path name of the task object in the resource directory.
+   * The path name of the task target in the resource directory.
    */
   targetPathName?: string;
   /**
    * @remarks
-   * The type of the task object.
+   * The type of the task target.
    * 
-   * The value is fixed as RD-Account, which indicates the accounts in the resource directory.
+   * Valid values:
+   * 
+   * - RD-Account: The task target is an account in a resource directory.
    * 
    * @example
    * RD-Account
@@ -130,7 +132,7 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The ID of the job.
+   * The ID of the task.
    * 
    * @example
    * t-sh5k4gesm6twlrqb****
@@ -138,15 +140,12 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task type. Valid values:
+   * The type of the node. Valid values:
    * 
-   * - ProvisionAccessConfiguration: An access configuration is provisioned.
-   * 
-   * - DeprovisionAccessConfiguration: An access configuration is de-provisioned.
-   * 
-   * - CreateAccessAssignment: Access permissions on an account in the resource directory are assigned.
-   * 
-   * - DeleteAccessAssignment: Access permissions on an account in the resource directory are removed.
+   * - ProvisionAccessConfiguration: Access configuration deployment.
+   * - DeprovisionAccessConfiguration: Removes access configuration provisioning.
+   * - CreateAccessAssignment: Grants authorization to an account in a resource directory.
+   * - DeleteAccessAssignment: Removes authorization from an account in a resource directory.
    * 
    * @example
    * CreateAccessAssignment
@@ -208,11 +207,10 @@ export class ListTasksResponseBodyTasks extends $dara.Model {
 export class ListTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the queried entries are truncated. Valid values:
+   * Indicates whether the returned results are truncated. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: The returned results are truncated.
+   * - false: The returned results are not truncated.
    * 
    * @example
    * false
@@ -220,7 +218,7 @@ export class ListTasksResponseBody extends $dara.Model {
   isTruncated?: boolean;
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of entries returned on each page.
    * 
    * @example
    * 10
@@ -228,9 +226,9 @@ export class ListTasksResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * The token used to return the next page of the query results.
    * 
-   * > This parameter is returned only when the value of `IsTruncated` is `true`.
+   * > This parameter is returned only if IsTruncated is set to true.
    * 
    * @example
    * K1c3o9K7pFxoTtxH1Nm7MMLb7zrDGvftYBQBPDVv7AD3a8yhRb3Mk8L9ivmN6bFSjfkZNTAg3h4****
@@ -238,7 +236,7 @@ export class ListTasksResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C0DA2DFC-EB18-59EF-BD82-C30862EBA3A3
@@ -246,12 +244,12 @@ export class ListTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tasks.
+   * The list of tasks.
    */
   tasks?: ListTasksResponseBodyTasks[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the conditional request parameter.
    * 
    * @example
    * 1

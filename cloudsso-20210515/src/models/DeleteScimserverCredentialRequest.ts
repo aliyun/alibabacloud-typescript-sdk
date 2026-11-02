@@ -13,7 +13,7 @@ export class DeleteSCIMServerCredentialRequest extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****

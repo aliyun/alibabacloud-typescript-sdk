@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access configuration.
+   * The access configuration ID.
    * 
    * @example
    * ac-00jhtfl8thteu6uj****
@@ -15,20 +15,23 @@ export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   accessConfigurationId?: string;
   /**
    * @remarks
-   * The name of the access configuration.
+   * The access configuration name.
    * 
    * @example
    * ECS-Admin
    */
   accessConfigurationName?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud account ID of the authorization target.
+   * 
    * @example
    * 114240524784****
    */
   originTargetId?: string;
   /**
    * @remarks
-   * The ID of the CloudSSO identity.
+   * The CloudSSO identity ID.
    * 
    * @example
    * u-00q8wbq42wiltcrk****
@@ -36,7 +39,7 @@ export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   principalId?: string;
   /**
    * @remarks
-   * The name of the CloudSSO identity.
+   * The CloudSSO identity name.
    * 
    * @example
    * Alice
@@ -44,11 +47,9 @@ export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   principalName?: string;
   /**
    * @remarks
-   * The type of the CloudSSO identity. Valid values:
-   * 
-   * - User
-   * 
-   * - Group
+   * The CloudSSO identity type. Valid values:
+   * - User: user
+   * - Group: group
    * 
    * @example
    * User
@@ -57,11 +58,8 @@ export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * 
-   * - InProgress: The task is running.
-   * 
-   * - Success: The task is successful.
-   * 
+   * - InProgress: The task is in progress.
+   * - Success: The task succeeded.
    * - Failed: The task failed.
    * 
    * @example
@@ -70,7 +68,7 @@ export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the task object.
+   * The ID of the task target.
    * 
    * @example
    * 114240524784****
@@ -78,7 +76,7 @@ export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The name of the task object.
+   * The name of the task target.
    * 
    * @example
    * dev-test
@@ -86,17 +84,17 @@ export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   targetName?: string;
   /**
    * @remarks
-   * The path ID of the task object in the resource directory.
+   * The path ID of the task target in the resource directory.
    */
   targetPath?: string;
   /**
    * @remarks
-   * The path name of the task object in the resource directory.
+   * The path name of the task target in the resource directory.
    */
   targetPathName?: string;
   /**
    * @remarks
-   * The type of the task object. The value is fixed as RD-Account, which indicates the accounts in the resource directory.
+   * The target type of the task. Valid value: RD-Account, which indicates that the task target is an account in a resource directory.
    * 
    * @example
    * RD-Account
@@ -104,7 +102,7 @@ export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * The ID of the job.
+   * The task ID.
    * 
    * @example
    * t-sh6tceylhvgejpip****
@@ -112,7 +110,7 @@ export class CreateAccessAssignmentResponseBodyTask extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task type. The value is fixed as CreateAccessAssignment, which indicates that access permissions on an account in your resource directory are assigned.
+   * The task type. Valid value: CreateAccessAssignment, which indicates an authorization task for an account in a resource directory.
    * 
    * @example
    * CreateAccessAssignment
@@ -176,7 +174,7 @@ export class CreateAccessAssignmentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried task.
+   * The task information.
    */
   task?: CreateAccessAssignmentResponseBodyTask;
   static names(): { [key: string]: string } {

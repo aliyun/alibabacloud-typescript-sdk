@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDirectoryResponseBodyDirectory extends $dara.Model {
   /**
    * @remarks
-   * The time when the directory was created.
+   * The time when the directory was created. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-06-30T08:35:26Z
@@ -13,7 +13,7 @@ export class GetDirectoryResponseBodyDirectory extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****
@@ -29,7 +29,7 @@ export class GetDirectoryResponseBodyDirectory extends $dara.Model {
   directoryName?: string;
   /**
    * @remarks
-   * The region ID of the directory.
+   * The ID of the region where the directory is located.
    * 
    * @example
    * cn-shanghai
@@ -37,7 +37,7 @@ export class GetDirectoryResponseBodyDirectory extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The time when the directory was modified.
+   * The time when the directory was updated. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-10-25T07:18:46Z
@@ -75,7 +75,7 @@ export class GetDirectoryResponseBodyDirectory extends $dara.Model {
 export class GetDirectoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the directory.
+   * The directory information.
    */
   directory?: GetDirectoryResponseBodyDirectory;
   /**

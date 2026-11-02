@@ -13,7 +13,7 @@ export class UpdateSCIMServerCredentialStatusRequest extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****
@@ -21,11 +21,10 @@ export class UpdateSCIMServerCredentialStatusRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The new status of the SCIM credential. Valid values:
+   * The status of the SCIM credential. Valid values:
    * 
-   * - Enabled: The SCIM credential is enabled.
-   * 
-   * - Disabled: The SCIM credential is disabled.
+   * - Enabled: Enabled.
+   * - Disabled: Disabled.
    * 
    * @example
    * Disabled

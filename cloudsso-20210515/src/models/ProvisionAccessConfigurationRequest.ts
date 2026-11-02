@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ProvisionAccessConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access configuration.
+   * The access configuration ID.
    * 
    * @example
    * ac-00jhtfl8thteu6uj****
@@ -20,13 +20,16 @@ export class ProvisionAccessConfigurationRequest extends $dara.Model {
    */
   directoryId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the deployment target belongs.
+   * 
    * @example
    * 114240524784****
    */
   originTargetId?: string;
   /**
    * @remarks
-   * The ID of the task object.
+   * The ID of the task target.
    * 
    * @example
    * 114240524784****
@@ -34,7 +37,8 @@ export class ProvisionAccessConfigurationRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The type of the task object. Set the value to RD-Account, which specifies the accounts in the resource directory.
+   * The target type of the task. Valid values:
+   * - RD-Account: The task target is an account in a resource directory.
    * 
    * @example
    * RD-Account

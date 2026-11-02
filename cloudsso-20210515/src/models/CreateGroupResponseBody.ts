@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupResponseBodyGroup extends $dara.Model {
   /**
    * @remarks
-   * The time when the group was created.
+   * The time when the user group was created. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-11-01T02:38:27Z
@@ -13,7 +13,7 @@ export class CreateGroupResponseBodyGroup extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the group.
+   * The description of the user group.
    * 
    * @example
    * This is a group.
@@ -21,7 +21,7 @@ export class CreateGroupResponseBodyGroup extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the group.
+   * The ID of the user group.
    * 
    * @example
    * g-00jqzghi2n3o5hkh****
@@ -29,7 +29,7 @@ export class CreateGroupResponseBodyGroup extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the group.
+   * The name of the user group.
    * 
    * @example
    * TestGroup
@@ -37,7 +37,8 @@ export class CreateGroupResponseBodyGroup extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The type of the group. The value is fixed as Manual, which indicates that the group is manually created.
+   * The type of the user group. Valid values:
+   * - Manual: The user group is manually created.
    * 
    * @example
    * Manual
@@ -45,7 +46,7 @@ export class CreateGroupResponseBodyGroup extends $dara.Model {
   provisionType?: string;
   /**
    * @remarks
-   * The time when the information about the group was modified.
+   * The time when the user group was updated. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-11-01T02:38:27Z
@@ -85,7 +86,7 @@ export class CreateGroupResponseBodyGroup extends $dara.Model {
 export class CreateGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the group.
+   * The user group information.
    */
   group?: CreateGroupResponseBodyGroup;
   /**

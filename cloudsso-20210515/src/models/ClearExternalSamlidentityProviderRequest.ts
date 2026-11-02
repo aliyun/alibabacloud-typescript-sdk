@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ClearExternalSAMLIdentityProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****

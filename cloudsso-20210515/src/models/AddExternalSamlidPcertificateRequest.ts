@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddExternalSAMLIdPCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****
@@ -13,9 +13,9 @@ export class AddExternalSAMLIdPCertificateRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The X.509 certificate in the PEM format.
+   * The X.509 certificate in PEM format.
    * 
-   * The certificate is provided by the SAML identity provider (IdP).
+   * The certificate is provided by the SAML IdP.
    * 
    * @example
    * MIIC8DCCAdigAwIBAgIQP9eomUYGeoND****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableDelegateAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delegated administrator account of CloudSSO.
+   * The ID of the CloudSSO delegated administrator account.
    * 
    * @example
    * 180658567986****

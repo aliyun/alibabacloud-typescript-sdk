@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccessAssignmentRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access configuration.
+   * The access configuration ID.
    * 
    * @example
    * ac-00jhtfl8thteu6uj****
@@ -13,24 +13,25 @@ export class CreateAccessAssignmentRequest extends $dara.Model {
   accessConfigurationId?: string;
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****
    */
   directoryId?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud account ID of the authorization target.
+   * 
    * @example
    * 114240524784****
    */
   originTargetId?: string;
   /**
    * @remarks
-   * The ID of the CloudSSO identity.
-   * 
-   * - If you set `PrincipalType` to `User`, set `PrincipalId` to the ID of the CloudSSO user.
-   * 
-   * - If you set `PrincipalType` to `Group`, set `PrincipalId` to the ID of the CloudSSO group.
+   * The CloudSSO identity ID. Details:
+   * - If PrincipalType is set to User, PrincipalId is the CloudSSO user ID.
+   * - If PrincipalType is set to Group, PrincipalId is the CloudSSO group ID.
    * 
    * @example
    * u-00q8wbq42wiltcrk****
@@ -38,11 +39,9 @@ export class CreateAccessAssignmentRequest extends $dara.Model {
   principalId?: string;
   /**
    * @remarks
-   * The type of the CloudSSO identity. Valid values:
-   * 
-   * - User
-   * 
-   * - Group
+   * The CloudSSO identity type. Valid values:
+   * - User: user
+   * - Group: group
    * 
    * @example
    * User
@@ -50,7 +49,7 @@ export class CreateAccessAssignmentRequest extends $dara.Model {
   principalType?: string;
   /**
    * @remarks
-   * The ID of the task object.
+   * The ID of the deployment target.
    * 
    * @example
    * 114240524784****
@@ -58,7 +57,7 @@ export class CreateAccessAssignmentRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The type of the task object. Set the value to RD-Account, which specifies the accounts in the resource directory.
+   * The target type of the task. Valid value: RD-Account, which indicates that the task target is an account in a resource directory.
    * 
    * @example
    * RD-Account

@@ -21,7 +21,7 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   accessConfigurationName?: string;
   /**
    * @remarks
-   * The end time of the task.
+   * The end time of the task. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-11-05T02:58:08Z
@@ -29,15 +29,18 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The cause of the task failure.
+   * The reason why the task failed.
    * 
-   * >  This parameter is returned only when the value of `Status` is `Failed`.
+   * > This parameter is returned only when `Status` is `Failed`.
    * 
    * @example
    * No Permission.
    */
   failureReason?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the target belongs.
+   * 
    * @example
    * 17xxxxxxxxxxxx73
    */
@@ -60,10 +63,10 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   principalName?: string;
   /**
    * @remarks
-   * The type of the CloudSSO identity. Valid values:
+   * The CloudSSO identity type. Valid values:
    * 
-   * *   User
-   * *   Group
+   * - User: user.
+   * - Group: user group.
    * 
    * @example
    * User
@@ -71,7 +74,7 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   principalType?: string;
   /**
    * @remarks
-   * The start time of the task.
+   * The start time of the task. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-11-05T02:58:07Z
@@ -81,9 +84,9 @@ export class GetTaskResponseBodyTask extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * 
-   * *   InProgress: The task is running.
-   * *   Success: The task is successful.
-   * *   Failed: The task failed.
+   * - InProgress: The task is in progress.
+   * - Success: The task succeeded.
+   * - Failed: The task failed.
    * 
    * @example
    * Success
@@ -91,7 +94,7 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the task object.
+   * The ID of the task target.
    * 
    * @example
    * 114240524784****
@@ -99,7 +102,7 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * The name of the task object.
+   * The name of the task target.
    * 
    * @example
    * dev-test
@@ -107,17 +110,17 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   targetName?: string;
   /**
    * @remarks
-   * The path ID of the task object in the resource directory.
+   * The path ID of the task target in the resource directory.
    */
   targetPath?: string;
   /**
    * @remarks
-   * The path name of the task object in the resource directory.
+   * The path name of the task target in the resource directory.
    */
   targetPathName?: string;
   /**
    * @remarks
-   * The type of the task object. The value is fixed as RD-Account, which indicates the accounts in the resource directory.
+   * The task target type. Valid values: RD-Account, which indicates that the task target is an account in a resource directory.
    * 
    * @example
    * RD-Account
@@ -135,10 +138,10 @@ export class GetTaskResponseBodyTask extends $dara.Model {
    * @remarks
    * The task type. Valid values:
    * 
-   * *   ProvisionAccessConfiguration: An access configuration is provisioned.
-   * *   DeprovisionAccessConfiguration: An access configuration is de-provisioned.
-   * *   CreateAccessAssignment: Access permissions on an account in the resource directory are assigned.
-   * *   DeleteAccessAssignment: Access permissions on an account in the resource directory are removed.
+   * - ProvisionAccessConfiguration: Deploys the access configuration.
+   * - DeprovisionAccessConfiguration: Removes the access configuration deployment.
+   * - CreateAccessAssignment: Grants authorization to an account in a resource directory.
+   * - DeleteAccessAssignment: Revokes authorization from an account in a resource directory.
    * 
    * @example
    * DeleteAccessAssignment

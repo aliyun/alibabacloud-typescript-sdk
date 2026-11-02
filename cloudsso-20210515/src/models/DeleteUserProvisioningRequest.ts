@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserProvisioningRequest extends $dara.Model {
   /**
    * @remarks
-   * The deletion policy. The policy is used to manage synchronized users when you delete the RAM user provisioning. Valid values:
+   * The deletion strategy. The processing strategy for synchronized RAM users when a RAM user synchronization is deleted. Valid values:
    * 
-   * - Delete: When you delete the RAM user provisioning, the system deletes the synchronized users.
+   * - Delete: Deletes the RAM users that have been synchronized from CloudSSO to Resource Access Management (RAM) user synchronization is deleted.
+   * - Keep: Retains the RAM users that have been synchronized from CloudSSO to Resource Access Management (RAM) user synchronization is deleted.
    * 
-   * - Keep: When you delete the RAM user provisioning, the system retains the synchronized users.
-   * 
-   * > If you do not specify this parameter, the deletion policy that is configured when you create the RAM user provisioning is used.
+   * > If this parameter is left empty, the deletion strategy specified when the RAM user synchronization was created is used.
    * 
    * @example
    * Delete
@@ -19,7 +18,7 @@ export class DeleteUserProvisioningRequest extends $dara.Model {
   deletionStrategy?: string;
   /**
    * @remarks
-   * The ID of the resource directory.
+   * The directory ID.
    * 
    * @example
    * d-003qew84****
@@ -27,7 +26,7 @@ export class DeleteUserProvisioningRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The ID of the RAM user provisioning.
+   * The ID of the Resource Access Management (RAM) user synchronization.
    * 
    * @example
    * up-002axzhapcbz6e63****

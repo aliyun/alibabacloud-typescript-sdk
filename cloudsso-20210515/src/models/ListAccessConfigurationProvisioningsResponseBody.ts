@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccessConfigurationProvisioningsResponseBodyAccessConfigurationProvisionings extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access configuration.
+   * The access configuration ID.
    * 
    * @example
    * ac-00ccule7tadaijxc****
@@ -21,25 +21,28 @@ export class ListAccessConfigurationProvisioningsResponseBodyAccessConfiguration
   accessConfigurationName?: string;
   /**
    * @remarks
-   * The first time when the access configuration was provisioned.
+   * The time when the first provisioning succeeded. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-07-26T08:54:14Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud account ID of the provisioning target.
+   * 
    * @example
    * 114240524784****
    */
   originTargetId?: string;
   /**
    * @remarks
-   * The name of the custom policy that is created for an account in the resource directory.
+   * The Policy Name of the custom policy created in the account in a resource directory.
    */
   RAMPolicyNames?: string[];
   /**
    * @remarks
-   * The name of the RAM role that is created for an account in the resource directory.
+   * The name of the RAM role created in the account in a resource directory.
    * 
    * @example
    * AliyunReservedSSO-VPC-Admin
@@ -47,7 +50,7 @@ export class ListAccessConfigurationProvisioningsResponseBodyAccessConfiguration
   RAMRoleName?: string;
   /**
    * @remarks
-   * The name of the Security Assertion Markup Language (SAML) identity provider (IdP) that is created within an account in the resource directory.
+   * The name of the SAML IdP created in the account in a resource directory.
    * 
    * @example
    * AliyunReservedSSO-d-00fc2p61****
@@ -55,13 +58,11 @@ export class ListAccessConfigurationProvisioningsResponseBodyAccessConfiguration
   SAMLProviderName?: string;
   /**
    * @remarks
-   * The status of the access configuration. Valid values:
+   * The provisioning status. Valid values:
    * 
-   * - Provisioned: The access configuration is provisioned.
-   * 
-   * - ReprovisionRequired: The access configuration needs to be re-provisioned.
-   * 
-   * - DeprovisionFailed: The access configuration failed to be provisioned.
+   * - Provisioned: The provisioning succeeded.
+   * - ReprovisionRequired: Reprovisioning is required.
+   * - DeprovisionFailed: The provisioning failed.
    * 
    * @example
    * Provisioned
@@ -69,9 +70,9 @@ export class ListAccessConfigurationProvisioningsResponseBodyAccessConfiguration
   status?: string;
   /**
    * @remarks
-   * The ID of the task object.
+   * The target ID.
    * 
-   * If the value of TargetType is `RD-Account`, the value of this parameter is the UID of an account in the resource directory.
+   * If the target type is RD-Account, this parameter indicates the UID of the account in a resource directory.
    * 
    * @example
    * 101522521960****
@@ -79,7 +80,7 @@ export class ListAccessConfigurationProvisioningsResponseBodyAccessConfiguration
   targetId?: string;
   /**
    * @remarks
-   * The name of the task object.
+   * The name of the target.
    * 
    * @example
    * SharedServices_5009****
@@ -87,19 +88,20 @@ export class ListAccessConfigurationProvisioningsResponseBodyAccessConfiguration
   targetName?: string;
   /**
    * @remarks
-   * The path ID of the task object in the resource directory.
+   * The path ID of the target in the resource directory.
    */
   targetPath?: string;
   /**
    * @remarks
-   * The path name of the task object in the resource directory.
+   * The path name of the target in the resource directory.
    */
   targetPathName?: string;
   /**
    * @remarks
-   * The type of the task object.
+   * The target type.
    * 
-   * Set the value to RD-Account, which specifies the accounts in the resource directory.
+   * Valid values:
+   * - RD-Account: The target is an account in a resource directory.
    * 
    * @example
    * RD-Account
@@ -107,7 +109,7 @@ export class ListAccessConfigurationProvisioningsResponseBodyAccessConfiguration
   targetType?: string;
   /**
    * @remarks
-   * The last time when the access configuration was provisioned.
+   * The time when the latest provisioning succeeded. The time is displayed in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-07-26T08:54:18Z
@@ -166,16 +168,15 @@ export class ListAccessConfigurationProvisioningsResponseBodyAccessConfiguration
 export class ListAccessConfigurationProvisioningsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The accounts for which the access configuration is provisioned.
+   * The list of access configuration provisionings.
    */
   accessConfigurationProvisionings?: ListAccessConfigurationProvisioningsResponseBodyAccessConfigurationProvisionings[];
   /**
    * @remarks
-   * Indicates whether the queried entries are truncated. Valid values:
+   * Indicates whether the returned results are truncated. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: The results are truncated.
+   * - false: The results are not truncated.
    * 
    * @example
    * false
@@ -183,7 +184,7 @@ export class ListAccessConfigurationProvisioningsResponseBody extends $dara.Mode
   isTruncated?: boolean;
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of entries returned on each page.
    * 
    * @example
    * 10
@@ -191,9 +192,9 @@ export class ListAccessConfigurationProvisioningsResponseBody extends $dara.Mode
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * The token used to return the next page of query results.
    * 
-   * > This parameter is returned only when the value of `IsTruncated` is `true`.
+   * > This parameter is returned only when IsTruncated is set to true.
    * 
    * @example
    * K1c3o9K7pFxoTtxH1Nm7MMLb7zrDGvftYBQBPDVv7AD3a8yhRb3Mk8L9ivmN6bFSjfkZNTAg3h4****
@@ -209,7 +210,7 @@ export class ListAccessConfigurationProvisioningsResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the filter conditions specified in the request parameters.
    * 
    * @example
    * 2

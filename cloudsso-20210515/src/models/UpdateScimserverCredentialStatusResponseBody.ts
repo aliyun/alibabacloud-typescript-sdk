@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSCIMServerCredentialStatusResponseBodySCIMServerCredential extends $dara.Model {
   /**
    * @remarks
-   * The time when the SCIM credential was created.
+   * The creation time of the SCIM credential. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2021-11-09T08:12:52Z
@@ -29,7 +29,7 @@ export class UpdateSCIMServerCredentialStatusResponseBodySCIMServerCredential ex
   credentialType?: string;
   /**
    * @remarks
-   * The ID of the directory.
+   * The directory ID.
    * 
    * @example
    * d-00fc2p61****
@@ -37,7 +37,7 @@ export class UpdateSCIMServerCredentialStatusResponseBodySCIMServerCredential ex
   directoryId?: string;
   /**
    * @remarks
-   * The time when the SCIM credential expires.
+   * The expiration time of the SCIM credential. The time is in UTC and follows the RFC 3339 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2022-11-09T08:12:52Z
@@ -47,9 +47,8 @@ export class UpdateSCIMServerCredentialStatusResponseBodySCIMServerCredential ex
    * @remarks
    * The status of the SCIM credential. Valid values:
    * 
-   * - Enabled: The SCIM credential is enabled.
-   * 
-   * - Disabled: The SCIM credential is disabled.
+   * - Enabled: Enabled.
+   * - Disabled: Disabled.
    * 
    * @example
    * Disabled
@@ -97,7 +96,7 @@ export class UpdateSCIMServerCredentialStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the SCIM credential.
+   * The SCIM credential information.
    */
   SCIMServerCredential?: UpdateSCIMServerCredentialStatusResponseBodySCIMServerCredential;
   static names(): { [key: string]: string } {
