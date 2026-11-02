@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the instance is managed. Valid values: 1 (managed) and 0 (not managed).
+   * Specifies whether the instance is managed. Valid values:
+   * - 1: Managed.
+   * - 0: Unmanaged.
    * 
    * @example
    * 1
@@ -21,10 +23,10 @@ export class ListInstancesRequest extends $dara.Model {
   brand?: string;
   /**
    * @remarks
-   * The status of the certificate. Valid values:
+   * The certificate status. Valid values:
    * - **issued**: Issued.
    * - **revoked**: Revoked.
-   * - **willExpire**: About to expire.
+   * - **willExpire**: Expiring soon.
    * - **expired**: Expired.
    * 
    * @example
@@ -33,7 +35,7 @@ export class ListInstancesRequest extends $dara.Model {
   certificateStatus?: string;
   /**
    * @remarks
-   * The type of the certificate. Valid values: DV, OV, and EV.
+   * The certificate type. Valid values: DV, OV, and EV.
    * 
    * @example
    * DV
@@ -41,7 +43,7 @@ export class ListInstancesRequest extends $dara.Model {
   certificateType?: string;
   /**
    * @remarks
-   * The page number of the current page in a paging query. Settings the current page number. Default value: **1**.
+   * The paging Settings for the current page number in a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -49,7 +51,9 @@ export class ListInstancesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The instance type. Valid values: BUY (official certificate) and TEST (test certificate).
+   * The instance type. Valid values:
+   * - BUY: Official certificate.
+   * - TEST: Test certificate.
    * 
    * @example
    * BUY
@@ -57,7 +61,7 @@ export class ListInstancesRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The keyword for fuzzy search. Matches domain names, instance names, or corresponding resource IDs.
+   * The keyword for fuzzy search. It matches domain names, instance names, or corresponding resource IDs.
    * 
    * @example
    * test
@@ -65,7 +69,7 @@ export class ListInstancesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-ae******4wia
@@ -73,9 +77,9 @@ export class ListInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to return only instances that meet server deployment conditions. Valid values:
-   * - 1: is.
-   * - 0: no.
+   * Specifies whether to return only instances that meet the server deployment conditions. Valid values:
+   * - 1: Yes.
+   * - 0: No.
    * 
    * @example
    * 1
@@ -83,7 +87,7 @@ export class ListInstancesRequest extends $dara.Model {
   serverDeployFlag?: number;
   /**
    * @remarks
-   * The number of instances to display per page in a paging query. Settings the number of instances displayed per page. Default value: **10**. Maximum value: **100**.
+   * The paging Settings for the number of instances to return on each page in a paged query. Default value: **10**. Maximum value: **100**.
    * 
    * @example
    * 10
@@ -92,13 +96,13 @@ export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * - **inactive**: Pending use.
-   * - **pending**: Under review. The latest certificate is being submitted for review.
-   * - **willExpire**: The instance is about to expire.
-   * - **expired**: The instance has expired.
+   * - **inactive**: Pending.
+   * - **pending**: Under review. The latest certificate is submitted for review.
+   * - **willExpire**: Expiring soon.
+   * - **expired**: Expired.
    * - **refund**: Refunded.
    * - **normal**: Normal.
-   * - **closed**: Shutdown and unavailable.
+   * - **closed**: Closed. The instance cannot be used.
    * 
    * @example
    * inactive
@@ -106,7 +110,7 @@ export class ListInstancesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The version type. Valid values: basic (Basic Edition), standard (Standard Edition), professional (Professional Edition), and ultimate (Ultimate Edition).
+   * The edition. Valid values: basic, standard, professional, and ultimate.
    * 
    * @example
    * professional

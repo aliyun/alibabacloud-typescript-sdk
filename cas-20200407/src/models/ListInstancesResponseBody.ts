@@ -5,14 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic managed renewal is enabled. Valid values:
+   * Indicates whether automatic management is enabled. Valid values:
    * - enable: Enabled.
-   * - disable: Not enabled.
+   * - disable: Disabled.
    * 
    * @example
    * enable
    */
   autoReissue?: string;
+  /**
+   * @remarks
+   * The auto-renewal status. Valid values:
+   * - **enable**: Auto-renewal.
+   * - **disable**: Manual renewal. You will receive a notification in the console before the instance expires.
+   * 
+   * @example
+   * enable
+   */
+  autoRenewalStatus?: string;
   /**
    * @remarks
    * The CA brand. Valid values: WoSign, CFCA, DigiCert, GeoTrust, GlobalSign, vTrus, and Alibaba.
@@ -23,11 +33,11 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   brand?: string;
   /**
    * @remarks
-   * The global certificate ID, in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services. Valid values:
-   * - For the China site: certificate ID + "-cn-hangzhou".
-   * - For the China site (Chinese): certificate ID + "-ap-southeast-1".
+   * The global certificate ID. The format is Certificate ID + "-" + Site region ID. It is commonly used in various Alibaba Cloud services.
+   * - For the China site, the format is Certificate ID + "-cn-hangzhou".
+   * - For the international site, the format is Certificate ID + "-ap-southeast-1".
    * 
-   * For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the China site (Chinese) is "123-ap-southeast-1".
+   * For example, if the certificate ID is 123, the CertIdentifier for the China site is "123-cn-hangzhou", and for the international site, it is "123-ap-southeast-1".
    * 
    * @example
    * 21795675-cn-hangzhou
@@ -59,7 +69,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   certificateName?: string;
   /**
    * @remarks
-   * The end time of the latest certificate. The value is a UNIX timestamp in seconds. This value is empty if no certificate has been issued.
+   * The expiration time of the latest certificate. The value is a timestamp accurate to seconds. If the certificate is not issued, this parameter is empty.
    * 
    * @example
    * 1801324800000
@@ -67,7 +77,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   certificateNotAfter?: number;
   /**
    * @remarks
-   * The start time of the latest certificate. The value is a UNIX timestamp in seconds. This value is empty if no certificate has been issued.
+   * The start time of the latest certificate. The value is a timestamp accurate to seconds. If the certificate is not issued, this parameter is empty.
    * 
    * @example
    * 1776988800000
@@ -75,7 +85,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   certificateNotBefore?: number;
   /**
    * @remarks
-   * The revocation time of the latest certificate. The value is a UNIX timestamp in seconds.
+   * The revocation time of the latest certificate. The value is a timestamp accurate to seconds.
    * 
    * @example
    * 1801324800000
@@ -83,10 +93,10 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   certificateRevokeTime?: number;
   /**
    * @remarks
-   * The status of the certificate. Valid values:
+   * The certificate status. Valid values:
    * - **issued**: Issued.
    * - **revoked**: Revoked.
-   * - **willExpire**: About to expire.
+   * - **willExpire**: Expiring soon.
    * - **expired**: Expired.
    * 
    * @example
@@ -95,7 +105,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   certificateStatus?: string;
   /**
    * @remarks
-   * The type of the certificate. Valid values: DV, OV, and EV.
+   * The certificate type. Valid values: DV, OV, and EV.
    * 
    * @example
    * DV
@@ -103,7 +113,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   certificateType?: string;
   /**
    * @remarks
-   * The domain name attached to the certificate.
+   * The domain name bound to the certificate.
    * 
    * @example
    * test.com
@@ -111,7 +121,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The number of exact-match domain names.
+   * The number of exact domain names.
    * 
    * @example
    * 1
@@ -119,7 +129,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   fullDomainCount?: number;
   /**
    * @remarks
-   * The expiration time of the instance. The value is a UNIX timestamp in seconds. This value is empty if no certificate has been issued.
+   * The expiration time of the instance. The value is a timestamp accurate to seconds. If no certificate has been issued, this parameter is empty.
    * 
    * @example
    * 1801324800000
@@ -135,7 +145,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The start time of the instance. The value is a UNIX timestamp in seconds. This value is empty if no certificate has been issued.
+   * The start time of the instance. The value is a timestamp accurate to seconds. If no certificate has been issued, this parameter is empty.
    * 
    * @example
    * 1801324800000
@@ -143,7 +153,9 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   instanceStartTime?: number;
   /**
    * @remarks
-   * The instance type. Valid values: BUY (official certificate) and TEST (test certificate).
+   * The instance type. Valid values:
+   * - BUY: Official certificate.
+   * - TEST: Test certificate.
    * 
    * @example
    * BUY
@@ -164,7 +176,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   keyAlgorithm?: string;
   /**
    * @remarks
-   * The end time when the instance was purchased. The value is a UNIX timestamp in seconds. This value is used to determine the purchase duration of the instance.
+   * The end time of the instance purchase. The value is a timestamp accurate to seconds. This parameter is used to determine the purchase duration of the instance.
    * 
    * @example
    * 1801324800000
@@ -172,7 +184,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   orderEndTime?: number;
   /**
    * @remarks
-   * The start time when the instance was purchased. The value is a UNIX timestamp in seconds. This value is used to determine the refund time limit.
+   * The start time of the instance purchase. The value is a timestamp accurate to seconds. This parameter is used to determine the refund time limit.
    * 
    * @example
    * 1801324800000
@@ -188,7 +200,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   pendingResult?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * 123
@@ -196,7 +208,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The purchased instance specification.
+   * The specifications of the purchased instance.
    * 
    * @example
    * ss.dv.t
@@ -205,13 +217,13 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * - **inactive**: Pending use.
-   * - **pending**: Under review. The latest certificate commit is under review.
-   * - **willExpire**: The instance is about to expire.
-   * - **expired**: The instance has expired.
+   * - **inactive**: Pending.
+   * - **pending**: Under review. The latest certificate is submitted for review.
+   * - **willExpire**: Expiring soon.
+   * - **expired**: Expired.
    * - **refund**: Refunded.
    * - **normal**: Normal.
-   * - **closed**: Shutdown and unavailable.
+   * - **closed**: Closed. The instance cannot be used.
    * 
    * @example
    * inactive
@@ -219,12 +231,12 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The deployment list of cloud services for the latest certificate.
+   * The list of cloud services where the latest certificate is deployed.
    */
   usingProductList?: string[];
   /**
    * @remarks
-   * The version type. Valid values: basic (Basic Edition), standard (Standard Edition), professional (Professional Edition), and ultimate (Ultimate Edition).
+   * The edition. Valid values: basic, standard, professional, and ultimate.
    * 
    * @example
    * professional
@@ -241,6 +253,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoReissue: 'AutoReissue',
+      autoRenewalStatus: 'AutoRenewalStatus',
       brand: 'Brand',
       certIdentifier: 'CertIdentifier',
       certificateDomain: 'CertificateDomain',
@@ -273,6 +286,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoReissue: 'string',
+      autoRenewalStatus: 'string',
       brand: 'string',
       certIdentifier: 'string',
       certificateDomain: 'string',
@@ -317,7 +331,7 @@ export class ListInstancesResponseBodyInstanceList extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page in a paging query.
+   * The current page number displayed during paging in a paged query.
    * 
    * @example
    * 1
@@ -325,7 +339,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of instances for which managed renewal is not enabled.
+   * The number of unmanaged instances.
    * 
    * @example
    * 80
@@ -333,7 +347,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   disableReissueCount?: number;
   /**
    * @remarks
-   * The number of instances for which managed renewal is enabled.
+   * The number of managed instances.
    * 
    * @example
    * 100
@@ -346,7 +360,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   instanceList?: ListInstancesResponseBodyInstanceList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 12345678-1234-1234-1234-123456789ABC
@@ -354,7 +368,7 @@ export class ListInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of records displayed per page.
+   * The number of records returned on each page.
    * 
    * @example
    * 20

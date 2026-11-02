@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCsrRequest extends $dara.Model {
   /**
    * @remarks
-   * The algorithm. Valid values: RSA, SM2, and ECC. For more information about algorithms, see [Select an SSL certificate](https://help.aliyun.com/document_detail/197871.html).
+   * The key algorithm for the CSR. Only RSA, SM2, and ECC are supported. For more information about key algorithms, see [Certificate purchasing guide](https://help.aliyun.com/document_detail/197871.html).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateCsrRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The primary domain name, which is a common name.
+   * The primary domain name, also known as the common name.
    * 
    * This parameter is required.
    * 
@@ -25,15 +25,15 @@ export class CreateCsrRequest extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The name of the company.
+   * The name of the organization.
    * 
    * @example
-   * 北京CSR科技有效公司
+   * Beijing CSR Technology Co., Ltd
    */
   corpName?: string;
   /**
    * @remarks
-   * The code of the country or region in which the organization is located. For example, you can use CN to indicate China and use US to indicate the United States.
+   * The country or region code of the organization. For example, CN indicates China, and US indicates the United States.
    * 
    * This parameter is required.
    * 
@@ -51,11 +51,9 @@ export class CreateCsrRequest extends $dara.Model {
   department?: string;
   /**
    * @remarks
-   * The key length that is used by the algorithm.
-   * 
-   * - The key length for RSA algorithms can be 2,048, 3,072, and 4,096 bits.
-   * 
-   * - The key length for ECC and SM2 algorithms can be 256 bits.
+   * The length of the key algorithm.
+   * - For the RSA algorithm, the length is typically 2048, 3072, or 4096.
+   * - For the ECC and SM2 algorithms, the length is typically 256.
    * 
    * This parameter is required.
    * 
@@ -75,7 +73,7 @@ export class CreateCsrRequest extends $dara.Model {
   locality?: string;
   /**
    * @remarks
-   * The name of the CSR. The name can be up to 50 characters in length and can contain letters, digits, underscores (_), hyphens (-), and periods (.).
+   * The name of the CSR. The name can be up to 50 characters in length and can contain only uppercase and lowercase letters, digits, underscores (_), hyphens (-), and periods (.).
    * 
    * @example
    * csr-123
@@ -83,7 +81,7 @@ export class CreateCsrRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The province or location where the company is located.
+   * The province or region where the company is located.
    * 
    * This parameter is required.
    * 
@@ -93,7 +91,7 @@ export class CreateCsrRequest extends $dara.Model {
   province?: string;
   /**
    * @remarks
-   * The secondary domain names. Separate multiple domain names with commas (,). You can use the CSR to apply for a certificate for both the primary and secondary domain names.
+   * The subject alternative names (SANs). These are other domain names for which you want to apply for the same SSL certificate. Separate multiple domain names with commas (,).
    * 
    * @example
    * www.aliyundoc.com,www.example.com

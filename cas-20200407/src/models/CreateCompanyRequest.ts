@@ -15,7 +15,7 @@ export class CreateCompanyRequest extends $dara.Model {
   city?: string;
   /**
    * @remarks
-   * The address of the company.
+   * The company address.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateCompanyRequest extends $dara.Model {
   companyCode?: string;
   /**
    * @remarks
-   * The email address of the company.
+   * The company email address.
    * 
    * @example
    * test@123.com
@@ -53,7 +53,7 @@ export class CreateCompanyRequest extends $dara.Model {
   companyName?: string;
   /**
    * @remarks
-   * The phone number of the company.
+   * The company phone number.
    * 
    * This parameter is required.
    * 

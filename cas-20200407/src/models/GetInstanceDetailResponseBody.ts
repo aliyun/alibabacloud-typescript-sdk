@@ -216,6 +216,11 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
    */
   autoReissueFlag?: number;
   /**
+   * @example
+   * enable
+   */
+  autoRenewalStatus?: string;
+  /**
    * @remarks
    * The average waiting time for issuing a certificate of this specification, in seconds.
    * 
@@ -613,6 +618,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
     return {
       autoReissue: 'AutoReissue',
       autoReissueFlag: 'AutoReissueFlag',
+      autoRenewalStatus: 'AutoRenewalStatus',
       averageWaitingTime: 'AverageWaitingTime',
       brand: 'Brand',
       certIdentifier: 'CertIdentifier',
@@ -665,6 +671,7 @@ export class GetInstanceDetailResponseBody extends $dara.Model {
     return {
       autoReissue: 'string',
       autoReissueFlag: 'number',
+      autoRenewalStatus: 'string',
       averageWaitingTime: 'string',
       brand: 'string',
       certIdentifier: 'string',

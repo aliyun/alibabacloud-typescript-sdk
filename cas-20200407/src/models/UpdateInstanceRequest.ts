@@ -58,6 +58,11 @@ export class UpdateInstanceRequest extends $dara.Model {
    */
   autoReissue?: string;
   /**
+   * @example
+   * enable
+   */
+  autoRenewalStatus?: string;
+  /**
    * @remarks
    * The name of the instance. When a certificate is issued, this name is used as the default name of the certificate.
    * 
@@ -184,6 +189,7 @@ export class UpdateInstanceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoReissue: 'AutoReissue',
+      autoRenewalStatus: 'AutoRenewalStatus',
       certificateName: 'CertificateName',
       city: 'City',
       companyId: 'CompanyId',
@@ -204,6 +210,7 @@ export class UpdateInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoReissue: 'string',
+      autoRenewalStatus: 'string',
       certificateName: 'string',
       city: 'string',
       companyId: 'number',

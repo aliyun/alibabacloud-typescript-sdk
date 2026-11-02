@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCloudAccessRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud service provider. This API supports multiple providers as detailed in the SecretKey parameter description. For example, to add credentials for Tencent Cloud, set this parameter to **Tencent**.
+   * The cloud service provider. Currently, only Tencent Cloud (**Tencent**) is supported.
    * 
    * @example
    * Tencent
@@ -13,7 +13,7 @@ export class AddCloudAccessRequest extends $dara.Model {
   cloudName?: string;
   /**
    * @remarks
-   * The Secret ID for accessing the cloud resource set.
+   * The secret ID for cloud resource access.
    * 
    * @example
    * xcxx
@@ -21,27 +21,19 @@ export class AddCloudAccessRequest extends $dara.Model {
   secretId?: string;
   /**
    * @remarks
-   * The secret corresponding to the AccessKey. The value is determined by the `AkType` parameter as follows:
+   * The secret of the access key. Valid values:
    * 
-   * 1\\. If `AkType` is set to `primary`:
+   * 1. If AkType is set to primary:
+   * - **Tencent**: the SecretAccessKey of the primary account.
+   * - **HUAWEICLOUD**: the SecretAccessKey of the primary account.
+   * - **Azure**: the ClientSecret.
+   * - **AWS**: the SecretAccessKey of the primary account.
    * 
-   * - **Tencent**: The SecretAccessKey of the primary account.
-   * 
-   * - **HUAWEI CLOUD**: The SecretAccessKey of the primary account.
-   * 
-   * - **Azure**: The ClientSecret.
-   * 
-   * - **AWS**: The SecretAccessKey of the primary account.
-   * 
-   * 2\\. If `AkType` is set to `sub`:
-   * 
-   * - **Tencent**: The SecretAccessKey of the sub-account.
-   * 
-   * - **HUAWEI CLOUD**: The SecretAccessKey of the sub-account.
-   * 
-   * - **Azure**: The ClientSecret.
-   * 
-   * - **AWS**: The SecretAccessKey of the sub-account.
+   * 2. If AkType is set to sub:
+   * - **Tencent**: the SecretAccessKey of the sub-account.
+   * - **HUAWEICLOUD**: the SecretAccessKey of the sub-account.
+   * - **Azure**: the ClientSecret.
+   * - **AWS**: the SecretAccessKey of the sub-account.
    * 
    * @example
    * xxx

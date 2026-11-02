@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchUpdateNoticeStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of primary key identifiers to be synchronized to Certificate Management Service. Separate multiple IDs with commas (,).
+   * The list of primary key IDs to be synchronized to Certificate Service. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,8 @@ export class BatchUpdateNoticeStatusRequest extends $dara.Model {
   ids?: string;
   /**
    * @remarks
-   * The language type for the request and the received message. Valid values:
-   * 
+   * Specifies the language of the request and response. Valid values:
    * - **zh**: Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -27,7 +25,7 @@ export class BatchUpdateNoticeStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The business code of message notification. The value is fixed as ssl.
+   * The business code of the message notification. The value is fixed to ssl.
    * 
    * @example
    * ssl
@@ -35,9 +33,9 @@ export class BatchUpdateNoticeStatusRequest extends $dara.Model {
   noticeBiz?: string;
   /**
    * @remarks
-   * Specifies whether to enable message notification.
-   * \\--enable: enables message notification.
-   * \\--disable: disables message notification.
+   * Specifies whether to enable message notification. Valid values:
+   * - --enable: Enabled.
+   * - --disable: Disabled.
    * 
    * This parameter is required.
    * 
@@ -47,7 +45,7 @@ export class BatchUpdateNoticeStatusRequest extends $dara.Model {
   noticeStatus?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * Specifies the source IP address of the request.
    * 
    * @example
    * 47.98.242.200

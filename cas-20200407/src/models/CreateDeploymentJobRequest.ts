@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDeploymentJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the certificate. Separate multiple certificate IDs with commas (,). You can call the [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html) operation to obtain the IDs of certificates from the **CertificateId** parameter.
+   * The certificate IDs. Separate multiple IDs with commas (,). The ID is the **CertificateId** returned by [ListUserCertificateOrder](https://help.aliyun.com/document_detail/455804.html).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateDeploymentJobRequest extends $dara.Model {
   certIds?: string;
   /**
    * @remarks
-   * The ID of the contact. Separate multiple contact IDs with commas (,). You can call the [ListContact](https://help.aliyun.com/document_detail/2712221.html) operation to obtain the IDs of contacts from the **ContactId** parameter.
+   * The contact IDs. Separate multiple IDs with commas (,). The ID is the primary key **Id** returned by [ListContact](https://help.aliyun.com/document_detail/2712221.html).
    * 
    * This parameter is required.
    * 
@@ -25,13 +25,7 @@ export class CreateDeploymentJobRequest extends $dara.Model {
   contactIds?: string;
   /**
    * @remarks
-   * The type of the deployment task.
-   * 
-   * Valid values:
-   * 
-   * - cloud: multi-cloud deployment task.
-   * 
-   * - user: cloud service deployment task. This type of task does not support cloud servers.
+   * The type of the task.
    * 
    * This parameter is required.
    * 
@@ -51,7 +45,9 @@ export class CreateDeploymentJobRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the cloud resource. Separate multiple resource IDs with commas (,). You can call the [ListCloudResources](https://help.aliyun.com/document_detail/2712230.html) operation to obtain the IDs of cloud resources from the **Id** parameter.
+   * The IDs of the cloud service resources. Separate multiple IDs with commas (,). The ID is the primary key **Id** returned by [ListCloudResources](https://help.aliyun.com/document_detail/2712230.html).
+   * 
+   * [ListCloudResources](https://help.aliyun.com/document_detail/2712230.html) returns the existing cloud infrastructure resources (such as SLB, ALB, CDN, WAF, and DCDN instances) under your account. Certificate Management Service does not provide operations to create these resources. You must create the resources by using the API operations (such as CreateLoadBalancer) or the console of the corresponding cloud service before you can query them by calling [ListCloudResources](https://help.aliyun.com/document_detail/2712230.html) and use them in this operation.
    * 
    * This parameter is required.
    * 
@@ -61,7 +57,7 @@ export class CreateDeploymentJobRequest extends $dara.Model {
   resourceIds?: string;
   /**
    * @remarks
-   * The time when the task starts. The value is a UNIX timestamp. If you do not specify this parameter, the system immediately starts the task after the task is in the pending state.
+   * The time when the task is scheduled to start. The value is a UNIX timestamp. If you do not specify this parameter, the deployment is immediately executed when the task enters the pending execution state.
    * 
    * @example
    * 1706613560008

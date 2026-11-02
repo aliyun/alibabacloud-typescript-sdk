@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRollbackTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the deployment task.
+   * The ID of the deployment job.
    * 
    * This parameter is required.
    * 

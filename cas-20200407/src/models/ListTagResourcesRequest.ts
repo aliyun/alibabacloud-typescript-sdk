@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag to query. You can specify multiple keys. N is a positive integer.
+   * The key of the tag to query. You can specify multiple tag keys. N is a positive integer.
    * 
    * @example
    * testKey1
@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return. Default value: 20.
+   * The maximum number of entries to return on each page. Default value: 20.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. If this parameter is empty, no more results exist.
+   * The pagination token that is used to start the next query. If the value is empty, no more results are available.
    * 
    * @example
    * 1d2db86sca4384811e0b5e8707e68181f
@@ -71,7 +71,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource ID. ResourceId and Tag cannot both be empty. At least one of ResourceId.N or (Tag.N.Key, Tag.N.Value) must be specified.
+   * The resource ID. ResourceId and Tag cannot both be empty. You must specify at least one of ResourceId.N and the combination of Tag.N.Key and Tag.N.Value.
    */
   resourceId?: string[];
   /**
@@ -86,7 +86,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The information about instances and tags. ResourceId and Tag cannot both be empty. At least one of ResourceId.N or (Tag.N.Key, Tag.N.Value) must be specified.
+   * The information about the instances and tags to query. ResourceId and Tag cannot both be empty. At least one of ResourceId.N or the combination of Tag.N.Key and Tag.N.Value must be specified.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

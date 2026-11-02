@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWHClientCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the client certificate, specified as a Unix timestamp in seconds.
+   * The expiration time of the client certificate. The value is a UNIX timestamp. Unit: seconds.
    * 
-   * > The `BeforeTime` and `AfterTime` parameters must be specified together or not at all.
+   * > The BeforeTime and AfterTime parameters must be both empty or both specified.
    * 
    * @example
    * 1665819958
@@ -15,23 +15,17 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   afterTime?: number;
   /**
    * @remarks
-   * The key algorithm for the client certificate. The format is `<encryption_algorithm>_<key_length>`. Valid values:
+   * The key algorithm of the client certificate. The key algorithm is in the `<Encryption algorithm>_<Key length>` format. Valid values:
    * 
-   * - **RSA_1024**: The corresponding signature algorithm is Sha256WithRSA.
+   * - **RSA_1024**: The signature algorithm is Sha256WithRSA.
+   * - **RSA_2048**: The signature algorithm is Sha256WithRSA.
+   * - **RSA_4096**: The signature algorithm is Sha256WithRSA.
+   * - **ECC_256**: The signature algorithm is Sha256WithECDSA.
+   * - **ECC_384**: The signature algorithm is Sha256WithECDSA.
+   * - **ECC_512**: The signature algorithm is Sha256WithECDSA.
+   * - **SM2_256**: The signature algorithm is SM3WithSM2.
    * 
-   * - **RSA_2048**: The corresponding signature algorithm is Sha256WithRSA.
-   * 
-   * - **RSA_4096**: The corresponding signature algorithm is Sha256WithRSA.
-   * 
-   * - **ECC_256**: The corresponding signature algorithm is Sha256WithECDSA.
-   * 
-   * - **ECC_384**: The corresponding signature algorithm is Sha256WithECDSA.
-   * 
-   * - **ECC_512**: The corresponding signature algorithm is Sha256WithECDSA.
-   * 
-   * - **SM2_256**: The corresponding signature algorithm is SM3WithSM2.
-   * 
-   * The encryption algorithm of the client certificate must match that of the issuing subordinate CA certificate, but the key lengths can differ. For example, if the key algorithm of the subordinate CA certificate is RSA_2048, the key algorithm for the client certificate must be one of RSA_1024, RSA_2048, or RSA_4096.
+   * The encryption algorithm of the client certificate must be the same as that of the subordinate CA certificate, but the key length can be different. For example, if the key algorithm of the subordinate CA certificate is RSA_2048, the key algorithm of the client certificate must be RSA_1024, RSA_2048, or RSA_4096.
    * 
    * @example
    * RSA_2048
@@ -39,9 +33,9 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The issuance time of the client certificate, as a Unix timestamp in seconds. If omitted, this defaults to the time of the API call.
+   * The issuance time of the client certificate. The value is a UNIX timestamp. Default value: the time when you call this operation. Unit: seconds.
    * 
-   * > The `BeforeTime` and `AfterTime` parameters must be specified together or not at all.
+   * > The BeforeTime and AfterTime parameters must be both empty or both specified.
    * 
    * @example
    * 1634283958
@@ -49,7 +43,7 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   beforeTime?: number;
   /**
    * @remarks
-   * The common name of the client certificate. Supports Chinese, English, and other characters.
+   * The common name of the client certificate. Chinese and English characters are supported.
    * 
    * @example
    * aliyun
@@ -57,7 +51,7 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The country where the organization is located.
+   * The country where the company or organization of the user who purchases the certificate is located.
    * 
    * @example
    * CN
@@ -65,7 +59,7 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   country?: string;
   /**
    * @remarks
-   * The content of the certificate signing request (CSR). You can generate a CSR with tools like OpenSSL or Keytool.
+   * The content of the certificate signing request (CSR). You can use OpenSSL or Keytool to generate a CSR.
    * 
    * @example
    * -----BEGIN CERTIFICATE REQUEST----- ...... -----END CERTIFICATE REQUEST-----
@@ -73,15 +67,15 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   csr?: string;
   /**
    * @remarks
-   * The validity period of the client certificate, in days.
+   * The validity period of the client certificate. Unit: days.
    * 
-   * You cannot leave the `Days`, `BeforeTime`, and `AfterTime` parameters all empty. The `BeforeTime` and `AfterTime` parameters must be specified together or not at all.
+   * The Days, BeforeTime, and AfterTime parameters cannot be left empty at the same time. The BeforeTime and AfterTime parameters must be both empty or both specified. The configuration rules are as follows:
    * 
-   * - If you specify the `Days` parameter, specifying `BeforeTime` and `AfterTime` is optional.
+   * - If you specify the Days parameter, you can choose to specify or not specify the BeforeTime and AfterTime parameters.
+   * - If you do not specify the Days parameter, you must specify the BeforeTime and AfterTime parameters.
    * 
-   * - If you do not specify the `Days` parameter, you must specify both `BeforeTime` and `AfterTime`.
    * 
-   * > If you specify `Days`, `BeforeTime`, and `AfterTime` simultaneously, the `Days` parameter takes precedence in determining the validity period.
+   * > If you specify the Days, BeforeTime, and AfterTime parameters at the same time, the validity period of the client certificate is subject to the value of the Days parameter.
    * 
    * @example
    * 365
@@ -89,13 +83,10 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   days?: number;
   /**
    * @remarks
-   * Specifies which certificate content to return in the response.
-   * 
-   * - **0**: Does not return the certificate (default).
-   * 
-   * - **1**: Returns the certificate.
-   * 
-   * - **2**: Returns the certificate and its certificate chain.
+   * Specifies whether to immediately return the digital certificate. Valid values:
+   * - **0**: No. This is the default value.
+   * - **1**: Yes, return the certificate.
+   * - **2**: Yes, return the certificate and its certificate chain.
    * 
    * @example
    * 1
@@ -103,7 +94,7 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   immediately?: number;
   /**
    * @remarks
-   * The city where the organization is located. Chinese, English, and other characters are supported.
+   * The name of the city where the organization is located. Chinese and English characters are supported.
    * 
    * @example
    * Hangzhou
@@ -111,7 +102,7 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   locality?: string;
   /**
    * @remarks
-   * The validity period of the certificate, in months.
+   * The certificate validity period. Unit: months.
    * 
    * @example
    * 12
@@ -119,15 +110,15 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   months?: number;
   /**
    * @remarks
-   * The organization name associated with the root CA certificate, typically your company or enterprise name. Supports Chinese, English, and other characters.
+   * The name of the organization associated with the root CA certificate. The organization corresponds to your enterprise or institution. Chinese and English characters are supported.
    * 
    * @example
-   * 阿里巴巴网络技术有限公司
+   * Alibaba Network Technology Co., Ltd
    */
   organization?: string;
   /**
    * @remarks
-   * The name of the department or business unit within the organization.
+   * The name of the company or organization to which the certificate belongs.
    * 
    * @example
    * IT
@@ -135,7 +126,7 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   organizationUnit?: string;
   /**
    * @remarks
-   * The unique identifier of the issuing subordinate CA certificate.
+   * The unique identifier of the subordinate CA certificate that issues the client certificate.
    * 
    * This parameter is required.
    * 
@@ -145,14 +136,11 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   parentIdentifier?: string;
   /**
    * @remarks
-   * The type of the subject alternative name (SAN) for the client certificate. Valid values:
+   * The Subject Alternative Name (SAN) type supported by the client certificate. Valid values:
    * 
-   * - **1**: email address.
-   * 
-   * - **2**: domain name.
-   * 
+   * - **1**: Email address.
+   * - **2**: Domain name.
    * - **6**: Uniform Resource Identifier (URI).
-   * 
    * - **7**: IP address.
    * 
    * @example
@@ -161,7 +149,7 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   sanType?: number;
   /**
    * @remarks
-   * The value of the SAN extension. To specify multiple values, separate them with commas (,).
+   * The specific SAN of the client certificate. You can specify multiple SANs. Separate multiple SANs with commas (,).
    * 
    * @example
    * example.com
@@ -169,7 +157,7 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   sanValue?: string;
   /**
    * @remarks
-   * The province, municipality, or autonomous region where the organization is located. Chinese, English, and other characters are supported.
+   * The name of the province, municipality, or autonomous region where the organization is located. Chinese and English characters are supported.
    * 
    * @example
    * Zhejiang
@@ -177,7 +165,7 @@ export class CreateWHClientCertificateRequest extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The validity period of the certificate, in years.
+   * The certificate validity period. Unit: years.
    * 
    * @example
    * 1

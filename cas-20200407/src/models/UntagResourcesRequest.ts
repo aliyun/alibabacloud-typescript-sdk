@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all tags. This parameter is valid only when TagKey.N is empty. Valid values:
+   * Specifies whether to remove all tags. This parameter takes effect only when TagKey.N is empty. Valid values:
    * - true
    * - false
-   * 
    * Default value: false.
    * 
    * @example
@@ -34,7 +33,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. The value is fixed as **instance**.
+   * The resource type. Set the value to **instance**.
    * 
    * This parameter is required.
    * 

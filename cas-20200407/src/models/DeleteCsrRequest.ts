@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCsrRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CSR.
+   * The CSR ID.
    * 
    * This parameter is required.
    * 

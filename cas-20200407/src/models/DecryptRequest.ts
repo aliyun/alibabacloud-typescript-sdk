@@ -8,9 +8,7 @@ export class DecryptRequest extends $dara.Model {
    * The encryption algorithm. Valid values:
    * 
    * - **RSAES_OAEP_SHA_1**
-   * 
    * - **RSAES_OAEP_SHA_256**
-   * 
    * - **SM2PKE**
    * 
    * This parameter is required.
@@ -21,11 +19,9 @@ export class DecryptRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The unique identifier of the certificate. Call [ListCert](https://help.aliyun.com/document_detail/455806.html) to obtain this parameter.
-   * 
-   * - The identifier of an SSL certificate is typically in the format {Certificate ID}-cn-hangzhou.
-   * 
-   * - For a private certificate authority (PCA) certificate, this is the value of the Identifier field of the private certificate.
+   * The unique identifier of the certificate. You can obtain this parameter by calling the [ListCert](https://help.aliyun.com/document_detail/455806.html) operation.
+   * - The identifier of an SSL certificate is typically in the {Certificate ID}-cn-hangzhou format.
+   * - The identifier of a PCA certificate is the Identifier field of the corresponding private certificate.
    * 
    * @example
    * 1ef1da5f-38ed-69b3-****-037781890265
@@ -33,7 +29,7 @@ export class DecryptRequest extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * The Base64-encoded data to decrypt.
+   * The data to be decrypted. The data is Base64-encoded.
    * 
    * This parameter is required.
    * 
@@ -43,7 +39,7 @@ export class DecryptRequest extends $dara.Model {
   ciphertextBlob?: string;
   /**
    * @remarks
-   * A custom identifier that serves as a unique key.
+   * The custom user identifier, which is a unique key.
    * 
    * @example
    * ****6bb538d538c70c01f81jh2****
@@ -53,9 +49,8 @@ export class DecryptRequest extends $dara.Model {
    * @remarks
    * The message type. Valid values:
    * 
-   * - RAW: The response returns the plaintext in UTF-8 encoding.
-   * 
-   * - Base64 (default): The response returns the Base64-encoded plaintext.
+   * - RAW: The plaintext result encoded in UTF-8 is returned.
+   * - Base64: The Base64-encoded result is returned. This is the default value.
    * 
    * @example
    * Base64
@@ -63,9 +58,8 @@ export class DecryptRequest extends $dara.Model {
   messageType?: string;
   /**
    * @remarks
-   * The ID of the repository.
-   * 
-   * > Call [ListCertWarehouse](https://help.aliyun.com/document_detail/455805.html) to obtain this ID.
+   * The repository ID.
+   * > You can obtain this ID by calling the [ListCertWarehouse](https://help.aliyun.com/document_detail/455805.html) operation.
    * 
    * @example
    * 1

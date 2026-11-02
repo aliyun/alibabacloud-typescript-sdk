@@ -63,7 +63,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return. Default value: 20.
+   * The maximum number of entries to return on each page. Default value: 20.
    * 
    * @example
    * 20
@@ -71,7 +71,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. If this parameter is empty, no more results exist.
+   * The pagination token that is used to start the next query. If the value is empty, no more results are available.
    * 
    * @example
    * 1d2db86sca4384811e0b5e8707e68181f

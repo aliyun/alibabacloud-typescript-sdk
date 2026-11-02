@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the request. Alibaba Cloud generates this ID for each request. Use this ID to troubleshoot issues.
+   * The ID of the request.
    * 
    * @example
    * CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
@@ -13,7 +13,7 @@ export class GetTaskAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The error message.
+   * The failure message.
    * 
    * @example
    * error
@@ -21,12 +21,9 @@ export class GetTaskAttributeResponseBody extends $dara.Model {
   taskMessage?: string;
   /**
    * @remarks
-   * The result of the task.
-   * 
-   * - success: The submission is successful.
-   * 
+   * The task result. Valid values:
+   * - success: The submission succeeded.
    * - processing: The submission is in progress.
-   * 
    * - failed: The submission failed.
    * 
    * @example

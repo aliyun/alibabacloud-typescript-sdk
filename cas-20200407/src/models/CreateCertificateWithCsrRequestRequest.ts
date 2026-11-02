@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCertificateWithCsrRequestRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
+   * The tag key.
    * 
    * @example
    * database
@@ -13,7 +13,7 @@ export class CreateCertificateWithCsrRequestRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * 1
@@ -45,9 +45,11 @@ export class CreateCertificateWithCsrRequestRequestTags extends $dara.Model {
 export class CreateCertificateWithCsrRequestRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the CSR file.<br> The key algorithm in the CSR file must be Rivest-Shamir-Adleman (RSA) or elliptic-curve cryptography (ECC), and the key length of the RSA algorithm must be greater than or equal to 2,048 characters. For more information about how to create a CSR file, see [How do I create a CSR file?](https://help.aliyun.com/document_detail/42218.html)<br> A CSR file contains the information about your server and company. When you apply for a certificate, you must submit the CSR file to the CA. The CA signs the CSR file by using the private key of the root certificate and generates a public key file to issue your certificate.<br><br>
+   * The content of the existing CSR file.  
+   * The key type of the CSR file must be RSA or ECC. If the RSA algorithm is used, the key length must be greater than or equal to 2048 bits. For more information about how to create a CSR file, see [How to create a CSR file](https://help.aliyun.com/document_detail/42218.html).  <props="china">You can also create a CSR in the [Certificate Management Service console](https://yundunnext.console.aliyun.com/?&p=cas). For more information, see [Create a CSR](https://help.aliyun.com/document_detail/313297.html).  
+   * A CSR is digital certificate signing request file that contains your server and company information. When you apply for digital certificate, you must submit the CSR file to the CA for review. After the CA signs the CSR file with the private key of the root certificate, digital certificate public key file (the SSL certificate issued to you) is generated.
    * 
-   * > The **CN** field in the CSR file specifies the domain name that is bound to the certificate.
+   * > The **CN** field in the CSR specifies the domain name bound to the certificate.
    * 
    * This parameter is required.
    * 
@@ -57,7 +59,7 @@ export class CreateCertificateWithCsrRequestRequest extends $dara.Model {
   csr?: string;
   /**
    * @remarks
-   * The contact email address of the applicant.
+   * The email address of the contact for the application.
    * 
    * This parameter is required.
    * 
@@ -67,7 +69,7 @@ export class CreateCertificateWithCsrRequestRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The phone number of the applicant.
+   * The mobile phone number of the contact for the application.
    * 
    * This parameter is required.
    * 
@@ -77,21 +79,17 @@ export class CreateCertificateWithCsrRequestRequest extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * The specifications of the certificate that you want to apply for. Valid values:
+   * The certificate specification for which you want to apply. Valid values:
    * 
-   * - **digicert-free-1-free** (default): DigiCert single-domain DV certificate in a three-month free trial, available only on the China site (aliyun.com).
+   * - **digicert-free-1-free** (default): a 3-month free DV certificate for individual testing. Available only on the China site.
+   * - **symantec-free-1-free**: a 12-month pro DV certificate for individual testing. Available only on the China site.
+   * - **symantec-dv-1-starter**: a DigiCert DV wildcard certificate.
    * 
-   * - **symantec-free-1-free**: DigiCert single-domain DV certificate in a one-year free trial, available only on the China site (aliyun.com).
+   * - **geotrust-dv-1-starter**: a GeoTrust DV single-domain certificate.
+   * - **geotrust-dv-w-starter**: a GeoTrust DV wildcard certificate.
    * 
-   * - **symantec-dv-1-starter**: DigiCert wildcard DV certificate.
-   * 
-   * - **geotrust-dv-1-starter**: GeoTrust single-domain DV certificate.
-   * 
-   * - **geotrust-dv-w-starter**: GeoTrust wildcard DV certificate.
-   * 
-   * - **globalsign-dv-1-personal**: GlobalSign single-domain DV certificate.
-   * 
-   * - **globalsign-dv-w-advanced**: GlobalSign wildcard DV certificate.
+   * - **globalsign-dv-1-personal**: a GlobalSign DV single-domain certificate.
+   * - **globalsign-dv-w-advanced**: a GlobalSign DV wildcard certificate.
    * 
    * @example
    * digicert-free-1-free
@@ -99,12 +97,12 @@ export class CreateCertificateWithCsrRequestRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The list of tags.
    */
   tags?: CreateCertificateWithCsrRequestRequestTags[];
   /**
    * @remarks
-   * The name of the applicant.
+   * The name of the contact for the application.
    * 
    * This parameter is required.
    * 
@@ -114,13 +112,12 @@ export class CreateCertificateWithCsrRequestRequest extends $dara.Model {
   username?: string;
   /**
    * @remarks
-   * The method to verify the ownership of a domain name. Valid values:
+   * The validation method for domain name ownership. Valid values:
    * 
-   * - **DNS**: DNS verification. If you use this method, you must add a TXT record to the DNS records of the domain name in the management platform of the domain name. You must have operation permissions on domain name resolution to verify the ownership of the domain name.
+   * - **DNS**: DNS validation. You can validate the ownership of the domain name by adding a TXT DNS record for the domain name on the DNS management platform. You must have the management permissions on DNS resolution to complete the validation.
+   * - **FILE**: file validation. You can validate the ownership of the domain name by creating a specified file on the domain name server. You must have the administrator permissions on the domain name server to complete the validation.
    * 
-   * - **FILE**: file verification. If you use this method, you must create a specified file on the DNS server. You must have administrative rights on the DNS server to verify the ownership of the domain name.
-   * 
-   * For more information about the verification methods, see [Verify the ownership of a domain name](https://help.aliyun.com/document_detail/48016.html).
+   * For more information about the two validation methods, see [How do I configure domain name ownership validation?](https://help.aliyun.com/document_detail/48016.html).
    * 
    * This parameter is required.
    * 
