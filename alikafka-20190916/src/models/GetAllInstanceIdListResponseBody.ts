@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAllInstanceIdListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned. The HTTP status code 200 indicates that the request is successful.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetAllInstanceIdListResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The IDs of instances that are managed by the Alibaba Cloud account in all the regions.
+   * The instance IDs of all instances across all regions under the current account.
    * 
    * @example
    * [{"cn-shenzhen": ["alikafka_post-cn-7pp2btvo****"],"us-west-1": ["alikafka_pre-cn-i7m2lxid****"],"cn-hangzhou": ["alikafka_pre-cn-i7m2hflj****","alikafka_pre-cn-zvp2hsje****","alikafka_pre-cn-zvp2kvc9****"]}]
@@ -21,7 +21,7 @@ export class GetAllInstanceIdListResponseBody extends $dara.Model {
   instanceIds?: { [key: string]: any };
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success.
@@ -29,7 +29,7 @@ export class GetAllInstanceIdListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ABA4A7FD-E10F-45C7-9774-A5236015****
@@ -37,7 +37,7 @@ export class GetAllInstanceIdListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPartitionNumRequest extends $dara.Model {
   /**
    * @remarks
-   * Number of partitions to add.
+   * The number of partitions to add.
    * 
-   * - Must be greater than 0.
+   * - The value must be greater than 0.
    * 
-   * - It is recommended that the number of partitions is a multiple of 6 to reduce the risk of data skew.
+   * - Set the value to a multiple of 6 to reduce the risk of data skew.
    * 
-   * - The total number of partitions is limited to 1-360.
+   * - The total number of partitions must be between 1 and 360.
    * 
    * This parameter is required.
    * 
@@ -21,7 +21,7 @@ export class ModifyPartitionNumRequest extends $dara.Model {
   addPartitionNum?: number;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class ModifyPartitionNumRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Region ID of the instance.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class ModifyPartitionNumRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Topic name.
+   * The topic name.
    * 
    * This parameter is required.
    * 

@@ -29,11 +29,11 @@ export class ConvertPostPayOrderRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The billing type. Valid values:
+   * The billing method. Valid values:
    * 
-   * - **0**: subscription.
+   * - **0**: subscription
    * 
-   * - **4**: Confluent series subscription.
+   * - **4**: subscription for Confluent Edition
    * 
    * @example
    * 1

@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAclResourceNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The matching mode. Valid values:
+   * The matching pattern. Valid values:
+   * 
+   * - LITERAL: Exact match.
+   * 
+   * - PREFIXED: Prefix match.
    * 
    * This parameter is required.
    * 
@@ -15,7 +19,14 @@ export class DescribeAclResourceNameRequest extends $dara.Model {
   aclResourcePatternType?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Valid values:
+   * 
+   * - **Topic**: Message topic.
+   * 
+   * - **Group**: Consumer group.
+   * 
+   * - **Cluster**: Instance.
+   * - **TransactionalId**: Transaction ID.
    * 
    * This parameter is required.
    * 

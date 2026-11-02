@@ -31,7 +31,7 @@ export class DescribeAclResourceNameResponseBodyData extends $dara.Model {
 export class DescribeAclResourceNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -56,7 +56,9 @@ export class DescribeAclResourceNameResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * true

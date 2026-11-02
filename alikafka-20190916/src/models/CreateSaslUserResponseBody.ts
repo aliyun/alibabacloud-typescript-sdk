@@ -13,7 +13,7 @@ export class CreateSaslUserResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * operation success.

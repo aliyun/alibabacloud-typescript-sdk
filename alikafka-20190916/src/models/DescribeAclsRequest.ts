@@ -7,17 +7,17 @@ export class DescribeAclsRequest extends $dara.Model {
    * @remarks
    * The operation type. Valid values:
    * 
-   * - **Write**
+   * - **Write**: Writes.
    * 
-   * - **Read**
-   * 
-   * - **Describe**: reads a transactional ID.
-   * 
-   * - **IdempotentWrite**: performs an idempotent write to a cluster. This value is not supported by Serverless instances. For Serverless instances, use IDEMPOTENT_WRITE.
-   * 
-   * - **IDEMPOTENT_WRITE**: performs an idempotent write to a cluster. This value is available only for Serverless instances.
-   * 
-   * - **DESCRIBE_CONFIGS**: queries configurations. This value is available only for Serverless instances.
+   * - **Read**: Reads.
+   *  
+   * - **Describe**: Reads a TransactionalId.
+   *  
+   * - **IdempotentWrite**: Idempotently writes to a cluster. This parameter is not supported for Serverless instances. For Serverless instances, use IDEMPOTENT_WRITE.
+   *  
+   * - **IDEMPOTENT_WRITE**: Idempotently writes to a cluster. This parameter is available only for Serverless instances.
+   *  
+   * - **DESCRIBE_CONFIGS**: Queries configurations. This parameter is available only for Serverless instances.
    * 
    * @example
    * Write
@@ -25,13 +25,12 @@ export class DescribeAclsRequest extends $dara.Model {
   aclOperationType?: string;
   /**
    * @remarks
-   * The authorization method. Valid values:
+   * The permission type. Valid values:
    * 
-   * - DENY
+   * - DENY: Denies access.
+   * - ALLOW: Allows access.
    * 
-   * - ALLOW
-   * 
-   * > This parameter is available only for Serverless instances.
+   * > This parameter is supported only for Serverless instances.
    * 
    * @example
    * DENY
@@ -39,13 +38,14 @@ export class DescribeAclsRequest extends $dara.Model {
   aclPermissionType?: string;
   /**
    * @remarks
-   * The name of the resource.
+   * The resource name.
    * 
-   * - The name can be a topic name or a group name.
+   * - The name of a topic or group.
    * 
-   * - You can use an asterisk (\\*) to represent all topic names or group names.
+   * - You can use an asterisk (*) to represent the names of all topics or groups.
    * 
-   * > * You can use an asterisk (\\*) only after you grant permissions to all resources.
+   * > 
+   * > - You can use an asterisk (*) to query authorized resources only after permissions are granted to all resources.
    * 
    * This parameter is required.
    * 
@@ -57,9 +57,9 @@ export class DescribeAclsRequest extends $dara.Model {
    * @remarks
    * The match mode. Valid values:
    * 
-   * - LITERAL: an exact match
+   * - LITERAL: exact match
    * 
-   * - PREFIXED: a prefix match
+   * - PREFIXED: prefix match
    * 
    * @example
    * LITERAL
@@ -67,14 +67,13 @@ export class DescribeAclsRequest extends $dara.Model {
   aclResourcePatternType?: string;
   /**
    * @remarks
-   * The type of the resource. Valid values:
+   * The resource type. Valid values:
    * 
    * - **Topic**
    * 
    * - **Group**
    * 
    * - **Cluster**
-   * 
    * - **TransactionalId**
    * 
    * This parameter is required.
@@ -87,9 +86,10 @@ export class DescribeAclsRequest extends $dara.Model {
    * @remarks
    * The source IP address.
    * 
-   * > - You can set this parameter to a specific IP address or an asterisk (\\*). An asterisk (\\*) indicates all IP addresses. CIDR blocks are not supported.
-   * >
-   * > - This parameter is available only for Serverless instances.
+   * 
+   * 
+   * >- Only specific IP addresses or * (all IP addresses allowed) are supported. CIDR blocks are not supported.
+   * > - This parameter is supported only for Serverless instances.
    * 
    * @example
    * *
@@ -97,7 +97,7 @@ export class DescribeAclsRequest extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -107,7 +107,7 @@ export class DescribeAclsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -118,10 +118,10 @@ export class DescribeAclsRequest extends $dara.Model {
   /**
    * @remarks
    * The username.
+   * - You can use an asterisk (*) to represent all users.
    * 
-   * - An asterisk (\\*) can be used to represent all users.
-   * 
-   * > * A query with an asterisk (\\*) returns authorizations only if authorization has been granted to all users.
+   * > 
+   * > - You can use an asterisk (*) to query authorized users only after permissions are granted to all users.
    * 
    * This parameter is required.
    * 

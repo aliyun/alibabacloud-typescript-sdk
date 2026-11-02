@@ -112,9 +112,9 @@ export class GetKafkaClientIpResponseBodyDataData extends $dara.Model {
 export class GetKafkaClientIpResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * If this value is true, it indicates that the minor version is not the latest version.
+   * Indicates whether the minor version is not the latest version. A value of true indicates that the minor version is not the latest.
    * 
-   * > If your server minor version is not the latest version, the sampling logs may not be accurate enough, resulting in less precise IP information statistics. Therefore, it is recommended that you upgrade the server minor version as soon as possible.
+   * > If the minor version of your server is not the latest, the sampled logs may not be accurate enough, which ultimately leads to inaccurate collected IP information. Therefore, upgrade the minor version of your server as soon as possible.
    * 
    * @example
    * true
@@ -123,7 +123,7 @@ export class GetKafkaClientIpResponseBodyData extends $dara.Model {
   data?: GetKafkaClientIpResponseBodyDataData;
   /**
    * @remarks
-   * End time
+   * The end time of the query result. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1716343502000
@@ -131,9 +131,9 @@ export class GetKafkaClientIpResponseBodyData extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
-   * The time range for querying client IPs.
+   * The time range for querying client IP addresses.
    * 
-   * > This range is 1 hour. If the start time and end time you enter exceed 1 hour, only data within 1 hour will be queried.
+   * > The time range is 1 hour. If the specified start time and end time span more than 1 hour, only the data within 1 hour is queried.
    * 
    * @example
    * 1
@@ -141,7 +141,7 @@ export class GetKafkaClientIpResponseBodyData extends $dara.Model {
   searchTimeRange?: number;
   /**
    * @remarks
-   * Start time.
+   * The start time of the query result. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1716343501000
@@ -149,9 +149,7 @@ export class GetKafkaClientIpResponseBodyData extends $dara.Model {
   startDate?: number;
   /**
    * @remarks
-   * The date range for querying client IPs.
-   * 
-   * > This range is 7 days. If the start time and end time you enter exceed 7 days, only data within 7 days will be queried.
+   * The maximum time range for querying client IP addresses, in days. The current limit is 7 days. If the interval between the start time and the end time exceeds 7 days, only the data within 7 days is returned.
    * 
    * @example
    * 7
@@ -194,7 +192,7 @@ export class GetKafkaClientIpResponseBodyData extends $dara.Model {
 export class GetKafkaClientIpResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code. A value of 200 indicates success.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -207,7 +205,7 @@ export class GetKafkaClientIpResponseBody extends $dara.Model {
   data?: GetKafkaClientIpResponseBodyData;
   /**
    * @remarks
-   * The prompt message for the result.
+   * The message returned in the response.
    * 
    * @example
    * operation success.
@@ -215,7 +213,7 @@ export class GetKafkaClientIpResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * E57A8862-DF68-4055-8E55-B80CB4****
@@ -223,7 +221,7 @@ export class GetKafkaClientIpResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

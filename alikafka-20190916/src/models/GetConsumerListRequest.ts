@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetConsumerListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the consumer group. If you do not specify this parameter, information about all consumer groups is returned.
+   * The ID of the consumer group. If you do not specify this parameter, all consumer groups are queried.
    * 
    * @example
    * kafka-test
@@ -13,7 +13,7 @@ export class GetConsumerListRequest extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The current page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class GetConsumerListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of consumer groups to return on each page.
+   * The number of consumer groups to display per page.
    * 
    * @example
    * 10

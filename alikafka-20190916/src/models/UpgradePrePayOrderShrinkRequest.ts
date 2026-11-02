@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradePrePayOrderShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Configurations for the Confluent components.
+   * The Confluent component configurations.
    */
   confluentConfigShrink?: string;
   /**
    * @remarks
    * The disk capacity.
    * 
-   * - The specified disk capacity must be greater than or equal to the current disk capacity of the instance.
+   * - The disk capacity that you specify must be greater than or equal to the current disk capacity of the instance.
    * 
-   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > This parameter is required for subscription instances but not for Confluent-series instances.
+   * > If you upgrade a Confluent instance, you do not need to specify this parameter. This parameter is required for subscription instances.
    * 
    * @example
    * 900
@@ -24,15 +24,14 @@ export class UpgradePrePayOrderShrinkRequest extends $dara.Model {
   diskSize?: number;
   /**
    * @remarks
-   * The maximum Internet traffic bandwidth.
+   * The public network traffic.
    * 
-   * - The specified Internet traffic bandwidth must be greater than or equal to the current Internet traffic bandwidth of the instance.
+   * - The public network traffic that you specify must be greater than or equal to the current public network traffic of the instance.
    * 
-   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > * If **EipModel** is set to **true**, **EipMax** must be greater than 0.
-   * >
-   * > * If **EipModel** is set to **false**, **EipMax** must be set to **0**.
+   * > - If **EipModel** is set to **true**, the value of **EipMax** must be greater than 0.
+   * > - If **EipModel** is set to **false**, the value of **EipMax** must be **0**.
    * 
    * @example
    * 3
@@ -40,13 +39,13 @@ export class UpgradePrePayOrderShrinkRequest extends $dara.Model {
   eipMax?: number;
   /**
    * @remarks
-   * Specifies whether to enable Internet access. Valid values:
+   * Specifies whether public network access is required. Valid values:
    * 
-   * - `true`: enables Internet access.
+   * - true: Public network access is required.
    * 
-   * - `false`: disables Internet access.
+   * - false: Public network access is not required.
    * 
-   * > This parameter is required for subscription instances but not for Confluent-series instances.
+   * > If you upgrade a Confluent instance, you do not need to specify this parameter. This parameter is required for subscription instances.
    * 
    * @example
    * true
@@ -54,7 +53,7 @@ export class UpgradePrePayOrderShrinkRequest extends $dara.Model {
   eipModel?: boolean;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -64,13 +63,13 @@ export class UpgradePrePayOrderShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The traffic peak (not recommended).
+   * The peak traffic (not recommended).
    * 
-   * - The specified traffic peak must be greater than or equal to the current traffic peak of the instance.
+   * - The peak traffic that you specify must be greater than or equal to the current peak traffic of the instance.
    * 
-   * - You must specify either this parameter or `IoMaxSpec`. If you specify both, `IoMaxSpec` takes precedence. We recommend that you specify only `IoMaxSpec`.
+   * - You must specify one of peak traffic and traffic specification. If you specify both, the traffic specification takes precedence. Specify only the traffic specification.
    * 
-   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @example
    * 40
@@ -80,13 +79,13 @@ export class UpgradePrePayOrderShrinkRequest extends $dara.Model {
    * @remarks
    * The traffic specification (recommended).
    * 
-   * - The specified traffic specification must be greater than or equal to the current traffic specification of the instance.
+   * - The traffic specification that you specify must be greater than or equal to the current traffic specification of the instance.
    * 
-   * - You must specify either this parameter or `IoMax`. If you specify both, this parameter takes precedence. We recommend that you specify only this parameter.
+   * - You must specify one of peak traffic and traffic specification. If you specify both, the traffic specification takes precedence. Specify only the traffic specification.
    * 
-   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > This parameter is required for subscription instances but not for Confluent-series instances.
+   * > If you upgrade a Confluent instance, you do not need to specify this parameter. This parameter is required for subscription instances.
    * 
    * @example
    * alikafka.hw.2xlarge
@@ -94,11 +93,11 @@ export class UpgradePrePayOrderShrinkRequest extends $dara.Model {
   ioMaxSpec?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing type. Valid values:
    * 
-   * - **0**: subscription
+   * - **0**: subscription.
    * 
-   * - **4**: subscription for Confluent instances
+   * - **4**: Confluent series subscription.
    * 
    * @example
    * 4
@@ -108,13 +107,13 @@ export class UpgradePrePayOrderShrinkRequest extends $dara.Model {
    * @remarks
    * The number of partitions (recommended).
    * 
-   * - You must specify either this parameter or `TopicQuota`. We recommend that you specify only this parameter.
+   * * You must specify one of the number of partitions and the topic specification. Specify only the number of partitions.
    * 
-   * - If you specify both `PartitionNum` and `TopicQuota`, the system checks if their values are equivalent under the previous topic pricing model. A mismatch causes the request to fail. If they match, the system uses `PartitionNum` to process the purchase.
+   * * If you specify both the number of partitions and the topic specification, the system validates whether the number of partitions and the topic specification are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the purchase is made based on the number of partitions.
    * 
-   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * * For valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > This parameter is required for subscription instances but not for Confluent-series instances.
+   * > If you upgrade a Confluent instance, you do not need to specify this parameter. This parameter is required for subscription instances.
    * 
    * @example
    * 50
@@ -122,7 +121,7 @@ export class UpgradePrePayOrderShrinkRequest extends $dara.Model {
   partitionNum?: number;
   /**
    * @remarks
-   * The ID of the region where the instance is located.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -136,19 +135,19 @@ export class UpgradePrePayOrderShrinkRequest extends $dara.Model {
    * 
    * Valid values for ApsaraMQ for Kafka instances:
    * 
-   * - **normal**: Standard Edition (high write)
+   * - **normal**: Standard Edition (shared throughput)
    * 
-   * - **professional**: Professional Edition (high write)
+   * - **professional**: Professional Edition (shared throughput)
    * 
-   * - **professionalForHighRead**: Professional Edition (high read)
+   * - **professionalForHighRead**: Professional Edition (shared read)
    * 
    * Valid values for Confluent instances:
    * 
-   * - **professional**: Professional Edition
+   * - **professional**: Professional Edition.
    * 
-   * - **enterprise**: Enterprise Edition
+   * - **enterprise**: Enterprise Edition.
    * 
-   * You cannot downgrade an instance from Professional Edition to Standard Edition. For more information about these specification types, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * Downgrading an instance from Professional Edition to Standard Edition is not supported. For more information about the specification types, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @example
    * professional
@@ -158,13 +157,13 @@ export class UpgradePrePayOrderShrinkRequest extends $dara.Model {
    * @remarks
    * The number of topics (not recommended).
    * 
-   * - You must specify either this parameter or `PartitionNum`. We recommend that you specify only `PartitionNum`.
+   * - You must specify one of the number of partitions and the topic specification. Specify only the number of partitions.
    * 
-   * - If you specify both `TopicQuota` and `PartitionNum`, the system checks if their values are equivalent under the previous topic pricing model. A mismatch causes the request to fail. If they match, the system uses `PartitionNum` to process the purchase.
+   * - If you specify both the number of partitions and the topic specification, the system validates whether the number of partitions and the topic specification are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the purchase is made based on the number of partitions.
    * 
-   * - The default value of this parameter varies based on the traffic specification. You are charged additional fees if the specified value exceeds the default value.
+   * - The default value varies based on the traffic specification. Additional fees are charged if the value exceeds the default value.
    * 
-   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @example
    * 50

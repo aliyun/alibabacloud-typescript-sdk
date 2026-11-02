@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableAutoTopicCreationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code. A return value of 200 indicates success.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class EnableAutoTopicCreationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * operation success.
@@ -21,7 +21,7 @@ export class EnableAutoTopicCreationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 9E3B3592-5994-4F65-A61E-E62A77A7***

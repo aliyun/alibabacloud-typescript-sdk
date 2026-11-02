@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 indicates success.
+   * The status code. 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ChangeResourceGroupResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * operation success
@@ -21,7 +21,7 @@ export class ChangeResourceGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The new resource group ID. You can view available resource groups in the Resource Group console.
+   * The ID of the new resource group. You can view available resource groups in the Resource Management console.
    * 
    * @example
    * rg-ac***********7q
@@ -37,7 +37,7 @@ export class ChangeResourceGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

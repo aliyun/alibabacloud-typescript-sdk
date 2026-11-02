@@ -127,7 +127,7 @@ export class GetConsumerListResponseBodyConsumerList extends $dara.Model {
 export class GetConsumerListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates that the call is successful.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -136,7 +136,7 @@ export class GetConsumerListResponseBody extends $dara.Model {
   consumerList?: GetConsumerListResponseBodyConsumerList;
   /**
    * @remarks
-   * The page number of the returned page. The minimum value is 1.
+   * The page number of the returned results. Minimum value: 1.
    * 
    * @example
    * 1
@@ -144,7 +144,7 @@ export class GetConsumerListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * operation success.
@@ -152,7 +152,7 @@ export class GetConsumerListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10

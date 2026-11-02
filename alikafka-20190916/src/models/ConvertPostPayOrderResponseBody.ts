@@ -21,7 +21,7 @@ export class ConvertPostPayOrderResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 20497346575****
@@ -29,7 +29,7 @@ export class ConvertPostPayOrderResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06084011-E093-46F3-A51F-4B19A8AD****

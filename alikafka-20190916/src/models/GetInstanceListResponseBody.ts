@@ -258,15 +258,18 @@ export class GetInstanceListResponseBodyInstanceListInstanceVOTags extends $dara
 
 export class GetInstanceListResponseBodyInstanceListInstanceVOUpgradeServiceDetailInfo extends $dara.Model {
   current2OpenSourceVersion?: string;
+  minorVersion?: string;
   static names(): { [key: string]: string } {
     return {
       current2OpenSourceVersion: 'Current2OpenSourceVersion',
+      minorVersion: 'MinorVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       current2OpenSourceVersion: 'string',
+      minorVersion: 'string',
     };
   }
 
@@ -525,7 +528,7 @@ export class GetInstanceListResponseBodyInstanceList extends $dara.Model {
 export class GetInstanceListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 indicates that the request is successful.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -550,7 +553,7 @@ export class GetInstanceListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates if the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

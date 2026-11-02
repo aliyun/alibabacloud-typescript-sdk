@@ -200,11 +200,10 @@ export class GetConsumerProgressResponseBodyConsumerProgressTopicList extends $d
 export class GetConsumerProgressResponseBodyConsumerProgress extends $dara.Model {
   /**
    * @remarks
-   * The latest time when a message was stored. This time is calculated based on the consumer offsets of all topics in the consumer group.
-   * 
-   * > - This parameter is not supported for topics on Serverless instances or topics that use local storage on provisioned instances. In these cases, -1 is returned.
-   * >
-   * > - For topics that use cloud storage on provisioned instances, this parameter returns the message creation timestamp. This happens only after you submit the consumer offset for a consumer group that was created in the console or by an API call. If the message has no creation timestamp, -1 is returned.
+   * The maximum storage time of the message data corresponding to all consumer offsets of the consumer group.
+   * > 
+   * >- This parameter is not supported for all topic types in serverless instances or for topics of the local storage type in reserved instances. The value is uniformly returned as -1.
+   * >- For topics of the cloud storage type in reserved instances, the creation timestamp of the corresponding message is returned only after a consumer group created through the console or API operations submits a consumer offset. If the corresponding message does not have a creation timestamp, -1 is returned.
    * 
    * @example
    * 1566874931649
@@ -214,7 +213,7 @@ export class GetConsumerProgressResponseBodyConsumerProgress extends $dara.Model
   topicList?: GetConsumerProgressResponseBodyConsumerProgressTopicList;
   /**
    * @remarks
-   * The total number of unconsumed messages in all topics. This value is the message accumulation.
+   * The total number of unconsumed messages for all topics, which is the message accumulation.
    * 
    * @example
    * 0
@@ -222,18 +221,13 @@ export class GetConsumerProgressResponseBodyConsumerProgress extends $dara.Model
   totalDiff?: number;
   /**
    * @remarks
-   * The status of the consumer group:
+   * The consumption status of the consumer group. Valid values:
    * 
    * - UNKNOWN
-   * 
    * - PREPARING_REBALANCE
-   * 
    * - COMPLETING_REBALANCE
-   * 
    * - STABLE
-   * 
    * - DEAD
-   * 
    * - EMPTY
    * 
    * @example
@@ -278,7 +272,7 @@ export class GetConsumerProgressResponseBodyConsumerProgress extends $dara.Model
 export class GetConsumerProgressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 indicates that the request is successful.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -307,7 +301,7 @@ export class GetConsumerProgressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

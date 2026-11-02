@@ -8,7 +8,7 @@ export class CreatePostPayOrderShrinkRequestTag extends $dara.Model {
    * The tag key of the resource.
    * - N ranges from 1 to 20.
    * - If this parameter is left empty, all tag keys are matched.
-   * - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * - The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * This parameter is required.
    * 
@@ -20,8 +20,8 @@ export class CreatePostPayOrderShrinkRequestTag extends $dara.Model {
    * @remarks
    * The tag value of the resource.
    * - N ranges from 1 to 20.
-   * - If the tag key is left empty, this parameter must also be left empty. If this parameter is left empty, all tag values are matched.
-   * - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * - If the tag key is empty, this parameter must be empty. If this parameter is left empty, all tag values are matched.
+   * - The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * FinanceJoshua
@@ -69,8 +69,8 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
    * @remarks
    * The disk capacity.
    * 
-   * For the value range, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
-   * > If you create a serverless instance, you do not need to set this parameter.
+   * For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * > If you create a serverless instance, you do not need to specify this parameter.
    * 
    * @example
    * 500
@@ -80,10 +80,10 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
    * @remarks
    * The disk type. Valid values:
    * 
-   * - **0**: premium cloud disk
+   * - **0**: ultra disk
    * 
-   * - **1**: SSD
-   * > If you create a serverless instance, you do not need to set this parameter.
+   * - **1**: standard SSD
+   * > If you create a serverless instance, you do not need to specify this parameter.
    * 
    * @example
    * 0
@@ -93,11 +93,11 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
    * @remarks
    * The Internet traffic.
    * 
-   * - If **DeployType** is set to **4**, this parameter is required.
+   * - This parameter is required if **DeployType** is set to **4**.
    * 
-   * - For the value range, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * - For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > If you create a serverless instance, you do not need to set this parameter.
+   * > If you create a serverless instance, you do not need to specify this parameter.
    * 
    * @example
    * 0
@@ -105,13 +105,13 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
   eipMax?: number;
   /**
    * @remarks
-   * The maximum traffic (not recommended).
+   * The peak traffic (not recommended).
    * 
-   * - You must specify one of IoMax and IoMaxSpec. If both parameters are specified, the value of IoMaxSpec takes precedence. Specify only IoMaxSpec.
+   * - You must specify either the peak traffic or the traffic specification. If both are specified, the traffic specification takes precedence. We recommend that you specify only the traffic specification.
    * 
-   * - For the value range, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * - For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > If you create a serverless instance, you do not need to set this parameter.
+   * > If you create a serverless instance, you do not need to specify this parameter.
    * 
    * @example
    * 20
@@ -121,11 +121,11 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
    * @remarks
    * The traffic specification (recommended).
    * 
-   * - You must specify one of IoMax and IoMaxSpec. If both parameters are specified, the value of IoMaxSpec takes precedence. Specify only IoMaxSpec.
+   * - You must specify either the peak traffic or the traffic specification. If both are specified, the traffic specification takes precedence. We recommend that you specify only the traffic specification.
    * 
-   * - For the value range, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * - For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > If you create a serverless instance, you do not need to set this parameter.
+   * > If you create a serverless instance, you do not need to specify this parameter.
    * 
    * @example
    * alikafka.hw.2xlarge
@@ -133,10 +133,10 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
   ioMaxSpec?: string;
   /**
    * @remarks
-   * The billing type. Valid values:
+   * The billing method. Valid values:
    * 
-   * - 1 (default): reserved instance with pay-as-you-go billing.
-   * - 3: serverless instance with reserved specification pay-as-you-go billing + serverless elastic scaling pay-as-you-go billing.
+   * - 1 (default): pay-as-you-go for reserved instances
+   * - 3: pay-as-you-go for reserved specifications and elastic scaling of serverless instances
    * 
    * @example
    * 1
@@ -146,13 +146,13 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
    * @remarks
    * The number of partitions (recommended).
    * 
-   * * You must specify one of PartitionNum and TopicQuota. Specify only PartitionNum.
+   * * You must specify either the number of partitions or the topic specification. We recommend that you specify only the number of partitions.
    * 
-   * * If both PartitionNum and TopicQuota are specified, the system verifies whether the values are equivalent based on the legacy topic sales model. If the values are not equivalent, the request fails. If the values are equivalent, the purchase is made based on the number of partitions.
+   * * If both the number of partitions and the topic specification are specified, the system verifies whether they are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the instance is purchased based on the number of partitions.
    * 
-   * * For the value range, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * * For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > If you create a serverless instance, you do not need to set this parameter.
+   * > If you create a serverless instance, you do not need to specify this parameter.
    * 
    * @example
    * 50
@@ -172,7 +172,7 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
    * @remarks
    * The resource group ID.
    * 
-   * If this parameter is not specified, the instance is placed in the default resource group. You can view the resource group ID in the Resource Management console.
+   * If you do not specify this parameter, the instance is added to the default resource group. You can view the resource group ID in the Resource Management console.
    * 
    * @example
    * rg-ac***********7q
@@ -180,26 +180,26 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The settings of the serverless instance. This parameter is required when you create a serverless instance.
+   * The settings for the serverless instance. This parameter is required when you create a serverless instance.
    */
   serverlessConfigShrink?: string;
   /**
    * @remarks
    * The specification type.
    * 
-   * Valid values when PaidType is set to 1 (reserved instance with pay-as-you-go billing):
+   * Valid values when the PaidType parameter is set to 1 (pay-as-you-go for reserved instances):
    * 
-   * - normal: Standard Edition (shared throughput for writes)
-   * - professional: Professional Edition (shared throughput for writes)
-   * - professionalForHighRead: Professional Edition (shared throughput for reads)
+   * - normal: Standard Edition (High Write)
+   * - professional: Professional Edition (High Write)
+   * - professionalForHighRead: Professional Edition (High Read)
    * 
-   * Valid values when PaidType is set to 3 (serverless instance with reserved specification pay-as-you-go billing + serverless elastic scaling pay-as-you-go billing):
+   * Valid values when the PaidType parameter is set to 3 (pay-as-you-go for reserved specifications and elastic scaling of serverless instances):
    * 
    * - basic: Serverless Basic Edition
    * - normal: Serverless Standard Edition
    * - professional: Serverless Professional Edition
    * 
-   * For more information about these specification types, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * For more information about the preceding specification types, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @example
    * normal
@@ -207,22 +207,22 @@ export class CreatePostPayOrderShrinkRequest extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: CreatePostPayOrderShrinkRequestTag[];
   /**
    * @remarks
    * The number of topics (not recommended).
    * 
-   * - You must specify one of PartitionNum and TopicQuota. Specify only PartitionNum.
+   * - You must specify either the number of partitions or the topic specification. We recommend that you specify only the number of partitions.
    * 
-   * - If both PartitionNum and TopicQuota are specified, the system verifies whether the values are equivalent based on the legacy topic sales model. If the values are not equivalent, the request fails. If the values are equivalent, the purchase is made based on the number of partitions.
+   * - If both the number of partitions and the topic specification are specified, the system verifies whether they are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the instance is purchased based on the number of partitions.
    * 
-   * - The default value varies based on the traffic specification. If the value exceeds the default value, additional fees are charged.
+   * - The default value varies based on the traffic specification. If the number of topics exceeds the default value, you are charged extra fees.
    * 
-   * - For the value range, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * - For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > If you create a serverless instance, you do not need to set this parameter.
+   * > If you create a serverless instance, you do not need to specify this parameter.
    * 
    * @example
    * 50

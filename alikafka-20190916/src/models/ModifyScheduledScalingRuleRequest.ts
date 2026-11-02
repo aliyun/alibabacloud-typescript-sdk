@@ -5,13 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyScheduledScalingRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Enable or disable the scheduled task policy. Valid values:
+   * Specifies whether to enable or disable the scheduled task policy. Valid values:
    * 
-   * - **true**: Enable.
+   * - **true**: enables the policy.
+   * - **false**: disables the policy.
    * 
-   * - **false**: Disable.
-   * 
-   * > For a one-time scheduling policy type, the start execution time must be more than 30 minutes later than the current time for the policy to be enabled.
+   * > For a one-time scheduled policy, the start time must be at least 30 minutes later than the current time to enable the policy.
    * 
    * This parameter is required.
    * 

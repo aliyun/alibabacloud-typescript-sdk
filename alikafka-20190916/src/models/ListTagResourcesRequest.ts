@@ -7,9 +7,10 @@ export class ListTagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the resource.
    * 
-   * - If this parameter is empty, all tag keys are matched.
    * 
-   * - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http\\:// or https\\://.
+   * - If this parameter is left empty, all tag keys are matched.
+   * 
+   * - The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * FinanceDept
@@ -19,9 +20,10 @@ export class ListTagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The tag value of the resource.
    * 
-   * - If the tag key is empty, this parameter must be empty. If this parameter is empty, all tag values are matched.
    * 
-   * - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http\\:// or https\\://.
+   * - If the tag key is empty, this parameter must also be empty. If this parameter is empty, all tag values are matched.
+   * 
+   * - The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * FinanceJoshua
@@ -53,7 +55,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token for the next query.
+   * The token used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -71,7 +73,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource to be tagged. Resource ID rules:
+   * The ID of the tagged resource. Resource ID rules:
    * 
    * - Instance: instanceId
    * 
@@ -79,9 +81,9 @@ export class ListTagResourcesRequest extends $dara.Model {
    * 
    * - Group: Kafka_alikafka_instanceId_consumerGroup
    * 
-   * For example: If the instance ID is alikafka_post-cn-v0h1fgs2xxxx, the Topic name is test-topic, and the Group name is test-consumer-group, the resource IDs are alikafka_post-cn-v0h1fgs2xxxx, Kafka_alikafka_post-cn-v0h1fgs2xxxx_test-topic, and Kafka_alikafka_post-cn-v0h1fgs2xxxx_test-consumer-group respectively.
+   * For example, if the instance ID is alikafka_post-cn-v0h1fgs2xxxx, the topic name is test-topic, and the group name is test-consumer-group, the resource IDs are alikafka_post-cn-v0h1fgs2xxxx, Kafka_alikafka_post-cn-v0h1fgs2xxxx_test-topic, and Kafka_alikafka_post-cn-v0h1fgs2xxxx_test-consumer-group.  
    * 
-   * > Either the **ResourceId** or **Tag** parameter must be configured to query the tag list bound to resources. Otherwise, the API call fails.
+   * > You must specify either the **ResourceId** or **Tag** parameter to query the tags bound to resources. Otherwise, the API call fails.
    * 
    * @example
    * alikafka_post-cn-v0h1fgs2****
@@ -89,13 +91,13 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Enumeration type. Valid values:
+   * The resource type. Valid values:
    * 
-   * - **INSTANCE**: instance.
+   * - **INSTANCE**: instance
    * 
-   * - **TOPIC**: topic.
+   * - **TOPIC**: topic
    * 
-   * - **CONSUMERGROUP**: consumer group.
+   * - **CONSUMERGROUP**: consumer group
    * 
    * This parameter is required.
    * 
@@ -105,7 +107,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag list.
+   * The list of tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

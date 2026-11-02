@@ -11,7 +11,7 @@ export class CreatePrePayOrderShrinkRequestTag extends $dara.Model {
    * 
    * - If this parameter is left empty, all tag keys are matched.
    * 
-   * - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * - The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class CreatePrePayOrderShrinkRequestTag extends $dara.Model {
    * 
    * - N ranges from 1 to 20.
    * 
-   * - This parameter can be left empty.
+   * - The tag value can be left empty.
    * 
-   * - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * - The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * FinanceJoshua
@@ -59,7 +59,7 @@ export class CreatePrePayOrderShrinkRequestTag extends $dara.Model {
 export class CreatePrePayOrderShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The Confluent component configurations.
+   * The configurations of Confluent components.
    * 
    * 
    * > This parameter is required when you create a Confluent instance.
@@ -74,7 +74,7 @@ export class CreatePrePayOrderShrinkRequest extends $dara.Model {
    * - **5**: VPC-connected instance
    * 
    * 
-   * > If you create a Confluent instance, the deployment type is not supported. You can only set this parameter to 5. After the purchase, you can configure whether to enable public access for each component.
+   * > If you create a Confluent instance, you cannot select the deployment type. You can only set this parameter to 5. After the purchase, you can configure whether to expose each component to the Internet.
    * 
    * @example
    * 5
@@ -84,7 +84,7 @@ export class CreatePrePayOrderShrinkRequest extends $dara.Model {
    * @remarks
    * The disk capacity. Unit: GB.
    * 
-   * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
    * > If you create a Confluent instance, you do not need to specify this parameter.
    * 
@@ -96,9 +96,9 @@ export class CreatePrePayOrderShrinkRequest extends $dara.Model {
    * @remarks
    * The disk type. Valid values:
    * 
-   * - **0**: ultra cloud disk
+   * - **0**: Ultra disk
    * 
-   * - **1**: SSD
+   * - **1**: Standard SSD
    * 
    * > If you create a Confluent instance, you do not need to specify this parameter.
    * 
@@ -111,7 +111,7 @@ export class CreatePrePayOrderShrinkRequest extends $dara.Model {
    * The subscription duration. Unit: months. Default value: 1. Valid values:
    * 
    * - **Confluent instances: 1 or 12**
-   * - **Kafka instances: 1**
+   * - **ApsaraMQ for Kafka instances: 1**
    * 
    * @example
    * 1
@@ -119,11 +119,11 @@ export class CreatePrePayOrderShrinkRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The public network traffic.
+   * The Internet traffic bandwidth.
    * 
-   * - This parameter is required if **DeployType** is set to **4**.
+   * - If **DeployType** is set to **4**, you must specify this parameter.
    * 
-   * - For the value range, see [Pay-as-you-go billing method](https://help.aliyun.com/document_detail/72142.html).
+   * - For more information about the valid values, see [pay-as-you-go billing method](https://help.aliyun.com/document_detail/72142.html).
    * 
    * 
    * > If you create a Confluent instance, you do not need to specify this parameter.
@@ -134,11 +134,11 @@ export class CreatePrePayOrderShrinkRequest extends $dara.Model {
   eipMax?: number;
   /**
    * @remarks
-   * The peak traffic (not recommended).
+   * The peak traffic. We do not recommend that you specify this parameter.
    * 
    * - You must specify at least one of **IoMax** and **IoMaxSpec**. If you specify both, **IoMaxSpec** takes precedence. We recommend that you specify only **IoMaxSpec**.
    * 
-   * - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
    * > If you create a Confluent instance, you do not need to specify this parameter.
    * 
@@ -148,11 +148,11 @@ export class CreatePrePayOrderShrinkRequest extends $dara.Model {
   ioMax?: number;
   /**
    * @remarks
-   * The traffic specification (recommended).
+   * The traffic specification. We recommend that you specify this parameter.
    * 
    * - You must specify at least one of **IoMax** and **IoMaxSpec**. If you specify both, **IoMaxSpec** takes precedence. We recommend that you specify only **IoMaxSpec**.
    * 
-   * - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * > If you create a Confluent instance, you do not need to specify this parameter.
    * 
    * @example
@@ -161,11 +161,11 @@ export class CreatePrePayOrderShrinkRequest extends $dara.Model {
   ioMaxSpec?: string;
   /**
    * @remarks
-   * The billing type. Valid values:
+   * The billing method. Valid values:
    * 
-   * - **0**: subscription
+   * - **0**: Subscription
    * 
-   * - **4**: Confluent subscription
+   * - **4**: Subscription for Confluent instances
    * 
    * @example
    * 0
@@ -173,13 +173,13 @@ export class CreatePrePayOrderShrinkRequest extends $dara.Model {
   paidType?: number;
   /**
    * @remarks
-   * The number of partitions (recommended).
+   * The number of partitions. We recommend that you specify this parameter.
    * 
    * * You must specify either the number of partitions or the topic specification. We recommend that you specify only the number of partitions.
    * 
-   * * If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions and the topic specification are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the purchase is made based on the number of partitions.
+   * * If you specify both the number of partitions and the topic specification, the system verifies whether they are equivalent based on the legacy topic billing model. If they are not equivalent, the request fails. If they are equivalent, the instance is purchased based on the number of partitions.
    * 
-   * * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * * For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
    * > If you create a Confluent instance, you do not need to specify this parameter.
    * 
@@ -199,9 +199,9 @@ export class CreatePrePayOrderShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
-   * If you do not specify this parameter, the instance is placed in the default resource group. You can view the resource group ID in the Resource Group console.
+   * If you do not specify this parameter, the instance is added to the default resource group. You can view the resource group ID in the Resource Management console.
    * 
    * @example
    * rg-ac***********7q
@@ -209,15 +209,13 @@ export class CreatePrePayOrderShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The specification type.
+   * The edition. Valid values for ApsaraMQ for Kafka instances:
    * 
-   * Valid values for ApsaraMQ for Kafka instances:
+   * - **normal**: Standard Edition (High Write)
    * 
-   * - **normal**: Normal Edition (shared high-write)
+   * - **professional**: Professional Edition (High Write)
    * 
-   * - **professional**: Professional Edition (shared high-write)
-   * 
-   * - **professionalForHighRead**: Professional Edition (shared high-read)
+   * - **professionalForHighRead**: Professional Edition (High Read)
    * 
    * Valid values for Confluent instances:
    * 
@@ -225,7 +223,7 @@ export class CreatePrePayOrderShrinkRequest extends $dara.Model {
    * 
    * - **enterprise**: Enterprise Edition
    * 
-   * For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @example
    * normal
@@ -233,20 +231,20 @@ export class CreatePrePayOrderShrinkRequest extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: CreatePrePayOrderShrinkRequestTag[];
   /**
    * @remarks
-   * The number of topics (not recommended).
+   * The number of topics. We do not recommend that you specify this parameter.
    * 
    * - You must specify either the number of partitions or the topic specification. We recommend that you specify only the number of partitions.
    * 
-   * - If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions and the topic specification are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the purchase is made based on the number of partitions.
+   * - If you specify both the number of partitions and the topic specification, the system verifies whether they are equivalent based on the legacy topic billing model. If they are not equivalent, the request fails. If they are equivalent, the instance is purchased based on the number of partitions.
    * 
-   * - The default value varies based on the traffic specification. Additional fees are charged if the value exceeds the default value.
+   * - The default value varies based on the traffic specification. If the specified value exceeds the default value, additional fees are charged.
    * 
-   * - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * > If you create a Confluent instance, you do not need to specify this parameter.
    * 
    * @example

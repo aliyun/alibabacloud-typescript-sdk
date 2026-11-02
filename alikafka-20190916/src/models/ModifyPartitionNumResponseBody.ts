@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPartitionNumResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code. A value of 200 indicates success.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ModifyPartitionNumResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Return message.
+   * The response message.
    * 
    * @example
    * operation success
@@ -21,7 +21,7 @@ export class ModifyPartitionNumResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * B7A39AE5-0B36-4442-A304-E088526****

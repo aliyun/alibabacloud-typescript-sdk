@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the threat was created. Unit: milliseconds.
+   * The creation timestamp. Unit: milliseconds.
    * 
    * @example
    * 1702545932000
@@ -14,11 +14,8 @@ export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
   /**
    * @remarks
    * The metric rating. Valid values:
-   * 
    * - A: Healthy.
-   * 
-   * - B: Suboptimal.
-   * 
+   * - B: Sub-healthy.
    * - F: Poor.
    * 
    * @example
@@ -27,12 +24,9 @@ export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
   gradeType?: string;
   /**
    * @remarks
-   * Indicates whether the instance is healthy.
-   * This is a Boolean parameter. Valid values:
-   * 
-   * - true: The instance is healthy.
-   * 
-   * - false: The instance is unhealthy.
+   * Indicates whether the instance is healthy. Valid values:
+   * - true: Healthy.
+   * - false: Unhealthy.
    * 
    * @example
    * true
@@ -40,7 +34,7 @@ export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
   health?: boolean;
   /**
    * @remarks
-   * The list of instance IDs.
+   * The instance ID.
    * 
    * @example
    * alikafka_pre-cn-m7r1tzxxxxx
@@ -58,10 +52,8 @@ export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
    * @remarks
    * The risk level. Valid values:
    * 
-   * - 0: Urgent.
-   * 
+   * - 0: Critical.
    * - 1: Important.
-   * 
    * - 2: Normal.
    * 
    * @example
@@ -70,7 +62,7 @@ export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
   levelType?: number;
   /**
    * @remarks
-   * The timestamp when the threat was last modified. Unit: milliseconds.
+   * The modification timestamp. Unit: milliseconds.
    * 
    * @example
    * 1637719920000
@@ -78,11 +70,10 @@ export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
   modifiedTime?: number;
   /**
    * @remarks
-   * The name of the threat item.
+   * The name of the risk item.
    * 
    * > There are 24 types of names.
-   * >
-   * > - For more information, see the supplementary notes at the end of this document.
+   * > - Detailed descriptions are provided in the following sections.
    * 
    * @example
    * inputIo
@@ -90,7 +81,7 @@ export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the owner.
+   * The ID of the user who owns the instance.
    * 
    * @example
    * 0123123123xxx
@@ -98,30 +89,26 @@ export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * A cascading structure. The system determines whether to nest another layer of report data based on the values of outer fields.
+   * The infinitely nested structure. The system determines whether to nest another layer of report data based on the outer-layer fields.
    */
   relationList?: string[];
   /**
    * @remarks
-   * The recommended fix.
+   * The remediation suggestion.
    * 
    * @example
-   * 相关问题里的Topic存在碎片化发送问题，请参考文档进行优化
+   * The topics in the related issues have fragmented sending problems. Refer to References for optimization
    */
   reportTips?: string;
   /**
    * @remarks
-   * The report type of the threat item. Valid values:
+   * The report type of the risk item. Valid values:
    * 
-   * - topic: Optimization is required for a specific topic.
-   * 
-   * - group: Optimization is required for a specific group.
-   * 
-   * - doc: Optimization must be performed based on a document.
-   * 
-   * - commonBuy: An upgrade or a similar operation is required for the returned threat item.
-   * 
-   * - mdsKey: You only need to fix the threat based on the suggestions in ReportTips.
+   * - topic: a specific topic that requires optimization.
+   * - group: a specific group that requires optimization.
+   * - doc: optimization is required based on the documentation.
+   * - commonBuy: the returned risk item requires operations such as specification upgrade.
+   * - mdsKey: follow the suggestions in ReportTips to fix the issue.
    * 
    * @example
    * doc
@@ -131,15 +118,12 @@ export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
    * @remarks
    * The value of the report.
    * 
-   * > - If ReportType is doc, ReportValue returns the document ID. You can construct the URL to the document by replacing the ${reportValue} variable in the following URL with the returned value: <props="china">https\\://help.aliyun.com/document_detail/${reportValue}.html<props="intl">https\\://www\\.alibabacloud.com/help/document_detail/${reportValue}.html
-   * >
-   * > - If ReportType is commonBuy, an upgrade or a similar operation is required.
-   * >
-   * > - If ReportType is topic, the value of ReportValue is the name of the topic that needs to be fixed.
-   * >
-   * > - If ReportType is group, the value of ReportValue is the name of the group that needs to be fixed.
-   * >
-   * > - If ReportType is mdsKey, you only need to fix the threat based on the suggestions in ReportTips.
+   * > 
+   * > - If ReportType is set to doc, ReportValue returns a document address. You can construct the link by replacing the returned ReportValue in the following URL: <props="china">https://help.aliyun.com/document_detail/${reportValue}.html<props="intl">https://www.alibabacloud.com/help/document_detail/${reportValue}.html
+   * >- If ReportType is set to commonBuy, operations such as specification upgrade are required.
+   * >- If ReportType is set to topic, check the value of reportValue. The reportValue is the topic that has issues and requires fixing.
+   * >- If ReportType is set to group, check the value of reportValue. The reportValue is the group that has issues and requires fixing.
+   * >- If ReportType is set to mdsKey, follow the suggestions in ReportTips to fix the issue.
    * 
    * @example
    * test
@@ -147,12 +131,10 @@ export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
   reportValue?: string;
   /**
    * @remarks
-   * The status of the threat item. This parameter indicates whether the threat has been fixed. Valid values:
+   * The status of the risk item, which indicates whether the risk item has been fixed. Valid values:
    * 
-   * - 0: To be fixed.
-   * 
+   * - 0: Pending fix.
    * - -1: Ignored.
-   * 
    * - 1: Fixed.
    * 
    * @example
@@ -161,11 +143,9 @@ export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The type of the threat item.
-   * 
-   * > There are 24 types of threats.
-   * >
-   * > - For more information, see the supplementary notes at the end of this document.
+   * The type of the risk item.
+   * > There are 24 types of risk items.
+   * > - Detailed descriptions are provided in the following sections.
    * 
    * @example
    * inputIo
@@ -175,13 +155,10 @@ export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
    * @remarks
    * The value calculated by the system.
    * 
-   * > If ReportType is doc, check the relationList and value fields. The value field returns a number that indicates the number of topics or groups in the `relationList` field that require optimization.
-   * >
-   * > - When ReportType is commonBuy, check the value of Value. The value is a percentage.
-   * >
-   * > - When ReportType is topic, check the value of Value. The value identifies the Topic that needs to be fixed.
-   * >
-   * > - When ReportType is group, check the value of Value. The value identifies the Group that needs to be fixed.
+   * > If ReportType is set to doc, check both the relationList field and the value field. The value field returns a number that indicates how many topics or groups in the relationList field require optimization.
+   * >- If ReportType is set to commonBuy, compare the Value. The Value returns a percentage.
+   * >- If ReportType is set to topic, check the Value. The value is the topic that has issues and requires fixing.
+   * >- If ReportType is set to group, check the Value. The value is the group that has issues and requires fixing.
    * 
    * @example
    * 44
@@ -244,7 +221,7 @@ export class GetRiskListResponseBodyDataRiskList extends $dara.Model {
 export class GetRiskListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of threat items for the instance.
+   * The list of instance risk items.
    */
   riskList?: GetRiskListResponseBodyDataRiskList[];
   /**
@@ -284,7 +261,7 @@ export class GetRiskListResponseBodyData extends $dara.Model {
 export class GetRiskListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates that the call is successful.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -292,7 +269,7 @@ export class GetRiskListResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: GetRiskListResponseBodyData;
   /**

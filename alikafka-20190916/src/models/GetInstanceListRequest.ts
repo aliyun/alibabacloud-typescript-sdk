@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceListRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the resource.
    * 
-   * - If you do not specify this parameter, all tag keys are matched.
+   * - If this parameter is left empty, all tag keys are matched.
    * 
-   * - The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * - The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain `http://` or `https://`.
    * 
    * @example
    * test
@@ -17,11 +17,11 @@ export class GetInstanceListRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the resource.
    * 
-   * - If you do not specify the `Key` parameter, you do not need to specify this parameter. If you leave this parameter empty, all tag values are matched.
+   * - If the tag key is empty, this parameter must be empty. If this parameter is left empty, all tag values are matched.
    * 
-   * - The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * - The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain `http://` or `https://`.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class GetInstanceListRequestTag extends $dara.Model {
 export class GetInstanceListRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of instance IDs.
+   * The list of instance IDs.
    * 
    * @example
    * alikafka_post-cn-mp91gnw0p***
@@ -61,9 +61,7 @@ export class GetInstanceListRequest extends $dara.Model {
   instanceId?: string[];
   /**
    * @remarks
-   * The order ID. You can find the order ID on the <props="china">[Orders](https://usercenter2.aliyun.com/order/list?pageIndex=1\\&pageSize=20) page in the Billing Management console.
-   * <props="intl">[Orders](https://usercenter2-intl.aliyun.com/order/list?pageIndex=1\\&pageSize=20\\&spm=5176.12818093.top-nav.ditem-ord.36f016d0OQFmJa) page in the Billing Management console.
-   * >Notice: You cannot use an order ID to query Serverless instances.
+   * The order ID. You can obtain the order ID from <props="china">[Orders](https://usercenter2.aliyun.com/order/list?pageIndex=1&pageSize=20)<props="intl">[Order Management](https://usercenter2-intl.aliyun.com/order/list?pageIndex=1&pageSize=20&spm=5176.12818093.top-nav.ditem-ord.36f016d0OQFmJa) in Alibaba Cloud Expenses and Costs.>Notice: Serverless instances do not support querying by order ID.
    * 
    * @example
    * 6072673****
@@ -71,7 +69,7 @@ export class GetInstanceListRequest extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the region where the instance is located.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -81,7 +79,7 @@ export class GetInstanceListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group. You can view the resource group ID in the Resource Group console.
+   * The resource group ID. You can query the ID in the Resource Management console.
    * 
    * @example
    * rg-ac***********7q
@@ -89,12 +87,9 @@ export class GetInstanceListRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The instance series. You can use this parameter to filter instances. Valid values:
-   * 
+   * The instance edition identity. You can filter instances of different editions based on the edition number. Valid values:
    * - v2
-   * 
    * - v3
-   * 
    * - confluent
    * 
    * @example
@@ -103,7 +98,7 @@ export class GetInstanceListRequest extends $dara.Model {
   series?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The list of tags.
    */
   tag?: GetInstanceListRequestTag[];
   static names(): { [key: string]: string } {

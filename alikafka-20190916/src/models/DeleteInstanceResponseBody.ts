@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteInstanceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * operation success.

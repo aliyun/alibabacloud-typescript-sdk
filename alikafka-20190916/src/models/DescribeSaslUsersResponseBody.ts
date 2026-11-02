@@ -63,7 +63,7 @@ export class DescribeSaslUsersResponseBodySaslUserList extends $dara.Model {
 export class DescribeSaslUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A value of 200 indicates success.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -71,7 +71,7 @@ export class DescribeSaslUsersResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * operation success.
@@ -79,7 +79,7 @@ export class DescribeSaslUsersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 9E3B3592-5994-4F65-A61E-E62A77A****

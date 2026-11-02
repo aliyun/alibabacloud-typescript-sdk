@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSaslUserRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,13 @@ export class DeleteSaslUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Encryption method. Valid values:
+   * The encryption mechanism. Valid values:
    * 
    * - SCRAM-SHA-512 (selected by default)
    * 
    * - SCRAM-SHA-256
    * 
-   * > This parameter is only supported for Serverless instances.
+   * > This parameter is supported only for Serverless instances.
    * 
    * @example
    * SCRAM-SHA-256
@@ -29,7 +29,7 @@ export class DeleteSaslUserRequest extends $dara.Model {
   mechanism?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -39,13 +39,13 @@ export class DeleteSaslUserRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Type. Valid values:
+   * The type. Valid values:
    * 
-   * - **plain**: A simple username and password verification mechanism. MSMQ optimizes the PLAIN mechanism to support adding SASL users dynamically without restarting the instance.
+   * - **plain**: a simple username and password verification mechanism. ApsaraMQ for Kafka has an optimization for the PLAIN mechanism to allow you to dynamically increase SASL users without restarting the instance.
    * 
-   * - **scram**: A username and password verification mechanism with higher security than PLAIN. MSMQ uses SCRAM-SHA-256.
+   * - **scram**: a username and password verification mechanism that provides higher security than PLAIN. ApsaraMQ for Kafka uses SCRAM-SHA-256.
+   * - **LDAP**: applicable only to the delete operation for Confluent instance users.
    * 
-   * - **LDAP**: Only applicable for deleting Confluent instance users.
    * 
    * Default value: **plain**.
    * 
@@ -55,7 +55,7 @@ export class DeleteSaslUserRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Username.
+   * The username.
    * 
    * This parameter is required.
    * 

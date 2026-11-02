@@ -66,7 +66,7 @@ export class GetTopicStatusResponseBodyTopicStatusOffsetTable extends $dara.Mode
 export class GetTopicStatusResponseBodyTopicStatus extends $dara.Model {
   /**
    * @remarks
-   * Generation time of the last consumed message. Unit: ms.
+   * The time when the last consumed message was generated. Unit: ms.
    * 
    * @example
    * 1566470063575
@@ -75,7 +75,7 @@ export class GetTopicStatusResponseBodyTopicStatus extends $dara.Model {
   offsetTable?: GetTopicStatusResponseBodyTopicStatusOffsetTable;
   /**
    * @remarks
-   * Total number of messages.
+   * The total number of messages.
    * 
    * @example
    * 423
@@ -112,7 +112,7 @@ export class GetTopicStatusResponseBodyTopicStatus extends $dara.Model {
 export class GetTopicStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A value of 200 indicates success.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -120,7 +120,7 @@ export class GetTopicStatusResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * operation success.
@@ -128,7 +128,7 @@ export class GetTopicStatusResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * E475C7E2-8C35-46EF-BE7D-5D2A9F5D****
@@ -144,7 +144,7 @@ export class GetTopicStatusResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Topic status.
+   * The topic status.
    */
   topicStatus?: GetTopicStatusResponseBodyTopicStatus;
   static names(): { [key: string]: string } {

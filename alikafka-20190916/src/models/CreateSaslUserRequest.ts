@@ -15,13 +15,13 @@ export class CreateSaslUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The encryption mechanism. Valid values:
+   * The encryption method. Valid values:
    * 
-   * - SCRAM-SHA-512 (selected by default)
+   * - SCRAM-SHA-512 (default)
    * 
    * - SCRAM-SHA-256
    * 
-   * >This parameter is supported only for Serverless instances.
+   * > This parameter is supported only for serverless instances.
    * 
    * @example
    * SCRAM-SHA-256
@@ -51,11 +51,11 @@ export class CreateSaslUserRequest extends $dara.Model {
    * @remarks
    * The type. Valid values:
    * 
-   * - plain: a simple username and password verification mechanism. ApsaraMQ for Kafka has optimized the PLAIN mechanism to support dynamically adding SASL users without restarting the instance.
+   * - plain: A simple username and password authentication mechanism. MSMQ for Apache Kafka optimizes the PLAIN mechanism and supports the dynamic increase of SASL users without restarting the instance.
    * 
-   * - scram: a username and password verification mechanism that provides higher security than PLAIN. ApsaraMQ for Kafka uses SCRAM-SHA-256.
+   * - scram: A username and password authentication mechanism that provides higher security than PLAIN. MSMQ for Apache Kafka uses SCRAM-SHA-256.
    * 
-   * - LDAP: applicable only to adding users for Confluent instances.
+   * - LDAP: Applicable only to new users of Confluent instances.
    * 
    * Default value: plain.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSaslUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Status code. A value of 200 indicates success.
+   * The HTTP status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteSaslUserResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * operation success
@@ -21,7 +21,7 @@ export class DeleteSaslUserResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 3CB89F5C-CD97-4C1D-BC7C-FEDEC2F4****

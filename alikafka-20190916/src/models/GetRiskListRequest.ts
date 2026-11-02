@@ -33,7 +33,7 @@ export class GetRiskListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start index for paging.
+   * The start index for pagination.
    * 
    * @example
    * 0

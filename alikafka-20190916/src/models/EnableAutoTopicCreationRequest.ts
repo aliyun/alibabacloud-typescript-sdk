@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableAutoTopicCreationRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,11 @@ export class EnableAutoTopicCreationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Currently only these three request parameters are supported:
+   * Only the following three values are supported:
    * 
-   * - enable: Enable automatic topic creation.
-   * 
-   * - disable: Disable automatic topic creation.
-   * 
-   * - updatePartition: Modify the number of partitions for automatic creation.
+   * - enable: Enables automatic automatic creation.
+   * - disable: Disables automatic automatic creation.
+   * - updatePartition: Modifies the number of automatically created partitions.
    * 
    * @example
    * enable
@@ -29,9 +27,9 @@ export class EnableAutoTopicCreationRequest extends $dara.Model {
   operate?: string;
   /**
    * @remarks
-   * Adjust the default number of partitions for automatically created topics.
+   * The default number of partitions for automatically created topics.
    * 
-   * > This value is passed only when the Operate value is updatePartition, or when UpdatePartition is true.
+   * >  Specify this parameter only when Operate is set to updatePartition or UpdatePartition is set to true.
    * 
    * @example
    * 12
@@ -39,7 +37,7 @@ export class EnableAutoTopicCreationRequest extends $dara.Model {
   partitionNum?: number;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -49,9 +47,9 @@ export class EnableAutoTopicCreationRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Modify the number of partitions for automatic creation.
+   * Specifies whether to modify the number of partitions for automatic creation.
    * 
-   * > If this parameter is set to true, the Operate parameter must be updatePartition or left empty.
+   * >  If this parameter is set to true, the Operate parameter must be set to updatePartition or left empty.
    * 
    * @example
    * true

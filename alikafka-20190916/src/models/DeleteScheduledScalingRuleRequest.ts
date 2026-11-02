@@ -26,8 +26,7 @@ export class DeleteScheduledScalingRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The policy name.
-   * 
-   * > Only policies that are disabled or one-time policies that have been executed can be deleted.
+   * > Only disabled policies or completed one-time policies can be deleted.
    * 
    * This parameter is required.
    * 

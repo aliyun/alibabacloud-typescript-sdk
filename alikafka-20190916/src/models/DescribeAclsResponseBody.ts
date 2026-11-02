@@ -72,7 +72,7 @@ export class DescribeAclsResponseBodyKafkaAclList extends $dara.Model {
 export class DescribeAclsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. A value of 200 indicates that the request was successful.
+   * The status code. A 200 status code indicates success.
    * 
    * @example
    * 200
@@ -89,7 +89,7 @@ export class DescribeAclsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 46496E38-881E-4719-A2F3-F3DA6AE****
@@ -97,7 +97,7 @@ export class DescribeAclsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

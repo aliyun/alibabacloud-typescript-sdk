@@ -3,10 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreatePrePayInstanceRequestConfluentConfigKsqlList extends $dara.Model {
+  /**
+   * @remarks
+   * The identifier of the additional ksqlDB instance. It is used to distinguish multiple ksqlDB instances under the same Confluent instance and generate the corresponding service name. Each instance must use a different non-empty identifier, and the original identifier must be retained for subsequent specification changes. Example: 0.
+   * 
+   * @example
+   * 0
+   */
   internalId?: string;
+  /**
+   * @remarks
+   * The number of CPU cores per node in the ksqlDB instance. Valid values: 1 to 20.
+   * 
+   * @example
+   * 1
+   */
   cu?: number;
+  /**
+   * @remarks
+   * The number of nodes in the ksqlDB instance. Valid values: 1 to 20.
+   * 
+   * @example
+   * 1
+   */
   replica?: number;
+  /**
+   * @remarks
+   * The disk capacity per node in the ksqlDB instance. Unit: GB. Valid values: 100 to 30000. The value must be a multiple of 100.
+   * 
+   * @example
+   * 100
+   */
   storage?: number;
+  /**
+   * @remarks
+   * The component type. Set the value to KSQLDB. Example: KSQLDB.
+   * 
+   * @example
+   * KSQLDB
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,6 +73,13 @@ export class CreatePrePayInstanceRequestConfluentConfigKsqlList extends $dara.Mo
 }
 
 export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The platform version of the Confluent instance. Valid values: 7.8.2 and 8.2.1. If you select 7.8.2, you must configure ZooKeeper. If you select 8.2.1, you must configure KRaft Controller. You can configure only one of the two metadata components in a single request.
+   * 
+   * @example
+   * 7.8.2
+   */
   confluentVersion?: string;
   /**
    * @remarks
@@ -49,7 +91,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   connectCU?: number;
   /**
    * @remarks
-   * The number of Connect component replicas.
+   * The number of replicas for the Connect component.
    * 
    * @example
    * 2
@@ -57,7 +99,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   connectReplica?: number;
   /**
    * @remarks
-   * The number of CPU cores for the ControlCenter component.
+   * The number of CPU cores for the Control Center component.
    * 
    * @example
    * 4
@@ -65,7 +107,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   controlCenterCU?: number;
   /**
    * @remarks
-   * The number of ControlCenter component replicas.
+   * The number of replicas for the Control Center component.
    * 
    * @example
    * 1
@@ -73,7 +115,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   controlCenterReplica?: number;
   /**
    * @remarks
-   * The disk capacity of the ControlCenter component. Unit: GB.
+   * The disk capacity of the Control Center component. Unit: GB.
    * 
    * @example
    * 300
@@ -81,7 +123,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   controlCenterStorage?: number;
   /**
    * @remarks
-   * The number of CPU cores for Kafka Broker.
+   * The number of CPU cores for Kafka brokers.
    * 
    * @example
    * 4
@@ -89,7 +131,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   kafkaCU?: number;
   /**
    * @remarks
-   * The number of Kafka Broker replicas.
+   * The number of replicas for Kafka brokers.
    * 
    * @example
    * 3
@@ -97,7 +139,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   kafkaReplica?: number;
   /**
    * @remarks
-   * The number of CPU cores for the KafkaRestProxy component.
+   * The number of CPU cores for the Kafka REST Proxy component.
    * 
    * @example
    * 4
@@ -105,7 +147,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   kafkaRestProxyCU?: number;
   /**
    * @remarks
-   * The number of KafkaRestProxy component replicas.
+   * The number of replicas for the Kafka REST Proxy component.
    * 
    * @example
    * 2
@@ -113,27 +155,55 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   kafkaRestProxyReplica?: number;
   /**
    * @remarks
-   * The disk capacity of Kafka Broker. Unit: GB.
+   * The disk capacity of Kafka brokers. Unit: GB.
    * 
    * @example
    * 800
    */
   kafkaStorage?: number;
+  /**
+   * @remarks
+   * The number of CPU cores per node in the KRaft controller. Valid values: 2 to 20. When you create an instance in KRaft mode, you must configure this parameter together with KraftControllerStorage.
+   * 
+   * @example
+   * 2
+   */
   kraftControllerCU?: number;
+  /**
+   * @remarks
+   * The number of nodes in the KRaft controller. The value is fixed to 3. If you configure the KRaft controller but do not specify this parameter, the default value 3 is used.
+   * 
+   * @example
+   * 3
+   */
   kraftControllerReplica?: number;
+  /**
+   * @remarks
+   * The disk capacity per node in the KRaft controller. Unit: GB. Valid values: 100 to 30000. The value must be a multiple of 100. When you create an instance in KRaft mode, you must configure this parameter together with KraftControllerCU.
+   * 
+   * @example
+   * 100
+   */
   kraftControllerStorage?: number;
   /**
    * @remarks
-   * The number of CPU cores for the KsqlDB component.
+   * The number of CPU cores for the ksqlDB component.
    * 
    * @example
    * 4
    */
   ksqlCU?: number;
+  /**
+   * @remarks
+   * The list of additional ksqlDB instance configurations, excluding the default ksqlDB instance. Each element configures an independent ksqlDB instance. When you use this parameter, you must also configure KsqlCU, KsqlStorage, and KsqlReplica for the default instance. Each instance in the list is configured with node resources and the number of nodes separately.
+   * 
+   * Example (list content):
+   * ```json
+   */
   ksqlList?: CreatePrePayInstanceRequestConfluentConfigKsqlList[];
   /**
    * @remarks
-   * The number of KsqlDB component replicas.
+   * The number of replicas for the ksqlDB component.
    * 
    * @example
    * 2
@@ -141,7 +211,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   ksqlReplica?: number;
   /**
    * @remarks
-   * The disk capacity of the KsqlDB component. Unit: GB.
+   * The disk capacity of the ksqlDB component. Unit: GB.
    * 
    * @example
    * 100
@@ -149,7 +219,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   ksqlStorage?: number;
   /**
    * @remarks
-   * The number of CPU cores for the SchemaRegistry component.
+   * The number of CPU cores for the Schema Registry component.
    * 
    * @example
    * 1
@@ -157,7 +227,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   schemaRegistryCU?: number;
   /**
    * @remarks
-   * The number of SchemaRegistry component replicas.
+   * The number of replicas for the Schema Registry component.
    * 
    * @example
    * 2
@@ -173,7 +243,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   zooKeeperCU?: number;
   /**
    * @remarks
-   * The number of ZooKeeper component replicas.
+   * The number of replicas for the ZooKeeper component.
    * 
    * @example
    * 3
@@ -264,7 +334,7 @@ export class CreatePrePayInstanceRequestTag extends $dara.Model {
    * 
    * - If this parameter is left empty, all tag keys are matched.
    * 
-   * - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * - The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * This parameter is required.
    * 
@@ -278,9 +348,9 @@ export class CreatePrePayInstanceRequestTag extends $dara.Model {
    * 
    * - N ranges from 1 to 20.
    * 
-   * - This parameter can be left empty.
+   * - The tag value can be empty.
    * 
-   * - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * - The tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * test
@@ -312,7 +382,7 @@ export class CreatePrePayInstanceRequestTag extends $dara.Model {
 export class CreatePrePayInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The Confluent component configurations.
+   * The configurations of Confluent components.
    * 
    * 
    * > This parameter is required when you create a Confluent instance.
@@ -327,7 +397,7 @@ export class CreatePrePayInstanceRequest extends $dara.Model {
    * - **5**: VPC-connected instance
    * 
    * 
-   * > When you create a Confluent instance, you cannot select the deployment type. Only the value 5 is allowed. After the purchase, you can configure whether to enable public access for each component.
+   * > If you create a Confluent instance, you cannot select the deployment type. You can only set this parameter to 5. After the purchase, you can configure whether to expose each component to the Internet.
    * 
    * @example
    * 5
@@ -337,9 +407,9 @@ export class CreatePrePayInstanceRequest extends $dara.Model {
    * @remarks
    * The disk capacity. Unit: GB.
    * 
-   * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > This parameter is not required when you create a Confluent instance.
+   * > If you create a Confluent instance, you do not need to specify this parameter.
    * 
    * @example
    * 500
@@ -349,11 +419,11 @@ export class CreatePrePayInstanceRequest extends $dara.Model {
    * @remarks
    * The disk type. Valid values:
    * 
-   * - **0**: ultra cloud disk
+   * - **0**: Ultra disk
    * 
    * - **1**: SSD
    * 
-   * > This parameter is not required when you create a Confluent instance.
+   * > If you create a Confluent instance, you do not need to specify this parameter.
    * 
    * @example
    * 1
@@ -372,14 +442,14 @@ export class CreatePrePayInstanceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The Internet traffic.
+   * The Internet traffic bandwidth.
    * 
-   * - This parameter is required if **DeployType** is set to **4**.
+   * - If **DeployType** is set to **4**, this parameter is required.
    * 
-   * - For the value range, see [Pay-as-you-go billing method](https://help.aliyun.com/document_detail/72142.html).
+   * - For the valid values, see [pay-as-you-go billing method](https://help.aliyun.com/document_detail/72142.html).
    * 
    * 
-   * > This parameter is not required when you create a Confluent instance.
+   * > If you create a Confluent instance, you do not need to specify this parameter.
    * 
    * @example
    * 3
@@ -390,8 +460,8 @@ export class CreatePrePayInstanceRequest extends $dara.Model {
    * The traffic specification.
    *  
    * 
-   * - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * > This parameter is not required when you create a Confluent instance.
+   * - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * > If you create a Confluent instance, you do not need to specify this parameter.
    * 
    * @example
    * alikafka.hw.2xlarge
@@ -399,11 +469,11 @@ export class CreatePrePayInstanceRequest extends $dara.Model {
   ioMaxSpec?: string;
   /**
    * @remarks
-   * The billing type. Valid values:
+   * The billing method. Valid values:
    * 
-   * - **0**: subscription
+   * - **0**: Subscription
    * 
-   * - **4**: Confluent subscription
+   * - **4**: Subscription for Confluent instances
    * 
    * @example
    * 1
@@ -413,8 +483,8 @@ export class CreatePrePayInstanceRequest extends $dara.Model {
    * @remarks
    * The number of partitions to purchase.
    * 
-   * * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * > This parameter is not required when you create a Confluent instance.
+   * * For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * > If the instance is a Confluent instance, you do not need to specify this parameter.
    * 
    * @example
    * 1000
@@ -434,7 +504,7 @@ export class CreatePrePayInstanceRequest extends $dara.Model {
    * @remarks
    * The resource group ID.
    * 
-   * If you do not specify this parameter, the instance is placed in the default resource group. You can view the resource group ID in the Resource Management console.
+   * If you do not specify this parameter, the instance is added to the default resource group. You can view the resource group ID in the Resource Management console.
    * 
    * @example
    * rg-ac***********7q
@@ -442,15 +512,15 @@ export class CreatePrePayInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The edition type.
+   * The edition.
    * 
    * Valid values for ApsaraMQ for Kafka instances:
    * 
-   * - **normal**: Standard Edition (shared throughput for writes)
+   * - **normal**: Standard Edition (High Write)
    * 
-   * - **professional**: Professional Edition (shared throughput for writes)
+   * - **professional**: Professional Edition (High Write)
    * 
-   * - **professionalForHighRead**: Professional Edition (shared throughput for reads)
+   * - **professionalForHighRead**: Professional Edition (High Read)
    * 
    * Valid values for Confluent instances:
    * 
@@ -466,7 +536,7 @@ export class CreatePrePayInstanceRequest extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: CreatePrePayInstanceRequestTag[];
   static names(): { [key: string]: string } {

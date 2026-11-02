@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradePrePayOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A return code of 200 indicates that the request succeeded.
+   * The response code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -37,7 +37,7 @@ export class UpgradePrePayOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the call was successful.
    * 
    * @example
    * true

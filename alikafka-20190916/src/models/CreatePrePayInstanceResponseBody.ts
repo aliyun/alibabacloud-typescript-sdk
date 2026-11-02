@@ -45,7 +45,7 @@ export class CreatePrePayInstanceResponseBodyData extends $dara.Model {
 export class CreatePrePayInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. A value of 200 indicates success.
+   * The HTTP status code. A status code of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -74,7 +74,7 @@ export class CreatePrePayInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

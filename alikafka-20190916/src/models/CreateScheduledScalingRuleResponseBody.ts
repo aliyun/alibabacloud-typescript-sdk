@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScheduledScalingRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateScheduledScalingRuleResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * operation success
@@ -29,7 +29,7 @@ export class CreateScheduledScalingRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call was successful. Valid values:
    * 
    * - **true**: The call was successful.
    * - **false**: The call failed.

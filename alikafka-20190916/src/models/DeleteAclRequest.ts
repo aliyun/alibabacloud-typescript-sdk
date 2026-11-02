@@ -7,14 +7,14 @@ export class DeleteAclRequest extends $dara.Model {
    * @remarks
    * The operation type. Valid values:
    * 
-   * - **Write**: write.
+   * - **Write**: Write.
    * 
-   * - **Read**: read.
+   * - **Read**: Read.
    * 
-   * - **Describe**: read TransactionalId.
-   * - **IdempotentWrite**: idempotent write to Cluster.
-   * - **IDEMPOTENT_WRITE**: idempotent write to Cluster. This value is available only for serverless instances.
-   * - **DESCRIBE_CONFIGS**: query configurations. This value is available only for serverless instances.
+   * - **Describe**: Read a transaction ID.
+   * - **IdempotentWrite**: Idempotent write to a cluster.
+   * - **IDEMPOTENT_WRITE**: Idempotent write to a cluster. Available only for serverless instances.
+   * - **DESCRIBE_CONFIGS**: Query configurations. Available only for serverless instances.
    * 
    * This parameter is required.
    * 
@@ -24,19 +24,17 @@ export class DeleteAclRequest extends $dara.Model {
   aclOperationType?: string;
   /**
    * @remarks
-   * The batch authorization operation types. Separate multiple operations with commas (,).
+   * The operation types for batch authorization. Separate multiple operations with commas (,). Valid values:
+   * - **Write**: Write.
    * 
-   * Valid values:
-   * - **Write**: write.
+   * - **Read**: Read.
    * 
-   * - **Read**: read.
+   * - **Describe**: Read a transaction ID.
+   * - **IdempotentWrite**: Idempotent write to a cluster.
+   * - **IDEMPOTENT_WRITE**: Idempotent write to a cluster. Available only for serverless instances.
+   * - **DESCRIBE_CONFIGS**: Query configurations. Available only for serverless instances.
    * 
-   * - **Describe**: read TransactionalId.
-   * - **IdempotentWrite**: idempotent write to Cluster.
-   * - **IDEMPOTENT_WRITE**: idempotent write to Cluster. This value is available only for serverless instances.
-   * - **DESCRIBE_CONFIGS**: query configurations. This value is available only for serverless instances.
-   * 
-   * > This parameter is available only for serverless instances.
+   * > This parameter is supported only for serverless instances.
    * 
    * @example
    * Write,Read
@@ -46,10 +44,10 @@ export class DeleteAclRequest extends $dara.Model {
    * @remarks
    * The authorization method. Valid values:
    * 
-   * - DENY: deny.
-   * - ALLOW: allow.
+   * - DENY: Deny.
+   * - ALLOW: Allow.
    * 
-   * > This parameter is available only for serverless instances.
+   * > This parameter is supported only for serverless instances.
    * 
    * @example
    * DENY
@@ -57,11 +55,7 @@ export class DeleteAclRequest extends $dara.Model {
   aclPermissionType?: string;
   /**
    * @remarks
-   * The resource name.
-   * 
-   * - The name of a topic or consumer group.
-   * 
-   * - An asterisk (\\*) indicates the names of all topics or consumer groups.
+   * The resource name. You can specify the name of a topic or a consumer group. An asterisk (*) indicates all topics or consumer groups.
    * 
    * This parameter is required.
    * 
@@ -73,9 +67,9 @@ export class DeleteAclRequest extends $dara.Model {
    * @remarks
    * The matching mode. Valid values:
    * 
-   * - **LITERAL**: full-name match.
+   * - **LITERAL**: Exact match.
    * 
-   * - **PREFIXED**: prefix match.
+   * - **PREFIXED**: Prefix match.
    * 
    * This parameter is required.
    * 
@@ -87,12 +81,12 @@ export class DeleteAclRequest extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * - **Topic**: topic.
+   * - **Topic**: Message topic.
    * 
-   * - **Group**: consumer group.
+   * - **Group**: Consumer group.
    * 
-   * - **Cluster**: instance.
-   * - **TransactionalId**: transaction ID.
+   * - **Cluster**: Instance.
+   * - **TransactionalId**: Transaction ID.
    * 
    * This parameter is required.
    * 
@@ -103,8 +97,8 @@ export class DeleteAclRequest extends $dara.Model {
   /**
    * @remarks
    * The source IP address.
-   * >- Only specific IP addresses or an asterisk (\\*) to allow all IP addresses are supported. CIDR blocks are not supported.
-   * >- This parameter is available only for serverless instances.
+   * >- Only specific IP addresses or an asterisk (*) to allow all IP addresses are supported. CIDR blocks are not supported.
+   * >- This parameter is supported only for serverless instances.
    * 
    * @example
    * *

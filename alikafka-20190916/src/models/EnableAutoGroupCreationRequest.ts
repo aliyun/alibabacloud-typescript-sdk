@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class EnableAutoGroupCreationRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the free use of groups. Valid values:
+   * Specifies whether to enable automatic group creation. Valid values:
    * 
-   * - **true**: Enable.
-   * - **false**: Disable.
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class EnableAutoGroupCreationRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * You can call [GetInstanceList](https://help.aliyun.com/document_detail/437663.html) to obtain the instance ID.
+   * You can call the [GetInstanceList](https://help.aliyun.com/document_detail/437663.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 

@@ -7,8 +7,8 @@ export class CreatePostPayInstanceShrinkRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the resource.
    * - N ranges from 1 to 20.
-   * - If this parameter is left empty, all tag keys are matched.
-   * - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * - If left empty, all tag keys are matched.
+   * - The value can be up to 128 characters in length and cannot start with aliyun or acs:, or contain http:// or https://.
    * 
    * This parameter is required.
    * 
@@ -20,8 +20,8 @@ export class CreatePostPayInstanceShrinkRequestTag extends $dara.Model {
    * @remarks
    * The tag value of the resource.
    * - N ranges from 1 to 20.
-   * - If the tag key is left empty, this parameter must also be left empty. If this parameter is left empty, all tag values are matched.
-   * - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * - If the tag key is empty, this parameter must also be empty. If empty, all tag values are matched.
+   * - The value can be up to 128 characters in length and cannot start with aliyun or acs:, or contain http:// or https://.
    * 
    * @example
    * test
@@ -67,10 +67,10 @@ export class CreatePostPayInstanceShrinkRequest extends $dara.Model {
   deployType?: number;
   /**
    * @remarks
-   * The disk capacity.
+   * The cloud disk capacity.
    * 
-   * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * > This parameter is not required if you create a serverless instance.
+   * For valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * > This parameter is not required when you create a Serverless instance.
    * 
    * @example
    * 1500
@@ -78,12 +78,12 @@ export class CreatePostPayInstanceShrinkRequest extends $dara.Model {
   diskSize?: number;
   /**
    * @remarks
-   * The disk type. Valid values:
+   * The cloud disk type. Valid values:
    * 
-   * - **0**: ultra disk
+   * - **0**: premium performance disk
    * 
    * - **1**: SSD
-   * > This parameter is not required if you create a serverless instance.
+   * > This parameter is not required when you create a Serverless instance.
    * 
    * @example
    * 0
@@ -93,11 +93,11 @@ export class CreatePostPayInstanceShrinkRequest extends $dara.Model {
    * @remarks
    * The Internet traffic.
    * 
-   * - This parameter is required if **DeployType** is set to **4**.
+   * - Required if **DeployType** is set to **4**.
    * 
-   * - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > This parameter is not required if you create a serverless instance.
+   * > This parameter is not required when you create a Serverless instance.
    * 
    * @example
    * 3
@@ -107,9 +107,9 @@ export class CreatePostPayInstanceShrinkRequest extends $dara.Model {
    * @remarks
    * The traffic specification.
    * 
-   * - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - For valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
-   * > This parameter is not required if you create a serverless instance.
+   * > This parameter is not required when you create a Serverless instance.
    * 
    * @example
    * alikafka.hw.2xlarge
@@ -117,10 +117,10 @@ export class CreatePostPayInstanceShrinkRequest extends $dara.Model {
   ioMaxSpec?: string;
   /**
    * @remarks
-   * The billing type. Valid values:
+   * The billing method. Valid values:
    * 
    * - 1 (default): pay-as-you-go for reserved instances.
-   * - 3: pay-as-you-go for serverless reserved specifications + pay-as-you-go for serverless elastic scaling.
+   * - 3: pay-as-you-go for reserved capacity of Serverless instances plus pay-as-you-go for Serverless elastic scaling.
    * 
    * @example
    * 0
@@ -130,8 +130,8 @@ export class CreatePostPayInstanceShrinkRequest extends $dara.Model {
    * @remarks
    * The number of partitions to purchase.
    * 
-   * * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * > This parameter is not required if the instance is a serverless instance.
+   * * For valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * > This parameter is not required for Serverless instances.
    * 
    * @example
    * 100
@@ -151,7 +151,7 @@ export class CreatePostPayInstanceShrinkRequest extends $dara.Model {
    * @remarks
    * The resource group ID.
    * 
-   * If this parameter is not specified, the instance is placed in the default resource group. You can view the resource group ID in the Resource Management console.
+   * If not specified, the instance is added to the default resource group. You can view resource group IDs in the Resource Group console.
    * 
    * @example
    * rg-ac***********7q
@@ -159,26 +159,26 @@ export class CreatePostPayInstanceShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The settings for the serverless instance. This parameter is required when you create a serverless instance.
+   * The settings for the Serverless instance. Required when creating a Serverless instance.
    */
   serverlessConfigShrink?: string;
   /**
    * @remarks
-   * The specification type.
+   * The instance type.
    * 
-   * Valid values when PaidType is set to 1 (pay-as-you-go for reserved instances):
+   * When PaidType is set to 1 (pay-as-you-go for reserved instances), valid values are:
    * 
-   * - normal: Standard Edition (shared throughput)
-   * - professional: Professional Edition (shared throughput)
-   * - professionalForHighRead: Professional Edition (shared throughput for high read)
+   * - normal: Standard Edition (high-write)
+   * - professional: Professional Edition (high-write)
+   * - professionalForHighRead: Professional Edition (high-read)
    * 
-   * Valid values when PaidType is set to 3 (pay-as-you-go for serverless reserved specifications + pay-as-you-go for serverless elastic scaling):
+   * When PaidType is set to 3 (pay-as-you-go for reserved capacity of Serverless instances plus pay-as-you-go for Serverless elastic scaling), valid values are:
    * 
    * - basic: Serverless Basic Edition
    * - normal: Serverless Standard Edition
    * - professional: Serverless Professional Edition
    * 
-   * For more information about the specification types, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * For descriptions of the above instance types, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @example
    * professional
@@ -186,7 +186,7 @@ export class CreatePostPayInstanceShrinkRequest extends $dara.Model {
   specType?: string;
   /**
    * @remarks
-   * The tag list.
+   * The list of tags.
    */
   tag?: CreatePostPayInstanceShrinkRequestTag[];
   static names(): { [key: string]: string } {

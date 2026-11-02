@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAllInstanceIdListRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the instance. This parameter is reserved.
+   * The region ID of the instance. This is a reserved parameter.
    * 
    * @example
    * cn-hangzhou

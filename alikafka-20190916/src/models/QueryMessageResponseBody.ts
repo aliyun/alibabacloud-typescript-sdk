@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMessageResponseBodyMessageList extends $dara.Model {
   /**
    * @remarks
-   * The checksum value.
+   * The checksum.
    * 
    * @example
    * 0
@@ -61,7 +61,7 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   serializedValueSize?: number;
   /**
    * @remarks
-   * The message creation time. The value is a UNIX timestamp. Unit: milliseconds.
+   * The creation time of the message. The value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1705482172640
@@ -69,7 +69,7 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   timestamp?: number;
   /**
    * @remarks
-   * The timestamp type.
+   * The type of the message timestamp.
    * 
    * @example
    * CreateTime
@@ -85,11 +85,10 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   topic?: string;
   /**
    * @remarks
-   * The size of the truncated key message. Unit: bytes.
+   * The size of the truncated key. Unit: bytes.
    * 
-   * 
-   * > Each queried message displays a maximum of 1 KB of content. Content that exceeds 1 KB is automatically truncated.
-   * [For more information, refer to the documentation](https://help.aliyun.com/document_detail/113172.html).
+   * > A maximum of 1 KB of content is displayed for each queried message. Content that exceeds 1 KB is automatically truncated.
+   * [For more information, see the documentation](https://help.aliyun.com/document_detail/113172.html).
    * 
    * @example
    * 0
@@ -97,10 +96,10 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
   truncatedKeySize?: number;
   /**
    * @remarks
-   * The size of the truncated value message. Unit: bytes.
+   * The size of the truncated value. Unit: bytes.
    * 
-   * > Each queried message displays a maximum of 1 KB of content. Content that exceeds 1 KB is automatically truncated.
-   * [For more information, refer to the documentation](https://help.aliyun.com/document_detail/113172.html).
+   * > A maximum of 1 KB of content is displayed for each queried message. Content that exceeds 1 KB is automatically truncated.
+   * [For more information, see the documentation](https://help.aliyun.com/document_detail/113172.html).
    * 
    * @example
    * 0
@@ -172,7 +171,7 @@ export class QueryMessageResponseBodyMessageList extends $dara.Model {
 export class QueryMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned code. A value of 200 indicates success.
+   * The return code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -188,7 +187,7 @@ export class QueryMessageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The query results of messages.
+   * The queried messages.
    */
   messageList?: QueryMessageResponseBodyMessageList[];
   /**

@@ -45,7 +45,7 @@ export class CreatePostPayInstanceResponseBodyData extends $dara.Model {
 export class CreatePostPayInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 indicates success.
+   * The HTTP status code. The value 200 indicates success.
    * 
    * @example
    * 200
@@ -58,7 +58,7 @@ export class CreatePostPayInstanceResponseBody extends $dara.Model {
   data?: CreatePostPayInstanceResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * operation success.

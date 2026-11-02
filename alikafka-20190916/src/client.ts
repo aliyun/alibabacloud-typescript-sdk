@@ -12,42 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'us-west-1': "alikafka.us-west-1.aliyuncs.com",
-      'us-southeast-1': "alikafka.us-southeast-1.aliyuncs.com",
-      'us-east-1': "alikafka.us-east-1.aliyuncs.com",
-      'na-south-1': "alikafka.na-south-1.aliyuncs.com",
-      'me-east-1': "alikafka.me-east-1.aliyuncs.com",
-      'me-central-1': "alikafka.me-central-1.aliyuncs.com",
-      'eu-west-1': "alikafka.eu-west-1.aliyuncs.com",
-      'eu-central-1': "alikafka.eu-central-1.aliyuncs.com",
-      'cn-zhengzhou-jva': "alikafka.cn-zhengzhou-jva.aliyuncs.com",
-      'cn-zhangjiakou': "alikafka.cn-zhangjiakou.aliyuncs.com",
-      'cn-wulanchabu-gic-1': "alikafka.cn-wulanchabu-gic-1.aliyuncs.com",
-      'cn-wulanchabu': "alikafka.cn-wulanchabu.aliyuncs.com",
-      'cn-shenzhen-finance-1': "alikafka.cn-shenzhen-finance-1.aliyuncs.com",
-      'cn-shenzhen': "alikafka.cn-shenzhen.aliyuncs.com",
-      'cn-shanghai-finance-1': "alikafka.cn-shanghai-finance-1.aliyuncs.com",
-      'cn-shanghai': "alikafka.cn-shanghai.aliyuncs.com",
-      'cn-qingdao': "alikafka.cn-qingdao.aliyuncs.com",
-      'cn-huhehaote': "alikafka.cn-huhehaote.aliyuncs.com",
-      'cn-hongkong': "alikafka.cn-hongkong.aliyuncs.com",
-      'cn-heyuan': "alikafka.cn-heyuan.aliyuncs.com",
-      'cn-hangzhou-finance': "alikafka.cn-hangzhou-finance.aliyuncs.com",
-      'cn-hangzhou': "alikafka.cn-hangzhou.aliyuncs.com",
-      'cn-guangzhou': "alikafka.cn-guangzhou.aliyuncs.com",
-      'cn-fuzhou': "alikafka.cn-fuzhou.aliyuncs.com",
-      'cn-chengdu': "alikafka.cn-chengdu.aliyuncs.com",
-      'cn-beijing-finance-1': "alikafka.cn-beijing-finance-1.aliyuncs.com",
-      'cn-beijing': "alikafka.cn-beijing.aliyuncs.com",
-      'ap-southeast-7': "alikafka.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-6': "alikafka.ap-southeast-6.aliyuncs.com",
-      'ap-southeast-5': "alikafka.ap-southeast-5.aliyuncs.com",
-      'ap-southeast-3': "alikafka.ap-southeast-3.aliyuncs.com",
-      'ap-southeast-1': "alikafka.ap-southeast-1.aliyuncs.com",
-      'ap-northeast-2': "alikafka.ap-northeast-2.aliyuncs.com",
-      'ap-northeast-1': "alikafka.ap-northeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("alikafka", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -178,7 +142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transfers a resource to a different resource group.
+   * Transfers a resource to another resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -217,7 +181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Transfers a resource to a different resource group.
+   * Transfers a resource to another resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -282,7 +246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an access control list (ACL).
+   * Creates an ACL.
    * 
    * @param request - CreateAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -349,7 +313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an access control list (ACL).
+   * Creates an ACL.
    * 
    * @param request - CreateAclRequest
    * @returns CreateAclResponse
@@ -360,7 +324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls CreateConsumerGroup to create a consumer group.
+   * Creates a consumer group.
    * 
    * @param request - CreateConsumerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -407,7 +371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls CreateConsumerGroup to create a consumer group.
+   * Creates a consumer group.
    * 
    * @param request - CreateConsumerGroupRequest
    * @returns CreateConsumerGroupResponse
@@ -510,10 +474,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pay-as-you-go instances are billed based on the actual usage of purchased resource specifications. You use resources first and then pay for them. This billing method is suitable for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call CreatePostPayOrder to create a pay-as-you-go instance.
+   * Creates a pay-as-you-go instance. Pay-as-you-go instances are billed based on the actual usage of the purchased resource specifications. You use the resources first and then pay for them. This billing method is mainly applicable to short-term scenarios such as testing or scenarios with uncertain peak traffic. This topic describes how to call the CreatePostPayOrder operation to create a pay-as-you-go instance.
    * 
    * @remarks
-   * Before you use this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * Before you call this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @param tmpReq - CreatePostPayOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -602,10 +566,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pay-as-you-go instances are billed based on the actual usage of purchased resource specifications. You use resources first and then pay for them. This billing method is suitable for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call CreatePostPayOrder to create a pay-as-you-go instance.
+   * Creates a pay-as-you-go instance. Pay-as-you-go instances are billed based on the actual usage of the purchased resource specifications. You use the resources first and then pay for them. This billing method is mainly applicable to short-term scenarios such as testing or scenarios with uncertain peak traffic. This topic describes how to call the CreatePostPayOrder operation to create a pay-as-you-go instance.
    * 
    * @remarks
-   * Before you use this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * Before you call this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @param request - CreatePostPayOrderRequest
    * @returns CreatePostPayOrderResponse
@@ -619,8 +583,8 @@ export default class Client extends OpenApi {
    * Creates a subscription instance and returns the instance ID and order ID.
    * 
    * @remarks
-   * - Make sure that you fully understand the billing methods and pricing of subscription instances before you call this operation. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * - After you call this operation, the upfront instance is purchased for one epoch of one month by default. Auto-renewal is enabled by default, and the Unified Auto Renewal Cycle is one month. If you want to modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Settings for auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+   * - Before you call this operation, make sure that you fully understand the billing methods and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - After you call this operation, the default subscription duration of the purchased subscription instance is one month, and auto-renewal is enabled by default with an auto-renewal epoch of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. <props="china">For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
    * 
    * @param tmpReq - CreatePrePayInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -708,8 +672,8 @@ export default class Client extends OpenApi {
    * Creates a subscription instance and returns the instance ID and order ID.
    * 
    * @remarks
-   * - Make sure that you fully understand the billing methods and pricing of subscription instances before you call this operation. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * - After you call this operation, the upfront instance is purchased for one epoch of one month by default. Auto-renewal is enabled by default, and the Unified Auto Renewal Cycle is one month. If you want to modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Settings for auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+   * - Before you call this operation, make sure that you fully understand the billing methods and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * - After you call this operation, the default subscription duration of the purchased subscription instance is one month, and auto-renewal is enabled by default with an auto-renewal epoch of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. <props="china">For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
    * 
    * @param request - CreatePrePayInstanceRequest
    * @returns CreatePrePayInstanceResponse
@@ -720,11 +684,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a subscription instance. Subscription instances require upfront payment before you can use resources. This billing method is suitable for long-term stable business scenarios.
+   * Creates a subscription instance. Subscription instances require upfront payment and are suitable for long-term, stable workloads.
    * 
    * @remarks
-   * - Before calling this operation, make sure that you fully understand the billing method and pricing of upfront instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * - After you call this operation, the subscription instance is purchased for one epoch by default, and auto-renewal is enabled by default with a Unified Auto Renewal Cycle of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console Settings.<props="china"> For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+   * - Before you call this operation, make sure that you fully understand the billing methods and pricing of subscription instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * - After you call this operation, the default subscription duration of the purchased subscription instance is one month, and auto-renewal is enabled by default with an auto-renewal epoch of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. <props="china">For more information, see [Auto-renewal settings](https://help.aliyun.com/document_detail/37128.html).
    * 
    * @param tmpReq - CreatePrePayOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -817,11 +781,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a subscription instance. Subscription instances require upfront payment before you can use resources. This billing method is suitable for long-term stable business scenarios.
+   * Creates a subscription instance. Subscription instances require upfront payment and are suitable for long-term, stable workloads.
    * 
    * @remarks
-   * - Before calling this operation, make sure that you fully understand the billing method and pricing of upfront instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-   * - After you call this operation, the subscription instance is purchased for one epoch by default, and auto-renewal is enabled by default with a Unified Auto Renewal Cycle of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console Settings.<props="china"> For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+   * - Before you call this operation, make sure that you fully understand the billing methods and pricing of subscription instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+   * - After you call this operation, the default subscription duration of the purchased subscription instance is one month, and auto-renewal is enabled by default with an auto-renewal epoch of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. <props="china">For more information, see [Auto-renewal settings](https://help.aliyun.com/document_detail/37128.html).
    * 
    * @param request - CreatePrePayOrderRequest
    * @returns CreatePrePayOrderResponse
@@ -832,7 +796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Simple Authentication and Security Layer (SASL) user by calling CreateSaslUser.
+   * Creates a SASL user.
    * 
    * @param request - CreateSaslUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -883,7 +847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Simple Authentication and Security Layer (SASL) user by calling CreateSaslUser.
+   * Creates a SASL user.
    * 
    * @param request - CreateSaslUserRequest
    * @returns CreateSaslUserResponse
@@ -894,7 +858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scheduled elastic scaling policy for a serverless instance after deployment.
+   * Creates an elastic scheduled scaling policy for a serverless instance.
    * 
    * @remarks
    * ###### Only serverless instances are supported.
@@ -978,7 +942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scheduled elastic scaling policy for a serverless instance after deployment.
+   * Creates an elastic scheduled scaling policy for a serverless instance.
    * 
    * @remarks
    * ###### Only serverless instances are supported.
@@ -1082,7 +1046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an access control list (ACL).
+   * Deletes an ACL.
    * 
    * @param request - DeleteAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1149,7 +1113,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an access control list (ACL).
+   * Deletes an ACL.
    * 
    * @param request - DeleteAclRequest
    * @returns DeleteAclResponse
@@ -1210,7 +1174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an instance after a subscription or pay-as-you-go instance is released. This topic describes how to call the DeleteInstance operation to delete an instance.
+   * Deletes a released subscription or pay-as-you-go instance.
    * 
    * @param request - DeleteInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1245,7 +1209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an instance after a subscription or pay-as-you-go instance is released. This topic describes how to call the DeleteInstance operation to delete an instance.
+   * Deletes a released subscription or pay-as-you-go instance.
    * 
    * @param request - DeleteInstanceRequest
    * @returns DeleteInstanceResponse
@@ -1256,7 +1220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the DeleteSaslUser operation to delete a Simple Authentication and Security Layer (SASL) user.
+   * Deletes a Simple Authentication and Security Layer (SASL) user.
    * 
    * @param request - DeleteSaslUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1303,7 +1267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the DeleteSaslUser operation to delete a Simple Authentication and Security Layer (SASL) user.
+   * Deletes a Simple Authentication and Security Layer (SASL) user.
    * 
    * @param request - DeleteSaslUserRequest
    * @returns DeleteSaslUserResponse
@@ -1314,10 +1278,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * After a Serverless instance is deployed, you can call this API operation to delete its scheduled scaling policy configuration.
+   * Deletes the elastic scheduled policy configuration for a serverless instance.
    * 
    * @remarks
-   * ###### This operation applies only to Serverless instances.
+   * ###### Only serverless instances are supported.
    * 
    * @param request - DeleteScheduledScalingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1356,10 +1320,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * After a Serverless instance is deployed, you can call this API operation to delete its scheduled scaling policy configuration.
+   * Deletes the elastic scheduled policy configuration for a serverless instance.
    * 
    * @remarks
-   * ###### This operation applies only to Serverless instances.
+   * ###### Only serverless instances are supported.
    * 
    * @param request - DeleteScheduledScalingRuleRequest
    * @returns DeleteScheduledScalingRuleResponse
@@ -1476,7 +1440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries ACL resource names.
+   * Queries the ACL resource names.
    * 
    * @param request - DescribeAclResourceNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1519,7 +1483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries ACL resource names.
+   * Queries the ACL resource names.
    * 
    * @param request - DescribeAclResourceNameRequest
    * @returns DescribeAclResourceNameResponse
@@ -1604,7 +1568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call DescribeSaslUsers to query SASL users.
+   * Queries SASL users.
    * 
    * @param request - DescribeSaslUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1639,7 +1603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call DescribeSaslUsers to query SASL users.
+   * Queries SASL users.
    * 
    * @param request - DescribeSaslUsersRequest
    * @returns DescribeSaslUsersResponse
@@ -1830,10 +1794,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the free use of groups by calling EnableAutoGroupCreation.
+   * Enables or disables automatic group creation.
    * 
    * @remarks
-   * Only reserved instances support this API operation.
+   * Currently, only reserved instances support this API operation.
    * Serverless instances are not supported.
    * 
    * @param request - EnableAutoGroupCreationRequest
@@ -1873,10 +1837,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the free use of groups by calling EnableAutoGroupCreation.
+   * Enables or disables automatic group creation.
    * 
    * @remarks
-   * Only reserved instances support this API operation.
+   * Currently, only reserved instances support this API operation.
    * Serverless instances are not supported.
    * 
    * @param request - EnableAutoGroupCreationRequest
@@ -1888,7 +1852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes how to call the EnableAutoTopicCreation operation to enable or disable automatic topic creation and modify the default number of partitions for automatically created topics.
+   * This topic describes how to call EnableAutoTopicCreation to enable or shut down automatic topic creation and modify the default number of partitions for automatically created topics.
    * 
    * @param request - EnableAutoTopicCreationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1935,7 +1899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This topic describes how to call the EnableAutoTopicCreation operation to enable or disable automatic topic creation and modify the default number of partitions for automatically created topics.
+   * This topic describes how to call EnableAutoTopicCreation to enable or shut down automatic topic creation and modify the default number of partitions for automatically created topics.
    * 
    * @param request - EnableAutoTopicCreationRequest
    * @returns EnableAutoTopicCreationResponse
@@ -2016,7 +1980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IDs of all instances in the current account.
+   * Queries the instance IDs of all instances under the current account.
    * 
    * @param request - GetAllInstanceIdListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2047,7 +2011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IDs of all instances in the current account.
+   * Queries the instance IDs of all instances under the current account.
    * 
    * @param request - GetAllInstanceIdListRequest
    * @returns GetAllInstanceIdListResponse
@@ -2058,7 +2022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The GetAllowedIpList operation retrieves the IP address allowlist.
+   * Retrieves the IP whitelist.
    * 
    * @param request - GetAllowedIpListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2093,7 +2057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The GetAllowedIpList operation retrieves the IP address allowlist.
+   * Retrieves the IP whitelist.
    * 
    * @param request - GetAllowedIpListRequest
    * @returns GetAllowedIpListResponse
@@ -2104,10 +2068,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * After a Serverless instance is deployed, you can call this API operation to query the auto scaling configuration of the instance.
+   * Queries the scheduled elastic scaling policy configurations of a serverless instance.
    * 
    * @remarks
-   * ###### **This operation applies only to Serverless instances.**
+   * ###### **Only serverless instances are supported.**
    * 
    * @param request - GetAutoScalingConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2142,10 +2106,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * After a Serverless instance is deployed, you can call this API operation to query the auto scaling configuration of the instance.
+   * Queries the scheduled elastic scaling policy configurations of a serverless instance.
    * 
    * @remarks
-   * ###### **This operation applies only to Serverless instances.**
+   * ###### **Only serverless instances are supported.**
    * 
    * @param request - GetAutoScalingConfigurationRequest
    * @returns GetAutoScalingConfigurationResponse
@@ -2156,7 +2120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of consumer groups.
+   * Retrieves consumer group information by calling GetConsumerList.
    * 
    * @param request - GetConsumerListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2203,7 +2167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of consumer groups.
+   * Retrieves consumer group information by calling GetConsumerList.
    * 
    * @param request - GetConsumerListRequest
    * @returns GetConsumerListResponse
@@ -2268,7 +2232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about instances in a specified region.
+   * Queries the details of instances in a specified region.
    * 
    * @param request - GetInstanceListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2319,7 +2283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about instances in a specified region.
+   * Queries the details of instances in a specified region.
    * 
    * @param request - GetInstanceListRequest
    * @returns GetInstanceListResponse
@@ -2333,9 +2297,9 @@ export default class Client extends OpenApi {
    * Retrieves the IP addresses of Kafka clients.
    * 
    * @remarks
-   * - The IP information is retrieved from the sampling logs of client requests to the server through the Kafka API.
-   * - The count indicates the number of connections from a single IP address using different ports that the server detected within the specified time range.
-   * - If your server is not running the latest minor version, the sampling logs may be inaccurate and provide less precise IP information. We recommend that you upgrade the server to the latest minor version.
+   * - The collected IP information is obtained from the sampled logs of API requests sent from clients to the server through Kafka.
+   * - The count indicates the number of connections from the same IP address to different ports recorded by the server within the specified time range.
+   * - If the minor version of your server is not the latest, the sampled logs may not be accurate enough, which ultimately leads to inaccurate collected IP information. Therefore, upgrade the minor version of your server as soon as possible.
    * 
    * @param request - GetKafkaClientIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2393,9 +2357,9 @@ export default class Client extends OpenApi {
    * Retrieves the IP addresses of Kafka clients.
    * 
    * @remarks
-   * - The IP information is retrieved from the sampling logs of client requests to the server through the Kafka API.
-   * - The count indicates the number of connections from a single IP address using different ports that the server detected within the specified time range.
-   * - If your server is not running the latest minor version, the sampling logs may be inaccurate and provide less precise IP information. We recommend that you upgrade the server to the latest minor version.
+   * - The collected IP information is obtained from the sampled logs of API requests sent from clients to the server through Kafka.
+   * - The count indicates the number of connections from the same IP address to different ports recorded by the server within the specified time range.
+   * - If the minor version of your server is not the latest, the sampled logs may not be accurate enough, which ultimately leads to inaccurate collected IP information. Therefore, upgrade the minor version of your server as soon as possible.
    * 
    * @param request - GetKafkaClientIpRequest
    * @returns GetKafkaClientIpResponse
@@ -2452,7 +2416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of threats on an instance.
+   * Queries the risk list of an instance.
    * 
    * @param request - GetRiskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2495,7 +2459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of threats on an instance.
+   * Queries the risk list of an instance.
    * 
    * @param request - GetRiskListRequest
    * @returns GetRiskListResponse
@@ -2664,7 +2628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of rebalancing tasks.
+   * Retrieves the details of a rebalance.
    * 
    * @param request - ListRebalanceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2703,7 +2667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of rebalancing tasks.
+   * Retrieves the details of a rebalance.
    * 
    * @param request - ListRebalanceInfoRequest
    * @returns ListRebalanceInfoResponse
@@ -2714,7 +2678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of tags that are attached to resources.
+   * Queries the tags bound to resources.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2761,7 +2725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of tags that are attached to resources.
+   * Queries the tags bound to resources.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -2822,7 +2786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation modifies the number of partitions in a topic.
+   * Modifies the number of partitions for a topic.
    * 
    * @param request - ModifyPartitionNumRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2865,7 +2829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation modifies the number of partitions in a topic.
+   * Modifies the number of partitions for a topic.
    * 
    * @param request - ModifyPartitionNumRequest
    * @returns ModifyPartitionNumResponse
@@ -2876,10 +2840,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * After you deploy Serverless instances, you can call this API operation to modify their scheduled scaling policy.
+   * Modifies the scheduled auto scaling policy of a serverless instance.
    * 
    * @remarks
-   * ###### This operation applies only to Serverless instances.
+   * ###### Only serverless instances are supported.
    * 
    * @param request - ModifyScheduledScalingRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2922,10 +2886,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * After you deploy Serverless instances, you can call this API operation to modify their scheduled scaling policy.
+   * Modifies the scheduled auto scaling policy of a serverless instance.
    * 
    * @remarks
-   * ###### This operation applies only to Serverless instances.
+   * ###### Only serverless instances are supported.
    * 
    * @param request - ModifyScheduledScalingRuleRequest
    * @returns ModifyScheduledScalingRuleResponse
@@ -3140,7 +3104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts an instance.
+   * Enables an instance.
    * 
    * @remarks
    * You can call this operation only when the instance is in the Stopped state.
@@ -3178,7 +3142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts an instance.
+   * Enables an instance.
    * 
    * @remarks
    * You can call this operation only when the instance is in the Stopped state.
@@ -3925,7 +3889,7 @@ export default class Client extends OpenApi {
    * Upgrades a subscription instance.
    * 
    * @remarks
-   * Before calling this operation, ensure you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * Before you call this operation, make sure that you fully understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @param tmpReq - UpgradePrePayOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4009,7 +3973,7 @@ export default class Client extends OpenApi {
    * Upgrades a subscription instance.
    * 
    * @remarks
-   * Before calling this operation, ensure you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+   * Before you call this operation, make sure that you fully understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
    * 
    * @param request - UpgradePrePayOrderRequest
    * @returns UpgradePrePayOrderResponse

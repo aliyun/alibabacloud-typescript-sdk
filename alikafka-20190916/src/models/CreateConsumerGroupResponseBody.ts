@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 indicates success.
+   * The status code. A value of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class CreateConsumerGroupResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * operation success

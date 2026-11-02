@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The duration (unit: minutes) of a single scheduled elastic scaling task.
+   * The duration of a scheduled elastic scaling task. Unit: minutes.
    * 
-   * > The value must be at least 15 minutes.
+   * > The value must be at least 15.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,10 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   durationMinutes?: number;
   /**
    * @remarks
-   * Specifies whether to enable or disable the scheduled policy. Valid values:
+   * Specifies whether to enable or disable the scheduled task policy. Valid values:
    * 
-   * - **true**: Enabled.
-   * - **false**: Disabled.
+   * - **true**: enables the policy.
+   * - **false**: disables the policy.
    * 
    * @example
    * true
@@ -28,13 +28,13 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The time when the scheduled policy starts to take effect.
+   * The start time of the scheduled policy.
    * 
-   * If the schedule type is single execution, the start time must be at least 30 minutes later than the current time.
+   * If the schedule type is set to one-time execution, the start time must be at least 30 minutes later than the current time.
    * 
    * 
    * 
-   * >Notice: To prevent the server from continuously performing scale-up and scale-down tasks, the interval between different scheduled tasks must be at least 60 minutes.
+   * >Notice: To prevent the server from continuously executing scale-up and scale-down tasks, the interval between different scheduled tasks must be at least 60 minutes.</notice>
    * 
    * This parameter is required.
    * 
@@ -65,8 +65,8 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The repeat type. This parameter is required when ScheduleType is set to repeat. Valid values:
-   *       <li> Daily: timed scheduling every day.
-   *       <li> Weekly: timed scheduling every week.
+   *       <li> Daily: Daily timed scheduling.
+   *       <li> Weekly: Weekly timed scheduling.
    * 
    * @example
    * Weekly
@@ -74,9 +74,9 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   repeatType?: string;
   /**
    * @remarks
-   * The reserved production specification for scheduled elastic scaling (unit: MB/s).
+   * The reserved production specification for scheduled elastic scaling. Unit: MB/s.
    * 
-   * > At least one of ReservedPubFlow and ReservedSubFlow must be higher than the current specification.
+   * > At least one of the ReservedPubFlow and ReservedSubFlow parameters must be greater than the current specification.
    * 
    * This parameter is required.
    * 
@@ -86,8 +86,8 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   reservedPubFlow?: number;
   /**
    * @remarks
-   * The reserved consumption specification for scheduled elastic scaling (unit: MB/s).
-   * > At least one of ReservedSubFlow and ReservedPubFlow must be higher than the current specification.
+   * The reserved consumption specification for scheduled elastic scaling. Unit: MB/s.
+   * > At least one of the ReservedSubFlow and ReservedPubFlow parameters must be greater than the current specification.
    * 
    * This parameter is required.
    * 
@@ -111,9 +111,9 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
    * @remarks
    * The schedule type. Valid values:
    * 
-   * - at: scheduled once only.
+   * - at: The policy is executed only once.
    * 
-   * - repeat: scheduled repeatedly.
+   * - repeat: The policy is executed repeatedly.
    * 
    * This parameter is required.
    * 
@@ -123,7 +123,7 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   scheduleType?: string;
   /**
    * @remarks
-   * The time zone (Coordinated Universal Time).
+   * The time zone in Coordinated Universal Time (UTC).
    * 
    * This parameter is required.
    * 
@@ -133,7 +133,7 @@ export class CreateScheduledScalingRuleShrinkRequest extends $dara.Model {
   timeZone?: string;
   /**
    * @remarks
-   * The days of the week. Multiple days are supported for repeated execution.
+   * The days of the week. Multiple days can be selected for repeated execution.
    */
   weeklyTypesShrink?: string;
   static names(): { [key: string]: string } {
