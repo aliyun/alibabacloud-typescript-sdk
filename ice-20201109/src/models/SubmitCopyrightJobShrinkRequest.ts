@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitCopyrightJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A description of the watermark job.
+   * The description of the watermark information.
    * 
    * @example
    * Task description
@@ -13,19 +13,16 @@ export class SubmitCopyrightJobShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The input video file to be watermarked.
+   * The video file to which the watermark is to be added.
    * 
-   * > - The OSS object or media asset must be in the same region as the service call.
+   * > - The region of the OSS file or media asset must be the same as the region of the current IMS.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example.mp4"}
    */
   inputShrink?: string;
   /**
    * @remarks
-   * The watermark level, which specifies the embedding channel. Valid values are 0, 1, and 2, which correspond to the U, UV, and YUV channels, respectively.
+   * The watermark level, which indicates the embedding channel. Valid values: 0 (0u), 1 (1uv), and 2 (2yuv).
    * 
    * @example
    * 0
@@ -33,7 +30,7 @@ export class SubmitCopyrightJobShrinkRequest extends $dara.Model {
   level?: number;
   /**
    * @remarks
-   * The watermark content to embed.
+   * The watermark information to be added.
    * 
    * This parameter is required.
    * 
@@ -43,25 +40,20 @@ export class SubmitCopyrightJobShrinkRequest extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The location of the output file.
+   * The URL of the output file.
    * 
-   * > - The OSS bucket must be in the same region as the service call.
+   * > - The region of OSS must be the same as the region of the current IMS.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example_result.mp4"}
    */
   outputShrink?: string;
   /**
    * @remarks
-   * The parameters for the watermark job, specified as a JSON string. The following parameter is supported:
+   * The parameters of the watermark job, in the JSON string format. The following parameters are supported:
    * 
-   * - `algoType`: The algorithm type. Defaults to `v1`.
-   * 
-   *   - `v1`: For videos 3 minutes or longer.
-   * 
-   *   - `v2`: For short videos.
+   * - algoType: the algorithm type. Default value: v1.
+   *   - v1: long video copyright watermark, which supports only videos longer than 3 minutes.
+   *   - v2: short video copyright watermark.
    * 
    * @example
    * {"algoType":"v2"}
@@ -69,7 +61,7 @@ export class SubmitCopyrightJobShrinkRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * The start time of the watermark in seconds. Defaults to 0.
+   * The start time of the watermark, in seconds. If you do not specify this parameter, the default value is 0.
    * 
    * @example
    * 0
@@ -77,7 +69,7 @@ export class SubmitCopyrightJobShrinkRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The end time of the watermark in seconds. If unspecified, the watermark is applied until the video ends.
+   * The end time of the watermark, in seconds. If you do not specify this parameter, the default value is the duration of the video.
    * 
    * @example
    * 10
@@ -85,7 +77,7 @@ export class SubmitCopyrightJobShrinkRequest extends $dara.Model {
   totalTime?: number;
   /**
    * @remarks
-   * The user data. The value can be up to 1,024 bytes in length.
+   * The user-defined data, with a maximum length of 1,024 bytes.
    * 
    * @example
    * 123

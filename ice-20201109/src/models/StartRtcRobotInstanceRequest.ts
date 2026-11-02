@@ -6,7 +6,7 @@ export class StartRtcRobotInstanceRequestConfig extends $dara.Model {
   asrMaxSilence?: number;
   /**
    * @remarks
-   * Specifies whether to allow voice interrupt.
+   * Specifies whether voice interruption is allowed.
    * 
    * @example
    * true
@@ -14,10 +14,10 @@ export class StartRtcRobotInstanceRequestConfig extends $dara.Model {
   enableVoiceInterrupt?: boolean;
   /**
    * @remarks
-   * The greeting the AI agent speaks when a user joins the call.
+   * The greeting message that the AI agent proactively speaks after the user joins the call.
    * 
    * @example
-   * 你好，有什么可以帮助的吗？
+   * Hello, how can I help you?
    */
   greeting?: string;
   useVoiceprint?: boolean;
@@ -25,7 +25,7 @@ export class StartRtcRobotInstanceRequestConfig extends $dara.Model {
   userOnlineTimeout?: number;
   /**
    * @remarks
-   * The voice\\"s unique identifier.
+   * The voice ID.
    * 
    * @example
    * zhixiaoxia
@@ -73,7 +73,7 @@ export class StartRtcRobotInstanceRequestConfig extends $dara.Model {
 export class StartRtcRobotInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The authentication token required to join the RTC call. You must generate this token using your RTC AppKey.
+   * The RTC join token. You must generate this token by using the RTC AppKey.
    * 
    * This parameter is required.
    * 
@@ -83,7 +83,7 @@ export class StartRtcRobotInstanceRequest extends $dara.Model {
   authToken?: string;
   /**
    * @remarks
-   * The RTC channel\\"s unique identifier.
+   * The RTC channel ID.
    * 
    * This parameter is required.
    * 
@@ -93,12 +93,12 @@ export class StartRtcRobotInstanceRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
-   * Specifies advanced call configurations that override the agent\\"s default configurations. If you omit this parameter, the agent uses its default configurations.
+   * The advanced call configuration. If specified, this configuration overwrites the default configurations that were set when the AI agent was created. If not specified, the default configurations are used.
    */
   config?: StartRtcRobotInstanceRequestConfig;
   /**
    * @remarks
-   * The AI agent\\"s unique identifier.
+   * The AI agent ID.
    * 
    * This parameter is required.
    * 
@@ -108,7 +108,7 @@ export class StartRtcRobotInstanceRequest extends $dara.Model {
   robotId?: string;
   /**
    * @remarks
-   * User-defined information.
+   * The custom user information.
    * 
    * @example
    * {}
@@ -116,7 +116,7 @@ export class StartRtcRobotInstanceRequest extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The AI agent\\"s unique identifier within the channel.
+   * The ID of the AI agent in the channel.
    * 
    * This parameter is required.
    * 

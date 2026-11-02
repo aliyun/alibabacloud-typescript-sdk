@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVodPackagingConfigurationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the packaging group.
+   * The name of the video-on-demand packaging group.
    * 
    * @example
    * vod_hls
@@ -13,7 +13,7 @@ export class ListVodPackagingConfigurationsRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The search keyword. The names of the returned packaging configurations contain the keyword.
+   * The search keyword. The system returns the video-on-demand packaging configurations whose names contain the specified keyword.
    * 
    * @example
    * hls
@@ -21,7 +21,7 @@ export class ListVodPackagingConfigurationsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number for paging. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListVodPackagingConfigurationsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries to return on each page for paging. Default value: 10.
    * 
    * @example
    * 10
@@ -37,11 +37,9 @@ export class ListVodPackagingConfigurationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sorting order of the packaging configurations based on the time when they were created. Valid values:
-   * 
-   * - desc (default): descending order.
-   * 
-   * - asc: ascending order.
+   * The sort order. Default value: desc. Valid values:
+   * - desc: Sorts the list in descending order of creation time.
+   * - asc: Sorts the list in ascending order of creation time.
    * 
    * @example
    * desc

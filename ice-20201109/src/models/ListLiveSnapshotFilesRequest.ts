@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveSnapshotFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
-   * - The maximum time range that can be specified is one day.
+   * The end time in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
+   * - The time interval between the end time and the start time cannot exceed one day.
    * 
    * This parameter is required.
    * 
@@ -27,7 +26,7 @@ export class ListLiveSnapshotFilesRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The number of results to return each time. Valid values: 1 to 100. Default value: 10.
+   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -35,13 +34,7 @@ export class ListLiveSnapshotFilesRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The sorting order. Default value: asc.
-   * 
-   * Valid values:
-   * 
-   * - asc: sorts the query results by creation time in ascending order.
-   * 
-   * - desc: sorts the query results by creation time in descending order.
+   * The sort order. Default value: asc.
    * 
    * @example
    * desc
@@ -49,7 +42,7 @@ export class ListLiveSnapshotFilesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
    * 
    * This parameter is required.
    * 

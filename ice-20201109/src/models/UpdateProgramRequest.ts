@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProgramRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about ad breaks.
+   * The ad break information.
    * 
    * @example
    * [{"MessageType":"SPLICE_INSERT","OffsetMillis":1000,"SourceLocationName":"MySourceLocation","SourceName":"MyAdSource","SpliceInsertSettings":{"AvailNumber":0,"AvailExpected":0,"SpliceEventID":1,"UniqueProgramID":0}}]
@@ -13,7 +13,7 @@ export class UpdateProgramRequest extends $dara.Model {
   adBreaks?: string;
   /**
    * @remarks
-   * The name of the channel.
+   * The channel name.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateProgramRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * Extracts a clip from the source.
+   * The clip range information.
    * 
    * @example
    * {StartOffsetMillis: 213123, EndOffsetMillis: 213134}
@@ -31,7 +31,7 @@ export class UpdateProgramRequest extends $dara.Model {
   clipRange?: string;
   /**
    * @remarks
-   * The name of the program.
+   * The program name.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class UpdateProgramRequest extends $dara.Model {
   programName?: string;
   /**
    * @remarks
-   * The name of the source location.
+   * The source location name.
    * 
    * @example
    * MySourceLcation
@@ -49,7 +49,7 @@ export class UpdateProgramRequest extends $dara.Model {
   sourceLocationName?: string;
   /**
    * @remarks
-   * The name of the source.
+   * The source name.
    * 
    * @example
    * MySource
@@ -57,7 +57,7 @@ export class UpdateProgramRequest extends $dara.Model {
   sourceName?: string;
   /**
    * @remarks
-   * The source type of the program. Valid values: vodSource and liveSource.
+   * The source type of the program.
    * 
    * @example
    * vodSource
@@ -65,7 +65,7 @@ export class UpdateProgramRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The program transition method.
+   * The program transition information.
    * 
    * @example
    * {"Type": "RELATIVE", "RelativePosition": "AFTER_PROGRAM", "RelativeProgram": "program2"}

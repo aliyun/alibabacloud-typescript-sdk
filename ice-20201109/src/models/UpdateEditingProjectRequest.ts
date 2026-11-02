@@ -16,10 +16,10 @@ export class UpdateEditingProjectRequest extends $dara.Model {
   businessStatus?: string;
   /**
    * @remarks
-   * The material parameters for the template in JSON format. If TemplateId is specified, ClipsParam must also be specified.<props="china">For more information about the format, see [Create and use a common template](https://help.aliyun.com/document_detail/328557.html) and [Create and use an advanced template](https://help.aliyun.com/document_detail/291418.html).
+   * The material parameters for the template in JSON format. If TemplateId is specified, ClipsParam must also be specified. <props="china">For more information about the format, see [Create and use standard templates](https://help.aliyun.com/document_detail/328557.html) and [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
    * 
    * @example
-   * See the template user guide.
+   * See the template documentation
    */
   clipsParam?: string;
   /**
@@ -50,7 +50,7 @@ export class UpdateEditingProjectRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The template ID, which is used to quickly build a timeline with minimal effort.>Notice: Exactly one of ProjectId, Timeline, and TemplateId must be specified. If TemplateId is specified, ClipsParam must also be specified.
+   * The template ID, which is used to quickly and easily build a timeline. <notice>Only one of ProjectId, Timeline, and TemplateId can be specified. If TemplateId is specified, ClipsParam must also be specified.</notice>
    * 
    * @example
    * ****96e8864746a0b6f3****
@@ -59,6 +59,9 @@ export class UpdateEditingProjectRequest extends $dara.Model {
   /**
    * @remarks
    * The timeline of the cloud editing project in JSON format.
+   * 
+   * @example
+   * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"0123456789abcdef0123456789abcdef"}]}]}
    */
   timeline?: string;
   /**

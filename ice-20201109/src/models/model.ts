@@ -14,6 +14,7 @@ export { AIAgentConfigInterruptConfig } from './AiagentConfig';
 export { AIAgentConfigLlmConfigFunctionMap } from './AiagentConfig';
 export { AIAgentConfigLlmConfigLlmHistory } from './AiagentConfig';
 export { AIAgentConfigLlmConfig } from './AiagentConfig';
+export { AIAgentConfigTransferCallConfig } from './AiagentConfig';
 export { AIAgentConfigTtsConfigPronunciationRules } from './AiagentConfig';
 export { AIAgentConfigTtsConfig } from './AiagentConfig';
 export { AIAgentConfigTurnDetectionConfig } from './AiagentConfig';

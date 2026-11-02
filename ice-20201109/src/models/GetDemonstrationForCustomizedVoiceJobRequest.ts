@@ -5,15 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetDemonstrationForCustomizedVoiceJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The demonstration scenario.
+   * The demonstration scenario. Valid values:
    * 
-   * Valid values:
-   * 
-   * - **story**
-   * 
-   * - **interaction**
-   * 
-   * - **navigation**
+   * - **story**: Story.
+   * - **interaction**: Interaction.
+   * - **navigation**: Navigation.
    * 
    * This parameter is required.
    * 

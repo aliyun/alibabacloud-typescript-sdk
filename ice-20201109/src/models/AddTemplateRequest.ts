@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class AddTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * - The standard template Config is an encapsulation based on the cloud editing Timeline. Custom template Config provides more flexibility. If you have special requirements, familiarize yourself with the Config structure and customize the template. For details, see [Standard template Config details](https://help.aliyun.com/document_detail/456193.html).
-   * - For more template Config examples, see [Common standard template Config examples](https://help.aliyun.com/document_detail/451634.html).
-   * - For one-click video production template Config configurations, see [One-click video production template configuration parameter description](https://help.aliyun.com/document_detail/2878274.html).
+   * - The Config parameter for standard templates is an encapsulation based on the cloud editing timeline. Custom template configurations are more flexible. If you have special requirements, familiarize yourself with the Config structure and customize the template. For more information, see [Config details for standard templates](https://help.aliyun.com/document_detail/456193.html).
+   * - For more Config examples, see [Common Config examples for standard templates](https://help.aliyun.com/document_detail/451634.html).
+   * - For the Config settings of one-click video generation templates, see [Metric description for one-click video generation template configuration](https://help.aliyun.com/document_detail/2878274.html).
    * 
    * @example
-   * See the Timeline template Config documentation
+   * See Config documentation
    */
   config?: string;
   /**
    * @remarks
-   * The template cover URL.
+   * The URL of the template cover.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
@@ -23,10 +23,10 @@ export class AddTemplateRequest extends $dara.Model {
   coverUrl?: string;
   /**
    * @remarks
-   * The custom template name.
+   * The name of the template.
    * 
    * @example
-   * Template name
+   * TemplateName
    */
   name?: string;
   /**
@@ -39,7 +39,7 @@ export class AddTemplateRequest extends $dara.Model {
   previewMedia?: string;
   /**
    * @remarks
-   * The media assets associated with the template, used by the standard template editor.
+   * The media assets associated with the template. This parameter is used by the standard template editor.
    * 
    * @example
    * {"video":["1805a0c6ca544fb395a06ca683619655"]}
@@ -47,10 +47,10 @@ export class AddTemplateRequest extends $dara.Model {
   relatedMediaids?: string;
   /**
    * @remarks
-   * The template creation source. Valid values:
-   * - OpenAPI: created by using OpenAPI.
-   * - AliyunConsole: created by using the Alibaba Cloud Management Console.
-   * - WebSDK: created by using WebSDK.
+   * The source from which the template is created. Valid values:
+   * - OpenAPI: Created by calling an API operation.
+   * - AliyunConsole: Created in the Alibaba Cloud Management Console.
+   * - WebSDK: Created by using WebSDK.
    * 
    * @example
    * OpenAPI
@@ -59,12 +59,12 @@ export class AddTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The template status. Valid values:
-   * - Available: normal.
-   * - Created: created but not yet available.
-   * - Uploading: uploading.
-   * - Processing: advanced template is being analyzed.
-   * - UploadFailed: upload failed.
-   * - ProcessFailed: advanced template analysis failed.
+   * - Available: Normal.
+   * - Created: Created but unavailable.
+   * - Uploading: Uploading.
+   * - Processing: Analyzing the advanced template.
+   * - UploadFailed: Upload failed.
+   * - ProcessFailed: Advanced template analysis failed.
    * 
    * @example
    * Available
@@ -73,9 +73,9 @@ export class AddTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The templatetype. Valid values:  
-   * - Timeline (standard template): a template created based on the Timeline of a video clip node (multiple materials on multiple tracks are concatenated in sequence). This templatetype can be used to implement effects such as image-to-video conversion, photo albums, intros and outros, and default watermarks.
-   * - VETemplate (advanced template): a template created based on Adobe After Effects (AE) effects. This templatetype can be used to implement advanced media effects with complex animations.
-   * - BatchEditing (one-click video production template): supports configurations for sticker watermarks, background music, background images, narration subtitle styles, title subtitle styles, and output resolution parameters. These configurations are automatically applied when you commit a one-click video production node.
+   * - Timeline: standard template. It is created based on the timeline of a video clip project, where multiple materials are spliced across multiple layers. It supports effects such as text-to-video, photo albums, intros and outros, and default watermarks.
+   * - VETemplate: advanced template. It is created based on Adobe After Effects (AE) effects to achieve advanced media effects with complex motion graphics.
+   * - BatchEditing: one-click video generation template. It supports parameters such as sticker watermarks, background music, background images, voiceover subtitle styles, title subtitle styles, and output resolution. These parameters are automatically applied when a one-click video generation node is committed.
    * 
    * @example
    * Timeline

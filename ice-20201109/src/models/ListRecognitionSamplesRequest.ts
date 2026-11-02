@@ -5,15 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecognitionSamplesRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of recognition algorithm. Valid values:
+   * The recognition type. Valid values:
    * 
-   * - landmark
+   * - landmark: custom landmark
    * 
-   * - object
+   * - object: custom object
    * 
-   * - logo
+   * - logo: custom logo
    * 
-   * - face
+   * - face: custom face
+   * 
+   * - label: custom label
    * 
    * This parameter is required.
    * 
@@ -23,7 +25,7 @@ export class ListRecognitionSamplesRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The entity ID. If you set this parameter to ANY, the system queries by EntityName.
+   * The entity ID. If you set this parameter to ANY, the system queries the entity name.
    * 
    * This parameter is required.
    * 
@@ -41,7 +43,7 @@ export class ListRecognitionSamplesRequest extends $dara.Model {
   entityName?: string;
   /**
    * @remarks
-   * The library ID. If you specify this parameter, the system performs an exact match. You can specify multiple library IDs. Separate them with commas (,).
+   * The library ID. If you specify this parameter, the system queries the specified library. You can specify multiple IDs and separate them with commas (,).
    * 
    * This parameter is required.
    * 
@@ -63,7 +65,7 @@ export class ListRecognitionSamplesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * This parameter is required.
    * 

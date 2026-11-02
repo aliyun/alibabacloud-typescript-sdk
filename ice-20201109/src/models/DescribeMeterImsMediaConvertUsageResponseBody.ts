@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMeterImsMediaConvertUsageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The usage duration, in minutes.
+   * The duration, in minutes.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class DescribeMeterImsMediaConvertUsageResponseBodyData extends $dara.Mod
   duration?: number;
   /**
    * @remarks
-   * The transcoding specifications.
+   * The transcoding specification.
    * 
    * @example
    * H264.HD
@@ -21,7 +21,7 @@ export class DescribeMeterImsMediaConvertUsageResponseBodyData extends $dara.Mod
   specification?: string;
   /**
    * @remarks
-   * The beginning time of usage. The value is a 10-digit timestamp.
+   * The start timestamp of the time period, which is a 10-digit UNIX timestamp.
    * 
    * @example
    * 1656950400
@@ -55,7 +55,7 @@ export class DescribeMeterImsMediaConvertUsageResponseBodyData extends $dara.Mod
 export class DescribeMeterImsMediaConvertUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The usage statistics of IMS on VOD transcoding.
+   * The metering data for VOD transcoding in IMS.
    */
   data?: DescribeMeterImsMediaConvertUsageResponseBodyData[];
   /**

@@ -14,7 +14,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   authorizationCode?: string;
   /**
    * @remarks
-   * The channel name.
+   * The name of the channel.
    * 
    * @example
    * channel-1
@@ -22,7 +22,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   channelName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time follows the ISO 8601 standard and is displayed in UTC (ending with Z).
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -30,15 +30,15 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   createTime?: string;
   /**
    * @remarks
-   * The endpoint description.
+   * The description of the endpoint.
    * 
    * @example
-   * This is an origin endpoint.
+   * This is an origin endpoint
    */
   description?: string;
   /**
    * @remarks
-   * The endpoint name.
+   * The name of the endpoint.
    * 
    * @example
    * endpoint-1
@@ -46,7 +46,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   endpointName?: string;
   /**
    * @remarks
-   * The endpoint URL.
+   * The URL of the endpoint.
    * 
    * @example
    * https://xxx.packagepull-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
@@ -54,7 +54,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   endpointUrl?: string;
   /**
    * @remarks
-   * The channel group name.
+   * The name of the channel group.
    * 
    * @example
    * channel-group-1
@@ -91,7 +91,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   livePackagingConfig?: LivePackagingConfig;
   /**
    * @remarks
-   * The manifest name.
+   * The name of the manifest.
    * 
    * @example
    * manifest
@@ -166,7 +166,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
 export class GetLivePackageOriginEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The origin endpoint type.
+   * The type of the origin endpoint.
    */
   livePackageOriginEndpoint?: GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint;
   /**

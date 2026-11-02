@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMediaInfoJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time for filtering by task creation time. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The end time of the job creation time filter. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-15T00:00:00Z
@@ -13,7 +13,7 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
   endOfCreateTime?: string;
   /**
    * @remarks
-   * Filters by jobId.
+   * The job ID used to filter results.
    * 
    * @example
    * 7b38a5d86f1e47838927b6e7ccb1****
@@ -21,7 +21,7 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The token for the next page in consecutive paging query requests. This parameter is not required for the first page.
+   * The mark for the next page during consecutive paging. This parameter is not required for the first paged query.
    * 
    * @example
    * ab4802364a2e49208c99efab82df****
@@ -30,8 +30,8 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * - CreateTimeDesc: sorts by creation time in descending order.
-   * - CreateTimeAsc: sorts by creation time in ascending order.
+   * - CreateTimeDesc: Sorts by creation time in descending order.
+   * - CreateTimeAsc: Sorts by creation time in ascending order.
    * 
    * @example
    * CreateTimeDesc
@@ -39,7 +39,7 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page size. Default value: 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time for filtering by task creation time. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the job creation time filter. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-01T00:00:00Z
@@ -55,7 +55,10 @@ export class ListMediaInfoJobsRequest extends $dara.Model {
   startOfCreateTime?: string;
   /**
    * @remarks
-   * The task status.
+   * The job status. Valid values:
+   * - Init: Submitted.
+   * - Success: Succeeded.
+   * - Fail: Failed.
    * 
    * @example
    * Success

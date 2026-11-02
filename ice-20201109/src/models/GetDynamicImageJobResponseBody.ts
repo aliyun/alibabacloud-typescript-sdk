@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDynamicImageJobResponseBodyDynamicImageJobInputOssFile extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket.
+   * OSS Bucket
    * 
    * @example
    * test-bucket
@@ -13,7 +13,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobInputOssFile extends $
   bucket?: string;
   /**
    * @remarks
-   * The OSS location.
+   * OSS Location
    * 
    * @example
    * oss-cn-shanghai
@@ -21,7 +21,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobInputOssFile extends $
   location?: string;
   /**
    * @remarks
-   * The OSS object.
+   * OSS Object
    * 
    * @example
    * sample-input.mp4
@@ -55,13 +55,12 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobInputOssFile extends $
 export class GetDynamicImageJobResponseBodyDynamicImageJobInput extends $dara.Model {
   /**
    * @remarks
-   * The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+   * The input media. If Type is set to OSS, enter the URL of the OSS object. If Type is set to Media, enter the ID of the media asset.
+   * The URL of the OSS object must be in one of the following formats:
+   * - oss://bucket/object
+   * - http(s)://bucket.oss-[RegionId].aliyuncs.com/object
    * 
-   * 1. OSS://bucket/object
-   * 
-   * 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object
-   * 
-   * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * In the formats, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
    * @example
    * oss://test-bucket/sample-input.mp4
@@ -69,16 +68,14 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobInput extends $dara.Mo
   media?: string;
   /**
    * @remarks
-   * The three key elements of OSS.
+   * The OSS triplet.
    */
   ossFile?: GetDynamicImageJobResponseBodyDynamicImageJobInputOssFile;
   /**
    * @remarks
-   * The type of the input file. Valid values:
-   * 
-   * 1. OSS: an Object Storage Service (OSS) object.
-   * 
-   * 2. Media: a media asset.
+   * The input type. Valid values:
+   * - OSS: the URL of an OSS object.
+   * - Media: the ID of a media asset.
    * 
    * @example
    * OSS
@@ -115,7 +112,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobInput extends $dara.Mo
 export class GetDynamicImageJobResponseBodyDynamicImageJobOutputOssFile extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket.
+   * OSS Bucket
    * 
    * @example
    * sample-bucket
@@ -123,7 +120,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobOutputOssFile extends 
   bucket?: string;
   /**
    * @remarks
-   * The OSS location.
+   * OSS Location
    * 
    * @example
    * oss-cn-shanghai
@@ -131,7 +128,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobOutputOssFile extends 
   location?: string;
   /**
    * @remarks
-   * The OSS object.
+   * OSS Object
    * 
    * @example
    * path/to/object
@@ -165,11 +162,12 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobOutputOssFile extends 
 export class GetDynamicImageJobResponseBodyDynamicImageJobOutput extends $dara.Model {
   /**
    * @remarks
-   * The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+   * The output media. If Type is set to OSS, enter the URL of the OSS object. If Type is set to Media, enter the ID of the media asset.
+   * The URL of the OSS object must be in one of the following formats:
+   * - oss://bucket/object
+   * - http(s)://bucket.oss-[RegionId].aliyuncs.com/object
    * 
-   * 1. OSS://bucket/object
-   * 
-   * 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * In the formats, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
    * @example
    * ****d80e4e4044975745c14b****
@@ -177,12 +175,14 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobOutput extends $dara.M
   media?: string;
   /**
    * @remarks
-   * The three key elements of OSS.
+   * The OSS triplet.
    */
   ossFile?: GetDynamicImageJobResponseBodyDynamicImageJobOutputOssFile;
   /**
    * @remarks
-   * The type of the input file. Valid values: OSS: an OSS object. Media: a media asset.
+   * The output type. Valid values:
+   * - OSS: the URL of an OSS object.
+   * - Media: the ID of a media asset.
    * 
    * @example
    * Media
@@ -219,7 +219,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobOutput extends $dara.M
 export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   /**
    * @remarks
-   * Error codes
+   * The error code.
    * 
    * @example
    * ResourceNotFound
@@ -227,7 +227,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the job was created.
+   * The creation time. The time is in the ISO 8601 format and UTC, ending with Z.
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -235,7 +235,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the job was complete.
+   * The time when the task was completed. The time is in the ISO 8601 format and UTC, ending with Z.
    * 
    * @example
    * 2022-07-12T16:30:54Z
@@ -243,12 +243,12 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The input of the job.
+   * The input of the task.
    */
   input?: GetDynamicImageJobResponseBodyDynamicImageJobInput;
   /**
    * @remarks
-   * The job ID.
+   * The ID of the task.
    * 
    * @example
    * ****d80e4e4044975745c14b****
@@ -256,7 +256,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The error message that is returned.
+   * The error message.
    * 
    * @example
    * The specified resource for "CustomTemplate" could not be found.
@@ -264,7 +264,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The time when the job was last modified.
+   * The last modification time. The time is in the ISO 8601 format and UTC, ending with Z.
    * 
    * @example
    * 2022-07-12T16:30:54Z
@@ -272,7 +272,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The name of the task.
    * 
    * @example
    * SampleJob
@@ -280,12 +280,12 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output of the job.
+   * The output of the task.
    */
   output?: GetDynamicImageJobResponseBodyDynamicImageJobOutput;
   /**
    * @remarks
-   * The URL of the output animated image.
+   * The URL of the output dynamic image.
    * 
    * @example
    * http://test-bucket.oss-cn-shanghai.aliyuncs.com/output.gif
@@ -293,7 +293,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   outputUrl?: string;
   /**
    * @remarks
-   * The ID of the MPS queue to which the job was submitted.
+   * The ID of the pipeline.
    * 
    * @example
    * ****d80e4e4044975745c14b****
@@ -301,15 +301,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The state of the job.
-   * 
-   * Valid values:
-   * 
-   * - Init: The job is submitted.
-   * 
-   * - Success: The job is successful.
-   * 
-   * - Fail: The job failed.
+   * The status of the task.
    * 
    * @example
    * Success
@@ -317,7 +309,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the job was submitted.
+   * The time when the task was submitted. The time is in the ISO 8601 format and UTC, ending with Z.
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -325,7 +317,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   submitTime?: string;
   /**
    * @remarks
-   * The animation template configuration.
+   * The dynamic image template configuration.
    * 
    * @example
    * {"Format":"gif","Fps":5,"Height":1080,"Width":1920}
@@ -333,7 +325,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   templateConfig?: string;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the template.
    * 
    * @example
    * ****d80e4e4044975745c14b****
@@ -341,15 +333,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The request trigger source.
-   * 
-   * Valid values:
-   * 
-   * - Console
-   * 
-   * - Workflow
-   * 
-   * - API
+   * The trigger source of the request.
    * 
    * @example
    * API
@@ -357,7 +341,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
   triggerSource?: string;
   /**
    * @remarks
-   * The user-defined data.
+   * The custom user data.
    * 
    * @example
    * {"sampleParam": "sampleValue"}
@@ -425,12 +409,12 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $dara.Model {
 export class GetDynamicImageJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the snapshot job.
+   * The dynamic image task information.
    */
   dynamicImageJob?: GetDynamicImageJobResponseBodyDynamicImageJob;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ******36-3C1E-4417-BDB2-1E034F******

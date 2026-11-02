@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateYikeWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the project.
+   * The project ID.
    * 
    * @example
    * ProductionId

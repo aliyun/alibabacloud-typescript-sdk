@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAIAgentInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AI agent instance.
+   * The agent instance ID.
    * 
-   * > The `InstanceId` is the unique ID returned when an AI agent instance starts successfully. For APIs that start an AI agent, see [StartAIAgentInstance](https://help.aliyun.com/document_detail/2846201.html) and [GenerateAIAgentCall](https://help.aliyun.com/document_detail/2846209.html).
+   * > InstanceId is the unique ID returned after the agent instance is successfully started. For more information about the operations used to start an agent, see [StartAIAgentInstance ](https://help.aliyun.com/document_detail/2846201.html) and [GenerateAIAgentCall](https://help.aliyun.com/document_detail/2846209.html).
    * 
    * This parameter is required.
    * 

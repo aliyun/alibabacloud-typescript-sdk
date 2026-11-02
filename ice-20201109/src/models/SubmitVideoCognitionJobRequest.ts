@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVideoCognitionJobRequestInput extends $dara.Model {
   /**
    * @remarks
-   * If `Type` is `OSS`, specify the Object Storage Service (OSS) URL of the media file. Example: `OSS://test-bucket/video/202208/test.mp4`
+   * If the Type parameter is set to OSS, specify the OSS address, such as OSS://test-bucket/video/202208/test.mp4.
    * 
-   * If `Type` is `Media`, specify the media ID. Example: `c5c62d8f0361337cab312dce8e77dc6d`
+   * If the Type parameter is set to Media, specify the mediaId, such as c5c62d8f0361337cab312dce8e77dc6d.
    * 
-   * If `Type` is `URL`, specify the HTTP URL of the media file. Example: `https://zc-test.oss-cn-shanghai.aliyuncs.com/test/unknowFace.mp4`
+   * If the Type parameter is set to URL, specify the HTTP URL, such as https://zc-test.oss-cn-shanghai.aliyuncs.com/test/unknowFace.mp4.
    * 
    * @example
    * c5c62d8f03613************c6d
@@ -17,13 +17,13 @@ export class SubmitVideoCognitionJobRequestInput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the input media. Valid values:
+   * The media type. Valid values:
    * 
-   * - `OSS`
+   * - OSS
    * 
-   * - `Media`
+   * - Media
    * 
-   * - `URL`
+   * - URL
    * 
    * @example
    * Media
@@ -55,12 +55,12 @@ export class SubmitVideoCognitionJobRequestInput extends $dara.Model {
 export class SubmitVideoCognitionJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The input media object.
+   * The input media structure.
    */
   input?: SubmitVideoCognitionJobRequestInput;
   /**
    * @remarks
-   * A JSON string containing additional parameters for operators such as natural language processing, shot detection, custom tagging, and action recognition.
+   * The additional request parameters, represented as a JSON string. This parameter supports additional parameters for operators such as natural language processing, shot detection, custom tagging, and action recognition.
    * 
    * @example
    * {
@@ -78,14 +78,10 @@ export class SubmitVideoCognitionJobRequest extends $dara.Model {
    * }
    */
   params?: string;
-  /**
-   * @remarks
-   * The template configuration.
-   */
   templateConfig?: string;
   /**
    * @remarks
-   * The ID of the template that specifies the analysis algorithms to use. For more information about managing templates, see [Create Custom Template](https://help.aliyun.com/zh/ims/developer-reference/api-ice-2020-11-09-createcustomtemplate?spm=a2c4g.11186623.help-menu-193643.d_5_0_3_3_0_0.17b66afamjKySv) and [AI-powered tagging template](https://help.aliyun.com/zh/ims/user-guide/smart-tagging-template?spm=a2c4g.11186623.0.i15).
+   * The template ID used to specify the analysis algorithm. For template-related operations, refer to [Create a custom template](https://www.alibabacloud.com/help/en/ims/developer-reference/api-ice-2020-11-09-createcustomtemplate) and [Smart tagging template](https://www.alibabacloud.com/help/en/ims/user-guide/smart-tagging-template).
    * 
    * @example
    * 39f8e0bc00***************
@@ -93,7 +89,7 @@ export class SubmitVideoCognitionJobRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The title of the video. The title can contain Chinese characters, English letters, digits, and hyphens (-). The title cannot start with a special character and must not exceed 256 bytes in length.
+   * The video title. The title supports Chinese characters, English letters, digits, and hyphens (-). It cannot start with a special character and cannot exceed 256 bytes in length.
    * 
    * @example
    * example-title-****
@@ -101,7 +97,7 @@ export class SubmitVideoCognitionJobRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The user-defined data. The service returns this data unmodified in the callback notification. This parameter cannot exceed 1,024 bytes.
+   * The user-defined data. The data is returned as-is when the result is retrieved. The length cannot exceed 1,024 bytes.
    * 
    * @example
    * {"test":1}

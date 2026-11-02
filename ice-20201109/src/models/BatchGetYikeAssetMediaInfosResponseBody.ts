@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosBizData extends $dara.Model {
   /**
    * @remarks
-   * The audit label.
+   * The moderation label.
    * 
    * @example
    * Label
@@ -13,7 +13,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosBizData extends $d
   auditBlockedLabel?: string;
   /**
    * @remarks
-   * The audit status.
+   * The moderation status.
    * 
    * @example
    * pass
@@ -21,7 +21,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosBizData extends $d
   auditStatus?: string;
   /**
    * @remarks
-   * The ID of the creation task.
+   * The ID of the creation job.
    * 
    * @example
    * ID
@@ -37,7 +37,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosBizData extends $d
   folderId?: string;
   /**
    * @remarks
-   * Indicates whether the media asset is marked as a favorite.
+   * Specifies whether the media asset is favorited.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosBizData extends $d
   isFavorite?: string;
   /**
    * @remarks
-   * Indicates whether the media asset is logically deleted.
+   * Indicates whether the item is logically deleted.
    * 
    * @example
    * 1
@@ -275,7 +275,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoListFileBa
 export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoList extends $dara.Model {
   /**
    * @remarks
-   * The basic file information, including duration and size.
+   * The basic file information, including the duration and size.
    */
   fileBasicInfo?: BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
@@ -353,7 +353,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   deletedTime?: string;
   /**
    * @remarks
-   * The content description.
+   * The description.
    * 
    * @example
    * sample_description
@@ -361,7 +361,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   description?: string;
   /**
    * @remarks
-   * The address of the media asset to be registered in the corresponding system.
+   * The URL of the media asset to be registered in the corresponding system.
    * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -393,7 +393,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo ext
   mediaType?: string;
   /**
    * @remarks
-   * The time when the media asset was last modified.
+   * The time when the media asset was modified.
    * 
    * @example
    * 2021-01-08T16:52:04Z
@@ -525,7 +525,7 @@ export class BatchGetYikeAssetMediaInfosResponseBodyMediaInfos extends $dara.Mod
   fileInfoList?: BatchGetYikeAssetMediaInfosResponseBodyMediaInfosFileInfoList[];
   /**
    * @remarks
-   * The basic information about the media asset.
+   * The basic information of the media asset.
    */
   mediaBasicInfo?: BatchGetYikeAssetMediaInfosResponseBodyMediaInfosMediaBasicInfo;
   /**
@@ -580,7 +580,7 @@ export class BatchGetYikeAssetMediaInfosResponseBody extends $dara.Model {
   ignoredList?: string[];
   /**
    * @remarks
-   * The collection of media assets that meet the requirements.
+   * The collection of media assets that meet the specified criteria.
    */
   mediaInfos?: BatchGetYikeAssetMediaInfosResponseBodyMediaInfos[];
   /**

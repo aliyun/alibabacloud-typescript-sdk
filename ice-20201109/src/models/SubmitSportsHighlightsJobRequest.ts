@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSportsHighlightsJobRequest extends $dara.Model {
   /**
    * @remarks
-   * A client-generated token to ensure request idempotency.
+   * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
    * ****12e8864746a0a398****
@@ -13,7 +13,7 @@ export class SubmitSportsHighlightsJobRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The input configuration. For more information, see [input configuration parameters](~~2843158#5cbc796a9cuu8~~).
+   * The input configuration. For more information, see [InputConfig parameter description](~~2843158#5cbc796a9cuu8~~).
    * 
    * @example
    * {
@@ -31,7 +31,7 @@ export class SubmitSportsHighlightsJobRequest extends $dara.Model {
    *   "TransferNameRegister": [
    *     {
    *       "OriginalName": "IND",
-   *       "TransferName": "印第安纳步行者"
+   *       "TransferName": "Indiana Pacers"
    *     }
    *   ]
    * }
@@ -39,7 +39,7 @@ export class SubmitSportsHighlightsJobRequest extends $dara.Model {
   inputConfig?: string;
   /**
    * @remarks
-   * The output configuration. For more information, see [output configuration parameters](~~2843158#b7dad99fe5q0r~~).
+   * The output configuration. For more information, see [OutputConfig parameter description](~~2843158#b7dad99fe5q0r~~).
    * 
    * @example
    * {
@@ -52,7 +52,7 @@ export class SubmitSportsHighlightsJobRequest extends $dara.Model {
   outputConfig?: string;
   /**
    * @remarks
-   * The user data, containing business and callback configurations. For more information about the structure, see [user data configuration](https://help.aliyun.com/document_detail/357745.html).
+   * The user business configuration and callback configuration. For more information about the structure, see [UserData configuration](https://help.aliyun.com/document_detail/357745.html).
    * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx"} or {"NotifyAddress":"https://xx.xx.xxx"} or {"NotifyAddress":"ice-callback-demo"}

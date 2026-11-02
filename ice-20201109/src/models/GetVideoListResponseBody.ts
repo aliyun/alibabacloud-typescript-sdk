@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoListResponseBodyMediaList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. Default value: app-1000000.
+   * The application ID. Default value: app-1000000.
    * 
    * @example
    * app-1000000
@@ -13,7 +13,7 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the category.
+   * The category ID.
    * 
    * @example
    * 3679
@@ -21,15 +21,15 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
   cateId?: number;
   /**
    * @remarks
-   * The name of the category.
+   * The category name.
    * 
    * @example
-   * Category1
+   * Cate1
    */
   cateName?: string;
   /**
    * @remarks
-   * The URL of the thumbnail.
+   * The URL of the cover image.
    * 
    * @example
    * http://example.aliyundoc.com/snapshot/****.jpg?auth_key=1498476426-0-0-f00b9455c49a423ce69cf4e27333****
@@ -37,7 +37,7 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
   coverUrl?: string;
   /**
    * @remarks
-   * The time when the audio or video file was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The creation time. The time is in the yyyy-MM-ddTHH:mm:ssZ format and must be in UTC.
    * 
    * @example
    * 2017-11-14T09:15:50Z
@@ -45,7 +45,7 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The description of the audio or video file.
+   * The description.
    * 
    * @example
    * Alibaba Cloud VOD video description
@@ -61,7 +61,7 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The ID of the audio or video file.
+   * The media asset ID.
    * 
    * @example
    * 1c6ce34007d571ed94667630a6bc****
@@ -69,7 +69,7 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The time when the audio or video file was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The update time. The time is in the yyyy-MM-ddTHH:mm:ssZ format and must be in UTC.
    * 
    * @example
    * 2017-11-14T09:16:50Z
@@ -90,31 +90,7 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
   snapshots?: string[];
   /**
    * @remarks
-   * The status of the video.
-   * 
-   * Valid values:
-   * 
-   * - PrepareFail: The file is abnormal.
-   * 
-   * - UploadFail: The video failed to be uploaded.
-   * 
-   * - UploadSucc: The video is uploaded.
-   * 
-   * - Transcoding: The video is being transcoded.
-   * 
-   * - TranscodeFail: The video failed to be transcoded.
-   * 
-   * - ProduceFail: The video failed to be produced.
-   * 
-   * - Normal: The video is normal.
-   * 
-   * - Uploading: The video is being uploaded.
-   * 
-   * - Preparing: The file is being generated.
-   * 
-   * - Blocked: The video is blocked.
-   * 
-   * - checking: The video is being reviewed.
+   * The video status.
    * 
    * @example
    * Normal
@@ -122,7 +98,7 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage address.
+   * The storage location.
    * 
    * @example
    * out-****.oss-cn-shanghai.aliyuncs.com
@@ -130,18 +106,18 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
   storageLocation?: string;
   /**
    * @remarks
-   * The tags of the audio or video file.
+   * The list of tags.
    * 
    * @example
-   * Tag 1, Tag 2
+   * Tag1, Tag2
    */
   tags?: string;
   /**
    * @remarks
-   * The title of the audio or video file.
+   * The title.
    * 
    * @example
-   * The best music player ever
+   * The greatest music player in history
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -199,7 +175,7 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
 export class GetVideoListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -207,7 +183,7 @@ export class GetVideoListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about the audio and video files.
+   * The list of media assets.
    */
   mediaList?: GetVideoListResponseBodyMediaList[];
   /**
@@ -221,10 +197,8 @@ export class GetVideoListResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request is successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true
@@ -232,7 +206,7 @@ export class GetVideoListResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of audio and video files that meet the conditions.
+   * The total number of media assets that meet the filter conditions.
    * 
    * @example
    * 163

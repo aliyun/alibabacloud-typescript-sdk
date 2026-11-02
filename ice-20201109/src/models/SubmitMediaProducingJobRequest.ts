@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMediaProducingJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * Ensures the idempotence of the request. You can generate a parameter value from your client to ensure that the parameter value is unique across different requests. ClientToken only supports ASCII characters and cannot exceed 64 characters.
    * 
    * @example
    * ****12e8864746a0a398****
@@ -13,24 +13,24 @@ export class SubmitMediaProducingJobRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The material parameters corresponding to the template, in JSON format. When TemplateId is not empty, ClipsParam cannot be empty. For the specific format, see [Create and use a standard template](https://help.aliyun.com/document_detail/445399.html) and [Create and use an advanced template](https://help.aliyun.com/document_detail/445389.html).
+   * The material parameters corresponding to the template, in JSON format. When TemplateId is not empty, ClipsParam cannot be empty. For the specific format, see [Create and use common templates](https://help.aliyun.com/document_detail/445399.html) and [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    * 
    * @example
-   * See the template user guide.
+   * See the template usage documentation
    */
   clipsParam?: string;
   /**
    * @remarks
-   * The editing and compositing configuration. For more information, see [EditingProduceConfig parameter details](~~357745#section-8a4-pb2-hkv~~).
+   * The editing and producing parameters. For configuration details, see [EditingProduceConfig parameter details](~~357745#section-8a4-pb2-hkv~~).
    * > 
    * >If no cover image is configured in EditingProduceConfig, the first frame of the video is used as the cover by default.
    * 
-   * - AutoRegisterInputVodMedia: specifies whether to automatically register VOD media assets in your timeline to IMS. Default value: true.
+   * - AutoRegisterInputVodMedia: specifies whether to automatically register the VOD media assets in your timeline to IMS. Default value: true.
    * 
-   * - OutputWebmTransparentChannel: specifies whether to output video with a transparent channel. Default value: false.
+   * - OutputWebmTransparentChannel: specifies whether to output the video with a transparent channel. Default value: false.
    * 
-   * - CoverConfig: custom cover image parameters.
-   * - ......
+   * - CoverConfig: the custom cover image parameters.
+   * - ...
    * 
    * @example
    * {
@@ -52,10 +52,10 @@ export class SubmitMediaProducingJobRequest extends $dara.Model {
   mediaMetadata?: string;
   /**
    * @remarks
-   * The target configuration of the output media, in JSON format. You can set the OSS URL or the storage location in a VOD bucket for the output media.
+   * The target configuration of the output product, in JSON format. You can set the URL of the output product in OSS or the storage location in the VOD bucket.
    * 
-   * - When outputting to OSS, the MediaURL of the output target is required.
-   * - When outputting to VOD, the StorageLocation and FileName parameters are required.
+   * - When the output is to OSS, the MediaURL parameter of the output target is required.
+   * - When the output is to VOD, the StorageLocation and FileName parameters are required.
    * 
    * [OutputMediaConfig parameter examples](~~357745#title-4j6-ve7-g31~~).
    * 
@@ -67,13 +67,13 @@ export class SubmitMediaProducingJobRequest extends $dara.Model {
   outputMediaConfig?: string;
   /**
    * @remarks
-   * The target type of the output media. Valid values:
+   * The target type of the output product. Valid values:
    * 
-   * - oss-object: an OSS object in your Alibaba Cloud OSS bucket.
+   * - oss-object: an OSS object in an Alibaba Cloud OSS bucket.
    * 
-   * - vod-media: a media asset in ApsaraVideo VOD.
+   * - vod-media: a media asset in Alibaba Cloud VOD.
    * 
-   * - S3: output using the S3 protocol.
+   * - S3: output based on the S3 protocol.
    * 
    * @example
    * oss-object
@@ -81,8 +81,8 @@ export class SubmitMediaProducingJobRequest extends $dara.Model {
   outputMediaTarget?: string;
   /**
    * @remarks
-   * The editing project ID. You can call the [CreateEditingProject](https://help.aliyun.com/document_detail/441137.html) operation to create an editing project and obtain the ProjectId to submit an editing task.
-   * >Notice: You must specify one of the following three parameters: ProjectId, Timeline, or TemplateId. Leave the other two parameters empty.
+   * The ID of the editing project. You can call the [CreateEditingProject](https://help.aliyun.com/document_detail/441137.html) operation to create an editing project and obtain the ProjectId parameter to submit an editing task.
+   * >Notice: You must specify one of the ProjectId, Timeline, and TemplateId parameters, and leave the other two parameters empty.</notice>
    * 
    * @example
    * xxxxxfb2101cb318xxxxx
@@ -90,21 +90,21 @@ export class SubmitMediaProducingJobRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The metadata of the editing project, in JSON format. For the specific structure definition, see [ProjectMetadata](~~357745#title-yvp-81k-wff~~).
+   * The metadata information of the editing project, in JSON format. For the specific structure definition, see [ProjectMetadata](~~357745#title-yvp-81k-wff~~).
    * 
    * @example
-   * {"Description":"Video editing description","Title":"Editing title test"}
+   * {"Description":"Edited video description","Title":"Editing title test"}
    */
   projectMetadata?: string;
   /**
    * @remarks
-   * The source of the editing and compositing request. Valid values:
+   * The source of the editing and producing request. Valid values:
    * 
-   * - OpenAPI: a direct API request.
+   * - OpenAPI: direct API requests.
    * 
-   * - AliyunConsole: a request from the Alibaba Cloud Management Console.
+   * - AliyunConsole: requests from the Alibaba Cloud Management Console.
    * 
-   * - WebSDK: a request from a frontend page integrated with WebSDK.
+   * - WebSDK: requests from frontend pages integrated with WebSDK.
    * 
    * @example
    * OPENAPI
@@ -112,13 +112,13 @@ export class SubmitMediaProducingJobRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The template ID, which is used to quickly build a timeline with minimal effort. Video clip editing based on both standard templates and advanced templates is supported.
+   * The ID of the template. This parameter is used to quickly build a timeline with a low threshold. Video editing based on common templates and advanced templates is supported.
    * 
-   * - When you commit a media producing job by using a template ID, you must provide the ClipsParam parameter to flexibly adjust or replace materials in the template.
+   * - When you use a template ID to submit a media editing and producing job, you must provide the ClipsParam parameter to flexibly adjust or replace materials in the template.
    * 
-   * - You can invoke [GetTemplate](https://help.aliyun.com/document_detail/441164.html) to obtain template information.
+   * - You can invoke the [GetTemplate](https://help.aliyun.com/document_detail/441164.html) operation to obtain template information.
    * 
-   * >Notice: You must specify one of the following three parameters: ProjectId, Timeline, or TemplateId. Leave the other two parameters empty.
+   * >Notice: You must specify one of the ProjectId, Timeline, and TemplateId parameters, and leave the other two parameters empty.
    * 
    * @example
    * ****96e8864746a0b6f3****
@@ -126,12 +126,12 @@ export class SubmitMediaProducingJobRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The timeline of the cloud editing task. When you need to arrange materials and design effects based on your video creative ideas, you can manually construct the Timeline parameter.
+   * The timeline of the cloud editing task. When you need to arrange materials and design special effects based on video ideas, you can manually construct the Timeline parameter.
    * 
-   * - A timeline mainly contains three types of objects: tracks, materials, and effects. For more information, see [Timeline configuration](https://help.aliyun.com/document_detail/198823.html).
-   * - For more timeline configuration examples, see [Best Practices](https://help.aliyun.com/document_detail/2766669.html).
+   * - A timeline mainly includes three types of objects: tracks, materials, and effects. For more information, see [Timeline configurations](https://help.aliyun.com/document_detail/198823.html).
+   * - For more timeline configuration examples, see [Best practices](https://help.aliyun.com/document_detail/2766669.html).
    * 
-   * >Notice: You must specify one of the following three parameters: ProjectId, Timeline, or TemplateId. Leave the other two parameters empty.
+   * >Notice: You must specify one of the ProjectId, Timeline, and TemplateId parameters, and leave the other two parameters empty.</notice>
    * 
    * @example
    * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
@@ -139,9 +139,9 @@ export class SubmitMediaProducingJobRequest extends $dara.Model {
   timeline?: string;
   /**
    * @remarks
-   * Custom settings, in JSON format, with a maximum length of 512 bytes. Supports [task completion callback configuration](https://help.aliyun.com/document_detail/451631.html). The fields include:
+   * The custom settings, in JSON format. The maximum length is 512 bytes. [Task completion callback configurations](https://help.aliyun.com/document_detail/451631.html) are supported. Parameters:
    * - NotifyAddress: the callback URL for task completion.
-   * - RegisterMediaNotifyAddress: the callback URL for media asset analysis completion.
+   * - RegisterMediaNotifyAddress: the callback URL for the completion of produced media asset analysis.
    * 
    * @example
    * {"NotifyAddress":"https://xx.com/xx","RegisterMediaNotifyAddress":"https://xxx.com/xx"}

@@ -16,7 +16,7 @@ export class ListSmartJobsResponseBodySmartJobListInputConfig extends $dara.Mode
    * The keyword information.
    * 
    * @example
-   * Test keyword
+   * 测试关键词
    */
   keyword?: string;
   static names(): { [key: string]: string } {
@@ -96,7 +96,7 @@ export class ListSmartJobsResponseBodySmartJobList extends $dara.Model {
    * The job description.
    * 
    * @example
-   * Test description
+   * 测试描述
    */
   description?: string;
   /**
@@ -172,7 +172,7 @@ export class ListSmartJobsResponseBodySmartJobList extends $dara.Model {
    * The job title.
    * 
    * @example
-   * Test title
+   * 测试标题
    */
   title?: string;
   /**

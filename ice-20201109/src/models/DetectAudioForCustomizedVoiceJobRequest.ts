@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetectAudioForCustomizedVoiceJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The sequence number of the recording file.
+   * The audio sequence number corresponding to the RecordUrl parameter.
    * 
    * This parameter is required.
    * 
@@ -16,10 +16,8 @@ export class DetectAudioForCustomizedVoiceJobRequest extends $dara.Model {
   /**
    * @remarks
    * The URL of the recording file.
-   * 
-   * > : The URL must be an Object Storage Service (OSS) URL within your Alibaba Cloud account. The OSS bucket must be in the same region in which IMS is activated.
-   * 
-   * > : The audio file must be in the WAV or PCM format and must be a 16-bit mono audio file at 48000 Hz.
+   * >Notice: The URL must point to an Object Storage Service (OSS) object in your account, and the region of the OSS bucket must be the same as the region where the service is deployed when you call this operation.</notice>
+   * >Notice: Audio format requirements: The audio file must be in WAV or PCM format, and must be a mono audio file with a 16-bit sample depth and a sample rate of 48,000 Hz.</notice>
    * 
    * This parameter is required.
    * 

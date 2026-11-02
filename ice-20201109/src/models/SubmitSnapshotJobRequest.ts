@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSnapshotJobRequestInput extends $dara.Model {
   /**
    * @remarks
-   * The input media asset.
+   * The input media.
    * 
-   * - If `Type` is `OSS`, specify the OSS URL of the input file.
+   * - If Type is set to OSS, enter the OSS URL.
    * 
-   * - If `Type` is `Media`, specify the ID of the media asset.
+   * - If Type is set to Media, enter the media asset ID.
    * 
-   * The OSS URL must be in one of the following formats:
+   * The OSS URL must follow these rules:
    * 
-   * 1. `oss://bucket/object`
+   * 1. oss://bucket/object
    * 
-   * 2. `http(s)://bucket.oss-[RegionId].aliyuncs.com/object`
-   *    <br>In these formats, `bucket` is the name of an OSS bucket located in the same region as the current project, and `object` is the file path.<br>
+   * 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * In the URLs, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
-   * > The OSS bucket specified in the URL must be added to IMS [storage management](https://help.aliyun.com/document_detail/609918.html) before use.
+   * > The OSS bucket in the URL must be added to the IMS [storage management](https://help.aliyun.com/document_detail/609918.html) before it can be used.
    * 
    * This parameter is required.
    * 
@@ -28,11 +28,11 @@ export class SubmitSnapshotJobRequestInput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the input. Valid values:
+   * The input type. Valid values:
    * 
-   * - `OSS`: an OSS file URL.
+   * - OSS: the URL of an OSS object.
    * 
-   * - `Media`: a media asset ID.
+   * - Media: the ID of a media asset.
    * 
    * This parameter is required.
    * 
@@ -66,27 +66,27 @@ export class SubmitSnapshotJobRequestInput extends $dara.Model {
 export class SubmitSnapshotJobRequestOutput extends $dara.Model {
   /**
    * @remarks
-   * The output media asset.
+   * The output media.
    * 
-   * - If `Type` is `OSS`, specify the OSS URL for the output file.
+   * - If Type is set to OSS, enter the OSS URL.
    * 
-   * - If `Type` is `Media`, specify the ID of the output media asset.
+   * - If Type is set to Media, enter the media asset ID.
    * 
-   * The OSS URL must be in one of the following formats:
+   * The OSS URL must follow these rules:
    * 
-   * 1. `oss://bucket/object`
+   * 1. oss://bucket/object
    * 
-   * 2. `http(s)://bucket.oss-[RegionId].aliyuncs.com/object`
+   * 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object
    * 
-   * In these formats, `bucket` is the name of an OSS bucket located in the same region as the current project, and `object` is the file path.
+   * In the URLs, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
-   * - When capturing multiple static snapshots, the `object` must contain the `{Count}` placeholder.
+   * - When capturing multiple static snapshots, the object must contain the "{Count}" placeholder.
    * 
-   * - When capturing a sprite, the `object` must contain the `{TileCount}` placeholder.
+   * - When capturing a sprite snapshot, the object must contain the "{TileCount}" placeholder.
    * 
-   * - For WebVTT snapshots, the filename in the `object` path must end with `.vtt`.
+   * - For WebVTT snapshots, the object suffix must be ".vtt".
    * 
-   * > The OSS bucket specified in the URL must be added to IMS [storage management](https://help.aliyun.com/document_detail/609918.html) before use.
+   * > The OSS bucket in the URL must be added to the IMS [storage management](https://help.aliyun.com/document_detail/609918.html) before it can be used.
    * 
    * This parameter is required.
    * 
@@ -96,11 +96,11 @@ export class SubmitSnapshotJobRequestOutput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the output. Valid values:
+   * The input type. Valid values:
    * 
-   * - `OSS`: an OSS file URL.
+   * - OSS: the URL of an OSS object.
    * 
-   * - `Media`: a media asset ID.
+   * - Media: the ID of a media asset.
    * 
    * This parameter is required.
    * 
@@ -134,7 +134,7 @@ export class SubmitSnapshotJobRequestOutput extends $dara.Model {
 export class SubmitSnapshotJobRequestScheduleConfig extends $dara.Model {
   /**
    * @remarks
-   * The pipeline ID.
+   * The ID of the pipeline.
    * 
    * @example
    * ****96e8864746a0b6f3****
@@ -164,7 +164,7 @@ export class SubmitSnapshotJobRequestScheduleConfig extends $dara.Model {
 export class SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshotConfig extends $dara.Model {
   /**
    * @remarks
-   * The height of each tile. Default: the height of the output snapshot.
+   * The height of a single image. Default value: the height of the snapshot output resolution.
    * 
    * @example
    * 480
@@ -172,7 +172,7 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshot
   cellHeight?: number;
   /**
    * @remarks
-   * The width of each tile. Default: the width of the output snapshot.
+   * The width of a single image. Default value: the width of the snapshot output resolution.
    * 
    * @example
    * 720
@@ -188,7 +188,7 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshot
   color?: string;
   /**
    * @remarks
-   * The number of columns in the sprite grid.
+   * The number of columns for image stitching.
    * 
    * @example
    * 20
@@ -196,7 +196,7 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshot
   columns?: number;
   /**
    * @remarks
-   * The number of rows in the sprite grid.
+   * The number of rows for image stitching.
    * 
    * @example
    * 20
@@ -204,7 +204,7 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshot
   lines?: number;
   /**
    * @remarks
-   * The margin around the sprite, in pixels. Default value: 0.
+   * The margin width. Default value: 0. Unit: pixels.
    * 
    * @example
    * 20
@@ -212,7 +212,7 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshot
   margin?: number;
   /**
    * @remarks
-   * The padding between tiles, in pixels. Default value: 0.
+   * The spacing between images. Default value: 0. Unit: pixels.
    * 
    * @example
    * 20
@@ -254,7 +254,7 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshot
 export class SubmitSnapshotJobRequestTemplateConfigOverwriteParams extends $dara.Model {
   /**
    * @remarks
-   * The threshold for detecting and filtering black content in the first frame. This applies only to multi-frame snapshots.
+   * The threshold for filtering black screen images in the first frame of multi-frame snapshots.
    * 
    * @example
    * 30
@@ -262,7 +262,7 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParams extends $dara
   blackLevel?: number;
   /**
    * @remarks
-   * The number of snapshots to capture.
+   * The number of snapshots.
    * 
    * @example
    * 5
@@ -278,7 +278,7 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParams extends $dara
   frameType?: string;
   /**
    * @remarks
-   * The output image height.
+   * The height of the output image.
    * 
    * @example
    * 480
@@ -286,7 +286,7 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParams extends $dara
   height?: number;
   /**
    * @remarks
-   * The interval between snapshots.
+   * The snapshot interval. Unit: seconds.
    * 
    * @example
    * 10
@@ -294,7 +294,7 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParams extends $dara
   interval?: number;
   /**
    * @remarks
-   * Specifies whether to stitch snapshots into a single sprite. This applies only to WebVTT snapshots.
+   * The WebVTT snapshot configuration. Specifies whether to stitch the output.
    * 
    * @example
    * true
@@ -302,7 +302,7 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParams extends $dara
   isSptFrag?: boolean;
   /**
    * @remarks
-   * The threshold for determining whether a pixel is black.
+   * The threshold for determining whether a pixel is a black pixel.
    * 
    * @example
    * 70
@@ -310,12 +310,12 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParams extends $dara
   pixelBlackThreshold?: number;
   /**
    * @remarks
-   * The sprite configuration.
+   * The sprite snapshot configuration.
    */
   spriteSnapshotConfig?: SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshotConfig;
   /**
    * @remarks
-   * The start time for capturing snapshots.
+   * The start time of the snapshot. Unit: milliseconds.
    * 
    * @example
    * 1000
@@ -331,7 +331,7 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParams extends $dara
   type?: string;
   /**
    * @remarks
-   * The output image width.
+   * The width of the output image.
    * 
    * @example
    * 720
@@ -384,12 +384,12 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParams extends $dara
 export class SubmitSnapshotJobRequestTemplateConfig extends $dara.Model {
   /**
    * @remarks
-   * Parameters used to override settings in the specified template.
+   * The override parameters.
    */
   overwriteParams?: SubmitSnapshotJobRequestTemplateConfigOverwriteParams;
   /**
    * @remarks
-   * The snapshot template ID.
+   * The ID of the template.
    * 
    * This parameter is required.
    * 
@@ -426,14 +426,14 @@ export class SubmitSnapshotJobRequestTemplateConfig extends $dara.Model {
 export class SubmitSnapshotJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The input for the snapshot job.
+   * The snapshot input.
    * 
    * This parameter is required.
    */
   input?: SubmitSnapshotJobRequestInput;
   /**
    * @remarks
-   * The name of the snapshot job.
+   * The name of the job.
    * 
    * @example
    * SampleJob
@@ -441,7 +441,7 @@ export class SubmitSnapshotJobRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output destination for the snapshot job.
+   * The snapshot output.
    * 
    * This parameter is required.
    */
@@ -460,7 +460,7 @@ export class SubmitSnapshotJobRequest extends $dara.Model {
   templateConfig?: SubmitSnapshotJobRequestTemplateConfig;
   /**
    * @remarks
-   * Custom user data, passed as a JSON-formatted string.
+   * The custom user data.
    * 
    * @example
    * {"test parameter": "test value"}

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   /**
    * @remarks
-   * The time when the pipeline was created.
+   * The time when the pipeline was created. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -13,7 +13,7 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the pipeline was last modified.
+   * The time when the pipeline was last modified. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -21,7 +21,7 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The pipeline name.
+   * The name of the pipeline.
    * 
    * @example
    * test-pipeline
@@ -29,7 +29,7 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pipeline ID.
+   * The ID of the pipeline.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -37,7 +37,7 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The pipeline priority.
+   * The priority of the pipeline.
    * 
    * @example
    * 6
@@ -45,7 +45,7 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The pipeline type.
+   * The type of the pipeline.
    * 
    * @example
    * Standard
@@ -53,7 +53,7 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   speed?: string;
   /**
    * @remarks
-   * The pipeline status.
+   * The status of the pipeline.
    * 
    * @example
    * Active

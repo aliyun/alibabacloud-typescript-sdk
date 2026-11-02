@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateAIAgentCallResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the agent in the Alibaba Real-time Communication (ARTC) channel.
+   * The name of the agent in the ARTC channel.
    * 
    * @example
    * 877ae632caae49b1afc81c2e8194ffb4
@@ -13,7 +13,7 @@ export class GenerateAIAgentCallResponseBody extends $dara.Model {
   AIAgentUserId?: string;
   /**
    * @remarks
-   * The user ID of the avatar in the channel.
+   * The user ID of the digital human joining the session.
    * 
    * @example
    * avatar_39f8e0bc005e4f309379701645f4****
@@ -21,7 +21,7 @@ export class GenerateAIAgentCallResponseBody extends $dara.Model {
   avatarUserId?: string;
   /**
    * @remarks
-   * The ID of the ARTC channel.
+   * The ARTC channel ID.
    * 
    * @example
    * 70f22d5784194938a7e387052f2b3208
@@ -29,7 +29,7 @@ export class GenerateAIAgentCallResponseBody extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
-   * The ID of the generated agent instance.
+   * The instance ID of the generated agent.
    * 
    * @example
    * 39f8e0bc005e4f309379701645f4****
@@ -45,7 +45,7 @@ export class GenerateAIAgentCallResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The client-side ARTC token.
+   * The ARTC token for the client.
    * 
    * @example
    * eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx

@@ -22,8 +22,8 @@ export class AlterSearchIndexResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful. Valid values:
-   * - true: successful.
-   * - false: failed.
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

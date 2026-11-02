@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRtcRobotInstanceResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow voice interruption.
+   * Specifies whether voice interruption is allowed.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DescribeRtcRobotInstanceResponseBodyConfig extends $dara.Model {
   enableVoiceInterrupt?: boolean;
   /**
    * @remarks
-   * The welcome message.
+   * The greeting message.
    * 
    * @example
    * Hello
@@ -55,7 +55,7 @@ export class DescribeRtcRobotInstanceResponseBodyConfig extends $dara.Model {
 export class DescribeRtcRobotInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The authentication token for the RTC Channel.
+   * The authentication token for joining the RTC channel.
    * 
    * @example
    * **********
@@ -71,7 +71,7 @@ export class DescribeRtcRobotInstanceResponseBody extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
-   * The advanced configurations of the AI agent.
+   * The advanced configuration of the AI agent.
    */
   config?: DescribeRtcRobotInstanceResponseBodyConfig;
   /**
@@ -84,11 +84,11 @@ export class DescribeRtcRobotInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the instance. Valid values:
+   * The instance status. Valid values:
    * 
-   * - `Executing`: The instance is running.
+   * - Executing: Running.
    * 
-   * - `Finished`: The instance has stopped.
+   * - Finished: Finished.
    * 
    * @example
    * Executing
@@ -96,7 +96,7 @@ export class DescribeRtcRobotInstanceResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The custom user data.
+   * The custom user information.
    * 
    * @example
    * {}

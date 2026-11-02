@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitIProductionJobRequestInput extends $dara.Model {
   /**
    * @remarks
-   * The input media. OSS paths and media asset IDs are supported.
-   * OSS path rules (use either format):
+   * The input media. Both OSS URLs and media asset IDs are supported.
+   * OSS URL formats (select one of the following formats):
    * 1. oss://bucket/object
    * 2. http(s)://bucket.oss-[regionId].aliyuncs.com/object
-   * where bucket is the name of an OSS bucket in the same region as the current project, and object is the file path.
+   * In the URLs, bucket is the name of the OSS bucket in the same region as the current project, and object is the file path.
    * 
    * This parameter is required.
    * 
@@ -21,9 +21,9 @@ export class SubmitIProductionJobRequestInput extends $dara.Model {
    * @remarks
    * The media type. Valid values:
    * 
-   * - OSS: an OSS path
+   * - OSS: OSS path
    * 
-   * - Media: a media asset ID
+   * - Media: media asset ID
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class SubmitIProductionJobRequestInput extends $dara.Model {
 export class SubmitIProductionJobRequestOutput extends $dara.Model {
   /**
    * @remarks
-   * The business type to which the media asset belongs.
+   * The business to which the media asset belongs.
    * 
    * @example
    * IMS
@@ -73,7 +73,7 @@ export class SubmitIProductionJobRequestOutput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The OSS path of the output file when Type is set to Media. The bucket must be registered in IMS or VOD.
+   * The OSS URL of the output file. This parameter is required when Type is set to Media. The bucket must be registered in IMS or VOD.
    * 
    * @example
    * http(s)://bucket.oss-[RegionId].aliyuncs.com/object
@@ -83,9 +83,9 @@ export class SubmitIProductionJobRequestOutput extends $dara.Model {
    * @remarks
    * The media type. Valid values:
    * 
-   * - OSS: an OSS path
+   * - OSS: OSS path
    * 
-   * - Media: a media asset ID
+   * - Media: media asset ID
    * 
    * This parameter is required.
    * 
@@ -131,7 +131,7 @@ export class SubmitIProductionJobRequestScheduleConfig extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The priority. Valid values: 1 to 10. A smaller value indicates a higher priority.
+   * The priority of the job. Valid values: 1 to 10. A smaller value indicates a higher priority.
    * 
    * @example
    * 6
@@ -163,20 +163,20 @@ export class SubmitIProductionJobRequestScheduleConfig extends $dara.Model {
 export class SubmitIProductionJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the algorithm function to use. Valid values:
+   * The name of the algorithm feature to be used. Valid values:
    * 
    * - **Cover**: intelligent cover
    * - **VideoClip**: video synopsis
-   * - **VideoDelogo**: video logo removal
+   * - **VideoDelogo**: video icon removal
    * - **VideoDetext**: video subtitle removal
-   * - **CaptionExtraction**: caption extraction
+   * - **CaptionExtraction**: subtitle fetch
    * - **VideoGreenScreenMatting**: image matting
    * - **FaceBeauty**: video face beautification
-   * - **VideoH2V**: intelligent landscape-to-portrait
+   * - **VideoH2V**: video landscape-to-portrait conversion
    * - **MusicSegmentDetect**: chorus detection
    * - **AudioBeatDetection**: beat detection
    * - **AudioQualityAssessment**: audio quality assessment
-   * - **SpeechDenoise**: speech denoising
+   * - **SpeechDenoise**: speech noise reduction
    * - **AudioMixing**: audio mixing
    * - **MusicDemix**: vocal and accompaniment separation
    * 
@@ -188,16 +188,16 @@ export class SubmitIProductionJobRequest extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * The input media. Object Storage Service (OSS) paths and media asset IDs are supported.
+   * The input media. OSS paths and media asset IDs are supported.
    * 
-   * Different algorithm functions have different input file requirements. For more information, see the supplementary description below.
+   * The file requirements for the input media vary based on the algorithm feature. For more information, see the supplementary instructions below.
    * 
    * This parameter is required.
    */
   input?: SubmitIProductionJobRequestInput;
   /**
    * @remarks
-   * The algorithm job parameters. This is a JSON object. The parameters vary depending on the algorithm. For more information, see the supplementary description.
+   * The algorithm job parameters. The value is a JSON object. The parameters vary based on the algorithm. For more information, see the supplementary instructions.
    * 
    * @example
    * {"Model":"gif"}
@@ -205,26 +205,29 @@ export class SubmitIProductionJobRequest extends $dara.Model {
   jobParams?: string;
   /**
    * @remarks
-   * The algorithm model ID. If this parameter is left empty, the default model for the corresponding function is used. In most cases, leave this parameter empty to use the default model.
+   * The algorithm model ID. If this parameter is left empty, the default model for the corresponding feature is used. You can leave this parameter empty and use the default model.
    * 
-   * The following algorithm functions have non-default models available:
+   * The following algorithm features support non-default models:
    * * VideoDetext
-   *   * ModelId = algo-video-detext-new: a subtitle removal algorithm with better results but slower speed and higher cost than the default algorithm.
+   *   * ModelId = algo-video-detext-new: a subtitle removal algorithm that delivers better results but runs slower and costs more than the default algorithm.
+   * 
+   * @example
+   * algo-video-detext-new
    */
   modelId?: string;
   /**
    * @remarks
-   * The job name. The name can be up to 100 characters in length.
+   * The name of the job. The name can be up to 100 characters in length.
    * 
    * @example
-   * Test task
+   * Test job
    */
   name?: string;
   /**
    * @remarks
    * The output media. OSS paths and media asset IDs are supported.
    * 
-   * Different algorithm functions produce different output files. For more information, see the supplementary description below.
+   * The output files for the Output parameter vary based on the algorithm feature. For more information, see the supplementary instructions below.
    * 
    * This parameter is required.
    */
@@ -244,7 +247,7 @@ export class SubmitIProductionJobRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The custom user data, which is returned as-is when you retrieve the result. The value can be up to 256 characters in length.
+   * The custom user data. The data is returned as is when the result is obtained. The value can be up to 256 characters in length.
    * 
    * @example
    * {"test":1}

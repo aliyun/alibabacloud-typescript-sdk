@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $dara.Model {
   /**
    * @remarks
-   * The media asset ID of the sample audio file.
+   * The media asset ID of the demo audio.
    * 
    * @example
    * ****4d5e829d498aaf966b119348****
@@ -14,10 +14,8 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $da
   /**
    * @remarks
    * The gender. Valid values:
-   * 
-   * - female
-   * 
-   * - male
+   * - female: Female.
+   * - male: Male.
    * 
    * @example
    * male
@@ -26,12 +24,9 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $da
   /**
    * @remarks
    * The scenario. Valid values:
-   * 
-   * - story
-   * 
-   * - interaction
-   * 
-   * - navigation
+   * - story: Story.
+   * - interaction: Interaction.
+   * - navigation: Navigation.
    * 
    * @example
    * story
@@ -39,11 +34,9 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $da
   scenario?: string;
   /**
    * @remarks
-   * - The voice type. Valid values:
-   * 
-   *   - Basic
-   * 
-   *   - Standard
+   * The voice type. Valid values:
+   * - Basic: Basic edition.
+   * - Standard: Standard edition.
    * 
    * @example
    * Standard
@@ -54,7 +47,7 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $da
    * The voice description.
    * 
    * @example
-   * 这是一个个性化人声小专
+   * This is a personalized vocal small special
    */
   voiceDesc?: string;
   /**
@@ -67,10 +60,10 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $da
   voiceId?: string;
   /**
    * @remarks
-   * The voice name.
+   * The voice name, which is typically in Chinese.
    * 
    * @example
-   * 小专
+   * The voice name.
    */
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -109,12 +102,12 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $da
 export class ListCustomizedVoicesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The queried personalized human voices.
+   * The list of personalized voices.
    */
   customizedVoiceList?: ListCustomizedVoicesResponseBodyDataCustomizedVoiceList[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 41
@@ -149,7 +142,7 @@ export class ListCustomizedVoicesResponseBodyData extends $dara.Model {
 export class ListCustomizedVoicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: ListCustomizedVoicesResponseBodyData;
   /**
@@ -162,11 +155,9 @@ export class ListCustomizedVoicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

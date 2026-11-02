@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDNAFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media fingerprint library from which you want to delete files.
+   * The ID of the DNA library from which you want to delete files.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteDNAFilesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The primary key values of the files that you want to delete. Separate multiple values with commas (,). You can delete up to 50 files at a time.
+   * The primary keys of the files that you want to delete. Separate multiple primary keys with commas (,). You can delete up to 50 files at a time.
    * 
    * This parameter is required.
    * 

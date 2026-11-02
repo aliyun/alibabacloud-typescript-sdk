@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrencesTracks extends $dara.Model {
   /**
    * @remarks
-   * The coordinates of the bounding box.
+   * The position coordinates of the bounding box.
    * 
    * @example
    * 468.0;67.0;615.0;267.0
@@ -13,7 +13,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
   position?: string;
   /**
    * @remarks
-   * The size of the bounding box.
+   * The area of the face bounding box.
    * 
    * @example
    * 50
@@ -55,7 +55,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
 export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrences extends $dara.Model {
   /**
    * @remarks
-   * The ID of the clip.
+   * The segment ID.
    * 
    * @example
    * 158730355E4B82257D8AA1583A58****
@@ -63,10 +63,10 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
   clipId?: string;
   /**
    * @remarks
-   * The content of the text.
+   * The text content.
    * 
    * @example
-   * Test content
+   * Smart label test
    */
   content?: string;
   /**
@@ -87,7 +87,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
   finegrainName?: string;
   /**
    * @remarks
-   * The start time of the clip.
+   * The start time of the segment.
    * 
    * @example
    * 1.4
@@ -95,7 +95,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
   from?: number;
   /**
    * @remarks
-   * The image that contains the most face information.
+   * The optimal face image.
    * 
    * @example
    * https://service-****-public.oss-cn-hangzhou.aliyuncs.com/1563457****438522/service-image/f788974f-9595-43b2-a478-7c7a1afb****.jpg
@@ -111,7 +111,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
   score?: number;
   /**
    * @remarks
-   * The sequence ID of the vector table.
+   * The vector table sequence ID.
    * 
    * @example
    * 85010D1**
@@ -119,7 +119,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
   tableBatchSeqId?: string;
   /**
    * @remarks
-   * The end time of the clip.
+   * The end time of the segment.
    * 
    * @example
    * 2.5
@@ -127,7 +127,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
   to?: number;
   /**
    * @remarks
-   * The tracks.
+   * The track sequence.
    */
   tracks?: SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrencesTracks[];
   static names(): { [key: string]: string } {
@@ -178,12 +178,12 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo extends 
    * The category.
    * 
    * @example
-   * Vehicle
+   * Means of transportation
    */
   category?: string;
   /**
    * @remarks
-   * The ID of the face.
+   * The face ID.
    * 
    * @example
    * 5FE19530C7A422197535FE74F5DB****
@@ -191,7 +191,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo extends 
   faceId?: string;
   /**
    * @remarks
-   * The ID of the entity.
+   * The entity ID.
    * 
    * @example
    * 103102503**
@@ -199,7 +199,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo extends 
   labelId?: string;
   /**
    * @remarks
-   * The name of the entity.
+   * The entity name.
    * 
    * @example
    * Car
@@ -207,15 +207,15 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo extends 
   labelName?: string;
   /**
    * @remarks
-   * The type of the tag.
+   * The label type.
    * 
    * @example
-   * Object
+   * object
    */
   labelType?: string;
   /**
    * @remarks
-   * The information about the clips.
+   * The segment information.
    */
   occurrences?: SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrences[];
   /**
@@ -265,7 +265,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo extends 
 export class SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the clip.
+   * The segment ID.
    * 
    * @example
    * 5FE19530C7A422197535FE74F5DB****
@@ -273,15 +273,15 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo extends $dar
   clipId?: string;
   /**
    * @remarks
-   * The content of the audio.
+   * The text content.
    * 
    * @example
-   * 智能标签测试
+   * Smart label test
    */
   content?: string;
   /**
    * @remarks
-   * The start time of the clip.
+   * The start time of the segment.
    * 
    * @example
    * 1.4
@@ -289,7 +289,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo extends $dar
   from?: number;
   /**
    * @remarks
-   * The timestamp of the clip.
+   * The segment timestamp.
    * 
    * @example
    * 1.4
@@ -297,7 +297,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo extends $dar
   timestamp?: number;
   /**
    * @remarks
-   * The end time of the clip.
+   * The end time of the segment.
    * 
    * @example
    * 2.5
@@ -335,7 +335,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo extends $dar
 export class SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the clip.
+   * The segment ID.
    * 
    * @example
    * 5FE19530C7A422197535FE74F5DB****
@@ -343,7 +343,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo extends $dar
   clipId?: string;
   /**
    * @remarks
-   * The content of the text.
+   * The text content.
    * 
    * @example
    * Pipi
@@ -351,7 +351,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo extends $dar
   content?: string;
   /**
    * @remarks
-   * The start time of the clip.
+   * The start time of the segment.
    * 
    * @example
    * 1.4
@@ -359,7 +359,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo extends $dar
   from?: number;
   /**
    * @remarks
-   * The timestamp of the clip.
+   * The segment timestamp.
    * 
    * @example
    * 1.4
@@ -367,7 +367,7 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo extends $dar
   timestamp?: number;
   /**
    * @remarks
-   * The end time of the clip.
+   * The end time of the segment.
    * 
    * @example
    * 2.5
@@ -405,17 +405,17 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo extends $dar
 export class SearchMediaByAILabelResponseBodyMediaListAiData extends $dara.Model {
   /**
    * @remarks
-   * The tags of the AI job.
+   * The AI label information list.
    */
   aiLabelInfo?: SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo[];
   /**
    * @remarks
-   * The information about audio files.
+   * The speech information list.
    */
   asrInfo?: SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo[];
   /**
    * @remarks
-   * The information about subtitle files.
+   * The subtitle information list.
    */
   ocrInfo?: SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo[];
   static names(): { [key: string]: string } {
@@ -455,12 +455,12 @@ export class SearchMediaByAILabelResponseBodyMediaListAiData extends $dara.Model
 export class SearchMediaByAILabelResponseBodyMediaList extends $dara.Model {
   /**
    * @remarks
-   * The details of the AI job.
+   * The detailed AI information.
    */
   aiData?: SearchMediaByAILabelResponseBodyMediaListAiData;
   /**
    * @remarks
-   * The ID of the application. Default value: app-1000000.
+   * The application ID. Default value: app-1000000.
    * 
    * @example
    * app-1000000
@@ -468,7 +468,7 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The URL of the thumbnail.
+   * The cover URL.
    * 
    * @example
    * http://example.aliyundoc.com/snapshot/****.jpg?auth_key=1498476426-0-0-f00b9455c49a423ce69cf4e27333****
@@ -476,7 +476,7 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $dara.Model {
   coverUrl?: string;
   /**
    * @remarks
-   * The time when the media asset was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The creation time. The format is yyyy-MM-ddTHH:mm:ssZ (UTC time).
    * 
    * @example
    * 2017-11-14T09:15:50Z
@@ -484,7 +484,7 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The description of the media asset.
+   * The description.
    * 
    * @example
    * Alibaba Cloud VOD video description
@@ -500,7 +500,7 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * 1c6ce34007d571ed94667630a6bc****
@@ -508,7 +508,7 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The time when the media asset was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The modification time. The format is yyyy-MM-ddTHH:mm:ssZ (UTC time).
    * 
    * @example
    * 2017-11-14T09:15:50Z
@@ -529,33 +529,7 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $dara.Model {
   snapshots?: string[];
   /**
    * @remarks
-   * The status of the video.
-   * 
-   * Valid values:
-   * 
-   * - PrepareFail
-   * 
-   * - UploadFail
-   * 
-   * - Init
-   * 
-   * - UploadSucc
-   * 
-   * - Transcoding
-   * 
-   * - TranscodeFail
-   * 
-   * - Deleted
-   * 
-   * - Normal
-   * 
-   * - Uploading
-   * 
-   * - Preparing
-   * 
-   * - Blocked
-   * 
-   * - Checking
+   * The video status.
    * 
    * @example
    * Normal
@@ -563,7 +537,7 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage address.
+   * The storage location.
    * 
    * @example
    * out-****.oss-cn-shanghai.aliyuncs.com
@@ -571,18 +545,18 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $dara.Model {
   storageLocation?: string;
   /**
    * @remarks
-   * The tags of the media asset.
+   * The tag list.
    * 
    * @example
-   * Tag 1, Tag 2
+   * Tag1, Tag2
    */
   tags?: string;
   /**
    * @remarks
-   * The title of the media asset.
+   * The title.
    * 
    * @example
-   * The best music player ever
+   * The greatest music player in history.
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -641,7 +615,7 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $dara.Model {
 export class SearchMediaByAILabelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -649,12 +623,12 @@ export class SearchMediaByAILabelResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The media assets that contain the specified content.
+   * The collection of matched media assets.
    */
   mediaList?: SearchMediaByAILabelResponseBodyMediaList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -662,7 +636,7 @@ export class SearchMediaByAILabelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
@@ -670,7 +644,7 @@ export class SearchMediaByAILabelResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of audio and video files that meet the conditions.
+   * The total number of matched media assets.
    * 
    * @example
    * 30

@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return the information about the associated materials. Default value: 0. Valid values: 0 and 1. A value of 1 specifies that the information about the associated materials is returned. This parameter is valid only for regular templates.
+   * Specifies whether to return the media assets associated with the template. Valid values:
+   * - 1: Returns the associated media assets.
+   * - 0: Does not return the associated media assets.
+   * Default value: 0. This parameter is valid only for standard templates.
    * 
    * @example
    * 0

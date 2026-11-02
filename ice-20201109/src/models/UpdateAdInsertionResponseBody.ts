@@ -13,7 +13,7 @@ export class UpdateAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
   adSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * The CDN prefix for content segments.
+   * The CDN prefix for video content segments.
    * 
    * @example
    * http://cdn.com/
@@ -45,12 +45,12 @@ export class UpdateAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
 export class UpdateAdInsertionResponseBodyConfigManifestEndpointConfig extends $dara.Model {
   /**
    * @remarks
-   * The prefix of the playback endpoint for DASH manifests.
+   * The prefix of the DASH manifest endpoint.
    */
   dashPrefix?: string;
   /**
    * @remarks
-   * The prefix of the playback endpoint for HLS manifests.
+   * The prefix of the HLS manifest endpoint.
    */
   hlsPrefix?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +79,7 @@ export class UpdateAdInsertionResponseBodyConfigManifestEndpointConfig extends $
 export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether ad marker passthrough is enabled.
+   * Indicates whether ad markers are passed through.
    * 
    * @example
    * ON
@@ -87,7 +87,7 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   adMarkerPassthrough?: string;
   /**
    * @remarks
-   * The request URL of ADS.
+   * The URL of the ad decision server.
    * 
    * @example
    * http://ads.com/ad1?param1=[palyer_params.p1]
@@ -95,12 +95,12 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   adsUrl?: string;
   /**
    * @remarks
-   * The CDN configurations.
+   * The CDN configuration.
    */
   cdnConfig?: UpdateAdInsertionResponseBodyConfigCdnConfig;
   /**
    * @remarks
-   * The player parameter variables and aliases.
+   * The aliases for dynamic configurations.
    * 
    * @example
    * { "player_params.p1": { "1": "abc" } }
@@ -108,7 +108,7 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   configAliases?: string;
   /**
    * @remarks
-   * The URL prefix for the source content.
+   * The prefix of the content URL.
    * 
    * @example
    * https://source.com/
@@ -116,7 +116,7 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   contentUrlPrefix?: string;
   /**
    * @remarks
-   * The time when the configuration was created.
+   * The creation time. The time is in the ISO 8601 format in UTC (ending with Z).
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -124,7 +124,7 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the configuration was last modified.
+   * The last modified time.
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -132,7 +132,7 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   lastModified?: string;
   /**
    * @remarks
-   * The playback endpoint configuration.
+   * The manifest endpoint configuration.
    */
   manifestEndpointConfig?: UpdateAdInsertionResponseBodyConfigManifestEndpointConfig;
   /**
@@ -145,7 +145,7 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The personalization threshold.
+   * The threshold for personalization configuration.
    * 
    * @example
    * 5
@@ -214,7 +214,7 @@ export class UpdateAdInsertionResponseBody extends $dara.Model {
   config?: UpdateAdInsertionResponseBodyConfig;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****

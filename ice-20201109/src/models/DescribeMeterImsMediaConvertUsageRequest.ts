@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMeterImsMediaConvertUsageRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The value is a 10-digit timestamp. The maximum query range is 31 days. The duration between StartTs and EndTs cannot exceed 31 days.
+   * The end timestamp, which is a 10-digit UNIX timestamp. The maximum query interval is 31 days, which means the interval between this parameter and StartTs cannot exceed 31 days.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeMeterImsMediaConvertUsageRequest extends $dara.Model {
   endTs?: number;
   /**
    * @remarks
-   * The time granularity of the query. Valid values: 3600 (hour) and 86400 (day).
+   * The time granularity for the query. Valid values: 3600 (hourly) and 86400 (daily).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeMeterImsMediaConvertUsageRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * This parameter does not take effect. By default, the usage data of all regions is returned.
+   * This parameter does not take effect. By default, the usage data for all regions is returned.
    * 
    * @example
    * cn-shanghai
@@ -33,7 +33,7 @@ export class DescribeMeterImsMediaConvertUsageRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a 10-digit timestamp. You can query data within the last 90 days.
+   * The start timestamp, which is a 10-digit UNIX timestamp. You can query data from up to 90 days ago.
    * 
    * This parameter is required.
    * 

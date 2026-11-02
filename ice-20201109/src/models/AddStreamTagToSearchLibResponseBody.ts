@@ -13,7 +13,7 @@ export class AddStreamTagToSearchLibResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -29,11 +29,9 @@ export class AddStreamTagToSearchLibResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Default value: true. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

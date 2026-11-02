@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitASRJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The task description. The description can be up to 128 bytes in length.
+   * The job description. The maximum length is 128 bytes.
    * 
    * @example
    * Test description
@@ -21,11 +21,11 @@ export class SubmitASRJobRequest extends $dara.Model {
   duration?: string;
   /**
    * @remarks
-   * The audio-to-text recognition configuration:
+   * The audio speech-to-text configuration:
    * 
-   * - HotwordLibraryIdList: the list of hotword library IDs. Currently, only one hotword library ID is supported. Support for multiple hotword library IDs is planned for the future.
-   * - SentenceMaxLength: the maximum length of each sentence in the output. Type: int.
-   * - EnableSemanticSentenceDetection: specifies whether to segment sentences based on semantics in the output. Type: bool. Default value: false.
+   * - HotwordLibraryIdList: the list of hotword library IDs. Currently, only one hotword library ID can be passed. Support for multiple hotword library IDs is planned for the future.
+   * - SentenceMaxLength: the maximum length of each sentence in the output result. Type: int.
+   * - EnableSemanticSentenceDetection: specifies whether to segment sentences in the output result based on semantics. Type: bool. Default value: false.
    * 
    * @example
    * {
@@ -35,10 +35,10 @@ export class SubmitASRJobRequest extends $dara.Model {
   editingConfig?: string;
   /**
    * @remarks
-   * The input configuration. OSS addresses and content library material IDs are supported.
+   * The input configuration. OSS URLs and content library material IDs are supported.
    * 
    * @example
-   * oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 或 ****20b48fb04483915d4f2cd8ac****
+   * oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
    */
   inputFile?: string;
   /**
@@ -51,7 +51,7 @@ export class SubmitASRJobRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The task title. The title can be up to 128 bytes in length.
+   * The job title. The maximum length is 128 bytes.
    * 
    * @example
    * Test title
@@ -59,7 +59,7 @@ export class SubmitASRJobRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The custom settings. You can pass in business information such as the business environment and task information. The value is a JSON string.
+   * The custom settings. You can pass in customer business information, such as the business environment and job information, in JSON string format.
    * 
    * @example
    * {

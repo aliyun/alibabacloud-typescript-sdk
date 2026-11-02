@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePipelineRequest extends $dara.Model {
   /**
    * @remarks
-   * The pipeline name.
+   * The name of the pipeline.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreatePipelineRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The priority, ranging from 1 to 10. Default value: 6. A larger value indicates a higher priority.
+   * The priority of the pipeline. Valid values: 1 to 10. Default value: 6. A larger value indicates a higher priority.
    * 
    * @example
    * 6
@@ -23,13 +23,10 @@ export class CreatePipelineRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The pipeline type. Valid values:
-   * 
-   * - Standard: standard pipeline.
-   * 
-   * - Boost: double-speed transcoding pipeline.
-   * 
-   * - NarrowBandHDV2: Narrowband HD 2.0 pipeline.
+   * The type of the pipeline. Valid values:
+   * - Standard: standard pipeline
+   * - Boost: accelerated transcoding pipeline
+   * - NarrowBandHDV2: Narrowband HD 2.0 pipeline
    * 
    * This parameter is required.
    * 

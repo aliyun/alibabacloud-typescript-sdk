@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitDNAJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DNA job. Save this ID for subsequent API calls.
+   * The ID of the video DNA job. Save this ID for subsequent calls to other related operations.
    * 
    * @example
    * 88c6ca184c0e47098a5b665e2****
@@ -13,7 +13,7 @@ export class SubmitDNAJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 25818875-5F78-4A13-BEF6-D7393642CA58

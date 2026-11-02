@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelDNAJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media fingerprint analysis job that you want to cancel.
+   * The ID of the DNA job to cancel.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLivePackageChannelsResponseBodyLivePackageChannelsIngestEndpoints extends $dara.Model {
   /**
    * @remarks
-   * The ingest endpoint ID.
+   * The ID of the ingest endpoint.
    * 
    * @example
    * ingest1
@@ -21,7 +21,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannelsIngestEndpoin
   password?: string;
   /**
    * @remarks
-   * The ingest endpoint URL.
+   * The URL of the ingest endpoint.
    * 
    * @example
    * http://xxx-1.packagepush-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
@@ -65,7 +65,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannelsIngestEndpoin
 export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dara.Model {
   /**
    * @remarks
-   * The channel name.
+   * The name of the channel.
    * 
    * @example
    * ch3
@@ -73,7 +73,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
   channelName?: string;
   /**
    * @remarks
-   * The time when the channel was created.
+   * The creation time. The time is in ISO 8601 format and uses UTC time (ending with Z).
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -81,7 +81,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
   createTime?: string;
   /**
    * @remarks
-   * The channel description.
+   * The description of the channel.
    * 
    * @example
    * Test channel
@@ -89,7 +89,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
   description?: string;
   /**
    * @remarks
-   * The channel group name.
+   * The name of the channel group.
    * 
    * @example
    * channel-group-1
@@ -97,12 +97,12 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
   groupName?: string;
   /**
    * @remarks
-   * The ingest endpoints.
+   * The array of ingest endpoints.
    */
   ingestEndpoints?: ListLivePackageChannelsResponseBodyLivePackageChannelsIngestEndpoints[];
   /**
    * @remarks
-   * The time when the channel was last modified.
+   * The last modified time.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -110,7 +110,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
   lastModified?: string;
   /**
    * @remarks
-   * The ingest protocol. Only HLS is supported.
+   * The input protocol, such as HLS.
    * 
    * @example
    * HLS
@@ -118,7 +118,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
   protocol?: string;
   /**
    * @remarks
-   * The number of M3U8 segments.
+   * The number of m3u8 segments in the input stream.
    * 
    * @example
    * 3
@@ -126,7 +126,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
   segmentCount?: number;
   /**
    * @remarks
-   * The segment duration.
+   * The duration of segments in the input stream.
    * 
    * @example
    * 5
@@ -175,7 +175,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
 export class ListLivePackageChannelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The live package channels.
+   * The list of real-time packaging channels.
    */
   livePackageChannels?: ListLivePackageChannelsResponseBodyLivePackageChannels[];
   /**
@@ -196,15 +196,15 @@ export class ListLivePackageChannelsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier of the request.
    * 
    * @example
-   * ******11-DB8D-4A9A-875B-275798******
+   * Example value of RequestId
    */
   requestId?: string;
   /**
    * @remarks
-   * The sort order. Valid values: asc and desc (default).
+   * The sorting order. Valid values: asc (ascending) and desc (descending, default).
    * 
    * @example
    * asc/desc
@@ -212,7 +212,7 @@ export class ListLivePackageChannelsResponseBody extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 15

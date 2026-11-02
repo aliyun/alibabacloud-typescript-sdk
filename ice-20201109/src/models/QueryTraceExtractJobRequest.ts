@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTraceExtractJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job ID. You can obtain the value of this parameter from the response of the SubmitTraceExtractJob operation.
+   * The job ID. You can obtain this ID from the response parameters returned after submitting a tracing watermark extraction job.
    * 
    * This parameter is required.
    * 

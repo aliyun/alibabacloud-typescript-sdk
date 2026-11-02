@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDNAFilesResponseBodyFileListInputFile extends $dara.Model {
   /**
    * @remarks
-   * The name of the OSS bucket in which the input file is stored.
+   * The OSS bucket of the input file.
    * 
    * @example
    * example-bucket
@@ -13,7 +13,7 @@ export class ListDNAFilesResponseBodyFileListInputFile extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * The OSS region in which the input file resides.
+   * The OSS location of the input file.
    * 
    * @example
    * oss-cn-beijing
@@ -21,7 +21,7 @@ export class ListDNAFilesResponseBodyFileListInputFile extends $dara.Model {
   location?: string;
   /**
    * @remarks
-   * The name of the OSS object that is used as the input file.
+   * The OSS object of the input file.
    * 
    * @example
    * example-****.mp4
@@ -55,12 +55,12 @@ export class ListDNAFilesResponseBodyFileListInputFile extends $dara.Model {
 export class ListDNAFilesResponseBodyFileList extends $dara.Model {
   /**
    * @remarks
-   * The Object Storage Service (OSS) information about the input file.
+   * The OSS information of the input file.
    */
   inputFile?: ListDNAFilesResponseBodyFileListInputFile;
   /**
    * @remarks
-   * The primary key of the file.
+   * The user primary key of the DNA file.
    * 
    * @example
    * ae0fd49c0840e14daf0d66a75b83****
@@ -95,12 +95,12 @@ export class ListDNAFilesResponseBodyFileList extends $dara.Model {
 export class ListDNAFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried files.
+   * The file list.
    */
   fileList?: ListDNAFilesResponseBodyFileList[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token for the next page.
    * 
    * @example
    * ae0fd49c0840e14daf0d66a75b83****

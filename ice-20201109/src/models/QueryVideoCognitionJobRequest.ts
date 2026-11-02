@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryVideoCognitionJobRequestIncludeResults extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return the ASR results.
+   * Specifies whether to display the automatic speech recognition (ASR) results.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class QueryVideoCognitionJobRequestIncludeResults extends $dara.Model {
   needAsr?: boolean;
   /**
    * @remarks
-   * Specifies whether to return the OCR results.
+   * Specifies whether to display the optical character recognition (OCR) results.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class QueryVideoCognitionJobRequestIncludeResults extends $dara.Model {
   needOcr?: boolean;
   /**
    * @remarks
-   * Specifies whether to return a link to the raw operator results.
+   * Specifies whether to display the links to the original results of the operators.
    * 
    * @example
    * true
@@ -55,12 +55,12 @@ export class QueryVideoCognitionJobRequestIncludeResults extends $dara.Model {
 export class QueryVideoCognitionJobRequest extends $dara.Model {
   /**
    * @remarks
-   * A container for parameters that determine which algorithm results to include in the response.
+   * Specifies whether to include the complete algorithm results in the query results.
    */
   includeResults?: QueryVideoCognitionJobRequestIncludeResults;
   /**
    * @remarks
-   * The ID of the intelligent tagging job. You can obtain this ID from the response of the [SubmitIntelligentTaggingJob](https://help.aliyun.com/document_detail/478786.html) operation.
+   * The ID of the intelligent tagging job to query. You can obtain the ID from the response parameters of the [Submit a smart tagging job](https://help.aliyun.com/document_detail/478786.html) operation.
    * 
    * This parameter is required.
    * 
@@ -70,7 +70,7 @@ export class QueryVideoCognitionJobRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Additional request parameters, specified as a JSON string.
+   * The additional request parameters, represented as a JSON string.
    * 
    * @example
    * {}

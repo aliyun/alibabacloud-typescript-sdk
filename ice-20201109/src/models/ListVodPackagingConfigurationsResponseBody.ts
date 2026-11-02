@@ -6,12 +6,12 @@ import { VodPackagingConfiguration } from "./VodPackagingConfiguration";
 export class ListVodPackagingConfigurationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The packaging configurations.
+   * The list of packaging configurations.
    */
   packagingConfigurations?: VodPackagingConfiguration[];
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number for paging. Default value: 1.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListVodPackagingConfigurationsResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries to return on each page for paging. Default value: 10.
    * 
    * @example
    * 10
@@ -27,7 +27,7 @@ export class ListVodPackagingConfigurationsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -35,11 +35,9 @@ export class ListVodPackagingConfigurationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The sorting order of the packaging configurations based on the time when they were created. Valid values:
-   * 
-   * - desc: descending order.
-   * 
-   * - asc: ascending order.
+   * The sort order. Default value: desc. Valid values:
+   * - desc: Sorts the list in descending order of creation time.
+   * - asc: Sorts the list in ascending order of creation time.
    * 
    * @example
    * desc
@@ -47,7 +45,7 @@ export class ListVodPackagingConfigurationsResponseBody extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 5

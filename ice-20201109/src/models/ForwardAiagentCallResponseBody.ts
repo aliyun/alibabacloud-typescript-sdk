@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ForwardAIAgentCallResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 550e8400********55440000

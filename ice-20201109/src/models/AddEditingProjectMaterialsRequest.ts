@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddEditingProjectMaterialsRequest extends $dara.Model {
   /**
    * @remarks
-   * The material IDs. Separate multiple material IDs with commas (,). Each type supports up to 10 material IDs.
+   * The material IDs. Separate multiple IDs with commas (,). A maximum of 10 material IDs are supported for each type. Valid values:
    * - "video": video
    * - "audio": audio
    * - "image": image
@@ -20,7 +20,7 @@ export class AddEditingProjectMaterialsRequest extends $dara.Model {
   materialMaps?: string;
   /**
    * @remarks
-   * The ID of the online editing project.
+   * The ID of the cloud editing project.
    * 
    * This parameter is required.
    * 

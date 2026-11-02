@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitTextGenerateJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The smart job ID.
+   * The ID of the intelligent task.
    * 
    * @example
    * ****d80e4e4044975745c14b****
@@ -13,7 +13,7 @@ export class SubmitTextGenerateJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ForwardAIAgentCallRequest extends $dara.Model {
   /**
    * @remarks
-   * The target phone number for call transfer.
+   * The destination phone number to which the call is transferred.
    * 
    * @example
    * 13**********
@@ -13,20 +13,12 @@ export class ForwardAIAgentCallRequest extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * The caller phone number for the transferred call. Optional.
-   * 
-   * >Notice: 
-   * 
-   * By default, the CallerNumber is the agent\\"s phone number after the call starts:
-   * 1\\. For inbound lines, the agent number is the agent’s seat number.
-   * 2\\. For outbound lines, the agent number is the original caller number.
+   * The caller phone number for the transferred call. This parameter is optional.
    * 
    * 
-   * 
-   * 
-   * >Warning: 
-   * 
-   * Alibaba Cloud lines do not support this parameter.
+   * <notice>
+   * By default, CallerNumber is the phone number of the agent after the call is started: 1. For inbound lines, the agent number is the agent seat number. 2. For outbound lines, the agent number is the caller number.</notice>
+   * <warning>Alibaba Cloud lines do not support this parameter.</warning>
    * 
    * @example
    * 13**********
@@ -34,7 +26,7 @@ export class ForwardAIAgentCallRequest extends $dara.Model {
   callerNumber?: string;
   /**
    * @remarks
-   * Abnormal prompt text played when the transfer fails. Default is empty.
+   * The error prompt text to play when the transfer fails. Default value: empty.
    * 
    * @example
    * We’re sorry, we’re unable to transfer your call at the moment. Please try again later.
@@ -42,7 +34,7 @@ export class ForwardAIAgentCallRequest extends $dara.Model {
   errorPrompt?: string;
   /**
    * @remarks
-   * Current call instance ID, used only in inbound call transfer scenarios.
+   * The current call instance ID. This parameter is used only in inbound call transfer scenarios.
    * 
    * @example
    * call_instance_202******
@@ -50,7 +42,7 @@ export class ForwardAIAgentCallRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Prompt message played before initiating the transfer. If empty, the system skips the prompt and plays the ringing tone directly. Default is empty.
+   * The prompt text to play before the transfer begins. If this parameter is left empty, the prompt is skipped and the ringtone is played directly. Default value: empty.
    * 
    * @example
    * Please hold while I transfer your call.

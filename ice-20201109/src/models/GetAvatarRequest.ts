@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAvatarRequest extends $dara.Model {
   /**
    * @remarks
-   * - The ID of the digital human.
+   * The digital human ID.
    * 
    * This parameter is required.
    * 

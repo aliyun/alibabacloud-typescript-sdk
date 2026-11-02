@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitTranscodeJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotency key that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure request idempotency.
    * 
    * @example
    * ****12e8864746a0a398****
@@ -13,7 +13,7 @@ export class SubmitTranscodeJobShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The job input group. A single input creates a transcoding job. Multiple inputs create an audio and video stream merging job.
+   * The input group of the job. A single input indicates a transcoding job. Multiple inputs indicate an audio and video stream merging job.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class SubmitTranscodeJobShrinkRequest extends $dara.Model {
   scheduleConfigShrink?: string;
   /**
    * @remarks
-   * Custom settings in JSON format. The value can be up to 512 bytes in length. [Custom callback URL configuration](https://help.aliyun.com/document_detail/451631.html) is supported.
+   * The custom settings in JSON format. The maximum length is 512 bytes. [Custom callback URL configuration](https://help.aliyun.com/document_detail/451631.html) is supported.
    * 
    * @example
    * user-data

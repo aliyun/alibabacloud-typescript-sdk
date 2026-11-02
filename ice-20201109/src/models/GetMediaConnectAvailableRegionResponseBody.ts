@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaConnectAvailableRegionResponseBodyContent extends $dara.Model {
   /**
    * @remarks
-   * The default region. You can ignore the parameter.
+   * The default region information. You can ignore this field.
    * 
    * @example
    * cn-shanghai
@@ -13,7 +13,7 @@ export class GetMediaConnectAvailableRegionResponseBodyContent extends $dara.Mod
   defaultRegion?: string;
   /**
    * @remarks
-   * The supported regions.
+   * The region list information.
    */
   regionList?: string[];
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class GetMediaConnectAvailableRegionResponseBodyContent extends $dara.Mod
 export class GetMediaConnectAvailableRegionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The rsponse body.
+   * The response body.
    */
   content?: GetMediaConnectAvailableRegionResponseBodyContent;
   /**
    * @remarks
-   * The call description.
+   * The description of the API call.
    * 
    * @example
    * OK
@@ -58,7 +58,7 @@ export class GetMediaConnectAvailableRegionResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 41CB9D4C-4650-5723-BA89-D6824F706ACB
@@ -66,7 +66,7 @@ export class GetMediaConnectAvailableRegionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned error code. A value of 0 indicates the call is successful.
+   * The returned error code. A value of 0 indicates success.
    * 
    * @example
    * 0

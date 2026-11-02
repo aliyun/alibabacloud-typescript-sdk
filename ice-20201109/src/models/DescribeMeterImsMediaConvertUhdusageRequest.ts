@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMeterImsMediaConvertUHDUsageRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The value is a 10-digit timestamp.
+   * The end timestamp, which is a 10-digit UNIX timestamp.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,9 @@ export class DescribeMeterImsMediaConvertUHDUsageRequest extends $dara.Model {
   endTs?: number;
   /**
    * @remarks
-   * The time granularity of the query. Valid values: 3600 (hour) and 86400 (day).
+   * The time granularity of the query. Valid values:
+   * - 3600: hourly
+   * - 86400: daily
    * 
    * This parameter is required.
    * 
@@ -25,7 +27,7 @@ export class DescribeMeterImsMediaConvertUHDUsageRequest extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * This parameter does not take effect. By default, the usage data of all regions is returned.
+   * This parameter does not take effect. By default, the usage data for all regions is returned.
    * 
    * @example
    * cn-shanghai
@@ -33,7 +35,7 @@ export class DescribeMeterImsMediaConvertUHDUsageRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a 10-digit timestamp.
+   * The start timestamp, which is a 10-digit UNIX timestamp.
    * 
    * This parameter is required.
    * 

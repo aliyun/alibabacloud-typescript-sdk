@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartAIWorkflowRequest extends $dara.Model {
   /**
    * @remarks
-   * The tag for the task.
+   * The task tag. This parameter is optional.
    * 
    * @example
    * default
@@ -13,7 +13,7 @@ export class StartAIWorkflowRequest extends $dara.Model {
   dispatchTag?: string;
   /**
    * @remarks
-   * A JSON string containing the specific input parameters, such as information about the media assets, standard live streams, or RTC streams.
+   * The startup parameters for the intelligent workflow. The value is a JSON string, such as media asset information or live streaming/RTC stream information.
    * 
    * @example
    * {
@@ -27,7 +27,7 @@ export class StartAIWorkflowRequest extends $dara.Model {
   inputs?: string;
   /**
    * @remarks
-   * A user-defined parameter for passing custom metadata.
+   * The custom user data. This parameter is optional.
    * 
    * @example
    * {
@@ -37,7 +37,7 @@ export class StartAIWorkflowRequest extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The ID of the workflow template.
+   * The ID of the intelligent workflow template.
    * 
    * @example
    * ****3f44-f1f6-477e-9364-c5e6c49e****

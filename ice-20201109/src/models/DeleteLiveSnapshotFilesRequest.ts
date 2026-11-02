@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLiveSnapshotFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of creation timestamps. A maximum of 200 entries can be deleted at a time.
+   * The list of creation timestamps. You can delete up to 200 files at a time.
    * 
    * This parameter is required.
    */
   createTimestampList?: number[];
   /**
    * @remarks
-   * Specifies whether to delete the original files. Default value: false.
+   * Specifies whether to delete the original file. Default value: false.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetYikeUserResponseBodyUserInfo extends $dara.Model {
   /**
    * @remarks
-   * The user\\"s nickname.
+   * The nickname.
    * 
    * @example
    * nick
@@ -13,7 +13,7 @@ export class GetYikeUserResponseBodyUserInfo extends $dara.Model {
   nickname?: string;
   /**
    * @remarks
-   * The user name.
+   * The username.
    * 
    * @example
    * name
@@ -21,7 +21,7 @@ export class GetYikeUserResponseBodyUserInfo extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * spaceId

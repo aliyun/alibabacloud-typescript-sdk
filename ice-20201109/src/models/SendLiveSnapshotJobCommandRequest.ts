@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendLiveSnapshotJobCommandRequest extends $dara.Model {
   /**
    * @remarks
-   * The operation instruction. Valid values:
-   * 
-   * - start: starts the task.
-   * - stop: stops the task.
-   * - restart: restarts the task.
+   * The operation command.
    * 
    * This parameter is required.
    * 

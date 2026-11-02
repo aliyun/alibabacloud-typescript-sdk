@@ -5,15 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPipelinesRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the MPS queue.
-   * 
-   * Valid values:
-   * 
-   * - Boost: MPS queue with transcoding speed boosted.
-   * 
-   * - Standard: standard MPS queue.
-   * 
-   * - NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
+   * The pipeline type.
    * 
    * @example
    * Standard

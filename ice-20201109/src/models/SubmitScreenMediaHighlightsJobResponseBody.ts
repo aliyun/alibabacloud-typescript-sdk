@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitScreenMediaHighlightsJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the highlight compilation job.
+   * The ID of the high-energy video compilation task.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -13,7 +13,7 @@ export class SubmitScreenMediaHighlightsJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * A unique ID for the request.
+   * The request ID.
    * 
    * @example
    * ****36-3C1E-4417-BDB2-1E034F****

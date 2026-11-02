@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSourceLocationRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to use delete markers.
+   * The soft delete flag.
    * 
    * @example
    * true

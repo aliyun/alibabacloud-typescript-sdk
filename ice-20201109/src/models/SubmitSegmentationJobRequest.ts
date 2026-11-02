@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSegmentationJobRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token to ensure request idempotence.
+   * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
    * ****12e8864746a0a398****
@@ -17,18 +17,14 @@ export class SubmitSegmentationJobRequest extends $dara.Model {
    * 
    * @example
    * {
-   * "Type": "OSS",
-   * "Media": "http://test-bucket.oss-cn-shanghai.aliyuncs.com/test.mp4"
-   * }
-   * or {
-   * "Type": "Media",
-   * "Media": "ce49a020e****1ef81c1e6f6d5686302"
+   * 	"Type": "OSS",
+   * 	"Media": "http://test-bucket.oss-cn-shanghai.aliyuncs.com/test.mp4"
    * }
    */
   inputConfig?: string;
   /**
    * @remarks
-   * The job parameters. For more information, see [JobParams](~~2874121#a60357f2d5iix~~).
+   * The task parameters. For more information, see [JobParams](~~2874121#a60357f2d5iix~~).
    * 
    * @example
    * {
@@ -60,7 +56,7 @@ export class SubmitSegmentationJobRequest extends $dara.Model {
   outputConfig?: string;
   /**
    * @remarks
-   * Custom user data in JSON format, with a maximum length of 512 bytes.
+   * The user data. Custom settings in JSON format. The maximum length is 512 bytes.
    * 
    * @example
    * {"test": "22"}

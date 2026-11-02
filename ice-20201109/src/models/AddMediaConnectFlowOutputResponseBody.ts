@@ -40,7 +40,7 @@ export class AddMediaConnectFlowOutputResponseBody extends $dara.Model {
   content?: AddMediaConnectFlowOutputResponseBodyContent;
   /**
    * @remarks
-   * The call description.
+   * The description of the API call.
    * 
    * @example
    * ok
@@ -56,7 +56,7 @@ export class AddMediaConnectFlowOutputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned error code. A value of 0 indicates that the call is successful.
+   * The returned error code. A value of 0 indicates success.
    * 
    * @example
    * 0

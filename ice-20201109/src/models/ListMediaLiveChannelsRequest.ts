@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMediaLiveChannelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword of the query. You can perform a fuzzy search on channel ID or name.
+   * The keyword for the query. Fuzzy match is supported for channel IDs and names.
    * 
    * @example
    * 123
@@ -13,11 +13,10 @@ export class ListMediaLiveChannelsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value:
-   * 
-   * - If you do not specify this parameter or if you set a value smaller than 10, the default value is 10.
-   * 
-   * - If you set a value greater than 100, the default value is 100.
+   * The number of rows per page for paging in a paged query. Maximum value: 100.
+   * Default value:
+   * - If the Settings are not specified or the specified value is less than 10, the default value is 10.
+   * - If the specified value in the Settings is greater than 100, the default value is 100.
    * 
    * @example
    * 10
@@ -25,7 +24,7 @@ export class ListMediaLiveChannelsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The query token. Set the value to the NextToken value returned by the previous API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -33,7 +32,8 @@ export class ListMediaLiveChannelsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries to be skipped in the query. If the number of entries you attempt to skip exceeds the number of entries that meet the condition, an empty list is returned.
+   * The number of entries to skip for a paged query.
+   * If the number of skipped entries exceeds the total number of matched entries, an empty list is returned.
    * 
    * @example
    * 20
@@ -41,7 +41,9 @@ export class ListMediaLiveChannelsRequest extends $dara.Model {
   skip?: number;
   /**
    * @remarks
-   * The sorting order of the channels by creation time. Default value: asc. Valid values: desc and asc. asc indicates the ascending order, and desc indicates the descending order.
+   * Specifies the collation for sorting channels by creation time. Default value: asc. Valid values:
+   * - desc: Descending order.
+   * - asc: Ascending order.
    * 
    * @example
    * desc
@@ -49,7 +51,7 @@ export class ListMediaLiveChannelsRequest extends $dara.Model {
   sortOrder?: string;
   /**
    * @remarks
-   * The state of channels you want to query. You can separate multiple states with commas (,) in a JSON array.
+   * The channel states to query. You can specify multiple states in a JSON array, separated by commas (,).
    * 
    * @example
    * ["IDLE","RUNNING"]

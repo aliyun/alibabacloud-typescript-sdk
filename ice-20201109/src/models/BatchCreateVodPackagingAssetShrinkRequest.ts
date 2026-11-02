@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateVodPackagingAssetShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The assets that you want to ingest.
+   * The list of VOD packaging asset configurations.
    */
   assetsShrink?: string;
   /**
    * @remarks
-   * The name of the packaging group.
+   * The name of the VOD packaging group.
    * 
    * @example
    * vod_hls

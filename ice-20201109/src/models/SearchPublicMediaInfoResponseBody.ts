@@ -15,9 +15,9 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoDynamicMe
    * @remarks
    * The type. Valid values:
    * 
-   * - "ai": AI data that is generated after unified processing of AI raw results.
-   * - "user-defined": user-defined metadata.
-   * - "system": system built-in metadata.
+   * - ai: AI data processed from original AI results.
+   * - user-defined: user-defined metadata.
+   * - system: system-provided metadata.
    * 
    * @example
    * system
@@ -57,7 +57,7 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
   businessType?: string;
   /**
    * @remarks
-   * The category of the media asset.
+   * The category.
    * 
    * @example
    * category
@@ -65,7 +65,7 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
   category?: string;
   /**
    * @remarks
-   * The cover URL of the media asset.
+   * The cover URL.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
@@ -73,7 +73,7 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
   coverURL?: string;
   /**
    * @remarks
-   * The time when the media asset was created.
+   * The creation time of the media asset. The time is in the ISO 8601 format and in UTC (ending with Z).
    * 
    * @example
    * 2020-12-26T06:04:49Z
@@ -81,7 +81,7 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
   createTime?: string;
   /**
    * @remarks
-   * The time when the media asset was deleted.
+   * The deletion time of the media asset. The time is in the ISO 8601 format and in UTC (ending with Z).
    * 
    * @example
    * 2020-12-29T06:04:49Z
@@ -89,7 +89,7 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
   deletedTime?: string;
   /**
    * @remarks
-   * The content description of the media asset.
+   * The content description.
    * 
    * @example
    * description
@@ -105,10 +105,10 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
   mediaId?: string;
   /**
    * @remarks
-   * The tags of the media asset.
+   * The tags.
    * 
    * @example
-   * tag1
+   * tag,tag1
    */
   mediaTags?: string;
   /**
@@ -121,7 +121,7 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
   mediaType?: string;
   /**
    * @remarks
-   * The time when the media asset was last modified.
+   * The modification time of the media asset. The time is in the ISO 8601 format and in UTC (ending with Z).
    * 
    * @example
    * 2020-12-26T06:04:50Z
@@ -129,7 +129,7 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
   modifiedTime?: string;
   /**
    * @remarks
-   * The source of the media asset.
+   * The source.
    * 
    * @example
    * oss
@@ -137,7 +137,7 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
   source?: string;
   /**
    * @remarks
-   * The sprite images of the media asset.
+   * The sprite images.
    * 
    * @example
    * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
@@ -145,7 +145,7 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
   spriteImages?: string;
   /**
    * @remarks
-   * The status of the resource.
+   * The resource status.
    * 
    * @example
    * Normal
@@ -153,7 +153,7 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
   status?: string;
   /**
    * @remarks
-   * The title of the media asset.
+   * The title.
    * 
    * @example
    * title
@@ -161,7 +161,7 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
   title?: string;
   /**
    * @remarks
-   * The user data of the media asset.
+   * The user data.
    * 
    * @example
    * userDataTest
@@ -269,7 +269,7 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfo extends 
 export class SearchPublicMediaInfoResponseBodyPublicMediaInfos extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a resource plan that includes this media asset has been purchased.
+   * Indicates whether the user has purchased a resource plan that includes the media asset.
    * 
    * @example
    * true

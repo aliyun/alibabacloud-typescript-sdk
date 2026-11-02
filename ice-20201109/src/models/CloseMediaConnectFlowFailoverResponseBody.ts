@@ -13,7 +13,7 @@ export class CloseMediaConnectFlowFailoverResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The call description.
+   * The description of the API call.
    * 
    * @example
    * OK
@@ -21,7 +21,7 @@ export class CloseMediaConnectFlowFailoverResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 391DDF25-705C-5B38-9DB9-7A6B00D6065A
@@ -29,7 +29,7 @@ export class CloseMediaConnectFlowFailoverResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned error code. A value of 0 indicates the call is successful.
+   * The returned error code. A value of `0` indicates success.
    * 
    * @example
    * 0

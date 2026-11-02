@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class BatchGetMediaInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * The additional information about the media asset to return in the batch query. By default, only BasicInfo is returned. The additional information includes:
+   * The additional information about the media assets to query. By default, only BasicInfo is returned. Additional file information includes:
    * 
-   * \\-FileInfo
+   * - FileInfo
    * 
-   * \\-DynamicMetaData
+   * - DynamicMetaData
    * 
    * @example
    * FileInfo,DynamicMetaData
@@ -17,7 +17,7 @@ export class BatchGetMediaInfosRequest extends $dara.Model {
   additionType?: string;
   /**
    * @remarks
-   * The authentication expiration time. Unit: seconds.
+   * The authentication expiration time, in seconds.
    * - Minimum value: **1**.
    * - Maximum value: 86400.
    * - Default value: 3600.

@@ -7,7 +7,7 @@ import { AIAgentTemplateConfig } from "./AiagentTemplateConfig";
 export class GenerateAIAgentCallRequestChatSyncConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Instant Messaging (IM) agent.
+   * The agent ID for IM.
    * 
    * @example
    * ******005e4f309379701645f4****
@@ -15,7 +15,7 @@ export class GenerateAIAgentCallRequestChatSyncConfig extends $dara.Model {
   IMAIAgentId?: string;
   /**
    * @remarks
-   * The user ID of the recipient.
+   * The ID of the receiving user.
    * 
    * @example
    * 4167626d312034b2b1c3b7f2f3e41884
@@ -47,7 +47,7 @@ export class GenerateAIAgentCallRequestChatSyncConfig extends $dara.Model {
 export class GenerateAIAgentCallRequest extends $dara.Model {
   /**
    * @remarks
-   * The AI agent ID.
+   * The agent ID.
    * 
    * This parameter is required.
    * 
@@ -57,19 +57,19 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
   AIAgentId?: string;
   /**
    * @remarks
-   * The agent template configuration. The configuration you provide merges with the agent template configuration in the console. If you omit this parameter, the agent uses the default configuration from the console.
+   * The agent template configurations. The specified configurations are merged and updated with the agent template configurations in the console. If you do not specify this parameter, the default configurations of the agent in the console are used.
    * 
-   * > Compatibility with `TemplateConfig`: Fields in `AgentConfig` take precedence. If a field is specified in `TemplateConfig` but not in `AgentConfig`, the system uses the value from `TemplateConfig`. We recommend using `AgentConfig` instead of `TemplateConfig`.
+   * > Compatibility rules for TemplateConfig: Fields in AgentConfig take precedence. If TemplateConfig contains fields that are not specified in AgentConfig, the fields in TemplateConfig are used. We recommend that you use AgentConfig instead of TemplateConfig.
    */
   agentConfig?: AIAgentConfig;
   /**
    * @remarks
-   * The chat synchronization configuration.
+   * The configurations for synchronizing chat records.
    */
   chatSyncConfig?: GenerateAIAgentCallRequestChatSyncConfig;
   /**
    * @remarks
-   * Optional. The expiration time of the token in seconds. Default value: 3600. Value range: 0 to 604800.
+   * Optional. The expiration time of the token, in seconds. Default value: 3600. Valid values: 0 to 604800.
    * 
    * @example
    * 3600
@@ -77,7 +77,7 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
   expire?: number;
   /**
    * @remarks
-   * A unique identifier for the session. If not provided, a new session is created.
+   * The unique identifier of the conversation. Default value: none.
    * 
    * @example
    * fw1gr0bc005e4f309379701645f4****
@@ -85,18 +85,18 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * - This configuration merges with the agent template configuration in the console.
+   * - The specified configurations are merged and updated with the agent template configurations in the console.
    * 
-   * - If you omit this parameter, the agent uses the default configuration from the console.
+   * - If you do not specify this parameter, the default configurations of the agent in the console are used.
    * 
-   * > The agent template configuration. This parameter is deprecated. Use the AgentConfig parameter instead.
+   * > Agent template configurations. **[Deprecated]** For more information, see the AgentConfig parameter.
    * 
    * @deprecated
    */
   templateConfig?: AIAgentTemplateConfig;
   /**
    * @remarks
-   * User data.
+   * The custom user information.
    * 
    * @example
    * {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}
@@ -104,7 +104,7 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The username in the channel. If you do not specify a username, one is automatically generated. The username can be up to 64 characters in length.
+   * The username in the conversation channel. If you do not specify this parameter, the system automatically generates a username. The username can be up to 64 characters in length.
    * 
    * @example
    * 877ae632caae49b1afc81c2e8194ffb4

@@ -8,7 +8,7 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
    * The description of the digital human.
    * 
    * @example
-   * This is a digital human used for a specific scenario.
+   * This is a digital man, used in such and such a scene.
    */
   avatarDescription?: string;
   /**
@@ -24,7 +24,7 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
    * The name of the digital human.
    * 
    * @example
-   * Decimal
+   * Digital person Name
    */
   avatarName?: string;
   /**
@@ -37,9 +37,7 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
   avatarType?: string;
   /**
    * @remarks
-   * - The time when the first training was initiated.
-   * 
-   * - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the training was first initiated. The time is in UTC.
    * 
    * @example
    * 2020-12-23T13:33:40Z
@@ -47,7 +45,7 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
   firstTrainingTime?: string;
   /**
    * @remarks
-   * The ID of the digital human training job.
+   * The ID of the digital human task.
    * 
    * @example
    * ****55d86f7f4587943ce7734d6b****
@@ -55,9 +53,7 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
   jobId?: string;
   /**
    * @remarks
-   * - The time when the last training was initiated.
-   * 
-   * - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time of the most recent training. The time is in UTC.
    * 
    * @example
    * 2020-12-23T13:33:40Z
@@ -68,12 +64,12 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
    * The status description.
    * 
    * @example
-   * Training succeeded
+   * Successful training
    */
   message?: string;
   /**
    * @remarks
-   * The media asset ID of the portrait image.
+   * The media asset ID of the profile picture.
    * 
    * @example
    * ****571c704445f9a0ee011406c2****
@@ -81,9 +77,12 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
   portrait?: string;
   /**
    * @remarks
-   * - The state of the digital human training job.
-   * 
-   * - Valid values: Init, Queuing, Training, Success, and Fail.
+   * The status of the digital human training task. Valid values:
+   * - Init: initialized or draft
+   * - Queuing: queuing
+   * - Training: training
+   * - Success: succeeded
+   * - Fail: failed
    * 
    * @example
    * Success
@@ -91,7 +90,7 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
   status?: string;
   /**
    * @remarks
-   * The thumbnail URL.
+   * The URL of the thumbnail.
    * 
    * @example
    * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
@@ -99,7 +98,7 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
   thumbnail?: string;
   /**
    * @remarks
-   * Indicates whether the input video supports alpha channels.
+   * Indicates whether the input video supports a transparent channel.
    * 
    * @example
    * true
@@ -107,7 +106,7 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
   transparent?: boolean;
   /**
    * @remarks
-   * The ID of the video used for training.
+   * The media asset ID of the training video.
    * 
    * @example
    * ****571c704445f9a0ee011406c2****
@@ -161,7 +160,7 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $dara
 export class GetAvatarTrainingJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The information about the digital human training job.
+   * The digital human training task.
    */
   avatarTrainingJob?: GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob;
   static names(): { [key: string]: string } {
@@ -191,7 +190,7 @@ export class GetAvatarTrainingJobResponseBodyData extends $dara.Model {
 export class GetAvatarTrainingJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned if the request was successful.
+   * The data returned upon a successful call.
    */
   data?: GetAvatarTrainingJobResponseBodyData;
   /**

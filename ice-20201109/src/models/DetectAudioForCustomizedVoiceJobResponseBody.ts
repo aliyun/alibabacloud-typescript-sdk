@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DetectAudioForCustomizedVoiceJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the audio file passes the check. Valid values:
+   * Indicates whether the audio passed the check. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: The audio passed the check.
+   * - false: The audio failed the check.
    * 
    * @example
    * false
@@ -17,10 +16,10 @@ export class DetectAudioForCustomizedVoiceJobResponseBodyData extends $dara.Mode
   pass?: boolean;
   /**
    * @remarks
-   * The reason returned if the audio file failed to pass the check.
+   * The specific reason why the audio failed the check.
    * 
    * @example
-   * 发音错误，请准确读出文案中的内容
+   * Pronunciation error, please read the contents of the copy accurately
    */
   reason?: string;
   static names(): { [key: string]: string } {
@@ -49,7 +48,7 @@ export class DetectAudioForCustomizedVoiceJobResponseBodyData extends $dara.Mode
 export class DetectAudioForCustomizedVoiceJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: DetectAudioForCustomizedVoiceJobResponseBodyData;
   /**
@@ -62,7 +61,9 @@ export class DetectAudioForCustomizedVoiceJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true false
+   * Indicates whether the operation was successful. Valid values:
+   * - true: The operation was successful.
+   * - false: The operation failed.
    * 
    * @example
    * true

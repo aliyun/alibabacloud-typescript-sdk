@@ -13,7 +13,7 @@ export class GetCustomTemplateRequest extends $dara.Model {
   subtype?: number;
   /**
    * @remarks
-   * The ID of the custom template.
+   * The template ID.
    * 
    * @example
    * ****96e8864746a0b6f3****
@@ -21,7 +21,7 @@ export class GetCustomTemplateRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The ID of the template type. This parameter is required if you omit `TemplateId` to get a default template.
+   * The templatetype ID used when querying the default template. This parameter is required when TemplateId is empty.
    * 
    * @example
    * 1

@@ -103,7 +103,7 @@ export class SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfoOccurrences ex
   score?: number;
   /**
    * @remarks
-   * The vector table sequence ID.
+   * The sequence ID of the vector table.
    * 
    * @example
    * 85010D1
@@ -124,7 +124,7 @@ export class SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfoOccurrences ex
   tracks?: SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfoOccurrencesTracks[];
   /**
    * @remarks
-   * The segment ID.
+   * The clip ID.
    * 
    * @example
    * 5FE19530C7A422197535FE74F5DB****
@@ -178,7 +178,7 @@ export class SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfo extends $dara
    * The category.
    * 
    * @example
-   * Vehicle
+   * Means of transportation
    */
   category?: string;
   /**
@@ -210,7 +210,7 @@ export class SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfo extends $dara
    * The label type.
    * 
    * @example
-   * Object
+   * object
    */
   labelType?: string;
   /**
@@ -265,7 +265,7 @@ export class SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfo extends $dara
 export class SearchMediaResponseBodyMediaInfoListAiDataAsrInfo extends $dara.Model {
   /**
    * @remarks
-   * The segment ID.
+   * The clip ID.
    * 
    * @example
    * 5FE19530C7A422197535FE74F5DB****
@@ -276,7 +276,7 @@ export class SearchMediaResponseBodyMediaInfoListAiDataAsrInfo extends $dara.Mod
    * The text content.
    * 
    * @example
-   * I am Pipi.
+   * I am Pippi.
    */
   content?: string;
   /**
@@ -335,7 +335,7 @@ export class SearchMediaResponseBodyMediaInfoListAiDataAsrInfo extends $dara.Mod
 export class SearchMediaResponseBodyMediaInfoListAiDataOcrInfo extends $dara.Model {
   /**
    * @remarks
-   * The segment ID.
+   * The clip ID.
    * 
    * @example
    * 5FE19530C7A422197535FE74F5DB****
@@ -346,7 +346,7 @@ export class SearchMediaResponseBodyMediaInfoListAiDataOcrInfo extends $dara.Mod
    * The text content.
    * 
    * @example
-   * I am Pipi
+   * I am Pippi.
    */
   content?: string;
   /**
@@ -410,7 +410,7 @@ export class SearchMediaResponseBodyMediaInfoListAiData extends $dara.Model {
   aiLabelInfo?: SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfo[];
   /**
    * @remarks
-   * The list of speech recognition information.
+   * The list of speech information.
    */
   asrInfo?: SearchMediaResponseBodyMediaInfoListAiDataAsrInfo[];
   /**
@@ -455,7 +455,7 @@ export class SearchMediaResponseBodyMediaInfoListAiData extends $dara.Model {
 export class SearchMediaResponseBodyMediaInfoListAiRoughData extends $dara.Model {
   /**
    * @remarks
-   * The AI category.
+   * The TV series.
    * 
    * @example
    * Video AI classification
@@ -533,7 +533,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
   bitrate?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time follows the ISO 8601 standard and uses UTC (ending with Z).
    * 
    * @example
    * 2022-05-30T02:02:17Z
@@ -613,7 +613,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
   imagesInput?: string;
   /**
    * @remarks
-   * The last modified time.
+   * The last modification time. The time follows the ISO 8601 standard and uses UTC (ending with Z).
    * 
    * @example
    * 2021-12-10T12:19Z
@@ -685,7 +685,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
 export class SearchMediaResponseBodyMediaInfoListFileInfoList extends $dara.Model {
   /**
    * @remarks
-   * The basic file information, including duration and size.
+   * The basic file information, including the duration and size.
    */
   fileBasicInfo?: SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
@@ -716,6 +716,9 @@ export class SearchMediaResponseBodyMediaInfoListIndexStatusList extends $dara.M
   /**
    * @remarks
    * The index status. Valid values:
+   * - Running: running
+   * - Fail: failed
+   * - Success: successful
    * 
    * @example
    * Success
@@ -724,6 +727,9 @@ export class SearchMediaResponseBodyMediaInfoListIndexStatusList extends $dara.M
   /**
    * @remarks
    * The index type. Valid values:
+   * - mm: large model
+   * - face: face
+   * - aiLabel: intelligent label
    * 
    * @example
    * mm
@@ -782,7 +788,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
    * The category name.
    * 
    * @example
-   * Subcategory 1
+   * Subcategory1
    */
   cateName?: string;
   /**
@@ -803,7 +809,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
   coverURL?: string;
   /**
    * @remarks
-   * The time when the media asset was created.
+   * The creation time of the media asset. The time follows the ISO 8601 standard and uses UTC (ending with Z).
    * 
    * @example
    * 2020-12-01T19:48Z
@@ -811,7 +817,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
   createTime?: string;
   /**
    * @remarks
-   * The time when the media asset was deleted.
+   * The deletion time of the media asset. The time follows the ISO 8601 standard and uses UTC (ending with Z).
    * 
    * @example
    * 2020-12-01T19:48Z
@@ -822,12 +828,12 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
    * The content description.
    * 
    * @example
-   * Transcoded this video
+   * This video has been transcoded
    */
   description?: string;
   /**
    * @remarks
-   * The address of the media asset to be registered in the corresponding system.
+   * The URL of the media asset to be registered in the corresponding system.
    * 
    * @example
    * oss://clipres/longvideo/material/voice/prod/20220418/07d7c799f6054dc3bbef250854cf8498165024814****
@@ -859,7 +865,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
   mediaType?: string;
   /**
    * @remarks
-   * The time when the media asset was last modified.
+   * The modification time of the media asset. The time follows the ISO 8601 standard and uses UTC (ending with Z).
    * 
    * @example
    * 2020-12-01T19:48Z
@@ -875,7 +881,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
   namespace?: string;
   /**
    * @remarks
-   * The custom ID. Only lowercase letters, uppercase letters, digits, hyphens, and underscores are supported. The length must be 6 to 64 characters. The ID is unique at the user level.
+   * The custom ID. It must be 6 to 64 characters in length and can contain only lowercase letters, uppercase letters, digits, hyphens, and underscores. It must be unique per user.
    * 
    * @example
    * 123-123
@@ -958,7 +964,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
    * The visual description.
    * 
    * @example
-   * Soccer goal
+   * Football goal
    */
   visionDescription?: string;
   static names(): { [key: string]: string } {
@@ -1035,7 +1041,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
 export class SearchMediaResponseBodyMediaInfoList extends $dara.Model {
   /**
    * @remarks
-   * The AI details.
+   * The detailed AI information.
    */
   aiData?: SearchMediaResponseBodyMediaInfoListAiData;
   /**
@@ -1053,7 +1059,7 @@ export class SearchMediaResponseBodyMediaInfoList extends $dara.Model {
   customFields?: string;
   /**
    * @remarks
-   * FileInfos。
+   * The file information list.
    */
   fileInfoList?: SearchMediaResponseBodyMediaInfoListFileInfoList[];
   /**
@@ -1133,7 +1139,7 @@ export class SearchMediaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The collection of media assets that meet the specified criteria.
+   * The collection of media assets that meet the requirements.
    */
   mediaInfoList?: SearchMediaResponseBodyMediaInfoList[];
   /**
@@ -1162,7 +1168,7 @@ export class SearchMediaResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of media assets that meet the specified conditions.
+   * The total number of media assets that meet the conditions.
    * 
    * @example
    * 163

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   /**
    * @remarks
-   * The time when the template was created.
+   * The time when the template was created. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2022-04-19T02:04:31Z
@@ -13,7 +13,7 @@ export class CreateCustomTemplateResponseBodyCustomTemplate extends $dara.Model 
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether the template is a default template.
+   * Indicates whether the template is the default template.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class CreateCustomTemplateResponseBodyCustomTemplate extends $dara.Model 
   isDefault?: boolean;
   /**
    * @remarks
-   * The time when the template was last modified.
+   * The time when the template was modified. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2022-04-19T02:04:31Z
@@ -29,7 +29,7 @@ export class CreateCustomTemplateResponseBodyCustomTemplate extends $dara.Model 
   modifiedTime?: string;
   /**
    * @remarks
-   * The template status.
+   * The status of the template.
    * 
    * @example
    * Normal
@@ -37,7 +37,7 @@ export class CreateCustomTemplateResponseBodyCustomTemplate extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The template subtype name.
+   * The name of the template subtype.
    * 
    * @example
    * Remux
@@ -53,7 +53,7 @@ export class CreateCustomTemplateResponseBodyCustomTemplate extends $dara.Model 
   templateConfig?: string;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the template.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -61,7 +61,7 @@ export class CreateCustomTemplateResponseBodyCustomTemplate extends $dara.Model 
   templateId?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
    * test-template
@@ -130,7 +130,7 @@ export class CreateCustomTemplateResponseBody extends $dara.Model {
   customTemplate?: CreateCustomTemplateResponseBodyCustomTemplate;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******

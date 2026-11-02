@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSmarttagJobRequestInput extends $dara.Model {
   /**
    * @remarks
-   * - If you set the `Type` parameter to `OSS`, specify the OSS URL of the media file. Example: `OSS://test-bucket/video/202208/test.mp4`.
+   * - If the Type parameter is set to OSS, specify the OSS address. Example: OSS://test-bucket/video/202208/test.mp4.
    * 
-   * - If you set the `Type` parameter to `Media`, specify the media ID. Example: `c5c62d8f0361337cab312dce8e77dc6d`.
+   * - If the Type parameter is set to Media, specify the media ID. Example: c5c62d8f0361337cab312dce8e77dc6d.
    * 
-   * - If you set the `Type` parameter to `URL`, specify the HTTP or HTTPS URL of the media file. Example: `https://zc-test.oss-cn-shanghai.aliyuncs.com/test/unknowFace.mp4`.
+   * - If the Type parameter is set to URL, specify the HTTP URL. Example: https://zc-test.oss-cn-shanghai.aliyuncs.com/test/unknowFace.mp4.
    * 
    * @example
    * c5c62d8f0361337cab312dce8e77dc6d
@@ -17,7 +17,7 @@ export class SubmitSmarttagJobRequestInput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the input media file. Valid values:
+   * The media type. Valid values:
    * 
    * - OSS
    * 
@@ -55,9 +55,9 @@ export class SubmitSmarttagJobRequestInput extends $dara.Model {
 export class SubmitSmarttagJobRequestScheduleConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the pipeline. Pipelines separate business workloads and bind message notifications.
+   * The ID of the pipeline, which is used to distinguish business scenarios and bind message notifications.
    * 
-   * If you do not specify this parameter, the default pipeline is used. The default pipeline has a concurrency of 2. To increase the concurrency, submit a ticket.
+   * If this parameter is not configured, the default pipeline is used. The default concurrency of the default pipeline is 2. To increase the concurrency, submit a ticket.
    * 
    * @example
    * acdbfe4323bcfdae
@@ -65,7 +65,7 @@ export class SubmitSmarttagJobRequestScheduleConfig extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The priority of the job. This feature is not yet implemented. You can leave this parameter empty or specify any value.
+   * The priority. This parameter is not implemented. You can leave it empty or specify an arbitrary value.
    * 
    * @example
    * 4
@@ -97,7 +97,7 @@ export class SubmitSmarttagJobRequestScheduleConfig extends $dara.Model {
 export class SubmitSmarttagJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the video content can contain Chinese characters, English letters, digits, and hyphens (-). It cannot start with a special character and must not exceed 1 KB.
+   * The description of the video content. It supports Chinese characters, English letters, digits, and hyphens (-). It cannot start with a special character and can be up to 1 KB in length.
    * 
    * @example
    * example content ****
@@ -105,22 +105,28 @@ export class SubmitSmarttagJobRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Deprecated.
+   * **[Deprecated]** This parameter is deprecated.
+   * 
+   * @example
+   * This parameter is deprecated
    */
   contentAddr?: string;
   /**
    * @remarks
-   * Deprecated.
+   * **[Deprecated]** This parameter is deprecated.
+   * 
+   * @example
+   * This parameter is deprecated
    */
   contentType?: string;
   /**
    * @remarks
-   * The input file for the job.
+   * input
    */
   input?: SubmitSmarttagJobRequestInput;
   /**
    * @remarks
-   * The callback URL. Only HTTP and HTTPS URLs are supported.
+   * The callback URL. Only HTTP and HTTPS are supported.
    * 
    * @example
    * https://example.com/endpoint/aliyun/ai?id=76401125000***
@@ -128,15 +134,15 @@ export class SubmitSmarttagJobRequest extends $dara.Model {
   notifyUrl?: string;
   /**
    * @remarks
-   * Additional request parameters, specified as a JSON string. For example: `{"needAsrData":true, "needOcrData":false}`.
+   * The additional request parameters, represented as a JSON string. Example: {"needAsrData":true, "needOcrData":false}. Field descriptions:
    * 
-   * - `needAsrData`: Specifies whether to include the raw Automatic Speech Recognition (ASR) results in the analysis output. The default is `false`.
+   * - needAsrData: a Boolean value that specifies whether to include the original ASR results in the analysis results. Default value: false. Set the value to true to include the original ASR results.
    * 
-   * - `needOcrData`: Specifies whether to include the raw Optical Character Recognition (OCR) results in the analysis output. The default is `false`.
+   * - needOcrData: a Boolean value that specifies whether to include the original OCR results in the analysis results. Default value: false. Set the value to true to include the original OCR results.
    * 
-   * - `needMetaData`: Specifies whether to include metadata in the analysis output. The default is `false`.
+   * - needMetaData: a Boolean value that specifies whether to include metadata in the analysis results. Default value: false. Set the value to true to include metadata.
    * 
-   * - `nlpParams`: A JSON object that specifies the input parameters for the Natural Language Processing (NLP) operator. If left empty, the operator is not used. For details, see the `nlpParams` table below.
+   * - nlpParams: a JSON object that specifies the input parameters for the NLP operator. Default value: empty (the NLP operator is not used). For more information, see the supplementary description of request parameters below.
    * 
    * @example
    * {"needAsrData":true, "needOcrData":false, "nlpParams":{"sourceLanguage":"cn"}}
@@ -144,24 +150,23 @@ export class SubmitSmarttagJobRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * The scheduling configurations.
+   * scheduleConfig
    */
   scheduleConfig?: SubmitSmarttagJobRequestScheduleConfig;
   /**
    * @remarks
-   * Dynamic parameters for the job, which temporarily override or supplement the base template specified by `TemplateId`. The service merges the dynamic and template parameters to generate the final configuration for the current job and validates it before execution.
+   * The template parameters that are dynamically passed when the job is started. These parameters are used to temporarily override or supplement the configured parameters in the template specified by TemplateId. The server merges these parameters with the original template parameters by field to generate the final template configuration for the current job, and validates the configuration before execution.
    * 
    * - Merge rules:
+   * 1. If a field already exists in the template, the value provided by the caller overrides the template value (caller takes precedence).
+   * 2. If a field does not exist in the template, it is appended as a new field.
    * 
-   * 1. Values in the request override corresponding values in the template.
+   * - Supported dynamic fields:
    * 
-   * 2. Fields in the request that do not exist in the template are added to the configuration.
+   * 1. FaceCategoryIds: the list of face library IDs that participate in recognition (separated by commas, which can include system library IDs and custom library IDs).
    * 
-   * - Currently supported dynamic fields:
-   * 
-   * 1. `FaceCategoryIds`: A list of face library IDs for recognition, separated by commas (,). You can include both system and custom library IDs.
-   * 
-   * - Note: These dynamic parameters affect only the current job and do not modify the template itself.
+   * - Precautions:
+   * This configuration affects only the execution of the current job and does not modify the template itself.
    * 
    * @example
    * {"FaceCategoryIds":"custom_face_lib1"}
@@ -169,7 +174,7 @@ export class SubmitSmarttagJobRequest extends $dara.Model {
   templateConfig?: string;
   /**
    * @remarks
-   * The ID of the template that specifies the analysis algorithms to use.
+   * The ID of the template that is used to specify the analysis algorithm.
    * 
    * @example
    * 39f8e0bc005e4f309379701645f4
@@ -177,7 +182,7 @@ export class SubmitSmarttagJobRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The video title can contain Chinese characters, English letters, digits, and hyphens (-). It cannot start with a special character and must not exceed 256 bytes.
+   * The video title. It supports Chinese characters, English letters, digits, and hyphens (-). It cannot start with a special character and can be up to 256 bytes in length.
    * 
    * @example
    * example-title-****
@@ -185,7 +190,7 @@ export class SubmitSmarttagJobRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * Custom data to include in the callback. If you use Message Service (MNS) for callbacks, this data is included in the message. The maximum length is 1 KB.
+   * The custom data that is returned in an MNS callback. It can be up to 1 KB in length. For more information about how to configure an MNS callback queue, see the relevant documentation.
    * 
    * @example
    * {“a”:"test"}

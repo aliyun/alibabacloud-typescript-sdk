@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddFavoritePublicMediaRequest extends $dara.Model {
   /**
    * @remarks
-   * The IMS media asset IDs.
+   * The IDs of the IMS media assets.
    * - Separate multiple IDs with commas (,).
    * 
    * @example

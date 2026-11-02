@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $dara.Model {
   /**
    * @remarks
-   * The media asset ID of the sample audio file.
+   * The ID of the sample audio media asset.
    * 
    * @example
    * ****42d3c312402982be65975f5b****
@@ -15,9 +15,9 @@ export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $dara.Mod
    * @remarks
    * The gender. Valid values:
    * 
-   * - female
+   * - female: Female.
    * 
-   * - male
+   * - male: Male.
    * 
    * @example
    * female
@@ -25,15 +25,11 @@ export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $dara.Mod
   gender?: string;
   /**
    * @remarks
-   * The demonstration scenario.
+   * The demonstration scenario. Valid values:
    * 
-   * Valid values:
-   * 
-   * - **story**
-   * 
-   * - **interaction**
-   * 
-   * - **navigation**
+   * - **story**: Story.
+   * - **interaction**: Interaction.
+   * - **navigation**: Navigation.
    * 
    * @example
    * interaction
@@ -44,7 +40,7 @@ export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $dara.Mod
    * The voice description.
    * 
    * @example
-   * 这是一个个性化人声
+   * It\\"s a personalized vocal
    */
   voiceDesc?: string;
   /**
@@ -60,7 +56,7 @@ export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $dara.Mod
    * The voice name.
    * 
    * @example
-   * Basic
+   * The voice name.
    */
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -97,7 +93,7 @@ export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $dara.Mod
 export class GetCustomizedVoiceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The personalized human voice.
+   * The customized voice.
    */
   customizedVoice?: GetCustomizedVoiceResponseBodyDataCustomizedVoice;
   static names(): { [key: string]: string } {
@@ -127,7 +123,7 @@ export class GetCustomizedVoiceResponseBodyData extends $dara.Model {
 export class GetCustomizedVoiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: GetCustomizedVoiceResponseBodyData;
   /**
@@ -140,11 +136,9 @@ export class GetCustomizedVoiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

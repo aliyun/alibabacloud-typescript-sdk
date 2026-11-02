@@ -5,13 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitCopyrightJobRequestInput extends $dara.Model {
   /**
    * @remarks
-   * The input file, specified as either an OSS URL or a media asset ID. The following formats are supported for OSS URLs:
+   * The information about the input file. Both OSS URLs and media asset IDs are supported.
+   * The OSS URL rules are as follows:
    * 
-   * 1\\. `oss://bucket/object`
+   * 1. oss://bucket/object
    * 
-   * 2\\. `http(s)://bucket.oss-[regionId].aliyuncs.com/object`
+   * 2. http(s)://bucket.oss-[regionId].aliyuncs.com/object
    * 
-   * In these formats, `bucket` specifies the name of an OSS bucket in the same region as the service, and `object` specifies the file path.
+   * In the URLs, bucket is the name of the OSS bucket that is in the same region as the current project, and object is the file path.
    * 
    * This parameter is required.
    * 
@@ -22,10 +23,8 @@ export class SubmitCopyrightJobRequestInput extends $dara.Model {
   /**
    * @remarks
    * The type of the input file. Valid values:
-   * 
-   * 1. `OSS`: The URL of an OSS object.
-   * 
-   * 2. `Media`: The media asset ID.
+   * 1. OSS: the URL of the OSS file.
+   * 2. Media: the ID of the media asset.
    * 
    * This parameter is required.
    * 
@@ -59,11 +58,12 @@ export class SubmitCopyrightJobRequestInput extends $dara.Model {
 export class SubmitCopyrightJobRequestOutput extends $dara.Model {
   /**
    * @remarks
-   * The OSS URL for the output file. The following formats are supported:
+   * The information about the output file. Only OSS URLs are supported. The OSS URL rules are as follows:
    * 
-   * 1\\. `oss://bucket/object`
+   * 1. oss://bucket/object
    * 
-   * 2\\. `http(s)://bucket.oss-[regionId].aliyuncs.com/object`<br>In these formats, `bucket` specifies the name of an OSS bucket in the same region as the service, and `object` specifies the file path.<br>
+   * 2. http(s)://bucket.oss-[regionId].aliyuncs.com/object
+   * In the URLs, bucket is the name of the OSS bucket that is in the same region as the current project, and object is the file path.
    * 
    * This parameter is required.
    * 
@@ -73,9 +73,9 @@ export class SubmitCopyrightJobRequestOutput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the output file. Valid value:
+   * The type of the output file. Valid values:
    * 
-   * 1. `OSS`: The URL of an OSS object.
+   * 1. OSS: the URL of the OSS file.
    * 
    * This parameter is required.
    * 
@@ -109,7 +109,7 @@ export class SubmitCopyrightJobRequestOutput extends $dara.Model {
 export class SubmitCopyrightJobRequest extends $dara.Model {
   /**
    * @remarks
-   * A description of the watermark job.
+   * The description of the watermark information.
    * 
    * @example
    * Task description
@@ -117,19 +117,16 @@ export class SubmitCopyrightJobRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The input video file to be watermarked.
+   * The video file to which the watermark is to be added.
    * 
-   * > - The OSS object or media asset must be in the same region as the service call.
+   * > - The region of the OSS file or media asset must be the same as the region of the current IMS.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example.mp4"}
    */
   input?: SubmitCopyrightJobRequestInput;
   /**
    * @remarks
-   * The watermark level, which specifies the embedding channel. Valid values are 0, 1, and 2, which correspond to the U, UV, and YUV channels, respectively.
+   * The watermark level, which indicates the embedding channel. Valid values: 0 (0u), 1 (1uv), and 2 (2yuv).
    * 
    * @example
    * 0
@@ -137,7 +134,7 @@ export class SubmitCopyrightJobRequest extends $dara.Model {
   level?: number;
   /**
    * @remarks
-   * The watermark content to embed.
+   * The watermark information to be added.
    * 
    * This parameter is required.
    * 
@@ -147,25 +144,20 @@ export class SubmitCopyrightJobRequest extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The location of the output file.
+   * The URL of the output file.
    * 
-   * > - The OSS bucket must be in the same region as the service call.
+   * > - The region of OSS must be the same as the region of the current IMS.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example_result.mp4"}
    */
   output?: SubmitCopyrightJobRequestOutput;
   /**
    * @remarks
-   * The parameters for the watermark job, specified as a JSON string. The following parameter is supported:
+   * The parameters of the watermark job, in the JSON string format. The following parameters are supported:
    * 
-   * - `algoType`: The algorithm type. Defaults to `v1`.
-   * 
-   *   - `v1`: For videos 3 minutes or longer.
-   * 
-   *   - `v2`: For short videos.
+   * - algoType: the algorithm type. Default value: v1.
+   *   - v1: long video copyright watermark, which supports only videos longer than 3 minutes.
+   *   - v2: short video copyright watermark.
    * 
    * @example
    * {"algoType":"v2"}
@@ -173,7 +165,7 @@ export class SubmitCopyrightJobRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * The start time of the watermark in seconds. Defaults to 0.
+   * The start time of the watermark, in seconds. If you do not specify this parameter, the default value is 0.
    * 
    * @example
    * 0
@@ -181,7 +173,7 @@ export class SubmitCopyrightJobRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The end time of the watermark in seconds. If unspecified, the watermark is applied until the video ends.
+   * The end time of the watermark, in seconds. If you do not specify this parameter, the default value is the duration of the video.
    * 
    * @example
    * 10
@@ -189,7 +181,7 @@ export class SubmitCopyrightJobRequest extends $dara.Model {
   totalTime?: number;
   /**
    * @remarks
-   * The user data. The value can be up to 1,024 bytes in length.
+   * The user-defined data, with a maximum length of 1,024 bytes.
    * 
    * @example
    * 123

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMediaLiveChannelsResponseBodyChannelsAudioSettingsAudioCodecSetting extends $dara.Model {
   /**
    * @remarks
-   * The audio bitrate. Unit: bit/s.
+   * The audio bitrate.
    * 
    * @example
    * 200000
@@ -21,7 +21,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsAudioSettingsAudioCodecSet
   profile?: string;
   /**
    * @remarks
-   * The audio sample rate. Unit: Hz.
+   * The audio sample rate.
    * 
    * @example
    * 44100
@@ -63,12 +63,12 @@ export class ListMediaLiveChannelsResponseBodyChannelsAudioSettings extends $dar
   audioCodec?: string;
   /**
    * @remarks
-   * The audio encoding settings.
+   * The audio codec settings.
    */
   audioCodecSetting?: ListMediaLiveChannelsResponseBodyChannelsAudioSettingsAudioCodecSetting;
   /**
    * @remarks
-   * The name of the audio selector.
+   * The audio selector name.
    * 
    * @example
    * myselector
@@ -76,7 +76,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsAudioSettings extends $dar
   audioSelectorName?: string;
   /**
    * @remarks
-   * A three-letter ISO 639-2 language code.
+   * The ISO 639-2 language code. The code consists of three characters.
    * 
    * @example
    * eng
@@ -84,7 +84,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsAudioSettings extends $dar
   languageCode?: string;
   /**
    * @remarks
-   * The name of the language.
+   * The language name. This parameter is valid only for RTMP inputs and specifies the name tag used by the output.
    * 
    * @example
    * English
@@ -92,7 +92,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsAudioSettings extends $dar
   languageName?: string;
   /**
    * @remarks
-   * The name of the audio settings.
+   * The audio setting name.
    * 
    * @example
    * zhuanfengzhuang
@@ -135,7 +135,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsAudioSettings extends $dar
 export class ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioLanguageSelection extends $dara.Model {
   /**
    * @remarks
-   * A three-letter ISO 639-2 language code from within an audio source.
+   * The ISO 639-2 language code. The code consists of three characters.
    * 
    * This parameter is required.
    * 
@@ -167,7 +167,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelec
 export class ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioPidSelection extends $dara.Model {
   /**
    * @remarks
-   * A PID from within a source.
+   * The PID of the input source stream.
    * 
    * This parameter is required.
    * 
@@ -199,7 +199,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelec
 export class ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioTrackSelection extends $dara.Model {
   /**
    * @remarks
-   * The track ID from within a source.
+   * The track ID of the input source stream.
    * 
    * This parameter is required.
    * 
@@ -231,22 +231,22 @@ export class ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelec
 export class ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectors extends $dara.Model {
   /**
    * @remarks
-   * The audio language selection.
+   * The language selector.
    */
   audioLanguageSelection?: ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioLanguageSelection;
   /**
    * @remarks
-   * The audio PID selection.
+   * The PID selector.
    */
   audioPidSelection?: ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioPidSelection;
   /**
    * @remarks
-   * The audio track selection.
+   * The audio track selector.
    */
   audioTrackSelection?: ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioTrackSelection[];
   /**
    * @remarks
-   * The name of the audio selector.
+   * The audio selector name.
    * 
    * This parameter is required.
    * 
@@ -298,7 +298,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsInputAttachments extends $
   audioSelectors?: ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectors[];
   /**
    * @remarks
-   * The ID of the input.
+   * The ID of the attached input.
    * 
    * This parameter is required.
    * 
@@ -308,7 +308,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsInputAttachments extends $
   inputId?: string;
   /**
    * @remarks
-   * The name of the input.
+   * The input name.
    * 
    * @example
    * myinput
@@ -316,7 +316,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsInputAttachments extends $
   inputName?: string;
   /**
    * @remarks
-   * The name of the language.
+   * The language name. This parameter is valid only for RTMP inputs and specifies the name tag used by the output.
    * 
    * @example
    * eng
@@ -355,7 +355,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsInputAttachments extends $
 export class ListMediaLiveChannelsResponseBodyChannelsOutputGroupsMediaPackageGroupSetting extends $dara.Model {
   /**
    * @remarks
-   * ChannelName in MediaPackage.
+   * The channel name of the referenced MediaPackage.
    * 
    * @example
    * myPackageChannel
@@ -363,7 +363,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsOutputGroupsMediaPackageGr
   channelName?: string;
   /**
    * @remarks
-   * GroupName in MediaPackage.
+   * The group name of the referenced MediaPackage.
    * 
    * @example
    * myPackageGroup
@@ -395,7 +395,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsOutputGroupsMediaPackageGr
 export class ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputsMediaPackageOutputSetting extends $dara.Model {
   /**
    * @remarks
-   * The manifest audio group ID.
+   * The audio group ID in the manifest.
    * 
    * @example
    * audiogroup
@@ -403,7 +403,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputsMediaPa
   audioGroupId?: string;
   /**
    * @remarks
-   * The manifest name modifier. The child manifests include this modifier in their M3U8 file names.
+   * The manifest suffix.
    * 
    * @example
    * 480p
@@ -435,12 +435,12 @@ export class ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputsMediaPa
 export class ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputs extends $dara.Model {
   /**
    * @remarks
-   * The referenced AudioSettings.
+   * The list of referenced audio setting names.
    */
   audioSettingNames?: string[];
   /**
    * @remarks
-   * The settings of the output delivered to MediaPackage.
+   * The output settings when the output group type is MediaPackage.
    */
   mediaPackageOutputSetting?: ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputsMediaPackageOutputSetting;
   /**
@@ -453,7 +453,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputs extend
   mediaType?: number;
   /**
    * @remarks
-   * The name of the output.
+   * The output name.
    * 
    * @example
    * output1
@@ -461,7 +461,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputs extend
   name?: string;
   /**
    * @remarks
-   * The name of the referenced VideoSettings.
+   * The name of the referenced video setting.
    * 
    * @example
    * myVideo1
@@ -505,12 +505,12 @@ export class ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputs extend
 export class ListMediaLiveChannelsResponseBodyChannelsOutputGroups extends $dara.Model {
   /**
    * @remarks
-   * The MediaPackage destination.
+   * The output group settings when the output group type is MediaPackage.
    */
   mediaPackageGroupSetting?: ListMediaLiveChannelsResponseBodyChannelsOutputGroupsMediaPackageGroupSetting;
   /**
    * @remarks
-   * The URL for monitoring the output group. The parameter is returned only when the output gourp type is MediaPackage.
+   * The output group monitoring URL for monitoring. This URL is returned only when the output group type is MediaPackage and you query the channel details.
    * 
    * @example
    * rtmp://xxx
@@ -518,7 +518,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsOutputGroups extends $dara
   monitorUrl?: string;
   /**
    * @remarks
-   * The name of the output group.
+   * The output group name.
    * 
    * @example
    * group1
@@ -526,7 +526,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsOutputGroups extends $dara
   name?: string;
   /**
    * @remarks
-   * The outputs in the output group.
+   * The output settings.
    */
   outputs?: ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputs[];
   /**
@@ -575,7 +575,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsOutputGroups extends $dara
 export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingCodecDetail extends $dara.Model {
   /**
    * @remarks
-   * The video encoding level. It is not supported yet.
+   * The video codec level. This parameter is not supported.
    * 
    * @example
    * H264_LEVEL_AUTO
@@ -583,7 +583,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSet
   level?: string;
   /**
    * @remarks
-   * The H.264 profile.
+   * The video codec profile.
    * 
    * @example
    * MAIN
@@ -615,7 +615,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSet
 export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingFramerate extends $dara.Model {
   /**
    * @remarks
-   * The frame rate mode.
+   * The video frame rate control mode.
    * 
    * @example
    * SPECIFIED
@@ -623,7 +623,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSet
   framerateControl?: string;
   /**
    * @remarks
-   * The denominator of the fixed frame rate.
+   * The video frame rate denominator.
    * 
    * @example
    * 1
@@ -631,7 +631,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSet
   framerateDenominator?: number;
   /**
    * @remarks
-   * The numerator of the fixed frame rate.
+   * The video frame rate numerator.
    * 
    * @example
    * 25
@@ -665,7 +665,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSet
 export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingGop extends $dara.Model {
   /**
    * @remarks
-   * The number of B frames.
+   * The number of B-frames.
    * 
    * @example
    * 3
@@ -673,7 +673,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSet
   bframesNum?: number;
   /**
    * @remarks
-   * The GOP size.
+   * The video GOP size.
    * 
    * @example
    * 90
@@ -681,7 +681,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSet
   gopSize?: number;
   /**
    * @remarks
-   * The GOP size unit.
+   * The unit of the video GOP size.
    * 
    * @example
    * FRAMES
@@ -715,7 +715,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSet
 export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingRate extends $dara.Model {
   /**
    * @remarks
-   * The video bitrate. Unit: bit/s.
+   * The video bitrate.
    * 
    * @example
    * 2500000
@@ -723,7 +723,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSet
   bitrate?: number;
   /**
    * @remarks
-   * The video buffer size. Unit: bit/s.
+   * The video codec buffer size.
    * 
    * @example
    * 6000000
@@ -731,7 +731,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSet
   bufferSize?: number;
   /**
    * @remarks
-   * The maximum bitrate. Unit: bit/s.
+   * The maximum video bitrate.
    * 
    * @example
    * 6000000
@@ -739,7 +739,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSet
   maxBitrate?: number;
   /**
    * @remarks
-   * The bitrate control mode.
+   * The video codec rate control mode.
    * 
    * @example
    * ABR
@@ -775,22 +775,22 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSet
 export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSetting extends $dara.Model {
   /**
    * @remarks
-   * The video encoding settings.
+   * The video codec detail settings.
    */
   codecDetail?: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingCodecDetail;
   /**
    * @remarks
-   * The frame rate.
+   * The video frame rate settings.
    */
   framerate?: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingFramerate;
   /**
    * @remarks
-   * The GOP setting.
+   * The video GOP settings.
    */
   gop?: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingGop;
   /**
    * @remarks
-   * The video encoding rate.
+   * The video codec rate settings.
    */
   rate?: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingRate;
   static names(): { [key: string]: string } {
@@ -835,7 +835,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSet
 export class ListMediaLiveChannelsResponseBodyChannelsVideoSettings extends $dara.Model {
   /**
    * @remarks
-   * The height of the video in pixels.
+   * The height of the video resolution.
    * 
    * @example
    * 720
@@ -843,7 +843,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettings extends $dar
   height?: number;
   /**
    * @remarks
-   * The name of the video settings.
+   * The name of the video setting.
    * 
    * @example
    * video1
@@ -851,7 +851,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettings extends $dar
   name?: string;
   /**
    * @remarks
-   * The video codec.
+   * The video codec type.
    * 
    * @example
    * H264
@@ -859,12 +859,12 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettings extends $dar
   videoCodec?: string;
   /**
    * @remarks
-   * The video encoding settings.
+   * The video codec settings.
    */
   videoCodecSetting?: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSetting;
   /**
    * @remarks
-   * The video transcoding method. Valid values: NORMAL (regular transcoding) and NBHD (Narrowband HD™ transcoding).
+   * The video transcoding method, such as standard transcoding and Narrowband HD transcoding.
    * 
    * @example
    * NORMAL
@@ -872,7 +872,7 @@ export class ListMediaLiveChannelsResponseBodyChannelsVideoSettings extends $dar
   videoCodecType?: string;
   /**
    * @remarks
-   * The width of the video in pixels.
+   * The width of the video resolution.
    * 
    * @example
    * 1280
@@ -920,7 +920,7 @@ export class ListMediaLiveChannelsResponseBodyChannels extends $dara.Model {
   audioSettings?: ListMediaLiveChannelsResponseBodyChannelsAudioSettings[];
   /**
    * @remarks
-   * The ID of the channel.
+   * The channel ID.
    * 
    * @example
    * SEGK5KA6KYKAWQQH
@@ -928,7 +928,7 @@ export class ListMediaLiveChannelsResponseBodyChannels extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
-   * The time when the channel was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the channel was created. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format (RFC 3339 format) and in UTC+0.
    * 
    * @example
    * 2024-12-03T06:56:42Z
@@ -936,12 +936,12 @@ export class ListMediaLiveChannelsResponseBodyChannels extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The inputs associated with the channel.
+   * The input attachment settings.
    */
   inputAttachments?: ListMediaLiveChannelsResponseBodyChannelsInputAttachments[];
   /**
    * @remarks
-   * The time when the channel was last started. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. If the channel has never been started since it was created, an empty string is returned.
+   * The last time when the channel was started. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format (RFC 3339 format) and in UTC+0. If the channel has never been started since it was created, an empty string is returned.
    * 
    * @example
    * 2024-12-03T06:56:42Z
@@ -949,7 +949,7 @@ export class ListMediaLiveChannelsResponseBodyChannels extends $dara.Model {
   lastStartTime?: string;
   /**
    * @remarks
-   * The time when the channel was last stopped. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. If the channel has never stopped since it was created, an empty string is returned.
+   * The last time when the channel was stopped. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format (RFC 3339 format) and in UTC+0. If the channel has never been stopped since it was created, an empty string is returned.
    * 
    * @example
    * 2024-12-03T06:56:42Z
@@ -957,7 +957,7 @@ export class ListMediaLiveChannelsResponseBodyChannels extends $dara.Model {
   lastStopTime?: string;
   /**
    * @remarks
-   * The name of the channel.
+   * The channel name.
    * 
    * @example
    * mych
@@ -965,12 +965,12 @@ export class ListMediaLiveChannelsResponseBodyChannels extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output groups.
+   * The output group configurations.
    */
   outputGroups?: ListMediaLiveChannelsResponseBodyChannelsOutputGroups[];
   /**
    * @remarks
-   * The state of the channel. Valid values: IDLE, STARTING, RUNNING, RECOVERING, and STOPPING.
+   * The channel status. Valid values: IDLE, STARTING, RUNNING, RECOVERING, and STOPPING.
    * 
    * @example
    * IDLE
@@ -1035,12 +1035,12 @@ export class ListMediaLiveChannelsResponseBodyChannels extends $dara.Model {
 export class ListMediaLiveChannelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The channels.
+   * The channel configurations.
    */
   channels?: ListMediaLiveChannelsResponseBodyChannels[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned per page during paging in a paged query.
    * 
    * @example
    * 10
@@ -1048,7 +1048,7 @@ export class ListMediaLiveChannelsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -1056,7 +1056,7 @@ export class ListMediaLiveChannelsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -1064,7 +1064,7 @@ export class ListMediaLiveChannelsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the conditions of a conditional query with paging.
    * 
    * @example
    * 100

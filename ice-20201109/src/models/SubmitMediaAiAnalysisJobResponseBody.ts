@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMediaAiAnalysisJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ******b48fb04483915d4f2cd8******
@@ -13,7 +13,7 @@ export class SubmitMediaAiAnalysisJobResponseBody extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****

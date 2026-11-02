@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMediaByMultimodalRequest extends $dara.Model {
   /**
    * @remarks
-   * Custom filters. A JSON string. Supported backing fields include integer field intField1 and string fields strField1 and strField2. Only one matching condition can be applied per field, and filters across different fields are combined with a logical AND relationship.
-   * 
-   * - Exact match example: {"intField1":12,"strField1":"abc"}
-   * 
-   * - Multi-value match example: {"intField1":[12,13],"strField1":["abc","cd"]}
-   * 
-   * - Range match example: {"intField1":{"gte":12,"lte":13}}
+   * The custom filters. The value is a JSON string. Supported fields include the integer field intField1 and the string fields strField1 and strField2. You can specify at most one match type for a single field. Filters for different fields are combined by using the AND operator. Examples:
+   * - Exact match, such as {"intField1":12,"strField1":"abc"}.
+   * - Multi-value match, such as {"intField1":[12,13],"strField1":["abc","cd"]}.
+   * - Range match, such as {"intField1":{"gte":12,"lte":13}}.
    * 
    * @example
    * {"intField1":{"gte":12,"lte":13},"strField2":["cd","de"],"strField1":"abc"}
@@ -19,13 +16,9 @@ export class SearchMediaByMultimodalRequest extends $dara.Model {
   customFilters?: string;
   /**
    * @remarks
-   * The type of the media assets.
-   * 
-   * Valid values:
-   * 
-   * - image
-   * 
-   * - video (default)
+   * The media asset type. Default value: video. Valid values:
+   * - image: Image.
+   * - video: Video.
    * 
    * @example
    * video
@@ -33,7 +26,7 @@ export class SearchMediaByMultimodalRequest extends $dara.Model {
   mediaType?: string;
   /**
    * @remarks
-   * Namespace.
+   * The namespace.
    * 
    * @example
    * name-1
@@ -41,7 +34,7 @@ export class SearchMediaByMultimodalRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -49,7 +42,7 @@ export class SearchMediaByMultimodalRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 50.
+   * The number of entries to return on each page. Default value: 10. Maximum value: 50.
    * 
    * @example
    * 10
@@ -65,17 +58,16 @@ export class SearchMediaByMultimodalRequest extends $dara.Model {
   searchLibName?: string;
   /**
    * @remarks
-   * The content that you want to query. You can describe the content in natural language.
+   * The search content. It can be a natural language description.
    * 
    * @example
-   * Two pandas are fighting.
+   * Two pandas are fighting
    */
   text?: string;
   /**
    * @remarks
-   * Creation time, in milliseconds UNIX timestamp. gte indicates greater than or equal to, and lte indicates less than or equal to.
-   * 
-   * - Range example: {"gte":1761205662998,"lte":1771205662998}
+   * The creation time. The value is a timestamp in milliseconds. gte specifies greater than or equal to, and lte specifies less than or equal to. Example:
+   * - Range match, such as {"gte":1761205662998,"lte":1771205662998}.
    * 
    * @example
    * {"gte":1761205662998,"lte":1771205662998}

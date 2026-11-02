@@ -13,7 +13,7 @@ export class ListAIAgentInstanceResponseBodyInstances extends $dara.Model {
   agentConfig?: AIAgentConfig;
   /**
    * @remarks
-   * The URL of the agent conversation call log file. The file contains the CallLog struct in JSON format.
+   * The URL of the conversation call log file for the agent instance. The file contains the CallLog structure in JSON format.
    * 
    * @example
    * https://example.com/call_logs/12345.json
@@ -21,7 +21,7 @@ export class ListAIAgentInstanceResponseBodyInstances extends $dara.Model {
   callLogUrl?: string;
   /**
    * @remarks
-   * The runtime configuration required by the agent.
+   * The runtime configuration required for the agent.
    * 
    * @example
    * {"VoiceChat":{"AgentUserId":"voice_agent_001","ChannelId":"voice_channel_001","AuthToken":"your_voice_chat_auth_token"}}
@@ -31,9 +31,9 @@ export class ListAIAgentInstanceResponseBodyInstances extends $dara.Model {
    * @remarks
    * The instance status. Valid values:
    * 
-   * - Created: The call is initiated but the connection between the two ends is not established.
+   * - Created: The call is initiated, but the connection between both ends is not established.
    * 
-   * - Executing: The call is in progress and the connection between the two ends is established.
+   * - Executing: The call executes, and the connection between both ends is established.
    * 
    * - Finished: The call has ended.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIAgentPhoneNumberRequest extends $dara.Model {
   /**
    * @remarks
-   * Phone number. Specify Number to directly query the corresponding phone number.
+   * The phone number. Specify this parameter to directly query the corresponding number.
    * 
    * @example
    * 139xxxxxxxxx
@@ -13,7 +13,7 @@ export class ListAIAgentPhoneNumberRequest extends $dara.Model {
   number?: string;
   /**
    * @remarks
-   * Page number. Default Value is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListAIAgentPhoneNumberRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size, indicating the number of records displayed per page. Default Value is 50, with a maximum value of 100.
+   * The number of entries per page. Default value: 50. Maximum value: 100.
    * 
    * @example
    * 50
@@ -29,15 +29,15 @@ export class ListAIAgentPhoneNumberRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Status of the target phone number to query.
+   * The status of the target phone number. Valid values:
    * 
-   * - 1: "Activation in progress".
+   * - 1: Activation in progress.
    * 
-   * - 2: "Normal".
+   * - 2: Normal.
+   *  
+   * - 3: Unregistering.
    * 
-   * - 3: "Deactivation in progress".
-   * 
-   * - 4: "Deactivated".
+   * - 4: Unregistered.
    * 
    * @example
    * 2

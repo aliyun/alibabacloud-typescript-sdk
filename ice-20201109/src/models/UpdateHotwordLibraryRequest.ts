@@ -6,10 +6,10 @@ import { Hotword } from "./Hotword";
 export class UpdateHotwordLibraryRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the hotword library. It can be up to 200 characters in length.
+   * The description of the hotword library. Maximum length: 200 characters.
    * 
    * @example
-   * Lexicon containing celebrity names
+   * Store the thesaurus of celebrities
    */
   description?: string;
   /**
@@ -24,15 +24,15 @@ export class UpdateHotwordLibraryRequest extends $dara.Model {
   hotwordLibraryId?: string;
   /**
    * @remarks
-   * The hotword list. You can add up to 300 hotword entries to a single library.
+   * The list of hotwords. Maximum length: 300 items.
    * 
    * @example
-   * Lexicon containing celebrity names
+   * Hotword library for celebrities
    */
   hotwords?: Hotword[];
   /**
    * @remarks
-   * The name of the hotword library. It can be up to 100 characters in length.
+   * The name of the hotword library. Maximum length: 100 characters.
    * 
    * @example
    * my_hotwords

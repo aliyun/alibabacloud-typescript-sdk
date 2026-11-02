@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
   /**
    * @remarks
-   * The CDN prefix for accessing ad segments.
+   * The CDN prefix for ad segments.
    * 
    * @example
    * http://cdn.com/
@@ -13,7 +13,7 @@ export class GetAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
   adSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * The CDN prefix for accessing content segments.
+   * The CDN prefix for video content segments.
    * 
    * @example
    * http://cdn.com/
@@ -45,12 +45,12 @@ export class GetAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
 export class GetAdInsertionResponseBodyConfigManifestEndpointConfig extends $dara.Model {
   /**
    * @remarks
-   * DASH manifest playback endpoint prefix
+   * The DASH manifest endpoint prefix.
    */
   dashPrefix?: string;
   /**
    * @remarks
-   * The playback endpoint prefix for accessing HLS manifests.
+   * The HLS manifest endpoint prefix.
    */
   hlsPrefix?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +79,7 @@ export class GetAdInsertionResponseBodyConfigManifestEndpointConfig extends $dar
 export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether ad marker passthrough is enabled.
+   * The ad marker passthrough.
    * 
    * @example
    * ON
@@ -87,7 +87,7 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   adMarkerPassthrough?: string;
   /**
    * @remarks
-   * The URL of the ad decision server (ADS).
+   * The URL of the ad policy server.
    * 
    * @example
    * http://ads.com/ad1?param1=[palyer_params.p1]
@@ -95,12 +95,12 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   adsUrl?: string;
   /**
    * @remarks
-   * The CDN configurations.
+   * The CDN configuration.
    */
   cdnConfig?: GetAdInsertionResponseBodyConfigCdnConfig;
   /**
    * @remarks
-   * The aliases for dynamic variable replacement.
+   * The dynamic configuration aliases.
    * 
    * @example
    * {
@@ -112,7 +112,7 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   configAliases?: string;
   /**
    * @remarks
-   * The prefix of the source URL.
+   * The content URL prefix.
    * 
    * @example
    * https://source.com/
@@ -120,7 +120,7 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   contentUrlPrefix?: string;
   /**
    * @remarks
-   * The time when the configuration was created.
+   * The creation time in ISO 8601 format in UTC (ending with Z).
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -128,7 +128,7 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the configuration was last modified.
+   * The last modified time.
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -136,12 +136,12 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   lastModified?: string;
   /**
    * @remarks
-   * The playback endpoint prefix for accessing manifests.
+   * The manifest endpoint configuration.
    */
   manifestEndpointConfig?: GetAdInsertionResponseBodyConfigManifestEndpointConfig;
   /**
    * @remarks
-   * The name of the configuration.
+   * The name of the ad insertion configuration.
    * 
    * @example
    * my_ad
@@ -149,7 +149,7 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The personalization threshold.
+   * The personalization configuration threshold.
    * 
    * @example
    * 5
@@ -157,7 +157,7 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   personalizationThreshold?: number;
   /**
    * @remarks
-   * The URL of the slate ad.
+   * The slate ad URL.
    * 
    * @example
    * http://storage.com/slate1.mp4
@@ -218,7 +218,7 @@ export class GetAdInsertionResponseBody extends $dara.Model {
   config?: GetAdInsertionResponseBodyConfig;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******

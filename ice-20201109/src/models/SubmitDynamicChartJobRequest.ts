@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitDynamicChartJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The axis style settings. If `XAxisFontInterval` is not specified or is set to 0, the system automatically calculates the interval.
+   * The axis style. If XAxisFontInterval is not specified or is set to 0, the algorithm automatically calculates the interval.
    * 
    * @example
    * {"FontFile":"Microsoft YaHei","XAxisFontSize":"30","YAxisFontSize":"30","XAxisFontInterval":"30","AxisColor":"30"}
@@ -13,7 +13,7 @@ export class SubmitDynamicChartJobRequest extends $dara.Model {
   axisParams?: string;
   /**
    * @remarks
-   * The settings for the chart background. You can specify a Background Color or a Background Image.
+   * The chart background.
    * 
    * @example
    * {"Color":"#000000","ImageUrl":"http://your-bucket.oss-cn-shanghai.aliyuncs.com/obj.jpg"}
@@ -21,7 +21,7 @@ export class SubmitDynamicChartJobRequest extends $dara.Model {
   background?: string;
   /**
    * @remarks
-   * The overall configuration for the chart\\"s appearance and timing.
+   * The chart configuration.
    * 
    * @example
    * {"Style":"Normal","TitleStartTime":"3000","ChartStartTime":"3000","VideoDuration":"15000"}
@@ -29,15 +29,15 @@ export class SubmitDynamicChartJobRequest extends $dara.Model {
   chartConfig?: string;
   /**
    * @remarks
-   * The chart title settings.
+   * The main title.
    * 
    * @example
-   * {"Text":" primary title","FontSize":"30","FontColor":"#000000","FontFile":"Microsoft YaHei"}
+   * {"Text":"ChartTitle","FontSize":"30","FontColor":"#000000","FontFile":"Microsoft YaHei"}
    */
   chartTitle?: string;
   /**
    * @remarks
-   * The chart type to generate.
+   * The chart type.
    * 
    * This parameter is required.
    * 
@@ -47,23 +47,23 @@ export class SubmitDynamicChartJobRequest extends $dara.Model {
   chartType?: string;
   /**
    * @remarks
-   * The data source label settings.
+   * The data source.
    * 
    * @example
-   * {"Text":"Data source","FontSize":"30","FontColor":"#000000","FontFile":"Microsoft YaHei"}
+   * {"Text":"DataSource","FontSize":"30","FontColor":"#000000","FontFile":"Microsoft YaHei"}
    */
   dataSource?: string;
   /**
    * @remarks
-   * The job description.
+   * The task description.
    * 
    * @example
-   * Task description
+   * Job Description
    */
   description?: string;
   /**
    * @remarks
-   * The input data configuration, which specifies the Excel file location.
+   * The input data for the chart.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class SubmitDynamicChartJobRequest extends $dara.Model {
   input?: string;
   /**
    * @remarks
-   * The output video configuration.
+   * The output settings.
    * 
    * This parameter is required.
    * 
@@ -83,7 +83,7 @@ export class SubmitDynamicChartJobRequest extends $dara.Model {
   outputConfig?: string;
   /**
    * @remarks
-   * The subtitle settings.
+   * The subtitle.
    * 
    * @example
    * {"Text":"Subtitle","FontSize":"30","FontColor":"#000000","FontFile":"Microsoft YaHei"}
@@ -91,15 +91,15 @@ export class SubmitDynamicChartJobRequest extends $dara.Model {
   subtitle?: string;
   /**
    * @remarks
-   * The job title.
+   * The task title.
    * 
    * @example
-   * Task title
+   * Job Title
    */
   title?: string;
   /**
    * @remarks
-   * The data unit label settings.
+   * The unit.
    * 
    * @example
    * {"Text":"Unit","FontSize":"30","FontColor":"#000000","FontFile":"Microsoft YaHei"}
@@ -107,7 +107,7 @@ export class SubmitDynamicChartJobRequest extends $dara.Model {
   unit?: string;
   /**
    * @remarks
-   * The custom user data in JSON format.
+   * The custom data in JSON format.
    * 
    * @example
    * {"user":"data"}

@@ -22,14 +22,10 @@ export class ListDNADBResponseBodyDBList extends $dara.Model {
   /**
    * @remarks
    * The model of the media fingerprint library. Valid values:
-   * 
-   * - **Video**
-   * 
-   * - **Audio**
-   * 
-   * - **Image**
-   * 
-   * - **Text** (supported only in the China (Shanghai) region)
+   * - **Video**: Video.
+   * - **Audio**: Audio.
+   * - **Image**: Image.
+   * - **Text**: Text. Only supported in the China (Shanghai) region.
    * 
    * @example
    * Video
@@ -45,13 +41,10 @@ export class ListDNADBResponseBodyDBList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The state of the media fingerprint library. Default value: **offline**. \\*\\*\\*\\*Valid values:
-   * 
-   * - **offline**: The media fingerprint library is offline.
-   * 
-   * - **active**: The media fingerprint library is online.
-   * 
-   * - **deleted**: The media fingerprint library is deleted.
+   * The status of the media fingerprint library. Default value: **offline**. **active** indicates that the library is available. Valid values:
+   * - **offline**: Offline.
+   * - **active**: Online.
+   * - **deleted**: Deleted.
    * 
    * @example
    * active
@@ -89,7 +82,7 @@ export class ListDNADBResponseBodyDBList extends $dara.Model {
 export class ListDNADBResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried media fingerprint libraries.
+   * The list of media fingerprint libraries.
    */
   DBList?: ListDNADBResponseBodyDBList[];
   /**

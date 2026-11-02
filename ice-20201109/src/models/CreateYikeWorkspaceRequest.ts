@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateYikeWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The workspace title.
+   * The project title.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateYikeWorkspaceRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The maximum number of users in the workspace.
+   * The maximum number of users in the workspace team.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloseStreamToSearchLibRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****

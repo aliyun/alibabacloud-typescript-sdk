@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitLiveRecordJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The recording task ID.
+   * The ID of the recording task.
    * 
    * @example
    * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66

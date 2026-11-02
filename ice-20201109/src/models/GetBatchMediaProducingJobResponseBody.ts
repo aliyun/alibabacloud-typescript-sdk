@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList extends $dara.Model {
   /**
    * @remarks
-   * The duration of the output video, in seconds (s).
+   * The duration of the produced video. Unit: seconds.
    * 
    * @example
    * 24.5
@@ -13,7 +13,7 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList exte
   duration?: number;
   /**
    * @remarks
-   * The error code that is returned if the subjob failed. This parameter is not returned if the subjob is successful.
+   * The error code returned when the subtask fails. This parameter is not returned if the subtask is successful.
    * 
    * @example
    * InvalidMaterial.NotFound
@@ -21,7 +21,7 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList exte
   errorCode?: string;
   /**
    * @remarks
-   * The error message that is returned if the subjob failed. This parameter is not returned if the subjob is successful.
+   * The error message returned when the subtask fails. This parameter is not returned if the subtask is successful.
    * 
    * @example
    * The specified clips id not found:["****30d0b5e871eebb2ff7f6c75a****"]
@@ -29,7 +29,7 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList exte
   errorMessage?: string;
   /**
    * @remarks
-   * The subjob ID.
+   * The subtask ID.
    * 
    * @example
    * ****8e81933d44e3ae69e2f81485****
@@ -37,7 +37,7 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList exte
   jobId?: string;
   /**
    * @remarks
-   * The ID of the output media asset.
+   * The ID of the produced media asset.
    * 
    * @example
    * ****1470b11171ee9d19e7e6c66a****
@@ -45,7 +45,7 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList exte
   mediaId?: string;
   /**
    * @remarks
-   * The URL of the output file.
+   * The URL of the output video file.
    * 
    * @example
    * http:/xxx.oss-cn-shanghai.aliyuncs.com/xxx_0.mp4
@@ -53,7 +53,7 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList exte
   mediaURL?: string;
   /**
    * @remarks
-   * The ID of the online editing project.
+   * The ID of the cloud editing project.
    * 
    * @example
    * ****7cc47fe04eaa81bd853acb6a****
@@ -61,15 +61,15 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList exte
   projectId?: string;
   /**
    * @remarks
-   * The subjob state. Valid values:
+   * The subtask status. Valid values:
    * 
-   * Init: The subjob is initialized.
+   * - Init: initialized
    * 
-   * Processing: The subjob is in progress.
+   * - Processing: processing
    * 
-   * Success: The subjob is successful.
+   * - Success: successful
    * 
-   * Failed: The subjob failed.
+   * - Failed: failed
    * 
    * @example
    * Success
@@ -113,9 +113,9 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList exte
 export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.Model {
   /**
    * @remarks
-   * The time when the job was complete.
+   * The time when the task was completed. The time is displayed in UTC.
    * 
-   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * Format: "YYYY-MM-DD\\"T\\"hh:mm:ss\\"Z\\"".
    * 
    * @example
    * 2024-06-13T08:57:07Z
@@ -123,7 +123,7 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
   completeTime?: string;
   /**
    * @remarks
-   * The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the task was created. The time is displayed in UTC.
    * 
    * @example
    * 2024-06-13T08:47:07Z
@@ -131,7 +131,7 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
   createTime?: string;
   /**
    * @remarks
-   * The editing configurations. For more information, see [EditingConfig](~~2692547#1be9bba03b7qu~~).
+   * The editing-related configuration. For more information about the structure, see [EditingConfig](~~2692547#1be9bba03b7qu~~).
    * 
    * @example
    * {
@@ -149,11 +149,11 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
   editingConfig?: string;
   /**
    * @remarks
-   * The extended information. This parameter contains the following fields:
+   * The extended information. Field details:
    * 
-   * ErrorCode: the error code of the main job.
+   * - ErrorCode: the error code of the main task
    * 
-   * ErrorMessage: the error message of the main job.
+   * - ErrorMessage: the error message of the main task
    * 
    * @example
    * {
@@ -164,11 +164,9 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
   extend?: string;
   /**
    * @remarks
-   * Additional input.
-   * 
-   * - When JobType is Smart_Mix_Timeline_Organize or Screen_Media_Highlights_Timeline_Organize, the additional input is the material selection result.
-   * 
-   * - When JobType is Scene_Batch_Editing, the additional input is a list of video editing project IDs.
+   * The additional input.
+   * - If JobType is set to Smart_Mix_Timeline_Organize or Screen_Media_Highlights_Timeline_Organize, the additional input is the media selection result.
+   * - If JobType is set to Scene_Batch_Editing, the additional input is the list of editing project IDs.
    * 
    * @example
    * ["****7cc47fe04eaa81bd853acb6a****", "****04eaa7cc47fe81bd853acb6a****"]
@@ -176,45 +174,44 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
   extendInput?: string;
   /**
    * @remarks
-   * Additional outputs.
-   * 
-   * - When JobType is Smart_Mix_Media_Select or Screen_Media_Highlights_Media_Select, material selection results are additionally returned.
+   * The additional output.
+   * - If JobType is set to Smart_Mix_Media_Select or Screen_Media_Highlights_Media_Select, the media selection result is additionally returned.
    * 
    * @example
    * {
-   * "textMatchMediaOutputList": [{
-   * "textMatchMediaSentenceOutputList": [{
-   * "duration": 3.366667,
-   * "matchClipList": [{
-   * "clipId": "null-2",
-   * "endTime": 11.16,
-   * "mediaId": "****a0900f5071efbf1ce7e6c66a****",
-   * "score": -0.253,
-   * "startTime": 8.04
-   * }],
-   * "text": "A new Freshippo store just opened at the nearby mall.",
-   * "textId": "0"
-   * },
-   * {
-   * "duration": 1.566667,
-   * "matchClipList": [{
-   * "clipId": "null-1",
-   * "endTime": 1.54,
-   * "mediaId": "****a0900f5071efbf1ce7e6c66a****",
-   * "score": -0.2326,
-   * "startTime": 0
-   * }],
-   * "text": "today Yesfirst day of opening",
-   * "textId": "0"
-   * }
-   * ]
-   * }]
+   * 	"textMatchMediaOutputList": [{
+   * 		"textMatchMediaSentenceOutputList": [{
+   * 				"duration": 3.366667,
+   * 				"matchClipList": [{
+   * 					"clipId": "null-2",
+   * 					"endTime": 11.16,
+   * 					"mediaId": "****a0900f5071efbf1ce7e6c66a****",
+   * 					"score": -0.253,
+   * 					"startTime": 8.04
+   * 				}],
+   * 				"text": "A new box of fresh horses has been opened in the nearby shopping mall.",
+   * 				"textId": "0"
+   * 			},
+   * 			{
+   * 				"duration": 1.566667,
+   * 				"matchClipList": [{
+   * 					"clipId": "null-1",
+   * 					"endTime": 1.54,
+   * 					"mediaId": "****a0900f5071efbf1ce7e6c66a****",
+   * 					"score": -0.2326,
+   * 					"startTime": 0
+   * 				}],
+   * 				"text": "Today is the first day of opening",
+   * 				"textId": "0"
+   * 			}
+   * 		]
+   * 	}]
    * }
    */
   extendOutput?: string;
   /**
    * @remarks
-   * The input configurations. For more information, see [InputConfig](~~2692547#2faed1559549n~~).
+   * The user synthesis output configuration. For more information about the structure, see [InputConfig](~~2692547#2faed1559549n~~).
    * 
    * @example
    * {
@@ -230,17 +227,17 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
    *         "****4549d886810b46c30f6e****" ]
    *   }],
    *   "TitleArray": [
-   *       "回龙观盒马鲜生开业啦",
-   *       "盒马鲜生开业啦" ],
+   *       "Huilongguan Box Ma Xiansheng Opened",
+   *       "Box of Ma Xiansheng has opened" ],
    *   "SpeechTextArray": [
-   *       "附近的商场新开了一家盒马鲜生，今天是第一天开业"
-   *       "商场里的人不少，零食、酒水都比较便宜大家也快来看看呀" ]
+   *       "A new box of fresh horses has been opened in a nearby shopping mall. Today is the first day of opening."
+   *       "There are a lot of people in the shopping mall. Snacks and drinks are relatively cheap. Come and have a look." ]
    * }
    */
   inputConfig?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * ****b6b2750d4308892ac3330238****
@@ -248,25 +245,16 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
   jobId?: string;
   /**
    * @remarks
-   * Task Type:
-   * 
-   * - Script (Script-based automated video editing)
-   * 
-   * - Smart_Mix (Intelligent text-to-media matching for video editing)
-   * 
-   * - Sports_Highlights (Sporting event highlights compilation)
-   * 
-   * - Screen_Media_Highlights (High-energy multi-media mashup editing)
-   * 
-   * - Smart_Mix_Media_Select (Intelligent matching – Material selection)
-   * 
-   * - Smart_Mix_Timeline_Organize (Intelligent matching – Timeline orchestration)
-   * 
-   * - Screen_Media_Highlights_Media_Select (High-energy mashup – Material selection)
-   * 
-   * - Screen_Media_Highlights_Timeline_Organize (High-energy mashup – Timeline orchestration)
-   * 
-   * - Scene_Batch_Editing (Batch synthesis across multiple timelines)
+   * The task type. Valid values:
+   * - Script: scripted automatic video production
+   * - Smart_Mix: intelligent image and text matching video production
+   * - Sports_Highlights: sports event highlights video production
+   * - Screen_Media_Highlights: high-energy mashup video production
+   * - Smart_Mix_Media_Select: intelligent matching - media selection
+   * - Smart_Mix_Timeline_Organize: intelligent matching - timeline arrangement
+   * - Screen_Media_Highlights_Media_Select: high-energy mashup - media selection
+   * - Screen_Media_Highlights_Timeline_Organize: high-energy mashup - timeline arrangement
+   * - Scene_Batch_Editing: multi-timeline batch synthesis
    * 
    * @example
    * Script
@@ -274,9 +262,9 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
   jobType?: string;
   /**
    * @remarks
-   * The time when the job was last modified.
+   * The time when the task was modified. The time is displayed in UTC.
    * 
-   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * Format: "YYYY-MM-DD\\"T\\"hh:mm:ss\\"Z\\"".
    * 
    * @example
    * 2024-06-13T08:57:07Z
@@ -284,7 +272,7 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
   modifiedTime?: string;
   /**
    * @remarks
-   * The output configurations. For more information, see [OutputConfig](~~2692547#447b928fcbuoa~~).
+   * The output configuration. For more information about the structure, see [OutputConfig](~~2692547#447b928fcbuoa~~).
    * 
    * @example
    * {
@@ -299,13 +287,13 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
   outputConfig?: string;
   /**
    * @remarks
-   * The job state. Valid values:
+   * The task status. Valid values:
    * 
-   * Init: The job is initialized.
+   * - Init: initialized
    * 
-   * Processing: The job is in progress.
+   * - Processing: processing
    * 
-   * Finished: The job is complete.
+   * - Finished: finished
    * 
    * @example
    * Finished
@@ -313,12 +301,12 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
   status?: string;
   /**
    * @remarks
-   * The quick video production subjobs.
+   * The list of one-click video production subtasks.
    */
   subJobList?: GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList[];
   /**
    * @remarks
-   * The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html).
+   * The user business and callback configurations. For more information about the structure, see [UserData](~~357745#section-urj-v3f-0s1~~).
    * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx"}
@@ -377,7 +365,7 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $dara.
 export class GetBatchMediaProducingJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the quick video production job.
+   * The batch intelligent one-click video production task information.
    */
   editingBatchJob?: GetBatchMediaProducingJobResponseBodyEditingBatchJob;
   /**

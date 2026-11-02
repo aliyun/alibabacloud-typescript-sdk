@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRecognitionLibResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the recognition library created.
+   * The ID of the created recognition library.
    * 
    * @example
    * *************24b47865c6**************

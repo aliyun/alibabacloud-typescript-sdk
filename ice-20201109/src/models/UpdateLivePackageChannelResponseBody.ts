@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints extends $dara.Model {
   /**
    * @remarks
-   * The ingest endpoint ID.
+   * The ID of the ingest endpoint.
    * 
    * @example
    * ingest1
@@ -21,7 +21,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoin
   password?: string;
   /**
    * @remarks
-   * The ingest endpoint URL.
+   * The URL of the ingest endpoint.
    * 
    * @example
    * http://xxx-1.packagepush-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
@@ -65,7 +65,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoin
 export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dara.Model {
   /**
    * @remarks
-   * The channel name.
+   * The name of the channel.
    * 
    * @example
    * channel-1
@@ -73,7 +73,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   channelName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the channel was created. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2024-07-16T02:24:42Z
@@ -81,15 +81,15 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   createTime?: string;
   /**
    * @remarks
-   * The description. Maximum length: 1000 characters.
+   * The description of the channel. The description can be up to 1,000 characters in length.
    * 
    * @example
-   * This is a test channel.
+   * This is a test channel
    */
   description?: string;
   /**
    * @remarks
-   * The channel group name.
+   * The name of the channel group.
    * 
    * @example
    * channel-group-1
@@ -102,7 +102,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   ingestEndpoints?: UpdateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints[];
   /**
    * @remarks
-   * The last modified time.
+   * The time when the channel was last modified.
    * 
    * @example
    * 2024-07-16T02:24:42Z
@@ -110,7 +110,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   lastModified?: string;
   /**
    * @remarks
-   * The input stream protocol. HLS is supported.
+   * The input stream protocol. Valid values: HLS, HLS_CMAF, and SRT_RTMP.
    * 
    * @example
    * HLS
@@ -126,7 +126,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   segmentCount?: number;
   /**
    * @remarks
-   * The segment duration of the input stream.
+   * The duration of each segment in the input stream.
    * 
    * @example
    * 5
@@ -175,7 +175,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
 export class UpdateLivePackageChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the live packaging channel.
+   * The detailed information about the live packaging channel.
    */
   livePackageChannel?: UpdateLivePackageChannelResponseBodyLivePackageChannel;
   /**

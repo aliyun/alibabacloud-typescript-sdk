@@ -15,9 +15,9 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
    * @remarks
    * The number of audio channels. Valid values:
    * 
-   * - 1: mono.
+   * - 1: Mono.
    * 
-   * - 2: stereo.
+   * - 2: Stereo.
    * 
    * @example
    * 2
@@ -25,7 +25,7 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
   channels?: string;
   /**
    * @remarks
-   * The audio encoding format. Valid values:
+   * The audio codec. Valid values:
    * 
    * - AAC
    * - MP3
@@ -36,7 +36,7 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
   codec?: string;
   /**
    * @remarks
-   * The audio encoding preset. When Codec is set to AAC, valid values:
+   * The audio encoding profile. If the Codec parameter is set to AAC, valid values:
    * - aac_low
    * - aac_he
    * - aac_he_v2
@@ -48,9 +48,9 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
   profile?: string;
   /**
    * @remarks
-   * The audio sample rate. Valid values: 22050 to 96000.
+   * The audio sampling rate. Valid values: 22050 to 96000.
    * 
-   * >Notice: If AudioProfile is set to aac_ld, the sample rate must not exceed 44100.
+   * >Notice: If the AudioProfile parameter is set to aac_ld, the sampling rate cannot exceed 44100.
    * 
    * @example
    * 44100
@@ -96,7 +96,7 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
   bitrate?: string;
   /**
    * @remarks
-   * The encoding type. Valid values:
+   * The video codec. Valid values:
    * 
    * - H.264
    * - H.265
@@ -115,7 +115,7 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
   fps?: string;
   /**
    * @remarks
-   * The video GOP (Group of Pictures). Unit: frames. Valid values: 1 to 3000.
+   * The group of pictures (GOP) size of the video. Unit: frames. Valid values: 1 to 3000.
    * 
    * @example
    * 1000
@@ -131,7 +131,7 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
    * 
    * - min(Height, Width) ≤ 1440
    * 
-   * >Notice: For H.265 narrowband HD templates, the resolution must not exceed 1280 × 720.
+   * >Notice: The resolution of an H.265 Narrowband HD template cannot exceed 1280×720.
    * 
    * @example
    * 720
@@ -139,13 +139,13 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
   height?: string;
   /**
    * @remarks
-   * The encoding profile. A set of specific encoding features supported by the video. A higher value generally produces better image quality but consumes more encoding and decoding resources. Valid values:
+   * The encoding profile. A set of specific encoding features supported by the video. Generally, a larger value indicates better video quality but higher resource consumption for encoding and decoding. Valid values:
    * 
-   * - 1: baseline (suitable for mobile devices).
+   * - 1: Baseline profile, suitable for mobile devices.
    * 
-   * - 2: main (suitable for standard resolution devices).
+   * - 2: Main profile, suitable for standard-resolution devices.
    * 
-   * - 3: high (suitable for high resolution devices).
+   * - 3: High profile, suitable for high-resolution devices.
    * 
    * @example
    * 2
@@ -161,7 +161,7 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
    * 
    * - min(Height, Width) ≤ 1440
    * 
-   * >Notice: For H.265 narrowband HD templates, the resolution must not exceed 1280 × 720.
+   * >Notice: The resolution of an H.265 Narrowband HD template cannot exceed 1280×720.
    * 
    * @example
    * 1280
@@ -254,17 +254,16 @@ export class CreateLiveTranscodeTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The template configuration.
-   * > The pass parameter requirements vary based on the templatetype (Type). When Type is set to normal, at least one of the width and height parameters must be specified, and the frame rate and bitrate parameters are required. For other template types, specify the parameters based on your requirements.
+   * > The parameter requirements vary based on the template type (Type). If the Type parameter is set to normal, you must specify at least one of the width and height parameters, and the frame rate and bitrate parameters are required. For other template types, specify parameters as needed.
    */
   templateConfig?: CreateLiveTranscodeTemplateRequestTemplateConfig;
   /**
    * @remarks
    * The template type. Valid values:
-   * 
-   * - normal: standard.
-   * - narrow-band: narrowband HD.
-   * - audio-only: audio only.
-   * - origin: original quality.
+   * - normal: Normal template.
+   * - narrow-band: Narrowband HD template.
+   * - audio-only: Audio-only template.
+   * - origin: Original quality template.
    * 
    * This parameter is required.
    * 

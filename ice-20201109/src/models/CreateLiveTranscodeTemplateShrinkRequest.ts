@@ -16,17 +16,16 @@ export class CreateLiveTranscodeTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The template configuration.
-   * > The pass parameter requirements vary based on the templatetype (Type). When Type is set to normal, at least one of the width and height parameters must be specified, and the frame rate and bitrate parameters are required. For other template types, specify the parameters based on your requirements.
+   * > The parameter requirements vary based on the template type (Type). If the Type parameter is set to normal, you must specify at least one of the width and height parameters, and the frame rate and bitrate parameters are required. For other template types, specify parameters as needed.
    */
   templateConfigShrink?: string;
   /**
    * @remarks
    * The template type. Valid values:
-   * 
-   * - normal: standard.
-   * - narrow-band: narrowband HD.
-   * - audio-only: audio only.
-   * - origin: original quality.
+   * - normal: Normal template.
+   * - narrow-band: Narrowband HD template.
+   * - audio-only: Audio-only template.
+   * - origin: Original quality template.
    * 
    * This parameter is required.
    * 

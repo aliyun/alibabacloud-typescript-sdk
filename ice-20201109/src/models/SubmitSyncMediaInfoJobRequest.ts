@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSyncMediaInfoJobRequestInput extends $dara.Model {
   /**
    * @remarks
-   * The media object.
+   * The media value.
+   * - If Type is set to OSS, the value is a URL. Both OSS and HTTP protocols are supported.
+   * > The OSS bucket in the URL must be added to [Storage Management](https://help.aliyun.com/document_detail/609918.html) in IMS before use.
    * 
-   * - If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
-   * 
-   * > Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the Intelligent Media Services (IMS) console.
-   * 
-   * - If Type is set to Media, set this parameter to the ID of a media asset.
+   * - If Type is set to Media, the value is a media asset ID.
    * 
    * This parameter is required.
    * 
@@ -21,11 +19,9 @@ export class SubmitSyncMediaInfoJobRequestInput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the media object.
-   * 
-   * - OSS: an Object Storage Service (OSS) object.
-   * 
-   * - Media: a media asset.
+   * The media object type. Valid values:
+   * - OSS: OSS file.
+   * - Media: media asset ID.
    * 
    * This parameter is required.
    * 
@@ -59,7 +55,7 @@ export class SubmitSyncMediaInfoJobRequestInput extends $dara.Model {
 export class SubmitSyncMediaInfoJobRequestScheduleConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the MPS queue to which the job was submitted.
+   * The ID of the pipeline.
    * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
@@ -67,7 +63,7 @@ export class SubmitSyncMediaInfoJobRequestScheduleConfig extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * The priority of the job. A larger value indicates a higher priority. Valid values: 1 to 10.
    * 
    * @example
    * 5
@@ -106,7 +102,7 @@ export class SubmitSyncMediaInfoJobRequest extends $dara.Model {
   input?: SubmitSyncMediaInfoJobRequestInput;
   /**
    * @remarks
-   * The job name.
+   * The name of the job.
    * 
    * @example
    * job-name

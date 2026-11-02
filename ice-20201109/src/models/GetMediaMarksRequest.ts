@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaMarksRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -13,7 +13,7 @@ export class GetMediaMarksRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The mark ID. You can specify multiple mark IDs separated with commas (,).
+   * The mark IDs. Separate multiple values with commas.
    * 
    * @example
    * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60

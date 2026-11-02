@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkflowTasksResponseBodyTaskListWorkflow extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the workflow template.
+   * The time when the workflow template was created. The time is in ISO 8601 format and in UTC (ending with Z).
    * 
    * @example
    * 2025-03-21T01:48:49Z
@@ -13,11 +13,9 @@ export class ListWorkflowTasksResponseBodyTaskListWorkflow extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The source of the media file. Valid values:
-   * 
-   * - OSS: an OSS object.
-   * 
-   * - Media: a media asset.
+   * The media source. Valid values:
+   * - OSS: OSS file.
+   * - Media: Media asset.
    * 
    * @example
    * OSS
@@ -25,7 +23,7 @@ export class ListWorkflowTasksResponseBodyTaskListWorkflow extends $dara.Model {
   mediaType?: string;
   /**
    * @remarks
-   * The last modification time of the workflow template.
+   * The time when the workflow template was last modified. The time is in YYYY-MM-DD HH:mm:ss Z format and includes the time zone offset.
    * 
    * @example
    * 2025-02-23 10:19:37 +0800
@@ -49,7 +47,7 @@ export class ListWorkflowTasksResponseBodyTaskListWorkflow extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the workflow template.
+   * The templatetype of the workflow.
    * 
    * @example
    * Common
@@ -57,7 +55,7 @@ export class ListWorkflowTasksResponseBodyTaskListWorkflow extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The workflow ID.
+   * The ID of the workflow.
    * 
    * @example
    * ******2491c84dce913da9fe65******
@@ -99,7 +97,7 @@ export class ListWorkflowTasksResponseBodyTaskListWorkflow extends $dara.Model {
 export class ListWorkflowTasksResponseBodyTaskList extends $dara.Model {
   /**
    * @remarks
-   * The time the task was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the task was created. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2024-07-15T09:45:48Z
@@ -107,7 +105,7 @@ export class ListWorkflowTasksResponseBodyTaskList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time the task was completed. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the task was created. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2024-12-07T10:53:45Z
@@ -115,19 +113,12 @@ export class ListWorkflowTasksResponseBodyTaskList extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The task state.
-   * 
-   * **Valid values**:
-   * 
-   * - Init: Initializing
-   * 
-   * - Failed
-   * 
-   * - Canceled
-   * 
-   * - Processing
-   * 
-   * - Succeed
+   * The status of the task. Valid values:
+   * - Init: The task is initialized.
+   * - Failed: The task failed.
+   * - Canceled: The task is canceled.
+   * - Processing: The task is being executed.
+   * - Succeed: The task succeeded.
    * 
    * @example
    * Succeed
@@ -143,7 +134,7 @@ export class ListWorkflowTasksResponseBodyTaskList extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The input data for the workflow task.
+   * The input of the workflow task.
    * 
    * @example
    * {\\"Type\\":\\"Media\\",\\"Media\\":\\"****8b40884171efb0d9e7f7f458****\\"}
@@ -151,7 +142,7 @@ export class ListWorkflowTasksResponseBodyTaskList extends $dara.Model {
   taskInput?: string;
   /**
    * @remarks
-   * The custom data that was passed when the task was submitted.
+   * The custom fields specified when the workflow task is submitted.
    * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx"}
@@ -201,7 +192,7 @@ export class ListWorkflowTasksResponseBodyTaskList extends $dara.Model {
 export class ListWorkflowTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned in this response.
+   * The maximum number of tasks returned for the current request.
    * 
    * @example
    * 10
@@ -209,7 +200,7 @@ export class ListWorkflowTasksResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The pagination token for the next page.
    * 
    * This parameter is required.
    * 
@@ -227,12 +218,12 @@ export class ListWorkflowTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The media workflow tasks.
+   * The list of media workflow tasks.
    */
   taskList?: ListWorkflowTasksResponseBodyTaskList[];
   /**
    * @remarks
-   * The total number of entries returned. By default, this parameter is not returned.
+   * The total number of entries that meet the current request conditions. This parameter is optional and is not returned by default.
    * 
    * @example
    * 4

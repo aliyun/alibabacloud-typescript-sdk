@@ -109,15 +109,15 @@ export class QuerySmarttagJobResponseBodyUsages extends $dara.Model {
 export class QuerySmarttagJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The job status. Valid values:
+   * The status of the job. Valid values:
    * 
-   * - **Success**: The job was successful.
+   * - **Success**: The job is processed.
    * 
-   * - **Fail**: The job failed.
+   * - **Fail**: The job fails to be processed.
    * 
-   * - **Processing**: The job is in progress.
+   * - **Processing**: The job is being processed.
    * 
-   * - **Submitted**: The job is queued for processing.
+   * - **Submitted**: The job is submitted and waiting to be processed.
    * 
    * @example
    * Success
@@ -135,7 +135,7 @@ export class QuerySmarttagJobResponseBody extends $dara.Model {
   usages?: QuerySmarttagJobResponseBodyUsages;
   /**
    * @remarks
-   * The custom data passed through the MNS callback. For details on the message format, see the callback message format definitions below.
+   * The information passed through during an MNS callback. For the message format, see the callback message format definition below.
    * 
    * @example
    * {"userId":"123432412831"}

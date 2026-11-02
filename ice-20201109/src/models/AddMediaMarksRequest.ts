@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddMediaMarksRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AddMediaMarksRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The mark information. The value must be a JSONArray.
+   * The mark information. The string content must conform to the JSONArray format.
    * 
    * This parameter is required.
    * 

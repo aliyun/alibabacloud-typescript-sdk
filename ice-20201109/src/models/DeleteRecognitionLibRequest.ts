@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRecognitionLibRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of recognition algorithm. Valid values:
+   * The recognition type. Valid values:
    * 
-   * - landmark
+   * - landmark: custom landmark
    * 
-   * - object
+   * - object: custom object
    * 
-   * - logo
+   * - logo: custom logo
    * 
-   * - face
+   * - face: custom face
    * 
-   * - label
+   * - label: custom label
    * 
    * This parameter is required.
    * 

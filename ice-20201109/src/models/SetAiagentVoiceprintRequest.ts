@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetAIAgentVoiceprintRequestInput extends $dara.Model {
   /**
    * @remarks
-   * The media access link.
+   * The access URL.
    * 
    * @example
    * https://my-bucket.oss-cn-hangzhou.aliyuncs.com/audio/sample.wav
@@ -13,7 +13,7 @@ export class SetAIAgentVoiceprintRequestInput extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The audio file format. Only WAV is supported.
+   * The audio file type. Only wav is supported.
    * 
    * @example
    * wav
@@ -21,21 +21,19 @@ export class SetAIAgentVoiceprintRequestInput extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * Specifies the access type for the audio file. The system will verify file accessibility via HEAD or GET requests. Valid values:
+   * The access type of the audio media. The system verifies file accessibility through HEAD/GET requests. Valid values:
    * 
-   * - url: An HTTP(S) link to the audio file.
+   * - url: an HTTP URL of the audio file.
+   * - oss: Alibaba Cloud OSS object storage. The following formats are supported:
+   *   1. OSS URI format: oss://bucket-name/object-key
    * 
-   * - oss: An OSS object. Supports the following formats:
+   *      Example: oss://my-bucket/audio/sample.wav
+   *   
+   *   2. OSS public endpoint: http(s)://${bucket}.oss-${region}.aliyuncs.com/${object}
    * 
-   *   1. OSS URI: oss\\://bucket-name/object-key
+   *      Example: https://my-bucket.oss-cn-hangzhou.aliyuncs.com/audio/sample.wav
    * 
-   *      Example: oss\\://my-bucket/audio/sample.wav
-   * 
-   *   2. OSS public URL: http(s)://${bucket}.oss-${region}.aliyuncs.com/${object}
-   * 
-   *      Example: https\\://my-bucket.oss-cn-hangzhou.aliyuncs.com/audio/sample.wav
-   * 
-   * > The OSS bucket must be in the same region as the service. Otherwise, the access fails.
+   * > The OSS bucket must be in the same region as the service. Otherwise, access fails.
    * 
    * @example
    * url
@@ -69,12 +67,12 @@ export class SetAIAgentVoiceprintRequestInput extends $dara.Model {
 export class SetAIAgentVoiceprintRequest extends $dara.Model {
   /**
    * @remarks
-   * The input file.
+   * The input media.
    */
   input?: SetAIAgentVoiceprintRequestInput;
   /**
    * @remarks
-   * A unique identifier for the voiceprint. Generate this ID based on your own business rules. Requirement: 1 to 127 characters in length.
+   * The unique identifier of a voiceprint. Generate this ID based on your business rules. Character length: 1-127.
    * 
    * @example
    * vp_1699123456_8527

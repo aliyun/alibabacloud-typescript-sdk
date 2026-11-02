@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLiveRecordTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the recording job. You can specify the JobId parameter to retrieve the snapshot of the template used by the job.
+   * The recording task ID. Specify this parameter to retrieve the template snapshot used by the task.
    * 
    * @example
    * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66

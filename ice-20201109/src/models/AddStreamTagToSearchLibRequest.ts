@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddStreamTagToSearchLibRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ******b48fb04483915d4f2cd8******
@@ -13,7 +13,7 @@ export class AddStreamTagToSearchLibRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The message body.
+   * The message body for media asset information.
    * 
    * @example
    * {"startTime":1657684600793,"endTime":1657684600793,"userData":"{}"}

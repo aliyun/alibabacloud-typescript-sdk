@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitPackageJobRequestInputsInput extends $dara.Model {
   /**
    * @remarks
-   * The media object.
+   * The media value:
    * 
-   * - If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * - If the type is OSS, the input source is a URL that supports the OSS and HTTP protocols.
    * 
-   * - If Type is set to Media, set this parameter to the ID of a media asset.
+   * - If the type is Media, the input source is a media asset ID.
    * 
    * This parameter is required.
    * 
@@ -19,11 +19,9 @@ export class SubmitPackageJobRequestInputsInput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the media object. Valid values:
-   * 
-   * - OSS: an Object Storage Service (OSS) object.
-   * 
-   * - Media: a media asset.
+   * The media object type. Valid values:
+   * - OSS: OSS file.
+   * - Media: media asset ID.
    * 
    * This parameter is required.
    * 
@@ -57,7 +55,7 @@ export class SubmitPackageJobRequestInputsInput extends $dara.Model {
 export class SubmitPackageJobRequestInputs extends $dara.Model {
   /**
    * @remarks
-   * The information about the input stream file.
+   * The packaging playback stream file information.
    * 
    * This parameter is required.
    */
@@ -89,7 +87,11 @@ export class SubmitPackageJobRequestInputs extends $dara.Model {
 export class SubmitPackageJobRequestOutput extends $dara.Model {
   /**
    * @remarks
-   * The media object. If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported. If Type is set to Media, set this parameter to the ID of a media asset.
+   * The media value:
+   *      
+   * - If the type is OSS, the media is a URL that supports the OSS and HTTP protocols.
+   *      
+   * - If the type is Media, the media is a media asset ID.
    * 
    * This parameter is required.
    * 
@@ -99,11 +101,9 @@ export class SubmitPackageJobRequestOutput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the media object. Valid values:
-   * 
-   * - OSS: an OSS object.
-   * 
-   * - Media: a media asset.
+   * The media object type. Valid values:
+   * - OSS: OSS file.
+   * - Media: media asset ID.
    * 
    * This parameter is required.
    * 
@@ -137,7 +137,7 @@ export class SubmitPackageJobRequestOutput extends $dara.Model {
 export class SubmitPackageJobRequestScheduleConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the MPS queue to which the job was submitted.
+   * The pipeline ID.
    * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
@@ -145,7 +145,7 @@ export class SubmitPackageJobRequestScheduleConfig extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * The job priority. A larger value indicates a higher priority. Valid values: 1 to 10.
    * 
    * @example
    * 5
@@ -177,7 +177,7 @@ export class SubmitPackageJobRequestScheduleConfig extends $dara.Model {
 export class SubmitPackageJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The input of the job.
+   * The inputs for the job.
    * 
    * This parameter is required.
    */
@@ -199,12 +199,12 @@ export class SubmitPackageJobRequest extends $dara.Model {
   output?: SubmitPackageJobRequestOutput;
   /**
    * @remarks
-   * The scheduling settings.
+   * The scheduling configuration.
    */
   scheduleConfig?: SubmitPackageJobRequestScheduleConfig;
   /**
    * @remarks
-   * The user-defined data.
+   * The custom user data.
    * 
    * @example
    * {"param": "value"}

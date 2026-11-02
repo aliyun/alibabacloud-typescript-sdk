@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDynamicImageJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The ID of the dynamic image task.
    * 
    * @example
    * ****d80e4e4044975745c14b****

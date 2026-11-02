@@ -13,7 +13,7 @@ export class CloseStreamToSearchLibResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ****c469e944b5a856828dc2****
@@ -21,7 +21,7 @@ export class CloseStreamToSearchLibResponseBody extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -29,11 +29,9 @@ export class CloseStreamToSearchLibResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call failed.
    * 
    * @example
    * true

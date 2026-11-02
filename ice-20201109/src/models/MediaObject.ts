@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class MediaObject extends $dara.Model {
   /**
    * @remarks
-   * The identifier for the media file.
-   * 
-   * *   If Type is set to OSS, the value is the URL of the media file. The following formats are supported: oss://... and https://...
-   * *   If Type is set to Media, the value is the ID of the media asset.
+   * The file media asset.
+   * - If Type is OSS, Media is a URL and supports the OSS and HTTP protocols.     
+   * - If Type is Media, Media is a media asset ID.
    * 
    * @example
    * http://bucket.loction.aliyuncs.com/path/to/video.mp4
@@ -16,11 +15,10 @@ export class MediaObject extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of media source. Valid values:
-   * 
-   * *   OSS: an OSS object.
-   * *   Media: a media asset.
-   * *   ExternalURL: a publicly accessible external URL. This is not available for public use.
+   * The input type. Valid values:
+   * - OSS: Alibaba Cloud OSS file 
+   * - Media: Media asset
+   * - ExternalURL: External URL, not currently publicly supported
    * 
    * @example
    * OSS

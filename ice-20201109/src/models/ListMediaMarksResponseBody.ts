@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMediaMarksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ******b48fb04483915d4f2cd8******
@@ -13,7 +13,7 @@ export class ListMediaMarksResponseBody extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The marks of the media asset, in the JSONArray format.
+   * The list of mark information. The string content is in JSONArray format.
    * 
    * @example
    * [

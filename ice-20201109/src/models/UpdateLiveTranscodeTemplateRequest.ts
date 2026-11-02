@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends $dara.Model {
   /**
    * @remarks
-   * The bitrate of the output audio. Unit: Kbit/s. Valid values: 1 to 1000.
+   * The bitrate of the transcoded audio. Unit: kbps. Valid values: 1 to 1000.
    * 
    * @example
    * 100
@@ -13,7 +13,10 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
   bitrate?: string;
   /**
    * @remarks
-   * The number of sound channels. Valid values: 1: mono 2: binaural
+   * The number of audio channels. Valid values:
+   * 
+   * - 1: mono.
+   * - 2: stereo.
    * 
    * @example
    * 2
@@ -21,7 +24,10 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
   channels?: string;
   /**
    * @remarks
-   * The audio codec. Valid values: AAC MP3
+   * The audio encoding format. Valid values:
+   * 
+   * - AAC
+   * - MP3
    * 
    * @example
    * AAC
@@ -29,14 +35,11 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
   codec?: string;
   /**
    * @remarks
-   * The audio codec profile. Valid values when the Codec parameter is set to AAC:
+   * The audio encoding profile. Valid values when Codec is set to AAC:
    * 
    * - aac_low
-   * 
    * - aac_he
-   * 
    * - aac_he_v2
-   * 
    * - aac_ld
    * 
    * @example
@@ -47,7 +50,7 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
    * @remarks
    * The audio sampling rate. Valid values: 22050 to 96000.
    * 
-   * Note If you set AudioProfile to aac_ld, the audio sampling rate cannot exceed 44100.
+   * Note: If AudioProfile is set to aac_ld, the sampling rate must not exceed 44100.
    * 
    * @example
    * 44100
@@ -85,7 +88,7 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
 export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends $dara.Model {
   /**
    * @remarks
-   * The bitrate of the output video. Unit: Kbit/s. Valid values: 1 to 6000.
+   * The bitrate of the transcoded video. Unit: kbps. Valid values: 1 to 6000.
    * 
    * @example
    * 2500
@@ -96,7 +99,6 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
    * The encoding type. Valid values:
    * 
    * - H.264
-   * 
    * - H.265
    * 
    * @example
@@ -105,7 +107,7 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
   codec?: string;
   /**
    * @remarks
-   * The frame rate of the output video. Unit: frames per second (FPS). Valid values: 1 to 60.
+   * The frame rate of the transcoded video. Unit: FPS. Valid values: 1 to 60.
    * 
    * @example
    * 30
@@ -113,7 +115,7 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
   fps?: string;
   /**
    * @remarks
-   * The group of pictures (GOP) of the output video. Unit: frame. Valid values: 1 to 3000.
+   * The group of pictures (GOP) of the video. Unit: frames. Valid values: 1 to 3000.
    * 
    * @example
    * 1000
@@ -121,15 +123,13 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
   gop?: string;
   /**
    * @remarks
-   * The height of the output video. Valid values:
+   * The height of the transcoded video. Valid values:
    * 
    * - Height ≥ 128
+   * - max(Height, Width) ≤ 2560
+   * - min(Height, Width) ≤ 1440
    * 
-   * - max (Height,Width) ≤ 2560
-   * 
-   * - min(Height,Width)≤ 1440
-   * 
-   * > The resolution of a video transcoded by using the H.265 Narrowband HD template cannot exceed 1,280 × 720 pixels.
+   * > The resolution of an H.265 Narrowband HD template must not exceed 1280×720.
    * 
    * @example
    * 720
@@ -137,13 +137,10 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
   height?: string;
   /**
    * @remarks
-   * The video encoding profile. The profile determines how a video is encoded. In most cases, a greater value indicates better image quality and higher resource consumption. Valid values:
-   * 
-   * - 1: baseline. This value is suitable for mobile devices.
-   * 
-   * - 2: main. This value is suitable for standard-definition devices.
-   * 
-   * - 3: high. This value is suitable for high-definition devices.
+   * The encoding profile. A specific set of encoding features supported by the video. Generally, a larger value indicates better video quality but higher resource consumption for encoding and decoding. Valid values:
+   * - 1: baseline. Suitable for mobile devices.
+   * - 2: main. Suitable for standard resolution devices.
+   * - 3: high. Suitable for high resolution devices.
    * 
    * @example
    * 2
@@ -151,15 +148,13 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
   profile?: string;
   /**
    * @remarks
-   * The width of the output video. Valid values:
+   * The width of the transcoded video. Valid values:
    * 
    * - Width ≥ 128
+   * - max(Height, Width) ≤ 2560
+   * - min(Height, Width) ≤ 1440
    * 
-   * - max (Height,Width) ≤ 2560
-   * 
-   * - min(Height,Width)≤ 1440
-   * 
-   * > The resolution of a video transcoded by using the H.265 Narrowband HD template cannot exceed 1,280 × 720 pixels.
+   * > The resolution of an H.265 Narrowband HD template must not exceed 1280×720.
    * 
    * @example
    * 1280
@@ -244,17 +239,17 @@ export class UpdateLiveTranscodeTemplateRequest extends $dara.Model {
    * The template name.
    * 
    * @example
-   * Template1130-2
+   * The template 1130-2
    */
   name?: string;
   /**
    * @remarks
-   * The configuration of the template.
+   * The template configuration.
    */
   templateConfig?: UpdateLiveTranscodeTemplateRequestTemplateConfig;
   /**
    * @remarks
-   * The template ID. To obtain the template ID, log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com/summary), choose Real-time Media Processing > Template Management, and then click the Transcoding tab. Alternatively, find the ID from the response parameters of the [CreateLiveTranscodeTemplate](https://help.aliyun.com/document_detail/449217.html) operation.
+   * The template ID. You can obtain the ID from the [Intelligent Media Services console](https://ims.console.aliyun.com/summary) by choosing Templates > Real-time Transcoding Templates, or from the response parameters of the [Create a real-time transcoding template](https://help.aliyun.com/document_detail/449217.html) API operation.
    * 
    * This parameter is required.
    * 

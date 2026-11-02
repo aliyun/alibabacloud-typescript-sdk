@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSceneMediaSelectionJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The editing configuration. Its structure depends on the value of JobType.
-   * 
-   * - When JobType is set to Smart_Mix_Media_Select, see [Image-text matching](https://help.aliyun.com/zh/ims/use-cases/intelligent-graphic-matching-into-a-piece/?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_1.7c3d6997qndkZj).
-   * 
-   * - When JobType is set to Screen_Media_Highlights_Media_Select, see [Highlight mashup](https://help.aliyun.com/zh/ims/use-cases/create-highlight-videos?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_3.84b5661bIcQULE).
+   * The editing configuration, which is the same as the EditingConfig parameter for the intelligent graphic matching and highlight mashup features of one-click video production.
+   * - When JobType is set to Smart_Mix_Media_Select, see [Intelligent graphic matching parameter settings](https://www.alibabacloud.com/help/en/ims/use-cases/intelligent-graphic-matching-into-a-piece/).
+   * - When JobType is set to Screen_Media_Highlights_Media_Select, see [Highlight mashup parameter settings](https://www.alibabacloud.com/help/en/ims/use-cases/create-highlight-videos).
    * 
    * @example
    * {
@@ -27,40 +25,34 @@ export class SubmitSceneMediaSelectionJobRequest extends $dara.Model {
   editingConfig?: string;
   /**
    * @remarks
-   * The input configuration. Its structure and required fields depend on the value of JobType.
-   * 
-   * - When JobType is set to Smart_Mix_Media_Select, see [Image-text matching](https://help.aliyun.com/zh/ims/use-cases/intelligent-graphic-matching-into-a-piece/?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_1.7c3d6997qndkZj).
-   * 
-   * - When JobType is set to Screen_Media_Highlights_Media_Select, see [Highlight mashup](https://help.aliyun.com/zh/ims/use-cases/create-highlight-videos?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_3.84b5661bIcQULE).
+   * The input configuration, which is the same as the InputConfig parameter for the intelligent graphic matching and highlight mashup features of one-click video production.
+   * - When JobType is set to Smart_Mix_Media_Select, see [Intelligent graphic matching parameter settings](https://www.alibabacloud.com/help/en/ims/use-cases/intelligent-graphic-matching-into-a-piece/).
+   * - When JobType is set to Screen_Media_Highlights_Media_Select, see [Highlight mashup parameter settings](https://www.alibabacloud.com/help/en/ims/use-cases/create-highlight-videos).
    * 
    * This parameter is required.
    * 
    * @example
    * {
-   * "BackgroundMusic": "****75c3936f3a8743850f2da942****",
-   * "MediaArray": [
-   * "https://test-bucket.oss-cn-shanghai.aliyuncs.com/test.mp4"
-   * ],
-   * "SpeechTextArray": [
-   * "A new Freshippo store just opened at the nearby mall, today is the first day",
-   * "The mall is quite busy, snacks and drinks are pretty affordable, come check it out"
-   * ]
+   * 	"BackgroundMusic": "****75c3936f3a8743850f2da942****",
+   * 	"MediaArray": [
+   * 		"https://test-bucket.oss-cn-shanghai.aliyuncs.com/test.mp4"
+   * 	],
+   * 	"SpeechTextArray": [
+   * 		"A new Hema Fresh store just opened at the mall nearby, and today is its grand opening.",
+   * 		"There are quite a few people in the mall, and snacks and drinks are pretty affordable—come check it out!"
+   * 	]
    * }
    */
   inputConfig?: string;
   /**
    * @remarks
-   * The job type. Valid values:
+   * The task type. Valid values:
+   * - Smart_Mix_Media_Select: intelligent matching material selection.
+   * - Screen_Media_Highlights_Media_Select: highlight mashup material selection.
    * 
-   * - Smart_Mix_Media_Select
-   * 
-   * - Screen_Media_Highlights_Media_Select
-   * 
-   * Differences:
-   * 
-   * - Smart_Mix_Media_Select: Matches voiceover scripts with provided video/image materials to select the most relevant clips and returns the matching results. Two options are available: Common mode, which is suitable for general-purpose materials like lifestyle vlogs, travel videos, and marketing content; Movie collections, which is optimized for materials with a coherent plot and specific characters, such as TV series and movies.
-   * 
-   * - Screen_Media_Highlights_Media_Select: Automatically identifies and selects clips that are exciting or represent key story points from longer video materials.
+   * Differences between the two scenarios:
+   * - Intelligent matching: You input voiceover scripts along with video and image materials. The system selects the most matching video and image materials based on the voiceover script content and returns the matching results. This scenario includes two sub-scenarios: general edition and film and television highlight edition. The general edition is suitable for daily general-purpose materials such as lifestyle, travel, and marketing. The film and television highlight edition is more suitable for plot-driven materials such as TV series and movies.
+   * - Highlight mashup: You input video materials (typically multi-episode short dramas). The system automatically selects appropriate highlight segments based on highlight definitions or storylines for subsequent mashup production.
    * 
    * This parameter is required.
    * 
@@ -70,11 +62,9 @@ export class SubmitSceneMediaSelectionJobRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The output configuration. Its structure and required fields depend on the value of JobType.
-   * 
-   * - When JobType is set to Smart_Mix_Media_Select, see [Image-text matching](https://help.aliyun.com/zh/ims/use-cases/intelligent-graphic-matching-into-a-piece/?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_1.7c3d6997qndkZj).
-   * 
-   * - When JobType is set to Screen_Media_Highlights_Media_Select, see [Highlight mashup](https://help.aliyun.com/zh/ims/use-cases/create-highlight-videos?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_3.84b5661bIcQULE).
+   * The output configuration, which is the same as the OutputConfig parameter for the intelligent graphic matching and highlight mashup features of one-click video production.
+   * - When JobType is set to Smart_Mix_Media_Select, see [Intelligent graphic matching parameter settings](https://www.alibabacloud.com/help/en/ims/use-cases/intelligent-graphic-matching-into-a-piece/).
+   * - When JobType is set to Screen_Media_Highlights_Media_Select, see [Highlight mashup parameter settings](https://www.alibabacloud.com/help/en/ims/use-cases/create-highlight-videos).
    * 
    * This parameter is required.
    * 
@@ -89,7 +79,7 @@ export class SubmitSceneMediaSelectionJobRequest extends $dara.Model {
   outputConfig?: string;
   /**
    * @remarks
-   * The user-defined data, including the business and callback configurations. For more information, see [UserData](~~357745#section-urj-v3f-0s1~~).
+   * The user business and callback configurations. For more information about the structure, see [UserData configuration](~~357745#section-urj-v3f-0s1~~).
    * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx"} or {"NotifyAddress":"https://xx.xx.xxx"} or {"NotifyAddress":"ice-callback-demo"}

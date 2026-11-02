@@ -10,12 +10,12 @@ import { MediaConvertOutput } from "./MediaConvertOutput";
 export class GetMediaConvertJobResponseBodyJobConfig extends $dara.Model {
   /**
    * @remarks
-   * The job inputs.
+   * The list of inputs for the media transcoding job.
    */
   inputs?: MediaConvertInput[];
   /**
    * @remarks
-   * The job name.
+   * The name of the job.
    * 
    * @example
    * job-1-20241205-102045
@@ -23,12 +23,12 @@ export class GetMediaConvertJobResponseBodyJobConfig extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The job output group configurations.
+   * The list of output group configurations for the media transcoding job.
    */
   outputGroups?: MediaConvertOutputGroup[];
   /**
    * @remarks
-   * The job output configurations.
+   * The list of output configurations for the media transcoding job.
    */
   outputs?: MediaConvertOutput[];
   static names(): { [key: string]: string } {
@@ -70,7 +70,7 @@ export class GetMediaConvertJobResponseBodyJobConfig extends $dara.Model {
 export class GetMediaConvertJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
-   * The idempotency parameter for the job creation request.
+   * The idempotency parameter for the media transcoding job creation request.
    * 
    * @example
    * 780018cb-55ba-466d-8acc-946c0c319a0e
@@ -78,7 +78,7 @@ export class GetMediaConvertJobResponseBodyJob extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The error code if the job fails.
+   * The media transcoding failure code.
    * 
    * @example
    * InvalidParameter.ResourceContentBad
@@ -86,12 +86,12 @@ export class GetMediaConvertJobResponseBodyJob extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The job configuration.
+   * The configuration of the media transcoding job.
    */
   config?: GetMediaConvertJobResponseBodyJobConfig;
   /**
    * @remarks
-   * The time when the job was created, in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The creation time of the job, in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2024-12-07T13:01:07Z
@@ -99,7 +99,7 @@ export class GetMediaConvertJobResponseBodyJob extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the job finished, in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The completion time of the job, in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2024-12-07T13:01:07Z
@@ -107,7 +107,7 @@ export class GetMediaConvertJobResponseBodyJob extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The job ID. This is a 32-character string.
+   * The ID of the media transcoding job, which is a 32-character string.
    * 
    * @example
    * ******4579b5e748b99a27f6d6******
@@ -115,7 +115,7 @@ export class GetMediaConvertJobResponseBodyJob extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The error message detailing the failure.
+   * The detailed information about the media transcoding failure.
    * 
    * @example
    * The resource operated InputFile is bad
@@ -123,17 +123,17 @@ export class GetMediaConvertJobResponseBodyJob extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The execution results of the outputs specified in the job configuration.
+   * The list of media transcoding output result details, which correspond to the execution results of the transcoding output list in the transcoding configuration.
    */
   outputDetails?: MediaConvertOutputDetail[];
   /**
    * @remarks
-   * The execution results of the output groups specified in the job configuration.
+   * The list of media transcoding output group results, which correspond to the execution results of the transcoding output group list in the transcoding configuration.
    */
   outputGroupDetails?: MediaConvertOutputGroupDetail[];
   /**
    * @remarks
-   * The completion percentage.
+   * The completion percentage of the job.
    * 
    * @example
    * 0
@@ -149,7 +149,7 @@ export class GetMediaConvertJobResponseBodyJob extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The ID of the job creation request.
+   * The request ID for creating the media transcoding job.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -157,17 +157,12 @@ export class GetMediaConvertJobResponseBodyJob extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The job state. Valid values:
-   * 
-   * - Inited: The job is initialized.
-   * 
-   * - Running: The job is in progress.
-   * 
-   * - Complete: The job finished successfully.
-   * 
-   * - Error: The job failed.
-   * 
-   * - Cancelled: The job was cancelled.
+   * The status of the media transcoding job. Valid values:
+   * - Inited: Initialized.
+   * - Running: Running.
+   * - Complete: Transcoding completed.
+   * - Error: Transcoding error.
+   * - Cancelled: Canceled.
    * 
    * @example
    * Complete

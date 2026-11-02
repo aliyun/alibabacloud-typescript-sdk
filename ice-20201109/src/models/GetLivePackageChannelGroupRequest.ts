@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLivePackageChannelGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The channel group name.
+   * The name of the channel group.
    * 
    * This parameter is required.
    * 

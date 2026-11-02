@@ -6,13 +6,13 @@ export class GetMediaInfoRequest extends $dara.Model {
   authTimeout?: number;
   /**
    * @remarks
-   * The address of the media asset in the corresponding system. Before use, the media asset must be registered in the IMS content library and bound to an IMS mediaId.
+   * The URL of the media asset to be queried in the corresponding system. The media asset must be registered in the IMS content library and attached to an IMS media ID before use.
    * 
-   * - OSS address. Two formats are supported:
+   * - OSS addresses. Two formats are supported:
    * 
-   * http(s)://example-bucket.oss-ap-southeast-1.aliyuncs.com/example.mp4 or
+   * http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 or
    * 
-   * oss://example-bucket/example.mp4. This format assumes the OSS region is the same as the service access region by default.
+   * oss://example-bucket/example.mp4. In this format, the default OSS region is the same as the service registration area.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -20,7 +20,7 @@ export class GetMediaInfoRequest extends $dara.Model {
   inputURL?: string;
   /**
    * @remarks
-   * The IMS media asset ID. If this parameter is empty, InputURL is required.
+   * The IMS media asset ID. If this parameter is empty, InputURL must be specified.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -28,7 +28,11 @@ export class GetMediaInfoRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The type of the media file address in the response:
+   * The type of the media asset file URL in the response. Valid values:
+   * 
+   * - oss: Returns the OSS URL. This is the default value.
+   * 
+   * - cdn: Returns the CDN URL. A CDN URL is returned only when the media asset is imported from ApsaraVideo VOD and an accelerated domain name is configured in ApsaraVideo VOD.
    * 
    * @example
    * cdn
@@ -36,9 +40,12 @@ export class GetMediaInfoRequest extends $dara.Model {
   outputType?: string;
   /**
    * @remarks
-   * Specifies whether to return detailed information for the corresponding media asset fields. The following fields are supported:
-   * AiRoughData.StandardSmartTagJob: Specifies whether to return detailed tagging results if the media asset has been submitted for tag analysis.
-   * - Default value: false. The task result is returned as a URL.
+   * Specifies whether to return detailed information for the corresponding media asset fields. Supported fields:
+   * 
+   * AiRoughData.StandardSmartTagJob: Specifies whether to return detailed tagging results if the media asset has been submitted for tag analysis. Valid values:
+   * 
+   * - false: The task result is returned as a URL. This is the default value.
+   * 
    * - true: The task result is returned as text.
    * 
    * @example

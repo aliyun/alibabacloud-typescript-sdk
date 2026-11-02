@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddYikeUserCreditRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of credits to add. The value must be greater than 0.
+   * The number of credits to increase. The value must be greater than 0.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AddYikeUserCreditRequest extends $dara.Model {
   credit?: number;
   /**
    * @remarks
-   * The user ID of the sub-account.
+   * The ID of the RAM user.
    * 
    * This parameter is required.
    * 

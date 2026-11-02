@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPipelinesResponseBodyPipelineList extends $dara.Model {
   /**
    * @remarks
-   * The time when the template was created.
+   * The pipeline creation time. The time is displayed in ISO 8601 format in UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -13,7 +13,7 @@ export class ListPipelinesResponseBodyPipelineList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the template was last modified.
+   * The pipeline modification time. The time is displayed in ISO 8601 format in UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -21,7 +21,7 @@ export class ListPipelinesResponseBodyPipelineList extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The name of the MPS queue.
+   * The pipeline name.
    * 
    * @example
    * test-pipeline
@@ -29,7 +29,7 @@ export class ListPipelinesResponseBodyPipelineList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the MPS queue.
+   * The pipeline ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -37,7 +37,7 @@ export class ListPipelinesResponseBodyPipelineList extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The priority of the MPS queue.
+   * The pipeline priority.
    * 
    * @example
    * 6
@@ -45,7 +45,7 @@ export class ListPipelinesResponseBodyPipelineList extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The type of the MPS queue.
+   * The pipeline type.
    * 
    * @example
    * Standard
@@ -53,13 +53,7 @@ export class ListPipelinesResponseBodyPipelineList extends $dara.Model {
   speed?: string;
   /**
    * @remarks
-   * The state of the MPS queue.
-   * 
-   * Valid values:
-   * 
-   * - Active
-   * 
-   * - Paused
+   * The pipeline status.
    * 
    * @example
    * Active
@@ -101,7 +95,7 @@ export class ListPipelinesResponseBodyPipelineList extends $dara.Model {
 export class ListPipelinesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried MPS queues.
+   * The list of pipelines.
    */
   pipelineList?: ListPipelinesResponseBodyPipelineList[];
   /**

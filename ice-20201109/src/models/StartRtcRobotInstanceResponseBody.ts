@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartRtcRobotInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance\\"s unique identifier.
+   * The instance ID.
    * 
    * @example
    * 727dc0e296014bb58670940a3da95592
@@ -13,7 +13,7 @@ export class StartRtcRobotInstanceResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 11DE0AB3-603B-5055-8A72-9C424854F983

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMediaConvertJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to filter jobs by creation time. The time must be in the `yyyy-MM-ddTHH:mm:ssZ` ISO 8601 format.
+   * The end time of the creation time filter. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-15T00:00:00Z
@@ -21,7 +21,7 @@ export class ListMediaConvertJobsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The token for the next page of results. Leave this empty for the first request. To retrieve the next page, pass the `NextPageToken` value from the previous response.
+   * The paging token for the next page in a continuous paged query (not present for the first page).
    * 
    * @example
    * ab4802364a2e49208c99efab82dfa8e8
@@ -29,7 +29,9 @@ export class ListMediaConvertJobsRequest extends $dara.Model {
   nextPageToken?: string;
   /**
    * @remarks
-   * The sort order for the results. Valid values: `CreateTimeDesc` (descending by creation time) and `CreateTimeAsc` (ascending by creation time).
+   * The sort order. Valid values:
+   * - CreateTimeDesc: Descending order by creation time.
+   * - CreateTimeAsc: Ascending order by creation time.
    * 
    * @example
    * CreateTimeDesc
@@ -37,7 +39,7 @@ export class ListMediaConvertJobsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page size. Valid values: 1 to 100. Default value: 20.
+   * The number of entries per page. Valid values: 0 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -45,7 +47,7 @@ export class ListMediaConvertJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start of the time range to filter jobs by creation time. The time must be in the `yyyy-MM-ddTHH:mm:ssZ` ISO 8601 format.
+   * The start time of the creation time filter. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-01T00:00:00Z
@@ -53,15 +55,11 @@ export class ListMediaConvertJobsRequest extends $dara.Model {
   startOfCreateTime?: string;
   /**
    * @remarks
-   * The status of the job. Valid values:
-   * 
-   * - `Inited`: The job has been submitted.
-   * 
-   * - `Running`: The job is running.
-   * 
-   * - `Complete`: The job is complete.
-   * 
-   * - `Error`: The job failed due to an error.
+   * The job status. Valid values: 
+   * - Inited: Submitted. 
+   * - Running: Running.
+   * - Complete: Completed. 
+   * - Error: Error.
    * 
    * @example
    * Success

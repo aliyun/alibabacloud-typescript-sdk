@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMediaAiAnalysisJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The analysis parameters.
+   * The media asset analysis parameters.
    * 
    * @example
    * {"nlpParams":{"sourceLanguage":"cn","diarizationEnabled":true,"speakerCount":0,"summarizationEnabled":false,"translationEnabled":false}}
@@ -13,7 +13,7 @@ export class SubmitMediaAiAnalysisJobRequest extends $dara.Model {
   analysisParams?: string;
   /**
    * @remarks
-   * The media asset that you want to analyze. You can specify an Object Storage Service (OSS) URL, a media asset ID, or an external URL.
+   * The input media. Only OSS URLs and media asset IDs in the same region are supported.
    * 
    * @example
    * {"MediaType":"video","Media":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/your_movie.mp4"}
@@ -23,7 +23,7 @@ export class SubmitMediaAiAnalysisJobRequest extends $dara.Model {
   input?: string;
   /**
    * @remarks
-   * Custom settings in JSON format, with a maximum length of 512 bytes. Supports [custom webhook address configuration](https://help.aliyun.com/document_detail/451631.html).
+   * The custom settings in JSON format. The maximum length is 512 bytes. [Custom callback URL configuration](https://help.aliyun.com/document_detail/451631.html) is supported.
    * 
    * @example
    * {"NotifyAddress":"https://xx.com/xx"}

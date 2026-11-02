@@ -5,22 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitCopyrightExtractJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The video file for watermark extraction.
+   * The video file from which the watermark is to be extracted.
    * 
-   * > - The region of the Object Storage Service (OSS) file or media asset must match the region of the current Intelligent Media Service (IMS) instance.
+   * > - The region of the OSS file or media asset must be the same as the region of the current IMS instance.
    * 
    * This parameter is required.
    */
   inputShrink?: string;
   /**
    * @remarks
-   * The watermark job parameters, specified as a JSON string.
+   * The watermark job parameters in JSON string format. The following parameters are supported:
    * 
-   * - algoType: The algorithm type. Default value: v1. The extraction algorithm type must match the algorithm type used for embedding the watermark.
+   * - algoType: the algorithm type. Default value: v1. The extraction algorithm type must be the same as the algorithm type used for embedding.
    * 
-   *   - v1: The copyright extraction algorithm for long-form videos.
-   * 
-   *   - v2: The copyright extraction algorithm for short-form videos.
+   *   - v1: the copyright extraction API operation for long videos.
+   *   - v2: the copyright extraction API operation for short videos.
    * 
    * @example
    * {"algoType":"v2"}
@@ -28,7 +27,7 @@ export class SubmitCopyrightExtractJobShrinkRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * The user-defined data. The maximum length is 1,024 bytes.
+   * The custom user data. The maximum length is 1,024 bytes.
    * 
    * @example
    * 123

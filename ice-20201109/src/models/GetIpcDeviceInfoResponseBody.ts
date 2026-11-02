@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetIpcDeviceInfoResponseBodyDeviceInfos extends $dara.Model {
   /**
    * @remarks
-   * Capability. Valid values:
-   * 
-   * - understand: understanding
-   * 
-   * - understand-reid: understanding with reid
-   * 
-   * - search: search
+   * The capability. Valid values:
+   * - understand: Understanding.
+   * - understand-reid: Understanding with ReID.
+   * - search: Search.
    * 
    * @example
    * understand
@@ -19,7 +16,7 @@ export class GetIpcDeviceInfoResponseBodyDeviceInfos extends $dara.Model {
   capability?: string;
   /**
    * @remarks
-   * Device ID.
+   * The device ID.
    * 
    * @example
    * d123
@@ -27,7 +24,7 @@ export class GetIpcDeviceInfoResponseBodyDeviceInfos extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
-   * Expiration Time. UTC time in the format yyyy-MM-ddTHH:mm:ssZ.
+   * The expiration time in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2017-02-11T12:00:00Z
@@ -61,12 +58,12 @@ export class GetIpcDeviceInfoResponseBodyDeviceInfos extends $dara.Model {
 export class GetIpcDeviceInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of device identity information.
+   * The list of device identity information.
    */
   deviceInfos?: GetIpcDeviceInfoResponseBodyDeviceInfos[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -74,7 +71,7 @@ export class GetIpcDeviceInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records.
+   * The total number of records.
    * 
    * @example
    * 78

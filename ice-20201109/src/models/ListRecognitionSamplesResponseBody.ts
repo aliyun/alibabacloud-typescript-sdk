@@ -71,7 +71,7 @@ export class ListRecognitionSamplesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 20

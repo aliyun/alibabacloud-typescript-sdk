@@ -77,7 +77,7 @@ export class ListRecognitionLibsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -85,7 +85,7 @@ export class ListRecognitionLibsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 180

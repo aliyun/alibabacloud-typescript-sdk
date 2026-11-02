@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchGetYikeAIAppJobResponseBodyJobListResultAudioResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * bb1dfa20a0c971f08c94e7f6d6496202
@@ -13,7 +13,7 @@ export class BatchGetYikeAIAppJobResponseBodyJobListResultAudioResult extends $d
   mediaId?: string;
   /**
    * @remarks
-   * The output URL.
+   * The output file URL.
    * 
    * @example
    * https://dtlive-bj.oss-cn-beijing.aliyuncs.com/cover/01e1271d-ff4f-4689-9c20-e1df81486859_open_live_cover.mp3
@@ -45,7 +45,7 @@ export class BatchGetYikeAIAppJobResponseBodyJobListResultAudioResult extends $d
 export class BatchGetYikeAIAppJobResponseBodyJobListResultImageResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * 318d6350a57d71f08c9ae7f7d4496302
@@ -53,7 +53,7 @@ export class BatchGetYikeAIAppJobResponseBodyJobListResultImageResult extends $d
   mediaId?: string;
   /**
    * @remarks
-   * The output URL.
+   * The output file URL.
    * 
    * @example
    * https://dtlive-bj.oss-cn-beijing.aliyuncs.com/cover/01e1271d-ff4f-4689-9c20-e1df81486859_open_live_cover.jpg
@@ -85,7 +85,7 @@ export class BatchGetYikeAIAppJobResponseBodyJobListResultImageResult extends $d
 export class BatchGetYikeAIAppJobResponseBodyJobListResultVideoResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * ec2de25068fd71f0a48cf7e6c4596302
@@ -93,7 +93,7 @@ export class BatchGetYikeAIAppJobResponseBodyJobListResultVideoResult extends $d
   mediaId?: string;
   /**
    * @remarks
-   * The output URL.
+   * The output file URL.
    * 
    * @example
    * https://dtlive-bj.oss-cn-beijing.aliyuncs.com/cover/01e1271d-ff4f-4689-9c20-e1df81486859_open_live_cover.mp4
@@ -125,17 +125,17 @@ export class BatchGetYikeAIAppJobResponseBodyJobListResultVideoResult extends $d
 export class BatchGetYikeAIAppJobResponseBodyJobListResult extends $dara.Model {
   /**
    * @remarks
-   * The audio result.
+   * The audio task result.
    */
   audioResult?: BatchGetYikeAIAppJobResponseBodyJobListResultAudioResult[];
   /**
    * @remarks
-   * The image result.
+   * The image task result.
    */
   imageResult?: BatchGetYikeAIAppJobResponseBodyJobListResultImageResult[];
   /**
    * @remarks
-   * The video result.
+   * The video task result.
    */
   videoResult?: BatchGetYikeAIAppJobResponseBodyJobListResultVideoResult[];
   static names(): { [key: string]: string } {
@@ -175,7 +175,7 @@ export class BatchGetYikeAIAppJobResponseBodyJobListResult extends $dara.Model {
 export class BatchGetYikeAIAppJobResponseBodyJobList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 9e09955d662a
@@ -183,7 +183,7 @@ export class BatchGetYikeAIAppJobResponseBodyJobList extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The AI application\\"s input parameters, formatted as a JSON-serialized string.
+   * The input parameters for running the AI application, formatted as a string after you serialize the parameters in JSON.
    * 
    * @example
    * {\\"LoadImage.1.TargetImage\\":\\"MediaId1\\"}
@@ -191,7 +191,7 @@ export class BatchGetYikeAIAppJobResponseBodyJobList extends $dara.Model {
   appInputConfig?: string;
   /**
    * @remarks
-   * The time the job execution finished. The time is in UTC and formatted as `yyyy-MM-ddTHH:mm:ssZ`.
+   * The task start time, in the yyyy-MM-ddTHH:mm:ssZ format (UTC time).
    * 
    * @example
    * 2026-02-06T18:53:34.001+08:00
@@ -199,7 +199,7 @@ export class BatchGetYikeAIAppJobResponseBodyJobList extends $dara.Model {
   executionFinishTime?: string;
   /**
    * @remarks
-   * The time the job execution started. The time is in UTC and formatted as `yyyy-MM-ddTHH:mm:ssZ`.
+   * The task end time, in the yyyy-MM-ddTHH:mm:ssZ format (UTC time).
    * 
    * @example
    * 2026-02-06T18:53:18.809+08:00
@@ -207,7 +207,7 @@ export class BatchGetYikeAIAppJobResponseBodyJobList extends $dara.Model {
   executionStartTime?: string;
   /**
    * @remarks
-   * The ID of the folder.
+   * The folder ID.
    * 
    * @example
    * pd_0617169475
@@ -215,7 +215,7 @@ export class BatchGetYikeAIAppJobResponseBodyJobList extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The ID of the job.
+   * The task ID.
    * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
@@ -223,7 +223,7 @@ export class BatchGetYikeAIAppJobResponseBodyJobList extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the project.
+   * The project ID.
    * 
    * @example
    * pd_0617169475
@@ -231,22 +231,17 @@ export class BatchGetYikeAIAppJobResponseBodyJobList extends $dara.Model {
   productionId?: string;
   /**
    * @remarks
-   * The execution result of the job.
+   * The task execution result.
    */
   result?: BatchGetYikeAIAppJobResponseBodyJobListResult;
   /**
    * @remarks
-   * The status of the job. Valid values are:
-   * 
-   * - `Created`: The job has been created.
-   * 
-   * - `Queuing`: The job is in the queue.
-   * 
-   * - `Executing`: The job is executing.
-   * 
-   * - `Finished`: The job completed successfully.
-   * 
-   * - `Failed`: The job failed to complete.
+   * The task status. Valid values:
+   * - Created: The task was just created.
+   * - Queuing: The task is in the queue.
+   * - Executing: The task is being executed.
+   * - Finished: The task execution is complete.
+   * - Failed: The task execution failed.
    * 
    * @example
    * Created
@@ -295,12 +290,12 @@ export class BatchGetYikeAIAppJobResponseBodyJobList extends $dara.Model {
 export class BatchGetYikeAIAppJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of jobs. Each object mirrors the details returned by the `GetYikeAIAppJob` operation.
+   * The list of tasks. Each element in the list matches the result of GetYikeAIAppJob.
    */
   jobList?: BatchGetYikeAIAppJobResponseBodyJobList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******

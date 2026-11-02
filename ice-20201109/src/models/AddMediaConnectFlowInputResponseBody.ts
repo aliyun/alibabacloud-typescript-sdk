@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddMediaConnectFlowInputResponseBodyContent extends $dara.Model {
+  /**
+   * @remarks
+   * The internal stream pushing IP address. This parameter is valid only when you connect to the cloud through an Express Connect circuit.
+   * 
+   * @example
+   * ""
+   */
   innerInputUrl?: string;
   /**
    * @remarks
-   * Input URL
+   * The input URL.
    * 
    * @example
    * rtmp://1.2.3.4:1935/live/AliTestInput_8666ec062190f00e263012666319a5be
@@ -38,12 +45,12 @@ export class AddMediaConnectFlowInputResponseBodyContent extends $dara.Model {
 export class AddMediaConnectFlowInputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body
+   * The response body.
    */
   content?: AddMediaConnectFlowInputResponseBodyContent;
   /**
    * @remarks
-   * API call description
+   * The description of the API call.
    * 
    * @example
    * OK
@@ -51,7 +58,7 @@ export class AddMediaConnectFlowInputResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 11357BE8-4C54-58EA-890A-5AB646EDE4B2
@@ -59,7 +66,7 @@ export class AddMediaConnectFlowInputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Error code. A value of 0 indicates success.
+   * The returned error code. A value of 0 indicates success.
    * 
    * @example
    * 0

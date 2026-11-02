@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitCosyVoiceCustomizedVoiceJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The media asset ID of the training audio material. Currently, only one audio material can be used for training.
+   * The media asset ID of the audio material for training. Currently, only one audio material is supported for training.
    * 
    * @example
    * ****571c704445f9a0ee011406c2****
@@ -13,9 +13,9 @@ export class SubmitCosyVoiceCustomizedVoiceJobRequest extends $dara.Model {
   audios?: string;
   /**
    * @remarks
-   * The sample audio output address.  
-   * - If you specify this parameter, a sample audio file is generated at the specified OSS address after training succeeds.  
-   * >Notice: The address must be a valid public OSS address under your account.
+   * The sample audio output URL.  
+   * - If you specify this parameter, a sample audio file is generated at the specified OSS URL after the training job succeeds.  
+   * >Notice: The URL must be a valid public OSS URL under your account.</notice>
    * 
    * @example
    * https://your-bucket.oss-cn-shanghai.aliyuncs.com/demo.MP3
@@ -24,8 +24,8 @@ export class SubmitCosyVoiceCustomizedVoiceJobRequest extends $dara.Model {
   /**
    * @remarks
    * The gender. Valid values:
-   * - female
-   * - male
+   * - female: Female.
+   * - male: Male.
    * 
    * @example
    * female
@@ -45,10 +45,10 @@ export class SubmitCosyVoiceCustomizedVoiceJobRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The voice name. The name can be up to 32 characters in length.
+   * The name of the voice. The name cannot exceed 32 characters in length.
    * 
    * @example
-   * 小专
+   * voice name
    */
   voiceName?: string;
   static names(): { [key: string]: string } {

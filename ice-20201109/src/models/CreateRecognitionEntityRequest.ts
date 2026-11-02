@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRecognitionEntityRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of recognition algorithm. Valid values:
+   * The recognition type. Valid values:
    * 
-   * - landmark
+   * - landmark: custom landmark
    * 
-   * - object
+   * - object: custom object
    * 
-   * - logo
+   * - logo: custom logo
    * 
-   * - face
+   * - face: custom face
    * 
-   * - label
+   * - label: custom label
    * 
    * This parameter is required.
    * 
@@ -25,25 +25,25 @@ export class CreateRecognitionEntityRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The extra information about the custom entity, provided as a JSON string. Max length: 256 bytes.
+   * The additional information about the custom recognition entity. The value is a JSON string and can be up to 256 bytes in length.
    * 
    * @example
-   * {"description": "Book classification"}
+   * {"description": "book classification"}
    */
   entityInfo?: string;
   /**
    * @remarks
-   * The name of the custom entity. Max length: 64 bytes.
+   * The name of the custom recognition entity. The name can be up to 64 bytes in length.
    * 
    * This parameter is required.
    * 
    * @example
-   * Custom library entity name
+   * RecognitionEntity name
    */
   entityName?: string;
   /**
    * @remarks
-   * The ID of the recognition library.
+   * The ID of the recognition library. You can call the [ListRecognitionLibs](https://help.aliyun.com/document_detail/2926699.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 

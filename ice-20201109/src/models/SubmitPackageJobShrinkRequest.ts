@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitPackageJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The input of the job.
+   * The inputs for the job.
    * 
    * This parameter is required.
    */
@@ -27,12 +27,12 @@ export class SubmitPackageJobShrinkRequest extends $dara.Model {
   outputShrink?: string;
   /**
    * @remarks
-   * The scheduling settings.
+   * The scheduling configuration.
    */
   scheduleConfigShrink?: string;
   /**
    * @remarks
-   * The user-defined data.
+   * The custom user data.
    * 
    * @example
    * {"param": "value"}

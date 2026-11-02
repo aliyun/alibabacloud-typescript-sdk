@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class QueryIProductionJobRequest extends $dara.Model {
   /**
    * @remarks
-   * A token that ensures request idempotence.
+   * The idempotency parameter.
+   * 
+   * @example
+   * ****12e8864746a0a398****
    */
   clientToken?: string;
   /**
    * @remarks
-   * The intelligent job ID.
+   * The ID of the intelligent job.
    * 
    * This parameter is required.
    * 

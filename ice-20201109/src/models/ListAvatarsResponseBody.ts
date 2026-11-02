@@ -8,7 +8,7 @@ export class ListAvatarsResponseBodyDataAvatarList extends $dara.Model {
    * The description of the digital human.
    * 
    * @example
-   * This is a digital human used for a specific scenario.
+   * This is a digital human, intended for use in a certain scenario.
    */
   avatarDescription?: string;
   /**
@@ -24,7 +24,7 @@ export class ListAvatarsResponseBodyDataAvatarList extends $dara.Model {
    * The name of the digital human.
    * 
    * @example
-   * Decimal
+   * The name of the digital human.
    */
   avatarName?: string;
   /**
@@ -37,7 +37,7 @@ export class ListAvatarsResponseBodyDataAvatarList extends $dara.Model {
   avatarType?: string;
   /**
    * @remarks
-   * The media asset ID of the portrait image.
+   * The media asset ID of the profile picture.
    * 
    * @example
    * ****571c704445f9a0ee011406c2****
@@ -45,7 +45,7 @@ export class ListAvatarsResponseBodyDataAvatarList extends $dara.Model {
   portrait?: string;
   /**
    * @remarks
-   * The thumbnail URL.
+   * The URL of the thumbnail.
    * 
    * @example
    * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
@@ -53,7 +53,7 @@ export class ListAvatarsResponseBodyDataAvatarList extends $dara.Model {
   thumbnail?: string;
   /**
    * @remarks
-   * Indicates whether the digital human image supports the alpha channels.
+   * Indicates whether the current digital human image supports an alpha channel.
    * 
    * @example
    * true
@@ -95,12 +95,12 @@ export class ListAvatarsResponseBodyDataAvatarList extends $dara.Model {
 export class ListAvatarsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The queried digital humans.
+   * The list of digital humans.
    */
   avatarList?: ListAvatarsResponseBodyDataAvatarList[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 1
@@ -135,7 +135,7 @@ export class ListAvatarsResponseBodyData extends $dara.Model {
 export class ListAvatarsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ListAvatarsResponseBodyData;
   /**
@@ -148,11 +148,9 @@ export class ListAvatarsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

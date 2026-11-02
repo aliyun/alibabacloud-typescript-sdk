@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetTemplateResponseBodyTemplate extends $dara.Model {
   /**
    * @remarks
-   * The clip parameters for submitting a video production job. You can replace mediaId and text with real values to submit a job. References:
+   * The ClipsParam parameter template for submitting a synthesis task. You can replace mediaId and text with actual parameters to submit the synthesis task. For usage methods, refer to:
    * 
-   * - [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html)
-   * 
+   * - [Create and use standard templates](https://help.aliyun.com/document_detail/445399.html)
    * - [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html)
    * 
    * @example
@@ -17,19 +16,18 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
   clipsParam?: string;
   /**
    * @remarks
-   * The template configurations.
-   * 
-   * - For more information about the configurations of a regular template, see [Config object of a regular template](https://help.aliyun.com/document_detail/456193.html).
-   * 
-   * - For more information about the configurations of an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
+   * The template configuration.
+   * - For standard template configuration, refer to [Timeline template configuration details](https://help.aliyun.com/document_detail/456193.html).
+   * - For advanced template configuration, refer to [Create advanced templates](https://help.aliyun.com/document_detail/445389.html).
+   * - For one-click video production template configuration, refer to [One-click video production template configuration parameter description](https://help.aliyun.com/document_detail/2878274.html).
    * 
    * @example
-   * See Timeline template configuration details.
+   * Refer to Timeline template configuration details
    */
   config?: string;
   /**
    * @remarks
-   * The thumbnail URL.
+   * The cover URL.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
@@ -37,12 +35,9 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The source from which the template was created. Valid values:
-   * 
-   * - AliyunConsole
-   * 
+   * The creation source. Valid values:
+   * - AliyunConsole    
    * - OpenAPI
-   * 
    * - WebSDK
    * 
    * @example
@@ -51,7 +46,7 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
   createSource?: string;
   /**
    * @remarks
-   * The time when the template was created.
+   * The creation time. The time is in the ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -59,12 +54,9 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The source from which the template was modified. Valid values:
-   * 
-   * - AliyunConsole
-   * 
+   * The modification source. Valid values:
+   * - AliyunConsole    
    * - OpenAPI
-   * 
    * - WebSDK
    * 
    * @example
@@ -73,7 +65,7 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
   modifiedSource?: string;
   /**
    * @remarks
-   * The time when the template was last modified.
+   * The modification time. The time is in the ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -97,15 +89,11 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
   previewMedia?: string;
   /**
    * @remarks
-   * The state of the preview media asset. Valid values:
-   * 
-   * - Init: the initial state, which indicates that the source file is not ready.
-   * 
-   * - Preparing: The source file is being prepared. For example, the file is being uploaded or edited.
-   * 
-   * - PrepareFail: The source file failed to be prepared. For example, the information about the source file failed to be obtained.
-   * 
-   * - Normal: The source file is ready.
+   * The preview media asset status. Valid values:
+   * - Init (initial status: the source file is not ready)
+   * - Preparing (the source file is being prepared, such as being uploaded or undergoing editing and synthesis)
+   * - PrepareFail (the source file preparation failed, such as a failure to obtain the source file information)
+   * - Normal (normal: the source file is ready)
    * 
    * @example
    * Normal
@@ -113,7 +101,7 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
   previewMediaStatus?: string;
   /**
    * @remarks
-   * The IDs of the materials associated with the template for use by the regular template editor.
+   * The media assets associated with the template. Used by the standard template editor.
    * 
    * @example
    * {"video":["******c04f1d4a06996144cc1a******"],"audio":["******c04f1d4a06996144cc1a******"],"image":["******c04f1d4a06996144cc1a******"]}
@@ -121,18 +109,12 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
   relatedMediaids?: string;
   /**
    * @remarks
-   * The template state. Valid values:
-   * 
+   * The template status. Valid values:
    * - Available
-   * 
    * - Created
-   * 
    * - Uploading
-   * 
    * - Processing
-   * 
    * - UploadFailed
-   * 
    * - ProcessFailed
    * 
    * @example
@@ -149,11 +131,10 @@ export class GetTemplateResponseBodyTemplate extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The template type. Valid values:
-   * 
-   * - Timeline
-   * 
-   * - VETemplate
+   * The templatetype. Valid values:
+   * - Timeline: standard template
+   * - VETemplate: advanced template
+   * - BatchEditing: one-click video production template
    * 
    * @example
    * Timeline

@@ -35,7 +35,7 @@ export class SubmitCopyrightJobResponseBodyData extends $dara.Model {
 export class SubmitCopyrightJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: SubmitCopyrightJobResponseBodyData;
   /**
@@ -48,7 +48,7 @@ export class SubmitCopyrightJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * FA258E67-09B8-4EAA-8F33-BA567834A2C3

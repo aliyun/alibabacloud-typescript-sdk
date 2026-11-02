@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMediaProducingJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The producing job ID.
+   * The ID of the producing job.
    * 
    * @example
    * ****d80e4e4044975745c14b****
@@ -21,7 +21,7 @@ export class SubmitMediaProducingJobResponseBody extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The editing project ID.
+   * The ID of the editing project.
    * 
    * @example
    * ****b4549d46c88681030f6e****
@@ -29,7 +29,7 @@ export class SubmitMediaProducingJobResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ****36-3C1E-4417-BDB2-1E034F****
@@ -37,7 +37,7 @@ export class SubmitMediaProducingJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The VOD media asset ID. This parameter is returned when the video output location is VOD.
+   * The ID of the VOD media asset. This parameter is returned if the video output location is VOD.
    * 
    * @example
    * ****d8s4h75ci975745c14b****

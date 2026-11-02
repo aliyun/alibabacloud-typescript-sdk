@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints extends $dara.Model {
   /**
    * @remarks
-   * The ingest endpoint ID.
+   * The ID of the ingest endpoint.
    * 
    * @example
    * ingest1
@@ -21,7 +21,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints 
   password?: string;
   /**
    * @remarks
-   * The ingest endpoint URL.
+   * The URL of the ingest endpoint.
    * 
    * @example
    * http://xxx-1.packagepush-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
@@ -65,7 +65,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints 
 export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.Model {
   /**
    * @remarks
-   * The channel name.
+   * The name of the channel.
    * 
    * @example
    * ch4
@@ -73,7 +73,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
   channelName?: string;
   /**
    * @remarks
-   * The time when the channel was created.
+   * The creation time. The time follows the ISO 8601 standard and is displayed in UTC (ending with Z).
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -81,7 +81,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
   createTime?: string;
   /**
    * @remarks
-   * The channel description.
+   * The description of the channel.
    * 
    * @example
    * Test channel
@@ -89,7 +89,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The channel group name.
+   * The name of the channel group.
    * 
    * @example
    * channel-group-1
@@ -97,12 +97,12 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
   groupName?: string;
   /**
    * @remarks
-   * The ingest endpoints.
+   * The array of ingest endpoints.
    */
   ingestEndpoints?: GetLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints[];
   /**
    * @remarks
-   * The time when the endpoint was last modified.
+   * The last modification time.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -110,7 +110,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
   lastModified?: string;
   /**
    * @remarks
-   * The ingest protocol. Only HLS is supported.
+   * The ingest protocol. Valid values: HLS, HLS_CMAF, and SRT_RTMP.
    * 
    * @example
    * HLS
@@ -118,7 +118,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
   protocol?: string;
   /**
    * @remarks
-   * The number of M3U8 segments.
+   * The number of m3u8 segments in the ingest stream.
    * 
    * @example
    * 3
@@ -126,7 +126,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
   segmentCount?: number;
   /**
    * @remarks
-   * The segment duration.
+   * The segment duration of the ingest stream.
    * 
    * @example
    * 5
@@ -175,12 +175,12 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
 export class GetLivePackageChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the live package channel.
+   * The detailed information about the real-time packaging channel.
    */
   livePackageChannel?: GetLivePackageChannelResponseBodyLivePackageChannel;
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier of the request.
    * 
    * @example
    * RequestId-12345678

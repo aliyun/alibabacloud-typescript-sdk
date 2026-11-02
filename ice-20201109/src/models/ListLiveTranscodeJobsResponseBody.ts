@@ -115,7 +115,7 @@ export class ListLiveTranscodeJobsResponseBodyJobListStreamInput extends $dara.M
 export class ListLiveTranscodeJobsResponseBodyJobList extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2022-07-20T02:48:58Z
@@ -123,7 +123,7 @@ export class ListLiveTranscodeJobsResponseBodyJobList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
@@ -131,7 +131,7 @@ export class ListLiveTranscodeJobsResponseBodyJobList extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The name of the transcoding task.
+   * The name of the transcoding job.
    * 
    * @example
    * mytask
@@ -152,7 +152,7 @@ export class ListLiveTranscodeJobsResponseBodyJobList extends $dara.Model {
   startMode?: number;
   /**
    * @remarks
-   * The task status.
+   * The job status.
    * 
    * @example
    * 1
@@ -165,7 +165,7 @@ export class ListLiveTranscodeJobsResponseBodyJobList extends $dara.Model {
   streamInput?: ListLiveTranscodeJobsResponseBodyJobListStreamInput;
   /**
    * @remarks
-   * The template ID corresponding to the transcoding task.
+   * The ID of the template corresponding to the transcoding job.
    * 
    * @example
    * ****a046-263c-3560-978a-fb287666****
@@ -173,7 +173,7 @@ export class ListLiveTranscodeJobsResponseBodyJobList extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
    * Template 1
@@ -181,7 +181,7 @@ export class ListLiveTranscodeJobsResponseBodyJobList extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The type of the transcoding template corresponding to the transcoding task.
+   * The type of the transcoding template corresponding to the transcoding job.
    * 
    * @example
    * normal
@@ -235,7 +235,7 @@ export class ListLiveTranscodeJobsResponseBodyJobList extends $dara.Model {
 export class ListLiveTranscodeJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of transcoding tasks.
+   * The list of transcoding jobs.
    */
   jobList?: ListLiveTranscodeJobsResponseBodyJobList[];
   /**

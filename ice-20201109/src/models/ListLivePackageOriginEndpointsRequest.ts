@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLivePackageOriginEndpointsRequest extends $dara.Model {
   /**
    * @remarks
-   * The channel name.
+   * The name of the channel.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListLivePackageOriginEndpointsRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * The channel group name.
+   * The name of the channel group.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,10 @@ export class ListLivePackageOriginEndpointsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort order by creation time. Valid values: asc and desc (default).
+   * The sorting order by creation time. Valid values:
+   * - asc: Ascending order.
+   * - desc: Descending order.
+   * Default value: desc.
    * 
    * @example
    * desc

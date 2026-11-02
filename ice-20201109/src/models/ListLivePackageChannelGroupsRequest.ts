@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLivePackageChannelGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The channel group name or description. Fuzzy match is supported.
+   * The name or description of the channel group. Fuzzy matching is supported.
    * 
    * @example
    * channel-group
@@ -13,7 +13,7 @@ export class ListLivePackageChannelGroupsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Valid values: integers greater than or equal to 1. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListLivePackageChannelGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort order by creation time. Default value: desc.
+   * The sort order by creation time. Default value: desc, which indicates descending order.
    * 
    * @example
    * desc

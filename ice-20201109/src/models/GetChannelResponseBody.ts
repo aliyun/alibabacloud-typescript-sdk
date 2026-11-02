@@ -11,7 +11,7 @@ export class GetChannelResponseBody extends $dara.Model {
   channel?: ChannelAssemblyChannel;
   /**
    * @remarks
-   * **Request ID**
+   * **The request ID.**
    * 
    * @example
    * xxx-xxxx-xxxxx-xxxx

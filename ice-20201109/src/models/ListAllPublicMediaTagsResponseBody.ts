@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAllPublicMediaTagsResponseBodyMediaTagListOptions extends $dara.Model {
   /**
    * @remarks
-   * The option name in Chinese.
+   * The Chinese name of the filter option.
    * 
    * @example
    * 愤怒
@@ -13,7 +13,7 @@ export class ListAllPublicMediaTagsResponseBodyMediaTagListOptions extends $dara
   optionChineseName?: string;
   /**
    * @remarks
-   * The option name in English.
+   * The English name of the filter option.
    * 
    * @example
    * Angry
@@ -21,7 +21,7 @@ export class ListAllPublicMediaTagsResponseBodyMediaTagListOptions extends $dara
   optionEnglishName?: string;
   /**
    * @remarks
-   * The option ID.
+   * The ID of the filter option.
    * 
    * @example
    * Angry
@@ -55,7 +55,7 @@ export class ListAllPublicMediaTagsResponseBodyMediaTagListOptions extends $dara
 export class ListAllPublicMediaTagsResponseBodyMediaTagList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media tag.
+   * The ID of the media asset tag.
    * 
    * @example
    * sticker-gif
@@ -63,23 +63,23 @@ export class ListAllPublicMediaTagsResponseBodyMediaTagList extends $dara.Model 
   mediaTagId?: string;
   /**
    * @remarks
-   * The name of the media tag in Chinese.
+   * The Chinese name of the media asset tag.
    * 
    * @example
-   * Gif
+   * 动图
    */
   mediaTagNameChinese?: string;
   /**
    * @remarks
-   * The name of the material tag in English.
+   * The English name of the media asset tag.
    * 
    * @example
-   * Animated image
+   * Gif
    */
   mediaTagNameEnglish?: string;
   /**
    * @remarks
-   * The options.
+   * The list of options.
    */
   options?: ListAllPublicMediaTagsResponseBodyMediaTagListOptions[];
   static names(): { [key: string]: string } {
@@ -115,12 +115,12 @@ export class ListAllPublicMediaTagsResponseBodyMediaTagList extends $dara.Model 
 export class ListAllPublicMediaTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The tags of media assets in the public media library.
+   * The list of tags in the public media asset library.
    */
   mediaTagList?: ListAllPublicMediaTagsResponseBodyMediaTagList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * B45F83B7-7F87-4792-BFE9-63CD2137CAF0

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitScreenMediaHighlightsJobRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies the editing configuration. For more information, see [EditingConfig Parameter Description](~~2863940#9b05519d46e0x~~).
+   * The editing configuration. For more information, see [EditingConfig parameter description](~~2863940#9b05519d46e0x~~).
    * 
    * @example
    * {
@@ -21,7 +21,7 @@ export class SubmitScreenMediaHighlightsJobRequest extends $dara.Model {
   editingConfig?: string;
   /**
    * @remarks
-   * Specifies the input configuration. For more information, see [InputConfig Parameter Description](~~2863940#dda38bf6ec2pk~~).
+   * The input configuration. For more information, see [InputConfig parameter description](~~2863940#dda38bf6ec2pk~~).
    * 
    * @example
    * {
@@ -34,7 +34,7 @@ export class SubmitScreenMediaHighlightsJobRequest extends $dara.Model {
   inputConfig?: string;
   /**
    * @remarks
-   * Specifies the output configuration. For more information, see [OutputConfig Parameter Description](~~2863940#4111a373d0xbz~~).
+   * The output configuration. For more information, see [OutputConfig parameter description](~~2863940#4111a373d0xbz~~).
    * 
    * @example
    * {
@@ -47,10 +47,10 @@ export class SubmitScreenMediaHighlightsJobRequest extends $dara.Model {
   outputConfig?: string;
   /**
    * @remarks
-   * Specifies the user data and callback configuration. For details about the structure, see [UserData Configuration](https://help.aliyun.com/document_detail/357745.html).
+   * The user business configuration and callback configuration. For the specific structure definition, see [UserData configuration](https://help.aliyun.com/document_detail/357745.html).
    * 
    * @example
-   * {"NotifyAddress":"http://xx.xx.xxx"} or {"NotifyAddress":"https://xx.xx.xxx"} or {"NotifyAddress":"ice-callback-demo"}
+   * {"NotifyAddress":"http://xx.xx.xxx"}
    */
   userData?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Model {
   /**
    * @remarks
-   * The template parameters of the media producing job.
+   * The template parameters corresponding to the video editing and producing job.
    * 
    * @example
    * {"VideoArray":["****05512043f49f697f7425****","****05512043f49f697f7425****","****05512043f49f697f7425****"]}
@@ -13,8 +13,8 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   clipsParam?: string;
   /**
    * @remarks
-   * The error code of the media producing job.
-   * >Notice: Check this field when the job fails.
+   * The error code of the video editing and producing job.
+   * >Notice: Pay attention to this field when the job fails.
    * 
    * @example
    * ExceededMaximumValue
@@ -22,7 +22,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   code?: string;
   /**
    * @remarks
-   * The time when the media producing job was completed, in UTC.
+   * The time when the video editing and producing job was completed. The time is displayed in UTC.
    * 
    * Format: "YYYY-MM-DD\\"T\\"hh:mm:ss\\"Z\\"".
    * 
@@ -32,7 +32,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   completeTime?: string;
   /**
    * @remarks
-   * The time when the media producing job was created, in UTC.
+   * The time when the video editing and producing job was created. The time is displayed in UTC.
    * 
    * Format: "YYYY-MM-DD\\"T\\"hh:mm:ss\\"Z\\"".
    * 
@@ -42,8 +42,8 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The duration of the output media asset.
-   * >Notice: This field has a value only when the producing job succeeds and the output media asset type is audio or video.
+   * The duration of the produced media.
+   * >Notice: This field has a value only when the producing task is successful and the output type is audio or video.
    * 
    * @example
    * 30.500000
@@ -51,7 +51,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   duration?: number;
   /**
    * @remarks
-   * The ID of the media producing job.
+   * The ID of the video editing and producing job.
    * 
    * @example
    * ****cdb3e74639973036bc84****
@@ -59,7 +59,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   jobId?: string;
   /**
    * @remarks
-   * The resource ID of the output media asset.
+   * The resource ID of the produced media.
    * 
    * @example
    * ****0cc6ba49eab379332c5b****
@@ -67,7 +67,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   mediaId?: string;
   /**
    * @remarks
-   * The resource file URL of the output media asset.
+   * The URL of the resource file for the produced media.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example2.mp4
@@ -75,9 +75,9 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   mediaURL?: string;
   /**
    * @remarks
-   * The error message of the media producing job.
+   * The error message of the video editing and producing job.
    * 
-   * >Notice: Check this field when the job fails.
+   * >Notice: Pay attention to this field when the job fails.
    * 
    * @example
    * The specified "Width_Height" has exceeded maximum value.
@@ -85,7 +85,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   message?: string;
   /**
    * @remarks
-   * The time when the media producing job was last modified, in UTC.
+   * The time when the video editing and producing job was modified. The time is displayed in UTC.
    * 
    * Format: "YYYY-MM-DD\\"T\\"hh:mm:ss\\"Z\\"".
    * 
@@ -104,13 +104,13 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   projectId?: string;
   /**
    * @remarks
-   * The status of the media producing job. Valid values:
+   * The status of the video editing and producing job. Valid values:
    * 
-   * - Init: init state.
-   * - Queuing: queuing.
-   * - Processing: processing.
-   * - Success: succeeded.
-   * - Failed: failed.
+   * - Init: initial state
+   * - Queuing: queuing
+   * - Processing: processing
+   * - Success: successful
+   * - Failed: failed
    * 
    * @example
    * Failed
@@ -118,15 +118,15 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * If this media producing job is a subtask of a batch intelligent one-click video production job, this field returns the material information used by the subtask, such as the narration text and title.
+   * The material information used by the subtask, such as the voiceover script and title. This field is returned when the editing task is a subtask of a batch intelligent one-click video producing task.
    * 
    * @example
-   * {"Title": "Title", "SpeechText": "Narration text for batch intelligent one-click video production"}
+   * {"Title": "title", "SpeechText": "Batch intelligent one-click into a piece of oral copy"}
    */
   subJobMaterials?: string;
   /**
    * @remarks
-   * The template ID of the media producing job.
+   * The ID of the template corresponding to the video editing and producing job.
    * 
    * @example
    * ****6e76134d739cc3e85d3e****
@@ -134,7 +134,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   templateId?: string;
   /**
    * @remarks
-   * The timeline of the media producing job.
+   * The timeline corresponding to the video editing and producing job.
    * 
    * @example
    * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
@@ -142,7 +142,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   timeline?: string;
   /**
    * @remarks
-   * The custom settings in JSON format.
+   * The custom user settings in JSON format.
    * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx","Key":"Valuexxx"}
@@ -150,7 +150,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
   userData?: string;
   /**
    * @remarks
-   * If the output of the media producing job is delivered to ApsaraVideo VOD, the output is registered as a VOD media asset. The vodMediaId is the media asset ID in VOD.
+   * The ID of the media asset in ApsaraVideo VOD. If the produced media of the editing task is output to ApsaraVideo VOD, the produced media is registered as a media asset in ApsaraVideo VOD, and this field indicates the ID of the media asset.
    * 
    * @example
    * ****332c5b0cc6ba49eab379****
@@ -214,7 +214,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $dara.Mod
 export class GetMediaProducingJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The media producing job information.
+   * The cloud editing project information.
    */
   mediaProducingJob?: GetMediaProducingJobResponseBodyMediaProducingJob;
   /**

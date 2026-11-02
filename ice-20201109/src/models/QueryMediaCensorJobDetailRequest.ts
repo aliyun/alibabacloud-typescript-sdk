@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMediaCensorJobDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the content moderation job. You can obtain the job ID from the response parameters of the [SubmitMediaCensorJob](https://help.aliyun.com/document_detail/444848.html) operation.
+   * The ID of the content moderation job. You can obtain the ID from the response parameters of [Submit a content moderation job](https://help.aliyun.com/document_detail/444848.html).
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,11 @@ export class QueryMediaCensorJobDetailRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries to return per page.
    * 
    * - Default value: **30**.
    * 
-   * - Valid values: **1 to 300**.
+   * - Valid values: **1** to **300**.
    * 
    * @example
    * 30
@@ -27,7 +27,7 @@ export class QueryMediaCensorJobDetailRequest extends $dara.Model {
   maximumPageSize?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token for the next page. Leave this parameter empty for the first request. The token is returned after the first query.
    * 
    * @example
    * ae0fd49c0840e14daf0d66a75b83****

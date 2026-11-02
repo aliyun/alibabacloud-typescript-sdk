@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class TranspositionResult extends $dara.Model {
   /**
    * @remarks
-   * *   The target language of the translation.
-   * *   This field is only used in translation-related scenarios.
+   * - The target language for translation transposition. For more information, see the list of target languages for video translation.
+   * - This field is only used in video translation scenarios.
    * 
    * @example
    * zh
@@ -14,11 +14,11 @@ export class TranspositionResult extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * *   The translated text corresponding to the matched hotwords. Maximum length: 100 characters.
-   * *   This field is only used in translation-related scenarios.
+   * - The text after translation transposition, which is the expected output text after the matched hot word is translated. The maximum length is 100 characters.
+   * - This field is only used in scenarios related to the translation feature.
    * 
    * @example
-   * 你好
+   * hello
    */
   translatedText?: string;
   static names(): { [key: string]: string } {

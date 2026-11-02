@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLiveTranscodeJobResponseBodyJobOutputStreamStreamInfos extends $dara.Model {
   /**
    * @remarks
-   * The URL of the output stream.
+   * The output stream URL.
    * 
    * @example
    * rtmp://mydomain/app/mytranscode1
@@ -13,7 +13,7 @@ export class GetLiveTranscodeJobResponseBodyJobOutputStreamStreamInfos extends $
   outputUrl?: string;
   /**
    * @remarks
-   * The type of the output stream protocol. Only the RTMP protocol is supported.
+   * The output stream protocol type. Currently, only the RTMP protocol is supported.
    * 
    * @example
    * rtmp
@@ -45,7 +45,7 @@ export class GetLiveTranscodeJobResponseBodyJobOutputStreamStreamInfos extends $
 export class GetLiveTranscodeJobResponseBodyJobOutputStream extends $dara.Model {
   /**
    * @remarks
-   * The information about the output stream.
+   * The output stream information.
    */
   streamInfos?: GetLiveTranscodeJobResponseBodyJobOutputStreamStreamInfos[];
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class GetLiveTranscodeJobResponseBodyJobOutputStream extends $dara.Model 
 export class GetLiveTranscodeJobResponseBodyJobStreamInput extends $dara.Model {
   /**
    * @remarks
-   * The URL of the input stream.
+   * The input stream URL.
    * 
    * @example
    * rtmp://mydomain/app/stream1
@@ -83,7 +83,7 @@ export class GetLiveTranscodeJobResponseBodyJobStreamInput extends $dara.Model {
   inputUrl?: string;
   /**
    * @remarks
-   * The type of the input stream.
+   * The input stream type.
    * 
    * @example
    * rtmp
@@ -115,7 +115,7 @@ export class GetLiveTranscodeJobResponseBodyJobStreamInput extends $dara.Model {
 export class GetLiveTranscodeJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
-   * The time when the job was created.
+   * The creation time. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-20T02:48:58Z
@@ -139,12 +139,12 @@ export class GetLiveTranscodeJobResponseBodyJob extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The information about the output stream.
+   * The output stream information.
    */
   outputStream?: GetLiveTranscodeJobResponseBodyJobOutputStream;
   /**
    * @remarks
-   * The start mode of the job.
+   * The start mode.
    * 
    * @example
    * 0
@@ -152,13 +152,10 @@ export class GetLiveTranscodeJobResponseBodyJob extends $dara.Model {
   startMode?: number;
   /**
    * @remarks
-   * The state of the job.
-   * 
-   * - 0: The job is not started.
-   * 
-   * - 1: The job is in progress.
-   * 
-   * - 2: The job is stopped.
+   * The job status. Valid values:
+   * - 0: Not started.
+   * - 1: Running.
+   * - 2: Stopped.
    * 
    * @example
    * 1
@@ -166,7 +163,7 @@ export class GetLiveTranscodeJobResponseBodyJob extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The information about the input stream.
+   * The input stream information.
    */
   streamInput?: GetLiveTranscodeJobResponseBodyJobStreamInput;
   /**
@@ -179,7 +176,7 @@ export class GetLiveTranscodeJobResponseBodyJob extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
    * basic
@@ -187,7 +184,7 @@ export class GetLiveTranscodeJobResponseBodyJob extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The type of the template.
+   * The templatetype.
    * 
    * @example
    * normal
@@ -241,7 +238,7 @@ export class GetLiveTranscodeJobResponseBodyJob extends $dara.Model {
 export class GetLiveTranscodeJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the transcoding job.
+   * The transcoding job information.
    */
   job?: GetLiveTranscodeJobResponseBodyJob;
   /**

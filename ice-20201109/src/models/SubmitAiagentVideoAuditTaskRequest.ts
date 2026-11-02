@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitAIAgentVideoAuditTaskRequestCallbackConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication token for callback.
+   * The authentication token for the callback.
    * 
    * @example
    * Bearer Token
@@ -13,7 +13,7 @@ export class SubmitAIAgentVideoAuditTaskRequestCallbackConfig extends $dara.Mode
   token?: string;
   /**
    * @remarks
-   * The URL for receiving callback notifications.
+   * The URL where you want to receive callback notifications.
    * 
    * @example
    * https://yourcallback
@@ -45,7 +45,7 @@ export class SubmitAIAgentVideoAuditTaskRequestCallbackConfig extends $dara.Mode
 export class SubmitAIAgentVideoAuditTaskRequestCapturePolicies extends $dara.Model {
   /**
    * @remarks
-   * The duration over which to capture the specified number of frames. Unit: seconds.
+   * The duration of a single frame capture, in seconds.
    * 
    * @example
    * 10
@@ -61,15 +61,15 @@ export class SubmitAIAgentVideoAuditTaskRequestCapturePolicies extends $dara.Mod
   frameCount?: number;
   /**
    * @remarks
-   * The text prompt to send to the MLLM along with the captured frames.
+   * The text parameter used when you call the multimodal large model.
    * 
    * @example
-   * 请分析视频中的场景
+   * Please analyze the scene in the video
    */
   prompt?: string;
   /**
    * @remarks
-   * The timestamp in the video at which to start capturing frames. Unit: seconds.
+   * The time when frame capture is triggered, in seconds.
    * 
    * @example
    * 0
@@ -105,9 +105,11 @@ export class SubmitAIAgentVideoAuditTaskRequestCapturePolicies extends $dara.Mod
 export class SubmitAIAgentVideoAuditTaskRequestInput extends $dara.Model {
   /**
    * @remarks
-   * The OSS URL of the input file. Format:
+   * The information about the input file. OSS URLs are supported. The URL format is as follows:
    * 
    * http(s)://{BucketName}.{Endpoint}/{ObjectName}
+   * 
+   * Only OSS buckets in the same region as the service are supported. For example, the API service in the China (Shanghai) region supports only OSS buckets in the China (Shanghai) region.
    * 
    * @example
    * http://my-bucket.oss-cn-shanghai.aliyuncs.com/object-id.mp4
@@ -115,9 +117,9 @@ export class SubmitAIAgentVideoAuditTaskRequestInput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the input file. Valid values:
+   * The input type. Valid values:
    * 
-   * - OSS: an OSS object.
+   * - OSS: the URL of an OSS file.
    * 
    * @example
    * OSS
@@ -159,7 +161,7 @@ export class SubmitAIAgentVideoAuditTaskRequest extends $dara.Model {
   AIAgentId?: string;
   /**
    * @remarks
-   * The interval, in milliseconds, at which to submit captured frames to the AI agent. Valid values: 0 to 5000. Default value: 3000. If it is set to 0, all captured frames are sent to the model in a single batch request. Otherwise, frames are sent sequentially with the specified interval between each request.
+   * The moderation interval, in milliseconds. Valid values: 0 to 5000. Default value: 3000. If you set this parameter to 0, all captured frame data specified in CapturePolicies is sent to the large model in the corresponding agent at a time. If you set this parameter to a non-zero value, such as 3000, all captured frame data is sent to the large model in sequence at an interval of 3,000 milliseconds.
    * 
    * @example
    * 3000
@@ -167,7 +169,7 @@ export class SubmitAIAgentVideoAuditTaskRequest extends $dara.Model {
   auditInterval?: number;
   /**
    * @remarks
-   * Callback configurations.
+   * The callback configuration.
    * 
    * @example
    * {"Url":"https://yourcallback","Token":"yourtoken"}
@@ -175,21 +177,21 @@ export class SubmitAIAgentVideoAuditTaskRequest extends $dara.Model {
   callbackConfig?: SubmitAIAgentVideoAuditTaskRequestCallbackConfig;
   /**
    * @remarks
-   * An array of frame-capturing policies. Each policy defines a set of frames to be analyzed and will generate a separate result from the model.
+   * The array of moderation policies. Each policy generates a model result.
    * 
    * This parameter is required.
    */
   capturePolicies?: SubmitAIAgentVideoAuditTaskRequestCapturePolicies[];
   /**
    * @remarks
-   * The details of the input file.
+   * The input file.
    * 
    * This parameter is required.
    */
   input?: SubmitAIAgentVideoAuditTaskRequestInput;
   /**
    * @remarks
-   * The user-defined data.
+   * The custom user data.
    * 
    * @example
    * {"Custom":"hello"}

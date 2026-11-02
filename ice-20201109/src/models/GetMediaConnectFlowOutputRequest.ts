@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaConnectFlowOutputRequest extends $dara.Model {
   /**
    * @remarks
-   * The flow ID.
+   * The flow instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetMediaConnectFlowOutputRequest extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * The name of the output that you want to query.
+   * The name of the output.
    * 
    * This parameter is required.
    * 

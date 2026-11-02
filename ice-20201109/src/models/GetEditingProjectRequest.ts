@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEditingProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the online editing project.
+   * The ID of the cloud editing project.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,9 @@ export class GetEditingProjectRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The ID of the request source. Valid values:
-   * 
-   * \\- OpenAPI (default): Timeline conversion is not performed.
-   * 
-   * \\- WebSDK: If you specify this value, the project timeline is automatically converted into the frontend style, and the materials in the timeline are associated with the project to enable preview by using frontend web SDKs.
+   * The identifier of the request source. Valid values:
+   * - OpenAPI: Default. No timeline conversion is performed.
+   * - WebSDK: If this field is passed, the project timeline is automatically converted to the frontend style, and the associated media assets in the timeline are bound to the project for preview in the frontend WebSDK.
    * 
    * @example
    * WebSDK

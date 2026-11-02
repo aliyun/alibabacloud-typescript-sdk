@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddEditingProjectMaterialsResponseBodyLiveMaterials extends $dara.Model {
   /**
    * @remarks
-   * The application name of the live stream.
+   * The name of the live streaming application.
    * 
    * @example
    * testrecord
@@ -29,7 +29,7 @@ export class AddEditingProjectMaterialsResponseBodyLiveMaterials extends $dara.M
   liveUrl?: string;
   /**
    * @remarks
-   * The stream name of the live stream.
+   * The name of the live stream.
    * 
    * @example
    * teststream
@@ -81,7 +81,7 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   duration?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * example.mp4
@@ -89,7 +89,7 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   fileName?: string;
   /**
    * @remarks
-   * The file size, in bytes.
+   * The size of the file in bytes.
    * 
    * @example
    * 30611502
@@ -97,13 +97,12 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   fileSize?: string;
   /**
    * @remarks
-   * The file status.
-   * 
-   * - Uploading
-   * - Normal
-   * - UploadFail
-   * - Disable
-   * - Deleted
+   * The status of the file. Valid values:
+   * - Uploading: uploading
+   * - Normal: normal
+   * - UploadFail: upload failed
+   * - Disable: disabled
+   * - Deleted: deleted
    * 
    * @example
    * Normal
@@ -111,7 +110,7 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   fileStatus?: string;
   /**
    * @remarks
-   * The file type.
+   * The type of the file.
    * 
    * @example
    * source_file
@@ -127,7 +126,7 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
   fileUrl?: string;
   /**
    * @remarks
-   * The container format.
+   * The encapsulation format.
    * 
    * @example
    * mov,mp4,m4a,3gp,3g2,mj2
@@ -201,7 +200,7 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBas
 export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoList extends $dara.Model {
   /**
    * @remarks
-   * The basic file information, including the duration and size.
+   * The basic information of the file, including the duration and size.
    */
   fileBasicInfo?: AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
@@ -247,7 +246,7 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   category?: string;
   /**
    * @remarks
-   * The cover URL.
+   * The URL of the cover image.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
@@ -255,7 +254,7 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   coverURL?: string;
   /**
    * @remarks
-   * The time when the media asset was created.
+   * The time when the media asset was created. The time is displayed in ISO 8601 format in UTC (ending with Z).
    * 
    * @example
    * 2020-12-23T03:32:59Z
@@ -263,7 +262,7 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   createTime?: string;
   /**
    * @remarks
-   * The time when the media asset was deleted.
+   * The time when the media asset was deleted. The time is displayed in ISO 8601 format in UTC (ending with Z).
    * 
    * @example
    * 2020-12-23T03:32:59Z
@@ -271,7 +270,7 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   deletedTime?: string;
   /**
    * @remarks
-   * The content description.
+   * The description.
    * 
    * @example
    * sample_description
@@ -279,7 +278,7 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   description?: string;
   /**
    * @remarks
-   * The address of the media asset to be registered in the corresponding system.
+   * The URL of the media asset to be registered in the corresponding system.
    * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/file.mp4
@@ -287,7 +286,7 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   inputURL?: string;
   /**
    * @remarks
-   * The media asset ID.
+   * The ID of the media asset.
    * 
    * @example
    * *****5cb2e35433198daae94a72*****
@@ -311,7 +310,7 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   mediaType?: string;
   /**
    * @remarks
-   * The time when the media asset was last modified.
+   * The time when the media asset was modified. The time is displayed in ISO 8601 format in UTC (ending with Z).
    * 
    * @example
    * 2020-12-23T03:32:59Z
@@ -343,12 +342,11 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
   spriteImages?: string;
   /**
    * @remarks
-   * The media asset status.
-   * 
-   * - Init
-   * - Preparing
-   * - PrepareFail
-   * - Normal
+   * The status of the media asset. Valid values:
+   * - Init: initialized
+   * - Preparing: preparing
+   * - PrepareFail: preparation failed
+   * - Normal: normal
    * 
    * @example
    * Normal
@@ -441,12 +439,12 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfos extends $dara.Mode
   fileInfoList?: AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoList[];
   /**
    * @remarks
-   * The basic information about the media asset.
+   * The basic information of the media asset.
    */
   mediaBasicInfo?: AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo;
   /**
    * @remarks
-   * The media asset ID.
+   * The ID of the media asset.
    * 
    * @example
    * *****5cb2e35433198daae94a72*****
@@ -491,12 +489,12 @@ export class AddEditingProjectMaterialsResponseBody extends $dara.Model {
   liveMaterials?: AddEditingProjectMaterialsResponseBodyLiveMaterials[];
   /**
    * @remarks
-   * The collection of eligible media assets.
+   * The collection of qualified media assets.
    */
   mediaInfos?: AddEditingProjectMaterialsResponseBodyMediaInfos[];
   /**
    * @remarks
-   * The ID of the online editing project.
+   * The ID of the cloud editing project.
    * 
    * @example
    * *****67ae06542b9b93e0d1c387*****
@@ -504,7 +502,7 @@ export class AddEditingProjectMaterialsResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The materials associated with the editing project. After a live stream ends, the live editing project is associated with a standard editing project.
+   * The materials associated with the editing project. A live editing project is associated with a common editing project after the live stream ends.
    * 
    * @example
    * *****9b145c5cafc2e057304fcd*****

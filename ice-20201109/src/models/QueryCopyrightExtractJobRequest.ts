@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCopyrightExtractJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job ID. You can obtain the value of this parameter from the response of the SubmitCopyrightExtractJob operation.
+   * The job ID. You can obtain it from the response parameters returned when you submit a copyright watermark extraction job.
    * 
    * This parameter is required.
    * 

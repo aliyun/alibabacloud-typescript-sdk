@@ -13,7 +13,7 @@ export class ListAdInsertionsResponseBodyConfigsCdnConfig extends $dara.Model {
   adSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * The CDN prefix for content segments.
+   * The CDN prefix for video content segments.
    * 
    * @example
    * http://cdn.com/
@@ -45,12 +45,12 @@ export class ListAdInsertionsResponseBodyConfigsCdnConfig extends $dara.Model {
 export class ListAdInsertionsResponseBodyConfigsManifestEndpointConfig extends $dara.Model {
   /**
    * @remarks
-   * DASH manifest playback endpoint prefix
+   * The prefix of the DASH manifest endpoint.
    */
   dashPrefix?: string;
   /**
    * @remarks
-   * The prefix of the playback endpoint for HLS manifests.
+   * The prefix of the HLS manifest endpoint.
    */
   hlsPrefix?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +79,7 @@ export class ListAdInsertionsResponseBodyConfigsManifestEndpointConfig extends $
 export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether ad marker passthrough is enabled.
+   * The ad marker passthrough settings.
    * 
    * @example
    * ON
@@ -87,7 +87,7 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   adMarkerPassthrough?: string;
   /**
    * @remarks
-   * The request URL of the ad decision server (ADS).
+   * The URL of the ad decision server.
    * 
    * @example
    * http://ads.com/ad1?param1=[palyer_params.p1]
@@ -95,12 +95,12 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   adsUrl?: string;
   /**
    * @remarks
-   * The CDN configurations.
+   * The CDN configuration.
    */
   cdnConfig?: ListAdInsertionsResponseBodyConfigsCdnConfig;
   /**
    * @remarks
-   * The player parameter variables and aliases.
+   * The aliases of the dynamic configuration.
    * 
    * @example
    * {
@@ -112,7 +112,7 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   configAliases?: string;
   /**
    * @remarks
-   * The URL prefix for the source content.
+   * The prefix of the content URL.
    * 
    * @example
    * https://source.com/
@@ -120,7 +120,7 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   contentUrlPrefix?: string;
   /**
    * @remarks
-   * The time when the configuration was created.
+   * The creation time. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -128,7 +128,7 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the configuration was last modified.
+   * The last modified time.
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -136,7 +136,7 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   lastModified?: string;
   /**
    * @remarks
-   * The playback endpoint configuration.
+   * The manifest endpoint configuration.
    */
   manifestEndpointConfig?: ListAdInsertionsResponseBodyConfigsManifestEndpointConfig;
   /**
@@ -149,7 +149,7 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The personalization threshold that defines the maximum duration of underfilled time allowed in an ad break.
+   * The threshold for personalization configuration.
    * 
    * @example
    * 5
@@ -213,12 +213,12 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
 export class ListAdInsertionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Array
+   * The list of ad insertion configurations.
    */
   configs?: ListAdInsertionsResponseBodyConfigs[];
   /**
    * @remarks
-   * The maximum number of entries to retrieve in a subsequent request. If this parameter is used, the pagination parameters become invalid.
+   * The maximum number of entries to return for the next page of results. When this parameter is specified, pagination parameters are ignored.
    * 
    * @example
    * 10
@@ -226,7 +226,7 @@ export class ListAdInsertionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used in the next request to retrieve a new page of results. If this parameter is used, the pagination parameters become invalid.
+   * The token used to retrieve the next page of results. When this parameter is specified, pagination parameters are ignored.
    * 
    * @example
    * ******8EqYpQbZ6Eh7+Zz8DxVYoQ*****
@@ -250,7 +250,7 @@ export class ListAdInsertionsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -258,7 +258,7 @@ export class ListAdInsertionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The sorting order of the configurations by creation time. asc: ascending. desc: descending.
+   * The sort order. Valid values: asc (ascending order by creation time) and desc (descending order by creation time).
    * 
    * @example
    * asc
@@ -266,7 +266,7 @@ export class ListAdInsertionsResponseBody extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

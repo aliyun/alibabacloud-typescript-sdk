@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AIAgentOutboundCallConfigAmbientSoundConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ambient sound. You can obtain the ID from the advanced configurations of the AI agent on the console.
+   * The ID of the ambient sound for calls. You can obtain this ID in the advanced configurations of the agent configuration in the console.
    * 
    * @example
    * f67901c595834************
@@ -13,7 +13,7 @@ export class AIAgentOutboundCallConfigAmbientSoundConfig extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The volume of the ambient sound. Valid values: 0 to 100. A value of 0 disables the sound.
+   * The volume of the background sound for calls. Valid values: 0 to 100. A value of 0 indicates that the background sound is disabled.
    * 
    * @example
    * 50
@@ -45,22 +45,22 @@ export class AIAgentOutboundCallConfigAmbientSoundConfig extends $dara.Model {
 export class AIAgentOutboundCallConfigAsrConfig extends $dara.Model {
   /**
    * @remarks
-   * The list of hotwords for ASR. You can specify a maximum of 128 hotwords in the list.
+   * The list of ASR hotwords. The list supports a maximum of 128 hotwords.
    */
   asrHotWords?: string[];
   /**
    * @remarks
-   * The language ID for ASR. Valid values:
+   * The language ID for automatic speech recognition (ASR). Valid values:
    * 
-   * - `zh_mandarin`: Chinese
+   * - zh_mandarin: Chinese
    * 
-   * - `en`: English
+   * - en: English
    * 
-   * - `zh_en`: Chinese and English
+   * - zh_en: Chinese and English mixed
    * 
-   * - `es`: Spanish
+   * - es: Spanish
    * 
-   * - `jp`: Japanese
+   * - jp: Japanese
    * 
    * @example
    * zh_mandarin
@@ -68,7 +68,7 @@ export class AIAgentOutboundCallConfigAsrConfig extends $dara.Model {
   asrLanguageId?: string;
   /**
    * @remarks
-   * The sentence segmentation threshold. If the duration of a silence exceeds this threshold, the system determines that the sentence is complete. Valid values: 200 to 1200. Unit: ms. Default value: 400.
+   * The silence duration threshold for speech segmentation. If the silence duration exceeds this threshold, the speech is considered segmented. Valid values: 200 to 1200. Unit: milliseconds. Default value: 400.
    * 
    * @example
    * 400
@@ -76,7 +76,7 @@ export class AIAgentOutboundCallConfigAsrConfig extends $dara.Model {
   asrMaxSilence?: number;
   /**
    * @remarks
-   * The passthrough parameters for proprietary ASR.
+   * The pass-through parameters for the proprietary ASR integration.
    * 
    * @example
    * mode=fast&sample=16000&format=wav
@@ -84,7 +84,7 @@ export class AIAgentOutboundCallConfigAsrConfig extends $dara.Model {
   customParams?: string;
   /**
    * @remarks
-   * The minimum duration threshold for VAD. This parameter controls the interruption sensitivity. A value of 0 indicates that this feature is disabled. Valid values: 200 to 2000. Unit: ms. A value from 200 to 500 corresponds to 1 to 4 words. The default value is empty, which indicates that this parameter is not in effect.
+   * The minimum duration threshold for voice activity detection, which is used to control the sensitivity of interruptions. A value of 0 disables this feature. Valid values: 200 to 2000. Unit: milliseconds. Common values: 200 to 500, which correspond to 1 to 4 characters. Default value: empty. This parameter does not take effect when left empty.
    * 
    * @example
    * 300
@@ -92,13 +92,11 @@ export class AIAgentOutboundCallConfigAsrConfig extends $dara.Model {
   vadDuration?: number;
   /**
    * @remarks
-   * The interruption threshold for voice activity detection (VAD). Valid values: 0 to 11. Default value: 11.
+   * The interruption threshold parameter. Valid values: 0 to 11. Default value: 11.
    * 
-   * - A value of 0 disables the VAD feature.
-   * 
-   * - A value from 1 to 10 indicates that the higher the value, the less sensitive the interruption.
-   * 
-   * - A value of 11 provides a significantly different experience from the previous values. It lowers audio distortion during conversations and enhances resistance to interference.
+   * - 0: Disables the voice activity detection (VAD) feature.
+   * - 1 to 10: A higher value indicates that it is more difficult to interrupt the speech.
+   * - 11: Significantly different from previous values. It causes less damage to the conversation voice during pre-processing and provides stronger anti-interference capability.
    * 
    * @example
    * 11
@@ -141,7 +139,7 @@ export class AIAgentOutboundCallConfigAsrConfig extends $dara.Model {
 export class AIAgentOutboundCallConfigAutoSpeechConfigLlmPendingMessages extends $dara.Model {
   /**
    * @remarks
-   * The selection probability of the prompt. Valid values: 0 to 1, which corresponds to 0% to 100%.
+   * The selection probability of the prompt. Valid values: 0 to 1, which correspond to 0% to 100%.
    * 
    * @example
    * 0.5
@@ -149,10 +147,10 @@ export class AIAgentOutboundCallConfigAutoSpeechConfigLlmPendingMessages extends
   probability?: number;
   /**
    * @remarks
-   * The text of the inquiry prompt. The text can be up to 100 characters in length.
+   * The text of the inquiry prompt. The maximum length is 100 characters.
    * 
    * @example
-   * 稍等一下
+   * Just a moment
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -181,13 +179,13 @@ export class AIAgentOutboundCallConfigAutoSpeechConfigLlmPendingMessages extends
 export class AIAgentOutboundCallConfigAutoSpeechConfigLlmPending extends $dara.Model {
   /**
    * @remarks
-   * The collection of inquiry prompts. You can specify a maximum of 10 prompts. Each prompt can be up to 100 characters in length. The sum of the probabilities of all prompts must be 100%.
+   * The collection of inquiry prompts. A maximum of 10 prompts are supported. The length of each prompt cannot exceed 100 characters. The sum of probabilities must be 100%.
    */
   messages?: AIAgentOutboundCallConfigAutoSpeechConfigLlmPendingMessages[];
   mode?: string;
   /**
    * @remarks
-   * The wait time threshold for LLM responses. This parameter is required. A broadcast prompt is triggered if this threshold is exceeded. Unit: ms. Valid values: 500 to 10000. You need to configure this parameter based on the actual usage of the LLM.
+   * The waiting time threshold for the LLM response. If this time is exceeded, a broadcast prompt is triggered. This parameter is required. Unit: milliseconds. Valid values: 500 to 10000. Set this parameter based on the actual usage of the LLM.
    * 
    * @example
    * 3000
@@ -224,7 +222,7 @@ export class AIAgentOutboundCallConfigAutoSpeechConfigLlmPending extends $dara.M
 export class AIAgentOutboundCallConfigAutoSpeechConfigUserIdleMessages extends $dara.Model {
   /**
    * @remarks
-   * The selection probability of the prompt. Valid values: 0 to 1, which corresponds to 0% to 100%.
+   * The selection probability of the prompt. Valid values: 0 to 1, which correspond to 0% to 100%.
    * 
    * @example
    * 0.5
@@ -232,10 +230,10 @@ export class AIAgentOutboundCallConfigAutoSpeechConfigUserIdleMessages extends $
   probability?: number;
   /**
    * @remarks
-   * The text of the inquiry prompt. The text can be up to 100 characters in length.
+   * The text of the inquiry prompt. The maximum length is 100 characters.
    * 
    * @example
-   * 您还在吗？
+   * Are you still there?
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -263,13 +261,16 @@ export class AIAgentOutboundCallConfigAutoSpeechConfigUserIdleMessages extends $
 
 export class AIAgentOutboundCallConfigAutoSpeechConfigUserIdle extends $dara.Model {
   /**
+   * @remarks
+   * The hang-up closing word. It is broadcast before the call is hung up after the user does not respond for a long time. The maximum length is 200 characters.
+   * 
    * @example
-   * 我挂了，再见
+   * I’m hanging up, goodbye.
    */
   hangupEndWord?: string;
   /**
    * @remarks
-   * The maximum number of inquiries. This parameter is required. Valid values: 0 to 10. After the maximum number of inquiries is reached, no more inquiries are triggered, and the call is disconnected.
+   * The maximum number of inquiries. Valid values: 0 to 10. This parameter is required. If this number is exceeded, no more inquiries are triggered, and the call is directly closed.
    * 
    * @example
    * 5
@@ -277,12 +278,12 @@ export class AIAgentOutboundCallConfigAutoSpeechConfigUserIdle extends $dara.Mod
   maxRepeats?: number;
   /**
    * @remarks
-   * The collection of inquiry prompts. You can specify a maximum of 10 prompts. Each prompt can be up to 100 characters in length. The sum of the probabilities of all prompts must be 100%.
+   * The collection of inquiry prompts. A maximum of 10 prompts are supported. The length of each prompt cannot exceed 100 characters. The sum of probabilities must be 100%.
    */
   messages?: AIAgentOutboundCallConfigAutoSpeechConfigUserIdleMessages[];
   /**
    * @remarks
-   * The silence duration threshold. This parameter is required. An inquiry is triggered if this threshold is exceeded. Unit: ms. Valid values: 5000 to 600000.
+   * The silence duration threshold. Unit: milliseconds. This parameter is required. An inquiry is triggered when the silence duration exceeds this threshold. Valid values: 5000 to 600000.
    * 
    * @example
    * 5000
@@ -321,12 +322,12 @@ export class AIAgentOutboundCallConfigAutoSpeechConfigUserIdle extends $dara.Mod
 export class AIAgentOutboundCallConfigAutoSpeechConfig extends $dara.Model {
   /**
    * @remarks
-   * The configurations for broadcasts during LLM response delays.
+   * The broadcast configuration when the LLM response is delayed.
    */
   llmPending?: AIAgentOutboundCallConfigAutoSpeechConfigLlmPending;
   /**
    * @remarks
-   * The configurations for inquiry broadcasts during prolonged user silence.
+   * The inquiry broadcast configuration when the user is silent for a long time.
    */
   userIdle?: AIAgentOutboundCallConfigAutoSpeechConfigUserIdle;
   static names(): { [key: string]: string } {
@@ -422,7 +423,7 @@ export class AIAgentOutboundCallConfigBackChannelingConfig extends $dara.Model {
 export class AIAgentOutboundCallConfigBackChannelingConfigsWords extends $dara.Model {
   /**
    * @remarks
-   * The selection probability of this phrase. This parameter is required. Valid values: 0.0 to 1.0.
+   * The trigger probability of the phrase. Valid values: 0.0 to 1.0. Required.
    * 
    * @example
    * 0.3
@@ -430,10 +431,10 @@ export class AIAgentOutboundCallConfigBackChannelingConfigsWords extends $dara.M
   probability?: number;
   /**
    * @remarks
-   * The text of the phrase. This parameter is required. The text can be up to 20 characters in length and supports multiple languages.
+   * The text of the phrase. The maximum length is 20 characters. Multiple languages are supported. Required.
    * 
    * @example
-   * 嗯嗯
+   * ok
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -462,7 +463,7 @@ export class AIAgentOutboundCallConfigBackChannelingConfigsWords extends $dara.M
 export class AIAgentOutboundCallConfigBackChannelingConfigs extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the back-channeling feature. This parameter is required. Valid values: true and false.
+   * Specifies whether to enable the backchanneling feature. This parameter is required. Valid values: true and false.
    * 
    * @example
    * true
@@ -470,7 +471,7 @@ export class AIAgentOutboundCallConfigBackChannelingConfigs extends $dara.Model 
   enabled?: boolean;
   /**
    * @remarks
-   * The trigger probability. This parameter is required. Valid values: 0.0 to 1.0.
+   * The trigger probability of the feature. Valid values: 0.0 to 1.0. This parameter is required.
    * 
    * @example
    * 0.5
@@ -478,9 +479,9 @@ export class AIAgentOutboundCallConfigBackChannelingConfigs extends $dara.Model 
   probability?: number;
   /**
    * @remarks
-   * The trigger point for back-channeling. Valid value:
+   * The trigger timing for backchanneling. Valid values:
    * 
-   * - `pause_detected`: triggered when a short pause in speech is detected
+   * - pause_detected: A short pause in speech is detected.
    * 
    * @example
    * pause_detected
@@ -488,7 +489,7 @@ export class AIAgentOutboundCallConfigBackChannelingConfigs extends $dara.Model 
   triggerStage?: string;
   /**
    * @remarks
-   * The collection of back-channeling phrases. You can specify a maximum of 10 phrases. Each phrase can be up to 20 characters in length. The sum of the probabilities of all phrases must be 1.0.
+   * The collection of backchanneling phrases. A maximum of 10 phrases are supported. The length of each phrase cannot exceed 20 characters. The sum of probabilities must be 1.0.
    */
   words?: AIAgentOutboundCallConfigBackChannelingConfigsWords[];
   static names(): { [key: string]: string } {
@@ -536,21 +537,26 @@ export class AIAgentOutboundCallConfigInterruptConfig extends $dara.Model {
   enableVoiceInterrupt?: boolean;
   /**
    * @remarks
-   * The specific words or phrases that trigger a conversation interruption.
+   * The specific words or phrases that trigger conversation interruption.
    */
   interruptWords?: string[];
   /**
+   * @remarks
+   * Specifies whether to retain the interrupt words and send them to the LLM. Default value: discard.
+   * 
+   * > Example: If the interrupt word is "wait", the phrase "wait how is the weather today" becomes "how is the weather today" after the interrupt word is discarded and sent to the LLM.
+   * 
    * @example
    * true
    */
   keepInterruptWordsForLLM?: boolean;
   /**
    * @remarks
-   * The ASR processing policy in `NoInterruptMode`.
+   * The ASR processing policy in the No Interrupting mode. Valid values:
    * 
-   * - `cache`: caches the ASR text. The cached ASR text is processed in the next conversational turn.
+   * - cache: Caches the ASR text. After the current turn ends, the cached ASR text is processed together in the next turn.
    * 
-   * - `discard`: discards the ASR text.
+   * - discard: Directly discards the ASR text.
    * 
    * Default value: cache.
    * 
@@ -593,7 +599,7 @@ export class AIAgentOutboundCallConfigInterruptConfig extends $dara.Model {
 export class AIAgentOutboundCallConfigLlmConfigFunctionMap extends $dara.Model {
   /**
    * @remarks
-   * The name of the built-in function provided by the AI agent in Alibaba Cloud. The value hangup is supported.
+   * The name of the built-in feature provided by the Alibaba Cloud agent system. Currently, only hangup is supported.
    * 
    * @example
    * hangup
@@ -601,7 +607,7 @@ export class AIAgentOutboundCallConfigLlmConfigFunctionMap extends $dara.Model {
   function?: string;
   /**
    * @remarks
-   * The name of the LLM function that corresponds to this function. This parameter is customized and used to call the corresponding function in the LLM. For more information about the protocol for custom LLMs, see [Standard LLM API](https://help.aliyun.com/document_detail/2839094.html).
+   * The name of the LLM function that corresponds to the feature. This name is customized by the user and used to call the corresponding feature in the LLM. For the user-defined LLM protocol, refer to [Standard LLM API](https://help.aliyun.com/document_detail/2839094.html).
    * 
    * @example
    * hangup
@@ -633,27 +639,27 @@ export class AIAgentOutboundCallConfigLlmConfigFunctionMap extends $dara.Model {
 export class AIAgentOutboundCallConfigLlmConfigLlmHistory extends $dara.Model {
   /**
    * @remarks
-   * The text of the conversation content that records the specific expressions or responses of the role in the conversation.
+   * The actual text content of the conversation, which records the specific expression or response of the role in the conversation.
    * 
    * @example
-   * 你好
+   * hello
    */
   content?: string;
   /**
    * @remarks
-   * The role of the participant in the conversation. Valid values:
+   * The role of the conversation participant. Valid values:
    * 
-   * - `user`: the user
+   * - user: User
    * 
-   * - `assistant`: the AI assistant
+   * - assistant: Assistant
    * 
-   * - `system`: the system
+   * - system: System
    * 
-   * - `function`: a function
+   * - function: Function
    * 
-   * - `plugin`: a plug-in
+   * - plugin: Plugin
    * 
-   * - `tool`: a tool
+   * - tool: Tool
    * 
    * @example
    * user
@@ -685,20 +691,20 @@ export class AIAgentOutboundCallConfigLlmConfigLlmHistory extends $dara.Model {
 export class AIAgentOutboundCallConfigLlmConfig extends $dara.Model {
   /**
    * @remarks
-   * The parameters for Alibaba Cloud Model Studio. For more information about the parameter format, see [Alibaba Cloud Model Studio parameters](https://help.aliyun.com/document_detail/2858132.html).
+   * The parameters for Alibaba Cloud Model Studio Application Center. For the parameter format, refer to [Alibaba Cloud Model Studio Application Center parameters](https://help.aliyun.com/document_detail/2858132.html).
    * 
    * @example
-   * "{\\"biz_params\\":{\\"user_defined_params\\":{\\"your_plugin_id\\":{\\"article_index\\":2}}},\\"memory_id\\":\\"your_memory_id\\",\\"image_list\\":[\\"https://your_image_url\\"],\\"rag_options\\":{\\"pipeline_ids\\":[\\"your_id\\"],\\"file_ids\\":[\\"文档ID1\\",\\"文档ID2\\"],\\"metadata_filter\\":{\\"name\\":\\"张三\\"},\\"structured_filter\\":{\\"key1\\":\\"value1\\",\\"key2\\":\\"value2\\"},\\"tags\\":[\\"标签1\\",\\"标签2\\"]}}"
+   * "{\\"biz_params\\":{\\"user_defined_params\\":{\\"your_plugin_id\\":{\\"article_index\\":2}}},\\"memory_id\\":\\"your_memory_id\\",\\"image_list\\":[\\"https://your_image_url\\"],\\"rag_options\\":{\\"pipeline_ids\\":[\\"your_id\\"],\\"file_ids\\":[\\"DocumentID1\\",\\"DocumentID2\\"],\\"metadata_filter\\":{\\"name\\":\\"ZhangSan\\"},\\"structured_filter\\":{\\"key1\\":\\"value1\\",\\"key2\\":\\"value2\\"},\\"tags\\":[\\"Tag1\\",\\"Tag2\\"]}}"
    */
   bailianAppParams?: string;
   /**
    * @remarks
-   * The list of function mappings, which is used to map AI agent capabilities to LLM functions. This feature is supported only when function calls are used in custom LLMs that are compatible with the OpenAI protocol.
+   * The list of function mappings, which is used to map agent capabilities to LLM functions. Currently, only function calling with user-defined OpenAI-compatible LLMs is supported.
    */
   functionMap?: AIAgentOutboundCallConfigLlmConfigFunctionMap[];
   /**
    * @remarks
-   * Specifies whether to keep the LLM message history consistent with the TTS playback content. Default value: false. If you enable this feature, the saved LLM messages are consistent with the TTS playback content.
+   * Specifies whether the LLM message history is consistent with the text-to-speech (TTS) playback content. Default value: false. After this feature is enabled, the saved LLM messages are consistent with the TTS playback content.
    * 
    * @example
    * false
@@ -706,7 +712,7 @@ export class AIAgentOutboundCallConfigLlmConfig extends $dara.Model {
   historySyncWithTTS?: boolean;
   /**
    * @remarks
-   * If you enable this feature, the system sends the complete LLM-generated result to the client after the generation is complete.
+   * After this feature is enabled, the complete LLM result is sent to the client after the LLM generates the result.
    * 
    * @example
    * true
@@ -714,12 +720,12 @@ export class AIAgentOutboundCallConfigLlmConfig extends $dara.Model {
   llmCompleteReply?: boolean;
   /**
    * @remarks
-   * The conversation history of the LLM or MLLM.
+   * The LLM or MLLM conversation history context.
    */
   llmHistory?: AIAgentOutboundCallConfigLlmConfigLlmHistory[];
   /**
    * @remarks
-   * The maximum number of conversational turns to retain in the history of the LLM or multimodal large language model (MLLM). Default value: 10.
+   * The maximum number of retained turns for the LLM or multimodal LLM (MLLM) conversation history context. Default value: 10.
    * 
    * @example
    * 10
@@ -730,12 +736,12 @@ export class AIAgentOutboundCallConfigLlmConfig extends $dara.Model {
    * The system prompt for the LLM after the call is initiated.
    * 
    * @example
-   * 你是一位友好且乐于助人的助手，专注于为用户提供准确的信息和建议。
+   * You are a friendly and helpful assistant, focused on providing users with accurate information and advice.
    */
   llmSystemPrompt?: string;
   /**
    * @remarks
-   * The additional query parameters for an LLM that is compatible with the OpenAI protocol. The parameters must be in the key=value format. If you specify multiple parameters, separate them with ampersands (`&`). All values must be of the string type.
+   * The additional query parameters for the OpenAI-compatible LLM. Parameters must be in the key=value format. Multiple parameters are connected by an ampersand (&). All values must be of the string type.
    * 
    * @example
    * api-version=2024-02-01&api-key=sk-xxx
@@ -743,7 +749,7 @@ export class AIAgentOutboundCallConfigLlmConfig extends $dara.Model {
   openAIExtraQuery?: string;
   /**
    * @remarks
-   * The maximum delay for text output. If this threshold is exceeded, the cached text is forcibly output. Valid values: 1000 to 10000. Unit: ms. A value of 0 or empty indicates that this parameter is not in effect. Default value: empty.
+   * The maximum delay time for text output in milliseconds. If this time is exceeded, the cached text is forcibly output. Valid values: 1000 to 10000. A value of 0 or empty indicates no limit. Default value: empty.
    * 
    * @example
    * 2000
@@ -751,7 +757,7 @@ export class AIAgentOutboundCallConfigLlmConfig extends $dara.Model {
   outputMaxDelay?: string;
   /**
    * @remarks
-   * The minimum length of text output. The unit is characters. Text shorter than this length is cached and waits for concatenation. Valid values: 0 to 100. A value of 0 or empty indicates that this parameter is not in effect. Default value: empty.
+   * The minimum length of text output in characters. Text shorter than this length is cached and waiting to be concatenated. Valid values: 0 to 100. A value of 0 or empty indicates no limit. Default value: empty.
    * 
    * @example
    * 5
@@ -805,17 +811,17 @@ export class AIAgentOutboundCallConfigLlmConfig extends $dara.Model {
 export class AIAgentOutboundCallConfigTtsConfigPronunciationRules extends $dara.Model {
   /**
    * @remarks
-   * The target pronunciation. The pronunciation must be a Chinese character string of up to 10 characters in length and cannot contain spaces.
+   * The target pronunciation. The length must be less than 10 characters. It must consist of Chinese characters and cannot contain spaces.
    * 
    * @example
-   * 大石烂儿
+   * Dashi Lane
    */
   pronunciation?: string;
   /**
    * @remarks
-   * The type of the pronunciation rule. Valid value:
+   * The specific pronunciation rule type. Valid values:
    * 
-   * - `replacement`: replaces the word with the specified pronunciation.
+   * - replacement: The rule that directly replaces the word with the pronunciation.
    * 
    * @example
    * replacement
@@ -823,10 +829,10 @@ export class AIAgentOutboundCallConfigTtsConfigPronunciationRules extends $dara.
   type?: string;
   /**
    * @remarks
-   * The word to be replaced. The word must be a Chinese character string of up to 10 characters in length and cannot contain spaces.
+   * The word to be replaced. The length must be less than 10 characters. It must consist of Chinese characters and cannot contain spaces.
    * 
    * @example
-   * 大栅栏
+   * Dashi Lane
    */
   word?: string;
   static names(): { [key: string]: string } {
@@ -857,21 +863,15 @@ export class AIAgentOutboundCallConfigTtsConfigPronunciationRules extends $dara.
 export class AIAgentOutboundCallConfigTtsConfig extends $dara.Model {
   /**
    * @remarks
-   * Only MiniMax is supported. The following seven emotions are supported:
+   * The emotion. Currently, only MiniMax is supported. MiniMax supports the following seven emotions:
    * 
-   * - `happy`
-   * 
-   * - `sad`
-   * 
-   * - `angry`
-   * 
-   * - `fearful`
-   * 
-   * - `disgusted`
-   * 
-   * - `surprised`
-   * 
-   * - `calm`
+   * - happy: Happy
+   * - sad: Sad
+   * - angry: Angry
+   * - fearful: Fearful
+   * - disgusted: Disgusted
+   * - surprised: Surprised
+   * - calm: Neutral
    * 
    * @example
    * happy
@@ -879,66 +879,35 @@ export class AIAgentOutboundCallConfigTtsConfig extends $dara.Model {
   emotion?: string;
   /**
    * @remarks
-   * Only MiniMax is supported. The default value is empty. This parameter enhances the recognition of specific minority languages and dialects. After you set this parameter, the speech performance in the specified minority language or dialect scenarios is improved. If the minority language type is unknown, you can set this parameter to `auto` to enable the model to automatically determine the minority language type. Valid values:
-   * 
+   * The language ID. Currently, only MiniMax is supported. Default value: empty. This parameter enhances the recognition capability for specified minority languages and dialects. After this parameter is set, the speech performance in the specified minority language or dialect scenarios is improved. If the minority language type is not clear, you can set this parameter to auto, and the model automatically determines the minority language type. Valid values:
    * <details>
+   * <summary>Supported languages</summary>
    * 
-   * <summary>
-   * 
-   * Supported languages
-   * 
-   * </summary>
-   * 
-   * - `Chinese`: Chinese
-   * 
-   * - `Chinese,Yue`: Cantonese
-   * 
-   * - `English`: English
-   * 
-   * - `Arabic`: Arabic
-   * 
-   * - `Russian`: Russian
-   * 
-   * - `Spanish`: Spanish
-   * 
-   * - `French`: French
-   * 
-   * - `Portuguese`: Portuguese
-   * 
-   * - `German`: German
-   * 
-   * - `Turkish`: Turkish
-   * 
-   * - `Dutch`: Dutch
-   * 
-   * - `Ukrainian`: Ukrainian
-   * 
-   * - `Vietnamese`: Vietnamese
-   * 
-   * - `Indonesian`: Indonesian
-   * 
-   * - `Japanese`: Japanese
-   * 
-   * - `Italian`: Italian
-   * 
-   * - `Korean`: Korean
-   * 
-   * - `Thai`: Thai
-   * 
-   * - `Polish`: Polish
-   * 
-   * - `Romanian`: Romanian
-   * 
-   * - `Greek`: Greek
-   * 
-   * - `Czech`: Czech
-   * 
-   * - `Finnish`: Finnish
-   * 
-   * - `Hindi`: Hindi
-   * 
-   * - `auto`: Automatic detection
-   * 
+   * - Chinese: Chinese
+   * - Chinese,Yue: Cantonese
+   * - English: English
+   * - Arabic: Arabic
+   * - Russian: Russian
+   * - Spanish: Spanish
+   * - French: French
+   * - Portuguese: Portuguese
+   * - German: German
+   * - Turkish: Turkish
+   * - Dutch: Dutch
+   * - Ukrainian: Ukrainian
+   * - Vietnamese: Vietnamese
+   * - Indonesian: Indonesian
+   * - Japanese: Japanese
+   * - Italian: Italian
+   * - Korean: Korean
+   * - Thai: Thai
+   * - Polish: Polish
+   * - Romanian: Romanian
+   * - Greek: Greek
+   * - Czech: Czech
+   * - Finnish: Finnish
+   * - Hindi: Hindi
+   * - auto: Automatic detection
    * </details>
    * 
    * @example
@@ -947,7 +916,7 @@ export class AIAgentOutboundCallConfigTtsConfig extends $dara.Model {
   languageId?: string;
   /**
    * @remarks
-   * Only MiniMax is supported. Valid values: `speech-01-turbo` and `speech-02-turbo`.
+   * The model ID. Currently, only MiniMax is supported. Valid values: speech-01-turbo and speech-02-turbo.
    * 
    * @example
    * speech-01-turbo
@@ -955,12 +924,12 @@ export class AIAgentOutboundCallConfigTtsConfig extends $dara.Model {
   modelId?: string;
   /**
    * @remarks
-   * The TTS pronunciation rules. You can specify a maximum of 20 rules in the array. The rules are executed in sequence.
+   * The TTS pronunciation rules. The array length cannot exceed 20. The rules are executed in sequence.
    */
   pronunciationRules?: AIAgentOutboundCallConfigTtsConfigPronunciationRules[];
   /**
    * @remarks
-   * This parameter is supported on all platforms. For CosyVoice, the default value is 1.0 and the valid values are 0.5 to 2.0. For MiniMax, the default value is 1.0 and the valid values are 0.5 to 2.0.
+   * The speech rate. This parameter is supported on all platforms. For CosyVoice, the default value is 1.0, and the valid values are 0.5 to 2.0. For MiniMax, the default value is 1.0, and the valid values are 0.5 to 2.0.
    * 
    * @example
    * 1.0
@@ -968,7 +937,7 @@ export class AIAgentOutboundCallConfigTtsConfig extends $dara.Model {
   speechRate?: number;
   /**
    * @remarks
-   * The voice ID. The change takes effect on the next sentence. If you do not specify this parameter, the voice ID configured in the AI agent template is used. This parameter is valid only for preset TTS voices. The value can be up to 64 characters in length. For more information about the valid values, see [Intelligent speech effect samples](https://help.aliyun.com/document_detail/449563.html).
+   * The voice ID. Changes take effect in the next sentence. If this parameter is not specified, the voice ID configured in the agent template is used. This parameter takes effect only for preset TTS. The input length cannot exceed 64 characters. For valid values, refer to [Intelligent speech effect examples](https://help.aliyun.com/document_detail/449563.html).
    * 
    * @example
    * longcheng_v2
@@ -1020,19 +989,27 @@ export class AIAgentOutboundCallConfigTtsConfig extends $dara.Model {
 
 export class AIAgentOutboundCallConfigTurnDetectionConfig extends $dara.Model {
   /**
+   * @remarks
+   * The eagerness level. This parameter takes effect only in Semantic mode. It controls the speed at which the AI initiates a response after detecting a pause. Valid values:
+   * - Low: Waits patiently with a maximum waiting time of 6 seconds to reduce the risk of being interrupted.
+   * - Medium: Balances waiting with a maximum waiting time of 4 seconds. This value is suitable for most scenarios.
+   * - High: Responds quickly with a maximum waiting time of 2 seconds. This value improves speed but may increase the risk of false cuts.
+   * 
+   * Default value: empty.
+   * 
    * @example
    * Low
    */
   eagerness?: string;
   /**
    * @remarks
-   * The mode for conversational turn detection. Valid values:
+   * The turn detection mode. Valid values:
    * 
-   * - `Normal`: a basic mode that does not use AI for semantic analysis.
+   * - Normal: The normal mode, which does not use AI to determine semantics.
    * 
-   * - `Semantic`: an AI-powered mode that determines whether the user has finished speaking based on the conversational context.
+   * - Semantic: Uses AI to determine whether the user has finished speaking based on the context semantics.
    * 
-   * Default value: `Normal`.
+   * Default value: Normal.
    * 
    * @example
    * Semantic
@@ -1040,13 +1017,13 @@ export class AIAgentOutboundCallConfigTurnDetectionConfig extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The pause duration in AI mode that is used to determine whether a conversational turn has ended. Unit: ms. Default value: -1.
+   * The pause determination time in AI mode. Unit: milliseconds. Default value: -1.
    * 
-   * - `-1`: The AI automatically determines an appropriate wait time.
+   * - -1: AI automatically determines the appropriate waiting time.
    * 
-   * - `0-10000`: A custom wait time. We recommend that you set this parameter to a value from 0 to 1500.
+   * - 0 to 10000: Custom waiting time. We recommend that you set this value to 0 to 1500.
    * 
-   * Note: This parameter is invalid in Normal mode.
+   * Note: This parameter is invalid in normal mode.
    * 
    * @example
    * -1
@@ -1054,7 +1031,7 @@ export class AIAgentOutboundCallConfigTurnDetectionConfig extends $dara.Model {
   semanticWaitDuration?: number;
   /**
    * @remarks
-   * The list of keywords that are used to determine the end of a user\\"s conversational turn.
+   * The list of keywords used to determine the end of a user turn.
    */
   turnEndWords?: string[];
   static names(): { [key: string]: string } {
@@ -1090,36 +1067,34 @@ export class AIAgentOutboundCallConfigTurnDetectionConfig extends $dara.Model {
 export class AIAgentOutboundCallConfig extends $dara.Model {
   /**
    * @remarks
-   * The configurations for ambient sound.
+   * The ambient sound configuration for calls.
    */
   ambientSoundConfig?: AIAgentOutboundCallConfigAmbientSoundConfig;
   /**
    * @remarks
-   * The automatic speech recognition (ASR) configurations.
+   * The speech recognition configuration.
    */
   asrConfig?: AIAgentOutboundCallConfigAsrConfig;
   /**
    * @remarks
-   * The configurations for the automatic speech module of the AI agent, which includes prompts during LLM delays and inquiries during prolonged user silence.
+   * The automatic speech configuration module for the agent, including LLM waiting prompts and user long-time silence inquiries.
    */
   autoSpeechConfig?: AIAgentOutboundCallConfigAutoSpeechConfig;
   /**
    * @remarks
-   * >Notice: 
-   * 
-   * This parameter is deprecated. Use `BackChannelingConfigs` instead.
+   * **[Deprecated]** Use BackChannelingConfigs instead.
    * 
    * @deprecated
    */
   backChannelingConfig?: AIAgentOutboundCallConfigBackChannelingConfig;
   /**
    * @remarks
-   * The configurations for the back-channeling feature module. If you enable this feature, the system randomly plays short and affirmative phrases at specific trigger points.
+   * The backchanneling feature configuration module. After this feature is enabled, the system randomly broadcasts short backchanneling words at specific trigger timings.
    */
   backChannelingConfigs?: AIAgentOutboundCallConfigBackChannelingConfigs[];
   /**
    * @remarks
-   * Specifies whether to enable intelligent segmentation. If you enable this feature, short and consecutive speech segments from the user are merged into a complete sentence. Default value: `true`.
+   * Specifies whether to enable intelligent segmentation. After this feature is enabled, fragmented sentences spoken by the user are intelligently merged into a single sentence. Default value: true.
    * 
    * @example
    * true
@@ -1127,7 +1102,7 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
   enableIntelligentSegment?: boolean;
   /**
    * @remarks
-   * The parameters for experimental features. If you have any requirements, contact technical support.
+   * The parameters for experimental features. Contact technical support if you have any requirements.
    * 
    * @example
    * ""
@@ -1135,15 +1110,15 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
   experimentalConfig?: string;
   /**
    * @remarks
-   * The welcome message. This change takes effect in the next call session. If this parameter is not set, no welcome message is played.
+   * The greeting message. Changes take effect in the next session. Default value: none.
    * 
    * @example
-   * 你好
+   * hello
    */
   greeting?: string;
   /**
    * @remarks
-   * The delay before the welcome message is played. Unit: ms. Default value: 0. Valid values: 0 to 5000.
+   * The delay time for the greeting message. Unit: milliseconds. Default value: 0. Valid values: 0 to 5000.
    * 
    * @example
    * 0
@@ -1151,17 +1126,17 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
   greetingDelay?: number;
   /**
    * @remarks
-   * The speech interruption policy configurations.
+   * The speech interruption policy configuration.
    */
   interruptConfig?: AIAgentOutboundCallConfigInterruptConfig;
   /**
    * @remarks
-   * The configurations of the large language model (LLM).
+   * The large language model (LLM) configuration.
    */
   llmConfig?: AIAgentOutboundCallConfigLlmConfig;
   /**
    * @remarks
-   * The maximum wait time for interaction with the AI agent. If the wait time is exceeded, the AI agent goes offline. Unit: seconds. Default value: 600.
+   * The maximum waiting time without interaction with the agent. If this time is exceeded, the agent goes offline. Unit: seconds. Default value: 600.
    * 
    * @example
    * 600
@@ -1169,12 +1144,12 @@ export class AIAgentOutboundCallConfig extends $dara.Model {
   maxIdleTime?: number;
   /**
    * @remarks
-   * The text-to-speech (TTS) configurations.
+   * The speech synthesis configuration.
    */
   ttsConfig?: AIAgentOutboundCallConfigTtsConfig;
   /**
    * @remarks
-   * The configurations for conversational turn detection.
+   * The conversation turn detection configuration.
    */
   turnDetectionConfig?: AIAgentOutboundCallConfigTurnDetectionConfig;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTraceM3u8JobListRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the creation time range for the query, in UNIX timestamp format.
+   * The end time for creation, in UNIX timestamp format.
    * 
    * @example
    * 1627357325
@@ -13,7 +13,7 @@ export class QueryTraceM3u8JobListRequest extends $dara.Model {
   createTimeEnd?: number;
   /**
    * @remarks
-   * The start of the creation time range for the query, in UNIX timestamp format.
+   * The start time for creation, in UNIX timestamp format.
    * 
    * @example
    * 1627357322
@@ -21,7 +21,7 @@ export class QueryTraceM3u8JobListRequest extends $dara.Model {
   createTimeStart?: number;
   /**
    * @remarks
-   * The job ID. You can obtain the value of this parameter from the response of the SubmitTraceM3u8Job operation.
+   * The job ID. You can obtain it from the response parameters returned when you submit a video tracing watermark m3u8 job.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -37,7 +37,7 @@ export class QueryTraceM3u8JobListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10

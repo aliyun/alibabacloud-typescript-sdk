@@ -6,7 +6,7 @@ export class AlterSearchIndexRequest extends $dara.Model {
   /**
    * @remarks
    * The index configuration.
-   * >Notice:  You must specify either IndexStatus or IndexConfig.
+   * >Notice:  You must specify either the IndexStatus or IndexConfig parameter.
    * 
    * @example
    * {}
@@ -15,10 +15,10 @@ export class AlterSearchIndexRequest extends $dara.Model {
   /**
    * @remarks
    * The index status. Default value: Active. Valid values:
-   * - Active: activated.
-   * - Deactive: deactivated.
+   * - Active: Activated.
+   * - Deactive: Deactivated.
    * 
-   * >Notice:  You must specify either IndexStatus or IndexConfig.
+   * >Notice:  You must specify either the IndexStatus or IndexConfig parameter.
    * 
    * @example
    * Active
@@ -27,9 +27,9 @@ export class AlterSearchIndexRequest extends $dara.Model {
   /**
    * @remarks
    * The index type. Valid values:
-   * - mm: large model.
-   * - face: face.
-   * - aiLabel: intelligent tag.
+   * - mm: Large model.
+   * - face: Face.
+   * - aiLabel: Intelligent tag.
    * 
    * This parameter is required.
    * 
@@ -39,10 +39,10 @@ export class AlterSearchIndexRequest extends $dara.Model {
   indexType?: string;
   /**
    * @remarks
-   * The search library name.
+   * The name of the search library.
    * 
-   * - If no search library name is specified, the search index is created in the default IMS search library. Default value: ims-default-search-lib.
-   * - You can call the [QuerySearchLib](https://help.aliyun.com/document_detail/2584455.html) operation to query existing search library information.
+   * - If you do not specify the search library name, the search index is created in the default search library of IMS. Default value: ims-default-search-lib.
+   * - You can also call the [QuerySearchLib](https://help.aliyun.com/document_detail/2584455.html) operation to query existing search library information.
    * 
    * @example
    * test1

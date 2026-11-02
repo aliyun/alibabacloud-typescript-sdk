@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIAgentPhoneNumberResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Phone number.
+   * The phone number.
    * 
    * @example
    * 132*****683
@@ -13,15 +13,15 @@ export class ListAIAgentPhoneNumberResponseBodyData extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * Phone number status.
+   * The phone number status. Valid values:
    * 
-   * - 1: "Activation in progress".
+   * - 1: Activation in progress.
    * 
-   * - 2: "Normal".
+   * - 2: Normal.
    * 
-   * - 3: "Deactivation in progress".
+   * - 3: Unregistering.
    * 
-   * - 4: "Deactivated".
+   * - 4: Unregistered.
    * 
    * @example
    * 1
@@ -53,12 +53,12 @@ export class ListAIAgentPhoneNumberResponseBodyData extends $dara.Model {
 export class ListAIAgentPhoneNumberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Array of returned Data.
+   * The returned data array.
    */
   data?: ListAIAgentPhoneNumberResponseBodyData[];
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -66,7 +66,7 @@ export class ListAIAgentPhoneNumberResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Number of records returned per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -74,7 +74,7 @@ export class ListAIAgentPhoneNumberResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * ************16-412C-B127-******
@@ -82,7 +82,7 @@ export class ListAIAgentPhoneNumberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of phone numbers found in the query.
+   * The total number of phone numbers returned.
    * 
    * @example
    * 186

@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMediaInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to delete the physical file of the media asset.
-   * 
-   * If the media asset is stored in your own OSS bucket, you must authorize the service role AliyunICEDefaultRole in advance. For more information<props="china">, see [Authorize IMS to delete recording files in OSS](https://help.aliyun.com/zh/ims/user-guide/record?spm=a2c4g.11186623.0.i8#0737d9c437bmn).
+   * Specifies whether to delete the physical files of the media assets. If the storage address of a media asset is a user-owned OSS bucket, you must authorize the AliyunICEDefaultRole service role in advance<props="china">. For more information, see [Delete recorded files (OSS authorization management)](https://www.alibabacloud.com/help/en/ims/user-guide/record#0737d9c437bmn).
    * 
    * @example
    * false
@@ -15,24 +13,15 @@ export class DeleteMediaInfosRequest extends $dara.Model {
   deletePhysicalFiles?: boolean;
   /**
    * @remarks
-   * The URL of the media asset that you want to delete. The file corresponding to the URL must be registered with IMS. Separate multiple URLs with commas (,). The following two formats are supported:
-   * 
-   * 1. http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?
-   * 
-   * 2. OSS://example-bucket/example.mp4?<br>
-   *    In this format, it is considered by default that the region of the OSS bucket in which the media asset resides is the same as the region in which IMS is activated.
+   * The URLs of the media assets to be deleted in the corresponding system. The files corresponding to the URLs must be registered in IMS first. Separate multiple URLs with commas (,). Two formats are supported: 1. http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4? 2. OSS://example-bucket/example.mp4? In the second format, the default OSS region is the same as the service registration area.
    * 
    * @example
-   * Http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4? or oss://example-bucket/example.mp4?
+   * http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?
    */
   inputURLs?: string;
   /**
    * @remarks
-   * The ID of the media asset that you want to delete from Intelligent Media Services (IMS).
-   * 
-   * - Separate multiple IDs with commas (,).
-   * 
-   * If you leave MediaIds empty, you must specify InputURLs.
+   * The IMS media asset IDs. Separate multiple IDs with commas (,). If the MediaIds parameter is empty, the InputURLs parameter must not be empty.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****,****15d4a4b0448391508f2cb486****

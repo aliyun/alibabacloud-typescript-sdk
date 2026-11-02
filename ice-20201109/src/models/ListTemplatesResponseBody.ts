@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTemplatesResponseBodyTemplates extends $dara.Model {
   /**
    * @remarks
-   * The clip parameters.
+   * The editing parameters.
    * 
    * @example
    * {"Media1":"mediaId","Text1":"text"}
@@ -13,15 +13,15 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
   clipsParam?: string;
   /**
    * @remarks
-   * The template configurations.
+   * The template configuration.
    * 
    * @example
-   * See Timeline template configuration details.
+   * Refer to Timeline template configuration details
    */
   config?: string;
   /**
    * @remarks
-   * The thumbnail URL.
+   * The cover URL.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
@@ -29,15 +29,7 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The source from which the template was created.
-   * 
-   * Valid values:
-   * 
-   * - AliyunConsole
-   * 
-   * - WebSDK
-   * 
-   * - OpenAPI
+   * The creation source.
    * 
    * @example
    * OpenAPI
@@ -45,7 +37,7 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
   createSource?: string;
   /**
    * @remarks
-   * The time when the template was created.
+   * The creation time. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -53,15 +45,7 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The source from which the template was modified.
-   * 
-   * Valid values:
-   * 
-   * - AliyunConsole
-   * 
-   * - WebSDK
-   * 
-   * - OpenAPI
+   * The modification source.
    * 
    * @example
    * OpenAPI
@@ -69,7 +53,7 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
   modifiedSource?: string;
   /**
    * @remarks
-   * The time when the template was last modified.
+   * The modification time. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -85,7 +69,7 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The preview media asset.
+   * The preview media.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -93,17 +77,7 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
   previewMedia?: string;
   /**
    * @remarks
-   * The state of the preview media asset.
-   * 
-   * Valid values:
-   * 
-   * - PrepareFail
-   * 
-   * - Init
-   * 
-   * - Normal
-   * 
-   * - Preparing
+   * The preview media status.
    * 
    * @example
    * Normal
@@ -111,21 +85,7 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
   previewMediaStatus?: string;
   /**
    * @remarks
-   * The template state.
-   * 
-   * Valid values:
-   * 
-   * - UploadFailed: Failed to upload the video.
-   * 
-   * - ProcessFailed: Failed to process the advanced template.
-   * 
-   * - Available: The template is available.
-   * 
-   * - Uploading: The video is being uploaded.
-   * 
-   * - Created: The template is created but not ready for use.
-   * 
-   * - Processing: The advanced template is being processed.
+   * The template status.
    * 
    * @example
    * Available
@@ -141,13 +101,7 @@ export class ListTemplatesResponseBodyTemplates extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The template type.
-   * 
-   * Valid values:
-   * 
-   * - Timeline: regular template.
-   * 
-   * - VETemplate: advanced template.
+   * The templatetype.
    * 
    * @example
    * Timeline
@@ -209,12 +163,12 @@ export class ListTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried templates.
+   * The list of templates.
    */
   templates?: ListTemplatesResponseBodyTemplates[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the request conditions.
    * 
    * @example
    * 100

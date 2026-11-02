@@ -5,21 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitDynamicImageJobRequestInput extends $dara.Model {
   /**
    * @remarks
-   * The input media resource.
+   * The input media.
    * 
-   * - If `Type` is set to `OSS`, specify the OSS URL of the input file.
+   * - If Type is set to OSS, specify an OSS URL.
    * 
-   * - If `Type` is set to `Media`, specify the media asset ID.
+   * - If Type is set to Media, specify a media asset ID.
    * 
-   * An OSS URL must be in one of the following formats:
+   * OSS URL format:
    * 
-   * 1. `oss://bucket/object`
+   * 1. oss://bucket/object
    * 
-   * 2. `http(s)://bucket.oss-[RegionId].aliyuncs.com/object`
+   * 1. http(s)://bucket.oss-[RegionId].aliyuncs.com/object
    * 
-   * In these formats, `bucket` is the name of an OSS bucket in the same region as the current project, and `object` is the file path.
+   * In the URL, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
-   * > The specified OSS bucket must be registered in IMS [storage management](https://help.aliyun.com/document_detail/609918.html).
+   * > Before you use the OSS bucket in the URL, add it to IMS [storage management](https://help.aliyun.com/document_detail/609918.html).
    * 
    * This parameter is required.
    * 
@@ -29,11 +29,11 @@ export class SubmitDynamicImageJobRequestInput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the job input. Valid values:
+   * The input type. Valid values:
    * 
-   * - `OSS`: An Object Storage Service (OSS) file URL.
+   * - OSS: an OSS file URL.
    * 
-   * - `Media`: A media asset ID.
+   * - Media: a media asset ID.
    * 
    * This parameter is required.
    * 
@@ -67,15 +67,15 @@ export class SubmitDynamicImageJobRequestInput extends $dara.Model {
 export class SubmitDynamicImageJobRequestOutput extends $dara.Model {
   /**
    * @remarks
-   * The destination OSS URL for the output file. This parameter is required when `Type` is set to `OSS`. The URL must be in one of the following formats:
+   * The output media. Both OSS URLs and media asset IDs are supported.
+   * OSS URL format:
    * 
-   * - `oss://bucket/object`
+   * - oss://bucket/object
+   * - http(s)://bucket.oss-[regionId].aliyuncs.com/object
    * 
-   * - `http(s)://bucket.oss-[regionId].aliyuncs.com/object`
+   * In the URL, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
-   * In these formats, `bucket` is the name of an OSS bucket in the same region as the current project, and `object` is the file path.
-   * 
-   * > The specified OSS bucket must be registered in IMS [storage management](https://help.aliyun.com/document_detail/609918.html).
+   * > Before you use the OSS bucket in the URL, add it to IMS [storage management](https://help.aliyun.com/document_detail/609918.html).
    * 
    * This parameter is required.
    * 
@@ -85,11 +85,11 @@ export class SubmitDynamicImageJobRequestOutput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the job output. Valid values:
+   * The output type. Valid values:
    * 
-   * - `OSS`: The output is an OSS file.
+   * - OSS: an OSS file URL.
    * 
-   * - `Media`: The output is a new media asset.
+   * - Media: a media asset ID.
    * 
    * This parameter is required.
    * 
@@ -131,7 +131,7 @@ export class SubmitDynamicImageJobRequestScheduleConfig extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The priority of the job. Valid range: [1, 10]. A higher value indicates a higher priority. Default value: 6.
+   * The priority. Valid values: 1 to 10. Default value: 6. A larger value indicates a higher priority.
    * 
    * @example
    * 6
@@ -163,11 +163,9 @@ export class SubmitDynamicImageJobRequestScheduleConfig extends $dara.Model {
 export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParamsTimeSpan extends $dara.Model {
   /**
    * @remarks
-   * The duration of the video segment to be processed.
-   * 
+   * The duration.
    * - Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
-   * 
-   * - Valid range: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+   * - Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
    * 
    * @example
    * 01:59:59.999 or 32000.23
@@ -175,11 +173,9 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParamsTimeSpan e
   duration?: string;
   /**
    * @remarks
-   * The end time of the video segment to be processed. If this parameter is set, the `Duration` parameter is ignored.
-   * 
+   * The tail trimming duration, which specifies the length of time to trim from the end. When this parameter is set, the Duration parameter becomes invalid.
    * - Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
-   * 
-   * - Valid range: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+   * - Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
    * 
    * @example
    * 01:59:59.999 or 32000.23
@@ -187,11 +183,10 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParamsTimeSpan e
   end?: string;
   /**
    * @remarks
-   * The start time of the video segment to be processed.
+   * The start time.  
    * 
    * - Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
-   * 
-   * - Valid range: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+   * - Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
    * 
    * @example
    * 01:59:59.999 or 32000.23
@@ -226,10 +221,8 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParams extends $
   /**
    * @remarks
    * The animated image format. Valid values:
-   * 
-   * - `gif`
-   * 
-   * - `webp`
+   * - gif
+   * - webp
    * 
    * @example
    * gif
@@ -237,7 +230,7 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParams extends $
   format?: string;
   /**
    * @remarks
-   * The frame rate. Valid range: [1, 60].
+   * The frame rate. Valid values: 1 to 60.
    * 
    * @example
    * 15
@@ -245,7 +238,7 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParams extends $
   fps?: number;
   /**
    * @remarks
-   * The height of the output animated image. Valid range: [128, 4096].
+   * The height of the output animated image. Valid values: 128 to 4096.
    * 
    * @example
    * 720
@@ -253,15 +246,13 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParams extends $
   height?: number;
   /**
    * @remarks
-   * Specifies whether to enable adaptive orientation based on the long and short edges of the video. Valid values:
+   * Specifies whether to enable auto-rotation (long-short side mode). Valid values:
    * 
-   * - **true**: Enables adaptive orientation.
-   * 
-   * - **false**: Disables adaptive orientation.
+   * - **true**: Enables auto-rotation.
+   * - **false**: Disables auto-rotation.
    * 
    * Default value: **true**.
-   * 
-   * > When enabled, this mode sets the output width to the source video\\"s long edge and the output height to its short edge. For a portrait video, its height is treated as the long edge and its width as the short edge.
+   * > The width of the transcoding output corresponds to the long side of the input source (the height for portrait videos), and the height corresponds to the short side of the input source (the width for portrait videos).
    * 
    * @example
    * false
@@ -271,9 +262,9 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParams extends $
    * @remarks
    * The scan mode. Valid values:
    * 
-   * - **interlaced**: Interlaced scanning.
+   * - **interlaced**: interlaced scan.
    * 
-   * - **progressive**: Progressive scanning. This is the default value.
+   * - **progressive**: progressive scan. This is the default value.
    * 
    * @example
    * progressive
@@ -281,12 +272,12 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParams extends $
   scanMode?: string;
   /**
    * @remarks
-   * Specifies the time range of the video to process for the animated image.
+   * The timeline parameters.
    */
   timeSpan?: SubmitDynamicImageJobRequestTemplateConfigOverwriteParamsTimeSpan;
   /**
    * @remarks
-   * The width of the output animated image. Valid range: [128, 4096].
+   * The width of the output animated image. Valid values: 128 to 4096.
    * 
    * @example
    * 1024
@@ -331,7 +322,7 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParams extends $
 export class SubmitDynamicImageJobRequestTemplateConfig extends $dara.Model {
   /**
    * @remarks
-   * The overwrite parameters.
+   * The override parameters.
    */
   overwriteParams?: SubmitDynamicImageJobRequestTemplateConfigOverwriteParams;
   /**
@@ -373,14 +364,14 @@ export class SubmitDynamicImageJobRequestTemplateConfig extends $dara.Model {
 export class SubmitDynamicImageJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job input.
+   * The task input.
    * 
    * This parameter is required.
    */
   input?: SubmitDynamicImageJobRequestInput;
   /**
    * @remarks
-   * The job name.
+   * The task name.
    * 
    * @example
    * SampleJob
@@ -388,7 +379,7 @@ export class SubmitDynamicImageJobRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The job output.
+   * The task output.
    * 
    * This parameter is required.
    */
@@ -407,7 +398,7 @@ export class SubmitDynamicImageJobRequest extends $dara.Model {
   templateConfig?: SubmitDynamicImageJobRequestTemplateConfig;
   /**
    * @remarks
-   * The user-defined data.
+   * The custom user data.
    * 
    * @example
    * {"SampleKey": "SampleValue"}

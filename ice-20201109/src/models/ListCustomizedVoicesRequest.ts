@@ -13,7 +13,7 @@ export class ListCustomizedVoicesRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Valid values: 1 to 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -21,13 +21,10 @@ export class ListCustomizedVoicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * - The voice type. Valid values:
-   * 
-   *   - Basic
-   * 
-   *   - Standard
-   * 
-   * - If you do not specify this parameter, the default value Basic is used.
+   * The voice type. Valid values:
+   * - Basic: Basic edition.
+   * - Standard: Standard edition.
+   * If you do not specify this parameter, the default value Basic is used.
    * 
    * @example
    * Standard

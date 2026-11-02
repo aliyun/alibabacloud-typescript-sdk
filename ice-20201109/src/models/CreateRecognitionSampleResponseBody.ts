@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRecognitionSampleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -13,7 +13,7 @@ export class CreateRecognitionSampleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the sample.
+   * The ID of the created sample.
    * 
    * @example
    * **************4d2ba728e2f**************

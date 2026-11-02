@@ -6,9 +6,9 @@ import { MediaConvertSegment } from "./MediaConvertSegment";
 export class MediaConvertMuxConfig extends $dara.Model {
   /**
    * @remarks
-   * Shard configuration field. For more information, see Segment details.
+   * The segment configuration field. For more information, see the Segment details.
    * 
-   * This field takes effect only when Container is set to m3u8, hls-fmp4, mpd, or cmaf.
+   * This parameter takes effect only when Container is set to m3u8, hls-fmp4, mpd, or cmaf.
    */
   segment?: MediaConvertSegment;
   static names(): { [key: string]: string } {

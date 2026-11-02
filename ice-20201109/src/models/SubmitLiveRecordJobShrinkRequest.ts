@@ -23,21 +23,21 @@ export class SubmitLiveRecordJobShrinkRequest extends $dara.Model {
   notifyUrl?: string;
   /**
    * @remarks
-   * The recording storage address.
+   * The storage URL for the recording.
    * 
    * This parameter is required.
    */
   recordOutputShrink?: string;
   /**
    * @remarks
-   * The live stream address.
+   * The live stream URL.
    * 
    * This parameter is required.
    */
   streamInputShrink?: string;
   /**
    * @remarks
-   * The recording template ID.
+   * The ID of the recording template.
    * 
    * This parameter is required.
    * 

@@ -6,12 +6,12 @@ import { VodPackagingConfiguration } from "./VodPackagingConfiguration";
 export class GetVodPackagingConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the packaging configuration.
+   * The details of the VOD packaging configuration.
    */
   packagingConfiguration?: VodPackagingConfiguration;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******

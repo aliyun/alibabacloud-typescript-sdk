@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList extends $dara.Model {
   /**
    * @remarks
-   * - The time when the job was created.
-   * 
-   * - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the task was created. The time is in UTC.
    * 
    * @example
    * 2023-04-01T06:23:59Z
@@ -16,10 +14,8 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
   /**
    * @remarks
    * The gender. Valid values:
-   * 
-   * - female
-   * 
-   * - male
+   * - female: Female.
+   * - male: Male.
    * 
    * @example
    * female
@@ -27,7 +23,7 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
   gender?: string;
   /**
    * @remarks
-   * The time when the job was created.
+   * The creation time.
    * 
    * @example
    * 2022-06-27T02:42:28Z
@@ -35,7 +31,7 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
   gmtCreate?: string;
   /**
    * @remarks
-   * The ID of the human voice cloning job.
+   * The ID of the voice cloning task.
    * 
    * @example
    * 2245ab99a7fd4116a4fd3f499b7a56c5
@@ -43,21 +39,18 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
   jobId?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional description of the status.
    * 
    * @example
-   * Training succeeded
+   * Successful training
    */
   message?: string;
   /**
    * @remarks
    * The scenario. Valid values:
-   * 
-   * - story
-   * 
-   * - interaction
-   * 
-   * - navigation
+   * - story: Story.
+   * - interaction: Interaction.
+   * - navigation: Navigation.
    * 
    * @example
    * story
@@ -65,19 +58,13 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
   scenario?: string;
   /**
    * @remarks
-   * The job state. Valid values:
-   * 
-   * - Initialization
-   * 
-   * - AudioDetecting
-   * 
-   * - PreTraining
-   * 
-   * - Training
-   * 
-   * - Success
-   * 
-   * - Fail
+   * The status of the task. Valid values:
+   * - Initialization: Initialized.
+   * - AudioDetecting: Audio detection in progress.
+   * - PreTraining: Submitted and pending training.
+   * - Training: Training in progress.
+   * - Success: Training succeeded.
+   * - Fail: Training failed.
    * 
    * @example
    * Success
@@ -85,11 +72,9 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
   status?: string;
   /**
    * @remarks
-   * - The voice type. Valid values:
-   * 
-   *   - Basic
-   * 
-   *   - Standard
+   * The voice type. Valid values:
+   * - Basic: Basic edition.
+   * - Standard: Standard edition.
    * 
    * @example
    * Standard
@@ -97,17 +82,16 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
   type?: string;
   /**
    * @remarks
-   * The voice description.
-   * 
-   * - The description can be up to 256 characters in length.
+   * The description of the voice.
+   * - The description cannot exceed 256 characters in length.
    * 
    * @example
-   * 这是这个声音的描述
+   * This is the description of this voice
    */
   voiceDesc?: string;
   /**
    * @remarks
-   * The voice ID.
+   * The ID of the voice.
    * 
    * @example
    * xiaozhuan
@@ -115,12 +99,11 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
   voiceId?: string;
   /**
    * @remarks
-   * The voice name.
-   * 
-   * - The name can be up to 32 characters in length.
+   * The name of the voice, which is typically in Chinese.
+   * - The name cannot exceed 32 characters in length.
    * 
    * @example
-   * 小专
+   * Small Special
    */
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -167,12 +150,12 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
 export class ListCustomizedVoiceJobsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The queried human voice cloning jobs.
+   * The list of voice cloning tasks.
    */
   customizedVoiceJobList?: ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 271
@@ -207,7 +190,7 @@ export class ListCustomizedVoiceJobsResponseBodyData extends $dara.Model {
 export class ListCustomizedVoiceJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ListCustomizedVoiceJobsResponseBodyData;
   /**
@@ -220,7 +203,9 @@ export class ListCustomizedVoiceJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true false
+   * Indicates whether the operation was successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

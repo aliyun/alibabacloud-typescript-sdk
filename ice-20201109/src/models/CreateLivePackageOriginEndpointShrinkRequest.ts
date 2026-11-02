@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorization code. You must specify at least one of AuthorizationCode and IpWhitelist. Maximum length: 200 characters. Format: [A-Za-z0-9-_.]+
+   * The authorization code. You must specify at least one of AuthorizationCode and IpWhitelist. The code can be up to 200 characters in length. Format: [A-Za-z0-9-_.]+.
    * 
    * @example
    * AbcDef123
@@ -23,7 +23,7 @@ export class CreateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * The idempotency token.
+   * The idempotency parameter.
    * 
    * @example
    * ****0311a423d11a5f7dee713535****
@@ -34,12 +34,12 @@ export class CreateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
    * The description of the endpoint.
    * 
    * @example
-   * This is an origin endpoint.
+   * This is an origin endpoint
    */
   description?: string;
   /**
    * @remarks
-   * The name of the origin endpoint. The name must contain only letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
+   * The name of the origin endpoint. The name must be 1 to 200 characters in length and can contain only uppercase and lowercase letters, digits, hyphens (-), and underscores (_). Format: [A-Za-z0-9_-]+.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class CreateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The IP blacklist. Subnet masks are supported. The value 0.0.0.0/0 is not allowed. Separate multiple IP addresses with commas (,). Maximum length: 1000 characters.
+   * The IP blacklist. Subnet masks are supported. You cannot configure 0.0.0.0/0. Separate multiple IP addresses with commas (,). The blacklist can be up to 1,000 characters in length.
    * 
    * @example
    * 103.21.222.1/32,192.168.100.0/24
@@ -67,7 +67,7 @@ export class CreateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   ipBlacklist?: string;
   /**
    * @remarks
-   * The IP whitelist. Subnet masks are supported. The value 0.0.0.0/0 is not allowed. Separate multiple IP addresses with commas (,). You must specify at least one of IpWhitelist and AuthorizationCode. Maximum length: 1000 characters.
+   * The IP address whitelist. Subnet masks are supported. You cannot configure 0.0.0.0/0. Separate multiple IP addresses with commas (,). You must specify at least one of IpWhitelist and AuthorizationCode. The whitelist can be up to 1,000 characters in length.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1/24
@@ -80,7 +80,7 @@ export class CreateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   livePackagingConfigShrink?: string;
   /**
    * @remarks
-   * The manifest name. Default value: manifest.
+   * The name of the manifest. Default value: manifest.
    * 
    * @example
    * manifest
@@ -98,7 +98,7 @@ export class CreateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of days for time-shifting. Maximum value: 30. Default value: 0, which indicates that time-shifting is not supported.
+   * The time-shift duration in days. Maximum value: 30. Default value: 0, which indicates that time-shift is not supported.
    * 
    * @example
    * 1

@@ -5,18 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAIAgentInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The AI agent configuration to update. This configuration is merged with the existing configuration of the instance. For more information, see the AIAgentConfig definition. The following parameters in AIAgentConfig can be updated:
+   * The agent configuration to be updated. This configuration is merged with the configuration used when the instance was started. For more information, see the AIAgentConfig definition. The following parameters in AIAgentTemplateConfig can be updated:
    * 
    * - VoiceId
    * 
    * - EnableVoiceInterrupt
-   * 
    * - Greeting
    * 
    * - Volume
    * 
    * - EnablePushToTalk
-   * 
    * - UseVoiceprint
    * 
    * - BailianAppParams
@@ -24,9 +22,9 @@ export class UpdateAIAgentInstanceShrinkRequest extends $dara.Model {
   agentConfigShrink?: string;
   /**
    * @remarks
-   * The ID of the AI agent instance.
+   * The agent instance ID.
    * 
-   * > This unique ID is returned after the AI agent instance starts successfully. For more information about starting an agent, see [StartAIAgentInstance](https://help.aliyun.com/document_detail/2846201.html) and [GenerateAIAgentCall](https://help.aliyun.com/document_detail/2846209.html).
+   * > The InstanceId is the unique ID returned after the agent instance is successfully started. For more information about the API operations used to start an agent, see [StartAIAgentInstance](https://help.aliyun.com/document_detail/2846201.html) and [GenerateAIAgentCall](https://help.aliyun.com/document_detail/2846209.html).
    * 
    * This parameter is required.
    * 
@@ -36,31 +34,31 @@ export class UpdateAIAgentInstanceShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * > The AI agent template configuration. This parameter is deprecated. Use the AgentConfig parameter instead.
+   * > The agent template configuration. **[Deprecated]** Use the AgentConfig parameter instead.
    * 
-   * The AI agent configuration to update. This configuration is merged with the existing configuration of the instance. For more information, see the [AIAgentTemplateConfig](https://help.aliyun.com/document_detail/2846193.html) definition.
+   * The agent configuration to be updated. This configuration is merged with the configuration used when the instance was started. For more information, see the [AIAgentTemplateConfig](https://help.aliyun.com/document_detail/2846193.html) definition.
    * The following parameters in AIAgentTemplateConfig can be updated:
    * 
-   * - VoiceId (Voice ID)
+   * - VoiceId (voice ID)
    * 
-   * - EnableVoiceInterrupt (Enable voice interruption)
+   * - EnableVoiceInterrupt (enable voice interruption)
    * 
-   * - Greeting (Greeting)
+   * - Greeting (greeting)
    * 
-   * - Volume (Volume)
+   * - Volume (volume)
    * 
-   * - EnablePushToTalk (Enable push-to-talk)
+   * - EnablePushToTalk (enable push-to-talk)
    * 
-   * - UseVoiceprint (Use voiceprint)
+   * - UseVoiceprint (use voiceprint)
    * 
-   * - AsrMaxSilence (ASR maximum silence duration)
+   * - AsrMaxSilence (maximum ASR silence duration)
    * 
    * @deprecated
    */
   templateConfigShrink?: string;
   /**
    * @remarks
-   * Custom user data.
+   * The custom user data.
    * 
    * @example
    * {"VoiceId":"xiaoxia"}

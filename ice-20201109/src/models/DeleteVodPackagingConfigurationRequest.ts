@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVodPackagingConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the packaging configuration.
+   * The name of the VOD packaging configuration.
    * 
    * @example
    * hls_3s

@@ -5,11 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitTraceM3u8JobRequestOutput extends $dara.Model {
   /**
    * @remarks
-   * The output file path. Only OSS paths are supported. You can use one of the following formats:
+   * The output file information. OSS addresses are supported. The OSS address rules are as follows:
    * 
-   * 1\\. `oss://bucket/object`
+   * 1. oss://bucket/object
    * 
-   * 2\\. `http(s)://bucket.oss-[regionId].aliyuncs.com/object`. In these formats, `bucket` specifies the name of an OSS bucket in the same region as your project, and `object` specifies the file path.
+   * 2. http(s)://bucket.oss-[regionId].aliyuncs.com/object
+   * where bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
    * This parameter is required.
    * 
@@ -19,9 +20,9 @@ export class SubmitTraceM3u8JobRequestOutput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the output destination. Valid values:
+   * The output file type. Valid values:
    * 
-   * 1. `OSS`: an OSS file location.
+   * 1. OSS: OSS file address.
    * 
    * This parameter is required.
    * 
@@ -63,22 +64,23 @@ export class SubmitTraceM3u8JobRequest extends $dara.Model {
   keyUri?: string;
   /**
    * @remarks
-   * The OSS destination for the output M3U8 file.
+   * The OSS output address of the m3u8 file.
    * 
-   * > The OSS bucket must be in the same region as your MPS service.
+   * 
+   * > The region of the OSS bucket must be the same as the region of the current MPS.
    * 
    * This parameter is required.
    */
   output?: SubmitTraceM3u8JobRequestOutput;
   /**
    * @remarks
-   * A JSON string that contains parameters for the watermarking job. The following parameter is supported:
+   * The watermark job parameters. The value is a JSON string. The following parameters are supported:
    * 
-   * - `m3u8Type`: The algorithm type. The default value is `v1`.
+   * - m3u8Type: the algorithm type. Default value: v1.
    * 
-   *   - `v1`: Generates an M3U8 file that uses an absolute path. The file can be played directly. The signature is valid for 24 hours. After expiration, you must submit a new job to get a new M3U8 file.
+   *   - v1: generates an m3u8 file with an absolute path, which can be played directly. The signature authentication is valid for 24 hours. After the authentication expires, you must resubmit the job to obtain the m3u8 file.
    * 
-   *   - `v2`: Generates an M3U8 file that uses a relative path. This file must be stored in the same directory as the TS files.
+   *   - v2: generates an m3u8 file with a relative path, which must be placed in the same directory as the TS files.
    * 
    * @example
    * {"m3u8Type":"v1"}
@@ -86,15 +88,15 @@ export class SubmitTraceM3u8JobRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * The watermark content to embed.
+   * The tracing watermark information.
    * 
    * @example
-   * Trace watermark test
+   * Traceability Watermark Test
    */
   trace?: string;
   /**
    * @remarks
-   * The media ID of the processed A/B stream for video watermarking for tracing. This ID is returned in the response when you submit the A/B stream job.
+   * The media ID of the processed tracing watermark AB stream. You can obtain this ID from the response parameters of the operation that submits a video tracing watermark AB stream job.
    * 
    * @example
    * 437bd2b516ffda105d07b12a9a82****

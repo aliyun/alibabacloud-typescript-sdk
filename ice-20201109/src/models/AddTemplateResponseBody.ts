@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class AddTemplateResponseBodyTemplate extends $dara.Model {
   /**
    * @remarks
-   * See the Timeline template Config documentation.
+   * The configuration of the template.
    * 
    * @example
-   * See the Config documentation
+   * See Config documentation
    */
   config?: string;
   /**
    * @remarks
-   * The template cover URL.
+   * The URL of the template cover.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
@@ -21,7 +21,7 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
   coverUrl?: string;
   /**
    * @remarks
-   * The template creation source.
+   * The source from which the template was created.
    * 
    * @example
    * OpenAPI
@@ -29,7 +29,7 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
   createSource?: string;
   /**
    * @remarks
-   * The template modification source.
+   * The source from which the template was modified.
    * 
    * @example
    * OpenAPI
@@ -37,10 +37,10 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
   modifiedSource?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
-   * Template name
+   * TemplateName
    */
   name?: string;
   /**
@@ -53,7 +53,7 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
   previewMedia?: string;
   /**
    * @remarks
-   * The template status.
+   * The status of the template.
    * 
    * @example
    * Available
@@ -61,7 +61,7 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the template.
    * 
    * @example
    * ****01bf24bf41c78b2754cb3187****

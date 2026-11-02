@@ -13,7 +13,7 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateCo
   bitrate?: string;
   /**
    * @remarks
-   * The number of sound channels.
+   * The number of audio channels.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateCo
   profile?: string;
   /**
    * @remarks
-   * The audio sampling rate.
+   * The audio sample rate.
    * 
    * @example
    * 44100
@@ -99,7 +99,7 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateCo
   fps?: string;
   /**
    * @remarks
-   * The group of pictures (GOP) of the output video. Unit: frame.
+   * The video GOP. Unit: frames.
    * 
    * @example
    * 1000
@@ -107,7 +107,7 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateCo
   gop?: string;
   /**
    * @remarks
-   * The vertical resolution of the video.
+   * The video resolution height.
    * 
    * @example
    * 1280
@@ -123,7 +123,7 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateCo
   profile?: string;
   /**
    * @remarks
-   * The horizontal resolution of the video.
+   * The video resolution width.
    * 
    * @example
    * 720
@@ -205,7 +205,7 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateCo
 export class ListLiveTranscodeTemplatesResponseBodyTemplateContentList extends $dara.Model {
   /**
    * @remarks
-   * The category of the template. Valid values:
+   * The template category.
    * 
    * @example
    * system
@@ -213,7 +213,7 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentList extends $
   category?: string;
   /**
    * @remarks
-   * The time when the job was created.
+   * The creation time.
    * 
    * @example
    * 2022-07-20T03:26:36Z
@@ -229,7 +229,7 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentList extends $
   name?: string;
   /**
    * @remarks
-   * The configuration of the template.
+   * The template configuration.
    */
   templateConfig?: ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateConfig;
   /**
@@ -242,7 +242,7 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentList extends $
   templateId?: string;
   /**
    * @remarks
-   * The type of the template.
+   * The templatetype.
    * 
    * @example
    * normal
@@ -298,7 +298,7 @@ export class ListLiveTranscodeTemplatesResponseBody extends $dara.Model {
   templateContentList?: ListLiveTranscodeTemplatesResponseBodyTemplateContentList[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * @example
    * test-template
@@ -13,11 +13,9 @@ export class ListCustomTemplatesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sort order of the results. Valid values:
-   * 
-   * - `CreationTime:Desc`: Sorts the results by Creation Time in descending order.
-   * 
-   * - `CreationTime:Asc`: Sorts the results by Creation Time in ascending order.
+   * The sort order. Valid values:
+   * - CreateTimeDesc: Sorts by creation time in descending order.
+   * - CreateTimeAsc: Sorts by creation time in ascending order.
    * 
    * @example
    * CreateTimeDesc
@@ -25,7 +23,7 @@ export class ListCustomTemplatesRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number of the results to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -41,41 +39,24 @@ export class ListCustomTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The subtype of the template. This parameter applies only when `Type` is set to 1, 2, 7, or 9.
-   * 
-   * - Transcoding Template subtypes:
-   * 
-   *   - 1: Normal (`Normal`)
-   * 
-   *   - 2: Audio-only (`AudioTranscode`)
-   * 
-   *   - 3: Remuxing (`Remux`)
-   * 
-   *   - 4: Narrowband HD 1.0 (`NarrowBandV1`)
-   * 
-   *   - 5: Narrowband HD 2.0 (`NarrowBandV2`)
-   * 
-   * - Screenshot Template subtypes:
-   * 
-   *   - 1: Normal (`Normal`)
-   * 
-   *   - 2: Sprite Image (`Sprite`)
-   * 
-   *   - 3: WebVTT (`WebVtt`)
-   * 
-   * - AI Content Moderation subtypes:
-   * 
-   *   - 1: Video moderation (`Video`)
-   * 
-   *   - 2: Audio moderation (`Audio`)
-   * 
-   *   - 3: Image moderation (`Image`)
-   * 
-   * - AI-powered Object Removal subtypes:
-   * 
-   *   - 1: Logo Removal (`VideoDelogo`)
-   * 
-   *   - 2: Text Removal (`VideoDetext`)
+   * The template subtype ID. Valid values:
+   * - Subtypes for transcode templates:
+   *     - 1: Normal transcode template (Normal).
+   *     - 2: Audio transcode template (AudioTranscode).
+   *     - 3: Remux (Remux).
+   *     - 4: Narrowband HD 1.0 (NarrowBandV1).
+   *     - 5: Narrowband HD 2.0 (NarrowBandV2).
+   * - Subtypes for snapshot templates:
+   *     - 1: Normal snapshot or static snapshot (Normal).
+   *     - 2: Sprite snapshot (Sprite).
+   *     - 3: WebVTT snapshot (WebVtt).
+   * - Subtypes for AI content moderation templates:
+   *     - 1: Video moderation (Video).
+   *     - 2: Audio moderation (Audio).
+   *     - 3: Image moderation (Image).
+   * - Subtypes for AI intelligent erasure templates:
+   *     - 1: Logo erasure (VideoDelogo).
+   *     - 2: Subtitle erasure (VideoDetext).
    * 
    * @example
    * 2
@@ -83,7 +64,7 @@ export class ListCustomTemplatesRequest extends $dara.Model {
   subtype?: string;
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
    * @example
    * ****96e8864746a0b6f3****
@@ -91,25 +72,16 @@ export class ListCustomTemplatesRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The type of the template. Valid values:
-   * 
-   * - 1: Transcoding Template
-   * 
-   * - 2: Screenshot Template
-   * 
-   * - 3: Animated GIF Template
-   * 
-   * - 4: Image Watermark Template
-   * 
-   * - 5: Text Watermark Template
-   * 
-   * - 6: Subtitle Template
-   * 
-   * - 7: AI Content Moderation
-   * 
-   * - 8: AI-powered Smart Cover
-   * 
-   * - 9: AI-powered Object Removal
+   * The templatetype. Separate multiple values with commas. Valid values:
+   * - 1: Transcode template.
+   * - 2: Snapshot template.
+   * - 3: Animated image template.
+   * - 4: Image watermark template.
+   * - 5: Text watermark template.
+   * - 6: Subtitle template.
+   * - 7: AI content moderation.
+   * - 8: AI intelligent cover.
+   * - 9: AI intelligent erasure.
    * 
    * This parameter is required.
    * 

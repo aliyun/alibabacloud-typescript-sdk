@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * **Request ID**
+   * **The request ID.**
    * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
@@ -13,11 +13,9 @@ export class StopChannelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Specifies whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

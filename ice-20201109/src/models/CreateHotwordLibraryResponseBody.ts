@@ -13,7 +13,7 @@ export class CreateHotwordLibraryResponseBody extends $dara.Model {
   hotwordLibraryId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 13cbb83e-043c-4728-ac35-*****

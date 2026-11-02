@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AddYikeUserCreditResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the operation fails. The following value is supported:
-   * 
-   * - NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA: The credit balance of the main account is insufficient.
+   * The error code. This parameter is returned when the increase fails. Valid values:
+   * - NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA: The credit balance of the Alibaba Cloud account is insufficient.
    * 
    * @example
    * NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA
@@ -23,11 +22,9 @@ export class AddYikeUserCreditResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
-   * 
-   * - true: The operation was successful.
-   * 
-   * - false: The operation failed.
+   * Indicates whether the credits are increased successfully. Valid values:
+   * - true: Succeeded.
+   * - false: Failed.
    * 
    * @example
    * true

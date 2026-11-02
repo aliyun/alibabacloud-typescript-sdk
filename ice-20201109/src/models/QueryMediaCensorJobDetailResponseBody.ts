@@ -7,19 +7,19 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCen
    * @remarks
    * The label of the moderation result. Valid values:
    * 
-   * - **normal**: normal content.
+   * - **normal**: normal
    * 
-   * - **spam**: spam.
+   * - **spam**: spam
    * 
-   * - **ad**: ads.
+   * - **ad**: advertisement
    * 
-   * - **abuse**: abuse content.
+   * - **abuse**: abuse
    * 
-   * - **flood**: excessive junk content.
+   * - **flood**: flooding
    * 
-   * - **contraband**: prohibited content.
+   * - **contraband**: contraband
    * 
-   * - **meaningless**: meaningless content.
+   * - **meaningless**: meaningless
    * 
    * @example
    * normal
@@ -35,7 +35,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCen
   rate?: string;
   /**
    * @remarks
-   * The moderation scenario. The value is **antispam**.
+   * The moderation scene. Set the value to **antispam**, which indicates text anti-spam.
    * 
    * @example
    * antispam
@@ -43,13 +43,13 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCen
   scene?: string;
   /**
    * @remarks
-   * The recommended subsequent operation. Valid values:
+   * The moderation suggestion. Valid values:
    * 
    * - **pass**: The content passes the moderation.
    * 
-   * - **review**: The content needs to be manually reviewed.
+   * - **review**: The content requires manual review.
    * 
-   * - **block**: The content needs to be blocked.
+   * - **block**: The content is blocked.
    * 
    * @example
    * pass
@@ -206,19 +206,19 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensor
    * @remarks
    * The label of the moderation result. Valid values:
    * 
-   * - **normal**: normal content.
+   * - **normal**: normal
    * 
-   * - **spam**: spam.
+   * - **spam**: spam
    * 
-   * - **ad**: ads.
+   * - **ad**: advertisement
    * 
-   * - **abuse**: abuse content.
+   * - **abuse**: abuse
    * 
-   * - **flood**: excessive junk content.
+   * - **flood**: flooding
    * 
-   * - **contraband**: prohibited content.
+   * - **contraband**: contraband
    * 
-   * - **meaningless**: meaningless content.
+   * - **meaningless**: meaningless
    * 
    * @example
    * terrorism
@@ -234,7 +234,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensor
   rate?: string;
   /**
    * @remarks
-   * The moderation scenario. The value is **antispam**.
+   * The moderation scene. Set the value to **antispam**, which indicates text anti-spam.
    * 
    * @example
    * antispam
@@ -242,13 +242,13 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensor
   scene?: string;
   /**
    * @remarks
-   * The recommended subsequent operation. Valid values:
+   * The moderation suggestion. Valid values:
    * 
    * - **pass**: The content passes the moderation.
    * 
-   * - **review**: The content needs to be manually reviewed.
+   * - **review**: The content requires manual review.
    * 
-   * - **block**: The content needs to be blocked.
+   * - **block**: The content is blocked.
    * 
    * @example
    * review
@@ -284,7 +284,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensor
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailInput extends $dara.Model {
   /**
    * @remarks
-   * The name of the OSS bucket in which the input file is stored.
+   * The OSS bucket of the input file.
    * 
    * @example
    * bucket-test-in-****
@@ -292,7 +292,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailInput exte
   bucket?: string;
   /**
    * @remarks
-   * The OSS region in which the input file resides.
+   * The OSS location of the input file.
    * 
    * @example
    * oss-cn-shanghai
@@ -300,7 +300,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailInput exte
   location?: string;
   /**
    * @remarks
-   * The name of the OSS object that is used as the input file.
+   * The OSS object of the input file.
    * 
    * @example
    * test/ai/censor/test-****.mp4
@@ -336,19 +336,19 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCenso
    * @remarks
    * The label of the moderation result. Valid values:
    * 
-   * - **normal**: normal content.
+   * - **normal**: normal
    * 
-   * - **spam**: spam.
+   * - **spam**: spam
    * 
-   * - **ad**: ads.
+   * - **ad**: advertisement
    * 
-   * - **abuse**: abuse content.
+   * - **abuse**: abuse
    * 
-   * - **flood**: excessive junk content.
+   * - **flood**: flooding
    * 
-   * - **contraband**: prohibited content.
+   * - **contraband**: contraband
    * 
-   * - **meaningless**: meaningless content.
+   * - **meaningless**: meaningless
    * 
    * @example
    * meaningless
@@ -364,7 +364,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCenso
   rate?: string;
   /**
    * @remarks
-   * The moderation scenario. The value is **antispam**.
+   * The moderation scene. Set the value to **antispam**, which indicates text anti-spam.
    * 
    * @example
    * antispam
@@ -372,13 +372,13 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCenso
   scene?: string;
   /**
    * @remarks
-   * The recommended subsequent operation. Valid values:
+   * The moderation suggestion. Valid values:
    * 
    * - **pass**: The content passes the moderation.
    * 
-   * - **review**: The content needs to be manually reviewed.
+   * - **review**: The content requires manual review.
    * 
-   * - **block**: The content needs to be blocked.
+   * - **block**: The content is blocked.
    * 
    * @example
    * block
@@ -589,7 +589,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
   censorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultCensorResults;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token for the next page.
    * 
    * @example
    * ea04afcca7cd4e80b9ece8fbb251****
@@ -630,7 +630,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfigOutputFile extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket in which the output snapshot is stored.
+   * The OSS bucket where the snapshot output file is stored.
    * 
    * @example
    * test-bucket-****
@@ -638,7 +638,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCenso
   bucket?: string;
   /**
    * @remarks
-   * The OSS region in which the output snapshot resides.
+   * The OSS location of the OSS bucket where the snapshot output file is stored.
    * 
    * @example
    * oss-cn-shanghai
@@ -646,9 +646,9 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCenso
   location?: string;
   /**
    * @remarks
-   * The OSS object that is generated as the output snapshot.
+   * The OSS object of the snapshot output file.
    * 
-   * > In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg`, `output00002-****.jpg`, and so on.
+   * > In the example, {Count} is a placeholder. The image objects are sequentially named `output00001-****.jpg`, `output00002-****.jpg`, and so on.
    * 
    * @example
    * output{Count}.jpg
@@ -690,16 +690,16 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCenso
   bizType?: string;
   /**
    * @remarks
-   * The information about output snapshots.
+   * The storage address of the video snapshot results.
    */
   outputFile?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfigOutputFile;
   /**
    * @remarks
-   * Indicates whether the video content needs to be moderated. Default value: **true**. Valid values:
+   * Specifies whether to moderate the video content. Default value: **true**. Valid values:
    * 
-   * - **true**: The video content needs to be moderated.
+   * - **true**: Moderate the video content.
    * 
-   * - **false**: The video content does not need to be moderated.
+   * - **false**: Do not moderate the video content.
    * 
    * @example
    * true
@@ -736,12 +736,12 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCenso
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $dara.Model {
   /**
    * @remarks
-   * The moderation results of live comments.
+   * The barrage moderation result.
    */
   barrageCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCensorResult;
   /**
    * @remarks
-   * The error code returned if the job failed. This parameter is not returned if the job is successful.
+   * The error code returned when the job fails. This parameter is not returned when the job is successful.
    * 
    * @example
    * InvalidParameter.ResourceNotFound
@@ -750,7 +750,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
   coverImageCensorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResults;
   /**
    * @remarks
-   * The time when the content moderation job was created.
+   * The creation time. The time is in the ISO 8601 format and in UTC (ending with Z).
    * 
    * @example
    * 2018-09-13T16:32:24Z
@@ -758,12 +758,12 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
   creationTime?: string;
   /**
    * @remarks
-   * The moderation results of descriptions.
+   * The description moderation result.
    */
   descCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensorResult;
   /**
    * @remarks
-   * The time when the content moderation job was complete.
+   * The completion time. The time is in the ISO 8601 format and in UTC (ending with Z).
    * 
    * @example
    * 2018-09-13T16:38:24Z
@@ -771,7 +771,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
   finishTime?: string;
   /**
    * @remarks
-   * The information about the job input.
+   * The job input.
    */
   input?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailInput;
   /**
@@ -784,7 +784,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
   jobId?: string;
   /**
    * @remarks
-   * The error message returned if the job failed. This parameter is not returned if the job is successful.
+   * The error message returned when the job fails. This parameter is not returned when the job is successful.
    * 
    * @example
    * The resource operated cannot be found
@@ -792,7 +792,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
   message?: string;
   /**
    * @remarks
-   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the job was submitted.
+   * The pipeline ID.
    * 
    * @example
    * c5b30b7c0d0e4a0abde1d5f9e751****
@@ -800,7 +800,7 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
   pipelineId?: string;
   /**
    * @remarks
-   * The job state.
+   * The job status.
    * 
    * @example
    * Success
@@ -808,15 +808,15 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
   state?: string;
   /**
    * @remarks
-   * The overall result of the content moderation job. Valid values:
+   * The overall moderation result of the job. Valid values:
    * 
    * - **pass**: The content passes the moderation.
    * 
-   * - **review**: The content needs to be manually reviewed.
+   * - **review**: The content requires manual review.
    * 
-   * - **block**: The content needs to be blocked.
+   * - **block**: The content is blocked.
    * 
-   * > If the moderation result of any type of content is review, the overall result is review. If the moderation result of any type of content is block, the overall result is block.
+   * > If the moderation result of any type is review, the overall result is review. If the moderation result of any type is block, the overall result is block.
    * 
    * @example
    * block
@@ -824,12 +824,12 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
   suggestion?: string;
   /**
    * @remarks
-   * The moderation results of titles.
+   * The title moderation result.
    */
   titleCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCensorResult;
   /**
    * @remarks
-   * The user-defined data.
+   * The custom user data.
    * 
    * @example
    * example userdata ****
@@ -837,12 +837,12 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
   userData?: string;
   /**
    * @remarks
-   * The moderation results of videos.
+   * The video moderation results.
    */
   vensorCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResult;
   /**
    * @remarks
-   * The video moderation configurations.
+   * The video moderation configuration.
    */
   videoCensorConfig?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfig;
   static names(): { [key: string]: string } {
@@ -920,12 +920,12 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
 export class QueryMediaCensorJobDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The results of the content moderation job.
+   * The list of content moderation job results.
    */
   mediaCensorJobDetail?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * B42299E6-F71F-465F-8FE9-4FC2E3D3C2CA

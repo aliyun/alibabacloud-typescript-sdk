@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaProducingJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media producing job.
+   * The ID of the video editing and producing job.
    * 
    * @example
    * ****cdb3e74639973036bc84****

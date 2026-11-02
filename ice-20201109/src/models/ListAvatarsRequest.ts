@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAvatarsRequest extends $dara.Model {
   /**
    * @remarks
-   * - The type of the digital human.
-   * 
-   * - 2DAvatar
+   * The type of the digital human. Valid value: 2DAvatar.
    * 
    * @example
    * 2DAvatar
@@ -15,9 +13,7 @@ export class ListAvatarsRequest extends $dara.Model {
   avatarType?: string;
   /**
    * @remarks
-   * - The page number.
-   * 
-   * - Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -25,9 +21,7 @@ export class ListAvatarsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * - The number of entries per page.
-   * 
-   * - Default value: 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10

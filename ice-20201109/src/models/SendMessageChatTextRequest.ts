@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendMessageChatTextRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AI agent.
+   * The agent ID.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,11 @@ export class SendMessageChatTextRequest extends $dara.Model {
   AIAgentId?: string;
   /**
    * @remarks
-   * The mode of message sending. Valid values:
+   * The sending mode. Valid values:
    * 
-   * - online
+   * - online: online message
    * 
-   * - offline
+   * - offline: offline message
    * 
    * Default value: offline.
    * 
@@ -29,7 +29,7 @@ export class SendMessageChatTextRequest extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * Specifies whether to archive chat records. Default value: true.
+   * Specifies whether to archive the chat history. Default value: true.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class SendMessageChatTextRequest extends $dara.Model {
   needArchiving?: boolean;
   /**
    * @remarks
-   * The ID of the user who receives the message. The ID can be up to 64 bytes in length and can contain letters and digits.
+   * The ID of the user who receives the message. The ID can contain uppercase and lowercase letters and digits and must not exceed 64 bytes in length.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class SendMessageChatTextRequest extends $dara.Model {
   receiverId?: string;
   /**
    * @remarks
-   * The ID of the session.
+   * The session ID.
    * 
    * This parameter is required.
    * 
@@ -57,21 +57,21 @@ export class SendMessageChatTextRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The content of the message.
+   * The text content to send.
    * 
    * This parameter is required.
    * 
    * @example
-   * Hello.
+   * hello
    */
   text?: string;
   /**
    * @remarks
-   * The type of the message. Valid values:
+   * The type of the message to send. Valid values:
    * 
-   * - announcement: notification.
+   * - announcement: proactive notification text
    * 
-   * - custom: custom message.
+   * - custom: custom message
    * 
    * This parameter is required.
    * 

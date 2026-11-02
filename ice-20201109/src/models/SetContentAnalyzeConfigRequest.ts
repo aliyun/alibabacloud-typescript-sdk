@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SetContentAnalyzeConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically start Intelligent Content Analysis after a Media Asset is registered.
+   * Specifies whether to automatically initiate intelligent content analysis after media asset registration is complete.
    * 
    * Valid values:
-   * 
-   * - true: Enable
-   * 
-   * - false: Disable (Default)
+   * - true: Enabled.
+   * - false: Disabled. Default value: false.
    * 
    * @example
    * true
@@ -19,15 +17,12 @@ export class SetContentAnalyzeConfigRequest extends $dara.Model {
   auto?: boolean;
   /**
    * @remarks
-   * The storage type for analysis results. This parameter applies only when Auto is set to true. Default: Empty.
+   * The type of library to which analysis results are saved. This parameter can be configured only when Auto is set to true. Default value: empty.
+   * - TEXT: label
+   * - FACE: face
+   * - DNA: similar image
    * 
-   * - TEXT: Label
-   * 
-   * - FACE: Face
-   * 
-   * - DNA: Similar Image
-   * 
-   * You can specify multiple values separated by commas. If this parameter is empty, Intelligent Content Analysis results are not saved to any search library, and you cannot perform content searches.
+   * Multiple values are supported. Separate multiple values with commas (,). If this field is empty, the results of intelligent content analysis are not saved to any search library by default, and no content search of any form can be performed subsequently.
    * 
    * @example
    * TEXT,FACE
@@ -35,13 +30,10 @@ export class SetContentAnalyzeConfigRequest extends $dara.Model {
   saveType?: string;
   /**
    * @remarks
-   * The ID of the Intelligent Content Analysis Template. Each Template includes the following AI analysis features:
-   * 
-   * - S00000101-100040: Text Recognition
-   * 
-   * - S00000101-100060: Video Categorization and Face Recognition
-   * 
-   * - S00000101-100070: Text Recognition, Video Categorization, and Face Recognition
+   * The ID of the intelligent content analysis template. Each template includes the following AI analysis features:
+   * - S00000101-100040: optical character recognition (OCR)
+   * - S00000101-100060: video classification + face recognition
+   * - S00000101-100070: OCR + video classification + face recognition
    * 
    * @example
    * S00000101-100070

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLiveSnapshotJobResponseBodySnapshotOutput extends $dara.Model {
   /**
    * @remarks
-   * The bucket of the output endpoint. If the storage type is set to oss, the OSS bucket is returned.
+   * The bucket of the output endpoint. The OSS bucket is returned when the type is oss.
    * 
    * @example
    * testbucket
@@ -13,7 +13,7 @@ export class GetLiveSnapshotJobResponseBodySnapshotOutput extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * The output endpoint. If the storage type is set to oss, the Object Storage Service (OSS) domain name is returned.
+   * The output endpoint. The OSS domain name is returned when the type is oss.
    * 
    * @example
    * oss-cn-shanghai.aliyuncs.com
@@ -21,7 +21,7 @@ export class GetLiveSnapshotJobResponseBodySnapshotOutput extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The storage type. The value can only be oss.
+   * The storage type. Currently, only OSS is supported.
    * 
    * @example
    * oss
@@ -55,7 +55,7 @@ export class GetLiveSnapshotJobResponseBodySnapshotOutput extends $dara.Model {
 export class GetLiveSnapshotJobResponseBodyStreamInput extends $dara.Model {
   /**
    * @remarks
-   * The type of the input stream. The value can only be rtmp.
+   * The input type. Currently, only RTMP is supported.
    * 
    * @example
    * rtmp
@@ -63,7 +63,7 @@ export class GetLiveSnapshotJobResponseBodyStreamInput extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The URL of the input stream.
+   * The input URL.
    * 
    * @example
    * rtmp://www.aliyun.com/stream
@@ -103,7 +103,7 @@ export class GetLiveSnapshotJobResponseBody extends $dara.Model {
   callbackUrl?: string;
   /**
    * @remarks
-   * The time when the file was created.
+   * The creation time. The time is in ISO 8601 format and in UTC (ending with Z).
    * 
    * @example
    * 2022-02-02T22:22:22Z
@@ -119,15 +119,15 @@ export class GetLiveSnapshotJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
    * 
    * @example
-   * Screenshot task 1
+   * Snapshot job 1
    */
   jobName?: string;
   /**
    * @remarks
-   * The time when the file was last modified.
+   * The last modified time.
    * 
    * @example
    * 2022-02-02T22:22:22Z
@@ -135,7 +135,7 @@ export class GetLiveSnapshotJobResponseBody extends $dara.Model {
   lastModified?: string;
   /**
    * @remarks
-   * The naming format of the snapshot captured in overwrite mode.
+   * The overwrite snapshot format.
    * 
    * @example
    * snapshot/{JobId}.jpg
@@ -151,7 +151,7 @@ export class GetLiveSnapshotJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The naming format of the snapshot captured in time series mode.
+   * The sequence snapshot format.
    * 
    * @example
    * snapshot/{JobId}/{UnixTimestamp}.jpg
@@ -164,15 +164,7 @@ export class GetLiveSnapshotJobResponseBody extends $dara.Model {
   snapshotOutput?: GetLiveSnapshotJobResponseBodySnapshotOutput;
   /**
    * @remarks
-   * The state of the job.
-   * 
-   * Valid values:
-   * 
-   * - init: The job is not started.
-   * 
-   * - paused: The job is paused.
-   * 
-   * - started: The job is in progress.
+   * The job status.
    * 
    * @example
    * started
@@ -193,7 +185,7 @@ export class GetLiveSnapshotJobResponseBody extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * @example
    * Template 1
@@ -201,7 +193,7 @@ export class GetLiveSnapshotJobResponseBody extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The interval between two adjacent snapshots.
+   * The snapshot interval. Unit: seconds.
    * 
    * @example
    * 5

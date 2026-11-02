@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMeterImsMediaConvertUHDUsageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The usage duration, in minutes.
+   * The duration. Unit: minutes.
    * 
    * @example
    * 308028
@@ -13,7 +13,7 @@ export class DescribeMeterImsMediaConvertUHDUsageResponseBodyData extends $dara.
   duration?: number;
   /**
    * @remarks
-   * The transcoding specifications.
+   * The transcoding specification.
    * 
    * @example
    * SuperResolution.Standard.1080P
@@ -21,7 +21,7 @@ export class DescribeMeterImsMediaConvertUHDUsageResponseBodyData extends $dara.
   specification?: string;
   /**
    * @remarks
-   * The beginning time of usage. The value is a 10-digit timestamp.
+   * The start timestamp of the time period, which is a 10-digit UNIX timestamp.
    * 
    * @example
    * 1656950400
@@ -55,7 +55,7 @@ export class DescribeMeterImsMediaConvertUHDUsageResponseBodyData extends $dara.
 export class DescribeMeterImsMediaConvertUHDUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The usage statistics of IMS on UHD transcoding of MPS.
+   * The metering data for MPS UHD transcoding in IMS.
    */
   data?: DescribeMeterImsMediaConvertUHDUsageResponseBodyData[];
   /**

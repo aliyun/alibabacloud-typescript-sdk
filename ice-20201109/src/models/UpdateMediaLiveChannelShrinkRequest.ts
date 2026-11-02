@@ -10,7 +10,7 @@ export class UpdateMediaLiveChannelShrinkRequest extends $dara.Model {
   audioSettingsShrink?: string;
   /**
    * @remarks
-   * The ID of the channel.
+   * The channel ID.
    * 
    * This parameter is required.
    * 
@@ -20,14 +20,14 @@ export class UpdateMediaLiveChannelShrinkRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
-   * The inputs associated with the channel.
+   * The input attachment settings.
    * 
    * This parameter is required.
    */
   inputAttachmentsShrink?: string;
   /**
    * @remarks
-   * The name of the channel. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * The channel name. The name can contain letters, digits, hyphens (-), and underscores (_). The name can be up to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class UpdateMediaLiveChannelShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output groups.
+   * The output group configuration.
    * 
    * This parameter is required.
    */

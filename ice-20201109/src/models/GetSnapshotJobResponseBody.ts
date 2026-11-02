@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSnapshotJobResponseBodySnapshotJobInputOssFile extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket.
+   * OSS Bucket
    * 
    * @example
    * test-bucket
@@ -13,7 +13,7 @@ export class GetSnapshotJobResponseBodySnapshotJobInputOssFile extends $dara.Mod
   bucket?: string;
   /**
    * @remarks
-   * The OSS location.
+   * OSS Location
    * 
    * @example
    * oss-cn-shanghai
@@ -21,7 +21,7 @@ export class GetSnapshotJobResponseBodySnapshotJobInputOssFile extends $dara.Mod
   location?: string;
   /**
    * @remarks
-   * The OSS object.
+   * OSS Object
    * 
    * @example
    * object.mp4
@@ -55,11 +55,11 @@ export class GetSnapshotJobResponseBodySnapshotJobInputOssFile extends $dara.Mod
 export class GetSnapshotJobResponseBodySnapshotJobInput extends $dara.Model {
   /**
    * @remarks
-   * The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
-   * 
-   * 1. oss\\://bucket/object
-   * 
-   * 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * The input media. If Type is set to OSS, enter the OSS object URL. If Type is set to Media, enter the media asset ID.
+   * The OSS object URL must be in one of the following formats:
+   * - oss://bucket/object
+   * - http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * In the URLs, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
    * @example
    * oss://test-bucket/object.mp4
@@ -67,16 +67,14 @@ export class GetSnapshotJobResponseBodySnapshotJobInput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The three key elements of OSS.
+   * The OSS triplet.
    */
   ossFile?: GetSnapshotJobResponseBodySnapshotJobInputOssFile;
   /**
    * @remarks
-   * The type of the input file. Valid values:
-   * 
-   * 1. OSS: an Object Storage Service (OSS) object.
-   * 
-   * 2. Media: a media asset.
+   * The input type. Valid values:
+   * - OSS: the URL of an OSS object.
+   * - Media: the media asset ID.
    * 
    * @example
    * OSS
@@ -113,7 +111,7 @@ export class GetSnapshotJobResponseBodySnapshotJobInput extends $dara.Model {
 export class GetSnapshotJobResponseBodySnapshotJobOutputOssFile extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket.
+   * OSS Bucket
    * 
    * @example
    * test-bucket
@@ -121,7 +119,7 @@ export class GetSnapshotJobResponseBodySnapshotJobOutputOssFile extends $dara.Mo
   bucket?: string;
   /**
    * @remarks
-   * The OSS location.
+   * OSS Location
    * 
    * @example
    * oss-cn-shanghai
@@ -129,7 +127,7 @@ export class GetSnapshotJobResponseBodySnapshotJobOutputOssFile extends $dara.Mo
   location?: string;
   /**
    * @remarks
-   * The OSS object.
+   * OSS Object
    * 
    * @example
    * output-{Count}.jpg
@@ -163,13 +161,18 @@ export class GetSnapshotJobResponseBodySnapshotJobOutputOssFile extends $dara.Mo
 export class GetSnapshotJobResponseBodySnapshotJobOutput extends $dara.Model {
   /**
    * @remarks
-   * The output file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+   * The output media. If Type is set to OSS, enter the OSS object URL. If Type is set to Media, enter the media asset ID.
+   * The OSS object URL must be in one of the following formats:
+   * - oss://bucket/object
+   * - http(s)://bucket.oss-[RegionId].aliyuncs.com/object
    * 
-   * 1. oss\\://bucket/object
+   * In the URLs, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
-   * 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * - When capturing multiple static snapshots, the object must contain the "{Count}" placeholder.
    * 
-   * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS. If multiple static snapshots were captured, the object must contain the "{Count}" placeholder. In the case of a sprite, the object must contain the "{TileCount}" placeholder. The suffix of the WebVTT snapshot objects must be ".vtt".
+   * - When capturing sprite snapshots, the object must contain the "{TileCount}" placeholder.
+   * 
+   * - For WebVTT snapshots, the object extension must be ".vtt".
    * 
    * @example
    * http://test-bucket.oss-cn-shanghai.aliyuncs.com/output-{Count}.jpg
@@ -177,16 +180,14 @@ export class GetSnapshotJobResponseBodySnapshotJobOutput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The three key elements of OSS.
+   * The OSS triplet.
    */
   ossFile?: GetSnapshotJobResponseBodySnapshotJobOutputOssFile;
   /**
    * @remarks
-   * The type of the output file. Valid values:
-   * 
-   * 1. OSS: an OSS object.
-   * 
-   * 2. Media: a media asset.
+   * The output type. Valid values:
+   * - OSS: the URL of an OSS object.
+   * - Media: the media asset ID.
    * 
    * @example
    * OSS
@@ -223,7 +224,7 @@ export class GetSnapshotJobResponseBodySnapshotJobOutput extends $dara.Model {
 export class GetSnapshotJobResponseBodySnapshotJob extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the snapshots were captured in asynchronous mode. Default value: true.
+   * Specifies whether to capture snapshots asynchronously. Default value: true.
    * 
    * @example
    * true
@@ -231,7 +232,7 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $dara.Model {
   async?: boolean;
   /**
    * @remarks
-   * Error codes
+   * The error code.
    * 
    * @example
    * ResourceNotFound
@@ -247,7 +248,7 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The time when the job was created.
+   * The creation time. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -255,7 +256,7 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the job was complete.
+   * The time when the job was completed. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:30:54Z
@@ -263,7 +264,7 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The input of the job.
+   * The job input.
    */
   input?: GetSnapshotJobResponseBodySnapshotJobInput;
   /**
@@ -276,7 +277,7 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The error message that is returned.
+   * The error message.
    * 
    * @example
    * The specified resource for "Pipeline" could not be found.
@@ -284,7 +285,7 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The time when the job was last modified.
+   * The last modification time. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:30:54Z
@@ -292,20 +293,20 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
    * 
    * @example
-   * Test task
+   * Test job
    */
   name?: string;
   /**
    * @remarks
-   * The output of the job.
+   * The job output.
    */
   output?: GetSnapshotJobResponseBodySnapshotJobOutput;
   /**
    * @remarks
-   * The ID of the MPS queue to which the job was submitted.
+   * The pipeline ID.
    * 
    * @example
    * ****d80e4e4044975745c14b****
@@ -313,15 +314,7 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The state of the job.
-   * 
-   * Valid values:
-   * 
-   * - Init: The job is submitted.
-   * 
-   * - Success: The job is successful.
-   * 
-   * - Fail: The job failed.
+   * The job status.
    * 
    * @example
    * Success
@@ -329,7 +322,7 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the job was submitted.
+   * The time when the job was submitted. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -353,15 +346,7 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The request trigger source.
-   * 
-   * Valid values:
-   * 
-   * - Console
-   * 
-   * - Workflow
-   * 
-   * - API
+   * The trigger source of the request.
    * 
    * @example
    * API
@@ -369,15 +354,7 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $dara.Model {
   triggerSource?: string;
   /**
    * @remarks
-   * Snapshot types
-   * 
-   * Valid values:
-   * 
-   * - WebVtt
-   * 
-   * - Sprite
-   * 
-   * - Normal
+   * The snapshot type.
    * 
    * @example
    * Sprite
@@ -385,7 +362,7 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The user-defined parameters.
+   * The custom user data.
    * 
    * @example
    * {"test parameter": "test value"}
@@ -465,7 +442,7 @@ export class GetSnapshotJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the snapshot job.
+   * The snapshot job information.
    */
   snapshotJob?: GetSnapshotJobResponseBodySnapshotJob;
   static names(): { [key: string]: string } {

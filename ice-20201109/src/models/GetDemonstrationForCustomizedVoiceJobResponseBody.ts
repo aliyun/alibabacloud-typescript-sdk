@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationList extends $dara.Model {
   /**
    * @remarks
-   * The sequence number of the text, which corresponds to the AduioRecordId parameter to be passed during audio check.
+   * The sequence number of the text, which corresponds to the AudioRecordId field that must be passed during audio detection.
    * 
    * @example
    * 2
@@ -14,12 +14,8 @@ export class GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationL
   /**
    * @remarks
    * The URL of the sample audio.
-   * 
-   * - The value is an Object Storage Service (OSS) URL.
-   * 
-   *   \\*\\*
-   * 
-   *   **Note**: The URL expires in 12 hours.
+   * - OSS URL.
+   * >Notice: The audio file expires in 12 hours.</notice>
    * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/1.wav
@@ -27,10 +23,10 @@ export class GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationL
   demoAudio?: string;
   /**
    * @remarks
-   * The text content to be read.
+   * The text content to be read aloud.
    * 
    * @example
-   * No, he thought for a moment, I cannot say this to the king, that would be lying.
+   * No, he thought for a moment. I cannot say this to the king. That would be a lie
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -61,7 +57,7 @@ export class GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationL
 export class GetDemonstrationForCustomizedVoiceJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of 20 text entries to be read and the corresponding sample audio.
+   * The demonstration list, which returns 20 text passages to be read aloud and their corresponding audio samples.
    */
   demonstrationList?: GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationList[];
   static names(): { [key: string]: string } {
@@ -91,7 +87,7 @@ export class GetDemonstrationForCustomizedVoiceJobResponseBodyData extends $dara
 export class GetDemonstrationForCustomizedVoiceJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: GetDemonstrationForCustomizedVoiceJobResponseBodyData;
   /**
@@ -104,11 +100,9 @@ export class GetDemonstrationForCustomizedVoiceJobResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the operation is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

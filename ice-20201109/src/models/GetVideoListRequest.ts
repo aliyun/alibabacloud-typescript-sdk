@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the category.
+   * The category ID.
    * 
    * @example
    * 781111
@@ -13,7 +13,7 @@ export class GetVideoListRequest extends $dara.Model {
   cateId?: number;
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time of the creation time. The end time must be later than the start time. The time is in the yyyy-MM-ddTHH:mm:ssZ format and must be in UTC.
    * 
    * @example
    * 2017-01-11T12:59:00Z
@@ -21,7 +21,7 @@ export class GetVideoListRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -37,11 +37,10 @@ export class GetVideoListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sorting method of the results. Valid values:
+   * The sort order of the query results. Valid values:
    * 
-   * - CreationTime:Desc (default): sorts results in reverse chronological order.
-   * 
-   * - CreationTime:Asc: sorts results in chronological order.
+   * - CreationTime:Desc: Sorts the results by creation time in descending order. This is the default value.
+   * - CreationTime:Asc: Sorts the results by creation time in ascending order.
    * 
    * @example
    * CreationTime:Asc
@@ -49,7 +48,7 @@ export class GetVideoListRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the creation time. The time is in the yyyy-MM-ddTHH:mm:ssZ format and must be in UTC.
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -57,31 +56,7 @@ export class GetVideoListRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the video. You can specify multiple video statuses and separate them with commas (,).
-   * 
-   * Valid values:
-   * 
-   * - PrepareFail: The file is abnormal.
-   * 
-   * - UploadFail: The video failed to be uploaded.
-   * 
-   * - UploadSucc: The video is uploaded.
-   * 
-   * - Transcoding: The video is being transcoded.
-   * 
-   * - TranscodeFail: The video failed to be transcoded.
-   * 
-   * - ProduceFail: The video failed to be produced.
-   * 
-   * - Normal: The video is normal.
-   * 
-   * - Uploading: The video is being uploaded.
-   * 
-   * - Preparing: The file is being generated.
-   * 
-   * - Blocked: The video is blocked.
-   * 
-   * - checking: The video is being reviewed.
+   * The video status. Separate multiple statuses with commas (,).
    * 
    * @example
    * Uploading,Normal

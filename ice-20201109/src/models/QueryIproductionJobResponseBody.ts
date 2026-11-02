@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class QueryIProductionJobResponseBodyInput extends $dara.Model {
   /**
    * @remarks
-   * The source file for the job. Set this to an OSS file URL if `Type` is `OSS`, or a media asset ID if `Type` is `Media`.
-   * Valid OSS URL formats:
-   * 
-   * 1. oss\\://bucket/object
-   * 
-   * 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object
-   *    In these formats, `bucket` is the name of the OSS bucket in the same region as the current project, and `object` is the file path.
+   * The input media. If Type is set to OSS, enter the OSS URL. If Type is set to Media, enter the media asset ID.
+   * The OSS URL must be in one of the following formats:
+   * - oss://bucket/object
+   * - http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * where bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
    * @example
    * oss://bucket/object
@@ -20,10 +18,8 @@ export class QueryIProductionJobResponseBodyInput extends $dara.Model {
   /**
    * @remarks
    * The input type. Valid values:
-   * 
-   * 1. OSS: An OSS file URL.
-   * 
-   * 2. Media: A media asset ID.
+   * - OSS: OSS file URL.
+   * - Media: media asset ID.
    * 
    * @example
    * OSS
@@ -55,7 +51,7 @@ export class QueryIProductionJobResponseBodyInput extends $dara.Model {
 export class QueryIProductionJobResponseBodyOutput extends $dara.Model {
   /**
    * @remarks
-   * The service that the media asset belongs to.
+   * The business to which the media asset belongs.
    * 
    * @example
    * IMS
@@ -63,14 +59,12 @@ export class QueryIProductionJobResponseBodyOutput extends $dara.Model {
   biz?: string;
   /**
    * @remarks
-   * The destination for the output. If the output `Type` is `OSS`, this parameter returns an OSS file URL. If the output `Type` is `Media`, it returns the specified or a newly generated media asset ID.
+   * The output media. If Type is set to OSS, the OSS URL is returned. If Type is set to Media, the specified media asset ID or a newly generated media asset ID is returned.
    * 
-   * Valid OSS URL formats:
-   * 
-   * 1. oss\\://bucket/object
-   * 
-   * 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object
-   *    In these formats, `bucket` is the name of the OSS bucket in the same region as the current project, and `object` is the file path.
+   * The OSS URL must be in one of the following formats:
+   * - oss://bucket/object
+   * - http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * where bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
    * @example
    * oss://bucket/object
@@ -78,7 +72,7 @@ export class QueryIProductionJobResponseBodyOutput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The OSS URL of the output file. This value is returned only when `Type` is `Media`.
+   * The OSS URL of the specified output file when Type is set to Media.
    * 
    * @example
    * http(s)://bucket.oss-[RegionId].aliyuncs.com/object
@@ -87,10 +81,8 @@ export class QueryIProductionJobResponseBodyOutput extends $dara.Model {
   /**
    * @remarks
    * The media type. Valid values:
-   * 
-   * - OSS: An OSS file URL.
-   * 
-   * - Media: A media asset ID.
+   * - OSS: OSS path.
+   * - Media: media asset ID.
    * 
    * @example
    * OSS
@@ -134,11 +126,11 @@ export class QueryIProductionJobResponseBodyScheduleConfig extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The job\\"s priority within the pipeline.
+   * The priority of the job in its corresponding pipeline.
    * 
-   * - A larger value indicates a higher priority. The highest priority is 10.
+   * - Highest priority: 10.
    * 
-   * - Default: **6**.
+   * - Default value: **6**.
    * 
    * @example
    * 6
@@ -170,7 +162,7 @@ export class QueryIProductionJobResponseBodyScheduleConfig extends $dara.Model {
 export class QueryIProductionJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the job was created, in UTC.
+   * The creation time in GMT.
    * 
    * @example
    * 2022-07-07T07:16:11Z
@@ -178,7 +170,7 @@ export class QueryIProductionJobResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the job was completed, in UTC.
+   * The completion time in GMT.
    * 
    * @example
    * 2021-11-26T14:50:25Z
@@ -186,35 +178,22 @@ export class QueryIProductionJobResponseBody extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The name of the algorithm to use. Valid values:
+   * The name of the algorithm feature to use. Valid values:
    * 
-   * - **Cover**: smart cover
-   * 
-   * - **VideoClip**: video summary
-   * 
-   * - **VideoDelogo**: video logo removal
-   * 
-   * - **VideoDetext**: video text removal
-   * 
-   * - **CaptionExtraction**: caption extraction
-   * 
-   * - **VideoGreenScreenMatting**: green screen matting
-   * 
-   * - **FaceBeauty**: video beautification
-   * 
-   * - **VideoH2V**: horizontal-to-vertical video conversion
-   * 
-   * - **MusicSegmentDetect**: chorus detection
-   * 
-   * - **AudioBeatDetection**: beat detection
-   * 
-   * - **AudioQualityAssessment**: audio quality assessment
-   * 
-   * - **SpeechDenoise**: speech denoising
-   * 
-   * - **AudioMixing**: audio mixing
-   * 
-   * - **MusicDemix**: music source separation
+   * - **Cover**: Intelligent cover
+   * - **VideoClip**: Video synopsis
+   * - **VideoDelogo**: Video icon removal
+   * - **VideoDetext**: Video subtitle removal
+   * - **CaptionExtraction**: Subtitle fetch
+   * - **VideoGreenScreenMatting**: Image matting
+   * - **FaceBeauty**: Video face beautification
+   * - **VideoH2V**: Video landscape-to-portrait conversion
+   * - **MusicSegmentDetect**: Chorus detection
+   * - **AudioBeatDetection**: Beat detection
+   * - **AudioQualityAssessment**: Audio quality assessment
+   * - **SpeechDenoise**: Speech noise reduction
+   * - **AudioMixing**: Audio mixing
+   * - **MusicDemix**: Vocal and accompaniment separation
    * 
    * @example
    * Cover
@@ -235,7 +214,7 @@ export class QueryIProductionJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * A JSON object that contains the parameters for the algorithm job. The specific parameters vary depending on the selected algorithm.
+   * The algorithm job parameters. This is a JSON object. The parameters vary based on the algorithm.
    * 
    * @example
    * {"Model":"gif"}
@@ -256,27 +235,30 @@ export class QueryIProductionJobResponseBody extends $dara.Model {
   output?: QueryIProductionJobResponseBodyOutput;
   /**
    * @remarks
-   * An array of output file paths.
+   * The output file array.
    */
   outputFiles?: string[];
   /**
    * @remarks
-   * The output media asset IDs.
+   * The list of media asset IDs output by the job.
    */
   outputMediaIds?: string[];
   /**
    * @remarks
-   * An array of output file URLs.
+   * The output file URL array.
    */
   outputUrls?: string[];
   /**
    * @remarks
    * The request ID.
+   * 
+   * @example
+   * 01A0E5D1-4B3C-599D-8017-2DA186EA1053
    */
   requestId?: string;
   /**
    * @remarks
-   * The algorithm output, returned as a JSON string. The structure of the output varies based on the `FunctionName`. For more information, see the additional notes below.
+   * The result information output by the algorithm. The output varies based on FunctionName and is in JSON format. For more information, see the following sections.
    * 
    * @example
    * {}
@@ -284,20 +266,16 @@ export class QueryIProductionJobResponseBody extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The job configuration.
+   * The job configuration information.
    */
   scheduleConfig?: QueryIProductionJobResponseBodyScheduleConfig;
   /**
    * @remarks
    * The job status. Valid values:
-   * 
-   * - Queuing: The job is awaiting processing.
-   * 
-   * - Analyzing: The job is being processed.
-   * 
-   * - Fail: The job failed to complete.
-   * 
-   * - Success: The job completed successfully.
+   * - Queuing: The job is queued.
+   * - Analysing: The job is being analyzed.
+   * - Fail: The job failed.
+   * - Success: The job succeeded.
    * 
    * @example
    * Success
@@ -313,7 +291,7 @@ export class QueryIProductionJobResponseBody extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The user data. The system returns this value unchanged.
+   * The user-defined data. This data is returned as-is when the result is retrieved.
    * 
    * @example
    * {"test":1}

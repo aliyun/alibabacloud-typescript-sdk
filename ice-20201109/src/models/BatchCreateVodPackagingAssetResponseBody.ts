@@ -6,12 +6,12 @@ import { VodPackagingAsset } from "./VodPackagingAsset";
 export class BatchCreateVodPackagingAssetResponseBodyResultList extends $dara.Model {
   /**
    * @remarks
-   * The information about the ingested asset.
+   * The information about the successfully created asset.
    */
   asset?: VodPackagingAsset;
   /**
    * @remarks
-   * The error code for failed ingestion.
+   * The error code for the creation failure.
    * 
    * @example
    * InvalidParameter.PackagingAssetAlreadyExists
@@ -19,7 +19,7 @@ export class BatchCreateVodPackagingAssetResponseBodyResultList extends $dara.Mo
   code?: string;
   /**
    * @remarks
-   * The error message for failed ingestion.
+   * The detailed information about the creation failure.
    * 
    * @example
    * The specified packagingAsset "inputMovie" already exists
@@ -56,7 +56,7 @@ export class BatchCreateVodPackagingAssetResponseBodyResultList extends $dara.Mo
 export class BatchCreateVodPackagingAssetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the packaging group.
+   * The name of the VOD packaging group.
    * 
    * @example
    * vod_hls
@@ -64,7 +64,7 @@ export class BatchCreateVodPackagingAssetResponseBody extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
@@ -72,7 +72,7 @@ export class BatchCreateVodPackagingAssetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The results of asset ingestion.
+   * The list of creation results.
    */
   resultList?: BatchCreateVodPackagingAssetResponseBodyResultList[];
   static names(): { [key: string]: string } {

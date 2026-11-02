@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $dara.Model {
   /**
    * @remarks
-   * The time when the workflow was created.
+   * The workflow creation time. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2022-11-27T10:02:12Z
@@ -13,7 +13,7 @@ export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * The time when the workflow was last modified.
+   * The time when the workflow was last modified. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2022-11-29T02:06:19Z
@@ -29,13 +29,7 @@ export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * The workflow state.
-   * 
-   * Valid values:
-   * 
-   * - Active
-   * 
-   * - Inactive
+   * The workflow status.
    * 
    * @example
    * Active
@@ -44,14 +38,6 @@ export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $dara.Model
   /**
    * @remarks
    * The workflow type.
-   * 
-   * Valid values:
-   * 
-   * - Customize: custom workflow.
-   * 
-   * - System: system workflow.
-   * 
-   * - Common: user-created workflow.
    * 
    * @example
    * Common
@@ -99,15 +85,15 @@ export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $dara.Model
 export class GetWorkflowTaskResponseBodyWorkflowTask extends $dara.Model {
   /**
    * @remarks
-   * The results for all nodes of the workflow task.
+   * The results of each node in the workflow task, in JSON format. The content varies based on the workflow configuration.
    * 
    * @example
-   * Json格式，内容根据工作流配置有变化。
+   * {"ActivityResults": "Success"}
    */
   activityResults?: string;
   /**
    * @remarks
-   * The time when the task was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The task creation time. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-01-04T02:05:17Z
@@ -115,7 +101,7 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the task was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The task completion time. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2023-01-04T02:06:19Z
@@ -123,19 +109,7 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The task state.
-   * 
-   * Valid values:
-   * 
-   * - Init: The task is being initialized.
-   * 
-   * - Failed: The task failed.
-   * 
-   * - Canceled: The task is canceled.
-   * 
-   * - Processing: The task is in progress.
-   * 
-   * - Succeed: The task is successful.
+   * The task status.
    * 
    * @example
    * Succeed
@@ -143,7 +117,7 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the workflow task.
+   * The workflow task ID.
    * 
    * @example
    * ******4215e042b3966ca5441e******
@@ -151,7 +125,7 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The input of the workflow task.
+   * The workflow task input.
    * 
    * @example
    * {
@@ -162,7 +136,7 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $dara.Model {
   taskInput?: string;
   /**
    * @remarks
-   * The user-defined field that was specified when the workflow task was submitted.
+   * The custom fields specified when the workflow task was submitted.
    * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx"}
@@ -170,7 +144,7 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The workflow Information.
+   * The workflow information.
    */
   workflow?: GetWorkflowTaskResponseBodyWorkflowTaskWorkflow;
   static names(): { [key: string]: string } {
@@ -214,7 +188,7 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $dara.Model {
 export class GetWorkflowTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * ******0C-7870-15FE-B96F-8880BB******
@@ -222,7 +196,7 @@ export class GetWorkflowTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the workflow task.
+   * The workflow task information.
    */
   workflowTask?: GetWorkflowTaskResponseBodyWorkflowTask;
   static names(): { [key: string]: string } {

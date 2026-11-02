@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotwordLibraryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the hotword library.
+   * The hotword library ID.
    * 
    * This parameter is required.
    * 

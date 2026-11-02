@@ -6,11 +6,17 @@ export class QueryVideoCognitionJobResponseBodyInput extends $dara.Model {
   /**
    * @remarks
    * The URL of the input file.
+   * 
+   * @example
+   * https://example-bucket.oss-cn-hangzhou.aliyuncs.com/test/video.mp4
    */
   media?: string;
   /**
    * @remarks
-   * The type of the input file. Valid value: OSS.
+   * The type of the input file. Valid values: OSS.
+   * 
+   * @example
+   * OSS
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -91,20 +97,20 @@ export class QueryVideoCognitionJobResponseBodyResults extends $dara.Model {
 export class QueryVideoCognitionJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The input file.
+   * The input media asset information of the task.
    */
   input?: QueryVideoCognitionJobResponseBodyInput;
   /**
    * @remarks
-   * The job status. Valid values:
+   * The status of the task. Valid values:
    * 
-   * - **Success**: The job succeeded.
+   * - **Success**: The task is processed successfully.
    * 
-   * - **Fail**: The job failed.
+   * - **Fail**: The task fails to be processed.
    * 
-   * - **Processing**: The job is in progress.
+   * - **Processing**: The task is being processed.
    * 
-   * - **Submitted**: The job has been submitted and is awaiting processing.
+   * - **Submitted**: The task is submitted and waiting to be processed.
    * 
    * @example
    * Success
@@ -112,12 +118,15 @@ export class QueryVideoCognitionJobResponseBody extends $dara.Model {
   jobStatus?: string;
   /**
    * @remarks
-   * The request parameters.
+   * The extended parameters.
+   * 
+   * @example
+   * {"directOssAccess":true}
    */
   params?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -126,12 +135,15 @@ export class QueryVideoCognitionJobResponseBody extends $dara.Model {
   results?: QueryVideoCognitionJobResponseBodyResults;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the smart tagging template.
+   * 
+   * @example
+   * S00000101-100040
    */
   templateId?: string;
   /**
    * @remarks
-   * The user data.
+   * The custom user information.
    * 
    * @example
    * {"userId":"123432412831"}

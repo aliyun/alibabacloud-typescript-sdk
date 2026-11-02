@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDNADBRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the media fingerprint library that you want to delete.
+   * The ID of the DNA library to delete.
    * 
    * This parameter is required.
    * 

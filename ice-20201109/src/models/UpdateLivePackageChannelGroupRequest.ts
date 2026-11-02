@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLivePackageChannelGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The channel group description. It can be up to 1,000 characters in length.
+   * The description of the channel group. The description can be up to 1,000 characters in length.
    * 
    * @example
-   * This is a channel group.
+   * This is a channel group
    */
   description?: string;
   /**
    * @remarks
-   * The channel group name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
+   * The name of the channel group. The name must be 1 to 200 characters in length and can contain only uppercase and lowercase letters, digits, hyphens, and underscores. Format: [A-Za-z0-9_-]+.
    * 
    * This parameter is required.
    * 

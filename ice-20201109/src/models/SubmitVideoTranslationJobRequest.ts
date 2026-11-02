@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVideoTranslationJobRequest extends $dara.Model {
   /**
    * @remarks
-   * A client-generated token that ensures the idempotence of the request.
+   * Ensures the idempotence of the request.
    * 
    * @example
    * Test ClientToken
@@ -13,15 +13,15 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The job description.
+   * The task description.
    * 
    * @example
-   * Test description
+   * Test Description
    */
   description?: string;
   /**
    * @remarks
-   * Configuration parameters for the video translation job, specified as a JSON string.
+   * The configuration parameters for the video translation task. Must be in JSON format.
    * 
    * @example
    * {"SourceLanguage":"zh","TargetLanguage":"en","DetextArea":"Auto"}
@@ -29,11 +29,9 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   editingConfig?: string;
   /**
    * @remarks
-   * The input parameters for the video translation job.
-   * 
-   * - The input can be a video or a subtitle file.
-   * 
-   * - The value must be a JSON string.
+   * The input parameters for the video translation task.
+   * - Supports videos and subtitle files as input.
+   * - Must be in JSON format.
    * 
    * @example
    * {"Type":"Video","Video":"1628ae20c36******8f6f7c77a6302"}
@@ -41,7 +39,7 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   inputConfig?: string;
   /**
    * @remarks
-   * Output parameters for the video translation job. The output can be a video or a subtitle file.
+   * The output parameters for the video translation task. Supports video and subtitle file types as output.
    * 
    * @example
    * {"MediaURL": "https://your-bucket.oss-cn-shanghai.aliyuncs.com/your-object.mp4"}
@@ -50,7 +48,7 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   signature?: string;
   /**
    * @remarks
-   * The system automatically populates this parameter. You do not need to set it.
+   * Automatically populated. You do not need to specify this parameter.
    * 
    * @example
    * Auto-complete, no need to write
@@ -59,7 +57,7 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   signatureNonce?: string;
   /**
    * @remarks
-   * The system automatically populates this parameter. You do not need to set it.
+   * Automatically populated. You do not need to specify this parameter.
    * 
    * @example
    * Auto-complete, no need to write
@@ -68,17 +66,16 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   signatureVersion?: string;
   /**
    * @remarks
-   * The job title.
+   * The task title.
    * 
    * @example
-   * Test title
+   * Test Title
    */
   title?: string;
   /**
    * @remarks
-   * User data for the job, provided as a JSON string. The string can be up to 512 bytes long.
-   * 
-   * - Use this parameter to [configure a custom callback URL](https://help.aliyun.com/document_detail/451631.html).
+   * The custom information in JSON format. The maximum length is 512 bytes.
+   * - [Supports custom callback URL configuration](https://help.aliyun.com/document_detail/451631.html)
    * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx"}

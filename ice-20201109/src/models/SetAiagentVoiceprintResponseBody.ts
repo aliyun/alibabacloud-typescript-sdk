@@ -13,7 +13,7 @@ export class SetAIAgentVoiceprintResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the registered voiceprint.
+   * The voiceprint ID registered by the user.
    * 
    * @example
    * vp_1699123456_8527

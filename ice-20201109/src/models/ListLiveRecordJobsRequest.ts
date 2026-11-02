@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveRecordJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The maximum time range between EndTime and StartTime cannot exceed 30 days. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time of the query. The interval between the end time and the start time cannot exceed 30 days. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -15,7 +15,7 @@ export class ListLiveRecordJobsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The search keyword. You can use the job ID or name as the keyword to search for jobs.
+   * The search keyword. You can search by job ID or job name.
    * 
    * @example
    * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
@@ -39,13 +39,7 @@ export class ListLiveRecordJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sorting order. By default, the query results are sorted by creation time in descending order.
-   * 
-   * Valid values:
-   * 
-   * - asc: sorts the query results in ascending order.
-   * 
-   * - desc: sorts the query results in descending order.
+   * The sorting parameter. By default, jobs are sorted in descending order of creation time.
    * 
    * @example
    * desc
@@ -53,7 +47,7 @@ export class ListLiveRecordJobsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the query. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -63,15 +57,7 @@ export class ListLiveRecordJobsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The state of the job. By default, the state is not filtered.
-   * 
-   * Valid values:
-   * 
-   * - paused: The job is paused.
-   * 
-   * - initial: The job is not started.
-   * 
-   * - started: The job is in progress.
+   * The status of the job. By default, no status filter is applied.
    * 
    * @example
    * started

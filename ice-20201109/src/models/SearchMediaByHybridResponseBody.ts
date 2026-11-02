@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMediaByHybridResponseBodyMediaListClipInfo extends $dara.Model {
   /**
    * @remarks
-   * The start time of the relevant clip.
+   * The start time of the clip.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class SearchMediaByHybridResponseBodyMediaListClipInfo extends $dara.Mode
   from?: number;
   /**
    * @remarks
-   * The relevance score of the clip for the query.
+   * The score.
    * 
    * @example
    * 0.99
@@ -21,7 +21,7 @@ export class SearchMediaByHybridResponseBodyMediaListClipInfo extends $dara.Mode
   score?: number;
   /**
    * @remarks
-   * The end time of the relevant clip.
+   * The end time of the clip.
    * 
    * @example
    * 4
@@ -55,12 +55,12 @@ export class SearchMediaByHybridResponseBodyMediaListClipInfo extends $dara.Mode
 export class SearchMediaByHybridResponseBodyMediaList extends $dara.Model {
   /**
    * @remarks
-   * The information about the relevant clips.
+   * The clip information.
    */
   clipInfo?: SearchMediaByHybridResponseBodyMediaListClipInfo[];
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * a18936e0e28771edb59ae6f6f47a****
@@ -95,7 +95,7 @@ export class SearchMediaByHybridResponseBodyMediaList extends $dara.Model {
 export class SearchMediaByHybridResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -103,7 +103,7 @@ export class SearchMediaByHybridResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The media assets that match the search query.
+   * The collection of matched media assets.
    */
   mediaList?: SearchMediaByHybridResponseBodyMediaList[];
   /**
@@ -116,7 +116,9 @@ export class SearchMediaByHybridResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the operation is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true
@@ -124,7 +126,7 @@ export class SearchMediaByHybridResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of media assets that match the search criteria.
+   * The total number of media assets that meet the search conditions.
    * 
    * @example
    * 30

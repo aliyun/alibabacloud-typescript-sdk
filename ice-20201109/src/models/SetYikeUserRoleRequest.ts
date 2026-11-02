@@ -6,12 +6,9 @@ export class SetYikeUserRoleRequest extends $dara.Model {
   /**
    * @remarks
    * The user role. Valid values:
-   * 
-   * - SuperAdmin: Super Admin.
-   * 
-   * - Admin: Admin.
-   * 
-   * - RegularUser: Regular User.
+   * - SuperAdmin: Primary administrator.
+   * - Admin: Administrator.
+   * - RegularUser: Regular member.
    * 
    * @example
    * Admin
@@ -19,7 +16,7 @@ export class SetYikeUserRoleRequest extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The sub-account user ID.
+   * The ID of the RAM user.
    * 
    * @example
    * id

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ClearAIAgentVoiceprintRequest extends $dara.Model {
   /**
    * @remarks
-   * The registration mode. The default is `Explicit`.
+   * The voiceprint registration mode. Default value: Explicit.
    * 
    * @example
    * Explicit
@@ -13,7 +13,7 @@ export class ClearAIAgentVoiceprintRequest extends $dara.Model {
   registrationMode?: string;
   /**
    * @remarks
-   * The unique identifier of the voiceprint to clear.
+   * The identity identifier used to uniquely identify a voiceprint.
    * 
    * @example
    * vp_1699123456_8527

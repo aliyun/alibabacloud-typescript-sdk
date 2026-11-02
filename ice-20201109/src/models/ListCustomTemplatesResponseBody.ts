@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCustomTemplatesResponseBodyCustomTemplateListFrontendHintTranscodeTemplateHint extends $dara.Model {
+  /**
+   * @remarks
+   * The bitrate control type.
+   * 
+   * @example
+   * CRF
+   */
   bitrateControlType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,6 +33,10 @@ export class ListCustomTemplatesResponseBodyCustomTemplateListFrontendHintTransc
 }
 
 export class ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint extends $dara.Model {
+  /**
+   * @remarks
+   * The hint information for the transcode template.
+   */
   transcodeTemplateHint?: ListCustomTemplatesResponseBodyCustomTemplateListFrontendHintTranscodeTemplateHint;
   static names(): { [key: string]: string } {
     return {
@@ -54,16 +65,20 @@ export class ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint exten
 export class ListCustomTemplatesResponseBodyCustomTemplateList extends $dara.Model {
   /**
    * @remarks
-   * The time when the template was created, in UTC and formatted as YYYY-MM-DDTHH:mm:ssZ.
+   * The time when the template was created. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The reserved information for frontend display.
+   */
   frontendHint?: ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint;
   /**
    * @remarks
-   * Whether the template is a default template.
+   * Indicates whether the template is the default template.
    * 
    * @example
    * true
@@ -71,7 +86,7 @@ export class ListCustomTemplatesResponseBodyCustomTemplateList extends $dara.Mod
   isDefault?: boolean;
   /**
    * @remarks
-   * The time when the template was last modified, in UTC and formatted as YYYY-MM-DDTHH:mm:ssZ.
+   * The time when the template was modified. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -103,7 +118,7 @@ export class ListCustomTemplatesResponseBodyCustomTemplateList extends $dara.Mod
   subtypeName?: string;
   /**
    * @remarks
-   * The template configuration, as a JSON string.
+   * The template parameters.
    * 
    * @example
    * {"Container":{"Format":"mp3"},"Audio":{"Codec":"mp3","Bitrate":"64","Samplerate":"22050","Channels":"2"}}
@@ -127,7 +142,7 @@ export class ListCustomTemplatesResponseBodyCustomTemplateList extends $dara.Mod
   templateName?: string;
   /**
    * @remarks
-   * The template type ID.
+   * The templatetype ID.
    * 
    * @example
    * 1
@@ -135,7 +150,7 @@ export class ListCustomTemplatesResponseBodyCustomTemplateList extends $dara.Mod
   type?: number;
   /**
    * @remarks
-   * The template type name.
+   * The templatetype name.
    * 
    * @example
    * TranscodeTemplate
@@ -190,12 +205,12 @@ export class ListCustomTemplatesResponseBodyCustomTemplateList extends $dara.Mod
 export class ListCustomTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of custom template objects.
+   * The list of templates.
    */
   customTemplateList?: ListCustomTemplatesResponseBodyCustomTemplateList[];
   /**
    * @remarks
-   * The unique identifier for the request.
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******

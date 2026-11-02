@@ -6,91 +6,145 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListAudioStreamInfo
   /**
    * @remarks
    * The bitrate.
+   * 
+   * @example
+   * 127.794
    */
   bitrate?: string;
   /**
    * @remarks
    * The channel layout.
+   * 
+   * @example
+   * stereo
    */
   channelLayout?: string;
   /**
    * @remarks
-   * The number of audio channels.
+   * The number of channels.
+   * 
+   * @example
+   * 2
    */
   channels?: string;
   /**
    * @remarks
    * The long name of the codec.
+   * 
+   * @example
+   * AAC (Advanced Audio Coding)
    */
   codecLongName?: string;
   /**
    * @remarks
    * The short name of the codec.
+   * 
+   * @example
+   * aac
    */
   codecName?: string;
   /**
    * @remarks
    * The codec tag.
+   * 
+   * @example
+   * 0x6134706d
    */
   codecTag?: string;
   /**
    * @remarks
    * The codec tag string.
+   * 
+   * @example
+   * mp4a
    */
   codecTagString?: string;
   /**
    * @remarks
-   * The codec time base.
+   * The time base of the codec.
+   * 
+   * @example
+   * 1/24000
    */
   codecTimeBase?: string;
   /**
    * @remarks
    * The duration.
+   * 
+   * @example
+   * 16.200998
    */
   duration?: string;
   /**
    * @remarks
    * The audio frame rate.
+   * 
+   * @example
+   * 8
    */
   fps?: string;
   /**
    * @remarks
-   * The audio stream index.
+   * The index of the audio stream.
+   * 
+   * @example
+   * 1
    */
   index?: string;
   /**
    * @remarks
    * The language.
+   * 
+   * @example
+   * und
    */
   lang?: string;
   /**
    * @remarks
    * The total number of frames.
+   * 
+   * @example
+   * 10
    */
   numFrames?: string;
   /**
    * @remarks
-   * The codec profile.
+   * The encoding profile.
+   * 
+   * @example
+   * High
    */
   profile?: string;
   /**
    * @remarks
    * The sample format.
+   * 
+   * @example
+   * fltp
    */
   sampleFmt?: string;
   /**
    * @remarks
    * The sample rate.
+   * 
+   * @example
+   * 44100
    */
   sampleRate?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. Unit: seconds.
+   * 
+   * @example
+   * 0.000000
    */
   startTime?: string;
   /**
    * @remarks
-   * The time base.
+   * The timebase.
+   * 
+   * @example
+   * 1/44100
    */
   timebase?: string;
   static names(): { [key: string]: string } {
@@ -175,7 +229,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo e
   fileName?: string;
   /**
    * @remarks
-   * The file size, in bytes.
+   * The file size in bytes.
    * 
    * @example
    * 30611502
@@ -282,51 +336,81 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListSubtitleStreamI
   /**
    * @remarks
    * The long name of the codec.
+   * 
+   * @example
+   * SubRip Text
    */
   codecLongName?: string;
   /**
    * @remarks
    * The short name of the codec.
+   * 
+   * @example
+   * srt
    */
   codecName?: string;
   /**
    * @remarks
    * The codec tag.
+   * 
+   * @example
+   * unicode
    */
   codecTag?: string;
   /**
    * @remarks
    * The codec tag string.
+   * 
+   * @example
+   * unicode
    */
   codecTagString?: string;
   /**
    * @remarks
-   * The codec time base.
+   * The time base of the codec.
+   * 
+   * @example
+   * 29.97
    */
   codecTimeBase?: string;
   /**
    * @remarks
    * The duration.
+   * 
+   * @example
+   * 1
    */
   duration?: string;
   /**
    * @remarks
-   * The audio stream index.
+   * The index of the audio stream.
+   * 
+   * @example
+   * 1
    */
   index?: string;
   /**
    * @remarks
    * The language.
+   * 
+   * @example
+   * und
    */
   lang?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. Unit: seconds.
+   * 
+   * @example
+   * 0
    */
   startTime?: string;
   /**
    * @remarks
-   * The time base.
+   * The timebase.
+   * 
+   * @example
+   * 30
    */
   timebase?: string;
   static names(): { [key: string]: string } {
@@ -372,121 +456,193 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListVideoStreamInfo
   /**
    * @remarks
    * The average frame rate.
+   * 
+   * @example
+   * 24.0
    */
   avgFPS?: string;
   /**
    * @remarks
    * The bitrate.
+   * 
+   * @example
+   * 1001.594
    */
   bitrate?: string;
   /**
    * @remarks
    * The long name of the codec.
+   * 
+   * @example
+   * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
    */
   codecLongName?: string;
   /**
    * @remarks
    * The short name of the codec.
+   * 
+   * @example
+   * h264
    */
   codecName?: string;
   /**
    * @remarks
    * The codec tag.
+   * 
+   * @example
+   * 0x0000
    */
   codecTag?: string;
   /**
    * @remarks
    * The codec tag string.
+   * 
+   * @example
+   * [0][0][0][0]
    */
   codecTagString?: string;
   /**
    * @remarks
-   * The codec time base.
+   * The time base of the codec.
+   * 
+   * @example
+   * 1/48
    */
   codecTimeBase?: string;
   /**
    * @remarks
-   * The display aspect ratio (DAR).
+   * The display aspect ratio.
+   * 
+   * @example
+   * 0:1
    */
   dar?: string;
   /**
    * @remarks
    * The duration.
+   * 
+   * @example
+   * 216.206706
    */
   duration?: string;
   /**
    * @remarks
    * The video frame rate.
+   * 
+   * @example
+   * 24.0
    */
   fps?: string;
   /**
    * @remarks
    * Indicates whether the video stream contains B-frames.
+   * 
+   * @example
+   * 2
    */
   hasBFrames?: string;
   /**
    * @remarks
    * The height.
+   * 
+   * @example
+   * 540
    */
   height?: string;
   /**
    * @remarks
    * The video stream index.
+   * 
+   * @example
+   * 0
    */
   index?: string;
   /**
    * @remarks
    * The language.
+   * 
+   * @example
+   * und
    */
   lang?: string;
   /**
    * @remarks
-   * The codec level.
+   * The encoding level.
+   * 
+   * @example
+   * 30
    */
   level?: string;
   /**
    * @remarks
    * The total number of frames.
+   * 
+   * @example
+   * 5184
    */
   nbFrames?: string;
   /**
    * @remarks
    * The total number of frames.
+   * 
+   * @example
+   * 5184
    */
   numFrames?: string;
   /**
    * @remarks
    * The pixel format.
+   * 
+   * @example
+   * yuv420p
    */
   pixFmt?: string;
   /**
    * @remarks
-   * The codec profile.
+   * The encoding profile.
+   * 
+   * @example
+   * High
    */
   profile?: string;
   /**
    * @remarks
-   * The rotation angle.
+   * The rotation.
+   * 
+   * @example
+   * 0
    */
   rotate?: string;
   /**
    * @remarks
-   * The sample aspect ratio (SAR).
+   * The sample aspect ratio.
+   * 
+   * @example
+   * 0:1
    */
   sar?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. Unit: seconds.
+   * 
+   * @example
+   * 0.081706
    */
   startTime?: string;
   /**
    * @remarks
-   * The time base.
+   * The timebase.
+   * 
+   * @example
+   * 1/12288
    */
   timebase?: string;
   /**
    * @remarks
    * The width.
+   * 
+   * @example
+   * 960
    */
   width?: string;
   static names(): { [key: string]: string } {
@@ -559,22 +715,22 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListVideoStreamInfo
 export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoList extends $dara.Model {
   /**
    * @remarks
-   * The audio stream information. A media asset may have multiple audio streams.
+   * The audio stream information. A media asset may contain multiple audio streams.
    */
   audioStreamInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListAudioStreamInfoList[];
   /**
    * @remarks
-   * The file basic information, including duration and size.
+   * The basic file information, including the duration and size.
    */
   fileBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
   /**
    * @remarks
-   * The subtitle stream information. A media asset can have multiple subtitle streams.
+   * The subtitle stream information. A media asset may have multiple subtitle streams.
    */
   subtitleStreamInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListSubtitleStreamInfoList[];
   /**
    * @remarks
-   * The video stream information. A media asset can have multiple video streams.
+   * The video stream information. A media asset may have multiple video streams.
    */
   videoStreamInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListVideoStreamInfoList[];
   static names(): { [key: string]: string } {
@@ -651,7 +807,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   coverURL?: string;
   /**
    * @remarks
-   * The time when the media asset was created.
+   * The creation time of the media asset. The time follows the ISO 8601 standard and is displayed in UTC (ending with Z).
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -659,7 +815,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   createTime?: string;
   /**
    * @remarks
-   * The time when the media asset was deleted.
+   * The deletion time of the media asset. The time follows the ISO 8601 standard and is displayed in UTC (ending with Z).
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -667,7 +823,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   deletedTime?: string;
   /**
    * @remarks
-   * The content description.
+   * The description.
    * 
    * @example
    * description
@@ -675,7 +831,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   description?: string;
   /**
    * @remarks
-   * The address of the media asset to be registered in the corresponding system.
+   * The URL of the media asset to be registered in the corresponding system.
    * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -683,7 +839,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   inputURL?: string;
   /**
    * @remarks
-   * The media asset ID.
+   * The ID of the media asset.
    * 
    * @example
    * ******c48fb37407365d4f2cd8******
@@ -700,6 +856,10 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   /**
    * @remarks
    * The media type of the media asset. Valid values:
+   * - Image
+   * - Video
+   * - Audio
+   * - Text
    * 
    * @example
    * video
@@ -707,7 +867,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   mediaType?: string;
   /**
    * @remarks
-   * The time when the media asset was last modified.
+   * The modification time of the media asset. The time follows the ISO 8601 standard and is displayed in UTC (ending with Z).
    * 
    * @example
    * 2020-12-26T04:11:12Z
@@ -728,6 +888,8 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $dar
   /**
    * @remarks
    * The source. Valid values:
+   * - OSS
+   * - vod
    * 
    * @example
    * oss
@@ -865,9 +1027,9 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo extends $d
    * @remarks
    * The type. Valid values:
    * 
-   * - "ai": AI data that is generated after unified processing of AI raw results.
-   * - "user-defined": user-defined metadata.
-   * - "system": system built-in metadata.
+   * - ai: AI data processed from original AI results.
+   * - user-defined: User-defined metadata.
+   * - system: System-provided metadata.
    */
   dynamicMetaData?: BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfoDynamicMetaData;
   static names(): { [key: string]: string } {
@@ -897,12 +1059,12 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo extends $d
 export class BatchGetMediaInfosResponseBodyMediaInfos extends $dara.Model {
   /**
    * @remarks
-   * The list of file basic information.
+   * The list of basic file information.
    */
   fileInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoList[];
   /**
    * @remarks
-   * The basic information about the media asset.
+   * The basic information of the media asset.
    */
   mediaBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo;
   /**
@@ -912,7 +1074,7 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $dara.Model {
   mediaDynamicInfo?: BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo;
   /**
    * @remarks
-   * The media asset ID.
+   * The ID of the media asset.
    * 
    * @example
    * ******c48fb37407365d4f2cd8******
@@ -957,12 +1119,12 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $dara.Model {
 export class BatchGetMediaInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of media assets that failed to be retrieved.
+   * The list of media asset information that failed to be retrieved.
    */
   ignoredList?: string[];
   /**
    * @remarks
-   * The collection of media assets that meet the specified requirements.
+   * The collection of matching media assets.
    */
   mediaInfos?: BatchGetMediaInfosResponseBodyMediaInfos[];
   /**

@@ -55,12 +55,12 @@ export class SearchMediaByMultimodalResponseBodyMediaListClipInfo extends $dara.
 export class SearchMediaByMultimodalResponseBodyMediaList extends $dara.Model {
   /**
    * @remarks
-   * The information about the clip.
+   * The clip information.
    */
   clipInfo?: SearchMediaByMultimodalResponseBodyMediaListClipInfo[];
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * a18936e0e28771edb59ae6f6f47a****
@@ -95,7 +95,7 @@ export class SearchMediaByMultimodalResponseBodyMediaList extends $dara.Model {
 export class SearchMediaByMultimodalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -103,12 +103,12 @@ export class SearchMediaByMultimodalResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The media assets that contain the specified content.
+   * The collection of media assets that meet the search criteria.
    */
   mediaList?: SearchMediaByMultimodalResponseBodyMediaList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
@@ -116,7 +116,9 @@ export class SearchMediaByMultimodalResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true false
+   * Indicates whether the operation is successful. Valid values:
+   * - true: The operation is successful.
+   * - false: The operation fails.
    * 
    * @example
    * true
@@ -124,7 +126,7 @@ export class SearchMediaByMultimodalResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of data records that meet the specified filter condition.
+   * The total number of media assets that meet the search criteria.
    * 
    * @example
    * 20

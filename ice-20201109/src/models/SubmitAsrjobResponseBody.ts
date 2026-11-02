@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitASRJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The intelligent task ID.
+   * The smart job ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -21,7 +21,7 @@ export class SubmitASRJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The job status. Valid values:
    * - Created
    * - Executing
    * - Finished

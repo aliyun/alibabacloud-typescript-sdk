@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class QueryVideoCognitionJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A container for parameters that determine which algorithm results to include in the response.
+   * Specifies whether to include the complete algorithm results in the query results.
    */
   includeResultsShrink?: string;
   /**
    * @remarks
-   * The ID of the intelligent tagging job. You can obtain this ID from the response of the [SubmitIntelligentTaggingJob](https://help.aliyun.com/document_detail/478786.html) operation.
+   * The ID of the intelligent tagging job to query. You can obtain the ID from the response parameters of the [Submit a smart tagging job](https://help.aliyun.com/document_detail/478786.html) operation.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class QueryVideoCognitionJobShrinkRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Additional request parameters, specified as a JSON string.
+   * The additional request parameters, represented as a JSON string.
    * 
    * @example
    * {}

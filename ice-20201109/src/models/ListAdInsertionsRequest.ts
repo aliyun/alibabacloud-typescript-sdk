@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAdInsertionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration name. Fuzzy match is supported.
+   * The keyword used to query ad insertion configurations by name. Fuzzy match is supported.
    * 
    * @example
    * ad
@@ -13,7 +13,7 @@ export class ListAdInsertionsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The maximum number of entries to retrieve in a subsequent request. If this parameter is used, the pagination parameters become invalid. Default value: 10.
+   * The maximum number of entries to return for the next page of results. When this parameter is specified, pagination parameters are ignored. Default value: 10.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListAdInsertionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used in the next request to retrieve a new page of results. If this parameter is used, the pagination parameters become invalid.
+   * The token used to retrieve the next page of results. When this parameter is specified, pagination parameters are ignored.
    * 
    * @example
    * ******8EqYpQbZ6Eh7+Zz8DxVYoQ*****
@@ -45,7 +45,7 @@ export class ListAdInsertionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sorting order of the configurations by creation time. asc: ascending. desc: descending.
+   * The sort order. Valid values: asc (ascending order by creation time) and desc (descending order by creation time).
    * 
    * @example
    * asc

@@ -13,7 +13,7 @@ export class SubmitAIAgentVideoAuditTaskResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * **********-586A-AC29-742247******

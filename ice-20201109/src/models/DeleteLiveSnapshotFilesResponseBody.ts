@@ -50,7 +50,7 @@ export class DeleteLiveSnapshotFilesResponseBody extends $dara.Model {
   deleteFileResultList?: DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ****2876-6263-4B75-8F2C-CD0F7FCF****

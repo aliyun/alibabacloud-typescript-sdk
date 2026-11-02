@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHotwordLibrariesResponseBodyHotwordLibraryList extends $dara.Model {
   /**
    * @remarks
-   * The time when the hotword library was created.
+   * The creation time. The time is in ISO 8601 format and uses UTC time (ending with Z).
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -13,10 +13,10 @@ export class ListHotwordLibrariesResponseBodyHotwordLibraryList extends $dara.Mo
   creationTime?: string;
   /**
    * @remarks
-   * The description of the hotword library. It can be up to 200 characters in length.
+   * The description. The maximum length is 200 characters.
    * 
    * @example
-   * Lexicon containing celebrity names
+   * Hotword library for celebrities
    */
   description?: string;
   /**
@@ -29,7 +29,7 @@ export class ListHotwordLibrariesResponseBodyHotwordLibraryList extends $dara.Mo
   hotwordLibraryId?: string;
   /**
    * @remarks
-   * The time when the hotword library was last modified.
+   * The modification time. The time is in ISO 8601 format and uses UTC time (ending with Z).
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -45,13 +45,11 @@ export class ListHotwordLibrariesResponseBodyHotwordLibraryList extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The usage scenario of the hotword library. Valid values:
-   * 
-   * - ASR: Automatic Speech Recognition
-   * 
-   * - StructuredMediaAssets: structured media analysis
-   * 
-   * - VideoTranslation: Video translation This field cannot be modified after the hotword library is created.
+   * The scenarios of the hotword library. Valid values:
+   * - ASR: ASR intelligent text recognition.
+   * - StructuredMediaAssets: Structured media assets.
+   * - VideoTranslation: Video translation.
+   * Once a hotword library is created, this field cannot be modified.
    * 
    * @example
    * ASR
@@ -91,12 +89,12 @@ export class ListHotwordLibrariesResponseBodyHotwordLibraryList extends $dara.Mo
 export class ListHotwordLibrariesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The hotword libraries.
+   * The list of hotword libraries.
    */
   hotwordLibraryList?: ListHotwordLibrariesResponseBodyHotwordLibraryList[];
   /**
    * @remarks
-   * The maximum number of hotword libraries that can be returned.
+   * The maximum number of hotword library information records returned.
    * 
    * @example
    * 10
@@ -104,7 +102,7 @@ export class ListHotwordLibrariesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token that can be used in the next request to retrieve a new page of results. If it is empty, all results are returned.
+   * The position to which the current call has read. An empty value indicates that all data has been read.
    * 
    * @example
    * CBB6BC61D08
@@ -112,7 +110,7 @@ export class ListHotwordLibrariesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ****9262E3DA-07FA-4862-FCBB6BC61D08*****

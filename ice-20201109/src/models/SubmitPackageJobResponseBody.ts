@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitPackageJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The packaging job ID.
    * 
    * @example
    * 2d705f385b704ee5b*******a36d93e0

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitHighlightExtractionJobRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token provided by the caller to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
    * ****12e8864746a0a398****
@@ -13,7 +13,7 @@ export class SubmitHighlightExtractionJobRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The input configuration. For more information, see [InputConfig Parameter Description](~~2869391#e72301e3a74mk~~).
+   * The input configuration. For more information, see [InputConfig parameter description](~~2869391#e72301e3a74mk~~).
    * 
    * @example
    * {
@@ -37,7 +37,7 @@ export class SubmitHighlightExtractionJobRequest extends $dara.Model {
   inputConfig?: string;
   /**
    * @remarks
-   * The output configuration. For more information, see [OutputConfig Parameter Description](~~2869391#cd08cbc516voq~~).
+   * The output configuration. For more information, see [OutputConfig parameter description](~~2869391#cd08cbc516voq~~).
    * 
    * @example
    * {
@@ -53,10 +53,10 @@ export class SubmitHighlightExtractionJobRequest extends $dara.Model {
   outputConfig?: string;
   /**
    * @remarks
-   * The user data and callback configuration. For details on the structure, see [UserData Configuration](~~357745#section-urj-v3f-0s1~~).
+   * The user business configuration and callback configuration. For more information about the structure, see [UserData configuration](~~357745#section-urj-v3f-0s1~~).
    * 
    * @example
-   * {"NotifyAddress":"http://xx.xx.xxx"} or {"NotifyAddress":"https://xx.xx.xxx"} or {"NotifyAddress":"ice-callback-demo"}
+   * {"NotifyAddress":"http://xx.xx.xxx"}
    */
   userData?: string;
   static names(): { [key: string]: string } {

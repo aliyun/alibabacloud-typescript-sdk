@@ -13,7 +13,7 @@ export class SearchMediaClipByFaceRequest extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * The value must be the same as the FaceSearchToken value in the [coarse search operation](https://help.aliyun.com/document_detail/612893.html). This parameter is used to determine paginated results under the same search condition.
+   * The face search token. Keep this value consistent with the FaceSearchToken value in the [rough search operation](https://help.aliyun.com/document_detail/612893.html). This parameter is used to determine whether the paginated results are returned under the same search conditions.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class SearchMediaClipByFaceRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -41,7 +41,7 @@ export class SearchMediaClipByFaceRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 50.
+   * The number of entries to return on each page. Default value: 10. Maximum value: 50.
    * 
    * @example
    * 10

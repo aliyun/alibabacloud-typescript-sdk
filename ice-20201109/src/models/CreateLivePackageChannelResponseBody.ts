@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints extends $dara.Model {
   /**
    * @remarks
-   * The ingest endpoint ID.
+   * The ID of the ingest endpoint.
    * 
    * @example
    * ingest1
@@ -21,7 +21,7 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoin
   password?: string;
   /**
    * @remarks
-   * The ingest endpoint URL.
+   * The URL of the ingest endpoint.
    * 
    * @example
    * http://xxx-1.packagepush-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
@@ -65,7 +65,7 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoin
 export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dara.Model {
   /**
    * @remarks
-   * The channel name.
+   * The name of the channel.
    * 
    * @example
    * example-channel
@@ -73,7 +73,7 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   channelName?: string;
   /**
    * @remarks
-   * The creation time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
+   * The time when the channel was created. Format: yyyy-MM-ddTHH:mm:ssZ (UTC time).
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -81,15 +81,15 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   createTime?: string;
   /**
    * @remarks
-   * The description.
+   * The description of the channel.
    * 
    * @example
-   * This is a test channel.
+   * This is a test channel
    */
   description?: string;
   /**
    * @remarks
-   * The channel group name.
+   * The name of the channel group.
    * 
    * @example
    * channel-group-1
@@ -102,7 +102,7 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   ingestEndpoints?: CreateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints[];
   /**
    * @remarks
-   * The creation time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
+   * The time when the channel was created. Format: yyyy-MM-ddTHH:mm:ssZ (UTC time).
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -110,7 +110,7 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   lastModified?: string;
   /**
    * @remarks
-   * The input protocol. Valid value: HLS.
+   * The ingest protocol. Valid values: HLS, HLS_CMAF, and SRT_RTMP.
    * 
    * @example
    * HLS
@@ -118,7 +118,7 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   protocol?: string;
   /**
    * @remarks
-   * The number of m3u8 segments for the input stream.
+   * The number of m3u8 segments for the ingest stream.
    * 
    * @example
    * 3
@@ -126,7 +126,7 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   segmentCount?: number;
   /**
    * @remarks
-   * The segment duration of the input stream.
+   * The segment duration for the ingest stream.
    * 
    * @example
    * 5
@@ -180,7 +180,7 @@ export class CreateLivePackageChannelResponseBody extends $dara.Model {
   livePackageChannel?: CreateLivePackageChannelResponseBodyLivePackageChannel;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******

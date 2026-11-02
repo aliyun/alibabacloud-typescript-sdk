@@ -13,7 +13,7 @@ export class GetLiveRecordJobResponseBodyRecordJobRecordOutput extends $dara.Mod
   bucket?: string;
   /**
    * @remarks
-   * The endpoint of the storage service.
+   * The storage service endpoint.
    * 
    * @example
    * oss-cn-shanghai.aliyuncs.com
@@ -21,13 +21,7 @@ export class GetLiveRecordJobResponseBodyRecordJobRecordOutput extends $dara.Mod
   endpoint?: string;
   /**
    * @remarks
-   * The type of the storage address.
-   * 
-   * Valid values:
-   * 
-   * - vod
-   * 
-   * - oss
+   * The storage URL type.
    * 
    * @example
    * oss
@@ -61,7 +55,7 @@ export class GetLiveRecordJobResponseBodyRecordJobRecordOutput extends $dara.Mod
 export class GetLiveRecordJobResponseBodyRecordJobStreamInput extends $dara.Model {
   /**
    * @remarks
-   * The type of the live stream. The value can only be rtmp.
+   * The live stream type. Currently, only RTMP is supported.
    * 
    * @example
    * rtmp
@@ -69,7 +63,7 @@ export class GetLiveRecordJobResponseBodyRecordJobStreamInput extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * The URL of the live stream.
+   * The live stream URL.
    * 
    * @example
    * rtmp://example.com/app/stream
@@ -101,7 +95,7 @@ export class GetLiveRecordJobResponseBodyRecordJobStreamInput extends $dara.Mode
 export class GetLiveRecordJobResponseBodyRecordJob extends $dara.Model {
   /**
    * @remarks
-   * The time when the job was created.
+   * The creation time. The time is in the ISO 8601 format and in UTC (ending with Z).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -122,7 +116,7 @@ export class GetLiveRecordJobResponseBodyRecordJob extends $dara.Model {
    * The name of the recording job.
    * 
    * @example
-   * Live event recording task 1
+   * Live Event Recording Task 1
    */
   name?: string;
   /**
@@ -135,20 +129,12 @@ export class GetLiveRecordJobResponseBodyRecordJob extends $dara.Model {
   notifyUrl?: string;
   /**
    * @remarks
-   * The storage address of the recording.
+   * The recording storage URL.
    */
   recordOutput?: GetLiveRecordJobResponseBodyRecordJobRecordOutput;
   /**
    * @remarks
-   * The state of the recording job.
-   * 
-   * Valid values:
-   * 
-   * - paused: The job is paused.
-   * 
-   * - initial: The job is not started.
-   * 
-   * - started: The job is in progress.
+   * The status of the recording job.
    * 
    * @example
    * paused
@@ -156,7 +142,7 @@ export class GetLiveRecordJobResponseBodyRecordJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The URL of the live stream.
+   * The live stream URL.
    */
   streamInput?: GetLiveRecordJobResponseBodyRecordJobStreamInput;
   /**
@@ -221,12 +207,12 @@ export class GetLiveRecordJobResponseBodyRecordJob extends $dara.Model {
 export class GetLiveRecordJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the recording job.
+   * The recording job.
    */
   recordJob?: GetLiveRecordJobResponseBodyRecordJob;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * B57A046C-CE33-5FBB-B57A-D2B89ACF6907

@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSnapshotJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The input for the snapshot job.
+   * The snapshot input.
    * 
    * This parameter is required.
    */
   inputShrink?: string;
   /**
    * @remarks
-   * The name of the snapshot job.
+   * The name of the job.
    * 
    * @example
    * SampleJob
@@ -20,7 +20,7 @@ export class SubmitSnapshotJobShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output destination for the snapshot job.
+   * The snapshot output.
    * 
    * This parameter is required.
    */
@@ -39,7 +39,7 @@ export class SubmitSnapshotJobShrinkRequest extends $dara.Model {
   templateConfigShrink?: string;
   /**
    * @remarks
-   * Custom user data, passed as a JSON-formatted string.
+   * The custom user data.
    * 
    * @example
    * {"test parameter": "test value"}

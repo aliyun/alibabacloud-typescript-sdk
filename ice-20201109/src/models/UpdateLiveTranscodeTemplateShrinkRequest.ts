@@ -8,17 +8,17 @@ export class UpdateLiveTranscodeTemplateShrinkRequest extends $dara.Model {
    * The template name.
    * 
    * @example
-   * Template1130-2
+   * The template 1130-2
    */
   name?: string;
   /**
    * @remarks
-   * The configuration of the template.
+   * The template configuration.
    */
   templateConfigShrink?: string;
   /**
    * @remarks
-   * The template ID. To obtain the template ID, log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com/summary), choose Real-time Media Processing > Template Management, and then click the Transcoding tab. Alternatively, find the ID from the response parameters of the [CreateLiveTranscodeTemplate](https://help.aliyun.com/document_detail/449217.html) operation.
+   * The template ID. You can obtain the ID from the [Intelligent Media Services console](https://ims.console.aliyun.com/summary) by choosing Templates > Real-time Transcoding Templates, or from the response parameters of the [Create a real-time transcoding template](https://help.aliyun.com/document_detail/449217.html) API operation.
    * 
    * This parameter is required.
    * 

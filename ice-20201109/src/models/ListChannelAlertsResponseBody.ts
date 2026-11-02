@@ -13,17 +13,18 @@ export class ListChannelAlertsResponseBodyProgramAlerts extends $dara.Model {
   arn?: string;
   /**
    * @remarks
-   * The alert type.
+   * The category. Valid values:
+   * - Scheduling Error: An error occurred while building the schedule.
+   * - PlayBack Warning: An exception occurred when pulling the address while adding a source.
+   * - info: Information.
    * 
    * @example
-   * Scheduling Error: An error occurred when building the schedule.
-   * PlayBack Warning: Address pull exception when adding source.
-   * info: Information.
+   * Scheduling Error
    */
   category?: string;
   /**
    * @remarks
-   * The number of alerts.
+   * The total number.
    * 
    * @example
    * 4
@@ -31,7 +32,7 @@ export class ListChannelAlertsResponseBodyProgramAlerts extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The time when the alert was last modified in UTC.
+   * The modification time.
    * 
    * @example
    * 2024-07-16T10:03Z
@@ -77,7 +78,7 @@ export class ListChannelAlertsResponseBodyProgramAlerts extends $dara.Model {
 export class ListChannelAlertsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -85,7 +86,7 @@ export class ListChannelAlertsResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -93,12 +94,12 @@ export class ListChannelAlertsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The alerts.
+   * The list of program alerts.
    */
   programAlerts?: ListChannelAlertsResponseBodyProgramAlerts[];
   /**
    * @remarks
-   * **Request ID**
+   * **The request ID.**
    * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
@@ -106,7 +107,7 @@ export class ListChannelAlertsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of alerts returned.
+   * The number of alerts.
    * 
    * @example
    * 4

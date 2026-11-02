@@ -22,7 +22,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   channelName?: string;
   /**
    * @remarks
-   * The time when the endpoint was created.
+   * The creation time. The time is displayed in ISO 8601 format in UTC (ending with Z).
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -33,7 +33,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
    * The description of the endpoint.
    * 
    * @example
-   * This is an origin endpoint.
+   * This is an origin endpoint
    */
   description?: string;
   /**
@@ -62,7 +62,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   groupName?: string;
   /**
    * @remarks
-   * The IP blacklist. Subnet masks are supported. Separate multiple IP addresses with commas (,).
+   * The IP blacklist. CIDR blocks are supported. Separate multiple IP addresses or CIDR blocks with commas (,).
    * 
    * @example
    * 10.21.222.1/32,192.168.100.0/24
@@ -70,7 +70,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   ipBlacklist?: string;
   /**
    * @remarks
-   * The IP whitelist. Subnet masks are supported. Multiple IP addresses are separated with commas (,).
+   * The IP whitelist. CIDR blocks are supported. Separate multiple IP addresses or CIDR blocks with commas (,).
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1/24
@@ -78,7 +78,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   ipWhitelist?: string;
   /**
    * @remarks
-   * The time when the endpoint was last modified.
+   * The last modified time.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -91,7 +91,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   livePackagingConfig?: LivePackagingConfig;
   /**
    * @remarks
-   * The playlist name. Default value: manifest.
+   * The name of the playlist. Default value: manifest.
    * 
    * @example
    * manifest
@@ -99,7 +99,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   manifestName?: string;
   /**
    * @remarks
-   * The protocol. Currently, only HLS is supported.
+   * The protocol. Only HTTP Live Streaming (HLS) is supported.
    * 
    * @example
    * HLS
@@ -107,7 +107,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   protocol?: string;
   /**
    * @remarks
-   * The number of time-shifting days. Maximum value: 30.
+   * The number of time-shift days. Maximum value: 30.
    * 
    * @example
    * 5
@@ -166,7 +166,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
 export class UpdateLivePackageOriginEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The origin endpoint information.
+   * The origin endpoint type.
    */
   livePackageOriginEndpoint?: UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint;
   /**

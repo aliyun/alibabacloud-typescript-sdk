@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopRtcRobotInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * AC84E5DD-AB56-56C0-A992-07ECB82008CA

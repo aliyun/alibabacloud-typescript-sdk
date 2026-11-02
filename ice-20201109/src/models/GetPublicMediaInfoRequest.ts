@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPublicMediaInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * IMS media asset ID
+   * The IMS media asset ID.
    * 
    * @example
    * icepublic-****14e501538aeef0a3140176f6****

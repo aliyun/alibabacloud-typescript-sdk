@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListMediaInfoJobsResponseBodyJobsInput extends $dara.Model {
   /**
    * @remarks
-   * The media value:
-   * 
-   * - If type is set to OSS, the value is a URL that supports the OSS protocol and HTTP protocol.
-   * - If type is set to Media, the value is a media asset ID.
+   * The media value.
+   * - If the type is OSS, the value is a URL that supports the OSS and HTTP protocols.
+   * - If the type is Media, the value is a media asset ID.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -16,7 +15,9 @@ export class ListMediaInfoJobsResponseBodyJobsInput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The media object type.
+   * The media object type. Valid values:
+   * - OSS: OSS file.
+   * - Media: media asset ID.
    * 
    * @example
    * OSS
@@ -64,7 +65,7 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyAudioStreamInfoLi
   channelLayout?: string;
   /**
    * @remarks
-   * The number of audio channels.
+   * The number of channels.
    * 
    * @example
    * 2
@@ -72,7 +73,7 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyAudioStreamInfoLi
   channels?: string;
   /**
    * @remarks
-   * The codec format name.
+   * The full codec name.
    * 
    * @example
    * AAC (Advanced Audio Coding)
@@ -112,7 +113,7 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyAudioStreamInfoLi
   codecTimeBase?: string;
   /**
    * @remarks
-   * The duration. Unit: seconds.
+   * The duration, in seconds.
    * 
    * @example
    * 403.039989
@@ -152,7 +153,7 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyAudioStreamInfoLi
   sampleRate?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time, in seconds.
    * 
    * @example
    * 1.473556
@@ -259,6 +260,8 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyFileBasicInfo ext
   /**
    * @remarks
    * The file type. Valid values:
+   * - source_file: source file.
+   * - transcode_file: transcoded file.
    * 
    * @example
    * source_file
@@ -298,7 +301,7 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyFileBasicInfo ext
   mediaId?: string;
   /**
    * @remarks
-   * The region where the file is stored.
+   * The region where the file is located.
    * 
    * @example
    * cn-shanghai
@@ -374,7 +377,7 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyVideoStreamInfoLi
   bitRate?: string;
   /**
    * @remarks
-   * The codec format name.
+   * The full codec name.
    * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
@@ -414,7 +417,7 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyVideoStreamInfoLi
   codecTimeBase?: string;
   /**
    * @remarks
-   * The display aspect ratio (DAR).
+   * The display aspect ratio.
    * 
    * @example
    * 16:9
@@ -422,7 +425,7 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyVideoStreamInfoLi
   dar?: string;
   /**
    * @remarks
-   * The duration. Unit: seconds.
+   * The duration, in seconds.
    * 
    * @example
    * 403.039989
@@ -438,10 +441,10 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyVideoStreamInfoLi
   fps?: string;
   /**
    * @remarks
-   * Indicates whether B-frames exist. Valid values:
-   * - 0: no B-frames.
-   * - 1: one B-frame.
-   * - 2: multiple consecutive B-frames.
+   * Indicates whether B-frames are present. Valid values:
+   * - 0: No B-frames.
+   * - 1: One B-frame.
+   * - 2: Multiple consecutive B-frames.
    * 
    * @example
    * 2
@@ -507,13 +510,16 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyVideoStreamInfoLi
    * @remarks
    * The video rotation angle.
    * 
+   * - Valid values: 0, 90, 180, and 270.
+   * - Default value: 0.
+   * 
    * @example
    * 0
    */
   rotate?: string;
   /**
    * @remarks
-   * The sample aspect ratio (SAR).
+   * The sample aspect ratio.
    * 
    * @example
    * 478:477
@@ -521,7 +527,7 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyVideoStreamInfoLi
   sar?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time, in seconds.
    * 
    * @example
    * 1.473556
@@ -701,7 +707,7 @@ export class ListMediaInfoJobsResponseBodyJobsScheduleConfig extends $dara.Model
 export class ListMediaInfoJobsResponseBodyJobs extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the job is processed asynchronously.
+   * Specifies whether the job is processed asynchronously.
    * 
    * @example
    * true
@@ -709,7 +715,7 @@ export class ListMediaInfoJobsResponseBodyJobs extends $dara.Model {
   async?: boolean;
   /**
    * @remarks
-   * The job completion time. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The job completion time. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-01-12T08:49:41Z
@@ -756,7 +762,10 @@ export class ListMediaInfoJobsResponseBodyJobs extends $dara.Model {
   scheduleConfig?: ListMediaInfoJobsResponseBodyJobsScheduleConfig;
   /**
    * @remarks
-   * The task status.
+   * The job status. Valid values:
+   * - Init: Submitted.
+   * - Success: Succeeded.
+   * - Fail: Failed.
    * 
    * @example
    * Init
@@ -769,7 +778,7 @@ export class ListMediaInfoJobsResponseBodyJobs extends $dara.Model {
   submitResultJson?: { [key: string]: any };
   /**
    * @remarks
-   * The job submission time. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The job submission time. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-01-12T08:49:41Z
@@ -777,7 +786,10 @@ export class ListMediaInfoJobsResponseBodyJobs extends $dara.Model {
   submitTime?: string;
   /**
    * @remarks
-   * The job source.
+   * The job source. Valid values:
+   * - API: API.
+   * - WorkFlow: workflow.
+   * - Console: console.
    * 
    * @example
    * API
@@ -856,7 +868,7 @@ export class ListMediaInfoJobsResponseBody extends $dara.Model {
   jobs?: ListMediaInfoJobsResponseBodyJobs[];
   /**
    * @remarks
-   * The token used to retrieve the next page. Leave this parameter empty for the first request. The token for the next page is returned after the first query.
+   * The next page token. Leave this parameter empty for the first request. The next page token is returned after the first query.
    * 
    * @example
    * 019daf5780f74831b0e1a767c9f1c178

@@ -22,7 +22,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   channelName?: string;
   /**
    * @remarks
-   * The time when the endpoint was created.
+   * The creation time. The time follows the ISO 8601 standard and is displayed in UTC (ending with Z).
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -33,7 +33,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
    * The description of the endpoint.
    * 
    * @example
-   * This is an origin endpoint.
+   * This is an origin endpoint
    */
   description?: string;
   /**
@@ -70,7 +70,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   ipBlacklist?: string;
   /**
    * @remarks
-   * The IP whitelist.
+   * The IP address whitelist.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1/24
@@ -78,7 +78,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   ipWhitelist?: string;
   /**
    * @remarks
-   * The time when the endpoint was last modified.
+   * The last modified time.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -91,7 +91,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   livePackagingConfig?: LivePackagingConfig;
   /**
    * @remarks
-   * The manifest name.
+   * The name of the manifest.
    * 
    * @example
    * manifest
@@ -107,7 +107,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   protocol?: string;
   /**
    * @remarks
-   * The number of days for time-shifting. Maximum value: 30.
+   * The time-shift duration in days. Maximum value: 30.
    * 
    * @example
    * 1
@@ -166,7 +166,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
 export class CreateLivePackageOriginEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The LivePackageOriginEndpoint object.
+   * The LivePackageOriginEndpoint type.
    */
   livePackageOriginEndpoint?: CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint;
   /**

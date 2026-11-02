@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRtcRobotInstanceRequestConfig extends $dara.Model {
   /**
    * @remarks
-   * Controls whether voice interrupt is enabled. This change takes effect immediately.
+   * Specifies whether voice interruption is allowed. This setting takes effect immediately.
    * 
    * @example
    * false
@@ -13,15 +13,15 @@ export class UpdateRtcRobotInstanceRequestConfig extends $dara.Model {
   enableVoiceInterrupt?: boolean;
   /**
    * @remarks
-   * The greeting message. The greeting is not updated if it has already been played.
+   * The greeting. Modifications do not take effect if the greeting has already been played.
    * 
    * @example
-   * Hello
+   * hello
    */
   greeting?: string;
   /**
    * @remarks
-   * The ID of the voice. The new voice takes effect on the AI Agent\\"s next utterance.
+   * The voice ID. The change takes effect for the next sentence spoken by the agent.
    * 
    * @example
    * zhixiaoxia
@@ -55,12 +55,12 @@ export class UpdateRtcRobotInstanceRequestConfig extends $dara.Model {
 export class UpdateRtcRobotInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration for the AI Agent instance.
+   * The configuration.
    */
   config?: UpdateRtcRobotInstanceRequestConfig;
   /**
    * @remarks
-   * The ID of the AI Agent instance to update.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

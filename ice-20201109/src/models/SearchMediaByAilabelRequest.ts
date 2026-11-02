@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMediaByAILabelRequest extends $dara.Model {
   /**
    * @remarks
-   * Custom filters. A JSON string. The following backing fields are supported: intField1 (integer type), strField1 and strField2 (string type). For the same field, only one matching method can be specified. Filters on different fields are combined with a logical AND relationship.
-   * 
-   * - Exact match, for example: {"intField1":12,"strField1":"abc"}
-   * 
-   * - Multi-value match, for example: {"intField1":[12,13],"strField1":["abc","cd"]}
-   * 
-   * - Range match, for example: {"intField1":{"gte":12,"lte":13}}
+   * The custom filters. The value is a JSON string. Supported fields include the integer field intField1 and the string fields strField1 and strField2. You can select at most one match type for the same field. Filters for different fields use the AND logical operator.
+   * - Exact match, such as {"intField1":12,"strField1":"abc"}.
+   * - Multi-value match, such as {"intField1":[12,13],"strField1":["abc","cd"]}.
+   * - Range match, such as {"intField1":{"gte":12,"lte":13}}.
    * 
    * @example
    * {"intField1":{"gte":12,"lte":13},"strField2":["cd","de"],"strField1":"abc"}
@@ -19,11 +16,9 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
   customFilters?: string;
   /**
    * @remarks
-   * Matching pattern. The default value is fuzzy for Fuzzy Matching. Valid values:
-   * 
-   * - fuzzy: Fuzzy Matching
-   * 
-   * - precise: Precise matching. This pattern applies only to newly added media assets.
+   * The matching mode. Default value: fuzzy. Valid values:
+   * - fuzzy: fuzzy match.
+   * - precise: exact match. This mode takes effect only for newly added media assets.
    * 
    * @example
    * fuzzy
@@ -31,7 +26,7 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
   matchingMode?: string;
   /**
    * @remarks
-   * The ID of the media asset. This parameter is required if you want to query media asset clips.
+   * The media asset ID. This parameter is required for precise search.
    * 
    * @example
    * ****c469e944b5a856828dc2****
@@ -39,13 +34,10 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The type of the media assets. Valid values:
-   * 
-   * - image
-   * 
-   * - video
-   * 
-   * - audio
+   * The media asset type. Valid values:
+   * - image: images
+   * - video: videos
+   * - audio: audio
    * 
    * @example
    * video
@@ -53,15 +45,11 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
   mediaType?: string;
   /**
    * @remarks
-   * The type of query. Valid values:
-   * 
-   * - PersonName: queries media assets based on character names.
-   * 
-   * - Ocr: queries media assets based on subtitles.
-   * 
-   * - AiCategory: queries media assets based on AI categories.
-   * 
-   * - FullSearch (default): queries all media assets.
+   * The multimodal search type. Default value: FullSearch. Valid values:
+   * - PersonName: person name search
+   * - Ocr: subtitle search
+   * - AiCategory: AI categorization search
+   * - FullSearch: full text search
    * 
    * @example
    * Ocr
@@ -69,7 +57,7 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
   multimodalSearchType?: string;
   /**
    * @remarks
-   * Namespace.
+   * The namespace.
    * 
    * @example
    * name-1
@@ -77,7 +65,7 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -85,7 +73,7 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 50.
+   * The number of entries to return on each page. Default value: 10. Maximum value: 50.
    * 
    * @example
    * 20
@@ -101,11 +89,9 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
   searchLibName?: string;
   /**
    * @remarks
-   * The sorting method of the results. Valid values:
-   * 
-   * - CreationTime:Desc (default): sorts results in reverse chronological order.
-   * 
-   * - CreationTime:Asc: sorts results in chronological order.
+   * The sorting of query results. Valid values:
+   * - CreationTime:Desc (default): sorts by creation time in descending order.
+   * - CreationTime:Asc: sorts by creation time in ascending order.
    * 
    * @example
    * CreationTime:Desc
@@ -113,11 +99,9 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * Specifies whether to query media asset clips. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Specifies whether to perform a precise search. Valid values:
+   * - true: performs a precise search.
+   * - false: performs a coarse search.
    * 
    * @example
    * true
@@ -125,17 +109,16 @@ export class SearchMediaByAILabelRequest extends $dara.Model {
   specificSearch?: boolean;
   /**
    * @remarks
-   * The content that you want to query.
+   * The search content.
    * 
    * @example
-   * Kite
+   * kite
    */
   text?: string;
   /**
    * @remarks
-   * Creation time, in milliseconds UNIX timestamp. Use gte for greater than or equal to, and lte for less than or equal to.
-   * 
-   * - Example range: {"gte":1761205662998,"lte":1771205662998}
+   * The creation time, in milliseconds. gte indicates greater than or equal to, and lte indicates less than or equal to.
+   * - Range match, such as {"gte":1761205662998,"lte":1771205662998}.
    * 
    * @example
    * {"gte":1761205662998,"lte":1771205662998}

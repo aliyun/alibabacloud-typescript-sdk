@@ -5,22 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHotwordLibraryShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the hotword library. It can be up to 200 characters in length.
+   * The description of the hotword library. The maximum length is 200 characters.
    * 
    * @example
-   * Lexicon containing celebrity names
+   * A lexicon of celebrity names
    */
   description?: string;
   /**
    * @remarks
-   * The hotword list. You can add up to 300 hotword entries to a single library.
+   * The list of hotwords. The maximum number of hotwords is 300.
    * 
    * This parameter is required.
    */
   hotwordsShrink?: string;
   /**
    * @remarks
-   * The name of the hotword library. It can be up to 100 characters in length.
+   * The name of the hotword library. The maximum length is 100 characters.
    * 
    * This parameter is required.
    * 
@@ -30,13 +30,13 @@ export class CreateHotwordLibraryShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The usage scenario of the hotword library. Valid values:
+   * The scenarios of the hotword library. Valid values:
    * 
-   * · ASR: Automatic Speech Recognition
+   * - ASR: ASR intelligent text recognition.
    * 
-   * · StructuredMediaAssets: structured media analysis
+   * - StructuredMediaAssets: structured media assets.
    * 
-   * · VideoTranslation: Video translation.
+   * - VideoTranslation: video translation.
    * 
    * This field cannot be modified after the hotword library is created.
    * 

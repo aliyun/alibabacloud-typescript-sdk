@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChannelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the channel.
+   * The channel name.
    * 
    * @example
    * MyChannel
@@ -13,7 +13,7 @@ export class ListChannelsRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * The tier of the channel. Valid values: basic and standard.
+   * The channel tier.
    * 
    * @example
    * basic
@@ -21,7 +21,7 @@ export class ListChannelsRequest extends $dara.Model {
   channelTier?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListChannelsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 20
@@ -37,7 +37,7 @@ export class ListChannelsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The playback mode. Valid values: loop and linear.
+   * The playback mode.
    * 
    * @example
    * loop
@@ -45,7 +45,7 @@ export class ListChannelsRequest extends $dara.Model {
   playbackMode?: string;
   /**
    * @remarks
-   * The sorting order by creation time. Valid values: asc and desc.
+   * Sorts the results by creation time.
    * 
    * @example
    * asc
@@ -53,7 +53,7 @@ export class ListChannelsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The sorting order by modification time. Valid values: asc and desc.
+   * Sorts the results by modification time.
    * 
    * @example
    * desc
@@ -61,7 +61,7 @@ export class ListChannelsRequest extends $dara.Model {
   sortByModifiedTime?: string;
   /**
    * @remarks
-   * The channel status. A value of 0 specifies stopped. A value of 1 specifies started.
+   * The channel state. Valid values: 0: Stopped. 1: Started.
    * 
    * @example
    * 0

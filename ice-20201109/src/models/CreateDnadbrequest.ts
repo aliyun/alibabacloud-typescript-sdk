@@ -5,23 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDNADBRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the DNA database.
+   * The description of the DNA library.
    * 
    * @example
-   * 这是一个视频DNA库。
+   * This is a video DNA library.
    */
   description?: string;
   /**
    * @remarks
-   * The DNA database model. Valid values:
-   * 
-   * - **Video**: For video content.
-   * 
-   * - **Audio**: For audio content.
-   * 
-   * - **Image**: For image content. (Deprecated)
-   * 
-   * - **Text**: For text content. Supported only in the China (Shanghai) region. (Deprecated)
+   * The model of the DNA library. Valid values:
+   * - **Video**: Video.
+   * - **Audio**: Audio.
+   * - **Image**: **[Deprecated]** Image.
+   * - **Text**: **[Deprecated]** Text. Supported only in the China (Shanghai) region.
    * 
    * @example
    * Video
@@ -29,7 +25,7 @@ export class CreateDNADBRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The name of the DNA database.
+   * The name of the DNA library.
    * 
    * This parameter is required.
    * 

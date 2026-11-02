@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecognitionLibsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of recognition algorithm. Valid values:
+   * The recognition type. Valid values:
    * 
-   * - landmark
+   * - landmark: custom landmark
    * 
-   * - object
+   * - object: custom object
    * 
-   * - logo
+   * - logo: custom logo
    * 
-   * - face
+   * - face: custom face
    * 
-   * - label
+   * - label: custom label
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListRecognitionLibsRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * Library ID. If provided, the query returns only this specific library. A list of IDs separated by commas (",") is also supported.
+   * The ID of the library. If you specify this parameter, the system queries the specified library. You can specify multiple IDs separated by commas (,).
    * 
    * @example
    * lib1,lib2,lib3
@@ -45,7 +45,7 @@ export class ListRecognitionLibsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 50.
+   * The number of entries per page. The maximum number of entries per page is 50.
    * 
    * This parameter is required.
    * 

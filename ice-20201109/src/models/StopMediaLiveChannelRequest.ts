@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopMediaLiveChannelRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the channel.
+   * The channel ID.
    * 
    * This parameter is required.
    * 

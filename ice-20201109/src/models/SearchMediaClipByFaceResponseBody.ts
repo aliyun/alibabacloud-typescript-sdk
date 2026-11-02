@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackDataBoxPosition extends $dara.Model {
   /**
    * @remarks
-   * The height of the bounding box, in pixels.
+   * The height of the bounding box. Unit: pixels.
    * 
    * @example
    * 168
@@ -13,7 +13,7 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrack
   h?: number;
   /**
    * @remarks
-   * The width of the bounding box, in pixels.
+   * The width of the bounding box. Unit: pixels.
    * 
    * @example
    * 128
@@ -21,7 +21,7 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrack
   w?: number;
   /**
    * @remarks
-   * The x-axis coordinate of the upper-left vertex, in pixels.
+   * The x-axis coordinate of the upper-left vertex. Unit: pixels.
    * 
    * @example
    * 517
@@ -29,7 +29,7 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrack
   x?: number;
   /**
    * @remarks
-   * The y-axis coordinate of the upper-left vertex, in pixels.
+   * The y-axis coordinate of the upper-left vertex. Unit: pixels.
    * 
    * @example
    * 409
@@ -65,12 +65,12 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrack
 export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackData extends $dara.Model {
   /**
    * @remarks
-   * The face coordinate information.
+   * The coordinate information of the face.
    */
   boxPosition?: SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackDataBoxPosition;
   /**
    * @remarks
-   * The timestamp when the face appears in the media asset, in seconds. The value is of the Float type.
+   * The timestamp when the face appears in the media asset. The value is a floating-point number in seconds.
    * 
    * @example
    * 62.03302
@@ -105,7 +105,7 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrack
 export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos extends $dara.Model {
   /**
    * @remarks
-   * The end time of the matched clip, in seconds. The value is of the Float type.
+   * The end time of the matched clip. The value is a floating-point number in seconds.
    * 
    * @example
    * 69.06635
@@ -116,12 +116,12 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos exte
    * The facial expression.
    * 
    * @example
-   * Calm
+   * peaceful
    */
   expression?: string;
   /**
    * @remarks
-   * The start time of the matched clip, in seconds. The value is of the Float type.
+   * The start time of the matched clip. The value is a floating-point number in seconds.
    * 
    * @example
    * 61.066353
@@ -166,12 +166,11 @@ export class SearchMediaClipByFaceResponseBodyMediaClipList extends $dara.Model 
   /**
    * @remarks
    * The person type. Valid values:
-   * 
-   * - celebrity: celebrity.
-   * - sensitive: sensitive person.
-   * - politician: political figure.
-   * - custom: custom person.
-   * - unknown: unknown person.
+   * - celebrity: Celebrity.
+   * - sensitive: Sensitive person.
+   * - politician: Politician.
+   * - custom: Custom person.
+   * - unknown: Unknown person.
    * 
    * @example
    * celebrity
@@ -179,7 +178,7 @@ export class SearchMediaClipByFaceResponseBodyMediaClipList extends $dara.Model 
   category?: string;
   /**
    * @remarks
-   * The entity ID, which corresponds to the entity ID in the label analysis results.
+   * The entity ID, which corresponds to the entity ID in the tag analysis result.
    * 
    * @example
    * 1031025****
@@ -190,17 +189,17 @@ export class SearchMediaClipByFaceResponseBodyMediaClipList extends $dara.Model 
    * The entity name.
    * 
    * @example
-   * John Doe
+   * ZhangSan
    */
   labelName?: string;
   /**
    * @remarks
-   * The clustering information of person clips.
+   * The clustering information of the person clips.
    */
   occurrencesInfos?: SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos[];
   /**
    * @remarks
-   * The score of the matched clip. The value is of the Float type and ranges from 0 to 1.
+   * The score of the matched clip. The value is a floating-point number in the range of [0, 1].
    * 
    * @example
    * 0.99041677
@@ -249,7 +248,7 @@ export class SearchMediaClipByFaceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The collection of media asset clips that meet the requirements.
+   * The collection of matched media asset clips.
    */
   mediaClipList?: SearchMediaClipByFaceResponseBodyMediaClipList[];
   /**
@@ -262,7 +261,9 @@ export class SearchMediaClipByFaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the operation is successful. Valid values:
+   * - true: The operation is successful.
+   * - false: The operation fails.
    * 
    * @example
    * true
@@ -270,7 +271,7 @@ export class SearchMediaClipByFaceResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of media asset clips that meet the conditions.
+   * The total number of matched media asset clips.
    * 
    * @example
    * 5

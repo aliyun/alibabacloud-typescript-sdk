@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRtcRobotInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration for the AI Agent instance.
+   * The configuration.
    */
   configShrink?: string;
   /**
    * @remarks
-   * The ID of the AI Agent instance to update.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

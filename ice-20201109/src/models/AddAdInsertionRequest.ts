@@ -5,13 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddAdInsertionRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable ad marker passthrough. Default value: OFF.
-   * 
-   * Valid values:
-   * 
-   * - OFF: Disable.
-   * 
-   * - ON: Enable.
+   * Specifies whether to pass through ad markers. Default value: OFF.
    * 
    * @example
    * ON
@@ -19,7 +13,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   adMarkerPassthrough?: string;
   /**
    * @remarks
-   * The request URL of the ad decision server (ADS). HTTP and HTTPS are supported. The maximum length is 2,048 characters.
+   * The URL of the ad decision server. The URL supports the HTTP and HTTPS protocols. It can be up to 2,048 characters in length.
    * 
    * This parameter is required.
    * 
@@ -29,7 +23,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   adsUrl?: string;
   /**
    * @remarks
-   * The CDN prefix for ad segments. HTTP and HTTPS are supported. The maximum length is 512 characters.
+   * The CDN prefix for ad segments. The URL supports the HTTP and HTTPS protocols. It can be up to 512 characters in length.
    * 
    * @example
    * http://cdn.com/
@@ -37,7 +31,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   cdnAdSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * The CDN prefix for content segments. HTTP and HTTPS are supported. The maximum length is 512 characters.
+   * The CDN prefix for video content segments. The URL supports the HTTP and HTTPS protocols. It can be up to 512 characters in length.
    * 
    * @example
    * http://cdn.com/
@@ -45,7 +39,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   cdnContentSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * The idempotency key that is used to avoid repeated submission. The value can be up to 200 characters in length.
+   * The client token that is used to ensure idempotence. The token must be unique for each request to prevent duplicate submissions. It can be up to 200 characters in length.
    * 
    * @example
    * ****0311a423d11a5f7dee713535****
@@ -53,7 +47,12 @@ export class AddAdInsertionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * A JSON string that specifies the player parameter variables and aliases. You can add up to 20 player_params.{name} entries. The name field can be up to 150 characters in length. Each player parameter can include up to 50 key-value pairs. A key can be up to 150 characters long, and a value can be up to 500 characters. Example: { "player_params.{name}": { "{key}": "{value}" } }
+   * The dynamic configuration aliases. The value is a JSON string. You can add up to 20 player_params.{name} entries. The name part can be up to 150 characters in length. Under each player_params.xxx, you can add up to 50 key-value pairs. The key can be up to 150 characters in length, and the value can be up to 500 characters in length. Example:
+   * {
+   *   "player_params.{name}": {
+   *     "{key}": "{value}"
+   *   }
+   * }
    * 
    * @example
    * { "player_params.p1": { "1": "abc" } }
@@ -61,7 +60,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   configAliases?: string;
   /**
    * @remarks
-   * The URL prefix for the source content. HTTP and HTTPS are supported. The maximum length is 512 characters.
+   * The prefix of the content URL. The URL supports the HTTP and HTTPS protocols. It can be up to 512 characters in length.
    * 
    * This parameter is required.
    * 
@@ -71,7 +70,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   contentUrlPrefix?: string;
   /**
    * @remarks
-   * The name of the configuration. The name must be unique and can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * The name of the configuration. The name must be unique within the same account. It can be up to 128 characters in length and must match the regular expression [A-Za-z0-9_-]+.
    * 
    * This parameter is required.
    * 
@@ -81,7 +80,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies the maximum duration of underfilled time allowed in an ad break. Unit: seconds. Default value: 8 seconds.
+   * The personalization threshold. Unit: seconds. Default value: 8.
    * 
    * @example
    * 5
@@ -89,7 +88,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   personalizationThreshold?: number;
   /**
    * @remarks
-   * The HTTP or HTTPS URL of the slate ad. Only MP4 format is supported. The maximum length is 2,048 characters.
+   * The URL of the slate ad. The URL supports the HTTP and HTTPS protocols and only MP4 files (.mp4). It can be up to 2,048 characters in length.
    * 
    * @example
    * http://storage.com/slate1.mp4

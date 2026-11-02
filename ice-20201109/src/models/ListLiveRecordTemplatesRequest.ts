@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveRecordTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword to search for templates by ID or name. Fuzzy matching is supported for template names.
+   * The search keyword. You can search by template ID or name. Fuzzy match is supported for names.
    * 
    * @example
    * test template
@@ -21,7 +21,7 @@ export class ListLiveRecordTemplatesRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Value range: 1–100. Default value: 10.
+   * The page size. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class ListLiveRecordTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort order. The default sort is descending by creation time.
+   * The sorting parameter. By default, templates are sorted in descending order of creation time.
    * 
    * @example
    * desc
@@ -37,12 +37,12 @@ export class ListLiveRecordTemplatesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The template IDs to retrieve.
+   * The list of recording template IDs.
    */
   templateIds?: string[];
   /**
    * @remarks
-   * The template type.
+   * The templatetype.
    * 
    * @example
    * custom

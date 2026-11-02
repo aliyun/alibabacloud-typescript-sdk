@@ -8,7 +8,7 @@ import { AIAgentTemplateConfig } from "./AiagentTemplateConfig";
 export class StartAIAgentInstanceRequestChatSyncConfig extends $dara.Model {
   /**
    * @remarks
-   * The IM agent ID.
+   * The ID of the IM agent.
    * 
    * @example
    * ******005e4f309379701645f4****
@@ -16,7 +16,7 @@ export class StartAIAgentInstanceRequestChatSyncConfig extends $dara.Model {
   IMAIAgentId?: string;
   /**
    * @remarks
-   * The receiver user ID.
+   * The ID of the receiving user.
    * 
    * @example
    * 4167626d312034b2b1c3b7f2f3e41884
@@ -48,7 +48,7 @@ export class StartAIAgentInstanceRequestChatSyncConfig extends $dara.Model {
 export class StartAIAgentInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent ID configured in the [IMS console](https://ims.console.aliyun.com/ai/robot/list).
+   * The ID of the agent configured in the [IMS console](https://ims.console.aliyun.com/ai/robot/list).
    * 
    * This parameter is required.
    * 
@@ -58,26 +58,26 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
   AIAgentId?: string;
   /**
    * @remarks
-   * The agent template configuration. Values you provide merge with the template configuration set in the console. If you omit this parameter, the agent uses its default configuration from the console.
+   * The agent template configuration. The specified configuration is merged and updated with the agent template configuration in the console. If this parameter is not specified, the default configurations of the agent in the console are used.
    * 
-   * > This field is compatible with TemplateConfig. Fields in AgentConfig take precedence. If TemplateConfig contains fields not defined in AgentConfig, those fields are used. Use AgentConfig instead of TemplateConfig.
+   * > Compatible with TemplateConfig rules: Fields in AgentConfig take precedence. If TemplateConfig contains fields that are not specified in AgentConfig, the fields in TemplateConfig are used. Use AgentConfig instead of TemplateConfig.
    */
   agentConfig?: AIAgentConfig;
   /**
    * @remarks
-   * The chat history synchronization configuration.
+   * The configuration for synchronizing chat history.
    */
   chatSyncConfig?: StartAIAgentInstanceRequestChatSyncConfig;
   /**
    * @remarks
-   * The configuration required for the agent at runtime.
+   * The configuration required for the agent runtime.
    * 
    * This parameter is required.
    */
   runtimeConfig?: AIAgentRuntimeConfig;
   /**
    * @remarks
-   * A unique identifier for the chat session. This parameter is optional.
+   * The unique identifier of the conversation. Default value: none.
    * 
    * @example
    * f213fbc005e4f309379701645f4****
@@ -85,16 +85,16 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The agent template configuration. Values you provide merge with the template configuration set in the console. If you omit this parameter, the agent uses its default configuration from the console.
+   * The agent template configuration. The specified configuration is merged and updated with the agent template configuration in the console. If this parameter is not specified, the default configurations of the agent in the console are used.
    * 
-   * > The agent template configuration. This field is deprecated. See the AgentConfig field.
+   * > Agent template configuration. **[Deprecated]** For more information, see the AgentConfig field.
    * 
    * @deprecated
    */
   templateConfig?: AIAgentTemplateConfig;
   /**
    * @remarks
-   * User-defined data.
+   * The user-defined information.
    * 
    * @example
    * {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}

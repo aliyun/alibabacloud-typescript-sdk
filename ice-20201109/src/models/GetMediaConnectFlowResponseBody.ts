@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the MediaConnect Flow instance.
+   * The time when the flow was created. The time follows the ISO 8601 standard in UTC and ends with Z.
    * 
    * @example
    * 2024-07-18T01:29:24Z
@@ -13,7 +13,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether Input Failover is enabled for the flow. Valid values: `yes` and `no`.
+   * Indicates whether dual-stream disaster recovery is enabled for the flow input. Valid values: yes and no.
    * 
    * @example
    * yes
@@ -21,7 +21,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   flowFailover?: string;
   /**
    * @remarks
-   * The ID of the MediaConnect Flow instance.
+   * The flow instance ID.
    * 
    * @example
    * 34900dc6-90ec-4968-af3c-fcd87f231a5f
@@ -29,16 +29,23 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * The name of the MediaConnect Flow instance.
+   * The flow instance name.
    * 
    * @example
    * AliTestFlow
    */
   flowName?: string;
+  /**
+   * @remarks
+   * The region to which the flow instance belongs.
+   * 
+   * @example
+   * me-east-1
+   */
   flowRegion?: string;
   /**
    * @remarks
-   * The status of the MediaConnect Flow instance.
+   * The flow status.
    * 
    * @example
    * online
@@ -46,7 +53,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   flowStatus?: string;
   /**
    * @remarks
-   * The start time of the MediaConnect Flow instance.
+   * The time when the flow was started. The time follows the ISO 8601 standard in UTC and ends with Z.
    * 
    * @example
    * 2024-07-18T01:39:24Z
@@ -101,7 +108,7 @@ export class GetMediaConnectFlowResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * FB503AEF-118E-1516-89E2-7B227EA1AC20
@@ -109,7 +116,7 @@ export class GetMediaConnectFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The return code. A value of 0 indicates success.
+   * The returned status code. A value of 0 indicates success.
    * 
    * @example
    * 0

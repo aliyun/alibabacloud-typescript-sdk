@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSmartVoiceGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The voice type. If you do not specify this parameter, the operation returns voices from the small model by default. Set this parameter to `CosyVoice` to retrieve voices from the Cosyvoice large model.
+   * The voice type. If this parameter is left empty, the voices of small models are returned. Valid values: Cosyvoice: returns the sample voices of the Cosyvoice large model.
    * 
    * @example
    * CosyVoice

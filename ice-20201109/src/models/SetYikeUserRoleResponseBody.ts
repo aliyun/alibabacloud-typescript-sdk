@@ -13,11 +13,9 @@ export class SetYikeUserRoleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded.
-   * 
-   * - true: Success
-   * 
-   * - false: Failure
+   * Indicates whether the user role is set successfully. Valid values:
+   * - true: Success.
+   * - false: Failure.
    * 
    * @example
    * true

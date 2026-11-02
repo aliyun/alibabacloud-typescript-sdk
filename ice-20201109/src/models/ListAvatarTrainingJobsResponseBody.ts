@@ -8,7 +8,7 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
    * The description of the digital human.
    * 
    * @example
-   * This is a digital human used for a specific scenario.
+   * This is a digital human, intended for use in a certain scenario.
    */
   avatarDescription?: string;
   /**
@@ -24,7 +24,7 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
    * The name of the digital human.
    * 
    * @example
-   * Decimal
+   * The name of the digital human.
    */
   avatarName?: string;
   /**
@@ -37,9 +37,7 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
   avatarType?: string;
   /**
    * @remarks
-   * - The time when the job was created.
-   * 
-   * - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the task was created, in UTC.
    * 
    * @example
    * 2020-12-23T13:33:40Z
@@ -47,9 +45,7 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
   createTime?: string;
   /**
    * @remarks
-   * - The time when the first training was initiated.
-   * 
-   * - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the training was first initiated, in UTC.
    * 
    * @example
    * 2020-12-23T13:33:40Z
@@ -57,7 +53,7 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
   firstTrainingTime?: string;
   /**
    * @remarks
-   * The ID of the digital human training job.
+   * The ID of the digital human training task.
    * 
    * @example
    * *****aded114489ea02e0addf93*****
@@ -65,9 +61,7 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
   jobId?: string;
   /**
    * @remarks
-   * - The time when the last training was initiated.
-   * 
-   * - The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time of the most recent training, in UTC.
    * 
    * @example
    * 2020-12-23T13:33:40Z
@@ -78,12 +72,12 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
    * The status description.
    * 
    * @example
-   * Training succeeded
+   * Training successful
    */
   message?: string;
   /**
    * @remarks
-   * The media asset ID of the portrait image.
+   * The media asset ID of the profile picture.
    * 
    * @example
    * *****aded114489ea02e0addf93*****
@@ -91,7 +85,7 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
   portrait?: string;
   /**
    * @remarks
-   * The state of the digital human training job.
+   * The status of the digital human training task.
    * 
    * @example
    * Success
@@ -141,12 +135,12 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
 export class ListAvatarTrainingJobsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of digital human training jobs.
+   * The list of digital human training tasks.
    */
   avatarTrainingJobList?: ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 3
@@ -181,7 +175,7 @@ export class ListAvatarTrainingJobsResponseBodyData extends $dara.Model {
 export class ListAvatarTrainingJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ListAvatarTrainingJobsResponseBodyData;
   /**
@@ -194,11 +188,9 @@ export class ListAvatarTrainingJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the request is successful. Valid values:
+   * - true: successful
+   * - false: failed
    * 
    * @example
    * true

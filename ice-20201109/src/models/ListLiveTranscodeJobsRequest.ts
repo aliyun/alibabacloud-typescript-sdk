@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveTranscodeJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The search keyword. You can search by task ID or name. Name supports fuzzy match.
+   * The search keyword. You can search by job ID or name. Fuzzy match is supported for job names.
    * 
    * @example
    * 24ecbb5c-4f98-4194-9400-f17102e27fc5
@@ -29,10 +29,9 @@ export class ListLiveTranscodeJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort order. Sorts by CreateTime. Default value: desc.
-   * 
-   * - asc: ascending order
-   * - desc: descending order
+   * The sort order based on CreateTime. Default value: desc. Valid values:
+   * - asc: Ascending order.
+   * - desc: Descending order.
    * 
    * @example
    * asc
@@ -40,10 +39,9 @@ export class ListLiveTranscodeJobsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The start mode.
-   * 
-   * - 0: start immediately
-   * - 1: scheduled start
+   * The start mode. Valid values:
+   * - 0: Starts immediately.
+   * - 1: Starts at a scheduled time.
    * 
    * @example
    * 0
@@ -51,13 +49,10 @@ export class ListLiveTranscodeJobsRequest extends $dara.Model {
   startMode?: number;
   /**
    * @remarks
-   * The task status.
-   * 
-   * - 0: not started
-   * 
-   * - 1: running
-   * 
-   * - 2: stopped
+   * The job status. Valid values:
+   * - 0: Not started.
+   * - 1: Running.
+   * - 2: Stopped.
    * 
    * @example
    * 1
@@ -65,12 +60,11 @@ export class ListLiveTranscodeJobsRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The template type corresponding to the transcoding task.
-   * 
-   * - normal: standard
-   * - narrow-band: narrow bandwidth high definition
-   * - audio-only: audio only
-   * - origin: original quality
+   * The template type corresponding to the transcoding job. Valid values:
+   * - normal: Standard template.
+   * - narrow-band: Narrowband HD template.
+   * - audio-only: Audio-only template.
+   * - origin: Original quality template.
    * 
    * @example
    * normal

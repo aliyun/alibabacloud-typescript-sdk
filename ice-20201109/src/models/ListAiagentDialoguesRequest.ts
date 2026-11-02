@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIAgentDialoguesRequest extends $dara.Model {
   /**
    * @remarks
-   * The end Unix timestamp (inclusive), in milliseconds.
+   * The end UNIX timestamp in milliseconds. The value is inclusive.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListAIAgentDialoguesRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The sort order. Valid values: `ASC` (ascending) and `DESC` (descending). Default value: `DESC`.
+   * The sort order. Valid values: ASC for ascending order and DESC for descending order. Default value: DESC.
    * 
    * @example
    * DESC
@@ -31,7 +31,7 @@ export class ListAIAgentDialoguesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of items per page. Maximum value: 100. Default value: 20.
+   * The page size. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -39,7 +39,7 @@ export class ListAIAgentDialoguesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The number of most recent dialogue rounds to return. This value must be a positive integer. This parameter is mutually exclusive with pagination parameters; if specified, it overrides them.
+   * The limit on dialogue rounds. Specifies the number of most recent dialogue rounds to return. The value must be a positive integer. This parameter is mutually exclusive with pagination parameters. If this parameter is specified, pagination parameters are ignored.
    * 
    * @example
    * 5
@@ -57,7 +57,7 @@ export class ListAIAgentDialoguesRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The start Unix timestamp (inclusive), in milliseconds.
+   * The start UNIX timestamp in milliseconds. The value is inclusive.
    * 
    * This parameter is required.
    * 

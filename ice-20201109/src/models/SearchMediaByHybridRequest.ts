@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMediaByHybridRequest extends $dara.Model {
   /**
    * @remarks
-   * Custom filters. A JSON string. Supported backing fields include integer field intField1 and string fields strField1 and strField2. Only one matching condition can be applied per field, and filters across different fields are combined with a logical AND relationship.
-   * 
-   * - Exact match example: {"intField1":12,"strField1":"abc"}
-   * 
-   * - Multi-value example: {"intField1":[12,13],"strField1":["abc","cd"]}
-   * 
-   * - Range example: {"intField1":{"gte":12,"lte":13}}
+   * The custom filters. A JSON string. Supports the integer field intField1 and the string fields strField1 and strField2. You can select at most one match type for the same field. Filters for different fields use the AND logical operator.
+   * - Exact match, such as {"intField1":12,"strField1":"abc"}.
+   * - Multi-value match, such as {"intField1":[12,13],"strField1":["abc","cd"]}.
+   * - Range match, such as {"intField1":{"gte":12,"lte":13}}.
    * 
    * @example
    * {"intField1":{"gte":12,"lte":13},"strField2":["cd","de"],"strField1":"abc"}
@@ -19,7 +16,7 @@ export class SearchMediaByHybridRequest extends $dara.Model {
   customFilters?: string;
   /**
    * @remarks
-   * The ID of the media asset. If provided, the details of the media asset are returned.
+   * The media asset ID. If specified, detailed hit information of the media asset is returned.
    * 
    * @example
    * ****c469e944b5a856828dc2****
@@ -27,11 +24,7 @@ export class SearchMediaByHybridRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The type of media assets. Valid values:
-   * 
-   * - image
-   * 
-   * - video
+   * The media asset type.
    * 
    * @example
    * video
@@ -47,7 +40,10 @@ export class SearchMediaByHybridRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
+   * 
+   * - image: Images.
+   * - video: Videos.
    * 
    * @example
    * 1
@@ -55,7 +51,7 @@ export class SearchMediaByHybridRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 50. Default value: 10.
+   * The number of entries to return on each page. Default value: 10. Maximum value: 50.
    * 
    * @example
    * 20
@@ -63,7 +59,7 @@ export class SearchMediaByHybridRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the search library
+   * The search library.
    * 
    * @example
    * test-1
@@ -71,17 +67,16 @@ export class SearchMediaByHybridRequest extends $dara.Model {
   searchLibName?: string;
   /**
    * @remarks
-   * The natural language search query.
+   * The search content.
    * 
    * @example
-   * Two pandas are fighting.
+   * Two pandas are fighting
    */
   text?: string;
   /**
    * @remarks
-   * Creation time, in milliseconds UNIX timestamp. gte means greater than or equal to, and lte means less than or equal to.
-   * 
-   * - Range example: {"gte":1761205662998,"lte":1771205662998}
+   * The creation time. A millisecond timestamp. gte indicates greater than or equal to, and lte indicates less than or equal to.
+   * - Range match, such as {"gte":1761205662998,"lte":1771205662998}.
    * 
    * @example
    * {"gte":1761205662998,"lte":1771205662998}

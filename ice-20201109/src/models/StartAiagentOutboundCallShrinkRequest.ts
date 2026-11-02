@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartAIAgentOutboundCallShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The AI agent ID configured in the [IMS console](https://ims.console.aliyun.com/ai/robot/list).
+   * The ID of the AI agent configured in the [IMS console](https://ims.console.aliyun.com/ai/robot/list).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class StartAIAgentOutboundCallShrinkRequest extends $dara.Model {
   AIAgentId?: string;
   /**
    * @remarks
-   * The called number.
+   * The callee number.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class StartAIAgentOutboundCallShrinkRequest extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
-   * The caller number. Only numbers from mainland China are supported.
+   * The caller number. Only phone numbers in the Chinese mainland are supported.
    * 
    * This parameter is required.
    * 
@@ -35,12 +35,12 @@ export class StartAIAgentOutboundCallShrinkRequest extends $dara.Model {
   callerNumber?: string;
   /**
    * @remarks
-   * The AI agent outbound call configuration.
+   * The outbound call configuration of the AI agent.
    */
   configShrink?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * xx
@@ -48,7 +48,7 @@ export class StartAIAgentOutboundCallShrinkRequest extends $dara.Model {
   imsAIAgentFreeObCall?: string;
   /**
    * @remarks
-   * A unique identifier for the session. You can use this ID to store, query, and synchronize chat history across multiple calls. This parameter is optional.
+   * The unique identifier of the conversation, which can be used to store, query, and synchronize chat records across multiple calls. Default value: none.
    * 
    * @example
    * f213fbc005e4f309379701645f4****
@@ -56,10 +56,10 @@ export class StartAIAgentOutboundCallShrinkRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The user-defined data.
+   * The user-defined message.
    * 
    * @example
-   * {"city":"Hangzhou"}
+   * {"city":"hangzhou"}
    */
   userData?: string;
   static names(): { [key: string]: string } {

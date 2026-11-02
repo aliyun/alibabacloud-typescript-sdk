@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSmartJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the jobs to delete. Separate multiple IDs with commas (,).
+   * The job ID. Separate multiple job IDs with commas.
    * 
    * @example
    * ******b48fb04483915d4f2cd8******,******042d5e4db6866f6289d1******

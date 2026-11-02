@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListPackageJobsResponseBodyPackageJobListPackageJobsInputsInput extends $dara.Model {
   /**
    * @remarks
-   * The media object.
+   * The media value:
    * 
-   * - If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * - If type is set to OSS, this parameter specifies a URL that supports the OSS protocol and HTTP protocol.
    * 
-   * - If Type is set to Media, set this parameter to the ID of a media asset.
+   * - If type is set to Media, this parameter specifies a media asset ID.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -17,11 +17,9 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsInputsInput ext
   media?: string;
   /**
    * @remarks
-   * The type of the media object. Valid values:
-   * 
-   * - OSS: an Object Storage Service (OSS) object.
-   * 
-   * - Media: a media asset.
+   * The media object type. Valid values:
+   * - OSS: an OSS file.
+   * - Media: a media asset ID.
    * 
    * @example
    * OSS
@@ -53,7 +51,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsInputsInput ext
 export class ListPackageJobsResponseBodyPackageJobListPackageJobsInputs extends $dara.Model {
   /**
    * @remarks
-   * The information about the input stream file.
+   * The packaging stream file information.
    */
   input?: ListPackageJobsResponseBodyPackageJobListPackageJobsInputsInput;
   static names(): { [key: string]: string } {
@@ -83,11 +81,10 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsInputs extends 
 export class ListPackageJobsResponseBodyPackageJobListPackageJobsOutput extends $dara.Model {
   /**
    * @remarks
-   * The media object.
+   * The media value:
    * 
-   * - If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
-   * 
-   * - If Type is set to Media, set this parameter to the ID of a media asset.
+   * - If type is set to OSS, this parameter specifies a URL that supports the OSS protocol and HTTP protocol.
+   * - If type is set to Media, this parameter specifies a media asset ID.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -95,11 +92,9 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsOutput extends 
   media?: string;
   /**
    * @remarks
-   * The type of the media object. Valid values:
-   * 
-   * - OSS: an OSS object.
-   * 
-   * - Media: a media asset.
+   * The media object type. Valid values:
+   * - OSS: an OSS file.
+   * - Media: a media asset ID.
    * 
    * @example
    * OSS
@@ -131,7 +126,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsOutput extends 
 export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the job fails.
+   * The error code.
    * 
    * @example
    * InvalidParameter
@@ -139,7 +134,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
   code?: string;
   /**
    * @remarks
-   * The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the job was created. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-07T14:00:32Z
@@ -147,7 +142,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
   createTime?: string;
   /**
    * @remarks
-   * The time when the job was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the job was completed. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-07T15:00:32Z
@@ -155,7 +150,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
   finishTime?: string;
   /**
    * @remarks
-   * The input of the job.
+   * The job inputs.
    */
   inputs?: ListPackageJobsResponseBodyPackageJobListPackageJobsInputs[];
   /**
@@ -168,7 +163,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
   jobId?: string;
   /**
    * @remarks
-   * The error message that is returned.
+   * The error message.
    * 
    * @example
    * Resource content bad.
@@ -176,7 +171,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
   message?: string;
   /**
    * @remarks
-   * The time when the job was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the job was last modified. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-07T15:00:32Z
@@ -184,7 +179,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
   modifiedTime?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
    * 
    * @example
    * job-name
@@ -192,12 +187,12 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
   name?: string;
   /**
    * @remarks
-   * The output of the job.
+   * The job output.
    */
   output?: ListPackageJobsResponseBodyPackageJobListPackageJobsOutput;
   /**
    * @remarks
-   * The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
+   * The pipeline ID.
    * 
    * @example
    * 5b40833e4c3e4d4e95a866abb9a4****
@@ -205,7 +200,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
   pipelineId?: string;
   /**
    * @remarks
-   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority. Default value: 6.
+   * The job priority. A larger value indicates a higher priority. Valid values: 1 to 10. Default value: 6.
    * 
    * @example
    * 6
@@ -213,7 +208,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
   priority?: number;
   /**
    * @remarks
-   * The state of the job.
+   * The job status.
    * 
    * @example
    * Success
@@ -221,7 +216,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
   status?: string;
   /**
    * @remarks
-   * The time when the job was submitted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the job was submitted. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-07T14:00:32Z
@@ -229,13 +224,10 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
   submitTime?: string;
   /**
    * @remarks
-   * The source of the job. Valid values:
-   * 
-   * - API
-   * 
-   * - WorkFlow
-   * 
-   * - Console
+   * The job source. Valid values: 
+   * - API: API.
+   * - WorkFlow: Workflow.
+   * - Console: Console.
    * 
    * @example
    * API
@@ -243,7 +235,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
   triggerSource?: string;
   /**
    * @remarks
-   * The user-defined data.
+   * The custom user data.
    * 
    * @example
    * {"param": "value"}
@@ -307,7 +299,7 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $dara.
 export class ListPackageJobsResponseBodyPackageJobList extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. The token of the next page is returned after you call this operation for the first time.
+   * The pagination token for the next page. Leave this parameter empty for the first request. The token is returned after the first query.
    * 
    * @example
    * 019daf5780f74831b0e1a767c9f1****

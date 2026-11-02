@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitDynamicChartJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Job ID.
+   * The task ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -13,7 +13,7 @@ export class SubmitDynamicChartJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The Request ID.
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******

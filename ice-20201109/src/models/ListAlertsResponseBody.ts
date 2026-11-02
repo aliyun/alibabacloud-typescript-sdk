@@ -5,12 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertsResponseBodyAlerts extends $dara.Model {
   /**
    * @remarks
-   * The alert type.
+   * The category. Valid values:
+   * - Scheduling Error: An error occurred while building the schedule.
+   * - PlayBack Warning: An exception occurred while pulling the address when adding a source.
+   * - info: Information.
    * 
    * @example
-   * Scheduling Error: An error occurred when building the schedule.
-   * PlayBack Warning: Address pull exception when adding source.
-   * info: Information.
+   * Scheduling Error
    */
   category?: string;
   /**
@@ -23,7 +24,7 @@ export class ListAlertsResponseBodyAlerts extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time when the alert was received in UTC.
+   * The creation time.
    * 
    * @example
    * 2024-07-16T10:03Z
@@ -31,7 +32,7 @@ export class ListAlertsResponseBodyAlerts extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the alert was modified in UTC.
+   * The modification time.
    * 
    * @example
    * 2024-07-16T10:03Z
@@ -47,7 +48,7 @@ export class ListAlertsResponseBodyAlerts extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ARN of the related resource.
+   * The ARNs of related resources.
    * 
    * @example
    * acs:ims:mediaweaver:<regionId>:<userId>:vodSource/mySourceLocation/MySource
@@ -55,7 +56,7 @@ export class ListAlertsResponseBodyAlerts extends $dara.Model {
   relatedResourceArns?: string;
   /**
    * @remarks
-   * The ARN of the resource.
+   * The resource ARN.
    * 
    * @example
    * acs:ims:mediaweaver:<regionId>:<userId>:vodSource/mySourceLocation/MySource
@@ -97,12 +98,12 @@ export class ListAlertsResponseBodyAlerts extends $dara.Model {
 export class ListAlertsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The alerts.
+   * The alert list.
    */
   alerts?: ListAlertsResponseBodyAlerts[];
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -110,7 +111,7 @@ export class ListAlertsResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Valid values: 1 to 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -118,7 +119,7 @@ export class ListAlertsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * **Request ID**
+   * **The request ID.**
    * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
@@ -126,7 +127,7 @@ export class ListAlertsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 100

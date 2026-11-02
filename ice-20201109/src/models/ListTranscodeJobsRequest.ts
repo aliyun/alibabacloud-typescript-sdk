@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTranscodeJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to filter jobs by their creation time. The time must be in UTC and formatted as `yyyy-MM-ddTHH:mm:ssZ`.
+   * The end time for filtering jobs by creation time. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-15T00:00:00Z
@@ -13,7 +13,7 @@ export class ListTranscodeJobsRequest extends $dara.Model {
   endOfCreateTime?: string;
   /**
    * @remarks
-   * The token for the next page of results. Not required for the first page.
+   * The mark for the next page during continuous paging in a paged query. This parameter is not required for the first page.
    * 
    * @example
    * ab4802364a2e49208c99efab82df****
@@ -22,10 +22,8 @@ export class ListTranscodeJobsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * 
-   * - `CreateTimeDesc`: Sorts by creation time in descending order.
-   * 
-   * - `CreateTimeAsc`: Sorts by creation time in ascending order.
+   * - CreateTimeDesc: Sorts by creation time in descending order.
+   * - CreateTimeAsc: Sorts by creation time in ascending order.
    * 
    * @example
    * CreateTimeDesc
@@ -33,7 +31,7 @@ export class ListTranscodeJobsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1-100. Default: 20.
+   * The number of entries per page. Valid values: 0 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -41,7 +39,7 @@ export class ListTranscodeJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters by job ID.
+   * The ID of the parent job used to filter results.
    * 
    * @example
    * 7b38a5d86f1e47838927b6e7ccb1****
@@ -49,7 +47,7 @@ export class ListTranscodeJobsRequest extends $dara.Model {
   parentJobId?: string;
   /**
    * @remarks
-   * The start of the time range to filter jobs by their creation time. The time must be in UTC and formatted as `yyyy-MM-ddTHH:mm:ssZ`.
+   * The start time for filtering jobs by creation time. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-07-01T00:00:00Z
@@ -57,13 +55,10 @@ export class ListTranscodeJobsRequest extends $dara.Model {
   startOfCreateTime?: string;
   /**
    * @remarks
-   * The job status. Valid values:
-   * 
-   * - `Init`: Submitted.
-   * 
-   * - `Success`: Succeeded.
-   * 
-   * - `Fail`: Failed.
+   * The job status. Valid values: 
+   * - Init: Submitted.
+   * - Success: Succeeded.
+   * - Fail: Failed.
    * 
    * @example
    * Success

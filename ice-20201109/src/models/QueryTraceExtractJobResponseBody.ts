@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTraceExtractJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The trace watermark information.
+   * The tracing watermark information.
    * 
    * @example
-   * 测试溯源水印
+   * Trace extract test
    */
   trace?: string;
   static names(): { [key: string]: string } {
@@ -35,12 +35,12 @@ export class QueryTraceExtractJobResponseBodyData extends $dara.Model {
 export class QueryTraceExtractJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: QueryTraceExtractJobResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * ok
@@ -48,7 +48,7 @@ export class QueryTraceExtractJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * *****ACB-44F2-5F2D-88D7-1283E70*****

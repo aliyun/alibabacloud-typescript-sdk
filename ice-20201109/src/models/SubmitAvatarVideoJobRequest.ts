@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitAvatarVideoJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the job. The description can be up to 128 bytes in length.
+   * The description of the task. The description can be up to 128 bytes in length.
    * 
    * @example
-   * Test description
+   * Test Description
    */
   description?: string;
   /**
    * @remarks
-   * The configurations for the avatar job, such as the avatar ID, voice, and speech rate.
+   * The configuration information for the digital human task. You can configure information such as the digital human ID, voice, and speech rate.
    * 
    * @example
    * {"AvatarId":"yunqiao"}
@@ -21,15 +21,16 @@ export class SubmitAvatarVideoJobRequest extends $dara.Model {
   editingConfig?: string;
   /**
    * @remarks
-   * Input can be text, an audio file from Object Storage Service (OSS), or a [media asset](). Only MP3 and WAV audio formats are supported.>Notice:  The value of the `Text` parameter must contain at least five characters.
+   * The input parameters for the digital human task. Text, audio files stored in OSS, and media assets are supported as input. Audio files support only the MP3 or WAV format.
+   * >Notice: The length of the input text cannot be less than 5 characters.
    * 
    * @example
-   * {"Text": "To be or not to be, that is the question."}
+   * {"Text": "Do you not see the Yellow River\\"s waters descending from heaven, rushing to the sea never to return.Do you not see in the bright mirror of the high hall, the sad sight of white hair,Hair turns from black to white in the course of a day."}
    */
   inputConfig?: string;
   /**
    * @remarks
-   * Specifies the output configuration, including the destination URL for the rendered video.
+   * The output information of the task. You can configure the output address.
    * 
    * @example
    * {"MediaURL":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/xxx.mp4"}
@@ -37,15 +38,15 @@ export class SubmitAvatarVideoJobRequest extends $dara.Model {
   outputConfig?: string;
   /**
    * @remarks
-   * The title of the job. The title can be up to 128 bytes in length.
+   * The title of the task. The title can be up to 128 bytes in length.
    * 
    * @example
-   * Test title
+   * Test Title
    */
   title?: string;
   /**
    * @remarks
-   * A user-defined JSON string for passing custom business information, such as environment details or job metadata.
+   * The custom settings of the user. You can pass in customer business information, such as the business environment and task information, in JSON string format.
    * 
    * @example
    * {"user":"data","env":"prod"}

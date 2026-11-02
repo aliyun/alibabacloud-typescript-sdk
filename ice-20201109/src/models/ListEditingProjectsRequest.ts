@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListEditingProjectsRequest extends $dara.Model {
   /**
    * @remarks
-   * The method for creating the online editing project. Valid values:
-   * 
-   * \\- OpenAPI
-   * 
-   * \\- AliyunConsole
-   * 
-   * \\- WebSDK
+   * The creation source. Valid values:
+   * - OpenAPI
+   * - AliyunConsole
+   * - WebSDK
    * 
    * @example
    * OpenAPI
@@ -19,7 +16,7 @@ export class ListEditingProjectsRequest extends $dara.Model {
   createSource?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The end time of the creation time range. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2022-02-02T23:59:59Z
@@ -27,7 +24,7 @@ export class ListEditingProjectsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The search keyword. You can search by job ID.
+   * The search keyword. You can search for projects by task ID.
    * 
    * @example
    * ******6f36bc45d09a9d5cde49******
@@ -35,7 +32,7 @@ export class ListEditingProjectsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The number of entries per page. A maximum of 100 entries can be returned on each page.
+   * The number of entries per page. Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -45,7 +42,7 @@ export class ListEditingProjectsRequest extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The pagination token for the next query.
    * 
    * @example
    * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
@@ -54,10 +51,8 @@ export class ListEditingProjectsRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the editing project. Valid values:
-   * 
-   * - EditingProject: a regular editing project.
-   * 
-   * - LiveEditingProject: a live stream editing project.
+   * - EditingProject: regular editing project.
+   * - LiveEditingProject: live editing project.
    * 
    * @example
    * EditingProject
@@ -65,11 +60,9 @@ export class ListEditingProjectsRequest extends $dara.Model {
   projectType?: string;
   /**
    * @remarks
-   * The order of sorting of the results. Valid values:
-   * 
-   * - CreationTime:Desc (default): sorts the results in reverse chronological order.
-   * 
-   * - CreationTime:Asc: sorts the results in chronological order.
+   * The sorting method of the query results. Valid values:
+   * - CreationTime:Desc: sorts the results in descending order of creation time. This is the default value.
+   * - CreationTime:Asc: sorts the results in ascending order of creation time.
    * 
    * @example
    * CreationTime:Desc
@@ -77,7 +70,7 @@ export class ListEditingProjectsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the creation time range. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2017-12-21T08:00:01Z
@@ -85,7 +78,7 @@ export class ListEditingProjectsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the online editing project. By default, online editing projects in all states are queried.
+   * The status of the cloud editing project. By default, all cloud editing projects are queried.
    * 
    * @example
    * Produced
@@ -93,19 +86,7 @@ export class ListEditingProjectsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The template type. This parameter is required if you create a template-based online editing project. Default value: Timeline.
-   * 
-   * -
-   * 
-   * -
-   * 
-   * Valid values:
-   * 
-   * - Timeline: a regular template.
-   * 
-   * - VETemplate: an advanced template.
-   * 
-   * - None: general editing.
+   * The templatetype. This parameter is required when you create a template-based cloud editing project. Default value: Timeline.
    * 
    * @example
    * None

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends $dara.Model {
   /**
    * @remarks
-   * The time when the job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * The completion time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
    * 
    * @example
    * 2023-06-09T06:38:09Z
@@ -13,7 +13,7 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
   completeTime?: string;
   /**
    * @remarks
-   * The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The creation time. The time is displayed in UTC.
    * 
    * @example
    * 2023-06-09T06:36:48Z
@@ -21,7 +21,7 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
   createTime?: string;
   /**
    * @remarks
-   * The editing configurations. For more information, see [EditingConfig](~~2692547#1be9bba03b7qu~~).
+   * The editing configurations. For more information about the structure, see [EditingConfig](~~2692547#1be9bba03b7qu~~).
    * 
    * @example
    * {
@@ -47,29 +47,29 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
   extend?: string;
   /**
    * @remarks
-   * The input configurations.
+   * The input configuration for user synthesis.
    * 
    * @example
    * {
-   *   "MediaGroupArray": [{
-   *       "MediaArray": [
-   *         "****9d46c886b45481030f6e****",
-   *         "****6c886b4549d481030f6e****" ]
-   *     }, {
-   *       "MediaArray": [
-   *         "****d46c886810b454930f6e****",
-   *         "****4549d886810b46c30f6e****" ]
-   *   }],
-   *   "TitleArray": [
-   *       "Hema Fresh grand opening at Huilongguan"],
-   *   "SpeechTextArray": [
-   *       "A new Hema Fresh store just opened at the nearby mall, today is the first day of business"]
+   *   "MediaGroupArray": [{
+   *       "MediaArray": [
+   *         "****9d46c886b45481030f6e****",
+   *         "****6c886b4549d481030f6e****" ]
+   *     }, {
+   *       "MediaArray": [
+   *         "****d46c886810b454930f6e****",
+   *         "****4549d886810b46c30f6e****" ]
+   *   }],
+   *   "TitleArray": [
+   *       "Hema Fresh in Huilongguan is now open"],
+   *   "SpeechTextArray": [
+   *       "A new Hema Fresh store has opened in the nearby mall, and today is its first day of business"]
    * }
    */
   inputConfig?: string;
   /**
    * @remarks
-   * The ID of the quick video production job.
+   * The ID of the one-click video production job.
    * 
    * @example
    * ******7ecbee4c6d9b8474498e******
@@ -79,19 +79,13 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
    * @remarks
    * The job type.
    * 
-   * Valid values:
-   * 
-   * - Script: script-based editing job that mixes media assets.
-   * 
-   * - Smart_Mix: intelligent editing job that mixes media assets.
-   * 
    * @example
    * Script
    */
   jobType?: string;
   /**
    * @remarks
-   * The time when the job was last modified.
+   * The last modification time. The time follows the ISO 8601 standard and is displayed in UTC (ending with Z).
    * 
    * @example
    * 2023-06-09T06:37:58Z
@@ -99,7 +93,7 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
   modifiedTime?: string;
   /**
    * @remarks
-   * The output configurations. For more information, see [OutputConfig](~~2692547#447b928fcbuoa~~).
+   * The output configurations. For more information about the structure, see [OutputConfig](~~2692547#447b928fcbuoa~~).
    * 
    * @example
    * {
@@ -114,17 +108,7 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
   outputConfig?: string;
   /**
    * @remarks
-   * The job state.
-   * 
-   * Valid values:
-   * 
-   * - Finished
-   * 
-   * - Init
-   * 
-   * - Failed
-   * 
-   * - Processing
+   * The job status.
    * 
    * @example
    * Finished
@@ -132,10 +116,10 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
   status?: string;
   /**
    * @remarks
-   * The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
+   * The custom settings in JSON format. The maximum length is 512 bytes. You can configure a [custom callback URL](~~451631#section-fbd-xz2-xum~~).
    * 
    * @example
-   * {"NotifyAddress":"http://xx.xx.xxx"} or {"NotifyAddress":"https://xx.xx.xxx"} or {"NotifyAddress":"ice-callback-demo"}
+   * {"NotifyAddress":"http://xx.xx.xxx"}, {"NotifyAddress":"https://xx.xx.xxx"}, or {"NotifyAddress":"ice-callback-demo"}
    */
   userData?: string;
   static names(): { [key: string]: string } {
@@ -182,12 +166,12 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
 export class ListBatchMediaProducingJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried quick video production jobs.
+   * The list of one-click video production jobs.
    */
   editingBatchJobList?: ListBatchMediaProducingJobsResponseBodyEditingBatchJobList[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
+   * The number of entries per page. Maximum value: 100.
    * 
    * Default value: 10.
    * 
@@ -197,7 +181,7 @@ export class ListBatchMediaProducingJobsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The pagination token for the next query.
    * 
    * @example
    * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
@@ -205,7 +189,7 @@ export class ListBatchMediaProducingJobsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******

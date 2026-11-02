@@ -13,9 +13,9 @@ export class ListAllPublicMediaTagsRequest extends $dara.Model {
   businessType?: string;
   /**
    * @remarks
-   * The entity ID, which is used to distinguish between media assets of different types in the public domain.
+   * The entity ID, used to distinguish different types of public copyright media assets. Valid values:
    * 
-   * Set this parameter to Copyright_Music, which indicates music in the public domain.
+   * - Copyright_Music: public copyright music.
    * 
    * @example
    * Copyright_Music

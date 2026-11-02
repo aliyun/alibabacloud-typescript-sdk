@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListDynamicImageJobsResponseBodyJobsInput extends $dara.Model {
   /**
    * @remarks
-   * The input file. The file can be an OSS object or a media asset. The URL of an OSS object can be in one of the following formats:
-   * 
-   * 1. OSS://bucket/object
-   * 
-   * 2. http(s)://bucket.oss-[regionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * The input media. OSS URLs and media asset IDs are supported. OSS URL formats:
+   * - OSS://bucket/object
+   * - http(s)://bucket.oss-[regionId].aliyuncs.com/object
+   * In the URLs, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
    * @example
    * oss://bucket/object
@@ -17,15 +16,9 @@ export class ListDynamicImageJobsResponseBodyJobsInput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the input file. Valid values:
-   * 
-   * 1. OSS: an Object Storage Service (OSS) object.
-   * 
-   * 2. Media: a media asset.
-   * 
-   * -
-   * 
-   * -
+   * The input type. Valid values:
+   * - OSS: the OSS file URL.
+   * - Media: the media asset ID.
    * 
    * @example
    * OSS
@@ -57,11 +50,10 @@ export class ListDynamicImageJobsResponseBodyJobsInput extends $dara.Model {
 export class ListDynamicImageJobsResponseBodyJobsOutput extends $dara.Model {
   /**
    * @remarks
-   * The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
-   * 
-   * 1. OSS://bucket/object
-   * 
-   * 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * The output media. If Type is set to OSS, enter an OSS URL. If Type is set to Media, enter a media asset ID. OSS URL formats:
+   * - OSS://bucket/object
+   * - http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * In the URLs, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
    * @example
    * ****cdb3e74639973036bc84****
@@ -69,15 +61,9 @@ export class ListDynamicImageJobsResponseBodyJobsOutput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the output file. Valid values:
-   * 
-   * 1. OSS: an OSS object.
-   * 
-   * 2. Media: a media asset.
-   * 
-   * -
-   * 
-   * -
+   * The output type. Valid values:
+   * - OSS: the OSS file URL.
+   * - Media: the media asset ID.
    * 
    * @example
    * Media
@@ -109,7 +95,7 @@ export class ListDynamicImageJobsResponseBodyJobsOutput extends $dara.Model {
 export class ListDynamicImageJobsResponseBodyJobs extends $dara.Model {
   /**
    * @remarks
-   * The time when the job was created.
+   * The creation time. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -117,7 +103,7 @@ export class ListDynamicImageJobsResponseBodyJobs extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the job was complete.
+   * The task completion time. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:30:54Z
@@ -125,12 +111,12 @@ export class ListDynamicImageJobsResponseBodyJobs extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The input of the job.
+   * The task input.
    */
   input?: ListDynamicImageJobsResponseBodyJobsInput;
   /**
    * @remarks
-   * The job ID.
+   * The animated image task ID.
    * 
    * @example
    * ****cdb3e74639973036bc84****
@@ -138,7 +124,7 @@ export class ListDynamicImageJobsResponseBodyJobs extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The time when the job was last modified.
+   * The last modification time. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:30:54Z
@@ -146,7 +132,7 @@ export class ListDynamicImageJobsResponseBodyJobs extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The task name.
    * 
    * @example
    * SampleJob
@@ -154,12 +140,12 @@ export class ListDynamicImageJobsResponseBodyJobs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output of the job.
+   * The task output.
    */
   output?: ListDynamicImageJobsResponseBodyJobsOutput;
   /**
    * @remarks
-   * The ID of the MPS queue to which the job was submitted.
+   * The pipeline ID.
    * 
    * @example
    * ****cdb3e74639973036bc84****
@@ -167,13 +153,13 @@ export class ListDynamicImageJobsResponseBodyJobs extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The state of the job.
+   * The task status.
    * 
-   * - **Success**: The job is successful.
+   * - **Success**: Succeeded.
    * 
-   * - **Fail**: The job failed.
+   * - **Fail**: Failed.
    * 
-   * - **Init**: The job is submitted.
+   * - **Init**: Submitted.
    * 
    * @example
    * Success
@@ -181,7 +167,7 @@ export class ListDynamicImageJobsResponseBodyJobs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the job was submitted.
+   * The task submission time. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -198,14 +184,6 @@ export class ListDynamicImageJobsResponseBodyJobs extends $dara.Model {
   /**
    * @remarks
    * The request trigger source.
-   * 
-   * Valid values:
-   * 
-   * - Console
-   * 
-   * - Workflow
-   * 
-   * - API
    * 
    * @example
    * API
@@ -263,12 +241,12 @@ export class ListDynamicImageJobsResponseBodyJobs extends $dara.Model {
 export class ListDynamicImageJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of jobs.
+   * The list of tasks.
    */
   jobs?: ListDynamicImageJobsResponseBodyJobs[];
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The pagination token for the next page.
    * 
    * @example
    * ****cdb3e74639973036bc84****

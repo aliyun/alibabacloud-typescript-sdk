@@ -13,7 +13,7 @@ export class CreateLiveRecordTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the template.
    * 
    * @example
    * ****96e8864746a0b6f3****

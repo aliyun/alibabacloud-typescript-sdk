@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSmartJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * RequestId
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******

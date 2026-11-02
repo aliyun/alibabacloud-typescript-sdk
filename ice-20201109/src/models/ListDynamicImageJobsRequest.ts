@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDynamicImageJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range during which the jobs to be queried were created.
+   * The end time of the creation time filter. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-14T00:00:00Z
@@ -13,7 +13,7 @@ export class ListDynamicImageJobsRequest extends $dara.Model {
   endOfCreateTime?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * ****cdb3e74639973036bc84****
@@ -21,7 +21,7 @@ export class ListDynamicImageJobsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The mark for the next page during continuous paging in a paged query.
    * 
    * @example
    * cdb3e74639973036bc84
@@ -29,11 +29,9 @@ export class ListDynamicImageJobsRequest extends $dara.Model {
   nextPageToken?: string;
   /**
    * @remarks
-   * The order that you use to sort the query results. Valid values:
-   * 
-   * 1. CreateTimeAsc: sorts the jobs by creation time in ascending order.
-   * 
-   * 2. CreateTimeDesc: sorts the jobs by creation time in descending order.
+   * The sort order. Valid values: 
+   * - CreateTimeAsc: Sorts by creation time in ascending order.
+   * - CreateTimeDesc: Sorts by creation time in descending order.
    * 
    * @example
    * CreateTimeDesc
@@ -49,7 +47,7 @@ export class ListDynamicImageJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range during which the jobs to be queried were created.
+   * The start time of the creation time filter. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T00:00:00Z
@@ -57,15 +55,7 @@ export class ListDynamicImageJobsRequest extends $dara.Model {
   startOfCreateTime?: string;
   /**
    * @remarks
-   * The state of the job.
-   * 
-   * Valid values:
-   * 
-   * - Init: The job is submitted.
-   * 
-   * - Success: The job is successful.
-   * 
-   * - Fail: The job failed.
+   * The task status.
    * 
    * @example
    * Success

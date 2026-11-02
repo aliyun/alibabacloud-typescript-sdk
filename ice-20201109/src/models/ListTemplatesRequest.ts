@@ -5,15 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The source from which the template was created.
-   * 
-   * Valid values:
-   * 
-   * - AliyunConsole
-   * 
-   * - WebSDK
-   * 
-   * - OpenAPI
+   * The creation source.
    * 
    * @example
    * OpenAPI
@@ -21,7 +13,7 @@ export class ListTemplatesRequest extends $dara.Model {
   createSource?: string;
   /**
    * @remarks
-   * The search keyword. You can use the template ID or title as the keyword to search for templates.
+   * The search keyword. You can search by template ID and title.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -39,13 +31,7 @@ export class ListTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sorting parameter. By default, the query results are sorted by creation time in descending order.
-   * 
-   * Valid values:
-   * 
-   * - CreationTime:Asc: sorted by creation time in ascending order.
-   * 
-   * - CreationTime:Desc: sorted by creation time in descending order.
+   * The sort parameter. By default, templates are sorted in descending order of creation time.
    * 
    * @example
    * CreationTime:Desc
@@ -53,21 +39,7 @@ export class ListTemplatesRequest extends $dara.Model {
   sortType?: string;
   /**
    * @remarks
-   * The template state.
-   * 
-   * Valid values:
-   * 
-   * - UploadFailed: Failed to upload the video.
-   * 
-   * - ProcessFailed: Failed to process the advanced template.
-   * 
-   * - Available: The template is available.
-   * 
-   * - Uploading: The video is being uploaded.
-   * 
-   * - Created: The template is created but not ready for use.
-   * 
-   * - Processing: The advanced template is being processed.
+   * The template status.
    * 
    * @example
    * Available
@@ -75,13 +47,7 @@ export class ListTemplatesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The template type.
-   * 
-   * Valid values:
-   * 
-   * - Timeline
-   * 
-   * - VETemplate
+   * The templatetype.
    * 
    * @example
    * Timeline

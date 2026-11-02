@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSportsHighlightsJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The sports highlight job ID.
+   * The sports highlights job ID.
    * 
    * @example
    * ****d80e4e4044975745c14b****

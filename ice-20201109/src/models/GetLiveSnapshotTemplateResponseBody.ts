@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLiveSnapshotTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the configuration was modified.
+   * The modification time. The time is in ISO 8601 format in UTC (ending with Z).
    * 
    * @example
    * 2022-02-02T22:22:22Z
@@ -13,7 +13,7 @@ export class GetLiveSnapshotTemplateResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the template was created.
+   * The creation time.
    * 
    * @example
    * 2022-02-02T22:22:22Z
@@ -21,7 +21,7 @@ export class GetLiveSnapshotTemplateResponseBody extends $dara.Model {
   lastModified?: string;
   /**
    * @remarks
-   * The naming format of the snapshot captured in overwrite mode.
+   * The snapshot file overwrite format.
    * 
    * @example
    * snapshot/{JobId}.jpg
@@ -37,7 +37,7 @@ export class GetLiveSnapshotTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The naming format of the snapshot captured in time series mode.
+   * The snapshot file sequence format.
    * 
    * @example
    * snapshot/{JobId}/{UnixTimestamp}.jpg
@@ -61,7 +61,7 @@ export class GetLiveSnapshotTemplateResponseBody extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The interval between two adjacent snapshots.
+   * The snapshot time interval, in seconds.
    * 
    * @example
    * 5
@@ -69,13 +69,7 @@ export class GetLiveSnapshotTemplateResponseBody extends $dara.Model {
   timeInterval?: number;
   /**
    * @remarks
-   * The type of the template.
-   * 
-   * Valid values:
-   * 
-   * - system
-   * 
-   * - custom
+   * The templatetype.
    * 
    * @example
    * custom

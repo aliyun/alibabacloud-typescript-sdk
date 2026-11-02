@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SendAIAgentTextRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AI agent instance.
+   * The agent instance ID.
    * 
-   * > InstanceId is a unique identifier that is returned when the AI agent is started. To start an AI agent, call [StartAIAgentInstance ](https://help.aliyun.com/document_detail/2846201.html)or [GenerateAIAgentCall](https://help.aliyun.com/document_detail/2846209.html).
+   * > InstanceId is the unique ID returned after the agent instance is started successfully. To start an agent instance, refer to [StartAIAgentInstance](https://help.aliyun.com/document_detail/2846201.html) or [GenerateAIAgentCall](https://help.aliyun.com/document_detail/2846209.html).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class SendAIAgentTextRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The input to the LLM.
+   * The text passed to the LLM.
    * 
    * This parameter is required.
    * 

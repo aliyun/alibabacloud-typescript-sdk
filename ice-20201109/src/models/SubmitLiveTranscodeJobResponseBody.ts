@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitLiveTranscodeJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the transcoding job.
+   * The ID of the transcoding task.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -13,7 +13,7 @@ export class SubmitLiveTranscodeJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******

@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSceneTimelineOrganizationJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The editing configuration. Its structure depends on the value of JobType.
-   * 
-   * - When JobType is set to Smart_Mix_Timeline_Organize, see [Image-text matching](https://help.aliyun.com/zh/ims/use-cases/intelligent-graphic-matching-into-a-piece/?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_1.7c3d6997qndkZj).
-   * 
-   * - When JobType is set to Screen_Media_Highlights_Timeline_Organize, see [Highlight mashup](https://help.aliyun.com/zh/ims/use-cases/create-highlight-videos?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_3.84b5661bIcQULE).
+   * The editing configuration. This parameter is the same as the EditingConfig parameter for the one-click video generation intelligent graphic matching and high-energy mashup features.
+   * - When JobType is set to Smart_Mix_Timeline_Organize, see [Parameter settings for intelligent graphic matching](https://www.alibabacloud.com/help/en/ims/use-cases/intelligent-graphic-matching-into-a-piece/).
+   * - When JobType is set to Screen_Media_Highlights_Timeline_Organize, see [Parameter settings for high-energy mashup](https://www.alibabacloud.com/help/en/ims/use-cases/create-highlight-videos).
    * 
    * @example
    * {
@@ -27,39 +25,33 @@ export class SubmitSceneTimelineOrganizationJobRequest extends $dara.Model {
   editingConfig?: string;
   /**
    * @remarks
-   * The input configuration. Its structure and required fields depend on the value of JobType.
-   * 
-   * - When JobType is set to Smart_Mix_Timeline_Organize, see [Image-text matching](https://help.aliyun.com/zh/ims/use-cases/intelligent-graphic-matching-into-a-piece/?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_1.7c3d6997qndkZj).
-   * 
-   * - When JobType is set to Screen_Media_Highlights_Timeline_Organize, see [Highlight mashup](https://help.aliyun.com/zh/ims/use-cases/create-highlight-videos?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_3.84b5661bIcQULE).
+   * The input configuration. This parameter is the same as the InputConfig parameter for the one-click video generation intelligent graphic matching and high-energy mashup features.
+   * - When JobType is set to Smart_Mix_Timeline_Organize, see [Parameter settings for intelligent graphic matching](https://www.alibabacloud.com/help/en/ims/use-cases/intelligent-graphic-matching-into-a-piece/).
+   * - When JobType is set to Screen_Media_Highlights_Timeline_Organize, see [Parameter settings for high-energy mashup](https://www.alibabacloud.com/help/en/ims/use-cases/create-highlight-videos).
    * 
    * This parameter is required.
    * 
    * @example
    * {
-   * "BackgroundMusic": "****75c3936f3a8743850f2da942****",
-   * "MediaArray": [
-   * "https://test-bucket.oss-cn-shanghai.aliyuncs.com/test.mp4"
-   * ],
-   * "SpeechTextArray": [
-   * "A new Freshippo store just opened at the nearby mall., today Yesfirst day of opening"
-   * ]
+   * 	"BackgroundMusic": "****75c3936f3a8743850f2da942****",
+   * 	"MediaArray": [
+   * 		"https://test-bucket.oss-cn-shanghai.aliyuncs.com/test.mp4"
+   * 	],
+   * 	"SpeechTextArray": [
+   * 		"A new Hema Fresh store just opened at the mall nearby, and today is its grand opening."
+   * 	]
    * }
    */
   inputConfig?: string;
   /**
    * @remarks
-   * The job type. Valid values:
+   * The task type. Valid values:
+   * - Smart_Mix_Timeline_Organize: intelligent matching timeline orchestration.
+   * - Screen_Media_Highlights_Timeline_Organize: high-energy mashup timeline orchestration.
    * 
-   * - Smart_Mix_Timeline_Organize: Image-text matching.
-   * 
-   * - Screen_Media_Highlights_Timeline_Organize: Highlight mashup.
-   * 
-   * Differences:
-   * 
-   * - Image-text matching: Arranges a timeline based on the results of matching a voiceover script to media assets. Ideal for bulk marketing videos and general-purpose montages.
-   * 
-   * - Highlight mashup: Arranges a timeline based on the results of highlight clip selection. Ideal for creating action-packed highlight reels from short-form dramas.
+   * Differences between the two scenarios:
+   * - Intelligent matching: automatically organizes one or more timelines for final videos based on the material selection results of the intelligent matching scenario (the matching results of voiceover scripts and materials). This scenario is mostly applicable to batch marketing and general mashup scenarios.
+   * - High-energy mashup: automatically organizes one or more timelines for final videos based on the material selection results of the high-energy mashup scenario (the selection results of high-energy clips). This scenario is mostly applicable to high-energy mashup scenarios for short dramas.
    * 
    * This parameter is required.
    * 
@@ -69,43 +61,41 @@ export class SubmitSceneTimelineOrganizationJobRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The media selection results from a previously run SubmitSceneMediaSelectionJob. You can retrieve this result by calling GetBatchMediaProducingJob.
+   * The material selection results. You can call SubmitSceneMediaSelectionJob to submit a material selection task and call GetBatchMediaProducingJob to obtain the selection results.
    * 
    * This parameter is required.
    * 
    * @example
    * {
-   * "textMatchMediaOutputList": [{
-   * "textMatchMediaSentenceOutputList": [{
-   * "duration": 3.366667,
-   * "matchClipList": [{
-   * "endTime": 11.16,
-   * "mediaId": "****a0900f5071efbf1ce7e6c66a****",
-   * "startTime": 8.04
-   * }],
-   * "text": "A new Hema Fresh store just opened at the nearby mall"
-   * },
-   * {
-   * "duration": 1.566667,
-   * "matchClipList": [{
-   * "endTime": 1.54,
-   * "mediaId": "****a0900f5071efbf1ce7e6c66a****",
-   * "startTime": 0
-   * }],
-   * "text": "Today is the first day of business"
-   * }
-   * ]
-   * }]
+   * 	"textMatchMediaOutputList": [{
+   * 		"textMatchMediaSentenceOutputList": [{
+   * 				"duration": 3.366667,
+   * 				"matchClipList": [{
+   * 					"endTime": 11.16,
+   * 					"mediaId": "****a0900f5071efbf1ce7e6c66a****",
+   * 					"startTime": 8.04
+   * 				}],
+   * 				"text": "A new Hema Fresh store just opened at the mall nearby"
+   * 			},
+   * 			{
+   * 				"duration": 1.566667,
+   * 				"matchClipList": [{
+   * 					"endTime": 1.54,
+   * 					"mediaId": "****a0900f5071efbf1ce7e6c66a****",
+   * 					"startTime": 0
+   * 				}],
+   * 				"text": "and today is its grand opening"
+   * 			}
+   * 		]
+   * 	}]
    * }
    */
   mediaSelectResult?: string;
   /**
    * @remarks
-   * The output configuration. Its structure and required fields depend on the value of JobType.
-   * 
-   * - When JobType is set to Smart_Mix_Timeline_Organize, see [Image-text matching](https://help.aliyun.com/zh/ims/use-cases/intelligent-graphic-matching-into-a-piece/?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_1.7c3d6997qndkZj).
-   * 
-   * - When JobType is set to Screen_Media_Highlights_Timeline_Organize, see [Highlight mashup](https://help.aliyun.com/zh/ims/use-cases/create-highlight-videos?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_3.84b5661bIcQULE).
+   * The output configuration. This parameter is the same as the OutputConfig parameter for the one-click video generation intelligent graphic matching and high-energy mashup features.
+   * - When JobType is set to Smart_Mix_Timeline_Organize, see [Parameter settings for intelligent graphic matching](https://www.alibabacloud.com/help/en/ims/use-cases/intelligent-graphic-matching-into-a-piece/).
+   * - When JobType is set to Screen_Media_Highlights_Timeline_Organize, see [Parameter settings for high-energy mashup](https://www.alibabacloud.com/help/en/ims/use-cases/create-highlight-videos).
    * 
    * This parameter is required.
    * 
@@ -120,7 +110,7 @@ export class SubmitSceneTimelineOrganizationJobRequest extends $dara.Model {
   outputConfig?: string;
   /**
    * @remarks
-   * The user-defined data, including the business and callback configurations. For more information, see [UserData](~~357745#section-urj-v3f-0s1~~).
+   * The user business and callback configurations. For more information about the structure, see [UserData configuration instructions](~~357745#section-urj-v3f-0s1~~).
    * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx"} or {"NotifyAddress":"https://xx.xx.xxx"} or {"NotifyAddress":"ice-callback-demo"}

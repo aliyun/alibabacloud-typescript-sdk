@@ -8,7 +8,7 @@ export class QueryCopyrightExtractJobResponseBodyData extends $dara.Model {
    * The copyright watermark information.
    * 
    * @example
-   * 版权水印测试
+   * Copyright extract test
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -35,20 +35,20 @@ export class QueryCopyrightExtractJobResponseBodyData extends $dara.Model {
 export class QueryCopyrightExtractJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: QueryCopyrightExtractJobResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
-   * Copyright watermark test
+   * ok
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * *****ACB-44F2-5F2D-88D7-1283E70*****

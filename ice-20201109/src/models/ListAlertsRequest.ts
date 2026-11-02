@@ -5,17 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertsRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert type.
+   * The alert type. Valid values:
+   * - Scheduling Error: An error occurred while building the schedule.
+   * - PlayBack Warning: An exception occurred while pulling the address when adding a source.
+   * - info: Information.
    * 
    * @example
-   * Scheduling Error: An error occurred when building the schedule.
-   * PlayBack Warning: Address pull exception when adding source.
-   * info: Information.
+   * Scheduling Error
    */
   category?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time.
    * 
    * @example
    * 2024-11-22T16:10:45Z
@@ -23,7 +24,7 @@ export class ListAlertsRequest extends $dara.Model {
   gmtEnd?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time.
    * 
    * @example
    * 2024-11-21T16:10:45Z
@@ -31,7 +32,7 @@ export class ListAlertsRequest extends $dara.Model {
   gmtStart?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -39,7 +40,7 @@ export class ListAlertsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20
@@ -47,7 +48,7 @@ export class ListAlertsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ARN of the source or program.
+   * The resource ARN of the source or program.
    * 
    * This parameter is required.
    * 
@@ -57,7 +58,7 @@ export class ListAlertsRequest extends $dara.Model {
   resourceArn?: string;
   /**
    * @remarks
-   * The sorting order. By default, the query results are sorted by creation time in descending order. Valid values: asc and desc.
+   * The sorting parameter. By default, items are sorted in descending order of creation time.
    * 
    * @example
    * asc
@@ -65,7 +66,7 @@ export class ListAlertsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The sorting order by modification time. Valid values: asc and desc.
+   * Sorts items by modification time.
    * 
    * @example
    * asc

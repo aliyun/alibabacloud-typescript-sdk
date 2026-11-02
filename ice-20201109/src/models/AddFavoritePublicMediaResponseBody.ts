@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddFavoritePublicMediaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of media asset IDs that were not successfully added to the favorites.
+   */
   ignoredList?: string[];
   /**
    * @remarks

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveSnapshotTemplatesResponseBodyTemplateList extends $dara.Model {
   /**
    * @remarks
-   * The time when the template was created. The time format is UTC.
+   * The creation time. The time is displayed in ISO 8601 format in UTC (ending with Z).
    * 
    * @example
    * 2022-07-20T02:48:58Z
@@ -29,7 +29,7 @@ export class ListLiveSnapshotTemplatesResponseBodyTemplateList extends $dara.Mod
   templateName?: string;
   /**
    * @remarks
-   * The snapshot interval in seconds.
+   * The snapshot interval, in seconds.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class ListLiveSnapshotTemplatesResponseBodyTemplateList extends $dara.Mod
   timeInterval?: number;
   /**
    * @remarks
-   * The type of the template.
+   * The templatetype.
    * 
    * @example
    * custom
@@ -83,7 +83,7 @@ export class ListLiveSnapshotTemplatesResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHotwordLibrariesRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time for filtering. The time is in ISO 8601 format and uses UTC time (ending with Z).
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -13,9 +13,9 @@ export class ListHotwordLibrariesRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of records returned for the current request.
    * 
-   * Default value: 10. Valid values: 1 to 100.
+   * Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
@@ -31,7 +31,7 @@ export class ListHotwordLibrariesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The position from which to start reading.
    * 
    * @example
    * ****73f33c91-d59383e8280b****
@@ -47,7 +47,7 @@ export class ListHotwordLibrariesRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Valid values: 1 to 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class ListHotwordLibrariesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sorting order. By default, the query results are sorted by creation time in descending order.
+   * The sorting parameter. By default, the results are sorted in descending order of creation time.
    * 
    * @example
    * CreationTime:Desc
@@ -63,7 +63,7 @@ export class ListHotwordLibrariesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time for filtering. The time is in ISO 8601 format and uses UTC time (ending with Z).
    * 
    * @example
    * 2020-12-26T04:11:10Z
@@ -71,13 +71,11 @@ export class ListHotwordLibrariesRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The usage scenario of the hotword library. Valid values:
-   * 
-   * - ASR: Automatic Speech Recognition
-   * 
-   * - StructuredMediaAssets: structured media analysis
-   * 
-   * - VideoTranslation: Video translation. This field cannot be modified after the hotword library is created.
+   * The scenarios of the hotword library. Valid values:
+   * - ASR: ASR intelligent text recognition.
+   * - StructuredMediaAssets: Structured media assets.
+   * - VideoTranslation: Video translation.
+   * Once a hotword library is created, this field cannot be modified.
    * 
    * @example
    * ASR

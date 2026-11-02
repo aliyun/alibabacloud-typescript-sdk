@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetIpcDeviceInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Capability. Default value is understand. Valid values:
-   * 
-   * - understand: understanding
-   * 
-   * - understand-reid: understanding with reid
-   * 
-   * - search: search
+   * The capability. Default value: understand. Valid values:
+   * - understand: Understanding.
+   * - understand-reid: Understanding with ReID.
+   * - search: Search.
    * 
    * @example
    * understand
@@ -19,7 +16,7 @@ export class GetIpcDeviceInfoRequest extends $dara.Model {
   capability?: string;
   /**
    * @remarks
-   * Device ID.
+   * The device ID.
    * 
    * @example
    * d123
@@ -27,7 +24,7 @@ export class GetIpcDeviceInfoRequest extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
-   * End Time. UTC time in the format yyyy-MM-ddTHH:mm:ssZ. The difference between EndTime and StartTime must not exceed 180 days.
+   * The end time in UTC. Format: yyyy-MM-ddTHH:mm:ssZ. The interval between the end time and the start time cannot exceed 180 days.
    * 
    * @example
    * 2017-02-11T12:00:00Z
@@ -35,7 +32,7 @@ export class GetIpcDeviceInfoRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Page number for paging. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -43,7 +40,7 @@ export class GetIpcDeviceInfoRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Page size, which specifies the number of entries displayed per page. Default value is 10. Maximum value is 50.
+   * The number of entries per page. Default value: 10. Maximum value: 50.
    * 
    * @example
    * 10
@@ -51,7 +48,7 @@ export class GetIpcDeviceInfoRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Start Time. UTC time in the format yyyy-MM-ddTHH:mm:ssZ.
+   * The start time in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2017-01-11T12:00:00Z

@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitDNAJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The DNA configuration in JSON format. If specified, these settings override the corresponding template parameters.
+   * The DNA configuration, which is a JSON object.
+   * If you specify this parameter, it overwrites the template parameters.
    * 
    * @example
    * {"SaveType": "save","MediaType":"video"}
@@ -13,7 +14,7 @@ export class SubmitDNAJobShrinkRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The DNA library ID. To create a DNA library, see [CreateDNADB](https://help.aliyun.com/document_detail/479275.html).
+   * The ID of the DNA library. To create a DNA library, see [CreateDNADB - Create a DNA library](https://help.aliyun.com/document_detail/479275.html).
    * 
    * This parameter is required.
    * 
@@ -32,7 +33,7 @@ export class SubmitDNAJobShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The pipeline ID.
+   * The ID of the pipeline.
    * 
    * @example
    * 5246b8d12a62433ab77845074039****
@@ -40,7 +41,7 @@ export class SubmitDNAJobShrinkRequest extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The unique primary key for the video. You are responsible for ensuring its uniqueness.
+   * The unique primary key of the video. You must ensure its uniqueness.
    * 
    * This parameter is required.
    * 
@@ -52,7 +53,7 @@ export class SubmitDNAJobShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the template.
    * 
    * @example
    * S00000101-100060
@@ -60,7 +61,7 @@ export class SubmitDNAJobShrinkRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The user-defined data. The maximum length is 128 bytes.
+   * The custom user data. The maximum length is 128 bytes.
    * 
    * @example
    * userData

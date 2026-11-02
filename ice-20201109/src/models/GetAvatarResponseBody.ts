@@ -13,7 +13,7 @@ export class GetAvatarResponseBodyDataAvatar extends $dara.Model {
   avatarDescription?: string;
   /**
    * @remarks
-   * The ID of the digital human.
+   * The digital human ID.
    * 
    * @example
    * Avatar-XXXX
@@ -37,7 +37,7 @@ export class GetAvatarResponseBodyDataAvatar extends $dara.Model {
   avatarType?: string;
   /**
    * @remarks
-   * The height of the digital human image in pixels.
+   * The height of the digital human image, in pixels.
    * 
    * @example
    * 1920
@@ -61,7 +61,7 @@ export class GetAvatarResponseBodyDataAvatar extends $dara.Model {
   thumbnail?: string;
   /**
    * @remarks
-   * Indicates whether the digital human supports alpha channels.
+   * Indicates whether the digital human supports the alpha channel.
    * 
    * @example
    * true
@@ -69,7 +69,7 @@ export class GetAvatarResponseBodyDataAvatar extends $dara.Model {
   transparent?: boolean;
   /**
    * @remarks
-   * The width of the digital human image in pixels.
+   * The width of the digital human image, in pixels.
    * 
    * @example
    * 1080
@@ -115,7 +115,7 @@ export class GetAvatarResponseBodyDataAvatar extends $dara.Model {
 export class GetAvatarResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The information about the digital human.
+   * The digital human.
    */
   avatar?: GetAvatarResponseBodyDataAvatar;
   static names(): { [key: string]: string } {
@@ -145,7 +145,7 @@ export class GetAvatarResponseBodyData extends $dara.Model {
 export class GetAvatarResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: GetAvatarResponseBodyData;
   /**
@@ -158,11 +158,9 @@ export class GetAvatarResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

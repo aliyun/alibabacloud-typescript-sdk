@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMeterImsEditUsageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The usage duration, in minutes.
+   * The duration. Unit: minutes.
    * 
    * @example
    * 1.23
@@ -13,7 +13,7 @@ export class DescribeMeterImsEditUsageResponseBodyData extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The video profile.
+   * The specification.
    * 
    * @example
    * 1080P
@@ -21,7 +21,7 @@ export class DescribeMeterImsEditUsageResponseBodyData extends $dara.Model {
   profile?: string;
   /**
    * @remarks
-   * The beginning time of usage. The value is a 10-digit timestamp.
+   * The start timestamp of the time period. The value is a 10-digit UNIX timestamp.
    * 
    * @example
    * 1656950400
@@ -55,7 +55,7 @@ export class DescribeMeterImsEditUsageResponseBodyData extends $dara.Model {
 export class DescribeMeterImsEditUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The usage statistics of IMS on VOD editing.
+   * The usage data of IMS VOD video editing.
    */
   data?: DescribeMeterImsEditUsageResponseBodyData[];
   /**

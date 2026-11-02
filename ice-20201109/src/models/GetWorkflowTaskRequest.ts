@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkflowTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the workflow task.
+   * The workflow task ID.
    * 
    * @example
    * ******4215e042b3966ca5441e******

@@ -6,7 +6,7 @@ import { Hotword } from "./Hotword";
 export class GetHotwordLibraryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the hotword library was created.
+   * The creation time of the hotword library. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2020-12-23T13:33:49Z
@@ -17,12 +17,12 @@ export class GetHotwordLibraryResponseBody extends $dara.Model {
    * The description of the hotword library.
    * 
    * @example
-   * 热词库描述
+   * Hotword library description
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the hotword library.
+   * The hotword library ID.
    * 
    * @example
    * ****05512043f49f697f7425****
@@ -30,7 +30,7 @@ export class GetHotwordLibraryResponseBody extends $dara.Model {
   hotwordLibraryId?: string;
   /**
    * @remarks
-   * The hotword list.
+   * The list of hotwords.
    */
   hotwords?: Hotword[];
   /**
@@ -43,7 +43,7 @@ export class GetHotwordLibraryResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * ****12e8864746a0a398****
@@ -51,7 +51,7 @@ export class GetHotwordLibraryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The usage scenario of the hotword library.
+   * The scenarios of the hotword library.
    * 
    * @example
    * ASR

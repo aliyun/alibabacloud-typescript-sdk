@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchPublicMediaInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the user has purchased a resource plan that includes this media asset.
+   * Specifies whether the user has purchased a resource plan that includes the media asset.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class SearchPublicMediaInfoRequest extends $dara.Model {
   authorized?: boolean;
   /**
    * @remarks
-   * The dynamic metadata search matching conditions.
+   * The matching conditions for dynamic metadata search.
    * 
    * @example
    * "ApprovalStatus=\\"Available\\"&amp;MaterialBags=\\"boutiquemusic\\"&amp;Mood=\\"Nervous\\""
@@ -21,8 +21,8 @@ export class SearchPublicMediaInfoRequest extends $dara.Model {
   dynamicMetaDataMatchFields?: string;
   /**
    * @remarks
-   * The entity ID that identifies different types of public copyright media assets. Valid values:
-   * - Copyright_Music: public copyright music
+   * The entity ID, which is used to identify different types of public copyright media assets. Valid values:
+   * - Copyright_Music: public copyright music.
    * 
    * @example
    * Copyright_Music
@@ -30,7 +30,7 @@ export class SearchPublicMediaInfoRequest extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * Specifies whether the user has added the media asset to favorites.
+   * Specifies whether the user has added the media asset to their favorites.
    * 
    * @example
    * true
@@ -38,7 +38,7 @@ export class SearchPublicMediaInfoRequest extends $dara.Model {
   favorite?: boolean;
   /**
    * @remarks
-   * The IMS media asset IDs. Separate multiple IDs with commas (,).
+   * The IDs of the IMS media assets. Separate multiple IDs with commas.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****,****15d4a4b0448391508f2cb486****
@@ -62,15 +62,15 @@ export class SearchPublicMediaInfoRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sorting method for results in the format of <field>:<order>. Valid values:
+   * The sorting method for the results. Format: <field>:<order>. Valid values:
    * 
    * field:
-   * - "UsageCount": usage count
-   * - "UnitPrice": unit price
+   * - UsageCount: usage count.
+   * - UnitPrice: unit price.
    * 
    * order:
-   * - "Desc": descending order
-   * - "Asc": ascending order
+   * - Desc: descending order.
+   * - Asc: ascending order.
    * 
    * @example
    * UsageCount:Desc,UnitPrice:Asc

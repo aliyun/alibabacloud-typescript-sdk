@@ -5,13 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAdInsertionRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable ad marker passthrough. Default value: OFF.
-   * 
-   * Valid values:
-   * 
-   * - OFF: Disable.
-   * 
-   * - ON: Enable.
+   * Specifies whether to pass through ad markers. Valid values: ON and OFF. Default value: OFF.
    * 
    * @example
    * ON
@@ -19,7 +13,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   adMarkerPassthrough?: string;
   /**
    * @remarks
-   * The request URL of the ad decision server (ADS). HTTP and HTTPS are supported. The maximum length is 2,048 characters.
+   * The URL of the ad decision server. HTTP and HTTPS protocols are supported. The maximum length is 2,048 characters.
    * 
    * This parameter is required.
    * 
@@ -29,7 +23,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   adsUrl?: string;
   /**
    * @remarks
-   * The CDN prefix for ad segments. HTTP and HTTPS are supported. The maximum length is 512 characters.
+   * The CDN prefix for ad segments. HTTP and HTTPS protocols are supported. The maximum length is 512 characters.
    * 
    * @example
    * http://cdn.com/
@@ -37,7 +31,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   cdnAdSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * The CDN prefix for content segments. HTTP and HTTPS are supported. The maximum length is 512 characters.
+   * The CDN prefix for video content segments. HTTP and HTTPS protocols are supported. The maximum length is 512 characters.
    * 
    * @example
    * http://cdn.com/
@@ -45,7 +39,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   cdnContentSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * A JSON string that specifies the player parameter variables and aliases. Format: { "player_params.{name}": { "{key}": "{value}" } }. You can add up to 20 player_params.{name} entries. The name field can be up to 150 characters in length. Each player parameter can include up to 50 key-value pairs. A key can be up to 150 characters long, and a value can be up to 500 characters.
+   * The aliases for dynamic configurations. The value is a JSON string. You can add up to 20 player_params.{name} entries. The name part is limited to 150 characters. Under each player_params.xxx, you can add up to 50 key-value pairs. The key is limited to 150 characters, and the value is limited to 500 characters. Example: { "player_params.{name}": { "{key}": "{value}" } }
    * 
    * @example
    * { "player_params.p1": { "1": "abc" } }
@@ -53,7 +47,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   configAliases?: string;
   /**
    * @remarks
-   * The URL prefix for the source content. HTTP and HTTPS are supported. The maximum length is 512 characters.
+   * The prefix of the content URL. HTTP and HTTPS protocols are supported. The maximum length is 512 characters.
    * 
    * This parameter is required.
    * 
@@ -63,7 +57,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   contentUrlPrefix?: string;
   /**
    * @remarks
-   * The configuration name, which cannot be modified.
+   * The name of the configuration. This parameter cannot be modified.
    * 
    * This parameter is required.
    * 
@@ -73,7 +67,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies the maximum duration of underfilled time allowed in an ad break. Unit: seconds. Default value: 8 seconds.
+   * The threshold for personalization configuration, in seconds. Default value: 8.
    * 
    * @example
    * 5
@@ -81,7 +75,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   personalizationThreshold?: number;
   /**
    * @remarks
-   * The HTTP or HTTPS URL of the slate ad. Only MP4 format is supported. The maximum length is 2,048 characters.
+   * The URL of the slate ad. HTTP and HTTPS protocols are supported. Only MP4 files (.mp4) are supported. The maximum length is 2,048 characters.
    * 
    * @example
    * http://storage.com/slate1.mp4

@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMediaInfoJobRequestInput extends $dara.Model {
   /**
    * @remarks
-   * The source of the input media:
+   * The media value.
+   * - If Type is set to OSS, this parameter specifies the URL, which supports the OSS and HTTP protocols.
+   * > The OSS bucket in the URL must be added to the IMS [storage management](https://help.aliyun.com/document_detail/609918.html) before use.
    * 
-   * - If `Type` is `OSS`, set this parameter to the URL of the input file. You can use OSS (`oss://`), HTTP, or HTTPS URLs.
-   * 
-   * > You must first add the OSS bucket specified in the URL to Intelligent Media Management Service (IMS) by using [Storage Management](https://help.aliyun.com/document_detail/609918.html).
-   * 
-   * - If `Type` is `Media`, set this parameter to the media asset ID.
+   * - If Type is set to Media, this parameter specifies the media asset ID.
    * 
    * This parameter is required.
    * 
@@ -21,11 +19,9 @@ export class SubmitMediaInfoJobRequestInput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the input media.
-   * 
-   * - `OSS`: The input is an OSS file.
-   * 
-   * - `Media`: The input is a media asset ID.
+   * The media object type. Valid values:
+   * - OSS: OSS file.
+   * - Media: media asset ID.
    * 
    * This parameter is required.
    * 
@@ -67,7 +63,7 @@ export class SubmitMediaInfoJobRequestScheduleConfig extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The job priority. A higher value means a higher priority. Valid values range from 1 to 10.
+   * The task priority. A larger value indicates a higher priority. Valid values: 1 to 10.
    * 
    * @example
    * 5
@@ -99,7 +95,7 @@ export class SubmitMediaInfoJobRequestScheduleConfig extends $dara.Model {
 export class SubmitMediaInfoJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The input for the job.
+   * The task input.
    * 
    * This parameter is required.
    * 
@@ -109,7 +105,7 @@ export class SubmitMediaInfoJobRequest extends $dara.Model {
   input?: SubmitMediaInfoJobRequestInput;
   /**
    * @remarks
-   * The job name.
+   * The task name.
    * 
    * @example
    * job-name
@@ -117,7 +113,7 @@ export class SubmitMediaInfoJobRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The scheduling settings.
+   * The scheduling parameters.
    * 
    * @example
    * user-data
@@ -125,7 +121,7 @@ export class SubmitMediaInfoJobRequest extends $dara.Model {
   scheduleConfig?: SubmitMediaInfoJobRequestScheduleConfig;
   /**
    * @remarks
-   * The custom user data.
+   * The user data.
    * 
    * @example
    * user-data

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLivePackageChannelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The channel group name.
+   * The name of the channel group.
    * 
    * This parameter is required.
    * 
@@ -39,13 +39,7 @@ export class ListLivePackageChannelsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort order by creation time. Default value: desc.
-   * 
-   * Valid values:
-   * 
-   * - asc
-   * 
-   * - desc
+   * The sorting order by creation time. Default value: desc (descending order).
    * 
    * @example
    * desc

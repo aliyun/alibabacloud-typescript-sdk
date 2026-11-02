@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetProjectExportJobResponseBodyProjectExportJobExportResultSrtList extends $dara.Model {
+  /**
+   * @remarks
+   * The URL of the subtitle file.
+   */
   srtUrl?: string;
+  /**
+   * @remarks
+   * The language tag of the subtitle.
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,19 +37,27 @@ export class GetProjectExportJobResponseBodyProjectExportJobExportResultSrtList 
 }
 
 export class GetProjectExportJobResponseBodyProjectExportJobExportResult extends $dara.Model {
+  /**
+   * @remarks
+   * The URL of the exported audio file.
+   */
   audioUrl?: string;
   /**
    * @remarks
-   * The file URL of the exported project, which is typically an authenticated OSS URL. This field is returned when the export type is AdobePremierePro.
+   * The file URL of the exported project, which is typically an OSS URL with authentication. This field is returned when the export type is AdobePremierePro.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example_prefix/exported_project_1e8c39a502c3436c84f88290cd713bf3.zip?Expires=1750331685&....
    */
   projectUrl?: string;
+  /**
+   * @remarks
+   * The list of exported subtitle files.
+   */
   srtList?: GetProjectExportJobResponseBodyProjectExportJobExportResultSrtList[];
   /**
    * @remarks
-   * The online editing timeline. This field is returned when the export type is BaseTimeline. For more information about the structure, see [Timeline configuration](https://help.aliyun.com/document_detail/198823.html).
+   * The cloud editing timeline. This field is returned when the export type is BaseTimeline. For the specific structure definition, see [Timeline configuration](https://help.aliyun.com/document_detail/198823.html).
    * 
    * @example
    * {"VideoTracks":[{"VideoTrackClips":[{"Type":"Video","MediaId":"****4d7cf14dc7b83b0e801c****","MediaURL":"https://test-bucket.oss-cn-shanghai.aliyuncs.com/test.mp4","TimelineIn":0.0,"TimelineOut":5.0,"In":0.0,"Out":5.0,"Speed":1.0,"Duration":5.0,"VirginDuration":13.334,"Height":1.0,"Width":1.0,"X":0.0,"Y":0.0}]}]}
@@ -81,7 +97,7 @@ export class GetProjectExportJobResponseBodyProjectExportJob extends $dara.Model
   /**
    * @remarks
    * The error code of the project export task.
-   * >Notice: Check this field when the task fails.
+   * >Notice: Pay attention to this field when the task fails.
    * 
    * @example
    * InvalidParameter
@@ -94,8 +110,8 @@ export class GetProjectExportJobResponseBodyProjectExportJob extends $dara.Model
   exportResult?: GetProjectExportJobResponseBodyProjectExportJobExportResult;
   /**
    * @remarks
-   * The type of the project export. Valid values:
-   * - **BaseTimeline**: timeline.
+   * The export type of the project. Valid values:
+   * - **BaseTimeline**: Timeline.
    * - **AdobePremierePro**: Adobe Premiere Pro project.
    * 
    * @example
@@ -114,7 +130,7 @@ export class GetProjectExportJobResponseBodyProjectExportJob extends $dara.Model
    * @remarks
    * The error message of the project export task.
    * 
-   * >Notice: Check this field when the task fails.
+   * >Notice: Pay attention to this field when the task fails.
    * 
    * @example
    * The specified parameter is not valid.
@@ -122,7 +138,7 @@ export class GetProjectExportJobResponseBodyProjectExportJob extends $dara.Model
   message?: string;
   /**
    * @remarks
-   * The ID of the online editing project.
+   * The ID of the cloud editing project.
    * 
    * @example
    * ****fddd7748b58bf1d47e95****
@@ -131,10 +147,10 @@ export class GetProjectExportJobResponseBodyProjectExportJob extends $dara.Model
   /**
    * @remarks
    * The status of the project export task. Valid values:
-   * - **Init**: initial state.
-   * - **Processing**: processing.
-   * - **Success**: succeeded.
-   * - **Failed**: failed.
+   * - **Init**: Initial state.
+   * - **Processing**: Processing.
+   * - **Success**: Succeeded.
+   * - **Failed**: Failed.
    * 
    * @example
    * Success
@@ -142,7 +158,7 @@ export class GetProjectExportJobResponseBodyProjectExportJob extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The custom settings in JSON format.
+   * The custom user settings in JSON format.
    * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx","Key":"Valuexxx"}
@@ -194,7 +210,7 @@ export class GetProjectExportJobResponseBody extends $dara.Model {
   projectExportJob?: GetProjectExportJobResponseBodyProjectExportJob;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ****2876-6263-4B75-8F2C-CD0F7FCF****

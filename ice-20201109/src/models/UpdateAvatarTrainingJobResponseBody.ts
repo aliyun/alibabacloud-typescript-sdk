@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAvatarTrainingJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the digital human training job.
+   * The ID of the digital human training task.
    * 
    * @example
    * ****d718e2ff4f018ccf419a7b71****
@@ -35,7 +35,7 @@ export class UpdateAvatarTrainingJobResponseBodyData extends $dara.Model {
 export class UpdateAvatarTrainingJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: UpdateAvatarTrainingJobResponseBodyData;
   /**
@@ -48,11 +48,9 @@ export class UpdateAvatarTrainingJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

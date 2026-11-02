@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetChannelRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the channel.
+   * The channel name.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends $dara.Model {
   /**
    * @remarks
-   * The digital avatar ID. Use this ID when you submit a rendering job or use the digital avatar in an intelligent timeline.
+   * The ID of the digital human. This ID is used to submit a standalone digital human rendering task or use the digital human avatar in an intelligent timeline.
    * 
    * @example
    * yunqiao
@@ -13,10 +13,10 @@ export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends
   avatarId?: string;
   /**
    * @remarks
-   * The digital avatar name.
+   * The name of the digital human.
    * 
    * @example
-   * Yun Qiao
+   * Yunqiao
    */
   avatarName?: string;
   /**
@@ -29,7 +29,7 @@ export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends
   bitrate?: number;
   /**
    * @remarks
-   * The URL of the sample cover for the digital avatar.
+   * The URL of the sample cover image for the digital human.
    * 
    * @example
    * http://ice-pub-media.myalicdn.com/smart/avatarModel/coverDemo/yunqiao.mp4
@@ -37,7 +37,7 @@ export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends
   coverUrl?: string;
   /**
    * @remarks
-   * The video height.
+   * The height of the video resolution.
    * 
    * @example
    * 1920
@@ -45,7 +45,7 @@ export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends
   height?: number;
   /**
    * @remarks
-   * Indicates whether portrait mask rendering is supported.
+   * Specifies whether portrait mask rendering is supported.
    * 
    * @example
    * false
@@ -53,7 +53,7 @@ export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends
   outputMask?: boolean;
   /**
    * @remarks
-   * The URL of the sample video for the digital avatar.
+   * The URL of the sample video for the digital human.
    * 
    * @example
    * http://ice-pub-media.myalicdn.com/smart/avatarModel/videoDemo/yunqiao.mp4
@@ -61,7 +61,7 @@ export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends
   videoUrl?: string;
   /**
    * @remarks
-   * The video width.
+   * The width of the video resolution.
    * 
    * @example
    * 1080
@@ -113,12 +113,12 @@ export class ListSmartSysAvatarModelsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of system digital avatars.
+   * The list of digital humans.
    */
   smartSysAvatarModelList?: ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList[];
   /**
    * @remarks
-   * The total number of system digital avatars.
+   * The total number of system digital human avatars.
    * 
    * @example
    * 4

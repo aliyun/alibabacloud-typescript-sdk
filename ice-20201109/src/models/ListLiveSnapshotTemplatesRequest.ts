@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveSnapshotTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. The value must be greater than or equal to 1. Default value: 1.
+   * The page number. Valid values: [1, n). Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListLiveSnapshotTemplatesRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The number of items per page. Valid values: [1, 100]. Default value: 10.
    * 
    * @example
    * 10
@@ -21,9 +21,8 @@ export class ListLiveSnapshotTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The search keyword. You can perform a fuzzy search by template ID or template name.
-   * 
-   * - Maximum length: 128 characters.
+   * The search keyword. You can search by template ID or name. Fuzzy match is supported for template names.
+   * - The maximum length is 128 characters.
    * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
@@ -31,7 +30,7 @@ export class ListLiveSnapshotTemplatesRequest extends $dara.Model {
   searchKeyWord?: string;
   /**
    * @remarks
-   * The sorting method. By default, results are sorted by creation time in descending order.
+   * The sort order. By default, the results are sorted by CreateTime in descending order.
    * 
    * @example
    * desc
@@ -39,16 +38,14 @@ export class ListLiveSnapshotTemplatesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The template IDs.
-   * 
-   * - This parameter does not take effect if `SearchKeyWord` is specified.
-   * 
-   * - You can specify a maximum of 200 template IDs.
+   * The template IDs used for the query.
+   * - If SearchKeyWord is specified, this parameter does not take effect.
+   * - The maximum array length is 200.
    */
   templateIds?: string[];
   /**
    * @remarks
-   * The type of the template. By default, templates of all types are queried.
+   * The templatetype. By default, all types are queried.
    * 
    * @example
    * custom

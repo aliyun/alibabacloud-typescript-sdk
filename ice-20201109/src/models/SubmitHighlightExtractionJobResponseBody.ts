@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitHighlightExtractionJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the highlight extraction job.
+   * The job ID of the highlight extraction task.
    * 
    * @example
    * ****cdb3e74639973036bc84****
@@ -13,7 +13,7 @@ export class SubmitHighlightExtractionJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******

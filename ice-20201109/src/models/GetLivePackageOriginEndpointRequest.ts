@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLivePackageOriginEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * The channel name.
+   * The name of the channel.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetLivePackageOriginEndpointRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * The endpoint name.
+   * The name of the endpoint.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetLivePackageOriginEndpointRequest extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * The channel group name.
+   * The name of the channel group.
    * 
    * This parameter is required.
    * 

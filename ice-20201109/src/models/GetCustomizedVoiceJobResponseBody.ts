@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $dara.Model {
   /**
    * @remarks
-   * The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The creation time in UTC format.
    * 
    * @example
    * 2023-06-07T02:27:08Z
@@ -14,10 +14,8 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
   /**
    * @remarks
    * The gender. Valid values:
-   * 
-   * - female
-   * 
-   * - male
+   * - female: Female.
+   * - male: Male.
    * 
    * @example
    * female
@@ -25,7 +23,7 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
   gender?: string;
   /**
    * @remarks
-   * The ID of the human voice cloning job.
+   * The ID of the voice cloning task.
    * 
    * @example
    * ****571c704445f9a0ee011406c2****
@@ -33,7 +31,7 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
   jobId?: string;
   /**
    * @remarks
-   * The status description.
+   * The additional description of the status.
    * 
    * @example
    * Training failed
@@ -42,12 +40,9 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
   /**
    * @remarks
    * The scenario. Valid values:
-   * 
-   * - story
-   * 
-   * - interaction
-   * 
-   * - navigation
+   * - story: Story.
+   * - interaction: Interaction.
+   * - navigation: Navigation.
    * 
    * @example
    * story
@@ -55,19 +50,13 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
   scenario?: string;
   /**
    * @remarks
-   * The job state. Valid values:
-   * 
-   * - Initialization
-   * 
-   * - AudioDetecting
-   * 
-   * - PreTraining
-   * 
-   * - Training
-   * 
-   * - Success
-   * 
-   * - Fail
+   * The task status. Valid values:
+   * - Initialization: Initialized.
+   * - AudioDetecting: Audio detection is in progress.
+   * - PreTraining: Submitted for training and pending.
+   * - Training: Training is in progress.
+   * - Success: Training succeeded.
+   * - Fail: Training failed.
    * 
    * @example
    * Fail
@@ -75,11 +64,9 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
   status?: string;
   /**
    * @remarks
-   * The type of the human voice cloning job. Valid values:
-   * 
-   * - Basic
-   * 
-   * - Standard
+   * The type of the voice cloning task. Valid values:
+   * - Basic: Basic edition.
+   * - Standard: Standard edition.
    * 
    * @example
    * Standard
@@ -90,7 +77,7 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
    * The voice description.
    * 
    * @example
-   * 这是一个专属人声
+   * This is an exclusive human voice
    */
   voiceDesc?: string;
   /**
@@ -106,7 +93,7 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
    * The voice name.
    * 
    * @example
-   * Basic
+   * The voice name.
    */
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -151,7 +138,7 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $da
 export class GetCustomizedVoiceJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The information about the human voice cloning job.
+   * The voice cloning task.
    */
   customizedVoiceJob?: GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob;
   static names(): { [key: string]: string } {
@@ -181,7 +168,7 @@ export class GetCustomizedVoiceJobResponseBodyData extends $dara.Model {
 export class GetCustomizedVoiceJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned if the request was successful.
+   * The data returned when the call is successful.
    */
   data?: GetCustomizedVoiceJobResponseBodyData;
   /**
@@ -194,11 +181,9 @@ export class GetCustomizedVoiceJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true
-   * 
-   * - false
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call failed.
    * 
    * @example
    * true

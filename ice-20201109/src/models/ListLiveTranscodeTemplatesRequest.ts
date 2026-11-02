@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveTranscodeTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The category of the template. Valid values:
-   * 
-   * - system
-   * 
-   * - customized
+   * The template category. Valid values:
+   * - system: system template.
+   * - customized: custom template.
    * 
    * @example
    * customized
@@ -17,7 +15,7 @@ export class ListLiveTranscodeTemplatesRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The search keyword. You can use the template ID or name as the keyword to search for templates. If you search for templates by name, fuzzy match is supported.
+   * The search keyword. You can search by template ID or name. Name supports fuzzy match.
    * 
    * @example
    * my_template
@@ -25,7 +23,7 @@ export class ListLiveTranscodeTemplatesRequest extends $dara.Model {
   keyWord?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -41,11 +39,10 @@ export class ListLiveTranscodeTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sorting order. By default, the query results are sorted by creation time in descending order. Valid values:
+   * The sorting order. Sorts by CreateTime. Default value: desc. Valid values:
    * 
-   * - asc
-   * 
-   * - desc
+   * - asc: ascending order.
+   * - desc: descending order.
    * 
    * @example
    * asc
@@ -53,15 +50,12 @@ export class ListLiveTranscodeTemplatesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The type of the template. Valid values:
+   * The template type. Valid values:
    * 
-   * - normal
-   * 
-   * - narrow-band
-   * 
-   * - audio-only
-   * 
-   * - origin
+   * - normal: standard.
+   * - narrow-band: narrowband HD.
+   * - audio-only: audio only.
+   * - origin: original quality.
    * 
    * @example
    * normal
@@ -72,7 +66,6 @@ export class ListLiveTranscodeTemplatesRequest extends $dara.Model {
    * The video codec. Valid values:
    * 
    * - H.264
-   * 
    * - H.265
    * 
    * @example

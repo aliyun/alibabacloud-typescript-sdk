@@ -7,11 +7,11 @@ export class ListPublicMediaBasicInfosRequest extends $dara.Model {
    * @remarks
    * The business type of the media asset. Valid values:
    * 
-   * - sticker
+   * - sticker: sticker
    * 
-   * - bgm
+   * - bgm: background music
    * 
-   * - bgi
+   * - bgi: background image
    * 
    * @example
    * sticker
@@ -19,7 +19,7 @@ export class ListPublicMediaBasicInfosRequest extends $dara.Model {
   businessType?: string;
   /**
    * @remarks
-   * Specifies whether to return the basic information of the media asset.
+   * Specifies whether to include basic file information in the response.
    * 
    * @example
    * true
@@ -27,7 +27,7 @@ export class ListPublicMediaBasicInfosRequest extends $dara.Model {
   includeFileBasicInfo?: boolean;
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of entries to return for a single request.
    * 
    * Maximum value: 100. Default value: 10.
    * 
@@ -37,47 +37,27 @@ export class ListPublicMediaBasicInfosRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The media tag. All media assets that contain the specified media tag are returned. Valid values:
-   * 
-   * - Sticker tags:
-   * 
-   *   - sticker-atmosphere
-   * 
-   *   - sticker-bubble
-   * 
-   *   - sticker-cute
-   * 
-   *   - sticker-daily
-   * 
-   *   - sticker-expression
-   * 
-   *   - sticker-gif
-   * 
-   * - Background music (BGM) tags:
-   * 
-   *   - bgm-romantic
-   * 
-   *   - bgm-cuisine
-   * 
-   *   - bgm-chinese-style
-   * 
-   *   - bgm-upbeat
-   * 
-   *   - bgm-dynamic
-   * 
-   *   - bgm-relaxing
-   * 
-   *   - bgm-quirky
-   * 
-   *   - bgm-beauty
-   * 
-   * - Background image (BGI) tags:
-   * 
-   *   - bgi-grad
-   * 
-   *   - bgi-solid
-   * 
-   *   - bgi-pic
+   * The media asset tag. The system matches media assets based on this mediaTagId and returns all media assets that contain this tag. Valid values:
+   * - sticker: stickers
+   *   - sticker-atmosphere: atmosphere
+   *   - sticker-bubble: bubble
+   *   - sticker-cute: cute
+   *   - sticker-daily: daily
+   *   - sticker-expression: expression
+   *   - sticker-gif: GIF
+   * - bgm: background music
+   *   - bgm-romantic: romantic
+   *   - bgm-cuisine: cuisine
+   *   - bgm-chinese-style: Chinese style
+   *   - bgm-upbeat: upbeat
+   *   - bgm-dynamic: dynamic
+   *   - bgm-relaxing: relaxing
+   *   - bgm-quirky: quirky
+   *   - bgm-beauty: fashion and beauty
+   * - bgi: background images
+   *   - bgi-grad: gradient background
+   *   - bgi-solid: solid color background
+   *   - bgi-pic: image background
    * 
    * @example
    * sticker-atmosphere
@@ -85,7 +65,7 @@ export class ListPublicMediaBasicInfosRequest extends $dara.Model {
   mediaTagId?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token that indicates the position from which the next query starts. An empty value indicates that all data has been read.
    * 
    * @example
    * pSa1SQ0wCe5pzVrQ6mWZEw==
@@ -93,7 +73,7 @@ export class ListPublicMediaBasicInfosRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number. Default value: 1
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -101,7 +81,7 @@ export class ListPublicMediaBasicInfosRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * The number of entries to return on each page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10

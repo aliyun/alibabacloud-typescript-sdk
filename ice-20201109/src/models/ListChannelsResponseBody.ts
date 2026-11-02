@@ -6,7 +6,7 @@ import { ChannelAssemblyChannel } from "./ChannelAssemblyChannel";
 export class ListChannelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The channels.
+   * The channel list.
    */
   channelList?: ChannelAssemblyChannel[];
   /**
@@ -27,7 +27,7 @@ export class ListChannelsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * **Request ID**
+   * **The request ID.**
    * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
@@ -35,7 +35,7 @@ export class ListChannelsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of channels returned.
+   * The total number of channels.
    * 
    * @example
    * 180

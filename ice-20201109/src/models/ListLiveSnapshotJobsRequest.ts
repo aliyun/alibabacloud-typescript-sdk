@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveSnapshotJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`. The time must be in UTC.
-   * 
-   * - If this parameter is not specified, the default is the current time.
-   * 
-   * -
+   * The end time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * - Default value: 7 days after the start time.
+   * - The interval between StartTime and EndTime cannot exceed 30 days.
    * 
    * @example
    * 2022-02-02T23:59:59Z
@@ -17,7 +15,7 @@ export class ListLiveSnapshotJobsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number to return. The value must be an integer greater than or equal to 1. Default value: 1.
+   * The page number. Valid values: [1, n). Default value: 1.
    * 
    * @example
    * 1
@@ -25,7 +23,7 @@ export class ListLiveSnapshotJobsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of jobs to return on each page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Valid values: [1, 100]. Default value: 10.
    * 
    * @example
    * 10
@@ -33,8 +31,7 @@ export class ListLiveSnapshotJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The search keyword. You can search by Job ID or Job Name. Fuzzy search is supported for Job Name.
-   * 
+   * The search keyword. You can search by job ID or job name. Fuzzy match is supported for job names.
    * - The maximum length is 128 characters.
    * 
    * @example
@@ -43,7 +40,7 @@ export class ListLiveSnapshotJobsRequest extends $dara.Model {
   searchKeyWord?: string;
   /**
    * @remarks
-   * The sort order. The results are sorted by `CreateTime`. Default: `desc` (Descending).
+   * The sort order. Jobs are sorted by creation time. Default value: desc.
    * 
    * @example
    * desc
@@ -51,11 +48,9 @@ export class ListLiveSnapshotJobsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The start of the time range to query. Specify the time in the ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`. The time must be in UTC.
-   * 
-   * - If this parameter is not specified, the default is 7 days ago.
-   * 
-   * - The interval between `StartTime` and `EndTime` cannot exceed 30 days.
+   * The start time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * - Default value: 7 days ago.
+   * - The interval between StartTime and EndTime cannot exceed 30 days.
    * 
    * @example
    * 2022-02-02T00:00:00Z
@@ -63,7 +58,10 @@ export class ListLiveSnapshotJobsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The job status to filter by. If omitted, jobs of all statuses are returned.
+   * The status used to filter jobs. By default, jobs in all states are queried.
+   * 
+   * @example
+   * started
    */
   status?: string;
   static names(): { [key: string]: string } {

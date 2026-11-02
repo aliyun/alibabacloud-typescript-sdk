@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLivePackageChannelGroupsResponseBodyLivePackageChannelGroups extends $dara.Model {
   /**
    * @remarks
-   * The time when the channel group was created. It is in the `yyyy-MM-ddTHH:mm:ssZ` format and displayed in UTC.
+   * The time when the channel group was created. The time follows the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -13,15 +13,15 @@ export class ListLivePackageChannelGroupsResponseBodyLivePackageChannelGroups ex
   createTime?: string;
   /**
    * @remarks
-   * The channel group description.
+   * The description of the channel group.
    * 
    * @example
-   * 这是频道组的描述信息。
+   * This is the description information of the channel group.
    */
   description?: string;
   /**
    * @remarks
-   * The channel group name.
+   * The name of the channel group.
    * 
    * @example
    * testChannelGroup
@@ -29,7 +29,7 @@ export class ListLivePackageChannelGroupsResponseBodyLivePackageChannelGroups ex
   groupName?: string;
   /**
    * @remarks
-   * The time when the channel group was last modified. It is in the `yyyy-MM-ddTHH:mm:ssZ` format and displayed in UTC.
+   * The time when the channel group was last modified. The time follows the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
    * 
    * @example
    * 2023-04-02T12:00:00Z
@@ -37,7 +37,7 @@ export class ListLivePackageChannelGroupsResponseBodyLivePackageChannelGroups ex
   lastModified?: string;
   /**
    * @remarks
-   * The origin domain.
+   * The origin domain name.
    * 
    * @example
    * origin.example.com
@@ -75,7 +75,7 @@ export class ListLivePackageChannelGroupsResponseBodyLivePackageChannelGroups ex
 export class ListLivePackageChannelGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The channel groups returned.
+   * The channel groups.
    */
   livePackageChannelGroups?: ListLivePackageChannelGroupsResponseBodyLivePackageChannelGroups[];
   /**
@@ -112,7 +112,7 @@ export class ListLivePackageChannelGroupsResponseBody extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 100

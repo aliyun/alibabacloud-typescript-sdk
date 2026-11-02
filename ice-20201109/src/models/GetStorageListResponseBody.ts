@@ -13,7 +13,7 @@ export class GetStorageListResponseBodyStorageInfoList extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The time when the configuration was created.
+   * The creation time. The time follows the ISO 8601 standard and is in UTC (ending with Z).
    * 
    * @example
    * 2024-06-06T01:55:07Z
@@ -21,7 +21,7 @@ export class GetStorageListResponseBodyStorageInfoList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * Indicates whether it is the default storage location.
+   * Indicates whether the storage is the default storage.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class GetStorageListResponseBodyStorageInfoList extends $dara.Model {
   defaultStorage?: boolean;
   /**
    * @remarks
-   * Indicates whether temporary files created during editing processes are stored in this location.
+   * Indicates whether the storage is the default storage for editing.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class GetStorageListResponseBodyStorageInfoList extends $dara.Model {
   editingTempFileStorage?: boolean;
   /**
    * @remarks
-   * The time when the configuration was last modified.
+   * The last modification time. The time follows the ISO 8601 standard and is in UTC (ending with Z).
    * 
    * @example
    * 2024-06-06T03:07:07Z
@@ -45,7 +45,7 @@ export class GetStorageListResponseBodyStorageInfoList extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The file path.
+   * The OSS path.
    * 
    * @example
    * your-path/
@@ -61,7 +61,7 @@ export class GetStorageListResponseBodyStorageInfoList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The bucket.
+   * The OSS storage.
    * 
    * @example
    * your-bucket
@@ -115,7 +115,7 @@ export class GetStorageListResponseBodyStorageInfoList extends $dara.Model {
 export class GetStorageListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * ******73-8B78-5D86-A50C-49B96C******
@@ -123,7 +123,7 @@ export class GetStorageListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The storage configurations.
+   * The list of storage configurations.
    */
   storageInfoList?: GetStorageListResponseBodyStorageInfoList[];
   static names(): { [key: string]: string } {

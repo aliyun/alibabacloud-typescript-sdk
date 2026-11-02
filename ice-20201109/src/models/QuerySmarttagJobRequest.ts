@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySmarttagJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the smart tagging job. You can obtain this ID from the response to the [SubmitSmarttagJob](https://help.aliyun.com/document_detail/478786.html) call.
+   * The ID of the smart tag job to query. You can obtain the ID from the response parameters of the [SubmitSmarttagJob](https://help.aliyun.com/document_detail/478786.html) operation.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,11 @@ export class QuerySmarttagJobRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Additional request parameters, formatted as a JSON string. For example: `{"labelResultType":"auto"}`. The `labelResultType` parameter supports the following values:
+   * The additional request parameters, represented as a JSON string. Example: {"labelResultType":"auto"}. The labelResultType parameter is of the String type. Valid values:
    * 
-   * - `auto`: machine-generated tagging results
+   * - auto: machine tagging results.
    * 
-   * - `hmi`: human-in-the-loop tagging results
+   * - hmi: human-machine collaboration results.
    * 
    * @example
    * {"labelResultType":"auto"}

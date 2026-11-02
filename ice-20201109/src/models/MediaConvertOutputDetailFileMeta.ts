@@ -13,7 +13,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   bitrate?: string;
   /**
    * @remarks
-   * The layout of the audio channels.
+   * The channel layout.
    * 
    * @example
    * stereo
@@ -21,7 +21,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   channelLayout?: string;
   /**
    * @remarks
-   * The number of audio channels.
+   * The number of channels.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   channels?: string;
   /**
    * @remarks
-   * The full name of the codec.
+   * The codec long name.
    * 
    * @example
    * AAC (Advanced Audio Coding)
@@ -37,7 +37,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   codecLongName?: string;
   /**
    * @remarks
-   * The short name of the codec.
+   * The codec name.
    * 
    * @example
    * aac
@@ -45,7 +45,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   codecName?: string;
   /**
    * @remarks
-   * The tag of the codec.
+   * The codec tag.
    * 
    * @example
    * 0x000f
@@ -53,7 +53,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   codecTag?: string;
   /**
    * @remarks
-   * The tag of the codec.
+   * The codec tag string.
    * 
    * @example
    * [15][0][0][0]
@@ -61,7 +61,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   codecTagString?: string;
   /**
    * @remarks
-   * The time base used by the codec.
+   * The codec time base.
    * 
    * @example
    * 1/44100
@@ -69,7 +69,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   codecTimeBase?: string;
   /**
    * @remarks
-   * The duration of the stream. Unit: seconds.
+   * The duration in seconds.
    * 
    * @example
    * 403.039989
@@ -77,7 +77,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   duration?: string;
   /**
    * @remarks
-   * The index of this stream within the file.
+   * The stream index.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   index?: string;
   /**
    * @remarks
-   * The language code for the stream.
+   * The language.
    * 
    * @example
    * cn
@@ -93,7 +93,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   lang?: string;
   /**
    * @remarks
-   * The audio sample format.
+   * The sample format.
    * 
    * @example
    * fltp
@@ -101,7 +101,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   sampleFmt?: string;
   /**
    * @remarks
-   * The sample rate. Unit: Hz.
+   * The sample rate in Hz.
    * 
    * @example
    * 44100
@@ -109,7 +109,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   sampleRate?: string;
   /**
    * @remarks
-   * The start time of the stream. Unit: seconds.
+   * The start time.
    * 
    * @example
    * 1.473556
@@ -117,7 +117,7 @@ export class MediaConvertOutputDetailFileMetaAudioStreamInfoList extends $dara.M
   startTime?: string;
   /**
    * @remarks
-   * The time base of the stream\\"s presentation timestamps.
+   * The time base.
    * 
    * @example
    * 1/90000
@@ -183,7 +183,7 @@ export class MediaConvertOutputDetailFileMetaFileBasicInfo extends $dara.Model {
   bitrate?: string;
   /**
    * @remarks
-   * The total duration of the media file. Unit: seconds.
+   * The video duration in seconds.
    * 
    * @example
    * 403.039999
@@ -191,7 +191,7 @@ export class MediaConvertOutputDetailFileMetaFileBasicInfo extends $dara.Model {
   duration?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
    * file.m3u8
@@ -199,7 +199,7 @@ export class MediaConvertOutputDetailFileMetaFileBasicInfo extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The file size. Unit: bytes.
+   * The file size in bytes.
    * 
    * @example
    * 31737
@@ -207,7 +207,7 @@ export class MediaConvertOutputDetailFileMetaFileBasicInfo extends $dara.Model {
   fileSize?: string;
   /**
    * @remarks
-   * The status of the file.
+   * The file status.
    * 
    * @example
    * Normal
@@ -215,7 +215,7 @@ export class MediaConvertOutputDetailFileMetaFileBasicInfo extends $dara.Model {
   fileStatus?: string;
   /**
    * @remarks
-   * Indicates if this is the source or a transcoded output. Valid values: source_file and transcode_file.
+   * The file type. Valid values: source_file, transcode_file.
    * 
    * @example
    * source_file
@@ -223,7 +223,7 @@ export class MediaConvertOutputDetailFileMetaFileBasicInfo extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The URL of the file.
+   * The file URL.
    * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
@@ -231,7 +231,7 @@ export class MediaConvertOutputDetailFileMetaFileBasicInfo extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * The container format name.
+   * The video format name.
    * 
    * @example
    * hls,applehttp
@@ -239,7 +239,7 @@ export class MediaConvertOutputDetailFileMetaFileBasicInfo extends $dara.Model {
   formatName?: string;
   /**
    * @remarks
-   * The height of the video, in pixels.
+   * The height.
    * 
    * @example
    * 478
@@ -247,7 +247,7 @@ export class MediaConvertOutputDetailFileMetaFileBasicInfo extends $dara.Model {
   height?: string;
   /**
    * @remarks
-   * The ID of the media asset.
+   * The media asset ID.
    * 
    * @example
    * 9066406c306771f0bfa35107e0c90102
@@ -255,7 +255,7 @@ export class MediaConvertOutputDetailFileMetaFileBasicInfo extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The storage region of the file.
+   * The region where the file is located.
    * 
    * @example
    * cn-shanghai
@@ -263,7 +263,7 @@ export class MediaConvertOutputDetailFileMetaFileBasicInfo extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The width of the video, in pixels.
+   * The width.
    * 
    * @example
    * 848
@@ -331,7 +331,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   bitRate?: string;
   /**
    * @remarks
-   * The full name of the codec.
+   * The codec long name.
    * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
@@ -339,7 +339,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   codecLongName?: string;
   /**
    * @remarks
-   * The short name of the codec.
+   * The codec name.
    * 
    * @example
    * h264
@@ -347,7 +347,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   codecName?: string;
   /**
    * @remarks
-   * The tag of the codec.
+   * The codec tag.
    * 
    * @example
    * 0x001b
@@ -355,7 +355,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   codecTag?: string;
   /**
    * @remarks
-   * The tag of the codec.
+   * The codec tag string.
    * 
    * @example
    * [27][0][0][0]
@@ -363,7 +363,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   codecTagString?: string;
   /**
    * @remarks
-   * The time base used by the codec.
+   * The codec time base.
    * 
    * @example
    * 1/50
@@ -379,7 +379,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   dar?: string;
   /**
    * @remarks
-   * The duration of the stream. Unit: seconds.
+   * The duration in seconds.
    * 
    * @example
    * 403.039989
@@ -395,11 +395,10 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   fps?: string;
   /**
    * @remarks
-   * Indicates whether the video stream contains B-frames. Valid value:
-   * 
-   * *   0: None.
-   * *   1: One B-frame.
-   * *   2: Multiple consecutive B-frames.
+   * Specifies whether B-frames are included. Valid values:
+   * - 0: No B-frames. 
+   * - 1: One B-frame. 
+   * - 2: Multiple consecutive B-frames.
    * 
    * @example
    * 2
@@ -407,7 +406,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   hasBFrames?: string;
   /**
    * @remarks
-   * The height of the video stream, in pixels.
+   * The height.
    * 
    * @example
    * 478
@@ -415,7 +414,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   height?: string;
   /**
    * @remarks
-   * The index of this stream within the file.
+   * The stream index.
    * 
    * @example
    * 0
@@ -423,7 +422,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   index?: string;
   /**
    * @remarks
-   * The language code for the stream.
+   * The language.
    * 
    * @example
    * cn
@@ -431,7 +430,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   lang?: string;
   /**
    * @remarks
-   * The codec level.
+   * The encoding level.
    * 
    * @example
    * 31
@@ -455,7 +454,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   pixFmt?: string;
   /**
    * @remarks
-   * The codec profile.
+   * The encoder profile.
    * 
    * @example
    * High
@@ -463,7 +462,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   profile?: string;
   /**
    * @remarks
-   * The rotation angle applied to the video. Valid values: 0, 90, 180, and 270. Default value: 0.
+   * The video rotation angle. Valid values: 0, 90, 180, and 270. Default value: 0.
    * 
    * @example
    * 0
@@ -479,7 +478,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   sar?: string;
   /**
    * @remarks
-   * The start time of the stream.
+   * The start time.
    * 
    * @example
    * 1.473556
@@ -487,7 +486,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   startTime?: string;
   /**
    * @remarks
-   * The time base of the stream\\"s presentation timestamps.
+   * The time base.
    * 
    * @example
    * 1/90000
@@ -495,7 +494,7 @@ export class MediaConvertOutputDetailFileMetaVideoStreamInfoList extends $dara.M
   timeBase?: string;
   /**
    * @remarks
-   * The width of the video stream, in pixels.
+   * The width.
    * 
    * @example
    * 848
@@ -574,7 +573,7 @@ export class MediaConvertOutputDetailFileMeta extends $dara.Model {
   audioStreamInfoList?: MediaConvertOutputDetailFileMetaAudioStreamInfoList[];
   /**
    * @remarks
-   * The basic information of the media file.
+   * The basic file information.
    */
   fileBasicInfo?: MediaConvertOutputDetailFileMetaFileBasicInfo;
   /**

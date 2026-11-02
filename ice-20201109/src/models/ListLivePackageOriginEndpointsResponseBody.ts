@@ -13,7 +13,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   authorizationCode?: string;
   /**
    * @remarks
-   * The channel name.
+   * The name of the channel.
    * 
    * @example
    * channel-1
@@ -21,7 +21,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   channelName?: string;
   /**
    * @remarks
-   * The time when the endpoint was created.
+   * The creation time. The time is displayed in the ISO 8601 standard in UTC (ending with Z).
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -29,15 +29,15 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   createTime?: string;
   /**
    * @remarks
-   * The endpoint description.
+   * The description of the endpoint.
    * 
    * @example
-   * This is an origin endpoint.
+   * This is an origin endpoint
    */
   description?: string;
   /**
    * @remarks
-   * The endpoint name.
+   * The name of the endpoint.
    * 
    * @example
    * endpoint-1
@@ -45,7 +45,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   endpointName?: string;
   /**
    * @remarks
-   * The endpoint URL.
+   * The URL of the endpoint.
    * 
    * @example
    * https://xxx.packagepull-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest.m3u8
@@ -53,7 +53,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   endpointUrl?: string;
   /**
    * @remarks
-   * The channel group name.
+   * The name of the channel group.
    * 
    * @example
    * channel-group-1
@@ -61,7 +61,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   groupName?: string;
   /**
    * @remarks
-   * The IP address blacklist.
+   * The IP blacklist.
    * 
    * @example
    * 10.21.222.1/32,192.168.100.0/24
@@ -69,7 +69,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   ipBlacklist?: string;
   /**
    * @remarks
-   * The IP address whitelist.
+   * The IP whitelist.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1/24
@@ -85,7 +85,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   lastModified?: string;
   /**
    * @remarks
-   * The playlist name.
+   * The name of the manifest.
    * 
    * @example
    * manifest
@@ -101,7 +101,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   protocol?: string;
   /**
    * @remarks
-   * The number of days that time-shifted content is available.
+   * The time-shift duration in days.
    * 
    * @example
    * 1
@@ -155,7 +155,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
 export class ListLivePackageOriginEndpointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The origin endpoints returned.
+   * The live packaging origin endpoints.
    */
   livePackageOriginEndpoints?: ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoints[];
   /**
@@ -176,7 +176,7 @@ export class ListLivePackageOriginEndpointsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The unique ID of the request.
    * 
    * @example
    * b9f90a7ac8904db28dc18e0c2a72c75d
@@ -184,7 +184,10 @@ export class ListLivePackageOriginEndpointsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The sort order. Valid values: `asc` and `desc` (default).
+   * The sorting order. Valid values:
+   * - `asc`: Ascending order.
+   * - `desc`: Descending order.
+   * Default value: `desc`.
    * 
    * @example
    * desc
@@ -192,7 +195,7 @@ export class ListLivePackageOriginEndpointsResponseBody extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

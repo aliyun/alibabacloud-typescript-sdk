@@ -12,7 +12,7 @@ export class SubmitSyncMediaInfoJobShrinkRequest extends $dara.Model {
   inputShrink?: string;
   /**
    * @remarks
-   * The job name.
+   * The name of the job.
    * 
    * @example
    * job-name

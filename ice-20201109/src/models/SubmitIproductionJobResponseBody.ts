@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitIProductionJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The intelligent production job ID.
+   * The ID of the intelligent production job.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****

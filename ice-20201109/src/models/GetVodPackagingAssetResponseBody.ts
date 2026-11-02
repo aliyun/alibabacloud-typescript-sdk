@@ -13,13 +13,10 @@ export class GetVodPackagingAssetResponseBodyAssetEgressEndpoints extends $dara.
   configurationName?: string;
   /**
    * @remarks
-   * The asset status. Valid values:
-   * 
-   * - Queuing: The asset is waiting for packaging.
-   * 
-   * - Playable: The asset is packaged and playable.
-   * 
-   * - Failed: The asset fails to be packaged.
+   * The status. Valid values:
+   * - Queuing: Queued for processing.
+   * - Playable: Playable.
+   * - Failed: Packaging failed and playback is unavailable.
    * 
    * @example
    * Playable
@@ -27,7 +24,7 @@ export class GetVodPackagingAssetResponseBodyAssetEgressEndpoints extends $dara.
   status?: string;
   /**
    * @remarks
-   * The playback URL. If the asset fails to be packaged, no playback URL is returned.
+   * The playback URL. If asset packaging fails, the corresponding playback URL is not returned.
    */
   url?: string;
   static names(): { [key: string]: string } {
@@ -58,12 +55,12 @@ export class GetVodPackagingAssetResponseBodyAssetEgressEndpoints extends $dara.
 export class GetVodPackagingAssetResponseBodyAssetInput extends $dara.Model {
   /**
    * @remarks
-   * The URL of the media file. Only M3U8 files stored in OSS are supported.
+   * The input media asset. Currently, only OSS paths are supported, such as OSS://test-bucket/video/202208/test.m3u8. Only inputs with the .m3u8 extension are supported.
    */
   media?: string;
   /**
    * @remarks
-   * The input type. Only Object Storage Service (OSS) is supported.
+   * The input type. Currently, only Object Storage Service (OSS) is supported.
    * 
    * @example
    * OSS
@@ -95,7 +92,7 @@ export class GetVodPackagingAssetResponseBodyAssetInput extends $dara.Model {
 export class GetVodPackagingAssetResponseBodyAsset extends $dara.Model {
   /**
    * @remarks
-   * The name of the asset.
+   * The name of the packaging asset.
    * 
    * @example
    * 30min_movie
@@ -103,7 +100,7 @@ export class GetVodPackagingAssetResponseBodyAsset extends $dara.Model {
   assetName?: string;
   /**
    * @remarks
-   * The content ID in the DRM system. The maximum length is 256 characters. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * The content ID in the Digital Rights Management (DRM) system. The format is [A-Za-z0-9_-]+, and the maximum length is 256 characters.
    * 
    * @example
    * movie
@@ -111,7 +108,7 @@ export class GetVodPackagingAssetResponseBodyAsset extends $dara.Model {
   contentId?: string;
   /**
    * @remarks
-   * The time when the asset was created. It follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the asset was created. The format is 2024-11-21T06:45:32Z, which indicates 2024-11-21 14:45:32 in UTC+8.
    * 
    * @example
    * 2024-11-21T06:45:32Z
@@ -119,7 +116,7 @@ export class GetVodPackagingAssetResponseBodyAsset extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The egress endpoints, each corresponding to a packaging configuration.
+   * The list of output endpoints for asset packaging and playback. Each packaging configuration corresponds to one packaging playback endpoint.
    */
   egressEndpoints?: GetVodPackagingAssetResponseBodyAssetEgressEndpoints[];
   /**
@@ -132,7 +129,7 @@ export class GetVodPackagingAssetResponseBodyAsset extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The asset input configurations.
+   * The input of the packaging asset.
    */
   input?: GetVodPackagingAssetResponseBodyAssetInput;
   static names(): { [key: string]: string } {
@@ -175,12 +172,12 @@ export class GetVodPackagingAssetResponseBodyAsset extends $dara.Model {
 export class GetVodPackagingAssetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the asset.
+   * The details of the VOD packaging asset.
    */
   asset?: GetVodPackagingAssetResponseBodyAsset;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0622C702-41BE-467E-AF2E-883D4517962E

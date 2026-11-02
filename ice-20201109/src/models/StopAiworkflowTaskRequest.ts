@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopAIWorkflowTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the workflow task.
+   * The ID of the intelligent workflow task.
    * 
    * @example
    * ********-266c-4bb8-b20c-6faa********

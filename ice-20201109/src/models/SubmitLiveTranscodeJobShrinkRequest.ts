@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitLiveTranscodeJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the transcoding job.
+   * The name of the task.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,10 @@ export class SubmitLiveTranscodeJobShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The start mode of the transcoding job.
+   * The start mode. Valid values:
    * 
-   * - 0: The transcoding job immediately starts.
-   * 
-   * - 1: The transcoding job starts at the scheduled time.
+   * - 0: Starts the task immediately.
+   * - 1: Starts the task at a scheduled time.
    * 
    * This parameter is required.
    * 
@@ -29,14 +28,14 @@ export class SubmitLiveTranscodeJobShrinkRequest extends $dara.Model {
   startMode?: number;
   /**
    * @remarks
-   * The information about the input stream.
+   * The stream input information.
    * 
    * This parameter is required.
    */
   streamInputShrink?: string;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the template.
    * 
    * This parameter is required.
    * 
@@ -46,12 +45,13 @@ export class SubmitLiveTranscodeJobShrinkRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The configuration of a timed transcoding job. This parameter is required if you set StartMode to 1.
+   * The configuration of the scheduled task.
+   * This parameter is required when StartMode is set to 1.
    */
   timedConfigShrink?: string;
   /**
    * @remarks
-   * The information about the transcoding output.
+   * The transcoding output information.
    * 
    * This parameter is required.
    */

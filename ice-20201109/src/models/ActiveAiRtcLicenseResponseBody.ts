@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ActiveAiRtcLicenseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * Success
@@ -45,7 +45,7 @@ export class ActiveAiRtcLicenseResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

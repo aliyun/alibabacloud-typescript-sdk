@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeYikeStoryboardJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the storyboard job. This ID is returned in the response when you submit the job.
+   * The task ID. You can obtain it from the response parameters returned when you submit a storyboard generation task.
    * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
@@ -13,7 +13,7 @@ export class ResumeYikeStoryboardJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******

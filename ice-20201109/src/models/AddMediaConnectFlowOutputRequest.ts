@@ -13,7 +13,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   cidrs?: string;
   /**
    * @remarks
-   * The flow ID.
+   * The flow instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * The output name.
+   * The name of the output.
    * 
    * This parameter is required.
    * 
@@ -33,19 +33,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   outputName?: string;
   /**
    * @remarks
-   * The output type.
-   * 
-   * Valid values:
-   * 
-   * - RTMP-PUSH
-   * 
-   * - SRT-Caller
-   * 
-   * - RTMP-PULL
-   * 
-   * - SRT-Listener
-   * 
-   * - Flow
+   * The output protocol.
    * 
    * This parameter is required.
    * 
@@ -55,7 +43,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   outputProtocol?: string;
   /**
    * @remarks
-   * The output URL. This parameter is required when OutputProtocol is set to RTMP-PUSH or SRT-Caller.
+   * The output URL. This parameter is required when the output type is RTMP-PUSH or SRT-Caller.
    * 
    * @example
    * rtmp://push.test.alivecdn.com/live/alitest
@@ -63,7 +51,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   outputToUrl?: string;
   /**
    * @remarks
-   * The ID of the destination flow. This parameter is required when OutputProtocol is set to Flow.
+   * The peer flow instance ID. This parameter is required when the output type is Flow.
    * 
    * @example
    * 8666ec062190f00e263012666319a5be
@@ -71,7 +59,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   pairFlowId?: string;
   /**
    * @remarks
-   * The source name of the destination flow. This parameter is required when OutputProtocol is set to Flow.
+   * The input name of the peer flow. This parameter is required when the output type is Flow.
    * 
    * @example
    * AliTestInput
@@ -79,7 +67,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   pairInputName?: string;
   /**
    * @remarks
-   * The maximum number of viewers.
+   * The maximum number of concurrent players.
    * 
    * @example
    * 5
@@ -87,7 +75,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   playerLimit?: number;
   /**
    * @remarks
-   * The latency for the SRT stream. This parameter is required when the source type is SRT-Listener or SRT-Caller.
+   * The SRT latency. This parameter is required only when the output type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 1000
@@ -95,7 +83,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   srtLatency?: number;
   /**
    * @remarks
-   * The SRT key. This parameter is required when the source type is SRT-Listener or SRT-Caller.
+   * The SRT encryption passphrase. This parameter is required only when the output type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * BETTERG08S01
@@ -103,7 +91,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   srtPassphrase?: string;
   /**
    * @remarks
-   * The encryption key length. This parameter is required when the source type is SRT-Listener or SRT-Caller.
+   * The SRT encryption key length. This parameter is required only when the output type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 32

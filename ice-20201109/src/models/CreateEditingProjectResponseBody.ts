@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   /**
    * @remarks
-   * The business configuration of the project. This parameter can be ignored for standard editing projects.
+   * The business configuration of the project. You can ignore this parameter for standard editing projects.
    * 
    * @example
    * { "OutputMediaConfig" :    { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path"   }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
@@ -13,12 +13,17 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   businessConfig?: string;
   /**
    * @remarks
-   * The business status of the project. This parameter can be ignored for standard editing projects.
-   * - Reserving: The live stream is being reserved.
-   * - ReservationCanceled: The reservation is canceled. 
-   * - BroadCasting: The live stream is broadcasting.
-   * - LoadingFailed: Loading failed.
-   * - LiveFinished: The live stream has ended.
+   * The business status of the project. You can ignore this parameter for standard editing projects.
+   * 
+   * - Reserving
+   * 
+   * - ReservationCanceled 
+   * 
+   * - BroadCasting
+   * 
+   * - LoadingFailed
+   * 
+   * - LiveFinished
    * 
    * @example
    * Reserving
@@ -26,15 +31,15 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   businessStatus?: string;
   /**
    * @remarks
-   * The template material parameters.
+   * The material parameters for the template.
    * 
    * @example
-   * See the template user guide.
+   * See the template documentation
    */
   clipsParam?: string;
   /**
    * @remarks
-   * The cover URL of the cloud editing project.
+   * The cover of the cloud editing project.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
@@ -42,7 +47,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The creation source of the cloud editing project.
+   * The method used to create the cloud editing project.
    * 
    * - OpenAPI
    * 
@@ -60,7 +65,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   createSource?: string;
   /**
    * @remarks
-   * The creation time of the cloud editing project.
+   * The time when the cloud editing project was created. The time follows the ISO 8601 standard and is displayed in UTC (ending with Z).
    * 
    * @example
    * 2021-01-08T16:52:07Z
@@ -84,7 +89,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The modification source of the cloud editing project.
+   * The method used to modify the cloud editing project.
    * 
    * - OpenAPI
    * - AliyunConsole
@@ -98,7 +103,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   modifiedSource?: string;
   /**
    * @remarks
-   * The modification time of the cloud editing project.
+   * The time when the cloud editing project was modified. The time follows the ISO 8601 standard and is displayed in UTC (ending with Z).
    * 
    * @example
    * 2021-01-08T16:52:07Z
@@ -118,7 +123,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
    * 
    * - EditingProject: standard editing project.
    * 
-   * - LiveEditingProject: live editing project.
+   * - LiveEditingProject: live streaming editing project.
    * 
    * @example
    * LiveEditingProject
@@ -128,7 +133,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
    * @remarks
    * The status of the cloud editing project.
    * 
-   * Valid values:
+   * All cloud editing project statuses:
    * 
    * - 1: Draft.
    * 
@@ -148,7 +153,7 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The status name of the cloud editing project, corresponding to the status name in the status list.
+   * The name of the cloud editing status, which corresponds to the status name in the status list.
    * 
    * @example
    * Editing

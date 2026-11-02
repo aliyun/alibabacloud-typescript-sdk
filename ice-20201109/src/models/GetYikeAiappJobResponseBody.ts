@@ -183,7 +183,7 @@ export class GetYikeAIAppJobResponseBody extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The input parameters for running the AI application. The value is a string obtained after JSON serialize.
+   * The input parameters for running the AI application, serialized as a JSON string.
    * 
    * @example
    * {\\"LoadImage.1.TargetImage\\":\\"MediaId1\\"}
@@ -191,7 +191,7 @@ export class GetYikeAIAppJobResponseBody extends $dara.Model {
   appParams?: string;
   /**
    * @remarks
-   * The time when the task ended. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
+   * The end time of the task, in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2026-02-06T18:53:18.809+08:00
@@ -199,7 +199,7 @@ export class GetYikeAIAppJobResponseBody extends $dara.Model {
   executionFinishTime?: string;
   /**
    * @remarks
-   * The time when the task started. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
+   * The start time of the task, in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2026-02-06T18:53:34.001+08:00
@@ -215,7 +215,7 @@ export class GetYikeAIAppJobResponseBody extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * ****cdb3e74639973036bc84****
@@ -245,11 +245,11 @@ export class GetYikeAIAppJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * - Created: The task is created.
-   * - Queuing: The task is queuing.
+   * - Created: The task is newly created.
+   * - Queuing: The task is in the queue.
    * - Executing: The task is being executed.
-   * - Finished: The task is completed.
-   * - Failed: The task failed.
+   * - Finished: The task execution is complete.
+   * - Failed: The task execution failed.
    * 
    * @example
    * Created

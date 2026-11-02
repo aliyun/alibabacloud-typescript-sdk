@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIAgentVoiceprintsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number to return. Must be 1 or greater.
+   * The page number. Minimum value: 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListAIAgentVoiceprintsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The registration mode for the voiceprint. The default value is `Explicit`.
+   * The voiceprint registration mode. Default value: Explicit.
    * 
    * @example
    * Explicit
@@ -29,7 +29,7 @@ export class ListAIAgentVoiceprintsRequest extends $dara.Model {
   registrationMode?: string;
   /**
    * @remarks
-   * The unique voiceprint ID. If specified, this operation returns the details of a single voiceprint. If omitted, it returns a paginated list of all voiceprints under your account.
+   * The unique ID for voiceprint recognition. This parameter is optional. If you do not specify this parameter, all voiceprint IDs under the account are listed. If you specify this parameter, only the specified voiceprint ID is displayed.
    * 
    * @example
    * vp_1699123456_8527

@@ -6,10 +6,10 @@ import { MediaConvertOutputDetailFileMeta } from "./MediaConvertOutputDetailFile
 export class MediaConvertOutputDetailResultOutputFile extends $dara.Model {
   /**
    * @remarks
-   * The value depends on the Type field:
+   * The media value.
    * 
-   * *   If Type is set to OSS, the value is the URL of the output file. The following formats are supported: oss://... and https://...
-   * *   If Type is set to Media, the value is the ID of the media asset.
+   * - When Type is set to OSS, the URL supports the OSS and HTTP protocols.
+   * - When Type is set to Media, the value is the media asset ID.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -17,10 +17,9 @@ export class MediaConvertOutputDetailResultOutputFile extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the output file. Valid values:
-   * 
-   * *   OSS: an Object Storage Service (OSS) object.
-   * *   Media: a media asset.
+   * The media object type. Valid values:
+   * - OSS: OSS file.
+   * - Media: Media asset ID.
    * 
    * @example
    * OSS
@@ -28,7 +27,7 @@ export class MediaConvertOutputDetailResultOutputFile extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * If Type is set to Media, this field provides the actual storage URL of the media asset.
+   * The actual file URL when Type is set to Media.
    * 
    * @example
    * oss://bucket/path/to/video.mp4
@@ -67,7 +66,7 @@ export class MediaConvertOutputDetailResult extends $dara.Model {
   outFileMeta?: MediaConvertOutputDetailFileMeta;
   /**
    * @remarks
-   * Details about the generated output file.
+   * The details of the output file.
    */
   outputFile?: MediaConvertOutputDetailResultOutputFile;
   static names(): { [key: string]: string } {
@@ -102,7 +101,7 @@ export class MediaConvertOutputDetailResult extends $dara.Model {
 export class MediaConvertOutputDetail extends $dara.Model {
   /**
    * @remarks
-   * The error code for a failed task.
+   * The error code for a transcoding failure.
    * 
    * @example
    * InvalidParameter.ResourceContentBad
@@ -110,7 +109,7 @@ export class MediaConvertOutputDetail extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The time the output task was created, in UTC format (*yyyy-MM-dd*T*HH:mm:ss*Z)
+   * The time when the output was created. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2024-12-07T06:06:58Z
@@ -118,7 +117,7 @@ export class MediaConvertOutputDetail extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time the output task finished, in UTC format (*yyyy-MM-dd*T*HH:mm:ss*Z)
+   * The time when the output was completed. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
    * 
    * @example
    * 2024-12-07T13:01:07Z
@@ -126,7 +125,7 @@ export class MediaConvertOutputDetail extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The reason for a task failure.
+   * The detailed cause of the transcoding failure.
    * 
    * @example
    * The resource operated InputFile is bad
@@ -134,7 +133,7 @@ export class MediaConvertOutputDetail extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The name of the output.
+   * The name of the transcoding output.
    * 
    * @example
    * 720P-mp4
@@ -142,18 +141,17 @@ export class MediaConvertOutputDetail extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The detailed output results.
+   * The details of the output result.
    */
   result?: MediaConvertOutputDetailResult;
   /**
    * @remarks
    * The task status. Valid values:
-   * 
-   * *   Init: Initializing the task.
-   * *   Scheduled: The task is scheduled for processing.
-   * *   Success: The task is completed.
-   * *   Failed: The task failed.
-   * *   Skipped: The task was skipped.
+   * - Init: Initialized.
+   * - Scheduled: Scheduled.
+   * - Success: Succeeded.
+   * - Failed: Failed.
+   * - Skipped: Skipped.
    * 
    * @example
    * Success
@@ -161,7 +159,7 @@ export class MediaConvertOutputDetail extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the transcoding output task.
    * 
    * @example
    * ******4215e042b3966ca5441e******

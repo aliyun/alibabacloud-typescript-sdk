@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveRecordJobsResponseBodyLiveRecordJobsRecordOutput extends $dara.Model {
   /**
    * @remarks
-   * The bucket name.
+   * The name of the bucket.
    * 
    * @example
    * imsbucket1
@@ -22,12 +22,6 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobsRecordOutput extends $d
   /**
    * @remarks
    * The type of the storage address.
-   * 
-   * Valid values:
-   * 
-   * - vod
-   * 
-   * - oss
    * 
    * @example
    * oss
@@ -101,7 +95,7 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobsStreamInput extends $da
 export class ListLiveRecordJobsResponseBodyLiveRecordJobs extends $dara.Model {
   /**
    * @remarks
-   * The time when the job was created.
+   * The creation time. The time follows the ISO 8601 standard and is in UTC (ending with Z).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -122,7 +116,7 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobs extends $dara.Model {
    * The name of the recording job.
    * 
    * @example
-   * Live event recording task 1
+   * Live event recording job 1
    */
   name?: string;
   /**
@@ -135,12 +129,12 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobs extends $dara.Model {
   notifyUrl?: string;
   /**
    * @remarks
-   * The storage address of the recording.
+   * The storage address for the recording.
    */
   recordOutput?: ListLiveRecordJobsResponseBodyLiveRecordJobsRecordOutput;
   /**
    * @remarks
-   * The state of the recording job.
+   * The status of the recording job.
    * 
    * @example
    * paused
@@ -213,7 +207,7 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobs extends $dara.Model {
 export class ListLiveRecordJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of live stream recording jobs.
+   * The list of real-time recording jobs.
    */
   liveRecordJobs?: ListLiveRecordJobsResponseBodyLiveRecordJobs[];
   /**
@@ -242,7 +236,7 @@ export class ListLiveRecordJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The sorting order. By default, the query results are sorted by creation time in descending order.
+   * The sorting parameter. By default, jobs are sorted in descending order of creation time.
    * 
    * @example
    * desc
@@ -250,7 +244,7 @@ export class ListLiveRecordJobsResponseBody extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 180

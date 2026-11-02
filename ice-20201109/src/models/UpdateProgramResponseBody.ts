@@ -6,12 +6,12 @@ import { ChannelAssemblyProgram } from "./ChannelAssemblyProgram";
 export class UpdateProgramResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the program.
+   * The program information.
    */
   program?: ChannelAssemblyProgram;
   /**
    * @remarks
-   * **Request ID**
+   * **The request ID.**
    * 
    * @example
    * xxx-xxxx-xxxxx-xxxx

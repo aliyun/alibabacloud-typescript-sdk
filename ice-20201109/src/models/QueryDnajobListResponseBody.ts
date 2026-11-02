@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDNAJobListResponseBodyJobListInput extends $dara.Model {
   /**
    * @remarks
-   * The input file. The file can be an OSS object or a media asset. The path of an OSS object can be in one of the following formats:
+   * The information about the input file. Both OSS URLs and media asset IDs are supported.
+   * An OSS URL must be in one of the following formats:
    * 
-   * 1\\. oss\\://bucket/object
+   * - oss://bucket/object
+   * - http(s)://bucket.oss-[regionId].aliyuncs.com/object
    * 
-   * 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object
-   * 
-   * In the preceding paths, bucket indicates an OSS bucket that resides in the same region as the current project, and object indicates the path of the object in the bucket.
+   * In the formats, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
    * @example
    * 1b1b9cd148034739af413150fded****
@@ -21,9 +21,8 @@ export class QueryDNAJobListResponseBodyJobListInput extends $dara.Model {
    * @remarks
    * The type of the input file. Valid values:
    * 
-   * 1. OSS: Object Storage Service (OSS) object.
-   * 
-   * 2. Media: media asset.
+   * - OSS: the URL of an OSS object.
+   * - Media: the ID of a media asset.
    * 
    * @example
    * Media
@@ -55,7 +54,7 @@ export class QueryDNAJobListResponseBodyJobListInput extends $dara.Model {
 export class QueryDNAJobListResponseBodyJobList extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The error code returned for the job execution.
    * 
    * @example
    * "InvalidParameter.ResourceNotFound"
@@ -63,7 +62,7 @@ export class QueryDNAJobListResponseBodyJobList extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The configurations of the media fingerprint analysis job.
+   * The DNA configuration.
    * 
    * @example
    * {"SaveType": "save","MediaType"":"video"}
@@ -71,7 +70,7 @@ export class QueryDNAJobListResponseBodyJobList extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The time when the job was created.
+   * The time when the job was created. The time follows the ISO 8601 standard and is displayed in UTC (ending with Z).
    * 
    * @example
    * 2022-12-28T03:21:37Z
@@ -79,7 +78,7 @@ export class QueryDNAJobListResponseBodyJobList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The ID of the media fingerprint library.
+   * The ID of the DNA library.
    * 
    * @example
    * 2288c6ca184c0e47098a5b665e2a12****
@@ -87,7 +86,7 @@ export class QueryDNAJobListResponseBodyJobList extends $dara.Model {
   DBId?: string;
   /**
    * @remarks
-   * The URL of the media fingerprint analysis result.
+   * The URL of the DNA result.
    * 
    * @example
    * http://test_bucket.oss-cn-shanghai.aliyuncs.com/fingerprint/video/search_result/5/5.txt
@@ -95,7 +94,7 @@ export class QueryDNAJobListResponseBodyJobList extends $dara.Model {
   DNAResult?: string;
   /**
    * @remarks
-   * The time when the job was complete.
+   * The time when the job was completed. The time follows the ISO 8601 standard and is displayed in UTC (ending with Z).
    * 
    * @example
    * 2022-12-28T03:21:44Z
@@ -111,12 +110,12 @@ export class QueryDNAJobListResponseBodyJobList extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The details of the input file.
+   * The input file.
    */
   input?: QueryDNAJobListResponseBodyJobListInput;
   /**
    * @remarks
-   * The returned message.
+   * The error message returned for the job execution.
    * 
    * @example
    * "The resource operated \\"a887d0b***d805ef6f7f6786302\\" cannot be found"
@@ -124,7 +123,7 @@ export class QueryDNAJobListResponseBodyJobList extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The primary key of the video. You must make sure that each primary key is unique.
+   * The unique primary key of the video. You must ensure the uniqueness of the primary key.
    * 
    * @example
    * 3ca84a39a9024f19853b21be9cf9****
@@ -132,14 +131,11 @@ export class QueryDNAJobListResponseBodyJobList extends $dara.Model {
   primaryKey?: string;
   /**
    * @remarks
-   * The job state. Valid values:
+   * The status of the job. Valid values:
    * 
-   * - **Queuing**: The job is waiting in the queue.
-   * 
-   * - **Analysing**: The job is in progress.
-   * 
-   * - **Success**: The job is successful.
-   * 
+   * - **Queuing**: The job is queued.
+   * - **Analysing**: The job is being analyzed.
+   * - **Success**: The job succeeded.
    * - **Fail**: The job failed.
    * 
    * @example
@@ -148,7 +144,7 @@ export class QueryDNAJobListResponseBodyJobList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The user-defined data.
+   * The custom user data.
    * 
    * @example
    * testdna
@@ -203,7 +199,7 @@ export class QueryDNAJobListResponseBodyJobList extends $dara.Model {
 export class QueryDNAJobListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried media fingerprint analysis jobs.
+   * The DNA job information.
    */
   jobList?: QueryDNAJobListResponseBodyJobList[];
   /**

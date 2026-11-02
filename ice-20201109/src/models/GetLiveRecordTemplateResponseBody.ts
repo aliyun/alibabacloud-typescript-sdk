@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLiveRecordTemplateResponseBodyRecordTemplateRecordFormatList extends $dara.Model {
   /**
    * @remarks
-   * The duration of the recording cycle. Unit: seconds. If you do not specify this parameter, the default value 6 hours is used.
+   * The cycle recording duration. Unit: seconds. If this parameter is not specified, the default value is 6 hours.
    * 
    * @example
    * 7200
@@ -13,7 +13,7 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplateRecordFormatList ext
   cycleDuration?: number;
   /**
    * @remarks
-   * The output file format.
+   * The format.
    * 
    * @example
    * m3u8
@@ -21,7 +21,7 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplateRecordFormatList ext
   format?: string;
   /**
    * @remarks
-   * The name of the recording file that is stored in Object Storage Service (OSS).
+   * The name of the recording file stored in OSS.
    * 
    * @example
    * record/{JobId}/{Sequence}{EscapedStartTime}{EscapedEndTime}
@@ -29,7 +29,7 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplateRecordFormatList ext
   ossObjectPrefix?: string;
   /**
    * @remarks
-   * The duration of a single segment. Unit: seconds.
+   * The duration of a single slice. Unit: seconds.
    * 
    * @example
    * 30
@@ -37,7 +37,7 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplateRecordFormatList ext
   sliceDuration?: number;
   /**
    * @remarks
-   * The name of the TS segment.
+   * The name of the TS slice.
    * 
    * @example
    * record/{JobId}/{UnixTimestamp}_{Sequence}
@@ -75,7 +75,7 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplateRecordFormatList ext
 export class GetLiveRecordTemplateResponseBodyRecordTemplate extends $dara.Model {
   /**
    * @remarks
-   * The time when the job was created.
+   * The creation time. The time follows the ISO 8601 standard in UTC and ends with Z.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -85,7 +85,7 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplate extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * The time when the template was last modified.
+   * The last modified time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -116,13 +116,7 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplate extends $dara.Model
   templateId?: string;
   /**
    * @remarks
-   * The type of the template.
-   * 
-   * Valid values:
-   * 
-   * - system
-   * 
-   * - custom
+   * The templatetype.
    * 
    * @example
    * custom

@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAvatarTrainingJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * - The page number.
-   * 
-   * - Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -15,11 +13,9 @@ export class ListAvatarTrainingJobsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * - The number of entries per page.
-   * 
-   * - Default value: 10.
-   * 
-   * - Valid values: 1 to 100.
+   * The number of entries per page.
+   * - Default value: 10
+   * - Maximum value: 100
    * 
    * @example
    * 10
@@ -27,9 +23,17 @@ export class ListAvatarTrainingJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * - The job state.
+   * The task status. Valid values:
    * 
-   * - Valid values: Init, Queuing, Training, Success, and Fail.
+   * - Init: initialized or draft
+   * 
+   * - Queuing: queuing
+   * 
+   * - Training: training
+   * 
+   * - Success: training succeeded
+   * 
+   * - Fail: training failed
    * 
    * @example
    * Success

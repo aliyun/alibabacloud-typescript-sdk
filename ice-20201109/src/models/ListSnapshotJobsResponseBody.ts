@@ -5,7 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListSnapshotJobsResponseBodyJobsInput extends $dara.Model {
   /**
    * @remarks
-   * The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats: 1. OSS://bucket/object 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * The input media. If Type is set to OSS, enter the OSS URL. If Type is set to Media, enter the media asset ID.
+   * The OSS URL must follow these rules:
+   * 
+   * - OSS://bucket/object
+   * 
+   * - http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * 
+   * In the URLs, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
    * @example
    * oss://bucket/object.mp4
@@ -13,11 +20,9 @@ export class ListSnapshotJobsResponseBodyJobsInput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the input file. Valid values:
-   * 
-   * 1. OSS: an Object Storage Service (OSS) object.
-   * 
-   * 2. Media: a media asset.
+   * The input type. Valid values:
+   * 1. OSS: URL of an OSS object
+   * 2. Media: media asset ID
    * 
    * @example
    * OSS
@@ -49,13 +54,20 @@ export class ListSnapshotJobsResponseBodyJobsInput extends $dara.Model {
 export class ListSnapshotJobsResponseBodyJobsOutput extends $dara.Model {
   /**
    * @remarks
-   * The output file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+   * The output media. If Type is set to OSS, enter the OSS URL. If Type is set to Media, enter the media asset ID.
+   * The OSS URL must follow these rules:
    * 
-   * 1. OSS://bucket/object
+   * - OSS://bucket/object
    * 
-   * 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * - http(s)://bucket.oss-[RegionId].aliyuncs.com/object
    * 
-   * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS. If multiple static snapshots were captured, the object must contain the "{Count}" placeholder. In the case of a sprite, the object must contain the "{TileCount}" placeholder. The suffix of the WebVTT snapshot objects must be ".vtt".
+   * In the URLs, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
+   * 
+   * - When capturing multiple static snapshots, the object must contain the "{Count}" placeholder.
+   * 
+   * - When capturing sprite snapshots, the object must contain the "{TileCount}" placeholder.
+   * 
+   * - For WebVTT snapshots, the object extension must be ".vtt".
    * 
    * @example
    * http://test-bucket.oss-cn-shanghai.aliyuncs.com/output-{Count}.jpg
@@ -63,11 +75,9 @@ export class ListSnapshotJobsResponseBodyJobsOutput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the output file. Valid values:
-   * 
-   * 1. OSS: an OSS object.
-   * 
-   * 2. Media: a media asset.
+   * The output type. Valid values:
+   * 1. OSS: URL of an OSS object
+   * 2. Media: media asset ID
    * 
    * @example
    * OSS
@@ -99,7 +109,7 @@ export class ListSnapshotJobsResponseBodyJobsOutput extends $dara.Model {
 export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the snapshots were captured in asynchronous mode.
+   * Specifies whether to capture snapshots asynchronously.
    * 
    * @example
    * true
@@ -115,7 +125,7 @@ export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The time when the job was created.
+   * The creation time. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -123,7 +133,7 @@ export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the job was complete.
+   * The time when the job was completed. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:30:54Z
@@ -131,7 +141,7 @@ export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The input of the job.
+   * The job input.
    */
   input?: ListSnapshotJobsResponseBodyJobsInput;
   /**
@@ -144,7 +154,7 @@ export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The time when the job was last modified.
+   * The last modification time. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:30:54Z
@@ -152,7 +162,7 @@ export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
    * 
    * @example
    * SampleJob
@@ -160,12 +170,12 @@ export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output of the job.
+   * The job output.
    */
   output?: ListSnapshotJobsResponseBodyJobsOutput;
   /**
    * @remarks
-   * The ID of the MPS queue to which the job was submitted.
+   * The pipeline ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -173,13 +183,13 @@ export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The state of the job.
+   * The job status.
    * 
-   * - **Success**: The job is successful.
+   * - **Success**: Success.
    * 
-   * - **Fail**: The job failed.
+   * - **Fail**: Failed.
    * 
-   * - **Init**: The job is submitted.
+   * - **Init**: Submitted.
    * 
    * @example
    * Success
@@ -187,7 +197,7 @@ export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the job was submitted.
+   * The time when the job was submitted. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T16:17:54Z
@@ -203,15 +213,7 @@ export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The request trigger source.
-   * 
-   * Valid values:
-   * 
-   * - Console
-   * 
-   * - Workflow
-   * 
-   * - API
+   * The trigger source of the request.
    * 
    * @example
    * API
@@ -219,15 +221,7 @@ export class ListSnapshotJobsResponseBodyJobs extends $dara.Model {
   triggerSource?: string;
   /**
    * @remarks
-   * The type of the job.
-   * 
-   * Valid values:
-   * 
-   * - WebVtt
-   * 
-   * - Sprite
-   * 
-   * - Normal
+   * The job type.
    * 
    * @example
    * Sprite
@@ -296,7 +290,7 @@ export class ListSnapshotJobsResponseBody extends $dara.Model {
   jobs?: ListSnapshotJobsResponseBodyJobs[];
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The pagination token for querying the next page.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****

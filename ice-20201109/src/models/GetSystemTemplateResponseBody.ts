@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSystemTemplateResponseBodySystemTemplate extends $dara.Model {
   /**
    * @remarks
-   * The template state.
+   * The template status.
    * 
    * @example
    * Normal
@@ -13,7 +13,7 @@ export class GetSystemTemplateResponseBodySystemTemplate extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The subtype ID of the template.
+   * The template subtype ID.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetSystemTemplateResponseBodySystemTemplate extends $dara.Model {
   subtype?: number;
   /**
    * @remarks
-   * The subtype name of the template.
+   * The template subtype name.
    * 
    * @example
    * Normal
@@ -53,7 +53,7 @@ export class GetSystemTemplateResponseBodySystemTemplate extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The type ID of the template.
+   * The templatetype ID.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class GetSystemTemplateResponseBodySystemTemplate extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * The type name of the template.
+   * The templatetype name.
    * 
    * @example
    * TranscodeTemplate

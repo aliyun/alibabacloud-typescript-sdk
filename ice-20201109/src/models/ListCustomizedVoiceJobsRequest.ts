@@ -13,7 +13,7 @@ export class ListCustomizedVoiceJobsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Valid values: 1 to 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -21,13 +21,11 @@ export class ListCustomizedVoiceJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the human voice cloning job. Valid values:
+   * The type (edition) of the voice cloning task. Valid values:
+   * - Basic: Basic Edition.
+   * - Standard: Standard Edition.
    * 
-   * - Basic
-   * 
-   * - Standard
-   * 
-   * > : If you do not specify this parameter, the default value Basic is used.
+   * >Notice: If you do not specify this parameter, Basic Edition tasks are queried by default.
    * 
    * @example
    * Standard

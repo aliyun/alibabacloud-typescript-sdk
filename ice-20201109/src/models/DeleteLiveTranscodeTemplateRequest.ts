@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLiveTranscodeTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The template ID. You can obtain the ID from the [Intelligent Media Services console](https://ice.console.aliyun.com/summary) > Template Management > Real-time Transcoding Template, or from the response parameters of [CreateLiveTranscodeTemplate](https://help.aliyun.com/document_detail/449217.html).
+   * The template ID. You can obtain the template ID from the [Intelligent Media Services console](https://ice.console.aliyun.com/summary) by choosing Templates > Real-time Transcoding Templates, or from the response parameters of [Create a real-time transcoding template](https://help.aliyun.com/document_detail/449217.html).
    * 
    * This parameter is required.
    * 

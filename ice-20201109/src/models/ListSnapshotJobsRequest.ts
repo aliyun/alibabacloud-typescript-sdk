@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSnapshotJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range during which the jobs to be queried were created.
+   * The end time for filtering jobs by creation time. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-14T00:00:00Z
@@ -21,7 +21,7 @@ export class ListSnapshotJobsRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The mark for the next page during continuous paging in a paged query.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -29,17 +29,9 @@ export class ListSnapshotJobsRequest extends $dara.Model {
   nextPageToken?: string;
   /**
    * @remarks
-   * The order that you use to sort the query results.
-   * 
-   * 1. CreateTimeDesc
-   * 
-   * 2. CreateTimeAsc
-   * 
-   * Valid values:
-   * 
-   * - CreateTimeDesc: sorts the jobs by creation time in descending order
-   * 
-   * - CreateTimeAsc: sorts the jobs by creation time in ascending order.
+   * The sort order. Valid values:
+   * 1. CreateTimeAsc
+   * 2. CreateTimeDesc
    * 
    * @example
    * CreateTimeDesc
@@ -47,7 +39,7 @@ export class ListSnapshotJobsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. Maximum value: 100.
+   * The number of entries to return on each page. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20
@@ -55,7 +47,7 @@ export class ListSnapshotJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range during which the jobs to be queried were created.
+   * The start time for filtering jobs by creation time. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2022-07-12T00:00:00Z
@@ -63,15 +55,7 @@ export class ListSnapshotJobsRequest extends $dara.Model {
   startOfCreateTime?: string;
   /**
    * @remarks
-   * The state of the job.
-   * 
-   * Valid values:
-   * 
-   * - Init: The job is submitted.
-   * 
-   * - Success: The job is successful.
-   * 
-   * - Fail: The job failed.
+   * The job status.
    * 
    * @example
    * Success

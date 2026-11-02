@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   /**
    * @remarks
-   * The business configuration of the project. This parameter can be ignored for general editing projects.
+   * The business configuration of the project. You can ignore this parameter for general editing projects.
    * 
    * @example
    * { "OutputMediaConfig" : { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path" }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
@@ -13,19 +13,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   businessConfig?: string;
   /**
    * @remarks
-   * The business status of the project. This parameter can be ignored for general editing projects. Valid values:
-   * 
-   * Valid values:
-   * 
-   * - BroadCasting:
-   * 
-   * - ReservationCanceled
-   * 
-   * - LiveFinished
-   * 
-   * - LoadingFailed
-   * 
-   * - Reserving
+   * The business status of the project. You can ignore this parameter for general editing projects.
    * 
    * @example
    * Reserving
@@ -33,7 +21,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   businessStatus?: string;
   /**
    * @remarks
-   * The thumbnail URL of the online editing project.
+   * The cover of the cloud editing project.
    * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example-cover.jpg
@@ -41,21 +29,10 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The method for editing the online editing project.
-   * 
-   * -OpenAPI
-   * 
-   * -AliyunConsole
-   * 
-   * -WebSDK
-   * 
-   * Valid values:
-   * 
-   * - AliyunConsole: The project is created in the Alibaba Cloud console.
-   * 
-   * - WebSDK: The project is created by using the SDK for Web.
-   * 
-   * - OpenAPI: The project is created by calling API operations.
+   * The editing method of the cloud editing project. Valid values:
+   * - OpenAPI
+   * - AliyunConsole
+   * - WebSDK
    * 
    * @example
    * OpenAPI
@@ -63,7 +40,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   createSource?: string;
   /**
    * @remarks
-   * The time when the online editing project was created.
+   * The creation time of the cloud editing project. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -71,7 +48,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the online editing project.
+   * The description of the cloud editing project.
    * 
    * @example
    * sample description
@@ -79,7 +56,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The total length of the online editing project. Unit: seconds.
+   * The total duration of the cloud editing project. Unit: seconds.
    * 
    * @example
    * 30.100000
@@ -87,7 +64,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The error code returned if the production of the online editing project failed.
+   * The error code returned when the production of the cloud editing project fails.
    * 
    * @example
    * InvalidParameter
@@ -95,7 +72,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the production of the online editing project failed.
+   * The error message returned when the production of the cloud editing project fails.
    * 
    * @example
    * "EventTime":"2021-08-12T10:04:15Z","ErrorCode":"InvalidParameter","ErrorMessage":"The specified parameter \\"LiveStreamConfig\\" is not valid. specified parameter example is not valid.
@@ -103,7 +80,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The method used when the online editing project was last modified.
+   * The source of the last modification.
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -111,7 +88,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   modifiedSource?: string;
   /**
    * @remarks
-   * The time when the online editing project was last modified.
+   * The last modification time of the cloud editing project. The time is in ISO 8601 format and uses UTC (ending with Z).
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -119,7 +96,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The ID of the online editing project.
+   * The ID of the cloud editing project.
    * 
    * @example
    * ****fddd7748b58bf1d47e95****
@@ -129,40 +106,17 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
    * @remarks
    * The type of the editing project.
    * 
-   * Valid values:
-   * 
-   * - LiveEditingProject: a live stream editing project.
-   * 
-   * - EditingProject: a regular editing project.
-   * 
    * @example
    * EditingProject
    */
   projectType?: string;
   /**
    * @remarks
-   * The status of the online editing project. Valid values:
-   * 
-   * -Draft
-   * 
-   * -Editing
-   * 
-   * -Producing
-   * 
-   * -Produced
-   * 
-   * -ProduceFailed
-   * 
-   * Valid values:
-   * 
+   * The list of all cloud editing project statuses. Valid values:
    * - Draft
-   * 
-   * - Produced
-   * 
    * - Editing
-   * 
    * - Producing
-   * 
+   * - Produced
    * - ProduceFailed
    * 
    * @example
@@ -171,7 +125,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the template.
+   * The templatetype.
    * 
    * @example
    * Timeline
@@ -179,7 +133,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * The timeline of the online editing project.
+   * The timeline of the cloud editing project.
    * 
    * @example
    * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
@@ -187,7 +141,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
   timeline?: string;
   /**
    * @remarks
-   * The title of the online editing project.
+   * The title of the cloud editing project.
    * 
    * @example
    * title
@@ -249,11 +203,7 @@ export class SearchEditingProjectResponseBodyProjectList extends $dara.Model {
 export class SearchEditingProjectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned on a single page. The value is set to the maximum number of entries returned on each page except for the last page.
-   * 
-   * Examples:
-   * 
-   * Valid example: 10,10,5. Invalid example: 10,5,10.
+   * The maximum number of records returned by the current request. The number of records on each page before the last page is the value of MaxResults. Examples: Valid example: 10, 10, 5. Invalid example: 10, 5, 10.
    * 
    * @example
    * 10
@@ -261,7 +211,7 @@ export class SearchEditingProjectResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token that indicates the position where the current call stops reading. An empty value indicates that all data has been read.
    * 
    * @example
    * null
@@ -269,7 +219,7 @@ export class SearchEditingProjectResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The queried online editing projects.
+   * The cloud editing project list.
    */
   projectList?: SearchEditingProjectResponseBodyProjectList[];
   /**
@@ -282,7 +232,7 @@ export class SearchEditingProjectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Optional. The total number of entries returned. By default, this parameter is not returned.
+   * The total number of data entries that meet the request conditions. This parameter is optional and is not returned by default.
    * 
    * @example
    * 110

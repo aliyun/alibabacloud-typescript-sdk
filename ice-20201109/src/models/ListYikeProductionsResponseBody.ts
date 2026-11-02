@@ -21,7 +21,7 @@ export class ListYikeProductionsResponseBodyProductionList extends $dara.Model {
   coverUrl?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time follows the ISO 8601 standard and is in UTC (ending with Z).
    * 
    * @example
    * 2026-01-07T02:21:36Z
@@ -105,7 +105,7 @@ export class ListYikeProductionsResponseBodyProductionList extends $dara.Model {
 export class ListYikeProductionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results to return.
+   * The maximum number of results.
    * 
    * @example
    * 50
@@ -113,7 +113,7 @@ export class ListYikeProductionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The next token.
    * 
    * @example
    * Token
@@ -121,7 +121,7 @@ export class ListYikeProductionsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The project list.
+   * The list of projects.
    */
   productionList?: ListYikeProductionsResponseBodyProductionList[];
   /**

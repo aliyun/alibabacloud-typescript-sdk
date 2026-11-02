@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRecognitionSampleRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of recognition this sample is for.
+   * The recognition type. Valid values:
    * 
-   * - landmark
+   * - landmark: custom landmark
    * 
-   * - object
+   * - object: custom object
    * 
-   * - logo
+   * - logo: custom logo
    * 
-   * - face
+   * - face: custom face
    * 
-   * - label
+   * - label: custom label
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateRecognitionSampleRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The ID of the specific entity within the library.
+   * The ID of the entity.
    * 
    * This parameter is required.
    * 
@@ -43,10 +43,10 @@ export class CreateRecognitionSampleRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The custom text label.
+   * The text prompt for the custom label.
    * 
    * @example
-   * Complete front view
+   * Full front view
    */
   labelPrompt?: string;
   /**

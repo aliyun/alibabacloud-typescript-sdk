@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAdInsertionRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the ad insertion configuration that you want to query.
+   * The name of the configuration for exact match.
    * 
    * This parameter is required.
    * 

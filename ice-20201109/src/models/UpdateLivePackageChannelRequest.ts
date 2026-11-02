@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLivePackageChannelRequest extends $dara.Model {
   /**
    * @remarks
-   * The channel name. The name can contain only uppercase and lowercase letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
+   * The name of the channel. The name must be 1 to 200 characters in length and can contain only letters, digits, hyphens (-), and underscores (_). Format: [A-Za-z0-9_-]+.
    * 
    * This parameter is required.
    * 
@@ -15,15 +15,15 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * The description. Maximum length: 1000 characters.
+   * The description of the channel. The description can be up to 1,000 characters in length.
    * 
    * @example
-   * This is a test channel.
+   * This is a test channel
    */
   description?: string;
   /**
    * @remarks
-   * The channel group name. The name can contain only uppercase and lowercase letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
+   * The name of the channel group. The name must be 1 to 200 characters in length and can contain only letters, digits, hyphens (-), and underscores (_). Format: [A-Za-z0-9_-]+.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The input protocol. Currently, only HLS is supported.
+   * The input protocol. Valid values: HLS, HLS_CMAF, and SRT_RTMP. If you select SRT_RTMP, you must output the stream to this MediaPackage channel through MediaLive.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of segments in the input stream m3u8 file. Valid values: 2 to 100.
+   * The number of m3u8 segments in the input stream. Valid values: 2 to 100. This parameter is required when the input protocol is HLS or HLS_CMAF.
    * 
    * @example
    * 3
@@ -51,7 +51,7 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
   segmentCount?: number;
   /**
    * @remarks
-   * The segment duration of the input stream. Valid values: 1 to 30.
+   * The duration of each segment in the input stream. Valid values: 1 to 30. This parameter is required when the input protocol is HLS or HLS_CMAF.
    * 
    * @example
    * 6

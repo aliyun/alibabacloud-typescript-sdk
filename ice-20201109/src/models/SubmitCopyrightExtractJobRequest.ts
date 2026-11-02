@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitCopyrightExtractJobRequestInput extends $dara.Model {
   /**
    * @remarks
-   * Specifies the URL of an Object Storage Service (OSS) object or the ID of a media asset.
-   * OSS URLs can be in the following formats:
+   * The information about the input file. Both OSS URLs and media asset IDs are supported.
+   * The OSS URL must be in one of the following formats:
    * 
-   * 1\\. oss\\://bucket/object
+   * 1. oss://bucket/object
    * 
-   * 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object
+   * 2. http(s)://bucket.oss-[regionId].aliyuncs.com/object
    * 
-   * In these formats, `bucket` is the name of a bucket in the same region as your IMS instance, and `object` is the file path.
+   * where bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
    * This parameter is required.
    * 
@@ -23,10 +23,8 @@ export class SubmitCopyrightExtractJobRequestInput extends $dara.Model {
   /**
    * @remarks
    * The type of the input file. Valid values:
-   * 
-   * 1. OSS: The URL of a file in Object Storage Service (OSS).
-   * 
-   * 2. Media: The ID of a media asset.
+   * - OSS: the URL of an OSS file.
+   * - Media: the ID of a media asset.
    * 
    * This parameter is required.
    * 
@@ -60,22 +58,21 @@ export class SubmitCopyrightExtractJobRequestInput extends $dara.Model {
 export class SubmitCopyrightExtractJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The video file for watermark extraction.
+   * The video file from which the watermark is to be extracted.
    * 
-   * > - The region of the Object Storage Service (OSS) file or media asset must match the region of the current Intelligent Media Service (IMS) instance.
+   * > - The region of the OSS file or media asset must be the same as the region of the current IMS instance.
    * 
    * This parameter is required.
    */
   input?: SubmitCopyrightExtractJobRequestInput;
   /**
    * @remarks
-   * The watermark job parameters, specified as a JSON string.
+   * The watermark job parameters in JSON string format. The following parameters are supported:
    * 
-   * - algoType: The algorithm type. Default value: v1. The extraction algorithm type must match the algorithm type used for embedding the watermark.
+   * - algoType: the algorithm type. Default value: v1. The extraction algorithm type must be the same as the algorithm type used for embedding.
    * 
-   *   - v1: The copyright extraction algorithm for long-form videos.
-   * 
-   *   - v2: The copyright extraction algorithm for short-form videos.
+   *   - v1: the copyright extraction API operation for long videos.
+   *   - v2: the copyright extraction API operation for short videos.
    * 
    * @example
    * {"algoType":"v2"}
@@ -83,7 +80,7 @@ export class SubmitCopyrightExtractJobRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
-   * The user-defined data. The maximum length is 1,024 bytes.
+   * The custom user data. The maximum length is 1,024 bytes.
    * 
    * @example
    * 123

@@ -5,13 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitDNAJobRequestInput extends $dara.Model {
   /**
    * @remarks
-   * The media ID or OSS file url of the input file.
+   * The information about the input file. OSS URLs and media asset IDs are supported.
+   * OSS URL formats:
    * 
-   * 1\\. `oss://bucket/object`
+   * - oss://bucket/object
    * 
-   * 2\\. `http(s)://bucket.oss-[regionId].aliyuncs.com/object`
+   * - http(s)://bucket.oss-[regionId].aliyuncs.com/object
    * 
-   * In these formats, `bucket` is the name of an OSS bucket in the same region as your project, and `object` is the file path.
+   * In the URLs, bucket is the name of the OSS bucket that resides in the same region as the current project, and object is the file path.
    * 
    * This parameter is required.
    * 
@@ -22,10 +23,8 @@ export class SubmitDNAJobRequestInput extends $dara.Model {
   /**
    * @remarks
    * The type of the input file. Valid values:
-   * 
-   * 1. `OSS`: The input is an OSS file url.
-   * 
-   * 2. `Media`: The input is a media ID.
+   * - OSS: the URL of an OSS file.
+   * - Media: the ID of a media asset.
    * 
    * This parameter is required.
    * 
@@ -59,7 +58,8 @@ export class SubmitDNAJobRequestInput extends $dara.Model {
 export class SubmitDNAJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The DNA configuration in JSON format. If specified, these settings override the corresponding template parameters.
+   * The DNA configuration, which is a JSON object.
+   * If you specify this parameter, it overwrites the template parameters.
    * 
    * @example
    * {"SaveType": "save","MediaType":"video"}
@@ -67,7 +67,7 @@ export class SubmitDNAJobRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The DNA library ID. To create a DNA library, see [CreateDNADB](https://help.aliyun.com/document_detail/479275.html).
+   * The ID of the DNA library. To create a DNA library, see [CreateDNADB - Create a DNA library](https://help.aliyun.com/document_detail/479275.html).
    * 
    * This parameter is required.
    * 
@@ -86,7 +86,7 @@ export class SubmitDNAJobRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The pipeline ID.
+   * The ID of the pipeline.
    * 
    * @example
    * 5246b8d12a62433ab77845074039****
@@ -94,7 +94,7 @@ export class SubmitDNAJobRequest extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The unique primary key for the video. You are responsible for ensuring its uniqueness.
+   * The unique primary key of the video. You must ensure its uniqueness.
    * 
    * This parameter is required.
    * 
@@ -106,7 +106,7 @@ export class SubmitDNAJobRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The template ID.
+   * The ID of the template.
    * 
    * @example
    * S00000101-100060
@@ -114,7 +114,7 @@ export class SubmitDNAJobRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The user-defined data. The maximum length is 128 bytes.
+   * The custom user data. The maximum length is 128 bytes.
    * 
    * @example
    * userData

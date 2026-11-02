@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLivePackageChannelGroupResponseBodyLivePackageChannelGroup extends $dara.Model {
   /**
    * @remarks
-   * The time when the channel group was created. It is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
+   * The time when the channel group was created. Format: yyyy-MM-ddTHH:mm:ssZ (UTC time).
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -13,15 +13,15 @@ export class CreateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
   createTime?: string;
   /**
    * @remarks
-   * The channel group description.
+   * The description of the channel group.
    * 
    * @example
-   * This is an example description.
+   * This is a sample description
    */
   description?: string;
   /**
    * @remarks
-   * The channel group name.
+   * The name of the channel group.
    * 
    * @example
    * example-group
@@ -29,7 +29,7 @@ export class CreateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
   groupName?: string;
   /**
    * @remarks
-   * The time when the channel group was last modified. It is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
+   * The time when the channel group was created. Format: yyyy-MM-ddTHH:mm:ssZ (UTC time).
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -37,7 +37,7 @@ export class CreateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
   lastModified?: string;
   /**
    * @remarks
-   * The origin domain.
+   * The origin domain name.
    * 
    * @example
    * example.com
@@ -75,7 +75,7 @@ export class CreateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
 export class CreateLivePackageChannelGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the channel group.
+   * The channel group.
    */
   livePackageChannelGroup?: CreateLivePackageChannelGroupResponseBodyLivePackageChannelGroup;
   /**

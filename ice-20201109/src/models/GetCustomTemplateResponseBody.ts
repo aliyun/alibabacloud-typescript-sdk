@@ -6,6 +6,9 @@ export class GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTem
   /**
    * @remarks
    * The bitrate control type.
+   * 
+   * @example
+   * CFR
    */
   bitrateControlType?: string;
   static names(): { [key: string]: string } {
@@ -32,7 +35,7 @@ export class GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTem
 export class GetCustomTemplateResponseBodyCustomTemplateFrontendHint extends $dara.Model {
   /**
    * @remarks
-   * Hint for transcoding templates.
+   * The hint information for the transcoding template.
    */
   transcodeTemplateHint?: GetCustomTemplateResponseBodyCustomTemplateFrontendHintTranscodeTemplateHint;
   static names(): { [key: string]: string } {
@@ -62,7 +65,7 @@ export class GetCustomTemplateResponseBodyCustomTemplateFrontendHint extends $da
 export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   /**
    * @remarks
-   * The time when the template was created.
+   * The time when the template was created. The time follows the ISO 8601 standard and is displayed in UTC (ending with Z).
    * 
    * @example
    * 2022-01-01T10:00:00Z
@@ -70,12 +73,12 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Reserved for frontend display.
+   * The reserved information for frontend display.
    */
   frontendHint?: GetCustomTemplateResponseBodyCustomTemplateFrontendHint;
   /**
    * @remarks
-   * Indicates whether the template is a default template.
+   * Indicates whether the template is the default template.
    * 
    * @example
    * true
@@ -83,7 +86,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The time when the template was last modified.
+   * The time when the template was modified. The time follows the ISO 8601 standard and is displayed in UTC (ending with Z).
    * 
    * @example
    * 2022-01-01T11:00:00Z
@@ -91,7 +94,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The status of the template.
+   * The template status.
    * 
    * @example
    * Normal
@@ -99,7 +102,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the template subtype.
+   * The template subtype ID.
    * 
    * @example
    * 1
@@ -107,7 +110,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   subtype?: number;
   /**
    * @remarks
-   * The name of the template subtype.
+   * The template subtype name.
    * 
    * @example
    * Normal
@@ -115,7 +118,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   subtypeName?: string;
   /**
    * @remarks
-   * The template configuration, in a JSON string.
+   * The template configurations.
    * 
    * @example
    * {"Type":"Normal","FrameType":"normal","Time":0,"Count":10}
@@ -134,12 +137,12 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
    * The template name.
    * 
    * @example
-   * Test screenshot template
+   * Test snapshot template
    */
   templateName?: string;
   /**
    * @remarks
-   * The ID of the template type.
+   * The templatetype ID.
    * 
    * @example
    * 2
@@ -147,7 +150,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * The name of the template type.
+   * The templatetype name.
    * 
    * @example
    * SnapshotTemplate
@@ -202,7 +205,7 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $dara.Model {
 export class GetCustomTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The template details.
+   * The template information.
    */
   customTemplate?: GetCustomTemplateResponseBodyCustomTemplate;
   /**

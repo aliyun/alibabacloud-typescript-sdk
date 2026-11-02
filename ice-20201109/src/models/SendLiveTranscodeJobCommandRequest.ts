@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendLiveTranscodeJobCommandRequest extends $dara.Model {
   /**
    * @remarks
-   * The operation command. Only the stop command is supported. This command is used to stop a transcoding job.
+   * The operation instruction. Currently, only stop is supported, which is used to shut down a video transcoding task.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SendLiveTranscodeJobCommandRequest extends $dara.Model {
   command?: string;
   /**
    * @remarks
-   * The ID of the transcoding job.
+   * The video transcoding task ID.
    * 
    * This parameter is required.
    * 

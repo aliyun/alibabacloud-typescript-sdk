@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryTraceM3u8JobListResponseBodyDataOutput extends $dara.Model {
   /**
    * @remarks
-   * The specific output information.
+   * The output file information.
    * 
    * @example
    * oss://bucket/object
@@ -13,11 +13,9 @@ export class QueryTraceM3u8JobListResponseBodyDataOutput extends $dara.Model {
   media?: string;
   /**
    * @remarks
-   * The type of the output file. Valid values:
-   * 
-   * - OSS: an OSS object.
-   * 
-   * - Media: a media asset.
+   * The media object type. Valid values: 
+   * - OSS: OSS file.
+   * - Media: media asset ID.
    * 
    * @example
    * OSS
@@ -49,7 +47,7 @@ export class QueryTraceM3u8JobListResponseBodyDataOutput extends $dara.Model {
 export class QueryTraceM3u8JobListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the job.
+   * The creation time.
    * 
    * @example
    * 1627357322
@@ -57,7 +55,7 @@ export class QueryTraceM3u8JobListResponseBodyData extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The last modification time of the job.
+   * The modification time.
    * 
    * @example
    * 1627357322
@@ -73,12 +71,12 @@ export class QueryTraceM3u8JobListResponseBodyData extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The output video.
+   * The output of the watermarked video.
    */
   output?: QueryTraceM3u8JobListResponseBodyDataOutput;
   /**
    * @remarks
-   * The current status of the job.
+   * The status.
    * 
    * @example
    * success
@@ -94,7 +92,7 @@ export class QueryTraceM3u8JobListResponseBodyData extends $dara.Model {
   trace?: string;
   /**
    * @remarks
-   * The media ID for the trace watermark.
+   * The tracing media ID.
    * 
    * @example
    * ****437bd2b105d07b12a9a82****
@@ -102,7 +100,7 @@ export class QueryTraceM3u8JobListResponseBodyData extends $dara.Model {
   traceMediaId?: string;
   /**
    * @remarks
-   * The user-defined data.
+   * The user data.
    * 
    * @example
    * 112
@@ -110,7 +108,7 @@ export class QueryTraceM3u8JobListResponseBodyData extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * The ID of the user who initiated the job.
+   * The user ID.
    * 
    * @example
    * 1346693276****
@@ -159,12 +157,12 @@ export class QueryTraceM3u8JobListResponseBodyData extends $dara.Model {
 export class QueryTraceM3u8JobListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: QueryTraceM3u8JobListResponseBodyData[];
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * ok
@@ -172,7 +170,7 @@ export class QueryTraceM3u8JobListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******

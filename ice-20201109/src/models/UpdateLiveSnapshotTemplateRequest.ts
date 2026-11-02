@@ -5,17 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLiveSnapshotTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The naming format of the snapshot captured in overwrite mode.
-   * 
-   * - The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
-   * 
-   * - The value cannot exceed 255 characters in length.
-   * 
-   * - The {JobId} placeholder is supported. It specifies the ID of the snapshot job.
-   * 
+   * The file format for overwrite snapshots.
+   * - It cannot start with a forward slash (/) and currently supports only the .jpg extension.
+   * - The maximum length is 255 characters.
+   * - Supported placeholder: {JobId}, which indicates the snapshot job ID.
    * - Placeholders such as {UnixTimestamp}, {Sequence}, and {Date} are not allowed.
-   * 
-   * - You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+   * - You must specify at least one of the file formats for overwrite snapshots and sequence snapshots.
    * 
    * @example
    * snapshot/{JobId}.jpg
@@ -23,15 +18,11 @@ export class UpdateLiveSnapshotTemplateRequest extends $dara.Model {
   overwriteFormat?: string;
   /**
    * @remarks
-   * The naming format of the snapshot captured in time series mode.
-   * 
-   * - The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
-   * 
-   * - The value cannot exceed 255 characters in length.
-   * 
-   * - The {JobId}, {Date}, {UnixTimestamp}, and {Sequence} placeholders are supported. {JobId} specifies the ID of the snapshot job. {Date} specifies the date on which the snapshot is captured. {UnixTimestamp} specifies the timestamp of the snapshot. {Sequence} specifies the sequence number of the snapshot. You must specify at least one of the {UnixTimestamp} and {Sequence} placeholders.
-   * 
-   * - You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+   * The file format for sequence snapshots.
+   * - It cannot start with a forward slash (/) and currently supports only the .jpg extension.
+   * - The maximum length is 255 characters.
+   * - Supported placeholders: {JobId} (snapshot job ID), {Date} (snapshot date), {UnixTimestamp} (timestamp), and {Sequence} (sequence number). You must specify at least one of {UnixTimestamp} and {Sequence}.
+   * - You must specify at least one of the file formats for overwrite snapshots and sequence snapshots.
    * 
    * @example
    * snapshot/{JobId}/{UnixTimestamp}.jpg
@@ -49,21 +40,17 @@ export class UpdateLiveSnapshotTemplateRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The name of the template.
-   * 
-   * - It cannot exceed 128 characters in length.
+   * The template name. The maximum length is 128 characters.
    * 
    * This parameter is required.
    * 
    * @example
-   * Template 1
+   * template1
    */
   templateName?: string;
   /**
    * @remarks
-   * The interval between two adjacent snapshots. Unit: seconds.
-   * 
-   * - Valid values: [5,3600].
+   * The time interval between snapshots, in seconds. Valid values: 5 to 3600.
    * 
    * This parameter is required.
    * 

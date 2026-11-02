@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorization code. You must specify at least one of AuthorizationCode and IpWhitelist. Maximum length: 200 characters. Format: [A-Za-z0-9-_.]+
+   * The authorization code. You must specify at least one of AuthorizationCode and IpWhitelist. The code can be up to 200 characters in length. Format: [A-Za-z0-9-_.]+.
    * 
    * @example
    * Abc123Def456
@@ -26,12 +26,12 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
    * The description of the endpoint.
    * 
    * @example
-   * This is an origin endpoint.
+   * This is an origin endpoint
    */
   description?: string;
   /**
    * @remarks
-   * The name of the origin endpoint. The name can contain uppercase and lowercase letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
+   * The name of the origin endpoint. The name must be 1 to 200 characters in length and can contain only uppercase and lowercase letters, digits, hyphens (-), and underscores (_). Format: [A-Za-z0-9_-]+.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The IP blacklist. Subnet masks are supported. Separate multiple IP addresses with commas (,).
+   * The IP blacklist. CIDR blocks are supported. Separate multiple IP addresses or CIDR blocks with commas (,).
    * 
    * @example
    * 103.0.0.0/8
@@ -59,7 +59,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   ipBlacklist?: string;
   /**
    * @remarks
-   * The IP whitelist. Subnet masks are supported. The value 0.0.0.0/0 is not allowed. Separate multiple IP addresses with commas (,). You must specify at least one of IpWhitelist and AuthorizationCode. Maximum length: 1000 characters.
+   * The IP whitelist. CIDR blocks are supported. You cannot configure 0.0.0.0/0. Separate multiple IP addresses or CIDR blocks with commas (,). You must specify at least one of IpWhitelist and AuthorizationCode. The whitelist can be up to 1,000 characters in length.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1
@@ -72,7 +72,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   livePackagingConfigShrink?: string;
   /**
    * @remarks
-   * The playlist name. Default value: manifest.
+   * The name of the playlist. Default value: manifest.
    * 
    * @example
    * manifest
@@ -80,7 +80,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   manifestName?: string;
   /**
    * @remarks
-   * The protocol. Currently, only HLS is supported.
+   * The protocol. Only HTTP Live Streaming (HLS) is supported.
    * 
    * This parameter is required.
    * 
@@ -90,7 +90,7 @@ export class UpdateLivePackageOriginEndpointShrinkRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of time-shifting days. Maximum value: 30.
+   * The number of time-shift days. Maximum value: 30.
    * 
    * @example
    * 5

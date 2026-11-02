@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDNADBResponseBodyDBInfo extends $dara.Model {
   /**
    * @remarks
-   * The DNA database ID. Save this ID for use in subsequent API calls.
+   * The ID of the DNA library. Save this ID for subsequent calls to related operations.
    * 
    * @example
    * 88c6ca184c0e47098a5b665e2a12****
@@ -13,15 +13,15 @@ export class CreateDNADBResponseBodyDBInfo extends $dara.Model {
   DBId?: string;
   /**
    * @remarks
-   * The description of the DNA database.
+   * The description of the DNA library.
    * 
    * @example
-   * 这是一个视频DNA库。
+   * This is a video DNA library.
    */
   description?: string;
   /**
    * @remarks
-   * The DNA database model.
+   * The model of the DNA library.
    * 
    * @example
    * Video
@@ -29,7 +29,7 @@ export class CreateDNADBResponseBodyDBInfo extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The name of the DNA database.
+   * The name of the DNA library.
    * 
    * @example
    * example name
@@ -37,7 +37,7 @@ export class CreateDNADBResponseBodyDBInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * After you create the database, its status is `offline` by default. The status automatically changes to `active` after the backend completes processing.
+   * The status of the DNA library. After the library is created, the default status is offline. The status automatically transforms to active after spooling is complete.
    * 
    * @example
    * offline
@@ -75,7 +75,7 @@ export class CreateDNADBResponseBodyDBInfo extends $dara.Model {
 export class CreateDNADBResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the DNA database.
+   * The details of the DNA library.
    */
   DBInfo?: CreateDNADBResponseBodyDBInfo;
   /**

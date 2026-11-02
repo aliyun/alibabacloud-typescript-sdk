@@ -5,21 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class SearchEditingProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The source of the project.
+   * The creation source. Valid values:
    * 
-   * -OpenAPI
+   * - OpenAPI: OpenAPI.
    * 
-   * -AliyunConsole
+   * - AliyunConsole: Alibaba Cloud console.
    * 
-   * -WebSDK
-   * 
-   * Valid values:
-   * 
-   * - AliyunConsole: The project is created in the Alibaba Cloud console.
-   * 
-   * - WebSDK: The project is created by using the SDK for Web.
-   * 
-   * - OpenAPI: The project is created by calling API operations.
+   * - WebSDK: WebSDK.
    * 
    * @example
    * WebSDK
@@ -27,7 +19,7 @@ export class SearchEditingProjectRequest extends $dara.Model {
   createSource?: string;
   /**
    * @remarks
-   * The end of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The end time of the creation time. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -43,7 +35,7 @@ export class SearchEditingProjectRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Valid values: 1 to 100.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -51,11 +43,13 @@ export class SearchEditingProjectRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of the editing project. Default value: EditingProject. Valid values:
+   * The type of the editing project. Default value: EditingProject.
    * 
-   * - EditingProject: a regular editing project.
+   * Valid values:
    * 
-   * - LiveEditingProject: a live stream editing project.
+   * - EditingProject: Standard editing project. This is the default value.
+   * 
+   * - LiveEditingProject: Live editing project.
    * 
    * @example
    * EditingProject
@@ -63,11 +57,11 @@ export class SearchEditingProjectRequest extends $dara.Model {
   projectType?: string;
   /**
    * @remarks
-   * The sorting rule of results. Valid values:
+   * The sorting method for the results. Valid values:
    * 
-   * \\- CreationTime:Desc (default): The results are sorted in reverse chronological order based on the creation time.
+   * - CreationTime:Desc: Sort by creation time in descending order. This is the default value.
    * 
-   * \\- CreationTime:Asc: The results are sorted in chronological order based on the creation time.
+   * - CreationTime:Asc: Sort by creation time in ascending order.
    * 
    * @example
    * CreationTime:Desc
@@ -75,7 +69,7 @@ export class SearchEditingProjectRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The start time of the creation time. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
    * 
    * @example
    * 2017-01-11T12:00:00Z
@@ -83,17 +77,17 @@ export class SearchEditingProjectRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the online editing project. Separate multiple values with commas (,). By default, all online editing projects are queried.
+   * The status of the cloud editing project. Separate multiple values with commas (,). By default, all cloud editing projects are retrieved.
    * 
    * Valid values:
    * 
-   * -Draft
+   * - Draft: draft.
    * 
-   * -Producing
+   * - Producing: producing.
    * 
-   * -Produced
+   * - Produced: produced.
    * 
-   * -ProduceFailed
+   * - ProduceFailed: production failed.
    * 
    * @example
    * Producing
@@ -101,19 +95,11 @@ export class SearchEditingProjectRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The template type. Valid values:
+   * The templatetype. Valid values:
    * 
-   * -Timeline
-   * 
-   * -VETemplate
-   * 
-   * Valid values:
-   * 
-   * - Timeline: regular template.
+   * - Timeline: timeline.
    * 
    * - VETemplate: advanced template.
-   * 
-   * - None: No template is used.
    * 
    * @example
    * Timeline

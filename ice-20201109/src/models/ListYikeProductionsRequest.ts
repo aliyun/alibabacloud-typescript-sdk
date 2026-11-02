@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListYikeProductionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results to return.
+   * The maximum number of results.
    * 
    * @example
    * 50
@@ -13,7 +13,7 @@ export class ListYikeProductionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The next token.
    * 
    * @example
    * Token
@@ -29,7 +29,7 @@ export class ListYikeProductionsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 50.
+   * The number of entries to return on each page. Default value: 10. Maximum value: 50.
    * 
    * @example
    * 10

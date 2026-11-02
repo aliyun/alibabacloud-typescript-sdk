@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkflowTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range for filtering tasks by their creation time. Supports querying data from the last 90 days only.
+   * The end time for the task creation time filter. Only the last 90 days are supported. Specify the time in ISO 8601 format in UTC (ending with Z).
    * 
    * @example
    * 2025-07-15T00:00:00Z
@@ -13,7 +13,7 @@ export class ListWorkflowTasksRequest extends $dara.Model {
   endOfCreateTime?: string;
   /**
    * @remarks
-   * A keyword for fuzzy matching against the TaskInput, such as a file name or Media ID. Max length: 32 characters.
+   * The file name or media asset ID. This parameter supports fuzzy match for TaskInput and has a maximum length of 32 characters.
    * 
    * @example
    * ******7aa4cc4459ada8ef35f7******
@@ -23,7 +23,7 @@ export class ListWorkflowTasksRequest extends $dara.Model {
   keyText?: string;
   /**
    * @remarks
-   * The maximum number of media workflow instances to return. Valid values: 1 to 100. Default value: 10.
+   * The maximum number of media workflow task instances to return. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -31,7 +31,7 @@ export class ListWorkflowTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * The token for the next page in a continuous paging query. This parameter is not returned for the first page.
    * 
    * @example
    * **************VRpbWUQARgBIpcBCgkA1bUtaAAAAAAKiQEDhAAAADFTMzg2NTY2NjU2MzM3NjU2NjYyMzkzMTYyMzI2MjYzNjY2**********
@@ -39,7 +39,7 @@ export class ListWorkflowTasksRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The start of the time range for filtering tasks by their creation time. Supports querying data from the last 90 days only.
+   * The start time for the task creation time filter. Only the last 90 days are supported. Specify the time in ISO 8601 format in UTC (ending with Z).
    * 
    * @example
    * 2025-07-12T00:00:00Z
@@ -47,7 +47,7 @@ export class ListWorkflowTasksRequest extends $dara.Model {
   startOfCreateTime?: string;
   /**
    * @remarks
-   * The ID of the workflow template.[](https://ims.console.aliyun.com/settings/workflow/list)
+   * The ID of the workflow template. You can view the template ID in the [Intelligent Media Services console](https://ims.console.aliyun.com/settings/workflow/list) by choosing Configuration Management > Workflow Templates.
    * 
    * @example
    * ******b4fb044839815d4f2cd8******

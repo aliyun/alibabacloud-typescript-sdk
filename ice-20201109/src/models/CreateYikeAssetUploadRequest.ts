@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateYikeAssetUploadRequest extends $dara.Model {
   /**
    * @remarks
-   * The file name extension.
+   * The file extension.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,9 @@ export class CreateYikeAssetUploadRequest extends $dara.Model {
    */
   fileExt?: string;
   /**
+   * @remarks
+   * The file type. Default value: Media.
+   * 
    * @example
    * StoryboardInput
    */

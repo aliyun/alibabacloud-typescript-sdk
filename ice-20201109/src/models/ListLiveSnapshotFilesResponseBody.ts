@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveSnapshotFilesResponseBodyFileList extends $dara.Model {
   /**
    * @remarks
-   * The time when the template was created.
+   * The creation time. The time is in UTC and follows the ISO 8601 standard, ending with Z.
    * 
    * @example
    * 2022-02-02T22:22:22Z
@@ -13,7 +13,7 @@ export class ListLiveSnapshotFilesResponseBodyFileList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The creation timestamp that is used as an input parameter for a delete API operation.
+   * The creation timestamp, which is used as a parameter in the delete operation.
    * 
    * @example
    * 1619503516000
@@ -21,7 +21,7 @@ export class ListLiveSnapshotFilesResponseBodyFileList extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * Specifies whether to overlay snapshots.
+   * Indicates whether the snapshot is overwritten.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ListLiveSnapshotFilesResponseBodyFileList extends $dara.Model {
   ossBucket?: string;
   /**
    * @remarks
-   * The Object Storage Service (OSS) domain name.
+   * The OSS endpoint.
    * 
    * @example
    * oss-cn-shanghai.aliyuncs.com
@@ -45,7 +45,7 @@ export class ListLiveSnapshotFilesResponseBodyFileList extends $dara.Model {
   ossEndpoint?: string;
   /**
    * @remarks
-   * The location in which the OSS object is stored.
+   * The path of the OSS object.
    */
   ossObject?: string;
   static names(): { [key: string]: string } {
@@ -87,7 +87,7 @@ export class ListLiveSnapshotFilesResponseBody extends $dara.Model {
   fileList?: ListLiveSnapshotFilesResponseBodyFileList[];
   /**
    * @remarks
-   * The start time of the next page. If no value is returned, the pagination ends.
+   * The start time of the next page. If this parameter is not returned, all pages have been returned. The time is in UTC and follows the ISO 8601 standard, ending with Z.
    * 
    * @example
    * 2022-02-02T22:22:22Z
@@ -95,7 +95,7 @@ export class ListLiveSnapshotFilesResponseBody extends $dara.Model {
   nextStartTime?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******

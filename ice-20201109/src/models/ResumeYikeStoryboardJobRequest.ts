@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeYikeStoryboardJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the storyboard job.
+   * The job ID of the storyboard generation task.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****

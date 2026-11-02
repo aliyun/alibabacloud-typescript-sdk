@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAIAgentInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent ID.
+   * The ID of the agent.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListAIAgentInstanceRequest extends $dara.Model {
   AIAgentId?: string;
   /**
    * @remarks
-   * The end time of the query in ISO 8601 format. No default value.
+   * The end time of the query in ISO 8601 format. Default value: none.
    * 
    * @example
    * 2023-01-02T00:00:00Z
@@ -23,7 +23,7 @@ export class ListAIAgentInstanceRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number. Default value: 1. Valid values: 1 to 100.
+   * The current page number. Default value: 1. Valid values: 1 to 100.
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class ListAIAgentInstanceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time of the query in ISO 8601 format. No default value.
+   * The start time of the query in ISO 8601 format. Default value: none.
    * 
    * @example
    * 2023-01-01T00:00:00Z

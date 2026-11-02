@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendAIAgentSpeechRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the broadcast can interrupt the ongoing speech. Default value: true
+   * Specifies whether this proactive broadcast can interrupt the current voice playback. Default value: true.
    * 
    * @example
    * true
@@ -13,9 +13,9 @@ export class SendAIAgentSpeechRequest extends $dara.Model {
   enableInterrupt?: boolean;
   /**
    * @remarks
-   * Agent instance ID.
+   * The instance ID of the agent.
    * 
-   * > The InstanceId is the unique ID returned after successfully starting an agent instance. For details about starting an agent instance, see [StartAIAgentInstance](https://help.aliyun.com/document_detail/2846201.html) and [GenerateAIAgentCall](https://help.aliyun.com/document_detail/2846209.html).
+   * > InstanceId is the unique ID returned after an agent instance is successfully started. For the operations used to start an agent instance, see [StartAIAgentInstance](https://help.aliyun.com/document_detail/2846201.html) and [GenerateAIAgentCall](https://help.aliyun.com/document_detail/2846209.html).
    * 
    * This parameter is required.
    * 
@@ -25,21 +25,21 @@ export class SendAIAgentSpeechRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The text content to be played back. The supported input format varies based on the Type parameter. The length cannot exceed 1024 characters.
+   * The text content to be broadcast. Different input types are supported based on the Type parameter. The length cannot exceed 1,024 characters.
    * 
    * This parameter is required.
    * 
    * @example
-   * Hello, welcome to our service.
+   * Hello, welcome to use our service
    */
   text?: string;
   /**
    * @remarks
-   * Input type. Valid values:
+   * The input type. Valid values:
    * 
-   * - Text: Input is plain text.
+   * - Text: text input.
    * 
-   * - AudioUrl: Input is an audio URL.
+   * - AudioUrl: audio URL input.
    * 
    * Default value: Text.
    * 

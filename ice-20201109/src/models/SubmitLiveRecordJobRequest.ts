@@ -13,7 +13,7 @@ export class SubmitLiveRecordJobRequestRecordOutput extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * The storage service endpoint.
+   * The endpoint of the storage service.
    * 
    * @example
    * oss-cn-hangzhou.aliyuncs.com
@@ -21,7 +21,7 @@ export class SubmitLiveRecordJobRequestRecordOutput extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The type of the storage address.
+   * The type of the storage URL.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class SubmitLiveRecordJobRequestRecordOutput extends $dara.Model {
 export class SubmitLiveRecordJobRequestStreamInput extends $dara.Model {
   /**
    * @remarks
-   * The type of the live stream address. Currently, only rtmp is supported.
+   * The type of the live stream URL. Valid value: rtmp.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class SubmitLiveRecordJobRequestStreamInput extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The live stream address.
+   * The live stream URL.
    * 
    * @example
    * rtmp://example.com/live/stream1
@@ -117,21 +117,21 @@ export class SubmitLiveRecordJobRequest extends $dara.Model {
   notifyUrl?: string;
   /**
    * @remarks
-   * The recording storage address.
+   * The storage URL for the recording.
    * 
    * This parameter is required.
    */
   recordOutput?: SubmitLiveRecordJobRequestRecordOutput;
   /**
    * @remarks
-   * The live stream address.
+   * The live stream URL.
    * 
    * This parameter is required.
    */
   streamInput?: SubmitLiveRecordJobRequestStreamInput;
   /**
    * @remarks
-   * The recording template ID.
+   * The ID of the recording template.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatList extends $dara.Model {
   /**
    * @remarks
-   * The duration of the recording cycle, in seconds.
+   * The cycle recording duration. Unit: seconds.
    * 
    * @example
    * 21600
@@ -13,7 +13,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatLi
   cycleDuration?: number;
   /**
    * @remarks
-   * The recording file format.
+   * The format.
    * 
    * @example
    * m3u8
@@ -21,7 +21,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatLi
   format?: string;
   /**
    * @remarks
-   * The object prefix for the recording file stored in Object Storage Service (OSS).
+   * The name of the recording file stored in OSS.
    * 
    * @example
    * record/{JobId}/{Sequence}_{EscapedStartTime}_{EscapedEndTime}
@@ -29,7 +29,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatLi
   ossObjectPrefix?: string;
   /**
    * @remarks
-   * The duration of each slice, in seconds.
+   * The duration of a single slice. Unit: seconds.
    * 
    * @example
    * 30
@@ -37,7 +37,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatLi
   sliceDuration?: number;
   /**
    * @remarks
-   * The object prefix for the Transport Stream (TS) slice.
+   * The name of the TS slice.
    * 
    * @example
    * record/{JobId}/{UnixTimestamp}_{Sequence}
@@ -75,7 +75,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatLi
 export class ListLiveRecordTemplatesResponseBodyRecordTemplateList extends $dara.Model {
   /**
    * @remarks
-   * The time the template was created.
+   * The creation time. The time follows the ISO 8601 standard in UTC (ending with Z).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -85,7 +85,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateList extends $dara
   createTime?: string;
   /**
    * @remarks
-   * The time the template was last modified.
+   * The last modified time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -116,7 +116,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateList extends $dara
   templateId?: string;
   /**
    * @remarks
-   * The template type.
+   * The templatetype.
    * 
    * @example
    * custom
@@ -167,7 +167,7 @@ export class ListLiveRecordTemplatesResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of templates per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -188,7 +188,7 @@ export class ListLiveRecordTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The sort order. By default, templates are sorted by creation time in descending order.
+   * The sorting parameter. By default, templates are sorted in descending order of creation time.
    * 
    * @example
    * desc
@@ -196,7 +196,7 @@ export class ListLiveRecordTemplatesResponseBody extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The total number of templates.
+   * The total number of records.
    * 
    * @example
    * 5

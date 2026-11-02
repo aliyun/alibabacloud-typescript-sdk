@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLiveTranscodeJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the transcoding job.
+   * The transcoding task ID.
    * 
    * This parameter is required.
    * 
