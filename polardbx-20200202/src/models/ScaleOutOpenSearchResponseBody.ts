@@ -45,7 +45,7 @@ export class ScaleOutOpenSearchResponseBodyAccessDeniedDetail extends $dara.Mode
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * The type of the permission denial.
+   * The type of the denied permission.
    * 
    * @example
    * ImplicitDeny

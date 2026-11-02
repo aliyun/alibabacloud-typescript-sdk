@@ -9173,6 +9173,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of PXFS tenants.
+   * 
+   * @remarks
+   * Queries the list of PXFS tenants under a specified PolarDB-X instance and returns the tenant quota, throttling, and usage information.
+   * 
+   * @param request - ListPxfsTenantsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPxfsTenantsResponse
+   */
+  async listPxfsTenantsWithOptions(request: $_model.ListPxfsTenantsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPxfsTenantsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPxfsTenants",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPxfsTenantsResponse>(await this.callApi(params, req, runtime), new $_model.ListPxfsTenantsResponse({}));
+  }
+
+  /**
+   * Queries the list of PXFS tenants.
+   * 
+   * @remarks
+   * Queries the list of PXFS tenants under a specified PolarDB-X instance and returns the tenant quota, throttling, and usage information.
+   * 
+   * @param request - ListPxfsTenantsRequest
+   * @returns ListPxfsTenantsResponse
+   */
+  async listPxfsTenants(request: $_model.ListPxfsTenantsRequest): Promise<$_model.ListPxfsTenantsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPxfsTenantsWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves a list of labels.
    * 
    * @param request - ListTagResourcesRequest
@@ -10782,6 +10834,78 @@ export default class Client extends OpenApi {
   async modifyPxfsSecurityIps(request: $_model.ModifyPxfsSecurityIpsRequest): Promise<$_model.ModifyPxfsSecurityIpsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPxfsSecurityIpsWithOptions(request, runtime);
+  }
+
+  /**
+   * Adjusts the quotas for a PXFS tenant.
+   * 
+   * @remarks
+   * Adjusts the capacity quota, file count quota, request rate limit, and write bandwidth limit for a specified PXFS tenant. Parameters that are not passed remain unchanged.
+   * 
+   * @param request - ModifyPxfsTenantQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPxfsTenantQuotaResponse
+   */
+  async modifyPxfsTenantQuotaWithOptions(request: $_model.ModifyPxfsTenantQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPxfsTenantQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.quotaBytes)) {
+      query["QuotaBytes"] = request.quotaBytes;
+    }
+
+    if (!$dara.isNull(request.quotaFiles)) {
+      query["QuotaFiles"] = request.quotaFiles;
+    }
+
+    if (!$dara.isNull(request.rateLimitRps)) {
+      query["RateLimitRps"] = request.rateLimitRps;
+    }
+
+    if (!$dara.isNull(request.rateLimitWbps)) {
+      query["RateLimitWbps"] = request.rateLimitWbps;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyPxfsTenantQuota",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyPxfsTenantQuotaResponse>(await this.callApi(params, req, runtime), new $_model.ModifyPxfsTenantQuotaResponse({}));
+  }
+
+  /**
+   * Adjusts the quotas for a PXFS tenant.
+   * 
+   * @remarks
+   * Adjusts the capacity quota, file count quota, request rate limit, and write bandwidth limit for a specified PXFS tenant. Parameters that are not passed remain unchanged.
+   * 
+   * @param request - ModifyPxfsTenantQuotaRequest
+   * @returns ModifyPxfsTenantQuotaResponse
+   */
+  async modifyPxfsTenantQuota(request: $_model.ModifyPxfsTenantQuotaRequest): Promise<$_model.ModifyPxfsTenantQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyPxfsTenantQuotaWithOptions(request, runtime);
   }
 
   /**
