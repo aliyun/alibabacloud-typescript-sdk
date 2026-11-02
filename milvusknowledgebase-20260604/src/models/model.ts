@@ -9,6 +9,8 @@ export { SearchKnowledgeBaseRequestImage } from './SearchKnowledgeBaseRequest';
 export { SearchKnowledgeBaseRequestRetrievalConfig } from './SearchKnowledgeBaseRequest';
 export { SearchKnowledgeBaseRequestTagFilterConditions } from './SearchKnowledgeBaseRequest';
 export { SearchKnowledgeBaseRequestTagFilter } from './SearchKnowledgeBaseRequest';
+export { SearchKnowledgeBaseResponseBodyEvidenceResultsSourceRefs } from './SearchKnowledgeBaseResponseBody';
+export { SearchKnowledgeBaseResponseBodyEvidenceResults } from './SearchKnowledgeBaseResponseBody';
 export { SearchKnowledgeBaseResponseBodyResultsImages } from './SearchKnowledgeBaseResponseBody';
 export { SearchKnowledgeBaseResponseBodyResultsLocations } from './SearchKnowledgeBaseResponseBody';
 export { SearchKnowledgeBaseResponseBodyResultsMediaTimeline } from './SearchKnowledgeBaseResponseBody';

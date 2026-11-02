@@ -21,7 +21,7 @@ export class SearchKnowledgeBaseRequestImage extends $dara.Model {
   objectKey?: string;
   /**
    * @remarks
-   * The image URL.
+   * The URL of the image.
    * 
    * @example
    * https://example.com/invoice.png
@@ -55,7 +55,7 @@ export class SearchKnowledgeBaseRequestImage extends $dara.Model {
 export class SearchKnowledgeBaseRequestRetrievalConfig extends $dara.Model {
   /**
    * @remarks
-   * The number of candidate recall results.
+   * The number of recalled candidates.
    * 
    * @example
    * 5
@@ -228,9 +228,25 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   enableKnowledgeGraph?: boolean;
   /**
    * @remarks
-   * The image retrieval input.
+   * Optional. This parameter is returned conditionally and can be passed only when includeWiki is set to true. Omit this parameter for the first evidence page. For subsequent pages, pass the evidenceNextToken from the previous page as is. The candidate pool, subject, parameters, and page size are fixed and expire after 5 minutes without renewal. If the token expires, a 409 error is returned and no automatic re-search is performed. The pageNumber parameter only controls the legacy results. Constraints: {"minLength":1,"maxLength":4096}.
+   * 
+   * @example
+   * example-opaque-next-token
+   */
+  evidencePageToken?: string;
+  /**
+   * @remarks
+   * The image search input.
    */
   image?: SearchKnowledgeBaseRequestImage;
+  /**
+   * @remarks
+   * Optional. This parameter is returned conditionally and is added for compatibility. Default value: false. If set to true, the unified evidenceResults are additionally returned, and Wiki content is not disguised as original text. Constraints: {"default":false}.
+   * 
+   * @example
+   * true
+   */
+  includeWiki?: boolean;
   /**
    * @remarks
    * The page number.
@@ -241,7 +257,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 5
@@ -249,7 +265,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The retrieval query.
+   * The search query.
    * 
    * @example
    * What is the tax amount on the invoice?
@@ -257,7 +273,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The reranking model ID.
+   * The ID of the rerank model.
    * 
    * @example
    * 123
@@ -265,7 +281,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   rerankModelId?: number;
   /**
    * @remarks
-   * The name of a reranking model that the tenant has activated. If both rerankModelName and rerankModelId are specified, this parameter takes precedence.
+   * The name of the rerank model activated for the tenant. If both rerankModelId and this parameter are specified, this parameter takes precedence.
    * 
    * @example
    * qwen3-rerank
@@ -283,7 +299,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   tagFilter?: SearchKnowledgeBaseRequestTagFilter;
   /**
    * @remarks
-   * The knowledge base version.
+   * The version of the knowledge base.
    * 
    * @example
    * v1
@@ -293,7 +309,9 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
     return {
       documentIds: 'documentIds',
       enableKnowledgeGraph: 'enableKnowledgeGraph',
+      evidencePageToken: 'evidencePageToken',
       image: 'image',
+      includeWiki: 'includeWiki',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       query: 'query',
@@ -309,7 +327,9 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
     return {
       documentIds: { 'type': 'array', 'itemType': 'string' },
       enableKnowledgeGraph: 'boolean',
+      evidencePageToken: 'string',
       image: SearchKnowledgeBaseRequestImage,
+      includeWiki: 'boolean',
       pageNumber: 'number',
       pageSize: 'number',
       query: 'string',
