@@ -56,7 +56,7 @@ export class TransformAction extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The value to set.
+   * The configured value.
    * 
    * @example
    * value1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpsertUmodelCommonSchemaRefRequest extends $dara.Model {
   /**
    * @remarks
-   * The group of the common Umodel schema.
+   * The public Umodel schema group.
    * 
    * This parameter is required.
    * 

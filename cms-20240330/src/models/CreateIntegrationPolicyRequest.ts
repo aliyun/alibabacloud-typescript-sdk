@@ -29,7 +29,7 @@ export class CreateIntegrationPolicyRequestEntityGroup extends $dara.Model {
   clusterNamespace?: string;
   /**
    * @remarks
-   * Specifies whether to disable the unique binding of the policy. If this parameter is set to true, you can create multiple policies for a single container cluster.
+   * Specifies whether to disable unique policy binding. If this feature is enabled, you can create multiple policies for a single container cluster.
    * 
    * @example
    * true
@@ -135,7 +135,7 @@ export class CreateIntegrationPolicyRequestTags extends $dara.Model {
 export class CreateIntegrationPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The policy creation version. Valid values: v1 and v2. If this parameter is not specified or is left empty, v2 is used. If v1 is specified, a v1-compatible environment is created for ECS and Cloud.
+   * The policy creation version. Valid values: v1 and v2. If you do not specify this parameter or leave it empty, v2 is used. If you specify v1, a v1-compatible environment is created for ECS and Cloud.
    * 
    * @example
    * v2
@@ -143,7 +143,7 @@ export class CreateIntegrationPolicyRequest extends $dara.Model {
   apiVersion?: string;
   /**
    * @remarks
-   * The entity group used to create the policy. You can use the entity group for quick creation. The clusterId and vpcId parameters are independent of each other.
+   * The entity group used to create the policy. You can quickly create the policy by using the entity group. The clusterId and vpcId parameters are independent of each other.
    */
   entityGroup?: CreateIntegrationPolicyRequestEntityGroup;
   /**
@@ -156,7 +156,7 @@ export class CreateIntegrationPolicyRequest extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The policy type. Valid values: CS, ECS, and Cloud.
+   * The policy type, such as CS, ECS, or Cloud.
    * 
    * This parameter is required.
    * 
@@ -179,7 +179,7 @@ export class CreateIntegrationPolicyRequest extends $dara.Model {
   tags?: CreateIntegrationPolicyRequestTags[];
   /**
    * @remarks
-   * The workspace.
+   * The workspace. If you do not specify this parameter, a default workspace is created or used.
    * 
    * @example
    * prometheus

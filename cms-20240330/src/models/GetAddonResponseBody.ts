@@ -145,7 +145,7 @@ export class GetAddonResponseBodyDataEnvironmentsDependencies extends $dara.Mode
 export class GetAddonResponseBodyDataEnvironmentsPoliciesMetricCheckRule extends $dara.Model {
   /**
    * @remarks
-   * The data check rule after installation.
+   * The data check rule executed after installation.
    */
   promQL?: string[];
   static names(): { [key: string]: string } {
@@ -235,7 +235,7 @@ export class GetAddonResponseBodyDataEnvironmentsPoliciesProtocols extends $dara
 export class GetAddonResponseBodyDataEnvironmentsPolicies extends $dara.Model {
   /**
    * @remarks
-   * The enabled status of the default alert rule policy.
+   * The enabling status of the default policy for alert rules.
    * 
    * @example
    * true
@@ -243,7 +243,7 @@ export class GetAddonResponseBodyDataEnvironmentsPolicies extends $dara.Model {
   alertDefaultStatus?: string;
   /**
    * @remarks
-   * Indicates whether the add-on is installed by default.
+   * Specifies whether the add-on is installed by default.
    * 
    * @example
    * true
@@ -251,7 +251,7 @@ export class GetAddonResponseBodyDataEnvironmentsPolicies extends $dara.Model {
   defaultInstall?: boolean;
   /**
    * @remarks
-   * Indicates whether a service account is assigned to communicate with the Console API.
+   * Specifies whether a service account is assigned for communication with the console API.
    * 
    * @example
    * true
@@ -264,7 +264,7 @@ export class GetAddonResponseBodyDataEnvironmentsPolicies extends $dara.Model {
   metricCheckRule?: GetAddonResponseBodyDataEnvironmentsPoliciesMetricCheckRule;
   /**
    * @remarks
-   * Indicates whether a pod restart is triggered immediately after the add-on is installed during integration.
+   * Specifies whether to initiate a pod restart guide immediately after the add-on installation is completed during integration.
    * 
    * @example
    * true
@@ -277,7 +277,7 @@ export class GetAddonResponseBodyDataEnvironmentsPolicies extends $dara.Model {
   protocols?: GetAddonResponseBodyDataEnvironmentsPoliciesProtocols[];
   /**
    * @remarks
-   * The name of the target add-on for redirection.
+   * The name of the target add-on to redirect to.
    * 
    * @example
    * cs-default
@@ -330,7 +330,7 @@ export class GetAddonResponseBodyDataEnvironments extends $dara.Model {
   commonSchemaRefs?: GetAddonResponseBodyDataEnvironmentsCommonSchemaRefs[];
   /**
    * @remarks
-   * The additional dependencies.
+   * The additional dependency files.
    */
   dependencies?: GetAddonResponseBodyDataEnvironmentsDependencies;
   /**
@@ -343,7 +343,7 @@ export class GetAddonResponseBodyDataEnvironments extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the environment is enabled.
+   * Specifies whether the environment is enabled.
    * 
    * @example
    * false
@@ -425,7 +425,7 @@ export class GetAddonResponseBodyDataEnvironments extends $dara.Model {
 export class GetAddonResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The alias of the integrated component.
+   * The alias of the component.
    * 
    * @example
    * resume_vector_alias
@@ -433,7 +433,7 @@ export class GetAddonResponseBodyData extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The list of categories for the integrated component.
+   * The list of category directories for the component.
    */
   categories?: string[];
   /**
@@ -493,7 +493,7 @@ export class GetAddonResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the add-on can be installed only once.
+   * Specifies whether the add-on can be installed only once.
    * 
    * @example
    * true
@@ -501,7 +501,7 @@ export class GetAddonResponseBodyData extends $dara.Model {
   once?: boolean;
   /**
    * @remarks
-   * The scenario of the component.
+   * The component scenario.
    * 
    * @example
    * middleware
@@ -509,7 +509,7 @@ export class GetAddonResponseBodyData extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The version of the component.
+   * The component version.
    * 
    * @example
    * *

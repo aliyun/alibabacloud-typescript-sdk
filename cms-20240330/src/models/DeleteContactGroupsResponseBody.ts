@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContactGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The actual number of deleted records.
+   * 
+   * @example
+   * 0
+   */
+  deletedCount?: number;
+  /**
+   * @remarks
    * Id of the request
    * 
    * @example
@@ -13,12 +21,14 @@ export class DeleteContactGroupsResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      deletedCount: 'deletedCount',
       requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      deletedCount: 'number',
       requestId: 'string',
     };
   }

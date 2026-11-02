@@ -13,7 +13,7 @@ export class GetServiceTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task details object. Common fields include taskId, serviceId, workspace, regionId, ip, taskType, extraInfo (taskConfig JSON for LiveDebug), createTime, and updateTime.
+   * The task details object. Common fields include taskId, serviceId, workspace, regionId, ip, taskType, extraInfo (the taskConfig JSON for LiveDebug), createTime, and updateTime.
    * 
    * @example
    * {"taskId":"a1b2c3d4-e5f6-7890-abcd-ef1234567890","serviceId":"ggxw4lnjuz@f2fd3a6265a254a052afb","taskType":"live_debug_log_probe","ip":"10.0.0.1","extraInfo":"{\\"probeType\\":\\"LOG\\",\\"language\\":\\"java\\"}"}

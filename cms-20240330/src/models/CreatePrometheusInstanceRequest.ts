@@ -45,9 +45,9 @@ export class CreatePrometheusInstanceRequestTags extends $dara.Model {
 export class CreatePrometheusInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of days that data is automatically archived after the storage period expires. A value of 0 indicates that data is not archived. Valid values for the archive duration:
+   * The number of days to automatically archive data after the storage period expires. A value of 0 indicates that data is not archived. Valid values:
    * * V1: 60 to 365 days.
-   * * V2: 60 to 3650 days (3650 indicates permanent retention).
+   * * V2: 60 to 3650 days. A value of 3650 indicates permanent retention.
    * 
    * @example
    * 60
@@ -58,7 +58,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   archiveDuration?: number;
   /**
    * @remarks
-   * The authentication-free read policy. IP CIDR blocks and VPC IDs are supported.
+   * The authentication-free read policy, which supports IP address ranges and VPC IDs.
    * 
    * @example
    * {
@@ -92,7 +92,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   authFreeWritePolicy?: string;
   /**
    * @remarks
-   * Specifies whether to enable authentication-free read. This parameter is supported only for V2 instances.
+   * Specifies whether to enable authentication-free read access. Supported only in V2.
    * 
    * @example
    * true
@@ -100,7 +100,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   enableAuthFreeRead?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable authentication-free write. This parameter is supported only for V2 instances.
+   * Specifies whether to enable authentication-free write access. Supported only in V2.
    * 
    * @example
    * true
@@ -108,7 +108,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   enableAuthFreeWrite?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the authorization token. This parameter is supported only for V1 instances.
+   * Specifies whether to enable the authorization token. Supported only in V1.
    * 
    * @example
    * true
@@ -116,10 +116,10 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   enableAuthToken?: boolean;
   /**
    * @remarks
-   * The billable methods. Valid values:
-   * * POSTPAY: pay-as-you-go by metric reporting volume.
-   * * POSTPAY_GB: pay-as-you-go by metric write volume.
-   * If this parameter is left empty, the default billing method configured by the user is used. If the user has not configured a default billing method, the system uses pay-as-you-go by metric reporting volume.
+   * The Billable methods. Valid values:
+   * * POSTPAY: pay-as-you-go by reported metric volume.
+   * * POSTPAY_GB: pay-as-you-go by ingested data volume.
+   * Note: An empty value uses the default Billable methods configured for the user. If no default is configured, the system defaults to billing by reported metric volume.
    * 
    * @example
    * POSTPAY
@@ -127,7 +127,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 
@@ -137,7 +137,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   prometheusInstanceName?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aekz5qqvjyatgoy
@@ -153,9 +153,9 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage duration (in days):
-   * * By write volume: 90 or 180.
-   * * By metric reporting volume: 15, 30, 60, 90, or 180.
+   * The storage duration in days. Valid values:
+   * * Pay-by-ingested-data: 90 and 180.
+   * * Pay-by-reported-metrics: 15, 30, 60, 90, and 180.
    * 
    * @example
    * 90
@@ -163,7 +163,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   storageDuration?: number;
   /**
    * @remarks
-   * The tags.
+   * The tag values.
    */
   tags?: CreatePrometheusInstanceRequestTags[];
   /**

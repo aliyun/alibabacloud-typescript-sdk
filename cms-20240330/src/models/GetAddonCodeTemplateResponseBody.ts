@@ -50,7 +50,7 @@ export class GetAddonCodeTemplateResponseBody extends $dara.Model {
   codes?: GetAddonCodeTemplateResponseBodyCodes[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 0CEC5375-C554-562B-A65F-***

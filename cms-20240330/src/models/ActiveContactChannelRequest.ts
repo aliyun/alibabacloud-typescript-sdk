@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ActiveContactChannelRequest extends $dara.Model {
   /**
    * @remarks
-   * The activation verification code. This 32-character string is sent by the system to the mobile phone number or email address of the contact.
+   * The activation verification code. The system sends this 32-character string to the mobile phone number or email address of the contact.
    * 
    * @example
    * 0b9377d9c56b5c2ea8a41a2b3c4d5e6f

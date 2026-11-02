@@ -13,7 +13,7 @@ export class ListIntegrationPolicyStorageRequirementsRequest extends $dara.Model
   addonName?: string;
   /**
    * @remarks
-   * The name of the AddonRelease.
+   * The name of the add-on release.
    * 
    * @example
    * kafka-17201012937917

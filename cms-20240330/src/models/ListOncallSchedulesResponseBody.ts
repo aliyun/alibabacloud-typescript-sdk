@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOncallSchedulesResponseBodyOncallSchedulesRotations extends $dara.Model {
   /**
    * @remarks
-   * The days of the week when the rotation is active.
+   * The days of the week when the rotation takes effect.
    */
   activeDays?: number[];
   /**
@@ -39,7 +39,7 @@ export class ListOncallSchedulesResponseBodyOncallSchedulesRotations extends $da
   rotationStartTime?: string;
   /**
    * @remarks
-   * The length of the shift interval. Used in conjunction with shiftRecurrenceFrequency. For example, a value of 3 indicates that the on-call personnel rotates every 3 days.
+   * The length of the shift cycle. This parameter is used together with shiftRecurrenceFrequency. For example, a value of 3 indicates that the on-call personnel changes every 3 days.
    * 
    * @example
    * 3
@@ -47,7 +47,7 @@ export class ListOncallSchedulesResponseBodyOncallSchedulesRotations extends $da
   shiftLength?: number;
   /**
    * @remarks
-   * The unit of the shift interval. Used in conjunction with shiftLength. For example, a value of Week indicates that the on-call personnel rotates every week.
+   * The unit of the shift cycle. This parameter is used together with shiftLength. For example, a value of Week indicates that the on-call personnel changes every week.
    * 
    * @example
    * WEEKLY
@@ -196,7 +196,7 @@ export class ListOncallSchedulesResponseBodyOncallSchedules extends $dara.Model 
   rotations?: ListOncallSchedulesResponseBodyOncallSchedulesRotations[];
   /**
    * @remarks
-   * The ID of the chatbot that sends shift reminders.
+   * The ID of the robot that sends shift change reminders.
    * 
    * @example
    * testId
@@ -260,7 +260,7 @@ export class ListOncallSchedulesResponseBody extends $dara.Model {
   oncallSchedules?: ListOncallSchedulesResponseBodyOncallSchedules[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****

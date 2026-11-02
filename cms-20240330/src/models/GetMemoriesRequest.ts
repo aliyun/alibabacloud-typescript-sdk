@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMemoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The application\\"s agent ID.
+   * The agent ID of the application.
    * 
    * @example
    * 952730652285943809
@@ -13,7 +13,7 @@ export class GetMemoriesRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The Application ID.
+   * The application ID.
    * 
    * @example
    * 150130323
@@ -21,7 +21,7 @@ export class GetMemoriesRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The filter criteria.
+   * The filter conditions.
    * 
    * @example
    * {"__strategy_type__":"Fact"}
@@ -45,7 +45,7 @@ export class GetMemoriesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The Run ID.
+   * The run ID.
    * 
    * @example
    * jr-80ded1d6953c64ea
@@ -53,7 +53,7 @@ export class GetMemoriesRequest extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * The User ID.
+   * The user ID.
    * 
    * @example
    * test_user_001

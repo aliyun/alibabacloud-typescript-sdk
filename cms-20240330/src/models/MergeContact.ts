@@ -13,7 +13,7 @@ export class MergeContact extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Specifies whether the email address is authenticated.
+   * Indicates whether the email address is verified.
    * 
    * @example
    * true
@@ -21,15 +21,15 @@ export class MergeContact extends $dara.Model {
   emailVerify?: boolean;
   /**
    * @remarks
-   * An extension field used to store additional information.
+   * The extension field used to store additional information.
    * 
    * @example
-   * { "department": "运维部", "role": "工程师" }
+   * { "department": "Operations Department", "role": "Engineer" }
    */
   extend?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the contact was created.
+   * The creation time.
    * 
    * @example
    * 2025-03-11T08:21:58.789Z
@@ -37,7 +37,7 @@ export class MergeContact extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the contact was last modified.
+   * The last modification time.
    * 
    * @example
    * 2025-03-11T08:21:58.789Z
@@ -64,7 +64,7 @@ export class MergeContact extends $dara.Model {
    * The name of the contact.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   name?: string;
   /**
@@ -77,7 +77,7 @@ export class MergeContact extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * The country code for the mobile phone number.
+   * The country code of the mobile phone number.
    * 
    * @example
    * 86
@@ -85,7 +85,7 @@ export class MergeContact extends $dara.Model {
   phoneCode?: string;
   /**
    * @remarks
-   * Specifies whether the mobile phone number is authenticated.
+   * Indicates whether the mobile phone number is verified.
    * 
    * @example
    * true

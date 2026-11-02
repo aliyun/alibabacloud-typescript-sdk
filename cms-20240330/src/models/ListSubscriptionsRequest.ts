@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSubscriptionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the AI agent. This parameter is used to filter subscriptions of a specified AI agent.
+   * The UUID of the AI agent. This parameter is used to filter subscriptions for a specified AI agent.
    * 
    * @example
    * agent-rca-001
@@ -55,7 +55,7 @@ export class ListSubscriptionsRequest extends $dara.Model {
   notifyStrategyUuid?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The sort field.
    * 
    * @example
    * id
@@ -79,9 +79,7 @@ export class ListSubscriptionsRequest extends $dara.Model {
   subscriptionName?: string;
   /**
    * @remarks
-   * The type of the subscription. Valid values:
-   * - NORMAL: Standard subscription.
-   * - AI_AGENT: AI agent subscription.
+   * The type of the subscription. Valid values: NORMAL (standard subscription) and AI_AGENT (AI agent subscription).
    * 
    * @example
    * NORMAL

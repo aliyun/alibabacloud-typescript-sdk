@@ -59,7 +59,7 @@ export class GetAggTaskGroupResponseBodyAggTaskGroup extends $dara.Model {
   aggTaskGroupConfig?: string;
   /**
    * @remarks
-   * The summary of the aggregation task group configuration.
+   * The hash of the aggregation task group configuration.
    * 
    * @example
    * a54136xxx
@@ -107,7 +107,7 @@ export class GetAggTaskGroupResponseBodyAggTaskGroup extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The UNIX timestamp in seconds that corresponds to the start time of the scheduling. This parameter is not yet in effect.
+   * The UNIX timestamp in seconds for the scheduling start time. This parameter is not yet in effect.
    * 
    * @example
    * 1757409495
@@ -115,7 +115,7 @@ export class GetAggTaskGroupResponseBodyAggTaskGroup extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * The maximum number of retries to execute the aggregation task.
+   * The maximum number of retries for executing the aggregation task.
    * 
    * @example
    * 2
@@ -123,7 +123,7 @@ export class GetAggTaskGroupResponseBodyAggTaskGroup extends $dara.Model {
   maxRetries?: number;
   /**
    * @remarks
-   * The maximum runtime of the aggregation task, in seconds.
+   * The maximum retry time to execute the aggregation task.
    * 
    * @example
    * 50
@@ -131,7 +131,7 @@ export class GetAggTaskGroupResponseBodyAggTaskGroup extends $dara.Model {
   maxRunTimeInSeconds?: number;
   /**
    * @remarks
-   * The dry run configuration.
+   * The precheck configuration.
    * 
    * @example
    * {"policy":"skip","prometheusId":"rw-xx","query":"noPrecheck","threshold":0.5,"timeout":15,"type":"none"}
@@ -163,7 +163,7 @@ export class GetAggTaskGroupResponseBodyAggTaskGroup extends $dara.Model {
   scheduleTimeExpr?: string;
   /**
    * @remarks
-   * The ID of the source Prometheus instance for the aggregation task group.
+   * The source Prometheus instance ID for the aggregation task group.
    * 
    * @example
    * rw-xxx
@@ -184,7 +184,7 @@ export class GetAggTaskGroupResponseBodyAggTaskGroup extends $dara.Model {
   tags?: GetAggTaskGroupResponseBodyAggTaskGroupTags[];
   /**
    * @remarks
-   * The ID of the target Prometheus instance for the aggregation task group.
+   * The target Prometheus instance ID for the aggregation task group.
    * 
    * @example
    * rw-xxx
@@ -192,7 +192,7 @@ export class GetAggTaskGroupResponseBodyAggTaskGroup extends $dara.Model {
   targetPrometheusId?: string;
   /**
    * @remarks
-   * The UNIX timestamp in seconds that corresponds to the end time of the scheduling.
+   * The UNIX timestamp in seconds for the scheduling end time.
    * 
    * @example
    * 1757409495
@@ -200,7 +200,7 @@ export class GetAggTaskGroupResponseBodyAggTaskGroup extends $dara.Model {
   toTime?: number;
   /**
    * @remarks
-   * The time when the aggregation task group was updated. This is a timestamp.
+   * The update time of the aggregation task group. The value is a UNIX timestamp.
    * 
    * @example
    * 1757409499000
@@ -294,7 +294,7 @@ export class GetAggTaskGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

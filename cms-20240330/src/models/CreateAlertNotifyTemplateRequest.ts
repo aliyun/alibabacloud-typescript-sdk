@@ -7,8 +7,6 @@ export class CreateAlertNotifyTemplateRequest extends $dara.Model {
    * @remarks
    * The ID of the notification template.
    * 
-   * This parameter is required.
-   * 
    * @example
    * test
    */

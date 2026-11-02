@@ -181,7 +181,7 @@ export class ListAlertActionsResponseBodyAlertActionsFcParam extends $dara.Model
   regionId?: string;
   /**
    * @remarks
-   * The service name of Function Compute.
+   * The service name in Function Compute.
    * 
    * @example
    * test
@@ -268,7 +268,7 @@ export class ListAlertActionsResponseBodyAlertActionsMnsParam extends $dara.Mode
 export class ListAlertActionsResponseBodyAlertActionsPagerDutyParam extends $dara.Model {
   /**
    * @remarks
-   * The integration key for PagerDuty.
+   * The integration key of PagerDuty.
    * 
    * @example
    * fsfer4543t5t65g4t4
@@ -276,7 +276,7 @@ export class ListAlertActionsResponseBodyAlertActionsPagerDutyParam extends $dar
   key?: string;
   /**
    * @remarks
-   * The integration webhook URL for PagerDuty. Both V1 and V2 are supported.
+   * The integration webhook URL of PagerDuty. Both V1 and V2 are supported.
    * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
@@ -379,7 +379,7 @@ export class ListAlertActionsResponseBodyAlertActionsWebhookParam extends $dara.
   method?: string;
   /**
    * @remarks
-   * The alert callback URL.
+   * The URL of the alert callback.
    * 
    * @example
    * http://www.test.com

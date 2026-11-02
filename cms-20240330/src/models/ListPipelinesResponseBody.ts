@@ -23,7 +23,7 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the pipeline.
+   * The pipeline name.
    * 
    * @example
    * pipeline-name-1

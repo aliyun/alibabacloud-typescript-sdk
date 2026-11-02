@@ -115,7 +115,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasksTags extends $dara.Model 
 export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The time is displayed in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
+   * The creation time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format and is displayed in UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -125,7 +125,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the data source, which is the ID of the Prometheus instance.
+   * The data source ID, which is the Prometheus instance ID.
    * 
    * @example
    * rw-5f2b4c7e66342s
@@ -143,12 +143,12 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   extraInfo?: ListDeliveryTasksResponseBodyDeliveryTasksExtraInfo;
   /**
    * @remarks
-   * The metric filtering conditions, used in conjunction with labelFiltersType. The key is the metric label name, and the value is the matching value.
+   * The metric filter conditions, used in conjunction with labelFiltersType. The key is the metric label name, and the value is the matched value.
    */
   labelFilters?: { [key: string]: string };
   /**
    * @remarks
-   * The metric filtering mode.
+   * The metric filter mode.
    * 
    * @example
    * Allow
@@ -164,7 +164,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of delivery sinks. You can configure multiple sinks.
+   * The list of delivery sinks. Multiple sinks are supported.
    */
   sinkList?: ListDeliveryTasksResponseBodyDeliveryTasksSinkList[];
   /**
@@ -182,7 +182,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   tags?: ListDeliveryTasksResponseBodyDeliveryTasksTags[];
   /**
    * @remarks
-   * The description of the task.
+   * The task description.
    * 
    * @example
    * my delivery task
@@ -190,7 +190,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   taskDescription?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * db21f8a126d96953
@@ -198,7 +198,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
    * test-task
@@ -206,7 +206,7 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The update time. The time is displayed in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
+   * The update time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format and is displayed in UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -279,12 +279,12 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
 export class ListDeliveryTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of delivery tasks.
+   * The list of data delivery tasks.
    */
   deliveryTasks?: ListDeliveryTasksResponseBodyDeliveryTasks[];
   /**
    * @remarks
-   * The maximum number of results returned. Maximum value: 100.
+   * The maximum number of results to return. Maximum value: 100.
    * 
    * @example
    * 100
@@ -300,7 +300,7 @@ export class ListDeliveryTasksResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7D7DF334-B2F2-5453-AD51-A27B337E3191

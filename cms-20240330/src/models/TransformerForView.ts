@@ -7,12 +7,12 @@ import { FilterSetting } from "./FilterSetting";
 export class TransformerForView extends $dara.Model {
   /**
    * @remarks
-   * The transform operations.
+   * The transform actions.
    */
   actions?: TransformAction[];
   /**
    * @remarks
-   * The time when the converter was created.
+   * The creation time.
    * 
    * @example
    * 2025-03-11T08:21:58Z
@@ -28,7 +28,7 @@ export class TransformerForView extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the converter is enabled.
+   * Indicates whether it is enabled.
    * 
    * @example
    * false
@@ -41,7 +41,7 @@ export class TransformerForView extends $dara.Model {
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Indicates whether to exit after a match is processed.
+   * Specifies whether to exit after a match is processed.
    * 
    * @example
    * false
@@ -49,7 +49,7 @@ export class TransformerForView extends $dara.Model {
   quitAfterMatch?: boolean;
   /**
    * @remarks
-   * The sort ID.
+   * The sort order.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class TransformerForView extends $dara.Model {
   sortId?: number;
   /**
    * @remarks
-   * The transformer ID.
+   * transformer Id
    * 
    * @example
    * 1123123123123
@@ -70,12 +70,12 @@ export class TransformerForView extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Test processing flow.
+   * 测试处理流
    */
   transformerName?: string;
   /**
    * @remarks
-   * The time when the converter was last updated.
+   * The update time.
    * 
    * @example
    * 2025-01-16T02:27:01Z
@@ -91,7 +91,7 @@ export class TransformerForView extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The workspace.
+   * workspace
    * 
    * @example
    * workspace-test

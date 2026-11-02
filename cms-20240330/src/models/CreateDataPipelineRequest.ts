@@ -85,7 +85,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigProjections extends
 export class CreateDataPipelineRequestOutputsProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The length of the retained prefix.
+   * The length of the prefix to retain.
    * 
    * @example
    * 2
@@ -93,7 +93,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigRules extends $dara
   keepPrefix?: number;
   /**
    * @remarks
-   * The length of the retained suffix.
+   * The length of the suffix to retain.
    * 
    * @example
    * 2
@@ -101,7 +101,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigRules extends $dara
   keepSuffix?: number;
   /**
    * @remarks
-   * The sensitive keywords.
+   * The sensitive keyword.
    */
   keys?: string[];
   /**
@@ -122,7 +122,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigRules extends $dara
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive types.
+   * The built-in sensitive type.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -181,7 +181,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigScopeConditionsFiel
   kind?: string;
   /**
    * @remarks
-   * The name of the field or dimension.
+   * The field or dimension name.
    * 
    * @example
    * serviceName
@@ -283,7 +283,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigScopeMetricName ext
   matchType?: string;
   /**
    * @remarks
-   * The metric names.
+   * The metric name.
    * 
    * @example
    * ["http_requests_total"]
@@ -408,7 +408,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigScope extends $dara
 export class CreateDataPipelineRequestOutputsProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The service name list.
+   * The list of service names.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -494,7 +494,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfig extends $dara.Mode
   fields?: string[];
   /**
    * @remarks
-   * The additional parameters.
+   * The extension parameters.
    */
   parameters?: { [key: string]: any };
   /**
@@ -601,12 +601,12 @@ export class CreateDataPipelineRequestOutputsProcessorsConfig extends $dara.Mode
 export class CreateDataPipelineRequestOutputsProcessors extends $dara.Model {
   /**
    * @remarks
-   * The processor configuration.
+   * The configuration of the processor.
    */
   config?: CreateDataPipelineRequestOutputsProcessorsConfig;
   /**
    * @remarks
-   * The processor name.
+   * The name of the processor.
    * 
    * @example
    * drop-health-check
@@ -614,7 +614,7 @@ export class CreateDataPipelineRequestOutputsProcessors extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The processor type.
+   * The type of the processor.
    * 
    * @example
    * filter
@@ -651,7 +651,7 @@ export class CreateDataPipelineRequestOutputsProcessors extends $dara.Model {
 export class CreateDataPipelineRequestOutputs extends $dara.Model {
   /**
    * @remarks
-   * The name of the output.
+   * The output name.
    * 
    * @example
    * checkout_route
@@ -771,7 +771,7 @@ export class CreateDataPipelineRequestProcessorsConfigProjections extends $dara.
 export class CreateDataPipelineRequestProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The length of the retained prefix.
+   * The length of the prefix to retain.
    * 
    * @example
    * 2
@@ -779,7 +779,7 @@ export class CreateDataPipelineRequestProcessorsConfigRules extends $dara.Model 
   keepPrefix?: number;
   /**
    * @remarks
-   * The length of the retained suffix.
+   * The length of the suffix to retain.
    * 
    * @example
    * 2
@@ -787,7 +787,7 @@ export class CreateDataPipelineRequestProcessorsConfigRules extends $dara.Model 
   keepSuffix?: number;
   /**
    * @remarks
-   * The sensitive keywords.
+   * The sensitive keyword.
    */
   keys?: string[];
   /**
@@ -808,7 +808,7 @@ export class CreateDataPipelineRequestProcessorsConfigRules extends $dara.Model 
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive types.
+   * The built-in sensitive type.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -867,7 +867,7 @@ export class CreateDataPipelineRequestProcessorsConfigScopeConditionsField exten
   kind?: string;
   /**
    * @remarks
-   * The name of the field or dimension.
+   * The field or dimension name.
    * 
    * @example
    * serviceName
@@ -969,7 +969,7 @@ export class CreateDataPipelineRequestProcessorsConfigScopeMetricName extends $d
   matchType?: string;
   /**
    * @remarks
-   * The metric names.
+   * The metric name.
    * 
    * @example
    * ["http_requests_total"]
@@ -1094,7 +1094,7 @@ export class CreateDataPipelineRequestProcessorsConfigScope extends $dara.Model 
 export class CreateDataPipelineRequestProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The service name list.
+   * The list of service names.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -1180,7 +1180,7 @@ export class CreateDataPipelineRequestProcessorsConfig extends $dara.Model {
   fields?: string[];
   /**
    * @remarks
-   * The additional parameters.
+   * The extension parameters.
    */
   parameters?: { [key: string]: any };
   /**
@@ -1287,12 +1287,12 @@ export class CreateDataPipelineRequestProcessorsConfig extends $dara.Model {
 export class CreateDataPipelineRequestProcessors extends $dara.Model {
   /**
    * @remarks
-   * The processor configuration.
+   * The configuration of the processor.
    */
   config?: CreateDataPipelineRequestProcessorsConfig;
   /**
    * @remarks
-   * The processor name.
+   * The name of the processor.
    * 
    * @example
    * drop-health-check
@@ -1300,7 +1300,7 @@ export class CreateDataPipelineRequestProcessors extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The processor type.
+   * The type of the processor.
    * 
    * @example
    * filter
@@ -1337,7 +1337,7 @@ export class CreateDataPipelineRequestProcessors extends $dara.Model {
 export class CreateDataPipelineRequestSinks extends $dara.Model {
   /**
    * @remarks
-   * The dataset list.
+   * The list of datasets.
    */
   datasets?: string[];
   /**
@@ -1350,7 +1350,7 @@ export class CreateDataPipelineRequestSinks extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The sink name.
+   * The name of the output destination.
    * 
    * @example
    * error-archive
@@ -1366,7 +1366,7 @@ export class CreateDataPipelineRequestSinks extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The sink type.
+   * The type of the output destination.
    * 
    * @example
    * logstore
@@ -1455,7 +1455,7 @@ export class CreateDataPipelineRequestSourceConfig extends $dara.Model {
   runMode?: string;
   /**
    * @remarks
-   * The start position.
+   * The read start point.
    * 
    * @example
    * latest
@@ -1502,7 +1502,7 @@ export class CreateDataPipelineRequestSource extends $dara.Model {
   config?: CreateDataPipelineRequestSourceConfig;
   /**
    * @remarks
-   * The data source type.
+   * The type of the data source.
    * 
    * @example
    * traces-default
@@ -1558,7 +1558,7 @@ export class CreateDataPipelineRequest extends $dara.Model {
   outputs?: CreateDataPipelineRequestOutputs[];
   /**
    * @remarks
-   * The pipeline name.
+   * The name of the pipeline.
    * 
    * @example
    * export-traces-to-prod
@@ -1571,7 +1571,7 @@ export class CreateDataPipelineRequest extends $dara.Model {
   processors?: CreateDataPipelineRequestProcessors[];
   /**
    * @remarks
-   * The sinks.
+   * The output destination.
    */
   sinks?: CreateDataPipelineRequestSinks[];
   /**

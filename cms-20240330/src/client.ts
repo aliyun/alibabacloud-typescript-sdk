@@ -72,7 +72,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates the contact channel.
+   * Activates a contact channel.
    * 
    * @param request - ActiveContactChannelRequest
    * @param headers - map
@@ -109,7 +109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates the contact channel.
+   * Activates a contact channel.
    * 
    * @param request - ActiveContactChannelRequest
    * @returns ActiveContactChannelResponse
@@ -938,6 +938,10 @@ export default class Client extends OpenApi {
       body["phone"] = request.phone;
     }
 
+    if (!$dara.isNull(request.phoneCode)) {
+      body["phoneCode"] = request.phoneCode;
+    }
+
     if (!$dara.isNull(request.workspace)) {
       body["workspace"] = request.workspace;
     }
@@ -1383,7 +1387,7 @@ export default class Client extends OpenApi {
    * Creates an access center policy.
    * 
    * @remarks
-   * This operation creates an event integration.
+   * Creates an event integration.
    * 
    * @param request - CreateIntegrationPolicyRequest
    * @param headers - map
@@ -1443,7 +1447,7 @@ export default class Client extends OpenApi {
    * Creates an access center policy.
    * 
    * @remarks
-   * This operation creates an event integration.
+   * Creates an event integration.
    * 
    * @param request - CreateIntegrationPolicyRequest
    * @returns CreateIntegrationPolicyResponse
@@ -1458,7 +1462,8 @@ export default class Client extends OpenApi {
    * Creates a silence policy.
    * 
    * @remarks
-   * Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally. When you create a policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
+   * Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally.
+   * When you create a silence policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
    * 
    * @param request - CreateMaintainWindowRequest
    * @param headers - map
@@ -1495,7 +1500,8 @@ export default class Client extends OpenApi {
    * Creates a silence policy.
    * 
    * @remarks
-   * Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally. When you create a policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
+   * Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally.
+   * When you create a silence policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
    * 
    * @param request - CreateMaintainWindowRequest
    * @returns CreateMaintainWindowResponse
@@ -1701,7 +1707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a pipeline.
+   * Creates a pipeline.
    * 
    * @param request - CreatePipelineRequest
    * @param headers - map
@@ -1754,7 +1760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a pipeline.
+   * Creates a pipeline.
    * 
    * @param request - CreatePipelineRequest
    * @returns CreatePipelineResponse
@@ -1766,7 +1772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Managed Service for Prometheus instance.
+   * Creates a Prometheus monitoring instance.
    * 
    * @param request - CreatePrometheusInstanceRequest
    * @param headers - map
@@ -1847,7 +1853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Managed Service for Prometheus instance.
+   * Creates a Prometheus monitoring instance.
    * 
    * @param request - CreatePrometheusInstanceRequest
    * @returns CreatePrometheusInstanceResponse
@@ -2078,7 +2084,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates application observability and prepares the prerequisite resources required for integration.
+   * Creates application observability and completes prerequisite resource preparations for integration.
    * 
    * @param request - CreateServiceObservabilityRequest
    * @param headers - map
@@ -2105,7 +2111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates application observability and prepares the prerequisite resources required for integration.
+   * Creates application observability and completes prerequisite resource preparations for integration.
    * 
    * @param request - CreateServiceObservabilityRequest
    * @returns CreateServiceObservabilityResponse
@@ -2117,7 +2123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service-linked entry for associating configurations with the application monitoring service, such as log association.
+   * Creates a service association entry to configure associations for the application monitoring service, such as log associations.
    * 
    * @param request - CreateServiceRecordRequest
    * @param headers - map
@@ -2154,7 +2160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service-linked entry for associating configurations with the application monitoring service, such as log association.
+   * Creates a service association entry to configure associations for the application monitoring service, such as log associations.
    * 
    * @param request - CreateServiceRecordRequest
    * @returns CreateServiceRecordResponse
@@ -2172,10 +2178,10 @@ export default class Client extends OpenApi {
    * Creates a service task for an application in a specified workspace.
    * Common use cases:
    * - heapdump: Triggers a JVM heap dump.
-   * - LiveDebug Probe: Dynamically instruments a target method (log, snapshot, metric, span, etc.).
-   * - LiveDebug Command: Performs a one-time active inspection (OGNL, decompilation, thread/memory information, etc.).
-   * - LiveDebug Code Replace: Performs hot code replacement.
-   * After successful creation, a taskId is returned. You can manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronously delivered to ConfigServer.
+   * - LiveDebug Probe: Dynamically instruments target methods (logs, snapshots, metrics, spans, etc.).
+   * - LiveDebug Command: One-time proactive inspection (OGNL, decompilation, thread or memory information, etc.).
+   * - LiveDebug Code Replace: Hot code replacement.
+   * After the task is created, a taskId is returned. You can subsequently manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronized to ConfigServer.
    * 
    * @param request - CreateServiceTaskRequest
    * @param headers - map
@@ -2222,10 +2228,10 @@ export default class Client extends OpenApi {
    * Creates a service task for an application in a specified workspace.
    * Common use cases:
    * - heapdump: Triggers a JVM heap dump.
-   * - LiveDebug Probe: Dynamically instruments a target method (log, snapshot, metric, span, etc.).
-   * - LiveDebug Command: Performs a one-time active inspection (OGNL, decompilation, thread/memory information, etc.).
-   * - LiveDebug Code Replace: Performs hot code replacement.
-   * After successful creation, a taskId is returned. You can manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronously delivered to ConfigServer.
+   * - LiveDebug Probe: Dynamically instruments target methods (logs, snapshots, metrics, spans, etc.).
+   * - LiveDebug Command: One-time proactive inspection (OGNL, decompilation, thread or memory information, etc.).
+   * - LiveDebug Code Replace: Hot code replacement.
+   * After the task is created, a taskId is returned. You can subsequently manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronized to ConfigServer.
    * 
    * @param request - CreateServiceTaskRequest
    * @returns CreateServiceTaskResponse
@@ -2283,7 +2289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
+   * Creates a ticket for password-free access. You can use the ticket to construct a password-free URL to share console pages with other users or embed them into third-party systems.
    * 
    * @param request - CreateTicketRequest
    * @param headers - map
@@ -2320,7 +2326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
+   * Creates a ticket for password-free access. You can use the ticket to construct a password-free URL to share console pages with other users or embed them into third-party systems.
    * 
    * @param request - CreateTicketRequest
    * @returns CreateTicketResponse
@@ -2475,7 +2481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an alert action integration.
+   * Deletes alert action integrations.
    * 
    * @param tmpReq - DeleteAlertActionsRequest
    * @param headers - map
@@ -2514,7 +2520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an alert action integration.
+   * Deletes alert action integrations.
    * 
    * @param request - DeleteAlertActionsRequest
    * @returns DeleteAlertActionsResponse
@@ -2757,7 +2763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes contact groups.
+   * Deletes a contact group.
    * 
    * @param tmpReq - DeleteContactGroupsRequest
    * @param headers - map
@@ -2796,7 +2802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes contact groups.
+   * Deletes a contact group.
    * 
    * @param request - DeleteContactGroupsRequest
    * @returns DeleteContactGroupsResponse
@@ -3109,7 +3115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a delivery task.
+   * Deletes a data delivery task.
    * 
    * @param request - DeleteDeliveryTaskRequest
    * @param headers - map
@@ -3136,7 +3142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a delivery task.
+   * Deletes a data delivery task.
    * 
    * @param request - DeleteDeliveryTaskRequest
    * @returns DeleteDeliveryTaskResponse
@@ -3659,7 +3665,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Prometheus virtual instance by its ID.
+   * Deletes a Prometheus virtual instance by virtual instance ID.
    * 
    * @param request - DeletePrometheusVirtualInstanceRequest
    * @param headers - map
@@ -3686,7 +3692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Prometheus virtual instance by its ID.
+   * Deletes a Prometheus virtual instance by virtual instance ID.
    * 
    * @param request - DeletePrometheusVirtualInstanceRequest
    * @returns DeletePrometheusVirtualInstanceResponse
@@ -4459,7 +4465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates a subscription.
+   * Starts a subscription.
    * 
    * @param request - EnableSubscriptionRequest
    * @param headers - map
@@ -4492,7 +4498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates a subscription.
+   * Starts a subscription.
    * 
    * @param request - EnableSubscriptionRequest
    * @returns EnableSubscriptionResponse
@@ -4608,10 +4614,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Details of an add-on schema.
+   * Retrieves the schema details of an add-on.
    * 
    * @remarks
-   * This topic provides an example of how to modify version `1` of alert template `123456`. In this example, the alert level is set to `Critical`, the statistical method is set to `Average`, the comparison operator for the alert threshold is set to `GreaterThanOrEqualToThreshold`, the alert threshold is set to `90`, and the number of retries is set to `3`. The response indicates that the alert template was successfully modified.
+   * This topic provides an example of modifying alert template `123456` of version `1`. The alert level is changed to `Critical`, the statistical method to `Average`, the threshold comparison operator to `GreaterThanOrEqualToThreshold`, the threshold to `90`, and the number of retries to `3`. The response indicates that the alert template was modified successfully.
    * 
    * @param request - GetAddonCodeTemplateRequest
    * @param headers - map
@@ -4652,10 +4658,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Details of an add-on schema.
+   * Retrieves the schema details of an add-on.
    * 
    * @remarks
-   * This topic provides an example of how to modify version `1` of alert template `123456`. In this example, the alert level is set to `Critical`, the statistical method is set to `Average`, the comparison operator for the alert threshold is set to `GreaterThanOrEqualToThreshold`, the alert threshold is set to `90`, and the number of retries is set to `3`. The response indicates that the alert template was successfully modified.
+   * This topic provides an example of modifying alert template `123456` of version `1`. The alert level is changed to `Critical`, the statistical method to `Average`, the threshold comparison operator to `GreaterThanOrEqualToThreshold`, the threshold to `90`, and the number of retries to `3`. The response indicates that the alert template was modified successfully.
    * 
    * @param request - GetAddonCodeTemplateRequest
    * @returns GetAddonCodeTemplateResponse
@@ -4667,7 +4673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details and accessed state of an add-on release.
+   * Queries the details of an add-on release to check the accessed state.
    * 
    * @param request - GetAddonReleaseRequest
    * @param headers - map
@@ -4694,7 +4700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details and accessed state of an add-on release.
+   * Queries the details of an add-on release to check the accessed state.
    * 
    * @param request - GetAddonReleaseRequest
    * @returns GetAddonReleaseResponse
@@ -4769,7 +4775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an aggregation task group.
+   * Queries the details of an aggregation task group.
    * 
    * @param request - GetAggTaskGroupRequest
    * @param headers - map
@@ -4796,7 +4802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an aggregation task group.
+   * Queries the details of an aggregation task group.
    * 
    * @param request - GetAggTaskGroupRequest
    * @returns GetAggTaskGroupResponse
@@ -5894,7 +5900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the user settings for Prometheus.
+   * Queries the Prometheus user settings.
    * 
    * @param request - GetPrometheusUserSettingRequest
    * @param headers - map
@@ -5927,7 +5933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the user settings for Prometheus.
+   * Queries the Prometheus user settings.
    * 
    * @param request - GetPrometheusUserSettingRequest
    * @returns GetPrometheusUserSettingResponse
@@ -6123,11 +6129,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single ServiceTask under a specified application.
+   * Queries the details of a single service task for a specified application.
    * 
    * @remarks
-   * Queries the details of a single service task based on the taskId.
-   * The response content varies depending on the type: heapdump returns heap dump task information; LiveDebug returns task records and fields such as taskConfig (extraInfo).
+   * Queries the details of a single service task based on the task ID. The response content varies based on the task type. For heapdump, the heap dump task information is returned. For LiveDebug, the task records and fields such as taskConfig (extraInfo) are returned.
    * 
    * @param request - GetServiceTaskRequest
    * @param headers - map
@@ -6160,11 +6165,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single ServiceTask under a specified application.
+   * Queries the details of a single service task for a specified application.
    * 
    * @remarks
-   * Queries the details of a single service task based on the taskId.
-   * The response content varies depending on the type: heapdump returns heap dump task information; LiveDebug returns task records and fields such as taskConfig (extraInfo).
+   * Queries the details of a single service task based on the task ID. The response content varies based on the task type. For heapdump, the heap dump task information is returned. For LiveDebug, the task records and fields such as taskConfig (extraInfo) are returned.
    * 
    * @param request - GetServiceTaskRequest
    * @returns GetServiceTaskResponse
@@ -6401,10 +6405,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists add-on releases.
+   * Lists the releases of an add-on.
    * 
    * @remarks
-   * Queries the list of add-on configurations.
+   * Queries the list of integration configurations.
    * 
    * @param request - ListAddonReleasesRequest
    * @param headers - map
@@ -6449,10 +6453,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists add-on releases.
+   * Lists the releases of an add-on.
    * 
    * @remarks
-   * Queries the list of add-on configurations.
+   * Queries the list of integration configurations.
    * 
    * @param request - ListAddonReleasesRequest
    * @returns ListAddonReleasesResponse
@@ -6677,10 +6681,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries CloudMonitor 2.0 alert history records.
+   * Queries the list of alert history records for the CloudMonitor 2.0 monitoring service by using paging.
    * 
    * @remarks
-   * Queries CloudMonitor 2.0 alert history records. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
+   * Uses paging to retrieve the list of alert history records for the CloudMonitor 2.0 monitoring service. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
    * 
    * @param tmpReq - ListAlertHistoriesRequest
    * @param headers - map
@@ -6823,10 +6827,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries CloudMonitor 2.0 alert history records.
+   * Queries the list of alert history records for the CloudMonitor 2.0 monitoring service by using paging.
    * 
    * @remarks
-   * Queries CloudMonitor 2.0 alert history records. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
+   * Uses paging to retrieve the list of alert history records for the CloudMonitor 2.0 monitoring service. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
    * 
    * @param request - ListAlertHistoriesRequest
    * @returns ListAlertHistoriesResponse
@@ -6909,10 +6913,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries chatbots.
+   * Queries robots.
    * 
    * @remarks
-   * Queries the list of alert chatbots under the current account. Alert chatbots serve as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by chatbot ID, name, type, and workspace.
+   * Queries the alert robots under the current account. Alert robots act as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by robot ID, name, type, and workspace.
    * 
    * @param tmpReq - ListAlertRobotsRequest
    * @param headers - map
@@ -6975,10 +6979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries chatbots.
+   * Queries robots.
    * 
    * @remarks
-   * Queries the list of alert chatbots under the current account. Alert chatbots serve as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by chatbot ID, name, type, and workspace.
+   * Queries the alert robots under the current account. Alert robots act as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by robot ID, name, type, and workspace.
    * 
    * @param request - ListAlertRobotsRequest
    * @returns ListAlertRobotsResponse
@@ -7183,7 +7187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries contacts.
+   * Queries alert contacts.
    * 
    * @remarks
    * This topic provides an example of creating an alert contact group named `ECS_Group`.
@@ -7257,7 +7261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries contacts.
+   * Queries alert contacts.
    * 
    * @remarks
    * This topic provides an example of creating an alert contact group named `ECS_Group`.
@@ -7378,10 +7382,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data pipelines.
+   * Queries a list of data pipelines.
    * 
    * @remarks
-   * Queries data pipelines in a specified workspace by using paging.
+   * Performs a paged query of data streams in a specified workspace. Supports paging.
    * 
    * @param request - ListDataPipelinesRequest
    * @param headers - map
@@ -7418,10 +7422,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries data pipelines.
+   * Queries a list of data pipelines.
    * 
    * @remarks
-   * Queries data pipelines in a specified workspace by using paging.
+   * Performs a paged query of data streams in a specified workspace. Supports paging.
    * 
    * @param request - ListDataPipelinesRequest
    * @returns ListDataPipelinesResponse
@@ -7486,7 +7490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of data delivery tasks.
+   * Queries the list of data delivery tasks.
    * 
    * @param tmpReq - ListDeliveryTasksRequest
    * @param headers - map
@@ -7541,7 +7545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of data delivery tasks.
+   * Queries the list of data delivery tasks.
    * 
    * @param request - ListDeliveryTasksRequest
    * @returns ListDeliveryTasksResponse
@@ -7760,7 +7764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the custom service discovery rules of a Provisioning policy.
+   * Retrieves the custom service discovery rules for an integration center policy.
    * 
    * @param request - ListIntegrationPolicyCustomScrapeJobRulesRequest
    * @param headers - map
@@ -7805,7 +7809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the custom service discovery rules of a Provisioning policy.
+   * Retrieves the custom service discovery rules for an integration center policy.
    * 
    * @param request - ListIntegrationPolicyCustomScrapeJobRulesRequest
    * @returns ListIntegrationPolicyCustomScrapeJobRulesResponse
@@ -7996,11 +8000,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the storage requirements for an Integration Center policy.
+   * Retrieves the storage requirements of an Integration Center policy.
    * 
    * @remarks
-   * When a policy is active, alert notifications are not sent for alerts that occur in the application group.
-   * This topic provides an example of creating a policy named `PauseNotify`. This policy pauses alert notifications for application group `7301****` from `1622949300000` to `1623208500000` (from `2021-06-06 11:15:00` to `2021-06-09 11:15:00` UTC+8).
+   * During the effective period of the policy, no notifications are sent for alerts triggered in the application group.
+   *  
+   * This topic provides an example of creating a policy named `PauseNotify` to pause alert notifications for the application group `7301****`. Alerts for this application group are paused from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
    * 
    * @param request - ListIntegrationPolicyStorageRequirementsRequest
    * @param headers - map
@@ -8041,11 +8046,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the storage requirements for an Integration Center policy.
+   * Retrieves the storage requirements of an Integration Center policy.
    * 
    * @remarks
-   * When a policy is active, alert notifications are not sent for alerts that occur in the application group.
-   * This topic provides an example of creating a policy named `PauseNotify`. This policy pauses alert notifications for application group `7301****` from `1622949300000` to `1623208500000` (from `2021-06-06 11:15:00` to `2021-06-09 11:15:00` UTC+8).
+   * During the effective period of the policy, no notifications are sent for alerts triggered in the application group.
+   *  
+   * This topic provides an example of creating a policy named `PauseNotify` to pause alert notifications for the application group `7301****`. Alerts for this application group are paused from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
    * 
    * @param request - ListIntegrationPolicyStorageRequirementsRequest
    * @returns ListIntegrationPolicyStorageRequirementsResponse
@@ -8191,10 +8197,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists notify policies.
+   * Lists notification policies.
    * 
    * @remarks
-   * Queries the list of notify policies in a specified workspace with paging. You can filter results by name using fuzzy match. The response contains a list of NotifyPolicySummary lightweight views.
+   * Queries the list of notification policies in a specified workspace by using paging. Supports fuzzy filtering by name. Returns a list of NotifyPolicySummary lightweight views.
    * 
    * @param request - ListNotifyPoliciesRequest
    * @param headers - map
@@ -8247,10 +8253,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists notify policies.
+   * Lists notification policies.
    * 
    * @remarks
-   * Queries the list of notify policies in a specified workspace with paging. You can filter results by name using fuzzy match. The response contains a list of NotifyPolicySummary lightweight views.
+   * Queries the list of notification policies in a specified workspace by using paging. Supports fuzzy filtering by name. Returns a list of NotifyPolicySummary lightweight views.
    * 
    * @param request - ListNotifyPoliciesRequest
    * @returns ListNotifyPoliciesResponse
@@ -8262,7 +8268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the on-call contacts at a specified time.
+   * Queries the on-call personnel at a specified time.
    * 
    * @remarks
    * This topic provides an example of creating an alert contact group named `ECS_Group`.
@@ -8298,7 +8304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the on-call contacts at a specified time.
+   * Queries the on-call personnel at a specified time.
    * 
    * @remarks
    * This topic provides an example of creating an alert contact group named `ECS_Group`.
@@ -8313,7 +8319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries on-call schedules.
+   * Queries the on-call schedules.
    * 
    * @param tmpReq - ListOncallSchedulesRequest
    * @param headers - map
@@ -8368,7 +8374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries on-call schedules.
+   * Queries the on-call schedules.
    * 
    * @param request - ListOncallSchedulesRequest
    * @returns ListOncallSchedulesResponse
@@ -8488,10 +8494,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of Managed Service for Prometheus instances.
+   * Retrieves a list of Prometheus instances.
    * 
    * @remarks
-   * Retrieves a list of Managed Service for Prometheus instances.
+   * Retrieves a list of Prometheus instances.
    * 
    * @param tmpReq - ListPrometheusInstancesRequest
    * @param headers - map
@@ -8566,10 +8572,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of Managed Service for Prometheus instances.
+   * Retrieves a list of Prometheus instances.
    * 
    * @remarks
-   * Retrieves a list of Managed Service for Prometheus instances.
+   * Retrieves a list of Prometheus instances.
    * 
    * @param request - ListPrometheusInstancesRequest
    * @returns ListPrometheusInstancesResponse
@@ -8581,10 +8587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Prometheus view instances.
+   * Retrieves a list of Prometheus view instances.
    * 
    * @remarks
-   * Queries a list of Prometheus view instances.
+   * Retrieves a list of Prometheus view instances.
    * 
    * @param tmpReq - ListPrometheusViewsRequest
    * @param headers - map
@@ -8659,10 +8665,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Prometheus view instances.
+   * Retrieves a list of Prometheus view instances.
    * 
    * @remarks
-   * Queries a list of Prometheus view instances.
+   * Retrieves a list of Prometheus view instances.
    * 
    * @param request - ListPrometheusViewsRequest
    * @returns ListPrometheusViewsResponse
@@ -9096,7 +9102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alert notification delivery history in a specified workspace by using paging, and supports filtering by conditions such as notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
+   * Performs a paging query on the alert notification delivery history in a specified workspace. Supports filtering by notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
    * 
    * @param request - ListUserNotifyHistoriesRequest
    * @param headers - map
@@ -9221,7 +9227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the alert notification delivery history in a specified workspace by using paging, and supports filtering by conditions such as notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
+   * Performs a paging query on the alert notification delivery history in a specified workspace. Supports filtering by notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
    * 
    * @param request - ListUserNotifyHistoriesRequest
    * @returns ListUserNotifyHistoriesResponse
@@ -9491,10 +9497,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
+   * Renders template content in Go template syntax with the provided context data and returns the rendering results for each template. It supports previewing multiple templates, such as title and content, simultaneously to enable real-time preview in frontend template editors.
    * 
    * @remarks
-   * Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
+   * Renders template content in Go template syntax with the provided context data and returns the rendering results for each template. It supports previewing multiple templates, such as title and content, simultaneously to enable real-time preview in frontend template editors.
    * 
    * @param request - PreviewNotifyTemplateRequest
    * @param headers - map
@@ -9531,10 +9537,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
+   * Renders template content in Go template syntax with the provided context data and returns the rendering results for each template. It supports previewing multiple templates, such as title and content, simultaneously to enable real-time preview in frontend template editors.
    * 
    * @remarks
-   * Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
+   * Renders template content in Go template syntax with the provided context data and returns the rendering results for each template. It supports previewing multiple templates, such as title and content, simultaneously to enable real-time preview in frontend template editors.
    * 
    * @param request - PreviewNotifyTemplateRequest
    * @returns PreviewNotifyTemplateResponse
@@ -9610,7 +9616,7 @@ export default class Client extends OpenApi {
    * Queries alert rules.
    * 
    * @remarks
-   * This topic provides an example of querying the list of alert templates. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+   * This topic provides an example of querying the alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param tmpReq - QueryAlertRulesRequest
    * @param headers - map
@@ -9670,7 +9676,7 @@ export default class Client extends OpenApi {
    * Queries alert rules.
    * 
    * @remarks
-   * This topic provides an example of querying the list of alert templates. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+   * This topic provides an example of querying the alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
    * 
    * @param request - QueryAlertRulesRequest
    * @returns QueryAlertRulesResponse
@@ -9795,8 +9801,8 @@ export default class Client extends OpenApi {
    * Searches for memories based on query conditions and filters.
    * 
    * @remarks
-   * This topic provides an example on how to create a threshold alert rule for the cpu_total metric of the Elastic Computing Service `acs_ecs_dashboard` instance `i-uf6j91r34rnwawoo****`. The alert contact group of the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
-   * > 2024-08-15: Statistics validation is added. Only the Statistics value that corresponds to the metric can be specified. For information about how to obtain the value of this parameter, see [Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+   * This topic provides an example of setting a threshold alert rule for the `cpu_total` metric of the `i-uf6j91r34rnwawoo****` instance in the `acs_ecs_dashboard` namespace of Elastic Compute Service. The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the number of alert retries for the Critical level is `3`.
+   * > On August 15, 2024, Statistics validation was added. The statistical value can only be the Statistics corresponding to the metric. For more information about how to obtain the value of this parameter, see [cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
    * 
    * @param request - SearchMemoriesRequest
    * @param headers - map
@@ -9872,8 +9878,8 @@ export default class Client extends OpenApi {
    * Searches for memories based on query conditions and filters.
    * 
    * @remarks
-   * This topic provides an example on how to create a threshold alert rule for the cpu_total metric of the Elastic Computing Service `acs_ecs_dashboard` instance `i-uf6j91r34rnwawoo****`. The alert contact group of the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
-   * > 2024-08-15: Statistics validation is added. Only the Statistics value that corresponds to the metric can be specified. For information about how to obtain the value of this parameter, see [Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+   * This topic provides an example of setting a threshold alert rule for the `cpu_total` metric of the `i-uf6j91r34rnwawoo****` instance in the `acs_ecs_dashboard` namespace of Elastic Compute Service. The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the number of alert retries for the Critical level is `3`.
+   * > On August 15, 2024, Statistics validation was added. The statistical value can only be the Statistics corresponding to the metric. For more information about how to obtain the value of this parameter, see [cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
    * 
    * @param request - SearchMemoriesRequest
    * @returns SearchMemoriesResponse
@@ -9885,7 +9891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches labels to resources.
+   * Attaches tags to resources.
    * 
    * @param request - TagResourcesRequest
    * @param headers - map
@@ -9926,7 +9932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches labels to resources.
+   * Attaches tags to resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -10342,7 +10348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an alert robot.
+   * Updates a chatbot.
    * 
    * @param request - UpdateAlertRobotRequest
    * @param headers - map
@@ -10395,7 +10401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an alert robot.
+   * Updates a chatbot.
    * 
    * @param request - UpdateAlertRobotRequest
    * @returns UpdateAlertRobotResponse
@@ -10559,6 +10565,10 @@ export default class Client extends OpenApi {
       body["phone"] = request.phone;
     }
 
+    if (!$dara.isNull(request.phoneCode)) {
+      body["phoneCode"] = request.phoneCode;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -10639,7 +10649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a context.
+   * Updates the context.
    * 
    * @param request - UpdateContextRequest
    * @param headers - map
@@ -10688,7 +10698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a context.
+   * Updates the context.
    * 
    * @param request - UpdateContextRequest
    * @returns UpdateContextResponse
@@ -11825,7 +11835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upserts a common Umodel schema reference.
+   * Updates the referenced public Umodel schema.
    * 
    * @param request - UpsertUmodelCommonSchemaRefRequest
    * @param headers - map
@@ -11862,7 +11872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upserts a common Umodel schema reference.
+   * Updates the referenced public Umodel schema.
    * 
    * @param request - UpsertUmodelCommonSchemaRefRequest
    * @returns UpsertUmodelCommonSchemaRefResponse
@@ -11925,10 +11935,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the on-call calendar of a specified on-call schedule within a given date range, and returns the contacts and start and end times of each on-call shift grouped by shift name.
+   * Queries the on-call calendar of a specified on-call schedule within a specified date range and returns the contacts and start and end times of each on-call shift grouped by shift name.
    * 
    * @remarks
-   * Retrieves the on-call calendar. Returns the on-call arrangements of a specified on-call schedule within the queried date range. The response is grouped by shift name, where the key is the shift name and the value is a list of on-call shifts. Each shift includes the on-call contact and the start and end times.
+   * Views the on-call calendar and returns the on-call schedule for a specified on-call schedule within a specified date range. The response is grouped by shift name, where each key is a shift name and the value is a list of on-call shifts. Each shift includes the on-call contact and the start and end times.
    * 
    * @param request - ViewOncallScheduleRequest
    * @param headers - map
@@ -11965,10 +11975,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the on-call calendar of a specified on-call schedule within a given date range, and returns the contacts and start and end times of each on-call shift grouped by shift name.
+   * Queries the on-call calendar of a specified on-call schedule within a specified date range and returns the contacts and start and end times of each on-call shift grouped by shift name.
    * 
    * @remarks
-   * Retrieves the on-call calendar. Returns the on-call arrangements of a specified on-call schedule within the queried date range. The response is grouped by shift name, where the key is the shift name and the value is a list of on-call shifts. Each shift includes the on-call contact and the start and end times.
+   * Views the on-call calendar and returns the on-call schedule for a specified on-call schedule within a specified date range. The response is grouped by shift name, where each key is a shift name and the value is a list of on-call shifts. Each shift includes the on-call contact and the start and end times.
    * 
    * @param request - ViewOncallScheduleRequest
    * @returns ViewOncallScheduleResponse

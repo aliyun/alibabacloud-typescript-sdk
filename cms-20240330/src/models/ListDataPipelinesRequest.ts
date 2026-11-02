@@ -13,7 +13,7 @@ export class ListDataPipelinesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The next page token.
+   * The next token.
    * 
    * @example
    * eyJvZmZzZXQiOjEwfQ==

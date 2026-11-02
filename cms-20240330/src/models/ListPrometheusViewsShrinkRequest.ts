@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the results by region ID. Currently, only a single region ID is supported.
+   * The region IDs used for filtering. Currently, only a single region ID is supported.
    * 
    * @example
    * cn-zhangjiakou,cn-beijing
@@ -15,7 +15,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   filterRegionIds?: string;
   /**
    * @remarks
-   * The maximum number of records to return.
+   * The maximum number of entries to return.
    * 
    * @example
    * 100
@@ -26,7 +26,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token.
+   * The pagination token.
    * 
    * @example
    * 44ANBjKZmQeKnaB1fXRq06w7sFYK3MUcCALMD9qQbmEiE
@@ -74,7 +74,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   tagShrink?: string;
   /**
    * @remarks
-   * The instance version.
+   * The instance version. Valid values: V1 and V2.
    * 
    * @example
    * V2

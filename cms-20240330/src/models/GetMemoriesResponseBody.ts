@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMemoriesResponseBodyRelations extends $dara.Model {
   /**
    * @remarks
-   * The destination of the relation.
+   * The destination.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class GetMemoriesResponseBodyRelations extends $dara.Model {
   destination?: string;
   /**
    * @remarks
-   * The type of the relation.
+   * The relationships.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class GetMemoriesResponseBodyRelations extends $dara.Model {
   relationship?: string;
   /**
    * @remarks
-   * The source of the relation.
+   * The source.
    * 
    * @example
    * test_namespace/RegistryModule-test2153b9f3-0be6-455e-9efd-05fd31f62885/alicloud
@@ -63,7 +63,7 @@ export class GetMemoriesResponseBodyResults extends $dara.Model {
   actorId?: string;
   /**
    * @remarks
-   * The agent ID.
+   * The agent ID of the application.
    * 
    * @example
    * 980565235819266048
@@ -87,7 +87,7 @@ export class GetMemoriesResponseBodyResults extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The memory hash.
+   * The memory hash value.
    * 
    * @example
    * 73ad89f2d56c2f8615e5dd0cef7b4c41c074277c91fa0e31fc5b41802c0481f2
@@ -103,7 +103,7 @@ export class GetMemoriesResponseBodyResults extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The memory content.
+   * The memory.
    * 
    * @example
    * My name is Zhang San and I live in Hangzhou.
@@ -119,7 +119,7 @@ export class GetMemoriesResponseBodyResults extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The role that sent the message.
+   * The role of the message initiator.
    * 
    * @example
    * user
@@ -208,7 +208,7 @@ export class GetMemoriesResponseBodyResults extends $dara.Model {
 export class GetMemoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of relations.
+   * The relationships.
    */
   relations?: GetMemoriesResponseBodyRelations[];
   /**
@@ -221,7 +221,7 @@ export class GetMemoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of results.
+   * The results.
    */
   results?: GetMemoriesResponseBodyResults[];
   static names(): { [key: string]: string } {

@@ -14,8 +14,8 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   /**
    * @remarks
    * The instance type. Valid values:
-   * - prom-view: new version of the aggregate view
-   * - global-view: legacy version of the aggregate view
+   * - prom-view: New version aggregate view.
+   * - global-view: Legacy version aggregate view.
    * 
    * @example
    * prom-view
@@ -23,7 +23,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   instanceType?: string;
   /**
    * @remarks
-   * The billing method. The value is fixed to FREE.
+   * The billing method. Currently, the value is fixed to FREE.
    * 
    * @example
    * FREE
@@ -95,7 +95,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
    * 123xxx
@@ -167,7 +167,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
 export class ListPrometheusViewsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return.
+   * The maximum number of entries to return.
    * 
    * @example
    * 10
@@ -178,7 +178,7 @@ export class ListPrometheusViewsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query.
+   * The pagination token for the next query.
    * 
    * @example
    * 2-ba4d-4b9f-aa24-dcb067a30f1c

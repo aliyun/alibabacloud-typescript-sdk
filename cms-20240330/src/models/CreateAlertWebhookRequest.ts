@@ -15,7 +15,7 @@ export class CreateAlertWebhookRequest extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The collection of HTTP request headers.
+   * The HTTP request headers.
    */
   headers?: { [key: string]: string };
   /**

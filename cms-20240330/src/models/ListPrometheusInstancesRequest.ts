@@ -45,7 +45,7 @@ export class ListPrometheusInstancesRequestTag extends $dara.Model {
 export class ListPrometheusInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The region IDs for filtering, separated by commas. Currently, only a single region ID is supported.
+   * The list of region IDs used for filtering, separated by commas.
    * 
    * @example
    * cn-shenzhen
@@ -80,7 +80,7 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The instance IDs, separated by commas.
+   * The list of instance IDs, separated by commas.
    * 
    * @example
    * rw-00001,rw-00002,rw-00003
@@ -91,7 +91,7 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
   prometheusInstanceIds?: string;
   /**
    * @remarks
-   * The instance name. Fuzzy match is supported.
+   * The name of the instance. Partial matching is supported.
    * 
    * @example
    * test
@@ -123,12 +123,12 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: ListPrometheusInstancesRequestTag[];
   /**
    * @remarks
-   * The instance version. Valid values: V1 and V2.
+   * The version of the instance.
    * 
    * @example
    * V2

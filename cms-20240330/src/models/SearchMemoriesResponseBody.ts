@@ -13,7 +13,7 @@ export class SearchMemoriesResponseBodyRelations extends $dara.Model {
   destination?: string;
   /**
    * @remarks
-   * The relations.
+   * The relationships.
    * 
    * @example
    * test
@@ -79,7 +79,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The memory hash value.
+   * The hash value of the memory.
    * 
    * @example
    * d791bf27236c5532056a13279baad3517042bb8d5b1bdb02e7871fa632debffe
@@ -95,7 +95,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The memory content.
+   * The memory.
    * 
    * @example
    * My name is Zhang San and I live in Hangzhou.
@@ -198,7 +198,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
 export class SearchMemoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The relations.
+   * The relationships.
    */
   relations?: SearchMemoriesResponseBodyRelations[];
   /**
@@ -211,7 +211,7 @@ export class SearchMemoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * The return values.
    */
   results?: SearchMemoriesResponseBodyResults[];
   static names(): { [key: string]: string } {

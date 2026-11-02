@@ -21,7 +21,7 @@ export class CreateContactRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The instant messaging (IM) user ID mapping, which supports multi-platform integration. The key is the IM type (such as DING or WEIXIN), and the value is the corresponding user ID.
+   * The instant messaging (IM) user ID mapping, which supports multi-platform integration. The key is the IM type, such as DING or WEIXIN, and the value is the corresponding user ID.
    */
   imUserIds?: { [key: string]: string };
   /**
@@ -42,12 +42,20 @@ export class CreateContactRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The mobile phone number. Currently, only mobile phone numbers in the Chinese mainland are supported.
+   * The mobile phone number. Currently, only Chinese mobile phone numbers are supported.
    * 
    * @example
    * 13012345678
    */
   phone?: string;
+  /**
+   * @remarks
+   * 号码国家码，可带前导 +，如 86、+86。传入后 phone 必须是纯数字，服务端按 <phoneCode>-<phone> 拼号发送，因此 phone 内不能再带 +、00 或区号。不传时按手机号码原样发送。
+   * 
+   * @example
+   * 0086
+   */
+  phoneCode?: string;
   /**
    * @remarks
    * The name of the workspace.
@@ -64,6 +72,7 @@ export class CreateContactRequest extends $dara.Model {
       lang: 'lang',
       name: 'name',
       phone: 'phone',
+      phoneCode: 'phoneCode',
       workspace: 'workspace',
     };
   }
@@ -76,6 +85,7 @@ export class CreateContactRequest extends $dara.Model {
       lang: 'string',
       name: 'string',
       phone: 'string',
+      phoneCode: 'string',
       workspace: 'string',
     };
   }

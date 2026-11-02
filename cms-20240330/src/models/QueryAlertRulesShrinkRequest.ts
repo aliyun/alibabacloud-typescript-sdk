@@ -10,7 +10,7 @@ export class QueryAlertRulesShrinkRequest extends $dara.Model {
   bodyShrink?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure idempotence.
    * 
    * @example
    * xxxxx-xxxx-xxxx
@@ -26,7 +26,7 @@ export class QueryAlertRulesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the starting position for the current read operation. If this parameter is left empty, the read operation starts from the beginning.
+   * The token that marks the position from which the read operation starts. If this parameter is left empty, the read operation starts from the beginning.
    * 
    * @example
    * 123456
@@ -34,7 +34,7 @@ export class QueryAlertRulesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The query filter conditions in JSON string format. The field semantics are the same as those in the request body. Supported fields include filter (such as uuid, displayName, labels, status, and enabled, where sibling fields use the AND logical operator), pagination (pageNumber and pageSize), and workspace. You must specify either this parameter or the body parameter. If both are specified, the body parameter takes precedence.
+   * The query filter conditions in JSON string format. The field semantics are the same as those in the request body. Supported fields include filter (such as uuid, displayName, labels, status, and enabled, where sibling fields use the AND logical operator), pagination (pageNumber and pageSize), and workspace. You can specify either this parameter or the body parameter. If both are specified, the body parameter takes precedence.
    * 
    * @example
    * {"filter":{"displayName":{"contains":"my-rule"}},"pagination":{"pageNumber":1,"pageSize":20}}

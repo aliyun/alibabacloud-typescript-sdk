@@ -23,9 +23,9 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The labels.
+   * The tags.
    * 
-   * You can attach up to 20 labels.
+   * You can attach up to 20 tags.
    */
   tag?: Tag[];
   static names(): { [key: string]: string } {

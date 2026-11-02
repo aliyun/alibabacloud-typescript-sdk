@@ -12,7 +12,7 @@ export class UpdateOncallScheduleRequestRotations extends $dara.Model {
   activeDays?: number[];
   /**
    * @remarks
-   * The IDs of the contacts.
+   * The contact IDs.
    * 
    * This parameter is required.
    */
@@ -49,7 +49,7 @@ export class UpdateOncallScheduleRequestRotations extends $dara.Model {
   rotationStartTime?: string;
   /**
    * @remarks
-   * The length of the shift cycle. Used in conjunction with shiftRecurrenceFrequency, such as switching to the next on-call person every 3 days.
+   * The length of the shift cycle. Used in conjunction with shiftRecurrenceFrequency. For example, a value of 3 indicates that the on-call contact rotates every 3 days.
    * 
    * @example
    * 3
@@ -57,7 +57,7 @@ export class UpdateOncallScheduleRequestRotations extends $dara.Model {
   shiftLength?: number;
   /**
    * @remarks
-   * The unit of the shift cycle. Used in conjunction with shiftRecurrenceFrequency, such as switching to the next on-call person every week.
+   * The unit of the shift cycle. Used in conjunction with shiftLength. For example, a value of week indicates that the on-call contact rotates every week.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class UpdateOncallScheduleRequestRotations extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The time zone name. Uses the IANA Time Zone Database standard, such as Asia/Shanghai.
+   * The name of the time zone. The IANA Time Zone Database standard is used. Example: Asia/Shanghai.
    * 
    * This parameter is required.
    * 
@@ -147,7 +147,7 @@ export class UpdateOncallScheduleRequestSubstitudes extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The contact ID of the replaced person.
+   * The contact ID of the replaced contact.
    * 
    * @example
    * testId
@@ -204,7 +204,7 @@ export class UpdateOncallScheduleRequest extends $dara.Model {
   rotations?: UpdateOncallScheduleRequestRotations[];
   /**
    * @remarks
-   * The ID of the shift reminder chatbot.
+   * The ID of the chatbot for shift reminders.
    * 
    * @example
    * testId

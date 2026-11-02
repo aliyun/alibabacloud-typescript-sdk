@@ -103,7 +103,7 @@ export class CreateIntegrationPolicyResponseBody extends $dara.Model {
   created?: boolean;
   /**
    * @remarks
-   * The uploaded policy.
+   * The policy.
    */
   policy?: CreateIntegrationPolicyResponseBodyPolicy;
   /**

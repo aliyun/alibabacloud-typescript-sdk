@@ -21,7 +21,7 @@ export class ListPipelinesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The name of the pipeline.
+   * The pipeline name.
    * 
    * @example
    * pipeline-name-1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContextResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the deleted context.
+   * The ID of the generated record or event.
    * 
    * @example
    * 897294a7-67a4-4f60-976c-e136edc5f97e
@@ -21,7 +21,7 @@ export class DeleteContextResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The deletion status. For example, deleted.
+   * The deletion status, such as deleted.
    * 
    * @example
    * deleted

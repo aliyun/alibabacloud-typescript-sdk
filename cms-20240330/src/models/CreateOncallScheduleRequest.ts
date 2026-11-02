@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOncallScheduleRequestRotations extends $dara.Model {
   /**
    * @remarks
-   * The days of the week when the rotation is active.
+   * The days of the week when the rotation takes effect.
    * 
    * This parameter is required.
    */
@@ -49,7 +49,7 @@ export class CreateOncallScheduleRequestRotations extends $dara.Model {
   rotationStartTime?: string;
   /**
    * @remarks
-   * The length of the shift interval. Use this parameter in conjunction with shiftRecurrenceFrequency. For example, set this parameter to 3 to rotate to the next on-call contact every 3 days.
+   * The length of the shift recurrence cycle. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 3 days.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class CreateOncallScheduleRequestRotations extends $dara.Model {
   shiftLength?: number;
   /**
    * @remarks
-   * The unit of the shift interval. Use this parameter in conjunction with shiftRecurrenceFrequency. For example, set this parameter to week to rotate to the next on-call contact every week.
+   * The unit of the shift recurrence cycle. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every week.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class CreateOncallScheduleRequestRotations extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The name of the time zone. The time zone must follow the **IANA Time Zone Database** standard, such as `Asia/Shanghai`.
+   * The time zone name. Uses the **IANA Time Zone Database** standard. Example: `Asia/Shanghai`.
    * 
    * This parameter is required.
    * 
@@ -131,7 +131,7 @@ export class CreateOncallScheduleRequestRotations extends $dara.Model {
 export class CreateOncallScheduleRequestSubstitudes extends $dara.Model {
   /**
    * @remarks
-   * The ID of the substitute contact.
+   * The contact ID of the substitute.
    * 
    * @example
    * testId
@@ -147,7 +147,7 @@ export class CreateOncallScheduleRequestSubstitudes extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the replaced contact.
+   * The contact ID of the replaced contact.
    * 
    * @example
    * testId
@@ -212,7 +212,7 @@ export class CreateOncallScheduleRequest extends $dara.Model {
   rotations?: CreateOncallScheduleRequestRotations[];
   /**
    * @remarks
-   * The ID of the chatbot for shift reminders.
+   * The ID of the shift reminder chatbot.
    * 
    * @example
    * testRobotId
@@ -225,7 +225,7 @@ export class CreateOncallScheduleRequest extends $dara.Model {
   substitudes?: CreateOncallScheduleRequestSubstitudes[];
   /**
    * @remarks
-   * The name of the workspace.
+   * The workspace name.
    * 
    * @example
    * default-cms-5884500827389836-cn-hangzhou

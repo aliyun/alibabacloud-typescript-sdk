@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAlertNotifyTemplatesResponseBody extends $dara.Model {
   /**
+   * @example
+   * 0
+   */
+  deletedCount?: number;
+  /**
    * @remarks
    * The request ID.
    * 
@@ -13,12 +18,14 @@ export class DeleteAlertNotifyTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      deletedCount: 'deletedCount',
       requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      deletedCount: 'number',
       requestId: 'string',
     };
   }

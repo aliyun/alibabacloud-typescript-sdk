@@ -13,7 +13,7 @@ export class CreateOncallScheduleResponseBody extends $dara.Model {
   oncallScheduleId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3B311FD9-A60B-55E0-A896-A0C73*********

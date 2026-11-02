@@ -29,7 +29,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   metricsPath?: string;
   /**
    * @remarks
-   * The invocation method.
+   * The scheme.
    * 
    * @example
    * http
@@ -95,7 +95,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
 export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJobRules extends $dara.Model {
   /**
    * @remarks
-   * The addon name.
+   * The add-on name.
    * 
    * @example
    * cloud-ecs
@@ -103,7 +103,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   addonName?: string;
   /**
    * @remarks
-   * The addon release name.
+   * The add-on release name.
    * 
    * @example
    * release-12345678
@@ -111,7 +111,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   addonReleaseName?: string;
   /**
    * @remarks
-   * The addon version.
+   * The add-on version.
    * 
    * @example
    * 0.0.1
@@ -119,7 +119,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJo
   addonVersion?: string;
   /**
    * @remarks
-   * The configuration YAML.
+   * The YAML configuration.
    * 
    * @example
    * scrape_cofnigs:

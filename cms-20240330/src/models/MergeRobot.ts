@@ -13,7 +13,7 @@ export class MergeRobotExtend extends $dara.Model {
   cardTemplate?: string;
   /**
    * @remarks
-   * Specifies whether to enable the daily on-duty report.
+   * Specifies whether the daily on-call report is enabled.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class MergeRobotExtend extends $dara.Model {
   dailyNoc?: boolean;
   /**
    * @remarks
-   * The time for the daily on-duty report.
+   * The time for the daily on-call report.
    * 
    * @example
    * 09:00
@@ -29,7 +29,7 @@ export class MergeRobotExtend extends $dara.Model {
   dailyNocTime?: string;
   /**
    * @remarks
-   * The signature key for DingTalk.
+   * The DingTalk signing key.
    * 
    * @example
    * abc123
@@ -37,7 +37,7 @@ export class MergeRobotExtend extends $dara.Model {
   dingSignKey?: string;
   /**
    * @remarks
-   * Specifies whether to enable outbound requests.
+   * Specifies whether outgoing requests are enabled.
    * 
    * @example
    * false
@@ -85,7 +85,7 @@ export class MergeRobotExtend extends $dara.Model {
 export class MergeRobot extends $dara.Model {
   /**
    * @remarks
-   * The time when the bot was created.
+   * The creation time.
    * 
    * @example
    * 2025-03-11T08:21:58.789Z
@@ -98,7 +98,7 @@ export class MergeRobot extends $dara.Model {
   extend?: MergeRobotExtend;
   /**
    * @remarks
-   * The time when the bot was last modified.
+   * The last modification time.
    * 
    * @example
    * 2025-03-11T08:21:58.789Z
@@ -125,7 +125,7 @@ export class MergeRobot extends $dara.Model {
    * The name of the bot.
    * 
    * @example
-   * 运维告警机器人
+   * O&M Alert Bot
    */
   name?: string;
   /**

@@ -6,7 +6,7 @@ import { EntityDiscoverRule } from "./EntityDiscoverRule";
 export class CreateAddonReleaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the add-on that requires monitoring integration.
+   * The name of the add-on to be integrated for monitoring.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class CreateAddonReleaseRequest extends $dara.Model {
   aliyunLang?: string;
   /**
    * @remarks
-   * The catalog version of the add-on. Valid values: v1 and v2.
+   * The add-on catalog version. Valid values: v1 and v2.
    * 
    * @example
    * v2
@@ -47,7 +47,7 @@ export class CreateAddonReleaseRequest extends $dara.Model {
   entityRules?: EntityDiscoverRule;
   /**
    * @remarks
-   * The environment type. If the policy type is CS or ECS, the corresponding environment type is used. For other policy types, the environment type is uniformly set to Cloud.
+   * The environment type. If the policy type is CS or ECS, the corresponding environment type is used. For other types, the environment type is uniformly set to Cloud.
    * 
    * @example
    * CS
@@ -55,7 +55,7 @@ export class CreateAddonReleaseRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The ID of the parent add-on release.
+   * The parent AddonReleaseId.
    * 
    * @example
    * policy-xxxxxxxxxxx
@@ -79,7 +79,7 @@ export class CreateAddonReleaseRequest extends $dara.Model {
   values?: string;
   /**
    * @remarks
-   * The version of the add-on that requires monitoring integration.
+   * The version of the add-on to be integrated for monitoring.
    * 
    * This parameter is required.
    * 

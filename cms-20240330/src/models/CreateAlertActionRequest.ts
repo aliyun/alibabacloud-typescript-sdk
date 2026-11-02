@@ -21,7 +21,7 @@ export class CreateAlertActionRequestEbParam extends $dara.Model {
   eventBusName?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-heyuan
@@ -215,7 +215,7 @@ export class CreateAlertActionRequestFcParam extends $dara.Model {
 export class CreateAlertActionRequestMnsParam extends $dara.Model {
   /**
    * @remarks
-   * The resource type of Simple Message Queue (formerly MNS) (MSMQ).
+   * The Simple Message Queue (formerly MNS) resource type.
    * 
    * @example
    * queue
@@ -223,7 +223,7 @@ export class CreateAlertActionRequestMnsParam extends $dara.Model {
   mnsType?: string;
   /**
    * @remarks
-   * The name of the resource.
+   * The resource name.
    * 
    * - If the resource type is queue, the resource name is the queue name.
    * - If the resource type is topic, the resource name is the topic name.
@@ -268,7 +268,7 @@ export class CreateAlertActionRequestMnsParam extends $dara.Model {
 export class CreateAlertActionRequestPagerDutyParam extends $dara.Model {
   /**
    * @remarks
-   * The integration key of PagerDuty.
+   * The integration key for PagerDuty.
    * 
    * @example
    * fds3wr54rvcxfr4543t6435
@@ -276,7 +276,7 @@ export class CreateAlertActionRequestPagerDutyParam extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The integration webhook URL of PagerDuty. Both V1 and V2 are supported.
+   * The integration webhook for PagerDuty. Both V1 and V2 are supported.
    * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
@@ -308,7 +308,7 @@ export class CreateAlertActionRequestPagerDutyParam extends $dara.Model {
 export class CreateAlertActionRequestSlsParam extends $dara.Model {
   /**
    * @remarks
-   * The name of the Logstore in Simple Log Service.
+   * The name of the Simple Log Service Logstore.
    * 
    * @example
    * testLogstore。
@@ -316,7 +316,7 @@ export class CreateAlertActionRequestSlsParam extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the project in Simple Log Service.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * testProject
@@ -366,7 +366,7 @@ export class CreateAlertActionRequestWebhookParam extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The request header information.
+   * The request headers.
    */
   headers?: { [key: string]: string };
   /**
@@ -456,7 +456,7 @@ export class CreateAlertActionRequest extends $dara.Model {
   fcParam?: CreateAlertActionRequestFcParam;
   /**
    * @remarks
-   * The Simple Message Queue (formerly MNS) (MSMQ) parameters.
+   * The Simple Message Queue (formerly MNS) parameters.
    */
   mnsParam?: CreateAlertActionRequestMnsParam;
   /**
@@ -471,7 +471,7 @@ export class CreateAlertActionRequest extends $dara.Model {
   slsParam?: CreateAlertActionRequestSlsParam;
   /**
    * @remarks
-   * The type of the alert action integration.
+   * The alert action integration type.
    * 
    * This parameter is required.
    * 

@@ -276,7 +276,7 @@ export class UpdateAlertActionRequestPagerDutyParam extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The integration webhook of PagerDuty. V1 and V2 are supported.
+   * The integration webhook URL of PagerDuty. V1 and V2 are supported.
    * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
@@ -308,7 +308,7 @@ export class UpdateAlertActionRequestPagerDutyParam extends $dara.Model {
 export class UpdateAlertActionRequestSlsParam extends $dara.Model {
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The name of the Logstore.
    * 
    * @example
    * testLogstore
@@ -316,7 +316,7 @@ export class UpdateAlertActionRequestSlsParam extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The name of the project.
    * 
    * @example
    * testProject
@@ -379,7 +379,7 @@ export class UpdateAlertActionRequestWebhookParam extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The alert callback URL.
+   * The URL of the alert callback.
    * 
    * @example
    * http://www.test.com
@@ -418,7 +418,7 @@ export class UpdateAlertActionRequestWebhookParam extends $dara.Model {
 export class UpdateAlertActionRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the alert action integration.
+   * The name of the action integration.
    * 
    * @example
    * testName
@@ -426,7 +426,7 @@ export class UpdateAlertActionRequest extends $dara.Model {
   alertActionName?: string;
   /**
    * @remarks
-   * The event bus.
+   * The event bus parameters.
    */
   ebParam?: UpdateAlertActionRequestEbParam;
   /**
@@ -461,7 +461,7 @@ export class UpdateAlertActionRequest extends $dara.Model {
   slsParam?: UpdateAlertActionRequestSlsParam;
   /**
    * @remarks
-   * The type of the alert action integration.
+   * The type of the action integration.
    * 
    * @example
    * FC

@@ -6,7 +6,7 @@ import { AlertRuleSend } from "./AlertRuleSend";
 export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the alert history.
+   * The unique identifier of the alert history record.
    * 
    * @example
    * u1oe4i7c197uucfmvscum4u797
@@ -14,7 +14,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   alertHistoryId?: string;
   /**
    * @remarks
-   * The unique identifier of the alert rule that generated the alert history.
+   * The unique identifier of the alert rule that generated the alert history record.
    * 
    * @example
    * 51d0da46-bb65-4a14-8d65-de73f41e495f
@@ -22,7 +22,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   alertRuleId?: string;
   /**
    * @remarks
-   * The snapshot of the annotations of the alert rule. The annotations are stored as key-value pairs and copied from the rule when the alert is triggered.
+   * The snapshot of the annotations of the alert rule, stored as key-value pairs and copied from the rule when the alert is triggered.
    * 
    * @example
    * {"_cms_alert_explore_url":"https://sls.console.aliyun.com/..."}
@@ -38,7 +38,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   bizSource?: string;
   /**
    * @remarks
-   * The cumulative number of alerts (alert events) during the alert duration.
+   * The cumulative number of alert events during the alert duration.
    * 
    * @example
    * 200
@@ -46,7 +46,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The end time (recovery time) of the alert. This field has a value only when the alert history enters the OK state. The value is a UNIX timestamp in milliseconds.
+   * The end time of the alert, which is the recovery time. This field has a value only when the alert history enters the OK state. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1740535517000
@@ -70,7 +70,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The detailed information of the alert object. The information is stored as key-value pairs.
+   * The detailed information of the alert object, stored as key-value pairs.
    * 
    * @example
    * {"datasourceInfo":{"type":"SLS_MULTI_DS"}}
@@ -78,7 +78,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   instanceDetail?: { [key: string]: string };
   /**
    * @remarks
-   * The unique key (instanceKey) used to identify the alert object instance.
+   * The unique key value (instanceKey) that identifies the alert object instance.
    * 
    * @example
    * entity/apm/apm.service/6dc9e46fda6d012537b48c3250ff806b
@@ -86,7 +86,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   instanceKey?: string;
   /**
    * @remarks
-   * The snapshot of the labels of the alert rule. The labels are stored as key-value pairs and copied from the rule when the alert is triggered.
+   * The snapshot of the labels of the alert rule, stored as key-value pairs and copied from the rule when the alert is triggered.
    * 
    * @example
    * {"_cms_rule_id":"42c0f464-a3b0-4c4b-b426-6242289244f8","tenant_id":"mygt"}
@@ -118,7 +118,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the observed object is in the global scope. The value is copied from the rule when the alert history is created.
+   * Indicates whether the observed object is in the global scope. This value is copied from the rule when the alert history record is created.
    * 
    * @example
    * false
@@ -126,7 +126,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   observeResourceGlobalScope?: boolean;
   /**
    * @remarks
-   * The serialized string of the observed object list. The value is copied from the rule when the alert history is created.
+   * The serialized string of the observed object list. This value is copied from the rule when the alert history record is created.
    * 
    * @example
    * [{"resourceId":"i-bp1234567890abcdef","resourceType":"ACS::ECS::Instance"}]
@@ -134,7 +134,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   observeResourceList?: string;
   /**
    * @remarks
-   * The type of the observed object, such as PROMETHEUS, APM, RUM, or cms_basic. The value is copied from the rule when the alert history is created.
+   * The type of the observed object, such as PROMETHEUS, APM, RUM, or cms_basic. This value is copied from the rule when the alert history record is created.
    * 
    * @example
    * PROMETHEUS
@@ -142,7 +142,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   observeResourceType?: string;
   /**
    * @remarks
-   * The ID of the region to which the alert history belongs.
+   * The ID of the region to which the alert history record belongs.
    * 
    * @example
    * cn-hangzhou
@@ -158,7 +158,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   ruleDisplayName?: string;
   /**
    * @remarks
-   * The notification sending configuration information corresponding to the alert history.
+   * The notification sending configuration information corresponding to the alert history record.
    * 
    * @example
    * {"notification":{"contacts":["ops-team"],"silenceTime":3600}}
@@ -166,7 +166,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   send?: AlertRuleSend;
   /**
    * @remarks
-   * The start time of the alert history. The value is a UNIX timestamp in milliseconds.
+   * The start time of the alert history record. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1751508233000
@@ -182,7 +182,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The identifier of the workspace to which the alert history belongs.
+   * The identifier of the workspace to which the alert history record belongs.
    * 
    * @example
    * default-cms-<userId>-cn-hangzhou
@@ -268,7 +268,7 @@ export class ListAlertHistoriesResponseBodyData extends $dara.Model {
 export class ListAlertHistoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of alert histories that match the query conditions.
+   * The list of alert history records that match the query conditions.
    * 
    * @example
    * [{"alertHistoryId":"ah_123456","alertRuleId":"rule_789","status":"ALARM","startTime":1704067200000}]

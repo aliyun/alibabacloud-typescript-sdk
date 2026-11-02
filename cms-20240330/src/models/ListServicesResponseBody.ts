@@ -13,7 +13,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   attributes?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the service was created.
    * 
    * @example
    * 2025-07-01T02:23:59Z
@@ -21,7 +21,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The service description. This parameter is valid only when serviceType is set to RUM.
+   * The description of the service. This parameter is valid only when serviceType is set to RUM.
    * 
    * @example
    * workspace api monitor test
@@ -37,7 +37,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ARMS application ID for backward compatibility.
+   * The legacy ARMS application ID for backward compatibility.
    * 
    * @example
    * kgcsf@192197e828d51aa
@@ -45,7 +45,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   pid?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aekxxzuad5zzzz
@@ -53,7 +53,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The service ID.
+   * The ID of the service.
    * 
    * @example
    * jm2pl0yoqf@d4905cb11a4f218dfb0a8
@@ -69,7 +69,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service status. This parameter is valid only when serviceType is set to RUM.
+   * The status of the service. This parameter is valid only when serviceType is set to RUM.
    * 
    * @example
    * Running
@@ -77,7 +77,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   serviceStatus?: string;
   /**
    * @remarks
-   * The service type.
+   * The type of the service.
    * 
    * @example
    * TRACE
@@ -135,7 +135,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
 export class ListServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned. Maximum value: 200.
+   * The maximum number of results to return. Maximum value: 200.
    * 
    * @example
    * 10

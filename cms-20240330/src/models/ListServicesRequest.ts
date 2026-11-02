@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServicesRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * evn
@@ -13,7 +13,7 @@ export class ListServicesRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * prod
@@ -45,7 +45,7 @@ export class ListServicesRequestTags extends $dara.Model {
 export class ListServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of records to return for the current request.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class ListServicesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aekxxzuad5zzzz
@@ -69,7 +69,7 @@ export class ListServicesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The application service name.
+   * The service name.
    * 
    * @example
    * app-demo
@@ -77,7 +77,7 @@ export class ListServicesRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service type.
+   * The type of the service.
    * 
    * @example
    * TRACE
@@ -85,7 +85,7 @@ export class ListServicesRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The array of tags.
    * 
    * **if can be null:**
    * true

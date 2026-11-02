@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAlertActionResponseBodyAlertActionsEbParam extends $dara.Model {
   /**
    * @remarks
-   * The event source.
+   * The event provider.
    * 
    * @example
    * test
@@ -225,8 +225,8 @@ export class GetAlertActionResponseBodyAlertActionsMnsParam extends $dara.Model 
    * @remarks
    * The name of the resource.
    * 
-   * - If the resource type is queue, the resource name is the name of the queue.
-   * - If the resource type is topic, the resource name is the name of the topic.
+   * - If the resource type is queue, the resource name is the queue name.
+   * - If the resource type is topic, the resource name is the topic name.
    * 
    * @example
    * test
@@ -276,7 +276,7 @@ export class GetAlertActionResponseBodyAlertActionsPagerDutyParam extends $dara.
   key?: string;
   /**
    * @remarks
-   * The integration webhook URL for PagerDuty. V1 and V2 are supported.
+   * The PagerDuty integration webhook. Both V1 and V2 are supported.
    * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
@@ -379,7 +379,7 @@ export class GetAlertActionResponseBodyAlertActionsWebhookParam extends $dara.Mo
   method?: string;
   /**
    * @remarks
-   * The URL for the alert callback.
+   * The alert callback URL.
    * 
    * @example
    * http://www.test.com

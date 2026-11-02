@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServicesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of records to return for the current request.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListServicesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aekxxzuad5zzzz
@@ -29,7 +29,7 @@ export class ListServicesShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The application service name.
+   * The service name.
    * 
    * @example
    * app-demo
@@ -37,7 +37,7 @@ export class ListServicesShrinkRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service type.
+   * The type of the service.
    * 
    * @example
    * TRACE
@@ -45,7 +45,7 @@ export class ListServicesShrinkRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The array of tags.
    * 
    * **if can be null:**
    * true

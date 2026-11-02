@@ -37,7 +37,7 @@ export class CreateAlertRobotRequest extends $dara.Model {
   robotId?: string;
   /**
    * @remarks
-   * The signature key of the robot.
+   * The signing key of the robot.
    * 
    * @example
    * abc123

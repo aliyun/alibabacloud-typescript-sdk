@@ -45,7 +45,7 @@ export class ListDeliveryTasksRequestTag extends $dara.Model {
 export class ListDeliveryTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies the keywords used to perform a fuzzy search by task name or task ID.
+   * The keywords used to perform a fuzzy search by task name or task ID.
    * 
    * @example
    * test-task
@@ -61,7 +61,7 @@ export class ListDeliveryTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Leave this parameter empty for the first request. For subsequent requests, pass the nextToken value returned in the previous response.
+   * The pagination token. Do not specify this parameter for the first request. For subsequent requests, specify the nextToken value returned from the previous request.
    * 
    * @example
    * sjC5rekx93Ew7K7VcmI3wkBZBYQ-GphB2ilQu3zJCGxoZuicwyJznfo2riTjr-lq

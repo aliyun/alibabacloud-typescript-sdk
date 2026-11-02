@@ -85,7 +85,7 @@ export class ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfigProjec
 export class ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The retained prefix length.
+   * The length of the prefix to retain.
    * 
    * @example
    * 2
@@ -93,7 +93,7 @@ export class ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfigRules 
   keepPrefix?: number;
   /**
    * @remarks
-   * The retained suffix length.
+   * The length of the suffix to retain.
    * 
    * @example
    * 2
@@ -408,7 +408,7 @@ export class ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfigScope 
 export class ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The service name list.
+   * The list of service names.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -471,12 +471,12 @@ export class ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfigTarget
 export class ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfig extends $dara.Model {
   /**
    * @remarks
-   * The application list.
+   * The list of applications.
    */
   applications?: string[];
   /**
    * @remarks
-   * The field assignment list.
+   * The list of field assignments.
    */
   assignments?: ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfigAssignments[];
   /**
@@ -489,7 +489,7 @@ export class ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfig exten
   expression?: string;
   /**
    * @remarks
-   * The field list.
+   * The list of fields.
    */
   fields?: string[];
   /**
@@ -499,12 +499,12 @@ export class ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfig exten
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * The field projection list.
+   * The list of field projections.
    */
   projections?: ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfigProjections[];
   /**
    * @remarks
-   * The data masking rule list.
+   * The list of data masking rules.
    */
   rules?: ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfigRules[];
   /**
@@ -606,7 +606,7 @@ export class ListDataPipelinesResponseBodyPipelinesOutputsProcessors extends $da
   config?: ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfig;
   /**
    * @remarks
-   * The processor name.
+   * The name of the processor.
    * 
    * @example
    * drop-health-check
@@ -614,7 +614,7 @@ export class ListDataPipelinesResponseBodyPipelinesOutputsProcessors extends $da
   name?: string;
   /**
    * @remarks
-   * The processor type.
+   * The type of the processor.
    * 
    * @example
    * filter
@@ -771,7 +771,7 @@ export class ListDataPipelinesResponseBodyPipelinesProcessorsConfigProjections e
 export class ListDataPipelinesResponseBodyPipelinesProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The retained prefix length.
+   * The length of the prefix to retain.
    * 
    * @example
    * 2
@@ -779,7 +779,7 @@ export class ListDataPipelinesResponseBodyPipelinesProcessorsConfigRules extends
   keepPrefix?: number;
   /**
    * @remarks
-   * The retained suffix length.
+   * The length of the suffix to retain.
    * 
    * @example
    * 2
@@ -1094,7 +1094,7 @@ export class ListDataPipelinesResponseBodyPipelinesProcessorsConfigScope extends
 export class ListDataPipelinesResponseBodyPipelinesProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The service name list.
+   * The list of service names.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -1157,12 +1157,12 @@ export class ListDataPipelinesResponseBodyPipelinesProcessorsConfigTarget extend
 export class ListDataPipelinesResponseBodyPipelinesProcessorsConfig extends $dara.Model {
   /**
    * @remarks
-   * The application list.
+   * The list of applications.
    */
   applications?: string[];
   /**
    * @remarks
-   * The field assignment list.
+   * The list of field assignments.
    */
   assignments?: ListDataPipelinesResponseBodyPipelinesProcessorsConfigAssignments[];
   /**
@@ -1175,7 +1175,7 @@ export class ListDataPipelinesResponseBodyPipelinesProcessorsConfig extends $dar
   expression?: string;
   /**
    * @remarks
-   * The field list.
+   * The list of fields.
    */
   fields?: string[];
   /**
@@ -1185,12 +1185,12 @@ export class ListDataPipelinesResponseBodyPipelinesProcessorsConfig extends $dar
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * The field projection list.
+   * The list of field projections.
    */
   projections?: ListDataPipelinesResponseBodyPipelinesProcessorsConfigProjections[];
   /**
    * @remarks
-   * The data masking rule list.
+   * The list of data masking rules.
    */
   rules?: ListDataPipelinesResponseBodyPipelinesProcessorsConfigRules[];
   /**
@@ -1292,7 +1292,7 @@ export class ListDataPipelinesResponseBodyPipelinesProcessors extends $dara.Mode
   config?: ListDataPipelinesResponseBodyPipelinesProcessorsConfig;
   /**
    * @remarks
-   * The processor name.
+   * The name of the processor.
    * 
    * @example
    * drop-health-check
@@ -1300,7 +1300,7 @@ export class ListDataPipelinesResponseBodyPipelinesProcessors extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The processor type.
+   * The type of the processor.
    * 
    * @example
    * filter
@@ -1455,7 +1455,7 @@ export class ListDataPipelinesResponseBodyPipelinesSourceConfig extends $dara.Mo
   runMode?: string;
   /**
    * @remarks
-   * The start position.
+   * The read start point.
    * 
    * @example
    * latest
@@ -1502,7 +1502,7 @@ export class ListDataPipelinesResponseBodyPipelinesSource extends $dara.Model {
   config?: ListDataPipelinesResponseBodyPipelinesSourceConfig;
   /**
    * @remarks
-   * The type of the source.
+   * The type of the data source.
    * 
    * @example
    * traces-default
@@ -1537,7 +1537,7 @@ export class ListDataPipelinesResponseBodyPipelinesSource extends $dara.Model {
 export class ListDataPipelinesResponseBodyPipelines extends $dara.Model {
   /**
    * @remarks
-   * The creation time in UTC format that follows the ISO 8601 standard, such as 2026-08-10T05:00:00Z.
+   * The creation time in ISO 8601 format in UTC, such as 2026-08-10T05:00:00Z.
    * 
    * This parameter is required.
    * 
@@ -1549,7 +1549,7 @@ export class ListDataPipelinesResponseBodyPipelines extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The pipeline description.
+   * The description of the pipeline.
    * 
    * @example
    * Export selected trace services to the target workspace.
@@ -1557,7 +1557,7 @@ export class ListDataPipelinesResponseBodyPipelines extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The pipeline type.
+   * The type of the pipeline.
    * 
    * This parameter is required.
    * 
@@ -1574,7 +1574,7 @@ export class ListDataPipelinesResponseBodyPipelines extends $dara.Model {
   outputs?: ListDataPipelinesResponseBodyPipelinesOutputs[];
   /**
    * @remarks
-   * The pipeline name.
+   * The name of the pipeline.
    * 
    * This parameter is required.
    * 
@@ -1591,7 +1591,7 @@ export class ListDataPipelinesResponseBodyPipelines extends $dara.Model {
   processors?: ListDataPipelinesResponseBodyPipelinesProcessors[];
   /**
    * @remarks
-   * The signal type.
+   * The type of the signal.
    * 
    * This parameter is required.
    * 
@@ -1633,7 +1633,7 @@ export class ListDataPipelinesResponseBodyPipelines extends $dara.Model {
   statusMessage?: string;
   /**
    * @remarks
-   * The update time in UTC and ISO 8601 format, such as 2026-08-10T05:10:00Z.
+   * The update time in ISO 8601 format in UTC, such as 2026-08-10T05:10:00Z.
    * 
    * This parameter is required.
    * 
@@ -1721,7 +1721,7 @@ export class ListDataPipelinesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The next page token.
+   * The next token.
    * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==
@@ -1729,7 +1729,7 @@ export class ListDataPipelinesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The data pipeline list.
+   * The list of data pipelines.
    */
   pipelines?: ListDataPipelinesResponseBodyPipelines[];
   /**

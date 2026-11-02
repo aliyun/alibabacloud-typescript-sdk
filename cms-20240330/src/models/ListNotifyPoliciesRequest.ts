@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNotifyPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of records to return for this request.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListNotifyPoliciesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The policy name used for fuzzy filtering.
+   * The fuzzy filter for the policy name.
    * 
    * @example
    * prod-alert
@@ -21,7 +21,7 @@ export class ListNotifyPoliciesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token. Leave this parameter empty for the first page. For subsequent pages, set this parameter to the nextToken value returned in the previous response.
+   * The pagination token. Leave empty for the first page. For subsequent pages, pass the nextToken returned from the previous page.
    * 
    * @example
    * eyJjdXJzb3IiOjEwfQ==
@@ -29,7 +29,7 @@ export class ListNotifyPoliciesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field used for sorting. Valid values: createTime, updateTime, and name.
+   * The field to sort by. Valid values include createTime, updateTime, and name.
    * 
    * @example
    * createTime
@@ -37,9 +37,7 @@ export class ListNotifyPoliciesRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * Specifies whether to sort results in descending order. Valid values:
-   * - true: descending order.
-   * - false: ascending order.
+   * Specifies whether to sort in descending order. Set to true for descending order, or false for ascending order.
    * 
    * @example
    * true
@@ -47,7 +45,7 @@ export class ListNotifyPoliciesRequest extends $dara.Model {
   orderDesc?: string;
   /**
    * @remarks
-   * The workspace ID. This parameter is used to isolate notify policy resources across different business spaces.
+   * The workspace ID, used to isolate notification policy resources for different business workspaces.
    * 
    * This parameter is required.
    * 

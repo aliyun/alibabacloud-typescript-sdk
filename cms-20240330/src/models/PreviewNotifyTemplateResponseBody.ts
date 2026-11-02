@@ -66,9 +66,7 @@ export class PreviewNotifyTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * - true: The request is successful.
-   * - false: The request fails.
+   * Indicates whether the request is successful. Valid values: true and false.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

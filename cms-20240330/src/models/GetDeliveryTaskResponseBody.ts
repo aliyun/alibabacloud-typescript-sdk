@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo extends $dara.Model {
   /**
    * @remarks
-   * The EventBridge task list.
+   * The list of EventBridge tasks.
    */
   taskNameList?: string[];
   static names(): { [key: string]: string } {
@@ -35,12 +35,12 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo extends $dara.Mode
 export class GetDeliveryTaskResponseBodyDeliveryTaskSinkList extends $dara.Model {
   /**
    * @remarks
-   * The detailed configuration of the delivery target. The meanings of key/value pairs vary depending on the sinkType. For more information, see CreateDeliveryTask.
+   * The detailed configuration of the delivery destination. The meanings of the key and value vary based on the sinkType. For more information, see the CreateDeliveryTask documentation.
    */
   sinkConfigs?: { [key: string]: string };
   /**
    * @remarks
-   * The delivery target type.
+   * The type of the delivery destination.
    * 
    * @example
    * Prometheus
@@ -75,7 +75,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskSinkList extends $dara.Model
 export class GetDeliveryTaskResponseBodyDeliveryTaskTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource group.
+   * The key of the resource group tag.
    * 
    * @example
    * sourcetype
@@ -83,7 +83,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource group.
+   * The value of the resource group tag.
    * 
    * @example
    * production
@@ -115,7 +115,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskTags extends $dara.Model {
 export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ) in UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -125,7 +125,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The data source ID (Managed Service for Prometheus instance ID).
+   * The ID of the data source, which is the Prometheus instance ID.
    * 
    * @example
    * rw-xxxxxx
@@ -133,7 +133,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The additional labels attached to all delivered metrics. The key is the label name, and the value is the label value.
+   * The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
    */
   externalLabels?: { [key: string]: string };
   /**
@@ -143,7 +143,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   extraInfo?: GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo;
   /**
    * @remarks
-   * The metric filter conditions. Used together with labelFiltersType. The key is the metric label name, and the value is the match value.
+   * The metric filtering conditions, used in conjunction with labelFiltersType. The key is the metric label name and the value is the matching value.
    */
   labelFilters?: { [key: string]: string };
   /**
@@ -164,7 +164,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of delivery targets.
+   * The list of delivery destinations.
    */
   sinkList?: GetDeliveryTaskResponseBodyDeliveryTaskSinkList[];
   /**
@@ -182,7 +182,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   tags?: GetDeliveryTaskResponseBodyDeliveryTaskTags[];
   /**
    * @remarks
-   * The task description.
+   * The description of the task.
    * 
    * @example
    * my delivery task
@@ -190,7 +190,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   taskDescription?: string;
   /**
    * @remarks
-   * The delivery task ID.
+   * The ID of the delivery task.
    * 
    * @example
    * 8b07eeac8249866d
@@ -198,7 +198,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
    * test-task
@@ -206,7 +206,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The time is displayed in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ) in UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -279,7 +279,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
 export class GetDeliveryTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The delivery task details.
+   * The details of the delivery task.
    */
   deliveryTask?: GetDeliveryTaskResponseBodyDeliveryTask;
   /**

@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dara.Model {
   /**
    * @remarks
-   * The access type. Valid values:
-   * - readWrite
-   * - readOnly
-   * - httpReadOnly
+   * The access type. Valid values: readWrite, readOnly, and httpReadOnly.
    * 
    * @example
    * readWrite
@@ -16,7 +13,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   accessType?: string;
   /**
    * @remarks
-   * The instance creation time in UTC+0, in the format of yyyy-MM-ddTHH:mmZ.
+   * The time when the instance was created. The time is displayed in UTC+0 in the yyyy-MM-ddTHH:mmZ format.
    * 
    * @example
    * 2025-08-10T02:07:53Z
@@ -32,11 +29,11 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   instanceType?: string;
   /**
    * @remarks
-   * The payment type. Valid values:
-   * - POSTPAY: Pay-as-you-go by metric volume.
-   * - POSTPAY_GB: Pay-as-you-go by write volume.
-   * - PREPAY: Subscription.
-   * - FREE: Free.
+   * The billing method. Valid values:
+   * - POSTPAY: pay-as-you-go based on the number of metrics.
+   * - POSTPAY_GB: pay-as-you-go based on the amount of written data.
+   * - PREPAY: subscription.
+   * - FREE: free.
    * 
    * @example
    * POSTPAY_GB
@@ -92,7 +89,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   resourceType?: string;
   /**
    * @remarks
-   * The backend data storage status.
+   * The status of the backend data storage.
    * 
    * @example
    * Pending2Running

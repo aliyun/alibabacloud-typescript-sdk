@@ -11,7 +11,7 @@ export class UpdateNotifyStrategyRequest extends $dara.Model {
   body?: NotifyStrategyForModify;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * workspace-test
