@@ -17,9 +17,9 @@ export class RemoveCommonBandwidthPackageIpRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may vary for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -27,14 +27,15 @@ export class RemoveCommonBandwidthPackageIpRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run without performing the actual operation.
+   * Specifies whether to perform a dry run.
    */
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the EIP. 
+   * The ID of the public IP address instance to be removed from the Internet Shared Bandwidth instance.
    * 
-   * You can call the [DescribeEipAddresses](https://www.alibabacloud.com/help/en/eip/developer-reference/api-vpc-2016-04-28-describeeipaddresses-eips) operation to query the EIP ID.
+   * - If IpType is set to **EIP**, specify the ID of the EIP. You can call the [DescribeEipAddresses](https://www.alibabacloud.com/help/en/eip/developer-reference/api-vpc-2016-04-28-describeeipaddresses-eips) operation to query EIP IDs.
+   * - If IpType is set to **VpcIpv6**, specify the ID of the IPv6 address in the VPC. You can call the DescribeIpv6Addresses operation to query IPv6 address IDs.
    * 
    * This parameter is required.
    * 
@@ -48,7 +49,7 @@ export class RemoveCommonBandwidthPackageIpRequest extends $dara.Model {
    * @remarks
    * The region ID of the Internet Shared Bandwidth instance. 
    * 
-   * You can call the [DescribeRegions](https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-describeregions) operation to query the region ID.
+   * You can call the [DescribeRegions](https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-describeregions) operation to query region IDs.
    * 
    * This parameter is required.
    * 

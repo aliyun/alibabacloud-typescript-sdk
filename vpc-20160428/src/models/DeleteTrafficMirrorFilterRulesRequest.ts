@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTrafficMirrorFilterRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, and you must ensure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
-   * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -17,11 +15,11 @@ export class DeleteTrafficMirrorFilterRulesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to only precheck the request. Valid values:
    * 
-   * - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **true**: prechecks the request without deleting the inbound or outbound rules. The system checks whether the required parameters are specified, the request format, and the limits. If the request fails the precheck, an error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
    * 
-   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, inbound or outbound rules are deleted.
+   * - **false** (default): sends the request. If the request passes the precheck, the inbound or outbound rules are deleted.
    * 
    * @example
    * false
@@ -31,7 +29,7 @@ export class DeleteTrafficMirrorFilterRulesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the traffic mirror. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list. For more information about regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
+   * The region ID of the traffic mirror. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about the regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
    * 
    * This parameter is required.
    * 
@@ -43,7 +41,7 @@ export class DeleteTrafficMirrorFilterRulesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The instance ID of the traffic mirror filter.
+   * The ID of the traffic mirror filter.
    * 
    * This parameter is required.
    * 
@@ -53,7 +51,7 @@ export class DeleteTrafficMirrorFilterRulesRequest extends $dara.Model {
   trafficMirrorFilterId?: string;
   /**
    * @remarks
-   * The instance IDs of the inbound or outbound rules.
+   * The IDs of the inbound or outbound rules.
    * 
    * This parameter is required.
    * 

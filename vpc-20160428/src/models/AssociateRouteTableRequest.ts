@@ -7,7 +7,7 @@ export class AssociateRouteTableRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
    * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
@@ -19,9 +19,9 @@ export class AssociateRouteTableRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the VPC to which the route table that you want to associate with a vSwitch belongs.
+   * The region ID of the VPC to which the route table to be associated with the vSwitch belongs.
    * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class AssociateRouteTableRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the route table that you want to associate with a vSwitch.
+   * The ID of the route table to be associated with the vSwitch.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class AssociateRouteTableRequest extends $dara.Model {
   routeTableId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch with which you want to associate the route table.
+   * The ID of the vSwitch to be associated with the route table.
    * 
    * This parameter is required.
    * 

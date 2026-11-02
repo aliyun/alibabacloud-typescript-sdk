@@ -63,6 +63,7 @@ export class DescribeVpnRouteEntriesResponseBodyVpnRouteEntriesVpnRouteEntry ext
   createTime?: number;
   nextHop?: string;
   nextHopTunnelId?: string;
+  prefixListId?: string;
   routeDest?: string;
   routeEntryType?: string;
   source?: string;
@@ -76,6 +77,7 @@ export class DescribeVpnRouteEntriesResponseBodyVpnRouteEntriesVpnRouteEntry ext
       createTime: 'CreateTime',
       nextHop: 'NextHop',
       nextHopTunnelId: 'NextHopTunnelId',
+      prefixListId: 'PrefixListId',
       routeDest: 'RouteDest',
       routeEntryType: 'RouteEntryType',
       source: 'Source',
@@ -92,6 +94,7 @@ export class DescribeVpnRouteEntriesResponseBodyVpnRouteEntriesVpnRouteEntry ext
       createTime: 'number',
       nextHop: 'string',
       nextHopTunnelId: 'string',
+      prefixListId: 'string',
       routeDest: 'string',
       routeEntryType: 'string',
       source: 'string',
@@ -139,7 +142,7 @@ export class DescribeVpnRouteEntriesResponseBodyVpnRouteEntries extends $dara.Mo
 export class DescribeVpnRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1
@@ -147,7 +150,7 @@ export class DescribeVpnRouteEntriesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging queries.
+   * The number of entries returned per page for paging in a paged query.
    * 
    * @example
    * 10
@@ -163,7 +166,7 @@ export class DescribeVpnRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries returned.
    * 
    * @example
    * 1

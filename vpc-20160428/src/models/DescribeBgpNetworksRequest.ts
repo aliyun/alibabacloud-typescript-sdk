@@ -7,7 +7,7 @@ export class DescribeBgpNetworksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the list. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -15,7 +15,7 @@ export class DescribeBgpNetworksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
+   * The number of entries to return on each page during paging. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -23,9 +23,7 @@ export class DescribeBgpNetworksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the BGP group resides.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * The region where the BGP group resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

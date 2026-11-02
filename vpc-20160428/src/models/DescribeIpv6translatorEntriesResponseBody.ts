@@ -121,7 +121,7 @@ export class DescribeIPv6TranslatorEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries in the list.
    * 
    * @example
    * 1

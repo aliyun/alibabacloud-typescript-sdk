@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CheckCanAllocateVpcPrivateIpAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the private IP address is available. Valid values:
+   * Indicates whether the queried private IP address is available. Valid values:
    * 
-   * - **true**: The private IP address is not occupied in the specified vSwitch and can be used.
-   * - **false**: The private IP address is already occupied in the specified vSwitch and cannot be used.
+   * - **true**: The private IP address is not in use in the specified vSwitch and is available.
+   * - **false**: The private IP address is already in use in the specified vSwitch and is unavailable.
    * 
    * @example
    * true

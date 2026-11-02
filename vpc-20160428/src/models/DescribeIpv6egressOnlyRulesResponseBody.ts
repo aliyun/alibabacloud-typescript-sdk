@@ -70,7 +70,7 @@ export class DescribeIpv6EgressOnlyRulesResponseBody extends $dara.Model {
   ipv6EgressOnlyRules?: DescribeIpv6EgressOnlyRulesResponseBodyIpv6EgressOnlyRules;
   /**
    * @remarks
-   * The page number of the list to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -78,7 +78,7 @@ export class DescribeIpv6EgressOnlyRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for paging in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -94,7 +94,7 @@ export class DescribeIpv6EgressOnlyRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

@@ -37,7 +37,7 @@ export class DescribePublicIpAddressResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The range of public IP addresses in a virtual private cloud (VPC) in the specified region.
+   * The range of public IP addresses in a virtual private cloud (VPC) within the specified region.
    * 
    * @example
    * 110.11.1.0/24

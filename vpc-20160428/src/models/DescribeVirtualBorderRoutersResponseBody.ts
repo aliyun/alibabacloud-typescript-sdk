@@ -384,7 +384,7 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSet exte
 export class DescribeVirtualBorderRoutersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the list. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -408,7 +408,7 @@ export class DescribeVirtualBorderRoutersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

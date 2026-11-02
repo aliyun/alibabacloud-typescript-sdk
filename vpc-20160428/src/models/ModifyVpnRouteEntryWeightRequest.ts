@@ -7,9 +7,9 @@ export class ModifyVpnRouteEntryWeightRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value is different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * d7d24a21-f4ba-4454-9173-b3828dae492b
@@ -41,7 +41,7 @@ export class ModifyVpnRouteEntryWeightRequest extends $dara.Model {
   nextHop?: string;
   /**
    * @remarks
-   * The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling protocol).
+   * The tunnel protocol. Set the value to **Ipsec** (IPsec tunnel protocol).
    * 
    * @example
    * Ipsec
@@ -51,7 +51,7 @@ export class ModifyVpnRouteEntryWeightRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the VPN gateway instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * The region ID of the VPN gateway instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -83,7 +83,7 @@ export class ModifyVpnRouteEntryWeightRequest extends $dara.Model {
   vpnGatewayId?: string;
   /**
    * @remarks
-   * The original weight of the destination route. Valid values:
+   * The weight of the destination route before the modification. Valid values:
    * 
    * - **0**: low priority.
    * 

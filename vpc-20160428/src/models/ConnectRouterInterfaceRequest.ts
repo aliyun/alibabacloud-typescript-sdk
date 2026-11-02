@@ -6,9 +6,9 @@ export class ConnectRouterInterfaceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region where the router interface is located. 
+   * The region where the router interface resides. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class ConnectRouterInterfaceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the requester VPC router interface.
+   * The ID of the requester router interface.
    * 
    * This parameter is required.
    * 

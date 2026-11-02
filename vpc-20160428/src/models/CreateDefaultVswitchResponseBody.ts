@@ -13,7 +13,7 @@ export class CreateDefaultVSwitchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the default vSwitch that was created.
+   * The ID of the created default vSwitch.
    * 
    * @example
    * vsw-bp1a4b5qhmxftjimq****

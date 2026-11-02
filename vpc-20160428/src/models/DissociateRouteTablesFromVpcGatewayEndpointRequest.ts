@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DissociateRouteTablesFromVpcGatewayEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
-   * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * The client token that is used to ensure the idempotence of the request. You can generate a value for this parameter on the client to ensure that the value is unique across different requests. The client token can contain only ASCII characters.
    * 
    * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
@@ -17,10 +15,10 @@ export class DissociateRouteTablesFromVpcGatewayEndpointRequest extends $dara.Mo
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform a dry run on the request. Valid values:
    * 
-   * - **true**: performs a dry run.
-   * - **false** (default): sends the request.
+   * - **true**: sends a dry run request.
+   * - **false** (default): sends a normal request.
    * 
    * @example
    * false
@@ -28,7 +26,7 @@ export class DissociateRouteTablesFromVpcGatewayEndpointRequest extends $dara.Mo
   dryRun?: boolean;
   /**
    * @remarks
-   * The endpoint instance ID of the gateway endpoint.
+   * The instance ID of the gateway endpoint instance.
    * 
    * This parameter is required.
    * 
@@ -40,7 +38,7 @@ export class DissociateRouteTablesFromVpcGatewayEndpointRequest extends $dara.Mo
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the endpoint. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The ID of the region to which the gateway endpoint belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -52,7 +50,7 @@ export class DissociateRouteTablesFromVpcGatewayEndpointRequest extends $dara.Mo
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The list of route tables.
+   * The IDs of the route tables.
    * 
    * This parameter is required.
    */

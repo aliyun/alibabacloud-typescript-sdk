@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetHighDefinitionMonitorLogStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the instance for which you want to configure high-definition second-level monitoring.
+   * The instance ID for which you want to configure high-precision second-level monitoring.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class SetHighDefinitionMonitorLogStatusRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The name of the LogProject in Simple Log Service.
+   * The name of the LogProject.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class SetHighDefinitionMonitorLogStatusRequest extends $dara.Model {
   logProject?: string;
   /**
    * @remarks
-   * The name of the LogStore in Simple Log Service.
+   * The name of the LogStore.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class SetHighDefinitionMonitorLogStatusRequest extends $dara.Model {
    * @remarks
    * The region ID of the instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -59,10 +59,10 @@ export class SetHighDefinitionMonitorLogStatusRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The high-definition second-level monitoring status of the instance. Valid values:
+   * The status of high-precision second-level monitoring for the instance. Valid values:
    * 
-   * - **ON**: Enables high-definition second-level monitoring.
-   * - **OFF**: Disables high-definition second-level monitoring.
+   * - **ON**: enables high-precision second-level monitoring.
+   * - **OFF**: disables high-precision second-level monitoring.
    * 
    * This parameter is required.
    * 

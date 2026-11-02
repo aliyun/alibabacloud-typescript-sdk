@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeactiveFlowLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
@@ -13,10 +13,10 @@ export class DeactiveFlowLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the request was successful.
    * 
-   * - **true**: The call is successful.
-   * - **false**: The call failed.
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DissociateRouteTablesFromVpcGatewayEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 30F711D5-E7E2-5D42-A247-0FA7288BEAAA

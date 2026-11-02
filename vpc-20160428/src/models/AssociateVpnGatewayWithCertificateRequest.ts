@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateVpnGatewayWithCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The certificate ID.
+   * The ID of the certificate.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class AssociateVpnGatewayWithCertificateRequest extends $dara.Model {
   certificateId?: string;
   /**
    * @remarks
-   * The certificate type. Valid values:
+   * The type of the certificate. Valid values:
    * 
-   * - **Encryption**: specifies the SSL certificate as the encryption certificate.
-   * - **Signature**: specifies the SSL certificate as the signing certificate.
+   * - **Encryption**: specifies the SSL certificate as an encrypt certificate.
+   * - **Signature**: specifies the SSL certificate as a signing certificate.
    * 
    * This parameter is required.
    * 
@@ -30,9 +30,9 @@ export class AssociateVpnGatewayWithCertificateRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 0c593ea1-3bea****
@@ -40,11 +40,11 @@ export class AssociateVpnGatewayWithCertificateRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to only precheck the request. Valid values:
    * 
-   * - **true**: performs a dry run without actually associating the certificate. The system checks the required parameters, request syntax, and instance status. If the check fails, the corresponding error is returned. If the check succeeds, the corresponding request ID is returned.
+   * - **true**: prechecks the request without performing the association operation. The system checks whether the required parameters are specified, the request format, and the instance status. If the request fails the precheck, an error is returned. If the request passes the precheck, the request ID is returned.
    * 
-   * - **false** (default): sends the request. After the request passes the check, the VPN gateway is associated with the certificate.
+   * - **false** (default): sends the request. After the request passes the precheck, the VPN gateway is associated with the certificate.
    * 
    * @example
    * false

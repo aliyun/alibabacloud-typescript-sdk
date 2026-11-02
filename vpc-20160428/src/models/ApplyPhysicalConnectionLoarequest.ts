@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyPhysicalConnectionLOARequestPMInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID number of the construction engineer. You can specify an ID card number or an international passport number.
+   * The ID number of the construction engineer. You can enter an ID card number or an international passport number.
    * 
-   * You can specify information about up to 16 construction engineers.
+   * You can configure the information of up to 16 construction engineers.
    * 
    * @example
    * 5****************9
@@ -18,7 +18,7 @@ export class ApplyPhysicalConnectionLOARequestPMInfo extends $dara.Model {
    * The type of the ID document of the construction engineer. Valid values:
    * 
    * - **IDCard**: ID card.
-   * - **Passport**: international passport.
+   * - **Passport**: International passport.
    * 
    * @example
    * IDCard
@@ -45,7 +45,7 @@ export class ApplyPhysicalConnectionLOARequestPMInfo extends $dara.Model {
    * The name of the construction engineer.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   PMName?: string;
   static names(): { [key: string]: string } {
@@ -92,9 +92,9 @@ export class ApplyPhysicalConnectionLOARequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a unique value from your client to ensure that different requests have unique ClientToken values. ClientToken supports only ASCII characters.
+   * You can generate the value from your client to ensure that the value is unique among different requests. The ClientToken parameter supports only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -102,7 +102,7 @@ export class ApplyPhysicalConnectionLOARequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The name of the company that accesses the Express Connect circuit.
+   * The name of the customer company that connects to the Express Connect circuit.
    * 
    * This parameter is required.
    * 
@@ -112,7 +112,7 @@ export class ApplyPhysicalConnectionLOARequest extends $dara.Model {
   companyName?: string;
   /**
    * @remarks
-   * The time when the construction company enters the site. The time is in the ISO 8601 standard and must be in UTC. Format: YYYY-MM-DDThh:mm:ssZ.
+   * The time when the construction unit enters the site. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -134,10 +134,10 @@ export class ApplyPhysicalConnectionLOARequest extends $dara.Model {
    * @remarks
    * The type of the Express Connect circuit. Valid values:
    * 
-   * - **MSTP**: MSTP line.
-   * - **MPLSVPN**: MPLSVPN line.
-   * - **FIBRE**: fiber optic direct connection.
-   * - **Other**: other type of line.
+   * - **MSTP**: MSTP circuit.
+   * - **MPLSVPN**: MPLS VPN circuit.
+   * - **FIBRE**: Direct optical fiber connection.
+   * - **Other**: Other types of circuits.
    * 
    * This parameter is required.
    * 
@@ -149,7 +149,7 @@ export class ApplyPhysicalConnectionLOARequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The information about the construction engineer.
+   * The information about the construction engineers.
    * 
    * > This parameter is required. Specify the relevant information.
    */
@@ -159,14 +159,14 @@ export class ApplyPhysicalConnectionLOARequest extends $dara.Model {
    * The geographical location where the Express Connect circuit is deployed.
    * 
    * @example
-   * 杭州
+   * Hangzhou
    */
   peerLocation?: string;
   /**
    * @remarks
    * The region ID of the Express Connect circuit.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -178,12 +178,12 @@ export class ApplyPhysicalConnectionLOARequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The construction company of the Express Connect circuit.
+   * The construction unit of the Express Connect circuit.
    * 
    * This parameter is required.
    * 
    * @example
-   * 阿里
+   * Alibaba
    */
   si?: string;
   static names(): { [key: string]: string } {

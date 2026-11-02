@@ -9,7 +9,7 @@ export class DeleteRouteTableRequest extends $dara.Model {
    * @remarks
    * The region ID of the VPC to which the custom route table belongs. 
    * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

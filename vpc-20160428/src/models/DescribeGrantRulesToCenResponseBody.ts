@@ -85,7 +85,7 @@ export class DescribeGrantRulesToCenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

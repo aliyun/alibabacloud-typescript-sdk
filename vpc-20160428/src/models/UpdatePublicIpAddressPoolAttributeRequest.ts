@@ -7,9 +7,9 @@ export class UpdatePublicIpAddressPoolAttributeRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * You can generate the value from your client to ensure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -17,7 +17,7 @@ export class UpdatePublicIpAddressPoolAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the IP address pool.
+   * The description of the address pool.
    * 
    * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -27,9 +27,9 @@ export class UpdatePublicIpAddressPoolAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * - **true**: performs a dry run without modifying the IP address pool attributes. The system checks the required parameters, request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-   * - **false** (default): performs a dry run and then sends the request. If the check succeeds, an HTTP 2xx status code is returned and the operation is performed.
+   * Specifies whether to only precheck the request. Valid values:
+   * - **true**: prechecks the request without modifying the attributes of the address pool. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class UpdatePublicIpAddressPoolAttributeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The name of the IP address pool.
+   * The name of the address pool.
    * 
    * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -59,7 +59,7 @@ export class UpdatePublicIpAddressPoolAttributeRequest extends $dara.Model {
   publicIpAddressPoolId?: string;
   /**
    * @remarks
-   * The region ID of the IP address pool to modify.
+   * The region ID of the public IP address pool that you want to update.
    * 
    * This parameter is required.
    * 

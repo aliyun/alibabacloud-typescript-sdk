@@ -25,7 +25,7 @@ export class DescribeIPv6TranslatorAclListAttributesRequest extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page when paging is used. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -33,7 +33,7 @@ export class DescribeIPv6TranslatorAclListAttributesRequest extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * The region of the access control policy group.
+   * The region ID of the access control policy group.
    * 
    * This parameter is required.
    * 

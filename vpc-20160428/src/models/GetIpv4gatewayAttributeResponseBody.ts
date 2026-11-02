@@ -45,7 +45,7 @@ export class GetIpv4GatewayAttributeResponseBodyTags extends $dara.Model {
 export class GetIpv4GatewayAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the IPv4 gateway was created.
+   * The creation time.
    * 
    * @example
    * 2022-02-24T09:02:36Z
@@ -65,7 +65,7 @@ export class GetIpv4GatewayAttributeResponseBody extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The description of the IPv4 gateway instance.
+   * The description of the IPv4 gateway.
    * 
    * @example
    * new
@@ -81,7 +81,7 @@ export class GetIpv4GatewayAttributeResponseBody extends $dara.Model {
   ipv4GatewayId?: string;
   /**
    * @remarks
-   * The name of the IPv4 gateway instance.
+   * The name of the IPv4 gateway.
    * 
    * @example
    * name
@@ -89,7 +89,7 @@ export class GetIpv4GatewayAttributeResponseBody extends $dara.Model {
   ipv4GatewayName?: string;
   /**
    * @remarks
-   * The ID of the route table associated with the IPv4 gateway instance.
+   * The ID of the route table associated with the IPv4 gateway.
    * 
    * @example
    * vtb-5ts0ohchwkp3dydt2****
@@ -113,7 +113,7 @@ export class GetIpv4GatewayAttributeResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the IPv4 gateway instance. Valid values:
+   * The status of the IPv4 gateway. Valid values:
    * 
    * - **Creating**: The IPv4 gateway is being created.
    * 
@@ -133,12 +133,12 @@ export class GetIpv4GatewayAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tag list.
+   * The tags.
    */
   tags?: GetIpv4GatewayAttributeResponseBodyTags[];
   /**
    * @remarks
-   * The ID of the VPC associated with the IPv4 gateway instance.
+   * The ID of the VPC associated with the IPv4 gateway.
    * 
    * @example
    * vpc-5tsrxlw7dv074gci4****

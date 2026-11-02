@@ -57,9 +57,9 @@ export class DescribeTagKeysResponseBodyTagKeys extends $dara.Model {
 export class DescribeTagKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token. Valid values:
-   * - If **NextToken** is empty, no subsequent query exists.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The pagination token for the next query. Valid values:
+   * - If **NextToken** is empty, no subsequent query is required.
+   * - If **NextToken** returns a value, the value is the pagination token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

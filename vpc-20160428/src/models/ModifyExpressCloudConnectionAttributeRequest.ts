@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyExpressCloudConnectionAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The local BGP autonomous system (AS) number to be configured on the Smart Access Gateway device.
+   * The local BGP Autonomous System (AS) number to be configured on the Smart Access Gateway (SAG) device.
    * 
    * @example
    * sag-ejfge***
@@ -13,7 +13,7 @@ export class ModifyExpressCloudConnectionAttributeRequest extends $dara.Model {
   bgpAs?: string;
   /**
    * @remarks
-   * The cloud-side IP address used for peering with the Smart Access Gateway device.
+   * The cloud-side IP address used to connect the Smart Access Gateway (SAG) device to Alibaba Cloud.
    * 
    * @example
    * ``172.16.**.**``
@@ -21,7 +21,7 @@ export class ModifyExpressCloudConnectionAttributeRequest extends $dara.Model {
   ceIp?: string;
   /**
    * @remarks
-   * The description of the Express Cloud Connection instance.
+   * The description of the Express Cloud Connection.
    * 
    * @example
    * ECC
@@ -29,7 +29,7 @@ export class ModifyExpressCloudConnectionAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The instance ID of the Express Cloud Connection instance.
+   * The Express Cloud Connection instance ID.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class ModifyExpressCloudConnectionAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The local IP address of the Smart Access Gateway device used for peering with the cloud.
+   * The local IP address of the Smart Access Gateway (SAG) device used to connect to Alibaba Cloud.
    * 
    * @example
    * ``10.10.**.**``

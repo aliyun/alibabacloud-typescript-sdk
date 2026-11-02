@@ -25,8 +25,8 @@ export class ModifyBgpGroupAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to clear the authentication key. Valid values:
    * 
-   * - **true**: Yes.
-   * - **false** (default): No.
+   * - **true**: yes.
+   * - **false** (default): no.
    * 
    * @example
    * false
@@ -36,9 +36,9 @@ export class ModifyBgpGroupAttributeRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -56,12 +56,12 @@ export class ModifyBgpGroupAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to use a fake ASN. Valid values:
+   * Specifies whether to use a fake AS number. Valid values:
    * 
-   * - **false** (default): No.
-   * - **true**: Yes.
+   * - **false** (default): no.
+   * - **true**: yes.
    * 
-   * > A router that runs BGP can belong to only one AS. When you need to replace an existing AS with a new one (for example, during AS migration or merger with another AS) and cannot immediately modify the BGP configuration due to business constraints, you can specify a fake ASN to establish a connection with the local end to ensure service continuity.
+   * > A router that runs BGP typically belongs to only one AS. If you need to replace the original AS with a new AS (for example, when the AS needs to be migrated or merged with another AS) and cannot immediately modify the BGP configurations due to business or other objective factors, you can specify a fake AS number to establish a connection with the local end to ensure service continuity.
    * 
    * @example
    * false
@@ -69,13 +69,13 @@ export class ModifyBgpGroupAttributeRequest extends $dara.Model {
   isFakeAsn?: boolean;
   /**
    * @remarks
-   * The custom Alibaba Cloud-side BGP autonomous system number (ASN). Valid values:
+   * The custom autonomous system (AS) number of Alibaba Cloud. Valid values:
    * 
    * - **45104**
    * - **64512 to 65534**
    * - **4200000000 to 4294967294**
    * 
-   * > **65025** is reserved by Alibaba Cloud. The Alibaba Cloud side uses **45104** as the default **LocalAsn** value. Using a custom **LocalAsn** value in multi-ISP access scenarios may cause BGP routing loops. Evaluate the risks before you use this feature.
+   * > **65025** is reserved by Alibaba Cloud. By default, Alibaba Cloud uses **45104** as the **LocalAsn**. If you use a custom **LocalAsn** in multi-line access scenarios, there may be a risk of BGP routing loops. Evaluate the risks before you use this feature.
    * 
    * @example
    * 45104
@@ -95,7 +95,7 @@ export class ModifyBgpGroupAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ASN of the on-premises device.
+   * The AS number of the on-premises device.
    * 
    * @example
    * 1****
@@ -105,7 +105,7 @@ export class ModifyBgpGroupAttributeRequest extends $dara.Model {
    * @remarks
    * The region ID of the BGP group. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -117,7 +117,7 @@ export class ModifyBgpGroupAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The maximum number of routes for a BGP peer. Unit: entries. Default value: **110**.
+   * The maximum number of route entries that can be received by the BGP peer. Unit: entries. Default value: **110**.
    * 
    * @example
    * 110

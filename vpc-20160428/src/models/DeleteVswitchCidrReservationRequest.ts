@@ -7,9 +7,9 @@ export class DeleteVSwitchCidrReservationRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -18,8 +18,8 @@ export class DeleteVSwitchCidrReservationRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
-   * - **true**: performs a dry run without creating the resource. The system checks whether the required parameters are specified, whether the request format is valid, and whether business restrictions are met. If the check fails, the corresponding error is returned. If the check passes, the error code `DryRunOperation` is returned.
-   * - **false** (default): performs a dry run and sends the request. If the check passes, an HTTP 2xx status code is returned and the operation is performed.
+   * - **true**: Performs a dry run and does not create resources. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): Sends a normal request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -31,7 +31,7 @@ export class DeleteVSwitchCidrReservationRequest extends $dara.Model {
    * @remarks
    * The region ID of the vSwitch.
    * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class DeleteVSwitchCidrReservationRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The instance ID of the reserved vSwitch CIDR block to delete.
+   * The instance ID of the reserved CIDR block for a vSwitch that you want to delete.
    * 
    * This parameter is required.
    * 

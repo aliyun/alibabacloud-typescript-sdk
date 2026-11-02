@@ -64,7 +64,7 @@ export class ListNatIpCidrsResponseBodyNatIpCidrs extends $dara.Model {
   natIpCidrName?: string;
   /**
    * @remarks
-   * The status of the NAT CIDR block. The value is **Available**, which indicates that the NAT CIDR block is available.
+   * The status of the NAT CIDR block. Valid values: **Available**, which indicates that the NAT CIDR block is active.
    * 
    * @example
    * Available
@@ -113,9 +113,9 @@ export class ListNatIpCidrsResponseBody extends $dara.Model {
   natIpCidrs?: ListNatIpCidrsResponseBodyNatIpCidrs[];
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * - If **NextToken** is empty, no subsequent requests exist.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The token for the next query. Valid values:
+   * - If **NextToken** is empty, no next query is available.
+   * - If **NextToken** returns a value, the value indicates the token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -131,7 +131,7 @@ export class ListNatIpCidrsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of NAT CIDR block entries returned.
+   * The total number of NAT CIDR blocks returned.
    * 
    * @example
    * 1

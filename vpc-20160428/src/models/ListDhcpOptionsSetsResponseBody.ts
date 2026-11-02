@@ -13,7 +13,7 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsDhcpOptions extends $
   domainName?: string;
   /**
    * @remarks
-   * The IP address of the DNS server.
+   * The IP addresses of the DNS servers.
    * 
    * @example
    * 192.168.XX.XX
@@ -23,9 +23,9 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsDhcpOptions extends $
    * @remarks
    * The lease time of the IPv6 DHCP options set.
    * 
-   * - If the lease time is in hours, the unit is h. Valid values: **24h** to **1176h** and **87600h** to **175200h**. Default value: **24h**.
+   * - If the lease time is set in hours, the unit is h. Valid values: **24h** to **1176h** and **87600h** to **175200h**. Default value: **24h**.
    * 
-   * - If the lease time is in days, the unit is d. Valid values: **1d** to **49d** and **3650d** to **7300d**. Default value: **1d**.
+   * - If the lease time is set in days, the unit is d. Valid values: **1d** to **49d** and **3650d** to **7300d**. Default value: **1d**.
    * 
    * @example
    * 3650d
@@ -35,9 +35,9 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsDhcpOptions extends $
    * @remarks
    * The lease time of the IPv4 DHCP options set.
    * 
-   * - If the lease time is in hours, the unit is h. Valid values: **24h** to **1176h** and **87600h** to **175200h**. Default value: **87600h**.
+   * - If the lease time is set in hours, the unit is h. Valid values: **24h** to **1176h** and **87600h** to **175200h**. Default value: **87600h**.
    * 
-   * - If the lease time is in days, the unit is d. Valid values: **1d** to **49d** and **3650d** to **7300d**. Default value: **3650d**.
+   * - If the lease time is set in days, the unit is d. Valid values: **1d** to **49d** and **3650d** to **7300d**. Default value: **3650d**.
    * 
    * @example
    * 3650d
@@ -129,7 +129,7 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets extends $dara.Model 
   creationTime?: string;
   /**
    * @remarks
-   * The DHCP options configuration.
+   * The configuration information of the DHCP options.
    */
   dhcpOptions?: ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsDhcpOptions;
   /**
@@ -176,13 +176,13 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets extends $dara.Model 
    * @remarks
    * The status of the DHCP options set. Valid values:
    * 
-   * - **Available**: available.
+   * - **Available**: Available.
    * 
-   * - **InUse**: in use.
+   * - **InUse**: In use.
    * 
-   * - **Pending**: being configured.
+   * - **Pending**: Being configured.
    * 
-   * - **Deleted**: deleted.
+   * - **Deleted**: Deleted.
    * 
    * @example
    * Available
@@ -241,14 +241,14 @@ export class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets extends $dara.Model 
 export class ListDhcpOptionsSetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of DHCP options sets.
+   * The information about the DHCP options sets.
    */
   dhcpOptionsSets?: ListDhcpOptionsSetsResponseBodyDhcpOptionsSets[];
   /**
    * @remarks
-   * The pagination token. Valid values:
-   * - If **NextToken** is empty, no subsequent query exists.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The token for the next query. Valid values:
+   * - If **NextToken** is empty, no subsequent query is required.
+   * - If **NextToken** returns a value, the value is the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd********
@@ -264,7 +264,7 @@ export class ListDhcpOptionsSetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHighDefinitionMonitorLogAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID for which you want to query high-precision second-level monitoring.
+   * The instance ID for which to query high-precision second-level monitoring.
    * 
    * This parameter is required.
    * 

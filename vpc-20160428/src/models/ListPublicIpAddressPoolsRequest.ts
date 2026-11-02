@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListPublicIpAddressPoolsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot enter an empty string.
    * 
-   * A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class ListPublicIpAddressPoolsRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can enter an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,9 +49,9 @@ export class ListPublicIpAddressPoolsRequestTags extends $dara.Model {
 export class ListPublicIpAddressPoolsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * - **true**: performs a dry run without querying available IP address pool information. The system checks whether the required parameters are specified, whether the request format is valid, and whether business restrictions are met. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
-   * - **false** (default): performs a dry run and sends the request. If the check succeeds, an HTTP 2xx status code is returned and the operation is performed.
+   * Specifies whether to only precheck the request. Valid values:
+   * - **true**: prechecks the request without querying available IP address pools. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -61,13 +61,13 @@ export class ListPublicIpAddressPoolsRequest extends $dara.Model {
    * @remarks
    * The line type. Valid values:
    * 
-   * - **BGP** (default): BGP (multi-ISP) line.
+   * - **BGP** (default): BGP (Multi-ISP) line.
    * 
-   * - **BGP_PRO**: BGP (multi-ISP) Pro line.
+   * - **BGP_PRO**: BGP (Multi-ISP) Pro line.
    * 
-   * For more information about BGP (multi-ISP) lines and BGP (multi-ISP) Pro lines, see [EIP line types](https://help.aliyun.com/document_detail/32321.html).
+   * For more information about BGP (Multi-ISP) and BGP (Multi-ISP) Pro lines, see [EIP line types](https://help.aliyun.com/document_detail/32321.html).
    * 
-   * If you are a whitelist user of single-ISP bandwidth, you can also select the following types:
+   * If you are a single-ISP bandwidth whitelist user, you can also select the following types:
    * - **ChinaTelecom**: China Telecom
    * - **ChinaUnicom**: China Unicom
    * - **ChinaMobile**: China Mobile
@@ -75,7 +75,7 @@ export class ListPublicIpAddressPoolsRequest extends $dara.Model {
    * - **ChinaUnicom_L2**: China Unicom L2
    * - **ChinaMobile_L2**: China Mobile L2
    * 
-   * If you are a China (Hangzhou) Finance Cloud user, this field is required. Set the value to **BGP_FinanceCloud**.
+   * If you are an Alibaba Finance Cloud user in the China (Hangzhou) region, this parameter is required. Set the value to **BGP_FinanceCloud**.
    * 
    * @example
    * BGP
@@ -83,7 +83,7 @@ export class ListPublicIpAddressPoolsRequest extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in this request. Valid values: **10** to **100**. Default value: **10**.
+   * The maximum number of entries to return for a single request. Valid values: **10** to **100**. Default value: **10**.
    * 
    * @example
    * 10
@@ -91,7 +91,7 @@ export class ListPublicIpAddressPoolsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The name of the IP address pool instance.
+   * The name of the IP address pool.
    * 
    * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -101,9 +101,9 @@ export class ListPublicIpAddressPoolsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * - You do not need to specify this parameter for the first request or if no subsequent request is to be sent.
-   * - If a subsequent request is to be sent, set the value to the NextToken value returned in the previous API call.
+   * The pagination token that is used to retrieve the next page of results. Valid values:
+   * - Leave this parameter empty for the first request and when no subsequent request is required.
+   * - For subsequent requests, set this parameter to the NextToken value returned from the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -113,16 +113,16 @@ export class ListPublicIpAddressPoolsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The list of IP address pool instance IDs.
+   * The list of IP address instance IDs.
    * 
-   * You can specify up to 100 IP address pool instance IDs.
+   * You can enter up to 100 IP address instance IDs.
    */
   publicIpAddressPoolIds?: string[];
   /**
    * @remarks
-   * The region ID of the IP address pool that you want to query.
+   * The region ID of the IP address pool.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -143,8 +143,8 @@ export class ListPublicIpAddressPoolsRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable Anti-DDoS (Enhanced). Valid values:
-   * - **false**: disabled.
-   * - **true**: enabled.
+   * - **false**: disables Anti-DDoS (Enhanced).
+   * - **true**: enables Anti-DDoS (Enhanced).
    * 
    * @example
    * true
@@ -152,10 +152,10 @@ export class ListPublicIpAddressPoolsRequest extends $dara.Model {
   securityProtectionEnabled?: boolean;
   /**
    * @remarks
-   * The instance status of the IPAM pool. Valid values:
-   * - **Created**: active.
-   * - **Deleting**: being deleted.
-   * - **Modifying**: being modified.
+   * The instance status of the IP address pool. Valid values:
+   * - **Created**: available.
+   * - **Deleting**: delete in progress.
+   * - **Modifying**: modify in progress.
    * 
    * @example
    * Created

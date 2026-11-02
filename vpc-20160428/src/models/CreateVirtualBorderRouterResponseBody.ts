@@ -13,7 +13,7 @@ export class CreateVirtualBorderRouterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The instance ID of the VBR.
+   * The VBR instance ID.
    * 
    * @example
    * vbr-bp1jcg5cmxjbl9xgc****

@@ -21,7 +21,7 @@ export class CreateExpressConnectTrafficQosQueueResponseBody extends $dara.Model
   queueId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4CF20CC7-D1FC-425B-A15B-DF7C8E2131A7

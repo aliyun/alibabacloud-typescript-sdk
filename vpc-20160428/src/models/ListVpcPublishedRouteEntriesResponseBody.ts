@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets extends $dara.Model {
   /**
    * @remarks
-   * The publish status of the route entry in the publish target.
+   * The publication status of the route at the publication target.
    * 
    * @example
    * Published
@@ -13,7 +13,7 @@ export class ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTar
   publishStatus?: string;
   /**
    * @remarks
-   * The instance ID of the route publish target.
+   * The instance ID of the route publication target.
    * 
    * @example
    * ecr-xvuqdfma6x57ei****
@@ -21,7 +21,7 @@ export class ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTar
   publishTargetInstanceId?: string;
   /**
    * @remarks
-   * The route publish target.
+   * The route publication target.
    * 
    * @example
    * ECR
@@ -55,7 +55,7 @@ export class ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTar
 export class ListVpcPublishedRouteEntriesResponseBodyRouteEntries extends $dara.Model {
   /**
    * @remarks
-   * The destination CIDR block of the route entry.
+   * The destination CIDR block of the route.
    * 
    * @example
    * 10.0.0.0/24
@@ -63,7 +63,7 @@ export class ListVpcPublishedRouteEntriesResponseBodyRouteEntries extends $dara.
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The ID of the route entry.
+   * The ID of the route.
    * 
    * @example
    * rte-bp1mnnr2al0naomnpv****
@@ -71,7 +71,7 @@ export class ListVpcPublishedRouteEntriesResponseBodyRouteEntries extends $dara.
   routeEntryId?: string;
   /**
    * @remarks
-   * The list of publish status information for the route entry in publish targets.
+   * The list of publication status information of the route at the publication targets.
    */
   routePublishTargets?: ListVpcPublishedRouteEntriesResponseBodyRouteEntriesRoutePublishTargets[];
   /**
@@ -115,10 +115,10 @@ export class ListVpcPublishedRouteEntriesResponseBodyRouteEntries extends $dara.
 export class ListVpcPublishedRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token for the next query. Valid values:
+   * The token used to retrieve the next page of results. Valid values:
    * 
-   * - If **NextToken** is empty, no next query exists.
-   * - If **NextToken** has a value, the value indicates the token for the next query.
+   * - If **NextToken** is empty, no more results are available.
+   * - If **NextToken** is returned, the value is the token used to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -134,7 +134,7 @@ export class ListVpcPublishedRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of route entry publish status information.
+   * The list of route publication status information.
    */
   routeEntries?: ListVpcPublishedRouteEntriesResponseBodyRouteEntries[];
   static names(): { [key: string]: string } {

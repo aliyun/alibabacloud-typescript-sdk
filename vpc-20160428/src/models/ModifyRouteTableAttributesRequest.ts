@@ -10,7 +10,7 @@ export class ModifyRouteTableAttributesRequest extends $dara.Model {
    * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
-   * 描述信息
+   * Description
    */
   description?: string;
   ownerAccount?: string;
@@ -19,7 +19,7 @@ export class ModifyRouteTableAttributesRequest extends $dara.Model {
    * @remarks
    * The region ID of the VPC to which the route table belongs. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -31,10 +31,10 @@ export class ModifyRouteTableAttributesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to receive dynamic routes by enabling or disabling route propagation. Valid values:
+   * Specifies whether to accept dynamic routes by enabling or disabling route propagation. Valid values:
    * 
-   * - **true** (default): enabled.
-   * - **false**: disabled.
+   * - **true** (default): enables route propagation.
+   * - **false**: disables route propagation.
    * 
    * @example
    * true

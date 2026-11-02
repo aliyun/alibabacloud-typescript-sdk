@@ -17,7 +17,7 @@ export class DescribeRouteTableListRequestTag extends $dara.Model {
    * @remarks
    * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -59,7 +59,7 @@ export class DescribeRouteTableListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
+   * The number of entries to return per page during paging in a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -69,7 +69,7 @@ export class DescribeRouteTableListRequest extends $dara.Model {
    * @remarks
    * The region ID of the VPC to which the route table belongs.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -142,9 +142,9 @@ export class DescribeRouteTableListRequest extends $dara.Model {
   tag?: DescribeRouteTableListRequestTag[];
   /**
    * @remarks
-   * The ID of the VPC to which the route table belongs.
+   * The ID of the virtual private cloud (VPC) to which the route table belongs.
    * 
-   * If you specify this parameter, the value of **RouterType** is automatically set to **VRouter**.
+   * If you specify this parameter, the value of the **RouterType** parameter is automatically set to **VRouter**.
    * 
    * @example
    * vpc-bp15zckdt37pq72****

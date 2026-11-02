@@ -13,7 +13,7 @@ export class DescribeHighDefinitionMonitorLogAttributeResponseBody extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The type of the instance for which high-precision second-level monitoring is queried. The value is **EIP**.
+   * The type of the instance for which high-precision second-level monitoring is queried. Valid value: **EIP**.
    * 
    * @example
    * EIP
@@ -21,7 +21,7 @@ export class DescribeHighDefinitionMonitorLogAttributeResponseBody extends $dara
   instanceType?: string;
   /**
    * @remarks
-   * The name of the LogProject.
+   * The name of the Simple Log Service LogProject.
    * 
    * @example
    * hdmonitor-cn-shenzhen-1658206966225390
@@ -29,7 +29,7 @@ export class DescribeHighDefinitionMonitorLogAttributeResponseBody extends $dara
   logProject?: string;
   /**
    * @remarks
-   * The name of the LogStore.
+   * The name of the Simple Log Service Logstore.
    * 
    * @example
    * hdmonitor
@@ -37,7 +37,7 @@ export class DescribeHighDefinitionMonitorLogAttributeResponseBody extends $dara
   logStore?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 54B48E3D-DF70-471B-AA93-08E683A1B457

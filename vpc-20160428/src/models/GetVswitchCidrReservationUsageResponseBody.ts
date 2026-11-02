@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVSwitchCidrReservationUsageResponseBodyCidrReservationUsages extends $dara.Model {
   /**
    * @remarks
-   * The prefix CIDR block allocated from the current reserved CIDR block for a vSwitch to an elastic network interface (ENI).
+   * The IP prefix that is allocated from the current reserved CIDR block to elastic network interfaces (ENIs) (network interface controller (NIC)).
    * 
    * @example
    * 192.168.1.64/28
@@ -21,7 +21,7 @@ export class GetVSwitchCidrReservationUsageResponseBodyCidrReservationUsages ext
   ipPrefixId?: string;
   /**
    * @remarks
-   * The instance ID of the elastic network interface (ENI) allocated from the reserved CIDR block for a vSwitch.
+   * The instance ID of the elastic network interfaces (ENIs) (network interface controller (NIC)) allocated from the reserved CIDR block.
    * 
    * @example
    * eni-bp14v2sdd3v8htln****
@@ -29,7 +29,7 @@ export class GetVSwitchCidrReservationUsageResponseBodyCidrReservationUsages ext
   resourceId?: string;
   /**
    * @remarks
-   * The instance type allocated from the reserved CIDR block for a vSwitch. Valid values: **NetworkInterface**, which indicates an elastic network interface (ENI).
+   * The instance type of the resource allocated from the reserved CIDR block. Valid value: **NetworkInterface**, which indicates elastic network interfaces (ENIs) (network interface controller (NIC)).
    * 
    * @example
    * NetworkInterface
@@ -85,12 +85,12 @@ export class GetVSwitchCidrReservationUsageResponseBodyCidrReservationUsages ext
 export class GetVSwitchCidrReservationUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of allocated reserved CIDR blocks for a vSwitch.
+   * The list of the reserved CIDR block for a vSwitch that is allocated and used.
    */
   cidrReservationUsages?: GetVSwitchCidrReservationUsageResponseBodyCidrReservationUsages[];
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -98,9 +98,9 @@ export class GetVSwitchCidrReservationUsageResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Valid values:
-   * - If **NextToken** is empty, no subsequent query exists.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The pagination token that is used to retrieve the next page of results. Valid values:
+   * - If **NextToken** is empty, no subsequent query is available.
+   * - If **NextToken** returns a value, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -116,7 +116,7 @@ export class GetVSwitchCidrReservationUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

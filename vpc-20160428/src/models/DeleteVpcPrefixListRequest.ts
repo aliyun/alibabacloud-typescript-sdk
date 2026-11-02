@@ -7,7 +7,7 @@ export class DeleteVpcPrefixListRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * You can generate the value from your client. Make sure that the value is unique across different requests. The client token can contain only ASCII characters.
    * 
    * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
@@ -17,9 +17,9 @@ export class DeleteVpcPrefixListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * - **true**: performs a dry run without deleting the prefix list. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
-   * - **false** (default): performs a dry run and sends the request. If the check succeeds, an HTTP 2xx status code is returned and the prefix list is deleted.
+   * Specifies whether to perform only a dry run. Valid values:
+   * - **true**: performs a dry run and does not delete the prefix list. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends a normal request. If the request passes the dry run, an HTTP 2xx status code is returned and the prefix list is deleted.
    * 
    * @example
    * false
@@ -39,9 +39,9 @@ export class DeleteVpcPrefixListRequest extends $dara.Model {
   prefixListId?: string;
   /**
    * @remarks
-   * The region ID of the prefix list to delete.
+   * The region ID of the prefix list.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

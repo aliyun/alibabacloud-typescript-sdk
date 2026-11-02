@@ -146,7 +146,7 @@ export class DescribeIpv6GatewaysResponseBody extends $dara.Model {
   ipv6Gateways?: DescribeIpv6GatewaysResponseBodyIpv6Gateways;
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1

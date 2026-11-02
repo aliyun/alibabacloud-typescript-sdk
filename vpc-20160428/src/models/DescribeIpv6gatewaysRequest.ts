@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIpv6GatewaysRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
    * 
    * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
@@ -15,9 +15,9 @@ export class DescribeIpv6GatewaysRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can specify an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -59,7 +59,7 @@ export class DescribeIpv6GatewaysRequest extends $dara.Model {
    * @remarks
    * The name of the IPv6 gateway.
    * 
-   * The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-), but cannot start with `http://` or `https://`.
+   * The name must be 2 to 128 characters in length, and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
    * 
    * @example
    * ipv6GW
@@ -69,7 +69,7 @@ export class DescribeIpv6GatewaysRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class DescribeIpv6GatewaysRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the IPv6 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * The region ID of the IPv6 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -105,7 +105,7 @@ export class DescribeIpv6GatewaysRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tag list.
+   * The list of tags.
    */
   tags?: DescribeIpv6GatewaysRequestTags[];
   /**

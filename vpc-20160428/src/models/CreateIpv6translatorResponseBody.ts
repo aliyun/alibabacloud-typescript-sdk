@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIPv6TranslatorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IPv6 Translation Service instance.
+   * The IPv6 Translation Service instance ID.
    * 
    * @example
    * ipv6trans-bp1i8ahxut1xxxx

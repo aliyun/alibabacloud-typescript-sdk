@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeletionProtectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
-   * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -17,7 +15,7 @@ export class DeletionProtectionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the instance for which you want to set deletion protection.
+   * The ID of the instance for which you want to configure deletion protection.
    * 
    * This parameter is required.
    * 
@@ -30,9 +28,9 @@ export class DeletionProtectionRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable deletion protection. Valid values:
    * 
-   * - **true**: Enabled.
+   * - **true**: enables deletion protection.
    * 
-   * - **false**: Disabled.
+   * - **false**: disables deletion protection.
    * 
    * This parameter is required.
    * 
@@ -42,7 +40,7 @@ export class DeletionProtectionRequest extends $dara.Model {
   protectionEnable?: boolean;
   /**
    * @remarks
-   * The region ID of the instance for which you want to set deletion protection. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
+   * The region ID of the instance for which you want to configure deletion protection. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -54,9 +52,9 @@ export class DeletionProtectionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of instance for which you want to set deletion protection. Valid values:
+   * The type of the instance for which you want to configure deletion protection. Valid values:
    * 
-   * - **EIP**: elastic IP address.
+   * - **EIP**: elastic IP address (EIP).
    * 
    * - **CBWP**: Internet Shared Bandwidth.
    * 

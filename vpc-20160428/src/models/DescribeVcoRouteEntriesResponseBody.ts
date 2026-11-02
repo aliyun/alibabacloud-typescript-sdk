@@ -23,7 +23,7 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
    * @remarks
    * The timestamp when the destination route was created.
    * 
-   * The timestamp is in the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp follows the UNIX time format. It represents the total number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970.
    * 
    * @example
    * 1658217008000
@@ -39,12 +39,20 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
   nextHop?: string;
   /**
    * @remarks
-   * The list of next-hop tunnels.
+   * The list of next hop tunnels.
    * 
    * > - This information is returned only for IPsec-VPN connections in dual-tunnel mode.
-   * > - Tunnel information is returned only when the tunnel status is **Phase 2 negotiations succeeded**.
+   * > - Tunnel information is returned only when the tunnel status is **Phase 2 negotiation succeeded**.
    */
   nextHopTunnelIdList?: string[];
+  /**
+   * @remarks
+   * The instance ID of the prefix list.
+   * 
+   * @example
+   * pl-m5estsqsdqwg88hjf****
+   */
+  prefixListId?: string;
   /**
    * @remarks
    * The destination CIDR block of the route.
@@ -68,8 +76,8 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
    * @remarks
    * The source of the BGP route.
    * 
-   * - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from the transit router.
-   * - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from the on-premises data center.
+   * - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from a transit router.
+   * - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from an on-premises data center.
    * 
    * @example
    * CLOUD
@@ -79,7 +87,7 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
    * @remarks
    * The status of the route.
    * 
-   * - **published**: The destination route has been published to the transit router instance.
+   * - **published**: The destination route is published to the transit router.
    * - **Active**: The BGP route is available.
    * 
    * @example
@@ -98,7 +106,7 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
    * @remarks
    * The weight of the destination route.
    * 
-   * > This parameter is not in use.
+   * > This parameter does not take effect.
    * 
    * @example
    * 100
@@ -111,6 +119,7 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
       createTime: 'CreateTime',
       nextHop: 'NextHop',
       nextHopTunnelIdList: 'NextHopTunnelIdList',
+      prefixListId: 'PrefixListId',
       routeDest: 'RouteDest',
       routeEntryType: 'RouteEntryType',
       source: 'Source',
@@ -127,6 +136,7 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $dara.Mo
       createTime: 'number',
       nextHop: 'string',
       nextHopTunnelIdList: { 'type': 'array', 'itemType': 'string' },
+      prefixListId: 'string',
       routeDest: 'string',
       routeEntryType: 'string',
       source: 'string',
@@ -172,8 +182,8 @@ export class DescribeVcoRouteEntriesResponseBodyVpnRouteCounts extends $dara.Mod
    * @remarks
    * The source of the BGP route.
    * 
-   * - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from the transit router.
-   * - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from the on-premises data center.
+   * - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from a transit router.
+   * - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from an on-premises data center.
    * 
    * @example
    * VPN_BGP
@@ -207,7 +217,7 @@ export class DescribeVcoRouteEntriesResponseBodyVpnRouteCounts extends $dara.Mod
 export class DescribeVcoRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1
@@ -215,7 +225,7 @@ export class DescribeVcoRouteEntriesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging queries.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -231,7 +241,7 @@ export class DescribeVcoRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

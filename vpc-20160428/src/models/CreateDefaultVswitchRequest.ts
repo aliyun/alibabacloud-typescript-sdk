@@ -7,9 +7,9 @@ export class CreateDefaultVSwitchRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
@@ -27,7 +27,7 @@ export class CreateDefaultVSwitchRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the default vSwitch that you want to create.
+   * The region ID of the default vSwitch to be created.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
@@ -41,7 +41,7 @@ export class CreateDefaultVSwitchRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The zone ID of the default vSwitch that you want to create.
+   * The zone ID of the default vSwitch to be created.
    * 
    * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query zone IDs.
    * 

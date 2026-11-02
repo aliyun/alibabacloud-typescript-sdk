@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesForExpressConnectRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to unbind all tags from the resource. Valid values:
+   * Specifies whether to remove all tags from the resource. Valid values:
    * 
-   * - **true**: Unbinds all tags from the resource.
-   * - **false** (default): Does not unbind all tags from the resource.
+   * - **true**: Removes all tags from the resource.
+   * - **false** (default): Does not remove all tags from the resource.
    * 
    * @example
    * false
@@ -18,9 +18,7 @@ export class UntagResourcesForExpressConnectRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the resource.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -42,8 +40,8 @@ export class UntagResourcesForExpressConnectRequest extends $dara.Model {
    * The resource type. Valid values:
    * - **PHYSICALCONNECTION**: Express Connect circuit instance.
    * - **VIRTUALBORDERROUTER**: Virtual Border Router.
-   * - **ROUTERINTERFACE**: VBR uplink.
-   * - **TRAFFICQOS**: QoS policy.
+   * - **ROUTERINTERFACE**: VBR connection.
+   * - **TRAFFICQOS**: Quality of Service (QoS) policy.
    * 
    * This parameter is required.
    * 
@@ -53,7 +51,7 @@ export class UntagResourcesForExpressConnectRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tag keys for the resource.
+   * The list of tags for the resource.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

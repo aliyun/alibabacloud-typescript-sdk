@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBgpPeersRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the BGP group to which the BGP peer that you want to query belongs.
+   * The ID of the BGP group to which the BGP peer belongs.
    * 
    * @example
    * bgpg-2zev8h2wo414sfh****
@@ -13,7 +13,7 @@ export class DescribeBgpPeersRequest extends $dara.Model {
   bgpGroupId?: string;
   /**
    * @remarks
-   * The ID of the BGP peer that you want to query.
+   * The ID of the BGP peer.
    * 
    * @example
    * bgp-2ze3un0ft1jd1xd****
@@ -36,7 +36,7 @@ export class DescribeBgpPeersRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the list. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -44,7 +44,7 @@ export class DescribeBgpPeersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -52,9 +52,9 @@ export class DescribeBgpPeersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the BGP group to which the BGP peer that you want to query belongs. 
+   * The region ID of the BGP group to which the BGP peer belongs. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -66,7 +66,7 @@ export class DescribeBgpPeersRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the Virtual Border Router (VBR) associated with the BGP peer that you want to query.
+   * The ID of the Virtual Border Router (VBR) associated with the BGP peer.
    * 
    * @example
    * vbr-2zecmmvg5gvu8i4te****

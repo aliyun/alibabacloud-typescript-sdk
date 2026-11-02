@@ -14,8 +14,8 @@ export class DescribeIPv6TranslatorEntriesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable access control. Valid values:
-   * - **on**: enabled.
-   * - **off**: disabled.
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * off
@@ -25,9 +25,9 @@ export class DescribeIPv6TranslatorEntriesRequest extends $dara.Model {
    * @remarks
    * The type of the access control policy. Valid values:
    * 
-   * - **white**: allows the IPv6 addresses in the access control policy group to access backend services.
+   * - **white**: Allows IPv6 addresses in the access control policy group to access the backend service.
    * 
-   * - **black**: denies the IPv6 addresses in the access control policy group from accessing backend services.
+   * - **black**: Denies IPv6 addresses in the access control policy group from accessing the backend service.
    * 
    * @example
    * white
@@ -35,7 +35,7 @@ export class DescribeIPv6TranslatorEntriesRequest extends $dara.Model {
   aclType?: string;
   /**
    * @remarks
-   * The IPv6 address allocated by the IPv6 Translation Service instance.
+   * The IPv6 address assigned to the IPv6 Translation Service instance.
    * 
    * @example
    * 2400:3200:1600::XX
@@ -43,7 +43,7 @@ export class DescribeIPv6TranslatorEntriesRequest extends $dara.Model {
   allocateIpv6Addr?: string;
   /**
    * @remarks
-   * The port used by the IPv6 address allocated by the IPv6 Translation Service instance.
+   * The port used by the IPv6 address assigned to the IPv6 Translation Service instance.
    * 
    * @example
    * 80
@@ -69,7 +69,7 @@ export class DescribeIPv6TranslatorEntriesRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
+   * You can generate the parameter value from your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -77,7 +77,7 @@ export class DescribeIPv6TranslatorEntriesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The name of the IPv6 Translation mapping entry.
+   * The name of the IPv6 translation mapping entry.
    * 
    * @example
    * entryname
@@ -85,9 +85,9 @@ export class DescribeIPv6TranslatorEntriesRequest extends $dara.Model {
   entryName?: string;
   /**
    * @remarks
-   * The ID of the IPv6 Translation mapping entry to query. 
+   * The ID of the IPv6 translation mapping entry to query. 
    * 
-   * > If both **Ipv6TranslatorId** and **Ipv6TranslatorEntryId** are empty, all IPv6 Translation mapping entries are returned. If only **Ipv6TranslatorEntryId** is empty, all IPv6 Translation mapping entries under the current IPv6 Translation Service instance are returned.
+   * > If both the **Ipv6TranslatorId** and **Ipv6TranslatorEntryId** parameters are left empty, all IPv6 translation mapping entries are returned. If only the **Ipv6TranslatorEntryId** parameter is left empty, all IPv6 translation mapping entries under the current IPv6 Translation Service instance are returned.
    * 
    * @example
    * ipv6transentry-bp1g8bhrde****
@@ -105,7 +105,7 @@ export class DescribeIPv6TranslatorEntriesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number of the list. Default value: 1.
    * 
    * @example
    * 1
@@ -113,7 +113,7 @@ export class DescribeIPv6TranslatorEntriesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -121,7 +121,7 @@ export class DescribeIPv6TranslatorEntriesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query region IDs.
+   * The region ID of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query the region ID.
    * 
    * This parameter is required.
    * 

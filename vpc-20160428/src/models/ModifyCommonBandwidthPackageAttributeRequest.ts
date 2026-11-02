@@ -15,15 +15,17 @@ export class ModifyCommonBandwidthPackageAttributeRequest extends $dara.Model {
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The description of the Internet Shared Bandwidth instance. The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description of the Internet Shared Bandwidth instance.  
+   * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
-   * 描述
+   * Description
    */
   description?: string;
   /**
    * @remarks
-   * The name of the Internet Shared Bandwidth instance. The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
+   * The name of the Internet Shared Bandwidth instance. 
+   * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * test123
@@ -33,9 +35,9 @@ export class ModifyCommonBandwidthPackageAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region where the Internet Shared Bandwidth instance is located. 
+   * The region where the Internet Shared Bandwidth instance resides. 
    * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to obtain the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetRouteTargetGroupRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot enter an empty string.
    * 
-   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class GetRouteTargetGroupRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can enter an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -51,9 +51,9 @@ export class GetRouteTargetGroupRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * You can generate the value from your client to ensure that it is unique among different requests. The ClientToken parameter supports only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-0016e04115b
@@ -61,7 +61,7 @@ export class GetRouteTargetGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the region to which the route target group belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the region ID.
+   * The ID of the region to which the route target group belongs. You can call the DescribeRegions operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class GetRouteTargetGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The instance ID of the routing target group member.
+   * The routing target group member instance ID.
    * 
    * This parameter is required.
    * 

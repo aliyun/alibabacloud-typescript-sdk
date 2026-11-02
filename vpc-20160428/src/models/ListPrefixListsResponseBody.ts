@@ -45,12 +45,12 @@ export class ListPrefixListsResponseBodyPrefixListsTags extends $dara.Model {
 export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
   /**
    * @remarks
-   * The Classless Inter-Domain Routing (CIDR) block information of the prefix list.
+   * The Classless Inter-Domain Routing information of the prefix list.
    */
   cidrBlocks?: string[];
   /**
    * @remarks
-   * The time when the prefix list was created.
+   * The time when the prefix list was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2022-07-12T14:22:32Z
@@ -69,7 +69,7 @@ export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
   ipVersion?: string;
   /**
    * @remarks
-   * The maximum number of entries for Classless Inter-Domain Routing (CIDR) blocks in the prefix list.
+   * The maximum number of entries of Classless Inter-Domain Routing in the prefix list.
    * 
    * @example
    * 10
@@ -111,9 +111,9 @@ export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
    * @remarks
    * The status of the prefix list. Valid values:
    * 
-   * - **Created**: Created.
-   * - **Deleted**: Deleted.
-   * - **Modifying**: Being modified.
+   * - **Created**: The prefix list is created.
+   * - **Deleted**: The prefix list is deleted.
+   * - **Modifying**: The prefix list is being modified.
    * 
    * > This parameter has the same meaning and valid values as **Status**.
    * 
@@ -149,8 +149,8 @@ export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
    * @remarks
    * The sharing type of the prefix list. Valid values:
    * 
-   * - **Shared**: The prefix list is a shared prefix list.
-   * - Empty: The prefix list is not a shared prefix list.
+   * - **Shared**: The prefix list is shared.
+   * - Empty: The prefix list is not shared.
    * 
    * @example
    * Shared
@@ -160,9 +160,9 @@ export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
    * @remarks
    * The status of the prefix list. Valid values:
    * 
-   * - **Created**: Created.
-   * - **Deleted**: Deleted.
-   * - **Modifying**: Being modified.
+   * - **Created**: The prefix list is created.
+   * - **Deleted**: The prefix list is deleted.
+   * - **Modifying**: The prefix list is being modified.
    * 
    * @example
    * Created
@@ -170,7 +170,7 @@ export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: ListPrefixListsResponseBodyPrefixListsTags[];
   static names(): { [key: string]: string } {
@@ -231,7 +231,7 @@ export class ListPrefixListsResponseBodyPrefixLists extends $dara.Model {
 export class ListPrefixListsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -239,8 +239,8 @@ export class ListPrefixListsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Valid values:
-   * - If **NextToken** is empty, no subsequent query exists.
+   * The pagination token for the next query. Valid values:
+   * - If **NextToken** is empty, no subsequent query is required.
    * - If **NextToken** is returned, the value indicates the token for the next query.
    * 
    * @example
@@ -249,12 +249,12 @@ export class ListPrefixListsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The information about the prefix lists.
+   * The details of the prefix lists.
    */
   prefixLists?: ListPrefixListsResponseBodyPrefixLists[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * DF72F7BB-5DFA-529C-887E-B0BB70D89C4F
@@ -262,7 +262,7 @@ export class ListPrefixListsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of prefix lists returned.
    * 
    * @example
    * 1

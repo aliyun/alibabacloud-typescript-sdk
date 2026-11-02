@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DiagnoseVpnConnectionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the list. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DiagnoseVpnConnectionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Default value: **10**.
+   * The number of entries per page in a paging query. Default value: **10**.
    * 
    * @example
    * 10
@@ -34,17 +34,17 @@ export class DiagnoseVpnConnectionsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The list of tunnel IDs.
+   * The IDs of the tunnels.
    */
   tunnelIds?: string[];
   /**
    * @remarks
-   * The list of IPsec-VPN connection IDs.
+   * The IDs of the IPsec-VPN connections.
    */
   vpnConnectionIds?: string[];
   /**
    * @remarks
-   * The instance ID of the VPN gateway.
+   * The VPN gateway instance ID.
    * 
    * @example
    * vpn-bp10hz6b0mbp39flt****

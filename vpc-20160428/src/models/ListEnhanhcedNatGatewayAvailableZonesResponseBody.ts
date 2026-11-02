@@ -8,7 +8,7 @@ export class ListEnhanhcedNatGatewayAvailableZonesResponseBodyZones extends $dar
    * The zone name.
    * 
    * @example
-   * 中东1 可用区A
+   * Middle East 1 Zone A
    */
   localName?: string;
   /**
@@ -53,7 +53,7 @@ export class ListEnhanhcedNatGatewayAvailableZonesResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The list of zones.
+   * The zones.
    */
   zones?: ListEnhanhcedNatGatewayAvailableZonesResponseBodyZones[];
   static names(): { [key: string]: string } {

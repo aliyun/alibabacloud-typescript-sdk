@@ -13,7 +13,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   defaultPolicyDocument?: string;
   /**
    * @remarks
-   * The domain name of the cloud service associated with the endpoint service in the queried region.
+   * The domain name of the Alibaba Cloud service to which the endpoint service belongs in the queried region.
    * 
    * @example
    * oss-admin.aliyuncs.com
@@ -37,7 +37,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   serviceName?: string;
   /**
    * @remarks
-   * Indicates whether the endpoint service supports access policies. Valid values:
+   * Specifies whether the endpoint service supports access policies. Valid values:
    * 
    * - **false**: Access policies are not supported.
    * - **true**: Access policies are supported.
@@ -78,7 +78,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
 export class ListVpcEndpointServicesByEndUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The maximum number of entries returned per page.
    * 
    * @example
    * 20
@@ -86,9 +86,9 @@ export class ListVpcEndpointServicesByEndUserResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
-   * - If **NextToken** is empty, no next query exists.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The token for the next query.
+   * - If **NextToken** is empty, no subsequent query is available.
+   * - If **NextToken** has a value, the value is the token used to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -109,7 +109,7 @@ export class ListVpcEndpointServicesByEndUserResponseBody extends $dara.Model {
   services?: ListVpcEndpointServicesByEndUserResponseBodyServices[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

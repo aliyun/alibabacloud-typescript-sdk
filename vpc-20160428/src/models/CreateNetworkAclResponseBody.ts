@@ -241,7 +241,7 @@ export class CreateNetworkAclResponseBodyNetworkAclAttribute extends $dara.Model
    * 
    * - **Available**: available.
    * 
-   * - **Modifying**: being modified.
+   * - **Modifying**: configuring.
    * 
    * @example
    * Modifying
@@ -249,7 +249,7 @@ export class CreateNetworkAclResponseBodyNetworkAclAttribute extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The ID of the VPC associated with the network ACL.
+   * The ID of the VPC with which the network ACL is associated.
    * 
    * @example
    * vpc-a2d33rfpl72k5xsscd****

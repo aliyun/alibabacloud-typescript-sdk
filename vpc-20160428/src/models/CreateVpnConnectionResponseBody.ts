@@ -7,7 +7,7 @@ export class CreateVpnConnectionResponseBody extends $dara.Model {
    * @remarks
    * The timestamp when the IPsec-VPN connection was created. Unit: milliseconds.
    * 
-   * The timestamp is in the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 (UTC) to the time when the IPsec-VPN connection was created.
+   * The timestamp is in the UNIX format, which represents the total duration from 00:00:00 on January 1, 1970 (UTC) to the time when the IPsec-VPN connection was created.
    * 
    * @example
    * 1544666102000

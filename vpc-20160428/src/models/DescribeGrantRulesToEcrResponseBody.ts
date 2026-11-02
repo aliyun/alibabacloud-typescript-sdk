@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGrantRulesToEcrResponseBodyEcrGrantRules extends $dara.Model {
   /**
    * @remarks
-   * The authorization time. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
+   * The time when the authorization was granted. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-09-15T14:00:00Z
@@ -13,7 +13,7 @@ export class DescribeGrantRulesToEcrResponseBodyEcrGrantRules extends $dara.Mode
   createTime?: string;
   /**
    * @remarks
-   * The instance ID of the cross-account authorization for the Express Connect Router (ECR).
+   * The instance ID of the Express Connect Router (ECR) for which cross-account authorization is granted.
    * 
    * @example
    * ecr-xxxxxx
@@ -21,7 +21,7 @@ export class DescribeGrantRulesToEcrResponseBodyEcrGrantRules extends $dara.Mode
   ecrInstanceId?: string;
   /**
    * @remarks
-   * The authorized user ID for the cross-account authorization of the Express Connect Router (ECR).
+   * The ID of the authorized user for the Express Connect Router (ECR) cross-account authorization.
    * 
    * @example
    * 11111111111
@@ -55,7 +55,7 @@ export class DescribeGrantRulesToEcrResponseBodyEcrGrantRules extends $dara.Mode
 export class DescribeGrantRulesToEcrResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned.
+   * The number of queried results.
    * 
    * @example
    * 0
@@ -63,12 +63,12 @@ export class DescribeGrantRulesToEcrResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The cross-account authorization list of Express Connect Router (ECR).
+   * The cross-account authorization list of the Express Connect Router (ECR).
    */
   ecrGrantRules?: DescribeGrantRulesToEcrResponseBodyEcrGrantRules[];
   /**
    * @remarks
-   * The page number of the list. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -76,7 +76,7 @@ export class DescribeGrantRulesToEcrResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Maximum value: 50. Default value: 10.
+   * The number of entries returned per page during paging in a paged query. Maximum value: 50. Default value: 10.
    * 
    * @example
    * 20
@@ -92,7 +92,7 @@ export class DescribeGrantRulesToEcrResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 0

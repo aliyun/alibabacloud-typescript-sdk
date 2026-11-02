@@ -19,7 +19,7 @@ export class TerminatePhysicalConnectionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The instance ID of the Express Connect circuit.
+   * The instance ID of the Express Connect circuit instance.
    * 
    * This parameter is required.
    * 

@@ -8,7 +8,7 @@ export class CreateExpressConnectTrafficQosQueueRequest extends $dara.Model {
    * The bandwidth percentage of the QoS queue.
    * 
    * * If the QoS queue type is **Medium**, this parameter is required. Valid values: 1 to 100.
-   * * If the QoS queue type is **Default**, this parameter is set to "-".
+   * * If the QoS queue type is **Default**, this parameter is `-`.
    * 
    * @example
    * 100
@@ -18,9 +18,9 @@ export class CreateExpressConnectTrafficQosQueueRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -42,7 +42,7 @@ export class CreateExpressConnectTrafficQosQueueRequest extends $dara.Model {
    * @remarks
    * The description of the QoS queue.
    * 
-   * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description must be 0 to 256 characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * qos-queue-test
@@ -52,7 +52,7 @@ export class CreateExpressConnectTrafficQosQueueRequest extends $dara.Model {
    * @remarks
    * The name of the QoS queue.
    * 
-   * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
+   * The name must be 0 to 128 characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * qos-queue-test
@@ -64,11 +64,11 @@ export class CreateExpressConnectTrafficQosQueueRequest extends $dara.Model {
    * 
    * - **High**: high-priority queue.
    * 
-   * - **Medium**: lower-priority queue.
+   * - **Medium**: medium-priority queue.
    * 
-   * - **Default**: default priority queue.
+   * - **Default**: default queue.
    * 
-   * > The default priority queue cannot be created.
+   * > You cannot create default queues.
    * 
    * This parameter is required.
    * 

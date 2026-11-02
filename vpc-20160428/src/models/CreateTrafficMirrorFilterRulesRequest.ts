@@ -16,7 +16,7 @@ export class CreateTrafficMirrorFilterRulesRequestEgressRules extends $dara.Mode
   action?: string;
   /**
    * @remarks
-   * The destination CIDR block of network traffic for the outbound rule.
+   * The destination CIDR block of the network traffic for the outbound rule.
    * 
    * @example
    * 10.0.0.0/24
@@ -24,9 +24,9 @@ export class CreateTrafficMirrorFilterRulesRequestEgressRules extends $dara.Mode
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The destination port range of network traffic for the outbound rule. Valid values for a port: **1** to **65535**. Separate the start port and stop port with a forward slash (/). Format: **1/200** or **80/80**. A value of **-1/-1** cannot be configured independently and indicates that all ports are available.
+   * The destination port range of the network traffic for the outbound rule. Valid values are **1** to **65535**. Separate the start port and the end port with a forward slash (/). Examples: **1/200** and **80/80**. You cannot specify only **-1/-1** for this parameter. **-1/-1** indicates that all ports are allowed.
    * 
-   * > If EgressRules.N.Protocol is set to **ALL** or **ICMP**, you do not need to configure this parameter. Settings are not required because all ports are available.
+   * > If **EgressRules.N.Protocol** is set to **ALL** or **ICMP**, you do not need to specify this parameter, which indicates that all ports are allowed.
    * 
    * @example
    * 22/40
@@ -53,12 +53,12 @@ export class CreateTrafficMirrorFilterRulesRequestEgressRules extends $dara.Mode
   priority?: number;
   /**
    * @remarks
-   * The protocol type of network traffic to be mirrored for the outbound rule. Valid values:
+   * The protocol type of the network traffic to be mirrored for the outbound rule. Valid values:
    * 
    * - **ALL**: all protocols.
-   * - **ICMP**: Internet Control Message Protocol.
-   * - **TCP**: Transmission Control Protocol.
-   * - **UDP**: User Datagram Protocol.
+   * - **ICMP**: Internet Control Message Protocol (ICMP).
+   * - **TCP**: Transmission Control Protocol (TCP).
+   * - **UDP**: User Datagram Protocol (UDP).
    * 
    * @example
    * TCP
@@ -66,7 +66,7 @@ export class CreateTrafficMirrorFilterRulesRequestEgressRules extends $dara.Mode
   protocol?: string;
   /**
    * @remarks
-   * The source CIDR block of network traffic for the outbound rule.
+   * The source CIDR block of the network traffic for the outbound rule.
    * 
    * @example
    * 10.0.0.0/24
@@ -74,9 +74,9 @@ export class CreateTrafficMirrorFilterRulesRequestEgressRules extends $dara.Mode
   sourceCidrBlock?: string;
   /**
    * @remarks
-   * The source port range of network traffic for the outbound rule. Valid values for a port: **1** to **65535**. Separate the start port and stop port with a forward slash (/). Format: **1/200** or **80/80**. A value of **-1/-1** cannot be configured independently and indicates that all ports are available.
+   * The source port range of the network traffic for the outbound rule. Valid values are **1** to **65535**. Separate the start port and the end port with a forward slash (/). Examples: **1/200** and **80/80**. You cannot specify only **-1/-1** for this parameter. **-1/-1** indicates that all ports are allowed.
    * 
-   * > If EgressRules.N.Protocol is set to **ALL** or **ICMP**, you do not need to configure this parameter. Settings are not required because all ports are available.
+   * > If **EgressRules.N.Protocol** is set to **ALL** or **ICMP**, you do not need to specify this parameter, which indicates that all ports are allowed.
    * 
    * @example
    * 22/40
@@ -131,7 +131,7 @@ export class CreateTrafficMirrorFilterRulesRequestIngressRules extends $dara.Mod
   action?: string;
   /**
    * @remarks
-   * The destination CIDR block of network traffic for the inbound rule.
+   * The destination CIDR block of the network traffic for the inbound rule.
    * 
    * @example
    * 10.0.0.0/24
@@ -139,9 +139,9 @@ export class CreateTrafficMirrorFilterRulesRequestIngressRules extends $dara.Mod
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The destination port range of network traffic for the inbound rule. Valid values for a port: **1** to **65535**. Separate the start port and stop port with a forward slash (/). Format: **1/200** or **80/80**.
+   * The destination port range of the network traffic for the inbound rule. Valid values are **1** to **65535**. Separate the start port and the end port with a forward slash (/). Examples: **1/200** and **80/80**.
    * 
-   * > If IngressRules.N.Protocol is set to **ALL** or **ICMP**, you do not need to configure this parameter. Settings are not required because all ports are available.
+   * > If **IngressRules.N.Protocol** is set to **ALL** or **ICMP**, you do not need to specify this parameter, which indicates that all ports are allowed.
    * 
    * @example
    * 80/120
@@ -168,12 +168,12 @@ export class CreateTrafficMirrorFilterRulesRequestIngressRules extends $dara.Mod
   priority?: number;
   /**
    * @remarks
-   * The protocol type of network traffic to be mirrored for the inbound rule. Valid values:
+   * The protocol type of the network traffic to be mirrored for the inbound rule. Valid values:
    * 
    * - **ALL**: all protocols.
-   * - **ICMP**: Internet Control Message Protocol.
-   * - **TCP**: Transmission Control Protocol.
-   * - **UDP**: User Datagram Protocol.
+   * - **ICMP**: Internet Control Message Protocol (ICMP).
+   * - **TCP**: Transmission Control Protocol (TCP).
+   * - **UDP**: User Datagram Protocol (UDP).
    * 
    * @example
    * TCP
@@ -181,7 +181,7 @@ export class CreateTrafficMirrorFilterRulesRequestIngressRules extends $dara.Mod
   protocol?: string;
   /**
    * @remarks
-   * The source CIDR block of network traffic for the inbound rule.
+   * The source CIDR block of the network traffic for the inbound rule.
    * 
    * @example
    * 10.0.0.0/24
@@ -189,9 +189,9 @@ export class CreateTrafficMirrorFilterRulesRequestIngressRules extends $dara.Mod
   sourceCidrBlock?: string;
   /**
    * @remarks
-   * The source port range of network traffic for the inbound rule. Valid values for a port: **1** to **65535**. Separate the start port and stop port with a forward slash (/). Format: **1/200** or **80/80**. A value of **-1/-1** cannot be configured independently and indicates that all ports are available.
+   * The source port range of the network traffic for the inbound rule. Valid values are **1** to **65535**. Separate the start port and the end port with a forward slash (/). Examples: **1/200** and **80/80**. You cannot specify only **-1/-1** for this parameter. **-1/-1** indicates that all ports are allowed.
    * 
-   * > If IngressRules.N.Protocol is set to **ALL** or **ICMP**, you do not need to configure this parameter. Settings are not required because all ports are available.
+   * > If **IngressRules.N.Protocol** is set to **ALL** or **ICMP**, you do not need to specify this parameter, which indicates that all ports are allowed.
    * 
    * @example
    * 80/120
@@ -237,9 +237,9 @@ export class CreateTrafficMirrorFilterRulesRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -247,12 +247,11 @@ export class CreateTrafficMirrorFilterRulesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **true**: performs a dry run and does not create the inbound or outbound rules. The system checks whether required parameters are specified, the request format, and the limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * 
-   * 
-   * - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, inbound or outbound rules are created.
+   * - **false** (default): sends a normal request and creates the inbound or outbound rules if the request passes the check.
    * 
    * @example
    * false
@@ -274,7 +273,7 @@ export class CreateTrafficMirrorFilterRulesRequest extends $dara.Model {
    * @remarks
    * The region ID of the traffic mirror.
    * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list. For more information about regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about the regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
    * 
    * This parameter is required.
    * 

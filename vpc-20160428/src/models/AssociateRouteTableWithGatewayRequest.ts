@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateRouteTableWithGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among multiple requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
-   * The client generates the value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
-   * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may vary for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -18,8 +16,8 @@ export class AssociateRouteTableWithGatewayRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
-   * - **true**: performs a dry run without associating the gateway route table with the IPv4 gateway instance. The system checks the required parameters, request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-   * - **false** (default): performs a dry run and sends the request. If the check succeeds, an HTTP 2xx status code is returned and the gateway route table is associated with the IPv4 gateway instance.
+   * - **true**: performs a dry run and does not associate the gateway route table with the IPv4 gateway. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the gateway route table is associated with the IPv4 gateway.
    * 
    * @example
    * false
@@ -27,9 +25,9 @@ export class AssociateRouteTableWithGatewayRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The instance ID of the IPv4 gateway to associate.
+   * The instance ID of the IPv4 gateway to be associated.
    * 
-   * The IPv4 gateway instance to associate must be in the **Activated** state.
+   * The IPv4 gateway instance must be in the **Activated** state.
    * 
    * This parameter is required.
    * 
@@ -39,7 +37,7 @@ export class AssociateRouteTableWithGatewayRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The type of the gateway instance to associate.
+   * The type of the gateway to be associated.
    * 
    * @example
    * Ipv4Gateway
@@ -49,9 +47,7 @@ export class AssociateRouteTableWithGatewayRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the gateway route table and IPv4 gateway instance to associate.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * The region ID of the gateway route table and the IPv4 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -63,7 +59,7 @@ export class AssociateRouteTableWithGatewayRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the gateway route table to associate.
+   * The ID of the gateway route table to be associated.
    * 
    * This parameter is required.
    * 

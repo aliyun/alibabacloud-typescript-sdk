@@ -7,8 +7,8 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules
    * @remarks
    * The collection policy of the outbound rule. Valid values:
    * 
-   * - **accept**: collects network traffic.
-   * - **drop**: does not collect network traffic.
+   * - **accept**: Captures network traffic.
+   * - **drop**: Does not capture network traffic.
    * 
    * @example
    * accept
@@ -16,7 +16,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules
   action?: string;
   /**
    * @remarks
-   * The destination CIDR block of network traffic for the outbound rule.
+   * The destination CIDR block of the network traffic for the outbound rule.
    * 
    * @example
    * 10.0.0.0/24
@@ -24,7 +24,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The destination port range of network traffic for the outbound rule.
+   * The destination port range of the network traffic for the outbound rule.
    * 
    * @example
    * 22/40
@@ -48,12 +48,12 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules
   priority?: number;
   /**
    * @remarks
-   * The protocol type used by the outbound network traffic to be mirrored. Valid values:
+   * The protocol type of the network traffic to be mirrored for the outbound rule. Valid values:
    * 
-   * - **ALL**: all protocols.
-   * - **ICMP**: Internet Control Message Protocol.
-   * - **TCP**: Transmission Control Protocol.
-   * - **UDP**: User Datagram Protocol.
+   * - **ALL**: all protocols
+   * - **ICMP**: Internet Control Message Protocol
+   * - **TCP**: Transmission Control Protocol
+   * - **UDP**: User Datagram Protocol
    * 
    * @example
    * TCP
@@ -61,7 +61,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules
   protocol?: string;
   /**
    * @remarks
-   * The source CIDR block of network traffic for the outbound rule.
+   * The source CIDR block of the network traffic for the outbound rule.
    * 
    * @example
    * 10.0.0.0/24
@@ -69,7 +69,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules
   sourceCidrBlock?: string;
   /**
    * @remarks
-   * The source port range of network traffic for the outbound rule.
+   * The source port range of the network traffic for the outbound rule.
    * 
    * @example
    * 22/40
@@ -77,11 +77,11 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules
   sourcePortRange?: string;
   /**
    * @remarks
-   * The direction of network traffic. Valid values:
+   * The direction of the network traffic. Valid values:
    * 
-   * - **egress**: outbound.
+   * - **egress**: outbound
    * 
-   * - **ingress**: inbound.
+   * - **ingress**: inbound
    * 
    * @example
    * egress
@@ -107,13 +107,13 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules
    * @remarks
    * The status of the outbound rule. Valid values:
    * 
-   * - **Creating**: being created.
+   * - **Creating**: creating
    * 
-   * - **Created**: created.
+   * - **Created**: created
    * 
-   * - **Modifying**: being modified.
+   * - **Modifying**: modifying
    * 
-   * - **Deleting**: being deleted.
+   * - **Deleting**: deleting
    * 
    * @example
    * Created
@@ -167,8 +167,8 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRule
    * @remarks
    * The collection policy of the inbound rule. Valid values:
    * 
-   * - **accept**: collects network traffic.
-   * - **drop**: does not collect network traffic.
+   * - **accept**: Captures network traffic.
+   * - **drop**: Does not capture network traffic.
    * 
    * @example
    * accept
@@ -176,7 +176,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRule
   action?: string;
   /**
    * @remarks
-   * The destination CIDR block of network traffic for the inbound rule.
+   * The destination CIDR block of the network traffic for the inbound rule.
    * 
    * @example
    * 0.0.0.0/0
@@ -184,7 +184,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRule
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The destination port range of network traffic for the inbound rule.
+   * The destination port range of the network traffic for the inbound rule.
    * 
    * @example
    * -1/-1
@@ -208,12 +208,12 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRule
   priority?: number;
   /**
    * @remarks
-   * The protocol type used by the inbound network traffic to be mirrored. Valid values:
+   * The protocol type of the network traffic to be mirrored for the inbound rule. Valid values:
    * 
-   * - **ALL**: all protocols.
-   * - **ICMP**: Internet Control Message Protocol.
-   * - **TCP**: Transmission Control Protocol.
-   * - **UDP**: User Datagram Protocol.
+   * - **ALL**: all protocols
+   * - **ICMP**: Internet Control Message Protocol
+   * - **TCP**: Transmission Control Protocol
+   * - **UDP**: User Datagram Protocol
    * 
    * @example
    * ALL
@@ -221,7 +221,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRule
   protocol?: string;
   /**
    * @remarks
-   * The source CIDR block of network traffic for the inbound rule.
+   * The source CIDR block of the network traffic for the inbound rule.
    * 
    * @example
    * 0.0.0.0/0
@@ -229,7 +229,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRule
   sourceCidrBlock?: string;
   /**
    * @remarks
-   * The destination port range of network traffic for the inbound rule.
+   * The destination port range of the network traffic for the inbound rule.
    * 
    * @example
    * -1/-1
@@ -237,11 +237,11 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRule
   sourcePortRange?: string;
   /**
    * @remarks
-   * The direction of network traffic. Valid values:
+   * The direction of the network traffic. Valid values:
    * 
-   * - **egress**: outbound.
+   * - **egress**: outbound
    * 
-   * - **ingress**: inbound.
+   * - **ingress**: inbound
    * 
    * @example
    * ingress
@@ -267,13 +267,13 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRule
    * @remarks
    * The status of the inbound rule. Valid values:
    * 
-   * - **Creating**: being created.
+   * - **Creating**: creating
    * 
-   * - **Created**: created.
+   * - **Created**: created
    * 
-   * - **Modifying**: being modified.
+   * - **Modifying**: modifying
    * 
-   * - **Deleting**: being deleted.
+   * - **Deleting**: deleting
    * 
    * @example
    * Created
@@ -365,7 +365,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersTags extend
 export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters extends $dara.Model {
   /**
    * @remarks
-   * The time when the traffic mirror filter was created.
+   * The creation time of the traffic mirror filter. The time is displayed in UTC and follows the ISO 8601 standard. The time is accurate to minutes and in the YYYY-MM-DDThh:mmZ format.
    * 
    * @example
    * 2023-09-05T15:26Z
@@ -373,17 +373,17 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters extends $d
   creationTime?: string;
   /**
    * @remarks
-   * The details of outbound rules.
+   * The details of the outbound rules.
    */
   egressRules?: ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules[];
   /**
    * @remarks
-   * The details of inbound rules.
+   * The details of the inbound rules.
    */
   ingressRules?: ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRules[];
   /**
    * @remarks
-   * The ID of the resource group to which the traffic mirroring filter belongs.
+   * The ID of the resource group to which the traffic mirroring belongs.
    * 
    * @example
    * rg-bp67acfmxazb4ph****
@@ -391,7 +391,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters extends $d
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersTags[];
   /**
@@ -422,13 +422,13 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters extends $d
    * @remarks
    * The status of the traffic mirror filter. Valid values:
    * 
-   * - **Creating**: being created.
+   * - **Creating**: creating
    * 
-   * - **Created**: created.
+   * - **Created**: created
    * 
-   * - **Modifying**: being modified.
+   * - **Modifying**: modifying
    * 
-   * - **Deleting**: being deleted.
+   * - **Deleting**: deleting
    * 
    * @example
    * Created
@@ -483,7 +483,7 @@ export class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters extends $d
 export class ListTrafficMirrorFiltersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned in the current request.
+   * The number of entries returned for the current query.
    * 
    * @example
    * 5
@@ -491,7 +491,7 @@ export class ListTrafficMirrorFiltersResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The maximum number of entries queried in the current request.
+   * The maximum number of entries to return for the current request.
    * 
    * @example
    * 20
@@ -499,9 +499,9 @@ export class ListTrafficMirrorFiltersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
-   * - If **NextToken** is empty, no next query exists.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The token that indicates whether a next query is available. Valid values:
+   * - If **NextToken** is empty, no subsequent query is available.
+   * - If **NextToken** returns a value, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -517,7 +517,7 @@ export class ListTrafficMirrorFiltersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -525,7 +525,7 @@ export class ListTrafficMirrorFiltersResponseBody extends $dara.Model {
   totalCount?: string;
   /**
    * @remarks
-   * The details of traffic mirror filters.
+   * The details of the traffic mirror filters.
    */
   trafficMirrorFilters?: ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters[];
   static names(): { [key: string]: string } {

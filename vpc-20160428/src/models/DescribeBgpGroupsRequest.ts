@@ -26,7 +26,7 @@ export class DescribeBgpGroupsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the list. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -34,7 +34,7 @@ export class DescribeBgpGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -44,7 +44,7 @@ export class DescribeBgpGroupsRequest extends $dara.Model {
    * @remarks
    * The region ID of the VBR. 
    * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

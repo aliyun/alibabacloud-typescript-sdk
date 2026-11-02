@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSnatEntryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2315DEB7-5E92-423A-91F7-4C1EC9AD****

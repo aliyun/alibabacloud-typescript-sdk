@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetPhysicalConnectionServiceStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether outbound traffic billing is enabled.
+   * Indicates whether the outbound data transfer service is enabled.
    * - **true**: Enabled.
    * 
-   * - **false**: Not enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true

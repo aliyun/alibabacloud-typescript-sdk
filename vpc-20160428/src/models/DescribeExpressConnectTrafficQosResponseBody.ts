@@ -23,11 +23,11 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstan
    * @remarks
    * The status of the associated instance. Valid values:
    * 
-   * - **Normal**: available.
+   * - **Normal**: The instance is available.
    * 
-   * - **Configuring**: being configured.
+   * - **Configuring**: The instance is being configured.
    * 
-   * - **Deleting**: being deleted.
+   * - **Deleting**: The instance is being deleted.
    * 
    * @example
    * Normal
@@ -35,7 +35,7 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstan
   instanceStatus?: string;
   /**
    * @remarks
-   * The type of the associated instance. Valid values: **PHYSICALCONNECTION**: Express Connect circuit.
+   * The type of the associated instance. Valid value: **PHYSICALCONNECTION** (Express Connect circuit).
    * 
    * @example
    * PHYSICALCONNECTION
@@ -75,7 +75,7 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList extend
    * 
    * * When the QoS queue type is **Medium**, this parameter is required. Valid values: **1** to **100**.
    * 
-   * * When the QoS queue type is **Default**, this parameter is set to "-".
+   * * When the QoS queue type is **Default**, the value of this parameter is "-".
    * 
    * @example
    * 100
@@ -83,7 +83,7 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList extend
   bandwidthPercent?: string;
   /**
    * @remarks
-   * The QoS policy ID.
+   * The ID of the QoS policy.
    * 
    * @example
    * qos-pksbqfmotl5hzq****
@@ -93,7 +93,7 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList extend
    * @remarks
    * The description of the QoS queue.
    * 
-   * The description is **0** to **256** characters in length and cannot start with `http://` or `https://`.
+   * The description must be **0** to **256** characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * qos-queue-test
@@ -101,7 +101,7 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList extend
   queueDescription?: string;
   /**
    * @remarks
-   * The QoS queue ID.
+   * The ID of the QoS queue.
    * 
    * @example
    * qos-queue-9nyx2u7n71s2rc****
@@ -111,7 +111,7 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList extend
    * @remarks
    * The name of the QoS queue.
    * 
-   * The name is **0** to **128** characters in length and cannot start with `http://` or `https://`.
+   * The name must be **0** to **128** characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * qos-queue-test
@@ -119,15 +119,15 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList extend
   queueName?: string;
   /**
    * @remarks
-   * The QoS queue type. Valid values:
+   * The type of the QoS queue. Valid values:
    * 
-   * - **High**: high-priority queue.
+   * - **High**: High-priority queue.
    * 
-   * - **Medium**: medium-priority queue.
+   * - **Medium**: Medium-priority queue.
    * 
-   * - **Default**: default-priority queue.
+   * - **Default**: Default-priority queue.
    * 
-   * > The default-priority queue cannot be created.
+   * > You cannot create a default-priority queue.
    * 
    * @example
    * High
@@ -137,11 +137,11 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList extend
    * @remarks
    * The status of the QoS queue. Valid values:
    * 
-   * - **Normal**: available.
+   * - **Normal**: The queue is available.
    * 
-   * - **Configuring**: being configured.
+   * - **Configuring**: The queue is being configured.
    * 
-   * - **Deleting**: being deleted.
+   * - **Deleting**: The queue is being deleted.
    * 
    * @example
    * Normal
@@ -238,7 +238,7 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosList extends $dara.M
    * @remarks
    * The description of the QoS policy. 
    * 
-   * The description is **0** to **256** characters in length and cannot start with `http://` or `https://`.
+   * The description must be **0** to **256** characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * qos-test
@@ -246,7 +246,7 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosList extends $dara.M
   qosDescription?: string;
   /**
    * @remarks
-   * The QoS policy ID.
+   * The ID of the QoS policy.
    * 
    * @example
    * qos-pksbqfmotl5hzq****
@@ -256,7 +256,7 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosList extends $dara.M
    * @remarks
    * The name of the QoS policy. 
    * 
-   * The name is **0** to **128** characters in length and cannot start with `http://` or `https://`.
+   * The name must be **0** to **128** characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * qos-test
@@ -269,7 +269,7 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosList extends $dara.M
   queueList?: DescribeExpressConnectTrafficQosResponseBodyQosListQueueList[];
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmz7vtyl4f***
@@ -279,11 +279,11 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosList extends $dara.M
    * @remarks
    * The status of the QoS policy. Valid values:
    * 
-   * - **Normal**: available.
+   * - **Normal**: The QoS policy is available.
    * 
-   * - **Configuring**: being configured.
+   * - **Configuring**: The QoS policy is being configured.
    * 
-   * > A QoS policy in the Configuring state restricts most create, update, and delete operations on QoS policies, QoS queues, and QoS rules.
+   * > When a QoS policy is in the Configuring state, most creation, update, and deletion operations for QoS policies, QoS queues, and QoS rules are restricted.
    * 
    * @example
    * Normal
@@ -351,7 +351,7 @@ export class DescribeExpressConnectTrafficQosResponseBody extends $dara.Model {
   count?: string;
   /**
    * @remarks
-   * The number of entries per page for paginated queries. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -359,11 +359,11 @@ export class DescribeExpressConnectTrafficQosResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Valid values:
+   * The token for the next query. Valid values:
    * 
-   * - Leave this parameter empty for the first query or if no subsequent query is required.
+   * - Leave empty for the first query or when no next query is required.
    * 
-   * - If a next query is to be sent, set the value to the **NextToken** value returned in the previous API call.
+   * - If a next query is required, set the value to the **NextToken** value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

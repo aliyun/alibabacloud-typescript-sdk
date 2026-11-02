@@ -17,7 +17,7 @@ export class ModifyFlowLogAttributeResponseBody extends $dara.Model {
    * 
    * - **true**: The operation is successful.
    * 
-   * - **false**: The operation failed.
+   * - **false**: The operation fails.
    * 
    * @example
    * true

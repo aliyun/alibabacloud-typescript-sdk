@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListDhcpOptionsSetsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot enter an empty string.
    * 
-   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class ListDhcpOptionsSetsRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can enter an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -59,7 +59,7 @@ export class ListDhcpOptionsSetsRequest extends $dara.Model {
    * @remarks
    * The name of the DHCP options set.
    * 
-   * The name must be 1 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-).
+   * The name must be 1 to 128 characters in length, and must start with an English letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-).
    * 
    * @example
    * test
@@ -69,7 +69,7 @@ export class ListDhcpOptionsSetsRequest extends $dara.Model {
    * @remarks
    * The hostname suffix, such as example.com.
    * 
-   * After the DHCP options set is associated with a VPC, the hostname suffix is automatically synchronized to the ECS instances in the associated VPC.
+   * After you associate VPC with a DHCP options set, the system performs synchronization of the hostname suffix to the ECS instances in the VPC.
    * 
    * @example
    * example.com
@@ -77,7 +77,7 @@ export class ListDhcpOptionsSetsRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **100**. Default value: **10**.
+   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **10**.
    * 
    * @example
    * 10
@@ -85,9 +85,9 @@ export class ListDhcpOptionsSetsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Valid values:
-   * - If this is the first query or no subsequent query is required, leave this parameter empty.
-   * - If a subsequent query is required, set the value to the **NextToken** value returned in the previous API call.
+   * The token for the next query. Valid values:
+   * - For the first query or when no subsequent query is required, leave this parameter empty.
+   * - For a subsequent query, set this parameter to the **NextToken** value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -97,9 +97,9 @@ export class ListDhcpOptionsSetsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the DHCP options sets that you want to query.
+   * The ID of the region where the DHCP options sets reside.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

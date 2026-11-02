@@ -94,7 +94,7 @@ export class DescribeBgpGroupsResponseBody extends $dara.Model {
   bgpGroups?: DescribeBgpGroupsResponseBodyBgpGroups;
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1
@@ -102,7 +102,7 @@ export class DescribeBgpGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10

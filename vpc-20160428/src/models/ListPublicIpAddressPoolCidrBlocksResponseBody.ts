@@ -13,7 +13,7 @@ export class ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockL
   cidrBlock?: string;
   /**
    * @remarks
-   * The time when the CIDR block was created. The time is in the `YYYY-MM-DDThh:mm:ssZ` format.
+   * The creation time. The time follows the `YYYY-MM-DDThh:mm:ssZ` format.
    * 
    * @example
    * 2022-05-10T01:37:38Z
@@ -88,9 +88,9 @@ export class ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockL
 export class ListPublicIpAddressPoolCidrBlocksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token. Valid values:
-   * - If **NextToken** is empty, no subsequent query exists.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The token used to retrieve the next page of results. Valid values:
+   * - If **NextToken** is empty, no subsequent requests are to be sent.
+   * - If **NextToken** has a return value, the value indicates the token used to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -111,7 +111,7 @@ export class ListPublicIpAddressPoolCidrBlocksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries returned for the current request.
    * 
    * @example
    * 10

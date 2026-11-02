@@ -122,7 +122,7 @@ export class DescribeBgpPeersResponseBody extends $dara.Model {
   bgpPeers?: DescribeBgpPeersResponseBodyBgpPeers;
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1

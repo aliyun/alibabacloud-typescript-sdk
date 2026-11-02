@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DiagnoseVpnConnectionsResponseBodyVpnConnections extends $dara.Model {
   /**
    * @remarks
-   * The error reason.
+   * The cause of the error.
    * 
    * @example
    * Phase1 negotiation timeout
@@ -23,7 +23,7 @@ export class DiagnoseVpnConnectionsResponseBodyVpnConnections extends $dara.Mode
    * @remarks
    * The timestamp when the current error occurred on the IPsec-VPN connection. Unit: milliseconds.
    * 
-   * The timestamp is in UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the current error occurred on the IPsec-VPN connection.
+   * The timestamp follows the UNIX timestamp format, which indicates the total duration from 00:00:00 on January 1, 1970 (UTC) to the time when the current error occurred on the IPsec-VPN connection.
    * 
    * @example
    * 1673581161000
@@ -31,7 +31,7 @@ export class DiagnoseVpnConnectionsResponseBodyVpnConnections extends $dara.Mode
   failedTime?: number;
   /**
    * @remarks
-   * The parameter value configured on the IPsec-VPN connection when the parameter values configured on the IPsec-VPN connection and the peer gateway device do not match.
+   * The parameter values configured on the IPsec-VPN connection when the parameter values configured on the IPsec-VPN connection and the peer gateway device do not match.
    * 
    * @example
    * SHA256
@@ -39,7 +39,7 @@ export class DiagnoseVpnConnectionsResponseBodyVpnConnections extends $dara.Mode
   mismatchLocalParam?: string;
   /**
    * @remarks
-   * The parameter value configured on the peer gateway device when the parameter values configured on the IPsec-VPN connection and the peer gateway device do not match.
+   * The parameter values configured on the peer gateway device when the parameter values configured on the IPsec-VPN connection and the peer gateway device do not match.
    * 
    * @example
    * SHA
@@ -47,10 +47,10 @@ export class DiagnoseVpnConnectionsResponseBodyVpnConnections extends $dara.Mode
   mismatchRemoteParam?: string;
   /**
    * @remarks
-   * The severity level of the current error.
+   * The severity level of the current error. Valid values:
    * 
-   * - **Critical**: Critical. Troubleshoot the issue immediately.
-   * - **Warn**: Warning. Troubleshoot the issue as soon as possible.
+   * - **Critical**: Critical. Troubleshoot and resolve the issue as soon as possible.
+   * - **Warn**: Warning. Troubleshoot and resolve the issue promptly.
    * - **Normal**: Normal.
    * 
    * @example
@@ -67,7 +67,7 @@ export class DiagnoseVpnConnectionsResponseBodyVpnConnections extends $dara.Mode
   sourceLog?: string;
   /**
    * @remarks
-   * The tunnel ID.
+   * The ID of the tunnel.
    * 
    * @example
    * tun-64n1sr9dig64k6****
@@ -121,7 +121,7 @@ export class DiagnoseVpnConnectionsResponseBodyVpnConnections extends $dara.Mode
 export class DiagnoseVpnConnectionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1
@@ -129,7 +129,7 @@ export class DiagnoseVpnConnectionsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10
@@ -145,7 +145,7 @@ export class DiagnoseVpnConnectionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -153,7 +153,7 @@ export class DiagnoseVpnConnectionsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The diagnostic information list of IPsec-VPN connections.
+   * The diagnostic information about the IPsec-VPN connections.
    */
   vpnConnections?: DiagnoseVpnConnectionsResponseBodyVpnConnections[];
   static names(): { [key: string]: string } {

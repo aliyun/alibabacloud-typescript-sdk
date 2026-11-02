@@ -378,7 +378,7 @@ export class DescribeVpcsResponseBodyVpcs extends $dara.Model {
 export class DescribeVpcsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the list.
    * 
    * @example
    * 1
@@ -386,7 +386,7 @@ export class DescribeVpcsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in paging queries.
+   * The number of entries per page for paging.
    * 
    * @example
    * 10
@@ -402,7 +402,7 @@ export class DescribeVpcsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

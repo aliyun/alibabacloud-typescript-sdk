@@ -7,7 +7,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
    * @remarks
    * The timestamp when the policy-based route was created. Unit: milliseconds.
    * 
-   * The timestamp follows the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp follows the UNIX time format. It is the total number of milliseconds that have elapsed since 00:00:00 Thursday, January 1, 1970 (UTC).
    * 
    * @example
    * 1492747187000
@@ -31,7 +31,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   nextHop?: string;
   /**
    * @remarks
-   * The tunneling protocol. Set the value to **Ipsec** (IPsec tunnel protocol).
+   * The tunnel protocol. Set the value to **Ipsec** (IPsec tunnel protocol).
    * 
    * @example
    * Ipsec
@@ -39,7 +39,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   overlayMode?: string;
   /**
    * @remarks
-   * The policy priority of the policy-based routing entry.
+   * The policy priority of the policy-based route.
    * 
    * @example
    * 10
@@ -73,9 +73,9 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
    * @remarks
    * The publish status of the policy-based route.
    * 
-   * - **published**: The policy-based route is published to the VPC route table.
+   * - **published**: The policy-based route is published to the route tables of the VPC.
    * 
-   * - **normal**: The policy-based route is not published to the VPC route table.
+   * - **normal**: The policy-based route is not published to the route tables of the VPC.
    * 
    * @example
    * normal
@@ -83,7 +83,7 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The instance ID of the VPN gateway.
+   * The ID of the VPN gateway.
    * 
    * @example
    * vpn-bp1cmw7jh1nfe43m9****
@@ -93,8 +93,8 @@ export class CreateVpnPbrRouteEntryResponseBody extends $dara.Model {
    * @remarks
    * The weight of the policy-based route.
    * 
-   * - **100**: The IPsec-VPN connection associated with the policy-based route serves as the active link.
-   * - **0**: The IPsec-VPN connection associated with the policy-based route serves as the standby link.
+   * - **100**: The IPsec-VPN connection associated with the policy-based route is the active link.
+   * - **0**: The IPsec-VPN connection associated with the policy-based route is the standby link.
    * 
    * @example
    * 0

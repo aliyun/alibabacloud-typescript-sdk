@@ -37,7 +37,7 @@ export class ModifySslVpnServerResponseBody extends $dara.Model {
   connections?: number;
   /**
    * @remarks
-   * The time when the SSL-VPN server was created.
+   * The creation time of the SSL server.
    * 
    * @example
    * 1492753580000
@@ -47,9 +47,9 @@ export class ModifySslVpnServerResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether two-factor authentication is enabled.
    * 
-   * - **true**: enabled.
+   * - **true**: Enabled.
    * 
-   * - **false** (default): not enabled.
+   * - **false** (default): Disabled.
    * 
    * @example
    * false
@@ -65,7 +65,7 @@ export class ModifySslVpnServerResponseBody extends $dara.Model {
   IDaaSApplicationId?: string;
   /**
    * @remarks
-   * The instance ID of the IDaaS EIAM instance.
+   * The instance ID of the IDaaS EIAM.
    * 
    * @example
    * idaas-cn-hangzhou-****
@@ -75,8 +75,8 @@ export class ModifySslVpnServerResponseBody extends $dara.Model {
    * @remarks
    * The version of the IDaaS EIAM instance.
    * 
-   * - This parameter is returned only when the SSL server is bound to an IDaaS EIAM 2.0 instance. The value is **EIAM 2.0**.
-   * - If the SSL server is bound to an IDaaS EIAM 1.0 instance, this parameter is not returned.
+   * - This parameter is returned only when the SSL server is bound to an IDaaS EIAM 2.0 instance. Valid value: **EIAM 2.0**.
+   * - This parameter is not returned if the SSL server is bound to an IDaaS EIAM 1.0 instance.
    * 
    * @example
    * EIAM 2.0
@@ -108,7 +108,7 @@ export class ModifySslVpnServerResponseBody extends $dara.Model {
   maxConnections?: number;
   /**
    * @remarks
-   * The name of the SSL-VPN server.
+   * The name of the SSL server.
    * 
    * @example
    * test
@@ -116,7 +116,7 @@ export class ModifySslVpnServerResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The port of the SSL-VPN server.
+   * The port of the SSL server.
    * 
    * @example
    * 1194
@@ -124,7 +124,7 @@ export class ModifySslVpnServerResponseBody extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The protocol used by the SSL-VPN server.
+   * The protocol used by the SSL server.
    * 
    * @example
    * UDP
@@ -132,7 +132,7 @@ export class ModifySslVpnServerResponseBody extends $dara.Model {
   proto?: string;
   /**
    * @remarks
-   * The region ID of the SSL-VPN server.
+   * The region ID of the SSL server.
    * 
    * @example
    * cn-hangzhou
@@ -148,9 +148,9 @@ export class ModifySslVpnServerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the SSL-VPN server belongs.
+   * The ID of the resource group to which the SSL server belongs.
    * 
-   * The SSL-VPN server belongs to the same resource group as the associated VPN gateway instance. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
+   * The SSL server belongs to the same resource group as its associated VPN gateway. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
    * 
    * @example
    * rg-acfmzs372yg****
@@ -158,7 +158,7 @@ export class ModifySslVpnServerResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the SSL-VPN server.
+   * The ID of the SSL server.
    * 
    * @example
    * vss-bp18q7hzj6largv4v****

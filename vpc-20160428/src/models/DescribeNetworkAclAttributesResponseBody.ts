@@ -294,7 +294,7 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttribute extends
    * @remarks
    * The Alibaba Cloud account ID to which the network ACL belongs.
    * 
-   * >Notice: This value is of the Long type. Precision loss may occur in certain languages. Use this value with caution.
+   * >Notice: This value is of the Long type. Precision loss may occur in some programming languages. Use it with caution.
    * 
    * @example
    * 2546073170691****
@@ -313,9 +313,9 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttribute extends
    * @remarks
    * The status of the associated resource. Valid values:
    * 
-   * - **Available**: available.
+   * - **Available**: The resource is available.
    * 
-   * - **Modifying**: being modified.
+   * - **Modifying**: The resource is being configured.
    * 
    * @example
    * Available
@@ -324,7 +324,7 @@ export class DescribeNetworkAclAttributesResponseBodyNetworkAclAttribute extends
   tags?: DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeTags;
   /**
    * @remarks
-   * The ID of the VPC associated with the network ACL.
+   * The ID of the virtual private cloud (VPC) associated with the network ACL.
    * 
    * @example
    * vpc-a2d33rfpl72k5defr****

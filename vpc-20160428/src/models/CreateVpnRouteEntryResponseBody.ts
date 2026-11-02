@@ -7,7 +7,7 @@ export class CreateVpnRouteEntryResponseBody extends $dara.Model {
    * @remarks
    * The timestamp when the destination route was created. Unit: milliseconds.
    * 
-   * The timestamp follows the UNIX time format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC, to the time when the destination route was created.
+   * The timestamp is in the UNIX format, which represents the total duration from 00:00:00 on January 1, 1970 (UTC) to the time when the destination route was created.
    * 
    * @example
    * 1492747187000
@@ -31,7 +31,7 @@ export class CreateVpnRouteEntryResponseBody extends $dara.Model {
   nextHop?: string;
   /**
    * @remarks
-   * The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling protocol).
+   * The tunnel protocol. Set the value to **Ipsec** (IPsec tunnel protocol).
    * 
    * @example
    * Ipsec
@@ -39,7 +39,7 @@ export class CreateVpnRouteEntryResponseBody extends $dara.Model {
   overlayMode?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
@@ -55,11 +55,11 @@ export class CreateVpnRouteEntryResponseBody extends $dara.Model {
   routeDest?: string;
   /**
    * @remarks
-   * The publish status of the destination route.
+   * The publish status of the destination route. Valid values:
    * 
-   * - **published**: The destination route is published to the VPC route table.
+   * - **published**: The destination route is published to the route table of the VPC.
    * 
-   * - **normal**: The destination route is not published to the VPC route table.
+   * - **normal**: The destination route is not published to the route table of the VPC.
    * 
    * @example
    * published
@@ -77,8 +77,8 @@ export class CreateVpnRouteEntryResponseBody extends $dara.Model {
    * @remarks
    * The weight of the destination route. Valid values:
    * 
-   * - **100**: The destination route has a high priority.
-   * - **0**: The destination route has a low priority.
+   * - **100**: The destination route has a higher priority.
+   * - **0**: The destination route has a lower priority.
    * 
    * @example
    * 0

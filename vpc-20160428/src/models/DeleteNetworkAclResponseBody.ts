@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNetworkAclResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4B48E3D-DF70-471B-AA83-089E83A1B45

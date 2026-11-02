@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePublicIpAddressPoolRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot enter an empty string.
    * 
-   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class CreatePublicIpAddressPoolRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can enter an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,9 +49,9 @@ export class CreatePublicIpAddressPoolRequestTag extends $dara.Model {
 export class CreatePublicIpAddressPoolRequest extends $dara.Model {
   /**
    * @remarks
-   * The business type of the IP address pool. Valid values:
+   * The service type of the IP address pool. Valid values:
    * - **CloudBox**: CloudBox. Only CloudBox users can select this type.
-   * - **Default** (default): indicates that the business type is not a special type.
+   * - **Default** (default): default, which indicates no special type.
    * 
    * @example
    * Default
@@ -61,9 +61,9 @@ export class CreatePublicIpAddressPoolRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 02fb3da4-130e-11****
@@ -71,7 +71,7 @@ export class CreatePublicIpAddressPoolRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the IP address pool instance.
+   * The description of the IP address pool.
    * 
    * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -81,9 +81,9 @@ export class CreatePublicIpAddressPoolRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * - **true**: performs a dry run without creating the IP address pool. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
+   * Specifies whether to only precheck the request. Valid values:
+   * - **true**: prechecks the request without creating the IP address pool. The system checks whether required parameters are specified, the request format, and service limits. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -93,20 +93,20 @@ export class CreatePublicIpAddressPoolRequest extends $dara.Model {
    * @remarks
    * The line type. Valid values:
    * 
-   * - **BGP** (default): BGP (Multi-ISP) line.
+   * - **BGP** (default): BGP (multi-ISP) line.
    * 
-   * - **BGP_PRO**: BGP (Multi-ISP) Pro line.
+   * - **BGP_PRO**: BGP (multi-ISP) Pro line.
    * 
-   * For more information about BGP (Multi-ISP) lines and BGP (Multi-ISP) Pro lines, see [EIP line types](https://help.aliyun.com/document_detail/32321.html).
+   * For more information about BGP (multi-ISP) and BGP (multi-ISP) Pro lines, see [EIP line types](https://help.aliyun.com/document_detail/32321.html).
    * 
-   * - If you are a whitelist user of single-ISP bandwidth, you can also select the following types:
+   * - If you are added to the whitelist for single-ISP bandwidth, you can also select the following types:
    *     - **ChinaTelecom**: China Telecom
    *     - **ChinaUnicom**: China Unicom
    *     - **ChinaMobile**: China Mobile
    *     - **ChinaTelecom_L2**: China Telecom L2
    *     - **ChinaUnicom_L2**: China Unicom L2
    *     - **ChinaMobile_L2**: China Mobile L2
-   * - If you are a China (Hangzhou) Finance Cloud user, this field is required. Set this parameter to **BGP_FinanceCloud**.
+   * - If you are a Finance Cloud user in the China (Hangzhou) region, this parameter is required. Set the value to **BGP_FinanceCloud**.
    * 
    * @example
    * BGP
@@ -114,7 +114,7 @@ export class CreatePublicIpAddressPoolRequest extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * The name of the IP address pool instance.
+   * The name of the IP address pool.
    * 
    * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -126,7 +126,7 @@ export class CreatePublicIpAddressPoolRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the IP address pool that you want to create.
+   * The ID of the region where the IP address pool is created.
    * 
    * This parameter is required.
    * 
@@ -148,9 +148,9 @@ export class CreatePublicIpAddressPoolRequest extends $dara.Model {
    * @remarks
    * The security protection level.
    * 
-   * - If this parameter is left empty, DDoS Protection (Basic) is used by default.
+   * - If this parameter is left empty, Anti-DDoS Basic is used by default.
    * 
-   * - If this parameter is set to **AntiDDoS_Enhanced**, DDoS Protection (Enhanced) is used.
+   * - If this parameter is set to **AntiDDoS_Enhanced**, Anti-DDoS (Enhanced) is used.
    */
   securityProtectionTypes?: string[];
   /**
@@ -160,8 +160,8 @@ export class CreatePublicIpAddressPoolRequest extends $dara.Model {
   tag?: CreatePublicIpAddressPoolRequestTag[];
   /**
    * @remarks
-   * The zones of the IP address pool.
-   * This parameter is required only when **BizType** is set to **CloudBox**, which indicates that the business type of the IP address pool is CloudBox.
+   * The zone of the IP address pool.
+   * This parameter is required only when **BizType** is set to **CloudBox**, which indicates that the service type of the IP address pool is CloudBox.
    */
   zones?: string[];
   static names(): { [key: string]: string } {

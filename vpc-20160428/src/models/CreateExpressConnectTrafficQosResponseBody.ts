@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExpressConnectTrafficQosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The QoS policy ID.
+   * The ID of the QoS policy.
    * 
    * @example
    * qos-2giu0a6vd5x0mv****

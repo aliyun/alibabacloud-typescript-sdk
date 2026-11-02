@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIpv4GatewayAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the IPv4 gateway to query.
+   * The instance ID of the IPv4 gateway.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,7 @@ export class GetIpv4GatewayAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the IPv4 gateway to query.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region ID of the IPv4 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

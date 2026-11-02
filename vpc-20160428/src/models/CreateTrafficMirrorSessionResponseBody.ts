@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTrafficMirrorSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
@@ -13,7 +13,7 @@ export class CreateTrafficMirrorSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the traffic mirroring instance belongs.
+   * The ID of the resource group to which the traffic mirroring belongs.
    * 
    * @example
    * rg-bp67acfmxazb4ph****

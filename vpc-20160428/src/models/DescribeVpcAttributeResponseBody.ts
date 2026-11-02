@@ -365,11 +365,11 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   cidrBlock?: string;
   /**
    * @remarks
-   * Indicates whether ClassicLink is enabled. Valid values:
+   * Indicates whether the ClassicLink feature is enabled. Valid values:
    * 
-   * - **true**: ClassicLink is enabled.
+   * - **true**: The ClassicLink feature is enabled.
    * 
-   * - **false** (default): ClassicLink is not enabled.
+   * - **false** (default): The ClassicLink feature is disabled.
    * 
    * @example
    * false
@@ -380,7 +380,7 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   cloudResources?: DescribeVpcAttributeResponseBodyCloudResources;
   /**
    * @remarks
-   * The creation time of the VPC.
+   * The time when the VPC was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 2021-10-16T07:31:09Z
@@ -406,13 +406,13 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the DHCP options set. Valid values:
    * 
-   * - **Available**: active.
+   * - **Available**: The DHCP options set is available.
    * 
-   * - **InUse**: in use.
+   * - **InUse**: The DHCP options set is in use.
    * 
-   * - **Deleted**: deleted.
+   * - **Deleted**: The DHCP options set is deleted.
    * 
-   * - **Pending**: being configured.
+   * - **Pending**: The DHCP options set is being configured.
    * 
    * @example
    * Available
@@ -420,7 +420,7 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   dhcpOptionsSetStatus?: string;
   /**
    * @remarks
-   * Indicates whether DNS hostnames are enabled.
+   * Indicates whether the DNS hostname feature is enabled.
    * 
    * @example
    * DISABLED
@@ -489,7 +489,7 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmxazbvgb4ph****
@@ -500,9 +500,9 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the VPC. Valid values:
    * 
-   * - **Available**: active.
+   * - **Available**: The VPC is available.
    * 
-   * - **Pending**: being configured.
+   * - **Pending**: The VPC is being configured.
    * 
    * @example
    * Available
@@ -510,11 +510,12 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the VPC operates in centralized control with IPv4 gateway mode.
-   * - **true**: The VPC operates in centralized control with IPv4 gateway mode, where Internet traffic is centrally managed by the IPv4 gateway (activated after the IPv4 gateway is created and routing is configured), or the VPC is a private network-only VPC (the IPv4 gateway is deleted in private mode).
-   * - **false**: The VPC operates in Direct Internet Access mode (access mode).
+   * Indicates whether the VPC operates in the centralized control mode with the IPv4 gateway. Valid values:
    * 
-   * > For details, see [IPv4 gateway](https://help.aliyun.com/document_detail/376445.html).
+   * - **true**: The VPC operates in the centralized control mode with the IPv4 gateway. Internet traffic is centrally managed by the IPv4 gateway (the IPv4 gateway is activated after it is created and routes are configured), or the VPC is a private network-only VPC (the IPv4 gateway is deleted in private mode).
+   * - **false**: Direct Internet Access mode.
+   * 
+   * > For more information, see [IPv4 gateway](https://help.aliyun.com/document_detail/376445.html).
    * 
    * @example
    * true
@@ -524,7 +525,7 @@ export class DescribeVpcAttributeResponseBody extends $dara.Model {
   userCidrs?: DescribeVpcAttributeResponseBodyUserCidrs;
   /**
    * @remarks
-   * The ID of the vRouter in the VPC.
+   * The ID of the vRouter of the VPC.
    * 
    * @example
    * vrt-bp1jso6ng1at0ajsc****

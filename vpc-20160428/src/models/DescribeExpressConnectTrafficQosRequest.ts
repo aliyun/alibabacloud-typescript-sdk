@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExpressConnectTrafficQosRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You must specify at least 1 tag key and can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You must specify at least one tag key and can specify up to 20 tag keys. The tag key cannot be an empty string.
    * 
-   * A tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * A tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class DescribeExpressConnectTrafficQosRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * A tag value can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * FinanceJoshua
@@ -51,9 +51,9 @@ export class DescribeExpressConnectTrafficQosRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-0016e04115b
@@ -61,7 +61,7 @@ export class DescribeExpressConnectTrafficQosRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The number of entries per page for paginated queries. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -69,11 +69,11 @@ export class DescribeExpressConnectTrafficQosRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Valid values:
+   * The token for the next query. Valid values:
    * 
-   * *   Leave this parameter empty for the first query or if no subsequent query is required.
+   * * Leave empty for the first query or when no next query is required.
    * 
-   * *   If a next query is to be sent, set the value to the **NextToken** value returned in the previous API call.
+   * * If a next query is required, set the value to the **NextToken** value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -83,12 +83,12 @@ export class DescribeExpressConnectTrafficQosRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The list of QoS policy IDs.
+   * The IDs of the QoS policies.
    */
   qosIdList?: string[];
   /**
    * @remarks
-   * The list of QoS policy names.
+   * The QoS policy names.
    */
   qosNameList?: string[];
   /**
@@ -105,7 +105,7 @@ export class DescribeExpressConnectTrafficQosRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmxazfdgdg****

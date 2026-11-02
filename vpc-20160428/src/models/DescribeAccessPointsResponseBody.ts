@@ -142,7 +142,7 @@ export class DescribeAccessPointsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for a paging query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -158,7 +158,7 @@ export class DescribeAccessPointsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 5

@@ -19,10 +19,6 @@ export class DescribeVpnConnectionsRequestTag extends $dara.Model {
    * @remarks
    * The tag value.
    * 
-   * The tag value can be up to 128 characters in length and can be an empty string. It cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
-   * 
-   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
-   * 
    * @example
    * TagValue
    */
@@ -81,8 +77,6 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
    * @remarks
    * The region ID of the IPsec-VPN connection.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -92,8 +86,6 @@ export class DescribeVpnConnectionsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the resource group to which the IPsec-VPN connection belongs.
-   * 
-   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group IDs.
    * 
    * @example
    * rg-acfmzs372yg****

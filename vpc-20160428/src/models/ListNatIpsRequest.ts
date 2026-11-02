@@ -7,9 +7,9 @@ export class ListNatIpsRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * You can use the client to generate the token, but you must make sure that the token is unique among multiple requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
-   * > If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** may differ for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
@@ -17,9 +17,9 @@ export class ListNatIpsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
+   * Specifies whether to only precheck the request. Valid values:
+   * - **true**: The system prechecks the request without querying the NAT IP addresses. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * - **false** (default): The system sends a normal request. If the request passes the precheck, the system returns an HTTP 2xx status code and performs the operation.
    * 
    * @example
    * false
@@ -27,12 +27,12 @@ export class ListNatIpsRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The origin of the NAT IP address to query. Valid values:
-   * - prefix: a NAT IP address that belongs to an IP prefix.
+   * The origin of the NAT IP addresses to query. Valid values:
+   * - prefix: NAT IP addresses that belong to an IP prefix.
    * 
-   * - cidr: a standalone NAT IP address that does not belong to any IP prefix.
+   * - cidr: Standalone NAT IP addresses that do not belong to any IP prefix.
    * 
-   * - Empty: queries all NAT IP addresses.
+   * - Empty: All NAT IP addresses.
    * 
    * @example
    * cidr
@@ -48,7 +48,7 @@ export class ListNatIpsRequest extends $dara.Model {
   ipv4Prefix?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -74,7 +74,7 @@ export class ListNatIpsRequest extends $dara.Model {
   natIpCidr?: string;
   /**
    * @remarks
-   * The instance ID of the NAT IP address to query. Valid values of **N**: **1** to **20**.
+   * The instance IDs of the NAT IP addresses to query. Valid values of **N**: **1** to **20**.
    * 
    * @example
    * vpcnatip-gw8a863sut1zijxh0****
@@ -92,9 +92,9 @@ export class ListNatIpsRequest extends $dara.Model {
    * @remarks
    * The status of the NAT IP addresses to query. Valid values:
    * 
-   * - **Available**: available.
-   * - **Deleting**: being deleted.
-   * - **Creating**: being created.
+   * - **Available**: Available.
+   * - **Deleting**: Deleting.
+   * - **Creating**: Creating.
    * 
    * @example
    * Available
@@ -102,9 +102,9 @@ export class ListNatIpsRequest extends $dara.Model {
   natIpStatus?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * - You do not need to specify this parameter for the first request or if no subsequent query exists.
-   * - If a next query exists, set the value to the NextToken value returned in the previous API call.
+   * The token that is used to start the next query. Valid values:
+   * - If this is the first query or no next query is to be sent, ignore this parameter.
+   * - If a next query is to be sent, set the value to the NextToken value returned in the last API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****f84eb48b699f0a4883
@@ -116,7 +116,7 @@ export class ListNatIpsRequest extends $dara.Model {
    * @remarks
    * The region ID of the NAT gateway instance to which the NAT IP addresses belong.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

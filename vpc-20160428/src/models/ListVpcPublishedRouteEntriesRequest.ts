@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcPublishedRouteEntriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination CIDR block of the route entry. IPv4 and IPv6 CIDR blocks are supported.
+   * The destination CIDR block of the route. Both IPv4 and IPv6 CIDR blocks are supported.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -13,7 +13,7 @@ export class ListVpcPublishedRouteEntriesRequest extends $dara.Model {
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Valid values: **1** to **500**. Default value: **50**.
+   * The number of entries to return on each page. Valid values: **1** to **500**. Default value: **50**.
    * 
    * @example
    * 50
@@ -21,9 +21,9 @@ export class ListVpcPublishedRouteEntriesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
-   * - If **NextToken** is empty, no next query exists.
-   * - If **NextToken** has a value, the value indicates the token for the next query.
+   * The token used to retrieve the next page of results. Valid values:
+   * - If **NextToken** is empty, no more results are available.
+   * - If **NextToken** is returned, the value is the token used to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -53,7 +53,7 @@ export class ListVpcPublishedRouteEntriesRequest extends $dara.Model {
   routeTableId?: string;
   /**
    * @remarks
-   * The instance ID of the route publish target.
+   * The instance ID of the route publication target.
    * 
    * @example
    * ecr-dhw2xsds5****
@@ -61,7 +61,7 @@ export class ListVpcPublishedRouteEntriesRequest extends $dara.Model {
   targetInstanceId?: string;
   /**
    * @remarks
-   * The type of the route publish target.
+   * The type of the route publication target.
    * 
    * This parameter is required.
    * 

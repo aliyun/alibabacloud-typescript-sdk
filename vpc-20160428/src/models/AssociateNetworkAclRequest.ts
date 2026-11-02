@@ -13,9 +13,9 @@ export class AssociateNetworkAclRequestResource extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the associated resource. Valid values: **VSwitch**.
+   * The type of the associated resource. Valid value: **VSwitch** (vSwitch).
    * 
-   * Valid values of **N**: **0** to **29**. You can associate up to 30 resources.
+   * The value of **N** ranges from **0** to **29**, which means that you can associate up to 30 resources.
    * 
    * @example
    * VSwitch
@@ -49,9 +49,9 @@ export class AssociateNetworkAclRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may differ for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -59,9 +59,9 @@ export class AssociateNetworkAclRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * - true: performs a dry run.
-   * - false (default): sends the request.
+   * Specifies whether to precheck the request. Valid values:
+   * - true: prechecks the request.
+   * - false (default): sends a normal request.
    * 
    * @example
    * false
@@ -81,7 +81,7 @@ export class AssociateNetworkAclRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the network ACL. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region ID of the network ACL. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

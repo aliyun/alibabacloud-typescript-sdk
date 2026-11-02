@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcGatewayEndpointsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
    * 
-   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class ListVpcGatewayEndpointsRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can specify an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,7 +49,7 @@ export class ListVpcGatewayEndpointsRequestTags extends $dara.Model {
 export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   /**
    * @remarks
-   * The endpoint instance ID of the gateway endpoint.
+   * The gateway endpoint instance ID.
    * 
    * @example
    * vpce-bp1i1212ss2whuwyw****
@@ -57,7 +57,7 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The name of the gateway endpoint.
+   * The name of the VPC gateway endpoint.
    * 
    * The name must be 1 to 128 characters in length.
    * 
@@ -67,7 +67,7 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -75,9 +75,9 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Specifies whether a next query token is available. Valid values:
-   * - Leave this parameter empty for the first query or when no more results are available.
-   * - If more results are available, set this parameter to the NextToken value returned by the previous API call.
+   * The token for the next query. Valid values:
+   * - If this is the first query or no subsequent query is required, leave this parameter empty.
+   * - If a subsequent query is required, set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -87,9 +87,9 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the gateway endpoint that you want to query.
+   * The region ID of the VPC gateway endpoint.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -99,7 +99,7 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the gateway endpoint belongs.
+   * The ID of the resource group to which the VPC gateway endpoint belongs.
    * 
    * @example
    * rg-acfmxvfvazb4p****
@@ -109,7 +109,7 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The service name of the endpoint service.
+   * The endpoint service name.
    * 
    * @example
    * com.aliyun.cn-hangzhou.oss
@@ -122,7 +122,7 @@ export class ListVpcGatewayEndpointsRequest extends $dara.Model {
   tags?: ListVpcGatewayEndpointsRequestTags[];
   /**
    * @remarks
-   * The ID of the VPC to which the gateway endpoint belongs.
+   * The ID of the VPC to which the VPC gateway endpoint belongs.
    * 
    * @example
    * vpc-bp1gsk7h12ew7oegk****

@@ -21,9 +21,9 @@ export class DescribeTagKeysRequest extends $dara.Model {
   maxResult?: number;
   /**
    * @remarks
-   * The pagination token. Valid values:
-   * - If this is the first query or no subsequent query exists, leave this parameter empty.
-   * - If a subsequent query exists, set the value to the NextToken value returned by the previous API call.
+   * The pagination token for the next query. Valid values:
+   * - Leave this parameter empty for the first query or when no subsequent query is required.
+   * - If a subsequent query is required, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -33,9 +33,7 @@ export class DescribeTagKeysRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the resource.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -45,7 +43,7 @@ export class DescribeTagKeysRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource ID. You can specify up to 50 resource IDs.
+   * The resource IDs. You can specify up to 50 resource IDs.
    */
   resourceId?: string[];
   resourceOwnerAccount?: string;
@@ -57,7 +55,7 @@ export class DescribeTagKeysRequest extends $dara.Model {
    * - **VPC**: virtual private cloud (VPC) instance.
    * - **VSWITCH**: vSwitch instance.
    * - **ROUTETABLE**: route table instance.
-   * - **EIP**: Elastic IP Address (EIP) instance.
+   * - **EIP**: EIP instance.
    * - **VpnGateWay**: VPN gateway instance.
    * - **NATGATEWAY**: NAT gateway instance.
    * - **COMMONBANDWIDTHPACKAGE**: Internet Shared Bandwidth instance.

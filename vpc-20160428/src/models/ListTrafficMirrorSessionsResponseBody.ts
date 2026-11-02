@@ -45,7 +45,7 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessionsTags exte
 export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends $dara.Model {
   /**
    * @remarks
-   * The time when the traffic mirror session was created.
+   * The creation time of the traffic mirror session. The time is specified in the ISO 8601 standard in UTC. The example is accurate to the minute in the YYYY-MM-DDThh:mmZ format.
    * 
    * @example
    * 2023-09-05T15:26Z
@@ -53,9 +53,9 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   creationTime?: string;
   /**
    * @remarks
-   * Indicates whether the traffic mirror session is enabled. Valid values:
+   * Specifies whether the traffic mirror session is enabled. Valid values:
    * 
-   * - **false** (default): The traffic mirror session is not enabled.
+   * - **false** (default): The traffic mirror session is disabled.
    * 
    * - **true**: The traffic mirror session is enabled.
    * 
@@ -65,10 +65,10 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   enabled?: boolean;
   /**
    * @remarks
-   * The length of the original packet to be mirrored (excluding the VXLAN packet length). Default value: **1500**. Valid values: **64** to **8500**. Unit: bytes.
-   * - This parameter affects the packet length received by the traffic mirror destination. For more information, see the mirrored packet length and MTU limits in [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
+   * The length of the original mirrored packet, excluding the length of the VXLAN packet. Default value: **1500**. Valid values: **64** to **8500**. Unit: bytes.
+   * - The value of this parameter affects the length of the packet received by the traffic mirror destination. For more information, see the "Mirrored packet length and MTU limits" section in [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
    * 
-   * - This parameter is available only in specific regions. For more information, see the mirrored packet length parameter description in [Create and manage traffic mirrors](https://help.aliyun.com/document_detail/207514.html).
+   * - This parameter is available only in specific regions. For more information, see the description of the mirrored packet length parameter in [Create and manage traffic mirroring](https://help.aliyun.com/document_detail/207514.html).
    * 
    * @example
    * 1500
@@ -86,7 +86,7 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   priority?: number;
   /**
    * @remarks
-   * The ID of the resource group to which the traffic mirroring session belongs.
+   * The ID of the resource group to which the traffic mirroring belongs.
    * 
    * @example
    * rg-bp67acfmxazb4ph****
@@ -94,7 +94,7 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessionsTags[];
   /**
@@ -109,9 +109,9 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
    * @remarks
    * The business status of the traffic mirror session. Valid values:
    * 
-   * - **Normal**: Normal.
+   * - **Normal**: The traffic mirror session is working as expected.
    * 
-   * - **FinancialLocked**: financial lock.
+   * - **FinancialLocked**: locked due to overdue payment.
    * 
    * @example
    * Normal
@@ -145,10 +145,10 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
    * @remarks
    * The status of the traffic mirror session. Valid values:
    * 
-   * - **Creating**: being created.
-   * - **Created**: created.
-   * - **Modifying**: being modified.
-   * - **Deleting**: being deleted.
+   * - **Creating**: The traffic mirror session is being created.
+   * - **Created**: The traffic mirror session is created.
+   * - **Modifying**: The traffic mirror session is being modified.
+   * - **Deleting**: The traffic mirror session is being deleted.
    * 
    * @example
    * Created
@@ -169,11 +169,11 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   trafficMirrorTargetId?: string;
   /**
    * @remarks
-   * The traffic mirror destination type. Valid values:
+   * The type of the traffic mirror destination. Valid values:
    * 
-   * - **NetworkInterface**: network interface controller (NIC).
+   * - **NetworkInterface**: an elastic network interface (ENI).
    * 
-   * - **SLB**: internal-facing SLB instance.
+   * - **SLB**: an internal-facing SLB instance.
    * 
    * @example
    * NetworkInterface
@@ -181,7 +181,7 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
   trafficMirrorTargetType?: string;
   /**
    * @remarks
-   * The VNI used to distinguish different mirrored data.
+   * The VNI that is used to distinguish different mirrored traffic.
    * 
    * @example
    * 10
@@ -247,9 +247,9 @@ export class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions extends 
 export class ListTrafficMirrorSessionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * - If **NextToken** is empty, no next query exists.
-   * - If **NextToken** has a value, the value is the token for the next query.
+   * The token for the next query. Valid values:
+   * - If **NextToken** is empty, no next query is available.
+   * - If **NextToken** returns a value, the value is the token used to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -257,7 +257,7 @@ export class ListTrafficMirrorSessionsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 739CA01C-92EB-4C69-BCC0-280149C6F41E
@@ -273,7 +273,7 @@ export class ListTrafficMirrorSessionsResponseBody extends $dara.Model {
   totalCount?: string;
   /**
    * @remarks
-   * The details of traffic mirror sessions.
+   * The details of the traffic mirror sessions.
    */
   trafficMirrorSessions?: ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions[];
   static names(): { [key: string]: string } {

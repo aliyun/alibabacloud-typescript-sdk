@@ -217,7 +217,7 @@ export class DescribeIpv6AddressesResponseBody extends $dara.Model {
   ipv6Addresses?: DescribeIpv6AddressesResponseBodyIpv6Addresses;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -225,7 +225,7 @@ export class DescribeIpv6AddressesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -241,7 +241,7 @@ export class DescribeIpv6AddressesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

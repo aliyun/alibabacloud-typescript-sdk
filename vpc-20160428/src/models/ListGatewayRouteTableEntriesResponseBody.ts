@@ -16,7 +16,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNext
   enabled?: string;
   /**
    * @remarks
-   * The instance ID of the next hop.
+   * The next hop instance ID.
    * 
    * @example
    * vpn-bp10zyaph5cc8b7c7****
@@ -30,7 +30,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNext
    * - **HaVip**: high-availability virtual IP address.
    * - **VpnGateway**: VPN gateway.
    * - **NatGateway**: NAT gateway.
-   * - **NetworkInterface**: secondary elastic network interfaces (ENIs).
+   * - **NetworkInterface**: secondary elastic network interface (ENI).
    * - **RouterInterface**: vRouter interface.
    * - **IPv6Gateway**: IPv6 gateway.
    * - **Attachment**: transit router.
@@ -41,7 +41,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNext
   nextHopType?: string;
   /**
    * @remarks
-   * The weight of the route entry.
+   * The weight of the route.
    * 
    * @example
    * 100
@@ -77,7 +77,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNext
 export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels extends $dara.Model {
   /**
    * @remarks
-   * The description of the route entry.
+   * The description of the route.
    * 
    * @example
    * test
@@ -85,7 +85,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
   description?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route entry.
+   * The destination CIDR block of the route.
    * 
    * @example
    * 192.168.0.5
@@ -93,9 +93,9 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * The name of the route entry.
+   * The name of the route.
    * 
-   * The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
+   * The name must be 2 to 128 characters in length, and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * name
@@ -103,7 +103,7 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
   name?: string;
   /**
    * @remarks
-   * The instance ID of the next hop.
+   * The next hop instance ID.
    * 
    * @example
    * i-bp11gcl0sm85t9bi****
@@ -111,10 +111,10 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
   nextHopId?: string;
   /**
    * @remarks
-   * The next hop type. Valid values:
+   * The type of the next hop. Valid values:
    * 
    * - **EcsInstance**: ECS instance.
-   * - **NetworkInterface**: elastic network interfaces (ENIs).
+   * - **NetworkInterface**: elastic network interface (ENI).
    * - **Local**: local.
    * 
    * @example
@@ -128,11 +128,11 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
   nextHops?: ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModelsNextHops[];
   /**
    * @remarks
-   * The status of the route entry. Valid values:
+   * The status of the route. Valid values:
    * 
-   * - **Pending**: being configured.
-   * - **Available**: available.
-   * - **Modifying**: being modified.
+   * - **Pending**: The route is being configured.
+   * - **Available**: The route is available.
+   * - **Modifying**: The route is being modified.
    * 
    * @example
    * Available
@@ -177,14 +177,14 @@ export class ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels ext
 export class ListGatewayRouteTableEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the route entries in the gateway route table.
+   * The details of the routes in the gateway route table.
    */
   gatewayRouteEntryModels?: ListGatewayRouteTableEntriesResponseBodyGatewayRouteEntryModels[];
   /**
    * @remarks
-   * The pagination token. Valid values:
-   * - If **NextToken** is empty, no subsequent query exists.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The pagination token that is used to retrieve the next page of results. Valid values:
+   * - If **NextToken** is empty, no more results are available.
+   * - If **NextToken** returns a value, the value is the token used to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -200,7 +200,7 @@ export class ListGatewayRouteTableEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

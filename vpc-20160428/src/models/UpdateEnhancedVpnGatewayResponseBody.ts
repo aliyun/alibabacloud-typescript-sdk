@@ -83,10 +83,10 @@ export class UpdateEnhancedVpnGatewayResponseBodyTags extends $dara.Model {
 export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether BGP route automatic propagation to the VPC is enabled. Valid values:
-   * - **true**: Automatic propagation is enabled.
+   * Indicates whether BGP routes are automatically propagated to the VPC. Valid values:
+   * - **true**: automatic propagation
    * 
-   * - **false**: Automatic propagation is not enabled.
+   * - **false**: no automatic propagation
    * 
    * @example
    * true
@@ -94,8 +94,8 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   autoPropagate?: boolean;
   /**
    * @remarks
-   * The timestamp when the enhanced VPN gateway instance was created. Unit: milliseconds.<br>
-   * The timestamp follows the UNIX time format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The timestamp of when the enhanced VPN gateway instance was created. Unit: milliseconds. <br>
+   * The timestamp follows the UNIX time format. It is the total number of milliseconds that have elapsed since the UNIX epoch (January 1, 1970, 00:00:00 UTC) to the time when the enhanced VPN gateway instance was created.
    * 
    * @example
    * 1492753580000
@@ -119,10 +119,10 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   disasterRecoveryVSwitchId?: string;
   /**
    * @remarks
-   * The enabling status of the BGP feature for the enhanced VPN gateway. Valid values:<br>
-   * - **true**: enabled.
+   * The enabling status of the BGP feature for the enhanced VPN gateway. Valid values: <br>
+   * - **true**: enabled
    * 
-   * - **false**: disabled.
+   * - **false**: disabled
    * 
    * @example
    * true
@@ -133,7 +133,7 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
    * @remarks
    * The type of the enhanced VPN gateway. Valid values:
    * 
-   * - **Enhanced.SiteToSite**: enhanced site-to-cloud VPN that supports only IPsec functionality.
+   * - **Enhanced.SiteToSite**: enhanced site-to-cloud VPN, which supports only the IPsec feature
    * 
    * @example
    * Enhanced.SiteToSite
@@ -150,7 +150,7 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
    * The network type of the enhanced VPN gateway. Valid values:
-   * - **public** (default): public VPN gateway.
+   * - **public** (default): Internet VPN gateway
    * 
    * @example
    * public
@@ -166,8 +166,8 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the enhanced VPN gateway instance belongs.<br>
-   * You can call [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to query resource group information.
+   * The ID of the resource group to which the enhanced VPN gateway instance belongs. <br>
+   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
    * 
    * @example
    * rg-acfmzs372yg****
@@ -175,12 +175,12 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the enhanced VPN gateway.
-   * - **init**: initializing.
-   * - **provisioning**: preparing.
-   * - **active**: normal.
-   * - **updating**: updating.
-   * - **deleting**: deleting.
+   * The status of the enhanced VPN gateway. Valid values:
+   * - **init**: initializing
+   * - **provisioning**: preparing
+   * - **active**: active
+   * - **updating**: updating
+   * - **deleting**: deleting
    * 
    * @example
    * active
@@ -221,9 +221,9 @@ export class UpdateEnhancedVpnGatewayResponseBody extends $dara.Model {
   vpnGatewayId?: string;
   /**
    * @remarks
-   * The type of the enhanced VPN gateway.
+   * The type of the enhanced VPN gateway. Valid values:
    * 
-   * - **Normal** (default): standard.
+   * - **Normal** (default): standard
    * 
    * @example
    * Normal

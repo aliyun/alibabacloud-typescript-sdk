@@ -237,7 +237,7 @@ export class DescribeRouterInterfacesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page when paging is performed. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -254,7 +254,7 @@ export class DescribeRouterInterfacesResponseBody extends $dara.Model {
   routerInterfaceSet?: DescribeRouterInterfacesResponseBodyRouterInterfaceSet;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

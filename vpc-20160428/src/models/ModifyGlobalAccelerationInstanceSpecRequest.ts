@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyGlobalAccelerationInstanceSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * The peak bandwidth of the Alibaba Cloud Global Accelerator (GA) instance. Unit: Mbit/s. Valid value: **10**.
+   * The peak bandwidth of the Global Accelerator instance. Unit: Mbit/s. Valid values: **10**.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyGlobalAccelerationInstanceSpecRequest extends $dara.Model {
   bandwidth?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud Global Accelerator (GA) instance.
+   * The ID of the Global Accelerator instance.
    * 
    * This parameter is required.
    * 
@@ -27,9 +27,9 @@ export class ModifyGlobalAccelerationInstanceSpecRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region where the Alibaba Cloud Global Accelerator (GA) instance is deployed. 
+   * The region where the Global Accelerator instance resides. 
    * 
-   * You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

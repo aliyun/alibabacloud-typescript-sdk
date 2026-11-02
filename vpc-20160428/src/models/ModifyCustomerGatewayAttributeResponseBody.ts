@@ -29,7 +29,7 @@ export class ModifyCustomerGatewayAttributeResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The public IP address of the on-premises data center gateway device.
+   * The public IP address of the gateway device in the on-premises data center.
    * 
    * @example
    * 139.32.XX.XX
@@ -45,7 +45,7 @@ export class ModifyCustomerGatewayAttributeResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8AA5CE21-2E6A-4530-BDF5-F055849476E6

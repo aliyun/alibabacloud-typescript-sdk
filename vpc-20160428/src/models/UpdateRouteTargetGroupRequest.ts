@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the route target group member.
+   * The instance ID of the member in the routing target group.
    * 
    * @example
    * ep-xxxx
@@ -13,13 +13,13 @@ export class UpdateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Mo
   memberId?: string;
   /**
    * @remarks
-   * The member type of the route target group.
+   * The type of the member in the route target group.
    * 
-   * Currently supported type:
+   * Valid values:
    * 
    * - **GatewayLoadBalancerEndpoint**
    * 
-   * In active/standby mode, all members of the route target group must be of the same type.
+   * In active/standby mode, all members in the route target group must be of the same type.
    * 
    * @example
    * GatewayLoadBalancerEndpoint
@@ -27,10 +27,10 @@ export class UpdateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Mo
   memberType?: string;
   /**
    * @remarks
-   * The weight of the route target group member. Valid values:
+   * The weight of the member in the route target group. Valid values:
    * 
-   * - 100: The member is the active instance.
-   * - 0: The member is the standby instance.
+   * - 100: The member is the primary instance.
+   * - 0: The member is the secondary instance.
    * 
    * The weight can only be set during creation and cannot be modified.
    * 
@@ -66,7 +66,7 @@ export class UpdateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Mo
 export class UpdateRouteTargetGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters. If you do not specify this parameter, the system uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, and you must ensure that the value is unique among different requests. The client token can contain only ASCII characters. Note: If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -94,7 +94,7 @@ export class UpdateRouteTargetGroupRequest extends $dara.Model {
   routeTargetGroupDescription?: string;
   /**
    * @remarks
-   * The routing target group instance ID.
+   * The instance ID of the routing target group.
    * 
    * This parameter is required.
    * 
@@ -114,12 +114,12 @@ export class UpdateRouteTargetGroupRequest extends $dara.Model {
   routeTargetGroupName?: string;
   /**
    * @remarks
-   * The member list of the route target group.
+   * The list of members in the route target group.
    * 
-   * In active/standby mode, the following limits apply to route target group members:
+   * In active/standby mode, the following limits apply to the members of the route target group:
    * 
-   * 1. The number of route target group members must be 2.
-   * 2. The route target group members must belong to different zones.
+   * 1. The route target group must contain exactly two members.
+   * 2. The members of the route target group must belong to different zones.
    */
   routeTargetMemberList?: UpdateRouteTargetGroupRequestRouteTargetMemberList[];
   static names(): { [key: string]: string } {

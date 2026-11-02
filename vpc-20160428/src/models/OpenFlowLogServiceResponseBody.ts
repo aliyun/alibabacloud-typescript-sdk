@@ -13,7 +13,7 @@ export class OpenFlowLogServiceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message returned when the flow log service is activated.
+   * The message returned when the flow log feature is activated.
    * 
    * @example
    * successful

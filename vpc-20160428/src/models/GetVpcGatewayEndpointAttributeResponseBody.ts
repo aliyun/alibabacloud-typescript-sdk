@@ -45,7 +45,7 @@ export class GetVpcGatewayEndpointAttributeResponseBodyTags extends $dara.Model 
 export class GetVpcGatewayEndpointAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the gateway endpoint was created. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
+   * The time when the gateway endpoint was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
    * 
    * @example
    * 2021-08-27T01:58:37Z
@@ -61,7 +61,7 @@ export class GetVpcGatewayEndpointAttributeResponseBody extends $dara.Model {
   endpointDescription?: string;
   /**
    * @remarks
-   * The endpoint instance ID of the gateway endpoint.
+   * The gateway endpoint instance ID.
    * 
    * @example
    * vpce-bp1w1dmdqjpwul0v3****
@@ -79,17 +79,17 @@ export class GetVpcGatewayEndpointAttributeResponseBody extends $dara.Model {
    * @remarks
    * The status of the gateway endpoint. Valid values:
    * 
-   * - **Creating**: being created.
+   * - **Creating**: The gateway endpoint is being created.
    * 
-   * - **Created**: created and in a normal state.
+   * - **Created**: The gateway endpoint is created and in a normal state.
    * 
-   * - **Modifying**: being modified.
+   * - **Modifying**: The gateway endpoint is being modified.
    * 
-   * - **Associating**: being associated.
+   * - **Associating**: The gateway endpoint is being associated.
    * 
-   * - **Dissociating**: being disassociated.
+   * - **Dissociating**: The gateway endpoint is being disassociated.
    * 
-   * - **Deleting**: being deleted.
+   * - **Deleting**: The gateway endpoint is being deleted.
    * 
    * @example
    * Created
@@ -126,7 +126,7 @@ export class GetVpcGatewayEndpointAttributeResponseBody extends $dara.Model {
   routeTables?: string[];
   /**
    * @remarks
-   * The service name of the endpoint service.
+   * The endpoint service name.
    * 
    * @example
    * com.aliyun.cn-hangzhou.oss
@@ -139,7 +139,7 @@ export class GetVpcGatewayEndpointAttributeResponseBody extends $dara.Model {
   tags?: GetVpcGatewayEndpointAttributeResponseBodyTags[];
   /**
    * @remarks
-   * The ID of the VPC to which the gateway endpoint belongs.
+   * The ID of the VPC where the gateway endpoint resides.
    * 
    * @example
    * vpc-bp1nh86rugg01zol0****

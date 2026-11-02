@@ -7,9 +7,9 @@ export class DeleteNatIpCidrRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
    * @example
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
@@ -19,9 +19,9 @@ export class DeleteNatIpCidrRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
    * 
-   * - **true**: performs a dry run. The NAT CIDR block is not deleted. The system checks whether your AccessKey pair is valid, whether Resource Access Management (RAM) user authorization is granted, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+   * - **true**: performs a dry run and does not delete the NAT CIDR block. The system checks whether your AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * 
-   * - **false** (default): sends a Normal request. If the check succeeds, a 2xx HTTP status code is returned and the NAT CIDR block is deleted.
+   * - **false** (default): sends a normal request. If the request passes the dry run, a 2xx HTTP status code is returned and the NAT CIDR block is deleted.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class DeleteNatIpCidrRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The instance ID of the NAT gateway to which the NAT CIDR block to be deleted belongs.
+   * The instance ID of the NAT gateway to which the NAT CIDR block to delete belongs.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class DeleteNatIpCidrRequest extends $dara.Model {
    * @remarks
    * The NAT CIDR block to be deleted.
    * 
-   * - Before you delete a NAT CIDR block, delete all NAT IP addresses in the CIDR block.
+   * - Before you delete a NAT CIDR block, you must delete all NAT IP addresses in the CIDR block.
    * - The default NAT CIDR block cannot be deleted.
    * 
    * This parameter is required.
@@ -54,9 +54,9 @@ export class DeleteNatIpCidrRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the NAT gateway to which the NAT CIDR block to be deleted belongs.
+   * The region ID of the NAT gateway instance to which the NAT CIDR block to be deleted belongs.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

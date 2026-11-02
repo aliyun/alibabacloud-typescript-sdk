@@ -17,9 +17,9 @@ export class ModifyVRouterAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the vRouter to modify.
+   * The region ID of the vRouter that you want to modify.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * @example
    * cn-hangzhou

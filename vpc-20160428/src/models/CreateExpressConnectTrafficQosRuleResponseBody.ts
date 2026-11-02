@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExpressConnectTrafficQosRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The QoS policy ID.
+   * The ID of the QoS policy.
    * 
    * @example
    * qos-2giu0a6vd5x0mv****
@@ -13,7 +13,7 @@ export class CreateExpressConnectTrafficQosRuleResponseBody extends $dara.Model 
   qosId?: string;
   /**
    * @remarks
-   * The QoS queue ID.
+   * The ID of the QoS queue.
    * 
    * @example
    * qos-queue-9nyx2u7n71s2rc****
@@ -21,7 +21,7 @@ export class CreateExpressConnectTrafficQosRuleResponseBody extends $dara.Model 
   queueId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 606998F0-B94D-48FE-8316-ACA81BB230DA
@@ -29,7 +29,7 @@ export class CreateExpressConnectTrafficQosRuleResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The QoS rule ID.
+   * The ID of the QoS rule.
    * 
    * @example
    * qos-rule-iugg0l9x27f2no****

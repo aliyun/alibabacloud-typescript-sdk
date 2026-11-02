@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFlowLogAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The new sampling interval of the flow log. Unit: minutes. Valid values: **1**, **5**, and **10**.
+   * The sampling interval of the flow log. Unit: minutes. Valid values: **1**, **5**, and **10**.
    * 
    * @example
    * 1
@@ -13,9 +13,9 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
   aggregationInterval?: number;
   /**
    * @remarks
-   * The new description of the flow log.
+   * The description of the flow log.
    * 
-   * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * This is my Flowlog.
@@ -33,9 +33,9 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
   flowLogId?: string;
   /**
    * @remarks
-   * The new name of the flow log.
+   * The name of the flow log.
    * 
-   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+   * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * myFlowlog
@@ -56,7 +56,7 @@ export class ModifyFlowLogAttributeRequest extends $dara.Model {
    * @remarks
    * The region ID of the flow log.
    * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

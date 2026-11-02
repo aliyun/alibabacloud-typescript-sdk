@@ -207,7 +207,7 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page in paging query.
+   * The number of entries per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -223,9 +223,9 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * - **true**: The call is successful.
+   * - **true**: The call was successful.
    * - **false**: The call failed.
    * 
    * @example
@@ -234,7 +234,7 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of flow logs returned.
    * 
    * @example
    * 1

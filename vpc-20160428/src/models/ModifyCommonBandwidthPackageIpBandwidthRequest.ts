@@ -15,7 +15,7 @@ export class ModifyCommonBandwidthPackageIpBandwidthRequest extends $dara.Model 
   bandwidth?: string;
   /**
    * @remarks
-   * The instance ID of the Internet Shared Bandwidth instance.
+   * The instance ID of the Internet Shared Bandwidth.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyCommonBandwidthPackageIpBandwidthRequest extends $dara.Model 
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The instance ID of the EIP that has been added to the Internet Shared Bandwidth instance.
+   * The ID of the EIP that is added to the Internet Shared Bandwidth instance. This parameter applies only to EIPs. For IPv6 addresses, use IpInstanceId.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class ModifyCommonBandwidthPackageIpBandwidthRequest extends $dara.Model 
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the Internet Shared Bandwidth instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * The region ID of the Internet Shared Bandwidth instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

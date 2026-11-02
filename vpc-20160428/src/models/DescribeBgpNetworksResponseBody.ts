@@ -64,7 +64,7 @@ export class DescribeBgpNetworksResponseBody extends $dara.Model {
   bgpNetworks?: DescribeBgpNetworksResponseBodyBgpNetworks;
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1
@@ -72,7 +72,7 @@ export class DescribeBgpNetworksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries to return on each page during paging.
    * 
    * @example
    * 10
@@ -88,7 +88,7 @@ export class DescribeBgpNetworksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of advertised Border Gateway Protocol (BGP) networks.
+   * The total number of announced Border Gateway Protocol (BGP) networks.
    * 
    * @example
    * 2

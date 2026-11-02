@@ -11,7 +11,7 @@ export class CreateVpnGatewayRequest extends $dara.Model {
    * 
    * - **false** (default): does not automatically pay the bill for the VPN gateway.
    * 
-   * > To successfully create a VPN gateway instance, enable automatic payment. If you disable automatic payment, you must manually pay the bill to create the VPN gateway instance.
+   * > To ensure the successful creation of the VPN gateway instance, enable automatic payment. If automatic payment is disabled, you must manually pay the bill to create the VPN gateway instance.
    * 
    * @example
    * false
@@ -19,14 +19,14 @@ export class CreateVpnGatewayRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The bandwidth specification of the VPN gateway. Unit: Mbit/s.
+   * The bandwidth limit of the VPN gateway. Unit: Mbit/s.
    * 
-   * <props="china">- To create a public VPN gateway, set the value to **5**, **10**, **20**, **50**, **100**, **200**, **500**, or **1000**.
-   * <props="china">- To create a private VPN gateway, set the value to **200** or **1000**.
-   * <props="intl">- To create a public VPN gateway, set the value to **10**, **100**, **200**, **500**, or **1000**.
-   * <props="intl">- To create a private VPN gateway, set the value to **200** or **1000**.
+   * <props="china">- If you want to create an Internet-public VPN gateway, valid values are **5**, **10**, **20**, **50**, **100**, **200**, **500**, and **1000**.
+   * <props="china">- If you want to create an internal-public VPN gateway, valid values are **200** and **1000**.
+   * <props="intl">- If you want to create an Internet-public VPN gateway, valid values are **10**, **100**, **200**, **500**, and **1000**.
+   * <props="intl">- If you want to create an internal-public VPN gateway, valid values are **200** and **1000**.
    * 
-   * >The maximum bandwidth specification supported by VPN gateways in some regions is 500 Mbit/s. For more information, see [VPN gateway limits](https://help.aliyun.com/document_detail/65290.html).
+   * > In some regions, the maximum bandwidth limit supported by a VPN gateway is 500 Mbit/s. For more information, see [Limits on VPN gateways](https://help.aliyun.com/document_detail/65290.html).
    * 
    * This parameter is required.
    * 
@@ -38,9 +38,9 @@ export class CreateVpnGatewayRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 02fb3da4****
@@ -48,13 +48,13 @@ export class CreateVpnGatewayRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The second vSwitch associated with the VPN VPC-connected instance.
+   * Specifies the second vSwitch instance to associate with the VPN gateway instance.
    * 
-   * - If the current region supports dual-tunnel mode IPsec-VPN connections, this parameter is required.
-   * - You must specify two vSwitches in different zones from the VPC associated with the VPN VPC-connected instance to implement zone-level disaster recovery for IPsec-VPN connections.
-   * - For regions that support only one zone, zone-level disaster recovery is not supported. Specify two different vSwitches in the same zone to implement high availability for IPsec-VPN connections. You can also specify the same vSwitch.
+   * - This parameter is required if the current region supports creating IPsec-VPN connections in the dual-tunnel pattern.
+   * - You must specify two vSwitch instances distributed in different zones under the VPC to which the VPN gateway instance is associated, to implement zone-level disaster recovery for the IPsec-VPN connection.
+   * - For regions that support only one zone, zone-level disaster recovery is not supported. We recommend that you specify two different vSwitch instances in the zone to implement high availability for the IPsec-VPN connection. You can specify the same vSwitch instance.
    * 
-   * For information about the regions and zones that support dual-tunnel mode IPsec-VPN connections, see [Upgrade an IPsec-VPN connection to dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
+   * For more information about the regions and zones that support dual-tunnel IPsec-VPN connections, see [Upgrade an IPsec-VPN connection to the dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
    * 
    * @example
    * vsw-p0wiz7obm0tbimu4r****
@@ -66,7 +66,7 @@ export class CreateVpnGatewayRequest extends $dara.Model {
    * 
    * - **true** (default): enables the IPsec-VPN feature.
    * 
-   * - **false**: disables the IPsec-VPN feature.
+   * - **false**: does not enable the IPsec-VPN feature.
    * 
    * @example
    * true
@@ -78,7 +78,7 @@ export class CreateVpnGatewayRequest extends $dara.Model {
    * 
    * - **true**: enables the SSL-VPN feature.
    * 
-   * - **false** (default): disables the SSL-VPN feature.
+   * - **false** (default): does not enable the SSL-VPN feature.
    * 
    * @example
    * false
@@ -86,21 +86,21 @@ export class CreateVpnGatewayRequest extends $dara.Model {
   enableSsl?: boolean;
   /**
    * @remarks
-   * <props="china">The billable methods of the VPN gateway. Set the value to **PREPAY**, which specifies the subscription billing method.
-   * <props="intl">The billable methods of the VPN gateway. Set the value to **POSTPAY**, which specifies the pay-as-you-go billing method.
-   * <props="partner">The billable methods of the VPN gateway. Set the value to **POSTPAY**, which specifies the pay-as-you-go billing method.
+   * <props="china">The billing method of the VPN gateway. Valid value: **PREPAY** (subscription).
+   * <props="intl">The billing method of the VPN gateway. Valid value: **POSTPAY** (pay-as-you-go billing method).
+   * <props="partner">The billing method of the VPN gateway. Valid value: **POSTPAY** (pay-as-you-go billing method).
    * 
    * <props="china">This parameter is required when you create a VPN gateway.
    * 
    * @example
-   * China site example value: PREPAY. International site example value: POSTPAY
+   * Example value for the China site: PREPAY. Example value for the international site: POSTPAY
    */
   instanceChargeType?: string;
   /**
    * @remarks
-   * The name of the VPN gateway. The default value is the ID of the VPN gateway.
+   * The name of the VPN gateway. Default value: the ID of the VPN gateway.
    * 
-   * The name must be 2 to 100 characters in length. It cannot start with `http://` or `https://`. It must start with an uppercase or lowercase letter and can contain uppercase and lowercase letters, digits, underscores (_), hyphens (-), and periods (.). Other special characters are not supported.
+   * The name must be 2 to 100 characters in length, and cannot start with http:// or https://. It must start with a letter and can contain letters, digits, underscores (_), hyphens (-), and periods (.). Other special characters are not supported.
    * 
    * @example
    * MYVPN
@@ -110,8 +110,8 @@ export class CreateVpnGatewayRequest extends $dara.Model {
    * @remarks
    * The network type of the VPN gateway. Valid values:
    * 
-   * - **public** (default): public VPN gateway.
-   * - **private**: private VPN gateway.
+   * - **public** (default): Internet-public VPN gateway.
+   * - **private**: internal-public VPN gateway.
    * 
    * @example
    * public
@@ -124,7 +124,7 @@ export class CreateVpnGatewayRequest extends $dara.Model {
    * The subscription duration. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
    * 
    * <props="china">
-   * > This parameter is required if the **InstanceChargeType** parameter is set to **PREPAY**.
+   * > This parameter is required when the **InstanceChargeType** parameter is set to **PREPAY**.
    * 
    * @example
    * 1
@@ -132,7 +132,7 @@ export class CreateVpnGatewayRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The region ID of the VPN gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * The region where the VPN gateway resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -144,11 +144,11 @@ export class CreateVpnGatewayRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the VPN gateway belongs.
    * 
-   * - You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group ID.
-   * - If you do not specify a resource group ID, the VPN gateway belongs to the default resource group after it is created.
-   * - After the VPN gateway is created, if you create SSL servers, SSL client certificates, IPsec servers, or IPsec-VPN connections (where the IPsec-VPN connection is associated with the VPN gateway) under the VPN gateway, these resources belong to the same resource group as the VPN gateway and cannot be modified individually.
+   * - You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group IDs.
+   * - If you do not specify this parameter, the VPN gateway belongs to the default resource group after it is created.
+   * - After the VPN gateway is created, if you create an SSL server, an SSL client certificate, an IPsec server, or an IPsec-VPN connection (referring to the scenario where the IPsec-VPN connection is associated with the VPN gateway) under the VPN gateway, these resources automatically belong to the resource group of the VPN gateway and their resource groups cannot be modified.
    * 
-   *   If you change the resource group of the VPN gateway, the resource group of the preceding resources is also changed.
+   *   If you change the resource group of the VPN gateway, the resource groups of the preceding resources are also changed.
    * 
    * @example
    * rg-acfmzs372yg****
@@ -158,7 +158,7 @@ export class CreateVpnGatewayRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The maximum number of clients that can be simultaneously connected. Valid values: **5** (default), **10**, **20**, **50**, **100**, **200**, **500**, and **1000**.
+   * The maximum number of concurrent SSL-VPN connections. Valid values: **5** (default), **10**, **20**, **50**, **100**, **200**, **500**, and **1000**.
    * 
    * @example
    * 5
@@ -166,10 +166,10 @@ export class CreateVpnGatewayRequest extends $dara.Model {
   sslConnections?: number;
   /**
    * @remarks
-   * The vSwitch associated with the VPN gateway instance. 
+   * The ID of the vSwitch to which the VPN gateway is connected. 
    * 
-   * - In regions that support dual-tunnel mode IPsec-VPN connections, this parameter is required. You must specify a vSwitch and also specify the **DisasterRecoveryVSwitchId** parameter.
-   * - In regions that support single-tunnel mode IPsec-VPN connections, if you do not specify a vSwitch, the system automatically selects a vSwitch from the VPC.
+   * - In regions that support dual-tunnel IPsec-VPN connections, this parameter is required. You must specify a vSwitch and also specify the **DisasterRecoveryVSwitchId** parameter.
+   * - In regions that support single-tunnel IPsec-VPN connections, if you do not specify a vSwitch, the system automatically selects a vSwitch in the VPC.
    * 
    * @example
    * vsw-bp1j5miw2bae9s2vt****
@@ -188,8 +188,8 @@ export class CreateVpnGatewayRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the VPN gateway. Valid values:
-   * - **Normal** (default): standard.
-   * <props="china">- **NationalStandard**: Chinese SM-based.
+   * - **Normal** (default): standard VPN gateway.
+   * <props="china">- **NationalStandard**: Chinese national standard VPN gateway.
    * 
    * @example
    * Normal

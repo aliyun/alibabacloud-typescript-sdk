@@ -106,7 +106,7 @@ export class DescribeForwardTableEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries in the list.
    * 
    * @example
    * 5

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNatIpCidrResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the NAT CIDR block.
+   * The instance ID of the created NAT CIDR block.
    * 
    * @example
    * vpcnatcidr-gw8lhqtvdn4qnea****

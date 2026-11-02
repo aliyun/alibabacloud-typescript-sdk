@@ -7,7 +7,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
    * @remarks
    * The ID of the new resource group.
    * 
-   * > A resource group is a mechanism for managing resources by group within an Alibaba Cloud account. Resource groups help you address the complexity of resource grouping and authorization management within a single cloud account. For more information, see [What is Resource Management](https://help.aliyun.com/document_detail/94475.html).
+   * > Resource groups provide a mechanism to group and manage resources within an Alibaba Cloud account. They help you simplify resource grouping and authorization management within a single account. For more information, see [What is Resource Management](https://help.aliyun.com/document_detail/94475.html).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   newResourceGroupId?: string;
   /**
    * @remarks
-   * The region ID of the resource group that you want to modify.
+   * The region ID of the resource group to be modified.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
@@ -42,7 +42,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
    * The resource type. Valid values:
    * - **PHYSICALCONNECTION**: Express Connect circuit instance.
    * - **VIRTUALBORDERROUTER**: Virtual Border Router.
-   * - **ROUTERINTERFACE**: VBR uplink.
+   * - **ROUTERINTERFACE**: VBR connection.
    * - **TRAFFICQOS**: QoS policy.
    * 
    * This parameter is required.

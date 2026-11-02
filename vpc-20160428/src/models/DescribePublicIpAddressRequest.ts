@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePublicIpAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The version of the IP protocol. Valid values:
+   * The IP protocol version. Valid values:
    * 
    * - **ipv4** (default): IPv4.
    * 
@@ -38,7 +38,7 @@ export class DescribePublicIpAddressRequest extends $dara.Model {
   /**
    * @remarks
    * The region to query.
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

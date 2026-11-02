@@ -190,9 +190,9 @@ export class DescribeRouteEntryListResponseBodyRouteEntrys extends $dara.Model {
 export class DescribeRouteEntryListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * - If **NextToken** is empty, no subsequent request exists.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The pagination token that is used to retrieve the next page of results. Valid values:
+   * - If **NextToken** is empty, no subsequent query is required.
+   * - If **NextToken** returns a value, the value indicates the token used to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -207,6 +207,10 @@ export class DescribeRouteEntryListResponseBody extends $dara.Model {
    */
   requestId?: string;
   routeEntrys?: DescribeRouteEntryListResponseBodyRouteEntrys;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

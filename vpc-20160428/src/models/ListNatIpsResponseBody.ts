@@ -13,11 +13,11 @@ export class ListNatIpsResponseBodyNatIps extends $dara.Model {
   ipv4Prefix?: string;
   /**
    * @remarks
-   * Indicates whether the NAT IP address is the default one. Valid values:
+   * Specifies whether the NAT IP address is the default NAT IP address. Valid values:
    * 
-   * - **true**: The NAT IP address is the default one.
+   * - **true**: The NAT IP address is the default NAT IP address.
    * 
-   * - **false**: The NAT IP address is not the default one.
+   * - **false**: The NAT IP address is not the default NAT IP address.
    * 
    * @example
    * true
@@ -75,12 +75,12 @@ export class ListNatIpsResponseBodyNatIps extends $dara.Model {
    * @remarks
    * The status of the NAT IP address. Valid values:
    * 
-   * - **Available**: available.
-   * - **Deleted**: deleted.
-   * - **Deleting**: being deleted.
-   * - **Creating**: being created.
-   * - **Associated**: associated with an SNAT or DNAT entry.
-   * - **Associating**: being associated with an SNAT or DNAT entry.
+   * - **Available**: Available.
+   * - **Deleted**: Deleted.
+   * - **Deleting**: Deleting.
+   * - **Creating**: Creating.
+   * - **Associated**: Associated with an SNAT or DNAT entry.
+   * - **Associating**: Being associated with an SNAT or DNAT entry.
    * 
    * @example
    * Available
@@ -131,9 +131,9 @@ export class ListNatIpsResponseBody extends $dara.Model {
   natIps?: ListNatIpsResponseBodyNatIps[];
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * - If **NextToken** is empty, no next query exists.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The token that is used to start the next query. Valid values:
+   * - If **NextToken** is empty, no next query is available.
+   * - If **NextToken** has a return value, the value indicates the token used to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

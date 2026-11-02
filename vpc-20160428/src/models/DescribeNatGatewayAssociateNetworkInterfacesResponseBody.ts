@@ -136,7 +136,7 @@ export class DescribeNatGatewayAssociateNetworkInterfacesResponseBody extends $d
   count?: number;
   /**
    * @remarks
-   * The number of entries per page for a paginated query. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -152,11 +152,11 @@ export class DescribeNatGatewayAssociateNetworkInterfacesResponseBody extends $d
   natGatewayId?: string;
   /**
    * @remarks
-   * The pagination token. Valid values:
+   * The token that is used for the next query. Valid values:
    * 
-   * - If **NextToken** is empty, no subsequent query exists.
+   * - If **NextToken** is empty, no next query is to be sent.
    * 
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * - If **NextToken** is returned, the value indicates the token that is used for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****

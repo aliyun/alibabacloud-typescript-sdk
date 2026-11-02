@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVpcPrefixListEntriesResponseBodyPrefixListEntry extends $dara.Model {
   /**
    * @remarks
-   * The Classless Inter-Domain Routing (CIDR) block of the prefix list.
+   * The Classless Inter-Domain Routing block of the prefix list.
    * 
    * @example
    * 192.168.0.0/16
@@ -73,9 +73,9 @@ export class GetVpcPrefixListEntriesResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The pagination token. Valid values:
-   * - If **NextToken** is empty, no subsequent query is required.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The token for the next query. Valid values:
+   * - If **NextToken** is empty, it indicates that no next query is available.
+   * - If **NextToken** has a return value, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -83,7 +83,7 @@ export class GetVpcPrefixListEntriesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The information about the prefix list.
+   * The information about the queried prefix list.
    */
   prefixListEntry?: GetVpcPrefixListEntriesResponseBodyPrefixListEntry[];
   /**
@@ -96,7 +96,7 @@ export class GetVpcPrefixListEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

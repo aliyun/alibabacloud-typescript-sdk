@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyNetworkAclAttributesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8F76C3E4-B39F-465D-B8B3-50BAF03CA833

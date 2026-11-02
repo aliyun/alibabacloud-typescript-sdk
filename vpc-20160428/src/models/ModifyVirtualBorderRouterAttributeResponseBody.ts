@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyVirtualBorderRouterAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 980960B0-2969-40BF-8542-EBB34FD358AB

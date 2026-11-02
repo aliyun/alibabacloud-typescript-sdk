@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteForwardEntryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0ED8D006-F706-4D23-88ED-E11ED28DCAC0

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the VPC instance owner in the authorization relationship.
+   * The ID of the Alibaba Cloud account to which the VPC instance in the authorization relationship belongs.
    * 
    * @example
    * 1250123456123456
@@ -13,7 +13,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   aliUid?: number;
   /**
    * @remarks
-   * The time when the VPC-connected instance granted authorization to the VBR instance.
+   * The time when the VPC-connected instance granted the authorization to the VBR instance.
    * 
    * @example
    * 2022-09-02T11:46Z
@@ -21,10 +21,10 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   gmtCreate?: string;
   /**
    * @remarks
-   * The scope of VBR instances that are granted authorization. Valid values:
+   * The scope of VBR instances that receive the authorization. Valid values:
    * 
-   * - **All**: The VPC-connected instance is authorized to all VBR instances under the specified region and Alibaba Cloud account.
-   * - **Specify**: The VPC-connected instance is authorized to a specified VBR instance.
+   * - **All**: Grants authorization of the VPC-connected instance to all VBR instances in the specified region and under the specified Alibaba Cloud account.
+   * - **Specify**: Grants authorization of the VPC-connected instance to a specified VBR instance.
    * 
    * @example
    * All
@@ -48,7 +48,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   instanceName?: string;
   /**
    * @remarks
-   * The vRouter ID of the VPC instance in the authorization relationship.
+   * The ID of the vRouter of the VPC instance in the authorization relationship.
    * 
    * @example
    * vrt-bp1i0yzgjd8ra05ec****
@@ -64,10 +64,10 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   regionNo?: string;
   /**
    * @remarks
-   * The status of the authorization relationship. Valid values:
+   * The result of the authorization relationship query. Valid values:
    * 
-   * - **Created**: An authorization relationship exists between the VPC-connected instance and the VBR instance.
-   * - **Deleted**: No authorization relationship exists between the VPC-connected instance and the VBR instance.
+   * - **Created**: The VPC-connected instance and the VBR instance have an authorization relationship.
+   * - **Deleted**: The VPC-connected instance and the VBR instance do not have an authorization relationship.
    * 
    * @example
    * Created
@@ -83,7 +83,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
   vbrInstanceId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the VBR instance owner.
+   * The ID of the Alibaba Cloud account to which the VBR instance belongs.
    * 
    * @example
    * 1210123456123456
@@ -141,7 +141,7 @@ export class DescribeEcGrantRelationResponseBodyEcGrantRelations extends $dara.M
 export class DescribeEcGrantRelationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of query results.
+   * The number of returned entries.
    * 
    * @example
    * 1
@@ -149,12 +149,12 @@ export class DescribeEcGrantRelationResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The list of authorization relationship query results.
+   * The list of authorization relationships.
    */
   ecGrantRelations?: DescribeEcGrantRelationResponseBodyEcGrantRelations[];
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1
@@ -162,7 +162,7 @@ export class DescribeEcGrantRelationResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries per page for paging in a paged query.
    * 
    * @example
    * 10
@@ -178,7 +178,7 @@ export class DescribeEcGrantRelationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 10

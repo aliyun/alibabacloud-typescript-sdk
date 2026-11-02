@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGlobalAccelerationInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud Global Accelerator (GA) instance.
+   * The ID of the Global Accelerator instance.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,7 @@ export class DeleteGlobalAccelerationInstanceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region where the Alibaba Cloud Global Accelerator (GA) instance is located. 
-   * 
-   * You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to obtain the region ID.
+   * The region where the Global Accelerator instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 

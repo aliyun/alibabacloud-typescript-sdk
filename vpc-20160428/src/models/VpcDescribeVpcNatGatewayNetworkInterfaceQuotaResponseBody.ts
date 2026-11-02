@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of EPs that can be created.
+   * The number of endpoints that can be created.
    * 
    * @example
    * 2

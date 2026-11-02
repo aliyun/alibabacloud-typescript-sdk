@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkAclsRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
    * 
-   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class DescribeNetworkAclsRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can specify an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * A tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -51,9 +51,9 @@ export class DescribeNetworkAclsRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -81,7 +81,7 @@ export class DescribeNetworkAclsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the list. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -89,7 +89,7 @@ export class DescribeNetworkAclsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for a paging query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -99,7 +99,7 @@ export class DescribeNetworkAclsRequest extends $dara.Model {
    * @remarks
    * The region ID of the network ACL. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -119,7 +119,8 @@ export class DescribeNetworkAclsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the associated instance. Valid values: **VSwitch**: virtual switch.
+   * The type of the associated instance. Valid values:
+   * - **VSwitch**: virtual switch.
    * 
    * The **ResourceType** and **ResourceId** parameters must be specified together to take effect.
    * 
@@ -129,12 +130,12 @@ export class DescribeNetworkAclsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: DescribeNetworkAclsRequestTags[];
   /**
    * @remarks
-   * The ID of the VPC associated with the network ACL.
+   * The ID of the VPC to which the network ACL is associated.
    * 
    * @example
    * vpc-m5ebpc2xh64mqm27e****

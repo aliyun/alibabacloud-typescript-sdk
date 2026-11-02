@@ -53,7 +53,7 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
   assignedCidrCount?: number;
   /**
    * @remarks
-   * The number of active prefix CIDR blocks in the reserved CIDR block for a vSwitch.
+   * The number of available prefix CIDR blocks in the reserved CIDR block for a vSwitch.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
   availableCidrCount?: number;
   /**
    * @remarks
-   * The time when the reserved CIDR block was created.
+   * The time when the reserved CIDR block was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format and is displayed in UTC.
    * 
    * @example
    * 2023-03-14T10:02:37Z
@@ -82,10 +82,10 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
    * @remarks
    * The status of the reserved CIDR block. Valid values:
    * 
-   * - **Assigning**: being allocated.
-   * - **Assigned**: allocated.
-   * - **Releasing**: being released.
-   * - **Released**: released.
+   * - **Assigning**: The CIDR block is being allocated.
+   * - **Assigned**: The CIDR block is allocated.
+   * - **Releasing**: The CIDR block is being released.
+   * - **Released**: The CIDR block is released.
    * 
    * @example
    * Assigned
@@ -146,7 +146,7 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the reserved CIDR block for a vSwitch belongs.
+   * The VPC to which the reserved CIDR block for a vSwitch belongs.
    * 
    * @example
    * vpc-bp1wdz2pdhgurz1od****
@@ -203,7 +203,7 @@ export class ListVSwitchCidrReservationsResponseBodyVSwitchCidrReservations exte
 export class ListVSwitchCidrReservationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -211,9 +211,9 @@ export class ListVSwitchCidrReservationsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Valid values:
-   * - If **NextToken** is empty, no subsequent query exists.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The token for the next query. Valid values:
+   * - If **NextToken** is empty, no next query is required.
+   * - If **NextToken** returns a value, the value indicates the token used to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -229,7 +229,7 @@ export class ListVSwitchCidrReservationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10

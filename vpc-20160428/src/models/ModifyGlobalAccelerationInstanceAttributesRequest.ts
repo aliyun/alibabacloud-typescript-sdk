@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyGlobalAccelerationInstanceAttributesRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the Alibaba Cloud Global Accelerator (GA) instance.  
+   * The description of the Global Accelerator instance.  
    * 
    * The description must be 2 to 256 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
    * 
@@ -15,7 +15,7 @@ export class ModifyGlobalAccelerationInstanceAttributesRequest extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud Global Accelerator (GA) instance.
+   * The ID of the Global Accelerator instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyGlobalAccelerationInstanceAttributesRequest extends $dara.Mod
   globalAccelerationInstanceId?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud Global Accelerator (GA) instance.  
+   * The name of the Global Accelerator instance.  
    * 
    * The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `http://` or `https://`.
    * 
@@ -37,9 +37,9 @@ export class ModifyGlobalAccelerationInstanceAttributesRequest extends $dara.Mod
   ownerId?: number;
   /**
    * @remarks
-   * The region where the Alibaba Cloud Global Accelerator (GA) instance is located. 
+   * The region where the Global Accelerator instance resides. 
    * 
-   * You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

@@ -7,9 +7,9 @@ export class ModifyVpnPbrRouteEntryWeightRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can generate the parameter value from your client to ensure that the value is unique across different requests. The client token supports only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** of each API request is different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * d7d24a21-f4ba-4454-9173-b3828dae492b
@@ -19,8 +19,8 @@ export class ModifyVpnPbrRouteEntryWeightRequest extends $dara.Model {
    * @remarks
    * The new weight of the policy-based route. Valid values:
    * 
-   * - **100**: The IPsec-VPN connection associated with the policy-based route serves as the active connection.
-   * - **0**: The IPsec-VPN connection associated with the policy-based route serves as the standby connection.
+   * - **100**: The IPsec-VPN connection associated with the current policy-based route is the active link.
+   * - **0**: The IPsec-VPN connection associated with the current policy-based route is the standby link.
    * 
    * This parameter is required.
    * 
@@ -40,7 +40,7 @@ export class ModifyVpnPbrRouteEntryWeightRequest extends $dara.Model {
   nextHop?: string;
   /**
    * @remarks
-   * The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling protocol).
+   * The tunnel protocol. Valid value: **Ipsec** (IPsec tunnel protocol).
    * 
    * @example
    * Ipsec
@@ -52,10 +52,10 @@ export class ModifyVpnPbrRouteEntryWeightRequest extends $dara.Model {
    * @remarks
    * Policy priority of the policy-based route.
    * 
-   * - If no priority was previously configured for the policy-based route, you do not need to specify this parameter.
-   * - If a priority was previously configured for the policy-based route, this parameter is optional.
+   * - If the policy-based route does not have a priority, you do not need to specify this parameter.
+   * - If the policy-based route has a priority, you can specify or leave this parameter empty.
    *         
-   *    If you specify this parameter, enter policy priority that was previously configured for the policy-based route. If you enter a different value, the operation fails.
+   *    If you specify this parameter, you must set it to policy priority that is already configured for the policy-based route. If you set it to another value, the call to this operation fails.
    * 
    * @example
    * 10
@@ -63,7 +63,7 @@ export class ModifyVpnPbrRouteEntryWeightRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The region ID of the VPN gateway instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
+   * The region ID of the VPN gateway instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -107,8 +107,8 @@ export class ModifyVpnPbrRouteEntryWeightRequest extends $dara.Model {
    * @remarks
    * The original weight of the policy-based route. Valid values:
    * 
-   * - **100**: The IPsec-VPN connection associated with the policy-based route serves as the active connection.
-   * - **0**: The IPsec-VPN connection associated with the policy-based route serves as the standby connection.
+   * - **100**: The IPsec-VPN connection associated with the current policy-based route is the active link.
+   * - **0**: The IPsec-VPN connection associated with the current policy-based route is the standby link.
    * 
    * This parameter is required.
    * 

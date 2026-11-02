@@ -13,7 +13,7 @@ export class CreateRouteEntryRequestNextHopList extends $dara.Model {
   nextHopId?: string;
   /**
    * @remarks
-   * The type of next hop for the ECMP route. Set the value to **RouterInterface** (router interface).
+   * The type of the next hop of the ECMP route. Set the value to **RouterInterface** (router interface).
    * 
    * @example
    * RouterInterface
@@ -21,7 +21,7 @@ export class CreateRouteEntryRequestNextHopList extends $dara.Model {
   nextHopType?: string;
   /**
    * @remarks
-   * The weight of the next hop for the ECMP route.
+   * The weight of the next hop of the ECMP route.
    * 
    * @example
    * 10
@@ -57,9 +57,9 @@ export class CreateRouteEntryRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * Generate a parameter value from your client. Make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -92,7 +92,7 @@ export class CreateRouteEntryRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
-   * - **true**: performs a dry run without creating the route entry. The system checks required parameters, request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+   * - **true**: performs a dry run without creating the route entry. The system checks the required parameters, request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
    * - **false** (default): sends the request. After the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
@@ -116,7 +116,7 @@ export class CreateRouteEntryRequest extends $dara.Model {
   nextHopList?: CreateRouteEntryRequestNextHopList[];
   /**
    * @remarks
-   * The type of next hop for the custom route entry. Valid values: 
+   * The type of the next hop of the custom route entry. Valid values: 
    * 
    * - **Instance** (default): ECS instance.
    * 
