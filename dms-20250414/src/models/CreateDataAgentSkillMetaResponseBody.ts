@@ -53,7 +53,7 @@ export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -61,7 +61,8 @@ export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The error message for skill parsing. This message is returned when the skill status is INVALID.
+   * The skill parsing error message.
+   * - This error message is returned when the skill status is INVALID.
    * 
    * @example
    * SKILL.md file not exist.
@@ -102,9 +103,9 @@ export class CreateDataAgentSkillMetaResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The skill status. Valid values:
-   * - INIT: The skill is not ready.
-   * - ACTIVE: The skill is active.
-   * - INVALID: The skill is invalid.
+   * - INIT: Not ready.
+   * - ACTIVE: Active.
+   * - INVALID: Invalid.
    * 
    * @example
    * ACTIVE
@@ -198,8 +199,7 @@ export class CreateDataAgentSkillMetaResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request is successful. Valid values:
-   * 
-   * - **true**: The request is successful.                                 
+   * - **true**: The request is successful.
    * - **false**: The request fails.
    * 
    * @example

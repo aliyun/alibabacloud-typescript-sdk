@@ -21,7 +21,9 @@ export class ListAgenticSqlExecutionHistoriesResponseBodyData extends $dara.Mode
   actorName?: string;
   /**
    * @remarks
-   * The type of the actor. HUMAN indicates a user, and AGENT indicates an agent.
+   * The type of the actor. Valid values:
+   * - HUMAN: User.
+   * - AGENT: Agent.
    * 
    * @example
    * HUMAN
@@ -37,7 +39,7 @@ export class ListAgenticSqlExecutionHistoriesResponseBodyData extends $dara.Mode
   affectedRows?: number;
   /**
    * @remarks
-   * The ID of the user to which the agent belongs. The ID starts with usr_.
+   * The ID of the user to whom the agent belongs, starting with usr_.
    * 
    * @example
    * usr_10001
@@ -45,7 +47,7 @@ export class ListAgenticSqlExecutionHistoriesResponseBodyData extends $dara.Mode
   agentOwnerId?: string;
   /**
    * @remarks
-   * The catalog UUID to which the execution belongs.
+   * The catalog UUID to which this execution belongs.
    * 
    * @example
    * mc-HZ-OfjcNc2z***
@@ -53,7 +55,7 @@ export class ListAgenticSqlExecutionHistoriesResponseBodyData extends $dara.Mode
   catalogUuid?: string;
   /**
    * @remarks
-   * The IP address of the client that initiated the execution, excluding the port. This parameter is empty in workflow scenarios or when the IP address is not recorded.
+   * The IP address of the client that initiated the execution, excluding the port. This field is empty in workflow scenarios or when not recorded.
    * 
    * @example
    * 203.0.113.10
@@ -77,7 +79,7 @@ export class ListAgenticSqlExecutionHistoriesResponseBodyData extends $dara.Mode
   databaseSearchName?: string;
   /**
    * @remarks
-   * The database UUID to which the execution belongs.
+   * The database UUID to which this execution belongs.
    * 
    * @example
    * md-HZ-fp9K7r***
@@ -85,7 +87,7 @@ export class ListAgenticSqlExecutionHistoriesResponseBodyData extends $dara.Mode
   databaseUuid?: string;
   /**
    * @remarks
-   * The error message returned when the execution fails.
+   * The error message when the execution fails.
    * 
    * @example
    * syntax error
@@ -93,7 +95,7 @@ export class ListAgenticSqlExecutionHistoriesResponseBodyData extends $dara.Mode
   error?: string;
   /**
    * @remarks
-   * The actual SQL statement that was executed.
+   * The actually executed SQL statement.
    * 
    * @example
    * SELECT 1
@@ -120,7 +122,7 @@ export class ListAgenticSqlExecutionHistoriesResponseBodyData extends $dara.Mode
   originalSql?: string;
   /**
    * @remarks
-   * The query ID of the execution.
+   * The query ID of this execution.
    * 
    * @example
    * trace-10001
@@ -138,7 +140,7 @@ export class ListAgenticSqlExecutionHistoriesResponseBodyData extends $dara.Mode
    * @remarks
    * The execution scenario. Valid values:
    * - AGENT_QUERY: The agent directly executes the SQL statement.
-   * - WORKFLOW_QUERY: The SQL statement is asynchronously executed through a workflow.
+   * - WORKFLOW_QUERY: The SQL statement is executed asynchronously through a workflow.
    * 
    * @example
    * AGENT_QUERY
@@ -154,7 +156,7 @@ export class ListAgenticSqlExecutionHistoriesResponseBodyData extends $dara.Mode
   sqlType?: string;
   /**
    * @remarks
-   * The start time of the execution. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * The execution start time, in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2026-01-01 00:00:00
@@ -162,7 +164,7 @@ export class ListAgenticSqlExecutionHistoriesResponseBodyData extends $dara.Mode
   startTime?: string;
   /**
    * @remarks
-   * The workflow ID. This parameter may be empty in non-workflow scenarios.
+   * The workflow ID. This field may be empty in non-workflow scenarios.
    * 
    * @example
    * wf-10001
@@ -235,7 +237,7 @@ export class ListAgenticSqlExecutionHistoriesResponseBody extends $dara.Model {
   data?: ListAgenticSqlExecutionHistoriesResponseBodyData[];
   /**
    * @remarks
-   * The error code. This parameter is empty when the request is successful.
+   * The error code. This field is empty when the request is successful.
    * 
    * @example
    * INVALID_PARAMETER
@@ -259,14 +261,14 @@ export class ListAgenticSqlExecutionHistoriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * - true: The request was successful.
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    */
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries that meet the query conditions.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 1

@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataAgentSkillMetaRequest extends $dara.Model {
   /**
    * @remarks
-   * The skill description. This parameter is optional. If not specified, the backend parses the ZIP package specified by UploadLocation to obtain the skill description.
+   * The skill description.
+   * - Optional by default. The backend parses the ZIP package specified by UploadLocation to obtain the skill description.
    * 
    * @example
    * This is a demo skill description.
@@ -13,7 +14,8 @@ export class CreateDataAgentSkillMetaRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The skill ID. If you specify this parameter, the uploaded skill overwrites the existing skill and replaces the original skill content. Note: The name of the original skill and the newly uploaded skill must be identical.
+   * The skill ID. If you specify this parameter, the uploaded skill overwrites the existing skill, and the original skill content is replaced.
+   * - Note: The original skill name and the newly uploaded skill name must match.
    * 
    * @example
    * ski-04pomiln*************j0
@@ -21,7 +23,8 @@ export class CreateDataAgentSkillMetaRequest extends $dara.Model {
   skillId?: string;
   /**
    * @remarks
-   * The skill name. This parameter is optional. If not specified, the backend parses the ZIP package specified by UploadLocation to obtain the skill name.
+   * The skill name.
+   * - Optional by default. The backend parses the ZIP package specified by UploadLocation to obtain the skill name.
    * 
    * @example
    * data-query-skill
@@ -29,8 +32,8 @@ export class CreateDataAgentSkillMetaRequest extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The full path for the skill ZIP file upload.
-   * - Format: The UploadDir field returned by the DescribeSkillFileUploadSignature operation concatenated with the file name.
+   * The full path for uploading the skill ZIP file.
+   * - Format: Concatenate the UploadDir field returned by the DescribeSkillFileUploadSignature operation with the file name.
    * - Example: ${UploadDir}/${Filename}
    */
   uploadLocation?: string;

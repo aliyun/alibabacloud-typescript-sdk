@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgenticGlobalSqlExecutionHistoriesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actor. A user ID starts with usr_, and an agent ID starts with agt_.
+   * The ID of the executor. User IDs start with usr_, and agent IDs start with agt_.
    * 
    * @example
    * usr_10001
@@ -13,7 +13,7 @@ export class ListAgenticGlobalSqlExecutionHistoriesResponseBodyData extends $dar
   actorId?: string;
   /**
    * @remarks
-   * The name of the actor.
+   * The name of the executor.
    * 
    * @example
    * demo-user
@@ -21,7 +21,7 @@ export class ListAgenticGlobalSqlExecutionHistoriesResponseBodyData extends $dar
   actorName?: string;
   /**
    * @remarks
-   * The type of the actor. A value of HUMAN indicates a user, and a value of AGENT indicates an agent.
+   * The type of the executor. Valid values: HUMAN (user) and AGENT (agent).
    * 
    * @example
    * HUMAN
@@ -45,7 +45,7 @@ export class ListAgenticGlobalSqlExecutionHistoriesResponseBodyData extends $dar
   agentOwnerId?: string;
   /**
    * @remarks
-   * The catalog UUID to which the execution belongs.
+   * The Catalog UUID to which the current execution belongs.
    * 
    * @example
    * mc-HZ-OfjcNc2z***
@@ -53,7 +53,7 @@ export class ListAgenticGlobalSqlExecutionHistoriesResponseBodyData extends $dar
   catalogUuid?: string;
   /**
    * @remarks
-   * The IP address of the client that initiates the execution, excluding the port. This parameter is empty in workflow scenarios or when the IP address is not recorded.
+   * The IP address of the client that initiates the execution, excluding the port. This parameter is empty in workflow scenarios or when not recorded.
    * 
    * @example
    * 203.0.113.10
@@ -77,7 +77,7 @@ export class ListAgenticGlobalSqlExecutionHistoriesResponseBodyData extends $dar
   databaseSearchName?: string;
   /**
    * @remarks
-   * The database UUID to which the execution belongs.
+   * The Database UUID to which the current execution belongs.
    * 
    * @example
    * md-HZ-fp9K7r***
@@ -85,7 +85,7 @@ export class ListAgenticGlobalSqlExecutionHistoriesResponseBodyData extends $dar
   databaseUuid?: string;
   /**
    * @remarks
-   * The error message returned when the execution fails.
+   * The error message when the execution fails.
    * 
    * @example
    * syntax error
@@ -93,7 +93,7 @@ export class ListAgenticGlobalSqlExecutionHistoriesResponseBodyData extends $dar
   error?: string;
   /**
    * @remarks
-   * The actual SQL statement that is executed.
+   * The actually executed SQL statement.
    * 
    * @example
    * SELECT 1
@@ -101,10 +101,7 @@ export class ListAgenticGlobalSqlExecutionHistoriesResponseBodyData extends $dar
   executedSql?: string;
   /**
    * @remarks
-   * The execution status. Valid values:
-   * - SUCCESS: The execution is successful.
-   * - FAILED: The execution fails.
-   * - BLOCKED: The execution is blocked or not actually executed.
+   * The execution status. Valid values: SUCCESS, FAILED, and BLOCKED (intercepted or not actually executed).
    * 
    * @example
    * SUCCESS
@@ -120,7 +117,7 @@ export class ListAgenticGlobalSqlExecutionHistoriesResponseBodyData extends $dar
   originalSql?: string;
   /**
    * @remarks
-   * The query ID of the execution.
+   * The query ID of the current execution.
    * 
    * @example
    * trace-10001
@@ -136,9 +133,7 @@ export class ListAgenticGlobalSqlExecutionHistoriesResponseBodyData extends $dar
   returnedRows?: number;
   /**
    * @remarks
-   * The execution scenario. Valid values:
-   * - AGENT_QUERY: The agent directly executes the SQL statement.
-   * - WORKFLOW_QUERY: The SQL statement is asynchronously executed through a workflow.
+   * The execution scenario. Valid values: AGENT_QUERY (the agent directly executes the SQL statement) and WORKFLOW_QUERY (the SQL statement is asynchronously executed through a workflow).
    * 
    * @example
    * AGENT_QUERY
@@ -154,7 +149,7 @@ export class ListAgenticGlobalSqlExecutionHistoriesResponseBodyData extends $dar
   sqlType?: string;
   /**
    * @remarks
-   * The start time of the execution. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * The execution start time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2026-01-01 00:00:00
@@ -259,9 +254,7 @@ export class ListAgenticGlobalSqlExecutionHistoriesResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * - true: The request is successful.
-   * - false: The request fails.
+   * Indicates whether the request is successful. Valid values: true and false.
    */
   success?: boolean;
   /**
