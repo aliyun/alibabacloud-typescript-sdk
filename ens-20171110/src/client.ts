@@ -424,8 +424,8 @@ export default class Client extends OpenApi {
    * Adds a secondary CIDR block to a network.
    * 
    * @remarks
-   * The maximum number of secondary CIDR blocks that you can add to a network is as follows:
-   * - A network supports up to five secondary IPv4 CIDR blocks.
+   * The maximum number of secondary CIDR blocks that can be added to a network is as follows:
+   * - You can add up to 5 secondary IPv4 CIDR blocks to a network.
    * 
    * @param request - AssociateNetworkCidrBlockRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -471,8 +471,8 @@ export default class Client extends OpenApi {
    * Adds a secondary CIDR block to a network.
    * 
    * @remarks
-   * The maximum number of secondary CIDR blocks that you can add to a network is as follows:
-   * - A network supports up to five secondary IPv4 CIDR blocks.
+   * The maximum number of secondary CIDR blocks that can be added to a network is as follows:
+   * - You can add up to 5 secondary IPv4 CIDR blocks to a network.
    * 
    * @param request - AssociateNetworkCidrBlockRequest
    * @returns AssociateNetworkCidrBlockResponse
@@ -1203,7 +1203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copies an SDG across edge zones by calling CopySDG.
+   * Copies an SDG across edge zones.
    * 
    * @param tmpReq - CopySDGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1236,7 +1236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copies an SDG across edge zones by calling CopySDG.
+   * Copies an SDG across edge zones.
    * 
    * @param request - CopySDGRequest
    * @returns CopySDGResponse
@@ -1471,7 +1471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a classic VPC.
+   * Creates a classic virtual private cloud (VPC).
    * 
    * @param request - CreateClassicNetworkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1514,7 +1514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a classic VPC.
+   * Creates a classic virtual private cloud (VPC).
    * 
    * @param request - CreateClassicNetworkRequest
    * @returns CreateClassicNetworkResponse
@@ -4691,10 +4691,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls DeleteFileSystem to delete a NAS service.
+   * Deletes a NAS file system.
    * 
    * @remarks
-   * Deletes a NAS file system. Before deleting the file system, call DeleteMountTarget to delete all mount targets of the file system. After DeleteMountTarget succeeds, there is an eventual consistency window. Poll DescribeFileSystems to confirm that MountTargets is empty before calling this API operation.
+   * Deletes a NAS file system. Before deletion, you must call DeleteMountTarget to delete all mount targets of the file system. After a successful DeleteMountTarget call, an eventual consistency window exists. Poll DescribeFileSystems to confirm that MountTargets is empty before you call this operation.
    * 
    * @param request - DeleteFileSystemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4721,10 +4721,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls DeleteFileSystem to delete a NAS service.
+   * Deletes a NAS file system.
    * 
    * @remarks
-   * Deletes a NAS file system. Before deleting the file system, call DeleteMountTarget to delete all mount targets of the file system. After DeleteMountTarget succeeds, there is an eventual consistency window. Poll DescribeFileSystems to confirm that MountTargets is empty before calling this API operation.
+   * Deletes a NAS file system. Before deletion, you must call DeleteMountTarget to delete all mount targets of the file system. After a successful DeleteMountTarget call, an eventual consistency window exists. Poll DescribeFileSystems to confirm that MountTargets is empty before you call this operation.
    * 
    * @param request - DeleteFileSystemRequest
    * @returns DeleteFileSystemResponse
@@ -4979,10 +4979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a mount target.
+   * Deletes an existing mount target.
    * 
    * @remarks
-   * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+   * A deleted mount target cannot be recovered. Proceed with caution.
    * 
    * @param request - DeleteMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5021,10 +5021,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a mount target.
+   * Deletes an existing mount target.
    * 
    * @remarks
-   * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+   * A deleted mount target cannot be recovered. Proceed with caution.
    * 
    * @param request - DeleteMountTargetRequest
    * @returns DeleteMountTargetResponse
@@ -5165,7 +5165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a network access control list (ACL) rule.
+   * Invokes the DeleteNetworkAclEntry operation to delete network ACL rules.
    * 
    * @param request - DeleteNetworkAclEntryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5196,7 +5196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a network access control list (ACL) rule.
+   * Invokes the DeleteNetworkAclEntry operation to delete network ACL rules.
    * 
    * @param request - DeleteNetworkAclEntryRequest
    * @returns DeleteNetworkAclEntryResponse
@@ -5207,7 +5207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an elastic network interface (ENI).
+   * Deletes one or more elastic network interface controllers (NICs).
    * 
    * @param tmpReq - DeleteNetworkInterfacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5244,7 +5244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an elastic network interface (ENI).
+   * Deletes one or more elastic network interface controllers (NICs).
    * 
    * @param request - DeleteNetworkInterfacesRequest
    * @returns DeleteNetworkInterfacesResponse
@@ -5343,7 +5343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an SDG by calling DeleteSDG.
+   * Deletes an SDG.
    * 
    * @remarks
    * If all SDGs associated with the original cloud disk are deleted, the original cloud disk is automatically cleaned up.
@@ -5383,7 +5383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an SDG by calling DeleteSDG.
+   * Deletes an SDG.
    * 
    * @remarks
    * If all SDGs associated with the original cloud disk are deleted, the original cloud disk is automatically cleaned up.
@@ -7463,7 +7463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about ISPs and number of ISPs in an area.
+   * Queries the supported regions and ISPs and their quantities.
    * 
    * @param request - DescribeEnsNetSaleDistrictRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7498,7 +7498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about ISPs and number of ISPs in an area.
+   * Queries the supported regions and ISPs and their quantities.
    * 
    * @param request - DescribeEnsNetSaleDistrictRequest
    * @returns DescribeEnsNetSaleDistrictResponse
@@ -7509,7 +7509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether a node supports IPv6.
+   * Queries whether an edge zone supports IPv6.
    * 
    * @param request - DescribeEnsRegionIdIpv6InfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7540,7 +7540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether a node supports IPv6.
+   * Queries whether an edge zone supports IPv6.
    * 
    * @param request - DescribeEnsRegionIdIpv6InfoRequest
    * @returns DescribeEnsRegionIdIpv6InfoResponse
@@ -9556,11 +9556,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries monitoring data of an edge load balancer (ELB) instance.
+   * Queries Layer 4 listener-level monitoring data for a load balancer.
    * 
    * @remarks
-   * - up to 100 times per second per account.
-   * - up to 10 times per second per user.
+   * - API call rate: 100 calls per second.
+   * - Call rate per user: 10 calls per second.
    * 
    * @param request - DescribeLoadBalancerListenMonitorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9587,11 +9587,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries monitoring data of an edge load balancer (ELB) instance.
+   * Queries Layer 4 listener-level monitoring data for a load balancer.
    * 
    * @remarks
-   * - up to 100 times per second per account.
-   * - up to 10 times per second per user.
+   * - API call rate: 100 calls per second.
+   * - Call rate per user: 10 calls per second.
    * 
    * @param request - DescribeLoadBalancerListenMonitorRequest
    * @returns DescribeLoadBalancerListenMonitorResponse
@@ -9898,7 +9898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries mount target information.
+   * Queries the details of mount targets.
    * 
    * @param request - DescribeMountTargetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9945,7 +9945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries mount target information.
+   * Queries the details of mount targets.
    * 
    * @param request - DescribeMountTargetsRequest
    * @returns DescribeMountTargetsResponse
@@ -11162,7 +11162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the real-time status of the instance devices or containers that are being scheduled and occupied by the specified UUID.
+   * Queries the real-time status of instance devices or containers that are being scheduled for the specified UUID.
    * 
    * @param request - DescribeServcieScheduleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11201,7 +11201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the real-time status of the instance devices or containers that are being scheduled and occupied by the specified UUID.
+   * Queries the real-time status of instance devices or containers that are being scheduled for the specified UUID.
    * 
    * @param request - DescribeServcieScheduleRequest
    * @returns DescribeServcieScheduleResponse
@@ -11301,6 +11301,94 @@ export default class Client extends OpenApi {
   async describeServerLoadBalancerMonitor(request: $_model.DescribeServerLoadBalancerMonitorRequest): Promise<$_model.DescribeServerLoadBalancerMonitorResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeServerLoadBalancerMonitorWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the billing records of shared disks that use SDG.
+   * 
+   * @param tmpReq - DescribeSharedDiskRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSharedDiskRecordsResponse
+   */
+  async describeSharedDiskRecordsWithOptions(tmpReq: $_model.DescribeSharedDiskRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSharedDiskRecordsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeSharedDiskRecordsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.diskIds)) {
+      request.diskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.diskIds, "DiskIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.namespaces)) {
+      request.namespacesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.namespaces, "Namespaces", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.regionIds)) {
+      request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sdgIds)) {
+      request.sdgIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sdgIds, "SdgIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.diskIdsShrink)) {
+      query["DiskIds"] = request.diskIdsShrink;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.namespacesShrink)) {
+      query["Namespaces"] = request.namespacesShrink;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionIdsShrink)) {
+      query["RegionIds"] = request.regionIdsShrink;
+    }
+
+    if (!$dara.isNull(request.sdgIdsShrink)) {
+      query["SdgIds"] = request.sdgIdsShrink;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSharedDiskRecords",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSharedDiskRecordsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSharedDiskRecordsResponse({}));
+  }
+
+  /**
+   * Queries the billing records of shared disks that use SDG.
+   * 
+   * @param request - DescribeSharedDiskRecordsRequest
+   * @returns DescribeSharedDiskRecordsResponse
+   */
+  async describeSharedDiskRecords(request: $_model.DescribeSharedDiskRecordsRequest): Promise<$_model.DescribeSharedDiskRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSharedDiskRecordsWithOptions(request, runtime);
   }
 
   /**
@@ -11806,7 +11894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches a shared data group (SDG).
+   * Unmounts the SDG.
    * 
    * @param tmpReq - DetachInstanceSDGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11847,7 +11935,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches a shared data group (SDG).
+   * Unmounts the SDG.
    * 
    * @param request - DetachInstanceSDGRequest
    * @returns DetachInstanceSDGResponse
@@ -12568,7 +12656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage usage of the previous billing cycle and the cumulative number of calls for the current month by bucket.
+   * Queries the storage usage in the previous billing cycle and the cumulative number of calls for the current month.
    * 
    * @param request - GetOssStorageAndAccByBucketsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12595,7 +12683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage usage of the previous billing cycle and the cumulative number of calls for the current month by bucket.
+   * Queries the storage usage in the previous billing cycle and the cumulative number of calls for the current month.
    * 
    * @param request - GetOssStorageAndAccByBucketsRequest
    * @returns GetOssStorageAndAccByBucketsResponse
@@ -12606,10 +12694,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage and bandwidth usage within a specific time range.
+   * Queries the calculated storage and bandwidth usage for a specified time period.
    * 
    * @remarks
-   * The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
+   * The aggregation granularity for bandwidth and storage usage queries cannot exceed one day. Aggregate data is processed by taking the maximum value of the data points within a specified time period.
    * 
    * @param request - GetOssUsageDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12636,10 +12724,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage and bandwidth usage within a specific time range.
+   * Queries the calculated storage and bandwidth usage for a specified time period.
    * 
    * @remarks
-   * The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
+   * The aggregation granularity for bandwidth and storage usage queries cannot exceed one day. Aggregate data is processed by taking the maximum value of the data points within a specified time period.
    * 
    * @param request - GetOssUsageDataRequest
    * @returns GetOssUsageDataResponse
@@ -15017,7 +15105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deploys an SDG that is already attached to an instance to the corresponding AIC.
+   * Deploys the attached SDG to the corresponding AIC.
    * 
    * @param tmpReq - MountInstanceSDGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15058,7 +15146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deploys an SDG that is already attached to an instance to the corresponding AIC.
+   * Deploys the attached SDG to the corresponding AIC.
    * 
    * @param request - MountInstanceSDGRequest
    * @returns MountInstanceSDGResponse
@@ -17203,10 +17291,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Saves the cloud disk of a specified device as a Shared Data Group (SDG).
+   * Saves the cloud disk of a specified device as an SDG.
    * 
    * @remarks
-   * Saves a Shared Data Group (SDG). SDGs in the failed status cannot be saved. Before calling this operation, call DescribeSDGs to query the current status.
+   * Saves an SDG. You cannot save an SDG that is in the failed state. Before calling this operation, call DescribeSDGs to check the current status.
    * 
    * @param request - SaveSDGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17233,10 +17321,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Saves the cloud disk of a specified device as a Shared Data Group (SDG).
+   * Saves the cloud disk of a specified device as an SDG.
    * 
    * @remarks
-   * Saves a Shared Data Group (SDG). SDGs in the failed status cannot be saved. Before calling this operation, call DescribeSDGs to query the current status.
+   * Saves an SDG. You cannot save an SDG that is in the failed state. Before calling this operation, call DescribeSDGs to check the current status.
    * 
    * @param request - SaveSDGRequest
    * @returns SaveSDGResponse
@@ -18755,7 +18843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls UnloadRegionSDG to delete preloaded data.
+   * Deletes preloaded data.
    * 
    * @param tmpReq - UnloadRegionSDGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18804,7 +18892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls UnloadRegionSDG to delete preloaded data.
+   * Deletes preloaded data.
    * 
    * @param request - UnloadRegionSDGRequest
    * @returns UnloadRegionSDGResponse
@@ -18815,7 +18903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unmounts a shared data group (SDG) from instances.
+   * Unmounts an SDG from the corresponding instance and restores it to the attached state.
    * 
    * @param tmpReq - UnmountInstanceSDGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18856,7 +18944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unmounts a shared data group (SDG) from instances.
+   * Unmounts an SDG from the corresponding instance and restores it to the attached state.
    * 
    * @param request - UnmountInstanceSDGRequest
    * @returns UnmountInstanceSDGResponse

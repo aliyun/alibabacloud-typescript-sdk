@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNetworkInterfacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the elastic network interfaces (ENIs).
+   * The list of IDs of elastic network interface controllers (NICs).
    * 
    * This parameter is required.
    */

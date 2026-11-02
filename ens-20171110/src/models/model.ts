@@ -376,6 +376,7 @@ export { DescribeServcieScheduleResponseBodyPodAbstractInfoContainerStatuses } f
 export { DescribeServcieScheduleResponseBodyPodAbstractInfo } from './DescribeServcieScheduleResponseBody';
 export { DescribeServerLoadBalancerListenMonitorResponseBodyServerLoadBalancerMonitorData } from './DescribeServerLoadBalancerListenMonitorResponseBody';
 export { DescribeServerLoadBalancerMonitorResponseBodyServerLoadBalancerMonitorData } from './DescribeServerLoadBalancerMonitorResponseBody';
+export { DescribeSharedDiskRecordsResponseBodySharedDisks } from './DescribeSharedDiskRecordsResponseBody';
 export { DescribeSnapshotsResponseBodySnapshots } from './DescribeSnapshotsResponseBody';
 export { DescribeSnatAttributeResponseBodySnatIps } from './DescribeSnatAttributeResponseBody';
 export { DescribeSnatTableEntriesResponseBodySnatTableEntries } from './DescribeSnatTableEntriesResponseBody';
@@ -1107,6 +1108,10 @@ export { DescribeServerLoadBalancerListenMonitorResponse } from './DescribeServe
 export { DescribeServerLoadBalancerMonitorRequest } from './DescribeServerLoadBalancerMonitorRequest';
 export { DescribeServerLoadBalancerMonitorResponseBody } from './DescribeServerLoadBalancerMonitorResponseBody';
 export { DescribeServerLoadBalancerMonitorResponse } from './DescribeServerLoadBalancerMonitorResponse';
+export { DescribeSharedDiskRecordsRequest } from './DescribeSharedDiskRecordsRequest';
+export { DescribeSharedDiskRecordsShrinkRequest } from './DescribeSharedDiskRecordsShrinkRequest';
+export { DescribeSharedDiskRecordsResponseBody } from './DescribeSharedDiskRecordsResponseBody';
+export { DescribeSharedDiskRecordsResponse } from './DescribeSharedDiskRecordsResponse';
 export { DescribeSnapshotsRequest } from './DescribeSnapshotsRequest';
 export { DescribeSnapshotsResponseBody } from './DescribeSnapshotsResponseBody';
 export { DescribeSnapshotsResponse } from './DescribeSnapshotsResponse';

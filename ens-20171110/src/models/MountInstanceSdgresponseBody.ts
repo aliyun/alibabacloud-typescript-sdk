@@ -95,7 +95,7 @@ export class MountInstanceSDGResponseBodyDataResult extends $dara.Model {
 export class MountInstanceSDGResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response message. The value success is returned if the request is successful.
+   * The response message. The value is success if the request is successful.
    * 
    * @example
    * success
@@ -108,10 +108,10 @@ export class MountInstanceSDGResponseBodyData extends $dara.Model {
   result?: MountInstanceSDGResponseBodyDataResult;
   /**
    * @remarks
-   * Indicates whether all requests are successful. Valid values:
+   * Indicates whether all requests were successful. Valid values:
    * 
-   * - **true**: All successful.
-   * - **false**: Some tasks failed.
+   * - **true**: All requests were successful.
+   * - **false**: One or more tasks failed.
    * 
    * @example
    * true

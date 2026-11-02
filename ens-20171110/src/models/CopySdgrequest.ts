@@ -12,7 +12,7 @@ export class CopySDGRequest extends $dara.Model {
   destinationRegionIds?: string[];
   /**
    * @remarks
-   * The ID of the SDG to copy.
+   * The ID of the SDG to be copied.
    * 
    * This parameter is required.
    * 

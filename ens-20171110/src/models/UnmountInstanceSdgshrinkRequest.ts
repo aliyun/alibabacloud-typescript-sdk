@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class UnmountInstanceSDGShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the instances.
+   * The list of instance IDs.
    * 
    * This parameter is required.
    */
   instanceIdsShrink?: string;
   /**
    * @remarks
-   * The ID of the SDG.
+   * The SDG ID.
    * 
    * This parameter is required.
    * 

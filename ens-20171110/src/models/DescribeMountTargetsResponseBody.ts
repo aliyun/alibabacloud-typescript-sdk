@@ -47,10 +47,10 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
    * @remarks
    * The status of the mount target. Valid values:
    * 
-   * - active: The mount target is available.
-   * - inactive: The mount target is unavailable.
-   * - pending: The task is queued.
-   * - deleting: The mount target is being deleted.
+   * - active: Available.
+   * - inactive: Unavailable.
+   * - pending: Queued.
+   * - deleting: Deleting.
    * 
    * @example
    * active
@@ -90,7 +90,7 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
 export class DescribeMountTargetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the mount targets.
+   * The mount target information.
    */
   mountTargets?: DescribeMountTargetsResponseBodyMountTargets[];
   /**
@@ -100,7 +100,7 @@ export class DescribeMountTargetsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 2
@@ -116,7 +116,7 @@ export class DescribeMountTargetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 1

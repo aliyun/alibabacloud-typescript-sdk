@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnloadRegionSDGResponseBodyDataResultFailedItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the destination edge zone.
+   * The ID of the destination node.
    * 
    * @example
    * cn-hangzhou-xxx
@@ -58,7 +58,7 @@ export class UnloadRegionSDGResponseBodyDataResult extends $dara.Model {
   failedItems?: UnloadRegionSDGResponseBodyDataResultFailedItems[];
   /**
    * @remarks
-   * The number of successes.
+   * The number of successful requests.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class UnloadRegionSDGResponseBodyDataResult extends $dara.Model {
 export class UnloadRegionSDGResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response message. A value of success indicates a successful request.
+   * The response message. The value is success if the request is successful.
    * 
    * @example
    * success
@@ -108,9 +108,9 @@ export class UnloadRegionSDGResponseBodyData extends $dara.Model {
   result?: UnloadRegionSDGResponseBodyDataResult;
   /**
    * @remarks
-   * Indicates whether all requests were successful. Valid values:
+   * Indicates whether all requests are successful. Valid values:
    * 
-   * - true: All requests were successful.
+   * - true: All requests are successful.
    * - false: Some requests failed.
    * 
    * @example
@@ -148,7 +148,7 @@ export class UnloadRegionSDGResponseBodyData extends $dara.Model {
 export class UnloadRegionSDGResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned Data object.
+   * The Data object.
    */
   data?: UnloadRegionSDGResponseBodyData;
   /**

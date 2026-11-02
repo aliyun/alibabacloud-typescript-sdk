@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnsRegionIdIpv6InfoResponseBodySupportIpv6Info extends $dara.Model {
   /**
    * @remarks
-   * The ID of the node.
+   * The ID of the edge zone.
    * 
    * @example
    * cn-chengdu-****-4
@@ -13,11 +13,10 @@ export class DescribeEnsRegionIdIpv6InfoResponseBodySupportIpv6Info extends $dar
   ensRegionId?: string;
   /**
    * @remarks
-   * Specifies whether IPv6 is supported. Valid values:
+   * Indicates whether IPv6 is supported. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: Supported.
+   * - false: Not supported.
    * 
    * @example
    * true
@@ -57,7 +56,7 @@ export class DescribeEnsRegionIdIpv6InfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * IPv6 support information.
+   * The IPv6 support information.
    */
   supportIpv6Info?: DescribeEnsRegionIdIpv6InfoResponseBodySupportIpv6Info;
   static names(): { [key: string]: string } {

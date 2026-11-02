@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMountTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the edge node.
+   * The ID of the edge zone.
    * 
    * This parameter is required.
    * 

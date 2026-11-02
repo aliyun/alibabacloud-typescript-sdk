@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssUsageDataResponseBodyUsageList extends $dara.Model {
   /**
    * @remarks
-   * The inbound bandwidth over the internal network. Unit: bit/s.
+   * The inbound bandwidth over the internal network. Unit: Bps.
    * 
    * @example
    * 37865147
@@ -13,7 +13,7 @@ export class GetOssUsageDataResponseBodyUsageList extends $dara.Model {
   lanRxBw?: number;
   /**
    * @remarks
-   * The outbound bandwidth over the internal network. Unit: bit/s.
+   * The outbound bandwidth over the internal network. Unit: Bps.
    * 
    * @example
    * 22012187890
@@ -21,7 +21,7 @@ export class GetOssUsageDataResponseBodyUsageList extends $dara.Model {
   lanTxBw?: number;
   /**
    * @remarks
-   * The number of time points within a day.
+   * The sequence number of the time point within a day.
    * 
    * @example
    * 144
@@ -29,7 +29,7 @@ export class GetOssUsageDataResponseBodyUsageList extends $dara.Model {
   point?: number;
   /**
    * @remarks
-   * The point in time, in UTC. Format: 2010-01-21T09:50:23Z.
+   * The time point in UTC. Format: 2010-01-21T09:50:23Z.
    * 
    * @example
    * 2022-01-12T00:00:00Z
@@ -45,7 +45,7 @@ export class GetOssUsageDataResponseBodyUsageList extends $dara.Model {
   storageUsageByte?: number;
   /**
    * @remarks
-   * The outbound bandwidth over the Internet. Unit: bit/s.
+   * The inbound bandwidth over the Internet. Unit: Bps.
    * 
    * @example
    * 542155715
@@ -53,7 +53,7 @@ export class GetOssUsageDataResponseBodyUsageList extends $dara.Model {
   wanRxBw?: number;
   /**
    * @remarks
-   * The outbound bandwidth over the Internet. Unit: bit/s.
+   * The outbound bandwidth over the Internet. Unit: Bps.
    * 
    * @example
    * 547126175217
@@ -103,7 +103,7 @@ export class GetOssUsageDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The array of usage data.
+   * The usage array.
    */
   usageList?: GetOssUsageDataResponseBodyUsageList[];
   static names(): { [key: string]: string } {

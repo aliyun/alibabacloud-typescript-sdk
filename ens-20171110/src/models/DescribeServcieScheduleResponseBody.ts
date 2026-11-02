@@ -141,7 +141,7 @@ export class DescribeServcieScheduleResponseBody extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * The target instance ID for scheduling.
+   * The ID of the target instance.
    * 
    * @example
    * i-5myukg7hnpbto7m024002****
@@ -178,7 +178,7 @@ export class DescribeServcieScheduleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the resource has been created.
+   * Indicates whether it has been created.
    * 
    * @example
    * false
@@ -186,7 +186,7 @@ export class DescribeServcieScheduleResponseBody extends $dara.Model {
   requestRepeated?: boolean;
   /**
    * @remarks
-   * The TCP service port range of the scheduled target virtual machine instance or container. Valid values are in the ${from}-${to} format, such as 80-88.
+   * The TCP service port range of the scheduled target virtual machine instance or container. Format: ${from}-${to}. Example: 80-88.
    * 
    * @example
    * 80-88

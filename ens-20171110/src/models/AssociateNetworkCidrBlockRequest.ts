@@ -37,8 +37,8 @@ export class AssociateNetworkCidrBlockRequest extends $dara.Model {
   /**
    * @remarks
    * The secondary IPv4 CIDR block to be added. The CIDR block must meet the following requirements:
-   * - The CIDR block must be within the 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 range.
-   * - The secondary CIDR block must not overlap with the primary CIDR block or existing secondary CIDR blocks of the network.
+   * - The CIDR block must fall within the 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 range.
+   * - The secondary CIDR block must not overlap with the primary CIDR block or any existing secondary CIDR blocks of the network.
    * 
    * @example
    * 10.XX.XX.0/24

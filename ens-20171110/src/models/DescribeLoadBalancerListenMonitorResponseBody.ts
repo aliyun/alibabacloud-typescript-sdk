@@ -37,7 +37,7 @@ export class DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorLis
   dropConns?: string;
   /**
    * @remarks
-   * The ID of the node to which the ELB instance belongs.
+   * The ID of the edge zone.
    * 
    * @example
    * cn-dongguan-9
@@ -85,7 +85,7 @@ export class DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorLis
   inPkts?: string;
   /**
    * @remarks
-   * The number of unavailable servers that are attached to the monitored ELB instance.
+   * The number of unavailable backend servers associated with the listener.
    * 
    * @example
    * 0
@@ -93,7 +93,7 @@ export class DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorLis
   inValidRsNum?: string;
   /**
    * @remarks
-   * The ID of the ELB instance.
+   * The load balancing instance.
    * 
    * @example
    * lb-5q73cv04zeyh43lh74lp4****
@@ -141,7 +141,7 @@ export class DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorLis
   proto?: string;
   /**
    * @remarks
-   * The VIP port of the ELB instance.
+   * The VIP port of the instance.
    * 
    * @example
    * 80
@@ -149,7 +149,7 @@ export class DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorLis
   VPort?: string;
   /**
    * @remarks
-   * The number of available servers that are attached to the monitored ELB instance.
+   * The number of available backend servers associated with the listener.
    * 
    * @example
    * 2
@@ -157,7 +157,7 @@ export class DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorLis
   validRsNum?: string;
   /**
    * @remarks
-   * The virtual IP address (VIP) of the instance.
+   * The VIP of the instance.
    * 
    * @example
    * 10.8.****
@@ -165,7 +165,7 @@ export class DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorLis
   vip?: string;
   /**
    * @remarks
-   * The ID of the tunnel.
+   * The tunnel ID.
    * 
    * @example
    * 53284
@@ -235,7 +235,7 @@ export class DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorLis
 export class DescribeLoadBalancerListenMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The TCP/UDP monitoring data of the ELB instance.
+   * The array of Layer 4 monitoring data for the load balancer.
    */
   loadBalancerMonitorListenData?: DescribeLoadBalancerListenMonitorResponseBodyLoadBalancerMonitorListenData[];
   /**

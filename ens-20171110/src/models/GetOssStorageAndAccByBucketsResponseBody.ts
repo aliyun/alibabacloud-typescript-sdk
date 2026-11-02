@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssStorageAndAccByBucketsResponseBodyBucketList extends $dara.Model {
   /**
    * @remarks
-   * The number of access requests.
+   * The number of accesses.
    * 
    * @example
    * 1000
@@ -13,7 +13,7 @@ export class GetOssStorageAndAccByBucketsResponseBodyBucketList extends $dara.Mo
   acc?: number;
   /**
    * @remarks
-   * The OSS bucket name.
+   * The name of the bucket.
    * 
    * @example
    * my-bucket

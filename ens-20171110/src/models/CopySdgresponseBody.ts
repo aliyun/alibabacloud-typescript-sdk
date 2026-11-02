@@ -53,12 +53,12 @@ export class CopySDGResponseBodyDataResult extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The list of failed edge zone details.
+   * The list of details about failed edge zones.
    */
   failedItems?: CopySDGResponseBodyDataResultFailedItems[];
   /**
    * @remarks
-   * The number of successful operations.
+   * The number of successful edge zones.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class CopySDGResponseBodyDataResult extends $dara.Model {
 export class CopySDGResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response message. The value success indicates a successful request.
+   * The response message. The value is success if the request is successful.
    * 
    * @example
    * success
@@ -103,15 +103,15 @@ export class CopySDGResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The execution result of the synchronous request.
+   * The execution result of the synchronization request.
    */
   result?: CopySDGResponseBodyDataResult;
   /**
    * @remarks
-   * Indicates whether all requests were successful. Valid values:
+   * Indicates whether all requests are successful. Valid values:
    * 
-   * - **true**: All requests were successful.
-   * - **false**: Some tasks failed.
+   * - **true**: All requests are successful.
+   * - **false**: One or more tasks failed.
    * 
    * @example
    * true
@@ -148,7 +148,7 @@ export class CopySDGResponseBodyData extends $dara.Model {
 export class CopySDGResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned Data object.
+   * The Data object.
    */
   data?: CopySDGResponseBodyData;
   /**

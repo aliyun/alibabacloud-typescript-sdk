@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiskIopsListRequest extends $dara.Model {
   /**
    * @remarks
-   * The disk ID in the format of d-***********.
+   * The disk ID. Format: d-***********.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDiskIopsListRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The end time in the format of yyyy-MM-dd HH:mm:ss. The time span between the start time and end time cannot exceed one day.
+   * The end time. The time span between the start time and the end time cannot exceed one day. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeDiskIopsListRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The start time in the format of yyyy-MM-dd HH:mm:ss.
+   * The start time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * This parameter is required.
    * 

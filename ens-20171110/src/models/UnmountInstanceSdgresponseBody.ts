@@ -13,7 +13,7 @@ export class UnmountInstanceSDGResponseBodyDataResultFailedItems extends $dara.M
   errMessage?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * aic-xxxxx-0
@@ -53,7 +53,7 @@ export class UnmountInstanceSDGResponseBodyDataResult extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * Details about failed tasks.
+   * The list of failure details.
    */
   failedItems?: UnmountInstanceSDGResponseBodyDataResultFailedItems[];
   /**
@@ -95,7 +95,7 @@ export class UnmountInstanceSDGResponseBodyDataResult extends $dara.Model {
 export class UnmountInstanceSDGResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response message. Success is returned for a successful request.
+   * The response message. The value is success if the request is successful.
    * 
    * @example
    * success
@@ -103,7 +103,7 @@ export class UnmountInstanceSDGResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The execution result of the synchronization request.
+   * The execution result of the synchronous request.
    */
   result?: UnmountInstanceSDGResponseBodyDataResult;
   /**
@@ -111,8 +111,7 @@ export class UnmountInstanceSDGResponseBodyData extends $dara.Model {
    * Indicates whether all tasks are successful. Valid values:
    * 
    * - true: All tasks are successful.
-   * 
-   * - false: Failed tasks exist.
+   * - false: One or more tasks failed.
    * 
    * @example
    * true
@@ -149,7 +148,7 @@ export class UnmountInstanceSDGResponseBodyData extends $dara.Model {
 export class UnmountInstanceSDGResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data object.
+   * The returned Data object.
    */
   data?: UnmountInstanceSDGResponseBodyData;
   /**

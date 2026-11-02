@@ -7,9 +7,9 @@ export class DescribeEnsNetSaleDistrictRequest extends $dara.Model {
    * @remarks
    * The region code.
    * 
-   * - If you do not specify this parameter, only nodes under the area level that is specified by NetLevelCode are queried.
+   * - If this parameter is empty, only the nodes under the specified network level (NetLevelCode) are queried.
    * 
-   * - If you specify this parameter, only child nodes in the area that is specified by NetDistrictCode are queried.
+   * - If this parameter is not empty, only the child nodes under the specified region code (NetDistrictCode) are queried.
    * 
    * @example
    * 100105
@@ -19,11 +19,11 @@ export class DescribeEnsNetSaleDistrictRequest extends $dara.Model {
    * @remarks
    * The network level. Valid values:
    * 
-   * - **Big**: area
+   * - **Big**: Major region.
    * 
-   * - **Middle**: province
+   * - **Middle**: Province.
    * 
-   * - **Small**: city
+   * - **Small**: City.
    * 
    * This parameter is required.
    * 

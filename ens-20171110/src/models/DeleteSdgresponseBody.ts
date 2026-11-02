@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSDGResponseBodyDataResultFailedItemsItem extends $dara.Model {
   /**
    * @remarks
-   * The specific ID.
+   * The SDG ID.
    * 
    * @example
    * sdg-dfet5vvvgy
@@ -43,7 +43,7 @@ export class DeleteSDGResponseBodyDataResultFailedItems extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The specific information.
+   * The detailed information.
    */
   item?: DeleteSDGResponseBodyDataResultFailedItemsItem;
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class DeleteSDGResponseBodyDataResultFailedItems extends $dara.Model {
 export class DeleteSDGResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The number of failures.
+   * The number of failed tasks.
    * 
    * @example
    * 0
@@ -83,12 +83,12 @@ export class DeleteSDGResponseBodyDataResult extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The details of failed tasks.
+   * The details of the failed tasks.
    */
   failedItems?: DeleteSDGResponseBodyDataResultFailedItems[];
   /**
    * @remarks
-   * The number of successes.
+   * The number of successful tasks.
    * 
    * @example
    * 1
@@ -125,7 +125,7 @@ export class DeleteSDGResponseBodyDataResult extends $dara.Model {
 export class DeleteSDGResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response message. A value of success indicates a successful request.
+   * The response message. The value is success if the request is successful.
    * 
    * @example
    * success
@@ -138,9 +138,9 @@ export class DeleteSDGResponseBodyData extends $dara.Model {
   result?: DeleteSDGResponseBodyDataResult;
   /**
    * @remarks
-   * Indicates whether all requests succeeded. Valid values:
+   * Indicates whether all requests are successful. Valid values:
    * 
-   * - true: All succeeded.
+   * - true: All requests are successful.
    * - false: Some tasks failed.
    * 
    * @example
@@ -178,7 +178,7 @@ export class DeleteSDGResponseBodyData extends $dara.Model {
 export class DeleteSDGResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned Data object.
+   * The Data object.
    */
   data?: DeleteSDGResponseBodyData;
   /**

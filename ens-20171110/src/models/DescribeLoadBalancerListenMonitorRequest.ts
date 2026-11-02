@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLoadBalancerListenMonitorRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeLoadBalancerListenMonitorRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the ELB instance.
+   * The load balancer instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeLoadBalancerListenMonitorRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The network protocol, such as tcp or udp.
+   * The network protocol, such as TCP or UDP.
    * 
    * @example
    * tcp
@@ -33,7 +33,7 @@ export class DescribeLoadBalancerListenMonitorRequest extends $dara.Model {
   proto?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class DescribeLoadBalancerListenMonitorRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The virtual IP address (VIP) port of the ELB instance.
+   * The VIP port of the load balancer instance.
    * 
    * This parameter is required.
    * 

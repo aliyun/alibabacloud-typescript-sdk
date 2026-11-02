@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssUsageDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the logical Object Storage Service (OSS) bucket.
+   * The name of the OSS logical bucket.
    * 
    * @example
    * ens-sink-bucketzyp1656903494
@@ -13,7 +13,7 @@ export class GetOssUsageDataRequest extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * The end of the time range to query. The time must be in UTC. Format: 2010-01-21T09:50:23Z.
+   * The end time in UTC. Format: 2010-01-21T09:50:23Z.
    * 
    * This parameter is required.
    * 
@@ -23,9 +23,7 @@ export class GetOssUsageDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The aggregation granularity. Unit: minutes.
-   * 
-   * Default value: 5. Valid values: 5 to 1440.
+   * The time aggregation granularity. Unit: minutes. Default value: 5. Valid values: 5 to 1440.
    * 
    * @example
    * 10
@@ -33,7 +31,7 @@ export class GetOssUsageDataRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The time must be in UTC. Format: 2010-01-21T09:50:23Z.
+   * The start time in UTC. Format: 2010-01-21T09:50:23Z.
    * 
    * This parameter is required.
    * 

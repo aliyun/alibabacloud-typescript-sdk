@@ -12,7 +12,7 @@ export class CopySDGShrinkRequest extends $dara.Model {
   destinationRegionIdsShrink?: string;
   /**
    * @remarks
-   * The ID of the SDG to copy.
+   * The ID of the SDG to be copied.
    * 
    * This parameter is required.
    * 

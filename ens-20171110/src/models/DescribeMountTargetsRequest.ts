@@ -41,7 +41,7 @@ export class DescribeMountTargetsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Maximum value: 100. Default value: 10.
+   * The number of entries per page. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10

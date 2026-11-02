@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
   /**
    * @remarks
-   * The business time in the format of yyyy-MM-dd HH:mm:ss.
+   * The business time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2023-12-14 00:00:00
@@ -21,7 +21,7 @@ export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The read throughput (in bytes).
+   * The read throughput. Unit: bytes.
    * 
    * @example
    * 10054
@@ -29,7 +29,7 @@ export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
   readBytes?: number;
   /**
    * @remarks
-   * The read latency (in microseconds).
+   * The read latency. Unit: microseconds.
    * 
    * @example
    * 15646532
@@ -45,7 +45,7 @@ export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
   readOps?: number;
   /**
    * @remarks
-   * The edge zone ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou-3
@@ -53,7 +53,7 @@ export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The write throughput (in bytes).
+   * The write throughput. Unit: bytes.
    * 
    * @example
    * 0
@@ -61,7 +61,7 @@ export class DescribeDiskIopsListResponseBodyDiskIopsList extends $dara.Model {
   writeBytes?: number;
   /**
    * @remarks
-   * The write latency (in microseconds).
+   * The write latency. Unit: microseconds.
    * 
    * @example
    * 0

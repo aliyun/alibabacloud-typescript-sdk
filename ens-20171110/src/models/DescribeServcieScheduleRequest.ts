@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeServcieScheduleRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
-   * 
-   * You can obtain this value after you call the CreateApplication operation to create an application.
+   * The application ID. You can obtain this value after you call the CreateApplication operation to create an application.
    * 
    * This parameter is required.
    * 
@@ -17,7 +15,7 @@ export class DescribeServcieScheduleRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * This parameter is invalid.
+   * Invalid parameter.
    * 
    * @example
    * android
@@ -25,9 +23,7 @@ export class DescribeServcieScheduleRequest extends $dara.Model {
   podConfigName?: string;
   /**
    * @remarks
-   * The unique ID of the terminal device.
-   * 
-   * You can obtain this value after you call the RunServiceSchedule operation and set ServiceAction to Start to start service scheduling.
+   * The unique ID of the terminal device. You can obtain this value after you call the RunServiceSchedule operation and set ServiceAction to Start to start service scheduling.
    * 
    * This parameter is required.
    * 
