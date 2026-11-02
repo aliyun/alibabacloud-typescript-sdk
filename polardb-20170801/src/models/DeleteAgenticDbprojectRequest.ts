@@ -15,7 +15,7 @@ export class DeleteAgenticDBProjectRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the target project.
+   * The target project ID.
    * 
    * This parameter is required.
    * 

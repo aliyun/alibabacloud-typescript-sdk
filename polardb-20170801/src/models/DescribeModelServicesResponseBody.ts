@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The API key for the model service.
+   * The API key of the model service.
    * 
    * @example
    * xxxx
@@ -13,7 +13,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The base URL of the upstream service.
+   * The upstream service endpoint.
    * 
    * @example
    * https://xxxxxx
@@ -21,7 +21,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   baseUrl?: string;
   /**
    * @remarks
-   * The time when the model service was created.
+   * The creation date of the model.
    * 
    * @example
    * 2026-03-31T14:40:48Z
@@ -29,7 +29,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The cost in points per million input tokens.
+   * The input points.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   inputCostPointsPerMillion?: string;
   /**
    * @remarks
-   * The model category.
+   * The category.
    * 
    * @example
    * text
@@ -45,7 +45,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
-   * The model service ID.
+   * The model service IDs.
    * 
    * @example
    * ms-xxxxxx
@@ -61,7 +61,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The cost in points per million output tokens.
+   * The output points.
    * 
    * @example
    * 10
@@ -69,15 +69,11 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   outputCostPointsPerMillion?: string;
   /**
    * @remarks
-   * The protocol. Valid values:
-   * 
-   * - **OpenAI**
-   * 
-   * - **Anthropic**
-   * 
-   * - **bailian**: Alibaba Cloud Model Studio.
-   * 
-   * - **vLLM**
+   * The protocol type. Valid values:
+   * * **openai**
+   * * **anthropic**
+   * * **bailian**
+   * * **vllm**
    * 
    * @example
    * openai
@@ -85,7 +81,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The cost in points per request.
+   * The number of requests.
    * 
    * @example
    * 10
@@ -93,7 +89,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   requestCostPoints?: string;
   /**
    * @remarks
-   * The status of the model service.
+   * The status.
    * 
    * @example
    * Enable
@@ -101,7 +97,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The vendor of the model service.
+   * The model service provider.
    * 
    * @example
    * bailian
@@ -153,12 +149,12 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
 export class DescribeModelServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the model services.
+   * The list of model services.
    */
   items?: DescribeModelServicesResponseBodyItems[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -166,7 +162,7 @@ export class DescribeModelServicesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 30
@@ -174,13 +170,10 @@ export class DescribeModelServicesResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The number of records to return on each page. Valid values:
-   * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**
+   * The number of entries per page. Valid values: 
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: **30**.
    * 
@@ -190,7 +183,7 @@ export class DescribeModelServicesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******
@@ -198,7 +191,7 @@ export class DescribeModelServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 2

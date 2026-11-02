@@ -15,7 +15,7 @@ export class DeleteModelApiRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The model API ID.
+   * The ID of the model API.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The container startup environment variables. Variable names cannot be empty or contain whitespace. Variable values can be empty strings.
+   * The startup environment variables of the container. The variable name cannot be empty or contain whitespace, and the variable value can be an empty string.
    * 
    * @example
    * {"HF_HOME":"/cache/hf","EMPTY_VALUE":""}
@@ -23,7 +23,7 @@ export class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.Model {
   customOssBucketName?: string;
   /**
    * @remarks
-   * The model path in the OSS bucket.
+   * The path of the model in the OSS bucket.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.Model {
   customOssBucketPath?: string;
   /**
    * @remarks
-   * The GPU instance type used for model deployment. Required when configuring deployment parameters.
+   * The GPU instance type used for model deployment. This parameter is required when configuring deployment parameters.
    * 
    * @example
    * polardb.gpu.gn8is.4xlarge
@@ -65,7 +65,7 @@ export class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The inference engine. Required when configuring deployment parameters. Valid values: vllm and sglang.
+   * The inference engine. This parameter is required when configuring deployment parameters. Valid values: vllm and sglang.
    * 
    * @example
    * vllm
@@ -73,7 +73,7 @@ export class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.Model {
   inferenceEngine?: string;
   /**
    * @remarks
-   * The custom model registration key and model directory name.
+   * The registration key and directory name of the custom model.
    * 
    * This parameter is required.
    * 
@@ -83,7 +83,7 @@ export class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model startup parameters. Parameter keys must start with --.
+   * The startup parameters of the model. The parameter key must start with --.
    * 
    * @example
    * {"--max-model-len":"32768"}
@@ -101,7 +101,7 @@ export class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The password or temporary token for the customer image repository. Required when ImageName is specified.
+   * The password or temporary token for the customer\\"s image repository. This parameter is required when ImageName is specified.
    * 
    * @example
    * temporary-token
@@ -109,7 +109,7 @@ export class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.Model {
   registryPassword?: string;
   /**
    * @remarks
-   * The username for the customer image repository. Required when ImageName is specified.
+   * The username for the customer\\"s image repository. This parameter is required when ImageName is specified.
    * 
    * @example
    * temporary-user

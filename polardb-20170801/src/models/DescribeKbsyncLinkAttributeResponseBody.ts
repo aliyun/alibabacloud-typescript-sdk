@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKBSyncLinkAttributeResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * The validity period of the successful snapshot of Lark group members for fallback reuse, in seconds. This parameter is returned only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 indicates that snapshot fallback reuse is disabled. A positive integer indicates the maximum age of the snapshot allowed for reuse. The valid value configured for the link is returned. If no value is configured, the default value -1 is returned.
+   * The validity period of the successful snapshot of Lark group members for fallback reuse, in seconds. This parameter is returned only for Lark synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 indicates that snapshot fallback reuse is disabled. A positive integer indicates the maximum age of the snapshot allowed for reuse. The valid value configured for the link is returned. If no value is configured, the default value -1 is returned.
    * 
    * @example
    * -1
@@ -13,7 +13,7 @@ export class DescribeKBSyncLinkAttributeResponseBodyConfig extends $dara.Model {
   feishuChatMemberStaleTtlSeconds?: number;
   /**
    * @remarks
-   * The ID of the DingTalk user who performs the operation. This parameter is returned only for DINGTALK synchronization links.
+   * The ID of the DingTalk user who performs the operation. This parameter is returned only for DingTalk synchronization links.
    * 
    * @example
    * manager123
@@ -53,12 +53,12 @@ export class DescribeKBSyncLinkAttributeResponseBody extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The synchronization configuration whitelist returned based on the source type. For DINGTALK, UserId can be returned. For FEISHU, FeishuChatMemberStaleTtlSeconds can be returned.
+   * The synchronization configuration whitelist returned based on the source type. For DingTalk, UserId is returned. For Lark, FeishuChatMemberStaleTtlSeconds is returned.
    */
   config?: DescribeKBSyncLinkAttributeResponseBodyConfig;
   /**
    * @remarks
-   * The creation time of the synchronization link.
+   * The time when the synchronization link was created. The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format (UTC time).
    * 
    * @example
    * 2026-09-22T12:00:00Z
@@ -106,7 +106,7 @@ export class DescribeKBSyncLinkAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The source directory.
+   * The source directory. For OSS sources, the bucket and object prefix in the oss://<bucket>/<prefix> format are returned. For other sources, the directory identifier or path of the corresponding channel is returned.
    * 
    * @example
    * /documents

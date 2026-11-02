@@ -6744,6 +6744,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.storageSpace)) {
       query["StorageSpace"] = request.storageSpace;
     }
@@ -9573,7 +9577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified model service.
+   * Deletes a model service.
    * 
    * @param request - DeleteModelServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9612,7 +9616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified model service.
+   * Deletes a model service.
    * 
    * @param request - DeleteModelServiceRequest
    * @returns DeleteModelServiceResponse
@@ -13091,7 +13095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the download links for redo log backups.
+   * Queries the download URLs of redo log backups.
    * 
    * @param request - DescribeBackupLogDownloadLinksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13130,7 +13134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the download links for redo log backups.
+   * Queries the download URLs of redo log backups.
    * 
    * @param request - DescribeBackupLogDownloadLinksRequest
    * @returns DescribeBackupLogDownloadLinksResponse
@@ -19069,7 +19073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List model services
+   * Queries the model service list.
    * 
    * @param request - DescribeModelServicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19132,7 +19136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List model services
+   * Queries the model service list.
    * 
    * @param request - DescribeModelServicesRequest
    * @returns DescribeModelServicesResponse
@@ -20271,7 +20275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries PolarFS information.
+   * Queries the PolarFS information.
    * 
    * @param request - DescribePolarFsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20312,6 +20316,10 @@ export default class Client extends OpenApi {
       query["RelativeDbClusterId"] = request.relativeDbClusterId;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -20334,7 +20342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries PolarFS information.
+   * Queries the PolarFS information.
    * 
    * @param request - DescribePolarFsRequest
    * @returns DescribePolarFsResponse

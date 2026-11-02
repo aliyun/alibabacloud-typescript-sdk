@@ -21,7 +21,7 @@ export class RegisterAIDBClusterCustomModelResponseBody extends $dara.Model {
   displayModelName?: string;
   /**
    * @remarks
-   * The image import status. The initial value is Importing after an image is registered.
+   * The import status of the image. The initial value is Importing after the image is registered.
    * 
    * @example
    * Importing
@@ -29,7 +29,7 @@ export class RegisterAIDBClusterCustomModelResponseBody extends $dara.Model {
   imageImportStatus?: string;
   /**
    * @remarks
-   * The model registration ID.
+   * The registration ID of the model.
    * 
    * @example
    * 123456
@@ -37,7 +37,7 @@ export class RegisterAIDBClusterCustomModelResponseBody extends $dara.Model {
   modelId?: number;
   /**
    * @remarks
-   * The custom model registration key.
+   * The registration key of the custom model.
    * 
    * @example
    * Qwen3-32B
@@ -45,7 +45,7 @@ export class RegisterAIDBClusterCustomModelResponseBody extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model type.
+   * The type of the model.
    * 
    * @example
    * custom

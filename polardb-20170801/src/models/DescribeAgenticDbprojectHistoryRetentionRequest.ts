@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBProjectHistoryRetentionRequest extends $dara.Model {
   /**
    * @remarks
-   * The AgenticDB cluster ID.
+   * The ID of the AgenticDB cluster.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeAgenticDBProjectHistoryRetentionRequest extends $dara.Model
   DBClusterId?: string;
   /**
    * @remarks
-   * The target project ID.
+   * The ID of the target project.
    * 
    * This parameter is required.
    * 

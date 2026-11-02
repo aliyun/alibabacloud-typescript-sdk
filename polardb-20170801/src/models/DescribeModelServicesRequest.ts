@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeModelServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the gateway instance.
+   * The gateway instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeModelServicesRequest extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
-   * The IDs of the model services. Separate multiple IDs with a comma (,).
+   * The model service IDs.
    * 
    * @example
    * ms-xxx,ms-xxxx
@@ -31,7 +31,7 @@ export class DescribeModelServicesRequest extends $dara.Model {
   modelServiceIds?: string;
   /**
    * @remarks
-   * The name of the model service.
+   * The model service name.
    * 
    * @example
    * testName
@@ -56,14 +56,10 @@ export class DescribeModelServicesRequest extends $dara.Model {
   /**
    * @remarks
    * The protocol type. Valid values:
-   * 
-   * - **openai**
-   * 
-   * - **anthropic**
-   * 
-   * - **bailian**: Models from Model Studio.
-   * 
-   * - **vllm**
+   * * **openai**
+   * * **anthropic**
+   * * **bailian**
+   * * **vllm**
    * 
    * @example
    * openai
@@ -71,7 +67,7 @@ export class DescribeModelServicesRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -79,7 +75,7 @@ export class DescribeModelServicesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the model service.
+   * The status.
    * 
    * @example
    * Enable

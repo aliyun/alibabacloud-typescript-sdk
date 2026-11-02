@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKBSyncLinksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The client ID.
+   * The client identifier.
    * 
    * @example
    * cli_xxxxxxbe8
@@ -13,9 +13,7 @@ export class DescribeKBSyncLinksResponseBodyItems extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The creation time.
-   * 
-   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The creation time. The time is in ISO 8601 format in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-08-11T09:55:19Z
@@ -39,7 +37,7 @@ export class DescribeKBSyncLinksResponseBodyItems extends $dara.Model {
   imPlatform?: string;
   /**
    * @remarks
-   * The synchronization link ID.
+   * The ID of the synchronization link.
    * 
    * @example
    * pkbl-xxxxx
@@ -47,7 +45,7 @@ export class DescribeKBSyncLinksResponseBodyItems extends $dara.Model {
   linkId?: string;
   /**
    * @remarks
-   * The link name.
+   * The name of the synchronization link.
    * 
    * @example
    * testName
@@ -55,7 +53,7 @@ export class DescribeKBSyncLinksResponseBodyItems extends $dara.Model {
   linkName?: string;
   /**
    * @remarks
-   * The source directory address for synchronization.
+   * The address of the source directory for synchronization.
    * 
    * @example
    * https://example.feishu.cn/wiki/space/xxxxxx
@@ -126,7 +124,7 @@ export class DescribeKBSyncLinksResponseBody extends $dara.Model {
   items?: DescribeKBSyncLinksResponseBodyItems[];
   /**
    * @remarks
-   * The page number of the current results.
+   * The page number of the returned results.
    * 
    * @example
    * 1
@@ -134,7 +132,7 @@ export class DescribeKBSyncLinksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page in the current results.
+   * The number of records returned on each page.
    * 
    * @example
    * 30
@@ -150,7 +148,7 @@ export class DescribeKBSyncLinksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of synchronization links that match the query conditions.
+   * The total number of synchronization links that meet the query conditions.
    * 
    * @example
    * 1

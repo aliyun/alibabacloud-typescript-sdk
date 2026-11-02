@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAIDBClusterCustomModelRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom model registration key to delete.
+   * The key of the custom model registration to delete.
    * 
    * This parameter is required.
    * 

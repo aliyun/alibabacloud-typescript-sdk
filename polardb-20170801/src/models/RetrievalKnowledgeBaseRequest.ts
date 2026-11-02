@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RetrievalKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the knowledge base. You can specify multiple knowledge base IDs separated by commas. A maximum of 50 knowledge bases are supported.
+   * The unique identifier of the knowledge base. You can specify up to 50 knowledge base IDs separated by commas.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class RetrievalKnowledgeBaseRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to enable reranking. Default value: true.
+   * Specifies whether reranking is enabled. Default value: true.
    * 
    * @example
    * true

@@ -29,10 +29,9 @@ export class DescribeGatewayAttributeResponseBodyEndpoints extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The network type of the endpoint. Valid values:
-   * 
-   * - Private: VPC
-   * - Public: Internet
+   * The endpoint type. Valid values:
+   * - Private: VPC address.
+   * - Public: Internet address.
    * 
    * @example
    * Public
@@ -98,7 +97,7 @@ export class DescribeGatewayAttributeResponseBodyEndpoints extends $dara.Model {
 export class DescribeGatewayAttributeResponseBodySecurityIPArrays extends $dara.Model {
   /**
    * @remarks
-   * The name of the IP whitelist. Default value: `default`.
+   * The name of the IP address whitelist. Default value: `default`.
    * 
    * @example
    * default
@@ -106,7 +105,7 @@ export class DescribeGatewayAttributeResponseBodySecurityIPArrays extends $dara.
   securityIPArrayName?: string;
   /**
    * @remarks
-   * The tag of the IP whitelist.
+   * The tag of the IP address whitelist.
    * 
    * @example
    * mytag
@@ -148,7 +147,7 @@ export class DescribeGatewayAttributeResponseBodySecurityIPArrays extends $dara.
 export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance type code.
+   * The specification code.
    * 
    * @example
    * polar.app.g2.medium
@@ -156,9 +155,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   classCode?: string;
   /**
    * @remarks
-   * The creation time.
-   * 
-   * The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
+   * The creation time. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-02-24T11:57:54Z
@@ -187,11 +184,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   endpoints?: DescribeGatewayAttributeResponseBodyEndpoints[];
   /**
    * @remarks
-   * The expiration time.
-   * 
-   * This parameter is empty when the billing method is Postpaid.
-   * 
-   * The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
+   * The expiration time. This parameter is empty when the billing method is pay-as-you-go. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2027-04-22T16:00:00Z
@@ -235,9 +228,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   latestVersion?: string;
   /**
    * @remarks
-   * The last modification time.
-   * 
-   * The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
+   * The last modification time. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-10-07T02:19:55Z
@@ -280,15 +271,15 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   runningVersion?: string;
   /**
    * @remarks
-   * The application-level IP whitelist.
+   * The application-level whitelist.
    */
   securityIPArrays?: DescribeGatewayAttributeResponseBodySecurityIPArrays[];
   /**
    * @remarks
    * The application status. Valid values:
    * 
-   * - CREATE: creating
-   * - ACTIVATION: running
+   * - CREATE: Creating.
+   * - ACTIVATION: Running.
    * 
    * @example
    * ACTIVATION
@@ -296,7 +287,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-*********************

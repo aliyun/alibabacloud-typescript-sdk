@@ -45,7 +45,7 @@ export class DescribePolarFsRequestTag extends $dara.Model {
 export class DescribePolarFsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the PolarDB instance on which the application depends.
+   * The PolarDB instance ID that the application depends on.
    * 
    * @example
    * pc-2ze8u21s03******
@@ -53,7 +53,7 @@ export class DescribePolarFsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The page number. The value must be an integer greater than 0 and not exceeding the maximum value of Integer.
+   * The page number. The value must be a positive integer that does not exceed the maximum integer value.
    * 
    * @example
    * 1
@@ -83,7 +83,7 @@ export class DescribePolarFsRequest extends $dara.Model {
   polarFsInstanceDescription?: string;
   /**
    * @remarks
-   * The list of PolarFS instance IDs, separated by commas (,).
+   * The PolarFS instance IDs. Separate multiple instance IDs with commas (,).
    * 
    * @example
    * pfs-ins1*******
@@ -117,6 +117,14 @@ export class DescribePolarFsRequest extends $dara.Model {
   relativeDbClusterId?: string;
   /**
    * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-xxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
    * The tags.
    */
   tag?: DescribePolarFsRequestTag[];
@@ -130,6 +138,7 @@ export class DescribePolarFsRequest extends $dara.Model {
       polarFsType: 'PolarFsType',
       regionId: 'RegionId',
       relativeDbClusterId: 'RelativeDbClusterId',
+      resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
     };
   }
@@ -144,6 +153,7 @@ export class DescribePolarFsRequest extends $dara.Model {
       polarFsType: 'string',
       regionId: 'string',
       relativeDbClusterId: 'string',
+      resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': DescribePolarFsRequestTag },
     };
   }

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBBranchRestoreWindowRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the source branch.
+   * The source branch ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeAgenticDBBranchRestoreWindowRequest extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The ID of the AgenticDB cluster.
+   * The AgenticDB cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeAgenticDBBranchRestoreWindowRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the target project.
+   * The target project ID.
    * 
    * This parameter is required.
    * 

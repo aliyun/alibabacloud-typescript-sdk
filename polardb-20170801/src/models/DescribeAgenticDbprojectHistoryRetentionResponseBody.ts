@@ -13,7 +13,7 @@ export class DescribeAgenticDBProjectHistoryRetentionResponseBody extends $dara.
   DBClusterId?: string;
   /**
    * @remarks
-   * The effective history data retention period for the project. For the actual recoverable range, query the branch recovery window.
+   * The effective history data retention period of the project. To check the actual recoverable range, query the branch recovery window.
    * 
    * @example
    * 604800

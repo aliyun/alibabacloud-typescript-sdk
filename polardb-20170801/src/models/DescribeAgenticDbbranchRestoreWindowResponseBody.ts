@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBBranchRestoreWindowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the source branch.
+   * The source branch ID.
    * 
    * @example
    * br-1a2b3c4d5e6f
@@ -37,7 +37,7 @@ export class DescribeAgenticDBBranchRestoreWindowResponseBody extends $dara.Mode
   projectId?: string;
   /**
    * @remarks
-   * The time when the query was completed, in UTC RFC3339 format. This does not represent the latest restorable time.
+   * The time when this query was completed, in UTC RFC3339 format. This does not represent the latest restorable time.
    * 
    * @example
    * 2026-10-16T07:32:00Z

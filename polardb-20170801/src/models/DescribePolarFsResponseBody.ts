@@ -168,6 +168,11 @@ export class DescribePolarFsResponseBodyItemsPolarFsPaths extends $dara.Model {
   polarFsType?: string;
   regionId?: string;
   relativeDbClusterId?: string;
+  /**
+   * @example
+   * rg-xxx
+   */
+  resourceGroupId?: string;
   securityGroupId?: string;
   storageSpace?: number;
   storageType?: string;
@@ -195,6 +200,7 @@ export class DescribePolarFsResponseBodyItemsPolarFsPaths extends $dara.Model {
       polarFsType: 'PolarFsType',
       regionId: 'RegionId',
       relativeDbClusterId: 'RelativeDbClusterId',
+      resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
       storageSpace: 'StorageSpace',
       storageType: 'StorageType',
@@ -225,6 +231,7 @@ export class DescribePolarFsResponseBodyItemsPolarFsPaths extends $dara.Model {
       polarFsType: 'string',
       regionId: 'string',
       relativeDbClusterId: 'string',
+      resourceGroupId: 'string',
       securityGroupId: 'string',
       storageSpace: 'number',
       storageType: 'string',
@@ -291,7 +298,7 @@ export class DescribePolarFsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 13
@@ -307,7 +314,7 @@ export class DescribePolarFsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 16

@@ -75,12 +75,12 @@ export class RetrievalKnowledgeBaseResponseBodyResultsImageResources extends $da
 export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The list of captions for the figures or tables associated with the chunk.
+   * The list of figure or table captions associated with the chunk.
    */
   captions?: string[];
   /**
    * @remarks
-   * The list of structured element references in the source document associated with the chunk. You can use these references to precisely locate the original elements.
+   * The list of structured element references from the source document associated with the chunk. This can be used to precisely locate the original elements.
    */
   docItems?: string[];
   /**
@@ -109,6 +109,14 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
    * The list of image resources referenced by the chunk.
    */
   imageResources?: RetrievalKnowledgeBaseResponseBodyResultsImageResources[];
+  /**
+   * @remarks
+   * The ID of the knowledge base to which the retrieved chunk belongs. This is used to distinguish the source of results when searching multiple knowledge bases.
+   * 
+   * @example
+   * pkb-xxxxxxxx
+   */
+  knowledgeBaseId?: string;
   /**
    * @remarks
    * The metadata.
@@ -162,6 +170,7 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
       fileName: 'FileName',
       headings: 'Headings',
       imageResources: 'ImageResources',
+      knowledgeBaseId: 'KnowledgeBaseId',
       metadata: 'Metadata',
       pageNumbers: 'PageNumbers',
       shardContent: 'ShardContent',
@@ -179,6 +188,7 @@ export class RetrievalKnowledgeBaseResponseBodyResults extends $dara.Model {
       fileName: 'string',
       headings: { 'type': 'array', 'itemType': 'string' },
       imageResources: { 'type': 'array', 'itemType': RetrievalKnowledgeBaseResponseBodyResultsImageResources },
+      knowledgeBaseId: 'string',
       metadata: 'string',
       pageNumbers: { 'type': 'array', 'itemType': 'number' },
       shardContent: 'string',

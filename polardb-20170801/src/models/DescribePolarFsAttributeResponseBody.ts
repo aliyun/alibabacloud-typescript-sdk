@@ -62,9 +62,9 @@ export class DescribePolarFsAttributeResponseBodyEndpointItemsAddressItems exten
   /**
    * @remarks
    * The network type of the connection string. Valid values:
-   * * **Public**: public endpoint.
-   * * **Private**: private endpoint.
-   * * **Inner**: private endpoint (classic network).
+   * * **Public**: Public network address.
+   * * **Private**: Private network address.
+   * * **Inner**: Private network address (classic network).
    * 
    * @example
    * Public
@@ -141,7 +141,7 @@ export class DescribePolarFsAttributeResponseBodyEndpointItems extends $dara.Mod
   DBEndpointId?: string;
   /**
    * @remarks
-   * The endpoint type. Valid values: Nas, S3Gateway, and others.
+   * The endpoint type, such as NAS or S3 Gateway.
    * 
    * @example
    * S3Gateway
@@ -236,7 +236,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   accelerateType?: string;
   /**
    * @remarks
-   * The acceleration storage space. Unit: GB.
+   * The accelerated storage space. Unit: GB.
    * 
    * @example
    * 1000
@@ -318,7 +318,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * @remarks
    * The creation time.
    * 
-   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2021-08-02T05:57:10Z
@@ -357,16 +357,16 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The list of endpoints, including endpoint information for types such as NAS and S3Gateway.
+   * The list of endpoints, including endpoint information for types such as NAS and S3 Gateway.
    */
   endpointItems?: DescribePolarFsAttributeResponseBodyEndpointItems[];
   /**
    * @remarks
    * The expiration time of the cluster.
    * 
-   * > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+   * > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). For clusters whose billing method is **Postpaid** (pay-as-you-go), an empty value is returned.
    * 
-   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-10-10T16:00:00Z
@@ -393,7 +393,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * @remarks
    * The lock mode. Valid values: 
    * 
-   * - **Unlock**: Not locked.
+   * - **Unlock**: Unlocked.
    * - **ManualLock**: Manually locked. 
    * - **LockByExpiration**: Automatically locked due to cluster expiration.
    * 
@@ -411,7 +411,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   maxscaleEndpointId?: string;
   /**
    * @remarks
-   * The cluster endpoint of the metadata service.
+   * The metadata service cluster endpoint.
    * 
    * @example
    * pc-x67w12d2d5t13mt88.pg.polardb.rds.aliyuncs.com
@@ -427,7 +427,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   metaInstanceName?: string;
   /**
    * @remarks
-   * The cluster endpoint of the metadata proxy service.
+   * The metadata proxy service cluster endpoint.
    * 
    * @example
    * pc-y3610mp168p3bb740.rwlb.rds.aliyuncs.com
@@ -435,7 +435,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   metaMxsConnString?: string;
   /**
    * @remarks
-   * The metadata address for Fuse mounting (encrypted).
+   * The metadata address for FUSE mounting (encrypted).
    * 
    * @example
    * e6cc1d2e2a6fa292038d999fda6501*****
@@ -443,7 +443,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   metaUrl?: string;
   /**
    * @remarks
-   * The minor version of the instance.
+   * The minor version number of the instance.
    * 
    * @example
    * v1.3.0-v1.1.1
@@ -458,8 +458,8 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * - **Postpaid**: pay-as-you-go.
-   * - **Prepaid**: subscription.
+   * - **Postpaid**: Pay-as-you-go.
+   * - **Prepaid**: Subscription.
    * 
    * @example
    * Prepaid
@@ -467,7 +467,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The description of the Polarlakebase instance.
+   * The Polarlakebase instance description.
    * 
    * @example
    * pfs-xxx
@@ -525,7 +525,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   relativeDbClusterId?: string;
   /**
    * @remarks
-   * The instance ID of the associated Polarlakebase instance.
+   * The associated Polarlakebase instance ID.
    * 
    * @example
    * pfs-**********
@@ -539,6 +539,14 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * 3F9E6A3B-C13E-4064-A010-18582A******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-xxx
+   */
+  resourceGroupId?: string;
   /**
    * @remarks
    * The managed security group ID.
@@ -557,12 +565,13 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   storageSpace?: number;
   /**
    * @remarks
-   * Storage types for the High-performance Edition. Valid values:
+   * The storage type. 
+   * For High-performance Edition, valid values are:
    * * **ESSDPL1**
    * * **ESSDPL0**
    * 
-   * Storage types for the Basic Edition. Valid values:
-   * * **city_redundancy**: zone-redundant storage.
+   * For Basic Edition, valid values are:
+   * * **city_redundancy**: Zone-redundant storage.
    * 
    * @example
    * essdpl1
@@ -586,7 +595,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   userDefaultAccName?: string;
   /**
    * @remarks
-   * The default user account key for S3 Gateway (encrypted ciphertext).
+   * The default user account secret key for S3 Gateway (encrypted ciphertext).
    * 
    * @example
    * EncryptedSecretKey==
@@ -655,6 +664,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       relativeDbClusterId: 'RelativeDbClusterId',
       relativePfsClusterId: 'RelativePfsClusterId',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
       storageSpace: 'StorageSpace',
       storageType: 'StorageType',
@@ -706,6 +716,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       relativeDbClusterId: 'string',
       relativePfsClusterId: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       securityGroupId: 'string',
       storageSpace: 'number',
       storageType: 'string',

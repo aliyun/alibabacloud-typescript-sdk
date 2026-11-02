@@ -32,7 +32,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The IDs of the model APIs.
+   * The model API IDs.
    * 
    * @example
    * mi-xxxx
@@ -57,7 +57,6 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The protocol. Valid values:
-   * 
    * * **openai**
    * * **anthropic**
    * * **bailian**
@@ -69,7 +68,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of input points.
+   * The number of input tokens.
    * 
    * @example
    * 10
@@ -77,7 +76,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   recordInput?: string;
   /**
    * @remarks
-   * The number of output points.
+   * The number of output tokens.
    * 
    * @example
    * 10
@@ -85,7 +84,7 @@ export class DescribeModelApisResponseBodyItems extends $dara.Model {
   recordOutput?: string;
   /**
    * @remarks
-   * The list of routing rules, formatted as a JSON array string.
+   * The list of routing rules, which is a JSON array string.
    * 
    * @example
    * [

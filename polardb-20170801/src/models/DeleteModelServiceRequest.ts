@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteModelServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the gateway instance.
+   * The gateway instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteModelServiceRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The name of the model.
+   * The model name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteModelServiceRequest extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing

@@ -15,7 +15,7 @@ export class DescribeModelApisRequest extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The IDs of the model APIs.
+   * The model API IDs.
    * 
    * @example
    * mi-xxx,mi-xxxx
@@ -71,7 +71,6 @@ export class DescribeModelApisRequest extends $dara.Model {
   /**
    * @remarks
    * The protocol. Valid values:
-   * 
    * * **openai**
    * * **anthropic**
    * * **bailian**

@@ -60,8 +60,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyDataSets extends $dara.
   /**
    * @remarks
    * The type. Valid values:
-   * * **train**: training set
-   * * **eval**: validation set
+   * * **train**: Training set.
+   * * **eval**: Validation set.
    * 
    * @example
    * train
@@ -97,9 +97,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyDataSets extends $dara.
 export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.Model {
   /**
    * @remarks
-   * The completion time of the task.
-   * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+   * The completion time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-09-10T01:56:00Z
@@ -124,8 +122,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
   /**
    * @remarks
    * The model source. Valid values:
-   * * **public**: preset model
-   * * **custom**: custom model
+   * * **public**: Preset model.
+   * * **custom**: Custom model.
    * 
    * @example
    * public
@@ -141,9 +139,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
   runningTimes?: string;
   /**
    * @remarks
-   * The start time of the task.
-   * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+   * The start time of the task. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-09-10T01:56:00Z
@@ -152,8 +148,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
   /**
    * @remarks
    * The task type. Valid values:
-   * * **sft**: SFT - efficient training
-   * * **grpo**: GRPO - reinforcement learning
+   * * **sft**: SFT-efficient training.
+   * * **grpo**: GRPO-reinforcement learning.
    * 
    * @example
    * stf
@@ -162,8 +158,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
   /**
    * @remarks
    * The training method. Valid values:
-   * * **lora**
-   * * **full**: full-parameter training
+   * * **lora**: LoRA.
+   * * **full**: Full training.
    * 
    * @example
    * lora
@@ -207,7 +203,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBodyTaskInfo extends $dara.
 export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access information of the model in test deployment scenarios.
+   * The access information of the model in the test deployment scenario.
    * 
    * @example
    * {\\"networkInterfaceId\\":\\"eni-2zea***\\",\\"port\\":\\"8000\\",\\"host\\":\\"192.**.**.**\\"}
@@ -223,9 +219,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   clusterNetworkType?: string;
   /**
    * @remarks
-   * The creation time.
-   * 
-   * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+   * The creation time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2025-11-12T03:45:13Z
@@ -255,9 +249,9 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The training status. Valid values:
-   * * **ACTIVATION**: training in progress
-   * * **COMPLETED**: training succeeded
-   * * **FAILED**: training failed
+   * * **ACTIVATION**: Training.
+   * * **COMPLETED**: Training succeeded.
+   * * **FAILED**: Training failed.
    * 
    * @example
    * COMPLETED
@@ -266,9 +260,9 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The training status. Valid values:
-   * * **ACTIVATION**: training in progress
-   * * **COMPLETED**: training succeeded
-   * * **FAILED**: training failed
+   * * **ACTIVATION**: Training.
+   * * **COMPLETED**: Training succeeded.
+   * * **FAILED**: Training failed.
    * 
    * @example
    * COMPLETED
@@ -285,7 +279,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The version. Valid values:
-   * * **3.1**: model operator tuning
+   * * **3.1**: Model operator tuning.
    * 
    * @example
    * 3.1
@@ -304,7 +298,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The instance type. Valid values:
-   * - **18**
+   * - **18**.
    * 
    * @example
    * 18
@@ -313,8 +307,8 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The lock mode. Valid values:
-   * * **0**: locked
-   * * **1**: unlocked
+   * * **0**: Locked.
+   * * **1**: Unlocked.
    * 
    * @example
    * 1
@@ -322,9 +316,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The end time of the maintenance window.
-   * 
-   * The time is displayed in UTC in the HH:mmZ format.
+   * The end time of the maintenance window. The time is displayed in UTC in the HH:mmZ format.
    * 
    * @example
    * 12:00Z
@@ -332,9 +324,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   maintainEndTime?: string;
   /**
    * @remarks
-   * The start time of the maintenance window.
-   * 
-   * The time is displayed in UTC. Example: 8:00Z.
+   * The start time of the maintenance window. The time is displayed in UTC, for example, 08:00Z.
    * 
    * @example
    * 8:00Z
@@ -342,7 +332,7 @@ export class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.Model {
   maintainStartTime?: string;
   /**
    * @remarks
-   * The list of output model paths in model fine-tuning scenarios.
+   * The list of output model paths in the model fine-tuning scenario.
    */
   modelPath?: string;
   /**
