@@ -13,7 +13,7 @@ export class GetHiMarketConsumerResponseBodyData extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
-   * The description of the consumer.
+   * The consumer description.
    * 
    * @example
    * Dedicated test consumer
@@ -21,12 +21,12 @@ export class GetHiMarketConsumerResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the consumer is the primary consumer.
+   * Indicates whether the consumer is a primary consumer.
    */
   isPrimary?: boolean;
   /**
    * @remarks
-   * The name of the consumer.
+   * The consumer name.
    * 
    * @example
    * consumer-1

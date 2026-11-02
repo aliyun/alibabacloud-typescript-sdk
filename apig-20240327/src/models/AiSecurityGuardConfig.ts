@@ -3,10 +3,60 @@ import * as $dara from '@darabonba/typescript';
 import { AiPluginStatus } from "./AiPluginStatus";
 
 
+export class AiSecurityGuardConfigConsumerConfigBindings extends $dara.Model {
+  /**
+   * @remarks
+   * The match type for consumer names. Valid values: exact (exact match), prefix (prefix match), regexp (regular expression match), and all (matches any consumer). Rules of the all type must be placed at the end of the binding list.
+   * 
+   * @example
+   * exact
+   */
+  matchType?: string;
+  /**
+   * @remarks
+   * The match condition for the consumer name. If matchType is exact, enter the full consumer name. If matchType is prefix, enter the name prefix. If matchType is regexp, enter a regular expression. The value cannot be empty for these three types. If matchType is all, the value must be an empty string.
+   * 
+   * @example
+   * example-consumer
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The ID of the bound security guardrail configuration. This parameter cannot be empty. You can query the ID by calling the ListAiSecurityGuardConfigs operation and use the returned templateId.
+   * 
+   * @example
+   * apig_0123456789abcdef
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      matchType: 'matchType',
+      name: 'name',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchType: 'string',
+      name: 'string',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AiSecurityGuardConfigConsumerRequestCheckService extends $dara.Model {
   /**
    * @remarks
-   * The consumer matching method.
+   * The consumer match type.
    * 
    * @example
    * exact
@@ -30,7 +80,7 @@ export class AiSecurityGuardConfigConsumerRequestCheckService extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The detection service.
+   * The check service.
    * 
    * @example
    * query_security_check
@@ -38,7 +88,7 @@ export class AiSecurityGuardConfigConsumerRequestCheckService extends $dara.Mode
   requestCheckService?: string;
   /**
    * @remarks
-   * The image detection service.
+   * The image check service.
    * 
    * @example
    * img_query_guard
@@ -76,7 +126,7 @@ export class AiSecurityGuardConfigConsumerRequestCheckService extends $dara.Mode
 export class AiSecurityGuardConfigConsumerResponseCheckService extends $dara.Model {
   /**
    * @remarks
-   * The consumer matching method.
+   * The consumer match type.
    * 
    * @example
    * exact
@@ -100,7 +150,7 @@ export class AiSecurityGuardConfigConsumerResponseCheckService extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The detection service.
+   * The check service.
    * 
    * @example
    * query_security_check
@@ -108,7 +158,7 @@ export class AiSecurityGuardConfigConsumerResponseCheckService extends $dara.Mod
   responseCheckService?: string;
   /**
    * @remarks
-   * The image detection service.
+   * The image check service.
    * 
    * @example
    * img_query_guard
@@ -154,7 +204,7 @@ export class AiSecurityGuardConfigConsumerRiskLevel extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The consumer matching method.
+   * The consumer match type.
    * 
    * @example
    * exact
@@ -206,7 +256,7 @@ export class AiSecurityGuardConfigConsumerRiskLevel extends $dara.Model {
 export class AiSecurityGuardConfigRiskConfigConsumerRules extends $dara.Model {
   /**
    * @remarks
-   * The matching method.
+   * The match type.
    * 
    * @example
    * Exact
@@ -214,7 +264,7 @@ export class AiSecurityGuardConfigRiskConfigConsumerRules extends $dara.Model {
   matchType?: string;
   /**
    * @remarks
-   * The consumer matching pattern value.
+   * The consumer match pattern value.
    * 
    * @example
    * consumer-a
@@ -246,7 +296,7 @@ export class AiSecurityGuardConfigRiskConfigConsumerRules extends $dara.Model {
 export class AiSecurityGuardConfigRiskConfig extends $dara.Model {
   /**
    * @remarks
-   * The consumer-level matching rules.
+   * The consumer-level match rules.
    */
   consumerRules?: AiSecurityGuardConfigRiskConfigConsumerRules;
   /**
@@ -296,7 +346,7 @@ export class AiSecurityGuardConfigRiskConfig extends $dara.Model {
 export class AiSecurityGuardConfig extends $dara.Model {
   /**
    * @remarks
-   * The response buffer size in KB. Default value: 1000. Valid values: 1 to 1500.
+   * The size of the response buffer in KB. Default value: 1000. Valid values: 1 to 1500.
    * 
    * @example
    * 1000
@@ -304,7 +354,7 @@ export class AiSecurityGuardConfig extends $dara.Model {
   bufferLimit?: number;
   /**
    * @remarks
-   * Specifies whether to check request content.
+   * Specifies whether to check the request content.
    * 
    * @example
    * true
@@ -312,7 +362,7 @@ export class AiSecurityGuardConfig extends $dara.Model {
   checkRequest?: boolean;
   /**
    * @remarks
-   * Specifies whether to check request images.
+   * Specifies whether to check the request images.
    * 
    * @example
    * false
@@ -320,7 +370,7 @@ export class AiSecurityGuardConfig extends $dara.Model {
   checkRequestImage?: boolean;
   /**
    * @remarks
-   * Specifies whether to check response content.
+   * Specifies whether to check the response content.
    * 
    * @example
    * true
@@ -328,7 +378,7 @@ export class AiSecurityGuardConfig extends $dara.Model {
   checkResponse?: boolean;
   /**
    * @remarks
-   * Specifies whether to check response images.
+   * Specifies whether to check the response images.
    * 
    * @example
    * false
@@ -336,22 +386,46 @@ export class AiSecurityGuardConfig extends $dara.Model {
   checkResponseImage?: boolean;
   /**
    * @remarks
-   * The consumer-level request detection service configurations.
+   * The bindings between consumers and security guardrail configurations. An empty array explicitly clears the pending configurations.
+   * 
+   * **if can be null:**
+   * true
+   */
+  consumerConfigBindings?: AiSecurityGuardConfigConsumerConfigBindings[];
+  /**
+   * @remarks
+   * The consumer-level request check service configuration.
    */
   consumerRequestCheckService?: AiSecurityGuardConfigConsumerRequestCheckService[];
   /**
    * @remarks
-   * The consumer-level response detection service configurations.
+   * The consumer-level response check service configuration.
    */
   consumerResponseCheckService?: AiSecurityGuardConfigConsumerResponseCheckService[];
   /**
    * @remarks
-   * The consumer-level risk level configurations.
+   * The consumer-level risk level configuration.
    */
   consumerRiskLevel?: AiSecurityGuardConfigConsumerRiskLevel[];
   /**
    * @remarks
-   * The plugin running status.
+   * Specifies whether the entire security guardrail policy is populated by default for this query. Returns true only for synthesized policies. For existing policies, returns false or is not returned. This is a read-only field. It is ignored upon submission, is not saved, and does not affect the start or stop status.
+   * 
+   * **if can be null:**
+   * true
+   */
+  defaultGenerated?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the long-term solution. If omitted or set to null, the original value is retained during an update.
+   * 
+   * **if can be null:**
+   * true
+   */
+  longTermEnabled?: boolean;
+  /**
+   * @remarks
+   * The running status of the plug-in.
    * 
    * **if can be null:**
    * true
@@ -359,7 +433,7 @@ export class AiSecurityGuardConfig extends $dara.Model {
   pluginStatus?: AiPluginStatus;
   /**
    * @remarks
-   * The ServiceCode of the request text detection service. The default value is injected by the system.
+   * The ServiceCode of the request text check service. The system injects the default value.
    * 
    * @example
    * query_security_check
@@ -367,7 +441,7 @@ export class AiSecurityGuardConfig extends $dara.Model {
   requestCheckService?: string;
   /**
    * @remarks
-   * The ServiceCode of the request image detection service. The default value is injected by the system.
+   * The ServiceCode of the request image check service. The system injects the default value.
    * 
    * @example
    * img_query_guard
@@ -375,7 +449,7 @@ export class AiSecurityGuardConfig extends $dara.Model {
   requestImageCheckService?: string;
   /**
    * @remarks
-   * The ServiceCode of the response text detection service. The default value is injected by the system.
+   * The ServiceCode of the response text check service. The system injects the default value.
    * 
    * @example
    * response_security_check
@@ -383,7 +457,7 @@ export class AiSecurityGuardConfig extends $dara.Model {
   responseCheckService?: string;
   /**
    * @remarks
-   * The ServiceCode of the response image detection service. The default value is injected by the system.
+   * The ServiceCode of the response image check service. The system injects the default value.
    * 
    * @example
    * img_response_guard
@@ -399,12 +473,12 @@ export class AiSecurityGuardConfig extends $dara.Model {
   riskAlertLevel?: string;
   /**
    * @remarks
-   * The list of risk dimension configurations. The values are injected by the system and generated by normalizing ConsumerRiskLevel.
+   * The list of risk dimension configurations. The system injects this list, which is generated by normalizing ConsumerRiskLevel.
    */
   riskConfig?: AiSecurityGuardConfigRiskConfig[];
   /**
    * @remarks
-   * The security guardrail service address (green-cip endpoint). Use the VPC internal network address when the gateway and the security guardrail are in the same region.
+   * The address of the security guardrail service, which is the green-cip endpoint. If the gateway and the security guardrail are in the same region, use the VPC internal network address.
    * 
    * @example
    * https://green-cip-vpc.cn-shanghai.aliyuncs.com
@@ -417,9 +491,12 @@ export class AiSecurityGuardConfig extends $dara.Model {
       checkRequestImage: 'checkRequestImage',
       checkResponse: 'checkResponse',
       checkResponseImage: 'checkResponseImage',
+      consumerConfigBindings: 'consumerConfigBindings',
       consumerRequestCheckService: 'consumerRequestCheckService',
       consumerResponseCheckService: 'consumerResponseCheckService',
       consumerRiskLevel: 'consumerRiskLevel',
+      defaultGenerated: 'defaultGenerated',
+      longTermEnabled: 'longTermEnabled',
       pluginStatus: 'pluginStatus',
       requestCheckService: 'requestCheckService',
       requestImageCheckService: 'requestImageCheckService',
@@ -438,9 +515,12 @@ export class AiSecurityGuardConfig extends $dara.Model {
       checkRequestImage: 'boolean',
       checkResponse: 'boolean',
       checkResponseImage: 'boolean',
+      consumerConfigBindings: { 'type': 'array', 'itemType': AiSecurityGuardConfigConsumerConfigBindings },
       consumerRequestCheckService: { 'type': 'array', 'itemType': AiSecurityGuardConfigConsumerRequestCheckService },
       consumerResponseCheckService: { 'type': 'array', 'itemType': AiSecurityGuardConfigConsumerResponseCheckService },
       consumerRiskLevel: { 'type': 'array', 'itemType': AiSecurityGuardConfigConsumerRiskLevel },
+      defaultGenerated: 'boolean',
+      longTermEnabled: 'boolean',
       pluginStatus: AiPluginStatus,
       requestCheckService: 'string',
       requestImageCheckService: 'string',
@@ -453,6 +533,9 @@ export class AiSecurityGuardConfig extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.consumerConfigBindings)) {
+      $dara.Model.validateArray(this.consumerConfigBindings);
+    }
     if(Array.isArray(this.consumerRequestCheckService)) {
       $dara.Model.validateArray(this.consumerRequestCheckService);
     }

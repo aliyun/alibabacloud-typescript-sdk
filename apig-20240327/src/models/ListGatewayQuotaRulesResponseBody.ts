@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayQuotaRulesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
+   * The number of days in a custom period. This parameter is returned only when windowAlignment is set to epoch. Valid values: 1 to 106751. This parameter is not returned for natural periods.
+   * 
+   * @example
+   * 3
+   */
+  periodMultiplier?: number;
+  /**
+   * @remarks
    * The period type.
    * 
    * @example
@@ -53,7 +61,7 @@ export class ListGatewayQuotaRulesResponseBodyDataItems extends $dara.Model {
   ruleStatus?: string;
   /**
    * @remarks
-   * The time zone for the natural period, in UTC+x format.
+   * The time zone corresponding to the natural period, in UTC+x format.
    * 
    * @example
    * GMT+8
@@ -69,6 +77,7 @@ export class ListGatewayQuotaRulesResponseBodyDataItems extends $dara.Model {
   windowAlignment?: string;
   static names(): { [key: string]: string } {
     return {
+      periodMultiplier: 'periodMultiplier',
       periodType: 'periodType',
       quotaDimension: 'quotaDimension',
       quotaLimit: 'quotaLimit',
@@ -82,6 +91,7 @@ export class ListGatewayQuotaRulesResponseBodyDataItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      periodMultiplier: 'number',
       periodType: 'string',
       quotaDimension: 'string',
       quotaLimit: 'number',

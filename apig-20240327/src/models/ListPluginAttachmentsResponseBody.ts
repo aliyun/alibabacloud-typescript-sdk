@@ -9,7 +9,7 @@ import { ResourceInfo } from "./ResourceInfo";
 export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The plug-in mount resource type. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
+   * The type of the plugin mount resource. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
    * 
    * @example
    * GatewayRoute
@@ -17,7 +17,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * Indicates whether the plug-in is enabled.
+   * Indicates whether the plugin is enabled.
    * 
    * @example
    * true
@@ -35,7 +35,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   parentResourceInfo?: ParentResourceInfo;
   /**
    * @remarks
-   * The plug-in mount ID.
+   * The plugin mount ID.
    * 
    * @example
    * pa-d0j9t5em1hkncrlo51mg
@@ -43,12 +43,12 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   pluginAttachmentId?: string;
   /**
    * @remarks
-   * The plug-in class information.
+   * The plugin type information.
    */
   pluginClassInfo?: PluginClassInfo;
   /**
    * @remarks
-   * The Base64-encoded content of the original plug-in configuration.
+   * The Base64-encoded content of the original plugin configuration.
    * 
    * @example
    * bGltaXRfYnlfaGVhZGVyOiB4LWFwaS1rZXkKbGltaXRfa2V5czoKLSBrZXk6IGV4YW1wbGUta2V5LWEKICBxdWVyeV9wZXJfc2Vjb25kOiAxMAotIGtleTogZXhhbXBsZS1rZXktYgogIHF1ZXJ5X3Blcl9zZWNvbmQ6IDEK
@@ -56,7 +56,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   pluginConfig?: string;
   /**
    * @remarks
-   * The plug-in ID.
+   * The plugin ID.
    * 
    * @example
    * pl-cvu6r4um1hko3b3ti0a0

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
   /**
    * @remarks
-   * The subject (API consumer) ID.
+   * The ID of the subject (consumer).
    * 
    * @example
    * c-aaa
@@ -13,7 +13,7 @@ export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The subject (API consumer) name.
+   * The name of the subject (consumer).
    * 
    * @example
    * consumer-a
@@ -95,7 +95,7 @@ export class GetGatewayQuotaRuleResponseBodyDataSubjects extends $dara.Model {
 export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The period base timestamp.
+   * The base timestamp of the cycle, in UNIX seconds.
    * 
    * @example
    * 1745846400000
@@ -103,7 +103,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   baseTimestamp?: number;
   /**
    * @remarks
-   * The number of API consumers associated with the rule.
+   * The number of consumers associated with the rule.
    * 
    * @example
    * 20
@@ -111,12 +111,28 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   consumerCount?: number;
   /**
    * @remarks
-   * The list of subjects (API consumers) bound to this rule.
+   * The list of subjects (consumers) bound to this rule.
    */
   consumers?: GetGatewayQuotaRuleResponseBodyDataConsumers[];
   /**
    * @remarks
-   * The quota period type.
+   * The reset time of the current cycle, in RFC 3339 format.
+   * 
+   * @example
+   * 2026-10-25T00:00:00Z
+   */
+  currentCycleResetAt?: string;
+  /**
+   * @remarks
+   * The number of days in the custom cycle. This parameter is returned only when windowAlignment is set to epoch. Valid values: 1 to 106751. This parameter is not returned for natural cycles.
+   * 
+   * @example
+   * 3
+   */
+  periodMultiplier?: number;
+  /**
+   * @remarks
+   * The quota cycle type.
    * 
    * @example
    * day
@@ -172,7 +188,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   subjectCount?: number;
   /**
    * @remarks
-   * The rule subject type. Valid values: consumer and consumer_group.
+   * The subject type of the rule. Valid values: consumer and consumer_group.
    * 
    * @example
    * consumer_group
@@ -180,12 +196,12 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   subjectType?: string;
   /**
    * @remarks
-   * The list of general subjects bound to this rule. Returned only when withSubjects is set to true.
+   * The list of general subjects bound to this rule. This parameter is returned only when withSubjects is set to true.
    */
   subjects?: GetGatewayQuotaRuleResponseBodyDataSubjects[];
   /**
    * @remarks
-   * The time zone corresponding to the calendar period, in UTC+x format.
+   * The time zone corresponding to the natural cycle, in UTC+x format.
    * 
    * @example
    * GMT+8
@@ -193,7 +209,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The reset period type.
+   * The reset cycle type.
    * 
    * @example
    * calendar
@@ -204,6 +220,8 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
       baseTimestamp: 'baseTimestamp',
       consumerCount: 'consumerCount',
       consumers: 'consumers',
+      currentCycleResetAt: 'currentCycleResetAt',
+      periodMultiplier: 'periodMultiplier',
       periodType: 'periodType',
       quotaDimension: 'quotaDimension',
       quotaLimit: 'quotaLimit',
@@ -223,6 +241,8 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
       baseTimestamp: 'number',
       consumerCount: 'number',
       consumers: { 'type': 'array', 'itemType': GetGatewayQuotaRuleResponseBodyDataConsumers },
+      currentCycleResetAt: 'string',
+      periodMultiplier: 'number',
       periodType: 'string',
       quotaDimension: 'string',
       quotaLimit: 'number',

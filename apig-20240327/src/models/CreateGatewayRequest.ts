@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayRequestLogConfigSls extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable SLS log collection.
+   * Specifies whether to enable SLS.
    * 
    * @example
    * false
@@ -35,7 +35,7 @@ export class CreateGatewayRequestLogConfigSls extends $dara.Model {
 export class CreateGatewayRequestLogConfig extends $dara.Model {
   /**
    * @remarks
-   * The Simple Log Service (SLS) configuration that controls gateway log collection.
+   * The Simple Log Service (SLS) configuration used to control gateway log collection.
    */
   sls?: CreateGatewayRequestLogConfigSls;
   static names(): { [key: string]: string } {
@@ -65,6 +65,14 @@ export class CreateGatewayRequestLogConfig extends $dara.Model {
 export class CreateGatewayRequestNetworkAccessConfig extends $dara.Model {
   /**
    * @remarks
+   * The ID of the endpoint security group. This parameter is required when a multi-tenant API gateway or multi-tenant AI gateway Enterprise Edition uses private network or dual-entry access, and must be a non-managed security group in your VPC. Do not specify this parameter for public network requests.
+   * 
+   * @example
+   * sg-bp1example123456789
+   */
+  endpointSecurityGroupId?: string;
+  /**
+   * @remarks
    * The network access type.
    * 
    * @example
@@ -73,12 +81,14 @@ export class CreateGatewayRequestNetworkAccessConfig extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      endpointSecurityGroupId: 'endpointSecurityGroupId',
       type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endpointSecurityGroupId: 'string',
       type: 'string',
     };
   }
@@ -135,7 +145,7 @@ export class CreateGatewayRequestTag extends $dara.Model {
 export class CreateGatewayRequestZoneConfigZones extends $dara.Model {
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-xx
@@ -175,7 +185,7 @@ export class CreateGatewayRequestZoneConfigZones extends $dara.Model {
 export class CreateGatewayRequestZoneConfig extends $dara.Model {
   /**
    * @remarks
-   * The zone selection option.
+   * The zone option.
    * 
    * @example
    * Manual
@@ -183,7 +193,7 @@ export class CreateGatewayRequestZoneConfig extends $dara.Model {
   selectOption?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-xxx
@@ -225,7 +235,7 @@ export class CreateGatewayRequestZoneConfig extends $dara.Model {
 export class CreateGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method. This parameter is required for the Serverless edition and must be set to POSTPAY.
+   * The billing method. This parameter is required for Serverless instances and must be set to POSTPAY.
    * 
    * @example
    * POSTPAY
@@ -235,13 +245,13 @@ export class CreateGatewayRequest extends $dara.Model {
    * @remarks
    * The gateway instance edition. Valid values:
    * 
-   * - Professional: standard instance.
+   * - Professional: Standard instance.
    * 
    * - Serverless: Serverless instance.
    * 
-   * - MultiTenantServerless: multi-tenant Serverless instance.
+   * - MultiTenantServerless: Multi-tenant Serverless instance.
    * 
-   * - Unknown: unknown.
+   * - Unknown: Unknown.
    * 
    * @example
    * Professional
@@ -249,7 +259,7 @@ export class CreateGatewayRequest extends $dara.Model {
   gatewayEdition?: string;
   /**
    * @remarks
-   * The running mode for AI multi-tenant V2. Default value: ENTERPRISE. This parameter can be specified only when gatewayType is set to AI and gatewayEdition is set to MultiTenantServerless.
+   * The operation mode for AI multi-tenant V2. The default value is ENTERPRISE. This parameter is only allowed for AI and MultiTenantServerless gateways.
    * 
    * @example
    * ENTERPRISE
@@ -257,7 +267,7 @@ export class CreateGatewayRequest extends $dara.Model {
   gatewayMode?: string;
   /**
    * @remarks
-   * The gateway type. This parameter must be explicitly set to AI for AI Serverless or multi-tenant editions.
+   * The gateway type. This parameter must be explicitly set to AI for AI Serverless or multi-tenant gateways.
    * 
    * @example
    * API
@@ -265,12 +275,12 @@ export class CreateGatewayRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The gateway log configuration.
+   * The log configuration for the gateway.
    */
   logConfig?: CreateGatewayRequestLogConfig;
   /**
    * @remarks
-   * The gateway name. This parameter is required for all editions.
+   * The name of the gateway. This parameter is required for all gateway types.
    * 
    * @example
    * test-ceshi
@@ -278,12 +288,12 @@ export class CreateGatewayRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network access configuration. This parameter is required. If this parameter is not specified, the service returns an InvalidParameter.IsEmpty (400) error.
+   * The network access configuration. This parameter is actually required. If it is not provided, the service returns InvalidParameter.IsEmpty (400).
    */
   networkAccessConfig?: CreateGatewayRequestNetworkAccessConfig;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-ahr5uil8raz0rq3b
@@ -291,7 +301,7 @@ export class CreateGatewayRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The node specifications. This parameter is required for the Serverless edition.
+   * The node specifications. This parameter is required for Serverless instances.
    * 
    * @example
    * apigw.dev.x1
@@ -304,7 +314,7 @@ export class CreateGatewayRequest extends $dara.Model {
   tag?: CreateGatewayRequestTag[];
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID. This parameter is required for all editions.
+   * The ID of the virtual private cloud (VPC). This parameter is required for all gateway types.
    * 
    * @example
    * vpc-zm0x16tomfiat1mk9f6rs
@@ -312,7 +322,7 @@ export class CreateGatewayRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone configuration. This parameter is required for all editions.
+   * The zone configuration. This parameter is required for all gateway types.
    */
   zoneConfig?: CreateGatewayRequestZoneConfig;
   static names(): { [key: string]: string } {

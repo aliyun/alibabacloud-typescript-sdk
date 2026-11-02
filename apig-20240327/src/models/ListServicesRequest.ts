@@ -13,7 +13,7 @@ export class ListServicesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The service name for exact match query.
+   * The service name for exact match.
    * 
    * @example
    * user-service
@@ -37,7 +37,7 @@ export class ListServicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmxxe5rc6cvla
@@ -46,12 +46,11 @@ export class ListServicesRequest extends $dara.Model {
   /**
    * @remarks
    * The source type of the service. Valid values:
-   * 
-   * - MSE_NACOS: The service originates from MSE Nacos.
-   * - K8S: The service originates from a Kubernetes cluster in Container Service.
-   * - FC3: The service originates from Function Compute.
-   * - VIP: The service originates from a fixed address.
-   * - DNS: The service originates from a domain name.
+   * - MSE_NACOS: Services from MSE Nacos.
+   * - K8S: Services from Kubernetes clusters in Container Service.
+   * - FC3: Services from Function Compute.
+   * - VIP: Services from fixed addresses.
+   * - DNS: Services from domain names.
    * 
    * @example
    * MSE_NACOS
@@ -62,7 +61,7 @@ export class ListServicesRequest extends $dara.Model {
    * The list of service source types.
    * 
    * @example
-   * ["K8S", "FC3"]
+   * K8S, FC3
    */
   sourceTypes?: string;
   static names(): { [key: string]: string } {

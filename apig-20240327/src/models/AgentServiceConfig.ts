@@ -165,22 +165,22 @@ export class AgentServiceConfig extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The custom configuration. This parameter is required when provider is set to custom.
+   * The custom configuration. Specify this parameter when provider is set to custom.
    */
   customConfig?: AgentServiceConfigCustomConfig;
   /**
    * @remarks
-   * The DashScope service configuration. This parameter is required when provider is set to qwen. The appCredentials parameter cannot be empty, and each entry must have non-empty appId and apiKey values.
+   * The DashScope service configuration. Specify this parameter when provider is set to qwen. The appCredentials parameter cannot be empty, and both appId and apiKey must be specified for each item.
    */
   dashScopeConfig?: AgentServiceConfigDashScopeConfig;
   /**
    * @remarks
-   * The Dify service configuration. This parameter is required when provider is set to dify. The botType and apiKey parameters cannot be empty.
+   * The Dify service configuration. Specify this parameter when provider is set to dify. Both botType and apiKey must be specified.
    */
   difyConfig?: AgentServiceConfigDifyConfig;
   /**
    * @remarks
-   * Specifies whether to enable health check.
+   * Specifies whether to enable the health check.
    * 
    * @example
    * true
@@ -209,6 +209,14 @@ export class AgentServiceConfig extends $dara.Model {
    * qwen
    */
   provider?: string;
+  /**
+   * @remarks
+   * Supported only for custom agents. The value api-key indicates a managed API key, and downstream-auth indicates passing through the complete client Authorization header. If this parameter is omitted or left empty during creation, the historical rule applies. If this parameter is omitted or left empty during an update, the existing mode is retained. When passing through the authorization, you can omit customConfig, and you cannot submit a non-empty key.
+   * 
+   * @example
+   * api-key
+   */
+  upstreamAuthMode?: string;
   static names(): { [key: string]: string } {
     return {
       address: 'address',
@@ -219,6 +227,7 @@ export class AgentServiceConfig extends $dara.Model {
       enableOutlierDetection: 'enableOutlierDetection',
       protocols: 'protocols',
       provider: 'provider',
+      upstreamAuthMode: 'upstreamAuthMode',
     };
   }
 
@@ -232,6 +241,7 @@ export class AgentServiceConfig extends $dara.Model {
       enableOutlierDetection: 'boolean',
       protocols: { 'type': 'array', 'itemType': 'string' },
       provider: 'string',
+      upstreamAuthMode: 'string',
     };
   }
 

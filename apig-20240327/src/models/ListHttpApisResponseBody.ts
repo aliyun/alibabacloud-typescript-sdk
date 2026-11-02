@@ -27,7 +27,7 @@ export class ListHttpApisResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 10
@@ -74,7 +74,7 @@ export class ListHttpApisResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The API list.
+   * The list of APIs.
    */
   data?: ListHttpApisResponseBodyData;
   /**

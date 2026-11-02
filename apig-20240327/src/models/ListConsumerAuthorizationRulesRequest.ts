@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumerAuthorizationRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The fuzzy match parameter for the API name.
+   * The fuzzy search parameter for the API name.
    * 
    * @example
    * qwen3
@@ -21,7 +21,7 @@ export class ListConsumerAuthorizationRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Default value: 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10

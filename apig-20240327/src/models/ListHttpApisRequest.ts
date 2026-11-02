@@ -13,9 +13,7 @@ export class ListHttpApisRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The type of gateway associated with the HTTP API. Valid values:
-   * - API: cloud-native API gateway.
-   * - AI: AI gateway.
+   * The type of the gateway associated with the HTTP API. Valid values: API (cloud-native API gateway) and AI (AI gateway).
    * 
    * @example
    * API
@@ -23,7 +21,7 @@ export class ListHttpApisRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The search keyword. Supports fuzzy match by API name or exact search by API ID.
+   * The search keyword. Supports fuzzy search by API name or exact search by API ID.
    * 
    * @example
    * test-
@@ -31,7 +29,7 @@ export class ListHttpApisRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * Searches for an exact match by name.
+   * The name for exact search.
    * 
    * @example
    * login
@@ -39,7 +37,7 @@ export class ListHttpApisRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number, starting from 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -47,7 +45,7 @@ export class ListHttpApisRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Valid values: 1 to 100. Default value: 10.
+   * The page size. Valid values: 1 to 500. Default value: 10.
    * 
    * @example
    * 10
@@ -55,7 +53,7 @@ export class ListHttpApisRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-ahr5uil8raz0rq3b
@@ -63,10 +61,10 @@ export class ListHttpApisRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The type of the HTTP API. You can specify multiple types separated by commas (,). Valid values:
+   * The types of the HTTP API. You can specify multiple types separated by commas (,). Valid values:
    * - Http
    * - Rest
-   * - WebSocket
+   * - Websocket
    * - HttpIngress
    * 
    * @example
@@ -75,7 +73,7 @@ export class ListHttpApisRequest extends $dara.Model {
   types?: string;
   /**
    * @remarks
-   * Specifies whether to return information about APIs published to the specified environment.
+   * Specifies whether to return the information about APIs published to the specified environment.
    * 
    * @example
    * true
@@ -83,7 +81,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAPIsPublishedToEnvironment?: boolean;
   /**
    * @remarks
-   * The environment ID. If specified, the response includes consumer authentication policy information for each API in the specified environment.
+   * The environment ID. If specified, the response includes consumer authentication policy information for the specified environment in the details of each API.
    * 
    * @example
    * env-xxx
@@ -99,7 +97,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAuthPolicyList?: boolean;
   /**
    * @remarks
-   * The consumer ID. If specified, the response includes the authorization rule list for the specified consumer for each API.
+   * The consumer ID. If specified, the response includes the list of authorization rules for the specified consumer in the details of each API.
    * 
    * @example
    * cs-xxx
@@ -123,7 +121,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withEnvironmentInfoById?: string;
   /**
    * @remarks
-   * Specifies whether to include ingress information.
+   * Specifies whether to include Ingress information.
    * 
    * @example
    * false
@@ -131,7 +129,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withIngressInfo?: boolean;
   /**
    * @remarks
-   * The plug-in ID. If specified, the response includes plug-in publishing information based on this plug-in ID.
+   * The plugin ID. If specified, the plugin release information is retrieved based on this plugin ID.
    * 
    * @example
    * pl-ct9qn3um1hktue8dqol0

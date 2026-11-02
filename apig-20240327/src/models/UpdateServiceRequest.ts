@@ -7,7 +7,7 @@ import { AiServiceConfig } from "./AiServiceConfig";
 export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable health checks for the service.
+   * Specifies whether to enable the health check for the service.
    * 
    * @example
    * true
@@ -15,12 +15,12 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The list of expected normal status codes returned by requests. This parameter is required when the protocol is HTTP.
+   * The list of normal HTTP status codes returned by requests. This parameter is required when the protocol is HTTP.
    */
   expectedStatuses?: string[];
   /**
    * @remarks
-   * The healthy threshold for health checks.
+   * The healthy threshold for the health check.
    * 
    * @example
    * 2
@@ -28,7 +28,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   healthyThreshold?: number;
   /**
    * @remarks
-   * The domain name for health checks. This parameter is optional and can be configured when the protocol is HTTP.
+   * The domain name for the health check. This parameter is optional and can be configured when the protocol is HTTP.
    * 
    * @example
    * dev.itemcener.com
@@ -36,7 +36,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   httpHost?: string;
   /**
    * @remarks
-   * The request path for health checks. This parameter is required when the protocol is HTTP.
+   * The request path for the health check. This parameter is required when the protocol is HTTP.
    * 
    * @example
    * /healthz
@@ -52,7 +52,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The protocol used for health checks.
+   * The protocol for the health check.
    * 
    * @example
    * HTTP
@@ -60,7 +60,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The response timeout period for health checks. Unit: seconds.
+   * The response timeout period for the health check. Unit: seconds.
    * 
    * @example
    * 2
@@ -68,7 +68,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The unhealthy threshold for health checks.
+   * The unhealthy threshold for the health check.
    * 
    * @example
    * 22
@@ -117,7 +117,7 @@ export class UpdateServiceRequestHealthCheckConfig extends $dara.Model {
 export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
   /**
    * @remarks
-   * The base ejection time, which is the initial isolation duration after a node is ejected (for example, 30 seconds). The isolation time is calculated by using the following formula: k × base_ejection_time, where k starts at 1. Each ejection increases the isolation time by incrementing k by 1. If consecutive checks are normal, the isolation time is gradually reduced by decrementing k by 1.
+   * The initial isolation duration. This is the initial isolation duration after a node is ejected, such as 30 seconds. The isolation time is calculated by using the following formula: k × base_ejection_time, where the initial value of k is 1. The isolation time is extended each time the node is ejected by incrementing k by 1. If consecutive health checks are normal, the isolation time is gradually reduced by decrementing k by 1.
    * 
    * @example
    * 30
@@ -133,9 +133,7 @@ export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The panic threshold.
-   * 
-   * When the proportion of healthy nodes in the service is greater than the panic threshold, health checks function normally and requests are sent only to healthy nodes, not to ejected nodes. When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled and requests are sent to all nodes, including ejected nodes.
+   * The panic threshold. If the proportion of healthy nodes in the service is greater than the panic threshold, the health check takes effect normally, and requests are sent only to healthy nodes rather than ejected nodes. If the proportion of healthy nodes in the service is less than or equal to the panic threshold, the health check is equivalent to being disabled, and requests are sent to all nodes, including ejected nodes.
    * 
    * @example
    * 1
@@ -143,7 +141,7 @@ export class UpdateServiceRequestOutlierDetectionConfig extends $dara.Model {
   failurePercentageMinimumHosts?: number;
   /**
    * @remarks
-   * The failure percentage threshold. When the proportion of failed requests on a node reaches this threshold, the system triggers the ejection mechanism for that node.
+   * The failure rate threshold. When the proportion of failed requests for a node reaches this threshold, the system triggers the ejection mechanism for the node.
    * 
    * @example
    * 80
@@ -197,7 +195,7 @@ export class UpdateServiceRequestPorts extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The port number.
+   * The port.
    * 
    * @example
    * 80
@@ -239,7 +237,7 @@ export class UpdateServiceRequestPorts extends $dara.Model {
 export class UpdateServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of domain names or fixed addresses.
+   * The list of domain names or static addresses.
    */
   addresses?: string[];
   /**
@@ -252,6 +250,22 @@ export class UpdateServiceRequest extends $dara.Model {
    * The AI service configuration.
    */
   aiServiceConfig?: AiServiceConfig;
+  /**
+   * @remarks
+   * The list of KMS reference names to append. This parameter is available only in Reference mode and does not read KMS content.
+   * 
+   * @example
+   * ["my-kms-ref"]
+   */
+  apiKeyReferencesToAdd?: string[];
+  /**
+   * @remarks
+   * The list of API keys to append. This parameter is available only in the Custom API Key mode for AI services. It must be used with fully masked apiKeys or omitted apiKeys, and does not read or return existing keys.
+   * 
+   * @example
+   * ["sk-xxxxxxxx"]
+   */
+  apiKeysToAdd?: string[];
   /**
    * @remarks
    * The DNS server addresses.
@@ -280,7 +294,7 @@ export class UpdateServiceRequest extends $dara.Model {
   modelProviderId?: string;
   /**
    * @remarks
-   * The passive health check parameter settings.
+   * The parameter settings for passive health checks.
    */
   outlierDetectionConfig?: UpdateServiceRequestOutlierDetectionConfig;
   /**
@@ -301,6 +315,8 @@ export class UpdateServiceRequest extends $dara.Model {
       addresses: 'addresses',
       agentServiceConfig: 'agentServiceConfig',
       aiServiceConfig: 'aiServiceConfig',
+      apiKeyReferencesToAdd: 'apiKeyReferencesToAdd',
+      apiKeysToAdd: 'apiKeysToAdd',
       dnsServers: 'dnsServers',
       healthCheckConfig: 'healthCheckConfig',
       healthyPanicThreshold: 'healthyPanicThreshold',
@@ -316,6 +332,8 @@ export class UpdateServiceRequest extends $dara.Model {
       addresses: { 'type': 'array', 'itemType': 'string' },
       agentServiceConfig: AgentServiceConfig,
       aiServiceConfig: AiServiceConfig,
+      apiKeyReferencesToAdd: { 'type': 'array', 'itemType': 'string' },
+      apiKeysToAdd: { 'type': 'array', 'itemType': 'string' },
       dnsServers: { 'type': 'array', 'itemType': 'string' },
       healthCheckConfig: UpdateServiceRequestHealthCheckConfig,
       healthyPanicThreshold: 'number',
@@ -335,6 +353,12 @@ export class UpdateServiceRequest extends $dara.Model {
     }
     if(this.aiServiceConfig && typeof (this.aiServiceConfig as any).validate === 'function') {
       (this.aiServiceConfig as any).validate();
+    }
+    if(Array.isArray(this.apiKeyReferencesToAdd)) {
+      $dara.Model.validateArray(this.apiKeyReferencesToAdd);
+    }
+    if(Array.isArray(this.apiKeysToAdd)) {
+      $dara.Model.validateArray(this.apiKeysToAdd);
     }
     if(Array.isArray(this.dnsServers)) {
       $dara.Model.validateArray(this.dnsServers);

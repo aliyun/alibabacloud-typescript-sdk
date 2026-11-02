@@ -9,12 +9,12 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureComponents extends $d
    * The error message.
    * 
    * @example
-   * The data structure definition is invalid
+   * The data structure definition is incorrect
    */
   errorMessage?: string;
   /**
    * @remarks
-   * The data structure name.
+   * The name of the data structure.
    * 
    * @example
    * orderDTO
@@ -137,8 +137,8 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $d
   /**
    * @remarks
    * The action to be performed after the dry run. Valid values:
-   * - Create: create.
-   * - Update: update.
+   * - Create: Create.
+   * - Update: Update.
    * 
    * @example
    * Create
@@ -146,7 +146,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $d
   action?: string;
   /**
    * @remarks
-   * The data structure name.
+   * The name of the data structure.
    * 
    * @example
    * userDTO
@@ -179,8 +179,8 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
   /**
    * @remarks
    * The action to be performed after the dry run. Valid values:
-   * - Create: create.
-   * - Update: update.
+   * - Create: Create.
+   * - Update: Update.
    * 
    * @example
    * Create
@@ -196,7 +196,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
   method?: string;
   /**
    * @remarks
-   * The operation name.
+   * The name of the operation.
    * 
    * @example
    * CreateUser
@@ -240,7 +240,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes extends $dara.Model {
   /**
    * @remarks
-   * The action type.
+   * The operation type.
    * 
    * @example
    * Create
@@ -280,12 +280,12 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes extends $dara.
 export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   /**
    * @remarks
-   * The error messages. If the error messages are not empty, the API cannot be imported.
+   * The error messages. If the error messages are not empty, the API cannot be imported successfully.
    */
   errorMessages?: string[];
   /**
    * @remarks
-   * The information about the existing API. If this field is not empty, the import action will update this API.
+   * The existing API information. If this field is not empty, the import operation updates the API.
    */
   existHttpApiInfo?: HttpApiApiInfo;
   /**
@@ -300,7 +300,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   failureOperations?: ImportHttpApiResponseBodyDataDryRunInfoFailureOperations[];
   /**
    * @remarks
-   * The list of routes that failed.
+   * The list of failed routes.
    */
   failureRoutes?: ImportHttpApiResponseBodyDataDryRunInfoFailureRoutes[];
   /**
@@ -323,12 +323,12 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   successOperations?: ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations[];
   /**
    * @remarks
-   * The list of routes that were imported.
+   * The list of successfully imported routes.
    */
   successRoutes?: ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes[];
   /**
    * @remarks
-   * The warning messages. If the warning messages are not empty, some operations or data structures may fail to be imported.
+   * The warning messages. If the warning messages are not empty, some operations or data APIs may fail to be imported.
    */
   warningMessages?: string[];
   static names(): { [key: string]: string } {

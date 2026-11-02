@@ -52,7 +52,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo ex
 export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The API information.
+   * The API information details.
    */
   apiInfo?: HttpApiApiInfo;
   /**
@@ -86,7 +86,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   consumerId?: string;
   /**
    * @remarks
-   * The consumer information.
+   * The consumer information details.
    */
   consumerInfo?: ConsumerInfo;
   /**
@@ -99,7 +99,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   createTimestamp?: number;
   /**
    * @remarks
-   * The deployment status of the API in the current environment.
+   * The publish status of the API in the current environment.
    * 
    * @example
    * {}
@@ -157,7 +157,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   resourceId?: string;
   /**
    * @remarks
-   * The resource information.
+   * The resource information details.
    */
   resourceInfo?: QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo;
   /**
@@ -252,7 +252,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
 export class QueryConsumerAuthorizationRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of consumer authorization rules.
+   * The list of consumer rules.
    */
   items?: QueryConsumerAuthorizationRulesResponseBodyDataItems[];
   /**

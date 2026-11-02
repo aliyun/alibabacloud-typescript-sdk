@@ -1,11 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { SubDomainInfo } from "./SubDomainInfo";
 
 
 export class GetGatewayResponseBodyDataEnvironments extends $dara.Model {
   /**
    * @remarks
-   * The environment alias.
+   * The alias of the environment.
    * 
    * @example
    * Default environment
@@ -64,8 +65,8 @@ export class GetGatewayResponseBodyDataLoadBalancersPorts extends $dara.Model {
   /**
    * @remarks
    * The protocol. Valid values:
-   * - TCP
-   * - UDP
+   * - TCP: TCP.
+   * - UDP: UDP.
    * 
    * @example
    * TCP
@@ -115,8 +116,8 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * The load balancing address type. Valid values:
-   * - Internet: Public network.
+   * The type of the load balancing address. Valid values:
+   * - Internet: Internet-facing.
    * - Intranet: Private network.
    * 
    * @example
@@ -125,7 +126,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   addressType?: string;
   /**
    * @remarks
-   * Indicates whether this is the default ingress address of the gateway.
+   * Indicates whether the address is the default ingress address for the gateway.
    * 
    * @example
    * true
@@ -143,7 +144,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   ipv6Addresses?: string[];
   /**
    * @remarks
-   * The load balancing instance ID.
+   * The load balancing ID.
    * 
    * @example
    * nlb-xoh3pghru7c***
@@ -151,7 +152,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The load balancing mode of the gateway. Valid values:
+   * The load balancing pattern of the gateway. Valid values:
    * - Managed: Managed by Cloud-native API Gateway.
    * 
    * @example
@@ -160,14 +161,14 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The list of listening ports.
+   * The list of listener ports.
    */
   ports?: GetGatewayResponseBodyDataLoadBalancersPorts[];
   /**
    * @remarks
-   * The status of load balancing. Valid values:
+   * The status of the load balancing. Valid values:
    * - Ready: Active.
-   * - NotCreate: No associated instance.
+   * - NotCreate: Not associated with an instance.
    * 
    * @example
    * Ready
@@ -175,9 +176,9 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The load balancing type. Valid values:
+   * The type of the load balancing. Valid values:
    * - NLB: Network Load Balancer (NLB).
-   * - CLB: Classic Load Balancer (CLB).
+   * - CLB: Classic Load Balancer.
    * 
    * @example
    * NLB
@@ -236,7 +237,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
 export class GetGatewayResponseBodyDataMaintenancePeriod extends $dara.Model {
   /**
    * @remarks
-   * The O&M end time (HH:mm).
+   * The end time of the O&M window in the HH:mm format.
    * 
    * @example
    * 06:00
@@ -244,7 +245,7 @@ export class GetGatewayResponseBodyDataMaintenancePeriod extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The O&M start time (HH:mm).
+   * The start time of the O&M window in the HH:mm format.
    * 
    * @example
    * 02:00
@@ -273,10 +274,222 @@ export class GetGatewayResponseBodyDataMaintenancePeriod extends $dara.Model {
   }
 }
 
+export class GetGatewayResponseBodyDataNetworkAccessConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the security group configured for the private endpoint. The security group belongs to the VPC selected by the user and is an unmanaged security group.
+   * 
+   * @example
+   * sg-bp1example123456789
+   */
+  endpointSecurityGroupId?: string;
+  /**
+   * @remarks
+   * The access endpoint type of the gateway. Valid values:
+   * - Intranet: Private endpoint only.
+   * - InternetAndIntranet: Both Internet and private endpoints.
+   * 
+   * @example
+   * InternetAndIntranet
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointSecurityGroupId: 'endpointSecurityGroupId',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointSecurityGroupId: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayResponseBodyDataPrivateLinkZones extends $dara.Model {
+  /**
+   * @remarks
+   * The connection status of the private endpoint in the zone. A value of Connected indicates that the endpoint is connected.
+   * 
+   * @example
+   * Connected
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The zone ID of the private endpoint.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGatewayResponseBodyDataPrivateLink extends $dara.Model {
+  /**
+   * @remarks
+   * The connection status between the private endpoint and the endpoint service. A value of Connected indicates that the endpoint is connected.
+   * 
+   * @example
+   * Connected
+   */
+  connectionStatus?: string;
+  /**
+   * @remarks
+   * The access domain name of the private endpoint, which can be used to access the gateway from the user VPC.
+   * 
+   * @example
+   * ep-bp1example123456789.epsrv-bp1example123456789.cn-hangzhou.privatelink.aliyuncs.com
+   */
+  endpointDomain?: string;
+  /**
+   * @remarks
+   * The ID of the private endpoint.
+   * 
+   * @example
+   * ep-bp1example123456789
+   */
+  endpointId?: string;
+  /**
+   * @remarks
+   * The ID of the security group configured for the private endpoint.
+   * 
+   * @example
+   * sg-bp1example123456789
+   */
+  endpointSecurityGroupId?: string;
+  /**
+   * @remarks
+   * The status of the private endpoint. A value of Active indicates that the endpoint is available.
+   * 
+   * @example
+   * Active
+   */
+  endpointStatus?: string;
+  /**
+   * @remarks
+   * The error code of the most recent error that occurred during the creation or delete operations of the private endpoint. This parameter is not returned if no error message is available.
+   * 
+   * @example
+   * Forbidden.RAM
+   */
+  lastErrorCode?: string;
+  /**
+   * @remarks
+   * The description of the most recent error that occurred during the creation or delete operations of the private endpoint. You can use this description along with the error code to troubleshoot the issue. This parameter is not returned if no error message is available.
+   * 
+   * @example
+   * private ingress CheckProductOpen failed (Forbidden.RAM)
+   */
+  lastErrorMessage?: string;
+  /**
+   * @remarks
+   * The time when the system last retrieved the status of the private endpoint. The time is in RFC 3339 format. This parameter is not returned if the status has not been retrieved.
+   * 
+   * @example
+   * 2026-11-02T10:00:00Z
+   */
+  observedAt?: string;
+  /**
+   * @remarks
+   * Indicates whether the private endpoint may continue to incur fees. A value of true indicates that the endpoint is created and its release is not confirmed. A value of false indicates that no fee prompt is available. The actual fees are subject to the bill.
+   * 
+   * @example
+   * true
+   */
+  resourceMayBeCharged?: boolean;
+  /**
+   * @remarks
+   * The current processing stage of the private endpoint. A value of Ready indicates that the private endpoint is ready.
+   * 
+   * @example
+   * Ready
+   */
+  stage?: string;
+  /**
+   * @remarks
+   * The list of zone information for the private endpoint.
+   */
+  zones?: GetGatewayResponseBodyDataPrivateLinkZones[];
+  static names(): { [key: string]: string } {
+    return {
+      connectionStatus: 'connectionStatus',
+      endpointDomain: 'endpointDomain',
+      endpointId: 'endpointId',
+      endpointSecurityGroupId: 'endpointSecurityGroupId',
+      endpointStatus: 'endpointStatus',
+      lastErrorCode: 'lastErrorCode',
+      lastErrorMessage: 'lastErrorMessage',
+      observedAt: 'observedAt',
+      resourceMayBeCharged: 'resourceMayBeCharged',
+      stage: 'stage',
+      zones: 'zones',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionStatus: 'string',
+      endpointDomain: 'string',
+      endpointId: 'string',
+      endpointSecurityGroupId: 'string',
+      endpointStatus: 'string',
+      lastErrorCode: 'string',
+      lastErrorMessage: 'string',
+      observedAt: 'string',
+      resourceMayBeCharged: 'boolean',
+      stage: 'string',
+      zones: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataPrivateLinkZones },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.zones)) {
+      $dara.Model.validateArray(this.zones);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGatewayResponseBodyDataSecurityGroup extends $dara.Model {
   /**
    * @remarks
-   * The security group name.
+   * The name of the security group.
    * 
    * @example
    * APIG-sg-gw-cq7ke5ll***
@@ -284,7 +497,7 @@ export class GetGatewayResponseBodyDataSecurityGroup extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-bp16tafq9***
@@ -356,7 +569,7 @@ export class GetGatewayResponseBodyDataTags extends $dara.Model {
 export class GetGatewayResponseBodyDataVSwitch extends $dara.Model {
   /**
    * @remarks
-   * The vSwitch name.
+   * The name of the vSwitch.
    * 
    * @example
    * Hangzhou VPC vSwitch
@@ -364,7 +577,7 @@ export class GetGatewayResponseBodyDataVSwitch extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-bp1c7ggkj***
@@ -396,7 +609,7 @@ export class GetGatewayResponseBodyDataVSwitch extends $dara.Model {
 export class GetGatewayResponseBodyDataVpc extends $dara.Model {
   /**
    * @remarks
-   * The VPC name.
+   * The name of the VPC.
    * 
    * @example
    * Hangzhou VPC
@@ -404,7 +617,7 @@ export class GetGatewayResponseBodyDataVpc extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC.
    * 
    * @example
    * vpc-bp1llj52lvj6xc***
@@ -436,7 +649,7 @@ export class GetGatewayResponseBodyDataVpc extends $dara.Model {
 export class GetGatewayResponseBodyDataZonesVSwitch extends $dara.Model {
   /**
    * @remarks
-   * The vSwitch name.
+   * The name of the vSwitch.
    * 
    * @example
    * Hangzhou VPC vSwitch
@@ -444,7 +657,7 @@ export class GetGatewayResponseBodyDataZonesVSwitch extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-bp1c7ggkj***
@@ -476,7 +689,7 @@ export class GetGatewayResponseBodyDataZonesVSwitch extends $dara.Model {
 export class GetGatewayResponseBodyDataZones extends $dara.Model {
   /**
    * @remarks
-   * The zone name.
+   * The name of the zone.
    * 
    * @example
    * Hangzhou Zone E
@@ -527,8 +740,8 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * - POSTPAY: pay-as-you-go.
-   * - PREPAY: subscription.
+   * - POSTPAY: Pay-as-you-go.
+   * - PREPAY: Subscription.
    * 
    * @example
    * POSTPAY
@@ -536,8 +749,8 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The source from which the gateway was created. Valid values:
-   * - Console: Console.
+   * The creation source of the gateway. Valid values:
+   * - Console: The console.
    * 
    * @example
    * Console
@@ -553,6 +766,14 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
+   * Indicates whether elastic scaling is enabled. A value of true indicates that elastic scaling is enabled. A value of false indicates that elastic scaling is disabled. A value of null or a missing value indicates that the status is unknown. This parameter is for query and display purposes only.
+   * 
+   * @example
+   * false
+   */
+  elasticEnabled?: boolean;
+  /**
+   * @remarks
    * The list of environments associated with the gateway.
    */
   environments?: GetGatewayResponseBodyDataEnvironments[];
@@ -566,10 +787,8 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   expireTimestamp?: number;
   /**
    * @remarks
-   * The gateway instance edition. Valid values:
-   * 
-   * - Professional: Standard instance.
-   * 
+   * The edition of the gateway instance. Valid values:
+   * - Professional: Professional instance.
    * - Serverless: Serverless instance.
    * 
    * @example
@@ -586,9 +805,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The running mode of AI multi-tenant V2. Default value: ENTERPRISE. Only AI + MultiTenantServerless allows this parameter. Valid values:
-   * - ENTERPRISE: default.
-   * - STANDARD: allowed only for AI multi-tenant V2.
+   * The operation mode for AI multi-tenant V2. The default value is ENTERPRISE. This parameter is applicable only to AI and MultiTenantServerless gateways.
    * 
    * @example
    * STANDARD
@@ -606,7 +823,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The type of the network service provider.
+   * The type of the Internet service provider (ISP).
    * 
    * @example
    * BGP
@@ -614,7 +831,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * The list of ingress addresses of the gateway.
+   * The list of ingress addresses for the gateway.
    */
   loadBalancers?: GetGatewayResponseBodyDataLoadBalancers[];
   /**
@@ -632,7 +849,17 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of gateway instance nodes.
+   * The network access configuration of the gateway, including the access endpoint type and the security group used by the private endpoint. This parameter is returned only when the gateway is configured with a private endpoint.
+   */
+  networkAccessConfig?: GetGatewayResponseBodyDataNetworkAccessConfig;
+  /**
+   * @remarks
+   * The PrivateLink information of the gateway, including the endpoint ID, access domain name, connection status, and zone information.
+   */
+  privateLink?: GetGatewayResponseBodyDataPrivateLink;
+  /**
+   * @remarks
+   * The number of nodes in the gateway instance.
    * 
    * @example
    * 2
@@ -653,8 +880,8 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   securityGroup?: GetGatewayResponseBodyDataSecurityGroup;
   /**
    * @remarks
-   * The gateway specification. Valid values:
-   * - apigw.small.x1: Small specification.
+   * The gateway specifications. Valid values:
+   * - apigw.small.x1: Small specifications.
    * 
    * @example
    * apigw.small.x1
@@ -663,15 +890,15 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The gateway status. Valid values:
-   * - Running: Running.
-   * - Creating: Being created.
-   * - CreateFailed: Creation failed.
-   * - Upgrading: Being upgraded.
-   * - UpgradeFailed: Upgrade failed.
-   * - Restarting: Being restarted.
-   * - RestartFailed: Restart failed.
-   * - Deleting: Being released.
-   * - DeleteFailed: Release failed.
+   * - Running: The gateway is running.
+   * - Creating: The gateway is being created.
+   * - CreateFailed: The gateway failed to be created.
+   * - Upgrading: The gateway is being upgraded.
+   * - UpgradeFailed: The gateway failed to be upgraded.
+   * - Restarting: The gateway is being restarted.
+   * - RestartFailed: The gateway failed to be restarted.
+   * - Deleting: The gateway is being released.
+   * - DeleteFailed: The gateway failed to be released.
    * 
    * @example
    * Running
@@ -679,12 +906,17 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
+   * The list of default access domain name information for the gateway. This parameter is not returned if no default domain name information is available.
+   */
+  subDomainInfos?: SubDomainInfo[];
+  /**
+   * @remarks
    * The resource tags.
    */
   tags?: GetGatewayResponseBodyDataTags[];
   /**
    * @remarks
-   * The target version of the gateway. If this value differs from version, a version upgrade can be performed.
+   * The target version of the gateway. If this value is different from the current version, you can upgrade the gateway.
    * 
    * @example
    * 2.0.2
@@ -734,6 +966,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       chargeType: 'chargeType',
       createFrom: 'createFrom',
       createTimestamp: 'createTimestamp',
+      elasticEnabled: 'elasticEnabled',
       environments: 'environments',
       expireTimestamp: 'expireTimestamp',
       gatewayEdition: 'gatewayEdition',
@@ -744,11 +977,14 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       loadBalancers: 'loadBalancers',
       maintenancePeriod: 'maintenancePeriod',
       name: 'name',
+      networkAccessConfig: 'networkAccessConfig',
+      privateLink: 'privateLink',
       replicas: 'replicas',
       resourceGroupId: 'resourceGroupId',
       securityGroup: 'securityGroup',
       spec: 'spec',
       status: 'status',
+      subDomainInfos: 'subDomainInfos',
       tags: 'tags',
       targetVersion: 'targetVersion',
       tenantId: 'tenantId',
@@ -765,6 +1001,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       chargeType: 'string',
       createFrom: 'string',
       createTimestamp: 'number',
+      elasticEnabled: 'boolean',
       environments: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataEnvironments },
       expireTimestamp: 'number',
       gatewayEdition: 'string',
@@ -775,11 +1012,14 @@ export class GetGatewayResponseBodyData extends $dara.Model {
       loadBalancers: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataLoadBalancers },
       maintenancePeriod: GetGatewayResponseBodyDataMaintenancePeriod,
       name: 'string',
+      networkAccessConfig: GetGatewayResponseBodyDataNetworkAccessConfig,
+      privateLink: GetGatewayResponseBodyDataPrivateLink,
       replicas: 'string',
       resourceGroupId: 'string',
       securityGroup: GetGatewayResponseBodyDataSecurityGroup,
       spec: 'string',
       status: 'string',
+      subDomainInfos: { 'type': 'array', 'itemType': SubDomainInfo },
       tags: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataTags },
       targetVersion: 'string',
       tenantId: 'string',
@@ -801,8 +1041,17 @@ export class GetGatewayResponseBodyData extends $dara.Model {
     if(this.maintenancePeriod && typeof (this.maintenancePeriod as any).validate === 'function') {
       (this.maintenancePeriod as any).validate();
     }
+    if(this.networkAccessConfig && typeof (this.networkAccessConfig as any).validate === 'function') {
+      (this.networkAccessConfig as any).validate();
+    }
+    if(this.privateLink && typeof (this.privateLink as any).validate === 'function') {
+      (this.privateLink as any).validate();
+    }
     if(this.securityGroup && typeof (this.securityGroup as any).validate === 'function') {
       (this.securityGroup as any).validate();
+    }
+    if(Array.isArray(this.subDomainInfos)) {
+      $dara.Model.validateArray(this.subDomainInfos);
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);

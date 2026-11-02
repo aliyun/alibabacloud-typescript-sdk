@@ -5,15 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $dara.Model {
   /**
    * @remarks
-   * The period type of the existing conflicting rule on the consumer subject. A value of day, week, or month indicates that the period of the existing conflicting rule is day, week, or month respectively.
+   * The period type of the existing conflicting rule on the consumption subject. A value of day, week, or month indicates that the period of the existing conflicting rule is day, week, or month, respectively.
    * 
    * @example
    * week
+   * 
+   * @deprecated
    */
   conflictPeriodType?: string;
   /**
    * @remarks
-   * The type of the existing conflicting rule on the consumer subject. A value of calendar indicates that the existing conflicting rule uses a calendar period. A value of epoch indicates that the existing conflicting rule uses a custom period.
+   * The type of the existing conflicting rule on the consumption subject. A value of calendar indicates that the existing conflicting rule is a natural period rule. A value of epoch indicates that the existing conflicting rule is a custom period rule.
    * 
    * @example
    * calendar
@@ -21,7 +23,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
   conflictType?: string;
   /**
    * @remarks
-   * The conflicting consumer ID. Use subjectId instead.
+   * The ID of the conflicting consumer. This parameter is deprecated. Use subjectId instead.
    * 
    * @example
    * cs-xxxxxx
@@ -29,12 +31,17 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
   consumerId?: string;
   /**
    * @remarks
-   * The conflicting consumer name. Use subjectName instead.
+   * The name of the conflicting consumer. This parameter is deprecated. Use subjectName instead.
    * 
    * @example
    * consumer-a
    */
   consumerName?: string;
+  /**
+   * @example
+   * day
+   */
+  periodType?: string;
   /**
    * @remarks
    * The ID of the conflicting subject.
@@ -65,6 +72,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
       conflictType: 'conflictType',
       consumerId: 'consumerId',
       consumerName: 'consumerName',
+      periodType: 'periodType',
       subjectId: 'subjectId',
       subjectName: 'subjectName',
       subjectType: 'subjectType',
@@ -77,6 +85,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
       conflictType: 'string',
       consumerId: 'string',
       consumerName: 'string',
+      periodType: 'string',
       subjectId: 'string',
       subjectName: 'string',
       subjectType: 'string',
@@ -95,7 +104,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
 export class AddGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.Model {
   /**
    * @remarks
-   * The conflict hash.
+   * The hash of the conflict.
    * 
    * @example
    * f8f44dc6cf369a017d56b7197eb4fb5ac4bbb6b09a92b9b41999541fxxxxxxxx
@@ -145,7 +154,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.Mo
 export class AddGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario, such as an unconfirmed conflict overwrite.
+   * Indicates whether the semantics of the current write request can be accepted by the system. A value of false typically occurs in retryable scenarios, such as when a conflict is not confirmed for overwriting.
    * 
    * @example
    * true
@@ -158,7 +167,7 @@ export class AddGatewayQuotaRuleResponseBodyData extends $dara.Model {
   conflictPreview?: AddGatewayQuotaRuleResponseBodyDataConflictPreview;
   /**
    * @remarks
-   * Indicates whether the request is a dry run.
+   * Indicates whether a dry run is performed.
    * 
    * @example
    * false
@@ -166,7 +175,7 @@ export class AddGatewayQuotaRuleResponseBodyData extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the rule.
    * 
    * @example
    * qr-xxxxx
@@ -221,7 +230,7 @@ export class AddGatewayQuotaRuleResponseBody extends $dara.Model {
   data?: AddGatewayQuotaRuleResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The message content.
    * 
    * @example
    * success
@@ -229,7 +238,7 @@ export class AddGatewayQuotaRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The unique identifier of the request.
    * 
    * @example
    * 1234567890

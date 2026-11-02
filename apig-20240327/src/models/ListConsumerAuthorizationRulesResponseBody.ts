@@ -13,7 +13,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   apiInfo?: HttpApiApiInfo;
   /**
    * @remarks
-   * The consumer authorization rule ID.
+   * The ID of the consumer authorization rule.
    * 
    * @example
    * car-csgeka5lhtggrjcprok0
@@ -21,7 +21,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   consumerAuthorizationRuleId?: string;
   /**
    * @remarks
-   * The consumer ID.
+   * The ID of the consumer.
    * 
    * @example
    * cs-csheiftlhtgmp0j0hp4g
@@ -50,9 +50,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   environmentInfo?: EnvironmentInfo;
   /**
    * @remarks
-   * The expiration mode. Valid values:
-   * - LongTerm: long-term
-   * - ShortTerm: short-term
+   * The expiration mode. Valid values: LongTerm, ShortTerm.
    * 
    * @example
    * ShortTerm
@@ -68,7 +66,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   expireStatus?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration timestamp.
    * 
    * @example
    * 172086834548
@@ -81,7 +79,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   gatewayInfo?: GatewayInfo;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * @example
    * 2351944
@@ -173,7 +171,7 @@ export class ListConsumerAuthorizationRulesResponseBodyData extends $dara.Model 
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10

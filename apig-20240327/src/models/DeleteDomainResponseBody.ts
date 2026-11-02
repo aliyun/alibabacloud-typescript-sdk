@@ -21,7 +21,7 @@ export class DeleteDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the API call chain.
+   * The request ID used to trace API calls.
    * 
    * @example
    * A60EE5CA-1294-532A-9775-8D2FD1C6EFBF

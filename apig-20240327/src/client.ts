@@ -33,15 +33,15 @@ export default class Client extends OpenApi {
    * Creates a gateway quota throttling rule.
    * 
    * @remarks
-   * Creates a consumer-based or consumer group-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.21 or later.
+   * This operation adds a quota rule based on consumers or consumer groups to an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
    * > 
-   * >  Recommended call sequence:
-   * > - Step 1: Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun to true.
-   * > - - The response returns a conflict preview that contains the conflictHash value.
-   * > - Step 2: Submit the request after confirmation.
-   * > - - No conflicts: Set dryRun to false and overwrite to false.
-   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+   * >  Recommended call logic:
+   * > - 1. Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun=true.
+   * > - - The response returns a conflict preview containing a conflictHash.
+   * > - 2. Formally submit the request after confirmation.
+   * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
+   * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
    * 
    * @param request - AddGatewayQuotaRuleRequest
    * @param headers - map
@@ -125,15 +125,15 @@ export default class Client extends OpenApi {
    * Creates a gateway quota throttling rule.
    * 
    * @remarks
-   * Creates a consumer-based or consumer group-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.21 or later.
+   * This operation adds a quota rule based on consumers or consumer groups to an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
    * > 
-   * >  Recommended call sequence:
-   * > - Step 1: Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun to true.
-   * > - - The response returns a conflict preview that contains the conflictHash value.
-   * > - Step 2: Submit the request after confirmation.
-   * > - - No conflicts: Set dryRun to false and overwrite to false.
-   * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+   * >  Recommended call logic:
+   * > - 1. Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun=true.
+   * > - - The response returns a conflict preview containing a conflictHash.
+   * > - 2. Formally submit the request after confirmation.
+   * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
+   * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
    * 
    * @param request - AddGatewayQuotaRuleRequest
    * @returns AddGatewayQuotaRuleResponse
@@ -585,7 +585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the activation status of the API management service.
+   * Retrieves the activation status of the API management service.
    * 
    * @param request - CheckCommodityStatusRequest
    * @param headers - map
@@ -612,7 +612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the activation status of the API management service.
+   * Retrieves the activation status of the API management service.
    * 
    * @param request - CheckCommodityStatusRequest
    * @returns CheckCommodityStatusResponse
@@ -1148,7 +1148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a HiMarket developer account and returns the ID of the new developer.
+   * Registers a HiMarket developer account and returns the ID of the newly created developer upon successful creation.
    * 
    * @param request - CreateDeveloperRequest
    * @param headers - map
@@ -1185,7 +1185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a HiMarket developer account and returns the ID of the new developer.
+   * Registers a HiMarket developer account and returns the ID of the newly created developer upon successful creation.
    * 
    * @param request - CreateDeveloperRequest
    * @returns CreateDeveloperResponse
@@ -2250,6 +2250,140 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a HiMarket developer portal and returns the ID of the newly created portal upon success.
+   * 
+   * @param request - CreatePortalRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePortalResponse
+   */
+  async createPortalWithOptions(request: $_model.CreatePortalRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePortalResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePortal",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/portals`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePortalResponse>(await this.callApi(params, req, runtime), new $_model.CreatePortalResponse({}));
+  }
+
+  /**
+   * Creates a HiMarket developer portal and returns the ID of the newly created portal upon success.
+   * 
+   * @param request - CreatePortalRequest
+   * @returns CreatePortalResponse
+   */
+  async createPortal(request: $_model.CreatePortalRequest): Promise<$_model.CreatePortalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPortalWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Creates an API product in the product catalog of the HiMarket portal and returns the ID of the new product upon successful creation.
+   * 
+   * @param request - CreateProductRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProductResponse
+   */
+  async createProductWithOptions(request: $_model.CreateProductRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProductResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoApprove)) {
+      body["autoApprove"] = request.autoApprove;
+    }
+
+    if (!$dara.isNull(request.categories)) {
+      body["categories"] = request.categories;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.document)) {
+      body["document"] = request.document;
+    }
+
+    if (!$dara.isNull(request.feature)) {
+      body["feature"] = request.feature;
+    }
+
+    if (!$dara.isNull(request.icon)) {
+      body["icon"] = request.icon;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProduct",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/products`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateProductResponse>(await this.callApi(params, req, runtime), new $_model.CreateProductResponse({}));
+  }
+
+  /**
+   * Creates an API product in the product catalog of the HiMarket portal and returns the ID of the new product upon successful creation.
+   * 
+   * @param request - CreateProductRequest
+   * @returns CreateProductResponse
+   */
+  async createProduct(request: $_model.CreateProductRequest): Promise<$_model.CreateProductResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createProductWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Creates a product category for an API product and returns the ID and name of the new category upon success.
    * 
    * @param request - CreateProductCategoryRequest
@@ -2303,7 +2437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. The association result can be queried by GetProductRef and removed by DeleteProductRef at the same path.
+   * Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. You can query the association result by calling GetProductRef or remove the association by calling DeleteProductRef at the same path.
    * 
    * @param request - CreateProductRefRequest
    * @param headers - map
@@ -2340,7 +2474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. The association result can be queried by GetProductRef and removed by DeleteProductRef at the same path.
+   * Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. You can query the association result by calling GetProductRef or remove the association by calling DeleteProductRef at the same path.
    * 
    * @param request - CreateProductRefRequest
    * @returns CreateProductRefResponse
@@ -2456,7 +2590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates services.
+   * Creates a service.
    * 
    * @remarks
    * This operation supports creating multiple services.
@@ -2510,7 +2644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates services.
+   * Creates a service.
    * 
    * @remarks
    * This operation supports creating multiple services.
@@ -3482,7 +3616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dissociates an API product from an API by API product ID. This association is established by CreateProductRef on the same resource path and can be queried by GetProductRef.
+   * Dissociates an API product from an API by API product ID. The association is established by CreateProductRef on the same resource path and can be queried by GetProductRef.
    * 
    * @param request - DeleteProductRefRequest
    * @param headers - map
@@ -3509,7 +3643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dissociates an API product from an API by API product ID. This association is established by CreateProductRef on the same resource path and can be queried by GetProductRef.
+   * Dissociates an API product from an API by API product ID. The association is established by CreateProductRef on the same resource path and can be queried by GetProductRef.
    * 
    * @param request - DeleteProductRefRequest
    * @returns DeleteProductRefResponse
@@ -3988,7 +4122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the effective field collection configurations for an HTTP API across each URI of the request in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and whether the configuration is derived from a field template.
+   * Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, whether it is collected, whether switching is allowed, and whether it is from a field template.
    * 
    * @param request - GetApiPathFieldConfigRequest
    * @param headers - map
@@ -4025,7 +4159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the effective field collection configurations for an HTTP API across each URI of the request in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and whether the configuration is derived from a field template.
+   * Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, whether it is collected, whether switching is allowed, and whether it is from a field template.
    * 
    * @param request - GetApiPathFieldConfigRequest
    * @returns GetApiPathFieldConfigResponse
@@ -4037,7 +4171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+   * Queries the field template corresponding to an API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
    * 
    * @param request - GetApiPathFieldTemplateRequest
    * @param headers - map
@@ -4070,7 +4204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+   * Queries the field template corresponding to an API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
    * 
    * @param request - GetApiPathFieldTemplateRequest
    * @returns GetApiPathFieldTemplateResponse
@@ -4195,7 +4329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a consumer authorization rule.
+   * Retrieves consumer authorization rules.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4220,7 +4354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a consumer authorization rule.
+   * Retrieves consumer authorization rules.
    * @returns GetConsumerAuthorizationRuleResponse
    */
   async getConsumerAuthorizationRule(consumerAuthorizationRuleId: string, consumerId: string): Promise<$_model.GetConsumerAuthorizationRuleResponse> {
@@ -4490,7 +4624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves basic information about a gateway, including the VPC, vSwitch, and gateway ingress.
+   * Retrieves the basic information of a gateway, such as the associated VPC, vSwitch, and gateway endpoint.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4515,7 +4649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves basic information about a gateway, including the VPC, vSwitch, and gateway ingress.
+   * Retrieves the basic information of a gateway, such as the associated VPC, vSwitch, and gateway endpoint.
    * @returns GetGatewayResponse
    */
   async getGateway(gatewayId: string): Promise<$_model.GetGatewayResponse> {
@@ -4567,7 +4701,7 @@ export default class Client extends OpenApi {
    * Queries the details of a gateway quota throttling rule.
    * 
    * @remarks
-   * Queries a specific API consumer quota rule on an AI gateway.
+   * Queries a consumer quota rule on an AI gateway.
    * 
    * @param request - GetGatewayQuotaRuleRequest
    * @param headers - map
@@ -4615,7 +4749,7 @@ export default class Client extends OpenApi {
    * Queries the details of a gateway quota throttling rule.
    * 
    * @remarks
-   * Queries a specific API consumer quota rule on an AI gateway.
+   * Queries a consumer quota rule on an AI gateway.
    * 
    * @param request - GetGatewayQuotaRuleRequest
    * @returns GetGatewayQuotaRuleResponse
@@ -4741,7 +4875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single HiMarket consumer by consumer ID and returns the consumer ID, name, description, and whether the consumer is the primary consumer.
+   * Queries the details of a single HiMarket consumer by consumer ID, including the consumer ID, name, description, and whether the consumer is a primary consumer.
    * 
    * @param request - GetHiMarketConsumerRequest
    * @param headers - map
@@ -4768,7 +4902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single HiMarket consumer by consumer ID and returns the consumer ID, name, description, and whether the consumer is the primary consumer.
+   * Queries the details of a single HiMarket consumer by consumer ID, including the consumer ID, name, description, and whether the consumer is a primary consumer.
    * 
    * @param request - GetHiMarketConsumerRequest
    * @returns GetHiMarketConsumerResponse
@@ -4780,7 +4914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the credential information of a HiMarket consumer by consumer ID. The response includes API key and HMAC credential configurations. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
+   * Queries the credential information of a HiMarket consumer by consumer ID and returns two types of containers: API key credential configuration and HMAC credential configuration. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
    * 
    * @param request - GetHiMarketConsumerCredentialRequest
    * @param headers - map
@@ -4807,7 +4941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the credential information of a HiMarket consumer by consumer ID. The response includes API key and HMAC credential configurations. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
+   * Queries the credential information of a HiMarket consumer by consumer ID and returns two types of containers: API key credential configuration and HMAC credential configuration. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
    * 
    * @param request - GetHiMarketConsumerCredentialRequest
    * @returns GetHiMarketConsumerCredentialResponse
@@ -4864,7 +4998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves operation information.
+   * Retrieves the details of an API operation.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4889,7 +5023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves operation information.
+   * Retrieves the details of an API operation.
    * @returns GetHttpApiOperationResponse
    */
   async getHttpApiOperation(httpApiId: string, operationId: string): Promise<$_model.GetHttpApiOperationResponse> {
@@ -5053,7 +5187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a plugin mount.
+   * Queries a plugin attachment.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5078,7 +5212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a plugin mount.
+   * Queries a plugin attachment.
    * @returns GetPluginAttachmentResponse
    */
   async getPluginAttachment(pluginAttachmentId: string): Promise<$_model.GetPluginAttachmentResponse> {
@@ -5233,6 +5367,162 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPolicyAttachmentWithOptions(policyAttachmentId, headers, runtime);
+  }
+
+  /**
+   * Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal settings, and portal domain configurations.
+   * 
+   * @param request - GetPortalRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPortalResponse
+   */
+  async getPortalWithOptions(portalId: string, request: $_model.GetPortalRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPortalResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPortal",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/portals/${$dara.URL.percentEncode(portalId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPortalResponse>(await this.callApi(params, req, runtime), new $_model.GetPortalResponse({}));
+  }
+
+  /**
+   * Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal settings, and portal domain configurations.
+   * 
+   * @param request - GetPortalRequest
+   * @returns GetPortalResponse
+   */
+  async getPortal(portalId: string, request: $_model.GetPortalRequest): Promise<$_model.GetPortalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPortalWithOptions(portalId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval status, MCP, Agent, and model configurations, product capability configurations, and the region.
+   * 
+   * @param request - GetProductRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProductResponse
+   */
+  async getProductWithOptions(productId: string, request: $_model.GetProductRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetProductResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProduct",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/products/${$dara.URL.percentEncode(productId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProductResponse>(await this.callApi(params, req, runtime), new $_model.GetProductResponse({}));
+  }
+
+  /**
+   * Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval status, MCP, Agent, and model configurations, product capability configurations, and the region.
+   * 
+   * @param request - GetProductRequest
+   * @returns GetProductResponse
+   */
+  async getProduct(productId: string, request: $_model.GetProductRequest): Promise<$_model.GetProductResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getProductWithOptions(productId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the details of a single product category by category ID and returns the ID, name, description, and icon of the category.
+   * 
+   * @param request - GetProductCategoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProductCategoryResponse
+   */
+  async getProductCategoryWithOptions(categoryId: string, request: $_model.GetProductCategoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetProductCategoryResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProductCategory",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/product-categories/${$dara.URL.percentEncode(categoryId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProductCategoryResponse>(await this.callApi(params, req, runtime), new $_model.GetProductCategoryResponse({}));
+  }
+
+  /**
+   * Queries the details of a single product category by category ID and returns the ID, name, description, and icon of the category.
+   * 
+   * @param request - GetProductCategoryRequest
+   * @returns GetProductCategoryResponse
+   */
+  async getProductCategory(categoryId: string, request: $_model.GetProductCategoryRequest): Promise<$_model.GetProductCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getProductCategoryWithOptions(categoryId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the API configurations associated with an API product by product ID, and returns the gateway ID and APIG association configuration.
+   * 
+   * @param request - GetProductRefRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProductRefResponse
+   */
+  async getProductRefWithOptions(productId: string, request: $_model.GetProductRefRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetProductRefResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProductRef",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/products/${$dara.URL.percentEncode(productId)}/ref`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProductRefResponse>(await this.callApi(params, req, runtime), new $_model.GetProductRefResponse({}));
+  }
+
+  /**
+   * Queries the API configurations associated with an API product by product ID, and returns the gateway ID and APIG association configuration.
+   * 
+   * @param request - GetProductRefRequest
+   * @returns GetProductRefResponse
+   */
+  async getProductRef(productId: string, request: $_model.GetProductRefRequest): Promise<$_model.GetProductRefResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getProductRefWithOptions(productId, request, headers, runtime);
   }
 
   /**
@@ -5523,7 +5813,56 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+   * Executes the callback step in the OIDC logon flow by submitting the code and state query parameters carried in the callback via a GET request, and returns the accessToken, tokenType, and expiresIn fields in the response data.
+   * 
+   * @param request - HandleOidcCallbackRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HandleOidcCallbackResponse
+   */
+  async handleOidcCallbackWithOptions(request: $_model.HandleOidcCallbackRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.HandleOidcCallbackResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.code)) {
+      query["code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      query["state"] = request.state;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "HandleOidcCallback",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/oidc/callback`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.HandleOidcCallbackResponse>(await this.callApi(params, req, runtime), new $_model.HandleOidcCallbackResponse({}));
+  }
+
+  /**
+   * Executes the callback step in the OIDC logon flow by submitting the code and state query parameters carried in the callback via a GET request, and returns the accessToken, tokenType, and expiresIn fields in the response data.
+   * 
+   * @param request - HandleOidcCallbackRequest
+   * @returns HandleOidcCallbackResponse
+   */
+  async handleOidcCallback(request: $_model.HandleOidcCallbackRequest): Promise<$_model.HandleOidcCallbackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.handleOidcCallbackWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Imports an HTTP API by importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST APIs.
    * 
    * @param request - ImportHttpApiRequest
    * @param headers - map
@@ -5608,7 +5947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+   * Imports an HTTP API by importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST APIs.
    * 
    * @param request - ImportHttpApiRequest
    * @returns ImportHttpApiResponse
@@ -5617,6 +5956,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.importHttpApiWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Initiates the Authorize step in the OpenID Connect (OIDC) logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the data business output parameter.
+   * 
+   * @param request - InitiateOidcAuthRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitiateOidcAuthResponse
+   */
+  async initiateOidcAuthWithOptions(request: $_model.InitiateOidcAuthRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InitiateOidcAuthResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.provider)) {
+      query["provider"] = request.provider;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InitiateOidcAuth",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/oidc/authorize`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InitiateOidcAuthResponse>(await this.callApi(params, req, runtime), new $_model.InitiateOidcAuthResponse({}));
+  }
+
+  /**
+   * Initiates the Authorize step in the OpenID Connect (OIDC) logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the data business output parameter.
+   * 
+   * @param request - InitiateOidcAuthRequest
+   * @returns InitiateOidcAuthResponse
+   */
+  async initiateOidcAuth(request: $_model.InitiateOidcAuthRequest): Promise<$_model.InitiateOidcAuthResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.initiateOidcAuthWithOptions(request, headers, runtime);
   }
 
   /**
@@ -5907,6 +6291,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of field templates by using paging and returns the template ID, corresponding API request path, and applicable protocol for each template record.
+   * 
+   * @param request - ListApiPathFieldTemplatesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApiPathFieldTemplatesResponse
+   */
+  async listApiPathFieldTemplatesWithOptions(request: $_model.ListApiPathFieldTemplatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListApiPathFieldTemplatesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApiPathFieldTemplates",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/api-path-fields/templates`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApiPathFieldTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListApiPathFieldTemplatesResponse({}));
+  }
+
+  /**
+   * Queries the list of field templates by using paging and returns the template ID, corresponding API request path, and applicable protocol for each template record.
+   * 
+   * @param request - ListApiPathFieldTemplatesRequest
+   * @returns ListApiPathFieldTemplatesResponse
+   */
+  async listApiPathFieldTemplates(request: $_model.ListApiPathFieldTemplatesRequest): Promise<$_model.ListApiPathFieldTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listApiPathFieldTemplatesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries a list of batch export tasks.
    * 
    * @param request - ListBatchExportTasksRequest
@@ -5977,6 +6410,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listBatchExportTasksWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Performs a paged query on the list of HiMarket chat sessions. For each session, the response returns the session ID, name, conversation type, and associated API products. The response also returns the paging page number, paging size, and total count.
+   * 
+   * @param request - ListChatSessionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChatSessionsResponse
+   */
+  async listChatSessionsWithOptions(request: $_model.ListChatSessionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListChatSessionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChatSessions",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/sessions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListChatSessionsResponse>(await this.callApi(params, req, runtime), new $_model.ListChatSessionsResponse({}));
+  }
+
+  /**
+   * Performs a paged query on the list of HiMarket chat sessions. For each session, the response returns the session ID, name, conversation type, and associated API products. The response also returns the paging page number, paging size, and total count.
+   * 
+   * @param request - ListChatSessionsRequest
+   * @returns ListChatSessionsResponse
+   */
+  async listChatSessions(request: $_model.ListChatSessionsRequest): Promise<$_model.ListChatSessionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listChatSessionsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -6317,6 +6807,75 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConsumersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Performs a paging query on the HiMarket developer list. You can filter the results by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+   * 
+   * @param request - ListDevelopersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDevelopersResponse
+   */
+  async listDevelopersWithOptions(request: $_model.ListDevelopersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDevelopersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.portalId)) {
+      query["portalId"] = request.portalId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      query["username"] = request.username;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDevelopers",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/developers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDevelopersResponse>(await this.callApi(params, req, runtime), new $_model.ListDevelopersResponse({}));
+  }
+
+  /**
+   * Performs a paging query on the HiMarket developer list. You can filter the results by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+   * 
+   * @param request - ListDevelopersRequest
+   * @returns ListDevelopersResponse
+   */
+  async listDevelopers(request: $_model.ListDevelopersRequest): Promise<$_model.ListDevelopersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDevelopersWithOptions(request, headers, runtime);
   }
 
   /**
@@ -6787,10 +7346,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of FinOps quota rules bound to a gateway.
+   * Queries the FinOps quota rules associated with a gateway.
    * 
    * @remarks
-   * Queries the list of FinOps quota rules bound to a gateway.
+   * This operation queries the FinOps quota rules associated with a gateway.
    * 
    * @param request - ListGatewayQuotaRulesRequest
    * @param headers - map
@@ -6839,10 +7398,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of FinOps quota rules bound to a gateway.
+   * Queries the FinOps quota rules associated with a gateway.
    * 
    * @remarks
-   * Queries the list of FinOps quota rules bound to a gateway.
+   * This operation queries the FinOps quota rules associated with a gateway.
    * 
    * @param request - ListGatewayQuotaRulesRequest
    * @returns ListGatewayQuotaRulesResponse
@@ -7027,6 +7586,136 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGlobalPoliciesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. You can filter the paging results by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+   * 
+   * @param request - ListHiMarketConsumerSubscriptionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHiMarketConsumerSubscriptionsResponse
+   */
+  async listHiMarketConsumerSubscriptionsWithOptions(consumerId: string, request: $_model.ListHiMarketConsumerSubscriptionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListHiMarketConsumerSubscriptionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListHiMarketConsumerSubscriptions",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/consumers/${$dara.URL.percentEncode(consumerId)}/subscriptions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListHiMarketConsumerSubscriptionsResponse>(await this.callApi(params, req, runtime), new $_model.ListHiMarketConsumerSubscriptionsResponse({}));
+  }
+
+  /**
+   * Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. You can filter the paging results by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+   * 
+   * @param request - ListHiMarketConsumerSubscriptionsRequest
+   * @returns ListHiMarketConsumerSubscriptionsResponse
+   */
+  async listHiMarketConsumerSubscriptions(consumerId: string, request: $_model.ListHiMarketConsumerSubscriptionsRequest): Promise<$_model.ListHiMarketConsumerSubscriptionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listHiMarketConsumerSubscriptionsWithOptions(consumerId, request, headers, runtime);
+  }
+
+  /**
+   * Performs a paged query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. The paging result includes the consumer ID, name, description, and whether each consumer is a primary consumer.
+   * 
+   * @param request - ListHiMarketConsumersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHiMarketConsumersResponse
+   */
+  async listHiMarketConsumersWithOptions(request: $_model.ListHiMarketConsumersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListHiMarketConsumersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.developerId)) {
+      query["developerId"] = request.developerId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.portalId)) {
+      query["portalId"] = request.portalId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListHiMarketConsumers",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/consumers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListHiMarketConsumersResponse>(await this.callApi(params, req, runtime), new $_model.ListHiMarketConsumersResponse({}));
+  }
+
+  /**
+   * Performs a paged query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. The paging result includes the consumer ID, name, description, and whether each consumer is a primary consumer.
+   * 
+   * @param request - ListHiMarketConsumersRequest
+   * @returns ListHiMarketConsumersResponse
+   */
+  async listHiMarketConsumers(request: $_model.ListHiMarketConsumersRequest): Promise<$_model.ListHiMarketConsumersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listHiMarketConsumersWithOptions(request, headers, runtime);
   }
 
   /**
@@ -7431,6 +8120,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of MCP tools included in an API product of the MCP Server type and returns a list of tools. Each tool contains three text members (name, title, and description) and four map structure members (inputSchema, outputSchema, annotations, and meta).
+   * 
+   * @param request - ListMcpProductToolsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcpProductToolsResponse
+   */
+  async listMcpProductToolsWithOptions(productId: string, request: $_model.ListMcpProductToolsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcpProductToolsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMcpProductTools",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/products/${$dara.URL.percentEncode(productId)}/tools`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMcpProductToolsResponse>(await this.callApi(params, req, runtime), new $_model.ListMcpProductToolsResponse({}));
+  }
+
+  /**
+   * Queries the details of MCP tools included in an API product of the MCP Server type and returns a list of tools. Each tool contains three text members (name, title, and description) and four map structure members (inputSchema, outputSchema, annotations, and meta).
+   * 
+   * @param request - ListMcpProductToolsRequest
+   * @returns ListMcpProductToolsResponse
+   */
+  async listMcpProductTools(productId: string, request: $_model.ListMcpProductToolsRequest): Promise<$_model.ListMcpProductToolsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMcpProductToolsWithOptions(productId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves a list of MCP servers.
    * 
    * @remarks
@@ -7555,6 +8283,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
+   * 
+   * @param request - ListModelCardsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelCardsResponse
+   */
+  async listModelCardsWithOptions(request: $_model.ListModelCardsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelCardsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.provider)) {
+      query["provider"] = request.provider;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelCards",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-cards`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelCardsResponse>(await this.callApi(params, req, runtime), new $_model.ListModelCardsResponse({}));
+  }
+
+  /**
+   * Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
+   * 
+   * @param request - ListModelCardsRequest
+   * @returns ListModelCardsResponse
+   */
+  async listModelCards(request: $_model.ListModelCardsRequest): Promise<$_model.ListModelCardsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listModelCardsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the list of instances that can be added as Nacos sources.
    * 
    * @param request - ListMseNacosSourcesRequest
@@ -7594,7 +8367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of plug-in mounts.
+   * Retrieves the list of plugin mounts.
    * 
    * @param request - ListPluginAttachmentsRequest
    * @param headers - map
@@ -7659,7 +8432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of plug-in mounts.
+   * Retrieves the list of plugin mounts.
    * 
    * @param request - ListPluginAttachmentsRequest
    * @returns ListPluginAttachmentsResponse
@@ -8061,6 +8834,472 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Performs a paged query to retrieve the list of published API products on a specified HiMarket developer portal. This paging operation returns a list where each item includes the publication record ID, API product ID, API product name, and API product type.
+   * 
+   * @param request - ListPortalPublicationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPortalPublicationsResponse
+   */
+  async listPortalPublicationsWithOptions(portalId: string, request: $_model.ListPortalPublicationsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPortalPublicationsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productName)) {
+      query["productName"] = request.productName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPortalPublications",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/portals/${$dara.URL.percentEncode(portalId)}/publications`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPortalPublicationsResponse>(await this.callApi(params, req, runtime), new $_model.ListPortalPublicationsResponse({}));
+  }
+
+  /**
+   * Performs a paged query to retrieve the list of published API products on a specified HiMarket developer portal. This paging operation returns a list where each item includes the publication record ID, API product ID, API product name, and API product type.
+   * 
+   * @param request - ListPortalPublicationsRequest
+   * @returns ListPortalPublicationsResponse
+   */
+  async listPortalPublications(portalId: string, request: $_model.ListPortalPublicationsRequest): Promise<$_model.ListPortalPublicationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPortalPublicationsWithOptions(portalId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the list of HiMarket developer portals under the current tenant by using paging. Each list item returns the portal ID, portal name, portal description, region ID, portal configuration, and portal domain configuration.
+   * 
+   * @param request - ListPortalsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPortalsResponse
+   */
+  async listPortalsWithOptions(request: $_model.ListPortalsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPortalsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPortals",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/portals`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPortalsResponse>(await this.callApi(params, req, runtime), new $_model.ListPortalsResponse({}));
+  }
+
+  /**
+   * Queries the list of HiMarket developer portals under the current tenant by using paging. Each list item returns the portal ID, portal name, portal description, region ID, portal configuration, and portal domain configuration.
+   * 
+   * @param request - ListPortalsRequest
+   * @returns ListPortalsResponse
+   */
+  async listPortals(request: $_model.ListPortalsRequest): Promise<$_model.ListPortalsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPortalsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries the unmanaged security groups available for private endpoints.
+   * 
+   * @remarks
+   * The API operation supports creating multiple services.
+   * 
+   * @param request - ListPrivateLinkSecurityGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPrivateLinkSecurityGroupsResponse
+   */
+  async listPrivateLinkSecurityGroupsWithOptions(request: $_model.ListPrivateLinkSecurityGroupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPrivateLinkSecurityGroupsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["vpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPrivateLinkSecurityGroups",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/private-link-security-groups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPrivateLinkSecurityGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListPrivateLinkSecurityGroupsResponse({}));
+  }
+
+  /**
+   * Queries the unmanaged security groups available for private endpoints.
+   * 
+   * @remarks
+   * The API operation supports creating multiple services.
+   * 
+   * @param request - ListPrivateLinkSecurityGroupsRequest
+   * @returns ListPrivateLinkSecurityGroupsResponse
+   */
+  async listPrivateLinkSecurityGroups(request: $_model.ListPrivateLinkSecurityGroupsRequest): Promise<$_model.ListPrivateLinkSecurityGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPrivateLinkSecurityGroupsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Performs a paging query on the product categories under the current tenant. You can search for categories by name keywords. The list items return the category ID, name, description, and icon.
+   * 
+   * @param request - ListProductCategoriesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProductCategoriesResponse
+   */
+  async listProductCategoriesWithOptions(request: $_model.ListProductCategoriesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListProductCategoriesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProductCategories",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/product-categories`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProductCategoriesResponse>(await this.callApi(params, req, runtime), new $_model.ListProductCategoriesResponse({}));
+  }
+
+  /**
+   * Performs a paging query on the product categories under the current tenant. You can search for categories by name keywords. The list items return the category ID, name, description, and icon.
+   * 
+   * @param request - ListProductCategoriesRequest
+   * @returns ListProductCategoriesResponse
+   */
+  async listProductCategories(request: $_model.ListProductCategoriesRequest): Promise<$_model.ListProductCategoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProductCategoriesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product is published. Each list item includes the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can query the records by portal name and perform a parameter query by using paging parameters.
+   * 
+   * @param request - ListProductPublicationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProductPublicationsResponse
+   */
+  async listProductPublicationsWithOptions(productId: string, request: $_model.ListProductPublicationsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListProductPublicationsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.portalName)) {
+      query["portalName"] = request.portalName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProductPublications",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/products/${$dara.URL.percentEncode(productId)}/publications`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProductPublicationsResponse>(await this.callApi(params, req, runtime), new $_model.ListProductPublicationsResponse({}));
+  }
+
+  /**
+   * Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product is published. Each list item includes the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can query the records by portal name and perform a parameter query by using paging parameters.
+   * 
+   * @param request - ListProductPublicationsRequest
+   * @returns ListProductPublicationsResponse
+   */
+  async listProductPublications(productId: string, request: $_model.ListProductPublicationsRequest): Promise<$_model.ListProductPublicationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProductPublicationsWithOptions(productId, request, headers, runtime);
+  }
+
+  /**
+   * Performs a paging query to retrieve the list of subscription records for a specified API product. The records can be filtered by subscription status and searched by consumer name keywords. Each record includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
+   * 
+   * @param request - ListProductSubscriptionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProductSubscriptionsResponse
+   */
+  async listProductSubscriptionsWithOptions(productId: string, request: $_model.ListProductSubscriptionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListProductSubscriptionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.consumerName)) {
+      query["consumerName"] = request.consumerName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProductSubscriptions",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/products/${$dara.URL.percentEncode(productId)}/subscriptions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProductSubscriptionsResponse>(await this.callApi(params, req, runtime), new $_model.ListProductSubscriptionsResponse({}));
+  }
+
+  /**
+   * Performs a paging query to retrieve the list of subscription records for a specified API product. The records can be filtered by subscription status and searched by consumer name keywords. Each record includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
+   * 
+   * @param request - ListProductSubscriptionsRequest
+   * @returns ListProductSubscriptionsResponse
+   */
+  async listProductSubscriptions(productId: string, request: $_model.ListProductSubscriptionsRequest): Promise<$_model.ListProductSubscriptionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProductSubscriptionsWithOptions(productId, request, headers, runtime);
+  }
+
+  /**
+   * Performs a paged query to retrieve the list of API products under the current tenant. Request parameters can specify the product name, product type, product status, product categories, and the portal where the product is published. List items return the product ID, name, description, status, type, plaintext documentation, icon, product categorization, whether to automatically approve subscribe requests, and MCP, agent, model, and product capability configurations.
+   * 
+   * @param request - ListProductsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProductsResponse
+   */
+  async listProductsWithOptions(request: $_model.ListProductsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListProductsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.categoryIds)) {
+      query["categoryIds"] = request.categoryIds;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.portalId)) {
+      query["portalId"] = request.portalId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProducts",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/products`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProductsResponse>(await this.callApi(params, req, runtime), new $_model.ListProductsResponse({}));
+  }
+
+  /**
+   * Performs a paged query to retrieve the list of API products under the current tenant. Request parameters can specify the product name, product type, product status, product categories, and the portal where the product is published. List items return the product ID, name, description, status, type, plaintext documentation, icon, product categorization, whether to automatically approve subscribe requests, and MCP, agent, model, and product capability configurations.
+   * 
+   * @param request - ListProductsRequest
+   * @returns ListProductsResponse
+   */
+  async listProducts(request: $_model.ListProductsRequest): Promise<$_model.ListProductsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProductsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Performs a paged query to retrieve the list of API products that can be published to a specified HiMarket developer portal. The request accepts the portal ID, API product name, and paging parameters, and the response returns the API product ID, API product name, and API product description for each item.
+   * 
+   * @param request - ListPublishableProductsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPublishableProductsResponse
+   */
+  async listPublishableProductsWithOptions(portalId: string, request: $_model.ListPublishableProductsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPublishableProductsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPublishableProducts",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/portals/${$dara.URL.percentEncode(portalId)}/publishable-products`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPublishableProductsResponse>(await this.callApi(params, req, runtime), new $_model.ListPublishableProductsResponse({}));
+  }
+
+  /**
+   * Performs a paged query to retrieve the list of API products that can be published to a specified HiMarket developer portal. The request accepts the portal ID, API product name, and paging parameters, and the response returns the API product ID, API product name, and API product description for each item.
+   * 
+   * @param request - ListPublishableProductsRequest
+   * @returns ListPublishableProductsResponse
+   */
+  async listPublishableProducts(portalId: string, request: $_model.ListPublishableProductsRequest): Promise<$_model.ListPublishableProductsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPublishableProductsWithOptions(portalId, request, headers, runtime);
+  }
+
+  /**
    * Queries risk detection results.
    * 
    * @param request - ListRiskCheckResultsRequest
@@ -8236,7 +9475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of services.
+   * Retrieves the list of services.
    * 
    * @param request - ListServicesRequest
    * @param headers - map
@@ -8293,7 +9532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of services.
+   * Retrieves the list of services.
    * 
    * @param request - ListServicesRequest
    * @returns ListServicesResponse
@@ -8585,6 +9824,139 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listZonesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Logs in to a HiMarket developer account with a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+   * 
+   * @param request - LoginDeveloperRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LoginDeveloperResponse
+   */
+  async loginDeveloperWithOptions(request: $_model.LoginDeveloperRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.LoginDeveloperResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.password)) {
+      body["password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      body["username"] = request.username;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LoginDeveloper",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/developers/login`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.LoginDeveloperResponse>(await this.callApi(params, req, runtime), new $_model.LoginDeveloperResponse({}));
+  }
+
+  /**
+   * Logs in to a HiMarket developer account with a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+   * 
+   * @param request - LoginDeveloperRequest
+   * @returns LoginDeveloperResponse
+   */
+  async loginDeveloper(request: $_model.LoginDeveloperRequest): Promise<$_model.LoginDeveloperResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.loginDeveloperWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Logs out a HiMarket developer account. This operation has no business request parameters. A successful response returns only the requestId, code, and message fields.
+   * 
+   * @param request - LogoutDeveloperRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LogoutDeveloperResponse
+   */
+  async logoutDeveloperWithOptions(request: $_model.LogoutDeveloperRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.LogoutDeveloperResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LogoutDeveloper",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/developers/logout`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.LogoutDeveloperResponse>(await this.callApi(params, req, runtime), new $_model.LogoutDeveloperResponse({}));
+  }
+
+  /**
+   * Logs out a HiMarket developer account. This operation has no business request parameters. A successful response returns only the requestId, code, and message fields.
+   * 
+   * @param request - LogoutDeveloperRequest
+   * @returns LogoutDeveloperResponse
+   */
+  async logoutDeveloper(request: $_model.LogoutDeveloperRequest): Promise<$_model.LogoutDeveloperResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.logoutDeveloperWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+   * 
+   * @param request - PublishProductRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishProductResponse
+   */
+  async publishProductWithOptions(productId: string, request: $_model.PublishProductRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PublishProductResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.portalId)) {
+      body["portalId"] = request.portalId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PublishProduct",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/products/${$dara.URL.percentEncode(productId)}/publications`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PublishProductResponse>(await this.callApi(params, req, runtime), new $_model.PublishProductResponse({}));
+  }
+
+  /**
+   * Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+   * 
+   * @param request - PublishProductRequest
+   * @returns PublishProductResponse
+   */
+  async publishProduct(productId: string, request: $_model.PublishProductRequest): Promise<$_model.PublishProductResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.publishProductWithOptions(productId, request, headers, runtime);
   }
 
   /**
@@ -8895,6 +10267,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the currently active credentials for the AI service.
+   * 
+   * @remarks
+   * Queries the currently active credentials for the AI service.
+   * 
+   * @param request - RevealServiceCredentialRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevealServiceCredentialResponse
+   */
+  async revealServiceCredentialWithOptions(serviceId: string, request: $_model.RevealServiceCredentialRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RevealServiceCredentialResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevealServiceCredential",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/services/${$dara.URL.percentEncode(serviceId)}/reveal-credential`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevealServiceCredentialResponse>(await this.callApi(params, req, runtime), new $_model.RevealServiceCredentialResponse({}));
+  }
+
+  /**
+   * Queries the currently active credentials for the AI service.
+   * 
+   * @remarks
+   * Queries the currently active credentials for the AI service.
+   * 
+   * @param request - RevealServiceCredentialRequest
+   * @returns RevealServiceCredentialResponse
+   */
+  async revealServiceCredential(serviceId: string, request: $_model.RevealServiceCredentialRequest): Promise<$_model.RevealServiceCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.revealServiceCredentialWithOptions(serviceId, request, headers, runtime);
+  }
+
+  /**
    * Runs a pipeline in a plug-in workspace.
    * 
    * @param request - RunPluginPipelineRequest
@@ -8931,6 +10348,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runPluginPipelineWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Subscribes to an API product for a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
+   * 
+   * @param request - SubscribeProductRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubscribeProductResponse
+   */
+  async subscribeProductWithOptions(consumerId: string, request: $_model.SubscribeProductRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SubscribeProductResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.productId)) {
+      body["productId"] = request.productId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubscribeProduct",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/consumers/${$dara.URL.percentEncode(consumerId)}/subscriptions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubscribeProductResponse>(await this.callApi(params, req, runtime), new $_model.SubscribeProductResponse({}));
+  }
+
+  /**
+   * Subscribes to an API product for a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
+   * 
+   * @param request - SubscribeProductRequest
+   * @returns SubscribeProductResponse
+   */
+  async subscribeProduct(consumerId: string, request: $_model.SubscribeProductRequest): Promise<$_model.SubscribeProductResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.subscribeProductWithOptions(consumerId, request, headers, runtime);
   }
 
   /**
@@ -9172,6 +10634,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.uninstallPluginWithOptions(pluginId, headers, runtime);
+  }
+
+  /**
+   * Takes a publication record of an API product offline based on the API product ID and publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by using the ListProductPublications operation. This operation only affects the publication record and does not delete the API product itself. To delete a product, use the DeleteProduct operation. The response returns only the requestId, code, and message.
+   * 
+   * @param request - UnpublishProductRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnpublishProductResponse
+   */
+  async unpublishProductWithOptions(productId: string, publicationId: string, request: $_model.UnpublishProductRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UnpublishProductResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnpublishProduct",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/products/${$dara.URL.percentEncode(productId)}/publications/${$dara.URL.percentEncode(publicationId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnpublishProductResponse>(await this.callApi(params, req, runtime), new $_model.UnpublishProductResponse({}));
+  }
+
+  /**
+   * Takes a publication record of an API product offline based on the API product ID and publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by using the ListProductPublications operation. This operation only affects the publication record and does not delete the API product itself. To delete a product, use the DeleteProduct operation. The response returns only the requestId, code, and message.
+   * 
+   * @param request - UnpublishProductRequest
+   * @returns UnpublishProductResponse
+   */
+  async unpublishProduct(productId: string, publicationId: string, request: $_model.UnpublishProductRequest): Promise<$_model.UnpublishProductResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.unpublishProductWithOptions(productId, publicationId, request, headers, runtime);
   }
 
   /**
@@ -9470,6 +10971,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds or removes API products in batches under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message without returning item-by-item processing results.
+   * 
+   * @param request - UpdateCategoryProductsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCategoryProductsResponse
+   */
+  async updateCategoryProductsWithOptions(categoryId: string, request: $_model.UpdateCategoryProductsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCategoryProductsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.action)) {
+      body["action"] = request.action;
+    }
+
+    if (!$dara.isNull(request.productIds)) {
+      body["productIds"] = request.productIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCategoryProducts",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/product-categories/${$dara.URL.percentEncode(categoryId)}/products`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCategoryProductsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCategoryProductsResponse({}));
+  }
+
+  /**
+   * Adds or removes API products in batches under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message without returning item-by-item processing results.
+   * 
+   * @param request - UpdateCategoryProductsRequest
+   * @returns UpdateCategoryProductsResponse
+   */
+  async updateCategoryProducts(categoryId: string, request: $_model.UpdateCategoryProductsRequest): Promise<$_model.UpdateCategoryProductsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateCategoryProductsWithOptions(categoryId, request, headers, runtime);
+  }
+
+  /**
    * Updates a consumer.
    * 
    * @param request - UpdateConsumerRequest
@@ -9636,6 +11186,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateConsumerGroupWithOptions(consumerGroupId, request, headers, runtime);
+  }
+
+  /**
+   * Updates the status of a HiMarket developer by developer ID. The request body specifies the target status and portal ID. A successful response returns only the requestId, code, and message, without returning the updated developer information.
+   * 
+   * @param request - UpdateDeveloperStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDeveloperStatusResponse
+   */
+  async updateDeveloperStatusWithOptions(developerId: string, request: $_model.UpdateDeveloperStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDeveloperStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.portalId)) {
+      body["portalId"] = request.portalId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDeveloperStatus",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/developers/${$dara.URL.percentEncode(developerId)}/status`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDeveloperStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDeveloperStatusResponse({}));
+  }
+
+  /**
+   * Updates the status of a HiMarket developer by developer ID. The request body specifies the target status and portal ID. A successful response returns only the requestId, code, and message, without returning the updated developer information.
+   * 
+   * @param request - UpdateDeveloperStatusRequest
+   * @returns UpdateDeveloperStatusResponse
+   */
+  async updateDeveloperStatus(developerId: string, request: $_model.UpdateDeveloperStatusRequest): Promise<$_model.UpdateDeveloperStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDeveloperStatusWithOptions(developerId, request, headers, runtime);
   }
 
   /**
@@ -10028,17 +11627,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a quota throttling rule on a gateway.
+   * Updates a quota throttling rule on a gateway.
    * 
    * @remarks
-   * Edits a quota rule on a gateway. This operation takes effect only on AI gateways running version 2.1.21 or later. Editing a rule preserves the historical usage of consumer subjects bound to the rule.
-   * >  Recommended call logic:
-   * > - Step 1: Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun to true.
-   * > - - The response contains a conflict preview with a conflictHash value.
-   * > - Step 2: Confirm and submit the request.
-   * > - - No conflict: Set dryRun to false and overwrite to false.
-   * > - - Conflict exists and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+   * This operation updates a quota rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The update retains the historical usage of the consumption subjects on the rule.
+   * > Recommended call logic:
+   * > - 1. Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun=true.
+   * > - - The response returns a conflict preview containing a conflictHash.
+   * > - 2. Formally submit the request after confirmation.
+   * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
+   * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
    * 
    * @param request - UpdateGatewayQuotaRuleRequest
    * @param headers - map
@@ -10099,17 +11698,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a quota throttling rule on a gateway.
+   * Updates a quota throttling rule on a gateway.
    * 
    * @remarks
-   * Edits a quota rule on a gateway. This operation takes effect only on AI gateways running version 2.1.21 or later. Editing a rule preserves the historical usage of consumer subjects bound to the rule.
-   * >  Recommended call logic:
-   * > - Step 1: Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun to true.
-   * > - - The response contains a conflict preview with a conflictHash value.
-   * > - Step 2: Confirm and submit the request.
-   * > - - No conflict: Set dryRun to false and overwrite to false.
-   * > - - Conflict exists and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+   * This operation updates a quota rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The update retains the historical usage of the consumption subjects on the rule.
+   * > Recommended call logic:
+   * > - 1. Perform a dry run to check for rule conflicts.
+   * > - - Set dryRun=true.
+   * > - - The response returns a conflict preview containing a conflictHash.
+   * > - 2. Formally submit the request after confirmation.
+   * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
+   * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
    * 
    * @param request - UpdateGatewayQuotaRuleRequest
    * @returns UpdateGatewayQuotaRuleResponse
@@ -10324,7 +11923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a route of an HTTP API.
+   * Updates a route for an HTTP API.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @param headers - map
@@ -10381,7 +11980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a route of an HTTP API.
+   * Updates a route for an HTTP API.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @returns UpdateHttpApiRouteResponse
@@ -10712,6 +12311,197 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
+   * 
+   * @param request - UpdatePortalRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePortalResponse
+   */
+  async updatePortalWithOptions(portalId: string, request: $_model.UpdatePortalRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePortalResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.portalSettingConfig)) {
+      body["portalSettingConfig"] = request.portalSettingConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePortal",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/portals/${$dara.URL.percentEncode(portalId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePortalResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePortalResponse({}));
+  }
+
+  /**
+   * Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
+   * 
+   * @param request - UpdatePortalRequest
+   * @returns UpdatePortalResponse
+   */
+  async updatePortal(portalId: string, request: $_model.UpdatePortalRequest): Promise<$_model.UpdatePortalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updatePortalWithOptions(portalId, request, headers, runtime);
+  }
+
+  /**
+   * Updates the name, description, type, documentation, icon, automatic subscription approval, product category, and product capabilities of an API product by API product ID. The request body is in JSON format. A successful response returns only the requestId, code, and message, and does not return the updated product information.
+   * 
+   * @param request - UpdateProductRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProductResponse
+   */
+  async updateProductWithOptions(productId: string, request: $_model.UpdateProductRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateProductResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoApprove)) {
+      body["autoApprove"] = request.autoApprove;
+    }
+
+    if (!$dara.isNull(request.categories)) {
+      body["categories"] = request.categories;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.document)) {
+      body["document"] = request.document;
+    }
+
+    if (!$dara.isNull(request.feature)) {
+      body["feature"] = request.feature;
+    }
+
+    if (!$dara.isNull(request.icon)) {
+      body["icon"] = request.icon;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateProduct",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/products/${$dara.URL.percentEncode(productId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateProductResponse>(await this.callApi(params, req, runtime), new $_model.UpdateProductResponse({}));
+  }
+
+  /**
+   * Updates the name, description, type, documentation, icon, automatic subscription approval, product category, and product capabilities of an API product by API product ID. The request body is in JSON format. A successful response returns only the requestId, code, and message, and does not return the updated product information.
+   * 
+   * @param request - UpdateProductRequest
+   * @returns UpdateProductResponse
+   */
+  async updateProduct(productId: string, request: $_model.UpdateProductRequest): Promise<$_model.UpdateProductResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateProductWithOptions(productId, request, headers, runtime);
+  }
+
+  /**
+   * Updates the name, description, and icon of a product category by ID. The request body is in JSON format, and the response returns only the request ID, status code, and response message.
+   * 
+   * @param request - UpdateProductCategoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProductCategoryResponse
+   */
+  async updateProductCategoryWithOptions(categoryId: string, request: $_model.UpdateProductCategoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateProductCategoryResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.icon)) {
+      body["icon"] = request.icon;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateProductCategory",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/himarket/v1/product-categories/${$dara.URL.percentEncode(categoryId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateProductCategoryResponse>(await this.callApi(params, req, runtime), new $_model.UpdateProductCategoryResponse({}));
+  }
+
+  /**
+   * Updates the name, description, and icon of a product category by ID. The request body is in JSON format, and the response returns only the request ID, status code, and response message.
+   * 
+   * @param request - UpdateProductCategoryRequest
+   * @returns UpdateProductCategoryResponse
+   */
+  async updateProductCategory(categoryId: string, request: $_model.UpdateProductCategoryRequest): Promise<$_model.UpdateProductCategoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateProductCategoryWithOptions(categoryId, request, headers, runtime);
+  }
+
+  /**
    * Updates the notification configuration for risk items.
    * 
    * @param request - UpdateRiskNotificationRequest
@@ -10812,7 +12602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a service. You can update the health check configuration, DNS domain name, and address configuration of fixed addresses for the service.
+   * Updates a service. Supports updating the health check configuration, DNS domain names, and static address configurations of the service.
    * 
    * @param request - UpdateServiceRequest
    * @param headers - map
@@ -10832,6 +12622,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.aiServiceConfig)) {
       body["aiServiceConfig"] = request.aiServiceConfig;
+    }
+
+    if (!$dara.isNull(request.apiKeyReferencesToAdd)) {
+      body["apiKeyReferencesToAdd"] = request.apiKeyReferencesToAdd;
+    }
+
+    if (!$dara.isNull(request.apiKeysToAdd)) {
+      body["apiKeysToAdd"] = request.apiKeysToAdd;
     }
 
     if (!$dara.isNull(request.dnsServers)) {
@@ -10881,7 +12679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a service. You can update the health check configuration, DNS domain name, and address configuration of fixed addresses for the service.
+   * Updates a service. Supports updating the health check configuration, DNS domain names, and static address configurations of the service.
    * 
    * @param request - UpdateServiceRequest
    * @returns UpdateServiceResponse

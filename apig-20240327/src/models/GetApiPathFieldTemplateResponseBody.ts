@@ -14,7 +14,7 @@ export class GetApiPathFieldTemplateResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The set of fields defined by the field template, grouped by mapping key. Each group contains a set of template field items.
+   * The set of fields defined by the field template, grouped by mapping key, where each group contains a set of template field items.
    */
   fieldPaths?: { [key: string]: DataFieldPathsValue[] };
   /**

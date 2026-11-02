@@ -6,20 +6,20 @@ import { HiMarketIcon } from "./HiMarketIcon";
 export class CreateProductCategoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the product category. Maximum length: 500 characters.
+   * The description of the product category. The maximum length is 500 characters.
    * 
    * @example
-   * Product category for AI-related capabilities
+   * Product category that includes AI-related capabilities
    */
   description?: string;
   /**
    * @remarks
-   * The icon of the product category, which consists of the icon type and icon information fields.
+   * The icon of the product category, which consists of two fields: icon type and icon information.
    */
   icon?: HiMarketIcon;
   /**
    * @remarks
-   * The name of the product category. Maximum length: 100 characters.
+   * The name of the product category. The maximum length is 100 characters.
    * 
    * @example
    * ai-capabilities

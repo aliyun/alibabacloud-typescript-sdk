@@ -16,7 +16,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   groupName?: string;
   /**
    * @remarks
-   * The HTTP-to-Dubbo protocol conversion configuration. Only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
+   * The HTTP-to-Dubbo protocol conversion configuration. This is only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
    * 
    * @example
    * {"dubboServiceName":"com.alibaba.nacos.example.dubbo.service.DemoService","dubboServiceVersion":"1.0.0","dubboServiceGroup":"DEV","methodMapList":[{"dubboMethodName":"sayName","httpMethod":"ALL_GET","methodPath":"/dubbo/sayName","passThroughAllHeaders":"PASS_ALL"}]}
@@ -24,7 +24,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   httpDubboTranscoder?: HttpDubboTranscoder;
   /**
    * @remarks
-   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If this field is not specified for the AiAutoRouter scenario, the default model of the AI service is used.
+   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewriting semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If this field is not configured for the AiAutoRouter scenario, the default model of the AI service is used.
    * 
    * @example
    * qwen-plus
@@ -66,7 +66,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   serviceId?: string;
   /**
    * @remarks
-   * The service source type. Use MSE_NACOS for HTTP-to-Dubbo conversion scenarios.
+   * The service source type. MSE_NACOS is used in HTTP-to-Dubbo conversion scenarios.
    * 
    * @example
    * MSE_NACOS
@@ -259,7 +259,7 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
   mcpRouteConfig?: UpdateHttpApiRouteRequestMcpRouteConfig;
   /**
    * @remarks
-   * The route-level policy configurations.
+   * The route-level policy configuration.
    */
   policyConfigs?: HttpApiPolicyConfigs[];
   static names(): { [key: string]: string } {

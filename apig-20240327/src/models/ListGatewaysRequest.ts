@@ -45,7 +45,7 @@ export class ListGatewaysRequestTag extends $dara.Model {
 export class ListGatewaysRequest extends $dara.Model {
   /**
    * @remarks
-   * The gateway ID for exact match query.
+   * The gateway ID for exact match.
    * 
    * @example
    * gw-cpv4sqdl****
@@ -61,7 +61,7 @@ export class ListGatewaysRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The keyword for full match search. The search is case-insensitive.
+   * The keyword for case-insensitive full match search.
    * 
    * @example
    * dev
@@ -69,7 +69,7 @@ export class ListGatewaysRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The gateway name for exact match query.
+   * The gateway name for exact match.
    * 
    * @example
    * itemcenter-gateway
@@ -93,7 +93,7 @@ export class ListGatewaysRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The resource group.
    * 
    * @example
    * rg-aekzq6bzz5uyg2q
@@ -106,7 +106,7 @@ export class ListGatewaysRequest extends $dara.Model {
   tag?: ListGatewaysRequestTag[];
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-2zeqrgx6jrlb063y06yjo

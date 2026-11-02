@@ -57,7 +57,7 @@ export class HttpRouteDomainInfos extends $dara.Model {
 export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
   /**
    * @remarks
-   * The gateway instance edition. Valid values: Professional, Serverless, MultiTenantServerless, Unknown.
+   * The gateway instance edition. Valid values: Professional, Serverless, MultiTenantServerless, and Unknown.
    * 
    * @example
    * MultiTenantServerless
@@ -170,7 +170,7 @@ export class HttpRouteEnvironmentInfo extends $dara.Model {
    * The environment name alias.
    * 
    * @example
-   * Pre-release environment for the product center
+   * 商品中心预发环境
    */
   alias?: string;
   /**
@@ -196,7 +196,7 @@ export class HttpRouteEnvironmentInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of default subdomain names for the environment.
+   * The list of default subdomains of the environment.
    */
   subDomains?: HttpRouteEnvironmentInfoSubDomains[];
   static names(): { [key: string]: string } {
@@ -309,7 +309,7 @@ export class HttpRouteMcpServerInfo extends $dara.Model {
   importNamespace?: string;
   /**
    * @remarks
-   * The MCP route information.
+   * The MCP routing information.
    */
   mcpRouteConfig?: HttpRouteMcpServerInfoMcpRouteConfig;
   /**
@@ -362,7 +362,7 @@ export class HttpRoute extends $dara.Model {
   backend?: Backend;
   /**
    * @remarks
-   * Indicates whether the route is a system built-in route.
+   * Indicates whether the route is a built-in system route.
    * 
    * @example
    * true
@@ -389,12 +389,12 @@ export class HttpRoute extends $dara.Model {
    * The route description.
    * 
    * @example
-   * Pre-release route for the product center
+   * 商品中心预发路由
    */
   description?: string;
   /**
    * @remarks
-   * The list of domain name information.
+   * The domain name information list.
    */
   domainInfos?: HttpRouteDomainInfos[];
   /**
@@ -414,7 +414,7 @@ export class HttpRoute extends $dara.Model {
   match?: HttpRouteMatch;
   /**
    * @remarks
-   * The MCP server information.
+   * The MCP service information.
    */
   mcpServerInfo?: HttpRouteMcpServerInfo;
   /**
@@ -427,7 +427,7 @@ export class HttpRoute extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The HttpApi route ID.
+   * The HTTP API route ID.
    * 
    * @example
    * hr-crf5l7tlhtgp91t***

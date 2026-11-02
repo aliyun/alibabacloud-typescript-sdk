@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DataPathConfigsFieldPathsValue extends $dara.Model {
   /**
    * @remarks
-   * The identity key of the field, which is unique within the same request path, such as input_token.
+   * The identifier key of the field, which is unique within the same request path, such as input_token.
    * 
    * @example
    * input_token
@@ -21,7 +21,7 @@ export class DataPathConfigsFieldPathsValue extends $dara.Model {
   jsonPath?: string;
   /**
    * @remarks
-   * The value extraction rule for the field.
+   * The value extraction rule of the field.
    * 
    * @example
    * first
@@ -101,7 +101,7 @@ export class DataPathConfigsFieldPathsValue extends $dara.Model {
   jsonPathRewriteAllowed?: boolean;
   /**
    * @remarks
-   * Indicates whether the field configuration is derived from a field template.
+   * Indicates whether the field configuration is from a field template.
    * 
    * @example
    * true

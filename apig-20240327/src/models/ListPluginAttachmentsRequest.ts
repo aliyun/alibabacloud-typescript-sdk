@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginAttachmentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The mount resource ID.
+   * The ID of the mount resource.
    * 
    * @example
    * hr-cv2h58em1hkg7c6vt43g
@@ -13,7 +13,7 @@ export class ListPluginAttachmentsRequest extends $dara.Model {
   attachResourceId?: string;
   /**
    * @remarks
-   * The plug-in mount point type. This parameter is not yet enabled.
+   * The type of the plugin mount point. This parameter is not yet enabled.
    * 
    * @example
    * GatewayRoute
@@ -21,7 +21,7 @@ export class ListPluginAttachmentsRequest extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * The mount point types. Separate multiple types with commas.
+   * The types of mount points. Separate multiple values with commas.
    * 
    * @example
    * GatewayRoute
@@ -61,7 +61,7 @@ export class ListPluginAttachmentsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The plug-in ID.
+   * The plugin ID.
    * 
    * @example
    * pl-ct8181um1hkiqns9f6e0
@@ -69,7 +69,7 @@ export class ListPluginAttachmentsRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Specifies whether to return parent resource mounts.
+   * Specifies whether to return parent resource mounts.>Notice: When this parameter is set to true, it must be used together with a single value of attachResourceTypes. The valid values are GatewayRoute and Operation.</notice>
    * 
    * @example
    * false

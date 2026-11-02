@@ -5,15 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $dara.Model {
   /**
    * @remarks
-   * The period type of the existing conflicting rule on the consumer subject. Valid values: day (daily), week (weekly), and month (monthly).
+   * The period type of the existing conflicting rule on the consumption subject. A value of day, week, or month indicates that the period of the existing conflicting rule on the consumption subject is day, week, or month, respectively.
    * 
    * @example
    * week
+   * 
+   * @deprecated
    */
   conflictPeriodType?: string;
   /**
    * @remarks
-   * The type of the existing conflicting rule on the consumer subject. A value of calendar indicates a calendar-period rule. A value of epoch indicates a custom-period rule.
+   * The type of the existing conflicting rule on the consumption subject. A value of calendar indicates that the existing conflicting rule on the consumption subject uses a natural period. A value of epoch indicates that the existing conflicting rule uses a custom period.
    * 
    * @example
    * calendar
@@ -21,7 +23,7 @@ export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends 
   conflictType?: string;
   /**
    * @remarks
-   * The consumer ID. Use subjectId instead.
+   * The consumer ID. You can now uniformly use subjectId instead.
    * 
    * @example
    * cs-d82n1g6m1hkm375xxxxx
@@ -29,12 +31,20 @@ export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends 
   consumerId?: string;
   /**
    * @remarks
-   * The consumer name. Use subjectName instead.
+   * The consumer name. You can now uniformly use subjectName instead.
    * 
    * @example
    * consumer-a
    */
   consumerName?: string;
+  /**
+   * @remarks
+   * The period type of the existing conflicting rule. Valid values: day, week, and month, which indicate day, week, and month, respectively.
+   * 
+   * @example
+   * day
+   */
+  periodType?: string;
   /**
    * @remarks
    * The ID of the conflicting subject.
@@ -65,6 +75,7 @@ export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends 
       conflictType: 'conflictType',
       consumerId: 'consumerId',
       consumerName: 'consumerName',
+      periodType: 'periodType',
       subjectId: 'subjectId',
       subjectName: 'subjectName',
       subjectType: 'subjectType',
@@ -77,6 +88,7 @@ export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends 
       conflictType: 'string',
       consumerId: 'string',
       consumerName: 'string',
+      periodType: 'string',
       subjectId: 'string',
       subjectName: 'string',
       subjectType: 'string',
@@ -145,7 +157,7 @@ export class UpdateGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara
 export class UpdateGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario, such as an unconfirmed conflict overwrite.
+   * Specifies whether the semantics of the current write request can be accepted by the system. A value of false typically occurs in retryable scenarios such as unconfirmed overwrites for conflicts.
    * 
    * @example
    * true
@@ -158,7 +170,7 @@ export class UpdateGatewayQuotaRuleResponseBodyData extends $dara.Model {
   conflictPreview?: UpdateGatewayQuotaRuleResponseBodyDataConflictPreview;
   /**
    * @remarks
-   * Indicates whether the request is a dry run.
+   * Specifies whether a dry run is performed.
    * 
    * @example
    * true
@@ -221,10 +233,10 @@ export class UpdateGatewayQuotaRuleResponseBody extends $dara.Model {
   data?: UpdateGatewayQuotaRuleResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The message.
    * 
    * @example
-   * Hello, World!
+   * Hello, world!
    */
   message?: string;
   /**

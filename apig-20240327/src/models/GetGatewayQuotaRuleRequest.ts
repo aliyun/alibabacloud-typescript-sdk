@@ -25,12 +25,12 @@ export class GetGatewayQuotaRuleRequest extends $dara.Model {
   consumerPageSize?: string;
   /**
    * @remarks
-   * Specifies whether to return the API consumer list.
+   * Specifies whether to output the consumer list.
    */
   withConsumers?: boolean;
   /**
    * @remarks
-   * Specifies whether to return the general subject list. This parameter applies to both API consumer and API consumer group rules.
+   * Specifies whether to output the general subject list. This parameter takes effect for both consumer and consumer group rules.
    */
   withSubjects?: boolean;
   static names(): { [key: string]: string } {

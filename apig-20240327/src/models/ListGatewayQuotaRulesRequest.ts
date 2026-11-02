@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayQuotaRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule name keyword for fuzzy match.
+   * The keyword used for fuzzy matching of rule names.
    * 
    * @example
    * daily
@@ -37,7 +37,7 @@ export class ListGatewayQuotaRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10

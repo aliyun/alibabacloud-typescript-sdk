@@ -47,7 +47,7 @@ export class GetDomainResponseBodyDataStatisticsInfo extends $dara.Model {
 export class GetDomainResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The encryption algorithm name.
+   * The name of the encryption algorithm.
    * 
    * @example
    * RSA
@@ -118,7 +118,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * The source from which the domain name was created.
+   * The creation source.
    * 
    * @example
    * Console
@@ -134,7 +134,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * Indicates whether this is the default domain name.
+   * Indicates whether the domain name is the default domain name.
    * 
    * @example
    * false
@@ -158,7 +158,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   domainScope?: string;
   /**
    * @remarks
-   * Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is configured.
+   * The Settings for the HTTPS Protocol Type and whether forced HTTPS redirection is enabled.
    * 
    * @example
    * false
@@ -166,7 +166,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   forceHttps?: boolean;
   /**
    * @remarks
-   * The HTTP/2 setting.
+   * The HTTP/2 settings.
    * 
    * @example
    * Open
@@ -182,7 +182,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * Indicates whether mutual TLS (mTLS) authentication is enabled.
+   * Indicates whether mTLS mutual authentication is enabled.
    * 
    * @example
    * false
@@ -198,7 +198,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The certificate expiration time.
+   * The expiration time of the certificate.
    * 
    * @example
    * 1719386834548
@@ -206,7 +206,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   notAfterTimstamp?: number;
   /**
    * @remarks
-   * The certificate effective period.
+   * The effective period of the certificate.
    * 
    * @example
    * 1719386834548
@@ -214,10 +214,10 @@ export class GetDomainResponseBodyData extends $dara.Model {
   notBeforeTimestamp?: number;
   /**
    * @remarks
-   * The protocol type supported by the domain name.
+   * The protocol types supported by the domain name.
    * 
-   * - HTTP: Only the HTTP protocol is supported.
-   * - HTTPS: Only the HTTPS protocol is supported.
+   * - HTTP: Supports only the HTTP protocol.
+   * - HTTPS: Supports only the HTTPS protocol.
    * 
    * @example
    * HTTP
@@ -233,7 +233,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * All domain names bound to the certificate.
+   * All the domain names bound to the certificate.
    * 
    * @example
    * aliyun.com
@@ -251,7 +251,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   tlsCipherSuitesConfig?: TlsCipherSuitesConfig;
   /**
    * @remarks
-   * The maximum TLS protocol version. TLS 1.3 is the maximum supported version.
+   * The maximum TLS protocol version. The maximum supported version is TLS 1.3.
    * 
    * @example
    * TLS 1.3
@@ -259,7 +259,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   tlsMax?: string;
   /**
    * @remarks
-   * The minimum TLS protocol version. TLS 1.0 is the minimum supported version.
+   * The minimum TLS protocol version. The minimum supported version is TLS 1.0.
    * 
    * @example
    * TLS 1.0
@@ -378,7 +378,7 @@ export class GetDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the API call chain.
+   * The request ID used to trace the API call chain.
    * 
    * @example
    * 3ACFC7A7-45A9-58CF-B2D5-765B60254695
