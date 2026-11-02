@@ -542,6 +542,314 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建网关 API
+   * 
+   * @param tmpReq - CreateGatewayApiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGatewayApiResponse
+   */
+  async createGatewayApiWithOptions(tmpReq: $_model.CreateGatewayApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGatewayApiResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateGatewayApiShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.cacheRule)) {
+      request.cacheRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheRule, "CacheRule", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.defaultLimitRule)) {
+      request.defaultLimitRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.defaultLimitRule, "DefaultLimitRule", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.headerRules)) {
+      request.headerRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.headerRules, "HeaderRules", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.limitRule)) {
+      request.limitRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.limitRule, "LimitRule", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.migrateRule)) {
+      request.migrateRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.migrateRule, "MigrateRule", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.mockRule)) {
+      request.mockRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.mockRule, "MockRule", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.requestParams)) {
+      request.requestParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.requestParams, "RequestParams", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.rpcParameterTypes)) {
+      request.rpcParameterTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rpcParameterTypes, "RpcParameterTypes", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiName)) {
+      body["ApiName"] = request.apiName;
+    }
+
+    if (!$dara.isNull(request.apiStatus)) {
+      body["ApiStatus"] = request.apiStatus;
+    }
+
+    if (!$dara.isNull(request.apiType)) {
+      body["ApiType"] = request.apiType;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.authRuleName)) {
+      body["AuthRuleName"] = request.authRuleName;
+    }
+
+    if (!$dara.isNull(request.cacheRuleShrink)) {
+      body["CacheRule"] = request.cacheRuleShrink;
+    }
+
+    if (!$dara.isNull(request.charset)) {
+      body["Charset"] = request.charset;
+    }
+
+    if (!$dara.isNull(request.contentType)) {
+      body["ContentType"] = request.contentType;
+    }
+
+    if (!$dara.isNull(request.defaultLimitRuleShrink)) {
+      body["DefaultLimitRule"] = request.defaultLimitRuleShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.headerRulesShrink)) {
+      body["HeaderRules"] = request.headerRulesShrink;
+    }
+
+    if (!$dara.isNull(request.interfaceType)) {
+      body["InterfaceType"] = request.interfaceType;
+    }
+
+    if (!$dara.isNull(request.limitRuleShrink)) {
+      body["LimitRule"] = request.limitRuleShrink;
+    }
+
+    if (!$dara.isNull(request.method)) {
+      body["Method"] = request.method;
+    }
+
+    if (!$dara.isNull(request.methodName)) {
+      body["MethodName"] = request.methodName;
+    }
+
+    if (!$dara.isNull(request.migrateRuleShrink)) {
+      body["MigrateRule"] = request.migrateRuleShrink;
+    }
+
+    if (!$dara.isNull(request.mockRuleShrink)) {
+      body["MockRule"] = request.mockRuleShrink;
+    }
+
+    if (!$dara.isNull(request.needEncrypt)) {
+      body["NeedEncrypt"] = request.needEncrypt;
+    }
+
+    if (!$dara.isNull(request.needJsonp)) {
+      body["NeedJsonp"] = request.needJsonp;
+    }
+
+    if (!$dara.isNull(request.needSign)) {
+      body["NeedSign"] = request.needSign;
+    }
+
+    if (!$dara.isNull(request.operationType)) {
+      body["OperationType"] = request.operationType;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      body["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.requestBodyModel)) {
+      body["RequestBodyModel"] = request.requestBodyModel;
+    }
+
+    if (!$dara.isNull(request.requestParamsShrink)) {
+      body["RequestParams"] = request.requestParamsShrink;
+    }
+
+    if (!$dara.isNull(request.responseBodyModel)) {
+      body["ResponseBodyModel"] = request.responseBodyModel;
+    }
+
+    if (!$dara.isNull(request.rpcParameterTypesShrink)) {
+      body["RpcParameterTypes"] = request.rpcParameterTypesShrink;
+    }
+
+    if (!$dara.isNull(request.serialization)) {
+      body["Serialization"] = request.serialization;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      body["Timeout"] = request.timeout;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateGatewayApi",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateGatewayApiResponse>(await this.callApi(params, req, runtime), new $_model.CreateGatewayApiResponse({}));
+  }
+
+  /**
+   * 创建网关 API
+   * 
+   * @param request - CreateGatewayApiRequest
+   * @returns CreateGatewayApiResponse
+   */
+  async createGatewayApi(request: $_model.CreateGatewayApiRequest): Promise<$_model.CreateGatewayApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createGatewayApiWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建网关 API 分组
+   * 
+   * @param tmpReq - CreateGatewayApiGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGatewayApiGroupResponse
+   */
+  async createGatewayApiGroupWithOptions(tmpReq: $_model.CreateGatewayApiGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGatewayApiGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateGatewayApiGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.centers)) {
+      request.centersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.centers, "Centers", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.centersShrink)) {
+      body["Centers"] = request.centersShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      body["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.enableMTLS)) {
+      body["EnableMTLS"] = request.enableMTLS;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      body["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.host)) {
+      body["Host"] = request.host;
+    }
+
+    if (!$dara.isNull(request.httpsModel)) {
+      body["HttpsModel"] = request.httpsModel;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instancePort)) {
+      body["InstancePort"] = request.instancePort;
+    }
+
+    if (!$dara.isNull(request.regionMode)) {
+      body["RegionMode"] = request.regionMode;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      body["Timeout"] = request.timeout;
+    }
+
+    if (!$dara.isNull(request.upstreamType)) {
+      body["UpstreamType"] = request.upstreamType;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.vpcModel)) {
+      body["VpcModel"] = request.vpcModel;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateGatewayApiGroup",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateGatewayApiGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateGatewayApiGroupResponse({}));
+  }
+
+  /**
+   * 创建网关 API 分组
+   * 
+   * @param request - CreateGatewayApiGroupRequest
+   * @returns CreateGatewayApiGroupResponse
+   */
+  async createGatewayApiGroup(request: $_model.CreateGatewayApiGroupRequest): Promise<$_model.CreateGatewayApiGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createGatewayApiGroupWithOptions(request, runtime);
+  }
+
+  /**
    * 创建短链
    * 
    * @param request - CreateLinkRequest
@@ -2568,6 +2876,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除网关 API
+   * 
+   * @param request - DeleteGatewayApiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGatewayApiResponse
+   */
+  async deleteGatewayApiWithOptions(request: $_model.DeleteGatewayApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGatewayApiResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiId)) {
+      body["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteGatewayApi",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteGatewayApiResponse>(await this.callApi(params, req, runtime), new $_model.DeleteGatewayApiResponse({}));
+  }
+
+  /**
+   * 删除网关 API
+   * 
+   * @param request - DeleteGatewayApiRequest
+   * @returns DeleteGatewayApiResponse
+   */
+  async deleteGatewayApi(request: $_model.DeleteGatewayApiRequest): Promise<$_model.DeleteGatewayApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteGatewayApiWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除网关 API 分组
+   * 
+   * @param request - DeleteGatewayApiGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGatewayApiGroupResponse
+   */
+  async deleteGatewayApiGroupWithOptions(request: $_model.DeleteGatewayApiGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGatewayApiGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteGatewayApiGroup",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteGatewayApiGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteGatewayApiGroupResponse({}));
+  }
+
+  /**
+   * 删除网关 API 分组
+   * 
+   * @param request - DeleteGatewayApiGroupRequest
+   * @returns DeleteGatewayApiGroupResponse
+   */
+  async deleteGatewayApiGroup(request: $_model.DeleteGatewayApiGroupRequest): Promise<$_model.DeleteGatewayApiGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteGatewayApiGroupWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DeleteMcdpAimRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteMcdpAimResponse
@@ -3188,6 +3604,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导出网关 API
+   * 
+   * @param tmpReq - ExportGatewayApisRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportGatewayApisResponse
+   */
+  async exportGatewayApisWithOptions(tmpReq: $_model.ExportGatewayApisRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExportGatewayApisResponse> {
+    tmpReq.validate();
+    let request = new $_model.ExportGatewayApisShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.apiIds)) {
+      request.apiIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.apiIds, "ApiIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiIdsShrink)) {
+      body["ApiIds"] = request.apiIdsShrink;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExportGatewayApis",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExportGatewayApisResponse>(await this.callApi(params, req, runtime), new $_model.ExportGatewayApisResponse({}));
+  }
+
+  /**
+   * 导出网关 API
+   * 
+   * @param request - ExportGatewayApisRequest
+   * @returns ExportGatewayApisResponse
+   */
+  async exportGatewayApis(request: $_model.ExportGatewayApisRequest): Promise<$_model.ExportGatewayApisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.exportGatewayApisWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - ExportMappCenterAppConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExportMappCenterAppConfigResponse
@@ -3429,6 +3905,114 @@ export default class Client extends OpenApi {
   async getGameReviewByStatus(request: $_model.GetGameReviewByStatusRequest): Promise<$_model.GetGameReviewByStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getGameReviewByStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询网关 API 详情
+   * 
+   * @param request - GetGatewayApiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGatewayApiResponse
+   */
+  async getGatewayApiWithOptions(request: $_model.GetGatewayApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGatewayApiResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiId)) {
+      body["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGatewayApi",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGatewayApiResponse>(await this.callApi(params, req, runtime), new $_model.GetGatewayApiResponse({}));
+  }
+
+  /**
+   * 查询网关 API 详情
+   * 
+   * @param request - GetGatewayApiRequest
+   * @returns GetGatewayApiResponse
+   */
+  async getGatewayApi(request: $_model.GetGatewayApiRequest): Promise<$_model.GetGatewayApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGatewayApiWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询网关 API 分组详情
+   * 
+   * @param request - GetGatewayApiGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGatewayApiGroupResponse
+   */
+  async getGatewayApiGroupWithOptions(request: $_model.GetGatewayApiGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGatewayApiGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGatewayApiGroup",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGatewayApiGroupResponse>(await this.callApi(params, req, runtime), new $_model.GetGatewayApiGroupResponse({}));
+  }
+
+  /**
+   * 查询网关 API 分组详情
+   * 
+   * @param request - GetGatewayApiGroupRequest
+   * @returns GetGatewayApiGroupResponse
+   */
+  async getGatewayApiGroup(request: $_model.GetGatewayApiGroupRequest): Promise<$_model.GetGatewayApiGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGatewayApiGroupWithOptions(request, runtime);
   }
 
   /**
@@ -3990,6 +4574,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导入网关 API
+   * 
+   * @param request - ImportGatewayApisRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportGatewayApisResponse
+   */
+  async importGatewayApisWithOptions(request: $_model.ImportGatewayApisRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportGatewayApisResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      body["FileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.importMode)) {
+      body["ImportMode"] = request.importMode;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportGatewayApis",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportGatewayApisResponse>(await this.callApi(params, req, runtime), new $_model.ImportGatewayApisResponse({}));
+  }
+
+  /**
+   * 导入网关 API
+   * 
+   * @param request - ImportGatewayApisRequest
+   * @returns ImportGatewayApisResponse
+   */
+  async importGatewayApis(request: $_model.ImportGatewayApisRequest): Promise<$_model.ImportGatewayApisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.importGatewayApisWithOptions(request, runtime);
+  }
+
+  /**
    * 查询报表
    * 
    * @param request - ListAnalysisCoreIndexRequest
@@ -4092,6 +4734,150 @@ export default class Client extends OpenApi {
   async listCubecardApps(request: $_model.ListCubecardAppsRequest): Promise<$_model.ListCubecardAppsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCubecardAppsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询网关 API 分组列表
+   * 
+   * @param request - ListGatewayApiGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayApiGroupsResponse
+   */
+  async listGatewayApiGroupsWithOptions(request: $_model.ListGatewayApiGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayApiGroupsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.upstreamType)) {
+      body["UpstreamType"] = request.upstreamType;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGatewayApiGroups",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGatewayApiGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListGatewayApiGroupsResponse({}));
+  }
+
+  /**
+   * 查询网关 API 分组列表
+   * 
+   * @param request - ListGatewayApiGroupsRequest
+   * @returns ListGatewayApiGroupsResponse
+   */
+  async listGatewayApiGroups(request: $_model.ListGatewayApiGroupsRequest): Promise<$_model.ListGatewayApiGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listGatewayApiGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询网关 API 列表
+   * 
+   * @param request - ListGatewayApisRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayApisResponse
+   */
+  async listGatewayApisWithOptions(request: $_model.ListGatewayApisRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayApisResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiStatus)) {
+      body["ApiStatus"] = request.apiStatus;
+    }
+
+    if (!$dara.isNull(request.apiType)) {
+      body["ApiType"] = request.apiType;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sysName)) {
+      body["SysName"] = request.sysName;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGatewayApis",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGatewayApisResponse>(await this.callApi(params, req, runtime), new $_model.ListGatewayApisResponse({}));
+  }
+
+  /**
+   * 查询网关 API 列表
+   * 
+   * @param request - ListGatewayApisRequest
+   * @returns ListGatewayApisResponse
+   */
+  async listGatewayApis(request: $_model.ListGatewayApisRequest): Promise<$_model.ListGatewayApisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listGatewayApisWithOptions(request, runtime);
   }
 
   /**
@@ -6989,6 +7775,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询小游戏已审核通过的资质信息
+   * 
+   * @param request - QueryMiniGameQualificationByAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMiniGameQualificationByAppResponse
+   */
+  async queryMiniGameQualificationByAppWithOptions(request: $_model.QueryMiniGameQualificationByAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMiniGameQualificationByAppResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.miniProgramCode)) {
+      body["MiniProgramCode"] = request.miniProgramCode;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMiniGameQualificationByApp",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMiniGameQualificationByAppResponse>(await this.callApi(params, req, runtime), new $_model.QueryMiniGameQualificationByAppResponse({}));
+  }
+
+  /**
+   * 查询小游戏已审核通过的资质信息
+   * 
+   * @param request - QueryMiniGameQualificationByAppRequest
+   * @returns QueryMiniGameQualificationByAppResponse
+   */
+  async queryMiniGameQualificationByApp(request: $_model.QueryMiniGameQualificationByAppRequest): Promise<$_model.QueryMiniGameQualificationByAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMiniGameQualificationByAppWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - QueryMpsSchedulerListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryMpsSchedulerListResponse
@@ -7912,6 +8752,322 @@ export default class Client extends OpenApi {
   async startUserAppAsyncEnhanceInMsa(request: $_model.StartUserAppAsyncEnhanceInMsaRequest): Promise<$_model.StartUserAppAsyncEnhanceInMsaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startUserAppAsyncEnhanceInMsaWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新网关 API
+   * 
+   * @param tmpReq - UpdateGatewayApiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGatewayApiResponse
+   */
+  async updateGatewayApiWithOptions(tmpReq: $_model.UpdateGatewayApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGatewayApiResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateGatewayApiShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.cacheRule)) {
+      request.cacheRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheRule, "CacheRule", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.defaultLimitRule)) {
+      request.defaultLimitRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.defaultLimitRule, "DefaultLimitRule", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.headerRules)) {
+      request.headerRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.headerRules, "HeaderRules", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.limitRule)) {
+      request.limitRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.limitRule, "LimitRule", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.migrateRule)) {
+      request.migrateRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.migrateRule, "MigrateRule", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.mockRule)) {
+      request.mockRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.mockRule, "MockRule", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.requestParams)) {
+      request.requestParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.requestParams, "RequestParams", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.rpcParameterTypes)) {
+      request.rpcParameterTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rpcParameterTypes, "RpcParameterTypes", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiId)) {
+      body["ApiId"] = request.apiId;
+    }
+
+    if (!$dara.isNull(request.apiName)) {
+      body["ApiName"] = request.apiName;
+    }
+
+    if (!$dara.isNull(request.apiStatus)) {
+      body["ApiStatus"] = request.apiStatus;
+    }
+
+    if (!$dara.isNull(request.apiType)) {
+      body["ApiType"] = request.apiType;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.authRuleName)) {
+      body["AuthRuleName"] = request.authRuleName;
+    }
+
+    if (!$dara.isNull(request.cacheRuleShrink)) {
+      body["CacheRule"] = request.cacheRuleShrink;
+    }
+
+    if (!$dara.isNull(request.charset)) {
+      body["Charset"] = request.charset;
+    }
+
+    if (!$dara.isNull(request.contentType)) {
+      body["ContentType"] = request.contentType;
+    }
+
+    if (!$dara.isNull(request.defaultLimitRuleShrink)) {
+      body["DefaultLimitRule"] = request.defaultLimitRuleShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.headerRulesShrink)) {
+      body["HeaderRules"] = request.headerRulesShrink;
+    }
+
+    if (!$dara.isNull(request.interfaceType)) {
+      body["InterfaceType"] = request.interfaceType;
+    }
+
+    if (!$dara.isNull(request.limitRuleShrink)) {
+      body["LimitRule"] = request.limitRuleShrink;
+    }
+
+    if (!$dara.isNull(request.method)) {
+      body["Method"] = request.method;
+    }
+
+    if (!$dara.isNull(request.methodName)) {
+      body["MethodName"] = request.methodName;
+    }
+
+    if (!$dara.isNull(request.migrateRuleShrink)) {
+      body["MigrateRule"] = request.migrateRuleShrink;
+    }
+
+    if (!$dara.isNull(request.mockRuleShrink)) {
+      body["MockRule"] = request.mockRuleShrink;
+    }
+
+    if (!$dara.isNull(request.needEncrypt)) {
+      body["NeedEncrypt"] = request.needEncrypt;
+    }
+
+    if (!$dara.isNull(request.needJsonp)) {
+      body["NeedJsonp"] = request.needJsonp;
+    }
+
+    if (!$dara.isNull(request.needSign)) {
+      body["NeedSign"] = request.needSign;
+    }
+
+    if (!$dara.isNull(request.operationType)) {
+      body["OperationType"] = request.operationType;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      body["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.requestBodyModel)) {
+      body["RequestBodyModel"] = request.requestBodyModel;
+    }
+
+    if (!$dara.isNull(request.requestParamsShrink)) {
+      body["RequestParams"] = request.requestParamsShrink;
+    }
+
+    if (!$dara.isNull(request.responseBodyModel)) {
+      body["ResponseBodyModel"] = request.responseBodyModel;
+    }
+
+    if (!$dara.isNull(request.rpcParameterTypesShrink)) {
+      body["RpcParameterTypes"] = request.rpcParameterTypesShrink;
+    }
+
+    if (!$dara.isNull(request.serialization)) {
+      body["Serialization"] = request.serialization;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      body["Timeout"] = request.timeout;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGatewayApi",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateGatewayApiResponse>(await this.callApi(params, req, runtime), new $_model.UpdateGatewayApiResponse({}));
+  }
+
+  /**
+   * 更新网关 API
+   * 
+   * @param request - UpdateGatewayApiRequest
+   * @returns UpdateGatewayApiResponse
+   */
+  async updateGatewayApi(request: $_model.UpdateGatewayApiRequest): Promise<$_model.UpdateGatewayApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateGatewayApiWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新网关 API 分组
+   * 
+   * @param tmpReq - UpdateGatewayApiGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGatewayApiGroupResponse
+   */
+  async updateGatewayApiGroupWithOptions(tmpReq: $_model.UpdateGatewayApiGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGatewayApiGroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateGatewayApiGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.centers)) {
+      request.centersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.centers, "Centers", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.centersShrink)) {
+      body["Centers"] = request.centersShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      body["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.enableMTLS)) {
+      body["EnableMTLS"] = request.enableMTLS;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      body["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.host)) {
+      body["Host"] = request.host;
+    }
+
+    if (!$dara.isNull(request.httpsModel)) {
+      body["HttpsModel"] = request.httpsModel;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instancePort)) {
+      body["InstancePort"] = request.instancePort;
+    }
+
+    if (!$dara.isNull(request.regionMode)) {
+      body["RegionMode"] = request.regionMode;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      body["Timeout"] = request.timeout;
+    }
+
+    if (!$dara.isNull(request.upstreamType)) {
+      body["UpstreamType"] = request.upstreamType;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.vpcModel)) {
+      body["VpcModel"] = request.vpcModel;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGatewayApiGroup",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateGatewayApiGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateGatewayApiGroupResponse({}));
+  }
+
+  /**
+   * 更新网关 API 分组
+   * 
+   * @param request - UpdateGatewayApiGroupRequest
+   * @returns UpdateGatewayApiGroupResponse
+   */
+  async updateGatewayApiGroup(request: $_model.UpdateGatewayApiGroupRequest): Promise<$_model.UpdateGatewayApiGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateGatewayApiGroupWithOptions(request, runtime);
   }
 
   /**

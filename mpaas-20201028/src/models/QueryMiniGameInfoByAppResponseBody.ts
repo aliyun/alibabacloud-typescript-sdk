@@ -2,6 +2,59 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class QueryMiniGameInfoByAppResponseBodyContentUserProfileData extends $dara.Model {
+  activeRegionCodes?: string;
+  activeRegions?: string;
+  ageSegment?: string;
+  androidActiveModels?: string;
+  androidRatio?: number;
+  femaleRatio?: number;
+  harmonyRatio?: number;
+  iosActiveModels?: string;
+  iosRatio?: number;
+  maleRatio?: number;
+  profileRemark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeRegionCodes: 'ActiveRegionCodes',
+      activeRegions: 'ActiveRegions',
+      ageSegment: 'AgeSegment',
+      androidActiveModels: 'AndroidActiveModels',
+      androidRatio: 'AndroidRatio',
+      femaleRatio: 'FemaleRatio',
+      harmonyRatio: 'HarmonyRatio',
+      iosActiveModels: 'IosActiveModels',
+      iosRatio: 'IosRatio',
+      maleRatio: 'MaleRatio',
+      profileRemark: 'ProfileRemark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeRegionCodes: 'string',
+      activeRegions: 'string',
+      ageSegment: 'string',
+      androidActiveModels: 'string',
+      androidRatio: 'number',
+      femaleRatio: 'number',
+      harmonyRatio: 'number',
+      iosActiveModels: 'string',
+      iosRatio: 'number',
+      maleRatio: 'number',
+      profileRemark: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryMiniGameInfoByAppResponseBodyContent extends $dara.Model {
   gameEngine?: string;
   gameMaker?: string;
@@ -16,6 +69,7 @@ export class QueryMiniGameInfoByAppResponseBodyContent extends $dara.Model {
   miniProgramId?: number;
   miniProgramName?: string;
   slogan?: string;
+  userProfileData?: QueryMiniGameInfoByAppResponseBodyContentUserProfileData;
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,6 +86,7 @@ export class QueryMiniGameInfoByAppResponseBodyContent extends $dara.Model {
       miniProgramId: 'MiniProgramId',
       miniProgramName: 'MiniProgramName',
       slogan: 'Slogan',
+      userProfileData: 'UserProfileData',
       version: 'Version',
     };
   }
@@ -51,11 +106,15 @@ export class QueryMiniGameInfoByAppResponseBodyContent extends $dara.Model {
       miniProgramId: 'number',
       miniProgramName: 'string',
       slogan: 'string',
+      userProfileData: QueryMiniGameInfoByAppResponseBodyContentUserProfileData,
       version: 'string',
     };
   }
 
   validate() {
+    if(this.userProfileData && typeof (this.userProfileData as any).validate === 'function') {
+      (this.userProfileData as any).validate();
+    }
     super.validate();
   }
 
