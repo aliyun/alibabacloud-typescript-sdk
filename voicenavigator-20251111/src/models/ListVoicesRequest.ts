@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVoicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * e48e45dd-e47a-4744-a063-f08cbebb1c5a
@@ -13,7 +13,15 @@ export class ListVoicesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The TTS access type.
+   * The model.
+   * 
+   * @example
+   * qwen-3.8-omni-flash
+   */
+  model?: string;
+  /**
+   * @remarks
+   * The TTS invocation method.
    * 
    * @example
    * MANAGED
@@ -27,6 +35,14 @@ export class ListVoicesRequest extends $dara.Model {
    * BAILIAN
    */
   nlsEngine?: string;
+  /**
+   * @remarks
+   * Specifies whether the model is an Omni model.
+   * 
+   * @example
+   * false
+   */
+  omniModel?: boolean;
   /**
    * @remarks
    * The page number.
@@ -46,8 +62,10 @@ export class ListVoicesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      model: 'Model',
       nlsAccessType: 'NlsAccessType',
       nlsEngine: 'NlsEngine',
+      omniModel: 'OmniModel',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -56,8 +74,10 @@ export class ListVoicesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      model: 'string',
       nlsAccessType: 'string',
       nlsEngine: 'string',
+      omniModel: 'boolean',
       pageNumber: 'number',
       pageSize: 'number',
     };

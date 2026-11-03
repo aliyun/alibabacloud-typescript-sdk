@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model {
   /**
    * @remarks
-   * The bot\\"s response. This parameter is valid when `Role` is `ASSISTANT`.
+   * The assistant response. Valid when the role is ASSISTANT.
    * 
    * @example
-   * 不好意思，
+   * Sorry,
    */
   answer?: string;
   /**
    * @remarks
-   * Indicates whether the user\\"s utterance is a backchannel (for example, "uh-huh" or "okay"). This parameter is valid when `Role` is `USER`.
+   * Indicates whether the backchannel is interactive feedback from the customer to the assistant. Valid when the role is USER.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   backchannels?: boolean;
   /**
    * @remarks
-   * The start timestamp of the turn, in milliseconds since the Unix epoch.
+   * The start timestamp. Unit: milliseconds.
    * 
    * @example
    * 1748945414222
@@ -29,7 +29,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   beginTime?: number;
   /**
    * @remarks
-   * A list of control parameters. This parameter is valid when `Role` is `ASSISTANT`.
+   * The list of control parameters. Valid when the role is ASSISTANT.
    * 
    * @example
    * [{"endSilenceTimeout":500,"interruptible":false,"silenceDetectionTimeout":5,"type":"Voice"}]
@@ -37,7 +37,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   controlParamsList?: string;
   /**
    * @remarks
-   * The end timestamp of the turn, in milliseconds since the Unix epoch.
+   * The end timestamp. Unit: milliseconds.
    * 
    * @example
    * 1767315903531
@@ -45,7 +45,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   endTime?: number;
   /**
    * @remarks
-   * The event timestamp, in milliseconds since the Unix epoch.
+   * The timestamp when the event occurred. Format: UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1774859592165
@@ -53,7 +53,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   eventTime?: string;
   /**
    * @remarks
-   * Additional input from the user other than speech. This parameter is valid when `Role` is `USER`.
+   * The user input other than speech. Valid when the role is USER.
    * 
    * @example
    * [{"dataType":"Silence"}]
@@ -61,7 +61,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   extras?: string;
   /**
    * @remarks
-   * Indicates whether the turn was interrupted.
+   * Indicates whether the speech was interrupted.
    * 
    * @example
    * false
@@ -69,25 +69,31 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   interrupted?: boolean;
   /**
    * @remarks
-   * Indicates whether the bot\\"s response is obsolete. This parameter is valid when `Role` is `ASSISTANT`.
+   * Indicates whether the assistant response is invalidated. Valid when the role is ASSISTANT.
    * 
    * @example
    * false
    */
   legacy?: boolean;
   /**
+   * @remarks
+   * The playback status.
+   * 
    * @example
    * INTERRUPTED
    */
   playbackStatus?: string;
   /**
+   * @remarks
+   * The played content.
+   * 
    * @example
-   * 好的
+   * Okay
    */
   playedAnswer?: string;
   /**
    * @remarks
-   * The number of words played from the bot\\"s response. This parameter is valid when `Role` is `USER`.
+   * The assistant speech heard by the user. Valid when the role is USER.
    * 
    * @example
    * 10
@@ -95,7 +101,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   playedWords?: number;
   /**
    * @remarks
-   * The role of the speaker.
+   * The role.
    * 
    * @example
    * USER
@@ -103,7 +109,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   role?: string;
   /**
    * @remarks
-   * Indicates if this is the final part of a streamed response.
+   * The end identifier for text streaming output.
    * 
    * @example
    * true
@@ -111,7 +117,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   streamEnd?: boolean;
   /**
    * @remarks
-   * The ID of the conversation turn.
+   * The conversation turn ID.
    * 
    * @example
    * 1
@@ -119,15 +125,15 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   streamId?: string;
   /**
    * @remarks
-   * The user\\"s utterance. This parameter is valid when `Role` is `USER`.
+   * The user speech. Valid when the role is USER.
    * 
    * @example
-   * 你要说你快点说不说，我挂了哈。
+   * If you have something to say, say it quickly, otherwise I\\"m hanging up
    */
   utterance?: string;
   /**
    * @remarks
-   * Vendor-specific data sent from the client. This parameter is valid when `Role` is `USER`.
+   * The user-side pass-through data. Valid when the role is USER.
    * 
    * @example
    * {"test1":"1234"}
@@ -189,7 +195,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
 export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The phone number of the callee.
+   * The called number.
    * 
    * @example
    * 15100000001
@@ -197,7 +203,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   callee?: string;
   /**
    * @remarks
-   * The phone number of the caller.
+   * The calling number.
    * 
    * @example
    * 15929990193
@@ -205,7 +211,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   caller?: string;
   /**
    * @remarks
-   * The disposition code for the call.
+   * The disposition code.
    * 
    * @example
    * Answered
@@ -213,7 +219,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   dispositionCode?: string;
   /**
    * @remarks
-   * The reason for the call\\"s disposition.
+   * The call connection status.
    * 
    * @example
    * ConcurrentLimitExceeded
@@ -221,7 +227,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   dispositionReason?: string;
   /**
    * @remarks
-   * The session duration, in seconds.
+   * The session duration. Unit: seconds.
    * 
    * @example
    * 160
@@ -237,7 +243,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Indicates whether the user\\"s issue was resolved.
+   * Indicates whether the customer issue is resolved.
    * 
    * @example
    * false
@@ -245,7 +251,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   issueResolved?: boolean;
   /**
    * @remarks
-   * The party that ended the call.
+   * The hang-up initiator.
    * 
    * @example
    * Customer
@@ -253,7 +259,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   releaseInitiator?: string;
   /**
    * @remarks
-   * The basis for the resolution judgment.
+   * The resolution evidence.
    * 
    * @example
    * unknown
@@ -277,7 +283,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The talk time, in seconds.
+   * The talk time. Unit: seconds.
    * 
    * @example
    * 100
@@ -306,7 +312,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   transferTarget?: string;
   /**
    * @remarks
-   * The transfer type.
+   * The transfer target.
    * 
    * @example
    * SkillGroup
@@ -377,7 +383,7 @@ export class GetCallDetailRecordResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The call detail record.
+   * The call record.
    */
   data?: GetCallDetailRecordResponseBodyData;
   /**
@@ -398,12 +404,12 @@ export class GetCallDetailRecordResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A list of parameters related to the error.
+   * The list of error parameters.
    */
   params?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * a2c26e67-5984-4935-984e-bcee52971993

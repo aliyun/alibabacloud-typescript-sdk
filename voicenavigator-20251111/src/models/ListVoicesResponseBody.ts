@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListVoicesResponseBodyDataVoices extends $dara.Model {
   /**
    * @remarks
-   * The category of the voice.
+   * The category.
    * 
    * @example
-   * 千问音色
+   * Qwen voice
    */
   category?: string;
   /**
    * @remarks
-   * The language supported by the voice.
+   * The supported languages.
    * 
    * @example
-   * 中文及中英文混合
+   * Chinese and mixed Chinese-English
    */
   language?: string;
   /**
@@ -29,10 +29,10 @@ export class ListVoicesResponseBodyDataVoices extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The name of the voice.
+   * The voice name.
    * 
    * @example
-   * 芊悦
+   * Qianyue
    */
   name?: string;
   /**
@@ -45,20 +45,20 @@ export class ListVoicesResponseBodyDataVoices extends $dara.Model {
   nlsEngine?: string;
   /**
    * @remarks
-   * The style of the voice.
+   * The style.
    * 
    * @example
-   * 女声
+   * Female voice
    */
   style?: string;
   /**
    * @remarks
-   * A list of supported parameters.
+   * The list of supported parameters.
    */
   supportedParams?: string[];
   /**
    * @remarks
-   * The identifier for the voice.
+   * The speaker.
    * 
    * @example
    * Cherry
@@ -113,7 +113,7 @@ export class ListVoicesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -121,7 +121,7 @@ export class ListVoicesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total count of voices.
+   * The total count.
    * 
    * @example
    * 100
@@ -129,7 +129,7 @@ export class ListVoicesResponseBodyData extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * A list of voices.
+   * The list of voices.
    */
   voices?: ListVoicesResponseBodyDataVoices[];
   static names(): { [key: string]: string } {
@@ -173,7 +173,7 @@ export class ListVoicesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * A paginated list of voices.
+   * The paginated voice results.
    */
   data?: ListVoicesResponseBodyData;
   /**
@@ -195,7 +195,7 @@ export class ListVoicesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A list of dynamic parameters related to the error.
+   * The list of dynamic error parameters.
    */
   params?: string[];
   /**

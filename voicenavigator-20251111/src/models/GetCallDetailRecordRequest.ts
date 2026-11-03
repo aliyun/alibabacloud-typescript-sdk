@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCallDetailRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * c28fc549-d88f-4f6e-85ad-a0806e5e39c0
@@ -13,7 +13,7 @@ export class GetCallDetailRecordRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the session.
+   * The session ID.
    * 
    * @example
    * 9fe19f64-a290-4a73-a3ed-5f7d21d44ecb

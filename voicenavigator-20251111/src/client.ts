@@ -1502,7 +1502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get call details.
+   * Retrieves the details of a call.
    * 
    * @param request - GetCallDetailRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1537,7 +1537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get call details.
+   * Retrieves the details of a call.
    * 
    * @param request - GetCallDetailRecordRequest
    * @returns GetCallDetailRecordResponse
@@ -3046,7 +3046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of available voices.
+   * Retrieves the details of an instance.
    * 
    * @param request - ListVoicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3059,12 +3059,20 @@ export default class Client extends OpenApi {
       body["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
     if (!$dara.isNull(request.nlsAccessType)) {
       body["NlsAccessType"] = request.nlsAccessType;
     }
 
     if (!$dara.isNull(request.nlsEngine)) {
       body["NlsEngine"] = request.nlsEngine;
+    }
+
+    if (!$dara.isNull(request.omniModel)) {
+      body["OmniModel"] = request.omniModel;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -3093,7 +3101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of available voices.
+   * Retrieves the details of an instance.
    * 
    * @param request - ListVoicesRequest
    * @returns ListVoicesResponse
