@@ -2,10 +2,52 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateContextStoreResponseBodyConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether runtime recall is allowed after the experience library is updated.
+   */
+  runtimeRecallEnabled?: boolean;
+  /**
+   * @remarks
+   * The runtime recall property version that takes effect after this update.
+   * 
+   * @example
+   * 1
+   */
+  runtimeRecallRevision?: number;
+  static names(): { [key: string]: string } {
+    return {
+      runtimeRecallEnabled: 'runtimeRecallEnabled',
+      runtimeRecallRevision: 'runtimeRecallRevision',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      runtimeRecallEnabled: 'boolean',
+      runtimeRecallRevision: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateContextStoreResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which is used to locate the request when troubleshooting issues.
+   * The configuration properties after the runtime recall switch is updated. This block is not returned for other library update operations.
+   */
+  config?: UpdateContextStoreResponseBodyConfig;
+  /**
+   * @remarks
+   * The request ID, which is used to locate this request during troubleshooting.
    * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
@@ -13,7 +55,7 @@ export class UpdateContextStoreResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The strategy version that takes effect after the update for the memory type. If the strategy remains unchanged, the version is the same as the one before the update.
+   * The strategy version number that takes effect after the update for the memory type. If the strategy remains unchanged, the version number is the same as before the update.
    * 
    * @example
    * 2
@@ -21,6 +63,7 @@ export class UpdateContextStoreResponseBody extends $dara.Model {
   strategyVersion?: number;
   static names(): { [key: string]: string } {
     return {
+      config: 'config',
       requestId: 'requestId',
       strategyVersion: 'strategyVersion',
     };
@@ -28,12 +71,16 @@ export class UpdateContextStoreResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: UpdateContextStoreResponseBodyConfig,
       requestId: 'string',
       strategyVersion: 'number',
     };
   }
 
   validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
     super.validate();
   }
 

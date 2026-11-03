@@ -1673,7 +1673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a context store.
+   * Queries the context store.
    * 
    * @param request - GetContextStoreRequest
    * @param headers - map
@@ -1700,7 +1700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a context store.
+   * Queries the context store.
    * 
    * @param request - GetContextStoreRequest
    * @returns GetContextStoreResponse
@@ -3559,6 +3559,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expectedRuntimeRecallRevision)) {
+      body["expectedRuntimeRecallRevision"] = request.expectedRuntimeRecallRevision;
+    }
+
+    if (!$dara.isNull(request.reason)) {
+      body["reason"] = request.reason;
     }
 
     if (!$dara.isNull(request.status)) {

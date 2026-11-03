@@ -45,6 +45,7 @@ export { ExecuteQueryResponseBodyMetaTruncation } from './ExecuteQueryResponseBo
 export { ExecuteQueryResponseBodyMeta } from './ExecuteQueryResponseBody';
 export { GetAgentSpaceResponseBodyMseNamespace } from './GetAgentSpaceResponseBody';
 export { GetContextStoreResponseBodyConfigAudit } from './GetContextStoreResponseBody';
+export { GetContextStoreResponseBodyConfigAuditLogStore } from './GetContextStoreResponseBody';
 export { GetContextStoreResponseBodyConfigExtractionPoliciesModel } from './GetContextStoreResponseBody';
 export { GetContextStoreResponseBodyConfigExtractionPoliciesStoragePolicy } from './GetContextStoreResponseBody';
 export { GetContextStoreResponseBodyConfigExtractionPolicies } from './GetContextStoreResponseBody';
@@ -152,6 +153,7 @@ export { UpdateContextStoreRequestConfigSourceTrajectory } from './UpdateContext
 export { UpdateContextStoreRequestConfigSource } from './UpdateContextStoreRequest';
 export { UpdateContextStoreRequestConfigStoragePolicy } from './UpdateContextStoreRequest';
 export { UpdateContextStoreRequestConfig } from './UpdateContextStoreRequest';
+export { UpdateContextStoreResponseBodyConfig } from './UpdateContextStoreResponseBody';
 export { UpdateDatasetRequestRenames } from './UpdateDatasetRequest';
 export { UpdateEvaluatorSkillRequestFiles } from './UpdateEvaluatorSkillRequest';
 export { UpdatePipelineRequestExecutePolicyContinuous } from './UpdatePipelineRequest';

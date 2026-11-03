@@ -13,7 +13,7 @@ export class CreateContextStoreResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The version number of the currently effective strategy (memory type).
+   * The version number of the effective strategy for the memory type.
    * 
    * @example
    * 1

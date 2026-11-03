@@ -29,7 +29,7 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
   contextType?: string;
   /**
    * @remarks
-   * The time when the context store was created, in ISO 8601 UTC format.
+   * The time when the context store was created. The time is in the ISO 8601 UTC format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -63,7 +63,7 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
   serviceNames?: string[];
   /**
    * @remarks
-   * The memory data source type, such as manual, trajectory, or dataset. This parameter has a value only for the memory type.
+   * The data source type of the memory context store. Valid values: manual, trajectory, and dataset. This parameter has a value only for the memory type.
    * 
    * @example
    * trajectory
@@ -79,16 +79,20 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The memory storage mode, such as event or upsert. This parameter has a value only for the memory type.
+   * The storage mode of the memory context store. Valid values: event and upsert. This parameter has a value only for the memory type.
    * 
    * @example
    * upsert
    */
   storageMode?: string;
+  /**
+   * @remarks
+   * The actual storage modes of each policy. A hybrid context store includes both event and upsert.
+   */
   storageModes?: string[];
   /**
    * @remarks
-   * The time when the context store was last updated, in ISO 8601 UTC format.
+   * The time when the context store was last updated. The time is in the ISO 8601 UTC format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -148,7 +152,7 @@ export class ListContextStoresResponseBodyResults extends $dara.Model {
 export class ListContextStoresResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results per page specified in the request.
+   * The maximum number of entries per page specified in the request.
    * 
    * @example
    * 20
@@ -164,7 +168,7 @@ export class ListContextStoresResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID, which can be used to locate the request during troubleshooting.
+   * The request ID, which is used to locate the request during troubleshooting.
    * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M

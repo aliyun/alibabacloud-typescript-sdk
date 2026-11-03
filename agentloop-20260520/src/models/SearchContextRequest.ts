@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchContextRequestScope extends $dara.Model {
   /**
    * @remarks
-   * Agent Id
+   * The ID of the agent.
    * 
    * @example
    * sales-copilot
@@ -13,7 +13,7 @@ export class SearchContextRequestScope extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * crm-service
@@ -21,7 +21,7 @@ export class SearchContextRequestScope extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The run ID.
+   * The ID of the run.
    * 
    * @example
    * run-001
@@ -29,7 +29,7 @@ export class SearchContextRequestScope extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * u-10001
@@ -81,7 +81,7 @@ export class SearchContextRequest extends $dara.Model {
   formatted?: boolean;
   /**
    * @remarks
-   * Specifies whether to include memories whose sourceState is inactive. Default value: false.
+   * Specifies whether to include memories with sourceState=inactive. Default value: false.
    * 
    * @example
    * false
@@ -89,7 +89,7 @@ export class SearchContextRequest extends $dara.Model {
   includeInactive?: boolean;
   /**
    * @remarks
-   * The maximum number of returned results, which corresponds to the top N results by similarity.
+   * The maximum number of returned results based on the top-N similarity.
    * 
    * @example
    * 10
@@ -115,12 +115,12 @@ export class SearchContextRequest extends $dara.Model {
   retrievalOption?: string;
   /**
    * @remarks
-   * The recall scope. If a field with the same name conflicts with the filter, a 400 ScopeFilterConflict error is returned.
+   * The recall scope. If a field with the same name exists in the filter, a 400 ScopeFilterConflict error is returned.
    */
   scope?: SearchContextRequestScope;
   /**
    * @remarks
-   * Filters results by extraction strategy ID. Multiple IDs in the list are evaluated with an OR condition. If this parameter is not specified, all strategies are recalled. An empty list returns a 400 error. If the format is valid but no matching IDs are found, an empty result is returned. IDs of historically removed strategies are supported.
+   * Filters results by extraction strategy IDs. Multiple IDs in the list are evaluated with an OR logic. If this parameter is not specified, all strategies are recalled. An empty list returns a 400 error. Valid IDs with no matches return empty results. Historical removed strategy IDs are supported.
    * 
    * @example
    * ["preferences","profile"]
