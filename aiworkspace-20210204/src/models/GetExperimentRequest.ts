@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetExperimentRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to retrieve the latest run information for the experiment.
+   * Specifies whether to retrieve the latest run information associated with the experiment.
    * 
    * @example
    * false

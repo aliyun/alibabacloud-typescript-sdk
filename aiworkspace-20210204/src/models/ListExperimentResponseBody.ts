@@ -11,7 +11,7 @@ export class ListExperimentResponseBody extends $dara.Model {
   experiments?: Experiment[];
   /**
    * @remarks
-   * The token for the next page. Save this token and include it in the next request to retrieve the next page of results.
+   * The token for the next page. Record this token and pass it in the next request.
    * 
    * @example
    * 0
@@ -27,7 +27,7 @@ export class ListExperimentResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0C6835C5-A424-5AFB-ACC2-F1E3CA1ABF7C

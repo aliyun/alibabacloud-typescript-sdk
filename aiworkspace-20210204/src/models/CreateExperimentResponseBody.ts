@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExperimentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the experiment. If the creation operation is asynchronous, a specific job ID is returned.
+   * The Job ID returned if the creation API is implemented asynchronously.
    * 
    * @example
-   * ExperimentId
+   * ID of the experiment created by the API request
    */
   experimentId?: string;
   /**
@@ -16,7 +16,7 @@ export class CreateExperimentResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * RequestId
+   * Request ID
    */
   requestId?: string;
   static names(): { [key: string]: string } {

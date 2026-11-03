@@ -83,6 +83,9 @@ export class Trial extends $dara.Model {
   /**
    * @remarks
    * UserId
+   * 
+   * @example
+   * 1557702098******
    */
   userId?: string;
   /**

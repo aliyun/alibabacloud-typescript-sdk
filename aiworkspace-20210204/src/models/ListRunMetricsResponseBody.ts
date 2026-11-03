@@ -11,7 +11,7 @@ export class ListRunMetricsResponseBody extends $dara.Model {
   metrics?: RunMetric[];
   /**
    * @remarks
-   * The token to retrieve the next page of results. A value of 0 indicates that all results have been returned. Use the value of this parameter for the \\`PageToken\\` parameter in your next request to retrieve the next page.
+   * The pagination token. Leave this parameter empty when you query the first page. The response returns the token for the next page. A value of 0 indicates that all results have been retrieved. You can obtain the token for the next page from the **NextPageToken** field in the response.
    * 
    * @example
    * 0
@@ -19,7 +19,7 @@ export class ListRunMetricsResponseBody extends $dara.Model {
   nextPageToken?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * ADF6D849-*****-7E7030F0CE53

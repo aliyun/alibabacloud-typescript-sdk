@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return additional information, such as the workspace owner. Valid values:
+   * A comma-separated string used to specify additional information to return. This field does not take effect.
    * 
-   * - false (default): Does not return additional information.
-   * 
-   * - true: Returns additional information.
+   * @example
+   * NotSupport
+   */
+  extraVerboseFields?: string;
+  /**
+   * @remarks
+   * Specifies whether to display supplementary information such as the workspace owner. Valid values:
+   * - false: Does not display supplementary information.
+   * - true: Displays supplementary information.
+   * Default value: false.
    * 
    * @example
    * true
@@ -17,12 +24,14 @@ export class GetWorkspaceRequest extends $dara.Model {
   verbose?: boolean;
   static names(): { [key: string]: string } {
     return {
+      extraVerboseFields: 'ExtraVerboseFields',
       verbose: 'Verbose',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      extraVerboseFields: 'string',
       verbose: 'boolean',
     };
   }

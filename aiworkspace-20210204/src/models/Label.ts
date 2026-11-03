@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Label extends $dara.Model {
   /**
    * @remarks
-   * The label key. The value can be up to 128 bytes in length and cannot contain equal signs (=) and commas (,).
+   * The tag key. It can be up to 128 bytes in length and cannot contain equal signs (=) or half-width commas (,).
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class Label extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The label value. The value can be up to 128 bytes in length and cannot contain equal signs (=) and commas (,).
+   * The tag value. It can be up to 128 bytes in length and cannot contain equal signs (=) or half-width commas (,).
    * 
    * @example
    * test

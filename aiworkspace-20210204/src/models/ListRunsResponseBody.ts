@@ -6,7 +6,7 @@ import { Run } from "./Run";
 export class ListRunsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token. Pass an empty value for the first page query. The query result returns the token for the next page. A token value of 0 indicates that all data has been retrieved. You can obtain the token for the next page from the NextPageToken field in the response.
+   * The pagination token. Leave this parameter empty when you query the first page. The response returns the token for the next page. A value of 0 indicates that all entries are returned. You can obtain the token for the next page from the **NextPageToken** field in the response.
    * 
    * @example
    * 0
@@ -19,7 +19,7 @@ export class ListRunsResponseBody extends $dara.Model {
   runs?: Run[];
   /**
    * @remarks
-   * The total number of records that match the request conditions. This is an optional parameter and may not be returned by default.
+   * The total number of entries that meet the current request conditions. This parameter is optional and is not returned by default.
    * 
    * @example
    * 1

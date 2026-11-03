@@ -15,7 +15,7 @@ export class Experiment extends $dara.Model {
   accessibility?: string;
   /**
    * @remarks
-   * The default artifact output path for tasks associated with the experiment. Currently, only OSS paths are supported.
+   * The default artifact output path for the jobs associated with the experiment. Only OSS paths are supported.
    * 
    * @example
    * oss://test-bucket.oss-cn-hangzhou.aliyuncs.com/test
@@ -32,16 +32,22 @@ export class Experiment extends $dara.Model {
   /**
    * @remarks
    * The time when the experiment was created.
+   * 
+   * @example
+   * 2021-01-30T12:51:33.028Z
    */
   gmtCreateTime?: string;
   /**
    * @remarks
    * The time when the experiment was last modified.
+   * 
+   * @example
+   * 2021-01-30T12:51:33.028Z
    */
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * The list of experiment labels.
+   * The list of labels for the experiment.
    */
   labels?: ExperimentLabel[];
   /**
@@ -51,7 +57,7 @@ export class Experiment extends $dara.Model {
   latestRun?: Run;
   /**
    * @remarks
-   * The experiment name.
+   * The name of the experiment.
    * 
    * @example
    * exp-test
@@ -59,7 +65,7 @@ export class Experiment extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the experiment owner.
+   * The Alibaba Cloud account ID of the owner of the experiment.
    * 
    * @example
    * 1631044****3440
@@ -75,7 +81,7 @@ export class Experiment extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The default OSS storage path for TensorBoard logs of each trial in the experiment.
+   * The default OSS storage path for the TensorBoard logs of each trial in the experiment.
    * 
    * @example
    * oss://test-bucket.oss-cn-hangzhou.aliyuncs.com/tensorboard/
@@ -83,7 +89,7 @@ export class Experiment extends $dara.Model {
   tensorboardLogUri?: string;
   /**
    * @remarks
-   * The user ID of the experiment creator.
+   * The user ID of the creator of the experiment.
    * 
    * @example
    * 1557702098******

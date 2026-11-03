@@ -15,7 +15,7 @@ export class ListRunMetricsRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The maximum number of results to return. The default value is 10.
+   * The maximum number of results to return. Default value: 10.
    * 
    * @example
    * 100
@@ -23,7 +23,7 @@ export class ListRunMetricsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The paging token. The token starts from 0. The default value is 0.
+   * The pagination token, starting from 0. Default value: 0.
    * 
    * @example
    * 0

@@ -1658,7 +1658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a run. A run belongs to an experiment and can be associated with a specific workload or can be a standalone code execution.
+   * Creates a run. A run belongs to an experiment and can be associated with a specific workload or executed as standalone code.
    * 
    * @param request - CreateRunRequest
    * @param headers - map
@@ -1711,7 +1711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a run. A run belongs to an experiment and can be associated with a specific workload or can be a standalone code execution.
+   * Creates a run. A run belongs to an experiment and can be associated with a specific workload or executed as standalone code.
    * 
    * @param request - CreateRunRequest
    * @returns CreateRunResponse
@@ -3798,7 +3798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves run details.
+   * Retrieves the details of a run.
    * 
    * @param request - GetRunRequest
    * @param headers - map
@@ -3831,7 +3831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves run details.
+   * Retrieves the details of a run.
    * 
    * @param request - GetRunRequest
    * @returns GetRunResponse
@@ -3853,6 +3853,10 @@ export default class Client extends OpenApi {
   async getWorkspaceWithOptions(WorkspaceId: string, request: $_model.GetWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.extraVerboseFields)) {
+      query["ExtraVerboseFields"] = request.extraVerboseFields;
+    }
+
     if (!$dara.isNull(request.verbose)) {
       query["Verbose"] = request.verbose;
     }
@@ -3927,7 +3931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
+   * Queries a list of code configurations with support for pagination, sorting, and conditional filtering.
    * 
    * @param request - ListCodeSourcesRequest
    * @param headers - map
@@ -3980,7 +3984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
+   * Queries a list of code configurations with support for pagination, sorting, and conditional filtering.
    * 
    * @param request - ListCodeSourcesRequest
    * @returns ListCodeSourcesResponse
@@ -5513,7 +5517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of metric records for a run.
+   * Retrieves the list of metric records for a run.
    * 
    * @param request - ListRunMetricsRequest
    * @param headers - map
@@ -5554,7 +5558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of metric records for a run.
+   * Retrieves the list of metric records for a run.
    * 
    * @param request - ListRunMetricsRequest
    * @returns ListRunMetricsResponse
@@ -5566,7 +5570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of runs.
+   * Queries a list of runs.
    * 
    * @param request - ListRunsRequest
    * @param headers - map
@@ -5655,7 +5659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of runs.
+   * Queries a list of runs.
    * 
    * @param request - ListRunsRequest
    * @returns ListRunsResponse

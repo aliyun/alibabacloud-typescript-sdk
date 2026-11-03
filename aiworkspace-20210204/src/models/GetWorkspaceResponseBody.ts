@@ -70,7 +70,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   adminNames?: string[];
   /**
    * @remarks
-   * The ID of the user who created the workspace.
+   * The user ID of the creator.
    * 
    * @example
    * 1157******94123
@@ -78,7 +78,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The description of the workspace.
+   * The workspace description.
    * 
    * @example
    * workspace description example
@@ -94,16 +94,14 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The environments that the workspace contains. Valid values:
-   * 
-   * - A workspace in basic mode has only the production environment (prod).
-   * 
-   * - A workspace in standard mode has both the development environment (dev) and the production environment (prod).
+   * The environments included in the workspace.
+   * * Simple mode includes only the production environment (prod).
+   * * Standard mode includes the development environment (dev) and the production environment (prod).
    */
   envTypes?: string[];
   /**
    * @remarks
-   * Additional information. This parameter currently contains the tenant ID (TenantId).
+   * The extra information, which currently includes TenantId (tenant ID).
    * 
    * @example
    * {"TenantId": "4286******98"}
@@ -111,7 +109,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   extraInfos?: { [key: string]: any };
   /**
    * @remarks
-   * The time when the workspace was created. The time is in UTC and follows the ISO 8601 standard.
+   * The time when the workspace was created. The time is displayed in UTC and formatted in ISO 8601.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -119,7 +117,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The time when the workspace was last modified. The time is in UTC and follows the ISO 8601 standard.
+   * The time when the workspace was modified. The time is displayed in UTC and formatted in ISO 8601.
    * 
    * @example
    * 2021-01-21T17:12:35.232Z
@@ -127,10 +125,8 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * Indicates whether the workspace is the default workspace. Valid values:
-   * 
+   * Specifies whether the workspace is the default workspace. Valid values:
    * - false: The workspace is not the default workspace.
-   * 
    * - true: The workspace is the default workspace.
    * 
    * @example
@@ -139,7 +135,7 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The information about the workspace owner. This parameter is returned only when Verbose is set to true.
+   * The workspace owner information. Displayed when Verbose is set to true.
    */
   owner?: GetWorkspaceResponseBodyOwner;
   /**
@@ -160,19 +156,13 @@ export class GetWorkspaceResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The status of the workspace. Valid values:
-   * 
-   * - ENABLED: The workspace is running as normal.
-   * 
-   * - INITIALIZING: The workspace is being initialized.
-   * 
-   * - FAILURE: The workspace failed to be created.
-   * 
-   * - DISABLED: The workspace is manually disabled.
-   * 
-   * - FROZEN: The workspace is frozen due to an overdue payment.
-   * 
-   * - UPDATING: The workspace is being updated.
+   * The workspace status. Valid values:
+   * - ENABLED: Normal.
+   * - INITIALIZING: Initializing.
+   * - FAILURE: Failed.
+   * - DISABLED: Manually disabled.
+   * - FROZEN: Frozen due to overdue payment.
+   * - UPDATING: Updating.
    * 
    * @example
    * ENABLED

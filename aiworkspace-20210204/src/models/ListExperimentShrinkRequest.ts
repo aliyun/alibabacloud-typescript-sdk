@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListExperimentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter conditions for labels. Separate multiple conditions with commas (,). A single filter condition must be in the `Key=Value` format.
+   * The label filter conditions. Separate multiple conditions with commas (,).
+   * The format of a single filter condition is `Key=Value`.
    * 
    * @example
    * is_evaluation:true
@@ -13,7 +14,7 @@ export class ListExperimentShrinkRequest extends $dara.Model {
   labels?: string;
   /**
    * @remarks
-   * The maximum number of results to return. The default is 10.
+   * The maximum number of results to return for the request. Default value: 10.
    * 
    * @example
    * 10
@@ -29,16 +30,15 @@ export class ListExperimentShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Optional parameters.
+   * The optional parameters.
    */
   optionsShrink?: string;
   /**
    * @remarks
-   * The order in which to sort the results of a paged query. Valid values:
-   * 
+   * The sort order of the specified field in a paged query. Valid values:
    * - ASC: ascending order.
-   * 
-   * - DESC (default): descending order.
+   * - DESC: descending order.
+   * Default value: DESC.
    * 
    * @example
    * DESC
@@ -46,7 +46,7 @@ export class ListExperimentShrinkRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * A list of sorting methods as strings. You can sort by the following fields: GmtCreateTime, Name, GmtModifiedTime, or ExperimentId. The sorting methods are DESC and ASC. The default is ASC.
+   * The list of sort order strings. Supported fields for sorting include GmtCreateTime, Name, GmtModifiedTime, and ExperimentId. The sort order can be DESC or ASC. Default value: ASC.
    * 
    * @example
    * GmtCreateTime DESC,Name ASC
@@ -70,7 +70,7 @@ export class ListExperimentShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The paging token. It starts from 0. The default is 0.
+   * The pagination token. Pages start from 0. Default value: 0.
    * 
    * @example
    * 0
@@ -78,7 +78,7 @@ export class ListExperimentShrinkRequest extends $dara.Model {
   pageToken?: number;
   /**
    * @remarks
-   * The field to use for sorting in a paged query. Currently, only the GmtCreateTime field is supported for sorting.
+   * The field by which to sort the results of a paged query. Currently, only the GmtCreateTime field is supported for sorting.
    * 
    * @example
    * GmtCreateTime
@@ -86,7 +86,7 @@ export class ListExperimentShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * Specifies whether to retrieve the LatestRun information related to the experiment.
+   * Specifies whether to retrieve the LatestRun information associated with the experiment.
    * 
    * @example
    * false
@@ -94,9 +94,9 @@ export class ListExperimentShrinkRequest extends $dara.Model {
   verbose?: boolean;
   /**
    * @remarks
-   * The ID of the workspace where the experiment resides. For more information about how to obtain a workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
-   * 
-   * > If you do not specify a workspace ID, the system returns the list of experiments in the default workspace.
+   * The ID of the workspace to which the experiment belongs. For more information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+   * > If you do not specify the workspace ID, the system returns the list of experiments in the default workspace.
+   * >
    * 
    * @example
    * 1517**

@@ -19,7 +19,7 @@ export class ListCodeSourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of code source configurations that match the filter conditions.
+   * The total number of code source configurations that meet the filter conditions.
    * 
    * @example
    * 2
