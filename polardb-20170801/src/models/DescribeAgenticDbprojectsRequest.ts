@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBProjectsRequest extends $dara.Model {
   /**
    * @remarks
-   * The AgenticDB cluster ID.
+   * The ID of the AgenticDB cluster.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DescribeAgenticDBProjectsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The project ID used for exact matching.
+   * The project ID for exact match.
    * 
    * @example
    * proj-a1b2c3d4e5f6
@@ -39,7 +39,7 @@ export class DescribeAgenticDBProjectsRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The project name used for fuzzy matching.
+   * The project name for fuzzy match.
    * 
    * @example
    * analytics
@@ -57,7 +57,7 @@ export class DescribeAgenticDBProjectsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The ID of the tenant.
    * 
    * @example
    * t-4b83e0da66674951

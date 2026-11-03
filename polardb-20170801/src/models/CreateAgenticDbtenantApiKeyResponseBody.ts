@@ -21,7 +21,7 @@ export class CreateAgenticDBTenantApiKeyResponseBody extends $dara.Model {
   apiKeyId?: string;
   /**
    * @remarks
-   * The creation time. The time is in ISO 8601 format and follows the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The creation time. The time follows the ISO 8601 standard in the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-10T08:00:00Z
@@ -29,7 +29,7 @@ export class CreateAgenticDBTenantApiKeyResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The expiration time. This parameter is empty if the API key never expires. The time is in ISO 8601 format and follows the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The expiration time. If the API key never expires, this value is empty. The time follows the ISO 8601 standard in the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2027-01-01T00:00:00Z

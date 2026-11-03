@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class InstallPolarClawSkillRequest extends $dara.Model {
   /**
    * @remarks
+   * The target agent in the workspace. If not specified, the default agent is used.
+   * 
+   * @example
+   * test1
+   */
+  agentId?: string;
+  /**
+   * @remarks
    * The application ID.
    * 
    * This parameter is required.
@@ -15,12 +23,20 @@ export class InstallPolarClawSkillRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * Specifies whether to force a reinstallation.
+   * Specifies whether to force reinstallation.
    * 
    * @example
    * true
    */
   force?: boolean;
+  /**
+   * @remarks
+   * The scope. Valid values: workspace (default) and global (shared directory). This parameter is mutually exclusive with AgentId.
+   * 
+   * @example
+   * global
+   */
+  scope?: string;
   /**
    * @remarks
    * The version number.
@@ -31,7 +47,7 @@ export class InstallPolarClawSkillRequest extends $dara.Model {
   skillVersion?: string;
   /**
    * @remarks
-   * The Skill identifier.
+   * The skill identifier.
    * 
    * @example
    * alibacloud-rds-copilot
@@ -39,7 +55,7 @@ export class InstallPolarClawSkillRequest extends $dara.Model {
   slug?: string;
   /**
    * @remarks
-   * The source.
+   * The source. Default value: polarhub.
    * 
    * @example
    * clawhub
@@ -55,8 +71,10 @@ export class InstallPolarClawSkillRequest extends $dara.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      agentId: 'AgentId',
       applicationId: 'ApplicationId',
       force: 'Force',
+      scope: 'Scope',
       skillVersion: 'SkillVersion',
       slug: 'Slug',
       source: 'Source',
@@ -66,8 +84,10 @@ export class InstallPolarClawSkillRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentId: 'string',
       applicationId: 'string',
       force: 'boolean',
+      scope: 'string',
       skillVersion: 'string',
       slug: 'string',
       source: 'string',

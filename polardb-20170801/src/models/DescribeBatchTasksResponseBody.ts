@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBatchTasksResponseBodyTaskList extends $dara.Model {
   /**
    * @remarks
-   * The batch task ID.
+   * The ID of the batch task.
    * 
    * @example
    * pcb-xxx
@@ -21,7 +21,7 @@ export class DescribeBatchTasksResponseBodyTaskList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The number of successful batch tasks.
+   * The number of successful tasks in the batch.
    * 
    * @example
    * 4
@@ -29,7 +29,7 @@ export class DescribeBatchTasksResponseBodyTaskList extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The task start time.
+   * The start time of the task.
    * 
    * @example
    * 2026-04-06 20:51:44
@@ -37,7 +37,7 @@ export class DescribeBatchTasksResponseBodyTaskList extends $dara.Model {
   taskBegin?: string;
   /**
    * @remarks
-   * The task end time.
+   * The end time of the task.
    * 
    * @example
    * 2026-04-06 22:43:26
@@ -61,7 +61,7 @@ export class DescribeBatchTasksResponseBodyTaskList extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The total number of tasks that meet the filter conditions, regardless of pagination.
+   * The total number of tasks that meet the specified conditions, regardless of pagination.
    * 
    * @example
    * 8
@@ -113,7 +113,7 @@ export class DescribeBatchTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -129,12 +129,12 @@ export class DescribeBatchTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task information.
+   * The task details.
    */
   taskList?: DescribeBatchTasksResponseBodyTaskList[];
   /**
    * @remarks
-   * The total number of tasks that meet the filter conditions, regardless of pagination.
+   * The total number of tasks that meet the specified conditions, regardless of pagination.
    * 
    * @example
    * 6

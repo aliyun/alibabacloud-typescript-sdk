@@ -31,7 +31,7 @@ export class UpdatePolarClawSkillShrinkRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The environment variables as a key-value map. An empty value indicates that the variable is deleted.
+   * The environment variables. This is a map of key-value pairs. An empty value indicates that the variable is deleted.
    * 
    * @example
    * {"NETA_TOKEN":"my-token"}

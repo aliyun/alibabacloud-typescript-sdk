@@ -32,7 +32,6 @@ export class DescribeVSwitchListResponseBodyVSwitchs extends $dara.Model {
    * Indicates whether the vSwitch is the default vSwitch. Valid values:
    * 
    * - **true**: The vSwitch is the default vSwitch.
-   * 
    * - **false**: The vSwitch is not the default vSwitch.
    * 
    * @example
@@ -41,7 +40,7 @@ export class DescribeVSwitchListResponseBodyVSwitchs extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The ID of the zone where the vSwitch resides.
+   * The zone ID of the vSwitch.
    * 
    * @example
    * cn-hangzhou-b
@@ -49,7 +48,7 @@ export class DescribeVSwitchListResponseBodyVSwitchs extends $dara.Model {
   izNo?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the resource.
+   * The ID of the owner account.
    * 
    * @example
    * 177563751276****
@@ -76,7 +75,6 @@ export class DescribeVSwitchListResponseBodyVSwitchs extends $dara.Model {
    * The status of the vSwitch. Valid values:
    * 
    * - **Pending**: The vSwitch is being configured.
-   * 
    * - **Available**: The vSwitch is available.
    * 
    * @example
@@ -101,7 +99,7 @@ export class DescribeVSwitchListResponseBodyVSwitchs extends $dara.Model {
   vSwitchName?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1vbkkyt7apvy4j*****
@@ -153,7 +151,7 @@ export class DescribeVSwitchListResponseBodyVSwitchs extends $dara.Model {
 export class DescribeVSwitchListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned results.
    * 
    * @example
    * 1
@@ -163,11 +161,9 @@ export class DescribeVSwitchListResponseBody extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: 30.
    * 
@@ -193,7 +189,7 @@ export class DescribeVSwitchListResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * A list of vSwitches.
+   * The list of vSwitches.
    */
   vSwitchs?: DescribeVSwitchListResponseBodyVSwitchs[];
   static names(): { [key: string]: string } {

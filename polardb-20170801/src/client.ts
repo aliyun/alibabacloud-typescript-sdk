@@ -3022,6 +3022,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.tenantId)) {
+      query["TenantId"] = request.tenantId;
+    }
+
     if (!$dara.isNull(request.tenantName)) {
       query["TenantName"] = request.tenantName;
     }
@@ -3634,6 +3638,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceIdsShrink)) {
       query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.instanceParams)) {
+      query["InstanceParams"] = request.instanceParams;
     }
 
     if (!$dara.isNull(request.param)) {
@@ -12121,7 +12129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of AgenticDB projects.
+   * Queries the list of AgenticDB projects.
    * 
    * @param request - DescribeAgenticDBProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12176,7 +12184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of AgenticDB projects.
+   * Queries the list of AgenticDB projects.
    * 
    * @param request - DescribeAgenticDBProjectsRequest
    * @returns DescribeAgenticDBProjectsResponse
@@ -21696,7 +21704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about vSwitches.
+   * Queries vSwitch information.
    * 
    * @param request - DescribeVSwitchListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21767,7 +21775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about vSwitches.
+   * Queries vSwitch information.
    * 
    * @param request - DescribeVSwitchListRequest
    * @returns DescribeVSwitchListResponse
@@ -22042,7 +22050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the relational algebra of a cluster.
+   * Closes the cluster relationship.
    * 
    * @param request - DisableDBClusterOrcaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22093,7 +22101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the relational algebra of a cluster.
+   * Closes the cluster relationship.
    * 
    * @param request - DisableDBClusterOrcaRequest
    * @returns DisableDBClusterOrcaResponse
@@ -22374,7 +22382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the Orca (Redis-compatible) feature for a PolarDB cluster.
+   * Enables the relational feature for a cluster.
    * 
    * @param request - EnableDBClusterOrcaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22421,7 +22429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the Orca (Redis-compatible) feature for a PolarDB cluster.
+   * Enables the relational feature for a cluster.
    * 
    * @param request - EnableDBClusterOrcaRequest
    * @returns EnableDBClusterOrcaResponse
@@ -23617,7 +23625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs a PolarClaw Skill.
+   * Installs a PolarClaw skill.
    * 
    * @param request - InstallPolarClawSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23626,12 +23634,20 @@ export default class Client extends OpenApi {
   async installPolarClawSkillWithOptions(request: $_model.InstallPolarClawSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InstallPolarClawSkillResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
     if (!$dara.isNull(request.applicationId)) {
       query["ApplicationId"] = request.applicationId;
     }
 
     if (!$dara.isNull(request.force)) {
       query["Force"] = request.force;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      query["Scope"] = request.scope;
     }
 
     if (!$dara.isNull(request.skillVersion)) {
@@ -23668,7 +23684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs a PolarClaw Skill.
+   * Installs a PolarClaw skill.
    * 
    * @param request - InstallPolarClawSkillRequest
    * @returns InstallPolarClawSkillResponse
@@ -29453,7 +29469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify exactly one of the MaxCpu and CpuCount parameters.
+   * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify either MaxCpu or CpuCount, but not both.
    * 
    * @remarks
    * Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
@@ -29509,7 +29525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify exactly one of the MaxCpu and CpuCount parameters.
+   * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify either MaxCpu or CpuCount, but not both.
    * 
    * @remarks
    * Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
@@ -31651,7 +31667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Searches for PolarClaw Skills.
+   * Searches for PolarClaw skills.
    * 
    * @param request - SearchPolarClawSkillsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31664,12 +31680,20 @@ export default class Client extends OpenApi {
       query["ApplicationId"] = request.applicationId;
     }
 
+    if (!$dara.isNull(request.exact)) {
+      query["Exact"] = request.exact;
+    }
+
     if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
     }
 
     if (!$dara.isNull(request.query)) {
       query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -31690,7 +31714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Searches for PolarClaw Skills.
+   * Searches for PolarClaw skills.
    * 
    * @param request - SearchPolarClawSkillsRequest
    * @returns SearchPolarClawSkillsResponse
@@ -32917,7 +32941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the skills of a PolarClaw Agent.
+   * Updates the skills of a PolarClaw agent.
    * 
    * @param tmpReq - UpdatePolarClawAgentSkillsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32962,7 +32986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the skills of a PolarClaw Agent.
+   * Updates the skills of a PolarClaw agent.
    * 
    * @param request - UpdatePolarClawAgentSkillsRequest
    * @returns UpdatePolarClawAgentSkillsResponse

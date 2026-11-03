@@ -7,7 +7,7 @@ export class DescribeVSwitchListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be an integer that is greater than 0. It cannot exceed the maximum value of the Integer data type.
+   * The page number. The value must be an integer greater than 0 and no greater than the maximum value of the Integer type.
    * 
    * @example
    * 1
@@ -17,11 +17,9 @@ export class DescribeVSwitchListRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: 30.
    * 
@@ -31,9 +29,9 @@ export class DescribeVSwitchListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the vSwitch resides.
+   * The region ID of the vSwitch.
    * 
-   * > Call [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) to query the IDs of all regions that support vSwitches.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all region IDs supported by vSwitches.
    * 
    * This parameter is required.
    * 
@@ -46,14 +44,14 @@ export class DescribeVSwitchListRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * A list of vSwitches in the VPC.
+   * The list of vSwitches in the VPC.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
-   * > Call [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) to view the details of the VPC.
+   * > You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to view VPC details.
    * 
    * @example
    * vpc-25cdvfeq58pl****
@@ -61,7 +59,7 @@ export class DescribeVSwitchListRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone where the vSwitch resides.
+   * The zone ID of the vSwitch.
    * 
    * @example
    * cn-hangzhou-g

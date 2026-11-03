@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyResourceControlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 47921222-0D37-4133-8C0D-017DC3******

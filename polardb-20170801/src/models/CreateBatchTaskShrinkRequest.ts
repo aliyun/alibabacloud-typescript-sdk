@@ -13,11 +13,19 @@ export class CreateBatchTaskShrinkRequest extends $dara.Model {
   applicationType?: string;
   /**
    * @remarks
-   * The instance IDs.
+   * The machine instance IDs.
    * 
    * This parameter is required.
    */
   instanceIdsShrink?: string;
+  /**
+   * @remarks
+   * The per-instance parameter overrides (JSON object: instanceId -> param). This parameter is used in scenarios where multiple instances have different targets, such as different agent workspaces.
+   * 
+   * @example
+   * {"pa-xxx1":{"agentId":"test1"},"pa-xxx2":{"scope":"global"}}
+   */
+  instanceParams?: string;
   /**
    * @remarks
    * The archive parameters.
@@ -28,8 +36,7 @@ export class CreateBatchTaskShrinkRequest extends $dara.Model {
   param?: string;
   /**
    * @remarks
-   * The region ID.
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view the region information of all clusters under the target account.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view the regions of all clusters under the target account.
    * 
    * This parameter is required.
    * 
@@ -61,6 +68,7 @@ export class CreateBatchTaskShrinkRequest extends $dara.Model {
     return {
       applicationType: 'ApplicationType',
       instanceIdsShrink: 'InstanceIds',
+      instanceParams: 'InstanceParams',
       param: 'Param',
       regionId: 'RegionId',
       taskName: 'TaskName',
@@ -72,6 +80,7 @@ export class CreateBatchTaskShrinkRequest extends $dara.Model {
     return {
       applicationType: 'string',
       instanceIdsShrink: 'string',
+      instanceParams: 'string',
       param: 'string',
       regionId: 'string',
       taskName: 'string',

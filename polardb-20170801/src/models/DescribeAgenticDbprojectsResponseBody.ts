@@ -5,7 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The time is in ISO 8601 format and the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The number of all undeleted branches in the project, including hibernated branches and branches not bound to compute nodes. This parameter is empty if not provided by earlier backend versions, which does not indicate zero branches.
+   * 
+   * @example
+   * 3
+   */
+  branchCount?: number;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * The time follows the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-10T11:00:00Z
@@ -45,7 +55,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The retention period for recent records of the project. This field may be empty for older projects. To query the current effective value, call DescribeAgenticDBProjectHistoryRetention.
+   * The retention period of recent records for the project. This parameter may be empty for earlier projects. To query the current effective value, call DescribeAgenticDBProjectHistoryRetention.
    * 
    * @example
    * 604800
@@ -69,10 +79,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The project status. Valid values:
-   * - Active: Normal.
-   * - Destroying: Being destroyed.
-   * - Destroyed: Destroyed.
+   * The status of the project. Valid values: Active (normal), Destroying (being destroyed), and Destroyed (destroyed).
    * 
    * @example
    * Active
@@ -80,7 +87,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The ID of the tenant.
    * 
    * @example
    * t-4b83e0da66674951
@@ -88,6 +95,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
+      branchCount: 'BranchCount',
       createTime: 'CreateTime',
       DBClusterId: 'DBClusterId',
       defaultBranchId: 'DefaultBranchId',
@@ -103,6 +111,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      branchCount: 'number',
       createTime: 'string',
       DBClusterId: 'string',
       defaultBranchId: 'string',

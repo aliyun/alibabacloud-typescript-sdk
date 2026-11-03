@@ -13,7 +13,7 @@ export class InstallPolarClawSkillResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The response status code.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class InstallPolarClawSkillResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -29,12 +29,20 @@ export class InstallPolarClawSkillResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful. This parameter is returned when Async is set to false.
    * 
    * @example
    * true
    */
   ok?: boolean;
+  /**
+   * @remarks
+   * The operation name. This parameter is returned when Async is set to true.
+   * 
+   * @example
+   * InstallPolarClawSkill
+   */
+  operation?: string;
   /**
    * @remarks
    * Id of the request
@@ -45,7 +53,7 @@ export class InstallPolarClawSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The identifier of the installed Skill.
+   * The identifier of the installed skill. This parameter is returned during synchronous execution.
    * 
    * @example
    * alibacloud-rds-copilot
@@ -53,7 +61,15 @@ export class InstallPolarClawSkillResponseBody extends $dara.Model {
   slug?: string;
   /**
    * @remarks
-   * The installation directory.
+   * The initial state of the task. This parameter is returned when Async is set to true.
+   * 
+   * @example
+   * pending
+   */
+  state?: string;
+  /**
+   * @remarks
+   * The installation directory. This parameter is returned during synchronous execution.
    * 
    * @example
    * /home/node/.openclaw/skills/alibacloud-rds-copilot
@@ -61,7 +77,15 @@ export class InstallPolarClawSkillResponseBody extends $dara.Model {
   targetDir?: string;
   /**
    * @remarks
-   * The version number of the installed Skill.
+   * The ID of the asynchronous task. This parameter is returned when Async is set to true.
+   * 
+   * @example
+   * 9f1c2e3d-xxxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * The installed version number. This parameter is returned during synchronous execution.
    * 
    * @example
    * 1.2.0
@@ -73,9 +97,12 @@ export class InstallPolarClawSkillResponseBody extends $dara.Model {
       code: 'Code',
       message: 'Message',
       ok: 'Ok',
+      operation: 'Operation',
       requestId: 'RequestId',
       slug: 'Slug',
+      state: 'State',
       targetDir: 'TargetDir',
+      taskId: 'TaskId',
       version: 'Version',
     };
   }
@@ -86,9 +113,12 @@ export class InstallPolarClawSkillResponseBody extends $dara.Model {
       code: 'number',
       message: 'string',
       ok: 'boolean',
+      operation: 'string',
       requestId: 'string',
       slug: 'string',
+      state: 'string',
       targetDir: 'string',
+      taskId: 'string',
       version: 'string',
     };
   }

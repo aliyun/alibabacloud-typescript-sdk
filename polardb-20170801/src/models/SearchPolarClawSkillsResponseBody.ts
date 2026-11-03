@@ -37,7 +37,7 @@ export class SearchPolarClawSkillsResponseBodyResults extends $dara.Model {
   summary?: string;
   /**
    * @remarks
-   * The UNIX timestamp of the last update, in seconds.
+   * The last update timestamp in UNIX seconds.
    * 
    * @example
    * 1716000000
@@ -93,7 +93,7 @@ export class SearchPolarClawSkillsResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The response status code.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -101,7 +101,7 @@ export class SearchPolarClawSkillsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success

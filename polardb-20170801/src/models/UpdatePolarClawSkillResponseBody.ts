@@ -53,7 +53,7 @@ export class UpdatePolarClawSkillResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The returned status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -66,7 +66,7 @@ export class UpdatePolarClawSkillResponseBody extends $dara.Model {
   config?: UpdatePolarClawSkillResponseBodyConfig;
   /**
    * @remarks
-   * The returned message.
+   * The message.
    * 
    * @example
    * success

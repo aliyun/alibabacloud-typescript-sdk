@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBatchTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the creation time range.
+   * The end time of creation.
    * 
-   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time is in ISO 8601 format and the UTC time zone. The format is YYYY-MM-DDTHH:mm:ssZ.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -17,7 +17,7 @@ export class DescribeBatchTasksRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
+   * The page number. The value must be greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: 1.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class DescribeBatchTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -33,9 +33,9 @@ export class DescribeBatchTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start of the creation time range.
+   * The start time of creation.
    * 
-   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time is in ISO 8601 format and the UTC time zone. The format is YYYY-MM-DDTHH:mm:ssZ.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -47,7 +47,7 @@ export class DescribeBatchTasksRequest extends $dara.Model {
    * @remarks
    * The list of task statuses.
    * 
-   * > If this parameter is left empty, scheduled tasks in all statuses are queried by default.
+   * > If this parameter is left empty, tasks in all statuses are queried by default.
    */
   status?: string[];
   /**

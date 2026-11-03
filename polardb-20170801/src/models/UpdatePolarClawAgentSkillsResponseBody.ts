@@ -21,7 +21,7 @@ export class UpdatePolarClawAgentSkillsResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The response status code.
+   * The returned status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class UpdatePolarClawAgentSkillsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -37,7 +37,7 @@ export class UpdatePolarClawAgentSkillsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
