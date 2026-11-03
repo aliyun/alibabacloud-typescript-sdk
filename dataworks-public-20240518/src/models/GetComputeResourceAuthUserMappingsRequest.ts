@@ -15,7 +15,7 @@ export class GetComputeResourceAuthUserMappingsRequest extends $dara.Model {
   computeResourceId?: number;
   /**
    * @remarks
-   * The DataWorks workspace to which the data source belongs.
+   * The ID of the DataWorks workspace to which the data source belongs.
    * 
    * This parameter is required.
    * 

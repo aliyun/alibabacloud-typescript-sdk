@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAgentSessionsResponseBodyJsonRpcResponseError extends $dara.Model {
   /**
+   * @remarks
+   * The JSON-RPC error code.
+   * 
    * @example
    * 400
    */
   code?: number;
   /**
+   * @remarks
+   * The optional additional error information. The content depends on the error type.
+   * 
    * @example
    * {}
    */
   data?: any;
   /**
+   * @remarks
+   * The business error code.
+   * 
    * @example
    * SESSION_FILTER_REQUIRED
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * SESSION_FILTER_REQUIRED
    */
@@ -53,7 +65,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseError extends $dara.Mod
 export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMetaSessionTagList extends $dara.Model {
   /**
    * @remarks
-   * The session tag. You can filter sessions based on session tags. For example, if you use a fixed RAM user to call OpenAPI but the calling system has its own account system, you can filter the session list based on an account ID. In this case, set this parameter to the account ID of the calling system.
+   * The session tag. You can filter sessions based on session tags. For example, if you use a fixed RAM user to call OpenAPI operations but the calling system has its own account system, you need to filter the session list based on the account ID. In this case, you can pass the account ID of the calling system as this tag.
    * 
    * @example
    * user_123456
@@ -81,6 +93,10 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta
 }
 
 export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the session is archived.
+   */
   archived?: boolean;
   /**
    * @remarks
@@ -96,14 +112,14 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta
    * 
    * @example
    * * NORMAL: Stateless session
-   * * INIT: Initialization state
+   * * INIT: Initialized
    * * RUNNING: Running
-   * * RELEASED: Released state
+   * * RELEASED: Released
    */
   sessionStatus?: string;
   /**
    * @remarks
-   * The list of session tags.
+   * The session tag list.
    */
   sessionTagList?: ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMetaSessionTagList[];
   static names(): { [key: string]: string } {
@@ -139,12 +155,12 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta
 export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessions extends $dara.Model {
   /**
    * @remarks
-   * The extended session information from DataWorks, which is not part of the ACP standard protocol.
+   * The session information extended by DataWorks, which is not part of the standard ACP protocol.
    */
   meta?: ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta;
   /**
    * @remarks
-   * The time when the session was created.
+   * The session creation time.
    * 
    * @example
    * 123456789
@@ -176,7 +192,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessions ext
   sessionTitle?: string;
   /**
    * @remarks
-   * The time when the session was last modified.
+   * The session update time.
    * 
    * @example
    * 123456789
@@ -277,10 +293,14 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResult extends $dara.Mo
 }
 
 export class ListAgentSessionsResponseBodyJsonRpcResponse extends $dara.Model {
+  /**
+   * @remarks
+   * The JSON-RPC error message. This parameter is returned when the call fails and is not returned when the call succeeds.
+   */
   error?: ListAgentSessionsResponseBodyJsonRpcResponseError;
   /**
    * @remarks
-   * The ID passed in by the requester. The value is returned as-is.
+   * The ID passed by the requester, which is returned as is.
    * 
    * @example
    * 29d9a29c-a284-48c1-9eaa-4a42c7c616d5
@@ -288,7 +308,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponse extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. Fixed value: 2.0.
+   * The JSON-RPC version. Fixed to 2.0.
    * 
    * @example
    * 2.0

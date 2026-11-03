@@ -4,23 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAgentSessionResponseBodyJsonRpcResponseError extends $dara.Model {
   /**
+   * @remarks
+   * The JSON-RPC error code.
+   * 
    * @example
    * 500
    */
   code?: number;
   /**
+   * @remarks
+   * The optional additional error information. The content depends on the error type.
+   * 
    * @example
    * {}
    */
   data?: any;
   /**
+   * @remarks
+   * The business error code.
+   * 
    * @example
    * 0x4883300000000019
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 创建 DataAgent 实例必须指定资源组，请在请求的 _meta.dataAgent.resourceGroupId 中传入资源组 ID
+   * To create a DataAgent instance, you must specify a resource group. Pass the resource group ID in _meta.dataAgent.resourceGroupId of the request
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -53,7 +65,7 @@ export class CreateAgentSessionResponseBodyJsonRpcResponseError extends $dara.Mo
 export class CreateAgentSessionResponseBodyJsonRpcResponseResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created session.
+   * The ID of the newly created session.
    * 
    * @example
    * sess_0f12abc34
@@ -81,10 +93,14 @@ export class CreateAgentSessionResponseBodyJsonRpcResponseResult extends $dara.M
 }
 
 export class CreateAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
+  /**
+   * @remarks
+   * The JSON-RPC error message. This field is not returned if the request is successful.
+   */
   error?: CreateAgentSessionResponseBodyJsonRpcResponseError;
   /**
    * @remarks
-   * The request ID passed by the caller. The value is returned as-is.
+   * The ID passed by the requester. The value is returned as is.
    * 
    * @example
    * 1
@@ -92,7 +108,7 @@ export class CreateAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. Fixed value: 2.0.
+   * The JSON-RPC version. This value is always 2.0.
    * 
    * @example
    * 2.0
@@ -104,6 +120,9 @@ export class CreateAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
    */
   result?: CreateAgentSessionResponseBodyJsonRpcResponseResult;
   /**
+   * @remarks
+   * The response time. The value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1789549200000
    */

@@ -15,7 +15,7 @@ export class CancelImageTestRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The ID of the image test execution to cancel.
+   * The execution ID of the image test to cancel.
    * 
    * @example
    * 582d4896-d224-413b-b883-239eeebe0bc5

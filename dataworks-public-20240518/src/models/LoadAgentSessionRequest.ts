@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LoadAgentSessionRequestParamsMeta extends $dara.Model {
   /**
    * @remarks
-   * In a resumable transfer scenario, this specifies the offset from which to resume fetching the SSE output.
+   * The offset from which to pull subsequent SSE outputs in a resumable transmission scenario.
    * 
    * @example
    * 10000
@@ -13,10 +13,10 @@ export class LoadAgentSessionRequestParamsMeta extends $dara.Model {
   beginLogOffset?: number;
   /**
    * @remarks
-   * Specifies whether to use resumable transfer. If the SSE stream is interrupted due to issues like an unstable network connection, you can set this parameter to `true` to re-fetch the stream data from the point of failure.
+   * Specifies whether this is a resumable transmission scenario. If the SSE stream is interrupted due to network instability, you can set this flag to repull the SSE response data from the breakpoint.
    * 
    * @example
-   * true or false
+   * true
    */
   isReload?: boolean;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class LoadAgentSessionRequestParamsMeta extends $dara.Model {
 export class LoadAgentSessionRequestParams extends $dara.Model {
   /**
    * @remarks
-   * DataWorks-specific extended parameters for ACP.
+   * The ACP extension parameters for DataWorks.
    */
   meta?: LoadAgentSessionRequestParamsMeta;
   /**
@@ -85,7 +85,7 @@ export class LoadAgentSessionRequestParams extends $dara.Model {
 export class LoadAgentSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The client-generated request ID, which is returned in the response.
+   * The ID provided by the requester. This ID is echoed back as is.
    * 
    * @example
    * 4as3dasf654a
@@ -93,7 +93,7 @@ export class LoadAgentSessionRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. The value must be `2.0`.
+   * The JSON-RPC version. Fixed to 2.0.
    * 
    * @example
    * 2.0
@@ -101,7 +101,7 @@ export class LoadAgentSessionRequest extends $dara.Model {
   jsonrpc?: string;
   /**
    * @remarks
-   * Business parameters.
+   * The business parameters.
    */
   params?: LoadAgentSessionRequestParams;
   static names(): { [key: string]: string } {

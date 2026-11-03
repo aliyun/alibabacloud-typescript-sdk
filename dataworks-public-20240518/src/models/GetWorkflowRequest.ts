@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkflowRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * - Prod: production environment
-   * 
-   * - Dev: development environment
+   * The project environment.
    * 
    * @example
    * Prod
@@ -17,7 +13,7 @@ export class GetWorkflowRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The workflow ID.
+   * The unique identifier of the workflow.
    * 
    * This parameter is required.
    * 

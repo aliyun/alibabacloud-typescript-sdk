@@ -35,7 +35,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskDataSou
 export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The number of compute units (CUs) configured for task running.
+   * The compute unit (CU) consumption configured for node execution.
    * 
    * @example
    * 0.25
@@ -43,7 +43,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskRuntime
   cu?: string;
   /**
    * @remarks
-   * The ID of the image configured for task running.
+   * The ID of the image configured for node execution.
    * 
    * @example
    * i-xxxxxx
@@ -51,7 +51,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskRuntime
   image?: string;
   /**
    * @remarks
-   * The ID of the resource group for scheduling configured for task running.
+   * The identifier of the schedule resource group configured for node execution.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -85,7 +85,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskRuntime
 export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskTrigger extends $dara.Model {
   /**
    * @remarks
-   * The CRON expression. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The cron expression. This parameter takes effect only when Type is set to Scheduler.
    * 
    * @example
    * 00 00 00 * * ?
@@ -93,7 +93,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskTrigger
   cron?: string;
   /**
    * @remarks
-   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The expiration time of periodic triggering. This parameter takes effect only when Type is set to Scheduler.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`, such as `9999-01-01 00:00:00`. The example does not include a time zone identifier.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -101,7 +103,10 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskTrigger
   endTime?: string;
   /**
    * @remarks
-   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values: Pause (paused), Skip (dry run), and Normal (normal execution).
+   * The execution mode when triggered. This parameter takes effect only when Type is set to Scheduler.
+   * - Pause: Paused.
+   * - Skip: Dry run.
+   * - Normal: Normal execution.
    * 
    * @example
    * Normal
@@ -109,7 +114,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskTrigger
   recurrence?: string;
   /**
    * @remarks
-   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The effective period for epoch triggers. This parameter takes effect only when Type is set to Scheduler.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. This example does not include a time zone identity.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -125,11 +132,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskTrigger
   timezone?: string;
   /**
    * @remarks
-   * The trigger type. Valid values:
-   * 
-   * - Scheduler: scheduling cycle-based trigger
-   * 
-   * - Manual: manual trigger
+   * The trigger type.
+   * - Scheduler: Triggered by a scheduling cycle.
+   * - Manual: Triggered manually.
    * 
    * @example
    * Scheduler
@@ -179,13 +184,15 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
    * @remarks
    * The creation time.
    * 
+   * The value is a 13-digit number, such as `1710239005403`.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
    * @remarks
-   * The account ID of the creator.
+   * The account ID of the user who created the node.
    * 
    * @example
    * 1000
@@ -193,7 +200,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   createUser?: string;
   /**
    * @remarks
-   * The information about the associated data source.
+   * The associated data source information.
    */
   dataSource?: ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskDataSource;
   /**
@@ -206,7 +213,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: Prod (production) and Dev (development).
+   * The project environment. Valid values:
+   * - Prod: Production environment.
+   * - Dev: Development environment.
    * 
    * @example
    * Prod
@@ -214,7 +223,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   envType?: string;
   /**
    * @remarks
-   * The task ID.
+   * The unique identifier of the node.
    * 
    * @example
    * 1234
@@ -222,7 +231,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   id?: number;
   /**
    * @remarks
-   * The instance generation mode. Valid values: T+1 (generate the next day) and Immediately (generate immediately).
+   * The instance generation mode. Valid values:
+   * - T+1: Generated on the next day.
+   * - Immediately: Generated immediately.
    * 
    * @example
    * T+1
@@ -232,13 +243,15 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
    * @remarks
    * The modification time.
    * 
+   * The value is a 13-digit number, such as `1710239005403`.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
    * @remarks
-   * The account ID of the modifier.
+   * The account ID of the user who modified the node.
    * 
    * @example
    * 1000
@@ -246,7 +259,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   modifyUser?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The name.
    * 
    * @example
    * SQL node
@@ -254,7 +267,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   name?: string;
   /**
    * @remarks
-   * The account ID of the task owner.
+   * The account ID of the node owner.
    * 
    * @example
    * 1000
@@ -262,7 +275,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   owner?: string;
   /**
    * @remarks
-   * The priority of the task. Valid values: 1 to 8.
+   * The node priority. Valid values: 1 to 8.
    * 
    * @example
    * 1
@@ -270,7 +283,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   priority?: number;
   /**
    * @remarks
-   * The workspace ID.
+   * The project ID.
    * 
    * @example
    * 100
@@ -278,7 +291,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   projectId?: number;
   /**
    * @remarks
-   * The rerun interval. Unit: seconds.
+   * The retry time interval, in seconds.
    * 
    * @example
    * 60
@@ -286,13 +299,10 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   rerunInterval?: number;
   /**
    * @remarks
-   * The rerun mode. Valid values:
-   * 
-   * - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * 
-   * - FailureAllowed: The task can be rerun only after it fails to run.
-   * 
-   * - AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * The rerun configuration of the node. Valid values:
+   * - AllDenied: The node cannot be rerun regardless of success or failure.
+   * - FailureAllowed: The node can be rerun only when it fails.
+   * - AllAllowed: The node can be rerun regardless of whether it succeeds or fails.
    * 
    * @example
    * AllAllowed
@@ -300,7 +310,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   rerunMode?: string;
   /**
    * @remarks
-   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * The number of retries. This parameter takes effect only when the node is configured to allow reruns.
    * 
    * @example
    * 3
@@ -308,12 +318,12 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   rerunTimes?: number;
   /**
    * @remarks
-   * The configurations of the runtime environment, such as the resource group information.
+   * The runtime environment configuration, such as the resource group information.
    */
   runtimeResource?: ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskRuntimeResource;
   /**
    * @remarks
-   * The timeout period of task running. Unit: seconds.
+   * The node execution timeout period, in seconds.
    * 
    * @example
    * 3600
@@ -321,12 +331,12 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   timeout?: number;
   /**
    * @remarks
-   * The trigger method.
+   * The trigger method of the node.
    */
   trigger?: ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskTrigger;
   /**
    * @remarks
-   * The type of the task.
+   * The node type.
    * 
    * @example
    * ODPS_SQL
@@ -334,7 +344,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   type?: string;
   /**
    * @remarks
-   * The ID of the workflow to which the task belongs.
+   * The ID of the workflow to which the node belongs.
    * 
    * @example
    * 1234
@@ -415,11 +425,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
 export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasks extends $dara.Model {
   /**
    * @remarks
-   * The scheduling dependency type. Valid values:
-   * 
-   * - Normal: same-cycle scheduling dependency
-   * 
-   * - CrossCycle: cross-cycle scheduling dependency
+   * The dependency type. Valid values:
+   * - Normal: Same-cycle dependency.
+   * - CrossCycle: Cross-cycle dependency.
    * 
    * @example
    * Normal
@@ -427,7 +435,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasks extends $d
   dependencyType?: string;
   /**
    * @remarks
-   * The information about the task.
+   * The detailed information of the node.
    */
   task?: ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask;
   static names(): { [key: string]: string } {
@@ -489,7 +497,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksDataSource extends $d
 export class ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The number of compute units (CUs) configured for task running.
+   * The compute unit (CU) consumption configured for node execution.
    * 
    * @example
    * 0.25
@@ -497,7 +505,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource exten
   cu?: string;
   /**
    * @remarks
-   * The ID of the image configured for task running.
+   * The ID of the image configured for node execution.
    * 
    * @example
    * i-xxxxxx
@@ -505,7 +513,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource exten
   image?: string;
   /**
    * @remarks
-   * The ID of the resource group for scheduling configured for task running.
+   * The identifier of the schedule resource group configured for node execution.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -539,7 +547,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource exten
 export class ListDownstreamTasksResponseBodyPagingInfoTasksTrigger extends $dara.Model {
   /**
    * @remarks
-   * The CRON expression of the task. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The cron expression. This parameter takes effect only when Type is set to Scheduler.
    * 
    * @example
    * 00 00 00 * * ?
@@ -547,7 +555,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksTrigger extends $dara
   cron?: string;
   /**
    * @remarks
-   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The expiration time of periodic triggering. This parameter takes effect only when Type is set to Scheduler.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`, such as `9999-01-01 00:00:00`. The example does not include a time zone identifier.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -555,15 +565,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksTrigger extends $dara
   endTime?: string;
   /**
    * @remarks
-   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler.
-   * 
-   * Valid values:
-   * 
-   * - Pause
-   * 
-   * - Skip
-   * 
-   * - Normal
+   * The running mode upon triggering. This parameter takes effect only when Type is set to Scheduler.
    * 
    * @example
    * Normal
@@ -571,7 +573,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksTrigger extends $dara
   recurrence?: string;
   /**
    * @remarks
-   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The effective period of epoch triggering. This parameter takes effect only when Type is set to Scheduler.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identity.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -588,12 +592,6 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksTrigger extends $dara
   /**
    * @remarks
    * The trigger type.
-   * 
-   * Valid values:
-   * 
-   * - Scheduler: scheduling cycle-based trigger
-   * 
-   * - Manual: manual trigger
    * 
    * @example
    * Scheduler
@@ -643,13 +641,15 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
    * @remarks
    * The creation time.
    * 
+   * The value is a 13-digit number, such as `1710239005403`.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
    * @remarks
-   * The account ID of the creator.
+   * The account ID of the user who created the node.
    * 
    * @example
    * 1000
@@ -657,12 +657,12 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   createUser?: string;
   /**
    * @remarks
-   * The information about the associated data source.
+   * The associated data source information.
    */
   dataSource?: ListDownstreamTasksResponseBodyPagingInfoTasksDataSource;
   /**
    * @remarks
-   * The description of the task.
+   * The description.
    * 
    * @example
    * test
@@ -670,7 +670,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: Prod (production) and Dev (development).
+   * The project environment. Valid values:
+   * - Prod: Production environment.
+   * - Dev: Development environment.
    * 
    * @example
    * Prod
@@ -678,7 +680,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   envType?: string;
   /**
    * @remarks
-   * The task ID.
+   * The unique identifier of the node.
    * 
    * @example
    * 1234
@@ -686,7 +688,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   id?: number;
   /**
    * @remarks
-   * The instance generation mode. Valid values: T+1 (generate the next day) and Immediately (generate immediately).
+   * The instance generation mode. Valid values:
+   * - T+1: Generated on the next day.
+   * - Immediately: Generated immediately.
    * 
    * @example
    * T+1
@@ -696,13 +700,15 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
    * @remarks
    * The modification time.
    * 
+   * The value is a 13-digit number, such as `1710239005403`.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
    * @remarks
-   * The account ID of the modifier.
+   * The account ID of the user who modified the node.
    * 
    * @example
    * 1000
@@ -710,7 +716,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   modifyUser?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The name.
    * 
    * @example
    * SQL node
@@ -718,7 +724,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The account ID of the task owner.
+   * The account ID of the node owner.
    * 
    * @example
    * 1000
@@ -726,7 +732,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   owner?: string;
   /**
    * @remarks
-   * The priority of the task. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+   * The node priority. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
    * 
    * @example
    * 1
@@ -734,13 +740,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   priority?: number;
   /**
    * @remarks
-   * The environment of the workspace. This parameter is deprecated and replaced by the EnvType parameter.
-   * 
-   * Valid values:
-   * 
-   * - Prod
-   * 
-   * - Dev
+   * **[Deprecated]** The project environment. Use EnvType instead.
    * 
    * @example
    * Prod
@@ -750,7 +750,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   projectEnv?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The project ID.
    * 
    * @example
    * 100
@@ -758,7 +758,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   projectId?: number;
   /**
    * @remarks
-   * The rerun interval. Unit: seconds.
+   * The retry time interval, in seconds.
    * 
    * @example
    * 60
@@ -766,15 +766,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   rerunInterval?: number;
   /**
    * @remarks
-   * The rerun mode.
-   * 
-   * Valid values:
-   * 
-   * - AllDenied: The task cannot be rerun regardless of whether it is successfully run or fails to run.
-   * 
-   * - FailureAllowed: The task can be rerun only after it fails to run.
-   * 
-   * - AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * The rerun configuration of the node.
    * 
    * @example
    * AllAllowed
@@ -782,7 +774,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   rerunMode?: string;
   /**
    * @remarks
-   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * The number of retries. This parameter takes effect only when the node is configured to allow reruns.
    * 
    * @example
    * 3
@@ -790,16 +782,14 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   rerunTimes?: number;
   /**
    * @remarks
-   * The configurations of the runtime environment, such as the resource group information.
+   * The runtime environment configuration, such as the resource group information.
    */
   runtimeResource?: ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource;
   /**
    * @remarks
-   * The scheduling dependency type. Valid values:
-   * 
-   * - Normal: same-cycle scheduling dependency
-   * 
-   * - CrossCycle: cross-cycle scheduling dependency
+   * The dependency type. Valid values:
+   * - Normal: Same-cycle dependency.
+   * - CrossCycle: Cross-cycle dependency.
    * 
    * @example
    * Normal
@@ -807,7 +797,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   stepType?: string;
   /**
    * @remarks
-   * The timeout period of task running. Unit: seconds.
+   * The node execution timeout period, in seconds.
    * 
    * @example
    * 3600
@@ -815,12 +805,12 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   timeout?: number;
   /**
    * @remarks
-   * The method to trigger task scheduling.
+   * The trigger method of the node.
    */
   trigger?: ListDownstreamTasksResponseBodyPagingInfoTasksTrigger;
   /**
    * @remarks
-   * The type of the task.
+   * The node type.
    * 
    * @example
    * ODPS_SQL
@@ -828,7 +818,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   type?: string;
   /**
    * @remarks
-   * The ID of the workflow to which the task belongs.
+   * The ID of the workflow to which the node belongs.
    * 
    * @example
    * 1234
@@ -913,7 +903,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
 export class ListDownstreamTasksResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The descendant tasks.
+   * The list of downstream nodes.
    */
   downstreamTasks?: ListDownstreamTasksResponseBodyPagingInfoDownstreamTasks[];
   /**
@@ -934,12 +924,12 @@ export class ListDownstreamTasksResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tasks. This parameter is deprecated and replaced by the DownstreamTasks parameter.
+   * **[Deprecated]** The list of nodes. Use DownstreamTasks instead.
    */
   tasks?: ListDownstreamTasksResponseBodyPagingInfoTasks[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -988,7 +978,7 @@ export class ListDownstreamTasksResponseBody extends $dara.Model {
   pagingInfo?: ListDownstreamTasksResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX

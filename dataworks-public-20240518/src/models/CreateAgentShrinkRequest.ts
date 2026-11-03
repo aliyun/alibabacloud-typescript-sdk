@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of child agents that can be called by this agent.
+   * The list of sub-agents that can be called by this agent.
    * 
    * @example
    * -
@@ -29,7 +29,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Agent 绑定的已发布专家套件。个人或企业套件使用 SuiteId，可选 Version；官方套件必须显式指定 Source=OFFICIAL 和官方目录中的 SuiteId，不传 Version。未传时创建为空，不会默认加载所有官方套件。
+   * The released expert suites bound to the agent. For personal or enterprise suites, use SuiteId and optionally specify a fixed Version or VersionSelector. For official suites, you must explicitly set Source to OFFICIAL and specify the SuiteId from the official catalog. Do not specify Version or VersionSelector. If this parameter is not specified, an empty list is created, and official suites are not loaded by default.
    * 
    * @example
    * [{"Source":"OFFICIAL","SuiteId":"dataworks-data-analysis-extension"},{"SuiteId":"suite_example","Version":1}]
@@ -37,7 +37,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
   expertSuitesShrink?: string;
   /**
    * @remarks
-   * The extended metadata in key-value pairs.
+   * The extended metadata as key-value pairs.
    * 
    * @example
    * {}
@@ -55,7 +55,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
   modelShrink?: string;
   /**
    * @remarks
-   * The name of the agent. The name must be unique within the current account.
+   * The name of the agent. It must be unique within the current account.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,10 @@ export class CreateAgentShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 是否在创建 Agent 后立即发布。true 发布创建的版本；false 或省略保持原有仅创建草稿行为。保存与发布不是原子操作，发布失败时草稿可能已存在；重试前应先查询 Agent，避免重复创建。
+   * Specifies whether to publish the agent immediately after creation. Valid values:
+   * - true: Publishes the created version.
+   * - false or omitted: Retains the original behavior of creating a draft only.
+   * Saving and publishing are not atomic operations. If publishing fails, the draft may already exist. Query the agent before retrying to avoid duplicate creation.
    * 
    * @example
    * false
@@ -84,7 +87,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
    * The system prompt.
    * 
    * @example
-   * You are a data analytics assistant
+   * You are a data analytics assistant.
    */
   systemPrompt?: string;
   /**
@@ -97,7 +100,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
   toolsShrink?: string;
   /**
    * @remarks
-   * The visibility level.<br>
+   * The visibility level. Valid values:<br>
    * `TENANT`: Visible within the account.<br>
    * `PROJECT`: Visible to specified projects.<br>
    * `USER`: Visible to specified users.
@@ -108,7 +111,7 @@ export class CreateAgentShrinkRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The visibility scope. The corresponding field is used based on the visibility level.
+   * The visibility scope. The corresponding fields are used based on the Visibility parameter.
    */
   visibilityScopeShrink?: string;
   static names(): { [key: string]: string } {

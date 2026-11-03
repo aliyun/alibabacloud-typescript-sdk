@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataQualityEvaluationTaskInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the data quality monitoring task.
+   * The data quality monitoring instance ID.
    * 
    * This parameter is required.
    * 

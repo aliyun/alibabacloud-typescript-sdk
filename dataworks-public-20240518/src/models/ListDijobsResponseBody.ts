@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated. Use the `Id` parameter instead.
+   * **[Deprecated]** This field is deprecated. Use the Id field instead.
    * 
    * @example
    * 32599
@@ -15,7 +15,7 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * The type of the destination data source. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `Loghub`, `STARROCKS`, `DataHub`, `ANALYTICDB_FOR_MYSQL`, `Kafka`, and `Hive`.
+   * The type of the destination data source. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, Loghub, STARROCKS, DataHub, ANALYTICDB_FOR_MYSQL, Kafka, and Hive.
    * 
    * @example
    * Hologres
@@ -23,7 +23,7 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
   destinationDataSourceType?: string;
   /**
    * @remarks
-   * The ID of the Data Integration job.
+   * The ID of the data integration task.
    * 
    * @example
    * 32599
@@ -31,7 +31,7 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the job.
+   * The name of the task.
    * 
    * @example
    * mysql_to_holo_sync_35197
@@ -39,19 +39,13 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The job status. Valid values:
-   * 
-   * - `Finished`: The job completed successfully.
-   * 
-   * - `Initialized`: The job is initialized.
-   * 
-   * - `Stopped`: The job is stopped.
-   * 
-   * - `Failed`: The job failed.
-   * 
-   * - `Running`: The job is running.
-   * 
-   * - `Stopping`: The job is being stopped.
+   * The synchronization status. Valid values:
+   * - Finished: finished successfully
+   * - Initialized: initialized
+   * - Stopped: stopped
+   * - Failed: failed
+   * - Running: running
+   * - Stopping: stopping
    * 
    * @example
    * Running
@@ -60,25 +54,27 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
   /**
    * @remarks
    * The synchronization type. Valid values:
-   * 
-   * - `FullAndRealtimeIncremental`: full and real-time incremental synchronization
-   * 
-   * - `RealtimeIncremental`: real-time incremental synchronization
-   * 
-   * - `Full`: full synchronization
-   * 
-   * - `OfflineIncremental`: offline incremental synchronization
-   * 
-   * - `FullAndOfflineIncremental`: full and offline incremental synchronization
+   * - FullAndRealtimeIncremental: full and real-time incremental synchronization
+   * - RealtimeIncremental: real-time incremental synchronization
+   * - Full: full synchronization
+   * - OfflineIncremental: batch incremental synchronization
+   * - FullAndOfflineIncremental: full and batch incremental synchronization
    * 
    * @example
    * FullAndRealtimeIncremental
    */
   migrationType?: string;
+  /**
+   * @remarks
+   * The owner of the task.
+   * 
+   * @example
+   * 3726346
+   */
   owner?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace that contains the job.
+   * The ID of the DataWorks workspace to which the task belongs.
    * 
    * @example
    * 26442
@@ -86,7 +82,7 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The type of the source data source. Valid values: `PolarDB`, `MySQL`, `Kafka`, `Loghub`, `Hologres`, `Oracle`, `OceanBase`, `MongoDB`, `RedShift`, `Hive`, `SqlServer`, `Doris`, and `ClickHouse`.
+   * The type of the source data source. Valid values: PolarDB, MySQL, Kafka, Loghub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SqlServer, Doris, and ClickHouse.
    * 
    * @example
    * Mysql
@@ -132,12 +128,12 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
 export class ListDIJobsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * A list of Data Integration jobs.
+   * The data integration tasks.
    */
   DIJobs?: ListDIJobsResponseBodyPagingInfoDIJobs[];
   /**
    * @remarks
-   * The returned page number.
+   * The page number of the returned data.
    * 
    * @example
    * 1
@@ -145,7 +141,7 @@ export class ListDIJobsResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10
@@ -153,7 +149,7 @@ export class ListDIJobsResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries that meet the filter criteria.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 12
@@ -192,12 +188,12 @@ export class ListDIJobsResponseBodyPagingInfo extends $dara.Model {
 export class ListDIJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paging information.
+   * The pagination information.
    */
   pagingInfo?: ListDIJobsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7263E4AC-9D2E-5B29-B8AF-7C5012E92A41

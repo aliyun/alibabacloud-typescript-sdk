@@ -22,7 +22,7 @@ export class ListTablesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of tables.
+   * The list of data tables.
    */
   tables?: Table[];
   /**
@@ -66,7 +66,7 @@ export class ListTablesResponseBodyPagingInfo extends $dara.Model {
 export class ListTablesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paging information.
+   * The pagination information.
    */
   pagingInfo?: ListTablesResponseBodyPagingInfo;
   /**

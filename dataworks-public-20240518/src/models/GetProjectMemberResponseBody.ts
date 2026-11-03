@@ -5,29 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class GetProjectMemberResponseBodyProjectMemberRoles extends $dara.Model {
   /**
    * @remarks
-   * The code of the Workspace role.
-   * 
-   * The built-in system roles in a DataWorks Workspace include:
-   * 
-   * - role_project_admin: Workspace Administrator
-   * 
-   * - role_project_dev: Developer
-   * 
-   * - role_project_dg_admin: Data Governance Administrator
-   * 
-   * - role_project_guest: Guest
-   * 
-   * - role_project_security: Security Administrator
-   * 
-   * - role_project_deploy: Deployment
-   * 
-   * - role_project_owner: Workspace Owner
-   * 
-   * - role_project_data_analyst: Data Analyst
-   * 
-   * - role_project_pe: O\\&M (Operations & Maintenance)
-   * 
-   * - role_project_erd: Model Designer
+   * The code of the workspace role. Built-in workspace roles in DataWorks:
+   * - role_project_admin: workspace administrator
+   * - role_project_dev: developer
+   * - role_project_dg_admin: data governance administrator
+   * - role_project_guest: guest
+   * - role_project_security: security administrator
+   * - role_project_deploy: deployer
+   * - role_project_owner: workspace owner
+   * - role_project_data_analyst: data analyst
+   * - role_project_pe: operator
+   * - role_project_erd: model designer
    * 
    * @example
    * role_project_guest
@@ -35,7 +23,7 @@ export class GetProjectMemberResponseBodyProjectMemberRoles extends $dara.Model 
   code?: string;
   /**
    * @remarks
-   * The name of the Workspace role.
+   * The name of the workspace role.
    * 
    * @example
    * Visitors
@@ -43,11 +31,9 @@ export class GetProjectMemberResponseBodyProjectMemberRoles extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The type of the Workspace role.
-   * 
-   * - UserCustom: A user-defined role.
-   * 
-   * - System: A built-in System Role.
+   * The type of the workspace role. Valid values:
+   * - UserCustom: custom role
+   * - System: system role
    * 
    * @example
    * System
@@ -81,7 +67,7 @@ export class GetProjectMemberResponseBodyProjectMemberRoles extends $dara.Model 
 export class GetProjectMemberResponseBodyProjectMember extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Workspace.
+   * The ID of the workspace.
    * 
    * @example
    * 88757
@@ -89,17 +75,13 @@ export class GetProjectMemberResponseBodyProjectMember extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Roles assigned to the Workspace member.
+   * The list of workspace roles assigned to the workspace member.
    */
   roles?: GetProjectMemberResponseBodyProjectMemberRoles[];
   /**
    * @remarks
-   * The status of the Workspace member.
-   * 
-   * 
-   * 
-   * 
-   * - Normal: The member is active.
+   * The status of the workspace member. Valid values:
+   * - Normal: The member is normal.
    * - Forbidden: The member is disabled.
    * 
    * @example
@@ -108,7 +90,7 @@ export class GetProjectMemberResponseBodyProjectMember extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The ID of the DataWorks account.
    * 
    * @example
    * 123422344899
@@ -116,7 +98,10 @@ export class GetProjectMemberResponseBodyProjectMember extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The name of the user.
+   * The cloud account name of the member.
+   * 
+   * @example
+   * liusan
    */
   userName?: string;
   static names(): { [key: string]: string } {
@@ -154,12 +139,12 @@ export class GetProjectMemberResponseBodyProjectMember extends $dara.Model {
 export class GetProjectMemberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the Workspace member.
+   * The details of the workspace member.
    */
   projectMember?: GetProjectMemberResponseBodyProjectMember;
   /**
    * @remarks
-   * The request ID. Use this ID to locate logs and troubleshoot issues.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 8abcb91f-d266-4073-b907-2ed670378ed1

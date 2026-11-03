@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAgentSessionTitleRequestParams extends $dara.Model {
   /**
    * @remarks
+   * The ID of the agent session that belongs to the current account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateAgentSessionTitleRequestParams extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
+   * The new title. The length must be 1 to 512 characters after leading and trailing whitespaces are removed.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,15 +48,25 @@ export class UpdateAgentSessionTitleRequestParams extends $dara.Model {
 
 export class UpdateAgentSessionTitleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The JSON-RPC correlation ID for the current request. It is specified by the caller and used to correlate the request and response.
+   * 
    * @example
    * updateagentsessiontitle-rpc-001
    */
   id?: string;
   /**
+   * @remarks
+   * The JSON-RPC protocol version. Set the value to 2.0.
+   * 
    * @example
    * 2.0
    */
   jsonrpc?: string;
+  /**
+   * @remarks
+   * The request parameters for modifying the session title, including the target session ID and the new title.
+   */
   params?: UpdateAgentSessionTitleRequestParams;
   static names(): { [key: string]: string } {
     return {

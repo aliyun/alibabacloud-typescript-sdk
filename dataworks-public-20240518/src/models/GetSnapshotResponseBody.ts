@@ -55,7 +55,7 @@ export class GetSnapshotResponseBodySnapshotContent extends $dara.Model {
 export class GetSnapshotResponseBodySnapshot extends $dara.Model {
   /**
    * @remarks
-   * The submit comment.
+   * The submission comment.
    * 
    * @example
    * snapshot comment
@@ -68,7 +68,7 @@ export class GetSnapshotResponseBodySnapshot extends $dara.Model {
   content?: GetSnapshotResponseBodySnapshotContent;
   /**
    * @remarks
-   * The OSS pre-signed download URL. This parameter is mutually exclusive with Content.
+   * The pre-signed OSS download URL. This parameter is mutually exclusive with Content.
    * 
    * @example
    * https://oss.example.com/presigned
@@ -76,7 +76,7 @@ export class GetSnapshotResponseBodySnapshot extends $dara.Model {
   contentUrl?: string;
   /**
    * @remarks
-   * The snapshot creation time in millisecond timestamp.
+   * The timestamp when the snapshot was generated, in milliseconds.
    * 
    * @example
    * 1782370983000
@@ -108,7 +108,7 @@ export class GetSnapshotResponseBodySnapshot extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The unique ID of the object to which the snapshot belongs.
+   * The unique ID of the parent object.
    * 
    * @example
    * 8467231038932407294

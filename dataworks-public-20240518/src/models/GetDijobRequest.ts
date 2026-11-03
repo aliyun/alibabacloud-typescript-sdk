@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDIJobRequest extends $dara.Model {
   /**
    * @remarks
-   * This field is deprecated. Use the `Id` field instead.
+   * **[Deprecated]** This field is deprecated. Use the Id field instead.
    * 
    * @example
    * 11588
@@ -15,7 +15,7 @@ export class GetDIJobRequest extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * The ID of the DI job.
+   * The instance ID.
    * 
    * @example
    * 11588
@@ -23,7 +23,7 @@ export class GetDIJobRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can call the `ListProjects` operation to obtain the workspace ID.
+   * The DataWorks workspace ID. You can call the ListProjects operation to obtain the workspace ID.
    * 
    * @example
    * 10000
@@ -31,7 +31,7 @@ export class GetDIJobRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * Specifies whether to return the detailed configuration, including `TransformationRules`, `TableMappings`, and `JobSettings`. This configuration is returned by default.
+   * Specifies whether to return detailed configuration information, which includes TransformationRules, TableMappings, and JobSettings. Default value: true.
    * 
    * @example
    * true

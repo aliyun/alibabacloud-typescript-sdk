@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AbolishCrossProjectPipelineRunRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cross-workspace publish flow.
+   * The ID of the cross-workspace deployment pipeline run.
    * 
    * This parameter is required.
    * 
@@ -25,10 +25,10 @@ export class AbolishCrossProjectPipelineRunRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The reason for stopping the cross-workspace publish flow.
+   * The reason for terminating the pipeline run.
    * 
    * @example
-   * The target publish plan has changed. Stop the flow that has not been executed
+   * The target deployment plan has changed. Terminate the pipeline run that has not yet executed
    */
   reason?: string;
   static names(): { [key: string]: string } {

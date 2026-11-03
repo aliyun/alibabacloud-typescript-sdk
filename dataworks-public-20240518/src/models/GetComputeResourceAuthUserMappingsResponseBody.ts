@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetComputeResourceAuthUserMappingsResponseBodyDataAccounts extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud UID.
+   * The Alibaba Cloud user ID.
    * 
    * @example
    * 12747300953xxx62
@@ -13,7 +13,7 @@ export class GetComputeResourceAuthUserMappingsResponseBodyDataAccounts extends 
   userId?: string;
   /**
    * @remarks
-   * The username in the target system, such as an LDAP account.
+   * The username in the destination system, such as an LDAP account.
    * 
    * @example
    * jsmitxxxx
@@ -98,7 +98,7 @@ export class GetComputeResourceAuthUserMappingsResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

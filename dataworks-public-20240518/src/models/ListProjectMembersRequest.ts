@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectMembersRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number of the requested data.
    * 
    * @example
    * 1
@@ -21,9 +21,9 @@ export class ListProjectMembersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. To obtain this ID, log in to the [DataWorks Console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
    * 
-   * This parameter specifies the DataWorks workspace for the API call.
+   * This parameter specifies the DataWorks workspace used when you invoke this API operation.
    * 
    * This parameter is required.
    * 
@@ -33,12 +33,12 @@ export class ListProjectMembersRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * A list of role codes for the workspace to filter the results. You can call the [ListProjectRoles](https://help.aliyun.com/document_detail/2853930.html) operation to obtain the role codes.
+   * The list of workspace role codes. You can call the [ListProjectRoles](https://help.aliyun.com/document_detail/2853930.html) operation to obtain the role codes.
    */
   roleCodes?: string[];
   /**
    * @remarks
-   * A list of DataWorks user IDs to filter the results. You can find these IDs on the [Tenant Members and Roles](https://dataworks.console.aliyun.com/product/ms_menu) page in the Management Center.
+   * The list of DataWorks account IDs. You can log on to the [DataWorks console - Administration](https://dataworks.console.aliyun.com/product/ms_menu), select the workspace that you want to manage, go to the Administration page, and then go to the Tenant Members and Roles page to view the account IDs.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {

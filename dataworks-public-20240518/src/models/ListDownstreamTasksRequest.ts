@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDownstreamTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The task ID.
+   * The node ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListDownstreamTasksRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number, starting from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -31,13 +31,7 @@ export class ListDownstreamTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The environment of the workspace.
-   * 
-   * Valid values:
-   * 
-   * - Prod: production environment
-   * 
-   * - Dev: development environment
+   * The project environment.
    * 
    * @example
    * Prod

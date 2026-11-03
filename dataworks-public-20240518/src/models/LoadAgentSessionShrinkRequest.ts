@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LoadAgentSessionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client-generated request ID, which is returned in the response.
+   * The ID provided by the requester. This ID is echoed back as is.
    * 
    * @example
    * 4as3dasf654a
@@ -13,7 +13,7 @@ export class LoadAgentSessionShrinkRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. The value must be `2.0`.
+   * The JSON-RPC version. Fixed to 2.0.
    * 
    * @example
    * 2.0
@@ -21,7 +21,7 @@ export class LoadAgentSessionShrinkRequest extends $dara.Model {
   jsonrpc?: string;
   /**
    * @remarks
-   * Business parameters.
+   * The business parameters.
    */
   paramsShrink?: string;
   static names(): { [key: string]: string } {

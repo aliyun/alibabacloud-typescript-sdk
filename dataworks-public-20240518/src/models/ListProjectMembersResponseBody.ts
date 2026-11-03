@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectMembersResponseBodyPagingInfoProjectMembersRoles extends $dara.Model {
   /**
    * @remarks
-   * The code of the role.
+   * The code of the workspace role.
    * 
    * @example
    * role_project_guest
@@ -13,7 +13,7 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembersRoles extends
   code?: string;
   /**
    * @remarks
-   * The name of the role.
+   * The name of the workspace role.
    * 
    * @example
    * Visitors
@@ -21,11 +21,11 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembersRoles extends
   name?: string;
   /**
    * @remarks
-   * The type of the role.
+   * The type of the workspace role. Valid values:
    * 
-   * - `UserCustom`: A user-defined role.
+   * - UserCustom: Custom role.
    * 
-   * - `System`: A system role.
+   * - System: System role.
    * 
    * @example
    * System
@@ -59,7 +59,7 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembersRoles extends
 export class ListProjectMembersResponseBodyPagingInfoProjectMembers extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DataWorks Workspace.
+   * The ID of the DataWorks workspace.
    * 
    * @example
    * 62136
@@ -67,16 +67,16 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembers extends $dar
   projectId?: number;
   /**
    * @remarks
-   * The roles assigned to the Workspace member.
+   * The list of workspace roles assigned to the workspace member.
    */
   roles?: ListProjectMembersResponseBodyPagingInfoProjectMembersRoles[];
   /**
    * @remarks
-   * The status of the Workspace member.
+   * The status of the workspace member. Valid values:
    * 
-   * - `Normal`: The member is active.
+   * - Normal: Normal.
    * 
-   * - `Forbidden`: The member is disabled.
+   * - Forbidden: Disabled.
    * 
    * @example
    * Normal
@@ -84,7 +84,7 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembers extends $dar
   status?: string;
   /**
    * @remarks
-   * The ID of the DataWorks user.
+   * The DataWorks account ID.
    * 
    * @example
    * 123422344899
@@ -92,7 +92,10 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembers extends $dar
   userId?: string;
   /**
    * @remarks
-   * The name of the DataWorks user.
+   * The cloud account name of the member.
+   * 
+   * @example
+   * liusan
    */
   userName?: string;
   static names(): { [key: string]: string } {
@@ -130,7 +133,7 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembers extends $dar
 export class ListProjectMembersResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the requested data.
    * 
    * @example
    * 1
@@ -138,7 +141,7 @@ export class ListProjectMembersResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -146,12 +149,12 @@ export class ListProjectMembersResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of Workspace members.
+   * The list of workspace members.
    */
   projectMembers?: ListProjectMembersResponseBodyPagingInfoProjectMembers[];
   /**
    * @remarks
-   * The total number of matching entries.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 12
@@ -190,12 +193,12 @@ export class ListProjectMembersResponseBodyPagingInfo extends $dara.Model {
 export class ListProjectMembersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paging information.
+   * The pagination information.
    */
   pagingInfo?: ListProjectMembersResponseBodyPagingInfo;
   /**
    * @remarks
-   * The unique ID of the request, used to track logs and troubleshoot issues.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 9FBBBB1F-DD5E-5D8E-8F50-37F77460F056

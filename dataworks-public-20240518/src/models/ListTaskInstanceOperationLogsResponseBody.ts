@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs extends $dara.Model {
   /**
    * @remarks
-   * The time when the operation log was generated.
+   * The generation time of Operation logs.
+   * 
+   * The format is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -13,7 +15,7 @@ export class ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs ex
   createTime?: number;
   /**
    * @remarks
-   * The operation content.
+   * The content of the operation.
    * 
    * @example
    * Freeze tasks
@@ -21,7 +23,7 @@ export class ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs ex
   operationContent?: string;
   /**
    * @remarks
-   * The serial number of the operation.
+   * The sequence number of the operation.
    * 
    * @example
    * 1111
@@ -29,7 +31,7 @@ export class ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs ex
   operationSeq?: number;
   /**
    * @remarks
-   * The ID of the instance on which the operation was performed.
+   * The ID of the node instance on which the operation was performed.
    * 
    * @example
    * 1234
@@ -37,7 +39,7 @@ export class ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs ex
   taskInstanceId?: number;
   /**
    * @remarks
-   * The account ID of the operator.
+   * The account ID of the user who performed the operation.
    * 
    * @example
    * 1000
@@ -75,7 +77,7 @@ export class ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs ex
 export class ListTaskInstanceOperationLogsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The operation logs.
+   * The list of operation logs.
    */
   operationLogs?: ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs[];
   /**
@@ -140,7 +142,7 @@ export class ListTaskInstanceOperationLogsResponseBody extends $dara.Model {
   pagingInfo?: ListTaskInstanceOperationLogsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The ID of the request. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A1****

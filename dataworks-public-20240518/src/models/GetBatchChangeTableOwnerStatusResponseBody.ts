@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBatchChangeTableOwnerStatusResponseBodyDataDetails extends $dara.Model {
   /**
    * @remarks
-   * The error message returned when the table transfer fails.
+   * The error message returned when the table fails to be transferred.
    * 
    * @example
    * Forbidden: You are not a member of this project
@@ -55,7 +55,7 @@ export class GetBatchChangeTableOwnerStatusResponseBodyDataDetails extends $dara
 export class GetBatchChangeTableOwnerStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The batch transfer task ID.
+   * The ID of the batch transfer task.
    * 
    * @example
    * 524257_openapi-req-abc123
@@ -68,7 +68,7 @@ export class GetBatchChangeTableOwnerStatusResponseBodyData extends $dara.Model 
   details?: GetBatchChangeTableOwnerStatusResponseBodyDataDetails[];
   /**
    * @remarks
-   * The number of tables that failed to transfer.
+   * The number of tables that fail to be transferred.
    * 
    * @example
    * 1
@@ -92,7 +92,7 @@ export class GetBatchChangeTableOwnerStatusResponseBodyData extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The number of tables that were successfully transferred.
+   * The number of tables that are successfully transferred.
    * 
    * @example
    * 2
@@ -158,7 +158,7 @@ export class GetBatchChangeTableOwnerStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

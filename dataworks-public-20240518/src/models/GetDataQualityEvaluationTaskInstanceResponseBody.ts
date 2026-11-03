@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsDetails extends $dara.Model {
   /**
+   * @remarks
+   * The final value used to compare with the threshold.
+   * 
    * @example
    * 100.0
    */
   checkedValue?: string;
   /**
+   * @remarks
+   * The referenced sample value used as the baseline for calculating the CheckedValue.
+   * 
    * @example
    * 0.0
    */
   referencedValue?: string;
   /**
+   * @remarks
+   * The status of the final comparison result.
+   * 
    * @example
    * Passed
    */
@@ -45,16 +54,31 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsCritical extends $dara.Model {
   /**
+   * @remarks
+   * The check expression.
+   * 
    * @example
    * $checkValue > 0.01
    */
   expression?: string;
   /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * - \\>
+   * - \\>=
+   * - <
+   * - <=
+   * - !=
+   * - =
+   * 
    * @example
    * >
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -86,16 +110,31 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsExpected extends $dara.Model {
   /**
+   * @remarks
+   * The threshold expression.
+   * 
    * @example
    * $checkValue > 0.01
    */
   expression?: string;
   /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * - \\>
+   * - \\>=
+   * - <
+   * - <=
+   * - !=
+   * - =
+   * 
    * @example
    * >
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -127,16 +166,31 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsWarned extends $dara.Model {
   /**
+   * @remarks
+   * The threshold expression.
+   * 
    * @example
    * $checkValue > 0.01
    */
   expression?: string;
   /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * - \\>
+   * - \\>=
+   * - <
+   * - <=
+   * - !=
+   * - =
+   * 
    * @example
    * >
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -167,8 +221,20 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholds extends $dara.Model {
+  /**
+   * @remarks
+   * The threshold settings for critical alerts.
+   */
   critical?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsCritical;
+  /**
+   * @remarks
+   * The expected threshold settings.
+   */
   expected?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsExpected;
+  /**
+   * @remarks
+   * The threshold settings for warning alerts.
+   */
   warned?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholdsWarned;
   static names(): { [key: string]: string } {
     return {
@@ -206,12 +272,28 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfig extends $dara.Model {
   /**
+   * @remarks
+   * The expression that represents the query method for reference samples. Some types of thresholds require querying reference samples and aggregating their values to obtain the threshold for comparison.
+   * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
    */
   referencedSamplesFilter?: string;
+  /**
+   * @remarks
+   * The threshold settings.
+   */
   thresholds?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfigThresholds;
   /**
+   * @remarks
+   * The threshold calculation method. Valid values:
+   * - Fixed
+   * - Fluctation
+   * - FluctationDiscreate
+   * - Auto
+   * - Average
+   * - Variance
+   * 
    * @example
    * Fixed
    */
@@ -246,11 +328,17 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleErrorHandlers extends $dara.Model {
   /**
+   * @remarks
+   * The SQL statement used to filter problematic data for custom SQL rules.
+   * 
    * @example
    * SELECT * FROM tb_api_log WHERE id IS NULL
    */
   errorDataFilter?: string;
   /**
+   * @remarks
+   * The handler type.
+   * 
    * @example
    * SaveErrorData
    */
@@ -280,21 +368,48 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleSamplingConfig extends $dara.Model {
   /**
+   * @remarks
+   * The name of the sampling metric. Valid values:
+   * - Count: The number of rows in the table.
+   * - Min: The minimum value of the column.
+   * - Max: The maximum value of the column.
+   * - Avg: The average value of the column.
+   * - DistinctCount: The number of unique values in the column.
+   * - DistinctPercent: The ratio of the number of unique values in the column to the number of data rows.
+   * - DuplicatedCount: The number of duplicate values in the column.
+   * - DuplicatedPercent: The ratio of the number of duplicate values in the column to the number of data rows.
+   * - TableSize: The size of the table.
+   * - NullValueCount: The number of rows where the column is null.
+   * - NullValuePercent: The ratio of rows where the column is null.
+   * - GroupCount: The number of data rows corresponding to each value after aggregation by column value.
+   * - CountNotIn: The number of rows that do not match the enumerated values.
+   * - CountDistinctNotIn: The number of unique values that do not match the enumerated values.
+   * - UserDefinedSql: Sample collection by using custom SQL statements.
+   * 
    * @example
    * Min
    */
   metric?: string;
   /**
+   * @remarks
+   * The parameters required for sample collection.
+   * 
    * @example
    * { "Columns": [ "id", "name" ] }
    */
   metricParameters?: string;
   /**
+   * @remarks
+   * The condition for secondary filtering of uninterested data during sampling. It can be up to 16,777,215 characters in length.
+   * 
    * @example
    * id IS NULL
    */
   samplingFilter?: string;
   /**
+   * @remarks
+   * The runtime parameter setting statements inserted before the sampling statements are executed. It can be up to 1,000 characters in length. Currently, only MaxCompute is supported.
+   * 
    * @example
    * SET odps.sql.udf.timeout=600s;
    */
@@ -328,16 +443,33 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleTarget extends $dara.Model {
   /**
+   * @remarks
+   * The database type to which the table dataset belongs. Valid values:
+   * - maxcompute
+   * - emr
+   * - cdh
+   * - hologres
+   * - analyticdb_for_postgresql
+   * - analyticdb_for_mysql
+   * - starrocks
+   * 
    * @example
    * maxcompute
    */
   databaseType?: string;
   /**
+   * @remarks
+   * The unique ID of the table in DataWorks Data Map.
+   * 
    * @example
    * odps.unit_test.tb_unit_test
    */
   tableGuid?: string;
   /**
+   * @remarks
+   * The monitored object type. Valid values:
+   * - Table
+   * 
    * @example
    * Table
    */
@@ -368,37 +500,75 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRule extends $dara.Model {
+  /**
+   * @remarks
+   * The sample check settings.
+   */
   checkingConfig?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleCheckingConfig;
   /**
+   * @remarks
+   * The description of the rule. It can be up to 500 characters in length.
+   * 
    * @example
    * this is a odps _sql task
    */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether the rule is enabled.
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The error handlers for quality rule check issues.
+   */
   errorHandlers?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleErrorHandlers[];
   /**
+   * @remarks
+   * The globally unique ID of the rule.
+   * 
    * @example
    * 100001
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the rule. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks. It can be up to 255 characters in length.
+   * 
    * @example
-   * 表不能为空
+   * Table cannot be empty
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the DataWorks workspace.
+   * 
    * @example
    * 100
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The settings required for sample collection.
+   */
   samplingConfig?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleSamplingConfig;
   /**
+   * @remarks
+   * The severity level of the rule for the business, which corresponds to the strong and weak rules on the page.
+   * 
    * @example
    * High
    */
   severity?: string;
+  /**
+   * @remarks
+   * The object monitored by the rule.
+   */
   target?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRuleTarget;
   /**
+   * @remarks
+   * The rule template referenced when the rule is created.
+   * 
    * @example
    * SYSTEM:user_defined_sql
    */
@@ -458,28 +628,53 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResults extends $dara.Model {
   /**
+   * @remarks
+   * The generation time of the evaluation result.
+   * 
+   * The value is a 13-digit number, such as `1708284916414`.
+   * 
    * @example
    * 1708284916414
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The details of this evaluation.
+   */
   details?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsDetails[];
   /**
+   * @remarks
+   * The ID of the evaluation result.
+   * 
    * @example
    * 10001
    */
   id?: number;
+  /**
+   * @remarks
+   * The snapshot of the rule configuration at the start of the evaluation.
+   */
   rule?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResultsRule;
   /**
+   * @remarks
+   * The sample value used for this evaluation.
+   * 
    * @example
    * [   {     "gender": "male",     "_count": 100   }, {     "gender": "female",     "_count": 100   } ]
    */
   sample?: string;
   /**
+   * @remarks
+   * The status of the evaluation result.
+   * 
    * @example
    * Passed
    */
   status?: string;
   /**
+   * @remarks
+   * The instance ID of the data quality check task.
+   * 
    * @example
    * 20001
    */
@@ -526,10 +721,10 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskHooks extends $dara.Model {
   /**
    * @remarks
-   * The cause that triggers the hook action. When this condition is met, the hook action is triggered. Only two types of conditional expressions are supported:
+   * The condition for triggering the hook. When this condition is met, the hook action is triggered. Currently, only two types of conditional expressions are supported:
    * 
-   * - Specify a single combination of rule severity and rule check status. For example, `${severity} == "High" AND ${status} == "Critical"` means that the condition is met if any rule with a severity of High has a check result of Critical.
-   * - Specify multiple combinations of rule severity and rule check status. For example, `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")` means that the condition is met if any rule with a severity of High has a check result of Critical, or any rule with a severity of Normal has a check result of Critical, or any rule with a severity of Normal has a check result of Error. The severity enumeration values in the conditional expression are consistent with the severity enumeration values in DataQualityRule, and the status enumeration values are consistent with the status values in DataQualityResult.
+   * - Specify only one set of rule severity and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. This means that among the rules that you execute, if a rule with the severity of High has a check result of Critical, the condition is met.
+   * - Specify multiple sets of rule severity and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. This means that among the rules that you execute, if a rule with the severity of High has a check result of Critical, or a rule with the severity of Normal has a check result of Critical, or a rule with the severity of Normal has a check result of Error, the condition is met. The valid values for severity in the conditional expression are the same as those in DataQualityRule, and the valid values for status are the same as those in DataQualityResult.
    * 
    * @example
    * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
@@ -537,9 +732,9 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   condition?: string;
   /**
    * @remarks
-   * The hook type. Only one type is supported:
+   * The hook type. Currently, only one type is supported:
    * 
-   * - BlockTaskInstance: Blocks the scheduling node from continuing to run. If the data quality monitoring task is triggered by a scheduling node, after the data quality monitoring task is completed, the system determines whether to block the scheduling node from continuing to run based on Hook.Condition.
+   * - BlockTaskInstance: Blocks the scheduling task from continuing to run. If the data quality evaluation task is triggered by a scheduling task, the system determines whether to block the scheduling task based on Hook.Condition after the data quality evaluation task is completed.
    * 
    * @example
    * BlockTaskInstance
@@ -601,9 +796,9 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers extends $dara.Model {
   /**
    * @remarks
-   * The additional parameter settings for sending alerts, in JSON format. The following keys are supported:
+   * The additional parameter settings in JSON format when an alert is sent. Supported keys:
    * 
-   * - atAll: Specifies whether to @everyone in the group when sending a DingTalk alert. This parameter takes effect only when ReceiverType is set to DingdingUrl.
+   * - atAll: Specifies whether to @all in the DingTalk group when a DingTalk alert is sent. This parameter takes effect only when ReceiverType is set to DingdingUrl.
    * 
    * @example
    * { "atAll": true }
@@ -658,7 +853,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   notificationChannels?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationChannels[];
   /**
    * @remarks
-   * The notification recipients.
+   * The values of the notification recipients.
    */
   notificationReceivers?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers[];
   static names(): { [key: string]: string } {
@@ -693,10 +888,10 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotifications extends $dara.Model {
   /**
    * @remarks
-   * The cause that triggers a notification. When this condition is met, a message notification is sent. Only two types of conditional expressions are supported:
+   * The condition for triggering a notification. When this condition is met, a message notification is triggered. Currently, only two types of conditional expressions are supported:
    * 
-   * - Specify a single combination of rule severity and rule check status. For example, `${severity} == "High" AND ${status} == "Critical"` means that the condition is met if any rule with a severity of High has a check result of Critical. 
-   * - Specify multiple combinations of rule severity and rule check status. For example, `(${severity} == "High"AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")` means that the condition is met if any rule with a severity of High has a check result of Critical, or any rule with a severity of Normal has a check result of Critical, or any rule with a severity of Normal has a check result of Error. The severity enumeration values in the conditional expression are consistent with the severity enumeration values in DataQualityRule, and the status enumeration values are consistent with the status values in DataQualityResult.
+   * - Specify only one set of rule severity and rule check status, such as `${severity} == "High" AND ${status} == "Critical"`. This means that among the rules that you execute, if a rule with the severity of High has a check result of Critical, the condition is met. 
+   * - Specify multiple sets of rule severity and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. This means that among the rules that you execute, if a rule with the severity of High has a check result of Critical, or a rule with the severity of Normal has a check result of Critical, or a rule with the severity of Normal has a check result of Error, the condition is met. The valid values for severity in the conditional expression are the same as those in DataQualityRule, and the valid values for status are the same as those in DataQualityResult.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -704,7 +899,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   condition?: string;
   /**
    * @remarks
-   * The alert methods.
+   * The notification methods.
    */
   notifications?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotifications[];
   static names(): { [key: string]: string } {
@@ -736,7 +931,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTarget extends $dara.Model {
   /**
    * @remarks
-   * The type of the database to which the table belongs.
+   * The database type to which the table belongs.
    * 
    * @example
    * maxcompute
@@ -744,7 +939,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   databaseType?: string;
   /**
    * @remarks
-   * The partition range to monitor.
+   * The partition range to be monitored.
    * 
    * @example
    * pt=$[yyyymmdd-1]
@@ -761,7 +956,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   /**
    * @remarks
    * The monitored object type. Valid values:
-   * - Table: table.
+   * - Table: Table.
    * 
    * @example
    * Table
@@ -797,14 +992,14 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTrigger extends $dara.Model {
   /**
    * @remarks
-   * The list of scheduling node IDs. This parameter is valid only when Type is set to ByScheduledTaskInstance.
+   * The list of scheduling task IDs. This parameter takes effect only when Type is set to ByScheduledTaskInstance.
    */
   taskIds?: number[];
   /**
    * @remarks
-   * The trigger type of the quality monitoring task. Valid values:
+   * The trigger type of the data quality evaluation task. Valid values:
    * - ByManual: Manual trigger. This is the default value.
-   * - ByScheduledTaskInstance: Triggered by an associated scheduling node.
+   * - ByScheduledTaskInstance: Triggered by an associated scheduling task.
    * 
    * @example
    * ByScheduledTaskInstance
@@ -839,7 +1034,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTask extends $dara.Model {
   /**
    * @remarks
-   * The description of the data quality monitoring task.
+   * The description of the data quality evaluation task.
    * 
    * @example
    * OpenAPI quality monitoring test
@@ -847,12 +1042,12 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   description?: string;
   /**
    * @remarks
-   * The callback settings.
+   * The hook settings.
    */
   hooks?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskHooks[];
   /**
    * @remarks
-   * The ID of the data quality monitoring task.
+   * The ID of the data quality evaluation task.
    * 
    * @example
    * 28544990
@@ -860,7 +1055,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   id?: number;
   /**
    * @remarks
-   * The name of the data quality monitoring task.
+   * The name of the data quality evaluation task.
    * 
    * @example
    * Data quality OpenAPI monitoring test
@@ -873,7 +1068,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   notifications?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotifications;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 20629
@@ -881,12 +1076,12 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   projectId?: number;
   /**
    * @remarks
-   * The extension configuration, a JSON-formatted character string. This parameter takes effect only for EMR-type data quality monitoring tasks.
+   * The extension configuration, a JSON-formatted character string, takes effect only for EMR data quality monitoring.
    * 
-   * - queue: The YARN queue used to execute EMR data validation. The default value is the queue configured for the current project.
-   * - sqlEngine: The SQL engine used to execute EMR data validation. Valid values:
+   * - queue: The YARN queue used when you execute EMR data validation. The default value is the queue configured for the current project.
+   * - sqlEngine: The SQL engine used when you execute EMR data validation. Valid values:
    *   - HIVE_SQL
-   *   - SPARK_SQL.
+   *   - SPARK_SQL
    * 
    * @example
    * { "queue": "default" }
@@ -894,12 +1089,12 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   runtimeConf?: string;
   /**
    * @remarks
-   * The monitored object of the data quality check task. Refer to the DataQualityTarget example.
+   * The monitored object of the data quality evaluation task. For more information, see the DataQualityTarget example and DataQualityTarget.
    */
   target?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTarget;
   /**
    * @remarks
-   * The trigger configuration of the data quality check task.
+   * The trigger configurations of the data quality evaluation task.
    */
   trigger?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTrigger;
   static names(): { [key: string]: string } {
@@ -956,13 +1151,17 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
    * @remarks
    * The creation time.
    * 
+   * The value is a 13-digit number, such as `1716344665000`.
+   * 
    * @example
    * 1716344665000
    */
   createTime?: number;
   /**
    * @remarks
-   * The end time of the instance execution.
+   * The end time of the instance run.
+   * 
+   * The value is a 13-digit number, such as `1716344665000`.
    * 
    * @example
    * 1716344665000
@@ -970,7 +1169,7 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   finishTime?: number;
   /**
    * @remarks
-   * The data quality monitoring instance ID.
+   * The instance ID of the data quality monitoring.
    * 
    * @example
    * 7234231689
@@ -978,8 +1177,8 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   id?: number;
   /**
    * @remarks
-   * The execution parameters for the data quality check, in JSON format. The following keys are available:
-   * - triggerTime: the millisecond-level timestamp of the trigger time. This is the base time for the $[yyyymmdd] expression in the data range of the data quality monitoring task. This key is required.
+   * The execution parameters of the data quality evaluation task in JSON format. Available keys:
+   * - triggerTime: The millisecond timestamp of the trigger time. This is the base time for the `$[yyyymmdd]` expression in the data range of the data quality evaluation task. This parameter is required.
    * 
    * @example
    * { "triggerTime": 1733284062000 }
@@ -987,21 +1186,25 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   parameters?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * 98330
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The list of data quality evaluation results.
+   */
   results?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceResults[];
   /**
    * @remarks
-   * The instance status of the data quality monitoring task. Valid values:
+   * The status of the data quality monitoring instance. Valid values:
    * - Running: The check is in progress.
-   * - Error: A rule check encountered an error.
+   * - Error: An error occurred while checking a rule.
    * - Passed: All rule checks passed.
-   * - Warned: A rule triggered a normal alert threshold.
-   * - Critical: A rule triggered a critical alert threshold.
+   * - Warned: A rule triggered the warning alert threshold.
+   * - Critical: A rule triggered the critical alert threshold.
    * 
    * @example
    * Passed
@@ -1009,14 +1212,14 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
   status?: string;
   /**
    * @remarks
-   * The data quality monitoring task.
+   * The data quality evaluation task.
    */
   task?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTask;
   /**
    * @remarks
-   * The context information when the instance is triggered, in JSON format. The following keys may be included:
-   * - TriggerClient: the trigger source of the data quality monitoring instance, such as CWF2 (scheduling system). More values may be added in the future.
-   * - TriggerClientId: the ID of a specific business resource in the source system. For example, when TriggerClient is CWF2, this field records the scheduling task ID.
+   * The context information when the instance is triggered, in JSON format. Possible keys:
+   * - TriggerClient: The trigger source of the data quality evaluation task instance, such as CWF2 (scheduling system). More sources may be added in the future.
+   * - TriggerClientId: The specific business resource in the source system. For example, if TriggerClient is CWF2, this parameter records the scheduling task ID.
    * 
    * @example
    * { "triggerClient": "CWF2", "triggerClientId": 70001238945 }
@@ -1068,12 +1271,12 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 export class GetDataQualityEvaluationTaskInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data quality monitoring instance.
+   * The details of the data quality evaluation task instance.
    */
   dataQualityEvaluationTaskInstance?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstance;
   /**
    * @remarks
-   * The request ID. Used to locate logs and troubleshoot issues.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 8abcb91f-d266-4073-b907-2ed67****

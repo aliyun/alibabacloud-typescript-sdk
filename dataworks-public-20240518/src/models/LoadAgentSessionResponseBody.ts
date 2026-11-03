@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LoadAgentSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error object of the SSE frame. This field is present when an error occurs. The returned content conforms to the Agent Client Protocol (ACP). For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
+   * The error message in the SSE frame information. The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
    * 
    * @example
    * {"code": 400, "errorCode": "0x50000000001", "message": "not exist session", "data": null}
@@ -13,7 +13,7 @@ export class LoadAgentSessionResponseBody extends $dara.Model {
   error?: any;
   /**
    * @remarks
-   * The client-generated request ID, returned from the request.
+   * The ID provided by the requester. This ID is echoed back as is.
    * 
    * @example
    * 676303114031776
@@ -21,7 +21,7 @@ export class LoadAgentSessionResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. The value is `2.0`.
+   * The JSON-RPC version. Fixed to 2.0.
    * 
    * @example
    * 2.0
@@ -29,7 +29,7 @@ export class LoadAgentSessionResponseBody extends $dara.Model {
   jsonrpc?: string;
   /**
    * @remarks
-   * The method of the SSE frame. The returned content conforms to the Agent Client Protocol (ACP). For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
+   * The method of the SSE. The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
    * 
    * @example
    * session/update
@@ -37,7 +37,7 @@ export class LoadAgentSessionResponseBody extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The parameters of the SSE frame. The returned content conforms to the Agent Client Protocol (ACP). For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
+   * The parameters of the SSE. The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
    * 
    * @example
    * {"sessionId":"af4f5ef8-e8f5-481c-ad1f-94886c6c0aed","update":{"sessionUpdate":"agent_message_chunk","content":{"type":"text","text":"hello world"}}}
@@ -45,7 +45,7 @@ export class LoadAgentSessionResponseBody extends $dara.Model {
   params?: any;
   /**
    * @remarks
-   * The unique request ID generated for this request.
+   * Id of the request
    * 
    * @example
    * 0D41C608-0C60-5EB0-B986-1460909CF642
@@ -53,7 +53,7 @@ export class LoadAgentSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result object of the SSE frame. This field is present when the operation is successful. The returned content conforms to the Agent Client Protocol (ACP). For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
+   * The result set of the SSE frame. The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
    * 
    * @example
    * {"stopReason":"end_turn"}

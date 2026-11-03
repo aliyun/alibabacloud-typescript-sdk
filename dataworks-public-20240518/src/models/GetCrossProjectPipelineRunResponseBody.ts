@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCrossProjectPipelineRunResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The termination time. This value is a UNIX timestamp in milliseconds. This parameter is returned only after the flow is terminated.
+   * The termination time. The value is a UNIX timestamp in milliseconds. This parameter is returned only after the pipeline run is terminated.
    * 
    * @example
    * 1788739260000
@@ -13,7 +13,7 @@ export class GetCrossProjectPipelineRunResponseBodyData extends $dara.Model {
   abolishTime?: number;
   /**
    * @remarks
-   * The user who terminated the flow.
+   * The user who terminated the pipeline run.
    * 
    * @example
    * operator
@@ -29,7 +29,7 @@ export class GetCrossProjectPipelineRunResponseBodyData extends $dara.Model {
   changeType?: string;
   /**
    * @remarks
-   * The creation time. This value is a UNIX timestamp in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1788739200000
@@ -56,7 +56,7 @@ export class GetCrossProjectPipelineRunResponseBodyData extends $dara.Model {
    * The deployment description.
    * 
    * @example
-   * Publish objects that are published in the source project to the target project
+   * Deploy objects already deployed in the source project to the target project
    */
   description?: string;
   /**
@@ -77,7 +77,7 @@ export class GetCrossProjectPipelineRunResponseBodyData extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The execution time. This value is a UNIX timestamp in milliseconds.
+   * The execution time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1788739260000
@@ -93,7 +93,7 @@ export class GetCrossProjectPipelineRunResponseBodyData extends $dara.Model {
   executor?: string;
   /**
    * @remarks
-   * The completion time. This value is a UNIX timestamp in milliseconds.
+   * The completion time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1788739320000
@@ -133,7 +133,7 @@ export class GetCrossProjectPipelineRunResponseBodyData extends $dara.Model {
   objectVersion?: string;
   /**
    * @remarks
-   * The cross-workspace deployment flow ID.
+   * The cross-workspace deployment pipeline run ID.
    * 
    * @example
    * fcfd4160-e2ff-4603-9719-09128fe733df
@@ -149,13 +149,7 @@ export class GetCrossProjectPipelineRunResponseBodyData extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the deployment flow. Valid values:
-   * - Building: Building.
-   * - Ready: Ready and waiting for execution.
-   * - Running: Running.
-   * - Termination: Terminated.
-   * - Success: Execution succeeded.
-   * - Fail: Execution failed.
+   * The status of the deployment pipeline run.
    * 
    * @example
    * Ready
@@ -224,12 +218,12 @@ export class GetCrossProjectPipelineRunResponseBody extends $dara.Model {
    * The business response.
    * 
    * @example
-   * {"RequestId":"735894D1-D5E5-50B8-8A6D-041C90A98B23","PipelineRunId":"fcfd4160-e2ff-4603-9719-09128fe733df","DeploymentEnvironmentId":101,"ObjectId":"1","ObjectType":"ODPS_SQL","ObjectName":"object-1","ObjectVersion":"7","ChangeType":"ADD","Status":"Ready","Description":"Publish objects that are published in the source project to the target project","Creator":"creator","CreateTime":1788739200000}
+   * {"RequestId":"735894D1-D5E5-50B8-8A6D-041C90A98B23","PipelineRunId":"fcfd4160-e2ff-4603-9719-09128fe733df","DeploymentEnvironmentId":101,"ObjectId":"1","ObjectType":"ODPS_SQL","ObjectName":"object-1","ObjectVersion":"7","ChangeType":"ADD","Status":"Ready","Description":"Deploy objects already deployed in the source project to the target project","Creator":"creator","CreateTime":1788739200000}
    */
   data?: GetCrossProjectPipelineRunResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot this API call.
+   * The request ID, which is used to locate and troubleshoot the current API call.
    * 
    * @example
    * 735894D1-D5E5-50B8-8A6D-041C90A98B23
@@ -237,7 +231,7 @@ export class GetCrossProjectPipelineRunResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

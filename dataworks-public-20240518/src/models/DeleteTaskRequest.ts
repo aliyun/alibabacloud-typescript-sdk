@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,7 @@ export class DeleteTaskRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The environment of the workspace.
-   * 
-   * Valid values:
-   * 
-   * - Prod: production environment
-   * 
-   * - Dev: development environment
+   * The project environment.
    * 
    * @example
    * Prod

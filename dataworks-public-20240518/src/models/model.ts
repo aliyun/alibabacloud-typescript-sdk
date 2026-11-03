@@ -853,6 +853,8 @@ export { PromptAgentSessionRequestParamsMeta } from './PromptAgentSessionRequest
 export { PromptAgentSessionRequestParamsPromptMeta } from './PromptAgentSessionRequest';
 export { PromptAgentSessionRequestParamsPrompt } from './PromptAgentSessionRequest';
 export { PromptAgentSessionRequestParams } from './PromptAgentSessionRequest';
+export { PromptAgentSessionResponseBodyMetaEventCursor } from './PromptAgentSessionResponseBody';
+export { PromptAgentSessionResponseBodyMeta } from './PromptAgentSessionResponseBody';
 export { PublishImageResponseBodyData } from './PublishImageResponseBody';
 export { ReplyAgentSessionRequestParamsOutcome } from './ReplyAgentSessionRequest';
 export { ReplyAgentSessionRequestParams } from './ReplyAgentSessionRequest';

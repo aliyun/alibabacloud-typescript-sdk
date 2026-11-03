@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDIJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the destination data source. If you do not specify this parameter, jobs are not filtered by this criterion. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `LogHub`, `StarRocks`, `DataHub`, `AnalyticDB_For_MySQL`, `Kafka`, and `Hive`.
+   * The type of the destination data source. If you do not specify this parameter, no limit is applied. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, LogHub, StarRocks, DataHub, AnalyticDB_For_MySQL, Kafka, and Hive.
    * 
    * @example
    * Hologres
@@ -14,16 +14,11 @@ export class ListDIJobsRequest extends $dara.Model {
   /**
    * @remarks
    * The synchronization type. Valid values:
-   * 
-   * - `FullAndRealtimeIncremental`: full and real-time incremental synchronization
-   * 
-   * - `RealtimeIncremental`: real-time incremental synchronization
-   * 
-   * - `Full`: full synchronization
-   * 
-   * - `OfflineIncremental`: offline incremental synchronization
-   * 
-   * - `FullAndOfflineIncremental`: full and offline incremental synchronization
+   * - FullAndRealtimeIncremental: full and real-time incremental synchronization
+   * - RealtimeIncremental: real-time incremental synchronization
+   * - Full: full synchronization
+   * - OfflineIncremental: batch incremental synchronization
+   * - FullAndOfflineIncremental: full and batch incremental synchronization
    * 
    * @example
    * FullAndRealtimeIncremental
@@ -31,9 +26,9 @@ export class ListDIJobsRequest extends $dara.Model {
   migrationType?: string;
   /**
    * @remarks
-   * The name of the Data Integration job.
+   * The name of the export task.
    * 
-   * The name must be unique within the DataWorks workspace.
+   * The name must be unique within the current DataWorks workspace. Duplicate names are not allowed.
    * 
    * @example
    * test_export_01
@@ -41,7 +36,7 @@ export class ListDIJobsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number. Pages are numbered starting from 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -49,7 +44,7 @@ export class ListDIJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default: 10. Maximum: 100.
+   * The number of entries to return on each page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -57,7 +52,7 @@ export class ListDIJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the DataWorks workspace.
+   * The ID of the workspace.
    * 
    * This parameter is required.
    * 
@@ -67,7 +62,7 @@ export class ListDIJobsRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The type of the source data source. If you do not specify this parameter, jobs are not filtered by this criterion. Valid values: `PolarDB`, `MySQL`, `Kafka`, `LogHub`, `Hologres`, `Oracle`, `OceanBase`, `MongoDB`, `RedShift`, `Hive`, `SQLServer`, `Doris`, and `ClickHouse`.
+   * The type of the source data source. If you do not specify this parameter, no limit is applied. Valid values: PolarDB, MySQL, Kafka, LogHub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SQLServer, Doris, and ClickHouse.
    * 
    * @example
    * MySQL
@@ -75,7 +70,10 @@ export class ListDIJobsRequest extends $dara.Model {
   sourceDataSourceType?: string;
   /**
    * @remarks
-   * The configuration type of the job. Valid values: `FILESPEC`, `CLASSIC`, and `ALL`. `FILESPEC` indicates a new job type configured based on a structured file specification. `CLASSIC` indicates a job configured in the traditional mode. If you set this parameter to `ALL`, jobs of both types are returned.
+   * The task configuration specification type. Valid values: FILESPEC, CLASSIC, and ALL. FILESPEC: new-version tasks based on structured filespec. CLASSIC: tasks in the traditional configuration mode.
+   * 
+   * @example
+   * FILESPEC
    */
   specType?: string;
   static names(): { [key: string]: string } {

@@ -15,7 +15,7 @@ export class RollbackImageRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The image version to roll back to.
+   * The image version to roll back.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecPipelineRunStageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. Used for locating logs and troubleshooting issues.
+   * The ID of the request. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * AFBB799F-8578-51C5-A766-E922EDB8XXXX
@@ -13,18 +13,10 @@ export class ExecPipelineRunStageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * 
-   * 
-   * 
-   * 
-   * - true: The call is successful.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
    * - false: The call failed.
-   * 
-   * 
-   * 
-   * 
-   * > &lt;notice&gt;This only indicates whether the stage is triggered, not the execution result of the deployment stage.&gt;&lt;/notice&gt;
+   * >Notice: This value only indicates whether the stage execution was successfully triggered, not the execution result of the deployment stage.
    * 
    * @example
    * true

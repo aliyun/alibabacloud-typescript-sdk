@@ -5,15 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkflowResponseBodyWorkflowDependencies extends $dara.Model {
   /**
    * @remarks
-   * The scheduling dependency type. Valid values:
-   * 
-   * - CrossCycleDependsOnChildren: cross-cycle dependency on the level-1 descendant nodes of a node
-   * 
-   * - CrossCycleDependsOnSelf: cross-cycle dependency on the current node
-   * 
+   * The dependency type. Valid values:
+   * - CrossCycleDependsOnChildren: cross-cycle dependency on first-level child nodes
+   * - CrossCycleDependsOnSelf: cross-cycle dependency on the node itself
    * - CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
-   * 
-   * - Normal: same-cycle scheduling dependency
+   * - Normal: same-cycle dependency
    * 
    * @example
    * Normal
@@ -21,7 +17,7 @@ export class GetWorkflowResponseBodyWorkflowDependencies extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The identifier of the output of the ancestor task. This parameter is returned only if `same-cycle scheduling dependencies` and the node input are configured.
+   * The output identifier of the upstream node. This field is returned when the dependency type is same-cycle dependency and the input content is configured.
    * 
    * @example
    * pre.odps_sql_demo_0
@@ -29,7 +25,7 @@ export class GetWorkflowResponseBodyWorkflowDependencies extends $dara.Model {
   upstreamOutput?: string;
   /**
    * @remarks
-   * The ID of the upstream task. This field is returned for cross-cycle dependencies on other nodes, or for same-cycle dependencies when input content is not specified. It is not returned in other cases.
+   * The ID of the upstream node. This field is returned when the dependency type is cross-cycle dependency on other nodes or same-cycle dependency without input content configured. It is not returned in other cases.
    * 
    * @example
    * 1234
@@ -63,7 +59,7 @@ export class GetWorkflowResponseBodyWorkflowDependencies extends $dara.Model {
 export class GetWorkflowResponseBodyWorkflowOutputsTaskOutputs extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the output.
+   * The output identifier.
    * 
    * @example
    * pre.odps_sql_demo_0
@@ -93,7 +89,7 @@ export class GetWorkflowResponseBodyWorkflowOutputsTaskOutputs extends $dara.Mod
 export class GetWorkflowResponseBodyWorkflowOutputs extends $dara.Model {
   /**
    * @remarks
-   * The task outputs.
+   * The list of node output definitions.
    */
   taskOutputs?: GetWorkflowResponseBodyWorkflowOutputsTaskOutputs[];
   static names(): { [key: string]: string } {
@@ -193,7 +189,7 @@ export class GetWorkflowResponseBodyWorkflowTasksDataSource extends $dara.Model 
 export class GetWorkflowResponseBodyWorkflowTasksRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The number of compute units (CUs) configured for task running.
+   * The CU consumption configured for node execution.
    * 
    * @example
    * 0.25
@@ -201,7 +197,7 @@ export class GetWorkflowResponseBodyWorkflowTasksRuntimeResource extends $dara.M
   cu?: string;
   /**
    * @remarks
-   * The ID of the image configured for task running.
+   * The ID of the image configured for node execution.
    * 
    * @example
    * i-xxxxxx
@@ -209,7 +205,7 @@ export class GetWorkflowResponseBodyWorkflowTasksRuntimeResource extends $dara.M
   image?: string;
   /**
    * @remarks
-   * The ID of the resource group for scheduling configured for task running.
+   * The identifier of the schedule resource group configured for node execution.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -243,7 +239,7 @@ export class GetWorkflowResponseBodyWorkflowTasksRuntimeResource extends $dara.M
 export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   /**
    * @remarks
-   * The baseline ID.
+   * The ID of the baseline.
    * 
    * @example
    * 1234
@@ -251,7 +247,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   baselineId?: number;
   /**
    * @remarks
-   * The unique code of the client. This parameter is used to create a task asynchronously and implement the idempotence of the task. If you do not specify this parameter when you create the task, the system automatically generates a unique code. The unique code is uniquely associated with the task ID. If you specify this parameter when you update or delete the task, the value of this parameter must be the unique code that is used to create the task.
+   * The client unique code of the node, which is used to implement asynchronous and idempotent operations. If you do not specify this parameter when creating the node, the system automatically generates a code and uniquely binds it to the resource ID. If you specify this parameter when updating or deleting the resource, it must be the same as the client unique code used during creation.
    * 
    * @example
    * Task_0bc5213917368545132902xxxxxxxx
@@ -261,13 +257,15 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
    * @remarks
    * The creation time.
    * 
+   * The value is a 13-digit number, such as `1710239005403`.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
    * @remarks
-   * The account ID of the creator.
+   * The account ID of the user who created the node.
    * 
    * @example
    * 1000
@@ -275,12 +273,12 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * The information about the associated data source.
+   * The associated data source information.
    */
   dataSource?: GetWorkflowResponseBodyWorkflowTasksDataSource;
   /**
    * @remarks
-   * The description of the task.
+   * The description.
    * 
    * @example
    * Test
@@ -288,7 +286,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values: Prod (production) and Dev (development).
+   * The project environment.
    * 
    * @example
    * Prod
@@ -296,7 +294,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the node.
    * 
    * @example
    * 1234
@@ -304,7 +302,9 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
+   * 
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -312,7 +312,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The account ID of the modifier.
+   * The account ID of the user who updated the node.
    * 
    * @example
    * 1000
@@ -320,7 +320,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   modifyUser?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The name of the node.
    * 
    * @example
    * SQL node
@@ -328,7 +328,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The account ID of the task owner.
+   * The account ID of the node owner.
    * 
    * @example
    * 1000
@@ -336,7 +336,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The priority of the task. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+   * The priority of the node. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
    * 
    * @example
    * 1
@@ -344,7 +344,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the project.
    * 
    * @example
    * 100
@@ -352,7 +352,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The rerun interval. Unit: seconds.
+   * The retry time interval, in seconds.
    * 
    * @example
    * 60
@@ -360,13 +360,10 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   rerunInterval?: number;
   /**
    * @remarks
-   * The rerun mode. Valid values:
-   * 
-   * - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * 
-   * - FailureAllowed: The task can be rerun only after it fails to run.
-   * 
-   * - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * The configuration that specifies whether the node can be rerun. Valid values:
+   * - AllDenied: The node cannot be rerun regardless of whether it succeeds or fails.
+   * - FailureAllowed: The node can be rerun only when it fails.
+   * - AllAllowed: The node can be rerun regardless of whether it succeeds or fails.
    * 
    * @example
    * AllAllowed
@@ -374,7 +371,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   rerunMode?: string;
   /**
    * @remarks
-   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * The number of retries. This parameter takes effect only when the node is configured to be rerunnable.
    * 
    * @example
    * 3
@@ -382,12 +379,12 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   rerunTimes?: number;
   /**
    * @remarks
-   * The configurations of the runtime environment, such as the resource group information.
+   * The runtime environment configuration, such as the resource group information.
    */
   runtimeResource?: GetWorkflowResponseBodyWorkflowTasksRuntimeResource;
   /**
    * @remarks
-   * The timeout period of task running. Unit: seconds.
+   * The timeout period for node execution, in seconds.
    * 
    * @example
    * 3600
@@ -395,7 +392,10 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The running mode of the task after it is triggered. Valid values: Pause (paused), Skip (dry run), and Normal (normal execution).
+   * The running mode when the trigger is fired. Valid values:
+   * - Pause: paused
+   * - Skip: dry run
+   * - Normal: normal execution
    * 
    * @example
    * Normal
@@ -403,7 +403,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   triggerRecurrence?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The type of the node.
    * 
    * @example
    * ODPS_SQL
@@ -411,7 +411,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The ID of the workflow to which the task belongs.
+   * The ID of the workflow to which the node belongs.
    * 
    * @example
    * 1234
@@ -489,7 +489,7 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
 export class GetWorkflowResponseBodyWorkflowTrigger extends $dara.Model {
   /**
    * @remarks
-   * The CRON expression. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The cron expression. This parameter takes effect only when Type is set to Scheduler.
    * 
    * @example
    * 00 00 00 * * ?
@@ -497,7 +497,9 @@ export class GetWorkflowResponseBodyWorkflowTrigger extends $dara.Model {
   cron?: string;
   /**
    * @remarks
-   * The end time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The expiration time of the periodic trigger. This parameter takes effect only when Type is set to Scheduler.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identifier.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -505,7 +507,10 @@ export class GetWorkflowResponseBodyWorkflowTrigger extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The running mode of the workflow after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values: Pause (paused), Skip (dry run), and Normal (normal execution).
+   * The running mode when the trigger is fired. This parameter takes effect only when Type is set to Scheduler. Valid values:
+   * - Pause: paused
+   * - Skip: dry run
+   * - Normal: normal execution
    * 
    * @example
    * Normal
@@ -513,7 +518,9 @@ export class GetWorkflowResponseBodyWorkflowTrigger extends $dara.Model {
   recurrence?: string;
   /**
    * @remarks
-   * The start time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * The effective period of the epoch trigger. This parameter takes effect only when Type is set to Scheduler.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identity.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -521,11 +528,9 @@ export class GetWorkflowResponseBodyWorkflowTrigger extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The trigger type. Valid values:
-   * 
-   * - Scheduler: scheduling cycle-based trigger
-   * 
-   * - Manual: manual trigger
+   * The type of the trigger method. Valid values:
+   * - Scheduler: triggered by a scheduling cycle
+   * - Manual: triggered manually
    * 
    * @example
    * Scheduler
@@ -563,7 +568,7 @@ export class GetWorkflowResponseBodyWorkflowTrigger extends $dara.Model {
 export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
   /**
    * @remarks
-   * The unique code of the client. This parameter is used to create a workflow asynchronously and implement the idempotence of the workflow. If you do not specify this parameter when you create the workflow, the system automatically generates a unique code. The unique code is uniquely associated with the workflow ID. If you specify this parameter when you update or delete the workflow, the value of this parameter must be the unique code that is used to create the workflow.
+   * The client unique code of the workflow, which is used to implement asynchronous and idempotent operations. If you do not specify this parameter when creating the workflow, the system automatically generates a code and uniquely binds it to the resource ID. If you specify this parameter when updating or deleting the resource, it must be the same as the client unique code used during creation.
    * 
    * @example
    * Workflow_0bc5213917368545132902xxxxxxxx
@@ -573,13 +578,15 @@ export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
    * @remarks
    * The creation time.
    * 
+   * The value is a 13-digit number, such as `1710239005403`.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
    * @remarks
-   * The account ID of the creator.
+   * The account ID of the user who created the node.
    * 
    * @example
    * 1000
@@ -592,7 +599,7 @@ export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
   dependencies?: GetWorkflowResponseBodyWorkflowDependencies[];
   /**
    * @remarks
-   * The description of the workflow.
+   * The description.
    * 
    * @example
    * Test workflow
@@ -600,11 +607,7 @@ export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment of the workspace. Valid values:
-   * 
-   * - Prod: production environment
-   * 
-   * - Dev: development environment
+   * The project environment.
    * 
    * @example
    * Prod
@@ -612,7 +615,7 @@ export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The workflow ID.
+   * The unique identifier of the workflow.
    * 
    * @example
    * 1234
@@ -620,7 +623,9 @@ export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
+   * 
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -628,7 +633,7 @@ export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The account ID of the modifier.
+   * The account ID of the user who updated the node.
    * 
    * @example
    * 1000
@@ -636,7 +641,7 @@ export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
   modifyUser?: string;
   /**
    * @remarks
-   * The name of the workflow.
+   * The name.
    * 
    * @example
    * Workflow
@@ -649,7 +654,7 @@ export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
   outputs?: GetWorkflowResponseBodyWorkflowOutputs;
   /**
    * @remarks
-   * The account ID of the workflow owner.
+   * The account ID of the owner.
    * 
    * @example
    * 1000
@@ -657,7 +662,7 @@ export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The parameters.
+   * The list of parameters.
    * 
    * @example
    * para1=$bizdate para2=$[yyyymmdd]
@@ -665,7 +670,7 @@ export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
   parameters?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the project.
    * 
    * @example
    * 100
@@ -673,17 +678,17 @@ export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: GetWorkflowResponseBodyWorkflowTags[];
   /**
    * @remarks
-   * The tasks.
+   * The list of nodes.
    */
   tasks?: GetWorkflowResponseBodyWorkflowTasks[];
   /**
    * @remarks
-   * The trigger method.
+   * The trigger configuration.
    */
   trigger?: GetWorkflowResponseBodyWorkflowTrigger;
   static names(): { [key: string]: string } {
@@ -757,7 +762,7 @@ export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
 export class GetWorkflowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
@@ -765,7 +770,7 @@ export class GetWorkflowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the workflow.
+   * The details of the workflow.
    */
   workflow?: GetWorkflowResponseBodyWorkflow;
   static names(): { [key: string]: string } {

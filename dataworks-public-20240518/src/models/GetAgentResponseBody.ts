@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentResponseBodyAgentCallableAgents extends $dara.Model {
   /**
    * @remarks
-   * The sub-agent display name.
+   * The display name of the sub-agent.
    * 
    * @example
    * Sub-assistant
@@ -13,7 +13,7 @@ export class GetAgentResponseBodyAgentCallableAgents extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The sub-agent name.
+   * The name of the sub-agent.
    * 
    * @example
    * sub-agent
@@ -21,7 +21,7 @@ export class GetAgentResponseBodyAgentCallableAgents extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sub-agent source.
+   * The source of the sub-agent.
    * 
    * @example
    * custom
@@ -29,7 +29,7 @@ export class GetAgentResponseBodyAgentCallableAgents extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The sub-agent version.
+   * The version number of the sub-agent.
    * 
    * @example
    * -
@@ -65,25 +65,31 @@ export class GetAgentResponseBodyAgentCallableAgents extends $dara.Model {
 export class GetAgentResponseBodyAgentExpertSuites extends $dara.Model {
   /**
    * @remarks
-   * 套件已删除、发布快照缺失或调用者无权查看时，不返回套件摘要，仅保留 ID 和版本号。
+   * If the suite is deleted, the release snapshot is missing, or the caller does not have permission to view it, the suite summary is not returned, and only the ID and version number are retained.
    * 
    * @example
-   * 数据分析专家能力集合
+   * Data analytics expert capability set
    */
   description?: string;
   /**
+   * @remarks
+   * The display name of the bound version.
+   * 
    * @example
-   * 数据分析专家套件
+   * Data analytics expert suite
    */
   displayName?: string;
   /**
+   * @remarks
+   * The suite name of the bound version.
+   * 
    * @example
    * analysis-suite
    */
   name?: string;
   /**
    * @remarks
-   * 显式查询 Agent 已发布版本时返回固定的官方制品版本；查询草稿或自定义套件时不返回。
+   * The fixed official artifact version returned when explicitly querying a released version of the agent. This is not returned when querying a draft or a custom suite.
    * 
    * @example
    * 0.1.0.202610211408
@@ -91,7 +97,7 @@ export class GetAgentResponseBodyAgentExpertSuites extends $dara.Model {
   packageVersion?: string;
   /**
    * @remarks
-   * 可选套件摘要字段，当前新 DataAgent 应用不返回；缺省不表示版本 0。不可作为 UpdateAgent 的 Version，回写引用时必须省略。官方制品的固定版本请读取 PackageVersion。
+   * An optional suite summary field that is not returned by current new DataAgent applications. A default value does not indicate version 0. This cannot be used as the Version for UpdateAgent and must be omitted when writing back references. For the fixed version of official artifacts, read PackageVersion.
    * 
    * @example
    * 1.2.0
@@ -99,25 +105,36 @@ export class GetAgentResponseBodyAgentExpertSuites extends $dara.Model {
   semanticVersion?: string;
   /**
    * @remarks
-   * OFFICIAL 表示官方目录资源；省略或 DB 表示个人或企业资源。
+   * OFFICIAL indicates an official catalog resource. Omitted or DB indicates a personal or enterprise resource.
    * 
    * @example
    * OFFICIAL
    */
   source?: string;
   /**
+   * @remarks
+   * The expert suite ID.
+   * 
    * @example
    * suite_example
    */
   suiteId?: string;
   /**
    * @remarks
-   * 仅个人或企业套件在引用明确指定版本或读取发布快照时返回；官方套件不返回。未返回不是 0；SDK 若将缺省整数初始化为 0，回写时必须省略。官方项只回写 Source 和 SuiteId，不传 Version、SemanticVersion 或 PackageVersion。
+   * Returned only when a personal or enterprise suite explicitly specifies a fixed integer version in the reference. This is not returned for official suites. An unreturned value is not 0. If the SDK initializes the default integer to 0, it must be omitted when writing back. For official items, only Source and SuiteId are written back, and Version, VersionSelector, SemanticVersion, or PackageVersion are not passed.
    * 
    * @example
    * 3
    */
   version?: number;
+  /**
+   * @remarks
+   * Returned only for personal or enterprise resources to indicate the saved version selection strategy, which is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This is not returned for official resources.
+   * 
+   * @example
+   * ^1.2.3
+   */
+  versionSelector?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -128,6 +145,7 @@ export class GetAgentResponseBodyAgentExpertSuites extends $dara.Model {
       source: 'Source',
       suiteId: 'SuiteId',
       version: 'Version',
+      versionSelector: 'VersionSelector',
     };
   }
 
@@ -141,6 +159,7 @@ export class GetAgentResponseBodyAgentExpertSuites extends $dara.Model {
       source: 'string',
       suiteId: 'string',
       version: 'number',
+      versionSelector: 'string',
     };
   }
 
@@ -156,7 +175,7 @@ export class GetAgentResponseBodyAgentExpertSuites extends $dara.Model {
 export class GetAgentResponseBodyAgentModel extends $dara.Model {
   /**
    * @remarks
-   * Additional configuration for the model.
+   * The additional configuration of the model.
    * 
    * @example
    * {}
@@ -164,7 +183,7 @@ export class GetAgentResponseBodyAgentModel extends $dara.Model {
   config?: { [key: string]: any };
   /**
    * @remarks
-   * The maximum number of tokens to generate in one response.
+   * The maximum number of output tokens per generation.
    * 
    * @example
    * 8192
@@ -180,7 +199,7 @@ export class GetAgentResponseBodyAgentModel extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * Indicates whether streaming output is enabled.
+   * Specifies whether streaming output is enabled.
    * 
    * @example
    * true
@@ -188,7 +207,7 @@ export class GetAgentResponseBodyAgentModel extends $dara.Model {
   stream?: boolean;
   /**
    * @remarks
-   * The temperature.
+   * The sampling temperature.
    * 
    * @example
    * 1
@@ -196,7 +215,7 @@ export class GetAgentResponseBodyAgentModel extends $dara.Model {
   temperature?: number;
   /**
    * @remarks
-   * The top-p.
+   * The nucleus sampling Top-P value.
    * 
    * @example
    * 1
@@ -247,20 +266,23 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 指定 AgentVersion 查询已发布快照时返回固定的官方制品版本；查询草稿或自定义 Skill 时不返回。
+   * The fixed official artifact version returned when querying a released snapshot with a specified AgentVersion. This is not returned when querying a draft or a custom skill.
    * 
    * @example
    * 0.6.0.202608201110
    */
   packageVersion?: string;
   /**
+   * @remarks
+   * The official skill ID.
+   * 
    * @example
    * dataworks-semantic
    */
   skillId?: string;
   /**
    * @remarks
-   * OFFICIAL 表示官方目录资源；省略或 DB 表示原有个人或企业资源。
+   * OFFICIAL indicates an official catalog resource. Omitted or DB indicates an original personal or enterprise resource.
    * 
    * @example
    * OFFICIAL
@@ -268,12 +290,20 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The skill version.
+   * The skill version number.
    * 
    * @example
    * -
    */
   version?: number;
+  /**
+   * @remarks
+   * Returned only for personal or enterprise resources to indicate the saved version selection strategy, which is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This is not returned for official resources.
+   * 
+   * @example
+   * ^1.2.3
+   */
+  versionSelector?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
@@ -281,6 +311,7 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
       skillId: 'SkillId',
       source: 'Source',
       version: 'Version',
+      versionSelector: 'VersionSelector',
     };
   }
 
@@ -291,6 +322,7 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
       skillId: 'string',
       source: 'string',
       version: 'number',
+      versionSelector: 'string',
     };
   }
 
@@ -306,7 +338,7 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
 export class GetAgentResponseBodyAgentTools extends $dara.Model {
   /**
    * @remarks
-   * **The name of the built-in tool. This parameter applies only when `Kind` is set to `builtin`.**
+   * **The built-in tool name. Valid when Kind is `builtin`.**
    * 
    * @example
    * builtin_sql
@@ -322,12 +354,12 @@ export class GetAgentResponseBodyAgentTools extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * **The selected MCP tool items. This parameter applies only when `Kind` is set to `mcp`.**
+   * **The selected MCP tool items. Valid when Kind is `mcp`.**
    */
   mcpItems?: string[];
   /**
    * @remarks
-   * **The name of the associated MCP server. This parameter applies only when `Kind` is set to `mcp`.**
+   * **The associated MCP server name. Valid when Kind is `mcp`.**
    * 
    * @example
    * server-name
@@ -366,12 +398,12 @@ export class GetAgentResponseBodyAgentTools extends $dara.Model {
 export class GetAgentResponseBodyAgentVisibilityScope extends $dara.Model {
   /**
    * @remarks
-   * A list of project IDs that can view the agent.
+   * The list of visible project IDs.
    */
   projectIds?: string[];
   /**
    * @remarks
-   * A list of user IDs that can view the agent.
+   * The list of visible user IDs.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -406,7 +438,7 @@ export class GetAgentResponseBodyAgentVisibilityScope extends $dara.Model {
 export class GetAgentResponseBodyAgent extends $dara.Model {
   /**
    * @remarks
-   * 本次读取的定义版本。更新当前定义时，将该值作为 UpdateAgent 的 ExpectedVersion，可拒绝覆盖其他调用者已提交的新版本。读取历史快照的版本不代表当前版本。
+   * The definition version read in this request. When updating the current definition, use this value as the ExpectedVersion for UpdateAgent to prevent overwriting new versions submitted by other callers. The version read from a historical snapshot does not represent the current version.
    * 
    * @example
    * 2
@@ -414,12 +446,12 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
   agentVersion?: number;
   /**
    * @remarks
-   * A list of callable sub-agents.
+   * The list of callable sub-agents.
    */
   callableAgents?: GetAgentResponseBodyAgentCallableAgents[];
   /**
    * @remarks
-   * The creator ID.
+   * The ID of the creator.
    * 
    * @example
    * 123456
@@ -430,7 +462,7 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
    * **The description.**
    * 
    * @example
-   * Data analysis assistant
+   * Data analytics assistant
    */
   description?: string;
   /**
@@ -443,12 +475,12 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Agent 定义绑定的专家套件及固定发布版本。
+   * The expert suites associated with the agent definition, including a fixed integer revision number or a version selection strategy. Official resources continue to use PackageVersion to indicate the artifact version.
    */
   expertSuites?: GetAgentResponseBodyAgentExpertSuites[];
   /**
    * @remarks
-   * The creation time, as a Unix timestamp in milliseconds.
+   * The creation time (millisecond timestamp).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -458,7 +490,7 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modification time, as a Unix timestamp in milliseconds.
+   * The last modification time (millisecond timestamp).
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -468,7 +500,7 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
   gmtModifiedTime?: string;
   /**
    * @remarks
-   * **Additional metadata.**
+   * **The extended metadata.**
    * 
    * @example
    * {}
@@ -497,12 +529,12 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The runtime dependencies.
+   * The environment dependencies required for execution.
    */
   requiredRuntime?: string[];
   /**
    * @remarks
-   * A list of skills.
+   * The list of skills.
    */
   skills?: GetAgentResponseBodyAgentSkills[];
   /**
@@ -510,12 +542,12 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
    * **The system prompt.**
    * 
    * @example
-   * You are a data analysis assistant.
+   * You are a data analytics assistant.
    */
   systemPrompt?: string;
   /**
    * @remarks
-   * **A list of tools.**
+   * **The list of tools.**
    */
   tools?: GetAgentResponseBodyAgentTools[];
   /**
@@ -613,7 +645,7 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
 export class GetAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The agent details.
+   * The details of the created agent.
    */
   agent?: GetAgentResponseBodyAgent;
   /**

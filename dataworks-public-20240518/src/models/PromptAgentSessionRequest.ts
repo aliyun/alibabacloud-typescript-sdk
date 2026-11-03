@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PromptAgentSessionRequestParamsMeta extends $dara.Model {
   /**
    * @remarks
-   * A Map type. In custom Agent scenarios, some placeholder parameters can be replaced through this value.
+   * The map-type context. In custom agent scenarios, you can use this value to replace specific placeholder parameters.
    * 
    * @example
    * {
@@ -38,10 +38,10 @@ export class PromptAgentSessionRequestParamsMeta extends $dara.Model {
 export class PromptAgentSessionRequestParamsPromptMeta extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to hide this prompt from the user. For example, in a chat dialog box, the user asks a question such as "Sales amount in the last 7 days". Before calling the OpenAPI, the calling system retrieves some business domain knowledge through RAG that needs to be added to the Agent context but should not be displayed to the user. In this case, set this value to true.
+   * Specifies whether to hide the prompt from the user. For example, if a user asks a question in the chat dialog box, such as "Sales amount in the last 7 days", and the calling system retrieves some business domain knowledge through RAG before calling the API operation, the knowledge needs to be added to the agent context but not displayed to the user. In this case, you can set this parameter to true.
    * 
    * @example
-   * true or false
+   * true
    */
   hide?: boolean;
   static names(): { [key: string]: string } {
@@ -71,12 +71,12 @@ export class PromptAgentSessionRequestParamsPrompt extends $dara.Model {
    * The file description.
    * 
    * @example
-   * Effective when Type=resource_link. Example: SalesOrderDetails.csv.
+   * Valid when Type is set to resource_link. Example: Sales order details.csv
    */
   description?: string;
   /**
    * @remarks
-   * The DataWorks extended prompt meta information.
+   * The DataWorks extended prompt metadata.
    */
   meta?: PromptAgentSessionRequestParamsPromptMeta;
   /**
@@ -84,7 +84,7 @@ export class PromptAgentSessionRequestParamsPrompt extends $dara.Model {
    * The MIME type of the file.
    * 
    * @example
-   * Effective when Type=resource_link. Example: text/csv.
+   * Valid when Type is set to resource_link. Example: text/csv
    */
   mimeType?: string;
   /**
@@ -92,39 +92,41 @@ export class PromptAgentSessionRequestParamsPrompt extends $dara.Model {
    * The file name.
    * 
    * @example
-   * Effective when Type=resource_link. Example: xxx.csv.
+   * Valid when Type is set to resource_link. Example: xxx.csv
    */
   name?: string;
   /**
    * @remarks
    * The size of the file. Unit: bytes.
    * 
+   * Valid only when Type is set to resource_link.
+   * 
    * @example
-   * Effective when Type=resource_link. Example: 1231231
+   * 1231231
    */
   size?: number;
   /**
    * @remarks
-   * **The text content.**
+   * **Text content**
    * 
    * @example
-   * Effective when Type=text. Example: Sales amount in the last 7 days.
+   * Valid when Type is set to text. Example: Sales amount in the last 7 days
    */
   text?: string;
   /**
    * @remarks
-   * The title of the file.
+   * The file title.
    * 
    * @example
-   * Effective when Type=resource_link. Example: SalesOrderDetails.csv.
+   * Valid when Type is set to resource_link. Example: Sales order details.csv
    */
   title?: string;
   /**
    * @remarks
-   * **The content block type.**
+   * **Content block type**
    * 
    * @example
-   * Currently supported: text, resource_link.
+   * Valid values: text and resource_link
    */
   type?: string;
   /**
@@ -132,7 +134,7 @@ export class PromptAgentSessionRequestParamsPrompt extends $dara.Model {
    * The URI of the file.
    * 
    * @example
-   * Effective when Type=resource_link. Example: oss://${bucket}/${ossKey}
+   * Valid when Type is set to resource_link. Example: oss://${bucket}/${ossKey}
    */
   uri?: string;
   static names(): { [key: string]: string } {
@@ -178,18 +180,18 @@ export class PromptAgentSessionRequestParamsPrompt extends $dara.Model {
 export class PromptAgentSessionRequestParams extends $dara.Model {
   /**
    * @remarks
-   * The extended meta information.
-   * >Notice: If the Agent bound to the specified session is named dataworks_ai_assistant_agent (AI Assistant Service), provide the instance ID of the AI Assistant Service in the Context.agent.instanceId field of the extended meta information.
+   * The extended metadata.
+   * >Notice: If the name of the agent bound to the specified session is dataworks_ai_assistant_agent (AI Assistant), you must provide the instance ID of the AI Assistant in the Context.agent.instanceId field of the extended metadata.</notice>
    */
   meta?: PromptAgentSessionRequestParamsMeta;
   /**
    * @remarks
-   * The array of user message content blocks. For more information, visit: https://agentclientprotocol.com/protocol/content.
+   * The array of user message content blocks. For more information, see https://agentclientprotocol.com/protocol/content.
    */
   prompt?: PromptAgentSessionRequestParamsPrompt[];
   /**
    * @remarks
-   * The target session ID. If the session does not exist, an SSE error frame is returned.
+   * The ID of the target session. If the session does not exist, an SSE error frame is returned.
    * 
    * @example
    * sess_0f12abc34
@@ -229,7 +231,7 @@ export class PromptAgentSessionRequestParams extends $dara.Model {
 export class PromptAgentSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID passed by the requester. The value is returned as-is.
+   * The ID passed by the requester. The value is returned as is.
    * 
    * @example
    * 1021418411
@@ -237,7 +239,7 @@ export class PromptAgentSessionRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. Fixed value: 2.0.
+   * The JSON-RPC version. Set the value to 2.0.
    * 
    * @example
    * 2.0

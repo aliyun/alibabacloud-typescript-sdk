@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksHooks extends $dara.Model {
   /**
    * @remarks
-   * The condition that triggers the hook.
+   * The trigger condition of the hook.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -13,8 +13,8 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   condition?: string;
   /**
    * @remarks
-   * The type of the follow-up action. Valid values:
-   * - BlockTaskInstance: Blocks the execution of a DataWorks node instance.
+   * The type of the subsequent action. Valid values:
+   * - BlockTaskInstance: Blocks the execution of the DataWorks task instance.
    * 
    * @example
    * BlockTaskInstance
@@ -46,7 +46,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationChannels extends $dara.Model {
   /**
    * @remarks
-   * The alert channel.
+   * The notification channel.
    */
   channels?: string[];
   static names(): { [key: string]: string } {
@@ -76,7 +76,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationReceivers extends $dara.Model {
   /**
    * @remarks
-   * The extension information in JSON format. For example, DingTalk chatbots support mentioning all members.
+   * The extended information in JSON format. For example, DingTalk chatbots support mentioning all members.
    * 
    * @example
    * {"atAll":"true"}
@@ -84,12 +84,12 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   extension?: string;
   /**
    * @remarks
-   * The type of the alert recipient. Valid values:
-   * - AliUid: Alibaba Cloud account UID.
-   * - WebhookUrl: custom webhook URL.
-   * - DingdingUrl: DingTalk chatbot URL.
-   * - FeishuUrl: Lark chatbot URL.
-   * - WeixinUrl: WeCom chatbot URL.
+   * The type of the notification recipient. Valid values:
+   * - AliUid: the UID of the Alibaba Cloud account
+   * - WebhookUrl: the custom webhook URL
+   * - DingdingUrl: the DingTalk chatbot URL
+   * - FeishuUrl: the Lark chatbot URL
+   * - WeixinUrl: the WeCom chatbot URL
    * 
    * @example
    * AliUid
@@ -97,7 +97,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   receiverType?: string;
   /**
    * @remarks
-   * The specific values of the alert recipients.
+   * The specific value of the notification recipient.
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -131,12 +131,12 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotifications extends $dara.Model {
   /**
    * @remarks
-   * The alert channel configurations.
+   * The notification channel configuration.
    */
   notificationChannels?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationChannels[];
   /**
    * @remarks
-   * The alert recipient configurations.
+   * The notification recipient configuration.
    */
   notificationReceivers?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationReceivers[];
   static names(): { [key: string]: string } {
@@ -171,7 +171,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotifications extends $dara.Model {
   /**
    * @remarks
-   * The condition that triggers the notification.
+   * The trigger condition of the notification.
    * 
    * @example
    * ${severity} == "High"
@@ -179,7 +179,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   condition?: string;
   /**
    * @remarks
-   * The alert settings.
+   * The specific alert settings.
    */
   notifications?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotifications[];
   static names(): { [key: string]: string } {
@@ -234,7 +234,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   partitionSpec?: string;
   /**
    * @remarks
-   * The unique ID of the table in DataWorks Data Map.
+   * The unique ID of the table in Data Map.
    * 
    * @example
    * odps.unit_test.tb_unit_test
@@ -243,7 +243,6 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   /**
    * @remarks
    * The monitored object type. Valid values:
-   * 
    * - Table
    * 
    * @example
@@ -280,14 +279,13 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTrigger extends $dara.Model {
   /**
    * @remarks
-   * This parameter takes effect when type is set to ByScheduledTaskInstance. Specifies the scheduled node IDs whose successful instance execution can trigger the task.
+   * The IDs of the scheduled nodes. This parameter takes effect only when Type is set to ByScheduledTaskInstance. It specifies the scheduled nodes whose successful instance execution triggers the task.
    */
   taskIds?: number[];
   /**
    * @remarks
-   * The type of event that triggers the quality evaluation task. Valid values:
-   * 
-   * - ByScheduledTaskInstance: Triggered when a scheduled node instance runs successfully.
+   * The event that triggers the execution of the data quality evaluation task. Valid values:
+   * - ByScheduledTaskInstance: The scheduled instance runs successfully.
    * 
    * @example
    * ByScheduledTaskInstance
@@ -335,7 +333,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   description?: string;
   /**
    * @remarks
-   * The callback settings during the lifecycle of data quality evaluation task instances. Currently, only one hook that blocks a scheduling node instance is supported.
+   * The callback settings in the instance lifecycle epoch of the data quality evaluation task. Currently, only one hook that blocks scheduling tasks is supported.
    */
   hooks?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksHooks[];
   /**
@@ -348,7 +346,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   id?: number;
   /**
    * @remarks
-   * The name of the data quality evaluation task. The name can contain digits, English letters, Chinese characters, and half-width or full-width punctuation marks. The name can be up to 255 characters in length.
+   * The name of the data quality evaluation task. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks, and can be up to 255 characters in length.
    * 
    * @example
    * Data quality verification task
@@ -361,7 +359,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   notifications?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotifications;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * @example
    * 100
@@ -369,7 +367,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   projectId?: number;
   /**
    * @remarks
-   * The runtime settings for data sources. Currently, only specifying the EMR YARN queue and the SQL engine for collecting EMR tables is supported. Valid SQL engine values: SPARK_SQL, KYUUBI, PRESTO_SQL, and HIVE_SQL.
+   * The settings for using the data source. Currently, you can only specify the YARN queue for EMR and set the SQL engine to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL when collecting EMR tables.
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK_SQL" }
@@ -439,7 +437,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The quality evaluation tasks.
+   * The data quality evaluation tasks.
    */
   dataQualityEvaluationTasks?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasks[];
   /**
@@ -452,7 +450,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $dara.
   pageNumber?: string;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -460,7 +458,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $dara.
   pageSize?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 131
@@ -499,12 +497,12 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $dara.
 export class ListDataQualityEvaluationTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paged query result of quality evaluation tasks.
+   * The paging query results of the data quality evaluation tasks.
    */
   pagingInfo?: ListDataQualityEvaluationTasksResponseBodyPagingInfo;
   /**
    * @remarks
-   * The API request ID.
+   * The ID of the API request.
    * 
    * @example
    * 691CA452-D37A-4ED0-****

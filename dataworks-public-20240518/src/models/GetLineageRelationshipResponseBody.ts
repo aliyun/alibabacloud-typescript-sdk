@@ -11,7 +11,7 @@ export class GetLineageRelationshipResponseBody extends $dara.Model {
   lineageRelationship?: LineageRelationship;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 58D5334A-B013-430E

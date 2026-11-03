@@ -5,33 +5,51 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentResponseBodyAgentExpertSuites extends $dara.Model {
   /**
    * @remarks
-   * 创建时不返回；请使用 GetAgent 显式查询已发布版本获取固定的官方套件制品版本。
+   * This parameter is not returned upon creation. Call GetAgent to explicitly query the published version to obtain the fixed official suite artifact version.
    * 
    * @example
    * 0.1.0.202610211408
    */
   packageVersion?: string;
   /**
+   * @remarks
+   * The source of the expert suite.
+   * 
    * @example
    * OFFICIAL
    */
   source?: string;
   /**
+   * @remarks
+   * The ID of the expert suite.
+   * 
    * @example
    * dataworks-data-analysis-extension
    */
   suiteId?: string;
   /**
+   * @remarks
+   * The release version number of the custom suite.
+   * 
    * @example
    * 1
    */
   version?: number;
+  /**
+   * @remarks
+   * The saved version selection strategy is returned only for personal or enterprise resources and is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This parameter is not returned for official resources.
+   * 
+   * @example
+   * ^1.2.3
+   */
+  versionSelector?: string;
   static names(): { [key: string]: string } {
     return {
       packageVersion: 'PackageVersion',
       source: 'Source',
       suiteId: 'SuiteId',
       version: 'Version',
+      versionSelector: 'VersionSelector',
     };
   }
 
@@ -41,6 +59,7 @@ export class CreateAgentResponseBodyAgentExpertSuites extends $dara.Model {
       source: 'string',
       suiteId: 'string',
       version: 'number',
+      versionSelector: 'string',
     };
   }
 
@@ -55,33 +74,53 @@ export class CreateAgentResponseBodyAgentExpertSuites extends $dara.Model {
 
 export class CreateAgentResponseBodyAgentSkills extends $dara.Model {
   /**
+   * @remarks
+   * The name of the custom skill.
+   * 
    * @example
    * my-business-skill
    */
   name?: string;
   /**
    * @remarks
-   * 创建时不返回；请使用 GetAgent 显式查询已发布版本获取固定的官方制品版本。
+   * This parameter is not returned upon creation. Call GetAgent to explicitly query the published version to obtain the fixed official artifact version.
    * 
    * @example
    * 0.6.0.202608201110
    */
   packageVersion?: string;
   /**
+   * @remarks
+   * The ID of the official skill.
+   * 
    * @example
    * dataworks-semantic
    */
   skillId?: string;
   /**
+   * @remarks
+   * The source of the skill.
+   * 
    * @example
    * OFFICIAL
    */
   source?: string;
   /**
+   * @remarks
+   * The release version number of the custom skill.
+   * 
    * @example
    * 1
    */
   version?: number;
+  /**
+   * @remarks
+   * The saved version selection strategy is returned only for personal or enterprise resources and is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This parameter is not returned for official resources.
+   * 
+   * @example
+   * ^1.2.3
+   */
+  versionSelector?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
@@ -89,6 +128,7 @@ export class CreateAgentResponseBodyAgentSkills extends $dara.Model {
       skillId: 'SkillId',
       source: 'Source',
       version: 'Version',
+      versionSelector: 'VersionSelector',
     };
   }
 
@@ -99,6 +139,7 @@ export class CreateAgentResponseBodyAgentSkills extends $dara.Model {
       skillId: 'string',
       source: 'string',
       version: 'number',
+      versionSelector: 'string',
     };
   }
 
@@ -114,12 +155,12 @@ export class CreateAgentResponseBodyAgentSkills extends $dara.Model {
 export class CreateAgentResponseBodyAgent extends $dara.Model {
   /**
    * @remarks
-   * 已保存的套件引用。官方资源返回来源及目录 ID；发布后的制品版本由 PackageVersion 表示。
+   * The saved suite references. Official resources return the source and directory ID. The published artifact version is represented by PackageVersion.
    */
   expertSuites?: CreateAgentResponseBodyAgentExpertSuites[];
   /**
    * @remarks
-   * The creation time. The value is a UNIX timestamp in milliseconds.
+   * The creation time, in milliseconds.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -129,7 +170,7 @@ export class CreateAgentResponseBodyAgent extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
-   * The last modification time. The value is a UNIX timestamp in milliseconds.
+   * The last modification time, in milliseconds.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -147,7 +188,7 @@ export class CreateAgentResponseBodyAgent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 已保存的 Skill 引用；官方 Skill 在 Agent 发布后返回固定的 PackageVersion。
+   * The saved skill references. For official skills, a fixed PackageVersion is returned after the agent is published.
    */
   skills?: CreateAgentResponseBodyAgentSkills[];
   static names(): { [key: string]: string } {
