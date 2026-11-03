@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomAgentToolsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The description in English.
+   * The English description.
    * 
    * @example
    * Queries RDS instances.
@@ -13,10 +13,10 @@ export class ListCustomAgentToolsResponseBodyData extends $dara.Model {
   en?: string;
   /**
    * @remarks
-   * The description in Japanese.
+   * The Japanese description.
    * 
    * @example
-   * RDS インスタンスの一覧を照会します。
+   * RDS インスタンスの一覧を照会します
    */
   ja?: string;
   /**
@@ -29,10 +29,10 @@ export class ListCustomAgentToolsResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The description in Traditional Chinese.
+   * The Traditional Chinese description.
    * 
    * @example
-   * 查詢 RDS 實例清單。
+   * 查詢 RDS 實例清單
    */
   tc?: string;
   /**
@@ -45,10 +45,10 @@ export class ListCustomAgentToolsResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The description in Simplified Chinese.
+   * The Chinese description.
    * 
    * @example
-   * 查询RDS实例列表。
+   * 查询RDS实例列表
    */
   zh?: string;
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class ListCustomAgentToolsResponseBodyData extends $dara.Model {
 export class ListCustomAgentToolsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned data object.
    */
   data?: ListCustomAgentToolsResponseBodyData[];
   /**

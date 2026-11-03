@@ -62,7 +62,7 @@ export class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The workspace status. Valid values:
-   * - Active: running normally.
+   * - Active: running as expected.
    * - Locked: locked due to overdue payment or expiration.
    * 
    * @example

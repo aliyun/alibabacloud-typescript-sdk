@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DisableAgentRuntimeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The reserved parameter.
+   */
   branchName?: string;
   /**
    * @remarks

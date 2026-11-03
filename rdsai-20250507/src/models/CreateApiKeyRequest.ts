@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApiKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The daily quota of the API key.
+   * The daily token quota for the API key.
    * 
    * @example
    * 1000000000
@@ -13,7 +13,7 @@ export class CreateApiKeyRequest extends $dara.Model {
   dailyTokenQuota?: number;
   /**
    * @remarks
-   * The instance name.
+   * The instance ID.
    * 
    * @example
    * rds_copilot***_public_cn-*********6
@@ -21,7 +21,7 @@ export class CreateApiKeyRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The API key name.
+   * The name of the API key.
    * 
    * @example
    * api-*****
@@ -29,7 +29,7 @@ export class CreateApiKeyRequest extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * The quota percentage.
+   * The quota limit percentage.
    * 
    * @example
    * 0.2
@@ -37,11 +37,10 @@ export class CreateApiKeyRequest extends $dara.Model {
   limitRate?: number;
   /**
    * @remarks
-   * The quota allocation method. Valid values:
-   * 
-   * - ratio: by percentage.
-   * - fixed: by fixed value.
-   * - auto: automatic allocation.
+   * The quota limit type. Valid values:
+   * - ratio: Percentage-based.
+   * - fixed: Fixed value.
+   * - auto: Automatic allocation.
    * 
    * @example
    * fixed
@@ -59,7 +58,7 @@ export class CreateApiKeyRequest extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The quota limit for the current key.
+   * The token quota for the current key.
    * 
    * @example
    * 100000

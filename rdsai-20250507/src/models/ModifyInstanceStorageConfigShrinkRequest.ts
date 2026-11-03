@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyInstanceStorageConfigShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The reserved parameter.
+   */
   branchName?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, which ensures that the request is not repeated.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value on the client.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****

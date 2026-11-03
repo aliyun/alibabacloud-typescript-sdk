@@ -14,10 +14,8 @@ export default class Client extends OpenApi {
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-wulanchabu': "rdsai.aliyuncs.com",
-      'cn-shenzhen': "rdsai.aliyuncs.com",
       'cn-beijing': "rdsai.aliyuncs.com",
       'cn-shanghai': "rdsai.aliyuncs.com",
-      'cn-guangzhou': "rdsai.aliyuncs.com",
       'cn-hangzhou': "rdsai.aliyuncs.com",
     };
     this.checkConfig(config);
@@ -35,6 +33,178 @@ export default class Client extends OpenApi {
     }
 
     return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * Adds an exclusion item to an import task.
+   * 
+   * @remarks
+   * Adds a job exclusion item.
+   * 
+   * @param request - AddContextDatabaseSyncJobExclusionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddContextDatabaseSyncJobExclusionResponse
+   */
+  async addContextDatabaseSyncJobExclusionWithOptions(request: $_model.AddContextDatabaseSyncJobExclusionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddContextDatabaseSyncJobExclusionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.documentId)) {
+      query["DocumentId"] = request.documentId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddContextDatabaseSyncJobExclusion",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddContextDatabaseSyncJobExclusionResponse>(await this.callApi(params, req, runtime), new $_model.AddContextDatabaseSyncJobExclusionResponse({}));
+  }
+
+  /**
+   * Adds an exclusion item to an import task.
+   * 
+   * @remarks
+   * Adds a job exclusion item.
+   * 
+   * @param request - AddContextDatabaseSyncJobExclusionRequest
+   * @returns AddContextDatabaseSyncJobExclusionResponse
+   */
+  async addContextDatabaseSyncJobExclusion(request: $_model.AddContextDatabaseSyncJobExclusionRequest): Promise<$_model.AddContextDatabaseSyncJobExclusionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addContextDatabaseSyncJobExclusionWithOptions(request, runtime);
+  }
+
+  /**
+   * Cancels an in-progress discovery task by task ID.
+   * 
+   * @remarks
+   * You can specify a ClientToken to ensure idempotence for write operations. If you do not specify this parameter, the backend automatically generates one.
+   * 
+   * @param request - CancelContextDatabaseSyncDiscoveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelContextDatabaseSyncDiscoveryResponse
+   */
+  async cancelContextDatabaseSyncDiscoveryWithOptions(request: $_model.CancelContextDatabaseSyncDiscoveryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelContextDatabaseSyncDiscoveryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelContextDatabaseSyncDiscovery",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelContextDatabaseSyncDiscoveryResponse>(await this.callApi(params, req, runtime), new $_model.CancelContextDatabaseSyncDiscoveryResponse({}));
+  }
+
+  /**
+   * Cancels an in-progress discovery task by task ID.
+   * 
+   * @remarks
+   * You can specify a ClientToken to ensure idempotence for write operations. If you do not specify this parameter, the backend automatically generates one.
+   * 
+   * @param request - CancelContextDatabaseSyncDiscoveryRequest
+   * @returns CancelContextDatabaseSyncDiscoveryResponse
+   */
+  async cancelContextDatabaseSyncDiscovery(request: $_model.CancelContextDatabaseSyncDiscoveryRequest): Promise<$_model.CancelContextDatabaseSyncDiscoveryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelContextDatabaseSyncDiscoveryWithOptions(request, runtime);
+  }
+
+  /**
+   * Cancels a run.
+   * 
+   * @remarks
+   * Write operations support idempotence through ClientToken. If ClientToken is not provided, the backend generates one automatically. Cancellation is best-effort. Completed RunItems are not affected.
+   * 
+   * @param request - CancelContextDatabaseSyncRunRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelContextDatabaseSyncRunResponse
+   */
+  async cancelContextDatabaseSyncRunWithOptions(request: $_model.CancelContextDatabaseSyncRunRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelContextDatabaseSyncRunResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.runId)) {
+      query["RunId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelContextDatabaseSyncRun",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelContextDatabaseSyncRunResponse>(await this.callApi(params, req, runtime), new $_model.CancelContextDatabaseSyncRunResponse({}));
+  }
+
+  /**
+   * Cancels a run.
+   * 
+   * @remarks
+   * Write operations support idempotence through ClientToken. If ClientToken is not provided, the backend generates one automatically. Cancellation is best-effort. Completed RunItems are not affected.
+   * 
+   * @param request - CancelContextDatabaseSyncRunRequest
+   * @returns CancelContextDatabaseSyncRunResponse
+   */
+  async cancelContextDatabaseSyncRun(request: $_model.CancelContextDatabaseSyncRunRequest): Promise<$_model.CancelContextDatabaseSyncRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelContextDatabaseSyncRunWithOptions(request, runtime);
   }
 
   /**
@@ -234,7 +404,7 @@ export default class Client extends OpenApi {
    * Creates a custom API key.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Applicable engines
    * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - CreateApiKeyRequest
@@ -301,7 +471,7 @@ export default class Client extends OpenApi {
    * Creates a custom API key.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Applicable engines
    * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - CreateApiKeyRequest
@@ -313,13 +483,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an RDS Supabase instance.
+   * Creates an ApsaraDB RDS AI application instance.
    * 
    * @remarks
-   * ### Supported Engine  
-   * RDS PostgreSQL  
-   * ### Related Function Documentation  
-   * >Warning: This API operation involves a Fee. Carefully read the related Function Documentation before performing this operation.
+   * ### Supported engines
+   * ApsaraDB RDS for PostgreSQL
+   * ### Related feature documentation
+   * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you proceed.
+   * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param tmpReq - CreateAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -424,13 +595,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an RDS Supabase instance.
+   * Creates an ApsaraDB RDS AI application instance.
    * 
    * @remarks
-   * ### Supported Engine  
-   * RDS PostgreSQL  
-   * ### Related Function Documentation  
-   * >Warning: This API operation involves a Fee. Carefully read the related Function Documentation before performing this operation.
+   * ### Supported engines
+   * ApsaraDB RDS for PostgreSQL
+   * ### Related feature documentation
+   * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you proceed.
+   * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - CreateAppInstanceRequest
    * @returns CreateAppInstanceResponse
@@ -500,7 +672,7 @@ export default class Client extends OpenApi {
    * Creates a ContextDB member.
    * 
    * @remarks
-   * Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
+   * Creates a member. If GenerateInitialKey is set to true, the first API key is also issued, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can call the List or Get operation to query the member and the metadata of the API keys under the member.
    * 
    * @param request - CreateContextDatabaseMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -550,7 +722,7 @@ export default class Client extends OpenApi {
    * Creates a ContextDB member.
    * 
    * @remarks
-   * Creates a member. When GenerateInitialKey is set to true, the first API key is issued at the same time, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can use the List or Get operation to query the member and the metadata of the API keys under the member.
+   * Creates a member. If GenerateInitialKey is set to true, the first API key is also issued, and the plaintext ApiKey is returned in the response. This is a sensitive field and is returned only once. Store it securely. After the member is created, you can call the List or Get operation to query the member and the metadata of the API keys under the member.
    * 
    * @param request - CreateContextDatabaseMemberRequest
    * @returns CreateContextDatabaseMemberResponse
@@ -561,10 +733,234 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
+   * Creates a synchronization connection.
    * 
    * @remarks
-   * Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
+   * For write operations, you can specify a ClientToken to ensure idempotency. If no ClientToken is provided, the backend automatically generates one. Upon successful creation, the complete information of the created object is returned, including the ID that can be used for subsequent queries or updates.
+   * 
+   * @param request - CreateContextDatabaseSyncConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContextDatabaseSyncConnectionResponse
+   */
+  async createContextDatabaseSyncConnectionWithOptions(request: $_model.CreateContextDatabaseSyncConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContextDatabaseSyncConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authKind)) {
+      query["AuthKind"] = request.authKind;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContextDatabaseSyncConnection",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContextDatabaseSyncConnectionResponse>(await this.callApi(params, req, runtime), new $_model.CreateContextDatabaseSyncConnectionResponse({}));
+  }
+
+  /**
+   * Creates a synchronization connection.
+   * 
+   * @remarks
+   * For write operations, you can specify a ClientToken to ensure idempotency. If no ClientToken is provided, the backend automatically generates one. Upon successful creation, the complete information of the created object is returned, including the ID that can be used for subsequent queries or updates.
+   * 
+   * @param request - CreateContextDatabaseSyncConnectionRequest
+   * @returns CreateContextDatabaseSyncConnectionResponse
+   */
+  async createContextDatabaseSyncConnection(request: $_model.CreateContextDatabaseSyncConnectionRequest): Promise<$_model.CreateContextDatabaseSyncConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createContextDatabaseSyncConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an import task.
+   * 
+   * @remarks
+   * Write operations support idempotence via ClientToken. If ClientToken is not provided, the backend generates one automatically. Target is an implicit concept — you only need to provide KnowledgeBaseId, and the backend automatically creates or matches the Target.
+   * On success, the response returns the complete information of the created object. The Id field is active and can be used for subsequent queries or updates.
+   * 
+   * @param tmpReq - CreateContextDatabaseSyncJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContextDatabaseSyncJobResponse
+   */
+  async createContextDatabaseSyncJobWithOptions(tmpReq: $_model.CreateContextDatabaseSyncJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContextDatabaseSyncJobResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateContextDatabaseSyncJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filters)) {
+      request.filtersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filters, "Filters", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.filtersShrink)) {
+      query["Filters"] = request.filtersShrink;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!$dara.isNull(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
+    if (!$dara.isNull(request.targetKnowledgeBaseId)) {
+      query["TargetKnowledgeBaseId"] = request.targetKnowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.targetKnowledgeBaseName)) {
+      query["TargetKnowledgeBaseName"] = request.targetKnowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContextDatabaseSyncJob",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContextDatabaseSyncJobResponse>(await this.callApi(params, req, runtime), new $_model.CreateContextDatabaseSyncJobResponse({}));
+  }
+
+  /**
+   * Creates an import task.
+   * 
+   * @remarks
+   * Write operations support idempotence via ClientToken. If ClientToken is not provided, the backend generates one automatically. Target is an implicit concept — you only need to provide KnowledgeBaseId, and the backend automatically creates or matches the Target.
+   * On success, the response returns the complete information of the created object. The Id field is active and can be used for subsequent queries or updates.
+   * 
+   * @param request - CreateContextDatabaseSyncJobRequest
+   * @returns CreateContextDatabaseSyncJobResponse
+   */
+  async createContextDatabaseSyncJob(request: $_model.CreateContextDatabaseSyncJobRequest): Promise<$_model.CreateContextDatabaseSyncJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createContextDatabaseSyncJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a data selection scope.
+   * 
+   * @remarks
+   * Write operations support idempotence by passing a ClientToken. If no token is provided, the backend generates one automatically. After creating a data selection scope, you typically need to call StartContextDatabaseSyncSourceDiscovery to discover available nodes.
+   * On success, the response returns the complete information of the created object. The Id field can be used for subsequent queries or updates.
+   * 
+   * @param tmpReq - CreateContextDatabaseSyncSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContextDatabaseSyncSourceResponse
+   */
+  async createContextDatabaseSyncSourceWithOptions(tmpReq: $_model.CreateContextDatabaseSyncSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContextDatabaseSyncSourceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateContextDatabaseSyncSourceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sourceConfig)) {
+      request.sourceConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceConfig, "SourceConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.connectionId)) {
+      query["ConnectionId"] = request.connectionId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.sourceConfigShrink)) {
+      query["SourceConfig"] = request.sourceConfigShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContextDatabaseSyncSource",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContextDatabaseSyncSourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateContextDatabaseSyncSourceResponse({}));
+  }
+
+  /**
+   * Creates a data selection scope.
+   * 
+   * @remarks
+   * Write operations support idempotence by passing a ClientToken. If no token is provided, the backend generates one automatically. After creating a data selection scope, you typically need to call StartContextDatabaseSyncSourceDiscovery to discover available nodes.
+   * On success, the response returns the complete information of the created object. The Id field can be used for subsequent queries or updates.
+   * 
+   * @param request - CreateContextDatabaseSyncSourceRequest
+   * @returns CreateContextDatabaseSyncSourceResponse
+   */
+  async createContextDatabaseSyncSource(request: $_model.CreateContextDatabaseSyncSourceRequest): Promise<$_model.CreateContextDatabaseSyncSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createContextDatabaseSyncSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a workspace, the first member, and the first API key in a one-time onboarding process.
+   * 
+   * @remarks
+   * Creates a workspace along with the first member and the first API key in a one-time onboarding process. The plaintext API key is returned in the response.
    * 
    * @param request - CreateContextDatabaseWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -599,10 +995,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
+   * Creates a workspace, the first member, and the first API key in a one-time onboarding process.
    * 
    * @remarks
-   * Creates a workspace, the first member, and the first API key in a one-time onboarding flow. Returns the plaintext API key.
+   * Creates a workspace along with the first member and the first API key in a one-time onboarding process. The plaintext API key is returned in the response.
    * 
    * @param request - CreateContextDatabaseWorkspaceRequest
    * @returns CreateContextDatabaseWorkspaceResponse
@@ -613,7 +1009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user-specific agent.
+   * Creates a custom agent.
    * 
    * @param tmpReq - CreateCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -670,7 +1066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user-specific agent.
+   * Creates a custom agent.
    * 
    * @param request - CreateCustomAgentRequest
    * @returns CreateCustomAgentResponse
@@ -755,11 +1151,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 触发 MO 用量明细 CSV 异步导出任务
+   * Triggers an asynchronous export task for MO usage details in CSV format.
    * 
    * @remarks
-   * ### 适用引擎
-   * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - CreateMOUsageDetailExportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -810,11 +1206,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 触发 MO 用量明细 CSV 异步导出任务
+   * Triggers an asynchronous export task for MO usage details in CSV format.
    * 
    * @remarks
-   * ### 适用引擎
-   * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - CreateMOUsageDetailExportRequest
    * @returns CreateMOUsageDetailExportResponse
@@ -922,8 +1318,8 @@ export default class Client extends OpenApi {
    * @remarks
    * ### Applicable engine
    * RDS PostgreSQL
-   * ### Related documentation
-   * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
+   * ### Related feature documentation
+   * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - CreateScheduledTaskRequest
@@ -1004,8 +1400,8 @@ export default class Client extends OpenApi {
    * @remarks
    * ### Applicable engine
    * RDS PostgreSQL
-   * ### Related documentation
-   * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
+   * ### Related feature documentation
+   * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - CreateScheduledTaskRequest
@@ -1017,7 +1413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user-defined Skill.
+   * Creates a user-defined skill.
    * 
    * @param tmpReq - CreateSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1052,6 +1448,10 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.updateNote)) {
+      query["UpdateNote"] = request.updateNote;
+    }
+
     if (!$dara.isNull(request.uploadId)) {
       query["UploadId"] = request.uploadId;
     }
@@ -1082,7 +1482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user-defined Skill.
+   * Creates a user-defined skill.
    * 
    * @param request - CreateSkillRequest
    * @returns CreateSkillResponse
@@ -1155,7 +1555,7 @@ export default class Client extends OpenApi {
    * ### Related feature documentation
    * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-   * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
+   * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created along with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
    * 
    * @param request - DeleteAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1206,7 +1606,7 @@ export default class Client extends OpenApi {
    * ### Related feature documentation
    * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-   * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
+   * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created along with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
    * 
    * @param request - DeleteAppInstanceRequest
    * @returns DeleteAppInstanceResponse
@@ -1217,10 +1617,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a ContextDB member.
+   * Deletes a context database member.
    * 
    * @remarks
-   * Deletes a member (hard delete, not recoverable).
+   * Deletes a member. This is a hard delete and cannot be undone.
    * 
    * @param request - DeleteContextDatabaseMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1255,10 +1655,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a ContextDB member.
+   * Deletes a context database member.
    * 
    * @remarks
-   * Deletes a member (hard delete, not recoverable).
+   * Deletes a member. This is a hard delete and cannot be undone.
    * 
    * @param request - DeleteContextDatabaseMemberRequest
    * @returns DeleteContextDatabaseMemberResponse
@@ -1269,10 +1669,178 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a data source.
+   * 
+   * @remarks
+   * For write operations, you can specify a ClientToken to ensure idempotency. If you do not specify a ClientToken, the backend automatically generates one.
+   * 
+   * @param request - DeleteContextDatabaseSyncConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContextDatabaseSyncConnectionResponse
+   */
+  async deleteContextDatabaseSyncConnectionWithOptions(request: $_model.DeleteContextDatabaseSyncConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContextDatabaseSyncConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.connectionId)) {
+      query["ConnectionId"] = request.connectionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContextDatabaseSyncConnection",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContextDatabaseSyncConnectionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContextDatabaseSyncConnectionResponse({}));
+  }
+
+  /**
+   * Deletes a data source.
+   * 
+   * @remarks
+   * For write operations, you can specify a ClientToken to ensure idempotency. If you do not specify a ClientToken, the backend automatically generates one.
+   * 
+   * @param request - DeleteContextDatabaseSyncConnectionRequest
+   * @returns DeleteContextDatabaseSyncConnectionResponse
+   */
+  async deleteContextDatabaseSyncConnection(request: $_model.DeleteContextDatabaseSyncConnectionRequest): Promise<$_model.DeleteContextDatabaseSyncConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteContextDatabaseSyncConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an import task.
+   * 
+   * @remarks
+   * You can provide a ClientToken to ensure idempotency for write operations. If not provided, the backend automatically generates one.
+   * 
+   * @param request - DeleteContextDatabaseSyncJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContextDatabaseSyncJobResponse
+   */
+  async deleteContextDatabaseSyncJobWithOptions(request: $_model.DeleteContextDatabaseSyncJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContextDatabaseSyncJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContextDatabaseSyncJob",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContextDatabaseSyncJobResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContextDatabaseSyncJobResponse({}));
+  }
+
+  /**
+   * Deletes an import task.
+   * 
+   * @remarks
+   * You can provide a ClientToken to ensure idempotency for write operations. If not provided, the backend automatically generates one.
+   * 
+   * @param request - DeleteContextDatabaseSyncJobRequest
+   * @returns DeleteContextDatabaseSyncJobResponse
+   */
+  async deleteContextDatabaseSyncJob(request: $_model.DeleteContextDatabaseSyncJobRequest): Promise<$_model.DeleteContextDatabaseSyncJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteContextDatabaseSyncJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a data selection scope.
+   * 
+   * @remarks
+   * Write operations support idempotence through ClientToken. If ClientToken is not provided, the backend generates one automatically.
+   * 
+   * @param request - DeleteContextDatabaseSyncSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContextDatabaseSyncSourceResponse
+   */
+  async deleteContextDatabaseSyncSourceWithOptions(request: $_model.DeleteContextDatabaseSyncSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContextDatabaseSyncSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContextDatabaseSyncSource",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContextDatabaseSyncSourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContextDatabaseSyncSourceResponse({}));
+  }
+
+  /**
+   * Deletes a data selection scope.
+   * 
+   * @remarks
+   * Write operations support idempotence through ClientToken. If ClientToken is not provided, the backend generates one automatically.
+   * 
+   * @param request - DeleteContextDatabaseSyncSourceRequest
+   * @returns DeleteContextDatabaseSyncSourceResponse
+   */
+  async deleteContextDatabaseSyncSource(request: $_model.DeleteContextDatabaseSyncSourceRequest): Promise<$_model.DeleteContextDatabaseSyncSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteContextDatabaseSyncSourceWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a ContextDB workspace.
    * 
    * @remarks
-   * Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
+   * Deletes a workspace. This is a hard delete and cannot be recovered. After the workspace is deleted, the local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
    * 
    * @param request - DeleteContextDatabaseWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1306,7 +1874,7 @@ export default class Client extends OpenApi {
    * Deletes a ContextDB workspace.
    * 
    * @remarks
-   * Deletes a workspace. This is a hard delete and cannot be recovered. After successful deletion, local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
+   * Deletes a workspace. This is a hard delete and cannot be recovered. After the workspace is deleted, the local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
    * 
    * @param request - DeleteContextDatabaseWorkspaceRequest
    * @returns DeleteContextDatabaseWorkspaceResponse
@@ -1362,7 +1930,7 @@ export default class Client extends OpenApi {
    * Deletes a sandbox template.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engine
    * RDS Supabase
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -1407,7 +1975,7 @@ export default class Client extends OpenApi {
    * Deletes a sandbox template.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engine
    * RDS Supabase
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -1512,9 +2080,9 @@ export default class Client extends OpenApi {
    * Queries the details of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
-   * ### Related documentation
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeAppInstanceAttributeRequest
@@ -1557,9 +2125,9 @@ export default class Client extends OpenApi {
    * Queries the details of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
-   * ### Related documentation
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeAppInstanceAttributeRequest
@@ -1571,7 +2139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API retrieves a list of RDS AI application instances.
+   * Queries the list of RDS AI application instances.
    * 
    * @remarks
    * ### Supported engines
@@ -1624,7 +2192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API retrieves a list of RDS AI application instances.
+   * Queries the list of RDS AI application instances.
    * 
    * @remarks
    * ### Supported engines
@@ -1703,7 +2271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API retrieves the list of events.
+   * Queries the event list.
    * 
    * @param request - DescribeEventsListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1754,7 +2322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API retrieves the list of events.
+   * Queries the event list.
    * 
    * @param request - DescribeEventsListRequest
    * @returns DescribeEventsListResponse
@@ -1768,9 +2336,9 @@ export default class Client extends OpenApi {
    * Queries the authentication information of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
-   * ### Related documentation
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeInstanceAuthInfoRequest
@@ -1813,9 +2381,9 @@ export default class Client extends OpenApi {
    * Queries the authentication information of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
-   * ### Related documentation
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - DescribeInstanceAuthInfoRequest
@@ -1889,10 +2457,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP whitelist of an ApsaraDB RDS AI application instance.
+   * Queries the IP whitelist of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engine
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -1938,10 +2506,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP whitelist of an ApsaraDB RDS AI application instance.
+   * Queries the IP whitelist of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engine
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2005,11 +2573,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SSL configuration of an RDS AI application instance.
+   * Retrieves the SSL configuration of an ApsaraDB RDS AI application instance.
    * 
    * @remarks
-   * ### Supported engine
-   * RDS PostgreSQL
+   * ### Supported engines
+   * ApsaraDB RDS for PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
@@ -2050,11 +2618,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SSL configuration of an RDS AI application instance.
+   * Retrieves the SSL configuration of an ApsaraDB RDS AI application instance.
    * 
    * @remarks
-   * ### Supported engine
-   * RDS PostgreSQL
+   * ### Supported engines
+   * ApsaraDB RDS for PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
@@ -2070,9 +2638,9 @@ export default class Client extends OpenApi {
    * Queries the storage configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
-   * ### Related documentation
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * > Currently, only Object Storage Service (OSS) is supported.
    * 
@@ -2116,9 +2684,9 @@ export default class Client extends OpenApi {
    * Queries the storage configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
-   * ### Related documentation
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * > Currently, only Object Storage Service (OSS) is supported.
    * 
@@ -2221,11 +2789,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看 model operator 实例具体 token 汇总情况
+   * Queries the token usage summary for a model operator instance.
    * 
    * @remarks
-   * ### 适用引擎
-   * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - DescribeMOTokenUsageSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2276,11 +2844,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看 model operator 实例具体 token 汇总情况
+   * Queries the token usage summary for a model operator instance.
    * 
    * @remarks
-   * ### 适用引擎
-   * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - DescribeMOTokenUsageSummaryRequest
    * @returns DescribeMOTokenUsageSummaryResponse
@@ -2291,11 +2859,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接
+   * Queries the status or download link of an asynchronous CSV export task for MO usage details.
    * 
    * @remarks
-   * ### 适用引擎
-   * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - DescribeMOUsageDetailExportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2326,11 +2894,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接
+   * Queries the status or download link of an asynchronous CSV export task for MO usage details.
    * 
    * @remarks
-   * ### 适用引擎
-   * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - DescribeMOUsageDetailExportRequest
    * @returns DescribeMOUsageDetailExportResponse
@@ -2341,7 +2909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information and usage of RDS AI Assistant Ultimate Edition.
+   * Queries the basic information and usage of an RDS AI Assistant Ultimate Edition instance.
    * 
    * @remarks
    * ### Applicable engine
@@ -2380,7 +2948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information and usage of RDS AI Assistant Ultimate Edition.
+   * Queries the basic information and usage of an RDS AI Assistant Ultimate Edition instance.
    * 
    * @remarks
    * ### Applicable engine
@@ -2395,7 +2963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries instance monitoring data of an ApsaraDB RDS AI Assistant Ultimate Edition instance.
+   * Queries instance monitoring data of an RDS AI Assistant Ultimate Edition instance.
    * 
    * @remarks
    * ### Applicable engine
@@ -2456,7 +3024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries instance monitoring data of an ApsaraDB RDS AI Assistant Ultimate Edition instance.
+   * Queries instance monitoring data of an RDS AI Assistant Ultimate Edition instance.
    * 
    * @remarks
    * ### Applicable engine
@@ -2471,7 +3039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of sandbox templates available for creating a Supabase sandbox.
+   * Queries a list of sandbox templates for creating Supabase sandboxes.
    * 
    * @remarks
    * ### Applicable engine
@@ -2536,7 +3104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of sandbox templates available for creating a Supabase sandbox.
+   * Queries a list of sandbox templates for creating Supabase sandboxes.
    * 
    * @remarks
    * ### Applicable engine
@@ -2553,11 +3121,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes the whitelist of an RDS AI Assistant Enterprise Edition instance.
+   * Queries the whitelist of an RDS AI Assistant Ultimate Edition instance.
    * 
    * @remarks
-   * ### Supported engine
-   * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - DescribeWhitelistIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2588,11 +3156,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Describes the whitelist of an RDS AI Assistant Enterprise Edition instance.
+   * Queries the whitelist of an RDS AI Assistant Ultimate Edition instance.
    * 
    * @remarks
-   * ### Supported engine
-   * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - DescribeWhitelistIpsRequest
    * @returns DescribeWhitelistIpsResponse
@@ -2603,11 +3171,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess business risks before performing this operation.
+   * Disables the sandbox and Edge Routine capabilities of Supabase. Note: This operation deletes all sandboxes and Edge Routines of the instance. Evaluate business risks before you perform this operation.
    * 
    * @remarks
-   * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance.
-   * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess business risks before performing this operation.
+   * Disables the sandbox and Edge Routine capabilities of Supabase.
+   * >Notice: This operation deletes all sandboxes and Edge Routines of the Supabase instance. Evaluate business risks before you perform this operation.
    * 
    * @param request - DisableAgentRuntimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2650,11 +3218,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess business risks before performing this operation.
+   * Disables the sandbox and Edge Routine capabilities of Supabase. Note: This operation deletes all sandboxes and Edge Routines of the instance. Evaluate business risks before you perform this operation.
    * 
    * @remarks
-   * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance.
-   * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess business risks before performing this operation.
+   * Disables the sandbox and Edge Routine capabilities of Supabase.
+   * >Notice: This operation deletes all sandboxes and Edge Routines of the Supabase instance. Evaluate business risks before you perform this operation.
    * 
    * @param request - DisableAgentRuntimeRequest
    * @returns DisableAgentRuntimeResponse
@@ -2665,12 +3233,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the sandbox and Edge Routine capabilities for a Supabase instance. Read the operation description before you call this operation.
+   * Enables the sandbox and Edge Routine capabilities for Supabase. Read the operation description carefully before you call this API operation.
    * 
    * @remarks
-   * During the public preview, the sandbox and Edge Routine features are free of charge.
+   * During the public preview, the sandbox and Edge Routine features are provided free of charge.
    * ### Before you begin
-   * Before using this feature, you must complete [service-linked role authorization](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
+   * Before you use this feature, you must [authorize the service-linked role](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
    * 
    * @param request - EnableAgentRuntimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2721,12 +3289,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the sandbox and Edge Routine capabilities for a Supabase instance. Read the operation description before you call this operation.
+   * Enables the sandbox and Edge Routine capabilities for Supabase. Read the operation description carefully before you call this API operation.
    * 
    * @remarks
-   * During the public preview, the sandbox and Edge Routine features are free of charge.
+   * During the public preview, the sandbox and Edge Routine features are provided free of charge.
    * ### Before you begin
-   * Before using this feature, you must complete [service-linked role authorization](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
+   * Before you use this feature, you must [authorize the service-linked role](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
    * 
    * @param request - EnableAgentRuntimeRequest
    * @returns EnableAgentRuntimeResponse
@@ -2737,11 +3305,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetAvailableLLMModels
+   * Retrieves the list of large language models supported by the current RDS Supabase AI gateway.
    * 
    * @remarks
-   * ### 适用引擎
-   * RDS SUPABASE
+   * ### Applicable engine
+   * RDS Supabase.
    * 
    * @param request - GetAvailableLLMModelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2780,11 +3348,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetAvailableLLMModels
+   * Retrieves the list of large language models supported by the current RDS Supabase AI gateway.
    * 
    * @remarks
-   * ### 适用引擎
-   * RDS SUPABASE
+   * ### Applicable engine
+   * RDS Supabase.
    * 
    * @param request - GetAvailableLLMModelsRequest
    * @returns GetAvailableLLMModelsResponse
@@ -2795,7 +3363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取会话可选模型
+   * Retrieves the available models for a session.
    * 
    * @param request - GetChatModelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2819,7 +3387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取会话可选模型
+   * Retrieves the available models for a session.
    * 
    * @param request - GetChatModelRequest
    * @returns GetChatModelResponse
@@ -2827,6 +3395,474 @@ export default class Client extends OpenApi {
   async getChatModel(request: $_model.GetChatModelRequest): Promise<$_model.GetChatModelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getChatModelWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of a datasource configuration.
+   * 
+   * @remarks
+   * Retrieves the details of a connection.
+   * 
+   * @param request - GetContextDatabaseSyncConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContextDatabaseSyncConnectionResponse
+   */
+  async getContextDatabaseSyncConnectionWithOptions(request: $_model.GetContextDatabaseSyncConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetContextDatabaseSyncConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.connectionId)) {
+      query["ConnectionId"] = request.connectionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetContextDatabaseSyncConnection",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetContextDatabaseSyncConnectionResponse>(await this.callApi(params, req, runtime), new $_model.GetContextDatabaseSyncConnectionResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a datasource configuration.
+   * 
+   * @remarks
+   * Retrieves the details of a connection.
+   * 
+   * @param request - GetContextDatabaseSyncConnectionRequest
+   * @returns GetContextDatabaseSyncConnectionResponse
+   */
+  async getContextDatabaseSyncConnection(request: $_model.GetContextDatabaseSyncConnectionRequest): Promise<$_model.GetContextDatabaseSyncConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getContextDatabaseSyncConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the authorization scope of a data source.
+   * 
+   * @remarks
+   * Queries the authorization scope of a connection.
+   * 
+   * @param request - GetContextDatabaseSyncConnectionAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContextDatabaseSyncConnectionAuthorizationResponse
+   */
+  async getContextDatabaseSyncConnectionAuthorizationWithOptions(request: $_model.GetContextDatabaseSyncConnectionAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetContextDatabaseSyncConnectionAuthorizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.connectionId)) {
+      query["ConnectionId"] = request.connectionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetContextDatabaseSyncConnectionAuthorization",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetContextDatabaseSyncConnectionAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.GetContextDatabaseSyncConnectionAuthorizationResponse({}));
+  }
+
+  /**
+   * Queries the authorization scope of a data source.
+   * 
+   * @remarks
+   * Queries the authorization scope of a connection.
+   * 
+   * @param request - GetContextDatabaseSyncConnectionAuthorizationRequest
+   * @returns GetContextDatabaseSyncConnectionAuthorizationResponse
+   */
+  async getContextDatabaseSyncConnectionAuthorization(request: $_model.GetContextDatabaseSyncConnectionAuthorizationRequest): Promise<$_model.GetContextDatabaseSyncConnectionAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getContextDatabaseSyncConnectionAuthorizationWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the status of a discovery task by task ID.
+   * 
+   * @remarks
+   * Queries the status of a discovery task by task ID.
+   * 
+   * @param request - GetContextDatabaseSyncDiscoveryTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContextDatabaseSyncDiscoveryTaskResponse
+   */
+  async getContextDatabaseSyncDiscoveryTaskWithOptions(request: $_model.GetContextDatabaseSyncDiscoveryTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetContextDatabaseSyncDiscoveryTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetContextDatabaseSyncDiscoveryTask",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetContextDatabaseSyncDiscoveryTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetContextDatabaseSyncDiscoveryTaskResponse({}));
+  }
+
+  /**
+   * Queries the status of a discovery task by task ID.
+   * 
+   * @remarks
+   * Queries the status of a discovery task by task ID.
+   * 
+   * @param request - GetContextDatabaseSyncDiscoveryTaskRequest
+   * @returns GetContextDatabaseSyncDiscoveryTaskResponse
+   */
+  async getContextDatabaseSyncDiscoveryTask(request: $_model.GetContextDatabaseSyncDiscoveryTaskRequest): Promise<$_model.GetContextDatabaseSyncDiscoveryTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getContextDatabaseSyncDiscoveryTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of an import job.
+   * 
+   * @remarks
+   * Retrieves the details of a job.
+   * 
+   * @param request - GetContextDatabaseSyncJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContextDatabaseSyncJobResponse
+   */
+  async getContextDatabaseSyncJobWithOptions(request: $_model.GetContextDatabaseSyncJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetContextDatabaseSyncJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetContextDatabaseSyncJob",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetContextDatabaseSyncJobResponse>(await this.callApi(params, req, runtime), new $_model.GetContextDatabaseSyncJobResponse({}));
+  }
+
+  /**
+   * Retrieves the details of an import job.
+   * 
+   * @remarks
+   * Retrieves the details of a job.
+   * 
+   * @param request - GetContextDatabaseSyncJobRequest
+   * @returns GetContextDatabaseSyncJobResponse
+   */
+  async getContextDatabaseSyncJob(request: $_model.GetContextDatabaseSyncJobRequest): Promise<$_model.GetContextDatabaseSyncJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getContextDatabaseSyncJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries whether an import task can be started.
+   * 
+   * @remarks
+   * Queries whether a job can be started.
+   * 
+   * @param request - GetContextDatabaseSyncJobReadinessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContextDatabaseSyncJobReadinessResponse
+   */
+  async getContextDatabaseSyncJobReadinessWithOptions(request: $_model.GetContextDatabaseSyncJobReadinessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetContextDatabaseSyncJobReadinessResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetContextDatabaseSyncJobReadiness",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetContextDatabaseSyncJobReadinessResponse>(await this.callApi(params, req, runtime), new $_model.GetContextDatabaseSyncJobReadinessResponse({}));
+  }
+
+  /**
+   * Queries whether an import task can be started.
+   * 
+   * @remarks
+   * Queries whether a job can be started.
+   * 
+   * @param request - GetContextDatabaseSyncJobReadinessRequest
+   * @returns GetContextDatabaseSyncJobReadinessResponse
+   */
+  async getContextDatabaseSyncJobReadiness(request: $_model.GetContextDatabaseSyncJobReadinessRequest): Promise<$_model.GetContextDatabaseSyncJobReadinessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getContextDatabaseSyncJobReadinessWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the scheduling configuration of an import task.
+   * 
+   * @remarks
+   * Queries the scheduling configuration of a job.
+   * 
+   * @param request - GetContextDatabaseSyncJobScheduleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContextDatabaseSyncJobScheduleResponse
+   */
+  async getContextDatabaseSyncJobScheduleWithOptions(request: $_model.GetContextDatabaseSyncJobScheduleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetContextDatabaseSyncJobScheduleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetContextDatabaseSyncJobSchedule",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetContextDatabaseSyncJobScheduleResponse>(await this.callApi(params, req, runtime), new $_model.GetContextDatabaseSyncJobScheduleResponse({}));
+  }
+
+  /**
+   * Queries the scheduling configuration of an import task.
+   * 
+   * @remarks
+   * Queries the scheduling configuration of a job.
+   * 
+   * @param request - GetContextDatabaseSyncJobScheduleRequest
+   * @returns GetContextDatabaseSyncJobScheduleResponse
+   */
+  async getContextDatabaseSyncJobSchedule(request: $_model.GetContextDatabaseSyncJobScheduleRequest): Promise<$_model.GetContextDatabaseSyncJobScheduleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getContextDatabaseSyncJobScheduleWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of a run.
+   * 
+   * @remarks
+   * Retrieves the details of a run.
+   * 
+   * @param request - GetContextDatabaseSyncRunRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContextDatabaseSyncRunResponse
+   */
+  async getContextDatabaseSyncRunWithOptions(request: $_model.GetContextDatabaseSyncRunRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetContextDatabaseSyncRunResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.runId)) {
+      query["RunId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetContextDatabaseSyncRun",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetContextDatabaseSyncRunResponse>(await this.callApi(params, req, runtime), new $_model.GetContextDatabaseSyncRunResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a run.
+   * 
+   * @remarks
+   * Retrieves the details of a run.
+   * 
+   * @param request - GetContextDatabaseSyncRunRequest
+   * @returns GetContextDatabaseSyncRunResponse
+   */
+  async getContextDatabaseSyncRun(request: $_model.GetContextDatabaseSyncRunRequest): Promise<$_model.GetContextDatabaseSyncRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getContextDatabaseSyncRunWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the details of a data selection scope.
+   * 
+   * @remarks
+   * Retrieves the details of a source.
+   * 
+   * @param request - GetContextDatabaseSyncSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContextDatabaseSyncSourceResponse
+   */
+  async getContextDatabaseSyncSourceWithOptions(request: $_model.GetContextDatabaseSyncSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetContextDatabaseSyncSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetContextDatabaseSyncSource",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetContextDatabaseSyncSourceResponse>(await this.callApi(params, req, runtime), new $_model.GetContextDatabaseSyncSourceResponse({}));
+  }
+
+  /**
+   * Retrieves the details of a data selection scope.
+   * 
+   * @remarks
+   * Retrieves the details of a source.
+   * 
+   * @param request - GetContextDatabaseSyncSourceRequest
+   * @returns GetContextDatabaseSyncSourceResponse
+   */
+  async getContextDatabaseSyncSource(request: $_model.GetContextDatabaseSyncSourceRequest): Promise<$_model.GetContextDatabaseSyncSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getContextDatabaseSyncSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the current node selection in the data selection scope.
+   * 
+   * @remarks
+   * Queries the current node selection of the source.
+   * 
+   * @param request - GetContextDatabaseSyncSourceSelectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContextDatabaseSyncSourceSelectionResponse
+   */
+  async getContextDatabaseSyncSourceSelectionWithOptions(request: $_model.GetContextDatabaseSyncSourceSelectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetContextDatabaseSyncSourceSelectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetContextDatabaseSyncSourceSelection",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetContextDatabaseSyncSourceSelectionResponse>(await this.callApi(params, req, runtime), new $_model.GetContextDatabaseSyncSourceSelectionResponse({}));
+  }
+
+  /**
+   * Queries the current node selection in the data selection scope.
+   * 
+   * @remarks
+   * Queries the current node selection of the source.
+   * 
+   * @param request - GetContextDatabaseSyncSourceSelectionRequest
+   * @returns GetContextDatabaseSyncSourceSelectionResponse
+   */
+  async getContextDatabaseSyncSourceSelection(request: $_model.GetContextDatabaseSyncSourceSelectionRequest): Promise<$_model.GetContextDatabaseSyncSourceSelectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getContextDatabaseSyncSourceSelectionWithOptions(request, runtime);
   }
 
   /**
@@ -2888,7 +3924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves details for a specified custom agent.
+   * Queries a dedicated agent created by the user.
    * 
    * @param request - GetCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2919,7 +3955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves details for a specified custom agent.
+   * Queries a dedicated agent created by the user.
    * 
    * @param request - GetCustomAgentRequest
    * @returns GetCustomAgentResponse
@@ -3038,7 +4074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves order information for the RDS AI Assistant Ultimate Edition.
+   * Retrieves the order information for the RDS AI Assistant Ultimate Edition.
    * 
    * @remarks
    * ### Applicable engine
@@ -3073,7 +4109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves order information for the RDS AI Assistant Ultimate Edition.
+   * Retrieves the order information for the RDS AI Assistant Ultimate Edition.
    * 
    * @remarks
    * ### Applicable engine
@@ -3138,7 +4174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all inspection reports under a specified scheduled task, with support for filtering by time range and pagination.
+   * Queries all inspection reports for a specified scheduled task. Supports filtering by time range and pagination.
    * 
    * @param request - GetScheduledReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3185,7 +4221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all inspection reports under a specified scheduled task, with support for filtering by time range and pagination.
+   * Queries all inspection reports for a specified scheduled task. Supports filtering by time range and pagination.
    * 
    * @param request - GetScheduledReportsRequest
    * @returns GetScheduledReportsResponse
@@ -3196,7 +4232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
+   * Retrieves the details of a specified skill. You can retrieve your own skills or system preset skills.
    * 
    * @param request - GetSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3205,12 +4241,24 @@ export default class Client extends OpenApi {
   async getSkillWithOptions(request: $_model.GetSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSkillResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.download)) {
+      query["Download"] = request.download;
+    }
+
     if (!$dara.isNull(request.language)) {
       query["Language"] = request.language;
     }
 
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
     if (!$dara.isNull(request.skillId)) {
       query["SkillId"] = request.skillId;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      query["VersionId"] = request.versionId;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -3235,7 +4283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
+   * Retrieves the details of a specified skill. You can retrieve your own skills or system preset skills.
    * 
    * @param request - GetSkillRequest
    * @returns GetSkillResponse
@@ -3422,10 +4470,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the members of a context database.
+   * Lists context database members.
    * 
    * @remarks
-   * Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
+   * Lists all members in a specified workspace. Each member includes a list of API keys (plaintext values are not returned).
    * 
    * @param request - ListContextDatabaseMembersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3464,10 +4512,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the members of a context database.
+   * Lists context database members.
    * 
    * @remarks
-   * Lists all members in a specified workspace. Each member includes a list of API keys associated with the member (plaintext values are not returned).
+   * Lists all members in a specified workspace. Each member includes a list of API keys (plaintext values are not returned).
    * 
    * @param request - ListContextDatabaseMembersRequest
    * @returns ListContextDatabaseMembersResponse
@@ -3475,6 +4523,588 @@ export default class Client extends OpenApi {
   async listContextDatabaseMembers(request: $_model.ListContextDatabaseMembersRequest): Promise<$_model.ListContextDatabaseMembersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listContextDatabaseMembersWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists the datasource configurations in a workspace.
+   * 
+   * @remarks
+   * The list operation returns paginated results by default. Page and PageSize are optional parameters.
+   * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+   * 
+   * @param request - ListContextDatabaseSyncConnectionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextDatabaseSyncConnectionsResponse
+   */
+  async listContextDatabaseSyncConnectionsWithOptions(request: $_model.ListContextDatabaseSyncConnectionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseSyncConnectionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextDatabaseSyncConnections",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextDatabaseSyncConnectionsResponse>(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseSyncConnectionsResponse({}));
+  }
+
+  /**
+   * Lists the datasource configurations in a workspace.
+   * 
+   * @remarks
+   * The list operation returns paginated results by default. Page and PageSize are optional parameters.
+   * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+   * 
+   * @param request - ListContextDatabaseSyncConnectionsRequest
+   * @returns ListContextDatabaseSyncConnectionsResponse
+   */
+  async listContextDatabaseSyncConnections(request: $_model.ListContextDatabaseSyncConnectionsRequest): Promise<$_model.ListContextDatabaseSyncConnectionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContextDatabaseSyncConnectionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists the documents associated with an import task.
+   * 
+   * @remarks
+   * By default, this operation returns paginated results. The Page and PageSize parameters are optional. The Data field in the response is returned as an array, and the Total field indicates the total number of matching entries.
+   * 
+   * @param request - ListContextDatabaseSyncJobDocumentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextDatabaseSyncJobDocumentsResponse
+   */
+  async listContextDatabaseSyncJobDocumentsWithOptions(request: $_model.ListContextDatabaseSyncJobDocumentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseSyncJobDocumentsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextDatabaseSyncJobDocuments",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextDatabaseSyncJobDocumentsResponse>(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseSyncJobDocumentsResponse({}));
+  }
+
+  /**
+   * Lists the documents associated with an import task.
+   * 
+   * @remarks
+   * By default, this operation returns paginated results. The Page and PageSize parameters are optional. The Data field in the response is returned as an array, and the Total field indicates the total number of matching entries.
+   * 
+   * @param request - ListContextDatabaseSyncJobDocumentsRequest
+   * @returns ListContextDatabaseSyncJobDocumentsResponse
+   */
+  async listContextDatabaseSyncJobDocuments(request: $_model.ListContextDatabaseSyncJobDocumentsRequest): Promise<$_model.ListContextDatabaseSyncJobDocumentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContextDatabaseSyncJobDocumentsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists the exclusions of an import task.
+   * 
+   * @remarks
+   * This operation uses pagination by default. Page and PageSize are optional parameters.
+   * The Data field in the response returns an array. Total indicates the total number of records that match the specified conditions.
+   * 
+   * @param request - ListContextDatabaseSyncJobExclusionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextDatabaseSyncJobExclusionsResponse
+   */
+  async listContextDatabaseSyncJobExclusionsWithOptions(request: $_model.ListContextDatabaseSyncJobExclusionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseSyncJobExclusionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextDatabaseSyncJobExclusions",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextDatabaseSyncJobExclusionsResponse>(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseSyncJobExclusionsResponse({}));
+  }
+
+  /**
+   * Lists the exclusions of an import task.
+   * 
+   * @remarks
+   * This operation uses pagination by default. Page and PageSize are optional parameters.
+   * The Data field in the response returns an array. Total indicates the total number of records that match the specified conditions.
+   * 
+   * @param request - ListContextDatabaseSyncJobExclusionsRequest
+   * @returns ListContextDatabaseSyncJobExclusionsResponse
+   */
+  async listContextDatabaseSyncJobExclusions(request: $_model.ListContextDatabaseSyncJobExclusionsRequest): Promise<$_model.ListContextDatabaseSyncJobExclusionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContextDatabaseSyncJobExclusionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists import tasks.
+   * 
+   * @remarks
+   * The list operation returns paginated results by default. Page and PageSize are optional parameters.
+   * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+   * 
+   * @param request - ListContextDatabaseSyncJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextDatabaseSyncJobsResponse
+   */
+  async listContextDatabaseSyncJobsWithOptions(request: $_model.ListContextDatabaseSyncJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseSyncJobsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      query["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextDatabaseSyncJobs",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextDatabaseSyncJobsResponse>(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseSyncJobsResponse({}));
+  }
+
+  /**
+   * Lists import tasks.
+   * 
+   * @remarks
+   * The list operation returns paginated results by default. Page and PageSize are optional parameters.
+   * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+   * 
+   * @param request - ListContextDatabaseSyncJobsRequest
+   * @returns ListContextDatabaseSyncJobsResponse
+   */
+  async listContextDatabaseSyncJobs(request: $_model.ListContextDatabaseSyncJobsRequest): Promise<$_model.ListContextDatabaseSyncJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContextDatabaseSyncJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists available synchronization plugins.
+   * 
+   * @remarks
+   * This operation returns a fixed-length array of available plugins in the workspace and does not support pagination.
+   * The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+   * 
+   * @param request - ListContextDatabaseSyncPluginsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextDatabaseSyncPluginsResponse
+   */
+  async listContextDatabaseSyncPluginsWithOptions(request: $_model.ListContextDatabaseSyncPluginsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseSyncPluginsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextDatabaseSyncPlugins",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextDatabaseSyncPluginsResponse>(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseSyncPluginsResponse({}));
+  }
+
+  /**
+   * Lists available synchronization plugins.
+   * 
+   * @remarks
+   * This operation returns a fixed-length array of available plugins in the workspace and does not support pagination.
+   * The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+   * 
+   * @param request - ListContextDatabaseSyncPluginsRequest
+   * @returns ListContextDatabaseSyncPluginsResponse
+   */
+  async listContextDatabaseSyncPlugins(request: $_model.ListContextDatabaseSyncPluginsRequest): Promise<$_model.ListContextDatabaseSyncPluginsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContextDatabaseSyncPluginsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists the run records.
+   * 
+   * @remarks
+   * The list API returns paginated results by default. The Page and PageSize parameters are optional. Run records are a list of RunItems that show the processing results of each document in each import run.
+   * The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+   * 
+   * @param request - ListContextDatabaseSyncRunItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextDatabaseSyncRunItemsResponse
+   */
+  async listContextDatabaseSyncRunItemsWithOptions(request: $_model.ListContextDatabaseSyncRunItemsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseSyncRunItemsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.runId)) {
+      query["RunId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextDatabaseSyncRunItems",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextDatabaseSyncRunItemsResponse>(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseSyncRunItemsResponse({}));
+  }
+
+  /**
+   * Lists the run records.
+   * 
+   * @remarks
+   * The list API returns paginated results by default. The Page and PageSize parameters are optional. Run records are a list of RunItems that show the processing results of each document in each import run.
+   * The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+   * 
+   * @param request - ListContextDatabaseSyncRunItemsRequest
+   * @returns ListContextDatabaseSyncRunItemsResponse
+   */
+  async listContextDatabaseSyncRunItems(request: $_model.ListContextDatabaseSyncRunItemsRequest): Promise<$_model.ListContextDatabaseSyncRunItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContextDatabaseSyncRunItemsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists the run logs.
+   * 
+   * @remarks
+   * The list API returns paginated results by default. Page and PageSize are optional parameters.
+   * The Data list field in the response is returned as an array, and Total indicates the total number of matching entries.
+   * 
+   * @param request - ListContextDatabaseSyncRunLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextDatabaseSyncRunLogsResponse
+   */
+  async listContextDatabaseSyncRunLogsWithOptions(request: $_model.ListContextDatabaseSyncRunLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseSyncRunLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.runId)) {
+      query["RunId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextDatabaseSyncRunLogs",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextDatabaseSyncRunLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseSyncRunLogsResponse({}));
+  }
+
+  /**
+   * Lists the run logs.
+   * 
+   * @remarks
+   * The list API returns paginated results by default. Page and PageSize are optional parameters.
+   * The Data list field in the response is returned as an array, and Total indicates the total number of matching entries.
+   * 
+   * @param request - ListContextDatabaseSyncRunLogsRequest
+   * @returns ListContextDatabaseSyncRunLogsResponse
+   */
+  async listContextDatabaseSyncRunLogs(request: $_model.ListContextDatabaseSyncRunLogsRequest): Promise<$_model.ListContextDatabaseSyncRunLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContextDatabaseSyncRunLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists the runs.
+   * 
+   * @remarks
+   * By default, this operation returns paginated results. The Page and PageSize parameters are optional.
+   * The Data field in the response is returned as an array, and the Total field indicates the total number of items that meet the query conditions.
+   * 
+   * @param request - ListContextDatabaseSyncRunsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextDatabaseSyncRunsResponse
+   */
+  async listContextDatabaseSyncRunsWithOptions(request: $_model.ListContextDatabaseSyncRunsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseSyncRunsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextDatabaseSyncRuns",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextDatabaseSyncRunsResponse>(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseSyncRunsResponse({}));
+  }
+
+  /**
+   * Lists the runs.
+   * 
+   * @remarks
+   * By default, this operation returns paginated results. The Page and PageSize parameters are optional.
+   * The Data field in the response is returned as an array, and the Total field indicates the total number of items that meet the query conditions.
+   * 
+   * @param request - ListContextDatabaseSyncRunsRequest
+   * @returns ListContextDatabaseSyncRunsResponse
+   */
+  async listContextDatabaseSyncRuns(request: $_model.ListContextDatabaseSyncRunsRequest): Promise<$_model.ListContextDatabaseSyncRunsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContextDatabaseSyncRunsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists the discovered tree nodes for the data selection scope.
+   * 
+   * @remarks
+   * List operations return paginated results by default. Page and PageSize are optional parameters. The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+   * 
+   * @param request - ListContextDatabaseSyncSourceTreeNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextDatabaseSyncSourceTreeNodesResponse
+   */
+  async listContextDatabaseSyncSourceTreeNodesWithOptions(request: $_model.ListContextDatabaseSyncSourceTreeNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseSyncSourceTreeNodesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextDatabaseSyncSourceTreeNodes",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextDatabaseSyncSourceTreeNodesResponse>(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseSyncSourceTreeNodesResponse({}));
+  }
+
+  /**
+   * Lists the discovered tree nodes for the data selection scope.
+   * 
+   * @remarks
+   * List operations return paginated results by default. Page and PageSize are optional parameters. The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+   * 
+   * @param request - ListContextDatabaseSyncSourceTreeNodesRequest
+   * @returns ListContextDatabaseSyncSourceTreeNodesResponse
+   */
+  async listContextDatabaseSyncSourceTreeNodes(request: $_model.ListContextDatabaseSyncSourceTreeNodesRequest): Promise<$_model.ListContextDatabaseSyncSourceTreeNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContextDatabaseSyncSourceTreeNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists the data selection scopes.
+   * 
+   * @remarks
+   * By default, the list operation returns paginated results. Page and PageSize are optional parameters. The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+   * 
+   * @param request - ListContextDatabaseSyncSourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextDatabaseSyncSourcesResponse
+   */
+  async listContextDatabaseSyncSourcesWithOptions(request: $_model.ListContextDatabaseSyncSourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextDatabaseSyncSourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextDatabaseSyncSources",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextDatabaseSyncSourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseSyncSourcesResponse({}));
+  }
+
+  /**
+   * Lists the data selection scopes.
+   * 
+   * @remarks
+   * By default, the list operation returns paginated results. Page and PageSize are optional parameters. The Data list field in the response is returned as an array, and Total indicates the total number of entries that meet the conditions.
+   * 
+   * @param request - ListContextDatabaseSyncSourcesRequest
+   * @returns ListContextDatabaseSyncSourcesResponse
+   */
+  async listContextDatabaseSyncSources(request: $_model.ListContextDatabaseSyncSourcesRequest): Promise<$_model.ListContextDatabaseSyncSourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listContextDatabaseSyncSourcesWithOptions(request, runtime);
   }
 
   /**
@@ -3538,7 +5168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists your custom agents.
+   * Queries the list of dedicated agents created by the user.
    * 
    * @param request - ListCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3573,7 +5203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists your custom agents.
+   * Queries the list of dedicated agents created by the user.
    * 
    * @param request - ListCustomAgentRequest
    * @returns ListCustomAgentResponse
@@ -3584,7 +5214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the custom agent tools of the user.
+   * Queries the list of Agent tools for a user.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCustomAgentToolsResponse
@@ -3606,7 +5236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the custom agent tools of the user.
+   * Queries the list of Agent tools for a user.
    * @returns ListCustomAgentToolsResponse
    */
   async listCustomAgentTools(): Promise<$_model.ListCustomAgentToolsResponse> {
@@ -3615,11 +5245,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListLLMTokenUsage
+   * Retrieves the AI gateway token usage for an RDS Supabase instance.
    * 
    * @remarks
-   * ### 适用引擎
-   * RDS SUPABASE
+   * ### Applicable engine
+   * RDS Supabase.
    * 
    * @param request - ListLLMTokenUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3666,11 +5296,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListLLMTokenUsage
+   * Retrieves the AI gateway token usage for an RDS Supabase instance.
    * 
    * @remarks
-   * ### 适用引擎
-   * RDS SUPABASE
+   * ### Applicable engine
+   * RDS Supabase.
    * 
    * @param request - ListLLMTokenUsageRequest
    * @returns ListLLMTokenUsageResponse
@@ -3752,6 +5382,22 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!$dara.isNull(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
@@ -3785,7 +5431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the modules of an RDS AI application instance.
+   * Modifies the modules of an ApsaraDB RDS AI application instance.
    * 
    * @remarks
    * ### Applicable engine
@@ -3852,7 +5498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the modules of an RDS AI application instance.
+   * Modifies the modules of an ApsaraDB RDS AI application instance.
    * 
    * @remarks
    * ### Applicable engine
@@ -3869,11 +5515,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the authentication configuration of an RDS AI application instance.
+   * Modifies the authentication configuration of an ApsaraDB RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
-   * RDS PostgreSQL
+   * ### Supported engines
+   * ApsaraDB RDS for PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
@@ -3924,11 +5570,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the authentication configuration of an RDS AI application instance.
+   * Modifies the authentication configuration of an ApsaraDB RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
-   * RDS PostgreSQL
+   * ### Supported engines
+   * ApsaraDB RDS for PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
@@ -3941,7 +5587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the general configurations of an instance, such as network EIP and NAT configurations.
+   * Modifies the general configurations of an instance, such as Elastic IP (EIP) and NAT configurations.
    * 
    * @param request - ModifyInstanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3992,7 +5638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the general configurations of an instance, such as network EIP and NAT configurations.
+   * Modifies the general configurations of an instance, such as Elastic IP (EIP) and NAT configurations.
    * 
    * @param request - ModifyInstanceConfigRequest
    * @returns ModifyInstanceConfigResponse
@@ -4003,10 +5649,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP whitelist of an ApsaraDB RDS AI application instance.
+   * Modifies the IP address whitelist of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -4064,10 +5710,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP whitelist of an ApsaraDB RDS AI application instance.
+   * Modifies the IP address whitelist of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -4081,7 +5727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the RAG Agent configuration of an RDS AI application instance.
+   * Modifies the RAG Agent configuration of an ApsaraDB RDS AI application instance.
    * 
    * @param tmpReq - ModifyInstanceRAGConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4138,7 +5784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the RAG Agent configuration of an RDS AI application instance.
+   * Modifies the RAG Agent configuration of an ApsaraDB RDS AI application instance.
    * 
    * @param request - ModifyInstanceRAGConfigRequest
    * @returns ModifyInstanceRAGConfigResponse
@@ -4152,7 +5798,7 @@ export default class Client extends OpenApi {
    * Modifies the SSL configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -4213,7 +5859,7 @@ export default class Client extends OpenApi {
    * Modifies the SSL configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -4230,7 +5876,7 @@ export default class Client extends OpenApi {
    * Modifies the storage configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -4290,7 +5936,7 @@ export default class Client extends OpenApi {
    * Modifies the storage configuration of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -4605,11 +6251,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP whitelist for an RDS AI Assistant Enterprise Edition instance.
+   * Modifies the IP whitelist of an RDS AI Assistant Ultimate Edition instance.
    * 
    * @remarks
-   * ### Applicable engines
-   * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - ModifyWhitelistIpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4644,11 +6290,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IP whitelist for an RDS AI Assistant Enterprise Edition instance.
+   * Modifies the IP whitelist of an RDS AI Assistant Ultimate Edition instance.
    * 
    * @remarks
-   * ### Applicable engines
-   * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - ModifyWhitelistIpsRequest
    * @returns ModifyWhitelistIpsResponse
@@ -4656,6 +6302,66 @@ export default class Client extends OpenApi {
   async modifyWhitelistIps(request: $_model.ModifyWhitelistIpsRequest): Promise<$_model.ModifyWhitelistIpsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyWhitelistIpsWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an exclusion item for an import job.
+   * 
+   * @remarks
+   * Deletes an exclusion item for a job.
+   * 
+   * @param request - RemoveContextDatabaseSyncJobExclusionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveContextDatabaseSyncJobExclusionResponse
+   */
+  async removeContextDatabaseSyncJobExclusionWithOptions(request: $_model.RemoveContextDatabaseSyncJobExclusionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveContextDatabaseSyncJobExclusionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.documentId)) {
+      query["DocumentId"] = request.documentId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveContextDatabaseSyncJobExclusion",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveContextDatabaseSyncJobExclusionResponse>(await this.callApi(params, req, runtime), new $_model.RemoveContextDatabaseSyncJobExclusionResponse({}));
+  }
+
+  /**
+   * Deletes an exclusion item for an import job.
+   * 
+   * @remarks
+   * Deletes an exclusion item for a job.
+   * 
+   * @param request - RemoveContextDatabaseSyncJobExclusionRequest
+   * @returns RemoveContextDatabaseSyncJobExclusionResponse
+   */
+  async removeContextDatabaseSyncJobExclusion(request: $_model.RemoveContextDatabaseSyncJobExclusionRequest): Promise<$_model.RemoveContextDatabaseSyncJobExclusionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeContextDatabaseSyncJobExclusionWithOptions(request, runtime);
   }
 
   /**
@@ -4725,11 +6431,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets an API key.
+   * Resets the API key.
    * 
    * @remarks
-   * ### Applicable engines
-   * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - ResetApiKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4764,11 +6470,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets an API key.
+   * Resets the API key.
    * 
    * @remarks
-   * ### Applicable engines
-   * [RDS AI Assistant (Ultimate Edition)](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - ResetApiKeyRequest
    * @returns ResetApiKeyResponse
@@ -4779,7 +6485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are adapted accordingly.
+   * Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are updated accordingly.
    * 
    * @remarks
    * ### Applicable engine
@@ -4820,7 +6526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are adapted accordingly.
+   * Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are updated accordingly.
    * 
    * @remarks
    * ### Applicable engine
@@ -4837,14 +6543,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the logon password and database access password of an ApsaraDB RDS AI application instance.
+   * Resets the logon password and database access password of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-   * > Currently, only the password of the RDS Supabase Dashboard user can be reset.
+   * > Currently, only the password of the RDS Supabase Dashboard user can be changed.
    * 
    * @param request - ResetInstancePasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4891,14 +6597,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the logon password and database access password of an ApsaraDB RDS AI application instance.
+   * Resets the logon password and database access password of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engines
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-   * > Currently, only the password of the RDS Supabase Dashboard user can be reset.
+   * > Currently, only the password of the RDS Supabase Dashboard user can be changed.
    * 
    * @param request - ResetInstancePasswordRequest
    * @returns ResetInstancePasswordResponse
@@ -4909,10 +6615,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts an ApsaraDB RDS AI application instance that is in the Running state.
+   * Restarts an RDS AI application instance that is in the Running state.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engine
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -4954,10 +6660,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restarts an ApsaraDB RDS AI application instance that is in the Running state.
+   * Restarts an RDS AI application instance that is in the Running state.
    * 
    * @remarks
-   * ### Applicable engine
+   * ### Supported engine
    * RDS PostgreSQL
    * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -4971,7 +6677,63 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes a context database API key.
+   * Retries failed items based on a snapshot.
+   * 
+   * @remarks
+   * For write operations, you can pass a ClientToken to ensure idempotence. If not provided, the backend automatically generates one. The retry generates a new run based on the failed items, and the status of the original run remains unchanged.
+   * 
+   * @param request - RetryFailedContextDatabaseSyncRunRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetryFailedContextDatabaseSyncRunResponse
+   */
+  async retryFailedContextDatabaseSyncRunWithOptions(request: $_model.RetryFailedContextDatabaseSyncRunRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RetryFailedContextDatabaseSyncRunResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.runId)) {
+      query["RunId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RetryFailedContextDatabaseSyncRun",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RetryFailedContextDatabaseSyncRunResponse>(await this.callApi(params, req, runtime), new $_model.RetryFailedContextDatabaseSyncRunResponse({}));
+  }
+
+  /**
+   * Retries failed items based on a snapshot.
+   * 
+   * @remarks
+   * For write operations, you can pass a ClientToken to ensure idempotence. If not provided, the backend automatically generates one. The retry generates a new run based on the failed items, and the status of the original run remains unchanged.
+   * 
+   * @param request - RetryFailedContextDatabaseSyncRunRequest
+   * @returns RetryFailedContextDatabaseSyncRunResponse
+   */
+  async retryFailedContextDatabaseSyncRun(request: $_model.RetryFailedContextDatabaseSyncRunRequest): Promise<$_model.RetryFailedContextDatabaseSyncRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.retryFailedContextDatabaseSyncRunWithOptions(request, runtime);
+  }
+
+  /**
+   * Revokes an API key for a context database.
    * 
    * @remarks
    * Revokes an API key.
@@ -5013,7 +6775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes a context database API key.
+   * Revokes an API key for a context database.
    * 
    * @remarks
    * Revokes an API key.
@@ -5027,12 +6789,128 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts an RDS AI application instance that is in the Stopped state.
+   * Manually triggers a run.
    * 
    * @remarks
-   * ### Applicable engine
-   * RDS PostgreSQL
-   * ### Related feature documentation
+   * Write operations support idempotence by passing a ClientToken. If no ClientToken is provided, the backend generates one automatically.
+   * 
+   * @param request - StartContextDatabaseSyncRunRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartContextDatabaseSyncRunResponse
+   */
+  async startContextDatabaseSyncRunWithOptions(request: $_model.StartContextDatabaseSyncRunRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartContextDatabaseSyncRunResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartContextDatabaseSyncRun",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartContextDatabaseSyncRunResponse>(await this.callApi(params, req, runtime), new $_model.StartContextDatabaseSyncRunResponse({}));
+  }
+
+  /**
+   * Manually triggers a run.
+   * 
+   * @remarks
+   * Write operations support idempotence by passing a ClientToken. If no ClientToken is provided, the backend generates one automatically.
+   * 
+   * @param request - StartContextDatabaseSyncRunRequest
+   * @returns StartContextDatabaseSyncRunResponse
+   */
+  async startContextDatabaseSyncRun(request: $_model.StartContextDatabaseSyncRunRequest): Promise<$_model.StartContextDatabaseSyncRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startContextDatabaseSyncRunWithOptions(request, runtime);
+  }
+
+  /**
+   * Initiates a snapshot discovery task for data selection scope configuration.
+   * 
+   * @remarks
+   * Write operations support idempotence by passing a ClientToken. If no ClientToken is provided, the backend generates one automatically. Discovery is an asynchronous operation. The operation returns a discovery task identifier. Poll for results to retrieve SelectedNodeKeys.
+   * 
+   * @param request - StartContextDatabaseSyncSourceDiscoveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartContextDatabaseSyncSourceDiscoveryResponse
+   */
+  async startContextDatabaseSyncSourceDiscoveryWithOptions(request: $_model.StartContextDatabaseSyncSourceDiscoveryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartContextDatabaseSyncSourceDiscoveryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartContextDatabaseSyncSourceDiscovery",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartContextDatabaseSyncSourceDiscoveryResponse>(await this.callApi(params, req, runtime), new $_model.StartContextDatabaseSyncSourceDiscoveryResponse({}));
+  }
+
+  /**
+   * Initiates a snapshot discovery task for data selection scope configuration.
+   * 
+   * @remarks
+   * Write operations support idempotence by passing a ClientToken. If no ClientToken is provided, the backend generates one automatically. Discovery is an asynchronous operation. The operation returns a discovery task identifier. Poll for results to retrieve SelectedNodeKeys.
+   * 
+   * @param request - StartContextDatabaseSyncSourceDiscoveryRequest
+   * @returns StartContextDatabaseSyncSourceDiscoveryResponse
+   */
+  async startContextDatabaseSyncSourceDiscovery(request: $_model.StartContextDatabaseSyncSourceDiscoveryRequest): Promise<$_model.StartContextDatabaseSyncSourceDiscoveryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startContextDatabaseSyncSourceDiscoveryWithOptions(request, runtime);
+  }
+
+  /**
+   * Starts an ApsaraDB RDS AI application instance that is in the Stopped state.
+   * 
+   * @remarks
+   * ### Supported engines
+   * ApsaraDB RDS for PostgreSQL
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - StartInstanceRequest
@@ -5072,12 +6950,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts an RDS AI application instance that is in the Stopped state.
+   * Starts an ApsaraDB RDS AI application instance that is in the Stopped state.
    * 
    * @remarks
-   * ### Applicable engine
-   * RDS PostgreSQL
-   * ### Related feature documentation
+   * ### Supported engines
+   * ApsaraDB RDS for PostgreSQL
+   * ### Related documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - StartInstanceRequest
@@ -5094,7 +6972,7 @@ export default class Client extends OpenApi {
    * @remarks
    * ### Applicable engine
    * RDS PostgreSQL
-   * ### Related documentation
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - StopInstanceRequest
@@ -5143,7 +7021,7 @@ export default class Client extends OpenApi {
    * @remarks
    * ### Applicable engine
    * RDS PostgreSQL
-   * ### Related documentation
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - StopInstanceRequest
@@ -5155,11 +7033,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the API KEY Quota
+   * Updates the API key quota.
    * 
    * @remarks
-   * ### Supported engine
-   * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [Ultimate Edition of RDS AI Assistant](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param tmpReq - UpdateApiKeyQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5200,11 +7078,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the API KEY Quota
+   * Updates the API key quota.
    * 
    * @remarks
-   * ### Supported engine
-   * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [Ultimate Edition of RDS AI Assistant](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - UpdateApiKeyQuotaRequest
    * @returns UpdateApiKeyQuotaResponse
@@ -5215,7 +7093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the display metadata of a ContextDB API key.
+   * Updates the API key of a context database.
    * 
    * @remarks
    * Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
@@ -5265,7 +7143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the display metadata of a ContextDB API key.
+   * Updates the API key of a context database.
    * 
    * @remarks
    * Updates the display metadata of an API key. At least one of Name or Description must be specified. The plaintext key is not reissued.
@@ -5336,6 +7214,432 @@ export default class Client extends OpenApi {
   async updateContextDatabaseMember(request: $_model.UpdateContextDatabaseMemberRequest): Promise<$_model.UpdateContextDatabaseMemberResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateContextDatabaseMemberWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the metadata of a data source.
+   * 
+   * @remarks
+   * For write operations, you can specify a ClientToken to ensure idempotence. If you do not specify it, the backend automatically generates one.
+   * 
+   * @param request - UpdateContextDatabaseSyncConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContextDatabaseSyncConnectionResponse
+   */
+  async updateContextDatabaseSyncConnectionWithOptions(request: $_model.UpdateContextDatabaseSyncConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContextDatabaseSyncConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.connectionId)) {
+      query["ConnectionId"] = request.connectionId;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContextDatabaseSyncConnection",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContextDatabaseSyncConnectionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContextDatabaseSyncConnectionResponse({}));
+  }
+
+  /**
+   * Updates the metadata of a data source.
+   * 
+   * @remarks
+   * For write operations, you can specify a ClientToken to ensure idempotence. If you do not specify it, the backend automatically generates one.
+   * 
+   * @param request - UpdateContextDatabaseSyncConnectionRequest
+   * @returns UpdateContextDatabaseSyncConnectionResponse
+   */
+  async updateContextDatabaseSyncConnection(request: $_model.UpdateContextDatabaseSyncConnectionRequest): Promise<$_model.UpdateContextDatabaseSyncConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateContextDatabaseSyncConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Rotates the credentials of a data source individually.
+   * 
+   * @remarks
+   * You can specify the ClientToken parameter to ensure idempotence for write operations. If you do not specify this parameter, the backend automatically generates one.
+   * 
+   * @param tmpReq - UpdateContextDatabaseSyncConnectionCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContextDatabaseSyncConnectionCredentialResponse
+   */
+  async updateContextDatabaseSyncConnectionCredentialWithOptions(tmpReq: $_model.UpdateContextDatabaseSyncConnectionCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContextDatabaseSyncConnectionCredentialResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateContextDatabaseSyncConnectionCredentialShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.credentials)) {
+      request.credentialsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentials, "Credentials", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.connectionId)) {
+      query["ConnectionId"] = request.connectionId;
+    }
+
+    if (!$dara.isNull(request.credentialsShrink)) {
+      query["Credentials"] = request.credentialsShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContextDatabaseSyncConnectionCredential",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContextDatabaseSyncConnectionCredentialResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContextDatabaseSyncConnectionCredentialResponse({}));
+  }
+
+  /**
+   * Rotates the credentials of a data source individually.
+   * 
+   * @remarks
+   * You can specify the ClientToken parameter to ensure idempotence for write operations. If you do not specify this parameter, the backend automatically generates one.
+   * 
+   * @param request - UpdateContextDatabaseSyncConnectionCredentialRequest
+   * @returns UpdateContextDatabaseSyncConnectionCredentialResponse
+   */
+  async updateContextDatabaseSyncConnectionCredential(request: $_model.UpdateContextDatabaseSyncConnectionCredentialRequest): Promise<$_model.UpdateContextDatabaseSyncConnectionCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateContextDatabaseSyncConnectionCredentialWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the metadata of an import task.
+   * 
+   * @remarks
+   * For write operations, you can pass in a ClientToken to ensure idempotency. If it is not provided, the backend automatically generates one. Target is an implicit concept. The invoker only needs to pass in the KnowledgeBaseId, and the backend performs automatic creation or matching of the target.
+   * 
+   * @param tmpReq - UpdateContextDatabaseSyncJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContextDatabaseSyncJobResponse
+   */
+  async updateContextDatabaseSyncJobWithOptions(tmpReq: $_model.UpdateContextDatabaseSyncJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContextDatabaseSyncJobResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateContextDatabaseSyncJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filters)) {
+      request.filtersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filters, "Filters", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.filtersShrink)) {
+      query["Filters"] = request.filtersShrink;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.targetKnowledgeBaseId)) {
+      query["TargetKnowledgeBaseId"] = request.targetKnowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.targetKnowledgeBaseName)) {
+      query["TargetKnowledgeBaseName"] = request.targetKnowledgeBaseName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContextDatabaseSyncJob",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContextDatabaseSyncJobResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContextDatabaseSyncJobResponse({}));
+  }
+
+  /**
+   * Updates the metadata of an import task.
+   * 
+   * @remarks
+   * For write operations, you can pass in a ClientToken to ensure idempotency. If it is not provided, the backend automatically generates one. Target is an implicit concept. The invoker only needs to pass in the KnowledgeBaseId, and the backend performs automatic creation or matching of the target.
+   * 
+   * @param request - UpdateContextDatabaseSyncJobRequest
+   * @returns UpdateContextDatabaseSyncJobResponse
+   */
+  async updateContextDatabaseSyncJob(request: $_model.UpdateContextDatabaseSyncJobRequest): Promise<$_model.UpdateContextDatabaseSyncJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateContextDatabaseSyncJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the scheduling configuration of an import task.
+   * 
+   * @remarks
+   * You can specify a ClientToken for write operations to ensure idempotence. If no ClientToken is provided, the backend automatically generates one.
+   * 
+   * @param tmpReq - UpdateContextDatabaseSyncJobScheduleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContextDatabaseSyncJobScheduleResponse
+   */
+  async updateContextDatabaseSyncJobScheduleWithOptions(tmpReq: $_model.UpdateContextDatabaseSyncJobScheduleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContextDatabaseSyncJobScheduleResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateContextDatabaseSyncJobScheduleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dailyTimes)) {
+      request.dailyTimesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dailyTimes, "DailyTimes", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dailyTimesShrink)) {
+      query["DailyTimes"] = request.dailyTimesShrink;
+    }
+
+    if (!$dara.isNull(request.intervalMinutes)) {
+      query["IntervalMinutes"] = request.intervalMinutes;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.missedPolicy)) {
+      query["MissedPolicy"] = request.missedPolicy;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContextDatabaseSyncJobSchedule",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContextDatabaseSyncJobScheduleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContextDatabaseSyncJobScheduleResponse({}));
+  }
+
+  /**
+   * Updates the scheduling configuration of an import task.
+   * 
+   * @remarks
+   * You can specify a ClientToken for write operations to ensure idempotence. If no ClientToken is provided, the backend automatically generates one.
+   * 
+   * @param request - UpdateContextDatabaseSyncJobScheduleRequest
+   * @returns UpdateContextDatabaseSyncJobScheduleResponse
+   */
+  async updateContextDatabaseSyncJobSchedule(request: $_model.UpdateContextDatabaseSyncJobScheduleRequest): Promise<$_model.UpdateContextDatabaseSyncJobScheduleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateContextDatabaseSyncJobScheduleWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the metadata of a data selection scope.
+   * 
+   * @remarks
+   * Write operations support idempotence via ClientToken. If ClientToken is not provided, the backend generates one automatically.
+   * 
+   * @param tmpReq - UpdateContextDatabaseSyncSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContextDatabaseSyncSourceResponse
+   */
+  async updateContextDatabaseSyncSourceWithOptions(tmpReq: $_model.UpdateContextDatabaseSyncSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContextDatabaseSyncSourceResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateContextDatabaseSyncSourceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.sourceConfig)) {
+      request.sourceConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceConfig, "SourceConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.sourceConfigShrink)) {
+      query["SourceConfig"] = request.sourceConfigShrink;
+    }
+
+    if (!$dara.isNull(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContextDatabaseSyncSource",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContextDatabaseSyncSourceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContextDatabaseSyncSourceResponse({}));
+  }
+
+  /**
+   * Updates the metadata of a data selection scope.
+   * 
+   * @remarks
+   * Write operations support idempotence via ClientToken. If ClientToken is not provided, the backend generates one automatically.
+   * 
+   * @param request - UpdateContextDatabaseSyncSourceRequest
+   * @returns UpdateContextDatabaseSyncSourceResponse
+   */
+  async updateContextDatabaseSyncSource(request: $_model.UpdateContextDatabaseSyncSourceRequest): Promise<$_model.UpdateContextDatabaseSyncSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateContextDatabaseSyncSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the explicit node selection for the data selection scope.
+   * 
+   * @remarks
+   * For write operations, you can pass the ClientToken parameter to ensure idempotency. If this parameter is not provided, the backend automatically generates one.
+   * 
+   * @param tmpReq - UpdateContextDatabaseSyncSourceSelectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContextDatabaseSyncSourceSelectionResponse
+   */
+  async updateContextDatabaseSyncSourceSelectionWithOptions(tmpReq: $_model.UpdateContextDatabaseSyncSourceSelectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContextDatabaseSyncSourceSelectionResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateContextDatabaseSyncSourceSelectionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.selectedNodeKeys)) {
+      request.selectedNodeKeysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.selectedNodeKeys, "SelectedNodeKeys", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.selectedNodeKeysShrink)) {
+      query["SelectedNodeKeys"] = request.selectedNodeKeysShrink;
+    }
+
+    if (!$dara.isNull(request.selectionPolicy)) {
+      query["SelectionPolicy"] = request.selectionPolicy;
+    }
+
+    if (!$dara.isNull(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContextDatabaseSyncSourceSelection",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContextDatabaseSyncSourceSelectionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContextDatabaseSyncSourceSelectionResponse({}));
+  }
+
+  /**
+   * Updates the explicit node selection for the data selection scope.
+   * 
+   * @remarks
+   * For write operations, you can pass the ClientToken parameter to ensure idempotency. If this parameter is not provided, the backend automatically generates one.
+   * 
+   * @param request - UpdateContextDatabaseSyncSourceSelectionRequest
+   * @returns UpdateContextDatabaseSyncSourceSelectionResponse
+   */
+  async updateContextDatabaseSyncSourceSelection(request: $_model.UpdateContextDatabaseSyncSourceSelectionRequest): Promise<$_model.UpdateContextDatabaseSyncSourceSelectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateContextDatabaseSyncSourceSelectionWithOptions(request, runtime);
   }
 
   /**
@@ -5463,11 +7767,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the alert threshold percentage for API keys.
+   * Updates the alert threshold percentage for an API key.
    * 
    * @remarks
-   * ### Applicable engines
-   * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param tmpReq - UpdateMOQuotaAlertThresholdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5508,11 +7812,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the alert threshold percentage for API keys.
+   * Updates the alert threshold percentage for an API key.
    * 
    * @remarks
-   * ### Applicable engines
-   * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+   * ### Applicable engine
+   * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
    * 
    * @param request - UpdateMOQuotaAlertThresholdRequest
    * @returns UpdateMOQuotaAlertThresholdResponse
@@ -5523,7 +7827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information of a specified skill.
+   * Updates the information of a specified Skill.
    * 
    * @param tmpReq - UpdateSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5562,6 +7866,22 @@ export default class Client extends OpenApi {
       query["SkillId"] = request.skillId;
     }
 
+    if (!$dara.isNull(request.updateNote)) {
+      query["UpdateNote"] = request.updateNote;
+    }
+
+    if (!$dara.isNull(request.uploadId)) {
+      query["UploadId"] = request.uploadId;
+    }
+
+    if (!$dara.isNull(request.uploadToken)) {
+      query["UploadToken"] = request.uploadToken;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5580,7 +7900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information of a specified skill.
+   * Updates the information of a specified Skill.
    * 
    * @param request - UpdateSkillRequest
    * @returns UpdateSkillResponse
@@ -5588,6 +7908,62 @@ export default class Client extends OpenApi {
   async updateSkill(request: $_model.UpdateSkillRequest): Promise<$_model.UpdateSkillResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSkillWithOptions(request, runtime);
+  }
+
+  /**
+   * Validates datasource credentials and authorization.
+   * 
+   * @remarks
+   * Validates the connection credentials and authorization.
+   * 
+   * @param request - VerifyContextDatabaseSyncConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VerifyContextDatabaseSyncConnectionResponse
+   */
+  async verifyContextDatabaseSyncConnectionWithOptions(request: $_model.VerifyContextDatabaseSyncConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VerifyContextDatabaseSyncConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.connectionId)) {
+      query["ConnectionId"] = request.connectionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VerifyContextDatabaseSyncConnection",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VerifyContextDatabaseSyncConnectionResponse>(await this.callApi(params, req, runtime), new $_model.VerifyContextDatabaseSyncConnectionResponse({}));
+  }
+
+  /**
+   * Validates datasource credentials and authorization.
+   * 
+   * @remarks
+   * Validates the connection credentials and authorization.
+   * 
+   * @param request - VerifyContextDatabaseSyncConnectionRequest
+   * @returns VerifyContextDatabaseSyncConnectionResponse
+   */
+  async verifyContextDatabaseSyncConnection(request: $_model.VerifyContextDatabaseSyncConnectionRequest): Promise<$_model.VerifyContextDatabaseSyncConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.verifyContextDatabaseSyncConnectionWithOptions(request, runtime);
   }
 
 }

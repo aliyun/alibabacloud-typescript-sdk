@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyInstanceRAGConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The reserved parameter.
+   * 
+   * @example
+   * Reserved parameter
+   */
   branchName?: string;
   /**
    * @remarks
@@ -22,7 +29,7 @@ export class ModifyInstanceRAGConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The RAG Agent status. Valid values:
+   * The status of the RAG Agent.
    * 
    * - **true**: Enabled.
    * - **false**: Disabled.

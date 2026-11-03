@@ -13,7 +13,7 @@ export class ListCustomAgentResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * Indicates whether tools are enabled.
+   * Specifies whether tools are enabled.
    * 
    * @example
    * true
@@ -29,10 +29,10 @@ export class ListCustomAgentResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the custom agent.
+   * The name of the dedicated agent.
    * 
    * @example
-   * 日志分析Agent
+   * Log analysis agent
    */
   name?: string;
   /**
@@ -40,12 +40,12 @@ export class ListCustomAgentResponseBodyData extends $dara.Model {
    * The system prompt.
    * 
    * @example
-   * 我是您用来查询实例列表的专属Agent。
+   * I am your dedicated agent for querying the instance list
    */
   systemPrompt?: string;
   /**
    * @remarks
-   * A list of tools.
+   * The tool information.
    */
   tools?: string[];
   /**
@@ -96,21 +96,33 @@ export class ListCustomAgentResponseBodySkills extends $dara.Model {
   /**
    * @remarks
    * The description of the skill.
+   * 
+   * @example
+   * SQL query optimization skill
    */
   description?: string;
   /**
    * @remarks
-   * The skill ID.
+   * The unique identifier of the skill.
+   * 
+   * @example
+   * 82cf3d62-0add-47bd-869f-877131f7****
    */
   id?: string;
   /**
    * @remarks
    * The name of the skill.
+   * 
+   * @example
+   * query-optimization
    */
   name?: string;
   /**
    * @remarks
    * The type of the skill.
+   * 
+   * @example
+   * user
    */
   skillType?: string;
   static names(): { [key: string]: string } {
@@ -143,7 +155,7 @@ export class ListCustomAgentResponseBodySkills extends $dara.Model {
 export class ListCustomAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of custom agents.
+   * The returned data object.
    */
   data?: ListCustomAgentResponseBodyData[];
   /**
@@ -172,12 +184,12 @@ export class ListCustomAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of skills.
+   * The list of associated skill details.
    */
   skills?: ListCustomAgentResponseBodySkills[];
   /**
    * @remarks
-   * The total number of entries that match the query. This parameter is not returned by default.
+   * The total number of entries that meet the request conditions. This parameter is optional and is not returned by default.
    * 
    * @example
    * 20

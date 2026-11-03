@@ -13,7 +13,7 @@ export class ModifyWhitelistIpsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IP whitelist. Before you modify the IP whitelist, call the DescribeInstanceIpWhitelist operation to query the existing IP whitelist of the instance.
+   * IP address whitelist. Before modifying IP address whitelist, call the DescribeInstanceIpWhitelist operation to query the existing IP whitelist of the instance.
    * 
    * @example
    * 127.0.0.1,192.168.1.0/24

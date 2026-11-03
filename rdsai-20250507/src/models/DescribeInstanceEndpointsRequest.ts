@@ -21,7 +21,7 @@ export class DescribeInstanceEndpointsRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-beijing

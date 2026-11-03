@@ -21,7 +21,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The Skill creation time.
+   * The creation time of the Skill.
    * 
    * @example
    * 2026-09-15T10:00:00Z
@@ -37,7 +37,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The Skill display name.
+   * The display name of the Skill.
    * 
    * @example
    * Example Skill
@@ -85,7 +85,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   slug?: string;
   /**
    * @remarks
-   * The Skill update time.
+   * The update time of the Skill.
    * 
    * @example
    * 2026-09-15T10:00:00Z
@@ -156,7 +156,7 @@ export class CreateSkillResponseBodyVersion extends $dara.Model {
   credentialRequired?: boolean;
   /**
    * @remarks
-   * The Skill version ID.
+   * The ID of the Skill version.
    * 
    * @example
    * version-example
@@ -164,7 +164,7 @@ export class CreateSkillResponseBodyVersion extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The Skill package size, in bytes.
+   * The size of the Skill package, in bytes.
    * 
    * @example
    * 1024
@@ -172,7 +172,7 @@ export class CreateSkillResponseBodyVersion extends $dara.Model {
   packageSize?: number;
   /**
    * @remarks
-   * The revocation reason of the Skill version.
+   * The reason for revoking the Skill version.
    * 
    * @example
    * Replaced by a newer version
@@ -196,7 +196,7 @@ export class CreateSkillResponseBodyVersion extends $dara.Model {
   sha256?: string;
   /**
    * @remarks
-   * The ID of the parent Skill.
+   * The ID of the Skill to which this version belongs.
    * 
    * @example
    * skill-example
@@ -212,7 +212,7 @@ export class CreateSkillResponseBodyVersion extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The Skill version number.
+   * The version number of the Skill.
    * 
    * @example
    * 1.0.0
@@ -260,6 +260,22 @@ export class CreateSkillResponseBodyVersion extends $dara.Model {
 }
 
 export class CreateSkillResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The publish action for this release.
+   * 
+   * @example
+   * CREATE_SKILL
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The content digest of the Skill package.
+   * 
+   * @example
+   * 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+   */
+  bundleHash?: string;
   /**
    * @remarks
    * The Skill catalog revision number.
@@ -328,6 +344,14 @@ export class CreateSkillResponseBody extends $dara.Model {
   skill?: CreateSkillResponseBodySkill;
   /**
    * @remarks
+   * The ID of the created Skill.
+   * 
+   * @example
+   * skill-example
+   */
+  skillId?: string;
+  /**
+   * @remarks
    * The Skill type.
    * 
    * @example
@@ -339,8 +363,18 @@ export class CreateSkillResponseBody extends $dara.Model {
    * The created Skill version.
    */
   version?: CreateSkillResponseBodyVersion;
+  /**
+   * @remarks
+   * The ID of the created Skill version.
+   * 
+   * @example
+   * version-example
+   */
+  versionId?: string;
   static names(): { [key: string]: string } {
     return {
+      action: 'Action',
+      bundleHash: 'BundleHash',
       catalogRevision: 'CatalogRevision',
       content: 'Content',
       createdAt: 'CreatedAt',
@@ -350,13 +384,17 @@ export class CreateSkillResponseBody extends $dara.Model {
       name: 'Name',
       requestId: 'RequestId',
       skill: 'Skill',
+      skillId: 'SkillId',
       skillType: 'SkillType',
       version: 'Version',
+      versionId: 'VersionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      action: 'string',
+      bundleHash: 'string',
       catalogRevision: 'number',
       content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       createdAt: 'string',
@@ -366,8 +404,10 @@ export class CreateSkillResponseBody extends $dara.Model {
       name: 'string',
       requestId: 'string',
       skill: CreateSkillResponseBodySkill,
+      skillId: 'string',
       skillType: 'string',
       version: CreateSkillResponseBodyVersion,
+      versionId: 'string',
     };
   }
 

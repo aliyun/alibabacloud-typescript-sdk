@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListLLMTokenUsageRequest extends $dara.Model {
   /**
    * @remarks
+   * The end time of the inspection in UTC. Specify the time in the ISO 8601 standard. Format: YYYY-MM-DDTHH:mm:ssZ. The end time must be at least 2 hours later than the start time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListLLMTokenUsageRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
+   * The instance ID of the AI application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class ListLLMTokenUsageRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
+   * @remarks
+   * The model to query.
+   * 
    * @example
    * qwen-flash
    */
   model?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class ListLLMTokenUsageRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * The start time of the inspection in UTC. Specify the time in the ISO 8601 standard. Format: YYYY-MM-DDTHH:mm:ssZ.
+   * 
    * This parameter is required.
    * 
    * @example

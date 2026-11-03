@@ -162,7 +162,7 @@ export class DescribeMOTokenUsageDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the query conditions. This parameter is optional and may not be returned by default.
+   * The total number of records that match the query conditions.
    * 
    * @example
    * 20

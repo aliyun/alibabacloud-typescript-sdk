@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RestartInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Reserved parameter.
+   * 
+   * @example
+   * Reserved parameter
+   */
   branchName?: string;
   /**
    * @remarks

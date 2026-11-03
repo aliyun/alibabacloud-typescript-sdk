@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApiKeyQuotaResponseBodyDataCustomKeyList extends $dara.Model {
   /**
    * @remarks
-   * The API key.
+   * Api Key
    * 
    * @example
    * sk-rds-xxx
    */
   apiKey?: string;
   /**
+   * @remarks
+   * The daily quota of the API key.
+   * 
    * @example
    * 1000000000
    */
   dailyTokenQuota?: number;
   /**
    * @remarks
-   * The limit rate.
+   * The quota limit ratio.
    * 
    * @example
    * 0.2
@@ -26,13 +29,10 @@ export class UpdateApiKeyQuotaResponseBodyDataCustomKeyList extends $dara.Model 
   limitRate?: number;
   /**
    * @remarks
-   * The quota limiting method. Valid values:
-   * 
-   * - `ratio`: Sets the limit based on a ratio.
-   * 
-   * - `fixed`: Sets the limit to a fixed value.
-   * 
-   * - `auto`: Allocates the limit automatically.
+   * The quota limit type. Valid values:
+   * - ratio: Proportional limit.
+   * - fixed: Fixed value.
+   * - auto: Automatic allocation.
    * 
    * @example
    * fixed
@@ -40,7 +40,7 @@ export class UpdateApiKeyQuotaResponseBodyDataCustomKeyList extends $dara.Model 
   limitType?: string;
   /**
    * @remarks
-   * The token quota for the API key.
+   * The quota limit of the current key.
    * 
    * @example
    * 10000
@@ -121,7 +121,7 @@ export class UpdateApiKeyQuotaResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
@@ -129,7 +129,7 @@ export class UpdateApiKeyQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

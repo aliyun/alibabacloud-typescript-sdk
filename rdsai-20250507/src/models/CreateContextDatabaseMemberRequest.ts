@@ -31,11 +31,7 @@ export class CreateContextDatabaseMemberRequest extends $dara.Model {
   memberName?: string;
   /**
    * @remarks
-   * The member role. Valid values:
-   * 
-   * - owner
-   * - admin
-   * - member
+   * The member role. Valid values: owner, admin, and member.
    * 
    * This parameter is required.
    * 

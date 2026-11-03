@@ -39,7 +39,7 @@ export class DescribeAppInstancesResponseBodyInstancesComponents extends $dara.M
 export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The application name.
+   * The name of the AI application.
    * 
    * @example
    * test-supabase
@@ -47,7 +47,7 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The application type. The only supported value is **supabase**, which represents [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
+   * The application type. Currently, only **supabase** is supported, which indicates [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
    * 
    * @example
    * supabase
@@ -55,12 +55,12 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The components of the instance.
+   * The list of components.
    */
   components?: DescribeAppInstancesResponseBodyInstancesComponents[];
   /**
    * @remarks
-   * The DB instance ID of the connected ApsaraDB RDS for PostgreSQL instance.
+   * The instance ID of the RDS PostgreSQL database to which the AI application is connected.
    * 
    * @example
    * pgm-2ze49qv594vi****
@@ -76,7 +76,7 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   instanceClass?: string;
   /**
    * @remarks
-   * The minor version of the AI application.
+   * The minor version of the AI application instance.
    * 
    * @example
    * 20241231
@@ -84,7 +84,7 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   instanceMinorVersion?: string;
   /**
    * @remarks
-   * The ID of the application instance.
+   * The instance ID of the AI application.
    * 
    * @example
    * ra-supabase-8moov5lxba****
@@ -92,7 +92,7 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The public connection string.
+   * The public endpoint of the AI application.
    * 
    * @example
    * 8.152. XXX.XXX:8000
@@ -116,7 +116,7 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The VSwitch ID.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-2zeaepb8k4ku05ov2****
@@ -124,7 +124,7 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC connection string.
+   * The internal endpoint of the AI application.
    * 
    * @example
    * 172.16.XXX.XXX:8000
@@ -179,12 +179,12 @@ export class DescribeAppInstancesResponseBodyInstances extends $dara.Model {
 export class DescribeAppInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of instances.
+   * The list of instances.
    */
   instances?: DescribeAppInstancesResponseBodyInstances[];
   /**
    * @remarks
-   * This parameter is reserved for future use.
+   * A reserved parameter. You can ignore it.
    * 
    * @example
    * None
@@ -216,7 +216,7 @@ export class DescribeAppInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 20

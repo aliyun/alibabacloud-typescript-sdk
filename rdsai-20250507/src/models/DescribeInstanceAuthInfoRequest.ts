@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceAuthInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Reserved parameter.
+   */
   branchName?: string;
   /**
    * @remarks
@@ -14,7 +18,7 @@ export class DescribeInstanceAuthInfoRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The region.
+   * The region ID.
    * 
    * @example
    * cn-beijing

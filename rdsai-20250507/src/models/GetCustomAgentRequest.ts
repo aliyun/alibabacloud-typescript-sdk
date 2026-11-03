@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom agent.
+   * The ID of the dedicated agent.
    * 
    * @example
    * ebe44453-3b41-4c74-94d1-01d088d7****

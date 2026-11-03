@@ -13,7 +13,7 @@ export class DescribeMonitorDataResponseBodyDataValue extends $dara.Model {
   time?: string;
   /**
    * @remarks
-   * The returned value.
+   * The return value.
    * 
    * @example
    * 60
@@ -90,7 +90,7 @@ export class DescribeMonitorDataResponseBody extends $dara.Model {
   data?: DescribeMonitorDataResponseBodyData[];
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success

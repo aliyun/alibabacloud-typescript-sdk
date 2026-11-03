@@ -53,7 +53,7 @@ export class ListContextDatabaseMembersResponseBodyMembersKeys extends $dara.Mod
   keyPrefix?: string;
   /**
    * @remarks
-   * The time when the key was last used. This field is populated after the key has been authenticated and used. This field is empty for keys that have never been used.
+   * The time when the key was last used. This field is populated after the key has been authenticated and used. This field is empty for keys that have not been used.
    * 
    * @example
    * 2026-07-15T08:30:00Z

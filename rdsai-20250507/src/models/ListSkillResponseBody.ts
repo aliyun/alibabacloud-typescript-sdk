@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the currently active version.
+   * The currently active skill version information.
+   */
+  activeVersion?: { [key: string]: any };
+  /**
+   * @remarks
+   * The currently active version ID.
    * 
    * @example
    * version-example
@@ -50,7 +55,7 @@ export class ListSkillResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name of the skill.
+   * The skill display name.
    * 
    * @example
    * Example Skill
@@ -90,7 +95,7 @@ export class ListSkillResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The visibility scope of the skill.
+   * The skill visibility scope.
    * 
    * @example
    * PRIVATE
@@ -106,7 +111,7 @@ export class ListSkillResponseBodyData extends $dara.Model {
   skillType?: string;
   /**
    * @remarks
-   * The stable identifier of the skill.
+   * The skill stable identifier.
    * 
    * @example
    * example-skill
@@ -120,8 +125,17 @@ export class ListSkillResponseBodyData extends $dara.Model {
    * 2026-02-04T21:14:45Z
    */
   updatedAt?: string;
+  /**
+   * @remarks
+   * The skill visibility for the current user.
+   * 
+   * @example
+   * PRIVATE
+   */
+  visibility?: string;
   static names(): { [key: string]: string } {
     return {
+      activeVersion: 'ActiveVersion',
       activeVersionId: 'ActiveVersionId',
       category: 'Category',
       content: 'Content',
@@ -137,11 +151,13 @@ export class ListSkillResponseBodyData extends $dara.Model {
       skillType: 'SkillType',
       slug: 'Slug',
       updatedAt: 'UpdatedAt',
+      visibility: 'Visibility',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      activeVersion: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       activeVersionId: 'string',
       category: 'string',
       content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -157,10 +173,14 @@ export class ListSkillResponseBodyData extends $dara.Model {
       skillType: 'string',
       slug: 'string',
       updatedAt: 'string',
+      visibility: 'string',
     };
   }
 
   validate() {
+    if(this.activeVersion) {
+      $dara.Model.validateMap(this.activeVersion);
+    }
     if(this.content) {
       $dara.Model.validateMap(this.content);
     }
@@ -199,7 +219,7 @@ export class ListSkillResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique request identifier.
+   * The request ID.
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****

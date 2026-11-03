@@ -43,6 +43,13 @@ export class DescribeInstanceRAGConfigResponseBodyConfigList extends $dara.Model
 }
 
 export class DescribeInstanceRAGConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The reserved parameter.
+   * 
+   * @example
+   * Reserved parameter
+   */
   branchName?: string;
   /**
    * @remarks
@@ -67,7 +74,7 @@ export class DescribeInstanceRAGConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The RAG Agent status. Valid values:
+   * The status of the RAG Agent.
    * - **true**: Enabled.
    * - **false**: Disabled.
    * 

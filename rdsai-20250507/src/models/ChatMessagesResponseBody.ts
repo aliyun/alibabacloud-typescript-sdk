@@ -8,7 +8,7 @@ export class ChatMessagesResponseBody extends $dara.Model {
    * The answer content.
    * 
    * @example
-   * The disk usage of instance rm-bp14as9914vd3**** is 23%, and storage expansion is not needed at this time. If you need to view the detailed configuration, performance monitoring, or perform other operations for an instance, let me know your specific requirements!
+   * The disk usage of instance rm-bp14as9914vd3**** is 23%, and storage expansion is not needed at this time. If you need to view the detailed configuration, performance monitoring, or perform other operations for a specific instance, let me know your specific requirements!
    */
   answer?: string;
   /**
@@ -80,7 +80,7 @@ export class ChatMessagesResponseBody extends $dara.Model {
    * The query mode.
    * 
    * @example
-   * This field will be deprecated in the future. Ignore it
+   * This field will be deprecated and can be ignored
    */
   mode?: string;
   /**

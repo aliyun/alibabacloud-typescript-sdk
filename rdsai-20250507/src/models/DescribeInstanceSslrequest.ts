@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceSSLRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Reserved parameter.
+   */
   branchName?: string;
   /**
    * @remarks

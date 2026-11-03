@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContextDatabaseMemberResponseBodyKeys extends $dara.Model {
   /**
    * @remarks
-   * The creation time. This field is empty.
+   * The time when the API key was created. This field is empty.
    * 
    * @example
    * (null)
@@ -29,7 +29,7 @@ export class DeleteContextDatabaseMemberResponseBodyKeys extends $dara.Model {
   expiresAt?: string;
   /**
    * @remarks
-   * The API key suffix. This field is empty.
+   * The suffix of the API key. This field is empty.
    * 
    * @example
    * (null)
@@ -45,7 +45,7 @@ export class DeleteContextDatabaseMemberResponseBodyKeys extends $dara.Model {
   keyId?: number;
   /**
    * @remarks
-   * The API key prefix. This field is empty.
+   * The prefix of the API key. This field is empty.
    * 
    * @example
    * (null)
@@ -125,7 +125,7 @@ export class DeleteContextDatabaseMemberResponseBodyKeys extends $dara.Model {
 export class DeleteContextDatabaseMemberResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The time when the member was created.
    * 
    * @example
    * 2026-05-28T17:59:55Z

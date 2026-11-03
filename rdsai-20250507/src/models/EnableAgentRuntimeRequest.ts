@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EnableAgentRuntimeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The reserved parameter.
+   */
   branchName?: string;
   /**
    * @remarks
@@ -34,10 +38,10 @@ export class EnableAgentRuntimeRequest extends $dara.Model {
    * @remarks
    * The security group ID used to create an endpoint.
    * 
-   * **If not specified**: The system performs automatic creation of a security group named **sg-aliyun-rds-created-supabase-sandbox** in the VPC where the instance resides. No manual operation is required.
+   * **If not specified**: The system automatically creates a security group named **sg-aliyun-rds-created-supabase-sandbox** in the VPC where the instance resides. No manual operation is required.
    * 
-   * **If specified**: Make sure that the specified security group allows the CIDR block of the VPC where the Supabase instance resides (both inbound and outbound directions must be allowed). Otherwise, network connectivity issues may occur.
-   * >Notice: The endpoint is created only once. When the first Supabase instance in a VPC enables the sandbox and Edge Routine function, the system performs automatic creation of the endpoint. When other Supabase instances in the same VPC enable this capability later, the existing endpoint is reused and no new endpoint is created.
+   * **If manually specified**: Make sure that the specified security group allows traffic from the CIDR block of the VPC where the Supabase instance resides in both the inbound and outbound directions. Otherwise, network connectivity may fail.
+   * >Notice: The endpoint is created only once. When the first Supabase instance in a VPC enables the sandbox and Edge Routine capabilities, the system automatically creates an endpoint. When other Supabase instances in the same VPC enable these capabilities later, the existing endpoint is reused and not created again.</notice>
    * 
    * @example
    * sg-bp179qkbvlj8ym*****
@@ -46,7 +50,7 @@ export class EnableAgentRuntimeRequest extends $dara.Model {
   /**
    * @remarks
    * The vSwitch ID used to create an endpoint. If this parameter is not specified, the vSwitch of the Supabase instance is used by default.
-   * >Notice: The endpoint is created only once. When the first Supabase instance in a VPC enables the sandbox and Edge Routine function, the system performs automatic creation of the endpoint. When other Supabase instances in the same VPC enable this capability later, the existing endpoint is reused and no new endpoint is created.
+   * >Notice: The endpoint is created only once. When the first Supabase instance in a VPC enables the sandbox and Edge Routine capabilities, the system automatically creates an endpoint. When other Supabase instances in the same VPC enable these capabilities later, the existing endpoint is reused and not created again.</notice>
    * 
    * @example
    * vsw-9dp2hkpm22gxscfgy****

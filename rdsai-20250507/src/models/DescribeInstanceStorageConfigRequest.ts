@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceStorageConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A reserved parameter.
+   */
   branchName?: string;
   /**
    * @remarks

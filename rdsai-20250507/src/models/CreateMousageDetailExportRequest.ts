@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateMOUsageDetailExportRequest extends $dara.Model {
   /**
+   * @remarks
+   * The API key to use.
+   * 
    * @example
    * sk-rds-*****
    */
   apiKey?: string;
   /**
    * @remarks
-   * 结束时间，UTC 0 时区 ISO8601 字符串，格式 yyyy-MM-ddTHH:mm:ssZ；与 StartTime 跨度不超过 30 天
+   * The inspection end time in the YYYY-MM-DDTHH:mm:ssZ format. The time range between StartTime and EndTime cannot exceed 30 days.
    * 
    * This parameter is required.
    * 
@@ -20,6 +23,8 @@ export class CreateMOUsageDetailExportRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
+   * The instance name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,13 +32,16 @@ export class CreateMOUsageDetailExportRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The model to call.
+   * 
    * @example
    * qwen-flash
    */
   model?: string;
   /**
    * @remarks
-   * 起始时间，UTC 0 时区 ISO8601 字符串，格式 yyyy-MM-ddTHH:mm:ssZ
+   * The inspection start time in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * This parameter is required.
    * 
@@ -42,6 +50,9 @@ export class CreateMOUsageDetailExportRequest extends $dara.Model {
    */
   startTime?: string;
   /**
+   * @remarks
+   * The view type.
+   * 
    * @example
    * text
    */

@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateCustomAgentResponseBodySkills extends $dara.Model {
+  /**
+   * @remarks
+   * The skill description.
+   * 
+   * @example
+   * SQL query optimization skill
+   */
   description?: string;
+  /**
+   * @remarks
+   * The unique identifier of the skill.
+   * 
+   * @example
+   * 82cf3d62-0add-47bd-869f-877131f7****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The skill name.
+   * 
+   * @example
+   * query-optimization
+   */
   name?: string;
+  /**
+   * @remarks
+   * The skill type.
+   * 
+   * @example
+   * user
+   */
   skillType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -45,7 +73,7 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
   enableTools?: string;
   /**
    * @remarks
-   * AgentId。
+   * The agent ID.
    * 
    * @example
    * 82cf3d62-0add-47bd-869f-877131f7****
@@ -53,10 +81,10 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the dedicated agent.
+   * The name of the custom agent.
    * 
    * @example
-   * QueryInstanceListAgent
+   * Query instance list agent
    */
   name?: string;
   /**
@@ -77,7 +105,7 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
    * The system prompt.
    * 
    * @example
-   * I am your dedicated agent for querying instance lists
+   * I am your custom agent for querying the instance list
    */
   systemPrompt?: string;
   /**

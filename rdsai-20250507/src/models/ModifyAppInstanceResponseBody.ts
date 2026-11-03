@@ -43,6 +43,13 @@ export class ModifyAppInstanceResponseBodyComponents extends $dara.Model {
 }
 
 export class ModifyAppInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The reserved parameter.
+   * 
+   * @example
+   * Reserved parameter
+   */
   branchName?: string;
   /**
    * @remarks

@@ -13,7 +13,7 @@ export class ModifySandboxTemplateShrinkRequest extends $dara.Model {
   defaultCpu?: string;
   /**
    * @remarks
-   * The memory size for sandboxes created from this template. Unit: Gi. Valid values: 1Gi to 8Gi.
+   * The memory size of sandboxes created from this template. Unit: Gi. Valid values: 1Gi to 8Gi.
    * 
    * @example
    * 1Gi

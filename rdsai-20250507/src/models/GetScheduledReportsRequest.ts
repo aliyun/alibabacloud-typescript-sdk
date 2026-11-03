@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScheduledReportsRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time for filtering (format: YYYY-MM-DDTHH:mm:ssZ). If not specified, no end time filter is applied.
+   * The end time for filtering. Format: YYYY-MM-DDTHH:mm:ssZ. If you do not specify this parameter, no filtering is applied.
    * 
    * @example
    * 2026-01-25T02:02:00Z
@@ -29,7 +29,7 @@ export class GetScheduledReportsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The inspection task ID.
+   * The ID of the scheduled task.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class GetScheduledReportsRequest extends $dara.Model {
   scheduledId?: string;
   /**
    * @remarks
-   * The start time for filtering (format: YYYY-MM-DDTHH:mm:ssZ). If not specified, no start time filter is applied.
+   * The start time for filtering. Format: YYYY-MM-DDTHH:mm:ssZ. If you do not specify this parameter, no filtering is applied.
    * 
    * @example
    * 2026-01-25T01:02:00Z

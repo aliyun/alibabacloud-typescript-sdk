@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetApiKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The API key.
+   * Api Key
    * 
    * @example
    * sk-rds-*****
@@ -13,7 +13,7 @@ export class ResetApiKeyRequest extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

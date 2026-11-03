@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeModelOperatorResponseBodyDataDailyUsage extends $dara.Model {
   /**
    * @remarks
-   * The date (accurate to the day).
+   * The date, accurate to the day.
    * 
    * @example
    * 2026-03-31
@@ -45,7 +45,7 @@ export class DescribeModelOperatorResponseBodyDataDailyUsage extends $dara.Model
 export class DescribeModelOperatorResponseBodyDataKeyUsageListDailyUsage extends $dara.Model {
   /**
    * @remarks
-   * The date (accurate to the day).
+   * The date, accurate to the day.
    * 
    * @example
    * 2026-03-31
@@ -239,7 +239,7 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The usage of each key (including deleted keys).
+   * The usage of each key, including deleted keys.
    */
   keyUsageList?: DescribeModelOperatorResponseBodyDataKeyUsageList[];
   /**
@@ -273,7 +273,7 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The total quota for the current cycle (such as the monthly total).
+   * The total quota for the current cycle, such as the monthly quota.
    * 
    * @example
    * 200000000
@@ -281,7 +281,7 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
   totalQuota?: number;
   /**
    * @remarks
-   * The used quota for the current cycle (such as the monthly usage).
+   * The used quota for the current cycle, such as the monthly usage.
    * 
    * @example
    * 1000000

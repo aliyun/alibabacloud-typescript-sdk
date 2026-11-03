@@ -36,7 +36,7 @@ export class DescribeMonitorDataShrinkRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The metric to query.
+   * The metric to query. Valid values:
    * 
    * - pv
    * - uv

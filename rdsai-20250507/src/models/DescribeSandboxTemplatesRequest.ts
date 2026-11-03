@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSandboxTemplatesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The reserved parameter.
+   */
   branchName?: string;
   /**
    * @remarks
@@ -16,7 +20,7 @@ export class DescribeSandboxTemplatesRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * A reserved parameter. You do not need to specify this parameter.
+   * The backup parameter. You can ignore this parameter.
    * 
    * @example
    * None
@@ -40,7 +44,7 @@ export class DescribeSandboxTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -58,7 +62,7 @@ export class DescribeSandboxTemplatesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The sandbox template name.
+   * The name of the sandbox template.
    * 
    * @example
    * code-interpreter

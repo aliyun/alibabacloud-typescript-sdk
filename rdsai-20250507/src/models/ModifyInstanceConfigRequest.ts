@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyInstanceConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The reserved parameter.
+   */
   branchName?: string;
   /**
    * @remarks
@@ -14,7 +18,7 @@ export class ModifyInstanceConfigRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The name of the configuration item to modify. This parameter is used together with ConfigValue.
+   * The name of the configuration item to modify. This parameter must be used together with ConfigValue.
    * 
    * @example
    * eip、nat
@@ -22,7 +26,7 @@ export class ModifyInstanceConfigRequest extends $dara.Model {
   configName?: string;
   /**
    * @remarks
-   * The value of the configuration item to modify. This parameter is used together with ConfigName.
+   * The value of the configuration item to modify. This parameter must be used together with ConfigName.
    * 
    * @example
    * on、off
@@ -30,7 +34,7 @@ export class ModifyInstanceConfigRequest extends $dara.Model {
   configValue?: string;
   /**
    * @remarks
-   * The instance ID of the AI application.
+   * The ID of the AI application instance.
    * 
    * This parameter is required.
    * 

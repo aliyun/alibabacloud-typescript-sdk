@@ -50,17 +50,17 @@ export class DescribeInstanceAuthInfoResponseBodyConfigList extends $dara.Model 
    * @remarks
    * The name of the configuration item. Valid values:
    * 
-   * - **GOTRUE_EXTERNAL_EMAIL_ENABLED**: external email enabled.
-   * - **GOTRUE_SITE_URL**: the website URL displayed when the AI application sends emails.
-   * - **GOTRUE_SMTP_PORT**: the port of the SMTP provider.
-   * - **GOTRUE_SMTP_SENDER_NAME**: the name of the email sender.
-   * - **GOTRUE_SMTP_USER**: the username of the SMTP provider.
-   * - **GOTRUE_SMTP_PASS**: the secret of the SMTP provider.
-   * - **GOTRUE_SMTP_ADMIN_EMAIL**: the email address of the SMTP provider.
-   * - **GOTRUE_SMTP_HOST**: the host address of the SMTP provider.
-   * - **GOTRUE_MAILER_AUTOCONFIRM**: specifies whether to enable autoconfirm.
-   * - **GOTRUE_MAILER_OTP_EXP**: the validity period of the one-time password (OTP). Unit: seconds.
-   * - **GOTRUE_MAILER_OTP_LENGTH**: the length of the one-time password (OTP) verification code. The value must be an integer greater than or equal to 6.
+   * - **GOTRUE_EXTERNAL_EMAIL_ENABLED**: Specifies whether external emails are allowed.
+   * - **GOTRUE_SITE_URL**: The website URL displayed when the AI application sends emails.
+   * - **GOTRUE_SMTP_PORT**: The port of the SMTP service provider.
+   * - **GOTRUE_SMTP_SENDER_NAME**: The name of the email sender.
+   * - **GOTRUE_SMTP_USER**: The username of the SMTP service provider.
+   * - **GOTRUE_SMTP_PASS**: The password of the SMTP service provider.
+   * - **GOTRUE_SMTP_ADMIN_EMAIL**: The email address of the SMTP service provider.
+   * - **GOTRUE_SMTP_HOST**: The host address of the SMTP service provider.
+   * - **GOTRUE_MAILER_AUTOCONFIRM**: Specifies whether automatic confirmation is enabled.
+   * - **GOTRUE_MAILER_OTP_EXP**: The validity period of the one-time password (OTP). Unit: seconds.
+   * - **GOTRUE_MAILER_OTP_LENGTH**: The length of the one-time password (OTP). The value must be an integer greater than or equal to 6.
    * 
    * @example
    * GOTRUE_SITE_URL
@@ -100,13 +100,20 @@ export class DescribeInstanceAuthInfoResponseBodyConfigList extends $dara.Model 
 export class DescribeInstanceAuthInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API Keys。
+   * The API keys.
    */
   apiKeys?: DescribeInstanceAuthInfoResponseBodyApiKeys;
+  /**
+   * @remarks
+   * Reserved parameter.
+   * 
+   * @example
+   * Reserved parameter
+   */
   branchName?: string;
   /**
    * @remarks
-   * The list of authentication configurations.
+   * The list of authentication information.
    */
   configList?: DescribeInstanceAuthInfoResponseBodyConfigList[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSandboxTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of CPUs for sandboxes created by using this template. Valid values: 1 to 4.
+   * The number of CPUs for sandboxes created from this template. Valid values: 1 to 4.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class CreateSandboxTemplateShrinkRequest extends $dara.Model {
   defaultCpu?: string;
   /**
    * @remarks
-   * The memory size for sandboxes created by using this template. Unit: Gi. Valid values: 1Gi to 8Gi.
+   * The memory size for sandboxes created from this template. Unit: Gi. Valid values: 1Gi to 8Gi.
    * 
    * @example
    * 1Gi

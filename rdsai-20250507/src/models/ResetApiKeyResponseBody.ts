@@ -13,7 +13,7 @@ export class ResetApiKeyResponseBodyDataCustomKeyList extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The name of the API key.
+   * The API key name.
    * 
    * @example
    * api-*****
@@ -45,7 +45,7 @@ export class ResetApiKeyResponseBodyDataCustomKeyList extends $dara.Model {
 export class ResetApiKeyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The new system API key.
+   * The system API key.
    * 
    * @example
    * sk-rds-*****
@@ -53,7 +53,7 @@ export class ResetApiKeyResponseBodyData extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The model invocation URL.
+   * The URL for model invocation.
    * 
    * @example
    * http://xxx.yy/v1
@@ -61,7 +61,7 @@ export class ResetApiKeyResponseBodyData extends $dara.Model {
   baseUrl?: string;
   /**
    * @remarks
-   * A list of custom API keys.
+   * The list of custom API keys.
    */
   customKeyList?: ResetApiKeyResponseBodyDataCustomKeyList[];
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class ResetApiKeyResponseBodyData extends $dara.Model {
 export class ResetApiKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The query result.
    */
   data?: ResetApiKeyResponseBodyData;
   /**
@@ -108,7 +108,7 @@ export class ResetApiKeyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329241C
@@ -116,7 +116,7 @@ export class ResetApiKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The request result.
    * 
    * @example
    * true

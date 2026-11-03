@@ -13,19 +13,26 @@ export class GetScheduledReportsResponseBodyReports extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The inspection end time (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The end time of the inspection. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2025-01-01T23:59:59Z
    */
   endTime?: string;
   inspectionItems?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   reportLanguage?: string;
   reportType?: string;
   /**
    * @remarks
-   * The inspection start time (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The start time of the inspection. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2025-01-01T00:00:00Z
@@ -41,7 +48,7 @@ export class GetScheduledReportsResponseBodyReports extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The inspection report ID.
+   * The ID of the inspection report.
    * 
    * @example
    * 65f0053b-f933-49f5-bf65-4e4593e1****
@@ -87,7 +94,7 @@ export class GetScheduledReportsResponseBodyReports extends $dara.Model {
 export class GetScheduledReportsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * Successfully retrieved the inspection report list
@@ -124,7 +131,7 @@ export class GetScheduledReportsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request result.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

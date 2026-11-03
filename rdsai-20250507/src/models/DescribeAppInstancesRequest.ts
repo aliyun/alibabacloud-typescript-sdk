@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The application type. The only supported value is **supabase**, which indicates [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
+   * The application type. Currently, only **supabase** is supported, which indicates [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html).
    * 
    * @example
    * supabase
@@ -13,7 +13,7 @@ export class DescribeAppInstancesRequest extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The ID of an RDS PostgreSQL instance to return only the associated AI application instances.
+   * The instance ID of the RDS PostgreSQL database to which the AI application is connected. If you specify this parameter, the API queries the AI application instances associated with the specified RDS PostgreSQL instance.
    * 
    * @example
    * pgm-2ze49qv594vi****
@@ -21,7 +21,7 @@ export class DescribeAppInstancesRequest extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The page number of the results to return. The value must be greater than 0.
+   * The page number. Valid values: integers greater than 0 and up to the maximum value of the Integer type.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeAppInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of AI application instances to return on each page. Valid values: **1 to 50**.
+   * The number of entries per page. Valid values: **1** to **50**.
    * 
    * @example
    * 10

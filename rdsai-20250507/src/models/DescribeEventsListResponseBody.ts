@@ -21,15 +21,15 @@ export class DescribeEventsListResponseBodyEvents extends $dara.Model {
   eventStatus?: string;
   /**
    * @remarks
-   * A list of event times.
+   * The list of event times.
    */
   eventTimeList?: string[];
   /**
    * @remarks
-   * The instance description.
+   * The description of the instance.
    * 
    * @example
-   * 测试实例
+   * Test instance
    */
   instanceDescription?: string;
   /**
@@ -51,6 +51,9 @@ export class DescribeEventsListResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
    * The region ID.
+   * 
+   * @example
+   * cn-beijing
    */
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -92,7 +95,7 @@ export class DescribeEventsListResponseBodyEvents extends $dara.Model {
 export class DescribeEventsListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The count for each event code.
+   * The total number of events.
    * 
    * @example
    * OtherException:3,MysqlIOException:1
@@ -100,12 +103,12 @@ export class DescribeEventsListResponseBody extends $dara.Model {
   eventCodeCounts?: string;
   /**
    * @remarks
-   * A list of events.
+   * The list of events.
    */
   events?: DescribeEventsListResponseBodyEvents[];
   /**
    * @remarks
-   * The number of pages returned.
+   * The total number of pages.
    * 
    * @example
    * 1

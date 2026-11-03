@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventsListRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format. The time must be in UTC.
+   * The end time.
    * 
    * @example
    * 2025-08-28 18:00:00
@@ -13,7 +13,7 @@ export class DescribeEventsListRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The instance IDs. You can specify one or more instance IDs.
+   * The list of instance IDs.
    * 
    * @example
    * r-uf6ce0r08lr7xn****
@@ -21,7 +21,7 @@ export class DescribeEventsListRequest extends $dara.Model {
   instanceIdList?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeEventsListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class DescribeEventsListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format. The time must be in UTC.
+   * The start time.
    * 
    * @example
    * 2025-01-01 18:00:00

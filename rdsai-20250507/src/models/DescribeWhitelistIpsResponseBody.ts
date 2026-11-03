@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWhitelistIpsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The domain name.
+   * The domain name address.
    * 
    * @example
    * www.test123.com
@@ -13,7 +13,7 @@ export class DescribeWhitelistIpsResponseBodyData extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The list of IP addresses and CIDR blocks on the whitelist.
+   * The list of IP addresses.
    * 
    * @example
    * 127.0.0.1,192.168.1.0/24
@@ -45,7 +45,7 @@ export class DescribeWhitelistIpsResponseBodyData extends $dara.Model {
 export class DescribeWhitelistIpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The query result.
    */
   data?: DescribeWhitelistIpsResponseBodyData;
   /**
@@ -58,7 +58,7 @@ export class DescribeWhitelistIpsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329****
@@ -66,7 +66,7 @@ export class DescribeWhitelistIpsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The request result.
    * 
    * @example
    * true

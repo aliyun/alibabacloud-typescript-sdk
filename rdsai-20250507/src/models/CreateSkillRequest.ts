@@ -18,7 +18,7 @@ export class CreateSkillRequest extends $dara.Model {
   dbtypes?: string[];
   /**
    * @remarks
-   * The Skill description. The description can be up to 1000 characters in length.
+   * The skill description. The description can be up to 1000 characters in length.
    * 
    * @example
    * SQL query optimization skill
@@ -26,7 +26,7 @@ export class CreateSkillRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The Skill name. The name can contain only lowercase letters, digits, and hyphens.
+   * The skill name. The name can contain only lowercase letters, digits, and hyphens.
    * 
    * @example
    * query-optimization
@@ -34,7 +34,15 @@ export class CreateSkillRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Skill upload session ID.
+   * The ContextDB skill version update note. Provide this value when confirming storage after validation passes. The note can be up to 1000 characters in length.
+   * 
+   * @example
+   * Initial release
+   */
+  updateNote?: string;
+  /**
+   * @remarks
+   * The skill upload session ID.
    * 
    * @example
    * upload-example
@@ -42,7 +50,7 @@ export class CreateSkillRequest extends $dara.Model {
   uploadId?: string;
   /**
    * @remarks
-   * The Skill upload session token.
+   * The skill upload session token.
    * 
    * @example
    * token-example
@@ -62,6 +70,7 @@ export class CreateSkillRequest extends $dara.Model {
       dbtypes: 'Dbtypes',
       description: 'Description',
       name: 'Name',
+      updateNote: 'UpdateNote',
       uploadId: 'UploadId',
       uploadToken: 'UploadToken',
       workspaceId: 'WorkspaceId',
@@ -74,6 +83,7 @@ export class CreateSkillRequest extends $dara.Model {
       dbtypes: { 'type': 'array', 'itemType': 'string' },
       description: 'string',
       name: 'string',
+      updateNote: 'string',
       uploadId: 'string',
       uploadToken: 'string',
       workspaceId: 'string',

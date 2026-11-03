@@ -45,7 +45,7 @@ export class DescribeAppInstanceAttributeResponseBodyComponents extends $dara.Mo
 export class DescribeAppInstanceAttributeResponseBodyUploadKeyList extends $dara.Model {
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * Reserved parameter
@@ -53,7 +53,7 @@ export class DescribeAppInstanceAttributeResponseBodyUploadKeyList extends $dara
   isSystemKey?: boolean;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * Reserved parameter
@@ -61,7 +61,7 @@ export class DescribeAppInstanceAttributeResponseBodyUploadKeyList extends $dara
   remark?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * Reserved parameter
@@ -69,7 +69,7 @@ export class DescribeAppInstanceAttributeResponseBodyUploadKeyList extends $dara
   slsStorageBytes?: number;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * Reserved parameter
@@ -77,7 +77,7 @@ export class DescribeAppInstanceAttributeResponseBodyUploadKeyList extends $dara
   status?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * Reserved parameter
@@ -131,7 +131,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * Reserved parameter
@@ -139,7 +139,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   branchName?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * Reserved parameter
@@ -147,12 +147,12 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   branchingEnabled?: string;
   /**
    * @remarks
-   * The list of components.
+   * The component list.
    */
   components?: DescribeAppInstanceAttributeResponseBodyComponents[];
   /**
    * @remarks
-   * The ID of the RDS PostgreSQL database instance that the AI application is connected to.
+   * The instance ID of the RDS PostgreSQL database instance associated with the AI application.
    * 
    * @example
    * pgm-2ze49qv594vi****
@@ -160,7 +160,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The instance ID of the EIP.
+   * The EIP instance ID.
    * 
    * @example
    * eip-wz9sfo01afag4hxc0utq0
@@ -176,7 +176,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   eipStatus?: string;
   /**
    * @remarks
-   * The instance class of the AI application.
+   * The instance type of the AI application.
    * 
    * @example
    * rdsai.supabase.basic
@@ -208,7 +208,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * Reserved parameter
@@ -216,12 +216,20 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   loginToken?: string;
   /**
    * @remarks
-   * The minor version details of each component of the RDS AI application instance.
+   * The minor versions of each component in the RDS AI application instance.
    * 
    * @example
    * {\\"studio\\":\\"20260602r1\\",\\"storage\\":\\"v1.48.9\\",\\"auth\\":\\"v2.188.1\\",\\"kong\\":\\"3.9.0\\",\\"rest\\":\\"v12.2.12\\",\\"meta\\":\\"v0.89.3\\",\\"realtime-dev\\":\\"v2.34.47\\",\\"postgres\\":\\"rds_postgres_1700_20260830\\"}
    */
   minorVersionDetail?: string;
+  /**
+   * @remarks
+   * The release notes for the minor version of the RDS AI application instance.
+   * 
+   * @example
+   * {\\"20260915\\":\\"realtime：1xxx；auth：2xxx；storage：3xxx\\",\\"20260917\\":\\"studio：4xxx；auth：5xxx\\"}
+   */
+  minorVersionReleaseNotes?: string;
   /**
    * @remarks
    * The creator of the NAT gateway.
@@ -248,7 +256,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   natStatus?: string;
   /**
    * @remarks
-   * The public connection string of the AI application.
+   * The public endpoint of the AI application.
    * 
    * @example
    * 8.152. XXX.XXX:8000
@@ -272,7 +280,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * Reserved parameter
@@ -280,7 +288,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   retentionHours?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * Reserved parameter
@@ -296,7 +304,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * Reserved parameter
@@ -304,7 +312,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   uploadKey?: string;
   /**
    * @remarks
-   * Reserved parameter.
+   * The reserved parameter.
    */
   uploadKeyList?: DescribeAppInstanceAttributeResponseBodyUploadKeyList[];
   /**
@@ -317,7 +325,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The internal connection string of the AI application.
+   * The internal endpoint of the AI application.
    * 
    * @example
    * 172.16.XXX.XXX:8000
@@ -347,6 +355,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
       instanceName: 'InstanceName',
       loginToken: 'LoginToken',
       minorVersionDetail: 'MinorVersionDetail',
+      minorVersionReleaseNotes: 'MinorVersionReleaseNotes',
       natCreatedBy: 'NatCreatedBy',
       natGatewayId: 'NatGatewayId',
       natStatus: 'NatStatus',
@@ -380,6 +389,7 @@ export class DescribeAppInstanceAttributeResponseBody extends $dara.Model {
       instanceName: 'string',
       loginToken: 'string',
       minorVersionDetail: 'string',
+      minorVersionReleaseNotes: 'string',
       natCreatedBy: 'string',
       natGatewayId: 'string',
       natStatus: 'string',

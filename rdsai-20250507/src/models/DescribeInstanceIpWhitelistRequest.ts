@@ -22,7 +22,7 @@ export class DescribeInstanceIpWhitelistRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-beijing

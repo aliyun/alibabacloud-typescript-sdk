@@ -13,7 +13,7 @@ export class DescribeCommonSandboxTemplatesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that indicates the position from which the query starts. Set this parameter to empty to start from the beginning.
+   * The token that determines the start point of the query. Set this parameter to empty to start the query from the beginning.
    * 
    * @example
    * AAAAAc3HCuYhJi/wvpk4xOr0VLYz/NvD85HpgBeRBCusEIeVQ0dHZH9jr+NP3X9Jx0iSoql55b9nd4PIDm252/a0f+U=

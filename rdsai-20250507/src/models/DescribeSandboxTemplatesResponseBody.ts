@@ -6,7 +6,7 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
   createdBy?: string;
   /**
    * @remarks
-   * The number of CPUs for the sandbox created with this template.
+   * The number of CPUs allocated to the sandbox created by using this template.
    * 
    * @example
    * 2
@@ -14,7 +14,7 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
   defaultCpu?: string;
   /**
    * @remarks
-   * The memory size of the sandbox created with this template.
+   * The memory size of the sandbox created by using this template.
    * 
    * @example
    * 4Gi
@@ -22,7 +22,7 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
   defaultMemory?: string;
   /**
    * @remarks
-   * The sandbox template description.
+   * The description of the sandbox template.
    * 
    * @example
    * code-interpreter-vpc
@@ -30,7 +30,7 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
   description?: string;
   /**
    * @remarks
-   * Indicates whether the sandbox created with this template can access resources in the VPC where Supabase resides.
+   * Specifies whether the sandbox created by using this template can access resources in the VPC where Supabase is deployed.
    * 
    * @example
    * true
@@ -39,7 +39,7 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
   image?: string;
   /**
    * @remarks
-   * The sandbox template name.
+   * The name of the sandbox template.
    * 
    * @example
    * code-interpreter
@@ -49,7 +49,7 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The sandbox template ID. Specify this ID when creating a sandbox with this template.
+   * The ID of the sandbox template. Specify this ID when you use the template to create a sandbox.
    * 
    * @example
    * code-interpreter-asdxxxx
@@ -100,7 +100,7 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
 export class DescribeSandboxTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A reserved parameter. You do not need to specify this parameter.
+   * The backup parameter. You can ignore this parameter.
    * 
    * @example
    * None
@@ -108,7 +108,7 @@ export class DescribeSandboxTemplatesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that indicates the position from which the current read operation starts. An empty value indicates that the read operation starts from the beginning.
+   * The position from which the current read operation starts. An empty value indicates that the read operation starts from the beginning.
    * 
    * @example
    * AAAAAc3HCuYhJi/wvpk4xOr0VLYz/NvD85HpgBeRBCusEIeVQ0dHZH9jr+NP3X9Jx0iSoql55b9nd4PIDm252/a0f+U=
@@ -124,7 +124,7 @@ export class DescribeSandboxTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -145,7 +145,7 @@ export class DescribeSandboxTemplatesResponseBody extends $dara.Model {
   sandboxTemplates?: DescribeSandboxTemplatesResponseBodySandboxTemplates[];
   /**
    * @remarks
-   * The total number of records that match the request conditions.
+   * The total number of data entries that meet the current request conditions.
    * 
    * @example
    * 20

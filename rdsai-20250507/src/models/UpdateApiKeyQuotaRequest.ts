@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApiKeyQuotaRequestKeys extends $dara.Model {
   /**
    * @remarks
-   * The API key.
+   * API KEY
    * 
    * @example
    * sk-rds-xxx
    */
   apiKey?: string;
   /**
+   * @remarks
+   * The daily quota of the API key.
+   * 
    * @example
    * 100000000
    */
   dailyTokenQuota?: number;
   /**
    * @remarks
-   * The limit rate. This parameter is required when `LimitType` is set to `ratio`.
+   * The rate limit ratio. This parameter is required when the limit type is set to ratio.
    * 
    * @example
    * 0.2
@@ -26,13 +29,10 @@ export class UpdateApiKeyQuotaRequestKeys extends $dara.Model {
   limitRate?: number;
   /**
    * @remarks
-   * The limit type. Valid values:
-   * 
-   * - `ratio`: Allocates the quota proportionally.
-   * 
-   * - `fixed`: Allocates a fixed quota.
-   * 
-   * - `auto`: Allocates the quota automatically.
+   * The quota limit type. Valid values:
+   * - ratio: Proportional limit.
+   * - fixed: Fixed value.
+   * - auto: Automatic allocation.
    * 
    * @example
    * fixed
@@ -40,7 +40,7 @@ export class UpdateApiKeyQuotaRequestKeys extends $dara.Model {
   limitType?: string;
   /**
    * @remarks
-   * The token quota. This parameter is required when `LimitType` is set to `fixed`.
+   * The fixed rate limit value. This parameter is required when the limit type is set to fixed.
    * 
    * @example
    * 100000
@@ -78,7 +78,7 @@ export class UpdateApiKeyQuotaRequestKeys extends $dara.Model {
 export class UpdateApiKeyQuotaRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The instance name.
    * 
    * @example
    * rds_copilot***_public_cn-*********6
@@ -86,7 +86,7 @@ export class UpdateApiKeyQuotaRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * A list of API keys.
+   * The list of API keys.
    */
   keys?: UpdateApiKeyQuotaRequestKeys[];
   static names(): { [key: string]: string } {

@@ -15,7 +15,7 @@ export class UpdateContextDatabaseMemberRequest extends $dara.Model {
   memberId?: string;
   /**
    * @remarks
-   * The new role. Valid values: owner, admin, and member. If not specified, the current role is retained.
+   * The new role. Valid values: owner, admin, and member. If this parameter is not specified, the current role is retained.
    * 
    * @example
    * admin
@@ -23,7 +23,7 @@ export class UpdateContextDatabaseMemberRequest extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The new status. Valid values: active, disabled, and deleted. If not specified, the current status is retained.
+   * The new status. Valid values: active, disabled, and deleted. If this parameter is not specified, the current status is retained.
    * 
    * @example
    * disabled

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCommonSandboxTemplatesResponseBodyTemplates extends $dara.Model {
   /**
    * @remarks
-   * The default number of CPUs for sandboxes created by using this template.
+   * The default number of CPUs for a sandbox created by using this template.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeCommonSandboxTemplatesResponseBodyTemplates extends $dara.M
   defaultCpu?: string;
   /**
    * @remarks
-   * The default memory size for sandboxes created by using this template. The unit ends with Gi.
+   * The default memory size for a sandbox created by using this template. The unit ends with Gi.
    * 
    * @example
    * 1Gi
@@ -29,7 +29,7 @@ export class DescribeCommonSandboxTemplatesResponseBodyTemplates extends $dara.M
   defaultReplicas?: number;
   /**
    * @remarks
-   * The description of the sandbox template.
+   * The sandbox template description.
    * 
    * @example
    * Execute user-provided Python code in the sandbox environment. Runs any Python script the user provides and returns the output.
@@ -37,7 +37,7 @@ export class DescribeCommonSandboxTemplatesResponseBodyTemplates extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The name of the sandbox template.
+   * The sandbox template name.
    * 
    * @example
    * desktop
@@ -83,7 +83,7 @@ export class DescribeCommonSandboxTemplatesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that indicates the position from which the query starts. Set this parameter to empty to start from the beginning.
+   * The token that determines the start point of the query. Set this parameter to empty to start the query from the beginning.
    * 
    * @example
    * AAAAAc3HCuYhJi/wvpk4xOr0VLYz/NvD85HpgBeRBCusEIeVQ0dHZH9jr+NP3X9Jx0iSoql55b9nd4PIDm252/a0f+U=

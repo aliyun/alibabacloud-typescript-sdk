@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * AgentId。
+   * The agent ID.
    * 
    * This parameter is required.
    * 
@@ -23,19 +23,23 @@ export class UpdateCustomAgentRequest extends $dara.Model {
   enableTools?: boolean;
   /**
    * @remarks
-   * The name of the dedicated agent.
+   * The name of the custom agent.
    * 
    * @example
-   * QueryInstanceListAgent
+   * Query instance list agent
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of associated skill IDs.
+   */
   skillIds?: string[];
   /**
    * @remarks
    * The system prompt.
    * 
    * @example
-   * I am your dedicated agent for querying instance lists
+   * I am your custom agent for querying the instance list
    */
   systemPrompt?: string;
   /**

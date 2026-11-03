@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMOUsageDetailExportRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance name.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceSSLResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Reserved parameter.
+   * 
+   * @example
+   * Reserved parameter
+   */
   branchName?: string;
   /**
    * @remarks
-   * The certificate type. The value is **custom**, which indicates that a custom certificate is used.
+   * The certificate type. A value of **custom** indicates that a custom certificate is used.
    * 
    * @example
    * custom
@@ -41,7 +48,7 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
   SSLExpiredTime?: string;
   /**
    * @remarks
-   * The custom certificate content.
+   * The content of the custom certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----MIID*****QqEP-----END CERTIFICATE-----

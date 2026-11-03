@@ -139,12 +139,12 @@ export class DescribeInstanceEndpointsResponseBody extends $dara.Model {
   branchName?: string;
   /**
    * @remarks
-   * The list of endpoint information of the database instance.
+   * The list of endpoint information for the database instance.
    */
   DBInstanceEndpoints?: DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints[];
   /**
    * @remarks
-   * The list of endpoint information of the AI application instance.
+   * The list of endpoint information for the AI application instance.
    */
   instanceEndpoints?: DescribeInstanceEndpointsResponseBodyInstanceEndpoints[];
   /**

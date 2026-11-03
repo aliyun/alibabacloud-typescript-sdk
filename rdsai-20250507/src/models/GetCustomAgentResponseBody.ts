@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCustomAgentResponseBodySkills extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the skill.
+   * 
+   * @example
+   * SQL query optimization skill
+   */
   description?: string;
+  /**
+   * @remarks
+   * The unique identifier of the skill.
+   * 
+   * @example
+   * 82cf3d62-0add-47bd-869f-877131f7****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the skill.
+   * 
+   * @example
+   * query-optimization
+   */
   name?: string;
+  /**
+   * @remarks
+   * The skill type.
+   * 
+   * @example
+   * user
+   */
   skillType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,7 +65,7 @@ export class GetCustomAgentResponseBodySkills extends $dara.Model {
 export class GetCustomAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the custom agent was created.
+   * The creation time.
    * 
    * @example
    * 2025-06-04T02:25:43Z
@@ -53,7 +81,7 @@ export class GetCustomAgentResponseBody extends $dara.Model {
   enableTools?: boolean;
   /**
    * @remarks
-   * The ID of the custom agent.
+   * The backup set ID.
    * 
    * @example
    * 17053
@@ -61,10 +89,10 @@ export class GetCustomAgentResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the custom agent.
+   * The name of the dedicated agent.
    * 
    * @example
-   * 查询实例列表Agent
+   * Instance list query agent
    */
   name?: string;
   /**
@@ -75,23 +103,27 @@ export class GetCustomAgentResponseBody extends $dara.Model {
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of associated skill details.
+   */
   skills?: GetCustomAgentResponseBodySkills[];
   /**
    * @remarks
-   * The system prompt for the agent.
+   * The system prompt.
    * 
    * @example
-   * 我是您用来查询实例列表的专属Agent
+   * I am your dedicated agent for querying instance lists
    */
   systemPrompt?: string;
   /**
    * @remarks
-   * A list of tools enabled for the agent.
+   * The tool details.
    */
   tools?: string[];
   /**
    * @remarks
-   * The time when the custom agent was last updated.
+   * The modification time.
    * 
    * @example
    * 2020-11-27 16:02:28

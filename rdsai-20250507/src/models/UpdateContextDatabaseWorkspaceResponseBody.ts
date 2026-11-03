@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateContextDatabaseWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the workspace was created, in ISO-8601 format.
+   * The time when the workspace was created, in ISO 8601 format.
    * 
    * @example
    * 2026-05-28T17:59:55Z
@@ -45,7 +45,7 @@ export class UpdateContextDatabaseWorkspaceResponseBody extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The modified name of the workspace.
+   * The updated name of the workspace.
    * 
    * @example
    * my-workspace

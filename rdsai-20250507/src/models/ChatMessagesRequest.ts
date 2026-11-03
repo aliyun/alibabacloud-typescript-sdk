@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class ChatMessagesRequestFiles extends $dara.Model {
   transferMethod?: string;
   type?: string;
@@ -100,7 +98,7 @@ export class ChatMessagesRequestInputs extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The tool approval mode for the current conversation. Valid values: read_only (read-only, write tools are rejected), manual (write tools require manual approval), and auto (the approval sub-agent automatically determines the action. If the result is needs_human, the approval is escalated to manual review). When this parameter is passed, the approval mode of the current conversation is updated.
+   * The tool approval mode for the current conversation. Valid values: read_only (read-only, write tools are rejected), manual (write tools require manual approval), and auto (the approval sub-agent automatically determines the action. If the result is needs_human, the request is escalated to manual approval). When this parameter is passed, the approval mode of the current conversation is updated.
    * 
    * @example
    * manual

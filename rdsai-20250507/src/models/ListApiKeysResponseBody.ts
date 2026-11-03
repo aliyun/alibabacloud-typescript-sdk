@@ -37,7 +37,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * The quota limit ratio.
+   * The quota ratio.
    * 
    * @example
    * 0.2
@@ -45,7 +45,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   limitRate?: number;
   /**
    * @remarks
-   * The quota limit method. Valid values:
+   * The quota type. Valid values:
    * 
    * - **fixed**: Fixed value.
    * - **ratio**: Percentage.
@@ -58,7 +58,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The alert threshold percentage. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert resets when the usage drops below this percentage.
+   * The alert threshold percentage. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
    * 
    * @example
    * 80
@@ -66,7 +66,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
   thresholdPercent?: number;
   /**
    * @remarks
-   * The quota limit of the current key.
+   * The quota of the current key.
    * 
    * @example
    * 10000
@@ -112,7 +112,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
 export class ListApiKeysResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The URL for model invocation.
+   * The URL for model calls.
    * 
    * @example
    * http://xxx.yy/v1
@@ -165,7 +165,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
   systemApiKey?: string;
   /**
    * @remarks
-   * The alert threshold percentage for SystemApiKey. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert resets when the usage drops below this percentage.
+   * The alert threshold percentage for SystemApiKey. For example, 80 indicates that an alert is triggered when the usage reaches 80%. The alert is reset when the usage drops below this percentage.
    * 
    * @example
    * 80
