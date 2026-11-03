@@ -32,6 +32,10 @@ export class CreateSkillRequest extends $dara.Model {
    * Create new skills, modify and improve existing skills, and measure skill performance
    */
   skillDescription?: string;
+  /**
+   * @example
+   * appflow-chat-skill
+   */
   skillDisplayName?: string;
   /**
    * @remarks

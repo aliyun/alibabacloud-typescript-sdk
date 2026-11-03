@@ -12,10 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-hangzhou': "computenest.cn-hangzhou.aliyuncs.com",
-      'ap-southeast-1': "computenest.ap-southeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("computenest", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -1764,7 +1760,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Before you begin
-   * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+   * Confirm that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - GetSkillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1799,7 +1795,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Before you begin
-   * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
+   * Confirm that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
    * 
    * @param request - GetSkillRequest
    * @returns GetSkillResponse
@@ -3542,11 +3538,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the UpdateServiceInstanceSpec operation to upgrade or downgrade a service instance if its parameters or package settings do not meet your requirements.
+   * Modifies the specifications of a service instance when the parameter values or plan settings of the service instance do not meet your requirements.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure that the service provider has enabled the upgrade/downgrade feature and configured the related parameters when the service was created.
+   * ### Before you begin
+   * Make sure that the service provider has enabled the specification modification feature and configured the modification parameters when creating the service.
    * 
    * @param tmpReq - UpdateServiceInstanceSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3611,11 +3607,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the UpdateServiceInstanceSpec operation to upgrade or downgrade a service instance if its parameters or package settings do not meet your requirements.
+   * Modifies the specifications of a service instance when the parameter values or plan settings of the service instance do not meet your requirements.
    * 
    * @remarks
-   * ### Prerequisites
-   * Ensure that the service provider has enabled the upgrade/downgrade feature and configured the related parameters when the service was created.
+   * ### Before you begin
+   * Make sure that the service provider has enabled the specification modification feature and configured the modification parameters when creating the service.
    * 
    * @param request - UpdateServiceInstanceSpecRequest
    * @returns UpdateServiceInstanceSpecResponse

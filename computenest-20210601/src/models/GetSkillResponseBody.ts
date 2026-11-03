@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetSkillResponseBodyLocales extends $dara.Model {
+  /**
+   * @example
+   * AI Skill Creation and Optimization
+   */
   enValue?: string;
+  /**
+   * @example
+   * AI 技能创建与优化
+   */
   originalValue?: string;
+  /**
+   * @example
+   * AI 技能创建与优化
+   */
   zhValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55,7 +67,7 @@ export class GetSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The set of connection types required by the Skill.
+   * The set of connection types that the Skill depends on.
    */
   requiredConnections?: string[];
   /**
@@ -65,7 +77,15 @@ export class GetSkillResponseBody extends $dara.Model {
   securityScanStatus?: string;
   /**
    * @remarks
-   * The Skill description.
+   * The security scan remediation suggestions (a Markdown-formatted string containing a set of remediation suggestions). This value is meaningful only when the source file security scan status is BLOCK.
+   * 
+   * @example
+   * #### <span style=\\"color:#2563eb\\"> System Shutdown Command</span>\\n- <span style=\\"color:#16a34a\\">✅</span> Add an explicit user confirmation requirement before executing the `reboot-instance` command, and document that the restart will cause service interruption.\\n\\n#### <span style=\\"color:#2563eb\\"> Privilege Escalation Operation</span>\\n- <span style=\\"color:#16a34a\\">✅</span> Document that `sudo` is required, and provide installation alternatives that do not rely on root privileges (such as user local directories or package managers).\\n\\n#### <span style=\\"color:#2563eb\\"> Hardcoded Access Keys</span>\\n- <span style=\\"color:#16a34a\\">✅</span> Replace realistic example credentials with obvious placeholders (such as `<your-access-key-id>`) to avoid confusion with real credentials.\\n\\n#### <span style=\\"color:#2563eb\\"> User Deception (Direct Execution of Remote Scripts)</span>\\n- <span style=\\"color:#16a34a\\">✅</span> Immediately remove the `curl | bash` pattern. Instead, download the script first, verify its integrity (checksum/signature), and then execute it: `curl -fsSL url -o script.sh && bash script.sh`
+   */
+  securityScanSuggestions?: string;
+  /**
+   * @remarks
+   * The description of the Skill.
    * 
    * @example
    * Create new skills, modify and improve existing skills, and measure skill performance.
@@ -73,7 +93,10 @@ export class GetSkillResponseBody extends $dara.Model {
   skillDescription?: string;
   /**
    * @remarks
-   * The Skill display name.
+   * The display name of the Skill.
+   * 
+   * @example
+   * AI 技能创建与优化
    */
   skillDisplayName?: string;
   /**
@@ -86,12 +109,12 @@ export class GetSkillResponseBody extends $dara.Model {
   skillId?: string;
   /**
    * @remarks
-   * The set of Skill labels.
+   * The set of labels for the Skill.
    */
   skillLabels?: string[];
   /**
    * @remarks
-   * The Skill name.
+   * The name of the Skill.
    * 
    * @example
    * skill-creator
@@ -120,6 +143,7 @@ export class GetSkillResponseBody extends $dara.Model {
       requestId: 'RequestId',
       requiredConnections: 'RequiredConnections',
       securityScanStatus: 'SecurityScanStatus',
+      securityScanSuggestions: 'SecurityScanSuggestions',
       skillDescription: 'SkillDescription',
       skillDisplayName: 'SkillDisplayName',
       skillId: 'SkillId',
@@ -137,6 +161,7 @@ export class GetSkillResponseBody extends $dara.Model {
       requestId: 'string',
       requiredConnections: { 'type': 'array', 'itemType': 'string' },
       securityScanStatus: 'string',
+      securityScanSuggestions: 'string',
       skillDescription: 'string',
       skillDisplayName: 'string',
       skillId: 'string',

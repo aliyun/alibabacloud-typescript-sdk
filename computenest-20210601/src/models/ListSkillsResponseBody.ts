@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSkillsResponseBodySkillsLocales extends $dara.Model {
+  /**
+   * @example
+   * Alibaba Cloud CLI Operation Guide
+   */
   enValue?: string;
+  /**
+   * @example
+   * Java 编程专家
+   */
   originalValue?: string;
+  /**
+   * @example
+   * Java 编程专家
+   */
   zhValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -74,6 +86,9 @@ export class ListSkillsResponseBodySkills extends $dara.Model {
   /**
    * @remarks
    * The Skill display name.
+   * 
+   * @example
+   * Java 编程专家
    */
   skillDisplayName?: string;
   /**

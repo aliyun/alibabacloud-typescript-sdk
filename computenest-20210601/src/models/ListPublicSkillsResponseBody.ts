@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPublicSkillsResponseBodySkillsLocales extends $dara.Model {
+  /**
+   * @example
+   * ECS Patch Management
+   */
   enValue?: string;
+  /**
+   * @example
+   * ECS 补丁管理
+   */
   originalValue?: string;
+  /**
+   * @example
+   * ECS 补丁管理
+   */
   zhValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -74,6 +86,9 @@ export class ListPublicSkillsResponseBodySkills extends $dara.Model {
   /**
    * @remarks
    * The skill display name.
+   * 
+   * @example
+   * ECS 补丁管理
    */
   skillDisplayName?: string;
   /**
