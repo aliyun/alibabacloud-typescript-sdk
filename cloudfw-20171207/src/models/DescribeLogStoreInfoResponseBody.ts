@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLogStoreInfoResponseBodyInfoList extends $dara.Model {
   /**
    * @remarks
-   * The name of the SLS Logstore.
+   * The name of the Logstore.
    * 
    * @example
    * xxx-logstore
@@ -13,7 +13,7 @@ export class DescribeLogStoreInfoResponseBodyInfoList extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The maximum number of shards supported for scaling.
+   * The maximum number of shards supported for elastic scaling.
    * 
    * @example
    * 4
@@ -29,7 +29,7 @@ export class DescribeLogStoreInfoResponseBodyInfoList extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The storage capacity threshold, in bytes.
+   * The storage capacity threshold. Unit: bytes.
    * 
    * @example
    * 50000000
@@ -45,7 +45,7 @@ export class DescribeLogStoreInfoResponseBodyInfoList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The number of shards in use.
+   * The number of shards currently in use.
    * 
    * @example
    * 2
@@ -53,7 +53,7 @@ export class DescribeLogStoreInfoResponseBodyInfoList extends $dara.Model {
   shard?: number;
   /**
    * @remarks
-   * The location of the Logstore. Valid values: \\`cn\\` for the Chinese mainland and \\`intl\\` for regions outside the Chinese mainland.
+   * The site to which the Logstore belongs. Valid values: cn: the Chinese mainland. intl: outside the Chinese mainland.
    * 
    * @example
    * cn
@@ -61,7 +61,7 @@ export class DescribeLogStoreInfoResponseBodyInfoList extends $dara.Model {
   site?: string;
   /**
    * @remarks
-   * The storage duration of logs, in days.
+   * The storage duration of logs. Unit: days.
    * 
    * @example
    * 180
@@ -69,7 +69,7 @@ export class DescribeLogStoreInfoResponseBodyInfoList extends $dara.Model {
   ttl?: number;
   /**
    * @remarks
-   * The amount of stored logs, in bytes.
+   * The volume of stored logs. Unit: bytes.
    * 
    * @example
    * 21852955752
@@ -120,7 +120,7 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
   infoList?: DescribeLogStoreInfoResponseBodyInfoList[];
   /**
    * @remarks
-   * The number of times the log storage mode can be changed.
+   * The number of times the user can switch the log mode.
    * 
    * @example
    * 2
@@ -128,7 +128,7 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
   logModifyQuota?: number;
   /**
    * @remarks
-   * The name of the SLS Logstore.
+   * The name of the Simple Log Service Logstore.
    * 
    * @example
    * xxx-logstore
@@ -136,7 +136,7 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The log version. 1: indicates one Logstore. 2: indicates two Logstores.
+   * The log version. Valid values: 1: one Logstore. 2: two Logstores.
    * 
    * @example
    * 2
@@ -152,7 +152,7 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The available log storage capacity, in bytes.
+   * The available log storage capacity. Unit: bytes.
    * 
    * @example
    * 50000000
@@ -160,7 +160,7 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
   quota?: number;
   /**
    * @remarks
-   * The ID of the region where logs are delivered.
+   * The region ID for log delivery.
    * 
    * @example
    * cn-shanghai
@@ -168,7 +168,7 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C6C3B72B********E95FB0A161
@@ -184,7 +184,7 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The total purchased log storage capacity, in bytes.
+   * The total log storage capacity purchased by the user.
    * 
    * @example
    * 50000000
@@ -192,7 +192,7 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
   totalQuota?: number;
   /**
    * @remarks
-   * The storage duration of logs, in days.
+   * The storage duration of logs. Unit: days.
    * 
    * @example
    * 20
@@ -200,9 +200,9 @@ export class DescribeLogStoreInfoResponseBody extends $dara.Model {
   ttl?: number;
   /**
    * @remarks
-   * The used storage capacity, in bytes.
+   * The used storage capacity. Unit: bytes.
    * 
-   * > Statistics from Simple Log Service may be delayed by up to two hours.
+   * > The statistics of Simple Log Service have a delay of about two hours.
    * 
    * @example
    * 0

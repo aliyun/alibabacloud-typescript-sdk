@@ -15,7 +15,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   accessInstanceName?: string;
   /**
    * @remarks
-   * The type of the cloud firewall. Valid values:
+   * The Cloud Firewall type. Valid values:
    * - **internet**
    * - **vpc**
    * - **nat**
@@ -35,7 +35,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The UID of the Alibaba Cloud member accounts.
+   * The UID of Alibaba Cloud member accounts.
    * 
    * @example
    * 258039427902****
@@ -52,7 +52,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   /**
    * @remarks
    * The primary DNS server.
-   * > When PrivateDnsType is set to Custom, you must specify PrimaryDns and StandbyDns.
+   * > If PrivateDnsType is set to Custom, you must provide PrimaryDns and StandbyDns.
    * 
    * @example
    * 1.1.1.1
@@ -60,7 +60,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   primaryDns?: string;
   /**
    * @remarks
-   * The ID of the primary vSwitch. The zone of PrimaryVSwitchId and StandbyVSwitchId must be a zone that supports private DNS. Otherwise, an error is returned. The region must also be in the supported list.
+   * The ID of the primary vSwitch. This parameter is required. If this parameter is not specified, -200103 is returned. The region and zone of the primary and secondary vSwitches specified by PrimaryVSwitchId and StandbyVSwitchId must support private DNS firewalls.
    * 
    * @example
    * vsw-uf6b0dkyryer8******
@@ -76,7 +76,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   primaryVSwitchIp?: string;
   /**
    * @remarks
-   * The type of private DNS. When PrivateDnsType is set to Custom, Port and IpProtocol are required. When PrivateDnsType is set to PrivateZone, the backend automatically sets the port to 53 and uses the default protocol. Valid values:
+   * The private DNS type. If PrivateDnsType is set to Custom, Port and IpProtocol are conditionally required. If PrivateDnsType is set to PrivateZone, the backend automatically populates the values with 53 and the default protocol. Valid values:
    * - **PrivateZone**
    * - **Custom** (default)
    * 
@@ -100,7 +100,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
    * @remarks
    * The secondary DNS server.
    * 
-   * > When PrivateDnsType is set to Custom, you must specify PrimaryDns and StandbyDns.
+   * > If PrivateDnsType is set to Custom, you must provide PrimaryDns and StandbyDns.
    * 
    * @example
    * 1.1.1.2
@@ -108,7 +108,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   standbyDns?: string;
   /**
    * @remarks
-   * The ID of the secondary vSwitch. The zone of PrimaryVSwitchId and StandbyVSwitchId must be a zone that supports private DNS. Otherwise, error code -200534 is returned. The region must also be in the supported list.
+   * The ID of the secondary vSwitch. The zones of the primary and secondary vSwitches specified by PrimaryVSwitchId and StandbyVSwitchId must support private DNS. Otherwise, -200534 is returned. The region must also be in the support list.
    * 
    * @example
    * vsw-8vb6jk75wfcwn******
@@ -124,7 +124,7 @@ export class CreatePrivateDnsEndpointRequest extends $dara.Model {
   standbyVSwitchIp?: string;
   /**
    * @remarks
-   * The instance ID of the VPC-connected instance.
+   * The VPC-connected instance ID.
    * 
    * This parameter is required.
    * 

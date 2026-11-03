@@ -10,7 +10,7 @@ export class DisableSdlProtectedAssetRequest extends $dara.Model {
   ipList?: string[];
   /**
    * @remarks
-   * The language of the response message.
+   * The language type for receiving messages.
    * 
    * @example
    * zh

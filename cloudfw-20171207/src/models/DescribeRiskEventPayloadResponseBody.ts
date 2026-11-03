@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRiskEventPayloadResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The destination IP address of the intrusion event.
+   * The destination IP address of the intrusion prevention event.
    * 
    * @example
    * 203.0.113.1
@@ -13,7 +13,7 @@ export class DescribeRiskEventPayloadResponseBody extends $dara.Model {
   dstIP?: string;
   /**
    * @remarks
-   * The destination port of the intrusion event.
+   * The destination port of the intrusion prevention event.
    * 
    * @example
    * 8080
@@ -21,7 +21,7 @@ export class DescribeRiskEventPayloadResponseBody extends $dara.Model {
   dstPort?: number;
   /**
    * @remarks
-   * The destination VPC ID of the intrusion event.
+   * The destination VPC ID of the intrusion prevention event.
    * 
    * @example
    * vpc-bp10w5nb30r4jzfyc****
@@ -29,7 +29,7 @@ export class DescribeRiskEventPayloadResponseBody extends $dara.Model {
   dstVpcId?: string;
   /**
    * @remarks
-   * Type of the hit.
+   * The type of the hit content.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class DescribeRiskEventPayloadResponseBody extends $dara.Model {
   hitContentType?: number;
   /**
    * @remarks
-   * The position where the hit ends.
+   * The end position of the hit content.
    * 
    * @example
    * 67
@@ -45,7 +45,7 @@ export class DescribeRiskEventPayloadResponseBody extends $dara.Model {
   hitTo?: number;
   /**
    * @remarks
-   * Hit payload.
+   * The parsed payload of the hit content.
    * 
    * @example
    * 2f636f6d706f7365722f73656e645f656d61696c3f746f3d6d61667740776f66736f7961792675726c3d687474703a2f2f302e302e302e303a31323334352f692f6431366530312f313664622f673670772f
@@ -53,7 +53,7 @@ export class DescribeRiskEventPayloadResponseBody extends $dara.Model {
   parsedContent?: string;
   /**
    * @remarks
-   * The attack payload of the intrusion event.
+   * The attack payload of the intrusion prevention event.
    * 
    * @example
    * 302902010004067075626c6963a01c0204036a5f43020100020100300e300c06082b060102010101000500
@@ -61,7 +61,7 @@ export class DescribeRiskEventPayloadResponseBody extends $dara.Model {
   payload?: string;
   /**
    * @remarks
-   * The length of the attack payload of the intrusion event.
+   * The length of the attack payload in the intrusion prevention event.
    * 
    * @example
    * 457
@@ -69,10 +69,10 @@ export class DescribeRiskEventPayloadResponseBody extends $dara.Model {
   payloadLen?: number;
   /**
    * @remarks
-   * The protocol type of intrusion event. Valid values:
+   * The protocol type of the intrusion prevention attack event. Valid values:
    * 
-   * *   **TCP**
-   * *   **UDP**
+   * - **TCP**
+   * - **UDP**
    * 
    * @example
    * TCP
@@ -88,7 +88,7 @@ export class DescribeRiskEventPayloadResponseBody extends $dara.Model {
   realIp?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 68055BA4-D8BD-5611-AC49-C651E619A12E
@@ -96,7 +96,7 @@ export class DescribeRiskEventPayloadResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The source IP address of the intrusion event.
+   * The source IP address of the intrusion prevention event.
    * 
    * @example
    * 203.0.113.2
@@ -104,7 +104,7 @@ export class DescribeRiskEventPayloadResponseBody extends $dara.Model {
   srcIP?: string;
   /**
    * @remarks
-   * The source port of the intrusion event.
+   * The source port of the intrusion prevention event.
    * 
    * @example
    * 54360
@@ -112,7 +112,7 @@ export class DescribeRiskEventPayloadResponseBody extends $dara.Model {
   srcPort?: number;
   /**
    * @remarks
-   * The source VPC ID of the intrusion event.
+   * The source VPC ID of the intrusion prevention event.
    * 
    * @example
    * vpc-t4nlt09olhpazpoeg****

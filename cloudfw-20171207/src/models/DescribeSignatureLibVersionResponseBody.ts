@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSignatureLibVersionResponseBodyVersion extends $dara.Model {
   /**
    * @remarks
-   * The type of the signature library.
+   * The type.
    * 
    * @example
    * ips
@@ -13,7 +13,7 @@ export class DescribeSignatureLibVersionResponseBodyVersion extends $dara.Model 
   type?: string;
   /**
    * @remarks
-   * The time when the signature library was updated. This value is a Unix timestamp in seconds.
+   * The update time of the signature library version. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1741067915
@@ -21,7 +21,7 @@ export class DescribeSignatureLibVersionResponseBodyVersion extends $dara.Model 
   updateTime?: number;
   /**
    * @remarks
-   * The version number of the signature library.
+   * The version.
    * 
    * @example
    * IPS-2307-02
@@ -55,7 +55,7 @@ export class DescribeSignatureLibVersionResponseBodyVersion extends $dara.Model 
 export class DescribeSignatureLibVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9C50C2A9-4BBB-5504-8ADA-C41A79B8C946
@@ -63,7 +63,7 @@ export class DescribeSignatureLibVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count.
    * 
    * @example
    * 132

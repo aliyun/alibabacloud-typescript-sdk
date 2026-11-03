@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIspInfoResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ISP.
+   * The ISP ID.
    * 
    * @example
    * isp-dhyw2lxfpc****
@@ -13,7 +13,7 @@ export class DescribeIspInfoResponseBodyDataList extends $dara.Model {
   ispId?: number;
   /**
    * @remarks
-   * The name of the ISP.
+   * The ISP name.
    * 
    * @example
    * telecom

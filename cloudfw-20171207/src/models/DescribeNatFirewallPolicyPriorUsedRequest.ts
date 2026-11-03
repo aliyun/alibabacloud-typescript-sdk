@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNatFirewallPolicyPriorUsedRequest extends $dara.Model {
   /**
    * @remarks
-   * The traffic direction of the access control policy.
+   * The traffic direction of the access control policy. Valid values:
    * 
-   * Valid value:
-   * 
-   * - **out**: outbound traffic.
+   * - **out**: Outbound traffic.
    * 
    * This parameter is required.
    * 
@@ -19,9 +17,9 @@ export class DescribeNatFirewallPolicyPriorUsedRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The IP version. Valid value:
+   * The IP version. Valid values:
    * 
-   * - **4** (default): IPv4
+   * - **4** (default): IPv4.
    * 
    * @example
    * 4
@@ -32,7 +30,6 @@ export class DescribeNatFirewallPolicyPriorUsedRequest extends $dara.Model {
    * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
    * 
    * @example
@@ -41,7 +38,7 @@ export class DescribeNatFirewallPolicyPriorUsedRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The ID of the NAT gateway.
    * 
    * This parameter is required.
    * 

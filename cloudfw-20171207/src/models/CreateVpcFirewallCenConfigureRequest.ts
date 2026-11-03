@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the CEN instance.
+   * The instance ID of the CEN.
    * 
-   * >  Prerequisite: The CEN instance must have been created by invoking the Cbn.CreateCen operation.
+   * > Prerequisite: The CEN instance must be created by invoking the CreateCen operation.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,10 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * Settings for the virtual private cloud (VPC) firewall status after you create a VPC. Valid values:
+   * The settings for the switch status of the virtual private cloud (VPC) firewalls at the border. Valid values:
    * 
-   * - **open** (default): The virtual private cloud (VPC) firewall is automatically enabled after it is created.
-   * - **close**: The virtual private cloud (VPC) firewall is not automatically enabled after it is created. You can invoke the [ModifyVpcFirewallCenSwitchStatus](https://help.aliyun.com/document_detail/345780.html) operation to enable the firewall.
+   * - **open** (default): Automatically enables protection after you create a VPC and the virtual private cloud (VPC) firewalls at the border are created.
+   * - **close**: Does not automatically enable protection after the virtual private cloud (VPC) firewalls at the border are created. You can invoke the [ModifyVpcFirewallCenSwitchStatus](https://help.aliyun.com/document_detail/345780.html) operation to enable protection.
    * 
    * This parameter is required.
    * 
@@ -30,11 +30,11 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
   firewallSwitch?: string;
   /**
    * @remarks
-   * The CIDR block of the vSwitch used by the firewall. Specify a CIDR block with a subnet mask of no more than 29 bits that does not conflict with your network planning. This CIDR block is allocated to the vSwitch that is required during the create a VPC firewall procedure and is used for automatic creation of a vSwitch (Cloud_Firewall_VSWITCH) within the security VPC for traffic redirection. The vSwitch CIDR block must be a subnet of the firewall VPC CIDR block.
+   * The vSwitch CIDR block used by the firewall. You must configure a CIDR block with a subnet mask of no more than 29 bits that does not conflict with your network planning to allocate to the vSwitch CIDR block required for the procedure of creating the firewall, in order to perform automatic creation of the vSwitch (Cloud_Firewall_VSWITCH) in the firewall secure VPC for traffic diversion and processing. The vSwitch CIDR block must be a subnet of the firewall VPC CIDR block.
    * 
-   * If you leave this parameter empty, the CIDR block 10.219.219.216/29 is automatically allocated by default.
+   * If you do not specify this parameter, the default is to automatically allocate the 10.219.219.216/29 CIDR block.
    * 
-   * > This parameter takes effect only when a VPC firewall is created for the first time in the local region of the CEN instance.
+   * > This parameter takes effect only when you create a VPC firewall in the local region of the CEN for the first time.
    * 
    * @example
    * 10.219.219.216/29
@@ -42,7 +42,7 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
   firewallVSwitchCidrBlock?: string;
   /**
    * @remarks
-   * The zone ID of the vSwitch used by the firewall.
+   * The ID of the zone to which the firewall vSwitch belongs.
    * 
    * @example
    * cn-hangzhou-i
@@ -50,11 +50,11 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
   firewallVSwitchZoneId?: string;
   /**
    * @remarks
-   * The CIDR block of the VPC used by the firewall. Specify a CIDR block with a subnet mask of no more than 28 bits. This CIDR block is allocated to the VPC that is required during the create a VPC firewall procedure and is used for automatic creation of a security VPC (Cloud_Firewall_VPC) for traffic redirection.
+   * The VPC CIDR block used by the firewall. You must configure a CIDR block with a subnet mask of no more than 28 bits to allocate to the VPC CIDR block required for the procedure of creating the firewall, in order to perform automatic creation of the firewall secure VPC (Cloud_Firewall_VPC) for traffic diversion and processing.
    * 
-   * If you leave this parameter empty, the CIDR block 10.0.0.0/8 is automatically allocated by default.
+   * If you do not specify this parameter, the default is to automatically allocate the 10.0.0.0/8 CIDR block.
    * 
-   * > This parameter takes effect only when a VPC firewall is created for the first time in the local region of the CEN instance.
+   * > This parameter takes effect only when you create a VPC firewall in the local region of the CEN for the first time.
    * 
    * @example
    * 10.0.0.0/8
@@ -62,13 +62,13 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
   firewallVpcCidrBlock?: string;
   /**
    * @remarks
-   * The ID of the secondary active zone of the firewall. The firewall performs an automatic switchover to the secondary zone to continue running only when the primary zone becomes unavailable.
+   * The ID of the secondary zone to which the firewall belongs. Only when the primary zone service is not active, the firewall will perform automatic switchover to the secondary zone to continue running.
    * 
-   * If you leave this parameter empty, a secondary zone is automatically allocated by default.
+   * If you do not specify this parameter, the default is to automatically allocate the secondary zone for the firewall.
    * 
    * 
    * 
-   * > This parameter takes effect only when you create a VPC firewall for the first time in the local region of the CEN instance.
+   * > This parameter takes effect only when you create a VPC firewall in the local region of the CEN for the first time.
    * 
    * @example
    * 10.219.219.216/29
@@ -76,13 +76,14 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
   firewallVpcStandbyZoneId?: string;
   /**
    * @remarks
-   * The ID of the primary active zone of the firewall. If your business is latency-sensitive, you can set the firewall zone to the same zone as the vSwitch of the business VPC to reduce latency.
+   * The ID of the primary zone to which the firewall belongs.
+   * If your business is sensitive to latency, you can set the zone of the firewall to be the same as the zone of the vSwitch in your business VPC to reduce latency.
    * 
-   * If you leave this parameter empty, a zone is automatically allocated by default.
+   * If you do not specify this parameter, the system automatically assigns a zone for the firewall.
    * 
    * 
    * 
-   * > This parameter takes effect only when you create a VPC firewall for the first time in the local region of the CEN instance.
+   * > This parameter takes effect only when you create a VPC firewall in the local region of the CEN for the first time.
    * 
    * @example
    * cn-hangzhou-a
@@ -90,7 +91,7 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
   firewallVpcZoneId?: string;
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese.
    * 
@@ -102,7 +103,7 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member account of the current Alibaba Cloud account.
+   * The UID of the member accounts of the current Alibaba Cloud account.
    * 
    * @example
    * 258039427902****
@@ -110,9 +111,9 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The instance ID of the VPC-connected instance for which you want to create a virtual private cloud (VPC) firewall.
+   * The instance ID of the VPC-connected instance for which you want to create virtual private cloud (VPC) firewalls at the border.
    * 
-   * >  Prerequisite: The VPC must have been attached to the CEN instance specified by CenId by invoking the Cbn.AttachCenChildInstance operation.
+   * > Prerequisite: The VPC must be added to the CEN specified by the CenId parameter by invoking the AttachCenChildInstance operation.
    * 
    * This parameter is required.
    * 
@@ -130,7 +131,7 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The instance name of the virtual private cloud (VPC) firewall.
+   * The instance name of the virtual private cloud (VPC) firewalls at the border.
    * 
    * This parameter is required.
    * 
@@ -140,7 +141,7 @@ export class CreateVpcFirewallCenConfigureRequest extends $dara.Model {
   vpcFirewallName?: string;
   /**
    * @remarks
-   * The region ID of the VPC for which you want to create a virtual private cloud (VPC) firewall.
+   * The region ID of the VPC for which you want to create virtual private cloud (VPC) firewalls at the border.
    * 
    * > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
    * 

@@ -21,7 +21,7 @@ export class DescribeVpcFirewallCenSummaryListResponseBodyCenList extends $dara.
   cenName?: string;
   /**
    * @remarks
-   * The list of region IDs for the VPC border firewall.
+   * The list of region IDs for the VPC firewall.
    */
   regionNoList?: string[];
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class DescribeVpcFirewallCenSummaryListResponseBodyCenList extends $dara.
 export class DescribeVpcFirewallCenSummaryListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of CEN instances.
+   * The list of Cloud Enterprise Network (CEN) instances.
    */
   cenList?: DescribeVpcFirewallCenSummaryListResponseBodyCenList[];
   /**
@@ -68,7 +68,7 @@ export class DescribeVpcFirewallCenSummaryListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 5

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainResolveRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name to resolve.
+   * The domain name to be resolved.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,9 @@ export class DescribeDomainResolveRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The IP version of the asset that is protected by Cloud Firewall. Valid values:
+   * The IP version of the asset protected by Cloud Firewall. Valid values:
    * 
    * - **4** (default): IPv4
-   * 
    * - **6**: IPv6
    * 
    * @example
@@ -27,12 +26,11 @@ export class DescribeDomainResolveRequest extends $dara.Model {
   ipVersion?: string;
   /**
    * @remarks
-   * The language of the response message.
+   * The language for receiving messages.
    * 
    * Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -41,7 +39,7 @@ export class DescribeDomainResolveRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the requester.
    * 
    * @example
    * 192.0.XX.XX

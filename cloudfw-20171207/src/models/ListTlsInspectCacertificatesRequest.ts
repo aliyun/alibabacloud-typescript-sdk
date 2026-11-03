@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTlsInspectCACertificatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The CA certificate ID.
+   * The ID of the CA certificate.
    * 
    * @example
    * C3E91391-16CD-1BFC-A133-******D429
@@ -21,7 +21,7 @@ export class ListTlsInspectCACertificatesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The maximum number of entries per page for paging. Default value: 20.
+   * The maximum number of entries to return on each page during paging. Default value: 20.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNatFirewallPolicyPriorUsedResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The lowest priority of the access control policy.
+   * The minimum valid priority value for the access control policy.
    * 
    * @example
    * 28
@@ -21,7 +21,7 @@ export class DescribeNatFirewallPolicyPriorUsedResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The highest priority of the access control policy.
+   * The maximum valid priority value for the access control policy.
    * 
    * @example
    * 1

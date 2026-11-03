@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfiguredDestinationIPResponseBodyDestinations extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class DescribeConfiguredDestinationIPResponseBodyDestinations extends $da
   destinationIP?: string;
   /**
    * @remarks
-   * The ISP of the destination.
+   * The destination ISP.
    * 
    * @example
    * telecom
@@ -37,7 +37,7 @@ export class DescribeConfiguredDestinationIPResponseBodyDestinations extends $da
   destinationRegion?: string;
   /**
    * @remarks
-   * The time of the operation. The value is a UNIX timestamp. Unit: seconds.
+   * The operation time. The value is a UNIX timestamp accurate to seconds, such as 1672502400.
    * 
    * @example
    * 1534408189
@@ -75,12 +75,12 @@ export class DescribeConfiguredDestinationIPResponseBodyDestinations extends $da
 export class DescribeConfiguredDestinationIPResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of destinations.
+   * The list of destinations returned.
    */
   destinations?: DescribeConfiguredDestinationIPResponseBodyDestinations[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -96,7 +96,7 @@ export class DescribeConfiguredDestinationIPResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F0AE91F8-E6C5-50D4-983F-FC53672****

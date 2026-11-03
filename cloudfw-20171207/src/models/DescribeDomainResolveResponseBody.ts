@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainResolveResponseBodyResolveResult extends $dara.Model {
   /**
    * @remarks
-   * The resolution result of the domain name. Multiple IP addresses are separated by commas (,).
+   * The DNS resolution results for the domain name. Multiple IP addresses are separated by commas (,).
    * 
    * @example
    * 11.1.X.X,12.1.X.X
@@ -53,7 +53,7 @@ export class DescribeDomainResolveResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the domain name resolution.
+   * The DNS resolution results for the domain name.
    */
   resolveResult?: DescribeDomainResolveResponseBodyResolveResult;
   static names(): { [key: string]: string } {

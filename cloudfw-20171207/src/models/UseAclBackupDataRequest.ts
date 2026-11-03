@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UseAclBackupDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The backup time. This value is a Unix timestamp in seconds. For example: 1672502400.
+   * The backup time. The value is a UNIX timestamp accurate to seconds, such as 1672502400.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UseAclBackupDataRequest extends $dara.Model {
   backUpTime?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The language in which you want to receive messages.
    * 
    * @example
    * zh

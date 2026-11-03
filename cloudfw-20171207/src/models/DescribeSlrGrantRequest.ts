@@ -13,7 +13,7 @@ export class DescribeSlrGrantRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the caller.
    * 
    * @example
    * 113.225.22.XXX

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecurityProxyResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response.
+   * The language type.
    * 
    * @example
    * zh
@@ -13,7 +13,7 @@ export class DescribeSecurityProxyResourcesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member accounts.
    * 
    * @example
    * 136481150091****
@@ -21,7 +21,7 @@ export class DescribeSecurityProxyResourcesRequest extends $dara.Model {
   memberUid?: number;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The NAT gateway ID.
    * 
    * @example
    * ngw-uf6y16l23fm8hq0****

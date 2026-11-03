@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMemberInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the Alibaba Cloud account.
+   * The name of the main account.
    * 
    * @example
    * tianzhuang
@@ -13,7 +13,7 @@ export class DescribeMemberInfoResponseBody extends $dara.Model {
   adminName?: string;
   /**
    * @remarks
-   * The UID of the Alibaba Cloud account.
+   * The UID of the main account.
    * 
    * @example
    * 164705101205****
@@ -21,7 +21,7 @@ export class DescribeMemberInfoResponseBody extends $dara.Model {
   adminUid?: string;
   /**
    * @remarks
-   * Indicates whether the account is a member account.
+   * Indicates whether the account is one of the member accounts.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class DescribeMemberInfoResponseBody extends $dara.Model {
   isMember?: boolean;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member accounts.
    * 
    * @example
    * 128720273643****
@@ -37,7 +37,7 @@ export class DescribeMemberInfoResponseBody extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F2665618-3C41-51A4-8DAF-586FB68****

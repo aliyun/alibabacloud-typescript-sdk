@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAddressBookResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request is a successful dry run. A value of true indicates that only the dry run is performed and no actual modifications are made.
+   * Indicates whether the response is a successful dry run. A value of true indicates that only the dry run was completed and no actual modifications were made.
    */
   dryRun?: boolean;
   /**

@@ -16,7 +16,6 @@ export class PutDisableAllFwSwitchRequest extends $dara.Model {
    * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -25,7 +24,7 @@ export class PutDisableAllFwSwitchRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the requester.
    * 
    * @example
    * 192.0.XX.XX

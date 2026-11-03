@@ -85,8 +85,8 @@ export class AddAddressBookShrinkRequestTagList extends $dara.Model {
 export class AddAddressBookShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ACK cluster connector ID. You can obtain the value from the following operation:
-   * - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): Lists ACK cluster connectors.
+   * The ID of the ACK cluster connector. You can obtain the value from the following operation:
+   * - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): Queries the list of ACK cluster connectors.
    * 
    * @example
    * ac-7c1bad6c3cc84c33baab1
@@ -107,7 +107,7 @@ export class AddAddressBookShrinkRequest extends $dara.Model {
   ackNamespaces?: string[];
   /**
    * @remarks
-   * The addresses in the address book. Separate multiple addresses with commas (,). Use a space to separate an address from its description within a single address element.
+   * The list of addresses in the address book. Separate multiple addresses with commas (,). For each address element, separate the address and the description with a space.
    * 
    * > This parameter is required when GroupType is set to `ip`, `port`, or `domain`.
    * 
@@ -128,12 +128,12 @@ export class AddAddressBookShrinkRequest extends $dara.Model {
   assetMemberUidsShrink?: string;
   /**
    * @remarks
-   * The list of regions and resource types for the asset address book.
+   * The asset address book, region, and resource type list.
    */
   assetRegionResourceTypesShrink?: string;
   /**
    * @remarks
-   * Indicates whether to automatically add the public IP addresses of Elastic Compute Service (ECS) instances that match the specified tags to the address book.
+   * Specifies whether the address book is automatically updated to include the public IP addresses of Elastic Compute Service (ECS) instances that match new labels.
    * 
    * @example
    * 1
@@ -171,7 +171,7 @@ export class AddAddressBookShrinkRequest extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * The language type of the address book description.
+   * The language of the address book description.
    * 
    * @example
    * zh
@@ -179,7 +179,7 @@ export class AddAddressBookShrinkRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the requester.
    * 
    * @example
    * 192.0.XX.XX
@@ -189,12 +189,12 @@ export class AddAddressBookShrinkRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The ECS tag list.
+   * The list of ECS tags.
    */
   tagList?: AddAddressBookShrinkRequestTagList[];
   /**
    * @remarks
-   * The logical relationship among multiple ECS tags to match.
+   * The relationship between multiple ECS tags to be matched.
    * 
    * @example
    * and

@@ -8,7 +8,7 @@ export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.
    * The encryption algorithm type of the CA certificate. Valid values:
    * - **RSA**: RSA algorithm.
    * - **ECC**: ECC algorithm.
-   * - **SM2**: SM2 (Chinese national cryptographic) algorithm.
+   * - **SM2**: SM2 algorithm.
    * 
    * @example
    * RSA
@@ -16,7 +16,7 @@ export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.
   algorithm?: string;
   /**
    * @remarks
-   * The certificate alias.
+   * The alias of the certificate.
    * 
    * @example
    * rsa_ml_***_root
@@ -24,7 +24,7 @@ export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.
   aliasName?: string;
   /**
    * @remarks
-   * The CA certificate ID.
+   * The ID of the CA certificate.
    * 
    * @example
    * 2732BB48-2969-5716-B5D9-******CA85
@@ -43,7 +43,7 @@ export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.
   caCertType?: string;
   /**
    * @remarks
-   * The certificate chain expiration timestamp.
+   * The expiration timestamp of the certificate chain.
    * 
    * @example
    * 1934***149
@@ -67,7 +67,7 @@ export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.
   keySize?: number;
   /**
    * @remarks
-   * The parent CA certificate ID.
+   * The ID of the parent CA certificate.
    * 
    * @example
    * 340BB48-2969-5716-B5D9-****ACA85
@@ -83,7 +83,7 @@ export class ListTlsInspectCACertificatesResponseBodyCertificates extends $dara.
   signAlgorithm?: string;
   /**
    * @remarks
-   * The certificate status. Valid values:
+   * The status of the certificate. Valid values:
    * - **ISSUE**: Enabled.
    * - **REVOKE**: Revoked.
    * 
@@ -138,7 +138,7 @@ export class ListTlsInspectCACertificatesResponseBody extends $dara.Model {
   certificates?: ListTlsInspectCACertificatesResponseBodyCertificates[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CBF1E9B7-D6A0-4E9E-AD3E-******837D

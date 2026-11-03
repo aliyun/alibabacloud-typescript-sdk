@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSlrGrantResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the authorization is successful.
+   * Indicates whether the authorization was successful.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class DescribeSlrGrantResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The type of the account.
+   * The account type.
    * 
    * @example
    * sub

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTrFirewallV2RoutePolicyScopeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * E7D4D635-0C70-5CEB-A609-851E94D51FBB

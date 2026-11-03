@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupListAclConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether strict mode is enabled. Valid values:
-   * 
+   * Specifies whether strict mode is enabled. Valid values:
    * - 1: Strict mode is enabled.
-   * 
    * - 0: Strict mode is disabled.
    * 
    * @example
@@ -39,22 +37,20 @@ export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupListAclConfig ex
 export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $dara.Model {
   /**
    * @remarks
-   * The ACL engine mode.
+   * The mode of the access control engine.
    */
   aclConfig?: DescribeVpcFirewallAclGroupListResponseBodyAclGroupListAclConfig;
   /**
    * @remarks
-   * The ID of the access control policy group for the VPC boundary firewall.
+   * The access control policy group ID of the virtual private cloud (VPC) firewalls at the border. Valid values:
    * 
-   * Valid values:
+   * - If the virtual private cloud (VPC) firewalls at the border protect a Cloud Enterprise Network (CEN) instance, the policy group ID is the instance ID of the CEN instance.
    * 
-   * - If the VPC boundary firewall protects a Cloud Enterprise Network (CEN) instance, the policy group ID is the ID of the CEN instance.
+   *   Example: cen-ervw0g12b5jbw*\\*\\*\\*
    * 
-   *   Example: cen-ervw0g12b5jbw\\*\\*\\*\\*
+   * - If the virtual private cloud (VPC) firewalls at the border protect an Express Connect circuit, the policy group ID is the instance ID of the virtual private cloud (VPC) firewalls at the border.
    * 
-   * - If the VPC boundary firewall protects an Express Connect circuit, the policy group ID is the ID of the VPC boundary firewall instance.
-   * 
-   *   Example: vfw-a42bbb7b887148c9\\*\\*\\*\\*
+   *   Example: vfw-a42bbb7b887148c9*\\*\\*\\*
    * 
    * @example
    * vfw-a42bbb7b887148c9****
@@ -62,11 +58,10 @@ export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $da
   aclGroupId?: string;
   /**
    * @remarks
-   * The name of the access control policy group for the VPC boundary firewall.
+   * The access control policy group name of the virtual private cloud (VPC) firewalls at the border.
    * 
-   * - If the VPC boundary firewall protects a Cloud Enterprise Network instance, the group name is the name of the CEN instance.
-   * 
-   * - If the VPC boundary firewall protects an Express Connect circuit, the group name is the name of the VPC boundary firewall instance.
+   * - If the virtual private cloud (VPC) firewalls at the border protect a CEN instance, the policy group name is the name of the CEN instance.
+   * - If the virtual private cloud (VPC) firewalls at the border protect an Express Connect circuit, the policy group name is the name of the virtual private cloud (VPC) firewalls at the border.
    * 
    * @example
    * group_test
@@ -74,7 +69,7 @@ export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $da
   aclGroupName?: string;
   /**
    * @remarks
-   * The number of policies in the access control policy group.
+   * The number of policies in the access control policy group of the virtual private cloud (VPC) firewalls at the border.
    * 
    * @example
    * 9
@@ -82,11 +77,9 @@ export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $da
   aclRuleCount?: number;
   /**
    * @remarks
-   * Indicates whether the policy group is a default group. Valid values:
-   * 
-   * - **true**: The policy group is a default group.
-   * 
-   * - **false**: The policy group is not a default group.
+   * Specifies whether the firewall is the default firewall. Valid values:
+   * - **true**: The firewall is the default firewall.
+   * - **false**: The firewall is not the default firewall.
    * 
    * @example
    * true
@@ -94,7 +87,7 @@ export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $da
   isDefault?: boolean;
   /**
    * @remarks
-   * The ID of the member account.
+   * The ID of the member accounts of the current Alibaba Cloud account.
    * 
    * @example
    * 258039427902****
@@ -137,12 +130,12 @@ export class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList extends $da
 export class DescribeVpcFirewallAclGroupListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access control policy groups.
+   * The information about the access control policy groups of the VPC firewall.
    */
   aclGroupList?: DescribeVpcFirewallAclGroupListResponseBodyAclGroupList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
@@ -150,7 +143,7 @@ export class DescribeVpcFirewallAclGroupListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of access control policy groups.
+   * The total number of access control policy groups of the VPC firewall.
    * 
    * @example
    * 1

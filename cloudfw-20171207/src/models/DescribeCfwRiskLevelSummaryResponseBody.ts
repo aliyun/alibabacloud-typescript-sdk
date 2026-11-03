@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCfwRiskLevelSummaryResponseBodyRiskList extends $dara.Model {
   /**
    * @remarks
-   * The threat level. Valid value:
-   * 
-   * - **medium**: medium
+   * The risk level. Valid values:
+   * - **medium**: Medium
    * 
    * @example
    * medium
@@ -15,7 +14,7 @@ export class DescribeCfwRiskLevelSummaryResponseBodyRiskList extends $dara.Model
   level?: string;
   /**
    * @remarks
-   * The number of ECS instances at risk.
+   * The number of at-risk ECS instances.
    * 
    * @example
    * 50
@@ -65,7 +64,7 @@ export class DescribeCfwRiskLevelSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of threats.
+   * The risk list.
    */
   riskList?: DescribeCfwRiskLevelSummaryResponseBodyRiskList[];
   static names(): { [key: string]: string } {

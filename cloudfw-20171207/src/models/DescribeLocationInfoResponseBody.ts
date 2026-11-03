@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLocationInfoResponseBodyCnList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * 3301
@@ -13,7 +13,7 @@ export class DescribeLocationInfoResponseBodyCnList extends $dara.Model {
   locId?: string;
   /**
    * @remarks
-   * The name of the region.
+   * The region name.
    * 
    * @example
    * Hangzhou City
@@ -45,7 +45,7 @@ export class DescribeLocationInfoResponseBodyCnList extends $dara.Model {
 export class DescribeLocationInfoResponseBodyCnProvinceListCities extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * 123
@@ -53,7 +53,7 @@ export class DescribeLocationInfoResponseBodyCnProvinceListCities extends $dara.
   locId?: string;
   /**
    * @remarks
-   * The name of the region.
+   * The region name.
    * 
    * @example
    * Hangzhou
@@ -90,7 +90,7 @@ export class DescribeLocationInfoResponseBodyCnProvinceList extends $dara.Model 
   cities?: DescribeLocationInfoResponseBodyCnProvinceListCities[];
   /**
    * @remarks
-   * The name of the province.
+   * The province name.
    * 
    * @example
    * Zhejiang
@@ -125,7 +125,7 @@ export class DescribeLocationInfoResponseBodyCnProvinceList extends $dara.Model 
 export class DescribeLocationInfoResponseBodyOverseasList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * US
@@ -133,7 +133,7 @@ export class DescribeLocationInfoResponseBodyOverseasList extends $dara.Model {
   locId?: string;
   /**
    * @remarks
-   * The name of the region.
+   * The region name.
    * 
    * @example
    * United States
@@ -165,7 +165,7 @@ export class DescribeLocationInfoResponseBodyOverseasList extends $dara.Model {
 export class DescribeLocationInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of regions in China.
+   * The number of regions in the Chinese mainland.
    * 
    * @example
    * 340
@@ -173,17 +173,17 @@ export class DescribeLocationInfoResponseBody extends $dara.Model {
   cnCount?: number;
   /**
    * @remarks
-   * The list of regions in China.
+   * The list of regions in the Chinese mainland.
    */
   cnList?: DescribeLocationInfoResponseBodyCnList[];
   /**
    * @remarks
-   * The information about provinces and cities in China.
+   * The province and city information in the Chinese mainland.
    */
   cnProvinceList?: DescribeLocationInfoResponseBodyCnProvinceList[];
   /**
    * @remarks
-   * The number of regions outside China.
+   * The number of regions outside the Chinese mainland.
    * 
    * @example
    * 238
@@ -191,7 +191,7 @@ export class DescribeLocationInfoResponseBody extends $dara.Model {
   overseasCount?: number;
   /**
    * @remarks
-   * The list of regions outside China.
+   * The list of regions outside the Chinese mainland.
    */
   overseasList?: DescribeLocationInfoResponseBodyOverseasList[];
   /**

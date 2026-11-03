@@ -13,7 +13,7 @@ export class DescribeDownloadTaskTypeResponseBodyTaskTypeArray extends $dara.Mod
   taskName?: string;
   /**
    * @remarks
-   * The type of the task.
+   * The task type.
    * 
    * @example
    * InternetFirewallAsset
@@ -58,7 +58,7 @@ export class DescribeDownloadTaskTypeResponseBody extends $dara.Model {
   taskTypeArray?: DescribeDownloadTaskTypeResponseBodyTaskTypeArray[];
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 3

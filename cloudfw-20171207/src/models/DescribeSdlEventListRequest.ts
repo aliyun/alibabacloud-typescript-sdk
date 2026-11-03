@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSdlEventListRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeSdlEventListRequest extends $dara.Model {
   dstIp?: string;
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp representing seconds.
+   * The end time. Specify a UNIX timestamp in seconds.
    * 
    * @example
    * 1756433077
@@ -29,7 +29,7 @@ export class DescribeSdlEventListRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The language of the response.
+   * The language in which messages are received.
    * 
    * @example
    * zh
@@ -45,7 +45,7 @@ export class DescribeSdlEventListRequest extends $dara.Model {
   location?: string;
   /**
    * @remarks
-   * Specifies whether to return only events detected by AI.
+   * Specifies whether to query only AI events.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class DescribeSdlEventListRequest extends $dara.Model {
   onlyAiEvt?: number;
   /**
    * @remarks
-   * The sort order. Valid values: `asc` (ascending) and `desc` (descending).
+   * The sort order.
    * 
    * @example
    * desc
@@ -69,7 +69,7 @@ export class DescribeSdlEventListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sensitivity level of the data in the event.
+   * The sensitive data level.
    * 
    * @example
    * S3
@@ -77,7 +77,7 @@ export class DescribeSdlEventListRequest extends $dara.Model {
   sensitiveLevel?: string;
   /**
    * @remarks
-   * The field to sort by.
+   * The sort field.
    * 
    * @example
    * TotalBytes
@@ -93,7 +93,7 @@ export class DescribeSdlEventListRequest extends $dara.Model {
   srcIp?: string;
   /**
    * @remarks
-   * The start of the time range to query. This value is a UNIX timestamp representing seconds.
+   * The start time. Specify a UNIX timestamp in seconds.
    * 
    * @example
    * 1759198702
@@ -101,7 +101,7 @@ export class DescribeSdlEventListRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The unique ID of the event.
+   * The unique identifier.
    * 
    * @example
    * aa58cdf6-6cf8-493c-912d-97619a24****

@@ -90,7 +90,7 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
   destCandidateList?: DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesDestCandidateList[];
   /**
    * @remarks
-   * The policy description.
+   * The description of the policy.
    * 
    * @example
    * Point to multipoint
@@ -106,19 +106,19 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
   policyName?: string;
   /**
    * @remarks
-   * The policy status. Valid values:
+   * The status of the policy. Valid values:
    * 
-   * - creating: being created
+   * - creating: The policy is being created.
    * 
-   * - deleting: being deleted
+   * - deleting: The policy is being deleted.
    * 
-   * - opening: being enabled
+   * - opening: The policy is being enabled.
    * 
-   * - opened: enabled
+   * - opened: The policy is enabled.
    * 
-   * - closing: being disabled
+   * - closing: The policy is being disabled.
    * 
-   * - closed: disabled
+   * - closed: The policy is disabled.
    * 
    * @example
    * opened
@@ -126,13 +126,13 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
   policyStatus?: string;
   /**
    * @remarks
-   * The traffic redirection scenario type for the virtual private cloud (VPC) firewall on CEN Enterprise Edition. Valid values:
+   * The traffic redirection scenario type for virtual private cloud (VPC) firewalls in Cloud Enterprise Network (CEN) Enterprise Edition. Valid values:
    * 
-   * - **fullmesh**: multi-point interconnection
+   * - **fullmesh**: full mesh interconnection.
    * 
-   * - **one_to_one**: point-to-point
+   * - **one_to_one**: point-to-point.
    * 
-   * - **end_to_end**: point-to-multipoint
+   * - **end_to_end**: point-to-multipoint.
    * 
    * @example
    * fullmesh
@@ -145,7 +145,7 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
   srcCandidateList?: DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePoliciesSrcCandidateList[];
   /**
    * @remarks
-   * The ID of the firewall routing policy.
+   * The ID of the firewall route policy.
    * 
    * @example
    * policy-7b66257c14e141fb****
@@ -193,7 +193,7 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolic
 export class DescribeTrFirewallV2RoutePolicyListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 95EB5F3A-67FE-5780-92BD-5ECBA772AB7E
@@ -209,7 +209,7 @@ export class DescribeTrFirewallV2RoutePolicyListResponseBody extends $dara.Model
   totalCount?: string;
   /**
    * @remarks
-   * The list of firewall routing policies.
+   * The list of firewall route policies.
    */
   trFirewallRoutePolicies?: DescribeTrFirewallV2RoutePolicyListResponseBodyTrFirewallRoutePolicies[];
   static names(): { [key: string]: string } {

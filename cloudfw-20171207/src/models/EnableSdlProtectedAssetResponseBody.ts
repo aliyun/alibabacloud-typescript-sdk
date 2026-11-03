@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableSdlProtectedAssetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 15FCCC52-1E23-57AE-B5EF-3E00A3******

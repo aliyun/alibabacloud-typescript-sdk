@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTaskDispatchStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 71209DFE-XXX-XXX-52B4A4E9DA3B
@@ -13,12 +13,12 @@ export class DescribeTaskDispatchStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The execution status of the task. Valid values:
-   * - PENDING: pending execution.
-   * - RUNNING: running.
-   * - SUCCESS: succeeded.
-   * - FAILED: failed.
-   * - CANCELLED: cancelled.
+   * The status of the task. Valid values:
+   * - PENDING: Pending.
+   * - RUNNING: Running.
+   * - SUCCESS: Successful.
+   * - FAILED: Failed.
+   * - CANCELLED: Cancelled.
    * 
    * @example
    * SUCCESS

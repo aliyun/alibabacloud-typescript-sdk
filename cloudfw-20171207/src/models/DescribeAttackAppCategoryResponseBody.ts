@@ -50,7 +50,7 @@ export class DescribeAttackAppCategoryResponseBody extends $dara.Model {
   appCategories?: DescribeAttackAppCategoryResponseBodyAppCategories[];
   /**
    * @remarks
-   * The request ID of the returned result.
+   * The ID of the request.
    * 
    * @example
    * B14757D0-4640-4B44-AC67-7F558FE****

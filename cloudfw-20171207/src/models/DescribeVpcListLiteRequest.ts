@@ -17,9 +17,9 @@ export class DescribeVpcListLiteRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the region where the VPC resides.
+   * The region ID of the VPC.
    * 
-   * > For more information about the regions that Cloud Firewall supports, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+   * > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
    * 
    * @example
    * cn-shanghai
@@ -27,7 +27,7 @@ export class DescribeVpcListLiteRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The source IP address of the requester.
+   * The source IP address of the caller.
    * 
    * @example
    * 58.34.174.194
@@ -35,7 +35,7 @@ export class DescribeVpcListLiteRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The instance ID of the VPC.
+   * The instance ID of the VPC-connected instance.
    * 
    * @example
    * vpc-8vbwbo90rq0anm6t****
@@ -43,7 +43,7 @@ export class DescribeVpcListLiteRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The instance name of the VPC.
+   * The name of the VPC.
    * 
    * @example
    * vpc-shanghai

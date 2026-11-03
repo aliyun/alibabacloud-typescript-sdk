@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMemberInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member accounts.
    * 
    * @example
    * 150795602499****

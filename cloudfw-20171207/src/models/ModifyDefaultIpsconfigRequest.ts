@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDefaultIPSConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable Basic Policies. Valid values:
+   * Specifies whether Basic Policies are enabled. Valid values:
    * 
-   * - **1**: Enable.
+   * - **1**: Enabled.
    * 
    * - **0**: shutdown.
    * 
@@ -17,11 +17,11 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
   basicRules?: number;
   /**
    * @remarks
-   * Specifies whether to enable threat intelligence. Valid values:
+   * Specifies whether threat intelligence is enabled. Valid values:
    * 
-   * - **1**: Enable.
+   * - **1**: Enabled.
    * 
-   * - **0**: Disable.
+   * - **0**: Disabled.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
   ctiRules?: number;
   /**
    * @remarks
-   * The language type of the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese.
    * 
@@ -41,7 +41,7 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The daily traffic limit for sensitive data detection.
+   * The maximum daily traffic limit for sensitive data detection.
    * 
    * @example
    * 100
@@ -49,11 +49,11 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
   maxSdl?: number;
   /**
    * @remarks
-   * Specifies whether to enable virtual patches. Valid values:
+   * Specifies whether virtual patches are enabled. Valid values:
    * 
-   * - **1**: Enable.
+   * - **1**: Enabled.
    * 
-   * - **0**: Disable.
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -77,9 +77,9 @@ export class ModifyDefaultIPSConfigRequest extends $dara.Model {
    * @remarks
    * The IPS defense mode. Valid values:
    * 
-   * - **1**: Block Mode.
+   * - **1**: Block mode.
    * 
-   * - **0**: monitor mode.
+   * - **0**: Monitor mode.
    * 
    * This parameter is required.
    * 

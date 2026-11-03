@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyVpcFirewallConfigureRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the request and response. Valid values:
+   * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese.
    * 
@@ -17,13 +17,13 @@ export class ModifyVpcFirewallConfigureRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The CIDR block information of the local VPC, in JSON format. The following parameters are included:
+   * The CIDR block information of the local VPC, in JSON format. This parameter includes the following fields:
    * 
-   * - **RouteTableId**: the routing table ID of the local VPC.
+   * - **RouteTableId**: the route table ID of the local VPC.
    * 
-   * - **RouteEntryList**: specified in JSON format and contains DestinationCidr (the destination CIDR block of the local VPC) and NextHopInstanceId (the next hop instance ID of the local VPC).
+   * - **RouteEntryList**: a JSON array that includes DestinationCidr (the destination CIDR block of the local VPC) and NextHopInstanceId (the instance ID of the next hop for the local VPC).
    * 
-   * > You can invoke the [DescribeVpcFirewallDetail](https://help.aliyun.com/document_detail/342892.html) operation to query the CIDR block information of the local VPC for the virtual private cloud (VPC) firewall.
+   * > You can call the [DescribeVpcFirewallDetail](https://help.aliyun.com/document_detail/342892.html) operation to query the CIDR block information of the local VPC for the VPC border firewall.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ModifyVpcFirewallConfigureRequest extends $dara.Model {
   localVpcCidrTableList?: string;
   /**
    * @remarks
-   * The UID of the member accounts of the current Alibaba Cloud account.
+   * The UID of the member account associated with the current Alibaba Cloud account.
    * 
    * @example
    * 258039427902****
@@ -41,13 +41,13 @@ export class ModifyVpcFirewallConfigureRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The CIDR block information of the peer VPC, in JSON format. The following parameters are included:
+   * The CIDR block information of the peer VPC, in JSON format. This parameter includes the following fields:
    * 
-   * - **RouteTableId**: the routing table ID of the peer VPC.
+   * - **RouteTableId**: the route table ID of the peer VPC.
    * 
-   * - **RouteEntryList**: specified in JSON format and contains DestinationCidr (the destination CIDR block of the peer VPC) and NextHopInstanceId (the next hop instance ID of the peer VPC).
+   * - **RouteEntryList**: a JSON array that includes DestinationCidr (the destination CIDR block of the peer VPC) and NextHopInstanceId (the instance ID of the next hop for the peer VPC).
    * 
-   * > You can invoke the [DescribeVpcFirewallDetail](https://help.aliyun.com/document_detail/342892.html) operation to query the CIDR block information of the peer VPC for the virtual private cloud (VPC) firewall.
+   * > You can call the [DescribeVpcFirewallDetail](https://help.aliyun.com/document_detail/342892.html) operation to query the CIDR block information of the peer VPC for the VPC border firewall.
    * 
    * This parameter is required.
    * 
@@ -57,9 +57,9 @@ export class ModifyVpcFirewallConfigureRequest extends $dara.Model {
   peerVpcCidrTableList?: string;
   /**
    * @remarks
-   * The instance ID of the virtual private cloud (VPC) firewall.
+   * The instance ID of the VPC border firewall.
    * 
-   * > You can invoke the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) operation to query the instance ID of the virtual private cloud (VPC) firewall.
+   * > You can call the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/342932.html) operation to query the instance ID of the VPC border firewall.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class ModifyVpcFirewallConfigureRequest extends $dara.Model {
   vpcFirewallId?: string;
   /**
    * @remarks
-   * The instance name of the virtual private cloud (VPC) firewall.
+   * The instance name of the VPC border firewall.
    * 
    * This parameter is required.
    * 

@@ -23,11 +23,11 @@ export class DescribeSecurityModeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The security mode. Valid values:
+   * The safe mode pattern. Valid values:
    * 
-   * **0**: disabled.
+   * **0**: shutdown
    * 
-   * **1**: enabled.
+   * **1**: enabled
    * 
    * @example
    * 1

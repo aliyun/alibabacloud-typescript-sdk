@@ -13,7 +13,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGat
   destinationCidr?: string;
   /**
    * @remarks
-   * The ID of the next hop.
+   * The next hop instance ID.
    * 
    * @example
    * ngw-2zey0w2u02u1x584m****
@@ -65,7 +65,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGat
 export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGateways extends $dara.Model {
   /**
    * @remarks
-   * The status of the NAT Gateway.
+   * The status of the NAT gateway.
    * 
    * @example
    * Available
@@ -73,7 +73,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGat
   detail?: string;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The NAT gateway ID.
    * 
    * @example
    * ngw-bp1bm0k2t8i6ooxu****
@@ -81,7 +81,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGat
   natGatewayId?: string;
   /**
    * @remarks
-   * The name of the NAT Gateway.
+   * The name of the NAT gateway.
    * 
    * @example
    * ngw-test
@@ -94,7 +94,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGat
   natRouteEntryList?: DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGatewaysNatRouteEntryList[];
   /**
    * @remarks
-   * The status of the NAT Gateway.
+   * The status of the NAT gateway.
    * 
    * @example
    * Available
@@ -143,7 +143,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcList exten
   cidrBlock?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member accounts.
    * 
    * @example
    * 157862808111****
@@ -156,7 +156,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcList exten
   natGateways?: DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGateways[];
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-8vbuzirdl3w1r7exw****
@@ -164,7 +164,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcList exten
   vpcId?: string;
   /**
    * @remarks
-   * The name of the VPC.
+   * The name of the VPC-connected instance.
    * 
    * @example
    * vpc-wz94a4q37rgl7g****

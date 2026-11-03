@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIspInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response message.
+   * The language type for receiving messages.
    * 
    * @example
    * zh
@@ -13,7 +13,7 @@ export class DescribeIspInfoRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source tracking code.
+   * The tracing code.
    * 
    * This parameter is required.
    * 

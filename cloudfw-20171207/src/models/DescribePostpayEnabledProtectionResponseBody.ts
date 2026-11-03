@@ -13,7 +13,7 @@ export class DescribePostpayEnabledProtectionResponseBody extends $dara.Model {
   disabledDays?: number;
   /**
    * @remarks
-   * The type of asset for which protection is disabled.
+   * The type of protection that is disabled.
    * 
    * @example
    * nat
@@ -29,7 +29,7 @@ export class DescribePostpayEnabledProtectionResponseBody extends $dara.Model {
   isEnabledProtection?: boolean;
   /**
    * @remarks
-   * Indicates whether the protection feature is activated but currently disabled.
+   * Indicates whether the protection feature is activated but disabled.
    * 
    * @example
    * false

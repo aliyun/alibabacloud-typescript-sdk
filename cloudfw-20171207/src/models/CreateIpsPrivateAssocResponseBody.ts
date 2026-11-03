@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIpsPrivateAssocResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID of the response.
+   * The ID of the request.
    * 
    * @example
    * 99A65AA0-C5B5-5092-BFCF-8111B436****

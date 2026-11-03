@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCfwRiskLevelSummaryRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance type. Valid value:
-   * 
+   * The instance type. Valid values:
    * - **ecs**
    * 
    * @example
@@ -15,12 +14,9 @@ export class DescribeCfwRiskLevelSummaryRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The language of the response.
-   * 
-   * Valid values:
+   * The language in which messages are received. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -29,9 +25,8 @@ export class DescribeCfwRiskLevelSummaryRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the region where Cloud Firewall is deployed.
-   * 
-   * > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+   * The region ID of Cloud Firewall.
+   * > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
    * 
    * @example
    * cn-shanghai

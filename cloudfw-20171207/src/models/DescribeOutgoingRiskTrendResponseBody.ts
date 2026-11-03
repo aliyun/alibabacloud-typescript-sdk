@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOutgoingRiskTrendResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The number of threat domain names.
+   * The number of risky domain names.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class DescribeOutgoingRiskTrendResponseBodyDataList extends $dara.Model {
   riskDomain?: number;
   /**
    * @remarks
-   * The number of threat IP addresses.
+   * The number of risky IP addresses.
    * 
    * @example
    * 5
@@ -76,7 +76,7 @@ export class DescribeOutgoingRiskTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of threat domain names.
+   * The total number of risky domain names.
    * 
    * @example
    * 7
@@ -84,7 +84,7 @@ export class DescribeOutgoingRiskTrendResponseBody extends $dara.Model {
   totalRiskDomain?: number;
   /**
    * @remarks
-   * The total number of threat IP addresses.
+   * The total number of risky IP addresses.
    * 
    * @example
    * 6

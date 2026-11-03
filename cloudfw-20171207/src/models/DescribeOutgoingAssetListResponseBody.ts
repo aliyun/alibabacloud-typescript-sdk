@@ -21,7 +21,7 @@ export class DescribeOutgoingAssetListResponseBodyAssetList extends $dara.Model 
   assetInstanceName?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-hangzhou
@@ -53,7 +53,7 @@ export class DescribeOutgoingAssetListResponseBodyAssetList extends $dara.Model 
   ipsHitCnt?: number;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The NAT gateway ID.
    * 
    * @example
    * ngw-bp1utx6wj4x9qu9tl****
@@ -61,7 +61,7 @@ export class DescribeOutgoingAssetListResponseBodyAssetList extends $dara.Model 
   natGatewayId?: string;
   /**
    * @remarks
-   * The name of the NAT Gateway.
+   * The name of the NAT gateway.
    * 
    * @example
    * ngw-test
@@ -77,7 +77,7 @@ export class DescribeOutgoingAssetListResponseBodyAssetList extends $dara.Model 
   outBytes?: number;
   /**
    * @remarks
-   * The number of outbound domains.
+   * The number of outbound domain names.
    * 
    * @example
    * 10
@@ -85,7 +85,7 @@ export class DescribeOutgoingAssetListResponseBodyAssetList extends $dara.Model 
   outgoingDomainCnt?: number;
   /**
    * @remarks
-   * The number of outbound destination IP addresses.
+   * The number of outbound IP addresses.
    * 
    * @example
    * 12
@@ -101,7 +101,7 @@ export class DescribeOutgoingAssetListResponseBodyAssetList extends $dara.Model 
   privateIP?: string;
   /**
    * @remarks
-   * The list of private IP addresses.
+   * The private IP address list.
    */
   privateIPList?: string[];
   /**
@@ -130,7 +130,7 @@ export class DescribeOutgoingAssetListResponseBodyAssetList extends $dara.Model 
   securityRisk?: string;
   /**
    * @remarks
-   * The number of sessions.
+   * The number of accesses.
    * 
    * @example
    * 2
@@ -205,7 +205,7 @@ export class DescribeOutgoingAssetListResponseBodyAssetList extends $dara.Model 
 export class DescribeOutgoingAssetListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of assets.
+   * The asset list.
    */
   assetList?: DescribeOutgoingAssetListResponseBodyAssetList[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEntityGroupsPrecheckEntities extends $dara.Model {
   /**
    * @remarks
-   * The information about the precheck failure.
+   * The information about the failed check.
    * 
    * @example
    * VPC Firewall Quota Full
@@ -13,7 +13,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
   info?: string;
   /**
    * @remarks
-   * The precheck item name.
+   * The name of the precheck item.
    * 
    * @example
    * Precheck test
@@ -21,11 +21,11 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
   name?: string;
   /**
    * @remarks
-   * The status of each precheck item. Valid values:
+   * The status of the precheck item. Valid values:
    * 
    * - **running**: The precheck is in progress.
    * 
-   * - **passed**: The precheck passed.
+   * - **passed**: The precheck is passed.
    * 
    * - **failed**: The precheck failed.
    * 
@@ -35,7 +35,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
   status?: string;
   /**
    * @remarks
-   * The suggested action.
+   * The troubleshooting suggestion.
    * 
    * @example
    * The VPC firewall quota is full. We recommend that you increase the firewall quota
@@ -71,7 +71,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
 export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEntityGroups extends $dara.Model {
   /**
    * @remarks
-   * The number of precheck rules that failed.
+   * The number of rules that failed the precheck.
    * 
    * @example
    * 3
@@ -79,7 +79,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
   failedCount?: number;
   /**
    * @remarks
-   * The precheck instance name.
+   * The name of the precheck instance.
    * 
    * @example
    * test
@@ -87,12 +87,12 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
   name?: string;
   /**
    * @remarks
-   * The execution details of each precheck item.
+   * The execution status of each precheck item.
    */
   precheckEntities?: DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEntityGroupsPrecheckEntities[];
   /**
    * @remarks
-   * The precheck status. Valid values:
+   * The status of the precheck. Valid values:
    * 
    * - **running**
    * 
@@ -162,7 +162,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetail extends
    * 
    * - **running**: The precheck is in progress.
    * 
-   * - **passed**: The precheck passed.
+   * - **passed**: The precheck is passed.
    * 
    * - **failed**: The precheck failed.
    * 
@@ -172,7 +172,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetail extends
   precheckStatus?: string;
   /**
    * @remarks
-   * The precheck timestamp.
+   * The timestamp of the precheck.
    * 
    * @example
    * 1715136000
@@ -180,7 +180,7 @@ export class DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetail extends
   precheckTimestamp?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * @example
    * cn-shanghai
@@ -231,12 +231,12 @@ export class DescribeVpcFirewallPrecheckDetailResponseBody extends $dara.Model {
   isFound?: boolean;
   /**
    * @remarks
-   * The precheck details.
+   * The details of the precheck.
    */
   precheckDetail?: DescribeVpcFirewallPrecheckDetailResponseBodyPrecheckDetail;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4FB718F0-CC04-5A12-B17B-188CFC3F****

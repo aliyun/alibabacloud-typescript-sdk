@@ -13,7 +13,7 @@ export class UpdateAclCheckDetailStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The modified status.
+   * The new status.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateAclCheckDetailStatusRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ACL check task ID.
+   * The ID of the ACL check task.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateAclCheckDetailStatusRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The unique identifier ID of the ACL policy in the ACL check details.
+   * The UUID of the ACL policy in the ACL check detail.
    * 
    * This parameter is required.
    * 

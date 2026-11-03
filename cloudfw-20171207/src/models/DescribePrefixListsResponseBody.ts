@@ -7,9 +7,8 @@ export class DescribePrefixListsResponseBodyPrefixList extends $dara.Model {
    * @remarks
    * The address family of the prefix list. Valid values:
    * 
-   * - IPv4
-   * 
-   * - IPv6
+   * - IPv4.
+   * - IPv6.
    * 
    * @example
    * IPv4
@@ -25,7 +24,7 @@ export class DescribePrefixListsResponseBodyPrefixList extends $dara.Model {
   associationCount?: number;
   /**
    * @remarks
-   * The time the prefix list was created. The timestamp is in ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`.
+   * The time when the prefix list was created. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-10-16T08:31:06Z
@@ -33,7 +32,7 @@ export class DescribePrefixListsResponseBodyPrefixList extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The description of the prefix list.
+   * The description.
    * 
    * @example
    * TCP_14900-14911
@@ -41,7 +40,7 @@ export class DescribePrefixListsResponseBodyPrefixList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The maximum number of entries in the prefix list.
+   * The maximum number of entries supported by the prefix list.
    * 
    * @example
    * 20
@@ -49,7 +48,7 @@ export class DescribePrefixListsResponseBodyPrefixList extends $dara.Model {
   maxEntries?: number;
   /**
    * @remarks
-   * The prefix list ID.
+   * The ID of the prefix list.
    * 
    * @example
    * pl-uf64nco3ujjqchx6aaji
@@ -57,7 +56,7 @@ export class DescribePrefixListsResponseBodyPrefixList extends $dara.Model {
   prefixListId?: string;
   /**
    * @remarks
-   * The prefix list name.
+   * The name of the prefix list.
    * 
    * @example
    * participant-name
@@ -104,7 +103,7 @@ export class DescribePrefixListsResponseBody extends $dara.Model {
   prefixList?: DescribePrefixListsResponseBodyPrefixList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 67FD76C2-C493-5815-8107-643FD7AB77C7

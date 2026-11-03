@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Model {
   /**
    * @remarks
-   * The asset name.
+   * The name of the asset.
    * 
    * @example
    * test
@@ -29,13 +29,11 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   assetType?: string;
   /**
    * @remarks
-   * The intelligence tag category. Valid values:
+   * The categorization of intelligence labels. Valid values:
    * 
-   * - **Suspicious**: suspicious
-   * 
-   * - **Malicious**: malicious
-   * 
-   * - **Trusted**: trusted
+   * - **Suspicious**: Suspicious.
+   * - **Malicious**: Malicious.
+   * - **Trusted**: Trusted.
    * 
    * @example
    * Trusted
@@ -43,7 +41,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   categoryClassId?: string;
   /**
    * @remarks
-   * The category name.
+   * The name of the category.
    * 
    * @example
    * Trusted
@@ -51,7 +49,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   categoryName?: string;
   /**
    * @remarks
-   * The city ID.
+   * The ID of the city.
    * 
    * @example
    * 000
@@ -59,7 +57,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   cityId?: string;
   /**
    * @remarks
-   * The country ID.
+   * The ID of the country.
    * 
    * @example
    * cn
@@ -75,7 +73,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   dstIp?: string;
   /**
    * @remarks
-   * The destination port.
+   * The destination ports.
    * 
    * @example
    * 22
@@ -91,7 +89,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   eventCnt?: number;
   /**
    * @remarks
-   * The event\\"s risk level.
+   * The risk level of the event.
    * 
    * @example
    * high
@@ -99,7 +97,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   eventLevel?: string;
   /**
    * @remarks
-   * The event name.
+   * The name of the event.
    * 
    * @example
    * Sensitive ID card data leakage
@@ -107,7 +105,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   eventName?: string;
   /**
    * @remarks
-   * The first time the event occurred, as a Unix timestamp in seconds.
+   * The time when the event first occurred. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1735697768
@@ -115,7 +113,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   firstTime?: number;
   /**
    * @remarks
-   * The last time the event occurred, as a Unix timestamp in seconds.
+   * The time when the event last occurred. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1738636157
@@ -123,7 +121,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   lastTime?: number;
   /**
    * @remarks
-   * The location of the destination IP address.
+   * The name of the region to which the destination IP address belongs.
    * 
    * @example
    * Yuhang District, Hangzhou City, Zhejiang Province
@@ -131,7 +129,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   locationName?: string;
   /**
    * @remarks
-   * The payload of the intrusion prevention event.
+   * The attack payload of the intrusion prevention event.
    * 
    * @example
    * 3082002f02010004067075626c6963a082002002044c33a756020100020100308200103082000c06082b060102010105000500
@@ -139,7 +137,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   payload?: string;
   /**
    * @remarks
-   * The protocol.
+   * The protocols.
    * 
    * @example
    * TCP
@@ -171,7 +169,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   resourceIdType?: number;
   /**
    * @remarks
-   * The number of sensitive data items.
+   * The amount of sensitive data.
    * 
    * @example
    * 10
@@ -179,7 +177,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   sensitiveDataCnt?: number;
   /**
    * @remarks
-   * An array of sensitive data.
+   * The list of sensitive data.
    */
   sensitiveDataList?: string[];
   /**
@@ -192,7 +190,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   sensitiveLevel?: string;
   /**
    * @remarks
-   * The sensitive data type.
+   * The type of sensitive data.
    * 
    * @example
    * Identity Card
@@ -208,7 +206,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   srcIp?: string;
   /**
    * @remarks
-   * The source port.
+   * The source ports.
    * 
    * @example
    * 443
@@ -216,7 +214,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   srcPortList?: string;
   /**
    * @remarks
-   * The traffic volume in bytes.
+   * The traffic volume.
    * 
    * @example
    * 0
@@ -224,7 +222,7 @@ export class DescribeSdlEventListResponseBodySdlEventDetailList extends $dara.Mo
   trafficBytes?: number;
   /**
    * @remarks
-   * The unique identifier for the event.
+   * The UUID.
    * 
    * @example
    * b91035dc-8be4-411d-bec5-e6320af9****
@@ -319,7 +317,7 @@ export class DescribeSdlEventListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of data leakage events.
+   * The list of data leak events.
    */
   sdlEventDetailList?: DescribeSdlEventListResponseBodySdlEventDetailList[];
   /**

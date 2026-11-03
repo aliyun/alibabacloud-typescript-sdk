@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOutgoingAssetListRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the asset.
+   * The region to which the asset belongs.
    * 
    * @example
    * cn-beijing
@@ -21,7 +21,7 @@ export class DescribeOutgoingAssetListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class DescribeOutgoingAssetListRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Queries outbound connections routed from a private network through a NAT gateway.
+   * Specifies whether to query outbound connections over the NAT private network.
    * 
    * @example
    * NatPrivate
@@ -47,7 +47,7 @@ export class DescribeOutgoingAssetListRequest extends $dara.Model {
   IPType?: string;
   /**
    * @remarks
-   * The language of the content.
+   * The language type.
    * 
    * @example
    * zh
@@ -55,7 +55,7 @@ export class DescribeOutgoingAssetListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The ID of the NAT gateway.
    * 
    * @example
    * ngw-bp123456g******
@@ -63,7 +63,7 @@ export class DescribeOutgoingAssetListRequest extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The name of the NAT Gateway.
+   * The name of the NAT gateway.
    * 
    * @example
    * ngw-test
@@ -71,7 +71,7 @@ export class DescribeOutgoingAssetListRequest extends $dara.Model {
   natGatewayName?: string;
   /**
    * @remarks
-   * The sorting order.
+   * The sort order.
    * 
    * @example
    * desc
@@ -79,7 +79,7 @@ export class DescribeOutgoingAssetListRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -119,7 +119,7 @@ export class DescribeOutgoingAssetListRequest extends $dara.Model {
   securityRisk?: string;
   /**
    * @remarks
-   * The sorting basis.
+   * The sort field.
    * 
    * @example
    * InBytes
@@ -127,7 +127,7 @@ export class DescribeOutgoingAssetListRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

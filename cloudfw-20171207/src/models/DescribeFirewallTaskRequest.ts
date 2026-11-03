@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFirewallTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The child instance ID. You must specify at least one of ChildInstanceId and TaskId. If both are empty, the error MissingParameter.TaskId (-360448) is returned.
+   * The ID of the child instance. You must specify at least one of ChildInstanceId and TaskId. If both are empty, the MissingParameter.TaskId (-360448) error is returned.
    * 
    * @example
    * vfw-tr-cd6000c588214403****
@@ -24,7 +24,7 @@ export class DescribeFirewallTaskRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The task ID. You must specify at least one of TaskId and ChildInstanceId. If both are empty, the error MissingParameter.TaskId (-360448, At least one of TaskId or ChildInstanceId is required.) is returned.
+   * The ID of the task. You must specify at least one of TaskId and ChildInstanceId. If both are empty, the MissingParameter.TaskId (-360448, At least one of TaskId or ChildInstanceId is required.) error is returned.
    * 
    * @example
    * 199431783

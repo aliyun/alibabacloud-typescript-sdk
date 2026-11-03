@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNatAclPageStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the request and the response. Valid values:
+   * The language of the request and response messages. Valid values:
    * 
    * - **zh** (default): Chinese.
    * 

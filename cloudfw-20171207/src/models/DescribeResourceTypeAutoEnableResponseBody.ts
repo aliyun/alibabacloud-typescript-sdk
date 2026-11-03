@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceTypeAutoEnableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7447795A-39AB-52CB-8F92-128DF******
@@ -13,7 +13,10 @@ export class DescribeResourceTypeAutoEnableResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether default traffic redirection is enabled.
+   * Indicates whether traffic redirection is enabled by default.
+   * 
+   * @example
+   * {"eip":true,"SlbEIP":false}
    */
   resourceTypeAutoEnable?: { [key: string]: boolean };
   static names(): { [key: string]: string } {

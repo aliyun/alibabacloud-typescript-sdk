@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRiskEventGroupResponseBodyDataListIPLocationInfo extends $dara.Model {
   /**
    * @remarks
-   * The city ID.
+   * The ID of the city.
    * 
    * @example
    * 510100
@@ -13,7 +13,7 @@ export class DescribeRiskEventGroupResponseBodyDataListIPLocationInfo extends $d
   cityId?: string;
   /**
    * @remarks
-   * The city name.
+   * The name of the city.
    * 
    * @example
    * Chengdu
@@ -21,7 +21,7 @@ export class DescribeRiskEventGroupResponseBodyDataListIPLocationInfo extends $d
   cityName?: string;
   /**
    * @remarks
-   * The country ID.
+   * The ID of the country.
    * 
    * @example
    * CN
@@ -29,7 +29,7 @@ export class DescribeRiskEventGroupResponseBodyDataListIPLocationInfo extends $d
   countryId?: string;
   /**
    * @remarks
-   * The country name.
+   * The name of the country.
    * 
    * @example
    * China
@@ -65,7 +65,7 @@ export class DescribeRiskEventGroupResponseBodyDataListIPLocationInfo extends $d
 export class DescribeRiskEventGroupResponseBodyDataListResourcePrivateIPList extends $dara.Model {
   /**
    * @remarks
-   * The region ID. This parameter indicates the region ID of the private IP address.
+   * The region ID. This parameter indicates the ID of the region to which the private IP address belongs.
    * 
    * @example
    * cn-hangzhou
@@ -73,7 +73,7 @@ export class DescribeRiskEventGroupResponseBodyDataListResourcePrivateIPList ext
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * i-wz92jf4scg2zb74p****
@@ -125,7 +125,7 @@ export class DescribeRiskEventGroupResponseBodyDataListResourcePrivateIPList ext
 export class DescribeRiskEventGroupResponseBodyDataListVpcDstInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ECS instance.
+   * The instance ID of the ECS instance.
    * 
    * @example
    * i-wz92jf4scg2zb74p****
@@ -141,7 +141,7 @@ export class DescribeRiskEventGroupResponseBodyDataListVpcDstInfo extends $dara.
   ecsInstanceName?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The instance ID of the VPC-connected instance.
    * 
    * @example
    * vpc-uf6e9a9zyokj2ywuo****
@@ -149,7 +149,7 @@ export class DescribeRiskEventGroupResponseBodyDataListVpcDstInfo extends $dara.
   networkInstanceId?: string;
   /**
    * @remarks
-   * The name of the VPC.
+   * The name of the VPC-connected instance.
    * 
    * @example
    * VPC-SH-TX****
@@ -157,7 +157,7 @@ export class DescribeRiskEventGroupResponseBodyDataListVpcDstInfo extends $dara.
   networkInstanceName?: string;
   /**
    * @remarks
-   * The region ID. This parameter indicates the region ID of the destination VPC.
+   * The region ID. This parameter indicates the ID of the region to which the destination VPC-connected instance belongs.
    * 
    * @example
    * cn-hangzhou
@@ -195,7 +195,7 @@ export class DescribeRiskEventGroupResponseBodyDataListVpcDstInfo extends $dara.
 export class DescribeRiskEventGroupResponseBodyDataListVpcSrcInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ECS instance.
+   * The instance ID of the ECS instance.
    * 
    * @example
    * i-wz92jf4scg2zb74p****
@@ -211,7 +211,7 @@ export class DescribeRiskEventGroupResponseBodyDataListVpcSrcInfo extends $dara.
   ecsInstanceName?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The instance ID of the VPC-connected instance.
    * 
    * @example
    * vpc-uf6e9a9zyokj2ywuo****
@@ -219,7 +219,7 @@ export class DescribeRiskEventGroupResponseBodyDataListVpcSrcInfo extends $dara.
   networkInstanceId?: string;
   /**
    * @remarks
-   * The name of the VPC.
+   * The name of the VPC-connected instance.
    * 
    * @example
    * VPC-SH-TX****
@@ -227,7 +227,7 @@ export class DescribeRiskEventGroupResponseBodyDataListVpcSrcInfo extends $dara.
   networkInstanceName?: string;
   /**
    * @remarks
-   * The region ID. This parameter indicates the region ID of the source VPC.
+   * The region ID. This parameter indicates the ID of the region to which the source VPC-connected instance belongs.
    * 
    * @example
    * cn-hangzhou
@@ -273,33 +273,20 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   attackApp?: string;
   /**
    * @remarks
-   * The type of the attack. Valid values:
-   * 
-   * - **1**: abnormal connection
-   * 
-   * - **2**: command execution
-   * 
-   * - **3**: brute-force attack
-   * 
-   * - **4**: scan
-   * 
-   * - **5**: other
-   * 
-   * - **6**: information leakage
-   * 
-   * - **7**: DoS attack
-   * 
-   * - **8**: overflow attack
-   * 
-   * - **9**: web attack
-   * 
-   * - **10**: backdoor trojan
-   * 
-   * - **11**: virus or worm
-   * 
-   * - **12**: mining behavior
-   * 
-   * - **13**: reverse shell
+   * The attack type of the intrusion prevention event. Valid values:
+   * - **1**: Abnormal connection.
+   * - **2**: Execute commands.
+   * - **3**: Brute-force attacks.
+   * - **4**: Scan.
+   * - **5**: Other.
+   * - **6**: Information leak.
+   * - **7**: DoS attack.
+   * - **8**: Overflow attack.
+   * - **9**: Web attack.
+   * - **10**: Trojan backdoor.
+   * - **11**: Virus and worm.
+   * - **12**: Mining behavior.
+   * - **13**: Reverse shell.
    * 
    * @example
    * 1
@@ -316,10 +303,8 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The traffic direction of the intrusion prevention event. Valid values:
-   * 
-   * - **in**: inbound
-   * 
-   * - **out**: outbound
+   * - **in**: Inbound.
+   * - **out**: Outbound.
    * 
    * @example
    * in
@@ -327,7 +312,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The destination IP address. The intrusion prevention event contains this destination IP address.
+   * The queried destination IP address. This indicates that the intrusion prevention event includes this destination IP address.
    * 
    * @example
    * 192.0.XX.XX
@@ -359,7 +344,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The time when the intrusion event first occurred. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the intrusion event first occurred. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1534408189
@@ -367,13 +352,13 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   firstEventTime?: number;
   /**
    * @remarks
-   * The geolocation information of the IP address. This struct contains the **CityId**, **CityName**, **CountryId**, and **CountryName** parameters.<br>
-   * **CityId** indicates the city ID of the IP address. **CityName** indicates the city name of the IP address. **CountryId** indicates the country ID of the IP address. **CountryName** indicates the country name of the IP address.<br>
+   * The IP geolocation information. The struct includes the **CityId**, **CityName**, **CountryId**, and **CountryName** parameters.  
+   * **CityId** indicates the ID of the city to which the IP address belongs. **CityName** indicates the name of the city to which the IP address belongs. **CountryId** indicates the ID of the country to which the IP address belongs. **CountryName** indicates the name of the country to which the IP address belongs.
    */
   IPLocationInfo?: DescribeRiskEventGroupResponseBodyDataListIPLocationInfo;
   /**
    * @remarks
-   * The time when the intrusion prevention event last occurred. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the intrusion prevention event last occurred. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1534408267
@@ -381,25 +366,19 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   lastEventTime?: number;
   /**
    * @remarks
-   * The information about the private IP address in the intrusion prevention event. The value is an array that consists of the **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP** parameters.<br>
-   * **RegionNo** indicates the region ID of the IP address. **ResourceInstanceId** indicates the ID of the instance to which the IP address belongs. **ResourceInstanceName** indicates the name of the instance to which the IP address belongs. **ResourcePrivateIP** indicates the IP address.<br>
+   * The private IP address information of the intrusion prevention event. The IP address information is returned as an array that includes the **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP** parameters.  
+   * **RegionNo** indicates instance ID of the region to which the IP address belongs. **ResourceInstanceId** indicates instance ID of the instance to which the IP address belongs. **ResourceInstanceName** indicates the name of the instance to which the IP address belongs. **ResourcePrivateIP** indicates the IP address.
    */
   resourcePrivateIPList?: DescribeRiskEventGroupResponseBodyDataListResourcePrivateIPList[];
   /**
    * @remarks
-   * The type of the public IP address. Valid values:
-   * 
-   * - **EIP**: an elastic IP address (EIP)
-   * 
-   * - **EcsPublicIP**: an ECS public IP address
-   * 
-   * - **EcsEIP**: an ECS EIP
-   * 
-   * - **NatPublicIP**: a NAT public IP address
-   * 
-   * - **NatEIP**: a NAT EIP
-   * 
-   * - **SlbPublicIp**: an SLB public IP address
+   * The public IP address type of the intrusion prevention event. Valid values:
+   *  -  **EIP**: Elastic IP address.
+   *  - **EcsPublicIP**: The public IP addresses of Elastic Compute Service (ECS) instances.
+   *  - **EcsEIP**: EIP of an ECS instance.
+   *  - **NatPublicIP**: Public IP address of a NAT gateway.
+   *  - **NatEIP**: EIP of a NAT gateway.
+   *  - **SlbPublicIp**: Public IP address of an SLB instance.
    * 
    * @example
    * EcsPublicIP
@@ -407,7 +386,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the rule that is used to defend against the intrusion prevention event.
+   * The ID of the protection rule for the intrusion prevention event.
    * 
    * @example
    * 1000****
@@ -415,11 +394,9 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The handling status. Valid values:
-   * 
-   * - **1**: Alert
-   * 
-   * - **2**: Block
+   * The defense status. Valid values:
+   * - **1**: Alert.
+   * - **2**: Block.
    * 
    * @example
    * 2
@@ -427,13 +404,10 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   ruleResult?: number;
   /**
    * @remarks
-   * The source of the rule that is used to detect the intrusion prevention event. Valid values:
-   * 
-   * - **1**: basic protection
-   * 
-   * - **2**: virtual patching
-   * 
-   * - **4**: threat intelligence
+   * The source of the detection rule for the intrusion prevention event. Valid values:
+   * - **1**: Basic protection.
+   * - **2**: Virtual Patches.
+   * - **4**: Threat intelligence.
    * 
    * @example
    * 1
@@ -441,7 +415,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   ruleSource?: number;
   /**
    * @remarks
-   * The source IP address. The intrusion prevention event contains this source IP address.
+   * The queried source IP address. This indicates that the intrusion prevention event includes this source IP address.
    * 
    * @example
    * 192.0.XX.XX
@@ -449,7 +423,7 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   srcIP?: string;
   /**
    * @remarks
-   * The tag of the source IP address. This tag is used to identify whether the IP address is a back-to-origin IP address of an Alibaba Cloud service.
+   * The source IP address label, which serves as the identity indicating whether the IP address is one of the back-to-origin IP addresses of a cloud service.
    * 
    * @example
    * WAF Back-to-origin Address
@@ -464,12 +438,12 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   srcIPTags?: string[];
   /**
    * @remarks
-   * The list of source private IP addresses in the intrusion prevention event.
+   * The list of source private IP addresses for the intrusion prevention event.
    */
   srcPrivateIPList?: string[];
   /**
    * @remarks
-   * The tag for major event support.
+   * The label of intelligence tags for critical event protection.
    * 
    * @example
    * test-tag
@@ -477,25 +451,22 @@ export class DescribeRiskEventGroupResponseBodyDataList extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The information about the destination VPC of the intrusion prevention event. This struct contains the **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo** parameters.<br>
-   * **EcsInstanceId** indicates the ID of the ECS instance in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the ID of the VPC. **NetworkInstanceName** indicates the name of the VPC. **RegionNo** indicates the region ID of the VPC.<br>
+   * The destination VPC information of the intrusion prevention event. The structure includes the **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo** parameters.  
+   * **EcsInstanceId** indicates the instance ID of the ECS instance in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the instance ID of the VPC-connected instance. **NetworkInstanceName** indicates the name of the VPC-connected instance. **RegionNo** indicates the ID of the region to which the VPC-connected instance belongs.
    */
   vpcDstInfo?: DescribeRiskEventGroupResponseBodyDataListVpcDstInfo;
   /**
    * @remarks
-   * The information about the source VPC of the intrusion prevention event. This struct contains the **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo** parameters.<br>
-   * **EcsInstanceId** indicates the ID of the ECS instance in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the ID of the VPC. **NetworkInstanceName** indicates the name of the VPC. **RegionNo** indicates the region ID of the VPC.<br>
+   * The source VPC information of the intrusion prevention event. The structure includes the **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo** parameters.  
+   * **EcsInstanceId** indicates the instance ID of the ECS instance in the VPC. **EcsInstanceName** indicates the name of the ECS instance in the VPC. **NetworkInstanceId** indicates the instance ID of the VPC-connected instance. **NetworkInstanceName** indicates the name of the VPC-connected instance. **RegionNo** indicates the ID of the region to which the VPC-connected instance belongs.
    */
   vpcSrcInfo?: DescribeRiskEventGroupResponseBodyDataListVpcSrcInfo;
   /**
    * @remarks
-   * The risk level of the intrusion prevention event. Valid values:
-   * 
-   * - **1**: low
-   * 
-   * - **2**: medium
-   * 
-   * - **3**: high
+   * The security level of the intrusion prevention event. Valid values:
+   * - **1**: Low-risk.
+   * - **2**: Medium-risk.
+   * - **3**: High-risk.
    * 
    * @example
    * 1

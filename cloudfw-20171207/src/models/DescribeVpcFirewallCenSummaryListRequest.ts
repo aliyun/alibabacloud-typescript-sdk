@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallCenSummaryListRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number for a paged query. The default value is 1.
+   * The page number of the current page in a paging query. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeVpcFirewallCenSummaryListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The language of the content. Valid values:
+   * The language. Valid values:
    * 
    * - **zh** (default): Chinese.
    * 
@@ -25,7 +25,7 @@ export class DescribeVpcFirewallCenSummaryListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member account of the current Alibaba Cloud account.
    * 
    * @example
    * 135809047715****
@@ -33,7 +33,7 @@ export class DescribeVpcFirewallCenSummaryListRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -43,9 +43,9 @@ export class DescribeVpcFirewallCenSummaryListRequest extends $dara.Model {
    * @remarks
    * The type of the CEN transit router. Valid values:
    * 
-   * **Basic**: Basic Edition
+   * **Basic**: Basic Edition.
    * 
-   * **Enterprise**: Enterprise Edition
+   * **Enterprise**: Enterprise Edition.
    * 
    * @example
    * Basic

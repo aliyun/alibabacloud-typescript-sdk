@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddPrivateDnsDomainNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the private DNS resolution instance.
+   * The ID of the Private DNS resolution instance.
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,7 @@ export class AddPrivateDnsDomainNameRequest extends $dara.Model {
   domainNameList?: string[];
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region where the instance resides.
    * 
    * > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
    * 

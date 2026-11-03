@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNatFirewallSyncTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The language type of the response message.
+   * The language type for receiving messages.
    * 
    * @example
    * zh

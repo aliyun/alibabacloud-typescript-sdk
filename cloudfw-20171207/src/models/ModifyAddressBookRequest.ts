@@ -45,7 +45,7 @@ export class ModifyAddressBookRequestAckLabels extends $dara.Model {
 export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 extends $dara.Model {
   /**
    * @remarks
-   * The asset type: AIGatewayEIP.
+   * The AIGatewayEIP asset type.
    * 
    * @example
    * false
@@ -53,7 +53,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   aiGatewayEIP?: boolean;
   /**
    * @remarks
-   * The asset type: AlbEIP.
+   * The AlbEIP asset type.
    * 
    * @example
    * false
@@ -61,7 +61,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   albEIP?: boolean;
   /**
    * @remarks
-   * The asset type: ApigEIP.
+   * The ApigEIP asset type.
    * 
    * @example
    * false
@@ -69,7 +69,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   apiGatewayEIP?: boolean;
   /**
    * @remarks
-   * The asset type: BastionHostEgressIP.
+   * The BastionHostEgressIP asset type.
    * 
    * @example
    * false
@@ -77,7 +77,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   bastionHostEgressIP?: boolean;
   /**
    * @remarks
-   * The asset type: BastionHostIP.
+   * The BastionHostIP asset type.
    * 
    * @example
    * false
@@ -85,7 +85,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   bastionHostIP?: boolean;
   /**
    * @remarks
-   * The asset type: BastionHostIngressIP.
+   * The BastionHostIngressIP asset type.
    * 
    * @example
    * false
@@ -93,7 +93,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   bastionHostIngressIP?: boolean;
   /**
    * @remarks
-   * The asset type: EIP.
+   * The EIP asset type.
    * 
    * @example
    * false
@@ -101,7 +101,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   EIP?: boolean;
   /**
    * @remarks
-   * The asset type: EcsEIP.
+   * The EcsEIP asset type.
    * 
    * @example
    * false
@@ -109,7 +109,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   ecsEIP?: boolean;
   /**
    * @remarks
-   * The asset type: EcsPublicIP.
+   * The EcsPublicIP asset type.
    * 
    * @example
    * false
@@ -117,7 +117,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   ecsPublicIP?: boolean;
   /**
    * @remarks
-   * The asset type: EniEIP.
+   * The EniEIP asset type.
    * 
    * @example
    * false
@@ -125,7 +125,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   eniEIP?: boolean;
   /**
    * @remarks
-   * The asset type: GaEIP.
+   * The GaEIP asset type.
    * 
    * @example
    * false
@@ -133,7 +133,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   gaEIP?: boolean;
   /**
    * @remarks
-   * The asset type: HAVIP.
+   * The HAVIP asset type.
    * 
    * @example
    * false
@@ -141,7 +141,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   HAVIP?: boolean;
   /**
    * @remarks
-   * The asset type: NatEIP.
+   * The NatEIP asset type.
    * 
    * @example
    * false
@@ -149,7 +149,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   natEIP?: boolean;
   /**
    * @remarks
-   * The asset type: NatPublicIP.
+   * The NatPublicIP asset type.
    * 
    * @example
    * false
@@ -157,7 +157,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   natPublicIP?: boolean;
   /**
    * @remarks
-   * The asset type: NlbEIP.
+   * The NlbEIP asset type.
    * 
    * @example
    * false
@@ -165,7 +165,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   nlbEIP?: boolean;
   /**
    * @remarks
-   * The asset type: SlbEIP.
+   * The SlbEIP asset type.
    * 
    * @example
    * true
@@ -173,7 +173,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
   slbEIP?: boolean;
   /**
    * @remarks
-   * The asset type: SlbPublicIP.
+   * The SlbPublicIP asset type.
    * 
    * @example
    * false
@@ -235,7 +235,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 ex
 export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 extends $dara.Model {
   /**
    * @remarks
-   * The asset type: AIGatewayEIPv6.
+   * The AIGatewayEIPv6 asset type.
    * 
    * @example
    * false
@@ -243,7 +243,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 ex
   aiGatewayEIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: AlbIPv6.
+   * The AlbIPv6 asset type.
    * 
    * @example
    * false
@@ -251,7 +251,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 ex
   albIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: ApigEIPv6.
+   * The ApigEIPv6 asset type.
    * 
    * @example
    * false
@@ -259,7 +259,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 ex
   apiGatewayEIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: EcsIPv6.
+   * The EcsIPv6 asset type.
    * 
    * @example
    * false
@@ -267,7 +267,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 ex
   ecsIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: EniEIPv6.
+   * The EniEIPv6 asset type.
    * 
    * @example
    * false
@@ -275,7 +275,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 ex
   eniEIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: GaEIPv6.
+   * The GaEIPv6 asset type.
    * 
    * @example
    * false
@@ -283,7 +283,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 ex
   gaEIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: NlbIPv6.
+   * The NlbIPv6 asset type.
    * 
    * @example
    * false
@@ -291,7 +291,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 ex
   nlbIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: SlbIPv6.
+   * The SlbIPv6 asset type.
    * 
    * @example
    * false
@@ -375,7 +375,7 @@ export class ModifyAddressBookRequestAssetRegionResourceTypesResourceType extend
 export class ModifyAddressBookRequestAssetRegionResourceTypes extends $dara.Model {
   /**
    * @remarks
-   * The asset region ID.
+   * The ID of the asset region.
    * 
    * @example
    * all
@@ -468,13 +468,13 @@ export class ModifyAddressBookRequest extends $dara.Model {
   ackNamespaces?: string[];
   /**
    * @remarks
-   * The list of addresses in the address book. Separate multiple addresses with commas (,). For each address element, separate the address and the description with a space. You must specify this parameter when GroupType is set to **ip**, **port**, or **domain**.
+   * The list of addresses in the address book. Separate multiple addresses with commas (,). Separate the address and description of an address element with a space. You must configure this parameter when GroupType is set to **ip**, **port**, or **domain**.
    * 
-   * - If GroupType is set to **ip**, enter IP addresses in the address list. Example: 1.2.XX.XX/32 Development CIDR block,10.0.0.X/24,1.2.XX.XX/24 Test CIDR block.
+   * - When GroupType is set to **ip**, enter IP addresses in the address list. Example: 1.2.XX.XX/32 Development CIDR block,10.0.0.X/24,1.2.XX.XX/24 Test CIDR block.
    * 
-   * - If GroupType is set to **port**, enter ports or port ranges in the address list. Example: 80/80 HTTP port,100/200,3306 Database port.
+   * - When GroupType is set to **port**, enter ports or port ranges in the address list. Example: 80/80 HTTP port,100/200,3306 Database port.
    * 
-   * - If GroupType is set to **domain**, enter domain names in the address list. Example: demo1.aliyun.com Test domain name,demo2.aliyun.com,www.aliyun.com Alibaba Cloud official website.
+   * - When GroupType is set to **domain**, enter domain names in the address list. Example: demo1.aliyun.com Test domain name,demo2.aliyun.com,www.aliyun.com Alibaba Cloud official website.
    * 
    * @example
    * 192.0.XX.XX/32 ,192.0.XX.XX/24
@@ -487,12 +487,12 @@ export class ModifyAddressBookRequest extends $dara.Model {
   assetMemberUids?: number[];
   /**
    * @remarks
-   * The asset address book, region, and resource type list.
+   * The asset address book, regions, and resource types.
    */
   assetRegionResourceTypes?: ModifyAddressBookRequestAssetRegionResourceTypes[];
   /**
    * @remarks
-   * Specifies if the automatic addition of the public IP addresses of Elastic Compute Service (ECS) instances that match the new labels to the address book is enabled.
+   * Specifies whether the public IP addresses of Elastic Compute Service (ECS) instances that match a new tag are automatically added to the address book.
    * 
    * @example
    * 1
@@ -533,9 +533,9 @@ export class ModifyAddressBookRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The UUID of the address book.
+   * The unique ID of the address book.
    * 
-   * > To obtain the value, call the [DescribeAddressBook](~~DescribeAddressBook~~) operation.
+   * > Value source: [List address books](~~DescribeAddressBook~~).
    * 
    * This parameter is required.
    * 
@@ -555,8 +555,8 @@ export class ModifyAddressBookRequest extends $dara.Model {
    * @remarks
    * The modification mode.
    * 
-   * > If GroupType is set to **ip**, **ipv6**, **port**, or **domain** and this parameter is not specified, the **Cover** mode is used by default to modify the address book.
-   * >Notice: If GroupType is set to **tag**, this parameter must be left empty.</notice>
+   * > When GroupType is set to **ip**, **ipv6**, **port**, or **domain**, if you do not configure this parameter, the **Cover** mode is used by default to modify the address book.
+   * > <notice>When GroupType is set to **tag**, this parameter must be left empty.</notice>
    * 
    * @example
    * Cover

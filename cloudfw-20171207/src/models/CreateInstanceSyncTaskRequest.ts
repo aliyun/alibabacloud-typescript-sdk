@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceSyncTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The language type. Valid values:
-   * - **en**: English.
-   * - **zh**: Chinese.
+   * The language type.
    * 
    * @example
    * zh
@@ -15,7 +13,7 @@ export class CreateInstanceSyncTaskRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The IP address of the access source.
+   * The source IP address of the visitor.
    * 
    * @example
    * 60.182.79.XXX

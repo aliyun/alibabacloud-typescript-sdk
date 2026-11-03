@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOutgoingDestinationIPDetailResponseBodyAssetListTagList extends $dara.Model {
   /**
    * @remarks
-   * The classification ID.
+   * The category ID.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetListTagList ext
   riskLevel?: number;
   /**
    * @remarks
-   * The description of the tag.
+   * The tag description.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetListTagList ext
   tagDescribe?: string;
   /**
    * @remarks
-   * The ID of the tag.
+   * The tag ID.
    * 
    * @example
    * FirstFlow
@@ -37,7 +37,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetListTagList ext
   tagId?: string;
   /**
    * @remarks
-   * The name of the tag.
+   * The tag name.
    * 
    * @example
    * test
@@ -75,7 +75,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetListTagList ext
 export class DescribeOutgoingDestinationIPDetailResponseBodyAssetList extends $dara.Model {
   /**
    * @remarks
-   * The status of the access control policy.
+   * The policy coverage status.
    * 
    * @example
    * FullCoverage
@@ -83,7 +83,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetList extends $d
   aclCoverage?: string;
   /**
    * @remarks
-   * The time of the first access. This is a UNIX timestamp. Unit: seconds.
+   * The time of the first visit. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1744682438
@@ -99,7 +99,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetList extends $d
   inBytes?: number;
   /**
    * @remarks
-   * The ISP of the destination IP address.
+   * The ISP to which the destination IP address belongs.
    * 
    * @example
    * telecom
@@ -107,7 +107,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetList extends $d
   ispName?: string;
   /**
    * @remarks
-   * The time of the last access. This is a UNIX timestamp. Unit: seconds.
+   * The time of the last visit. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1739326614
@@ -115,7 +115,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetList extends $d
   lastTime?: number;
   /**
    * @remarks
-   * The name of the region where the destination IP address is located.
+   * The name of the region to which the destination IP address belongs.
    * 
    * @example
    * Hangzhou
@@ -123,7 +123,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetList extends $d
   locationName?: string;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The NAT gateway ID.
    * 
    * @example
    * ngw-bp1utx6wj4x9qu9tl****
@@ -131,7 +131,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetList extends $d
   natGatewayId?: string;
   /**
    * @remarks
-   * The name of the NAT Gateway.
+   * The name of the NAT gateway.
    * 
    * @example
    * ngw-test
@@ -171,7 +171,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetList extends $d
   regionNo?: string;
   /**
    * @remarks
-   * The instance ID of the cloud product.
+   * The instance ID of the cloud service.
    * 
    * @example
    * i-uf63wjhyoohc1g4z****
@@ -187,7 +187,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetList extends $d
   resourceInstanceName?: string;
   /**
    * @remarks
-   * The type of the public IP address of the asset.
+   * The public IP address type of the asset.
    * 
    * @example
    * EcsPublicIP
@@ -232,7 +232,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBodyAssetList extends $d
   totalBytes?: string;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The VPC instance ID.
    * 
    * @example
    * vpc-9dp16jgwgyvn****
@@ -310,7 +310,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBody extends $dara.Model
   assetList?: DescribeOutgoingDestinationIPDetailResponseBodyAssetList[];
   /**
    * @remarks
-   * The ISP of the destination IP address.
+   * The ISP to which the destination IP address belongs.
    * 
    * @example
    * telecom
@@ -318,7 +318,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBody extends $dara.Model
   ispName?: string;
   /**
    * @remarks
-   * The name of the region.
+   * The region name.
    * 
    * @example
    * Hangzhou
@@ -334,7 +334,7 @@ export class DescribeOutgoingDestinationIPDetailResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 25

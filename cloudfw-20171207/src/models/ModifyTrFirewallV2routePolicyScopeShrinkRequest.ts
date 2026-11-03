@@ -33,9 +33,8 @@ export class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends $dara.Model
    * @remarks
    * Specifies whether to restore the traffic redirection configuration. Valid values:
    * 
-   * - true: Route rollback.
-   * 
-   * - false: Route withdrawal.
+   * - true: Rolls back the route.
+   * - false: Revokes the route.
    * 
    * @example
    * false

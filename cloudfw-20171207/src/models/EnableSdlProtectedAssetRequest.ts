@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableSdlProtectedAssetRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of IP assets. At least one IP address is required to enable protection.
+   * The list of IP addresses of the assets. At least one IP address is required to enable protection.
    */
   ipList?: string[];
   /**

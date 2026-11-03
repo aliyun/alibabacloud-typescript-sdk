@@ -13,7 +13,7 @@ export class DescribeCreatedNatFirewallResponseBodyCreatedNatFirewalls extends $
   natFirewallId?: string;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The ID of the NAT gateway.
    * 
    * @example
    * ngw-uf6i0zkjtz4t2sttf****
@@ -21,7 +21,7 @@ export class DescribeCreatedNatFirewallResponseBodyCreatedNatFirewalls extends $
   natGatewayId?: string;
   /**
    * @remarks
-   * The name of the NAT Gateway.
+   * The name of the NAT gateway.
    * 
    * @example
    * ngw-text
@@ -55,7 +55,7 @@ export class DescribeCreatedNatFirewallResponseBodyCreatedNatFirewalls extends $
 export class DescribeCreatedNatFirewallResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of the created NAT firewalls.
+   * The list of created NAT firewalls.
    */
   createdNatFirewalls?: DescribeCreatedNatFirewallResponseBodyCreatedNatFirewalls[];
   /**

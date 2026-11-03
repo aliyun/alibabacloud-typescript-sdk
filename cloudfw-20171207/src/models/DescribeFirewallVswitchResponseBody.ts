@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFirewallVSwitchResponseBodyVswitchListFirewallList extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the firewall.
+   * The firewall instance ID.
    * 
    * @example
    * vfw-tr-37145c8f5ede45e9****
@@ -90,7 +90,7 @@ export class DescribeFirewallVSwitchResponseBodyVswitchList extends $dara.Model 
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-2zeez7gymz5r4pi****am
@@ -165,7 +165,7 @@ export class DescribeFirewallVSwitchResponseBodyVswitchList extends $dara.Model 
 export class DescribeFirewallVSwitchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A1562A68-99FA-5D6B-BD5B-2F959F25****

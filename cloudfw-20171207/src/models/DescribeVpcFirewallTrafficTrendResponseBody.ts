@@ -45,7 +45,7 @@ export class DescribeVpcFirewallTrafficTrendResponseBodyDataList extends $dara.M
   outBps?: number;
   /**
    * @remarks
-   * The total outbound network throughput. Unit: bytes.
+   * The total network traffic in the outbound direction. Unit: bytes.
    * 
    * @example
    * 230
@@ -69,7 +69,7 @@ export class DescribeVpcFirewallTrafficTrendResponseBodyDataList extends $dara.M
   sessionCount?: number;
   /**
    * @remarks
-   * The time when the traffic occurred. The value is a UNIX timestamp. Unit: seconds.
+   * The time when the traffic was generated. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1758470400
@@ -115,7 +115,7 @@ export class DescribeVpcFirewallTrafficTrendResponseBodyDataList extends $dara.M
 export class DescribeVpcFirewallTrafficTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The average inbound network throughput. Unit: bit/s.
+   * The average network throughput in the inbound direction. Unit: bit/s.
    * 
    * @example
    * 1264110
@@ -123,7 +123,7 @@ export class DescribeVpcFirewallTrafficTrendResponseBody extends $dara.Model {
   avgInBps?: number;
   /**
    * @remarks
-   * The average outbound network throughput. Unit: bit/s.
+   * The average network throughput in the outbound direction. Unit: bit/s.
    * 
    * @example
    * 68915
@@ -147,12 +147,12 @@ export class DescribeVpcFirewallTrafficTrendResponseBody extends $dara.Model {
   avgTotalBps?: number;
   /**
    * @remarks
-   * The data list.
+   * The list of returned data.
    */
   dataList?: DescribeVpcFirewallTrafficTrendResponseBodyDataList[];
   /**
    * @remarks
-   * The timestamp when the peak bandwidth occurred. The value is a UNIX timestamp. Unit: seconds.
+   * The timestamp when the peak bandwidth was reached. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1768008060
@@ -160,7 +160,7 @@ export class DescribeVpcFirewallTrafficTrendResponseBody extends $dara.Model {
   maxBandwidthTime?: number;
   /**
    * @remarks
-   * The peak inbound network throughput. Unit: bit/s.
+   * The peak network throughput in the inbound direction. Unit: bit/s.
    * 
    * @example
    * 1436
@@ -168,7 +168,7 @@ export class DescribeVpcFirewallTrafficTrendResponseBody extends $dara.Model {
   maxInBps?: number;
   /**
    * @remarks
-   * The peak outbound network throughput. Unit: bit/s.
+   * The peak network throughput in the outbound direction. Unit: bit/s.
    * 
    * @example
    * 2128
@@ -208,7 +208,7 @@ export class DescribeVpcFirewallTrafficTrendResponseBody extends $dara.Model {
   totalBytes?: number;
   /**
    * @remarks
-   * The total inbound network throughput. Unit: bytes.
+   * The total network traffic in the inbound direction. Unit: bytes.
    * 
    * @example
    * 2659635037
@@ -216,7 +216,7 @@ export class DescribeVpcFirewallTrafficTrendResponseBody extends $dara.Model {
   totalInBytes?: number;
   /**
    * @remarks
-   * The total outbound network throughput. Unit: bytes.
+   * The total network traffic in the outbound direction. Unit: bytes.
    * 
    * @example
    * 399762701

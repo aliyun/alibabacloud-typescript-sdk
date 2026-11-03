@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetTrafficTopResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The name of the country.
+   * The country name.
    * 
    * @example
    * US
@@ -13,7 +13,7 @@ export class DescribeInternetTrafficTopResponseBodyDataList extends $dara.Model 
   dataName?: string;
   /**
    * @remarks
-   * The inbound traffic percentage.
+   * The inbound percentage.
    * 
    * @example
    * 47.12
@@ -21,7 +21,7 @@ export class DescribeInternetTrafficTopResponseBodyDataList extends $dara.Model 
   dataValue?: string;
   /**
    * @remarks
-   * Indicates whether the data is subscribed.
+   * Indicates whether the item is subscribed.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class DescribeInternetTrafficTopResponseBodyDataList extends $dara.Model 
   isSubscribed?: boolean;
   /**
    * @remarks
-   * The list of labels.
+   * The label list.
    */
   labelList?: string[];
   /**
@@ -85,7 +85,7 @@ export class DescribeInternetTrafficTopResponseBodyDataList extends $dara.Model 
 export class DescribeInternetTrafficTopResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of traffic data entries.
+   * The number of traffic data records.
    * 
    * @example
    * 10
@@ -93,12 +93,12 @@ export class DescribeInternetTrafficTopResponseBody extends $dara.Model {
   dataCount?: number;
   /**
    * @remarks
-   * The list of traffic data.
+   * The traffic data list.
    */
   dataList?: DescribeInternetTrafficTopResponseBodyDataList[];
   /**
    * @remarks
-   * The type of traffic data.
+   * The traffic data type.
    * 
    * @example
    * in_src_ip
@@ -106,7 +106,7 @@ export class DescribeInternetTrafficTopResponseBody extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 15FCCC52-1E23-57AE-B5EF-3E00A3******

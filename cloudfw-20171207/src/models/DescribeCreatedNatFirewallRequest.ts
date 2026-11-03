@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCreatedNatFirewallRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the request and response.
+   * The language of the request and response messages.
    * 
    * @example
    * zh

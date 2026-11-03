@@ -13,7 +13,7 @@ export class DescribeFirewallTaskResponseBodyTaskSteps extends $dara.Model {
   stepInfo?: string;
   /**
    * @remarks
-   * The name of the Cloud Firewall security step.
+   * Creating Cloud Firewall security.
    * 
    * @example
    * Create Firewall
@@ -29,7 +29,7 @@ export class DescribeFirewallTaskResponseBodyTaskSteps extends $dara.Model {
   stepProgress?: string;
   /**
    * @remarks
-   * The task step status. Valid values:
+   * The status of the task step. Valid values:
    * 
    * - **init** 
    * 
@@ -81,7 +81,7 @@ export class DescribeFirewallTaskResponseBody extends $dara.Model {
   isFound?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7D5483BF-2262-586D-8706-BDDB8B42****
@@ -97,7 +97,7 @@ export class DescribeFirewallTaskResponseBody extends $dara.Model {
   taskFinishTimestamp?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 189997648
@@ -105,7 +105,7 @@ export class DescribeFirewallTaskResponseBody extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
    * egressgw
@@ -121,7 +121,7 @@ export class DescribeFirewallTaskResponseBody extends $dara.Model {
   taskStartTimestamp?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The status of the task. Valid values:
    * 
    * - **init**
    * 
@@ -144,7 +144,7 @@ export class DescribeFirewallTaskResponseBody extends $dara.Model {
   taskSteps?: DescribeFirewallTaskResponseBodyTaskSteps[];
   /**
    * @remarks
-   * The waiting time, in minutes.
+   * The waiting time. Unit: minutes.
    * 
    * @example
    * 30

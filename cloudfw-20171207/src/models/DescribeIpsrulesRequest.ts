@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIPSRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The application targeted by the attack.
+   * The attacked application.
    * 
    * @example
    * SMB
@@ -13,17 +13,17 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   attackApp?: string;
   /**
    * @remarks
-   * The categories of applications targeted by attacks.
+   * The list of categories of the attacked applications. Specify the value in the ["AttackAppCategory1","AttackAppCategory2"] format.
    */
   attackAppCategory?: string[];
   /**
    * @remarks
-   * The applications targeted by attacks.
+   * The list of attacked applications.
    */
   attackApps?: string[];
   /**
    * @remarks
-   * The attack type.
+   * The attack application type.
    * 
    * @example
    * Web attack
@@ -39,7 +39,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   cve?: string;
   /**
    * @remarks
-   * The status of the rule.
+   * The enabling status.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   defaultAction?: string;
   /**
    * @remarks
-   * The type of firewall.
+   * The Cloud Firewall type.
    * 
    * @example
    * VpcFirewall
@@ -55,7 +55,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   firewallType?: string;
   /**
    * @remarks
-   * The language of the request and response.
+   * The language of the request message.
    * 
    * @example
    * zh
@@ -63,7 +63,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The sort order.
+   * The sorting order.
    * 
    * @example
    * desc
@@ -71,7 +71,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Indicates whether to retrieve only modified rules.
+   * Specifies whether the rule has been modified.
    * 
    * @example
    * true
@@ -107,7 +107,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   ruleAction?: string;
   /**
    * @remarks
-   * The inspection mode.
+   * The supported engine mode.
    * 
    * @example
    * dropStrict
@@ -149,7 +149,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * The field to sort by.
+   * The sorting method.
    * 
    * @example
    * UpdateTime
@@ -157,7 +157,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the requester.
    * 
    * @example
    * 8.139.222.XXX
@@ -165,7 +165,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The instance ID of the virtual private cloud (VPC) firewalls.
    * 
    * @example
    * cen-rnbkqx4a8er21a****

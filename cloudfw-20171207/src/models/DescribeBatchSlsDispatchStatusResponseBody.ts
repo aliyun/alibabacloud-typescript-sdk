@@ -13,7 +13,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyInfoListItemList extends 
   configStatus?: string;
   /**
    * @remarks
-   * The name of the delivery type.
+   * The Chinese name of the delivery type.
    * 
    * @example
    * internet-traffic-log
@@ -21,7 +21,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyInfoListItemList extends 
   dispatchName?: string;
   /**
    * @remarks
-   * The key for the log categorization. Valid values:
+   * The key for classified logs. Valid values:
    * 
    * **internet_log**
    * 
@@ -39,7 +39,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyInfoListItemList extends 
   dispatchValue?: string;
   /**
    * @remarks
-   * Indicates whether this delivery type is enabled.
+   * The switch status of the delivery type.
    * 
    * @example
    * true
@@ -47,12 +47,12 @@ export class DescribeBatchSlsDispatchStatusResponseBodyInfoListItemList extends 
   enable?: boolean;
   /**
    * @remarks
-   * The detailed delivery configurations for the Internet and VPCs.
+   * The detailed delivery configurations for the Internet and VPC.
    */
   filterKeys?: string[];
   /**
    * @remarks
-   * The value is fixed to log_type. You can ignore this parameter.
+   * The value is fixed as log_type and can be ignored.
    * 
    * @example
    * log_type
@@ -95,7 +95,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyInfoListItemList extends 
 export class DescribeBatchSlsDispatchStatusResponseBodyInfoList extends $dara.Model {
   /**
    * @remarks
-   * The details of the log delivery configuration.
+   * The log delivery configuration details.
    */
   itemList?: DescribeBatchSlsDispatchStatusResponseBodyInfoListItemList[];
   /**
@@ -116,7 +116,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyInfoList extends $dara.Mo
   projectName?: string;
   /**
    * @remarks
-   * \\`cn\\` indicates the Chinese mainland. \\`intl\\` indicates regions outside the Chinese mainland. \\`global\\` indicates global.
+   * The site. A value of cn represents the Chinese mainland, intl represents regions outside the Chinese mainland, and global represents global.
    * 
    * @example
    * cn
@@ -155,7 +155,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyInfoList extends $dara.Mo
 export class DescribeBatchSlsDispatchStatusResponseBodyItemList extends $dara.Model {
   /**
    * @remarks
-   * The status of the delivery configuration.
+   * The delivery configuration status.
    * 
    * @example
    * success_finished
@@ -163,7 +163,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyItemList extends $dara.Mo
   configStatus?: string;
   /**
    * @remarks
-   * The name of the log delivery.
+   * The delivery name.
    * 
    * @example
    * internet-traffic-log
@@ -171,7 +171,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyItemList extends $dara.Mo
   dispatchName?: string;
   /**
    * @remarks
-   * The value of the log to be delivered.
+   * The value of the delivery log.
    * 
    * @example
    * internet_log
@@ -235,17 +235,17 @@ export class DescribeBatchSlsDispatchStatusResponseBodyItemList extends $dara.Mo
 export class DescribeBatchSlsDispatchStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of detailed information about the Logstores.
+   * The detailed information list of Logstores.
    */
   infoList?: DescribeBatchSlsDispatchStatusResponseBodyInfoList[];
   /**
    * @remarks
-   * A list of Simple Log Service projects.
+   * The list of log services.
    */
   itemList?: DescribeBatchSlsDispatchStatusResponseBodyItemList[];
   /**
    * @remarks
-   * The log version. A value of 1 indicates that there is one Logstore. A value of 2 indicates that there are two Logstores.
+   * The log version. A value of 1 indicates only one Logstore, and a value of 2 indicates two Logstores.
    * 
    * @example
    * 1
@@ -269,7 +269,7 @@ export class DescribeBatchSlsDispatchStatusResponseBody extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID of the returned result.
    * 
    * @example
    * 7036EBAB-F85F-5AAE-976F-C75AEE59****

@@ -237,7 +237,7 @@ export class AddAddressBookRequestAssetRegionResourceTypesResourceTypeIpv4 exten
 export class AddAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 extends $dara.Model {
   /**
    * @remarks
-   * The asset type: AIGatewayEIPv6.
+   * The AIGatewayEIPv6 asset type.
    * 
    * @example
    * false
@@ -245,7 +245,7 @@ export class AddAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 exten
   aiGatewayEIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: AlbIPv6.
+   * The AlbIPv6 asset type.
    * 
    * @example
    * false
@@ -253,7 +253,7 @@ export class AddAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 exten
   albIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: ApigEIPv6.
+   * The ApigEIPv6 asset type.
    * 
    * @example
    * false
@@ -261,7 +261,7 @@ export class AddAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 exten
   apiGatewayEIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: EcsIPv6.
+   * The EcsIPv6 asset type.
    * 
    * @example
    * false
@@ -269,7 +269,7 @@ export class AddAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 exten
   ecsIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: EniEIPv6.
+   * The EniEIPv6 asset type.
    * 
    * @example
    * false
@@ -277,7 +277,7 @@ export class AddAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 exten
   eniEIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: GaEIPv6.
+   * The GaEIPv6 asset type.
    * 
    * @example
    * false
@@ -285,7 +285,7 @@ export class AddAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 exten
   gaEIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: NlbIPv6.
+   * The NlbIPv6 asset type.
    * 
    * @example
    * false
@@ -293,7 +293,7 @@ export class AddAddressBookRequestAssetRegionResourceTypesResourceTypeIpv6 exten
   nlbIPv6?: boolean;
   /**
    * @remarks
-   * The asset type: SlbIPv6.
+   * The SlbIPv6 asset type.
    * 
    * @example
    * false
@@ -377,7 +377,7 @@ export class AddAddressBookRequestAssetRegionResourceTypesResourceType extends $
 export class AddAddressBookRequestAssetRegionResourceTypes extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the asset.
+   * The asset region ID.
    * 
    * @example
    * all
@@ -457,8 +457,8 @@ export class AddAddressBookRequestTagList extends $dara.Model {
 export class AddAddressBookRequest extends $dara.Model {
   /**
    * @remarks
-   * The ACK cluster connector ID. You can obtain the value from the following operation:
-   * - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): Lists ACK cluster connectors.
+   * The ID of the ACK cluster connector. You can obtain the value from the following operation:
+   * - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): Queries the list of ACK cluster connectors.
    * 
    * @example
    * ac-7c1bad6c3cc84c33baab1
@@ -479,7 +479,7 @@ export class AddAddressBookRequest extends $dara.Model {
   ackNamespaces?: string[];
   /**
    * @remarks
-   * The addresses in the address book. Separate multiple addresses with commas (,). Use a space to separate an address from its description within a single address element.
+   * The list of addresses in the address book. Separate multiple addresses with commas (,). For each address element, separate the address and the description with a space.
    * 
    * > This parameter is required when GroupType is set to `ip`, `port`, or `domain`.
    * 
@@ -500,12 +500,12 @@ export class AddAddressBookRequest extends $dara.Model {
   assetMemberUids?: number[];
   /**
    * @remarks
-   * The list of regions and resource types for the asset address book.
+   * The asset address book, region, and resource type list.
    */
   assetRegionResourceTypes?: AddAddressBookRequestAssetRegionResourceTypes[];
   /**
    * @remarks
-   * Indicates whether to automatically add the public IP addresses of Elastic Compute Service (ECS) instances that match the specified tags to the address book.
+   * Specifies whether the address book is automatically updated to include the public IP addresses of Elastic Compute Service (ECS) instances that match new labels.
    * 
    * @example
    * 1
@@ -543,7 +543,7 @@ export class AddAddressBookRequest extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * The language type of the address book description.
+   * The language of the address book description.
    * 
    * @example
    * zh
@@ -551,7 +551,7 @@ export class AddAddressBookRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the requester.
    * 
    * @example
    * 192.0.XX.XX
@@ -561,12 +561,12 @@ export class AddAddressBookRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The ECS tag list.
+   * The list of ECS tags.
    */
   tagList?: AddAddressBookRequestTagList[];
   /**
    * @remarks
-   * The logical relationship among multiple ECS tags to match.
+   * The relationship between multiple ECS tags to be matched.
    * 
    * @example
    * and

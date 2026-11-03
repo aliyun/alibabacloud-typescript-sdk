@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/cloudfw20171207",
-  "version": "8.4.4",
+  "version": "8.5.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

@@ -45,7 +45,11 @@ export class DescribeOutgoingDomainResponseBodyDomainListApplicationPortList ext
 export class DescribeOutgoingDomainResponseBodyDomainListTagList extends $dara.Model {
   /**
    * @remarks
-   * The categorization of the intelligence label. Valid values:
+   * The category of the intelligence label. Valid values:
+   * 
+   * - **Suspicious**: Suspicious.
+   * - **Malicious**: Malicious.
+   * - **Trusted**: Trusted.
    * 
    * @example
    * Trusted
@@ -55,13 +59,17 @@ export class DescribeOutgoingDomainResponseBodyDomainListTagList extends $dara.M
    * @remarks
    * The risk assessment level. Valid values:
    * 
+   * - **1**: Low risk.
+   * - **2**: Medium risk.
+   * - **3**: High risk.
+   * 
    * @example
    * 3
    */
   riskLevel?: number;
   /**
    * @remarks
-   * The tag description.
+   * The description of the tag.
    * 
    * @example
    * tag-describe
@@ -69,7 +77,7 @@ export class DescribeOutgoingDomainResponseBodyDomainListTagList extends $dara.M
   tagDescribe?: string;
   /**
    * @remarks
-   * The intelligence label ID.
+   * The ID of the intelligence label.
    * 
    * @example
    * AliYun
@@ -77,7 +85,7 @@ export class DescribeOutgoingDomainResponseBodyDomainListTagList extends $dara.M
   tagId?: string;
   /**
    * @remarks
-   * The tag name.
+   * The name of the tag.
    * 
    * @example
    * tag-name
@@ -115,7 +123,10 @@ export class DescribeOutgoingDomainResponseBodyDomainListTagList extends $dara.M
 export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the access control policy provides coverage. Valid values:
+   * Indicates whether the domain name is covered by an access control policy. Valid values:
+   * 
+   * - **Uncovered**: Not covered.
+   * - **FullCoverage**: Covered.
    * 
    * @example
    * Uncovered
@@ -123,7 +134,7 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   aclCoverage?: string;
   /**
    * @remarks
-   * The ACL recommendation details.
+   * The details of the ACL recommendation.
    * 
    * @example
    * RecommendedRelease
@@ -132,6 +143,9 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   /**
    * @remarks
    * The health status of the access control policy. Valid values:
+   * 
+   * - **Normal**: Healthy.
+   * - **Abnormal**: Unhealthy.
    * 
    * @example
    * Normal
@@ -161,11 +175,13 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   /**
    * @remarks
    * The list of application ports.
+   * 
+   * > The list displays only the first 99 application ports. If there are more than 99 ports, only the first 99 are returned.
    */
   applicationPortList?: DescribeOutgoingDomainResponseBodyDomainListApplicationPortList[];
   /**
    * @remarks
-   * The total number of assets with outbound connections.
+   * The total number of assets that initiate outbound connections.
    * 
    * @example
    * 20
@@ -173,7 +189,7 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   assetCount?: number;
   /**
    * @remarks
-   * The website business.
+   * The website service.
    * 
    * @example
    * Aliyun
@@ -181,7 +197,11 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   business?: string;
   /**
    * @remarks
-   * The categorization of the intelligence label. Valid values:
+   * The category of the intelligence label. Valid values:
+   * 
+   * - **Suspicious**: Suspicious.
+   * - **Malicious**: Malicious.
+   * - **Trusted**: Trusted.
    * 
    * @example
    * Trusted
@@ -189,7 +209,10 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   categoryClassId?: string;
   /**
    * @remarks
-   * The product category ID. Valid values:
+   * The category ID of the product. Valid values:
+   * 
+   * - **Aliyun**: Alibaba Cloud product.
+   * - **NotAliyun**: Non-Alibaba Cloud product.
    * 
    * @example
    * Aliyun
@@ -199,13 +222,16 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
    * @remarks
    * The category name of the product. Valid values:
    * 
+   * - **Alibaba Cloud product**
+   * - **Non-Alibaba Cloud product**
+   * 
    * @example
-   * Alibaba Cloud Product
+   * Alibaba Cloud product
    */
   categoryName?: string;
   /**
    * @remarks
-   * The domain name of the outbound connections.
+   * The domain name for outbound connections.
    * 
    * @example
    * www.aliyundoc.com
@@ -213,7 +239,7 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The group name of the rule.
+   * The name of the group in the rule.
    * 
    * @example
    * group-name
@@ -223,13 +249,19 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
    * @remarks
    * Indicates whether an ACL covers the management of this domain name. Valid values:
    * 
+   * - **true**: Yes.
+   * - **false**: No.
+   * 
    * @example
    * true
    */
   hasAcl?: string;
   /**
    * @remarks
-   * Indicates whether an ACL recommendation exists. Valid values:
+   * Indicates whether an ACL is recommended. Valid values:
+   * 
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -245,7 +277,10 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   inBytes?: number;
   /**
    * @remarks
-   * Indicates whether the outbound domain is marked as normal. Valid values:
+   * Indicates whether the outbound domain name is marked as normal. Valid values:
+   * 
+   * - **true**: Normal.
+   * - **false**: Abnormal.
    * 
    * @example
    * true
@@ -253,7 +288,7 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   isMarkNormal?: boolean;
   /**
    * @remarks
-   * The organization name.
+   * The name of the organization.
    * 
    * @example
    * Alibaba Cloud Computing Limited
@@ -269,7 +304,7 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   outBytes?: number;
   /**
    * @remarks
-   * The total number of private network assets with outbound connections.
+   * The total number of private network assets that initiate outbound connections.
    * 
    * @example
    * 20
@@ -277,7 +312,7 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   privateAssetCount?: number;
   /**
    * @remarks
-   * The ACL rule ID.
+   * The ID of the ACL rule.
    * 
    * @example
    * add-dfadf-f****
@@ -285,7 +320,7 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The ACL rule name.
+   * The name of the ACL rule.
    * 
    * @example
    * acl-name
@@ -301,7 +336,11 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
   securityReason?: string;
   /**
    * @remarks
-   * The security policy for the Outbound Domain. Valid values:
+   * The security policy for outbound domains. Valid values:
+   * 
+   * - **pass**: Allow.
+   * - **alert**: Monitor.
+   * - **drop**: Deny.
    * 
    * @example
    * pass
@@ -415,12 +454,12 @@ export class DescribeOutgoingDomainResponseBodyDomainList extends $dara.Model {
 export class DescribeOutgoingDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of outbound domains.
+   * The list of outbound domain names.
    */
   domainList?: DescribeOutgoingDomainResponseBodyDomainList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F0F82705-CFC7-5F83-86C8-A063892F****
@@ -428,7 +467,7 @@ export class DescribeOutgoingDomainResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of outbound domains.
+   * The total number of outbound domain names.
    * 
    * @example
    * 132

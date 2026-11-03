@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallTrafficTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time. The value is a UNIX timestamp. Unit: seconds.
+   * The end time. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -16,8 +16,8 @@ export class DescribeVpcFirewallTrafficTrendRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the request and response. Valid values:
-   * - **zh** (default): Chinese
-   * - **en**: English
+   * - **zh** (default): Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -25,7 +25,7 @@ export class DescribeVpcFirewallTrafficTrendRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The instance ID of the peer VPC instance.
+   * The instance ID of the peer VPC.
    * 
    * @example
    * vpc-j6c7mscdg4hfqanfi****
@@ -41,7 +41,7 @@ export class DescribeVpcFirewallTrafficTrendRequest extends $dara.Model {
   privateIP?: string;
   /**
    * @remarks
-   * The start time. The value is a UNIX timestamp. Unit: seconds.
+   * The start time. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

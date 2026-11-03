@@ -13,7 +13,7 @@ export class ClearLogStoreStorageResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 21C27710-2DB1-5F2A-8588-72D0541B****
@@ -21,7 +21,9 @@ export class ClearLogStoreStorageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request failed.
    * 
    * @example
    * true

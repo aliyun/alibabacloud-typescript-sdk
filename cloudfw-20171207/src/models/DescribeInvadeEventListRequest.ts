@@ -29,7 +29,9 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   assetsInstanceName?: string;
   /**
    * @remarks
-   * Specifies the page number to return in a paged query.
+   * Settings for the paged query. Specifies the page number to return for paging.
+   * 
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -37,7 +39,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Specifies the end time of the query. The value is a UNIX timestamp in seconds. If this parameter is not specified, the current time is used.
+   * Specifies the end time of the query. The value is a UNIX timestamp in seconds. If you do not specify this parameter, the query ends at the current time.
    * 
    * @example
    * 1656837360
@@ -45,7 +47,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the compromise awareness event.
+   * The ID of the breach awareness event.
    * 
    * @example
    * 69d189e2-ec17-4676-a2fe-02969234****
@@ -53,7 +55,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   eventKey?: string;
   /**
    * @remarks
-   * The name of the compromise awareness event.
+   * The name of the breach awareness event.
    * 
    * @example
    * event_test
@@ -61,7 +63,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The UUID of the compromise awareness event.
+   * The UUID of the breach awareness event.
    * 
    * @example
    * fadd-dfdd-****
@@ -69,7 +71,11 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   eventUuid?: string;
   /**
    * @remarks
-   * Specifies whether the compromise awareness event is ignored. Valid values:
+   * Specifies whether the breach awareness event is ignored. Valid values:
+   * 
+   * - **true**: Ignored.
+   * 
+   * - **false**: Not ignored.
    * 
    * @example
    * true
@@ -77,7 +83,10 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   isIgnore?: string;
   /**
    * @remarks
-   * The language type of the received message. Valid values:
+   * The language of the response message. Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -93,7 +102,9 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   memberUid?: number;
   /**
    * @remarks
-   * Specifies the number of entries per page in a paged query.
+   * Settings for the paged query. Specifies the number of entries to return on each page for paging.
+   * 
+   * Default value: 6. Maximum value: 10.
    * 
    * @example
    * 1
@@ -104,7 +115,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
    * The list of processing statuses.
    * 
    * @example
-   * 1358090477156271
+   * [0]
    */
   processStatusList?: number[];
   /**
@@ -124,7 +135,7 @@ export class DescribeInvadeEventListRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * Specifies the start time of the query. The value is a UNIX timestamp in seconds. If this parameter is not specified, the query starts from the last 30 days.
+   * Specifies the start time of the query. The value is a UNIX timestamp in seconds. If you do not specify this parameter, the query starts from 30 days ago.
    * 
    * @example
    * 1656750960

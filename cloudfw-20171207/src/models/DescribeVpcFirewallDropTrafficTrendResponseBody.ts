@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallDropTrafficTrendResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The number of sessions blocked by the access control list (ACL).
+   * The number of ACL blocks.
    * 
    * @example
    * 12
@@ -13,7 +13,7 @@ export class DescribeVpcFirewallDropTrafficTrendResponseBodyDataList extends $da
   aclDrop?: number;
   /**
    * @remarks
-   * The data timestamp. The value is a string in the YYYY-MM-DD HH:mm:ss format.
+   * The data timestamp. The value is a character string in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2018-08-25 12:00:00
@@ -21,7 +21,7 @@ export class DescribeVpcFirewallDropTrafficTrendResponseBodyDataList extends $da
   dataTime?: string;
   /**
    * @remarks
-   * The number of blocked sessions.
+   * The number of blocks.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class DescribeVpcFirewallDropTrafficTrendResponseBodyDataList extends $da
   dropSession?: number;
   /**
    * @remarks
-   * The number of sessions blocked by the intrusion prevention system (IPS).
+   * The number of IPS blocks.
    * 
    * @example
    * 5
@@ -37,7 +37,7 @@ export class DescribeVpcFirewallDropTrafficTrendResponseBodyDataList extends $da
   ipsDrop?: number;
   /**
    * @remarks
-   * The data timestamp. This value is a UNIX timestamp. Unit: seconds.
+   * The data timestamp. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1659405600

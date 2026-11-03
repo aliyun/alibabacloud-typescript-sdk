@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefaultIPSConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * 
    * - **zh**: Chinese. This is the default value.
-   * 
-   * - **en**: English
+   * - **en**: English.
    * 
    * @example
    * zh

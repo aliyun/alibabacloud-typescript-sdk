@@ -15,7 +15,7 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $dara.Model {
   destinationCidr?: string;
   /**
    * @remarks
-   * The next hop of the original NAT gateway.
+   * The next hop address of the original NAT gateway.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $dara.Model {
   nextHopId?: string;
   /**
    * @remarks
-   * The network type of the next hop. Valid value: NatGateway.
+   * The network type of the next hop. Valid values: NatGateway.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $dara.Model {
   nextHopType?: string;
   /**
    * @remarks
-   * The ID of the route table to which the default route of the NAT gateway belongs.
+   * The route table to which the default route of the NAT gateway belongs.
    * 
    * This parameter is required.
    * 
@@ -75,8 +75,8 @@ export class CreateSecurityProxyRequest extends $dara.Model {
    * @remarks
    * The deployment mode of the firewall service. Valid values:
    * 
-   * - **PrimaryStandby**: primary/standby mode.
-   * - **MultiPrimary**: active-active mode.
+   * - PrimaryStandby: primary/secondary mode
+   * - MultiPrimary: active-active mode
    * 
    * @example
    * PrimaryStandby
@@ -90,9 +90,8 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
    * The security protection switch. Valid values:
-   * 
-   * - **open**: Enabled.
-   * - **close**: Disabled.
+   * - **open**: enable
+   * - **close**: disable
    * 
    * @example
    * close
@@ -169,7 +168,7 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   strictMode?: number;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC-connected instance ID.
    * 
    * This parameter is required.
    * 
@@ -180,10 +179,8 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to use the automatic mode for the vSwitch. Valid values:
-   * 
    * - **true**: automatic mode.
    * - **false**: manual mode.
-   * 
    * > Default value: true. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
    * 
    * @example

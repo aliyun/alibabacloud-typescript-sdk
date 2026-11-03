@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNatFirewallQuotaRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response.
+   * The language type.
    * 
    * @example
    * zh
@@ -13,7 +13,7 @@ export class DescribeNatFirewallQuotaRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address.
    * 
    * @example
    * 113.132.26.XXX

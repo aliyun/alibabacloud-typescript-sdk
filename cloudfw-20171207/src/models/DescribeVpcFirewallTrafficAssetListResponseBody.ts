@@ -13,7 +13,7 @@ export class DescribeVpcFirewallTrafficAssetListResponseBodyDataList extends $da
   IP?: string;
   /**
    * @remarks
-   * The number of IPS hits.
+   * The number of Intrusion Prevention System (IPS) hits.
    * 
    * @example
    * 10
@@ -85,12 +85,12 @@ export class DescribeVpcFirewallTrafficAssetListResponseBodyDataList extends $da
 export class DescribeVpcFirewallTrafficAssetListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data list.
+   * The list of returned data.
    */
   dataList?: DescribeVpcFirewallTrafficAssetListResponseBodyDataList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C5BE1AA4-934A-5085-89CC-9AD1CAC3****

@@ -65,7 +65,7 @@ export class DescribeOutgoingDestinationResponseBodyDstListTagList extends $dara
 export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model {
   /**
    * @remarks
-   * The recommended ACL content.
+   * The ACL recommendation details.
    * 
    * @example
    * RecommendedRelease
@@ -81,7 +81,7 @@ export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model 
   aclStatus?: string;
   /**
    * @remarks
-   * The domain name business.
+   * The business of the domain name.
    * 
    * @example
    * example.com
@@ -137,7 +137,7 @@ export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model 
   groupName?: string;
   /**
    * @remarks
-   * Indicates whether a recommended ACL exists.
+   * Indicates whether an ACL is recommended.
    * 
    * @example
    * false
@@ -153,7 +153,7 @@ export class DescribeOutgoingDestinationResponseBodyDstList extends $dara.Model 
   inBytes?: number;
   /**
    * @remarks
-   * Indicates whether the entry is manually marked as normal by the user.
+   * Indicates whether the destination is manually marked as normal by the user.
    * 
    * @example
    * false

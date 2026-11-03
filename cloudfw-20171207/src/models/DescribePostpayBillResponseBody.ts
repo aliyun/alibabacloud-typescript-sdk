@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   /**
    * @remarks
-   * The end time, expressed as a second-level UNIX timestamp. The value is on the hour or on the day.
+   * The end time. The time is a UNIX timestamp accurate to seconds, representing a full hour or a full day.
    * 
    * @example
    * 1733710015
@@ -21,7 +21,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   internetInstanceCnt?: number;
   /**
    * @remarks
-   * The Internet traffic, in GB.
+   * The Internet traffic. Unit: GB.
    * 
    * @example
    * 10
@@ -29,8 +29,8 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   internetTraffic?: number;
   /**
    * @remarks
-   * Indicates whether the bill is deducted. A value of 0 indicates that the bill is not deducted. Any value greater than 0 indicates that the bill is deducted. If the bill is deducted, it is not charged.
-   * > This field is meaningful only when you query hourly data.
+   * Indicates whether the fee is reduced. A value of 0 indicates that the fee is not reduced. A value greater than 0 indicates that the fee is reduced. If the fee is reduced, no bill is generated.
+   * > This parameter is valid only when you query hourly data.
    * 
    * @example
    * 0
@@ -38,7 +38,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   isDerated?: number;
   /**
    * @remarks
-   * The log service usage duration, in T × h.
+   * The usage duration of Simple Log Service. Unit: TB × h.
    * 
    * @example
    * 24
@@ -54,7 +54,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   natInstanceCnt?: number;
   /**
    * @remarks
-   * The NAT traffic, in GB.
+   * The NAT traffic. Unit: GB.
    * 
    * @example
    * 2
@@ -62,7 +62,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   natTraffic?: number;
   /**
    * @remarks
-   * The data leak detection usage duration, in hours.
+   * The usage duration of sensitive data leak detection. Unit: h.
    * 
    * @example
    * 0
@@ -70,7 +70,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   sdl?: number;
   /**
    * @remarks
-   * The sensitive data detection traffic, in GB.
+   * The sensitive data detection traffic. Unit: GB.
    * 
    * @example
    * 1
@@ -78,7 +78,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   sdlTraffic?: number;
   /**
    * @remarks
-   * The start time, expressed as a second-level UNIX timestamp. The value is on the hour or on the day.
+   * The start time. The time is a UNIX timestamp accurate to seconds, representing a full hour or a full day.
    * 
    * @example
    * 1710206070000
@@ -86,7 +86,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The threat intelligence usage duration, in hours.
+   * The usage duration of threat intelligence. Unit: h.
    * 
    * @example
    * 1
@@ -102,7 +102,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   vpcInstanceCnt?: number;
   /**
    * @remarks
-   * The VPC traffic, in GB.
+   * The VPC traffic. Unit: GB.
    * 
    * @example
    * 4
@@ -156,7 +156,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
 export class DescribePostpayBillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The aggregated Internet traffic, in GB.
+   * The aggregated Internet traffic. Unit: GB.
    * 
    * @example
    * 10
@@ -164,7 +164,7 @@ export class DescribePostpayBillResponseBody extends $dara.Model {
   aggregateInternetTraffic?: number;
   /**
    * @remarks
-   * The aggregated NAT traffic, in GB.
+   * The aggregated NAT traffic. Unit: GB.
    * 
    * @example
    * 10
@@ -172,7 +172,7 @@ export class DescribePostpayBillResponseBody extends $dara.Model {
   aggregateNatTraffic?: number;
   /**
    * @remarks
-   * The aggregated sensitive data detection traffic, in GB.
+   * The aggregated sensitive data detection traffic. Unit: GB.
    * 
    * @example
    * 10
@@ -180,7 +180,7 @@ export class DescribePostpayBillResponseBody extends $dara.Model {
   aggregateSdlTraffic?: number;
   /**
    * @remarks
-   * The aggregated total traffic, in GB.
+   * The aggregated total traffic. Unit: GB.
    * 
    * @example
    * 40
@@ -188,7 +188,7 @@ export class DescribePostpayBillResponseBody extends $dara.Model {
   aggregateTotalTraffic?: number;
   /**
    * @remarks
-   * The aggregated VPC traffic, in GB.
+   * The aggregated VPC traffic. Unit: GB.
    * 
    * @example
    * 10
@@ -196,7 +196,7 @@ export class DescribePostpayBillResponseBody extends $dara.Model {
   aggregateVpcTraffic?: number;
   /**
    * @remarks
-   * The bill list.
+   * The list of bills.
    */
   billList?: DescribePostpayBillResponseBodyBillList[];
   /**

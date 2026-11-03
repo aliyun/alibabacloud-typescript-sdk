@@ -26,7 +26,7 @@ export class DescribePrivateDnsDomainNameListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 822B9125-6E1A-551C-8EAF-6E7AE74****

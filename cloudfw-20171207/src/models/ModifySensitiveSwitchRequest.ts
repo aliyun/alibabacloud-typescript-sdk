@@ -15,7 +15,7 @@ export class ModifySensitiveSwitchRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The type.
+   * The category.
    * 
    * @example
    * id_card
@@ -24,8 +24,8 @@ export class ModifySensitiveSwitchRequest extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * - **1**: enabled.
-   * - **0**: disabled.
+   * - **1**: Enabled.
+   * - **0**: Disabled.
    * 
    * @example
    * 1

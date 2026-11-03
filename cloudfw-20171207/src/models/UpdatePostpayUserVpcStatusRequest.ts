@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePostpayUserVpcStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud Firewall instance.
+   * The ID of the Cloud Firewall instance. This parameter is required. If you do not specify this parameter, the API returns a 400 error. You can call the DescribeUserBuyVersion operation to obtain the Cloud Firewall instance ID of the current account.
    * 
    * @example
    * cfw_elasticity_public_cn-************
@@ -14,7 +14,6 @@ export class UpdatePostpayUserVpcStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the request and response. Valid values:
-   * 
    * - **zh** (default): Chinese
    * - **en**: English
    * 
@@ -24,8 +23,8 @@ export class UpdatePostpayUserVpcStatusRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The operation type. Currently, only the activation operation is supported. Valid values:
-   * - open: activation
+   * The operation type. Only the enable operation is supported. Valid values:
+   * - open: Enables the module.
    * 
    * @example
    * open

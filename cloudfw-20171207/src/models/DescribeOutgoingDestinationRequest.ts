@@ -29,7 +29,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -39,7 +39,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
    * @remarks
    * The legacy destination IP parameter.
    * 
-   * > The POP gateway passes this parameter through, but the backend of this operation does not read it. Specifying this parameter has no filtering effect. To filter by IP address, use PublicIP or PrivateIP. If only DstIP is specified, the operation returns MissingParameter.IpFilter (-340415) because no valid IP filtering parameter is provided.
+   * > The POP gateway passes through this parameter, but the backend of this API operation does not read it. Passing this parameter does not produce any filtering effect. To filter by IP address, use PublicIP or PrivateIP. If only DstIP is provided, the MissingParameter.IpFilter (-340415) error is returned because a valid IP filter parameter is missing.
    * 
    * @example
    * 47.100.111XXX
@@ -47,7 +47,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   dstIP?: string;
   /**
    * @remarks
-   * The end time of the query. The value is a UNIX timestamp in seconds.
+   * Specifies the end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -98,7 +98,8 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   /**
    * @remarks
    * The private IP address.
-   * > At least one of PublicIP and PrivateIP must be specified.
+   * 
+   * > You must specify at least one of PublicIP and PrivateIP.
    * 
    * @example
    * 10.111.53XXX
@@ -107,7 +108,8 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   /**
    * @remarks
    * The public IP address.
-   * > At least one of PublicIP and PrivateIP must be specified.
+   * 
+   * > You must specify at least one of PublicIP and PrivateIP.
    * 
    * @example
    * 47.96.74.XXX
@@ -115,7 +117,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   publicIP?: string;
   /**
    * @remarks
-   * The security policy for the Outbound Domain.
+   * The security policy for the outbound domain.
    * 
    * @example
    * pass
@@ -141,7 +143,7 @@ export class DescribeOutgoingDestinationRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start time of the query. The value is a UNIX timestamp in seconds.
+   * Specifies the start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

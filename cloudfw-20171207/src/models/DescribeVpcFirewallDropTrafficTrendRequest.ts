@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallDropTrafficTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1747792853
@@ -15,9 +15,8 @@ export class DescribeVpcFirewallDropTrafficTrendRequest extends $dara.Model {
    * @remarks
    * The sort order. Valid values:
    * 
-   * - **asc**: ascending order.
-   * 
-   * - **desc**: descending order. This is the default value.
+   * - **asc**: ascending order
+   * - **desc** (default): descending order
    * 
    * @example
    * desc
@@ -41,7 +40,7 @@ export class DescribeVpcFirewallDropTrafficTrendRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1656664560
@@ -49,7 +48,7 @@ export class DescribeVpcFirewallDropTrafficTrendRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The time point of the traffic. This value is a UNIX timestamp. Unit: seconds.
+   * The traffic time point. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1739337840

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRiskEventPayloadRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination IP address to query. If you specify this parameter, all intrusion events with the specified destination IP address are queried.
+   * The destination IP address to query. If you specify this parameter, the query returns intrusion prevention events that involve this destination IP address.
    * 
    * @example
    * 203.0.113.2
@@ -13,7 +13,7 @@ export class DescribeRiskEventPayloadRequest extends $dara.Model {
   dstIP?: string;
   /**
    * @remarks
-   * The ID of the destination VPC to query. If you specify this parameter, all intrusion events that contain the specified ID of the destination VPC are queried.
+   * The destination VPC ID to query. If you specify this parameter, the query returns intrusion prevention events that involve this destination VPC ID.
    * 
    * @example
    * vpc-uf6jr1klwqb60dyn2****
@@ -21,7 +21,7 @@ export class DescribeRiskEventPayloadRequest extends $dara.Model {
   dstVpcId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a timestamp. Unit: seconds.
+   * Specifies the end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -31,10 +31,9 @@ export class DescribeRiskEventPayloadRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The type of the firewall. Valid values:
-   * 
-   * *   **VpcFirewall**: virtual private cloud (VPC) firewall
-   * *   **InternetFirewall** (default): Internet firewall
+   * The type of Cloud Firewall. Valid values:
+   * - **VpcFirewall**: virtual private cloud (VPC) firewalls.
+   * - **InternetFirewall** (default): the Internet Border firewall.
    * 
    * @example
    * InternetFirewall
@@ -42,7 +41,7 @@ export class DescribeRiskEventPayloadRequest extends $dara.Model {
   firewallType?: string;
   /**
    * @remarks
-   * The public IP address. If you specify this parameter, all intrusion events that contain the specified public IP address are queried.
+   * The IP address of the public asset to query. If you specify this parameter, the query returns compromise detection events that involve this asset IP address.
    * 
    * @example
    * 203.0.113.3
@@ -50,7 +49,7 @@ export class DescribeRiskEventPayloadRequest extends $dara.Model {
   publicIP?: string;
   /**
    * @remarks
-   * The source IP address to query. If you specify this parameter, all intrusion events from the specified source IP address are queried.
+   * The source IP address to query. If you specify this parameter, the query returns intrusion prevention events that involve this source IP address.
    * 
    * @example
    * 203.0.113.1
@@ -58,7 +57,7 @@ export class DescribeRiskEventPayloadRequest extends $dara.Model {
   srcIP?: string;
   /**
    * @remarks
-   * The ID of the source VPC to query. If you specify this parameter, all intrusion events that contain the specified ID of the source VPC are queried.
+   * The source VPC ID to query. If you specify this parameter, the query returns intrusion prevention events that involve this source VPC ID.
    * 
    * @example
    * vpc-wz9j2lqyo15udw5nt****
@@ -66,7 +65,7 @@ export class DescribeRiskEventPayloadRequest extends $dara.Model {
   srcVpcId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The value is a timestamp. Unit: seconds.
+   * Specifies the start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -76,7 +75,7 @@ export class DescribeRiskEventPayloadRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The UUID of the intrusion event.
+   * The UUID of the intrusion prevention event.
    * 
    * This parameter is required.
    * 

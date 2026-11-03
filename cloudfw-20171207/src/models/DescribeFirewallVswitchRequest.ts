@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFirewallVSwitchRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the VPC border firewall.
+   * The instance ID of the virtual private cloud (VPC) firewall.
    * 
    * @example
    * vfw-tr-5b202e7f0be64611****
@@ -13,7 +13,7 @@ export class DescribeFirewallVSwitchRequest extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language type.
    * 
    * @example
    * zh
@@ -29,7 +29,7 @@ export class DescribeFirewallVSwitchRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class DescribeFirewallVSwitchRequest extends $dara.Model {
   pageNo?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class DescribeFirewallVSwitchRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-uf6b5lyul0x******

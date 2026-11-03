@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAckClusterConnectorRequest extends $dara.Model {
   /**
    * @remarks
-   * The ACK cluster ID. You can call the following operation to obtain the value:
-   * - [DescribeAckClusters](~~DescribeAckClusters~~): Queries the list of ACK clusters.
+   * The ID of the ACK cluster. Value sources:
+   * - [DescribeAckClusters](~~DescribeAckClusters~~): Lists ACK clusters.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class CreateAckClusterConnectorRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the ACK cluster connector. The name must be 1 to 64 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
+   * The name of the ACK cluster connector. The name must be 1 to 64 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class CreateAckClusterConnectorRequest extends $dara.Model {
   connectorName?: string;
   /**
    * @remarks
-   * The Alibaba Cloud UID of the account to which the ACK cluster resource belongs.
+   * The Alibaba Cloud UID of the account to which the ACK cluster resources belong.
    * 
    * @example
    * 135809047715****
@@ -34,8 +34,8 @@ export class CreateAckClusterConnectorRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The primary vSwitch of the ACK cluster connector. You can call the following operation to obtain the value:
-   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Queries the list of synchronization node vSwitches.
+   * The primary vSwitch of the ACK cluster connector. Value sources:
+   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Lists the vSwitches of synchronization nodes.
    * 
    * This parameter is required.
    * 
@@ -53,10 +53,10 @@ export class CreateAckClusterConnectorRequest extends $dara.Model {
   primaryVswitchIp?: string;
   /**
    * @remarks
-   * The region ID of the ACK cluster connector. You can call the following operation to obtain the value:
-   * - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Queries the list of synchronization node regions.
+   * The region ID of the ACK cluster connector. Value sources:
+   * - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Queries the list of regions for synchronization nodes.
    * 
-   * > For more information about the regions supported by ACK cluster connectors in Cloud Firewall, see [ACK cluster synchronization nodes](https://help.aliyun.com/document_detail/2865120.html).
+   * > For more information about the regions where Cloud Firewall supports ACK cluster connectors, see [ACK cluster synchronization nodes](https://help.aliyun.com/document_detail/2865120.html).
    * 
    * This parameter is required.
    * 
@@ -66,8 +66,8 @@ export class CreateAckClusterConnectorRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The standby vSwitch of the ACK cluster connector. You can call the following operation to obtain the value:
-   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Queries the list of synchronization node vSwitches.
+   * The secondary vSwitch of the ACK cluster connector. Value sources:
+   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Lists the vSwitches of synchronization nodes.
    * 
    * @example
    * vsw-2ze2gtlfozrab01cfo****
@@ -75,7 +75,7 @@ export class CreateAckClusterConnectorRequest extends $dara.Model {
   standbyVswitchId?: string;
   /**
    * @remarks
-   * The IP address of the standby vSwitch of the ACK cluster connector.
+   * The IP address of the secondary vSwitch of the ACK cluster connector.
    * 
    * @example
    * 10.100.2.1

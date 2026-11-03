@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The target application.
+   * The attacked application.
    * 
    * @example
    * SMB
@@ -45,7 +45,7 @@ export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
   defaultMode?: string;
   /**
    * @remarks
-   * A description of the rule.
+   * The rule description.
    * 
    * @example
    * test
@@ -53,9 +53,9 @@ export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The engine mode.
+   * The supported engine mode.
    * 
-   * This parameter takes effect only when `DefaultMode` is set to `drop`.
+   * This value is valid only when DefaultMode is set to drop (Block). In other modes, this value is meaningless.
    * 
    * @example
    * 1
@@ -82,12 +82,12 @@ export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
    * The rule name.
    * 
    * @example
-   * Nmap扫描探测
+   * Nmap scan detection
    */
   ruleName?: string;
   /**
    * @remarks
-   * The rule UUID.
+   * The UUID of the rule.
    * 
    * @example
    * d401b0cb-dc64-4bbe-bba0-3e7c744****
@@ -95,7 +95,7 @@ export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
   ruleUuid?: string;
   /**
    * @remarks
-   * The UNIX timestamp for when the rule was last updated.
+   * The timestamp when the rule was modified.
    * 
    * @example
    * 1775101028
@@ -103,7 +103,7 @@ export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * Specifies whether the rule is user-defined.
+   * Specifies whether the rule is a custom rule.
    * 
    * @example
    * 1
@@ -111,7 +111,7 @@ export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
   userDefined?: string;
   /**
    * @remarks
-   * The user-defined status of the rule.
+   * The user status.
    * 
    * @example
    * 1
@@ -167,7 +167,7 @@ export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
 export class DescribeIPSRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of rules that have the `drop` action.
+   * The total number of rules with the block action.
    * 
    * @example
    * 976
@@ -199,7 +199,7 @@ export class DescribeIPSRulesResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -228,7 +228,7 @@ export class DescribeIPSRulesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of user-defined rules.
+   * The total number of rules with custom actions.
    * 
    * @example
    * 32

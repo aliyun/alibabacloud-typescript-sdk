@@ -21,7 +21,7 @@ export class DescribeConfiguredDomainNamesResponseBodyDomainNames extends $dara.
   domainName?: string;
   /**
    * @remarks
-   * Indicates whether the domain name is malicious. Valid values: `0` (not malicious) and `1` (malicious).
+   * Indicates whether the domain name is one of the malicious domain names. Valid values: 0: Not malicious. 1: Malicious.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescribeConfiguredDomainNamesResponseBodyDomainNames extends $dara.
   isMalicious?: boolean;
   /**
    * @remarks
-   * The time of the operation, specified as a Unix timestamp in seconds. Example: `1672502400`.
+   * The operation time. The value is a UNIX timestamp accurate to seconds, such as 1672502400.
    * 
    * @example
    * 1534408189
@@ -78,7 +78,7 @@ export class DescribeConfiguredDomainNamesResponseBody extends $dara.Model {
   module?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 09A2D6F1-EA1B-56D9-977D-74878405****

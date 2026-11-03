@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetTrafficTopRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of traffic data.
+   * The traffic data type.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeInternetTrafficTopRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The end time. The value is a UNIX timestamp. Unit: seconds.
+   * The end time. Specify a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DescribeInternetTrafficTopRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The language type.
    * 
    * @example
    * zh
@@ -41,7 +41,7 @@ export class DescribeInternetTrafficTopRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of top entries to return. The default value is 50. Valid values: 1 to 50.
+   * The maximum number of top entries. Default value: 50. Valid values: 1 to 50.
    * 
    * @example
    * 50
@@ -49,7 +49,7 @@ export class DescribeInternetTrafficTopRequest extends $dara.Model {
   limit?: string;
   /**
    * @remarks
-   * The action of the rule.
+   * The rule protection result.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class DescribeInternetTrafficTopRequest extends $dara.Model {
   ruleResult?: string;
   /**
    * @remarks
-   * The source of the rule.
+   * The rule source.
    * 
    * @example
    * 1
@@ -65,7 +65,7 @@ export class DescribeInternetTrafficTopRequest extends $dara.Model {
   ruleSource?: string;
   /**
    * @remarks
-   * The name of the country to display.
+   * Specifies whether to display country names.
    * 
    * @example
    * China
@@ -73,7 +73,7 @@ export class DescribeInternetTrafficTopRequest extends $dara.Model {
   showCountryName?: string;
   /**
    * @remarks
-   * The sorting method.
+   * The sort method.
    * 
    * @example
    * in_bytes
@@ -81,7 +81,7 @@ export class DescribeInternetTrafficTopRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The tracing code for the source.
+   * The tracing code.
    * 
    * This parameter is required.
    * 
@@ -99,7 +99,7 @@ export class DescribeInternetTrafficTopRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start time. The value is a UNIX timestamp. Unit: seconds.
+   * The start time. Specify a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
