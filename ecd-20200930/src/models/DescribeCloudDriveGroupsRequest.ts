@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudDriveGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The enterprise cloud drive ID.
+   * The ID of the enterprise cloud drive.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
   cdsId?: string;
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the office network.
    * 
    * @example
    * cn-hangzhou+dir-jedbpr4sl9l37****
@@ -23,7 +23,7 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The office network name.
+   * The name of the office network.
    * 
    * @example
    * testDirectoryName
@@ -31,7 +31,7 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
   directoryName?: string;
   /**
    * @remarks
-   * The team space status.
+   * The status of the team workspace.
    * 
    * @example
    * enabled
@@ -39,7 +39,7 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
   driveStatus?: string;
   /**
    * @remarks
-   * Specifies whether a space is added. Default value: empty, which indicates that all types are queried.
+   * Specifies whether a workspace is added. By default, this parameter is left empty, which indicates that all workspaces are queried.
    * 
    * @example
    * binding
@@ -50,12 +50,12 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
   driveType?: string;
   /**
    * @remarks
-   * The list of team space IDs.
+   * The IDs of the team workspaces.
    */
   groupId?: string[];
   /**
    * @remarks
-   * The team space name. Fuzzy match is supported.
+   * The name of the team workspace. Fuzzy match is supported.
    * 
    * @example
    * TestTeam1
@@ -63,7 +63,7 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The team type. Default value: empty, which indicates that all types are queried.
+   * The team type. By default, this parameter is left empty, which indicates that all types are queried.
    * 
    * @example
    * org
@@ -71,10 +71,10 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries to return on each page during paging in a paged query.
    * 
-   * - Maximum value: 100.
-   * - Default value: 20.
+   * - Maximum value: 100
+   * - Default value: 20
    * 
    * @example
    * 10
@@ -82,7 +82,7 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of `NextToken` that was returned in the previous call. You do not need to set this parameter for the first request.
+   * The pagination token. Set the value to the `NextToken` value returned from the last call. You do not need to specify this parameter for the first call.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6lY3I2VNHLwy+nIoSXh****
@@ -90,9 +90,7 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the parent node of the object to query. To query the root node, set this parameter to `root`.
-   * 
-   * Default value: empty, which indicates that all team spaces are queried.
+   * The ID of the parent node of the object to be queried. To query the root node, set this parameter to `root`. By default, this parameter is left empty, which indicates that all objects are queried.
    * 
    * @example
    * cg-e70ga4ixp30ur****
@@ -100,7 +98,7 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
   parentGroupId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the list of regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

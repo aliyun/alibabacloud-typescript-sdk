@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConfigGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration group ID.
+   * The ID of the configuration group.
    * 
    * @example
    * ccg-0ctwi5zbswtql****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrinterEventsResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * The cloud computer ID.
+   * The cloud desktop ID.
    * 
    * @example
    * ecd-8fupvkhg0aayu****
@@ -13,7 +13,7 @@ export class DescribePrinterEventsResponseBodyEvents extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The cloud computer name.
+   * The cloud desktop name.
    * 
    * @example
    * desktop-001
@@ -45,7 +45,7 @@ export class DescribePrinterEventsResponseBodyEvents extends $dara.Model {
   printerDriver?: string;
   /**
    * @remarks
-   * The number of copies to print.
+   * The number of printed copies.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class DescribePrinterEventsResponseBodyEvents extends $dara.Model {
   printerJobPrintedPages?: number;
   /**
    * @remarks
-   * The print job size, in bytes.
+   * The print job size in bytes.
    * 
    * @example
    * 2632446
@@ -85,7 +85,7 @@ export class DescribePrinterEventsResponseBodyEvents extends $dara.Model {
   printerJobSize?: number;
   /**
    * @remarks
-   * The print job time, in millisecond-precision UNIX timestamp.
+   * The print job time in milliseconds.
    * 
    * @example
    * 1706140800000
@@ -170,7 +170,7 @@ export class DescribePrinterEventsResponseBody extends $dara.Model {
   events?: DescribePrinterEventsResponseBodyEvents[];
   /**
    * @remarks
-   * The pagination token for the next query. If NextToken is empty, no more results exist.
+   * The token for the next query. If NextToken is empty, no more results are available.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****

@@ -18,7 +18,7 @@ export class BatchModifyEntitlementResponseBodyEntitlementsAssignModels extends 
   endUserIds?: string[];
   /**
    * @remarks
-   * The assignment result for a single cloud desktop.
+   * The assignment result of a single cloud desktop.
    * 
    * @example
    * FINISHED
@@ -105,7 +105,7 @@ export class BatchModifyEntitlementResponseBodyEntitlements extends $dara.Model 
 export class BatchModifyEntitlementResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The entitlements collection.
+   * The entitlement collection.
    */
   entitlements?: BatchModifyEntitlementResponseBodyEntitlements;
   /**

@@ -35,7 +35,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktopsSessions 
 export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends $dara.Model {
   /**
    * @remarks
-   * The current image version of the cloud computer.
+   * The current image version of the cloud desktop.
    * 
    * @example
    * 0.0.1-D-20220513.143129
@@ -43,7 +43,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
   currentAppVersion?: string;
   /**
    * @remarks
-   * The ID of the cloud computer.
+   * The cloud desktop ID.
    * 
    * @example
    * ecd-bvdtu3jn97o1r****
@@ -51,7 +51,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud computer.
+   * The name of the cloud desktop.
    * 
    * @example
    * demo-computer
@@ -67,7 +67,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
   fotaProject?: string;
   /**
    * @remarks
-   * The ID of the office network.
+   * The office network ID.
    * 
    * @example
    * cn-shanghai+dir-428216****
@@ -80,7 +80,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
   sessions?: DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktopsSessions[];
   /**
    * @remarks
-   * The status of the cloud computer.
+   * The status of the cloud desktop.
    * 
    * @example
    * 2
@@ -133,7 +133,7 @@ export class DescribeFotaPendingDesktopsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of cloud computers that can be upgraded to the image version corresponding to `TaskUid` but have not been upgraded.
+   * The list of cloud desktops that can be upgraded to the image version corresponding to `TaskUid` but have not been upgraded.
    */
   fotaPendingDesktops?: DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops[];
   /**
@@ -146,7 +146,7 @@ export class DescribeFotaPendingDesktopsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next query. If NextToken is empty, no more results are available.
+   * The pagination token for the next query. An empty `NextToken` indicates that no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

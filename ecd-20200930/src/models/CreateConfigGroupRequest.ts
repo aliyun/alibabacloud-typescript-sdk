@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Model {
   /**
    * @remarks
-   * The appointment timer used for executing scheduled tasks at specified time points.
+   * Used for executing scheduled tasks at a specific time. After this parameter is specified, the scheduled task is executed at the specified time.
    * 
    * @example
    * 1764660600967
@@ -18,7 +18,7 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
   createSnapshot?: boolean;
   /**
    * @remarks
-   * The cron expression for the end of the scheduled task execution.
+   * The cron expression for ending the execution of the scheduled task.
    * 
    * @example
    * 0 0 18 ? * 1-5
@@ -26,7 +26,7 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
   endCronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to forcefully execute the task. If set to true, the scheduled task is forcefully executed regardless of the desktop and connection status.
+   * Specifies whether to forcibly execute the task. A value of true indicates that the desktop and connection status checks are ignored, and the scheduled task is forcibly executed.
    */
   enforce?: boolean;
   /**
@@ -52,7 +52,7 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
   ipSegments?: string[];
   /**
    * @remarks
-   * The duration of inactivity before the screen is locked, used by the no-operation lock screen feature. Unit: minutes. Only AD cloud desktops are supported.
+   * Used for the no-operation lock screen feature. Specifies the duration of inactivity before the screen is locked. Unit: minutes. Only AD cloud desktops are supported.
    * 
    * @example
    * 5
@@ -68,7 +68,7 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
   notificationTime?: number;
   /**
    * @remarks
-   * The operation type of the scheduled task. Currently, only disconnect scheduled tasks support this parameter.
+   * The operation type of the scheduled task. Currently, only disconnection scheduled tasks are supported.
    * 
    * @example
    * Shutdown
@@ -84,12 +84,12 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
   patchId?: string;
   /**
    * @remarks
-   * The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
+   * The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not executed.
    */
   processWhitelist?: string[];
   /**
    * @remarks
-   * The reset type, which determines whether to reset and the scope of cloud disks to reset.
+   * The reset type. Specifies whether to reset the cloud desktop and the scope of cloud disks to be reset.
    * 
    * @example
    * 1
@@ -97,7 +97,7 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
   resetType?: string;
   /**
    * @remarks
-   * The cron expression for the start of the scheduled task execution.
+   * The cron expression for starting the execution of the scheduled task.
    * 
    * @example
    * 0 0 8 ? * 1-5
@@ -105,7 +105,7 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
   startCronExpression?: string;
   /**
    * @remarks
-   * The execution order number of the timer.
+   * The execution sequence number of the timer.
    * 
    * @example
    * 1
@@ -219,7 +219,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
    * @remarks
    * The cron expression of the scheduled task.
    * 
-   * >Notice: Specify the time in UTC. For example, to schedule a task at 00:00 (UTC+8) every day, use 0 0 16 ? * 1,2,3,4,5,6,7.</notice>
+   * >Notice: You must specify the time in UTC. For example, to specify 00:00:00 every day in UTC+8, pass 0 0 16 ? * 1,2,3,4,5,6,7.</notice>
    * 
    * @example
    * 0 0 16 ? * 1,2,3,4,5,6,7
@@ -227,7 +227,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to forcefully execute the task.
+   * Specifies whether to forcibly execute the task.
    * 
    * @example
    * true
@@ -251,7 +251,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   notificationTime?: number;
   /**
    * @remarks
-   * The operation type of the scheduled task. Currently, only disconnect scheduled tasks support this parameter.
+   * The operation type of the scheduled task. Currently, only disconnection scheduled tasks are supported.
    * 
    * @example
    * Shutdown
@@ -259,7 +259,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   operationType?: string;
   /**
    * @remarks
-   * The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
+   * The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not executed.
    */
   processWhitelist?: string[];
   /**
@@ -343,7 +343,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
 export class CreateConfigGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration information of scheduled tasks. This parameter is a list.
+   * The configuration information of the scheduled tasks. This is a list.
    */
   configTimers?: CreateConfigGroupRequestConfigTimers[];
   /**
@@ -351,7 +351,7 @@ export class CreateConfigGroupRequest extends $dara.Model {
    * The description of the configuration group.
    * 
    * @example
-   * Description of the scheduled task
+   * Scheduled task description
    */
   description?: string;
   /**
@@ -361,12 +361,12 @@ export class CreateConfigGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ScheduledTaskGroup
+   * Scheduled task group
    */
   name?: string;
   /**
    * @remarks
-   * The product type used by the configuration group.
+   * The product type of the configuration group.
    * 
    * This parameter is required.
    * 

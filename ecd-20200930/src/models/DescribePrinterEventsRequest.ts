@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrinterEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud computer ID. If you do not specify this parameter, all cloud computers in the region are queried.
+   * The cloud desktop ID. If you do not specify this parameter, the system queries all cloud desktops in the specified region.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -13,7 +13,7 @@ export class DescribePrinterEventsRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The cloud computer name.
+   * The cloud desktop name.
    * 
    * @example
    * desktop-001
@@ -21,7 +21,8 @@ export class DescribePrinterEventsRequest extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The end time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC+0. If you do not specify this parameter, the current time is used.
+   * The end time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC. If you do not specify this parameter, the current time is used.    
+   * [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
    * 
    * @example
    * 2020-11-31T06:32:31Z
@@ -29,7 +30,7 @@ export class DescribePrinterEventsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The logon user information, which is a RAM user ID or an Active Directory (AD) username. If you do not specify this parameter, events of all users in the region are queried.
+   * The logon user information, which is the RAM user ID or the Active Directory (AD) username. If you do not specify this parameter, the system queries the events of all users in the specified region.
    * 
    * @example
    * user001
@@ -42,7 +43,8 @@ export class DescribePrinterEventsRequest extends $dara.Model {
   endUserIds?: string[];
   /**
    * @remarks
-   * The number of entries per page in a paged query. Default value: 100.
+   * The number of entries to return on each page during paging.
+   * Default value: 100.
    * 
    * @example
    * 20
@@ -50,7 +52,7 @@ export class DescribePrinterEventsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of NextToken that was returned in the previous API call.
+   * The query token. The value is the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
@@ -82,7 +84,7 @@ export class DescribePrinterEventsRequest extends $dara.Model {
   printerRedirType?: number;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call the DescribeRegions operation to query the list of regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -92,7 +94,8 @@ export class DescribePrinterEventsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC+0. If you do not specify this parameter, the query starts from the time that is calculated backward from the time specified by `EndTime`.
+   * The start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC. If you do not specify this parameter, the system queries events prior to the time specified by `EndTime`.   
+   * [ISO 8601](https://help.aliyun.com/document_detail/25696.html)
    * 
    * @example
    * 2022-03-23T04:10:21Z

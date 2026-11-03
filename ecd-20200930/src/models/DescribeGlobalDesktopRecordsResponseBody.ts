@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups extends $dara.Model {
   /**
    * @remarks
-   * The enterprise resource group ID.
+   * The ID of the enterprise resource group.
    * 
    * @example
    * rg-f3s3dgt8dtb0vlqc8
@@ -13,7 +13,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups exte
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource group name.
+   * The name of the resource group.
    * 
    * @example
    * dms_test
@@ -45,7 +45,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups exte
 export class DescribeGlobalDesktopRecordsResponseBodySessionsSessions extends $dara.Model {
   /**
    * @remarks
-   * The end user ID.
+   * The ID of the end user.
    * 
    * @example
    * TestUser
@@ -53,7 +53,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessionsSessions extends $d
   endUserId?: string;
   /**
    * @remarks
-   * The time when the session was created. The time is in the ISO 8601 standard (UTC): yyyy-MM-ddTHH:mm:ssZ.
+   * The creation time of the session. The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2022-08-31T06:56:45Z
@@ -101,7 +101,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   cpu?: number;
   /**
    * @remarks
-   * The time when the cloud desktop was created. The time is in the ISO 8601 standard (UTC).
+   * The creation time of the cloud desktop. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2020-11-06T08:28Z
@@ -109,7 +109,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   creationTime?: string;
   /**
    * @remarks
-   * The shared cloud desktop ID.
+   * The ID of the shared cloud computer.
    * 
    * @example
    * dg-iaqu3bi2xtie****
@@ -117,7 +117,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   desktopGroupId?: string;
   /**
    * @remarks
-   * The shared cloud desktop name.
+   * The name of the shared cloud computer.
    * 
    * @example
    * DemoCCGroup
@@ -125,7 +125,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   desktopGroupName?: string;
   /**
    * @remarks
-   * The cloud desktop ID.
+   * The ID of the cloud computer.
    * 
    * @example
    * ecd-g6t1ukbaea****
@@ -133,7 +133,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   desktopId?: string;
   /**
    * @remarks
-   * The cloud desktop name.
+   * The name of the cloud computer.
    * 
    * @example
    * DemoComputer
@@ -149,7 +149,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   desktopStatus?: string;
   /**
    * @remarks
-   * The end user ID.
+   * The ID of the end user.
    * 
    * @example
    * TestUser
@@ -170,7 +170,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   gpuSpec?: string;
   /**
    * @remarks
-   * The duration of the most recent connection to the cloud desktop. Unit: seconds.
+   * The duration of the most recent connection to the cloud computer. Unit: seconds.
    * 
    * @example
    * 120
@@ -178,7 +178,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   latestConnectionTime?: number;
   /**
    * @remarks
-   * The latest end time of the current session. The time is in the ISO 8601 standard (UTC): yyyy-MM-ddTHH:mm:ssZ.
+   * The latest end time of the current session. The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
    * 
    * @example
    * 2026-09-14T05:01:12Z
@@ -186,7 +186,12 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   latestSessionEndTime?: string;
   /**
    * @remarks
-   * The memory of the cloud desktop. Unit: MiB.
+   * The desktop management status.
+   */
+  managementFlags?: string[];
+  /**
+   * @remarks
+   * The memory of the cloud computer. Unit: MiB.
    * 
    * @example
    * 4096
@@ -202,7 +207,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   officeSiteId?: string;
   /**
    * @remarks
-   * The office network name.
+   * The name of the office network.
    * 
    * @example
    * TestOfficeSite
@@ -229,7 +234,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   osType?: string;
   /**
    * @remarks
-   * The specific operating system version.
+   * The specific operating system model.
    * 
    * @example
    * Windows 10
@@ -256,12 +261,12 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   regionId?: string;
   /**
    * @remarks
-   * The enterprise resource group names.
+   * The name of the enterprise resource group.
    */
   resourceGroups?: DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups[];
   /**
    * @remarks
-   * The session idle duration. Unit: minutes.
+   * The idle duration of the session. Unit: minutes.
    * 
    * @example
    * 120
@@ -274,7 +279,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   sessions?: DescribeGlobalDesktopRecordsResponseBodySessionsSessions[];
   /**
    * @remarks
-   * The UNIX timestamp when the cloud desktop status changed. Unit: milliseconds.
+   * The UNIX timestamp of the time when the cloud computer status changed. Unit: milliseconds.
    * 
    * @example
    * 1760583xxxx
@@ -282,11 +287,11 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   statusChangeTime?: number;
   /**
    * @remarks
-   * The billing method of the cloud desktop. Valid values:
+   * The billing method of the cloud computer. Valid values:
    * 
-   * - prePaid: monthly subscription with unlimited usage duration.
-   * - postPaid: pay-as-you-go.
-   * - monthPackage: monthly duration package.
+   * - prePaid: monthly subscription with unlimited duration
+   * - postPaid: pay-as-you-go
+   * - monthPackage: monthly time package
    * 
    * @example
    * monthPackage
@@ -302,7 +307,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   totalConnectionTime?: number;
   /**
    * @remarks
-   * The cloud desktop uptime. Unit: seconds.
+   * The uptime of the cloud computer. Unit: seconds.
    * 
    * @example
    * 86400
@@ -323,6 +328,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
       gpuSpec: 'GpuSpec',
       latestConnectionTime: 'LatestConnectionTime',
       latestSessionEndTime: 'LatestSessionEndTime',
+      managementFlags: 'ManagementFlags',
       memory: 'Memory',
       officeSiteId: 'OfficeSiteId',
       officeSiteName: 'OfficeSiteName',
@@ -356,6 +362,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
       gpuSpec: 'string',
       latestConnectionTime: 'number',
       latestSessionEndTime: 'string',
+      managementFlags: { 'type': 'array', 'itemType': 'string' },
       memory: 'number',
       officeSiteId: 'string',
       officeSiteName: 'string',
@@ -377,6 +384,9 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   validate() {
     if(Array.isArray(this.endUserIds)) {
       $dara.Model.validateArray(this.endUserIds);
+    }
+    if(Array.isArray(this.managementFlags)) {
+      $dara.Model.validateArray(this.managementFlags);
     }
     if(Array.isArray(this.resourceGroups)) {
       $dara.Model.validateArray(this.resourceGroups);

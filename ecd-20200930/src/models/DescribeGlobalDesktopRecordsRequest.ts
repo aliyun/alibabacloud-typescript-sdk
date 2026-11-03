@@ -6,8 +6,8 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The business channel. Valid values:
-   * - Enterprise: Enterprise Edition.
-   * - Business: Business Edition.
+   * - Enterprise: Enterprise Edition
+   * - Business: Business Edition
    * 
    * @example
    * Enterprise
@@ -15,12 +15,12 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The cloud desktop ID. You can specify 1 to 100 IDs.
+   * The ID of the cloud computer. You can specify 1 to 100 IDs.
    */
   desktopId?: string[];
   /**
    * @remarks
-   * The cloud desktop name.
+   * The name of the cloud computer.
    * 
    * @example
    * DemoComputer
@@ -28,12 +28,12 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The list of cloud desktop statuses to include.
+   * The list of cloud computer statuses to include.
    */
   desktopStatusList?: string[];
   /**
    * @remarks
-   * The cloud desktop specifications. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the specification IDs supported by cloud desktops.
+   * The specifications of the cloud computer. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the specifications supported by cloud computers.
    * 
    * @example
    * eds.enterprise_office.2c4g
@@ -41,7 +41,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The end time. The interval between the start time and end time cannot exceed 30 days. Supported format:
+   * The end time. The maximum interval between the start time and the end time is 30 days. Supported format:
    * - Format: YYYY-MM-DDThh:mm:ssZ.
    * 
    * @example
@@ -50,7 +50,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The end user ID.
+   * The ID of the end user.
    * 
    * @example
    * TestUser
@@ -58,7 +58,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The list of cloud desktop statuses to exclude.
+   * The list of cloud computer statuses to exclude.
    */
   excludeDesktopStatusList?: string[];
   /**
@@ -71,9 +71,9 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The sort field. If this parameter is not specified, results are sorted by creation time in descending order. Valid values:
+   * The sorting field. If not specified, the results are sorted in descending order of creation time. Valid values:
    * 
-   * - uptime: sorts by cloud desktop uptime.
+   * - uptime: Sorts the results by the uptime of the cloud computer.
    * 
    * @example
    * uptime
@@ -81,7 +81,12 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number of the current page in a paged query.    
+   * The list of organization IDs.
+   */
+  orgIdList?: string[];
+  /**
+   * @remarks
+   * The page number of the current page in a paging query.    
    * Default value: 1.
    * 
    * @example
@@ -98,7 +103,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. Valid values:
+   * The region ID.
    * - Shanghai
    * - Singapore
    * 
@@ -110,7 +115,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-3mtuc28rx95lx****
@@ -118,9 +123,9 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The query scope. This parameter is empty by default. Valid values:
+   * The query scope. Default value: empty. Valid values:
    * 
-   * - ADVANCED: queries statistical records such as connection duration.
+   * - ADVANCED: Queries statistical records such as connection duration.
    * 
    * @example
    * ADVANCED
@@ -128,9 +133,9 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The sort order. Default value: Asc. Valid values:
-   * - Asc: ascending order.
-   * - Desc: descending order.
+   * The sorting order. Default value: Asc. Valid values:
+   * - Asc: ascending order
+   * - Desc: descending order
    * 
    * @example
    * Asc
@@ -147,11 +152,11 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The billing method of the cloud desktop. Valid values:
+   * The billing method of the cloud computer. Valid values:
    * 
-   * - prePaid: monthly subscription with unlimited usage duration.
-   * - postPaid: pay-as-you-go.
-   * - monthPackage: monthly duration package.
+   * - prePaid: monthly subscription with unlimited duration
+   * - postPaid: pay-as-you-go
+   * - monthPackage: monthly time package
    * 
    * @example
    * monthPackage
@@ -174,6 +179,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
       excludeDesktopStatusList: 'ExcludeDesktopStatusList',
       officeSiteId: 'OfficeSiteId',
       orderBy: 'OrderBy',
+      orgIdList: 'OrgIdList',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -198,6 +204,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
       excludeDesktopStatusList: { 'type': 'array', 'itemType': 'string' },
       officeSiteId: 'string',
       orderBy: 'string',
+      orgIdList: { 'type': 'array', 'itemType': 'string' },
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
@@ -219,6 +226,9 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
     }
     if(Array.isArray(this.excludeDesktopStatusList)) {
       $dara.Model.validateArray(this.excludeDesktopStatusList);
+    }
+    if(Array.isArray(this.orgIdList)) {
+      $dara.Model.validateArray(this.orgIdList);
     }
     if(Array.isArray(this.userNames)) {
       $dara.Model.validateArray(this.userNames);

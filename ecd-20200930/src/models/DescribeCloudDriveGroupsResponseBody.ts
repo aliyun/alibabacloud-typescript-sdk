@@ -13,7 +13,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos 
   email?: string;
   /**
    * @remarks
-   * The administrator username. This value may not be readable when imported from a third party.
+   * The username of the administrator. The username may be unreadable if it is imported from a third-party system.
    * 
    * @example
    * user01
@@ -21,7 +21,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos 
   endUserId?: string;
   /**
    * @remarks
-   * The employee ID (DingTalk).
+   * The employee ID in DingTalk.
    * 
    * @example
    * 12345
@@ -29,10 +29,10 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos 
   jobNumber?: string;
   /**
    * @remarks
-   * The administrator nickname.
+   * The nickname of the administrator.
    * 
    * @example
-   * John
+   * John Doe
    */
   nickName?: string;
   /**
@@ -45,10 +45,10 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos 
   phone?: string;
   /**
    * @remarks
-   * The administrator nickname.
+   * The nickname of the administrator.
    * 
    * @example
-   * John
+   * John Doe
    */
   realNickName?: string;
   /**
@@ -56,7 +56,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos 
    * The remarks.
    * 
    * @example
-   * John
+   * John Doe
    */
   remark?: string;
   static names(): { [key: string]: string } {
@@ -103,12 +103,12 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   adminUserIds?: string;
   /**
    * @remarks
-   * The team storage management administrator information.
+   * The information about the administrators of the team storage management.
    */
   adminUserInfos?: DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos[];
   /**
    * @remarks
-   * The creation time. The time is in the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
+   * The creation time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2022-04-11T07:44:21Z
@@ -116,7 +116,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   createTime?: string;
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the office network.
    * 
    * @example
    * cn-hangzhou+dir-959593****
@@ -124,7 +124,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   directoryId?: string;
   /**
    * @remarks
-   * The space ID.
+   * The ID of the workspace.
    * 
    * @example
    * sh1234
@@ -132,7 +132,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   driveId?: string;
   /**
    * @remarks
-   * The team space ID.
+   * The ID of the team workspace.
    * 
    * @example
    * cg-e70ga4ixp30ur****
@@ -140,7 +140,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   groupId?: string;
   /**
    * @remarks
-   * The team space name.
+   * The name of the team workspace.
    * 
    * @example
    * TestTeam1
@@ -156,7 +156,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   orgId?: string;
   /**
    * @remarks
-   * The size of the team space recycle bin. Unit: bytes.
+   * The size of the recycle bin in the team workspace. Unit: bytes.
    * 
    * @example
    * 1024000
@@ -164,7 +164,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   recycleBinSize?: string;
   /**
    * @remarks
-   * The team space status.
+   * The status of the team workspace.
    * 
    * @example
    * enabled
@@ -172,7 +172,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   status?: string;
   /**
    * @remarks
-   * The total capacity of the cloud drive team space.
+   * The total capacity of the team workspace.
    * 
    * @example
    * 5368709120
@@ -180,7 +180,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
   totalSize?: number;
   /**
    * @remarks
-   * The used space size. Unit: bytes.
+   * The size of the used space. Unit: bytes.
    * 
    * @example
    * 1024000000
@@ -235,7 +235,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
 export class DescribeCloudDriveGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of cloud drive team spaces.
+   * The list of team workspaces in the cloud drive.
    */
   cloudDriveGroups?: DescribeCloudDriveGroupsResponseBodyCloudDriveGroups[];
   /**
@@ -248,7 +248,7 @@ export class DescribeCloudDriveGroupsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The token for the next query. If `NextToken` is empty, no more results exist.
+   * The token for the next query. If `NextToken` is empty, no more results are available.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
