@@ -15,11 +15,10 @@ export class UpdateApplicationVswitchesRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Indicates whether to deploy the application immediately. Valid values:
+   * Specifies whether to deploy the application immediately. Valid values:
    * 
-   * - **true**: Deploys the application immediately. This is the default.
-   * 
-   * - **false**: The application is not deployed.
+   * - **true**: Deploys the application immediately. This is the default value.
+   * - **false**: Deploys the application later.
    * 
    * @example
    * true
@@ -28,11 +27,17 @@ export class UpdateApplicationVswitchesRequest extends $dara.Model {
   /**
    * @remarks
    * The minimum percentage of ready instances.
+   * 
+   * @example
+   * -1
    */
   minReadyInstanceRatio?: number;
   /**
    * @remarks
    * The minimum number of ready instances.
+   * 
+   * @example
+   * 1
    */
   minReadyInstances?: number;
   /**

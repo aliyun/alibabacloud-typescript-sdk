@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchRestartApplicationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The application IDs. Separate multiple IDs with commas (,).
+   * The list of application IDs. Separate multiple IDs with commas (,).
    * 
    * This parameter is required.
    * 

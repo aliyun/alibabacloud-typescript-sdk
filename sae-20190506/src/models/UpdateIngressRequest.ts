@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateIngressRequest extends $dara.Model {
   /**
    * @remarks
-   * **CLB** certificate ID. Details are as follows:
+   * The ID of the Classic Load Balancer (CLB) certificate. Valid values:
    * 
-   * - If **LoadBalanceType** is **clb**, use this field to configure the HTTPS listener certificate.
+   * - If **LoadBalanceType** is set to **clb**, use this field to configure the certificate for the HTTPS listener.
    * 
-   * For more information about using SSL certificate IDs with CLB, see [Manage Certificates (CLB)]().
+   * For more information about using SSL certificate IDs in CLB, see [Manage certificates (CLB)](https://help.aliyun.com/document_detail/90792.html).
    * 
    * @example
    * 188077086902****_176993d****_181437****_108724****
@@ -17,11 +17,11 @@ export class UpdateIngressRequest extends $dara.Model {
   certId?: string;
   /**
    * @remarks
-   * **ALB** multiple certificate IDs. Details are as follows:
+   * The IDs of multiple Application Load Balancer (ALB) certificates. Valid values:
    * 
-   * - If **LoadBalanceType** is **alb**, use this field to configure multiple HTTPS listener certificates. Separate multiple certificate IDs with commas.
+   * - If **LoadBalanceType** is set to **alb**, use this field to configure multiple certificates for the HTTPS listener. Separate multiple certificate IDs with commas (,).
    * 
-   * - Obtain the SSL certificate ID used by ALB from the digital certificate product. For example, configure `756***-cn-hangzhou`, where `756***` is the certificate ID obtained from the product page, and `-cn-hangzhou` is a fixed suffix. For more information, see [Manage Certificates (ALB)]().
+   * - You must obtain the SSL certificate IDs used by ALB from the Certificate Management Service. For example, if you configure `756***-cn-hangzhou`, `756***` is the certificate ID obtained from the product page, and `-cn-hangzhou` is a fixed suffix. For more information, see [Manage certificates (ALB)](https://help.aliyun.com/document_detail/209076.html).
    * 
    * @example
    * 87***35-cn-hangzhou,812***3-cn-hangzhou
@@ -29,7 +29,7 @@ export class UpdateIngressRequest extends $dara.Model {
   certIds?: string;
   /**
    * @remarks
-   * Cross-domain configuration.
+   * The cross-origin resource sharing (CORS) configuration.
    * 
    * @example
    * {\\"Enable\\":\\"true\\"}
@@ -37,13 +37,12 @@ export class UpdateIngressRequest extends $dara.Model {
   corsConfig?: string;
   /**
    * @remarks
-   * Default forwarding rule. Forward traffic to the specified application by IP address through the specified port. Parameter description:
+   * The default forwarding rule. Traffic is forwarded to a specified application through a specified port based on the IP address. The parameters are described as follows:
    * 
-   * - **appId**: Application ID.
+   * - **appId**: the ID of the application.
+   * - **containerPort**: the port of the application instance.
    * 
-   * - **containerPort**: Application instance port.
-   * 
-   * > All requests that do not match or satisfy the **Rules** forwarding rule are forwarded to this specified application.
+   * > All requests that do not match or meet the forwarding rules in **Rules** are forwarded to the specified application.
    * 
    * @example
    * {"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080}
@@ -51,7 +50,7 @@ export class UpdateIngressRequest extends $dara.Model {
   defaultRule?: string;
   /**
    * @remarks
-   * Routing rule name.
+   * The name of the routing rule.
    * 
    * @example
    * ingress-sae-test
@@ -59,7 +58,7 @@ export class UpdateIngressRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Enable or disable data compression.
+   * Specifies whether to enable data compression.
    * 
    * @example
    * true
@@ -67,7 +66,7 @@ export class UpdateIngressRequest extends $dara.Model {
   enableGzip?: boolean;
   /**
    * @remarks
-   * Enable or disable obtaining the client IP address of the visitor through the X-Forwarded-For header field.
+   * Specifies whether to enable the retrieval of the client IP address through the X-Forwarded-For header field.
    * 
    * @example
    * true
@@ -75,7 +74,7 @@ export class UpdateIngressRequest extends $dara.Model {
   enableXForwardedFor?: boolean;
   /**
    * @remarks
-   * Obtain the listening port of the SLB instance through the X-Forwarded-Port header field.
+   * Specifies whether to retrieve the listening port of the load balancing instance through the X-Forwarded-Port header field.
    * 
    * @example
    * true
@@ -83,7 +82,7 @@ export class UpdateIngressRequest extends $dara.Model {
   enableXForwardedForClientSrcPort?: boolean;
   /**
    * @remarks
-   * Specifies whether to determine the listener protocol of the SLB instance from the X-Forwarded-Proto header field.
+   * Specifies whether to retrieve the listening protocol of the load balancing instance through the X-Forwarded-Proto header field.
    * 
    * @example
    * true
@@ -91,7 +90,7 @@ export class UpdateIngressRequest extends $dara.Model {
   enableXForwardedForProto?: boolean;
   /**
    * @remarks
-   * Obtain the SLB instance ID through the SLB-ID header field.
+   * Specifies whether to retrieve the instance ID of the load balancing instance through the SLB-ID header field.
    * 
    * @example
    * true
@@ -99,7 +98,7 @@ export class UpdateIngressRequest extends $dara.Model {
   enableXForwardedForSlbId?: boolean;
   /**
    * @remarks
-   * Whether to obtain the listening port of the Server Load Balancer instance from the X-Forwarded-Port header field.
+   * Specifies whether to retrieve the listening port of the load balancing instance through the X-Forwarded-Port header field.
    * 
    * @example
    * true
@@ -107,9 +106,8 @@ export class UpdateIngressRequest extends $dara.Model {
   enableXForwardedForSlbPort?: boolean;
   /**
    * @remarks
-   * Idle connection timeout, in seconds (s).
-   * 
-   * > A value of 0 indicates that the default idle timeout is used.
+   * The idle connection timeout period, in seconds.
+   * > A value of 0 indicates that the default idle timeout value is used.
    * 
    * @example
    * 15
@@ -117,7 +115,7 @@ export class UpdateIngressRequest extends $dara.Model {
   idleTimeout?: number;
   /**
    * @remarks
-   * Routing rule ID.
+   * The ID of the routing rule.
    * 
    * This parameter is required.
    * 
@@ -127,7 +125,7 @@ export class UpdateIngressRequest extends $dara.Model {
   ingressId?: number;
   /**
    * @remarks
-   * SLB listening port. This port must not be occupied.
+   * The listening port of the Server Load Balancer (SLB) instance. The port must not be occupied.
    * 
    * @example
    * 443
@@ -135,11 +133,10 @@ export class UpdateIngressRequest extends $dara.Model {
   listenerPort?: string;
   /**
    * @remarks
-   * Forwarding Protocol. Details are as follows:
+   * The request forwarding protocol. Valid values:
    * 
-   * - **HTTP**: Applies to applications that need to identify data content.
-   * 
-   * - **HTTPS**: Applies to applications that need encrypted transmission.
+   * - **HTTP**: applicable to applications that need to identify data content.
+   * - **HTTPS**: applicable to applications that require encrypted transmission.
    * 
    * @example
    * HTTP
@@ -147,7 +144,7 @@ export class UpdateIngressRequest extends $dara.Model {
   listenerProtocol?: string;
   /**
    * @remarks
-   * Deprecated parameter. Updates are no longer supported.
+   * **[Deprecated]** This parameter is deprecated and updates are no longer supported.
    * 
    * @example
    * clb
@@ -155,7 +152,7 @@ export class UpdateIngressRequest extends $dara.Model {
   loadBalanceType?: string;
   /**
    * @remarks
-   * Request timeout, in seconds (s).
+   * The request timeout period, in seconds.
    * 
    * @example
    * 60
@@ -163,15 +160,12 @@ export class UpdateIngressRequest extends $dara.Model {
   requestTimeout?: number;
   /**
    * @remarks
-   * Forwarding rules. Forward traffic to the specified application by domain name and URI of the request through the specified port. Parameter description:
+   * The forwarding rules. Traffic is forwarded to a specified application through a specified port based on the domain name and request path. The parameters are described as follows:
    * 
-   * - **appId**: Application ID.
-   * 
-   * - **containerPort**: Application instance port.
-   * 
-   * - **domain**: Domain name.
-   * 
-   * - **path**: URI of the request.
+   * - **appId**: the ID of the application.
+   * - **containerPort**: the port of the application instance.
+   * - **domain**: the domain name.
+   * - **path**: the request path.
    * 
    * @example
    * [{"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080,"domain":"www.sae.site","path":"/path1"},{"appId":"666403ce-d25b-47cf-87fe-497565d2****","containerPort":8080,"domain":"sae.site","path":"/path2"}]
@@ -179,7 +173,7 @@ export class UpdateIngressRequest extends $dara.Model {
   rules?: string;
   /**
    * @remarks
-   * Security policy instance ID.
+   * The ID of the security policy instance.
    * 
    * @example
    * tls_cipher_policy_1_2_strict_with_1_3

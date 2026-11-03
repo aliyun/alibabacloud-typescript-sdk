@@ -5,19 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListNamespaceChangeOrdersRequest extends $dara.Model {
   /**
    * @remarks
-   * The change order status. Valid values:
+   * The status of the change order. Valid values:
    * 
-   * - **0**: Preparing.
-   * 
-   * - **1**: Executing.
-   * 
-   * - **2**: Succeeded.
-   * 
-   * - **3**: Failed.
-   * 
-   * - **6**: Terminated.
-   * 
-   * - **10**: System Error.
+   * - **0**: preparing
+   * - **1**: executing
+   * - **2**: succeeded
+   * - **3**: failed
+   * - **6**: terminated
+   * - **10**: failed due to a system exception
    * 
    * @example
    * 2
@@ -25,11 +20,10 @@ export class ListNamespaceChangeOrdersRequest extends $dara.Model {
   coStatus?: string;
   /**
    * @remarks
-   * The change order type. Valid values:
+   * The type of the change order. Valid values:
    * 
-   * - **CoBatchStartApplication**: Batch Start Application.
-   * 
-   * - **CoBatchStopApplication**: Batch Stop Application.
+   * - **CoBatchStartApplication**: Starts applications in batches.
+   * - **CoBatchStopApplication**: Stops applications in batches.
    * 
    * @example
    * CoBatchStartApplication
@@ -37,7 +31,7 @@ export class ListNamespaceChangeOrdersRequest extends $dara.Model {
   coType?: string;
   /**
    * @remarks
-   * The current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -45,7 +39,7 @@ export class ListNamespaceChangeOrdersRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * A keyword for a fuzzy search of change order descriptions. Change orders whose descriptions contain this **key** are returned.
+   * The keyword used for fuzzy matching of the change order description. All change orders whose descriptions contain this **key** are returned.
    * 
    * @example
    * test
@@ -63,7 +57,7 @@ export class ListNamespaceChangeOrdersRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 20

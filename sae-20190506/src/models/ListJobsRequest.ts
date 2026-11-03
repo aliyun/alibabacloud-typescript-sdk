@@ -13,7 +13,7 @@ export class ListJobsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The page number. The value starts from 1.
+   * The current page number. Valid values start from 1.
    * 
    * @example
    * 1
@@ -21,11 +21,10 @@ export class ListJobsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The dimension by which to filter job templates. Valid values:
+   * The dimension used to filter job templates. Valid values:
    * 
-   * - **appName**: The name of the job template.
-   * 
-   * - **appIds**: The ID of the job template.
+   * - **appName**: the job template name
+   * - **appIds**: the job template ID
    * 
    * @example
    * appName
@@ -33,7 +32,7 @@ export class ListJobsRequest extends $dara.Model {
   fieldType?: string;
   /**
    * @remarks
-   * The name or ID of the target job template. This value corresponds to the dimension specified by **FieldType**.
+   * The value used to filter job templates based on the dimension specified by the **FieldType** parameter. Enter the job template name or job template ID.
    * 
    * @example
    * demo-app
@@ -41,7 +40,7 @@ export class ListJobsRequest extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * The namespace ID.
+   * The ID of the namespace.
    * 
    * @example
    * cn-beijing:demo
@@ -49,11 +48,10 @@ export class ListJobsRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The sorting method for the job templates. Valid values:
+   * The field used to sort job templates. Valid values:
    * 
-   * - **running**: Sorts by the number of running instances.
-   * 
-   * - **instances**: Sorts by the number of destination instances.
+   * - **running**: sort by the current number target instances
+   * - **instances**: sort by the target number target instances
    * 
    * @example
    * running
@@ -69,11 +67,10 @@ export class ListJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether to sort the results in ascending or descending order based on the field specified by the **OrderBy** parameter. Valid values:
+   * Specifies whether to reverse the sort order based on the field specified by the **OrderBy** parameter. Valid values:
    * 
-   * - **true**: ascending order.
-   * 
-   * - **false**: descending order.
+   * - **true**: sort in ascending order
+   * - **false**: sort in descending order
    * 
    * @example
    * true
@@ -81,11 +78,10 @@ export class ListJobsRequest extends $dara.Model {
   reverse?: boolean;
   /**
    * @remarks
-   * A list of tags. This is a JSON string. The value consists of the following parts:
+   * The list of tags. The value is a JSON string that contains the following fields:
    * 
-   * - **key**: The tag key.
-   * 
-   * - **value**: The tag value.
+   * - **key**: the tag key
+   * - **value**: the tag value
    * 
    * @example
    * [{"key":"key","value":"value"}]
@@ -93,7 +89,7 @@ export class ListJobsRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The workload. Set the value to `job`.
+   * The workload type. Set the value to `job`.
    * 
    * @example
    * job

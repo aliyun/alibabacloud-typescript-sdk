@@ -13,7 +13,7 @@ export class ListSwimmingLaneGroupTagsResponseBodyData extends $dara.Model {
   metadata?: string;
   /**
    * @remarks
-   * The swimming lane tag.
+   * The lane tag.
    * 
    * @example
    * g1
@@ -45,15 +45,12 @@ export class ListSwimmingLaneGroupTagsResponseBodyData extends $dara.Model {
 export class ListSwimmingLaneGroupTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A client error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -61,25 +58,26 @@ export class ListSwimmingLaneGroupTagsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned results.
    */
   data?: ListSwimmingLaneGroupTagsResponseBodyData[];
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is not returned if the request succeeds.
+   * - Successful request: The **ErrorCode** field is not returned.
+   * - Failed request: The **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The response message.
+   * The additional information. Valid values:
    * 
-   * - If the request is successful, **success** is returned.
-   * 
-   * - If the request fails, an error message is returned.
+   * - **success**: The request is successful.
+   * - Specific error code: The request is abnormal.
    * 
    * @example
    * success
@@ -95,11 +93,10 @@ export class ListSwimmingLaneGroupTagsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true
@@ -107,7 +104,7 @@ export class ListSwimmingLaneGroupTagsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of a request.
+   * The trace ID used to precisely query call information.
    * 
    * @example
    * ac1a0b2215622920113732501e****

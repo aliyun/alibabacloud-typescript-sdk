@@ -180,6 +180,9 @@ export class ListApplicationsResponseBodyDataApplicationsChildren extends $dara.
   /**
    * @remarks
    * The resource type.
+   * 
+   * @example
+   * default
    */
   resourceType?: string;
   /**
@@ -526,6 +529,9 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   /**
    * @remarks
    * The resource type.
+   * 
+   * @example
+   * default
    */
   resourceType?: string;
   /**
@@ -544,6 +550,9 @@ export class ListApplicationsResponseBodyDataApplications extends $dara.Model {
   /**
    * @remarks
    * VPC ID。
+   * 
+   * @example
+   * vpc-2ze0i263cnn311nvj****
    */
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -723,6 +732,9 @@ export class ListApplicationsResponseBody extends $dara.Model {
    * 
    * - If the request is successful, the **ErrorCode** field is not returned.
    * - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * Illegal.argument
    */
   errorCode?: string;
   /**

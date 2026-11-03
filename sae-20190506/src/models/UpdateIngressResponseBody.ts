@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateIngressResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Routing rule ID.
+   * The ID of the routing rule.
    * 
    * @example
    * 87
@@ -35,15 +35,12 @@ export class UpdateIngressResponseBodyData extends $dara.Model {
 export class UpdateIngressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API status or POP error code. Details are as follows:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: Success.
-   * 
-   * - **3xx**: Redirection.
-   * 
-   * - **4xx**: Request error.
-   * 
-   * - **5xx**: Server error.
+   * - **2xx**: success.
+   * - **3xx**: redirection.
+   * - **4xx**: request error.
+   * - **5xx**: server error.
    * 
    * @example
    * 200
@@ -51,25 +48,26 @@ export class UpdateIngressResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returned result.
+   * The returned result.
    */
   data?: UpdateIngressResponseBodyData;
   /**
    * @remarks
-   * Error code. Details are as follows:
+   * The error code. Valid values:
    * 
-   * - If the request is successful, the **ErrorCode** field is not returned.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the request failed, the **ErrorCode** field is returned. For more information, see the **Error Codes** list in this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * Additional information. Details are as follows:
+   * The additional information. Valid values:
    * 
    * - If the request is normal, **success** is returned.
-   * 
-   * - If the request is abnormal, a specific abnormal error code is returned.
+   * - If the request is abnormal, a specific error code is returned.
    * 
    * @example
    * success
@@ -77,7 +75,7 @@ export class UpdateIngressResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -85,10 +83,9 @@ export class UpdateIngressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the Ingress instance configuration was successfully updated. Details are as follows:
+   * Indicates whether the Ingress instance configuration was updated successfully. Valid values:
    * 
    * - **true**: The update was successful.
-   * 
    * - **false**: The update failed.
    * 
    * @example
@@ -97,7 +94,7 @@ export class UpdateIngressResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Call chain ID.
+   * The trace ID.
    * 
    * @example
    * 0a98a02315955564772843261e****

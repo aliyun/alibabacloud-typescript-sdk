@@ -15,7 +15,7 @@ export class DisableApplicationScalingRuleRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the Auto Scaling policy.
+   * The elastic scaling policy name.
    * 
    * This parameter is required.
    * 

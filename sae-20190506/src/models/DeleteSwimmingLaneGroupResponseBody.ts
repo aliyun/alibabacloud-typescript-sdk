@@ -5,15 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSwimmingLaneGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A request error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -21,20 +18,21 @@ export class DeleteSwimmingLaneGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section of this topic.
+   * The error code. Valid values:
    * 
-   * - If the request is successful, the **ErrorCode** field is not returned.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - A failed request returns the **ErrorCode** field. For more information, see the **error code** list in this article.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information. Valid values:
    * 
-   * - **success** is returned for a successful request.
-   * 
-   * - An error code is returned for a failed request.
+   * - **success**: The request is successful.
+   * - A specific error code: The request is abnormal.
    * 
    * @example
    * success
@@ -50,11 +48,10 @@ export class DeleteSwimmingLaneGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the deletion is successful. Valid values:
    * 
-   * - **true**: The swimming lane group was successfully deleted.
-   * 
-   * - **false**: The swimming lane group was not deleted.
+   * - **true**: The deletion is successful.
+   * - **false**: The deletion fails.
    * 
    * @example
    * true
@@ -62,7 +59,7 @@ export class DeleteSwimmingLaneGroupResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID. Use this ID to query the details of a call.
+   * The trace ID used to query invocation details.
    * 
    * @example
    * ac1a0b2215622920113732501e****

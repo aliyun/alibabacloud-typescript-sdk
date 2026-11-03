@@ -649,6 +649,9 @@ export class DescribeGreyTagRouteResponseBody extends $dara.Model {
    * - This parameter is not returned if the request is successful.
    * 
    * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**

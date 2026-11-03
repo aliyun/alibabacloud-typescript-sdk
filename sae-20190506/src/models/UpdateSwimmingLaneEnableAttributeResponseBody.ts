@@ -5,15 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSwimmingLaneEnableAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: Success
-   * 
-   * - **3xx**: Redirection
-   * 
-   * - **4xx**: Client error
-   * 
-   * - **5xx**: Server error
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -21,20 +18,21 @@ export class UpdateSwimmingLaneEnableAttributeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error code.
+   * The error code. The following rules apply:
    * 
-   * - This parameter is not returned if the request is successful.
+   * - If the request is successful, the **ErrorCode** field is not returned.
+   * - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - This parameter is returned if the request fails. For more information, see the **Error codes** section.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information. The following rules apply:
    * 
    * - If the request is successful, **success** is returned.
-   * 
-   * - If the request fails, an error message is returned.
+   * - If an exception occurs, a specific error code is returned.
    * 
    * @example
    * success
@@ -50,11 +48,10 @@ export class UpdateSwimmingLaneEnableAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: The deletion is successful.
+   * - **false**: The deletion fails.
    * 
    * @example
    * true
@@ -62,7 +59,7 @@ export class UpdateSwimmingLaneEnableAttributeResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID. You can use the trace ID to query the details of a request.
+   * The trace ID used to query invocation details.
    * 
    * @example
    * ac1a0b2215622920113732501e****

@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchStopApplicationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error code.
-   * 
-   * - If the request is successful, this parameter is not returned.\\*\\*\\*\\*
-   * 
-   * - This parameter is returned only if the request failed.\\*\\*\\*\\* For more information, see the "**Error codes**" section in this topic.
+   * The change order ID.
    * 
    * @example
    * 4a815998-b468-4bea-b7d8-59f52a44****
@@ -39,15 +35,12 @@ export class BatchStopApplicationsResponseBodyData extends $dara.Model {
 export class BatchStopApplicationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Take note of the following rules:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The call was successful.
-   * 
-   * - **3xx**: The call was redirected.
-   * 
-   * - **4xx**: The call failed.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -55,21 +48,26 @@ export class BatchStopApplicationsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the change order.
+   * The returned result.
    */
   data?: BatchStopApplicationsResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed. Take note of the following rules:
+   * The error code. Valid values:
    * 
-   * - The ErrorCode parameter is not returned if the request succeeds.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the call fails, the ErrorCode parameter is returned. For more information, see the "Error codes" section of this topic.
+   * @example
+   * System.Upgrading
    */
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the trace. It can be used to query the details of a request.
+   * The additional information. Valid values:
+   * 
+   * - If the request is successful, **success** is returned.
+   * - If the request is abnormal, the specific error code is returned.
    * 
    * @example
    * success
@@ -77,11 +75,7 @@ export class BatchStopApplicationsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned message.
-   * 
-   * - **success** is returned when the request succeeds.
-   * 
-   * - An error code is returned when the request fails.
+   * The request ID.
    * 
    * @example
    * 7BD8F4C7-D84C-4D46-9885-8212997E****
@@ -89,11 +83,10 @@ export class BatchStopApplicationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the application is created. Valid values
+   * Indicates whether the applications were stopped successfully. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: The applications were stopped successfully.
+   * - **false**: The applications failed to be stopped.
    * 
    * @example
    * true
@@ -101,7 +94,7 @@ export class BatchStopApplicationsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The returned data.
+   * The trace ID used to query call information accurately.
    * 
    * @example
    * 0bc3b6e215637275918588187d****

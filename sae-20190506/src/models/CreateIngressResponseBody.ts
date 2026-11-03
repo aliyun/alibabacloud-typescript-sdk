@@ -35,15 +35,12 @@ export class CreateIngressResponseBodyData extends $dara.Model {
 export class CreateIngressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request is successful.
-   * 
-   * - **3xx**: The request is redirected.
-   * 
-   * - **4xx**: A request error occurs.
-   * 
-   * - **5xx**: A server error occurs.
+   * - **2xx**: successful.
+   * - **3xx**: redirected.
+   * - **4xx**: request error.
+   * - **5xx**: server error.
    * 
    * @example
    * 200
@@ -51,25 +48,26 @@ export class CreateIngressResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned results.
+   * The returned result.
    */
   data?: CreateIngressResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is not returned if the request is successful.
+   * - If the request is successful, the **ErrorCode** field is not returned.
+   * - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information. Valid values:
    * 
-   * - If the request is successful, **success** is returned.
-   * 
-   * - If the request fails, an error code is returned.
+   * - If the request is normal, **success** is returned.
+   * - If the request is abnormal, a specific error code is returned.
    * 
    * @example
    * success
@@ -77,7 +75,7 @@ export class CreateIngressResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -85,11 +83,10 @@ export class CreateIngressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the routing rule was created. Valid values:
+   * Indicates whether the routing rule was created successfully. Valid values:
    * 
-   * - **true**: The routing rule was created.
-   * 
-   * - **false**: The routing rule failed to be created.
+   * - **true**: created successfully.
+   * - **false**: failed to create.
    * 
    * @example
    * true
@@ -97,7 +94,7 @@ export class CreateIngressResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID, which is used to accurately query the call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

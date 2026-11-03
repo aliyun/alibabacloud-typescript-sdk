@@ -13,7 +13,10 @@ export class UpdateAppModeRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The application IDs.
+   * The application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****,7802c49a-67bc-4167-8369-9a9c003c****
    */
   appIds?: string;
   /**
@@ -24,10 +27,17 @@ export class UpdateAppModeRequest extends $dara.Model {
    * true
    */
   enableIdle?: boolean;
+  /**
+   * @example
+   * [{"startTime":"1:00","endTime":"16:00"}]
+   */
   idleHour?: string;
   /**
    * @remarks
    * The namespace ID.
+   * 
+   * @example
+   * cn-shanghai
    */
   namespaceId?: string;
   static names(): { [key: string]: string } {

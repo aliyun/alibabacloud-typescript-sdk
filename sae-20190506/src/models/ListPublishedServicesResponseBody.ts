@@ -13,7 +13,7 @@ export class ListPublishedServicesResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * A reserved field.
+   * A reserved field. This field is currently meaningless.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class ListPublishedServicesResponseBodyData extends $dara.Model {
   group2Ip?: string;
   /**
    * @remarks
-   * The groups to which the service belongs.
+   * The group to which the consumed service belongs.
    */
   groups?: string[];
   /**
@@ -39,7 +39,7 @@ export class ListPublishedServicesResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The published service type.
+   * The type of the published service.
    * 
    * @example
    * RPC
@@ -47,7 +47,7 @@ export class ListPublishedServicesResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The published service version.
+   * The version of the published service.
    * 
    * @example
    * 1.0.0
@@ -95,15 +95,12 @@ export class ListPublishedServicesResponseBodyData extends $dara.Model {
 export class ListPublishedServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
    * - **2xx**: The request is successful.
-   * 
    * - **3xx**: The request is redirected.
-   * 
-   * - **4xx**: A client error occurs.
-   * 
-   * - **5xx**: A server error occurs.
+   * - **4xx**: A request error occurred.
+   * - **5xx**: A server error occurred.
    * 
    * @example
    * 200
@@ -111,25 +108,26 @@ export class ListPublishedServicesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of published microservices.
+   * The information about the microservice list.
    */
   data?: ListPublishedServicesResponseBodyData[];
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is not returned if the request is successful.
+   * - If the request is successful, the **ErrorCode** field is not returned.
+   * - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - For more information about error codes, see the **Error codes** section.
+   * @example
+   * InvalidParameter.Obviously
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information. Valid values:
    * 
-   * - Returns **success** if the request is successful.
-   * 
-   * - Returns an error code if the request fails.
+   * - If the request is successful, **success** is returned.
+   * - If the request is abnormal, a specific error code is returned.
    * 
    * @example
    * success
@@ -145,11 +143,10 @@ export class ListPublishedServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the list of published microservices is successfully retrieved. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: The list is successfully retrieved.
+   * - **false**: The list fails to be retrieved.
    * 
    * @example
    * true
@@ -157,7 +154,7 @@ export class ListPublishedServicesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID for querying call details.
+   * The trace ID used to accurately query call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

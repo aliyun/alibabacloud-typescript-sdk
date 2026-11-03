@@ -61,6 +61,9 @@ export class StartApplicationResponseBody extends $dara.Model {
    * - If the call is successful, **ErrorCode** is not returned.
    * 
    * - If the call fails, **ErrorCode** is returned. For more information, see the "**Error codes**" section in this topic.
+   * 
+   * @example
+   * InvalidApplication.NotFound
    */
   errorCode?: string;
   /**

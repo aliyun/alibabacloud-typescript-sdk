@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class RegistryAuthConfig extends $dara.Model {
   /**
+   * @remarks
+   * password
+   * 
    * @example
    * abc***
    */
   password?: string;
   /**
+   * @remarks
+   * role to get c
+   * 
    * @example
    * acs:ram::142xxxx:role/xxxxxx
    */
   role?: string;
   /**
+   * @remarks
+   * userName
+   * 
    * @example
    * admin
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application that is created.
+   * The ID of the created application.
    * 
    * @example
    * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
@@ -13,7 +13,7 @@ export class CreateApplicationResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The returned change order ID, which is used to query the task execution status.
+   * The ID of the returned change order, which is used to query the task execution status.
    * 
    * @example
    * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
@@ -45,11 +45,11 @@ export class CreateApplicationResponseBodyData extends $dara.Model {
 export class CreateApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status or POP error code. Valid values:
-   * - **2xx**: success.
-   * - **3xx**: redirection.
-   * - **4xx**: request error.
-   * - **5xx**: server error.
+   * The API status code or POP error code. Valid values:
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -62,19 +62,17 @@ export class CreateApplicationResponseBody extends $dara.Model {
   data?: CreateApplicationResponseBodyData;
   /**
    * @remarks
-   * The error code. Valid values:
-   * 
-   * - If the request is successful, the **ErrorCode** field is not returned.
-   * - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
+   * The error code.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
    * @example
-   * 空
+   * Application.MissingJdk
    */
   errorCode?: string;
   /**
    * @remarks
-   * The additional information. Valid values:
-   * 
+   * The additional information.
    * - If the request is successful, **success** is returned.
    * - If the request fails, a specific error code is returned.
    * 
@@ -92,9 +90,8 @@ export class CreateApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the application is created. Valid values:
-   * 
-   * - **true**: The application is created.
+   * Specifies whether the application was created. Valid values:
+   * - **true**: The application was created.
    * - **false**: The application failed to be created.
    * 
    * @example
@@ -103,7 +100,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID, which is used to query the details of a request.
+   * The trace ID, which is used to accurately query call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

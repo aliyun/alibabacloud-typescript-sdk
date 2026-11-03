@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecretResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the created Secret.
+   * The instance ID of the created Secret.
    * 
    * @example
    * 16
@@ -35,15 +35,12 @@ export class CreateSecretResponseBodyData extends $dara.Model {
 export class CreateSecretResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the error code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: The request failed.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: success.
+   * - **3xx**: redirection.
+   * - **4xx**: request error.
+   * - **5xx**: server error.
    * 
    * @example
    * 200
@@ -56,16 +53,18 @@ export class CreateSecretResponseBody extends $dara.Model {
   data?: CreateSecretResponseBodyData;
   /**
    * @remarks
-   * The status code. Value values:
+   * The error code. Valid values:
    * 
-   * - If the request was successful, **ErrorCode** is not returned.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned for the operation.
+   * The additional information about the call result.
    * 
    * @example
    * success
@@ -81,11 +80,10 @@ export class CreateSecretResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the Secret was created. Valid values:
+   * Indicates whether the Secret instance was created successfully. Valid values:
    * 
-   * - **true**: The ConfigMap was created.
-   * 
-   * - **false**: The ConfigMap failed to be created.
+   * - **true**: The creation was successful.
+   * - **false**: The creation failed.
    * 
    * @example
    * true
@@ -93,7 +91,7 @@ export class CreateSecretResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The trace ID used to query call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

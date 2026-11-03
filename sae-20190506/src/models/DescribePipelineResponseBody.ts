@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the task could not be executed. If the task is successfully executed, this parameter is not returned.
+   * The error code for the task execution failure. This code is not returned if the task succeeds.
    * 
    * @example
    * EDAS-10022
@@ -13,11 +13,10 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Mod
   errorCode?: string;
   /**
    * @remarks
-   * Indicates whether to execute the subsequent tasks when the task failed. Valid values:
+   * Specifies whether subsequent tasks can be executed after a failure. Valid values:
    * 
-   * - **0**: The subsequent tasks cannot be executed.
-   * 
-   * - **1**: The subsequent tasks can be executed.
+   * - **0**: Not supported.
+   * - **1**: Supported.
    * 
    * @example
    * 0
@@ -25,7 +24,7 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Mod
   errorIgnore?: number;
   /**
    * @remarks
-   * The error message returned when the task could not be executed. If the task is successfully executed, this parameter is not returned.
+   * The error message for the task execution. This message is not returned if the task succeeds.
    * 
    * @example
    * EDAS-10022
@@ -33,7 +32,7 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Mod
   errorMessage?: string;
   /**
    * @remarks
-   * The returned message indicating the task execution result.
+   * The task execution information.
    * 
    * @example
    * init Namespace success
@@ -41,11 +40,9 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Mod
   message?: string;
   /**
    * @remarks
-   * Indicates whether a running task can be manually skipped. Valid values:
-   * 
-   * - **true**: The running task can be skipped.
-   * 
-   * - **false**: The zone does not allow you to change the network type of an ApsaraDB for Redis instance from classic network to VPC.
+   * Specifies whether a running task can be manually skipped. Valid values:
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * false
@@ -53,7 +50,7 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Mod
   showManualIgnore?: boolean;
   /**
    * @remarks
-   * The ID of the stage.
+   * The stage ID.
    * 
    * @example
    * c3a55592-4c30-4d84-ac2d-e98c18ec****
@@ -63,17 +60,12 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Mod
    * @remarks
    * The task status. Valid values:
    * 
-   * - **0**: The task is prepared for execution.
-   * 
-   * - **1**: The task is being executed.
-   * 
-   * - **2**: successful
-   * 
-   * - **3**: The task could not be executed.
-   * 
-   * - **5**: The task is pending retry.
-   * 
-   * - **6**: The task was terminated.
+   * - **0**: Ready.
+   * - **1**: Running.
+   * - **2**: Succeeded.
+   * - **3**: Failed.
+   * - **5**: Waiting for retry.
+   * - **6**: Aborted.
    * 
    * @example
    * 2
@@ -81,7 +73,7 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Mod
   status?: number;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * bef0122f-de9a-4ab0-8223-b88bf8ad****
@@ -89,10 +81,10 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Mod
   taskId?: string;
   /**
    * @remarks
-   * The name of the task.
+   * The task name.
    * 
    * @example
-   * Initialize environment
+   * Environment initialization
    */
   taskName?: string;
   static names(): { [key: string]: string } {
@@ -135,11 +127,10 @@ export class DescribePipelineResponseBodyDataStageListTaskList extends $dara.Mod
 export class DescribePipelineResponseBodyDataStageList extends $dara.Model {
   /**
    * @remarks
-   * The execution type of the stage. Valid values:
+   * The stage type. Valid values:
    * 
-   * - **0**: in sequence.
-   * 
-   * - **1**: in parallel.
+   * - **0**: Serial.
+   * - **1**: Parallel.
    * 
    * @example
    * 0
@@ -147,7 +138,7 @@ export class DescribePipelineResponseBodyDataStageList extends $dara.Model {
   executorType?: number;
   /**
    * @remarks
-   * The ID of the stage.
+   * The stage ID.
    * 
    * @example
    * c3a55592-4c30-4d84-ac2d-e98c18ec****
@@ -155,25 +146,21 @@ export class DescribePipelineResponseBodyDataStageList extends $dara.Model {
   stageId?: string;
   /**
    * @remarks
-   * The name of the stage.
+   * The stage name.
    * 
    * @example
-   * Deployment application
+   * Application Deployment
    */
   stageName?: string;
   /**
    * @remarks
-   * The status of the batch processing stage. Valid values:
+   * The stage status. Valid values:
    * 
-   * - **0**: The batch is prepared for this processing stage.
-   * 
-   * - **1**: The task is being executed.
-   * 
-   * - **2**: successful
-   * 
-   * - **3**: The processing failed in this stage.
-   * 
-   * - **6**: The processing stage was terminated.
+   * - **0**: Ready.
+   * - **1**: Running.
+   * - **2**: Succeeded.
+   * - **3**: Failed.
+   * - **6**: Aborted.
    * 
    * @example
    * 2
@@ -181,7 +168,7 @@ export class DescribePipelineResponseBodyDataStageList extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The list of task statuses.
+   * The list of task status information.
    */
   taskList?: DescribePipelineResponseBodyDataStageListTaskList[];
   static names(): { [key: string]: string } {
@@ -219,15 +206,15 @@ export class DescribePipelineResponseBodyDataStageList extends $dara.Model {
 export class DescribePipelineResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The status of the change order for the batch.
+   * The status of the change order associated with the batch.
    * 
    * @example
-   * Execution succeeded
+   * Executed successfully
    */
   coStatus?: string;
   /**
    * @remarks
-   * The ID of the batch processing stage.
+   * The ID of the stage being executed in the batch.
    * 
    * @example
    * c3a55592-4c30-4d84-ac2d-e98c18ec****
@@ -243,7 +230,7 @@ export class DescribePipelineResponseBodyData extends $dara.Model {
   nextPipelineId?: string;
   /**
    * @remarks
-   * The ID of the batch.
+   * The batch ID.
    * 
    * @example
    * 917660ba-5092-44ca-b8e0-80012c96****
@@ -251,27 +238,22 @@ export class DescribePipelineResponseBodyData extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The name of the batch.
+   * The batch name.
    * 
    * @example
-   * Batch 1 change
+   * First batch
    */
   pipelineName?: string;
   /**
    * @remarks
    * The batch status. Valid values:
    * 
-   * - **0**: The batch is prepared for processing.
-   * 
-   * - **1**: The task is being executed.
-   * 
-   * - **2**: successful
-   * 
-   * - **3**: The processing failed in this stage.
-   * 
-   * - **6**: The batch processing was terminated.
-   * 
-   * - **10**: The batch could not be processed due to a system exception.
+   * - **0**: Ready.
+   * - **1**: Running.
+   * - **2**: Succeeded.
+   * - **3**: Failed.
+   * - **6**: Aborted.
+   * - **10**: Failed due to a system exception.
    * 
    * @example
    * 2
@@ -279,11 +261,10 @@ export class DescribePipelineResponseBodyData extends $dara.Model {
   pipelineStatus?: number;
   /**
    * @remarks
-   * Indicates whether to start processing the next batch. Valid values:
+   * Specifies whether the execution of the next batch can start. Valid values:
    * 
-   * - **false**: indicates that the next batch cannot be processed yet.
-   * 
-   * - **true**: indicates that the next batch can be processed now.
+   * - **false**: The execution of the next batch cannot start.
+   * - **true**: The execution of the next batch can start.
    * 
    * @example
    * false
@@ -291,7 +272,7 @@ export class DescribePipelineResponseBodyData extends $dara.Model {
   showBatch?: boolean;
   /**
    * @remarks
-   * The list of batch processing stages.
+   * The list of stages in the batch.
    */
   stageList?: DescribePipelineResponseBodyDataStageList[];
   static names(): { [key: string]: string } {
@@ -335,15 +316,12 @@ export class DescribePipelineResponseBodyData extends $dara.Model {
 export class DescribePipelineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The call was successful.
-   * 
-   * - **3xx**: The call was redirected.
-   * 
-   * - **4xx**: The call failed.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirect.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -356,16 +334,18 @@ export class DescribePipelineResponseBody extends $dara.Model {
   data?: DescribePipelineResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed. Take note of the following rules:
+   * The error code. Valid values:
    * 
-   * - The **ErrorCode** parameter is not returned if the request succeeds.
+   * - Successful request: The **ErrorCode** field is not returned.
+   * - Failed request: The **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned for the operation.
+   * The additional information about the call result.
    * 
    * @example
    * success
@@ -373,7 +353,7 @@ export class DescribePipelineResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 559B4247-C41C-4D9E-B866-B55D360B****
@@ -381,11 +361,10 @@ export class DescribePipelineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the batch information was obtained. Valid values:
+   * Indicates whether the batch information was queried successfully. Valid values:
    * 
-   * - **true**: The information was queried.
-   * 
-   * - **false**: The image failed to be found.
+   * - **true**: The query was successful.
+   * - **false**: The query failed.
    * 
    * @example
    * true
@@ -393,7 +372,7 @@ export class DescribePipelineResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID used to accurately query call information.
    * 
    * @example
    * 0be3e0c316390414649128666e****

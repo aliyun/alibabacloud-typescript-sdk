@@ -34,6 +34,9 @@ export class TagResourcesResponseBody extends $dara.Model {
    * - This parameter is returned only if the request fails.
    * 
    * - For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * Duplicate.TagKey
    */
   errorCode?: string;
   /**

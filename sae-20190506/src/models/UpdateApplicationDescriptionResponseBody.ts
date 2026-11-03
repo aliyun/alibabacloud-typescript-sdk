@@ -5,15 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationDescriptionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the error code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: The request failed.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -21,20 +18,21 @@ export class UpdateApplicationDescriptionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error code returned if the call failed. Value values:
+   * The error code. Valid values:
    * 
-   * - If the request was successful, **ErrorCode** is not returned.
+   * - Successful request: The **ErrorCode** parameter is not returned.
+   * - Failed request: The **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned. The following limits are imposed on the ID:
+   * The additional information. Valid values:
    * 
-   * - If the request was successful, **success** is returned.
-   * 
-   * - An error code is returned when a request failed.
+   * - **success**: The request is successful.
+   * - Specific error code: The request is abnormal.
    * 
    * @example
    * success
@@ -42,7 +40,7 @@ export class UpdateApplicationDescriptionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * 01CF26C7-00A3-4AA6-BA76-7E95F2A3***
@@ -50,11 +48,10 @@ export class UpdateApplicationDescriptionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the application was deployed. Valid values:
+   * Indicates whether the application is deployed successfully. Valid values:
    * 
-   * - **true**: The application was deployed.
-   * 
-   * - **false**: The application failed to be deployed.
+   * - **true**: The deployment is successful.
+   * - **false**: The deployment failed.
    * 
    * @example
    * true
@@ -62,7 +59,7 @@ export class UpdateApplicationDescriptionResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The trace ID used to query invocation details.
    * 
    * @example
    * ac1a0b2215622246421415014e****

@@ -13,12 +13,12 @@ export class GetChangeOrderMetricResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The average duration of a change order, in milliseconds.
+   * The average time consumed, in milliseconds.
    */
   avgTimeCostMs?: number;
   /**
    * @remarks
-   * The number of failed change orders.
+   * The number of abnormal change orders.
    * 
    * @example
    * 1
@@ -34,7 +34,7 @@ export class GetChangeOrderMetricResponseBodyData extends $dara.Model {
   errorPercent?: number;
   /**
    * @remarks
-   * The maximum duration, in milliseconds.
+   * The maximum time consumed, in milliseconds.
    */
   maxTimeCostMs?: number;
   /**
@@ -60,7 +60,7 @@ export class GetChangeOrderMetricResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The average task duration, in milliseconds.
+   * The average time consumed by the task, in milliseconds.
    */
   taskTimeCostMsAvg?: string;
   /**
@@ -113,15 +113,12 @@ export class GetChangeOrderMetricResponseBodyData extends $dara.Model {
 export class GetChangeOrderMetricResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A client-side error occurred.
-   * 
-   * - **5xx**: A server-side error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -134,11 +131,10 @@ export class GetChangeOrderMetricResponseBody extends $dara.Model {
   data?: GetChangeOrderMetricResponseBodyData[];
   /**
    * @remarks
-   * The response message.
+   * The additional information. Valid values:
    * 
-   * - Returns **success** if the request is successful.
-   * 
-   * - Returns an error code if the request fails.
+   * - If the request is successful, **success** is returned.
+   * - If the request fails, a specific error code is returned.
    * 
    * @example
    * success
@@ -154,11 +150,10 @@ export class GetChangeOrderMetricResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the service list was retrieved. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: The service list was retrieved.
+   * - **false**: The retrieval failed.
    * 
    * @example
    * true

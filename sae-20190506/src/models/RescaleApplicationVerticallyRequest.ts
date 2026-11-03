@@ -15,7 +15,7 @@ export class RescaleApplicationVerticallyRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The CPU specifications, in millicores.
+   * The target CPU specifications, in millicores.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class RescaleApplicationVerticallyRequest extends $dara.Model {
   deploy?: boolean;
   /**
    * @remarks
-   * The disk size for each node, in GB.
+   * The disk storage size per node, in GB.
    * 
    * @example
    * 20
@@ -34,7 +34,7 @@ export class RescaleApplicationVerticallyRequest extends $dara.Model {
   diskSize?: string;
   /**
    * @remarks
-   * The memory size, in MB.
+   * The target memory specifications, in MB.
    * 
    * This parameter is required.
    * 
@@ -42,11 +42,22 @@ export class RescaleApplicationVerticallyRequest extends $dara.Model {
    * 2048
    */
   memory?: string;
+  /**
+   * @remarks
+   * The type of resource used for vertical scaling of the application.
+   * 
+   * @example
+   * haiguang9
+   */
   resourceType?: string;
+  /**
+   * @example
+   * vsw-bp1abcdefghijklmno
+   */
   vSwitchId?: string;
   /**
    * @remarks
-   * Specifies whether to automatically enable the auto scaling rule.
+   * Specifies whether to automatically enable the elastic scaling rule.
    * 
    * @example
    * true

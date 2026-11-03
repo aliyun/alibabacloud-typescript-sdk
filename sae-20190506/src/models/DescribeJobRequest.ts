@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job template ID.
+   * The ID of the job template.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeJobRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The ID of the job.
    * 
    * @example
    * event-b798157b-40a2-4388-b578-71fb897103**-**

@@ -207,6 +207,9 @@ export class ListAppServicesResponseBody extends $dara.Model {
    * - Successful requests do not return the **ErrorCode** field.
    * 
    * - Failed requests return the **ErrorCode** field. For more information, see the **error code** list in this topic.
+   * 
+   * @example
+   * Micro.Service.NotFound
    */
   errorCode?: string;
   /**

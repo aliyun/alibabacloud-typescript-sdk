@@ -15,7 +15,7 @@ export class DescribeJobHistoryRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The current page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeJobHistoryRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 0 to 10000.
+   * The number of entries per page in the paging Settings for a paged query. Valid values: 0 to 10000.
    * 
    * @example
    * 20
@@ -31,15 +31,11 @@ export class DescribeJobHistoryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The status of the job. Valid values:
-   * 
-   * - **0**: The job is not executed.
-   * 
-   * - **1**: The job is executed.
-   * 
-   * - **2**: The job fails to be executed.
-   * 
-   * - **3**: The job is being executed.
+   * The running status of the job. Valid values:
+   * - **0**: Not run.
+   * - **1**: Succeeded.
+   * - **2**: Failed.
+   * - **3**: Running.
    * 
    * @example
    * 1

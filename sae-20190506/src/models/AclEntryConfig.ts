@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AclEntryConfig extends $dara.Model {
   /**
    * @remarks
+   * CIDR
+   * 
    * This parameter is required.
    * 
    * @example

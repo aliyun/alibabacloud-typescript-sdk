@@ -35,15 +35,12 @@ export class RescaleApplicationVerticallyResponseBodyData extends $dara.Model {
 export class RescaleApplicationVerticallyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A request error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirect.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -51,24 +48,23 @@ export class RescaleApplicationVerticallyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: RescaleApplicationVerticallyResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - If the request is successful, this parameter is not returned.
-   * 
-   * - If the request fails, this parameter is returned. For more information, see the **Error codes** section of this topic.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
    * @example
-   * 空
+   * None
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information about the call result.
    * 
    * @example
    * success
@@ -84,11 +80,10 @@ export class RescaleApplicationVerticallyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the instance type was successfully changed.
+   * Indicates whether the instance specifications were modified. Valid values:
    * 
-   * - **true**: The change was successful.
-   * 
-   * - **false**: The change failed.
+   * - **true**: The modification was successful.
+   * - **false**: The modification failed.
    * 
    * @example
    * true
@@ -96,7 +91,7 @@ export class RescaleApplicationVerticallyResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID of the request. You can use this ID to query the details of the request.
+   * The trace ID used to accurately query call information.
    * 
    * @example
    * 0bc3b6f315637273629117900d****

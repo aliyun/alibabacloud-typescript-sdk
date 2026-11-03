@@ -15,7 +15,7 @@ export class DeleteApplicationScalingRuleRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the Auto Scaling policy.
+   * The name of the auto scaling policy.
    * 
    * This parameter is required.
    * 

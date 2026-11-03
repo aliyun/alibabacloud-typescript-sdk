@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteIngressResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the deleted routing rule.
+   * The ID of the deleted ingress rule.
    * 
    * @example
    * 87
@@ -35,15 +35,12 @@ export class DeleteIngressResponseBodyData extends $dara.Model {
 export class DeleteIngressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request is successful.
-   * 
-   * - **3xx**: The request is redirected.
-   * 
-   * - **4xx**: A client-side error occurred.
-   * 
-   * - **5xx**: A server-side error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -51,21 +48,23 @@ export class DeleteIngressResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned result.
    */
   data?: DeleteIngressResponseBodyData;
   /**
    * @remarks
-   * The error code that is returned if the request fails.
+   * The error code. Note the following:
    * 
-   * - This parameter is not returned if the request succeeds.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - For a list of error codes, see the **Error codes** section.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information about the call result.
    * 
    * @example
    * success
@@ -81,10 +80,9 @@ export class DeleteIngressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the ingress instance was deleted successfully. Valid values:
+   * Indicates whether the ingress instance was deleted. Valid values:
    * 
-   * - **true**: The deletion was successful.
-   * 
+   * - **true**: The ingress instance was deleted.
    * - **false**: The deletion failed.
    * 
    * @example
@@ -93,7 +91,7 @@ export class DeleteIngressResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID for the request.
+   * The trace ID used to accurately query the call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

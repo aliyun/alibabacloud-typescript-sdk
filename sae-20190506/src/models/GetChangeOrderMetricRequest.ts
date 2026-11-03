@@ -5,17 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetChangeOrderMetricRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
    */
   appId?: string;
   /**
    * @remarks
-   * The type of the SAE application.
+   * The type of the Serverless App Engine (SAE) application.
    * 
    * - **micro_service**
-   * 
    * - **web**
-   * 
    * - **job**
    * 
    * @example
@@ -24,16 +25,18 @@ export class GetChangeOrderMetricRequest extends $dara.Model {
   appSource?: string;
   /**
    * @remarks
-   * The type of the change order.
+   * The change order type.
+   * 
+   * @example
+   * CoCreateApp
    */
   coType?: string;
   /**
    * @remarks
-   * The CPU allocation policy.
+   * The CPU allocation strategy. Valid values:
    * 
-   * - **request**: CPU is allocated only when a request is received.
-   * 
-   * - **always**: A fixed amount of CPU is always allocated.
+   * - **request**: Allocates CPU resources only when requests are received.
+   * - **always**: Always allocates a fixed amount of CPU resources.
    * 
    * @example
    * always
@@ -41,7 +44,7 @@ export class GetChangeOrderMetricRequest extends $dara.Model {
   cpuStrategy?: string;
   /**
    * @remarks
-   * The start time when the change order was created.
+   * The start time of change order creation.
    * 
    * This parameter is required.
    * 
@@ -61,7 +64,7 @@ export class GetChangeOrderMetricRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The field by which to sort the query results. The value of this parameter must be a field in the response parameters.
+   * The field used to sort the query results.
    * 
    * This parameter is required.
    * 
@@ -71,7 +74,7 @@ export class GetChangeOrderMetricRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfigurationPriceResponseBodyDataBagUsage extends $dara.Model {
   /**
    * @remarks
-   * The remaining CPU quota. Unit: core-hours.
+   * The remaining CPU quota, in core-hours.
    * 
    * @example
    * 497570.450009
@@ -13,7 +13,7 @@ export class DescribeConfigurationPriceResponseBodyDataBagUsage extends $dara.Mo
   cpu?: number;
   /**
    * @remarks
-   * The remaining computing units (CUs) of the resource plan.
+   * The remaining CU quota of the resource plan.
    * 
    * @example
    * 10000
@@ -21,7 +21,7 @@ export class DescribeConfigurationPriceResponseBodyDataBagUsage extends $dara.Mo
   cu?: number;
   /**
    * @remarks
-   * The remaining memory quota. Unit: GiB-hours.
+   * The remaining memory quota, in GiB-hours.
    * 
    * @example
    * 989802.563546
@@ -115,7 +115,7 @@ export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceOrder extends 
 export class DescribeConfigurationPriceResponseBodyDataCpuMemPriceRules extends $dara.Model {
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * 20% discount on pay-as-you-go
@@ -160,7 +160,7 @@ export class DescribeConfigurationPriceResponseBodyDataCpuMemPrice extends $dara
   order?: DescribeConfigurationPriceResponseBodyDataCpuMemPriceOrder;
   /**
    * @remarks
-   * The promotion rules.
+   * The campaign rules.
    */
   rules?: DescribeConfigurationPriceResponseBodyDataCpuMemPriceRules[];
   static names(): { [key: string]: string } {
@@ -211,12 +211,12 @@ export class DescribeConfigurationPriceResponseBodyDataOrder extends $dara.Model
   originalAmount?: number;
   /**
    * @remarks
-   * The promotion ID.
+   * The campaign ID.
    */
   ruleIds?: string[];
   /**
    * @remarks
-   * The final price of the order.
+   * The transaction amount of the order.
    * 
    * @example
    * 0.0074074
@@ -315,7 +315,7 @@ export class DescribeConfigurationPriceResponseBodyDataRequestPriceOrder extends
 export class DescribeConfigurationPriceResponseBodyDataRequestPriceRules extends $dara.Model {
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * 20% discount on pay-as-you-go
@@ -360,7 +360,7 @@ export class DescribeConfigurationPriceResponseBodyDataRequestPrice extends $dar
   order?: DescribeConfigurationPriceResponseBodyDataRequestPriceOrder;
   /**
    * @remarks
-   * The promotion rules.
+   * The campaign rules.
    */
   rules?: DescribeConfigurationPriceResponseBodyDataRequestPriceRules[];
   static names(): { [key: string]: string } {
@@ -395,7 +395,7 @@ export class DescribeConfigurationPriceResponseBodyDataRequestPrice extends $dar
 export class DescribeConfigurationPriceResponseBodyDataRules extends $dara.Model {
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * 20% discount on pay-as-you-go
@@ -451,7 +451,7 @@ export class DescribeConfigurationPriceResponseBodyDataTrafficPriceOrder extends
   originalAmount?: number;
   /**
    * @remarks
-   * The promotion ID.
+   * The campaign ID.
    */
   ruleIds?: string[];
   /**
@@ -495,7 +495,7 @@ export class DescribeConfigurationPriceResponseBodyDataTrafficPriceOrder extends
 export class DescribeConfigurationPriceResponseBodyDataTrafficPriceRules extends $dara.Model {
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * 20% discount on pay-as-you-go
@@ -540,7 +540,7 @@ export class DescribeConfigurationPriceResponseBodyDataTrafficPrice extends $dar
   order?: DescribeConfigurationPriceResponseBodyDataTrafficPriceOrder;
   /**
    * @remarks
-   * The promotion rules.
+   * The campaign rules.
    */
   rules?: DescribeConfigurationPriceResponseBodyDataTrafficPriceRules[];
   static names(): { [key: string]: string } {
@@ -580,7 +580,7 @@ export class DescribeConfigurationPriceResponseBodyData extends $dara.Model {
   bagUsage?: DescribeConfigurationPriceResponseBodyDataBagUsage;
   /**
    * @remarks
-   * The price of CPU and memory.
+   * The CPU and memory pricing.
    */
   cpuMemPrice?: DescribeConfigurationPriceResponseBodyDataCpuMemPrice;
   /**
@@ -590,17 +590,17 @@ export class DescribeConfigurationPriceResponseBodyData extends $dara.Model {
   order?: DescribeConfigurationPriceResponseBodyDataOrder;
   /**
    * @remarks
-   * The price per request.
+   * The pricing based on the number of requests.
    */
   requestPrice?: DescribeConfigurationPriceResponseBodyDataRequestPrice;
   /**
    * @remarks
-   * The promotion rules.
+   * The campaign rules.
    */
   rules?: DescribeConfigurationPriceResponseBodyDataRules[];
   /**
    * @remarks
-   * The price of traffic.
+   * The traffic pricing.
    */
   trafficPrice?: DescribeConfigurationPriceResponseBodyDataTrafficPrice;
   static names(): { [key: string]: string } {
@@ -655,15 +655,12 @@ export class DescribeConfigurationPriceResponseBodyData extends $dara.Model {
 export class DescribeConfigurationPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or POP error code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A request error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -676,20 +673,21 @@ export class DescribeConfigurationPriceResponseBody extends $dara.Model {
   data?: DescribeConfigurationPriceResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. The value is described as follows:
    * 
-   * - This parameter is not returned if the request is successful.
+   * - If the request is successful, the **ErrorCode** field is not returned.
+   * - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - This parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
+   * @example
+   * InvalidParameter.Obviously
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information. The value is described as follows:
    * 
    * - If the request is successful, **success** is returned.
-   * 
-   * - If the request fails, an error code is returned.
+   * - If the request fails, a specific error code is returned.
    * 
    * @example
    * success
@@ -705,11 +703,10 @@ export class DescribeConfigurationPriceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the price of the configuration was obtained.
+   * Indicates whether the configuration pricing information is successfully retrieved. Valid values:
    * 
-   * - **true**: The price was obtained.
-   * 
-   * - **false**: The price failed to be obtained.
+   * - **true**: The pricing information is successfully retrieved.
+   * - **false**: The pricing information fails to be retrieved.
    * 
    * @example
    * true

@@ -648,6 +648,9 @@ export class DescribeIngressResponseBody extends $dara.Model {
    * - This parameter is returned only if the request fails.
    * 
    * - For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**

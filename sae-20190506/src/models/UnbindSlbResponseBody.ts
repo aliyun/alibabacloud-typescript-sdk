@@ -61,6 +61,9 @@ export class UnbindSlbResponseBody extends $dara.Model {
    * - This parameter is left empty if the request is successful.
    * 
    * - If the request fails, this parameter contains an error code. For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * InvalidApplication.NotFound
    */
   errorCode?: string;
   /**

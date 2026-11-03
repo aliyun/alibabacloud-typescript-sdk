@@ -15,7 +15,7 @@ export class DescribeApplicationInstancesRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The current page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeApplicationInstancesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the application group. Call the [DescribeApplicationGroups](https://help.aliyun.com/document_detail/126249.html) operation to get the ID.
+   * The application group ID. You can call the [DescribeApplicationGroups](https://help.aliyun.com/document_detail/126249.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class DescribeApplicationInstancesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**. The value must be in the range (0, 1000000000).
+   * The paging Settings for the number of entries per page in a paged query. Default value: **10**. Valid values: (0, 1000000000).
    * 
    * @example
    * 10
@@ -49,7 +49,7 @@ export class DescribeApplicationInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The batch ID. Call the [DescribeChangeOrder](https://help.aliyun.com/document_detail/126617.html) operation to get the ID.
+   * The batch ID. You can call the [DescribeChangeOrder](https://help.aliyun.com/document_detail/126617.html) operation to obtain the ID.
    * 
    * @example
    * 85750d48-6cfc-4dbf-8ea0-840397******
@@ -57,34 +57,23 @@ export class DescribeApplicationInstancesRequest extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * Specifies the sort order of the application instances. Instances are sorted first by running status, and then by instance ID. Valid values:
+   * Specifies the sorting order of application instances based on their running status. If the status is the same, the instances are sorted by instance ID. Valid values:
    * 
-   * - **true**: The instances are sorted in descending order.
+   * - **true**: Descending order.
+   * - **false**: Ascending order.
    * 
-   * - **false**: The instances are sorted in ascending order.
-   * 
-   * Instance statuses in ascending order:
+   * The following list shows the instance statuses in ascending order:
    * 
    * 1. **Error**: An error occurred during instance startup.
-   * 
-   * 2. **CrashLoopBackOff**: The container fails to start and enters a crash-restart loop.
-   * 
+   * 2. **CrashLoopBackOff**: The container failed to start. An error occurred during startup, and the error persisted after a restart.
    * 3. **ErrImagePull**: An error occurred while pulling the container image for the instance.
-   * 
-   * 4. **ImagePullBackOff**: The system is repeatedly trying and failing to pull the container image.
-   * 
+   * 4. **ImagePullBackOff**: The container image cannot be retrieved.
    * 5. **Pending**: The instance is waiting to be scheduled.
-   * 
    * 6. **Unknown**: An unknown exception occurred.
-   * 
    * 7. **Terminating**: The instance is being terminated.
-   * 
    * 8. **NotFound**: The instance cannot be found.
-   * 
    * 9. **PodInitializing**: The instance is being initialized.
-   * 
-   * 10. **Init:0/1**: The instance is being initialized.
-   * 
+   * 10. **Init:0/1**: The instance is initializing.
    * 11. **Running**: The instance is running.
    * 
    * @example

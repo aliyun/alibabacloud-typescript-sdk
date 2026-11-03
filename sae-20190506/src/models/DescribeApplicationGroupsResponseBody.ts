@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The version of the application runtime environment in the High-Speed Service Framework (HSF), such as an Ali-Tomcat container.
+   * The application runtime environment version in the HSF framework, such as the Ali-Tomcat container.
    * 
    * @example
    * 3.5.3
@@ -13,7 +13,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   edasContainerVersion?: string;
   /**
    * @remarks
-   * The ID of the application group.
+   * The group ID.
    * 
    * @example
    * b2a8a925-477a-eswa-b823-d5e22500****
@@ -21,7 +21,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The name of the application group.
+   * The group name.
    * 
    * @example
    * _DEFAULT_GROUP
@@ -29,7 +29,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The type of the application group.
+   * The group type.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   groupType?: number;
   /**
    * @remarks
-   * The image URL. This parameter is required when **package type** is set to **Image**.
+   * The image address. This parameter is required when **Package Type** is set to **Image**.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/demo/nginx:latest
@@ -45,7 +45,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The JDK version required by the deployment package. This parameter is not supported when **package type** is set to **Image**.
+   * The JDK version on which the deployment package depends. This parameter is not supported when **Package Type** is set to **Image**.
    * 
    * @example
    * Open JDK 8
@@ -53,41 +53,25 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   jdk?: string;
   /**
    * @remarks
-   * The type of the deployment package. Valid values:
+   * The application package type. Valid values:
    * 
-   * - For Java applications, the supported types are **FatJar**, **War**, and **Image**.
-   * 
-   * - For PHP applications, the supported types are:
-   * 
-   *   - **PhpZip**
-   * 
-   *   - **IMAGE_PHP_5_4**
-   * 
-   *   - **IMAGE_PHP_5_4_ALPINE**
-   * 
-   *   - **IMAGE_PHP_5_5**
-   * 
-   *   - **IMAGE_PHP_5_5_ALPINE**
-   * 
-   *   - **IMAGE_PHP_5_6**
-   * 
-   *   - **IMAGE_PHP_5_6_ALPINE**
-   * 
-   *   - **IMAGE_PHP_7_0**
-   * 
-   *   - **IMAGE_PHP_7_0_ALPINE**
-   * 
-   *   - **IMAGE_PHP_7_1**
-   * 
-   *   - **IMAGE_PHP_7_1_ALPINE**
-   * 
-   *   - **IMAGE_PHP_7_2**
-   * 
-   *   - **IMAGE_PHP_7_2_ALPINE**
-   * 
-   *   - **IMAGE_PHP_7_3**
-   * 
-   *   - **IMAGE_PHP_7_3_ALPINE**
+   * - If you deploy the application by using Java, valid values are **FatJar**, **War**, and **Image**.
+   * - If you deploy the application by using PHP, valid values are:
+   *     - **PhpZip**
+   *     - **IMAGE_PHP_5_4**
+   *     - **IMAGE_PHP_5_4_ALPINE**
+   *     - **IMAGE_PHP_5_5**
+   *     - **IMAGE_PHP_5_5_ALPINE**
+   *     - **IMAGE_PHP_5_6**
+   *     - **IMAGE_PHP_5_6_ALPINE**
+   *     - **IMAGE_PHP_7_0**
+   *     - **IMAGE_PHP_7_0_ALPINE**
+   *     - **IMAGE_PHP_7_1**
+   *     - **IMAGE_PHP_7_1_ALPINE**
+   *     - **IMAGE_PHP_7_2**
+   *     - **IMAGE_PHP_7_2_ALPINE**
+   *     - **IMAGE_PHP_7_3**
+   *     - **IMAGE_PHP_7_3_ALPINE**
    * 
    * @example
    * Image
@@ -95,7 +79,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   packageType?: string;
   /**
    * @remarks
-   * The URL of the deployment package. This parameter is required when **package type** is set to **FatJar**, **War**, or **PhpZip**.
+   * The deployment package address. This parameter is required when **Package Type** is set to **FatJar**, **War**, or **PhpZip**.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/demo/nginx:latest
@@ -103,7 +87,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   packageUrl?: string;
   /**
    * @remarks
-   * The deployment package version. This parameter is required when **package type** is set to **FatJar**, **War**, or **PhpZip**. This parameter is automatically generated if you deploy the application by using an **image**.
+   * The version number of the deployment package. This parameter is required when **Package Type** is set to **FatJar**, **War**, or **PhpZip**. If the application is deployed by using **ImageUrl**, this parameter is automatically generated.
    * 
    * @example
    * 1.0.0
@@ -111,7 +95,10 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   packageVersion?: string;
   /**
    * @remarks
-   * The ID of the deployment package version.
+   * The version ID of the deployment package.
+   * 
+   * @example
+   * 12345678-1234-4abc-8def-1234567890ab
    */
   packageVersionId?: string;
   /**
@@ -132,7 +119,7 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
   runningInstances?: number;
   /**
    * @remarks
-   * The Tomcat container version required by the deployment package. This parameter is not supported when **package type** is set to **Image**.
+   * The Tomcat version on which the deployment package depends. This parameter is not supported when **Package Type** is set to **Image**.
    * 
    * @example
    * Apache Tomcat 7
@@ -186,15 +173,12 @@ export class DescribeApplicationGroupsResponseBodyData extends $dara.Model {
 export class DescribeApplicationGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the POP error code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request is successful.
-   * 
-   * - **3xx**: The request is redirected.
-   * 
-   * - **4xx**: The request is invalid.
-   * 
-   * - **5xx**: A server error occurs.
+   * - **2xx**: success
+   * - **3xx**: redirection
+   * - **4xx**: request error
+   * - **5xx**: server error
    * 
    * @example
    * 200
@@ -202,21 +186,20 @@ export class DescribeApplicationGroupsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * A list of application groups.
+   * The application group information.
    */
   data?: DescribeApplicationGroupsResponseBodyData[];
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is not returned if the request is successful.
-   * 
-   * - This parameter is returned if the request fails. For more information, see the **error codes** section.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information about the call result.
    * 
    * @example
    * success
@@ -232,11 +215,10 @@ export class DescribeApplicationGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the application groups were successfully retrieved. Valid values:
+   * Indicates whether the application instance groups were retrieved successfully. Valid values:
    * 
-   * - **true**: The application groups were retrieved.
-   * 
-   * - **false**: The application groups were not retrieved.
+   * - **true**: The application instance groups were retrieved successfully.
+   * - **false**: The application instance groups failed to be retrieved.
    * 
    * @example
    * true
@@ -244,7 +226,7 @@ export class DescribeApplicationGroupsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID used to query the details of a request.
+   * The trace ID used to precisely query call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

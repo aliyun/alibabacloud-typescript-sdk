@@ -45,7 +45,7 @@ export class ListSecretsResponseBodyDataSecretsRelateApps extends $dara.Model {
 export class ListSecretsResponseBodyDataSecrets extends $dara.Model {
   /**
    * @remarks
-   * The time when the Secret instance was created.
+   * The creation time.
    * 
    * @example
    * 1593760185111
@@ -74,7 +74,7 @@ export class ListSecretsResponseBodyDataSecrets extends $dara.Model {
   secretId?: number;
   /**
    * @remarks
-   * The Secret instance name.
+   * The name of the Secret instance.
    * 
    * @example
    * registry-auth
@@ -82,9 +82,9 @@ export class ListSecretsResponseBodyDataSecrets extends $dara.Model {
   secretName?: string;
   /**
    * @remarks
-   * The type of the Secret instance. The only valid value is:
+   * The type of the Secret instance. Valid values:
    * 
-   * **kubernetes.io/dockerconfigjson**: a Secret that stores credentials for a container image registry and is used to authenticate image pulls during deployment.
+   * - **kubernetes.io/dockerconfigjson**: A secret that stores the username and password of an image repository. It is used for image pull authentication during deployment.
    * 
    * @example
    * kubernetes.io/dockerconfigjson
@@ -92,7 +92,7 @@ export class ListSecretsResponseBodyDataSecrets extends $dara.Model {
   secretType?: string;
   /**
    * @remarks
-   * The time when the Secret instance was last updated.
+   * The update time.
    * 
    * @example
    * 1593760185111
@@ -137,7 +137,7 @@ export class ListSecretsResponseBodyDataSecrets extends $dara.Model {
 export class ListSecretsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A list of Secret instances.
+   * The list of Secret instances.
    */
   secrets?: ListSecretsResponseBodyDataSecrets[];
   static names(): { [key: string]: string } {
@@ -167,15 +167,12 @@ export class ListSecretsResponseBodyData extends $dara.Model {
 export class ListSecretsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A client error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirect.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -183,25 +180,26 @@ export class ListSecretsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response object.
+   * The returned result.
    */
   data?: ListSecretsResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is not returned if the request is successful.
+   * - Success: The **ErrorCode** field is not returned.
+   * - Failure: The **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - This parameter is returned if the request fails. For more information, see the **Error codes** section.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information. Valid values:
    * 
-   * - If the request is successful, **success** is returned.
-   * 
-   * - If the request fails, an error message is returned.
+   * - **success**: The request is successful.
+   * - Specific error code: The request failed.
    * 
    * @example
    * success
@@ -217,11 +215,10 @@ export class ListSecretsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the Secret instance list was successfully queried. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: The query was successful.
+   * - **false**: The query failed.
    * 
    * @example
    * true
@@ -229,7 +226,7 @@ export class ListSecretsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID. You can use this ID to query the details of a call.
+   * The trace ID used to precisely query call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

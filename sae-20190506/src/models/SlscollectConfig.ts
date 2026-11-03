@@ -19,7 +19,7 @@ export class SLSCollectConfig extends $dara.Model {
    * *   Standard output logs
    * 
    * @example
-   * 文件采集日志
+   * file_log
    */
   logType?: string;
   /**
@@ -32,7 +32,7 @@ export class SLSCollectConfig extends $dara.Model {
    * *   The name must be 3 to 63 characters in length.
    * 
    * @example
-   * my-logstore
+   * sag-shanghai
    */
   logstoreName?: string;
   /**
@@ -56,7 +56,7 @@ export class SLSCollectConfig extends $dara.Model {
    * The name of the SLS project.
    * 
    * @example
-   * log-service-1199085698835****-cn-neijing
+   * test
    */
   projectName?: string;
   static names(): { [key: string]: string } {

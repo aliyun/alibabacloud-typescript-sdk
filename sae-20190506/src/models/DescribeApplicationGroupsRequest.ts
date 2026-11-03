@@ -15,7 +15,7 @@ export class DescribeApplicationGroupsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The page number to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class DescribeApplicationGroupsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10

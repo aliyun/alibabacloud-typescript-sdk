@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateNamespaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to enable SAE built-in registry:
-   * 
+   * Indicates whether the built-in registry of SAE is enabled. Valid values:
    * - **true**
-   * 
    * - **false**
    * 
    * @example
@@ -17,7 +15,7 @@ export class UpdateNamespaceResponseBodyData extends $dara.Model {
   enableMicroRegistration?: boolean;
   /**
    * @remarks
-   * The short ID of the namespace.
+   * The short namespace ID.
    * 
    * @example
    * test
@@ -25,7 +23,7 @@ export class UpdateNamespaceResponseBodyData extends $dara.Model {
   nameSpaceShortId?: string;
   /**
    * @remarks
-   * The description of the namespace.
+   * The namespace description.
    * 
    * @example
    * desc
@@ -33,7 +31,7 @@ export class UpdateNamespaceResponseBodyData extends $dara.Model {
   namespaceDescription?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * @example
    * cn-beijing:test
@@ -41,7 +39,7 @@ export class UpdateNamespaceResponseBodyData extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * name
@@ -49,7 +47,7 @@ export class UpdateNamespaceResponseBodyData extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The region where the namespace resides.
+   * The region where the namespace is located.
    * 
    * @example
    * cn-beijing
@@ -89,15 +87,12 @@ export class UpdateNamespaceResponseBodyData extends $dara.Model {
 export class UpdateNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The call was successful.
-   * 
-   * - **3xx**: The call was redirected.
-   * 
-   * - **4xx**: The call failed.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -105,21 +100,23 @@ export class UpdateNamespaceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about a namespace.
+   * The namespace information.
    */
   data?: UpdateNamespaceResponseBodyData;
   /**
    * @remarks
-   * The error code returned. Take note of the following rules:
+   * The error code. The following rules apply:
    * 
-   * - The **ErrorCode** parameter is not returned if the request succeeds.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * @example
+   * InvalidNamespaceName.Format
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned for the operation.
+   * The additional information about the request result.
    * 
    * @example
    * success
@@ -127,7 +124,7 @@ export class UpdateNamespaceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -135,11 +132,10 @@ export class UpdateNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the information about the namespace was updated. Valid values:
+   * Indicates whether the namespace information is updated. Valid values:
    * 
-   * - **true**: The instance was updated.
-   * 
-   * - **false**: The instance failed to be updated.
+   * - **true**: The update is successful.
+   * - **false**: The update fails.
    * 
    * @example
    * true
@@ -147,7 +143,7 @@ export class UpdateNamespaceResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID. You can use this ID to precisely query invocation information.
    * 
    * @example
    * 0a98a02315955564772843261e****

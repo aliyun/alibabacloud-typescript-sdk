@@ -30,7 +30,7 @@ export class Revision extends $dara.Model {
    * The ID of the revision version.
    * 
    * @example
-   * 1
+   * 001
    */
   revisionId?: string;
   /**
@@ -38,7 +38,7 @@ export class Revision extends $dara.Model {
    * The traffic weight of the version.
    * 
    * @example
-   * 0.5
+   * 100
    */
   weight?: number;
   static names(): { [key: string]: string } {

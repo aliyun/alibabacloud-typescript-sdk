@@ -321,6 +321,9 @@ export class ListAllSwimmingLaneGroupsResponseBody extends $dara.Model {
    * - This parameter is not returned if the request is successful.
    * 
    * - For a list of error codes, see the "**Error codes**" section in this topic.
+   * 
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**

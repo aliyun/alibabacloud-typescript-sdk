@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The job template ID.
+   * The ID of the job template.
    * 
    * @example
    * 7171a6ca-d1cd-4928-8642-7d5cfe69****
@@ -13,7 +13,7 @@ export class CreateJobResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The change order ID. You can use this ID to check the execution status of the task.
+   * The ID of the returned change order, which is used to query the job execution status.
    * 
    * @example
    * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
@@ -45,15 +45,12 @@ export class CreateJobResponseBodyData extends $dara.Model {
 export class CreateJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or a POP error code. Valid values:
+   * The HTTP status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A request error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: success.
+   * - **3xx**: redirection.
+   * - **4xx**: request error.
+   * - **5xx**: server error.
    * 
    * @example
    * 200
@@ -61,25 +58,26 @@ export class CreateJobResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: CreateJobResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is not returned if the request is successful.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the request fails, this parameter is returned. For more information, see the **error codes** section of this topic.
+   * @example
+   * Application.MissingJdk
    */
   errorCode?: string;
   /**
    * @remarks
-   * Additional information. Valid values:
+   * The additional information. Valid values:
    * 
    * - If the request is successful, **success** is returned.
-   * 
-   * - If the request fails, an error message is returned.
+   * - If the request fails, a specific error code is returned.
    * 
    * @example
    * success
@@ -95,11 +93,10 @@ export class CreateJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the job template was created successfully. Valid values:
+   * Indicates whether the job template was created. Valid values:
    * 
-   * - **true**: The job template was created.
-   * 
-   * - **false**: The job template was not created.
+   * - **true**: created.
+   * - **false**: failed to create.
    * 
    * @example
    * true
@@ -107,7 +104,7 @@ export class CreateJobResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The call trace ID. You can use this ID to query detailed information about the call.
+   * The trace ID used to accurately query the call information.
    * 
    * @example
    * ac1a0b2215622246421415014e****

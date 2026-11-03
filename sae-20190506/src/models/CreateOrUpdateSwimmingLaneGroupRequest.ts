@@ -10,7 +10,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $dara.Model {
   appIds?: string[];
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * The unique ID of the corresponding gateway.
    * 
    * @example
    * gw-ea43f648ac46485aa8c894ba1b******
@@ -18,13 +18,13 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $dara.Model {
   entryAppId?: string;
   /**
    * @remarks
-   * The type of the gateway that acts as the application\\"s entry point.
+   * The application entry type (gateway type). Valid values:
    * 
-   * - **apig:** cloud-native API gateway
+   * - **apig**: Cloud-native API gateway.
    * 
-   * - **mse:** java service gateway
+   * - **mse**: Java service gateway.
    * 
-   * - **mse-gw:** MSE Cloud Native Gateway
+   * - **mse-gw**: MSE cloud-native gateway.
    * 
    * @example
    * mse-gw
@@ -32,7 +32,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $dara.Model {
   entryAppType?: string;
   /**
    * @remarks
-   * The ID of the swimming lane group. This parameter is required when you update a swimming lane group.
+   * The ID of the traffic lane group. Required when updating a traffic lane group.
    * 
    * @example
    * 110272
@@ -40,7 +40,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The name of the swimming lane group.
+   * The name of the traffic lane group.
    * 
    * @example
    * mse-test
@@ -48,7 +48,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * @example
    * cn-beijing:test
@@ -56,7 +56,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The version of the end-to-end canary release. Valid values: 0 and 2. The value 2 is recommended.
+   * The end-to-end canary release version. Valid values: 0 and 2 (recommended).
    * 
    * @example
    * 2

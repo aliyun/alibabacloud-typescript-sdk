@@ -13,7 +13,7 @@ export class ListSwimmingLaneGatewayRoutesRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * @example
    * cn-beijing:test

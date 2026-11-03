@@ -5,37 +5,58 @@ import * as $dara from '@darabonba/typescript';
 export class ListIngressesResponseBodyDataIngressListCorsConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether credentials can be carried.
+   * Specifies whether credentials are allowed.
+   * 
+   * @example
+   * on
    */
   allowCredentials?: string;
   /**
    * @remarks
    * The allowed headers.
+   * 
+   * @example
+   * test_123
    */
   allowHeaders?: string;
   /**
    * @remarks
    * The allowed methods.
+   * 
+   * @example
+   * GET
    */
   allowMethods?: string;
   /**
    * @remarks
    * The allowed origins.
+   * 
+   * @example
+   * *
    */
   allowOrigin?: string;
   /**
    * @remarks
-   * Indicates whether cross-domain access is enabled.
+   * Specifies whether the feature is enabled.
+   * 
+   * @example
+   * false
    */
   enable?: string;
   /**
    * @remarks
    * The allowed exposed headers.
+   * 
+   * @example
+   * test_123
    */
   exposeHeaders?: string;
   /**
    * @remarks
-   * The time-to-live (TTL).
+   * The max age.
+   * 
+   * @example
+   * 1000
    */
   maxAge?: string;
   static names(): { [key: string]: string } {
@@ -75,21 +96,33 @@ export class ListIngressesResponseBodyDataIngressListDefaultRule extends $dara.M
   /**
    * @remarks
    * The application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
    */
   appId?: string;
   /**
    * @remarks
    * The application name.
+   * 
+   * @example
+   * demo-app
    */
   appName?: string;
   /**
    * @remarks
    * The backend protocol.
+   * 
+   * @example
+   * http
    */
   backendProtocol?: string;
   /**
    * @remarks
    * The container port.
+   * 
+   * @example
+   * 8080
    */
   containerPort?: number;
   static names(): { [key: string]: string } {
@@ -123,11 +156,17 @@ export class ListIngressesResponseBodyDataIngressListRulesRuleActions extends $d
   /**
    * @remarks
    * The action configuration.
+   * 
+   * @example
+   * {\\"host\\":\\"www.example.com\\",\\"path\\":\\"/example/text\\",\\"query\\":\\"x=1\\"}
    */
   actionConfig?: string;
   /**
    * @remarks
    * The action type.
+   * 
+   * @example
+   * rewrite
    */
   actionType?: string;
   static names(): { [key: string]: string } {
@@ -157,36 +196,57 @@ export class ListIngressesResponseBodyDataIngressListRules extends $dara.Model {
   /**
    * @remarks
    * The application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
    */
   appId?: string;
   /**
    * @remarks
    * The application name.
+   * 
+   * @example
+   * demo-app
    */
   appName?: string;
   /**
    * @remarks
    * The backend protocol.
+   * 
+   * @example
+   * http
    */
   backendProtocol?: string;
   /**
    * @remarks
    * The container port.
+   * 
+   * @example
+   * 8080
    */
   containerPort?: number;
   /**
    * @remarks
    * The domain name.
+   * 
+   * @example
+   * edas.site
    */
   domain?: string;
   /**
    * @remarks
    * The path.
+   * 
+   * @example
+   * /Path
    */
   path?: string;
   /**
    * @remarks
-   * The rewritten path.
+   * The rewrite path.
+   * 
+   * @example
+   * /${1}
    */
   rewritePath?: string;
   /**
@@ -235,7 +295,7 @@ export class ListIngressesResponseBodyDataIngressListRules extends $dara.Model {
 export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Classic Load Balancer (CLB) certificate.
+   * The **CLB** certificate ID.
    * 
    * @example
    * 13624*****73809_16f8e549a20_1175189789_12****3210
@@ -243,7 +303,7 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   certId?: string;
   /**
    * @remarks
-   * The IDs of the Application Load Balancer (ALB) certificates.
+   * The **ALB** certificate IDs.
    * 
    * @example
    * 87***35-cn-hangzhou,812***3-cn-hangzhou
@@ -251,12 +311,15 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   certIds?: string;
   /**
    * @remarks
-   * The cross-domain configuration.
+   * The CORS configuration.
    */
   corsConfig?: ListIngressesResponseBodyDataIngressListCorsConfig;
   /**
    * @remarks
    * The creation time.
+   * 
+   * @example
+   * 1593746835111
    */
   createTime?: number;
   /**
@@ -266,7 +329,7 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   defaultRule?: ListIngressesResponseBodyDataIngressListDefaultRule;
   /**
    * @remarks
-   * The name of the Ingress rule.
+   * The name of the routing rule.
    * 
    * @example
    * test
@@ -274,7 +337,7 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the routing rule.
+   * The routing rule ID.
    * 
    * @example
    * 18
@@ -282,12 +345,15 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The connection idle timeout period.
+   * The idle connection timeout period.
+   * 
+   * @example
+   * 3
    */
   idleTimeout?: number;
   /**
    * @remarks
-   * The listening port of the SLB instance.
+   * The SLB listener port.
    * 
    * @example
    * 80
@@ -295,13 +361,12 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   listenerPort?: string;
   /**
    * @remarks
-   * The forwarding protocol of the SLB instance. Valid values:
+   * The request forwarding protocol supported by the load balancing SLB. Valid values:
    * 
-   * - **HTTP**: suitable for applications that need to identify data content.
+   * - **HTTP**: Applicable to applications that need to identify data content.
+   * - **HTTPS**: Applicable to applications that require encrypted transmission.
    * 
-   * - **HTTPS**: suitable for applications that require encrypted transmission.
-   * 
-   * This parameter is optional for the **CreateIngress** and **UpdateIngress** operations. If you do not set this parameter when you create or update a gateway routing rule, this parameter is not returned.
+   * This parameter is optional in **CreateIngress** and **UpdateIngress**. If you do not specify this parameter when you create or update a gateway routing rule, this parameter is not returned when you invoke this API.
    * 
    * @example
    * HTTP
@@ -309,11 +374,10 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   listenerProtocol?: string;
   /**
    * @remarks
-   * The type of the SLB instance. Valid values:
+   * The type of the load balancing SLB. Valid values:
    * 
-   * - **clb**: Classic Load Balancer.
-   * 
-   * - **alb**: Application Load Balancer.
+   * - **clb**: Classic Load Balancer (CLB), formerly known as SLB.
+   * - **alb**: Application Load Balancer (ALB).
    * 
    * @example
    * clb
@@ -321,7 +385,7 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   loadBalanceType?: string;
   /**
    * @remarks
-   * The ID of the MSE cloud-native gateway instance.
+   * The MSE cloud-native gateway instance ID.
    * 
    * @example
    * gw-d5df01a1bae748f1a7c4e325d2fd****
@@ -329,7 +393,7 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   mseGatewayId?: string;
   /**
    * @remarks
-   * The port that corresponds to the service.
+   * The port corresponding to the service.
    * 
    * @example
    * 80
@@ -337,11 +401,10 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   mseGatewayPort?: string;
   /**
    * @remarks
-   * The forwarding protocol supported by the MSE cloud-native gateway. Valid values:
+   * The request forwarding protocol supported by the MSE cloud-native gateway. Valid values:
    * 
-   * - **HTTP**: suitable for applications that need to identify data content.
-   * 
-   * - **HTTPS**: suitable for applications that require encrypted transmission.
+   * - **HTTP**: Applicable to applications that need to identify data content.
+   * - **HTTPS**: Applicable to applications that require encrypted transmission.
    * 
    * @example
    * HTTP
@@ -366,6 +429,9 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   /**
    * @remarks
    * The request timeout period.
+   * 
+   * @example
+   * 60
    */
   requestTimeout?: number;
   /**
@@ -375,7 +441,7 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   rules?: ListIngressesResponseBodyDataIngressListRules[];
   /**
    * @remarks
-   * The ID of the Server Load Balancer (SLB) instance.
+   * The SLB ID.
    * 
    * @example
    * lb-uf62****6d13tq2u5
@@ -383,11 +449,10 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
   slbId?: string;
   /**
    * @remarks
-   * The type of the SLB instance. Valid values:
+   * The SLB type. Valid values:
    * 
-   * - **internet**: public network.
-   * 
-   * - **intranet**: private network.
+   * - **internet**: Internet.
+   * - **intranet**: Internal network.
    * 
    * @example
    * internet
@@ -464,7 +529,10 @@ export class ListIngressesResponseBodyDataIngressList extends $dara.Model {
 export class ListIngressesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The current page.
+   * The current page number.
+   * 
+   * @example
+   * 1
    */
   currentPage?: number;
   /**
@@ -475,11 +543,17 @@ export class ListIngressesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page.
+   * 
+   * @example
+   * 10
    */
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries found.
+   * The total number of queried entries.
+   * 
+   * @example
+   * 10
    */
   totalSize?: number;
   static names(): { [key: string]: string } {
@@ -515,15 +589,12 @@ export class ListIngressesResponseBodyData extends $dara.Model {
 export class ListIngressesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the API call or a POP error code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The call was successful.
-   * 
-   * - **3xx**: The call was redirected.
-   * 
-   * - **4xx**: A client error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirect.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -531,25 +602,26 @@ export class ListIngressesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result.
+   * The returned results.
    */
   data?: ListIngressesResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is not returned if the request is successful.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - This parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The response message.
+   * The additional information. The value is described as follows:
    * 
-   * - **success** is returned if the call is successful.
-   * 
-   * - An error code is returned if the call fails.
+   * - If the request is successful, **success** is returned.
+   * - If the request fails, the specific error code is returned.
    * 
    * @example
    * success
@@ -565,11 +637,10 @@ export class ListIngressesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Specifies whether the ingress list was successfully retrieved. Valid values:
    * 
-   * - **true**: The call was successful.
-   * 
-   * - **false**: The call failed.
+   * - **true**: The ingress list was successfully retrieved.
+   * - **false**: The ingress list failed to be retrieved.
    * 
    * @example
    * true
@@ -577,7 +648,7 @@ export class ListIngressesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID. You can use it to query the details of a call.
+   * The trace ID used to query call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

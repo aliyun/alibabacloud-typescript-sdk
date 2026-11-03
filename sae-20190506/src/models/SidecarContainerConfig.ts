@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SidecarContainerConfig extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the ACR Enterprise Edition. This parameter is required if the `ImageUrl` is from an ACR Enterprise Edition repository.
+   * The ID of the Container Registry ACR Enterprise instance. This parameter is required when ImageUrl is a Container Registry Enterprise instance.
    * 
    * @example
    * cri-xxxxxx
@@ -13,7 +13,7 @@ export class SidecarContainerConfig extends $dara.Model {
   acrInstanceId?: string;
   /**
    * @remarks
-   * The startup command for the image. This command overrides the `ENTRYPOINT` defined in the image.
+   * The image startup command.
    * 
    * @example
    * python
@@ -21,7 +21,7 @@ export class SidecarContainerConfig extends $dara.Model {
   command?: string;
   /**
    * @remarks
-   * The arguments for the startup command. This parameter corresponds to `CMD` in the Dockerfile.
+   * The image startup command arguments.
    * 
    * @example
    * ["a","b"]
@@ -29,7 +29,7 @@ export class SidecarContainerConfig extends $dara.Model {
   commandArgs?: string;
   /**
    * @remarks
-   * The settings for mounting a ConfigMap. Use this to inject configuration data into the container as files.
+   * The ConfigMap mount description.
    * 
    * @example
    * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
@@ -37,7 +37,7 @@ export class SidecarContainerConfig extends $dara.Model {
   configMapMountDesc?: string;
   /**
    * @remarks
-   * The CPU resources allocated to the container, measured in millicores. For example, a value of 1000 represents 1 vCPU.
+   * Cpu
    * 
    * @example
    * 1000
@@ -45,7 +45,7 @@ export class SidecarContainerConfig extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The configuration for an `emptyDir` volume. This creates a temporary directory that persists for the life of the application instance.
+   * The EmptyDir description.
    * 
    * @example
    * [{\\"name\\":\\"workdir\\",\\"mountPath\\":\\"/usr/local/tomcat/webapps\\"}]
@@ -53,7 +53,7 @@ export class SidecarContainerConfig extends $dara.Model {
   emptyDirDesc?: string;
   /**
    * @remarks
-   * The environment variables to set in the container. Specify the variables as a JSON array of key-value pairs.
+   * The container environment variable parameters.
    * 
    * @example
    * [{"name":"TEST_ENV_KEY","value":"TEST_ENV_VAR"}]
@@ -61,7 +61,7 @@ export class SidecarContainerConfig extends $dara.Model {
   envs?: string;
   /**
    * @remarks
-   * The container image URL.
+   * The image URL.
    * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/demo/nginx:latest
@@ -69,12 +69,15 @@ export class SidecarContainerConfig extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The configuration for the liveness probe. The liveness probe checks if the container is running. If the probe fails, the system restarts the container.
+   * The liveness probe configuration.
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
    */
   liveness?: string;
   /**
    * @remarks
-   * The amount of memory allocated to the container, measured in MB.
+   * Memory
    * 
    * @example
    * 1024
@@ -82,7 +85,7 @@ export class SidecarContainerConfig extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The name of the container.
+   * The container name.
    * 
    * @example
    * name
@@ -90,22 +93,34 @@ export class SidecarContainerConfig extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The configuration for the postStart hook. This hook runs immediately after the container starts to perform initialization tasks.
+   * The PostStart configuration.
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","echo hello"]}}
    */
   postStart?: string;
   /**
    * @remarks
-   * The configuration for the preStop hook. This hook runs immediately before the container is terminated to ensure a graceful shutdown.
+   * The PreStop configuration.
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","echo hello"]}}
    */
   preStop?: string;
   /**
    * @remarks
-   * The configuration for the readiness probe. The readiness probe checks if the container is ready to handle requests. The system will not direct traffic to a container until its readiness probe succeeds.
+   * The readiness probe configuration.
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
    */
   readiness?: string;
   /**
    * @remarks
-   * Specifies how to mount a Secret. This lets you securely use sensitive data, such as credentials or keys, in your application.
+   * The Secret mount description.
+   * 
+   * @example
+   * [{"secretId":10,"key":"test","mountPath":"/tmp"}]
    */
   secretMountDesc?: string;
   static names(): { [key: string]: string } {

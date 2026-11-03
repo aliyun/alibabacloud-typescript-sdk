@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConfigMapResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The instance ID of the created ConfigMap.
    * 
    * @example
    * 1
@@ -35,7 +35,12 @@ export class CreateConfigMapResponseBodyData extends $dara.Model {
 export class CreateConfigMapResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Empty
+   * The API status code or POP error code. Valid values:
+   * 
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -43,17 +48,23 @@ export class CreateConfigMapResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The returned result.
    */
   data?: CreateConfigMapResponseBodyData;
   /**
    * @remarks
-   * The ID of the ConfigMap that was created.
+   * The error code. Valid values:
+   * 
+   * - Successful request: The **ErrorCode** parameter is not returned.
+   * - Failed request: The **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The request ID.
+   * The additional information about the call result.
    * 
    * @example
    * success
@@ -61,7 +72,7 @@ export class CreateConfigMapResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The returned data.
+   * The ID of the request.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -69,15 +80,10 @@ export class CreateConfigMapResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * Indicates whether the ConfigMap instance was created successfully. Valid values:
    * 
-   * - **2xx**: The call was successful.
-   * 
-   * - **3xx**: The call was redirected.
-   * 
-   * - **4xx**: The call failed.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **true**: Created.
+   * - **false**: Failed to create.
    * 
    * @example
    * true
@@ -85,7 +91,7 @@ export class CreateConfigMapResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The returned message.
+   * The trace ID used to accurately query the call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

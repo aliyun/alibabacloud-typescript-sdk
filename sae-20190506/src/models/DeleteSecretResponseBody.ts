@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecretResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the deleted secret.
+   * The instance ID of the deleted secret instance.
    * 
    * @example
    * 16
@@ -35,15 +35,12 @@ export class DeleteSecretResponseBodyData extends $dara.Model {
 export class DeleteSecretResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The HTTP status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A request error.
-   * 
-   * - **5xx**: A server error.
+   * - **2xx**: Success.
+   * - **3xx**: Redirect.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -51,25 +48,26 @@ export class DeleteSecretResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: DeleteSecretResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - The **ErrorCode** parameter is not returned if the request is successful.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - The **ErrorCode** parameter is returned if the request fails. For a list of error codes, see the **Error codes** section in this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The response message.
+   * The additional information. Valid values:
    * 
-   * - **success**: The request was successful.
-   * 
-   * - If the request fails, an error message is returned.
+   * - **success**: The request is successful.
+   * - Specific error code: An exception occurred.
    * 
    * @example
    * success
@@ -85,11 +83,10 @@ export class DeleteSecretResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the secret was successfully deleted. Valid values:
+   * Indicates whether the secret instance was deleted. Valid values:
    * 
-   * - **true**: The secret was deleted.
-   * 
-   * - **false**: The secret was not deleted.
+   * - **true**: The instance was deleted.
+   * - **false**: The instance failed to be deleted.
    * 
    * @example
    * true
@@ -97,7 +94,7 @@ export class DeleteSecretResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID used to trace the request.
+   * The trace ID used to query the call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

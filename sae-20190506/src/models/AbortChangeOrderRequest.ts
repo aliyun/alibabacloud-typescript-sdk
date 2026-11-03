@@ -15,7 +15,7 @@ export class AbortChangeOrderRequest extends $dara.Model {
   changeOrderId?: string;
   /**
    * @remarks
-   * Specifies whether to roll back the change order.
+   * Specifies whether to roll back.
    * 
    * @example
    * true

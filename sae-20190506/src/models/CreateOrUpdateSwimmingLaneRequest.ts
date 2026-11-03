@@ -5,17 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions extends $dara.Model {
   /**
    * @remarks
-   * The matching rule.
+   * The matching rule. Valid values:
    * 
-   * - `==`: Exact match. The attribute\\"s value must be identical to the value specified.
-   * 
-   * - `!=`: Negated exact match. The attribute\\"s value must not be identical to the value specified.
-   * 
-   * - `in`: Inclusion match. The attribute\\"s value must be present in the specified comma-separated list of values.
-   * 
-   * - `percentage`: Percentage-based match. The expression `hash(get(key)) % 100 < value` must be true.
-   * 
-   * - `regex`: Regular expression match. The attribute\\"s value must match the specified regular expression.
+   * - ==: Exact match. The traffic value must be exactly equal to the condition value.
+   * - !=: Exact match. The traffic value must be exactly equal to the condition value.
+   * - in: Inclusion match. The condition is met when the traffic value is in the specified list.
+   * - 百分比: Percentage match. The condition is met when `hash(get(key)) % 100 < value` evaluates to true.
+   * - 正则匹配: Regular expression match. The condition is met when the value matches the regular expression.
    * 
    * @example
    * ==
@@ -23,7 +19,7 @@ export class CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions extends $da
   condition?: string;
   /**
    * @remarks
-   * The name of the header, parameter, or cookie.
+   * The parameter name.
    * 
    * @example
    * t
@@ -31,13 +27,12 @@ export class CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions extends $da
   name?: string;
   /**
    * @remarks
-   * The type of the request attribute to match.
+   * The parameter type. Valid values:
    * 
-   * - `header`: A request header.
+   * - header: Header
+   * - param: Parameter
    * 
-   * - `param`: A request parameter.
-   * 
-   * - `cookie`: A request cookie.
+   * - cookie: Cookie
    * 
    * @example
    * Header
@@ -45,7 +40,7 @@ export class CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions extends $da
   type?: string;
   /**
    * @remarks
-   * The value to match against the request attribute.
+   * The matching value of the condition.
    * 
    * @example
    * g1
@@ -81,11 +76,10 @@ export class CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions extends $da
 export class CreateOrUpdateSwimmingLaneRequestAppEntryRule extends $dara.Model {
   /**
    * @remarks
-   * The logical operator used to combine conditions.
+   * The logical operator between conditions. Valid values:
    * 
-   * - `AND`: All conditions must be met.
-   * 
-   * - `OR`: At least one of the conditions must be met.
+   * - AND: All conditions must be met.
+   * - OR: Any condition must be met.
    * 
    * @example
    * AND
@@ -93,16 +87,15 @@ export class CreateOrUpdateSwimmingLaneRequestAppEntryRule extends $dara.Model {
   conditionJoiner?: string;
   /**
    * @remarks
-   * The match conditions.
+   * The matching conditions.
    */
   conditions?: CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions[];
   /**
    * @remarks
-   * Specifies whether to enable percentage-based routing.
+   * Specifies whether to enable proportion-based canary release. Valid values:
    * 
-   * - `true`: Enables percentage-based routing. You must also configure the `PercentageByPath` parameter.
-   * 
-   * - `false`: Disables percentage-based routing.
+   * - true: Enabled. If enabled, you must configure PercentageByPath.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -110,12 +103,12 @@ export class CreateOrUpdateSwimmingLaneRequestAppEntryRule extends $dara.Model {
   independentPercentageEnable?: boolean;
   /**
    * @remarks
-   * The request paths to match.
+   * The matched URI of the request paths.
    */
   paths?: string[];
   /**
    * @remarks
-   * The traffic percentage for percentage-based routing. Valid values: 0 to 100.
+   * The traffic proportion used for proportion-based routing. Valid values: 0 to 100.
    * 
    * @example
    * 50
@@ -123,7 +116,7 @@ export class CreateOrUpdateSwimmingLaneRequestAppEntryRule extends $dara.Model {
   percentage?: number;
   /**
    * @remarks
-   * An object that maps request paths to traffic percentages.
+   * The traffic configuration.
    */
   percentageByPath?: { [key: string]: number };
   static names(): { [key: string]: string } {
@@ -169,17 +162,13 @@ export class CreateOrUpdateSwimmingLaneRequestAppEntryRule extends $dara.Model {
 export class CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions extends $dara.Model {
   /**
    * @remarks
-   * The matching rule.
+   * The matching rule. Valid values:
    * 
-   * - `==`: Exact match. The attribute\\"s value must be identical to the value specified.
-   * 
-   * - `!=`: Negated exact match. The attribute\\"s value must not be identical to the value specified.
-   * 
-   * - `in`: Inclusion match. The attribute\\"s value must be present in the specified comma-separated list of values.
-   * 
-   * - `percentage`: Percentage-based match. The expression `hash(get(key)) % 100 < value` must be true.
-   * 
-   * - `regex`: Regular expression match. The attribute\\"s value must match the specified regular expression.
+   * - ==: Exact match.
+   * - !=: Exact match.
+   * - in: Inclusion match.
+   * - 百分比: Percentage match.
+   * - 正则匹配: Regular expression match.
    * 
    * @example
    * ==
@@ -187,7 +176,7 @@ export class CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions exte
   condition?: string;
   /**
    * @remarks
-   * The name of the header, parameter, or cookie.
+   * The name of the condition parameter.
    * 
    * @example
    * test
@@ -195,13 +184,13 @@ export class CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions exte
   name?: string;
   /**
    * @remarks
-   * The type of the request attribute to match.
+   * The parameter type. Valid values:
    * 
-   * - `header`: A request header.
+   * - header: Header
    * 
-   * - `param`: A request parameter.
+   * - param: Parameter
    * 
-   * - `cookie`: A request cookie.
+   * - cookie: Cookie
    * 
    * @example
    * header
@@ -209,7 +198,7 @@ export class CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions exte
   type?: string;
   /**
    * @remarks
-   * The value to match against the request attribute.
+   * The matching value of the condition.
    * 
    * @example
    * g1
@@ -245,11 +234,10 @@ export class CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions exte
 export class CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRule extends $dara.Model {
   /**
    * @remarks
-   * The logical operator used to combine conditions.
+   * The logical operator between conditions. Valid values:
    * 
-   * - `AND`: All conditions must be met.
-   * 
-   * - `OR`: At least one of the conditions must be met.
+   * - AND: All conditions must be met.
+   * - OR: Any condition must be met.
    * 
    * @example
    * AND
@@ -257,16 +245,15 @@ export class CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRule extends $dara.
   conditionJoiner?: string;
   /**
    * @remarks
-   * The match conditions.
+   * The routing conditions.
    */
   conditions?: CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions[];
   /**
    * @remarks
-   * Specifies whether to enable percentage-based routing.
+   * Specifies whether to enable proportion-based canary release. Valid values:
    * 
-   * - `true`: Enables percentage-based routing. You must also configure the `PercentageByRoute` parameter.
-   * 
-   * - `false`: Disables percentage-based routing.
+   * - true: Enabled. If enabled, you must configure PercentageByPath.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -274,7 +261,7 @@ export class CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRule extends $dara.
   independentPercentageEnable?: boolean;
   /**
    * @remarks
-   * The traffic mirroring percentage. Valid values: 0 to 100.
+   * The traffic replication proportion (%). Valid values: 0 to 100.
    * 
    * @example
    * 100
@@ -282,7 +269,7 @@ export class CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRule extends $dara.
   percentage?: number;
   /**
    * @remarks
-   * An object that maps route IDs to traffic percentages.
+   * The traffic configuration.
    */
   percentageByRoute?: { [key: string]: number };
   /**
@@ -333,18 +320,18 @@ export class CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRule extends $dara.
 export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the gateway route.
+   * The gateway routing configuration.
    * 
-   * > This parameter is required if the gateway entry application for the swimlane group is a Java application.
+   * > This parameter is required when the gateway entry of the traffic lane group is Java.
    */
   appEntryRule?: CreateOrUpdateSwimmingLaneRequestAppEntryRule;
   /**
    * @remarks
-   * The end-to-end canary release mode.
+   * The end-to-end canary release mode. Valid values:
    * 
-   * - `0`: content-based routing
+   * - 0: Routes traffic based on request content.
    * 
-   * - `1`: percentage-based routing
+   * - 1: Routes traffic based on proportion.
    * 
    * @example
    * 0
@@ -352,11 +339,10 @@ export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
   canaryModel?: number;
   /**
    * @remarks
-   * The status of the swimlane.
+   * Specifies whether the traffic lane is enabled. Valid values:
    * 
-   * - `true`: enabled
-   * 
-   * - `false`: disabled
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -364,7 +350,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The ID of the swimlane group.
+   * The ID of the traffic lane group to which the traffic lane belongs.
    * 
    * @example
    * b2a8a925-477a-eswa-b823-d5e22500****
@@ -372,7 +358,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The ID of the swimlane.
+   * The ID of the traffic lane.
    * 
    * @example
    * 13857
@@ -380,7 +366,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
   laneId?: number;
   /**
    * @remarks
-   * The name of the swimlane.
+   * The name of the traffic lane.
    * 
    * @example
    * test
@@ -388,7 +374,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
   laneName?: string;
   /**
    * @remarks
-   * The tag of the swimlane.
+   * The tag of the traffic lane.
    * 
    * @example
    * g1
@@ -396,9 +382,9 @@ export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
   laneTag?: string;
   /**
    * @remarks
-   * Configuration for the MSE gateway route.
+   * The MSE gateway routing configuration.
    * 
-   * > This parameter is required if the **EntryAppType** parameter is set to **apig** or **mse-gw**.
+   * > This parameter is required when **EntryAppType** is set to **apig** or **mse-gw**.
    */
   mseGatewayEntryRule?: CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRule;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindNlbResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change order. You can use this ID to query the task status.
+   * The ID of the change order, which is used to query the execution status of the task.
    * 
    * @example
    * ba386059-69b1-4e65-b1e5-0682d9fa****
@@ -35,15 +35,12 @@ export class BindNlbResponseBodyData extends $dara.Model {
 export class BindNlbResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP status code. Valid values:
    * 
-   * - **2xx**: Successful.
-   * 
-   * - **3xx**: Redirection.
-   * 
-   * - **4xx**: Client error.
-   * 
-   * - **5xx**: Server error.
+   * - **2xx**: success.
+   * - **3xx**: redirection.
+   * - **4xx**: request error.
+   * - **5xx**: server error.
    * 
    * @example
    * 200
@@ -51,25 +48,23 @@ export class BindNlbResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned result.
    */
   data?: BindNlbResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is not returned if the request is successful.
-   * 
-   * - This parameter is returned if the request fails. For more information, see the **Error codes** section.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    */
   errorCode?: string;
   /**
    * @remarks
-   * The response message.
+   * The additional information. Valid values:
    * 
-   * - A value of **success** is returned if the request is successful.
-   * 
-   * - If the request fails, an error message is returned.
+   * - If the request is successful, **success** is returned.
+   * - If the request fails, a specific error code is returned.
    * 
    * @example
    * success
@@ -77,7 +72,7 @@ export class BindNlbResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -85,11 +80,10 @@ export class BindNlbResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the applications were stopped in batches successfully. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: The applications were stopped successfully.
+   * - **false**: The applications failed to be stopped.
    * 
    * @example
    * true
@@ -97,7 +91,7 @@ export class BindNlbResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The request\\"s trace ID, used for troubleshooting.
+   * The trace ID, which is used to accurately query the call information.
    * 
    * @example
    * 0a06dfe717389800573793090e0589

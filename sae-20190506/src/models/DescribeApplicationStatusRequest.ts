@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The ID of the target application.
    * 
    * This parameter is required.
    * 

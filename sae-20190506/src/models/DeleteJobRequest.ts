@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job template that you want to delete.
+   * The ID of the task template to delete.
    * 
    * This parameter is required.
    * 

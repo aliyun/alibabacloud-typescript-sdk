@@ -35,15 +35,12 @@ export class AbortChangeOrderResponseBodyData extends $dara.Model {
 export class AbortChangeOrderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A client error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -51,21 +48,23 @@ export class AbortChangeOrderResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: AbortChangeOrderResponseBodyData;
   /**
    * @remarks
-   * The error code. This parameter is returned only if the request fails. For more information, see the **Error codes** section in this topic.
+   * The error code. Valid values:
    * 
-   * - If the request is successful, this parameter is not returned.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the request fails, this parameter is returned. For more information, see the **Error codes** section in this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The additional information about the call result.
    * 
    * @example
    * success
@@ -73,7 +72,7 @@ export class AbortChangeOrderResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -81,11 +80,10 @@ export class AbortChangeOrderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the change order is stopped. Valid values:
+   * Indicates whether the change order was aborted successfully. Valid values:
    * 
-   * - **true**: The change order is stopped.
-   * 
-   * - **false**: The change order is not stopped.
+   * - **true**: The change order was aborted successfully.
+   * - **false**: The change order failed to be aborted.
    * 
    * @example
    * true

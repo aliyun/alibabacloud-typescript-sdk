@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PortProtocol extends $dara.Model {
+  /**
+   * @remarks
+   * The port number.
+   * 
+   * @example
+   * 8080
+   */
   port?: number;
+  /**
+   * @remarks
+   * The protocol.
+   * 
+   * @example
+   * TCP
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The destination port number.
+   * 
+   * @example
+   * 8080
+   */
   targetPort?: number;
   static names(): { [key: string]: string } {
     return {

@@ -81,6 +81,9 @@ export class GetWebshellTokenResponseBody extends $dara.Model {
    * - If the request was successful, **ErrorCode** is not returned.
    * 
    * - If the request failed, the **ErrorCode** parameter is returned. For more information, see **Error codes** section in this topic.
+   * 
+   * @example
+   * InvalidApplication.NotFound
    */
   errorCode?: string;
   /**

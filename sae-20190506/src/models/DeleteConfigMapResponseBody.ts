@@ -61,6 +61,9 @@ export class DeleteConfigMapResponseBody extends $dara.Model {
    * - Not returned if the request is successful.
    * 
    * - Returned if the request fails. For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**

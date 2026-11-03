@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestartApplicationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change process.
+   * The ID of the change order.
    * 
    * @example
    * 4a815998-b468-4bea-b7d8-59f52a44****
@@ -35,15 +35,12 @@ export class RestartApplicationResponseBodyData extends $dara.Model {
 export class RestartApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Take note of the following rules:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The call was successful.
-   * 
-   * - **3xx**: The call was redirected.
-   * 
-   * - **4xx**: The call failed.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: success.
+   * - **3xx**: redirection.
+   * - **4xx**: request error.
+   * - **5xx**: server error.
    * 
    * @example
    * 200
@@ -51,25 +48,26 @@ export class RestartApplicationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response.
+   * The returned result.
    */
   data?: RestartApplicationResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed. Take note of the following rules:
+   * The error code. Valid values:
    * 
-   * - The **ErrorCode** parameter is not returned if the request succeeds.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * @example
+   * InvalidApplication.NotFound
    */
   errorCode?: string;
   /**
    * @remarks
-   * The additional information that is returned. Take note of the following rules:
+   * The additional information. Valid values:
    * 
-   * - success: If the call is successful, **success** is returned.
-   * 
-   * - An error code: If the call fails, an error code is returned.
+   * - If the request is successful, **success** is returned.
+   * - If the request fails, a specific error code is returned.
    * 
    * @example
    * success
@@ -85,11 +83,10 @@ export class RestartApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the instance is successfully restarted. Take note of the following rules:
+   * Indicates whether the instance was restarted successfully. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: The instance was restarted successfully.
+   * - **false**: The instance failed to be restarted.
    * 
    * @example
    * true
@@ -97,7 +94,7 @@ export class RestartApplicationResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID, which is used to query invocation details.
    * 
    * @example
    * 0a98a02315955564772843261e****

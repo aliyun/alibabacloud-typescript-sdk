@@ -34,6 +34,9 @@ export class UntagResourcesResponseBody extends $dara.Model {
    * - This parameter is not returned on a successful request.
    * 
    * - This parameter is returned on a failed request. For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * Duplicate.TagKey
    */
   errorCode?: string;
   /**

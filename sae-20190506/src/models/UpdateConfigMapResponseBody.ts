@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConfigMapResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ConfigMap instance.
+   * The ConfigMap instance ID.
    * 
    * @example
    * 1
@@ -35,15 +35,12 @@ export class UpdateConfigMapResponseBodyData extends $dara.Model {
 export class UpdateConfigMapResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the POP error code.
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request is successful.
-   * 
-   * - **3xx**: The request is redirected.
-   * 
-   * - **4xx**: A request error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -56,16 +53,18 @@ export class UpdateConfigMapResponseBody extends $dara.Model {
   data?: UpdateConfigMapResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is not returned if the request is successful.
+   * - Successful request: The **ErrorCode** parameter is not returned.
+   * - Failed request: The **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * Additional information about the call.
+   * The additional information about the call result.
    * 
    * @example
    * success
@@ -81,11 +80,10 @@ export class UpdateConfigMapResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the ConfigMap instance was updated.
+   * Indicates whether the ConfigMap instance was updated successfully. Valid values:
    * 
-   * - **true**: The instance was updated.
-   * 
-   * - **false**: The instance failed to be updated.
+   * - **true**: The update succeeded.
+   * - **false**: The update failed.
    * 
    * @example
    * true
@@ -93,7 +91,7 @@ export class UpdateConfigMapResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the call.
+   * The trace ID used to accurately query the call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

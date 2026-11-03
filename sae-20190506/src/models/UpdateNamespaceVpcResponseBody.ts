@@ -26,6 +26,9 @@ export class UpdateNamespaceVpcResponseBody extends $dara.Model {
    * - This parameter is not returned if the request is successful.
    * 
    * - This parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
+   * 
+   * @example
+   * DeleteFail.NamespaceHasIngress
    */
   errorCode?: string;
   /**

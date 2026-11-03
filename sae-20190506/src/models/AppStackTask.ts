@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class AppStackTaskSteps extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The step duration.
+   * 
    * @example
    * 0
    */
   duration?: number;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 1706518652
    */
   endTime?: number;
   /**
+   * @remarks
+   * The step ID.
+   * 
    * @example
    * VPC_CREATE_NETWORK
    */
   id?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The step name.
+   * 
    * @example
-   * 初始化 VPC 网络
+   * Initialize VPC network
    */
   name?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 1706518652
    */
   startTime?: number;
   /**
+   * @remarks
+   * The step status.
+   * 
    * @example
    * WAIT
    */
@@ -80,37 +104,62 @@ export class AppStackTaskSteps extends $dara.Model {
 
 export class AppStackTask extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1706518652
    */
   createTime?: number;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 1706518652
    */
   endTime?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * i-789y
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * palworld
    */
   stackId?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 1706518652
    */
   startTime?: number;
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * WAIT
    */
   status?: string;
+  /**
+   * @remarks
+   * The step list.
+   */
   steps?: AppStackTaskSteps[];
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * t-789y-deploy
    */

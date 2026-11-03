@@ -13,7 +13,7 @@ export class ListSwimmingLaneGatewayRoutesResponseBodyDataRoutePredicatePathPred
   path?: string;
   /**
    * @remarks
-   * The type of the rule.
+   * The rule type.
    * 
    * @example
    * Header
@@ -125,15 +125,12 @@ export class ListSwimmingLaneGatewayRoutesResponseBodyData extends $dara.Model {
 export class ListSwimmingLaneGatewayRoutesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The HTTP status code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: Indicates a client error.
-   * 
-   * - **5xx**: Indicates a server error.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -141,25 +138,26 @@ export class ListSwimmingLaneGatewayRoutesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of gateway routes.
+   * The returned result.
    */
   data?: ListSwimmingLaneGatewayRoutesResponseBodyData[];
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is returned only if the request fails.
+   * - If the request is successful, the **ErrorCode** field is not returned.
+   * - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - For more information, see the **Error codes** section of this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned for the request.
+   * The additional information. Valid values:
    * 
    * - If the request is successful, **success** is returned.
-   * 
-   * - If the request fails, an error message is returned.
+   * - If an exception occurs, a specific error code is returned.
    * 
    * @example
    * success
@@ -175,11 +173,10 @@ export class ListSwimmingLaneGatewayRoutesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true
@@ -187,7 +184,7 @@ export class ListSwimmingLaneGatewayRoutesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID of the request.
+   * The trace ID used to query exact call information.
    * 
    * @example
    * ac1a0b2215622246421415014e****

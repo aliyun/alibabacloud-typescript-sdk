@@ -26,7 +26,7 @@ export class ListWebApplicationRevisionsRequest extends $dara.Model {
    * The pagination token.
    * 
    * @example
-   * 1
+   * A2RN
    */
   nextToken?: string;
   static names(): { [key: string]: string } {

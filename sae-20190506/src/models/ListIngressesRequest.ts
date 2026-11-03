@@ -14,6 +14,9 @@ export class ListIngressesRequest extends $dara.Model {
   /**
    * @remarks
    * The current page number.
+   * 
+   * @example
+   * 1
    */
   currentPage?: number;
   /**
@@ -28,7 +31,10 @@ export class ListIngressesRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
    */
   pageSize?: number;
   static names(): { [key: string]: string } {

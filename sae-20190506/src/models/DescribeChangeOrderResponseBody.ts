@@ -137,6 +137,9 @@ export class DescribeChangeOrderResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The update strategy for the application.
+   * 
+   * @example
+   * {"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}
    */
   applicationUpdateStrategy?: string;
   /**
@@ -431,6 +434,9 @@ export class DescribeChangeOrderResponseBody extends $dara.Model {
    * - If the request is successful, this parameter is not returned.
    * 
    * - If the request fails, this parameter is returned. For more information, see the **error codes** section of this topic.
+   * 
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**

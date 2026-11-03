@@ -61,6 +61,9 @@ export class RescaleApplicationResponseBody extends $dara.Model {
    * - The **ErrorCode** parameter is not returned if the request succeeds.
    * 
    * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+   * 
+   * @example
+   * InvalidApplication.NotFound
    */
   errorCode?: string;
   /**

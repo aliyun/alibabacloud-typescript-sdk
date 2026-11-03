@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The ID of the current application.
    * 
    * @example
    * 0099b7be-5f5b-4512-a7fc-56049ef1****
@@ -13,11 +13,9 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Indicates whether ARMS Advanced Edition is enabled. Valid values:
-   * 
-   * - **true**: enabled.
-   * 
-   * - **false**: disabled.
+   * Specifies whether Application Real-Time Monitoring Service (ARMS) Pro is activated. Valid values:
+   * - **true**: ARMS Pro is activated.
+   * - **false**: ARMS Pro is not activated.
    * 
    * @example
    * false
@@ -25,7 +23,7 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   armsAdvancedEnabled?: string;
   /**
    * @remarks
-   * The metadata of the application in ARMS.
+   * The metadata information of the application in ARMS.
    * 
    * @example
    * {"appId":"0099b7be-5f5b-4512-a7fc-56049ef1****","licenseKey":"d5cgdt5pu0@7303f55292a****"}
@@ -33,7 +31,7 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   armsApmInfo?: string;
   /**
    * @remarks
-   * The time when the application was created. This value is a UNIX timestamp.
+   * The time when the application was created.
    * 
    * @example
    * 1563373372746
@@ -42,11 +40,8 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The current status of the application. Valid values:
-   * 
    * - **RUNNING**: The application is running.
-   * 
    * - **STOPPED**: The application is stopped.
-   * 
    * - **UNKNOWN**: The application status is unknown.
    * 
    * @example
@@ -55,11 +50,9 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   currentStatus?: string;
   /**
    * @remarks
-   * Indicates whether the SAE agent is enabled. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Specifies whether the Serverless App Engine (SAE) agent is enabled. Valid values:
+   * - **true**: The agent is enabled.
+   * - **false**: The agent is not enabled.
    * 
    * @example
    * false
@@ -67,7 +60,7 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   enableAgent?: boolean;
   /**
    * @remarks
-   * The file size limit. Unit: KB. Valid values: 0 to 10240.
+   * The file size limit. Valid values: 0 to 10240. Unit: KB.
    * 
    * @example
    * 10240
@@ -75,7 +68,7 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   fileSizeLimit?: number;
   /**
    * @remarks
-   * The ID of the most recently executed change order. This parameter is empty if no change order was executed or if the information about the change order has expired.
+   * The ID of the most recently executed change order. If no change order has been executed or the change order information has expired, this field is empty.
    * 
    * @example
    * 1ccc2339-fc19-49aa-bda0-1e7b8497****
@@ -83,11 +76,9 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   lastChangeOrderId?: string;
   /**
    * @remarks
-   * Indicates whether the most recent change order is being executed. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Specifies whether the most recent change order is being executed. Valid values:
+   * - **true**: The most recent change order is being executed.
+   * - **false**: The most recent change order is not being executed.
    * 
    * @example
    * false
@@ -96,26 +87,16 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The status of the most recent change order. Valid values:
-   * 
-   * - **READY**: The change order is ready.
-   * 
-   * - **RUNNING**: The change order is being executed.
-   * 
-   * - **SUCCESS**: The change order was successful.
-   * 
-   * - **FAIL**: The change order failed.
-   * 
-   * - **ABORT**: The change order was aborted.
-   * 
-   * - **WAIT_BATCH_CONFIRM**: The change order is waiting for manual confirmation for the next batch.
-   * 
-   * - **AUTO_BATCH_WAIT**: The change order is in a waiting state for an automatic batch.
-   * 
-   * - **SYSTEM_FAIL**: A system error occurred.
-   * 
-   * - **WAIT_APPROVAL**: The change order is pending approval.
-   * 
-   * - **APPROVED**: The change order is approved and is pending execution.
+   * - **READY**: The most recent change order is ready.
+   * - **RUNNING**: The most recent change order is being executed.
+   * - **SUCCESS**: The most recent change order is successful.
+   * - **FAIL**: The most recent change order failed.
+   * - **ABORT**: The most recent change order is aborted.
+   * - **WAIT_BATCH_CONFIRM**: The most recent change order is waiting for manual batch confirmation.
+   * - **AUTO_BATCH_WAIT**: The most recent change order is in the automatic batch waiting state.
+   * - **SYSTEM_FAIL**: A system fault occurred.
+   * - **WAIT_APPROVAL**: The most recent change order is waiting for approval.
+   * - **APPROVED**: The most recent change order is approved and waiting to be executed.
    * 
    * @example
    * SUCCESS
@@ -123,7 +104,7 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   lastChangeOrderStatus?: string;
   /**
    * @remarks
-   * The number of running instances of the application.
+   * The number of running instances of the current application.
    * 
    * @example
    * 1
@@ -131,11 +112,9 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
   runningInstances?: number;
   /**
    * @remarks
-   * The substatus of the change order. This parameter is used to determine whether an exception occurs during the release process. Valid values:
-   * 
+   * The sub-status of the change order, which is used to determine whether an exception occurred during the release process. Valid values:
    * - **NORMAL**: The release is normal.
-   * 
-   * - **RUNNING_BUT_HAS_ERROR**: The release is abnormal. For example, if an error occurs during a phased release, you must manually roll back the release. In this case, the change order cannot be completed and the status of the change order remains **RUNNING**.
+   * - **RUNNING_BUT_HAS_ERROR**: An exception occurred during the release. For example, an error occurs during a batch release and requires a manual rollback. In this case, the change order is still being executed because it cannot be completed despite the error.
    * 
    * @example
    * NORMAL
@@ -187,15 +166,11 @@ export class DescribeApplicationStatusResponseBodyData extends $dara.Model {
 export class DescribeApplicationStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
-   * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: The request was invalid.
-   * 
-   * - **5xx**: A server error occurred.
+   * The API status code or POP error code. Valid values:
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -203,25 +178,24 @@ export class DescribeApplicationStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned result.
    */
   data?: DescribeApplicationStatusResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. 
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the request is successful, this parameter is not returned.
-   * 
-   * - If the request fails, this parameter is returned. For more information, see the **Error codes** section in this topic.
+   * @example
+   * InvalidApplication.NotFound
    */
   errorCode?: string;
   /**
    * @remarks
-   * The response message.
-   * 
-   * - If the call is successful, **success** is returned.
-   * 
-   * - If the call fails, an error message is returned.
+   * The additional information. 
+   * - If the request is successful, **success** is returned.
+   * - If an exception occurs, a specific error code is returned.
    * 
    * @example
    * success
@@ -229,7 +203,7 @@ export class DescribeApplicationStatusResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -237,11 +211,9 @@ export class DescribeApplicationStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the application status was obtained. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Indicates whether the application status information was successfully retrieved. Valid values:
+   * - **true**: The information was successfully retrieved.
+   * - **false**: The information failed to be retrieved.
    * 
    * @example
    * true
@@ -249,7 +221,7 @@ export class DescribeApplicationStatusResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of a request.
+   * The trace ID used to query invocation information.
    * 
    * @example
    * 0a98a02315955564772843261e****

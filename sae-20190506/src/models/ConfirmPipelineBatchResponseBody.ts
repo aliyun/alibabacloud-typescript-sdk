@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConfirmPipelineBatchResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The pipeline ID.
+   * The batch ID.
    * 
    * @example
    * e2e-vds-feh-***
@@ -35,15 +35,12 @@ export class ConfirmPipelineBatchResponseBodyData extends $dara.Model {
 export class ConfirmPipelineBatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code for the request.
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A request error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -51,21 +48,22 @@ export class ConfirmPipelineBatchResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The pipeline information.
+   * The batch information.
    */
   data?: ConfirmPipelineBatchResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. 
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - The **ErrorCode** field is not returned if the request is successful.
-   * 
-   * - The **ErrorCode** field is returned if the request fails. For more information, see the **Error codes** section in this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information about the call result.
    * 
    * @example
    * success
@@ -81,10 +79,9 @@ export class ConfirmPipelineBatchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the batch confirmation was successful.
+   * Indicates whether the confirmation to start the next batch was successful. Valid values:
    * 
    * - **true**: The confirmation was successful.
-   * 
    * - **false**: The confirmation failed.
    * 
    * @example
@@ -93,7 +90,7 @@ export class ConfirmPipelineBatchResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID. You can use this ID to look up the details of the call.
+   * The trace ID used to accurately query call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

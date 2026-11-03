@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions extends $dara.Model {
   /**
    * @remarks
-   * The match operator.
+   * The matching rule.
    * 
    * @example
    * ==
@@ -13,7 +13,7 @@ export class DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions extends 
   condition?: string;
   /**
    * @remarks
-   * The name of the parameter.
+   * The parameter name.
    * 
    * @example
    * t
@@ -21,7 +21,7 @@ export class DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions extends 
   name?: string;
   /**
    * @remarks
-   * The type of the parameter.
+   * The parameter type.
    * 
    * @example
    * Header
@@ -29,7 +29,7 @@ export class DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions extends 
   type?: string;
   /**
    * @remarks
-   * The value to match.
+   * The matching value of the condition.
    * 
    * @example
    * g1
@@ -37,7 +37,7 @@ export class DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions extends 
   value?: string;
   /**
    * @remarks
-   * The values to match.
+   * The matching value of the condition.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -75,11 +75,9 @@ export class DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions extends 
 export class DescribeSwimmingLaneResponseBodyDataAppEntryRule extends $dara.Model {
   /**
    * @remarks
-   * The logical operator that joins conditions. Valid values:
-   * 
-   * - `AND`: All conditions must be met.
-   * 
-   * - `OR`: At least one of the conditions must be met.
+   * The logical connector between conditions. Valid values:
+   * - AND: All conditions must be met.
+   * - OR: Any condition must be met.
    * 
    * @example
    * AND
@@ -87,7 +85,7 @@ export class DescribeSwimmingLaneResponseBodyDataAppEntryRule extends $dara.Mode
   conditionJoiner?: string;
   /**
    * @remarks
-   * The match conditions.
+   * The matching conditions.
    */
   conditions?: DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions[];
   /**
@@ -105,7 +103,7 @@ export class DescribeSwimmingLaneResponseBodyDataAppEntryRule extends $dara.Mode
   paths?: string[];
   /**
    * @remarks
-   * The traffic percentage for percentage-based routing. Valid values: 0 to 100.
+   * The traffic percentage, which is used for percentage-based routing. Valid values: 0 to 100.
    * 
    * @example
    * 50
@@ -113,7 +111,7 @@ export class DescribeSwimmingLaneResponseBodyDataAppEntryRule extends $dara.Mode
   percentage?: number;
   /**
    * @remarks
-   * An object that maps paths to traffic percentages.
+   * The traffic matching.
    */
   percentageByPath?: { [key: string]: number };
   static names(): { [key: string]: string } {
@@ -159,7 +157,7 @@ export class DescribeSwimmingLaneResponseBodyDataAppEntryRule extends $dara.Mode
 export class DescribeSwimmingLaneResponseBodyDataApps extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 6b4c0f64-f679-4580-8105-91eac4******
@@ -167,7 +165,7 @@ export class DescribeSwimmingLaneResponseBodyDataApps extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * test
@@ -175,7 +173,7 @@ export class DescribeSwimmingLaneResponseBodyDataApps extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the MSE instance.
+   * The MSE instance ID.
    * 
    * @example
    * mse-cn-53y49******
@@ -183,7 +181,7 @@ export class DescribeSwimmingLaneResponseBodyDataApps extends $dara.Model {
   mseAppId?: string;
   /**
    * @remarks
-   * The name of the MSE instance.
+   * The MSE instance name.
    * 
    * @example
    * sae-test
@@ -191,7 +189,7 @@ export class DescribeSwimmingLaneResponseBodyDataApps extends $dara.Model {
   mseAppName?: string;
   /**
    * @remarks
-   * The ID of the MSE namespace.
+   * The MSE namespace ID.
    * 
    * @example
    * 6733e538-d52f-48e6-91a4-192f91******
@@ -229,7 +227,7 @@ export class DescribeSwimmingLaneResponseBodyDataApps extends $dara.Model {
 export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleConditions extends $dara.Model {
   /**
    * @remarks
-   * The match operator.
+   * The matching rule.
    * 
    * @example
    * ==
@@ -237,7 +235,7 @@ export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleConditions e
   condition?: string;
   /**
    * @remarks
-   * The name of the parameter.
+   * The parameter name.
    * 
    * @example
    * t
@@ -245,7 +243,7 @@ export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleConditions e
   name?: string;
   /**
    * @remarks
-   * The type of the parameter.
+   * The parameter type.
    * 
    * @example
    * Header
@@ -253,7 +251,7 @@ export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleConditions e
   type?: string;
   /**
    * @remarks
-   * The value to match.
+   * The matching value of the condition.
    * 
    * @example
    * g1
@@ -297,7 +295,7 @@ export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRouteP
   path?: string;
   /**
    * @remarks
-   * The match type.
+   * The matching rule.
    * 
    * @example
    * Header
@@ -329,7 +327,7 @@ export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRouteP
 export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate extends $dara.Model {
   /**
    * @remarks
-   * The path-based match rule.
+   * The path matching rule.
    */
   pathPredicate?: DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate;
   static names(): { [key: string]: string } {
@@ -367,7 +365,7 @@ export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes exten
   routeId?: number;
   /**
    * @remarks
-   * The name of the route.
+   * The route name.
    * 
    * @example
    * demo
@@ -375,7 +373,7 @@ export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes exten
   routeName?: string;
   /**
    * @remarks
-   * The route predicate.
+   * The route rule.
    */
   routePredicate?: DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate;
   static names(): { [key: string]: string } {
@@ -409,7 +407,7 @@ export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes exten
 export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule extends $dara.Model {
   /**
    * @remarks
-   * The logical operator that joins conditions.
+   * The logical connector between conditions.
    * 
    * @example
    * AND
@@ -417,7 +415,7 @@ export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule extends $da
   conditionJoiner?: string;
   /**
    * @remarks
-   * The match conditions.
+   * The matching conditions.
    */
   conditions?: DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleConditions[];
   /**
@@ -430,7 +428,7 @@ export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule extends $da
   independentPercentageEnable?: boolean;
   /**
    * @remarks
-   * The traffic percentage for the rule.
+   * The path traffic percentage.
    * 
    * @example
    * 100
@@ -438,17 +436,17 @@ export class DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule extends $da
   percentage?: number;
   /**
    * @remarks
-   * An object that maps route IDs to traffic percentages.
+   * The traffic configuration.
    */
   percentageByRoute?: { [key: string]: number };
   /**
    * @remarks
-   * A list of route IDs.
+   * The list of route IDs.
    */
   routeIds?: number[];
   /**
    * @remarks
-   * The route configurations.
+   * The detailed configuration of the route rule.
    */
   routes?: DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes[];
   static names(): { [key: string]: string } {
@@ -504,16 +502,14 @@ export class DescribeSwimmingLaneResponseBodyData extends $dara.Model {
   appEntryRule?: DescribeSwimmingLaneResponseBodyDataAppEntryRule;
   /**
    * @remarks
-   * A list of associated applications.
+   * The application information.
    */
   apps?: DescribeSwimmingLaneResponseBodyDataApps[];
   /**
    * @remarks
-   * The mode for the end-to-end canary release. Valid values:
-   * 
-   * - `0`: content-based routing
-   * 
-   * - `1`: percentage-based routing
+   * The end-to-end canary release mode. Valid values:
+   * - 0: Route by request content.
+   * - 1: Route by percentage.
    * 
    * @example
    * 0
@@ -521,11 +517,9 @@ export class DescribeSwimmingLaneResponseBodyData extends $dara.Model {
   canaryModel?: number;
   /**
    * @remarks
-   * Indicates whether the lane is enabled.
-   * 
-   * - `true`: enabled
-   * 
-   * - `false`: disabled
+   * The traffic lane status. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -541,7 +535,7 @@ export class DescribeSwimmingLaneResponseBodyData extends $dara.Model {
   enableRules?: boolean;
   /**
    * @remarks
-   * The ID of the lane.
+   * The traffic lane ID.
    * 
    * @example
    * 9488
@@ -549,7 +543,7 @@ export class DescribeSwimmingLaneResponseBodyData extends $dara.Model {
   laneId?: number;
   /**
    * @remarks
-   * The name of the lane.
+   * The traffic lane group name.
    * 
    * @example
    * mse-test
@@ -557,7 +551,7 @@ export class DescribeSwimmingLaneResponseBodyData extends $dara.Model {
   laneName?: string;
   /**
    * @remarks
-   * The tag of the lane.
+   * The traffic lane tag.
    * 
    * @example
    * {"alicloud.service.tag":"g1"}
@@ -565,7 +559,7 @@ export class DescribeSwimmingLaneResponseBodyData extends $dara.Model {
   laneTag?: string;
   /**
    * @remarks
-   * The entry rule for the MSE Gateway.
+   * The MSE gateway route.
    */
   mseGatewayEntryRule?: DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule;
   static names(): { [key: string]: string } {
@@ -617,14 +611,10 @@ export class DescribeSwimmingLaneResponseBodyData extends $dara.Model {
 export class DescribeSwimmingLaneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned.
-   * 
+   * The API status code or POP error code. Valid values:
    * - **2xx**: Success.
-   * 
-   * - **3xx**: Redirection.
-   * 
-   * - **4xx**: Client error.
-   * 
+   * - **3xx**: Redirect.
+   * - **4xx**: Request error.
    * - **5xx**: Server error.
    * 
    * @example
@@ -633,25 +623,24 @@ export class DescribeSwimmingLaneResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned result.
    */
   data?: DescribeSwimmingLaneResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. 
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - This parameter is returned only if the request fails.
-   * 
-   * - For more information, see the **Error codes** section in this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned with the response.
-   * 
-   * - **success** is returned if the request is successful.
-   * 
-   * - An error code is returned if the request fails.
+   * The additional information about the call result. 
+   * - If the request is successful, **success** is returned.
+   * - If the request is abnormal, a specific error code is returned.
    * 
    * @example
    * success
@@ -667,11 +656,9 @@ export class DescribeSwimmingLaneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * - **true**: The query was successful.
-   * 
-   * - **false**: The query failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: The query is successful.
+   * - **false**: The query fails.
    * 
    * @example
    * true
@@ -679,7 +666,7 @@ export class DescribeSwimmingLaneResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID. You can use this ID to query the details of a call.
+   * The trace ID used to precisely query call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

@@ -6,7 +6,7 @@ import { DataInstancesValue } from "./DataInstancesValue";
 export class DescribeApplicationNlbsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * A collection of instance details.
+   * The instance information.
    */
   instances?: { [key: string]: DataInstancesValue };
   static names(): { [key: string]: string } {
@@ -38,13 +38,10 @@ export class DescribeApplicationNlbsResponseBody extends $dara.Model {
    * @remarks
    * The HTTP status code. Valid values:
    * 
-   * - **2xx**: The request is successful.
-   * 
-   * - **3xx**: The request is redirected.
-   * 
-   * - **4xx**: A client error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -52,21 +49,23 @@ export class DescribeApplicationNlbsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned in the response.
+   * The returned data.
    */
   data?: DescribeApplicationNlbsResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is returned only if the request fails.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - For more information, see the **Error codes** section of this topic.
+   * @example
+   * InvalidApplication.NotFound
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message. A value of `success` indicates a successful request; otherwise, an error code is returned.
+   * The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
    * 
    * @example
    * success
@@ -82,11 +81,10 @@ export class DescribeApplicationNlbsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Specifies whether the binding is successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: The binding is successful.
+   * - **false**: The binding failed.
    * 
    * @example
    * true
@@ -94,7 +92,7 @@ export class DescribeApplicationNlbsResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The trace ID used to query the details of the request.
+   * The trace ID used to query call details.
    * 
    * @example
    * ac1a0b2215622246421415014e****

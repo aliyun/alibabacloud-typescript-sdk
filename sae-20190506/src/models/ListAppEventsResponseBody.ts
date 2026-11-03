@@ -188,6 +188,9 @@ export class ListAppEventsResponseBody extends $dara.Model {
    * - If the request is successful, the **ErrorCode** parameter is not returned.
    * 
    * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error Codes** section.
+   * 
+   * @example
+   * get.event.error
    */
   errorCode?: string;
   /**

@@ -5,15 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A request error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -21,16 +18,18 @@ export class DeleteNamespaceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - If the request is successful, this parameter is not returned.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the request fails, this parameter is returned. For more information, see the **Error codes** section in this topic.
+   * @example
+   * InvalidOperation.NamespaceClusterNotDeleted
    */
   errorCode?: string;
   /**
    * @remarks
-   * The additional information that is returned.
+   * The additional information about the call result.
    * 
    * @example
    * success
@@ -46,11 +45,10 @@ export class DeleteNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the namespace was deleted. Valid values:
+   * Indicates whether the namespace is deleted. Valid values:
    * 
-   * - **true**: The namespace was deleted.
-   * 
-   * - **false**: The namespace failed to be deleted.
+   * - **true**: The namespace is deleted.
+   * - **false**: The namespace is not deleted.
    * 
    * @example
    * true
@@ -58,7 +56,7 @@ export class DeleteNamespaceResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID. You can use this ID to query the details of a request.
+   * The trace ID used to accurately query call information.
    * 
    * @example
    * 0a981dd515966966104121683d****

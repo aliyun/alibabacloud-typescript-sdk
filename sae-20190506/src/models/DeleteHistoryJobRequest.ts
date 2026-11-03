@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHistoryJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job template to which the job that you want to delete belongs.
+   * The ID of the job template to delete.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteHistoryJobRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the job.
+   * The job ID.
    * 
    * This parameter is required.
    * 

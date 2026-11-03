@@ -55,6 +55,9 @@ export class ListApplicationsRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the application is stateful.
+   * 
+   * @example
+   * true
    */
   isStateful?: string;
   /**
@@ -72,6 +75,9 @@ export class ListApplicationsRequest extends $dara.Model {
    * - lite: Lite Edition
    * - std: Standard Edition
    * - pro: Professional Edition
+   * 
+   * @example
+   * pro
    */
   newSaeVersion?: string;
   /**
@@ -93,6 +99,10 @@ export class ListApplicationsRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @example
+   * java
+   */
   programmingLanguage?: string;
   /**
    * @remarks

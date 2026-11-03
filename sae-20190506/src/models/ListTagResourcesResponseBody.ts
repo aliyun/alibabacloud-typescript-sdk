@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyDataTagResources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * d42921c4-5433-4abd-8075-0e536f8b****
@@ -13,7 +13,7 @@ export class ListTagResourcesResponseBodyDataTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the resource. The value is fixed as `application`.
+   * The resource type. Only `application` is supported.
    * 
    * @example
    * ALIYUN::SAE::APPLICATION
@@ -21,7 +21,7 @@ export class ListTagResourcesResponseBodyDataTagResources extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * k1
@@ -29,7 +29,7 @@ export class ListTagResourcesResponseBodyDataTagResources extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * v1
@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyDataTagResources extends $dara.Model {
 export class ListTagResourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. A query returns a maximum of 50 results. If the results are truncated, you can use this token in a subsequent request to retrieve the next page of results.
+   * The pagination token. A single query returns up to 50 results. If the total number of results exceeds 50, a NextToken is returned. You can use this token in the next query to retrieve the remaining results.
    * 
    * @example
    * ""
@@ -73,7 +73,7 @@ export class ListTagResourcesResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of tags and their associated resources.
+   * The mapping between applications and tags.
    */
   tagResources?: ListTagResourcesResponseBodyDataTagResources[];
   static names(): { [key: string]: string } {
@@ -105,15 +105,11 @@ export class ListTagResourcesResponseBodyData extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
-   * 
-   * - **2xx** indicates that the request was successful.
-   * 
-   * - **3xx** indicates that the request was redirected.
-   * 
-   * - **4xx** indicates that a client-side error occurred.
-   * 
-   * - **5xx** indicates that a server-side error occurred.
+   * The API status code or POP error code. Valid values:
+   * - **2xx**: Success.
+   * - **3xx**: Redirect.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -121,25 +117,24 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: ListTagResourcesResponseBodyData;
   /**
    * @remarks
    * The error code.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - This parameter is returned only if the request fails.
-   * 
-   * - For more information, see the **Error codes** section of this topic.
+   * @example
+   * InvalidParameter.Obviously
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned for the request.
-   * 
+   * The additional information.
    * - If the request is successful, **success** is returned.
-   * 
-   * - If the request fails, an error message is returned.
+   * - If an exception occurs, a specific error code is returned.
    * 
    * @example
    * success
@@ -155,11 +150,9 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Indicates whether the mapping between applications and tags was successfully queried. Valid values:
+   * - **true**: The query was successful.
+   * - **false**: The query failed.
    * 
    * @example
    * true
@@ -167,7 +160,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of a request.
+   * The trace ID. You can use this ID to precisely query the call information.
    * 
    * @example
    * 0bc5f84e15916043198032146d****

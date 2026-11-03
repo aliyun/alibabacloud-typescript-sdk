@@ -5,7 +5,15 @@ import { RegistryCertConfig } from "./RegistryCertConfig";
 
 
 export class RegistryConfig extends $dara.Model {
+  /**
+   * @remarks
+   * authConfig
+   */
   authConfig?: RegistryAuthConfig;
+  /**
+   * @remarks
+   * certConfig
+   */
   certConfig?: RegistryCertConfig;
   static names(): { [key: string]: string } {
     return {

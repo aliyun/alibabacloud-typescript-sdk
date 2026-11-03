@@ -5,15 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteApplicationScalingRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the API call or a POP error code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: success.
-   * 
-   * - **3xx**: redirection.
-   * 
-   * - **4xx**: request error.
-   * 
-   * - **5xx**: server error.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -21,20 +18,20 @@ export class DeleteApplicationScalingRuleResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error code. The following rules apply:
+   * The error code. 
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - This parameter is not returned if the request is successful.
-   * 
-   * - This parameter is returned if the request fails. For more information, see the list of **error codes** in this topic.
+   * @example
+   * System.Upgrading
    */
   errorCode?: string;
   /**
    * @remarks
-   * Additional information. The following values may be returned:
+   * The additional information. Valid values:
    * 
-   * - **success** is returned if the request is normal.
-   * 
-   * - A specific error code is returned if the request is abnormal.
+   * - **success**: The request is successful.
+   * - A specific error code: The request fails.
    * 
    * @example
    * success
@@ -50,10 +47,9 @@ export class DeleteApplicationScalingRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the Auto Scaling policy was successfully deleted. Valid values:
+   * Indicates whether the application auto scaling policy is deleted successfully. Valid values:
    * 
-   * - **true**: The deletion was successful.
-   * 
+   * - **true**: The deletion is successful.
    * - **false**: The deletion failed.
    * 
    * @example
@@ -62,7 +58,7 @@ export class DeleteApplicationScalingRuleResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID. You can use this ID to query the details of a call.
+   * The trace ID used to accurately query invocation information.
    * 
    * @example
    * 0a98a02315955564772843261e****

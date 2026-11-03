@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGreyTagRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * The grey tag route for an ALB gateway route.
+   * The canary release rules for ALB gateway routing.
    * 
    * @example
    * [{"condition":"AND","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"sourceIp","value":"127.0.0.1"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]
@@ -13,15 +13,15 @@ export class UpdateGreyTagRouteRequest extends $dara.Model {
   albRules?: string;
   /**
    * @remarks
-   * The description of the rule.
+   * The rule description.
    * 
    * @example
-   * Canary release - region-based
+   * Canary Release - Regions
    */
   description?: string;
   /**
    * @remarks
-   * The grey tag route for a Dubbo application.
+   * The canary release rules for Dubbo applications.
    * 
    * @example
    * [{"condition":"OR","group":"DUBBO","items":[{"cond":"==","expr":".key1","index":0,"operator":"rawvalue","value":"value1"},{"cond":"==","expr":".key2","index":0,"operator":"rawvalue","value":"value2"}],"methodName":"echo","serviceName":"com.alibaba.edas.boot.EchoService","version":"1.0.0"}]
@@ -29,7 +29,7 @@ export class UpdateGreyTagRouteRequest extends $dara.Model {
   dubboRules?: string;
   /**
    * @remarks
-   * The grey tag route ID.
+   * The canary release rule ID.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class UpdateGreyTagRouteRequest extends $dara.Model {
   greyTagRouteId?: number;
   /**
    * @remarks
-   * The grey tag route for a Spring Cloud application.
+   * The canary release rules for Spring Cloud applications.
    * 
    * @example
    * [{"condition":"OR","items":[{"cond":"==","name":"grey","operator":"rawvalue","type":"param","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"cookie","value":"true"},{"cond":"==","name":"grey","operator":"rawvalue","type":"header","value":"true"}],"path":"/post-echo/hi"}]

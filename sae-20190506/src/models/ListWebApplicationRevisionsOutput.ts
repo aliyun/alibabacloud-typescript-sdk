@@ -9,7 +9,7 @@ export class ListWebApplicationRevisionsOutput extends $dara.Model {
    * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
    * 
    * @example
-   * 1
+   * A2RN
    */
   nextToken?: string;
   /**

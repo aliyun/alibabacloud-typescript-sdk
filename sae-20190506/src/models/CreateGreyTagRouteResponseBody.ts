@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGreyTagRouteResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The globally unique ID of the canary release rule.
+   * The canary release rule ID, which is globally unique.
    * 
    * @example
    * 16
@@ -35,15 +35,12 @@ export class CreateGreyTagRouteResponseBodyData extends $dara.Model {
 export class CreateGreyTagRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A client error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -51,21 +48,23 @@ export class CreateGreyTagRouteResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The details of the canary release rule.
+   * The canary release rule information.
    */
   data?: CreateGreyTagRouteResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is not returned if the request is successful.
+   * - Successful request: The **ErrorCode** parameter is not returned.
+   * - Failed request: The **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the request fails, see the **Error codes** list in this topic for more information.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * The response message.
+   * The additional information about the call result.
    * 
    * @example
    * success
@@ -81,11 +80,10 @@ export class CreateGreyTagRouteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the change order information was queried successfully. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: The query was successful.
+   * - **false**: The query failed.
    * 
    * @example
    * true
@@ -93,7 +91,7 @@ export class CreateGreyTagRouteResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID. You can use this ID to query the call details.
+   * The trace ID, which is used to accurately query call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

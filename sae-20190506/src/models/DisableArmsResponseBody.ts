@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DisableArmsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether ARMS monitoring is enabled. Valid values:
+   * Specifies whether the feature is enabled. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -35,15 +37,12 @@ export class DisableArmsResponseBodyData extends $dara.Model {
 export class DisableArmsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A client error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -51,21 +50,23 @@ export class DisableArmsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: DisableArmsResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
    * - If the request is successful, the **ErrorCode** parameter is not returned.
-   * 
    * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * System.Upgrading
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information about the call result.
    * 
    * @example
    * success
@@ -81,7 +82,7 @@ export class DisableArmsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful.
    * 
    * @example
    * True
@@ -89,7 +90,7 @@ export class DisableArmsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of a request.
+   * The trace ID used to precisely query call information.
    * 
    * @example
    * 0bc3b4ad17412276398692303e4cb1

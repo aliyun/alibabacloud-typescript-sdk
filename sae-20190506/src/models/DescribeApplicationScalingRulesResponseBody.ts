@@ -738,6 +738,9 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
   /**
    * @remarks
    * The time zone.
+   * 
+   * @example
+   * Asia/Shanghai
    */
   timeZone?: string;
   static names(): { [key: string]: string } {

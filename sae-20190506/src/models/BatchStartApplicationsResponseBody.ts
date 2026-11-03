@@ -5,15 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchStartApplicationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Valid values:
-   * 
-   * - **2xx**: indicates that the request was successful.
-   * 
-   * - **3xx**: indicates that the request was redirected.
-   * 
-   * - **4xx**: indicates that the request was invalid.
-   * 
-   * - **5xx**: indicates that a server error occurred.
+   * The change order ID.
    * 
    * @example
    * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
@@ -43,15 +35,12 @@ export class BatchStartApplicationsResponseBodyData extends $dara.Model {
 export class BatchStartApplicationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code. Take note of the following rules:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The call was successful.
-   * 
-   * - **3xx**: The call was redirected.
-   * 
-   * - **4xx**: The call failed.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirect.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -59,25 +48,26 @@ export class BatchStartApplicationsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error code.
-   * 
-   * - If the request is successful, this parameter is not returned.\\*\\*\\*\\*
-   * 
-   * - This parameter is returned only if the request failed.\\*\\*\\*\\* For more information, see **Error codes** in this topic.
+   * The returned result.
    */
   data?: BatchStartApplicationsResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed. Take note of the following rules:
+   * The error code. Valid values:
    * 
-   * - The ErrorCode parameter is not returned if the request succeeds.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the call fails, the ErrorCode parameter is returned. For more information, see the "Error codes" section of this topic.
+   * @example
+   * System.Upgrading
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned data.
+   * The additional information. Valid values:
+   * 
+   * - If the request is successful, **success** is returned.
+   * - If an exception occurs, a specific error code is returned.
    * 
    * @example
    * success
@@ -85,7 +75,7 @@ export class BatchStartApplicationsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the trace. It is used to query the details of a request.
+   * The request ID.
    * 
    * @example
    * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
@@ -93,11 +83,10 @@ export class BatchStartApplicationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the application deployment is successful. Take note of the following rules:
+   * Indicates whether the applications were started successfully. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: The applications were started successfully.
+   * - **false**: The applications failed to start.
    * 
    * @example
    * true
@@ -105,7 +94,7 @@ export class BatchStartApplicationsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the change order.
+   * The trace ID used to query call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

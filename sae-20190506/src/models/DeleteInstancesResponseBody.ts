@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstancesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the change order.
+   * The change order ID.
    * 
    * @example
    * 01db03d3-3ee9-48b3-b3d0-dfce2d88****
@@ -35,15 +35,12 @@ export class DeleteInstancesResponseBodyData extends $dara.Model {
 export class DeleteInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or a Platform as a Service (PaaS) error code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A request error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -51,25 +48,26 @@ export class DeleteInstancesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: DeleteInstancesResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - The **ErrorCode** parameter is not returned if the request is successful.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section of this topic.
+   * @example
+   * InvalidApplication.NotFound
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information about the call result. Valid values:
    * 
-   * - If the request is successful, `success` is returned.
-   * 
-   * - If the request fails, an error code is returned.
+   * - success: The request is successful.
+   * - A specific error code: The request is abnormal.
    * 
    * @example
    * success
@@ -85,11 +83,10 @@ export class DeleteInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the application instances were deleted. Valid values:
+   * Indicates whether the instance is deleted. Valid values:
    * 
-   * - **true**: The application instances were deleted.
-   * 
-   * - **false**: The application instances failed to be deleted.
+   * - **true**: The instance is deleted.
+   * - **false**: The instance fails to be deleted.
    * 
    * @example
    * true
@@ -97,7 +94,7 @@ export class DeleteInstancesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID of the request. You can use this ID to query the details of a request.
+   * The trace ID used to accurately query call information.
    * 
    * @example
    * 0a981dd515966966104121683d****

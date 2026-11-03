@@ -115,6 +115,9 @@ export class CreateNamespaceResponseBody extends $dara.Model {
    * - If the request is successful, this parameter is not returned.
    * 
    * - If the request fails, this parameter is returned. For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * InstanceExist.NamespaceId
    */
   errorCode?: string;
   /**

@@ -103,6 +103,9 @@ export class ListAppVersionsResponseBody extends $dara.Model {
    * - This parameter is not returned if the request is successful.
    * 
    * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+   * 
+   * @example
+   * InvalidApplication.NotFound
    */
   errorCode?: string;
   /**

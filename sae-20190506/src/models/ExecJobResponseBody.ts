@@ -5,14 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ExecJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or a POP error code.
+   * The HTTP status code or POP error code. Valid values:
    * 
    * - **2xx**: Success.
-   * 
    * - **3xx**: Redirection.
-   * 
-   * - **4xx**: Request error.
-   * 
+   * - **4xx**: Client error.
    * - **5xx**: Server error.
    * 
    * @example
@@ -29,11 +26,10 @@ export class ExecJobResponseBodyData extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information. Valid values:
    * 
    * - If the request is successful, **success** is returned.
-   * 
-   * - If the request fails, an error code is returned.
+   * - If the request fails, a specific error code is returned.
    * 
    * @example
    * success
@@ -41,10 +37,9 @@ export class ExecJobResponseBodyData extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Whether the job was successfully executed.
+   * Indicates whether the job was executed successfully. Valid values:
    * 
    * - **true**: The execution was successful.
-   * 
    * - **false**: The execution failed.
    * 
    * @example
@@ -81,14 +76,11 @@ export class ExecJobResponseBodyData extends $dara.Model {
 export class ExecJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or a POP error code.
+   * The HTTP status code or POP error code. Valid values:
    * 
    * - **2xx**: Success.
-   * 
    * - **3xx**: Redirection.
-   * 
-   * - **4xx**: Request error.
-   * 
+   * - **4xx**: Client error.
    * - **5xx**: Server error.
    * 
    * @example
@@ -102,20 +94,21 @@ export class ExecJobResponseBody extends $dara.Model {
   data?: ExecJobResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is omitted for successful requests.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - This parameter is included for failed requests. For more information, see the **Error codes** section of this topic.
+   * @example
+   * InvalidApplication.NotFound
    */
   errorCode?: string;
   /**
    * @remarks
-   * The returned message.
+   * The additional information. Valid values:
    * 
    * - If the request is successful, **success** is returned.
-   * 
-   * - If the request fails, an error code is returned.
+   * - If the request fails, a specific error code is returned.
    * 
    * @example
    * success
@@ -131,11 +124,10 @@ export class ExecJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the job was executed successfully. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: The execution was successful.
+   * - **false**: The execution failed.
    * 
    * @example
    * true
@@ -143,7 +135,7 @@ export class ExecJobResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID for retrieving detailed information about the call.
+   * The trace ID, which is used to precisely query call information.
    * 
    * @example
    * 0b87b7e716575071334387401e****

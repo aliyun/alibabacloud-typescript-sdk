@@ -15,7 +15,7 @@ export class DescribeJobStatusRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The ID of the job.
    * 
    * @example
    * event-b798157b-40a2-4388-b578-71fb897103**-**

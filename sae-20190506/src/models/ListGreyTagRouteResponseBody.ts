@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGreyTagRouteResponseBodyDataResultAlbRulesItems extends $dara.Model {
   /**
    * @remarks
-   * Only == is supported.
+   * The comparison operator. Currently, only **==** is supported.
    * 
    * @example
    * ==
@@ -13,7 +13,7 @@ export class ListGreyTagRouteResponseBodyDataResultAlbRulesItems extends $dara.M
   cond?: string;
   /**
    * @remarks
-   * This parameter is not applicable to ALB applications.
+   * Not required for ALB applications.
    * 
    * @example
    * N/A
@@ -21,7 +21,7 @@ export class ListGreyTagRouteResponseBodyDataResultAlbRulesItems extends $dara.M
   expr?: string;
   /**
    * @remarks
-   * This parameter is not applicable to ALB applications.
+   * Not required for ALB applications.
    * 
    * @example
    * N/A
@@ -37,7 +37,7 @@ export class ListGreyTagRouteResponseBodyDataResultAlbRulesItems extends $dara.M
   name?: string;
   /**
    * @remarks
-   * The operator. Valid values: Only rawvalue is supported, which indicates a direct comparison.
+   * The operator. Currently, only **rawvalue** (direct comparison) is supported.
    * 
    * @example
    * rawvalue
@@ -47,10 +47,8 @@ export class ListGreyTagRouteResponseBodyDataResultAlbRulesItems extends $dara.M
    * @remarks
    * The comparison type. Valid values:
    * 
-   * - **sourceIp**: SourceIp.
-   * 
+   * - **sourceIp**: Source IP address.
    * - **cookie**: Cookie.
-   * 
    * - **header**: Header.
    * 
    * @example
@@ -101,7 +99,7 @@ export class ListGreyTagRouteResponseBodyDataResultAlbRulesItems extends $dara.M
 export class ListGreyTagRouteResponseBodyDataResultAlbRules extends $dara.Model {
   /**
    * @remarks
-   * The conditional pattern of the grayscale rule. Only AND is supported, which indicates that all conditions in the list must be met.
+   * The condition mode of the canary release rule. Currently, only **AND** is supported, which means all conditions in the condition list must be met.
    * 
    * @example
    * AND
@@ -109,7 +107,7 @@ export class ListGreyTagRouteResponseBodyDataResultAlbRules extends $dara.Model 
   condition?: string;
   /**
    * @remarks
-   * The Ingress ID.
+   * The gateway route ID.
    * 
    * @example
    * 23
@@ -117,7 +115,7 @@ export class ListGreyTagRouteResponseBodyDataResultAlbRules extends $dara.Model 
   ingressId?: string;
   /**
    * @remarks
-   * The list of conditions.
+   * The condition list.
    */
   items?: ListGreyTagRouteResponseBodyDataResultAlbRulesItems[];
   /**
@@ -169,19 +167,14 @@ export class ListGreyTagRouteResponseBodyDataResultDubboRulesItems extends $dara
   cond?: string;
   /**
    * @remarks
-   * The expression that is used to obtain the parameter value. The syntax follows the Spring Expression Language (SpEL). Valid values:
+   * The expression used to obtain the parameter value. The syntax follows Spring Expression Language (SpEL). Valid values:
    * 
-   * - **Leave it empty**: Obtains the value of the current parameter.
-   * 
-   * - **.name**: Obtains the name property of the parameter. This is equivalent to args0.getName().
-   * 
-   * - **.isEnabled()**: Obtains the enabled property of the parameter. This is equivalent to args0.isEnabled().
-   * 
-   * - **[0]**: Obtains the first value of the array. This is equivalent to args0[0]. Note that the expression does not start with a period (.).
-   * 
-   * - **.get(0)**: Obtains the first value of the list. This is equivalent to args0.get(0).
-   * 
-   * - **.get("key")**: Obtains the value that corresponds to the specified key from the map. This is equivalent to args0.get("key").
+   * - **Empty**: Obtains the value of the current parameter directly.
+   * - **.name**: Obtains the name property of the parameter, which is equivalent to args0.getName().
+   * - **.isEnabled()**: Obtains the enabled property of the parameter, which is equivalent to args0.isEnabled().
+   * - **[0]**: Specifies that the current parameter is an array and obtains the first value of the array, which is equivalent to args0[0]. Note that there is no period (.) at the beginning.
+   * - **.get(0)**: Specifies that the current parameter is a list and obtains the first value of the list, which is equivalent to args0.get(0).
+   * - **.get("key")**: Specifies that the current parameter is a map and obtains the value corresponding to the key, which is equivalent to args0.get("key").
    * 
    * @example
    * .name
@@ -189,7 +182,7 @@ export class ListGreyTagRouteResponseBodyDataResultDubboRulesItems extends $dara
   expr?: string;
   /**
    * @remarks
-   * The parameter number. 0 indicates the first parameter.
+   * The parameter index. A value of 0 indicates the first parameter.
    * 
    * @example
    * 0
@@ -197,7 +190,7 @@ export class ListGreyTagRouteResponseBodyDataResultDubboRulesItems extends $dara
   index?: number;
   /**
    * @remarks
-   * This parameter is not applicable to Dubbo services.
+   * Not applicable to Dubbo services.
    * 
    * @example
    * N/A
@@ -208,11 +201,8 @@ export class ListGreyTagRouteResponseBodyDataResultDubboRulesItems extends $dara
    * The operator. Valid values:
    * 
    * - **rawvalue**: Direct comparison.
-   * 
    * - **list**: Whitelist.
-   * 
-   * - **mod**: Modulo 100 operation.
-   * 
+   * - **mod**: Modulo 100.
    * - **deterministic_proportional_steaming_division**: Percentage.
    * 
    * @example
@@ -221,7 +211,7 @@ export class ListGreyTagRouteResponseBodyDataResultDubboRulesItems extends $dara
   operator?: string;
   /**
    * @remarks
-   * This parameter is not applicable to Dubbo services.
+   * Not applicable to Dubbo services.
    * 
    * @example
    * N/A
@@ -271,11 +261,10 @@ export class ListGreyTagRouteResponseBodyDataResultDubboRulesItems extends $dara
 export class ListGreyTagRouteResponseBodyDataResultDubboRules extends $dara.Model {
   /**
    * @remarks
-   * The conditional pattern of the grayscale rule. Valid values:
+   * The condition mode of the canary release rule. Valid values:
    * 
-   * - **AND**: All conditions in the list must be met.
-   * 
-   * - **OR**: Any condition in the list can be met.
+   * - **AND**: The logical AND operation. All conditions in the condition list must be met.
+   * - **OR**: The logical OR operation. Any condition in the condition list must be met.
    * 
    * @example
    * OR
@@ -283,7 +272,7 @@ export class ListGreyTagRouteResponseBodyDataResultDubboRules extends $dara.Mode
   condition?: string;
   /**
    * @remarks
-   * The group of the Dubbo service that corresponds to the grayscale rule.
+   * The group of the Dubbo service corresponding to the canary release rule.
    * 
    * @example
    * DUBBO
@@ -291,7 +280,7 @@ export class ListGreyTagRouteResponseBodyDataResultDubboRules extends $dara.Mode
   group?: string;
   /**
    * @remarks
-   * The list of conditions.
+   * The condition list.
    */
   items?: ListGreyTagRouteResponseBodyDataResultDubboRulesItems[];
   /**
@@ -304,7 +293,7 @@ export class ListGreyTagRouteResponseBodyDataResultDubboRules extends $dara.Mode
   methodName?: string;
   /**
    * @remarks
-   * The name of the Dubbo service.
+   * The Dubbo service name.
    * 
    * @example
    * com.alibaba.edas.boot.EchoService
@@ -312,7 +301,7 @@ export class ListGreyTagRouteResponseBodyDataResultDubboRules extends $dara.Mode
   serviceName?: string;
   /**
    * @remarks
-   * The version of the Dubbo service.
+   * The Dubbo service version.
    * 
    * @example
    * 1.0.0
@@ -363,7 +352,7 @@ export class ListGreyTagRouteResponseBodyDataResultScRulesItems extends $dara.Mo
   cond?: string;
   /**
    * @remarks
-   * This parameter is not applicable to Spring Cloud applications.
+   * Not applicable to Spring Cloud applications.
    * 
    * @example
    * N/A
@@ -371,7 +360,7 @@ export class ListGreyTagRouteResponseBodyDataResultScRulesItems extends $dara.Mo
   expr?: string;
   /**
    * @remarks
-   * This parameter is not applicable to Spring Cloud applications.
+   * Not applicable to Spring Cloud applications.
    * 
    * @example
    * N/A
@@ -390,11 +379,8 @@ export class ListGreyTagRouteResponseBodyDataResultScRulesItems extends $dara.Mo
    * The operator. Valid values:
    * 
    * - **rawvalue**: Direct comparison.
-   * 
    * - **list**: Whitelist.
-   * 
-   * - **mod**: Modulo 100 operation.
-   * 
+   * - **mod**: Modulo 100.
    * - **deterministic_proportional_steaming_division**: Percentage.
    * 
    * @example
@@ -406,9 +392,7 @@ export class ListGreyTagRouteResponseBodyDataResultScRulesItems extends $dara.Mo
    * The comparison type. Valid values:
    * 
    * - **param**: Parameter.
-   * 
    * - **cookie**: Cookie.
-   * 
    * - **header**: Header.
    * 
    * @example
@@ -459,11 +443,10 @@ export class ListGreyTagRouteResponseBodyDataResultScRulesItems extends $dara.Mo
 export class ListGreyTagRouteResponseBodyDataResultScRules extends $dara.Model {
   /**
    * @remarks
-   * The conditional pattern of the grayscale rule. Valid values:
+   * The condition mode of the canary release rule. Valid values:
    * 
-   * - **AND**: All conditions in the list must be met.
-   * 
-   * - **OR**: Any condition in the list can be met.
+   * - **AND**: The logical AND operation. All conditions in the condition list must be met.
+   * - **OR**: The logical OR operation. Any condition in the condition list must be met.
    * 
    * @example
    * OR
@@ -471,12 +454,12 @@ export class ListGreyTagRouteResponseBodyDataResultScRules extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The list of conditions.
+   * The condition list.
    */
   items?: ListGreyTagRouteResponseBodyDataResultScRulesItems[];
   /**
    * @remarks
-   * The path that corresponds to the grayscale rule for the Spring Cloud application.
+   * The path corresponding to the canary release rule for the Spring Cloud application.
    * 
    * @example
    * /path
@@ -513,7 +496,7 @@ export class ListGreyTagRouteResponseBodyDataResultScRules extends $dara.Model {
 export class ListGreyTagRouteResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The grayscale rules created for an application for which an Application Load Balancer (ALB) Ingress is configured.
+   * The canary release rules created for applications with configured Application Load Balancer (ALB) gateway routes.
    */
   albRules?: ListGreyTagRouteResponseBodyDataResultAlbRules[];
   /**
@@ -526,7 +509,7 @@ export class ListGreyTagRouteResponseBodyDataResult extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The description of the rule.
+   * The rule description.
    * 
    * @example
    * test
@@ -534,7 +517,7 @@ export class ListGreyTagRouteResponseBodyDataResult extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The grayscale rules for Dubbo services.
+   * The Dubbo service canary release rules.
    */
   dubboRules?: ListGreyTagRouteResponseBodyDataResultDubboRules[];
   /**
@@ -555,7 +538,7 @@ export class ListGreyTagRouteResponseBodyDataResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The grayscale rules for Spring Cloud.
+   * The Spring Cloud canary release rules.
    */
   scRules?: ListGreyTagRouteResponseBodyDataResultScRules[];
   /**
@@ -621,7 +604,7 @@ export class ListGreyTagRouteResponseBodyData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. The value can only be **1**.
+   * The number of entries per page in a paged query. Currently, only **1** is supported.
    * 
    * @example
    * 1
@@ -634,7 +617,7 @@ export class ListGreyTagRouteResponseBodyData extends $dara.Model {
   result?: ListGreyTagRouteResponseBodyDataResult[];
   /**
    * @remarks
-   * The total number of entries. The value can only be **1**.
+   * The total number of entries. Currently, only **1** is supported.
    * 
    * @example
    * 1
@@ -673,15 +656,12 @@ export class ListGreyTagRouteResponseBodyData extends $dara.Model {
 export class ListGreyTagRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status of the interface or the POP error code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request is successful.
-   * 
-   * - **3xx**: The request is redirected.
-   * 
-   * - **4xx**: A request error occurs.
-   * 
-   * - **5xx**: A server error occurs.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -689,24 +669,24 @@ export class ListGreyTagRouteResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about the grayscale rule.
+   * The canary release rule information.
    */
   data?: ListGreyTagRouteResponseBodyData;
   /**
    * @remarks
    * The error code. Valid values:
    * 
-   * - This parameter is not returned if the request is successful.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
-   * Additional information. Valid values:
-   * 
+   * The additional information.
    * - If the request is successful, **success** is returned.
-   * 
    * - If the request fails, a specific error code is returned.
    * 
    * @example
@@ -723,10 +703,9 @@ export class ListGreyTagRouteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the query succeeded.
+   * Indicates whether the change order information was queried successfully. Valid values:
    * 
-   * - **true**: The query succeeded.
-   * 
+   * - **true**: The query was successful.
    * - **false**: The query failed.
    * 
    * @example
@@ -735,7 +714,7 @@ export class ListGreyTagRouteResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID, which is used to query the details of a call.
+   * The trace ID used to precisely query call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

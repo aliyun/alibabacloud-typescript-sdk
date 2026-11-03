@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the gateway route.
+   * The gateway routing configuration.
    * 
-   * > This parameter is required if the gateway entry application for the swimlane group is a Java application.
+   * > This parameter is required when the gateway entry of the traffic lane group is Java.
    */
   appEntryRuleShrink?: string;
   /**
    * @remarks
-   * The end-to-end canary release mode.
+   * The end-to-end canary release mode. Valid values:
    * 
-   * - `0`: content-based routing
+   * - 0: Routes traffic based on request content.
    * 
-   * - `1`: percentage-based routing
+   * - 1: Routes traffic based on proportion.
    * 
    * @example
    * 0
@@ -24,11 +24,10 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   canaryModel?: number;
   /**
    * @remarks
-   * The status of the swimlane.
+   * Specifies whether the traffic lane is enabled. Valid values:
    * 
-   * - `true`: enabled
-   * 
-   * - `false`: disabled
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -36,7 +35,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The ID of the swimlane group.
+   * The ID of the traffic lane group to which the traffic lane belongs.
    * 
    * @example
    * b2a8a925-477a-eswa-b823-d5e22500****
@@ -44,7 +43,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The ID of the swimlane.
+   * The ID of the traffic lane.
    * 
    * @example
    * 13857
@@ -52,7 +51,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   laneId?: number;
   /**
    * @remarks
-   * The name of the swimlane.
+   * The name of the traffic lane.
    * 
    * @example
    * test
@@ -60,7 +59,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   laneName?: string;
   /**
    * @remarks
-   * The tag of the swimlane.
+   * The tag of the traffic lane.
    * 
    * @example
    * g1
@@ -68,9 +67,9 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   laneTag?: string;
   /**
    * @remarks
-   * Configuration for the MSE gateway route.
+   * The MSE gateway routing configuration.
    * 
-   * > This parameter is required if the **EntryAppType** parameter is set to **apig** or **mse-gw**.
+   * > This parameter is required when **EntryAppType** is set to **apig** or **mse-gw**.
    */
   mseGatewayEntryRuleShrink?: string;
   /**

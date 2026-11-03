@@ -5,15 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAppSecurityGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code that is returned for the request. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A client error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -21,20 +18,21 @@ export class UpdateAppSecurityGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is not returned if the request is successful.
+   * - If the request is successful, the **ErrorCode** field is not returned.
+   * - If the request fails, the **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - This parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+   * @example
+   * InvalidParameter.NotEmpty
    */
   errorCode?: string;
   /**
    * @remarks
    * The additional information. Valid values:
    * 
-   * - If the request is successful, **success** is returned.
-   * 
-   * - If the request fails, an error message is returned.
+   * - **success**: The request is successful.
+   * - Specific error code: An exception occurred during the request.
    * 
    * @example
    * success
@@ -50,10 +48,9 @@ export class UpdateAppSecurityGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the application security group was successfully updated. Valid values:
+   * Indicates whether the security group of the application is updated. Valid values:
    * 
-   * - **true**: The update was successful.
-   * 
+   * - **true**: The update is successful.
    * - **false**: The update failed.
    * 
    * @example
@@ -62,7 +59,7 @@ export class UpdateAppSecurityGroupResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID. You can use this ID to query the details of the request.
+   * The trace ID used to accurately query call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

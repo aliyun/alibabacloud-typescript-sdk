@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSecretShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the namespace where the Secret instance is located. If the instance is in the default namespace, specify only the region ID, such as `cn-beijing`.
+   * The ID of the namespace where the Secret instance resides. If the Secret instance resides in the default namespace, specify only the RegionId, such as `cn-beijing`.
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,7 @@ export class UpdateSecretShrinkRequest extends $dara.Model {
   secretDataShrink?: string;
   /**
    * @remarks
-   * The ID of the Secret instance.
+   * The instance ID of the Secret.
    * 
    * This parameter is required.
    * 

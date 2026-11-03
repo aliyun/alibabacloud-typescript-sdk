@@ -6,16 +6,25 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AppStackInstanceEndpoints extends $dara.Model {
   /**
+   * @remarks
+   * The address and port.
+   * 
    * @example
    * 127.0.0.1:8211
    */
   address?: string;
   /**
+   * @remarks
+   * The endpoint name.
+   * 
    * @example
    * game
    */
   name?: string;
   /**
+   * @remarks
+   * The endpoint protocol.
+   * 
    * @example
    * UDP
    */
@@ -47,11 +56,17 @@ export class AppStackInstanceEndpoints extends $dara.Model {
 
 export class AppStackInstanceParameters extends $dara.Model {
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * regionId
    */
   name?: string;
   /**
+   * @remarks
+   * The parameter value.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -81,33 +96,59 @@ export class AppStackInstanceParameters extends $dara.Model {
 
 export class AppStackInstance extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1706518652
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The endpoints.
+   */
   endpoints?: AppStackInstanceEndpoints[];
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * i-789y
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * palworld
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * The instance parameters.
+   */
   parameters?: AppStackInstanceParameters[];
   /**
+   * @remarks
+   * The stack ID.
+   * 
    * @example
    * palworld
    */
   stackId?: string;
   /**
+   * @remarks
+   * The instance status.
+   * 
    * @example
    * WAIT
    */
   status?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 1706518652
    */

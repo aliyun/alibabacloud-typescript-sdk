@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DowngradeApplicationApmServiceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether ARMS advanced monitoring is disabled. Valid values:
+   * Indicates whether ARMS Premium Edition monitoring is successfully disabled. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: Disabled successfully.
+   * - **false**: Failed to disable.
    * 
    * @example
    * true
@@ -39,15 +38,12 @@ export class DowngradeApplicationApmServiceResponseBodyData extends $dara.Model 
 export class DowngradeApplicationApmServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or the error code. Valid values:
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: The request failed.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: Success.
+   * - **3xx**: Redirection.
+   * - **4xx**: Request error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -55,17 +51,20 @@ export class DowngradeApplicationApmServiceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   data?: DowngradeApplicationApmServiceResponseBodyData;
   /**
    * @remarks
-   * The status code.
+   * The error code.
+   * 
+   * @example
+   * System.Upgrading
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message that is returned.
+   * The additional information.
    * 
    * @example
    * success
@@ -73,7 +72,7 @@ export class DowngradeApplicationApmServiceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 01CF26C7-00A3-4AA6-BA76-7E95F2A3****
@@ -81,16 +80,15 @@ export class DowngradeApplicationApmServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether ARMS advanced monitoring is disabled. Valid values:
+   * Indicates whether ARMS Premium Edition monitoring is successfully disabled. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: Disabled successfully.
+   * - **false**: Failed to disable.
    */
   success?: boolean;
   /**
    * @remarks
-   * The ID of the trace. The ID is used to query the details of a request.
+   * The trace ID used to precisely query call information.
    * 
    * @example
    * 0a98a02315955564772843261e****

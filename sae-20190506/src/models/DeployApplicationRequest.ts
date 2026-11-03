@@ -5,8 +5,26 @@ import { SidecarContainerConfig } from "./SidecarContainerConfig";
 
 
 export class DeployApplicationRequestRaspConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the application runtime security protection (RASP) is enabled.
+   */
   enableRasp?: boolean;
+  /**
+   * @remarks
+   * The RASP application key.
+   * 
+   * @example
+   * key-1
+   */
   raspAppKey?: string;
+  /**
+   * @remarks
+   * The RASP application name.
+   * 
+   * @example
+   * sae-test
+   */
   raspAppName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,7 +54,7 @@ export class DeployApplicationRequestRaspConfig extends $dara.Model {
 export class DeployApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ARN of the RAM role required for cross-account image pulling. For more information, see [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
+   * The ARN of the RAM role required to pull images across accounts. For more information, see [Use RAM roles to authorize access across Alibaba Cloud accounts](https://help.aliyun.com/document_detail/223585.html).
    * 
    * @example
    * acs:ram::123456789012****:role/adminrole
@@ -44,7 +62,7 @@ export class DeployApplicationRequest extends $dara.Model {
   acrAssumeRoleArn?: string;
   /**
    * @remarks
-   * The Container Registry Enterprise instance ID. This parameter is required when **ImageUrl** is set to a Container Registry Enterprise instance image.
+   * The ACR Enterprise instance ID. This parameter is required when **ImageUrl** is set to an ACR Enterprise instance image.
    * 
    * @example
    * cri-xxxxxx
@@ -60,7 +78,7 @@ export class DeployApplicationRequest extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * The ALB gateway ReadinessGate configuration.
+   * The Application Load Balancer (ALB) gateway readiness gate configuration.
    * 
    * @example
    * default
@@ -68,7 +86,7 @@ export class DeployApplicationRequest extends $dara.Model {
   albIngressReadinessGate?: string;
   /**
    * @remarks
-   * The ID of the application to deploy.
+   * The ID of the application to be deployed.
    * 
    * This parameter is required.
    * 
@@ -89,9 +107,9 @@ export class DeployApplicationRequest extends $dara.Model {
   associateEip?: boolean;
   /**
    * @remarks
-   * Specifies whether to automatically enable the application elastic scaling policy. Valid values:
-   * - **true**: enabled.
-   * - **false**: disabled.
+   * Specifies whether the elastic scaling policy for the application is automatically enabled. Valid values:
+   * - **true**: enables the policy.
+   * - **false**: shutdown.
    * 
    * @example
    * true
@@ -115,7 +133,7 @@ export class DeployApplicationRequest extends $dara.Model {
   changeOrderDesc?: string;
   /**
    * @remarks
-   * The image startup command. The command must be an executable object in the container. Example:
+   * The startup command of the image. The command must be an executable object that exists in the container. Example:
    * 
    * ```
    * command:
@@ -124,7 +142,7 @@ export class DeployApplicationRequest extends $dara.Model {
    *       - >
    *       - file0
    * ```
-   * Based on the preceding example, `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+   * Based on the preceding example, `Command="echo"` and `CommandArgs=["abc", ">", "file0"]`.
    * 
    * @example
    * echo
@@ -132,11 +150,11 @@ export class DeployApplicationRequest extends $dara.Model {
   command?: string;
   /**
    * @remarks
-   * The arguments of the image startup command. These are the arguments required by the startup command specified in **Command**. Format:
+   * The arguments for the image startup command. These are the arguments required by the **Command** startup command. Format:
    * 
    * `["a","b"]`
    * 
-   * In the preceding example, `CommandArgs=["abc", ">", "file0"]`, where `["abc", ">", "file0"]` must be converted to a String type, and the internal format is a JSON array. If this parameter is not required, leave it empty.
+   * In the preceding example, `CommandArgs=["abc", ">", "file0"]`. The `["abc", ">", "file0"]` part must be converted to a string in JSON array format. If this parameter is not required, leave it empty.
    * 
    * @example
    * ["a","b"]
@@ -144,10 +162,10 @@ export class DeployApplicationRequest extends $dara.Model {
   commandArgs?: string;
   /**
    * @remarks
-   * The **ConfigMap** mount description. Use a ConfigMap created on the namespace configuration items page to inject configuration information into the container. Settings:
+   * The mount description of the **ConfigMap**. Uses the configuration item created on the configuration item page of the namespace to inject configuration information into the container. Parameter description:
    * 
-   * - **configMapId**: the ConfigMap instance ID. You can obtain it by calling the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation.
-   * - **key**: the key.
+   * - **configMapId**: the instance ID of the ConfigMap instance. You can invoke the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the instance ID.
+   * - **key**: the key value.
    * 
    * > You can mount all keys by passing the `sae-sys-configmap-all` parameter.
    * 
@@ -159,7 +177,7 @@ export class DeployApplicationRequest extends $dara.Model {
   configMapMountDesc?: string;
   /**
    * @remarks
-   * The CPU resources required for each instance. Unit: millicores. This parameter cannot be set to 0. Only the following defined specifications are supported:
+   * The CPU required for each instance. Unit: millicores. The value cannot be 0. Only the following defined specifications are supported:
    * - **500**
    * - **1000**
    * - **2000**
@@ -175,7 +193,7 @@ export class DeployApplicationRequest extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The custom host mapping in the container. Valid values:
+   * The custom host mappings in the container. Valid values:
    * 
    * - **hostName**: the domain name or hostname.
    * - **ip**: the IP address.
@@ -186,8 +204,7 @@ export class DeployApplicationRequest extends $dara.Model {
   customHostAlias?: string;
   /**
    * @remarks
-   * The custom image type. If the image is not a custom image, set this parameter to an empty string:
-   * 
+   * The custom image network type. If the image is not a custom image, set this parameter to an empty string. Valid values:
    * - internet: public image.
    * - intranet: private image.
    * 
@@ -197,9 +214,9 @@ export class DeployApplicationRequest extends $dara.Model {
   customImageNetworkType?: string;
   /**
    * @remarks
-   * This parameter takes effect only for applications in the stopped state. If you call the **DeployApplication** operation for a running application, the application is immediately redeployed.
-   * - **true**: default value. Deploys immediately, applies the new deployment configuration, and starts instances.
-   * - **false**: applies the new deployment configuration only, without starting application instances.
+   * This parameter takes effect only for applications in the stopped state. If a running application calls the **DeployApplication** operation, the application is immediately redeployed. Valid values:
+   * - **true**: the default value. Deploys the application immediately, applies the new deployment configurations, and immediately starts the instances.
+   * - **false**: applies only the new deployment configurations without starting the application instances.
    * 
    * @example
    * true
@@ -207,7 +224,7 @@ export class DeployApplicationRequest extends $dara.Model {
   deploy?: string;
   /**
    * @remarks
-   * The version of the .NET framework: 
+   * The version of the .NET framework. Valid values: 
    * 
    * - .NET 3.1
    * - .NET 5.0
@@ -237,10 +254,10 @@ export class DeployApplicationRequest extends $dara.Model {
   emptyDirDesc?: string;
   /**
    * @remarks
-   * Specifies whether to enable Application High Availability Service (AHAS). Valid values:
+   * Specifies whether to connect to AHAS. Valid values:
    * 
-   * - **true**: enables AHAS.
-   * - **false**: does not enable AHAS.
+   * - **true**: connects to AHAS.
+   * - **false**: does not connect to AHAS.
    * 
    * @example
    * false
@@ -248,10 +265,10 @@ export class DeployApplicationRequest extends $dara.Model {
   enableAhas?: string;
   /**
    * @remarks
-   * Specifies whether to enable the CPU Burst feature:
+   * Specifies whether to enable the CPU Burst feature. Valid values:
    * 
-   * - true: enabled.
-   * - false: disabled.
+   * - true: enables the feature.
+   * - false: disables the feature.
    * 
    * @example
    * true
@@ -259,10 +276,10 @@ export class DeployApplicationRequest extends $dara.Model {
   enableCpuBurst?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable traffic canary release rules. This rule applies only to applications that use the Spring Cloud or Dubbo framework. Valid values:
+   * Specifies whether to enable the canary release rules for traffic. This rule applies only to applications that use the Spring Cloud and Dubbo frameworks. Valid values:
    * 
-   * - **true**: enables canary release rules.
-   * - **false**: disables canary release rules.
+   * - **true**: enables the canary release rules.
+   * - **false**: disables the canary release rules.
    * 
    * @example
    * false
@@ -270,7 +287,7 @@ export class DeployApplicationRequest extends $dara.Model {
   enableGreyTagRoute?: boolean;
   /**
    * @remarks
-   * Specifies whether to reuse the namespace Agent version configuration.
+   * Specifies whether to reuse the agent version configuration of the namespace.
    * 
    * @example
    * true
@@ -278,10 +295,10 @@ export class DeployApplicationRequest extends $dara.Model {
   enableNamespaceAgentVersion?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the new ARMS feature:
+   * Specifies whether to enable the new ARMS features. Valid values:
    * 
-   * - true: enabled.
-   * - false: disabled.
+   * - true: enables the features.
+   * - false: disables the features.
    * 
    * @example
    * true
@@ -289,7 +306,7 @@ export class DeployApplicationRequest extends $dara.Model {
   enableNewArms?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable custom Prometheus metric collection.
+   * Specifies whether to enable Prometheus custom metric collection.
    * 
    * @example
    * false
@@ -297,10 +314,10 @@ export class DeployApplicationRequest extends $dara.Model {
   enablePrometheus?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable sidecar resource isolation:
+   * Specifies whether to enable sidecar resource isolation. Valid values:
    * 
    * - true: enables isolation.
-   * - false: does not enable isolation.
+   * - false: disables isolation.
    * 
    * @example
    * true
@@ -308,29 +325,39 @@ export class DeployApplicationRequest extends $dara.Model {
   enableSidecarResourceIsolated?: boolean;
   /**
    * @remarks
-   * The container environment variable parameters. You can customize environment variables or reference ConfigMap items. To reference a ConfigMap item, create a ConfigMap instance first. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
-   * - Custom configuration
+   * The environment variables for the container. You can specify custom environment variables or reference ConfigMaps. To reference a ConfigMap, you must create a ConfigMap instance first. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
+   * - Custom environment variables
    *     - **name**: the name of the environment variable.
-   *     - **value**: the value of the environment variable. This takes priority over valueFrom.
-   * - Reference a ConfigMap item (valueFrom)
-   *     - **name**: the name of the environment variable. To reference all keys, enter `sae-sys-configmap-all-<ConfigMap name>`, such as `sae-sys-configmap-all-test1`.
-   *     - **valueFrom**: the environment variable reference. Set the value to `configMapRef`.
-   *     - **configMapId**: the ConfigMap ID.
-   *     - **key**: the key. Do not set this field if you want to reference all keys.
+   *     - **value**: the value of the environment variable. This parameter has a higher priority than valueFrom.
+   * - Reference a ConfigMap (valueFrom)
+   *     - **name**: the name of the environment variable. You can reference a single key or all keys. To reference all keys, enter `sae-sys-configmap-all-<ConfigMap name>`, such as `sae-sys-configmap-all-test1`.
+   *     - **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
+   *     - **configMapId**: the ID of the ConfigMap.
+   *     - **key**: the key. If you reference all key-value pairs, do not set this field.
    * - Reference a secret (valueFrom)
-   *     - **name**: the name of the environment variable. To reference all keys, enter `sae-sys-secret-all-<secret name>`, such as `sae-sys-secret-all-test1`.
-   *     - **valueFrom**: the environment variable reference. Set the value to `secretRef`.
-   *     - **secretId**: the secret ID.
-   *     - **key**: the key. Do not set this field if you want to reference all keys.
+   *     - **name**: the name of the environment variable. You can reference a single key or all keys. To reference all keys, enter `sae-sys-secret-all-<secret name>`, such as `sae-sys-secret-all-test1`.
+   *     - **valueFrom**: the reference of the environment variable. Set the value to `secretRef`.
+   *     - **secretId**: the ID of the secret.
+   *     - **key**: the key. If you reference all key-value pairs, do not set this field.
    * 
    * @example
    * [ { "name": "sae-sys-configmap-all-hello", "valueFrom": { "configMapRef": { "configMapId": 100, "key": "" } } }, { "name": "hello", "valueFrom": { "configMapRef": { "configMapId": 101, "key": "php-fpm" } } }, { "name": "sae-sys-secret-all-hello", "valueFrom": { “secretRef": { “secretId": 100, "key": "" } } }, { "name": “password”, "valueFrom": { “secretRef": { “secretId": 101, "key": “password” } } }, { "name": "envtmp", "value": "newenv" } ]
    */
   envs?: string;
+  /**
+   * @remarks
+   * The GPU configuration.
+   * 
+   * @example
+   * {
+   * "gpuType":"PPU810E",
+   * "gpuCount":"1"
+   * }
+   */
   gpuConfig?: string;
   /**
    * @remarks
-   * The Nginx version.
+   * The NGINX version. Valid values:
    * - nginx 1.20
    * - nginx 1.22
    * - nginx 1.24
@@ -343,7 +370,7 @@ export class DeployApplicationRequest extends $dara.Model {
   html?: string;
   /**
    * @remarks
-   * The corresponding secret ID.
+   * The ID of the corresponding secret.
    * 
    * @example
    * 10
@@ -351,7 +378,7 @@ export class DeployApplicationRequest extends $dara.Model {
   imagePullSecrets?: string;
   /**
    * @remarks
-   * The image URL. This parameter is required when **Package Type** is set to **Image**.
+   * The URL of the image. This parameter is required when **Package Type** is set to **Image**.
    * 
    * @example
    * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
@@ -364,7 +391,7 @@ export class DeployApplicationRequest extends $dara.Model {
   initContainersConfig?: InitContainerConfig[];
   /**
    * @remarks
-   * The startup arguments for a JAR package-based application. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * The startup arguments for the JAR package. Default startup command: `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
    * 
    * @example
    * -Xms4G -Xmx4G
@@ -372,7 +399,7 @@ export class DeployApplicationRequest extends $dara.Model {
   jarStartArgs?: string;
   /**
    * @remarks
-   * The startup options for a JAR package-based application. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * The startup options for the JAR package. Default startup command: `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
    * 
    * @example
    * custom-option
@@ -380,7 +407,7 @@ export class DeployApplicationRequest extends $dara.Model {
   jarStartOptions?: string;
   /**
    * @remarks
-   * The JDK version on which the deployment package depends. Valid values:
+   * The JDK version required by the deployment package. Valid values:
    * 
    * - **Open JDK 8**
    * - **Open JDK 7**
@@ -397,49 +424,60 @@ export class DeployApplicationRequest extends $dara.Model {
   jdk?: string;
   /**
    * @remarks
-   * The summary of log collection configurations for Kafka. Valid values:
+   * The summary of configurations for collecting logs to Kafka. Valid values:
    * 
-   * - **kafkaEndpoint**: the endpoint of the Kafka API.
+   * - **kafkaEndpoint**: the service registration address of the Kafka API.
    * - **kafkaInstanceId**: the Kafka instance ID.
-   * - **kafkaConfigs**: the configuration summary for one or more log entries. For example values and parameter descriptions, see the **kafkaConfigs** request parameter in this topic.
+   * - **kafkaConfigs**: the summary of configurations for one or more logs. For example values and parameter description, see the **kafkaConfigs** request parameter in this topic.
    * 
    * @example
    * {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
    */
   kafkaConfigs?: string;
+  /**
+   * @remarks
+   * The application labels. Both keys and values are strings.
+   */
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The container health check. Containers that fail the health check are shutdown and recovered. The following methods are supported:
+   * The liveness probe for the container. Containers that fail the health check are shutdown and recovered. Valid values:
    * 
-   * - **exec**: for example, `{"exec":{"command":["sh","-c","cat/home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}`
-   * - **httpGet**: for example, `{"httpGet":{"path":"/","port":18091,"scheme":"HTTP","isContainKeyWord":true,"keyWord":"SAE"},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
-   * - **tcpSocket**: for example, `{"tcpSocket":{"port":18091},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
+   * - **exec**: Example: `{"exec":{"command":["sh","-c","cat/home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}`.
+   * - **httpGet**: Example: `{"httpGet":{"path":"/","port":18091,"scheme":"HTTP","isContainKeyWord":true,"keyWord":"SAE"},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`.
+   * - **tcpSocket**: Example: `{"tcpSocket":{"port":18091},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`.
    * 
-   * > Only one method can be selected for health checks.
+   * > You can select only one method for the health check.
    * 
-   * Settings:
+   * Parameter description:
    * 
-   * - **exec.command**: sets the health check command.
+   * - **exec.command**: Settings for the health check command.
    * - **httpGet.path**: the access path.
    * - **httpGet.scheme**: **HTTP** or **HTTPS**.
-   * - **httpGet.isContainKeyWord**: **true** indicates that the keyword is included, **false** indicates that the keyword is not included, and the absence of this field indicates that the advanced feature is not used.
-   * - **httpGet.keyWord**: the custom keyword. The **isContainKeyWord** field must be present when this parameter is used.
+   * - **httpGet.isContainKeyWord**: **true** indicates that the keyword is included, and **false** indicates that the keyword is not included. If this field is missing, the advanced feature is not used.
+   * - **httpGet.keyWord**: the custom keyword. The **isContainKeyWord** field is required when this field is used.
    * - **tcpSocket.port**: the port for TCP connection detection.
-   * - **initialDelaySeconds**: sets the initial delay for the health check. Default value: 10. Unit: seconds.
-   * - **periodSeconds**: sets the health check epoch. Default value: 30. Unit: seconds.
-   * - **timeoutSeconds**: sets the health check timeout period. Default value: 1. Unit: seconds. If this parameter is set to 0 or is not set, the default timeout period is 1 second.
+   * - **initialDelaySeconds**: Settings for the health check delay detection time. Default value: 10. Unit: seconds.
+   * - **periodSeconds**: Settings for the health check epoch. Default value: 30. Unit: seconds.
+   * - **timeoutSeconds**: Settings for the health check timeout waiting time. Default value: 1. Unit: seconds. If this parameter is set to 0 or not set, the default timeout waiting time is 1 second.
    * 
    * @example
    * {"exec":{"command":["sleep","5s"]},"initialDelaySeconds":10,"timeoutSeconds":11}
    */
   liveness?: string;
+  /**
+   * @remarks
+   * LokiConfigs
+   * 
+   * @example
+   * []
+   */
   lokiConfigs?: string;
   /**
    * @remarks
-   * The maximum surge instance percentage. Valid values:
+   * The maximum surge instance ratio. Note the following rules:
    * 
-   * If the minimum number of available instances is 100%, the maximum surge cannot be set to 0. If this parameter is set to **-1**, the system-recommended value of 30% is used, which is 30% of the current number of instances. For example, if the current number of instances is 10, the value is 10 × 30% = 3.
+   * If the minimum number of available instances is 100%, the Peak Volume Settings cannot be 0. If the Settings are **-1**, the system uses the recommended value of 30%, which is 30% of the current number of instances. For example, if the current number of instances is 10, the maximum number of surge instances is 10 × 30% = 3.
    * 
    * @example
    * -1
@@ -447,10 +485,10 @@ export class DeployApplicationRequest extends $dara.Model {
   maxSurgeInstanceRatio?: number;
   /**
    * @remarks
-   * The maximum number of surge instances. Valid values:
+   * The maximum number of surge instances. Note the following rules:
    * 
-   * If the minimum number of available instances is 100%, the maximum surge cannot be set to 0.
-   * If this parameter is set to **-1**, the system-recommended value of 30% is used, which is 30% of the current number of instances. For example, if the current number of instances is 10, the value is 10 × 30% = 3.
+   * If the minimum number of available instances is 100%, the Peak Volume Settings cannot be 0.
+   * If the Settings are **-1**, the maximum number of surge instances uses the recommended Peak Volume ratio of 30%, which is 30% of the current number of instances. For example, if the current number of instances is 10, the maximum number of surge instances is 10 × 30% = 3.
    * 
    * @example
    * -1
@@ -458,17 +496,17 @@ export class DeployApplicationRequest extends $dara.Model {
   maxSurgeInstances?: number;
   /**
    * @remarks
-   * The memory required for each instance. Unit: MB. This parameter cannot be set to 0. The memory has a one-to-one mapping with CPU. Only the following defined specifications are supported:
-   * - **1024**: corresponds to 500 and 1000 millicores of CPU.
-   * - **2048**: corresponds to 500, 1000, and 2000 millicores of CPU.
-   * - **4096**: corresponds to 1000, 2000, and 4000 millicores of CPU.
-   * - **8192**: corresponds to 2000, 4000, and 8000 millicores of CPU.
-   * - **12288**: corresponds to 12000 millicores of CPU.
-   * - **16384**: corresponds to 4000, 8000, and 16000 millicores of CPU.
-   * - **24576**: corresponds to 12000 millicores of CPU.
-   * - **32768**: corresponds to 16000 millicores of CPU.
-   * - **65536**: corresponds to 8000, 16000, and 32000 millicores of CPU.
-   * - **131072**: corresponds to 32000 millicores of CPU.
+   * The memory required for each instance. Unit: MB. The value cannot be 0. The memory has a one-to-one mapping with the CPU. Only the following defined specifications are supported:
+   * - **1024**: corresponds to 500 and 1000 millicores.
+   * - **2048**: corresponds to 500, 1000, and 2000 millicores.
+   * - **4096**: corresponds to 1000, 2000, and 4000 millicores.
+   * - **8192**: corresponds to 2000, 4000, and 8000 millicores.
+   * - **12288**: corresponds to 12000 millicores.
+   * - **16384**: corresponds to 4000, 8000, and 16000 millicores.
+   * - **24576**: corresponds to 12000 millicores.
+   * - **32768**: corresponds to 16000 millicores.
+   * - **65536**: corresponds to 8000, 16000, and 32000 millicores.
+   * - **131072**: corresponds to 32000 millicores.
    * 
    * @example
    * 1024
@@ -476,12 +514,12 @@ export class DeployApplicationRequest extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * Specifies the Nacos registry. Valid values:
-   * - **0**: Serverless App Engine built-in Nacos.
-   * - **1**: self-managed Nacos.
-   * - **2**: Microservices Engine (MSE) commercial edition Nacos.
+   * The Nacos registry. Valid values:
+   * - **0**: the built-in Nacos of SAE.
+   * - **1**: a self-managed Nacos.
+   * - **2**: Microservices Engine (MSE) Nacos Commercial Edition.
    * 
-   * > If you select Serverless App Engine built-in Nacos, you cannot obtain the configuration of the built-in Nacos.
+   * > If you select the built-in Nacos of SAE, you cannot obtain the configurations of the built-in Nacos.
    * 
    * @example
    * "0"
@@ -489,7 +527,7 @@ export class DeployApplicationRequest extends $dara.Model {
   microRegistration?: string;
   /**
    * @remarks
-   * The registry configuration, which takes effect only when the registry type is MSE Nacos Enterprise Edition.
+   * The registry configurations. This parameter takes effect only when the registry type is MSE Nacos Enterprise Edition.
    * 
    * @example
    * {\\"instanceId\\":\\"mse-cn-zvp2bh6h70r\\",\\"namespace\\":\\"4c0aa74f-57cb-423c-b6af-5d9f2d0e3dbd\\"}
@@ -497,23 +535,19 @@ export class DeployApplicationRequest extends $dara.Model {
   microRegistrationConfig?: string;
   /**
    * @remarks
-   * Configures microservice governance.
-   * 
-   * - Specifies whether to enable microservice governance (enable):
-   * 
-   *    - true: enabled.
-   * 
-   *   - false: disabled.
-   * 
-   * - Configures lossless online/offline (mseLosslessRule):
-   * 
-   *   - delayTime: the delay time.
-   * 
-   *   - enable: specifies whether to enable the lossless online feature. true indicates enabled, and false indicates disabled.
-   * 
-   *   - notice: specifies whether to enable the notification feature. true indicates enabled, and false indicates disabled.
-   * 
-   *   - warmupTime: the warm-up duration for low-traffic scenarios. Unit: seconds.
+   * Configures microservice governance features.
+   * - enable: Specifies whether to enable microservice governance. Valid values:
+   *   - true: Enabled.
+   *   - false: Disabled.
+   * - mseLosslessRule: Configures lossless online and offline rules.
+   *   - delayTime: The delay time.
+   *   - enable: Specifies whether to enable the lossless online feature. Valid values:
+   *     - true: Enabled.
+   *     - false: Disabled.
+   *   - notice: Specifies whether to enable the notification feature. Valid values:
+   *     - true: Enabled.
+   *     - false: Disabled.
+   *   - warmupTime: The warm-up duration for low traffic, in seconds.
    * 
    * @example
    * {"enable": true,"mseLosslessRule": {"delayTime": 0,"enable": false,"notice": false,"warmupTime": 120}}
@@ -521,12 +555,12 @@ export class DeployApplicationRequest extends $dara.Model {
   microserviceEngineConfig?: string;
   /**
    * @remarks
-   * The minimum percentage of available instances. Valid values:
+   * The percentage of the minimum number of ready instances. Valid values:
    * 
-   *  - **-1**: the initialization value, which indicates that the percentage is not used.
-   *  - **0~100**: the unit is percentage, rounded up. For example, if this parameter is set to **50**% and the current number of instances is 5, the minimum number of available instances is 3.
+   *  - **-1**: the initial value, which indicates that the percentage is not used.
+   *  - **0~100**: the percentage, rounded up. For example, if you set this parameter to **50** and the current number of instances is 5, the minimum number of ready instances is 3.
    * 
-   * > When both **MinReadyInstance** and **MinReadyInstanceRatio** are specified and the value of **MinReadyInstanceRatio** is not **-1**, the **MinReadyInstanceRatio** parameter takes precedence. For example, if **MinReadyInstances** is set to **5** and **MinReadyInstanceRatio** is set to **50**, the value **50** is used to calculate the minimum number of available instances.
+   * > When both **MinReadyInstance** and **MinReadyInstanceRatio** are passed and the value of **MinReadyInstanceRatio** is not **-1**, the **MinReadyInstanceRatio** parameter prevails. For example, if **MinReadyInstances** is set to **5** and **MinReadyInstanceRatio** is set to **50**, **50** is used to calculate the minimum number of ready instances.
    * 
    * @example
    * -1
@@ -534,12 +568,12 @@ export class DeployApplicationRequest extends $dara.Model {
   minReadyInstanceRatio?: number;
   /**
    * @remarks
-   * The minimum number of available instances. Valid values:
+   * The minimum number of ready instances. Valid values:
    * 
-   * - If this parameter is set to **0**, service is interrupted during the upgrade.
-   * - If this parameter is set to **-1**, the system-recommended value is used, which is 25% of the current number of instances. If the current number of instances is 5, 5 × 25% = 1.25, which is rounded up to 2.
+   * - If you set this parameter to **0**, services are interrupted during the application upgrade.
+   * - If you set this parameter to **-1**, the system recommended value is used, which is 25% of the current number of instances. For example, if the current number of instances is 5, 5 × 25% = 1.25. After rounding up, the minimum number of ready instances is 2.
    * 
-   * > The minimum number of available instances for each rolling deployment should be ≥ 1 to prevent service interruption.
+   * > Set the minimum number of ready instances to a value greater than or equal to 1 for each rolling deployment to ensure service continuity.
    * 
    * @example
    * 1
@@ -547,7 +581,7 @@ export class DeployApplicationRequest extends $dara.Model {
   minReadyInstances?: number;
   /**
    * @remarks
-   * We do not recommend that you configure this field. Configure **NasConfigs** instead. The NAS mount description. If the configuration has not changed during deployment, you do not need to set this parameter (that is, the **MountDesc** field does not need to be included in the request). To clear the NAS configuration, set the value of this field to an empty string (that is, set the value of the **MountDesc** field to "" in the request).
+   * This field is not recommended. Configure **NasConfigs** instead. The description of the NAS mount. If the configurations remain unchanged during deployment, you do not need to set this parameter. That is, you do not need to include the **MountDesc** field in the request. If you need to clear the NAS configurations, you must set the value of this field to an empty string in the request. That is, set the **MountDesc** field to "".
    * 
    * @example
    * [{mountPath: "/tmp", nasPath: "/"}]
@@ -555,7 +589,7 @@ export class DeployApplicationRequest extends $dara.Model {
   mountDesc?: string;
   /**
    * @remarks
-   * We do not recommend that you configure this field. Configure **NasConfigs** instead. The mount point of the NAS file system in the VPC of the application. If the configuration has not changed during deployment, you do not need to set this parameter (that is, the **MountHost** field does not need to be included in the request). To clear the NAS configuration, set the value of this field to an empty string (that is, set the value of the **MountHost** field to "" in the request).
+   * This field is not recommended. Configure **NasConfigs** instead. The mount target of the NAS file system in the VPC of the application. If the configurations remain unchanged during deployment, you do not need to set this parameter. That is, you do not need to include the **MountHost** field in the request. If you need to clear the NAS configurations, you must set the value of this field to an empty string in the request. That is, set the **MountHost** field to "".
    * 
    * @example
    * 10d3b4bc9****.com
@@ -563,12 +597,12 @@ export class DeployApplicationRequest extends $dara.Model {
   mountHost?: string;
   /**
    * @remarks
-   * The NAS mount configuration. Valid values:
-   * - **mountPath**: the container mount path.
-   * - **readOnly**: set to **false** for read and write permission.
-   * - **nasId**: the NAS ID.
-   * - **mountDomain**: the container mount point address. For more information, see [DescribeMountTargets](https://help.aliyun.com/document_detail/62626.html).
-   * - **nasPath**: the NAS relative file directory.
+   * The configurations for mounting a NAS file system. Valid values:
+   * - **mountPath**: the mount path in the container.
+   * - **readOnly**: A value of **false** indicates read and write permissions.
+   * - **nasId**: the ID of the NAS file system.
+   * - **mountDomain**: the mount target address of the container. For more information, see [DescribeMountTargets](https://help.aliyun.com/document_detail/62626.html).
+   * - **nasPath**: the relative file directory of the NAS file system.
    * 
    * @example
    * [{"mountPath":"/test1","readOnly":false,"nasId":"nasId1","mountDomain":"nasId1.cn-shenzhen.nas.aliyuncs.com","nasPath":"/test1"},{"nasId":"nasId2","mountDomain":"nasId2.cn-shenzhen.nas.aliyuncs.com","readOnly":false,"nasPath":"/test2","mountPath":"/test2"}]
@@ -576,7 +610,7 @@ export class DeployApplicationRequest extends $dara.Model {
   nasConfigs?: string;
   /**
    * @remarks
-   * We do not recommend that you configure this field. Configure **NasConfigs** instead. The ID of the NAS file system. If the configuration has not changed during deployment, you do not need to set this parameter (that is, the **NasId** field does not need to be included in the request). To clear the NAS configuration, set the value of this field to an empty string (that is, set the value of the **NasId** field to "" in the request).
+   * This field is not recommended. Configure **NasConfigs** instead. The ID of the NAS file system. If the configurations remain unchanged during deployment, you do not need to set this parameter. That is, you do not need to include the **NasId** field in the request. If you need to clear the NAS configurations, you must set the value of this field to an empty string in the request. That is, set the **NasId** field to "".
    * 
    * @example
    * 10d3b4****
@@ -584,11 +618,10 @@ export class DeployApplicationRequest extends $dara.Model {
   nasId?: string;
   /**
    * @remarks
-   * The application version:
-   * 
-   * - lite: lite edition.
-   * - std: standard edition.
-   * - pro: professional edition.
+   * The application edition. Valid values:
+   * - lite: Lite Edition.
+   * - std: Standard Edition.
+   * - pro: Professional Edition.
    * 
    * @example
    * pro
@@ -596,10 +629,10 @@ export class DeployApplicationRequest extends $dara.Model {
   newSaeVersion?: string;
   /**
    * @remarks
-   * The RAM role for identity authentication.
+   * The RAM role for the identity authentication service.
    * 
    * 
-   * > Create an OIDC identity provider and an identity provider role in the same region in advance. For more information, see [Create an OIDC identity provider](https://help.aliyun.com/document_detail/2331022.html) and [Create a role for SSO identity provider](https://help.aliyun.com/document_detail/2331016.html).
+   * > You must create an OIDC identity provider and an identity provider role in the same region in advance. For more information, see [Create an OIDC identity provider](https://help.aliyun.com/document_detail/2331022.html) and [Create an IdP for role-based SSO](https://help.aliyun.com/document_detail/2331016.html).
    * 
    * @example
    * sae-test
@@ -607,7 +640,7 @@ export class DeployApplicationRequest extends $dara.Model {
   oidcRoleName?: string;
   /**
    * @remarks
-   * The AccessKey ID for OSS read and write operations.
+   * The AccessKey ID used to read and write OSS data.
    * 
    * @example
    * xxxxxx
@@ -615,7 +648,7 @@ export class DeployApplicationRequest extends $dara.Model {
   ossAkId?: string;
   /**
    * @remarks
-   * The AccessKey Secret for OSS read and write operations.
+   * The AccessKey Secret used to read and write OSS data.
    * 
    * @example
    * xxxxxx
@@ -623,14 +656,14 @@ export class DeployApplicationRequest extends $dara.Model {
   ossAkSecret?: string;
   /**
    * @remarks
-   * The OSS mount description. Parameter settings:
+   * The OSS mount description. Parameter description:
    * 
-   * - **bucketName**: the bucket name.
+   * - **bucketName**: the name of the bucket.
    * - **bucketPath**: the folder or object that you created in OSS. If the OSS mount folder does not exist, an exception is triggered.
-   * - **mountPath**: the container path in Serverless App Engine. If the path already exists, it is an overwrite relationship. If the path does not exist, it is created.
-   * - **readOnly**: specifies whether the container path has read-only permission on the mounted folder resources. Valid values:
-   *     - **true**: read-only permission.
-   *     - **false**: read and write permission.
+   * - **mountPath**: the container path in SAE. If the path already exists, it is an overwrite relationship. If the path does not exist, it is created.
+   * - **readOnly**: specifies whether the container path has read permissions on the mount directory resources. Valid values:
+   *     - **true**: read-only permissions.
+   *     - **false**: read and write permissions.
    * 
    * @example
    * [{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
@@ -638,10 +671,10 @@ export class DeployApplicationRequest extends $dara.Model {
   ossMountDescs?: string;
   /**
    * @remarks
-   * The application package type. Valid values:
+   * The type of the application package. Valid values:
    * 
-   * - When you deploy with Java, the following types are supported: **FatJar**, **War**, and **Image**.
-   * - When you deploy with PHP, the following types are supported:
+   * - If you use Java for deployment, valid values are **FatJar**, **War**, and **Image**.
+   * - If you use PHP for deployment, valid values are:
    *     - **PhpZip**
    *     - **IMAGE_PHP_5_4**
    *     - **IMAGE_PHP_5_4_ALPINE**
@@ -657,7 +690,7 @@ export class DeployApplicationRequest extends $dara.Model {
    *     - **IMAGE_PHP_7_2_ALPINE**
    *     - **IMAGE_PHP_7_3**
    *     - **IMAGE_PHP_7_3_ALPINE**
-   * - When you deploy with Python, the following types are supported: **PythonZip** and **Image**.
+   * - If you use Python for deployment, valid values are **PythonZip** and **Image**.
    * 
    * @example
    * FatJar
@@ -681,7 +714,7 @@ export class DeployApplicationRequest extends $dara.Model {
   packageVersion?: string;
   /**
    * @remarks
-   * The PHP version on which the deployment package depends. Not supported for images.
+   * The PHP version required by the PHP deployment package. Images are not supported.
    * 
    * @example
    * PHP-FPM 7.0
@@ -689,7 +722,7 @@ export class DeployApplicationRequest extends $dara.Model {
   php?: string;
   /**
    * @remarks
-   * The mount path for PHP application monitoring. Ensure that the PHP server loads the configuration file from this path. You do not need to manage the configuration content because Serverless App Engine automatically renders the correct configuration file.
+   * The mount path for PHP application monitoring. You must ensure that the PHP server loads the configuration file in this path. You do not need to pay attention to the configuration content. SAE automatically renders the correct configuration file.
    * 
    * @example
    * /usr/local/etc/php/conf.d/arms.ini
@@ -705,7 +738,7 @@ export class DeployApplicationRequest extends $dara.Model {
   phpConfig?: string;
   /**
    * @remarks
-   * The mount path for the PHP application startup configuration. Ensure that the PHP server uses this configuration file for startup.
+   * The mount path for the PHP application startup configuration. You must ensure that the PHP server uses this configuration file to start.
    * 
    * @example
    * /usr/local/etc/php/php.ini
@@ -713,7 +746,7 @@ export class DeployApplicationRequest extends $dara.Model {
   phpConfigLocation?: string;
   /**
    * @remarks
-   * The script that is run after the container starts. A script is triggered immediately after the container is created. Format: `{"exec":{"command":["sh","-c","echo hello"\\]}}`.
+   * The script to execute after the container starts. A script is triggered immediately after the container is created. Format: `{"exec":{"command":["sh","-c","echo hello"]}}`.
    * 
    * @example
    * {"exec":{"command":["sh","-c","echo hello"]}}
@@ -721,7 +754,7 @@ export class DeployApplicationRequest extends $dara.Model {
   postStart?: string;
   /**
    * @remarks
-   * The script that is run before the container stops. A script is triggered before the container is deleted. Format: `{"exec":{"command":["sh","-c","echo hello"\\]}}`.
+   * The script to execute before the container stops. A script is triggered before the container is deleted. Format: `{"exec":{"command":["sh","-c","echo hello"]}}`.
    * 
    * @example
    * {"exec":{"command":["sh","-c","echo hello"]}}
@@ -729,11 +762,11 @@ export class DeployApplicationRequest extends $dara.Model {
   preStop?: string;
   /**
    * @remarks
-   * Enables K8s Service-based service registration and discovery. Valid values:
+   * Enables service registration and discovery for Kubernetes Services. Valid values:
    * 
-   * - **portProtocols**: the port and protocol. Valid port values: [1,65535]. Valid protocol values: **TCP** and **UDP**.
-   * - **portAndProtocol**: the port and protocol. Valid port values: [1,65535]. Valid protocol values: **TCP** and **UDP**. **portProtocols is recommended. If portProtocols is set, only portProtocols takes effect**.
-   * - **enable**: enables K8s Service-based service registration and discovery.
+   * - **portProtocols**: the port and protocol. Valid values for the port: 1 to 65535. Valid values for the protocol: **TCP** and **UDP**.
+   * - **portAndProtocol**: the port and protocol. Valid values for the port: 1 to 65535. Valid values for the protocol: **TCP** and **UDP**. **Use portProtocols instead. If portProtocols is set, only portProtocols takes effect**.
+   * - **enable**: enables service registration and discovery for Kubernetes Services.
    * 
    * @example
    * {"portProtocols":[{"port":18012,"protocol":"TCP"}],"portAndProtocol":{"18012":"TCP"},"enable":true}
@@ -749,18 +782,22 @@ export class DeployApplicationRequest extends $dara.Model {
   python?: string;
   /**
    * @remarks
-   * The custom installation module dependencies. By default, the dependencies defined in the requirements.txt file in the root folder are installed. If no dependencies are configured or custom packages are needed, you can specify the dependencies to install.
+   * The custom installation module dependencies. By default, the dependencies defined in the requirements.txt file in the root folder are installed. If this parameter is not configured or a custom software package is used, you can specify the dependencies to install.
    * 
    * @example
    * Flask==2.0
    */
   pythonModules?: string;
+  /**
+   * @remarks
+   * The application runtime security protection (RASP) configuration.
+   */
   raspConfig?: DeployApplicationRequestRaspConfig;
   /**
    * @remarks
-   * The application startup status check. Containers that fail multiple health checks are shut down and restarted. Containers that do not pass the health check do not receive SLB traffic. The **exec**, **httpGet**, and **tcpSocket** methods are supported. For specific examples, see the **Liveness** parameter.
+   * The readiness probe for the application. Containers that fail multiple health checks are stopped and restarted. Traffic from the SLB instance is not routed to containers that fail the health check. The **exec**, **httpGet**, and **tcpSocket** methods are supported. For specific examples, see the **Liveness** parameter.
    * 
-   * > Only one method can be selected for health checks.
+   * > You can select only one method for the health check.
    * 
    * @example
    * {"exec":{"command":["sleep","6s"]},"initialDelaySeconds":15,"timeoutSeconds":12}
@@ -776,10 +813,10 @@ export class DeployApplicationRequest extends $dara.Model {
   replicas?: number;
   /**
    * @remarks
-   * The **Secret** mount description. Use a secret created on the namespace secrets page to inject sensitive information into the container. Settings:
+   * The mount description of the **Secret**. Uses the secret created on the Secret page of the namespace to inject confidential information into the container. Parameter description:
    * 
-   * - **secretId**: the secret instance ID. You can obtain it by calling the ListSecrets operation.
-   * - **key**: the key.
+   * - **secretId**: the instance ID of the secret instance. You can obtain the instance ID by calling the ListSecrets operation.
+   * - **key**: the key value.
    * 
    * > You can mount all keys by passing the `sae-sys-secret-all` parameter.
    * 
@@ -791,7 +828,7 @@ export class DeployApplicationRequest extends $dara.Model {
   secretMountDesc?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-wz969ngg2e49q5i4****
@@ -799,7 +836,7 @@ export class DeployApplicationRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The canary release tags configured for the application.
+   * The canary tags configured for the application.
    * 
    * @example
    * {\\"alicloud.service.tag\\":\\"g1\\"}
@@ -807,27 +844,27 @@ export class DeployApplicationRequest extends $dara.Model {
   serviceTags?: string;
   /**
    * @remarks
-   * The sidecar container configuration.
+   * The container configuration information.
    */
   sidecarContainersConfig?: SidecarContainerConfig[];
   /**
    * @remarks
-   * The configuration for log collection to Simple Log Service.
+   * The Settings for collecting logs to Simple Log Service (SLS).
    * 
-   * - Use SLS resources automatically created by Serverless App Engine: `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
+   * - Use SLS resources automatically created by SAE: `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
    * - Use custom SLS resources: `[{"projectName":"test-sls","logType":"stdout","logDir":"","logstoreName":"sae","logtailName":""},{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]`.
    * 
-   * Settings:
+   * Parameter description:
    * 
-   * - **projectName**: the name of the project in Simple Log Service.  
+   * - **projectName**: the name of the SLS project.  
    * - **logDir**: the log path.
-   * - **logType**: the log type. **stdout** indicates container standard output logs, and only one entry can be set. If this parameter is not set, file logs are collected.
-   * - **logstoreName**: the name of the Logstore in Simple Log Service.
-   * - **logtailName**: the name of the Logtail in Simple Log Service. If this parameter is not specified, a new Logtail is created by automatic creation.
+   * - **logType**: the log type. **stdout** indicates container standard output logs. You can set only 1 standard output log. If this parameter is not set, file logs are collected.
+   * - **logstoreName**: the name of the SLS Logstore.
+   * - **logtailName**: the name of the SLS Logtail. If this parameter is not specified, a new Logtail is created.
    * 
-   * If the SLS collection configuration has not changed during multiple deployments, you do not need to set this parameter (that is, the **SlsConfigs** field does not need to be included in the request). If you no longer need the SLS collection feature, set the value of this field to an empty string (that is, set the value of the **SlsConfigs** field to "" in the request).
+   * If the SLS collection Settings remain unchanged during multiple deployments, you do not need to set this parameter. That is, you do not need to include the **SlsConfigs** field in the request. If you no longer need the SLS collection feature, you must set the value of this field to an empty string in the request. That is, set the **SlsConfigs** field to "".
    * 
-   * > A project that is automatically created with the application is deleted when the application is deleted. Therefore, do not select a project that is automatically created by Serverless App Engine when selecting an existing project.
+   * > Projects that are automatically created with the application are deleted when the application is deleted. Therefore, when you select an existing project, you cannot select a project that is automatically created by SAE.
    * 
    * @example
    * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
@@ -836,18 +873,20 @@ export class DeployApplicationRequest extends $dara.Model {
   /**
    * @remarks
    * sls log tags
+   * 
+   * @example
+   * []
    */
   slsLogEnvTags?: string;
   /**
    * @remarks
-   * Enables the application startup probe.
+   * Enables application startup probing.
+   * - Check succeeded: indicates that the application is started. If you configure liveness and readiness probes, the liveness and readiness probes are executed after the application is started.
+   * - Check failed: indicates that the application fails to start. An exception is reported and the application is automatically restarted.
    * 
-   * - Check succeeded: indicates that the application started successfully. If you configured Liveness and Readiness checks, they are performed after the application starts successfully.
-   * - Check failed: indicates that the application failed to start. An exception is reported and the application is automatically restarted.
-   * 
-   * > This is the description content.
-   * > - The exec, httpGet, and tcpSocket methods are supported. For specific examples, see the Liveness parameter.
-   * > - Only one method can be selected for health checks.
+   * > Note
+   * > - The exec, httpGet, and tcpSocket methods are supported. For specific examples, refer to the Liveness parameter.
+   * > - You can select only one method for health checks.
    * 
    * @example
    * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
@@ -855,20 +894,20 @@ export class DeployApplicationRequest extends $dara.Model {
   startupProbe?: string;
   /**
    * @remarks
-   * Configures K8s Service-based service registration and discovery with end-to-end canary release:
+   * Configures service registration and discovery and end-to-end canary release based on Kubernetes Services:
    * 
-   * - enable: specifies whether to enable end-to-end canary release based on K8s Service.
-   *   - true: enabled.
-   *   - false: disabled.
-   * - namespaceId: the namespace ID.
+   * - enable: specifies whether to enable the end-to-end canary release feature based on Kubernetes Services.
+   *   - true: enables the feature.
+   *   - false: disables the feature.
+   * - namespaceId: the ID of the namespace.
    * - portAndProtocol: the listening port and protocol. Format: {"port:protocol type":"container port"}.
-   * - portProtocols: defines the service port and protocol.
+   * - portProtocols: defines the port and protocol of the service.
    *   - port: the port.
    *   - protocol: the protocol.
    *   - targetPort: the container port.
-   * - pvtzDiscoveryName: the service discovery name.
-   * - serviceId: the service ID.
-   * - serviceName: the service name.
+   * - pvtzDiscoveryName: service name of the service discovery.
+   * - serviceId: the ID of the service.
+   * - serviceName: service name of the service.
    * 
    * @example
    * {\\"enable\\":\\"false\\",\\"namespaceId\\":\\"cn-beijing:test\\",\\"portAndProtocol\\":{\\"2000:TCP\\":\\"18081\\"},\\"portProtocols\\":[{\\"port\\":2000,\\"protocol\\":\\"TCP\\",\\"targetPort\\":18081}],\\"pvtzDiscoveryName\\":\\"cn-beijing-1421801774382676\\",\\"serviceId\\":\\"3513\\",\\"serviceName\\":\\"demo-gray.test\\"}
@@ -876,7 +915,7 @@ export class DeployApplicationRequest extends $dara.Model {
   swimlanePvtzDiscoverySvc?: string;
   /**
    * @remarks
-   * The graceful shutdown timeout period. Default value: 30. Unit: seconds. Valid values: 1 to 300.
+   * The timeout period for graceful shutdown. Default value: 30. Unit: seconds. Valid values: 1 to 300.
    * 
    * @example
    * 10
@@ -892,12 +931,12 @@ export class DeployApplicationRequest extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The Tomcat configuration. Set this parameter to "" or "{}" to delete the configuration. Valid values:
+   * The Tomcat file configuration. Set the value to "" or "{}" to delete the configuration. Valid values:
    * 
-   * - **port**: the port number. Valid values: 1024 to 65535. Ports smaller than 1024 require root permissions. Because the container is configured with admin permissions, specify a port greater than 1024. Default value: 8080.
-   * - **contextPath**: the access path. Default value: root directory "/".
-   * - **maxThreads**: the connection pool size. Default value: 400.
-   * - **uriEncoding**: the encoding format of Tomcat. Valid values: **UTF-8**, **ISO-8859-1**, **GBK**, and **GB2312**. Default value: **ISO-8859-1**.
+   * - **port**: the port range is 1024 to 65535. Ports smaller than 1024 require root permissions. Because the container is configured with admin permissions, specify a port greater than 1024. If this parameter is not configured, the default value is 8080.
+   * - **contextPath**: the access path. Default value: the root directory "/".
+   * - **maxThreads**: the maximum number of connections in the connection pool. Default value: 400.
+   * - **uriEncoding**: the encoding format of Tomcat. Valid values: **UTF-8**, **ISO-8859-1**, **GBK**, and **GB2312**. If this parameter is not set, the default value is **ISO-8859-1**.
    * - **useBodyEncodingForUri**: specifies whether to use **BodyEncoding for URL**. Default value: **true**.
    * 
    * @example
@@ -906,17 +945,17 @@ export class DeployApplicationRequest extends $dara.Model {
   tomcatConfig?: string;
   /**
    * @remarks
-   * The deployment policy. When the minimum number of available instances is 1, the value of the **UpdateStrategy** field is "". When the minimum number of available instances is greater than 1, examples are as follows:
+   * The deployment policy. When the minimum number of ready instances is 1, the value of the **UpdateStrategy** field is "". When the minimum number of ready instances is greater than 1, examples are as follows:
    *  
-   *  - Grayscale 1 instance + 2 subsequent batches + automatic batching + 1-minute batch interval: `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}`
-   *   - Grayscale 1 instance + 2 subsequent batches + manual batching: `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"manual"},"grayUpdate":{"gray":1}}`
-   *   - 2 batches + automatic batching + 0-minute batch interval: `{"type":"BatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":0}}`
+   *  - grayscale 1 instance + 2 subsequent batches + automatic batching + 1-minute interval between batches: `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}`
+   *   - grayscale 1 instance + 2 subsequent batches + manual batching: `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"manual"},"grayUpdate":{"gray":1}}`
+   *   - 2 batches + automatic batching + 0-minute interval between batches: `{"type":"BatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":0}}`
    * 
-   * Settings:
-   *   - **type**: the publish policy type. Valid values: **GrayBatchUpdate** (grayscale publish) and **BatchUpdate** (batch publish).
+   * Parameter description:
+   *   - **type**: the type of the publish policy. Valid values: **GrayBatchUpdate** for grayscale publish and **BatchUpdate** for batch publish.
    *   - **batchUpdate**: the batch publish policy.
    *     - **batch**: the number of publish batches.
-   *     - **releaseType**: the processing method between batches. Valid values: **auto** (automatic) and **manual** (manual).
+   *     - **releaseType**: the processing method between batches. Valid values: **auto** for automatic and **manual** for manual.
    *     - **batchWaitTime**: the interval between batches. Unit: minutes.
    * 
    *   - **grayUpdate**: the number of grayscale instances. This parameter is required when **type** is set to **GrayBatchUpdate**.
@@ -927,7 +966,7 @@ export class DeployApplicationRequest extends $dara.Model {
   updateStrategy?: string;
   /**
    * @remarks
-   * The vSwitch where the network interface controllers (NICs) of the application instance reside. The vSwitch must be in the specified VPC.
+   * The vSwitch where the network interface controller (NIC) of the application instance resides. The vSwitch must be located in the preceding VPC.
    * 
    * @example
    * vsw-bp12mw1f8k3jgygk9****
@@ -935,7 +974,7 @@ export class DeployApplicationRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The startup command for deploying a WAR package-based application. The configuration procedure is the same as that for the startup command of an image-based deployment. For more information, see [Configure a startup command](https://help.aliyun.com/document_detail/96677.html).
+   * The startup command for the application deployed by using a WAR package. The procedure is the same as that for configuring the startup command for image deployment. For more information, see [Configure a startup command](https://help.aliyun.com/document_detail/96677.html).
    * 
    * @example
    * CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
@@ -943,7 +982,7 @@ export class DeployApplicationRequest extends $dara.Model {
   warStartOptions?: string;
   /**
    * @remarks
-   * The Tomcat version on which the deployment package depends. Valid values:
+   * The Tomcat version required by the deployment package. Valid values:
    * 
    * - **apache-tomcat-7.0.91**
    * - **apache-tomcat-8.5.42**

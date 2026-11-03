@@ -13,7 +13,7 @@ export class DescribeJobHistoryResponseBodyDataJobs extends $dara.Model {
   active?: number;
   /**
    * @remarks
-   * The time when the job was executed.
+   * The completion time of the job.
    * 
    * @example
    * 1657522839
@@ -21,7 +21,7 @@ export class DescribeJobHistoryResponseBodyDataJobs extends $dara.Model {
   completionTime?: number;
   /**
    * @remarks
-   * The number of instances that failed to run.
+   * The number of failed instances.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescribeJobHistoryResponseBodyDataJobs extends $dara.Model {
   failed?: number;
   /**
    * @remarks
-   * The job ID.
+   * The ID of the job.
    * 
    * @example
    * manual-3db7a8fa-5d40-4edc-92e4-49d50eab****
@@ -37,12 +37,12 @@ export class DescribeJobHistoryResponseBodyDataJobs extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The message returned if exceptions occur during job running.
+   * The additional information returned when an exception occurs during job execution.
    */
   message?: string;
   /**
    * @remarks
-   * The time when the job was created.
+   * The creation time of the job.
    * 
    * @example
    * 1657522800
@@ -50,15 +50,11 @@ export class DescribeJobHistoryResponseBodyDataJobs extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The status of the job. Valid values:
-   * 
-   * - **0**: The job was not executed.
-   * 
-   * - **1**: The job was executed.
-   * 
-   * - **2**: The job failed to be executed.
-   * 
-   * - **3**: The job is being executed.
+   * The running status of the job. Valid values:
+   * - **0**: Not run.
+   * - **1**: Succeeded.
+   * - **2**: Failed.
+   * - **3**: Running.
    * 
    * @example
    * 1
@@ -66,7 +62,7 @@ export class DescribeJobHistoryResponseBodyDataJobs extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The number of instances that are successfully run.
+   * The number of successful instances.
    * 
    * @example
    * 3
@@ -110,7 +106,7 @@ export class DescribeJobHistoryResponseBodyDataJobs extends $dara.Model {
 export class DescribeJobHistoryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -118,12 +114,12 @@ export class DescribeJobHistoryResponseBodyData extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The jobs.
+   * The list of jobs.
    */
   jobs?: DescribeJobHistoryResponseBodyDataJobs[];
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 0 to 10000.
+   * The number of entries per page in the paging Settings for a paged query. Valid values: 0 to 10000.
    * 
    * @example
    * 20
@@ -170,15 +166,11 @@ export class DescribeJobHistoryResponseBodyData extends $dara.Model {
 export class DescribeJobHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned. Valid values:
-   * 
-   * - **2xx**: The call was successful.
-   * 
-   * - **3xx**: The call was redirected.
-   * 
-   * - **4xx**: The call failed.
-   * 
-   * - **5xx**: A server error occurred.
+   * The API status code or POP error code. Valid values:
+   * - **2xx**: Success.
+   * - **3xx**: Redirect.
+   * - **4xx**: Client error.
+   * - **5xx**: Server error.
    * 
    * @example
    * 200
@@ -186,25 +178,24 @@ export class DescribeJobHistoryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: DescribeJobHistoryResponseBodyData;
   /**
    * @remarks
-   * The error code returned. Take note of the following rules:
+   * The error code.
+   * - If the request is successful, the **ErrorCode** parameter is not returned.
+   * - If the request fails, the **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - If the call is successful, the **ErrorCode** parameter is not returned.
-   * 
-   * - If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section in this topic.
+   * @example
+   * InvalidAppId.NotFound
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned. Take note of the following rules:
-   * 
-   * - If the call is successful, **success** is returned.
-   * 
-   * - If the call fails, an error code is returned.
+   * The additional information.
+   * - If the request is successful, **success** is returned.
+   * - If the request fails, a specific error code is returned.
    * 
    * @example
    * success
@@ -212,7 +203,7 @@ export class DescribeJobHistoryResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 53F15A18-8079-5992-810C-0211A5AE****
@@ -220,11 +211,9 @@ export class DescribeJobHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Indicates whether the job status was queried successfully. Valid values:
+   * - **true**: The query succeeded.
+   * - **false**: The query failed.
    * 
    * @example
    * true
@@ -232,7 +221,7 @@ export class DescribeJobHistoryResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID that is used to query the details of the request.
+   * The trace ID used to query detailed call information.
    * 
    * @example
    * 0b1639af16575057857241351e****

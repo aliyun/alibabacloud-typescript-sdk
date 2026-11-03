@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNamespaceChangeOrdersResponseBodyDataChangeOrderList extends $dara.Model {
   /**
    * @remarks
-   * The batch count.
+   * The number of batches.
    * 
    * @example
    * 1
@@ -14,9 +14,6 @@ export class ListNamespaceChangeOrdersResponseBodyDataChangeOrderList extends $d
   /**
    * @remarks
    * The batch type.
-   * 
-   * @example
-   * Automatic
    */
   batchType?: string;
   /**
@@ -29,7 +26,7 @@ export class ListNamespaceChangeOrdersResponseBodyDataChangeOrderList extends $d
   changeOrderId?: string;
   /**
    * @remarks
-   * The type of the change order, which corresponds to the `CoTypeCode`.
+   * The type of the change order, which is the description of **CoTypeCode**.
    * 
    * @example
    * msg.docker.app.actions.CoBatchStartApplication
@@ -37,10 +34,9 @@ export class ListNamespaceChangeOrdersResponseBodyDataChangeOrderList extends $d
   coType?: string;
   /**
    * @remarks
-   * The type code of the change order. Valid values:
+   * The code of the change order type. Valid values:
    * 
    * - **CoBatchStartApplication**: Starts applications in batches.
-   * 
    * - **CoBatchStopApplication**: Stops applications in batches.
    * 
    * @example
@@ -49,7 +45,7 @@ export class ListNamespaceChangeOrdersResponseBodyDataChangeOrderList extends $d
   coTypeCode?: string;
   /**
    * @remarks
-   * The creation time of the change order.
+   * The creation time.
    * 
    * @example
    * 2019-07-11 15:54:49
@@ -73,7 +69,7 @@ export class ListNamespaceChangeOrdersResponseBodyDataChangeOrderList extends $d
   description?: string;
   /**
    * @remarks
-   * The completion time of the change order.
+   * The end time.
    * 
    * @example
    * 2019-07-11 20:12:58
@@ -97,7 +93,7 @@ export class ListNamespaceChangeOrdersResponseBodyDataChangeOrderList extends $d
   namespaceId?: string;
   /**
    * @remarks
-   * The pipeline.
+   * The change pipelines.
    * 
    * @example
    * xxxx
@@ -105,7 +101,7 @@ export class ListNamespaceChangeOrdersResponseBodyDataChangeOrderList extends $d
   pipelines?: string;
   /**
    * @remarks
-   * The initiation source for the change order.
+   * The source from which the change order was initiated.
    * 
    * @example
    * console
@@ -115,17 +111,12 @@ export class ListNamespaceChangeOrdersResponseBodyDataChangeOrderList extends $d
    * @remarks
    * The status of the change order. Valid values:
    * 
-   * - **0**: Preparing
-   * 
-   * - **1**: In progress
-   * 
-   * - **2**: Succeeded
-   * 
-   * - **3**: Failed
-   * 
-   * - **6**: Terminated
-   * 
-   * - **10**: Failed due to a system exception
+   * - **0**: preparing
+   * - **1**: executing
+   * - **2**: succeeded
+   * - **3**: failed
+   * - **6**: terminated
+   * - **10**: failed due to a system exception
    * 
    * @example
    * 2
@@ -251,15 +242,12 @@ export class ListNamespaceChangeOrdersResponseBodyData extends $dara.Model {
 export class ListNamespaceChangeOrdersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code or POP error code.
+   * The API status code or POP error code. Valid values:
    * 
-   * - **2xx**: The request was successful.
-   * 
-   * - **3xx**: The request was redirected.
-   * 
-   * - **4xx**: A client error occurred.
-   * 
-   * - **5xx**: A server error occurred.
+   * - **2xx**: success
+   * - **3xx**: redirection
+   * - **4xx**: client error
+   * - **5xx**: server error
    * 
    * @example
    * 200
@@ -267,21 +255,23 @@ export class ListNamespaceChangeOrdersResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned results.
+   * The returned result.
    */
   data?: ListNamespaceChangeOrdersResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * The error code. Valid values:
    * 
-   * - This parameter is returned only when a request fails.
+   * - Request succeeded: The **ErrorCode** parameter is not returned.
+   * - Request failed: The **ErrorCode** parameter is returned. For more information, see the **Error codes** section in this topic.
    * 
-   * - For more information, see the **Error codes** section of this topic.
+   * @example
+   * Resouce.no.permission
    */
   errorCode?: string;
   /**
    * @remarks
-   * The response message.
+   * The additional information about the API call result.
    * 
    * @example
    * success
@@ -297,11 +287,10 @@ export class ListNamespaceChangeOrdersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the change order list was successfully retrieved. Valid values:
    * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * - **true**: The list was successfully retrieved.
+   * - **false**: The retrieval failed.
    * 
    * @example
    * true
@@ -309,7 +298,7 @@ export class ListNamespaceChangeOrdersResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The trace ID, which is used to query the details of the request.
+   * The trace ID used to query the exact call information.
    * 
    * @example
    * 0bc3915638507554994370d****
