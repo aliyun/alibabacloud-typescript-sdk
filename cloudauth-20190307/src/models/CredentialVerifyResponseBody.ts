@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialVerifyResponseBodyResultObjectVlResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the Qwen interpretation is successful. Valid values:
+   * Indicates whether the Qwen explanation is successful. Valid values:
    * 
    * - true: Successful.
    * - false: Failed.
@@ -16,10 +16,10 @@ export class CredentialVerifyResponseBodyResultObjectVlResult extends $dara.Mode
   success?: boolean;
   /**
    * @remarks
-   * The Qwen interpretation content.
+   * The content of the Qwen explanation.
    * 
    * @example
-   * {\\"这张图有没有明显的PS特征\\":0,\\"图片是否为正常经营照片\\":1,\\"图片中有没有58、美团、大众点评字样\\":0,\\"这张图有没有网站信息\\":0,\\"图片经营的场景是否为酒店\\":0}
+   * {"Does this image have obvious Photoshop features":0,"Is the image a normal business photo":1,"Does the image contain the words 58, Meituan, or Dianping":0,"Does this image contain website information":0,"Is the business scene in the image a hotel":0}
    */
   vlContent?: string;
   static names(): { [key: string]: string } {
@@ -48,18 +48,18 @@ export class CredentialVerifyResponseBodyResultObjectVlResult extends $dara.Mode
 export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * The additional information in JSON format.
+   * The other information in JSON format.
    * 
    * @example
    * {
    * 
    * "sameBackgroundDetail": {
    * 
-   * // 相似背景对于的原始图请求RequestId
+   * // The request ID of the original image for the similar background
    * 
    * "originalRequestId": "130A2C10-B9EE-4D84-88E3-5384FF03****";
    * 
-   * // 相似背景对于的原始图请求商户ID
+   * // The merchant ID of the original image request for the similar background
    * 
    * "originalMerchantId": "xxxxxxxx"
    * 
@@ -70,15 +70,15 @@ export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
   materialInfo?: string;
   /**
    * @remarks
-   * The OCR recognition result.
+   * The OCR result.
    * 
    * @example
    * {
    *    "certNo":"20216*********",
-   *   "certType":"小学教师资格",
-   *    "gender":"男",
-   *    "subject":"美术",
-   *     "name":"李**",
+   *   "certType":"Primary School Teacher Qualification",
+   *    "gender":"Male",
+   *    "subject":"Fine Arts",
+   *     "name":"Li**",
    *     "ext_info":"{}",
    *     "birthDate":"1998-07-28",
    *     "idNo":"620************",
@@ -92,7 +92,7 @@ export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
    * 
    * - **0**: Low risk.
    * - **1**: High risk.
-   * - **2**: Suspicious.
+   * - ****2****: Suspicious.
    * 
    * @example
    * 1
@@ -100,21 +100,21 @@ export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The risk score map.
+   * The map of risk scores.
    */
   riskScore?: { [key: string]: string };
   /**
    * @remarks
-   * The risk tags, separated by commas (,). Valid values:
+   * The risk tags. Multiple tags are separated by commas (,). Valid values:
    * 
-   * - PS: image manipulation.
-   * - SCREEN_PHOTO: screen recapture.
-   * - SCREENSHOT: screenshot.
-   * - WATERMARK: watermark.
-   * - COLOR_PRINT: color print copy.
-   * - WEB_IMAGE: web image.
-   * - SAME_FACE: similar face.
-   * - SAME_BACKGROUND: similar background.
+   * - PS: The image is photoshopped.
+   * - SCREEN_PHOTO: The image is a photo of a screen.
+   * - SCREENSHOT: The image is a screenshot.
+   * - WATERMARK: The image contains a watermark.
+   * - COLOR_PRINT: The image is a color print or copy.
+   * - WEB_IMAGE: The image is a web image.
+   * - SAME_FACE: The face is similar to another face.
+   * - SAME_BACKGROUND: The background is similar to another background.
    * 
    * @example
    * PS,SCREEN_PHOTO
@@ -138,7 +138,7 @@ export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
   verifyResult?: string;
   /**
    * @remarks
-   * The Qwen interpretation.
+   * The Qwen explanation.
    */
   vlResult?: CredentialVerifyResponseBodyResultObjectVlResult;
   static names(): { [key: string]: string } {
@@ -185,7 +185,7 @@ export class CredentialVerifyResponseBodyResultObject extends $dara.Model {
 export class CredentialVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200
@@ -193,7 +193,7 @@ export class CredentialVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -209,7 +209,7 @@ export class CredentialVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information.
+   * The returned result.
    */
   resultObject?: CredentialVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

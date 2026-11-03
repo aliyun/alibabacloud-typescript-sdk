@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBlackListStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ModifyBlackListStrategyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    * 
    * @example
    * {\\"StatusCode\\": -1}

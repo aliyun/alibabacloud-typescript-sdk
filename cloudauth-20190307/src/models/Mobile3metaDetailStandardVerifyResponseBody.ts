@@ -6,9 +6,9 @@ export class Mobile3MetaDetailStandardVerifyResponseBodyResultObject extends $da
   /**
    * @remarks
    * The verification result code. Valid values:
-   * - **1**: Verification is consistent.
-   * - **2**: Verification is inconsistent.
-   * - **3**: No record found.
+   * - **1**: The verification is consistent.
+   * - **2**: The verification is inconsistent.
+   * - **3**: No record is found.
    * 
    * @example
    * 1
@@ -16,7 +16,7 @@ export class Mobile3MetaDetailStandardVerifyResponseBodyResultObject extends $da
   bizCode?: string;
   /**
    * @remarks
-   * The carrier name. Valid values:
+   * The name of the Internet service provider (ISP). Valid values:
    * 
    * - **CMCC**: China Mobile.
    * - **CUCC**: China Unicom.
@@ -31,12 +31,12 @@ export class Mobile3MetaDetailStandardVerifyResponseBodyResultObject extends $da
    * @remarks
    * The detailed verification result. Valid values:
    * 
-   * - 101: Verification passed. All three elements are consistent.
-   * - 201: The phone number is inconsistent with both the name and the ID card number.
-   * - 202: The phone number is consistent with the name but inconsistent with the ID card number.
-   * - 203: The phone number is inconsistent with the name but consistent with the ID card number.
-   * - 204: Other inconsistency.
-   * - 301: No record found.
+   * - 101: The verification is passed and the three elements are consistent.
+   * - 201: The mobile phone number is inconsistent with both the name and the ID card number.
+   * - 202: The mobile phone number is consistent with the name but inconsistent with the ID card number.
+   * - 203: The mobile phone number is inconsistent with the name but consistent with the ID card number.
+   * - 204: Other inconsistencies exist.
+   * - 301: No record is found.
    * 
    * @example
    * 101
@@ -70,7 +70,7 @@ export class Mobile3MetaDetailStandardVerifyResponseBodyResultObject extends $da
 export class Mobile3MetaDetailStandardVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. **200** indicates a successful response.
+   * The response code. **200** indicates that the API operation is successful.
    * 
    * @example
    * 200

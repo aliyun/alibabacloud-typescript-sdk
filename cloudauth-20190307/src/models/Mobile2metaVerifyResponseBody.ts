@@ -6,9 +6,9 @@ export class Mobile2MetaVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
    * The verification result. Valid values:
-   * - 1: Consistent.
-   * - 2: Inconsistent.
-   * - 3: No record found.
+   * - 1: consistent
+   * - 2: inconsistent
+   * - 3: no record found
    * 
    * @example
    * 1
@@ -16,10 +16,10 @@ export class Mobile2MetaVerifyResponseBodyResultObject extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The carrier name. Valid values:
+   * The ISP name. Valid values:
    * - CMCC: China Mobile
    * - CUCC: China Unicom
-   * - CTCC: China Telecom.
+   * - CTCC: China Telecom
    * 
    * @example
    * CMCC
@@ -51,7 +51,7 @@ export class Mobile2MetaVerifyResponseBodyResultObject extends $dara.Model {
 export class Mobile2MetaVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200

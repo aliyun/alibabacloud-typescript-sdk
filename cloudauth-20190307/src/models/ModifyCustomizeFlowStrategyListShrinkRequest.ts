@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCustomizeFlowStrategyListShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
+   * The product type. Currently, only **ANT_CLOUD_AUTH** (Financial-grade ID Verification) is supported. All other product types are retired.
    * 
    * @example
    * ANT_CLOUD_AUTH
@@ -13,7 +13,7 @@ export class ModifyCustomizeFlowStrategyListShrinkRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The policy list.
+   * The list of policies.
    */
   strategyObjectShrink?: string;
   static names(): { [key: string]: string } {

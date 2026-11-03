@@ -37,7 +37,7 @@ export class DeleteCustomizeFlowStrategyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5A6229C0-E156-48E4-B6EC-0F528BDF60D2

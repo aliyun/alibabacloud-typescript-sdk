@@ -5,11 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class DeepfakeDetectResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
+   * The facial attribute output fields.
+   * 
+   * @example
+   * {\\"age\\":49,\\"env\\":\\"other\\",\\"expression\\":0,\\"gender\\":1,\\"glasses\\":1,\\"hat\\":0,\\"mask\\":0,\\"others\\":0,\\"smoking\\":0,\\"tattoo\\":0}
+   */
+  faceAttributeInfo?: string;
+  /**
+   * @remarks
    * The risk result. Valid values:
    * 
-   * - **0**: Low risk.
-   * - **1**: High risk.
-   * - **2**: Suspicious.
+   * - **0**: low risk.
+   * - **1**: high risk.
+   * - **2**: suspicious.
    * 
    * @example
    * 1
@@ -17,16 +25,16 @@ export class DeepfakeDetectResponseBodyResultObject extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The risk score map.
+   * The map of risk scores.
    */
   riskScore?: { [key: string]: string };
   /**
    * @remarks
-   * The risk labels. Multiple labels are separated by commas (,). Valid values:
+   * The risk tags. Multiple tags are separated by commas (,). Valid values:
    * 
-   * - SuspectDeepForgery: suspected deepfake
-   * - SuspectPSFace: suspected synthetic attack
-   * - SuspectTemple: suspected fraudulent attack
+   * - SuspectDeepForgery: suspected deepfake.
+   * - SuspectPSFace: suspected synthetic attack.
+   * - SuspectTemple: suspected black market attack.
    * - SuspectRemake: suspected recaptured face.
    * 
    * @example
@@ -35,6 +43,7 @@ export class DeepfakeDetectResponseBodyResultObject extends $dara.Model {
   riskTag?: string;
   static names(): { [key: string]: string } {
     return {
+      faceAttributeInfo: 'FaceAttributeInfo',
       result: 'Result',
       riskScore: 'RiskScore',
       riskTag: 'RiskTag',
@@ -43,6 +52,7 @@ export class DeepfakeDetectResponseBodyResultObject extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      faceAttributeInfo: 'string',
       result: 'string',
       riskScore: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       riskTag: 'string',
@@ -64,7 +74,7 @@ export class DeepfakeDetectResponseBodyResultObject extends $dara.Model {
 export class DeepfakeDetectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200
@@ -72,7 +82,7 @@ export class DeepfakeDetectResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -88,7 +98,7 @@ export class DeepfakeDetectResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information.
+   * The returned result.
    */
   resultObject?: DeepfakeDetectResponseBodyResultObject;
   static names(): { [key: string]: string } {

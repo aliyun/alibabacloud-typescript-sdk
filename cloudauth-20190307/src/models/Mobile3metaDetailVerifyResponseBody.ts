@@ -6,9 +6,9 @@ export class Mobile3MetaDetailVerifyResponseBodyResultObject extends $dara.Model
   /**
    * @remarks
    * The verification result code. Valid values:
-   * - **1**: Consistent.
-   * - **2**: Inconsistent.
-   * - **3**: No record found.
+   * - **1**: The verification is consistent.
+   * - **2**: The verification is inconsistent.
+   * - **3**: No record is found.
    * 
    * @example
    * 1
@@ -16,7 +16,7 @@ export class Mobile3MetaDetailVerifyResponseBodyResultObject extends $dara.Model
   bizCode?: string;
   /**
    * @remarks
-   * The carrier name. Valid values:
+   * The ISP name. Valid values:
    * 
    * - **CMCC**: China Mobile.
    * - **CUCC**: China Unicom.
@@ -30,12 +30,12 @@ export class Mobile3MetaDetailVerifyResponseBodyResultObject extends $dara.Model
    * @remarks
    * The detailed verification result. Valid values:
    * 
-   * - **101**: Verification passed.
-   * - **201**: The phone number is inconsistent with the name, and the phone number is inconsistent with the ID card number.
-   * - **202**: The phone number is consistent with the name, but the phone number is inconsistent with the ID card number.
-   * - **203**: The phone number is consistent with the ID card number, but the phone number is inconsistent with the name.
-   * - **204**: Other inconsistency.
-   * - **301**: No record found.
+   * - **101**: The verification is passed.
+   * - **201**: The mobile phone number and name are inconsistent, and the mobile phone number and ID card number are inconsistent.
+   * - **202**: The mobile phone number and name are consistent, but the mobile phone number and ID card number are inconsistent.
+   * - **203**: The mobile phone number and ID card number are consistent, but the mobile phone number and name are inconsistent.
+   * - **204**: Other inconsistencies.
+   * - **301**: No record is found.
    * 
    * @example
    * 101
@@ -69,7 +69,7 @@ export class Mobile3MetaDetailVerifyResponseBodyResultObject extends $dara.Model
 export class Mobile3MetaDetailVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. **200** indicates that the request was successful.
+   * The return code. A value of **200** indicates that the API request is successful.
    * 
    * @example
    * 200
@@ -77,7 +77,7 @@ export class Mobile3MetaDetailVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -93,7 +93,7 @@ export class Mobile3MetaDetailVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information.
+   * The returned result information.
    */
   resultObject?: Mobile3MetaDetailVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

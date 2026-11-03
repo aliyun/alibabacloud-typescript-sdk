@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialVerifyRequestMerchantDetail extends $dara.Model {
   /**
    * @remarks
-   * The replacement keyword key.
+   * The key of the replacement keyword.
    * 
    * @example
    * keyword
@@ -13,10 +13,10 @@ export class CredentialVerifyRequestMerchantDetail extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The replacement keyword value.
+   * The value of the replacement keyword.
    * 
    * @example
-   * 关键字
+   * Keyword
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -54,18 +54,17 @@ export class CredentialVerifyRequest extends $dara.Model {
   /**
    * @remarks
    * The credential name. Valid values:
-   * 
-   * - 01: personal card and certificate
+   * - 01: Personal cards and certificates
    *   - 0101: ID card
-   *   - 0102: bank card
-   *   - 0104: teacher qualification certificate
-   *   - 0107: student ID card
-   * - 02: business scenario
-   *   - 0201: storefront photo
-   *   - 0202: counter photo
-   *   - 0203: scene photo
-   * - 03: enterprise qualification
-   *   - 0301: business license.
+   *   - 0102: Bank card
+   *   - 0104: Teacher qualification certificate
+   *   - 0107: Student ID card
+   * - 02: Business scenarios
+   *   - 0201: Storefront photo
+   *   - 0202: Counter photo
+   *   - 0203: Scene photo
+   * - 03: Enterprise qualifications
+   *   - 0301: Business license
    * 
    * @example
    * 0104
@@ -75,9 +74,9 @@ export class CredentialVerifyRequest extends $dara.Model {
    * @remarks
    * The credential type. Valid values:
    * 
-   * - 01: personal card and certificate
-   * - 02: business scenario
-   * - 03: enterprise qualification.
+   * - 01: Personal cards and certificates.
+   * - 02: Business scenarios.
+   * - 03: Enterprise qualifications.
    * 
    * @example
    * 01
@@ -93,7 +92,7 @@ export class CredentialVerifyRequest extends $dara.Model {
   identifyNum?: string;
   /**
    * @remarks
-   * The Base64-encoded image. Specify either imageUrl or imageContext.
+   * The Base64-encoded image content. You must specify either imageUrl or imageContext.
    * 
    * @example
    * base64
@@ -101,7 +100,7 @@ export class CredentialVerifyRequest extends $dara.Model {
   imageContext?: string;
   /**
    * @remarks
-   * The image URL. Specify either imageUrl or imageContext.
+   * The image URL. You must specify either imageUrl or imageContext.
    * 
    * @example
    * http://marry.momocdn.com/avatar/3B/B6/3BB6527E-7467-926E-1048-B43614F20CC420230803_L.jpg
@@ -111,8 +110,8 @@ export class CredentialVerifyRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable authoritative verification. Valid values:
    * 
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - ****0****: No.
+   * - **1**: Yes.
    * 
    * @example
    * 0
@@ -122,10 +121,10 @@ export class CredentialVerifyRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable optical character recognition (OCR). Valid values:
    * 
-   * - **0**: Disabled.
-   * - **1**: Enabled.
+   * - **0**: No.
+   * - **1**: Yes.
    * 
-   * You can set **isOCR** to **1** only when **CredType** is set to **01**.
+   * You can set this parameter to **1** only when **CredType** is set to **01**.
    * 
    * @example
    * 1
@@ -133,30 +132,30 @@ export class CredentialVerifyRequest extends $dara.Model {
   isOCR?: string;
   /**
    * @remarks
-   * This parameter is required when PromptModel is set to DEFAULT.
+   * The merchant details. This parameter is required when PromptModel is set to DEFAULT.
    */
   merchantDetail?: CredentialVerifyRequestMerchantDetail[];
   /**
    * @remarks
-   * The merchant ID. This parameter is required when **CredName** is set to **02**.
+   * The merchant ID. This parameter is required when ****CredName**** is set to **02**.
    * 
    * @example
-   * 无。
+   * None
    */
   merchantId?: string;
   /**
    * @remarks
    * The call mode. Valid values:
    * 
-   * * ANTI_FAKE_CHECK: image anti-forgery detection.
+   * * ANTI_FAKE_CHECK: Image anti-counterfeiting detection.
    * 
-   * * ANTI_FAKE_VL: image anti-forgery detection and semantic understanding.
+   * * ANTI_FAKE_VL: Image anti-counterfeiting detection and semantic understanding.
    * 
-   * * IMAGE_VL_COG: image semantic understanding.
+   * * IMAGE_VL_COG: Image semantic understanding.
    * 
    * Default value: ANTI_FAKE_CHECK.
    * 
-   * ProductCode can be set to ANTI_FAKE_VL or IMAGE_VL_COG only when CredType is set to 02.
+   * You can set this parameter to ANTI_FAKE_VL or IMAGE_VL_COG only when CredType is set to 02.
    * 
    * @example
    * ANTI_FAKE_CHECK
@@ -169,16 +168,16 @@ export class CredentialVerifyRequest extends $dara.Model {
    * This parameter is required when PromptModel is set to CUSTOM.
    * 
    * @example
-   * 无
+   * None
    */
   prompt?: string;
   /**
    * @remarks
    * The method to obtain the prompt for image semantic understanding. Valid values:
    * 
-   * * DEFAULT: system default.
+   * * DEFAULT: System default.
    * 
-   * * CUSTOM: custom.
+   * * CUSTOM: Custom.
    * 
    * Note: This parameter is required when ProductCode is set to ANTI_FAKE_VL or IMAGE_VL_COG.
    * 
@@ -191,7 +190,7 @@ export class CredentialVerifyRequest extends $dara.Model {
    * The name.
    * 
    * @example
-   * 张*
+   * Zhang*
    */
   userName?: string;
   static names(): { [key: string]: string } {

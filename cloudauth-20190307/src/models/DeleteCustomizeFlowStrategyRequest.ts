@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustomizeFlowStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The API name, same as **ProductCode**.
+   * The API name, which is the same as **ProductCode**.
    * 
    * @example
    * ID_PRO
@@ -23,7 +23,7 @@ export class DeleteCustomizeFlowStrategyRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
+   * The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types are retired.
    * 
    * @example
    * ANT_CLOUD_AUTH
@@ -31,7 +31,7 @@ export class DeleteCustomizeFlowStrategyRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The region ID.
+   * regionId
    * 
    * @example
    * cn-shanghai

@@ -5,12 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class VehicleMetaVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID card number.
-   * 
-   * This parameter is required when VerifyMetaType is set to VEHICLE_3_META.
+   * The ID card number. This parameter is required when VerifyMetaType is set to VEHICLE_3_META.
    * > 
    * > - When paramType is set to normal, enter the plaintext.
-   * > - When paramType is set to md5, enter the first 6 digits of the ID card number in plaintext + the MD5-encrypted date of birth (32-bit lowercase MD5) + the last 4 digits of the ID card number.
+   * > - When paramType is set to md5, enter the first 6 digits of the ID card number in plaintext + the MD5-encrypted birth date (32-character lowercase MD5) + the last 4 digits of the ID card number.
    * 
    * @example
    * 4****************1
@@ -19,9 +17,8 @@ export class VehicleMetaVerifyRequest extends $dara.Model {
   /**
    * @remarks
    * The parameter type. Valid values:
-   * 
-   * - normal: not encrypted.
-   * - md5: MD5-encrypted.
+   * - normal: Not encrypted.
+   * - md5: MD5 encrypted.
    * 
    * @example
    * normal
@@ -30,22 +27,20 @@ export class VehicleMetaVerifyRequest extends $dara.Model {
   /**
    * @remarks
    * The name.
-   * 
-   * > Note
+   * > This is the description.
    * > - When paramType is set to normal, enter the plaintext.
-   * > - When paramType is set to md5, enter the MD5-encrypted first character of the name (32-bit lowercase MD5) + the remaining characters of the name in plaintext.
+   * > - When paramType is set to md5, enter the MD5-encrypted first character of the name (32-character lowercase MD5) + the rest of the name in plaintext.
    * 
    * @example
-   * 张**
+   * Zhang**
    */
   userName?: string;
   /**
    * @remarks
    * The license plate number.
-   * 
    * > 
    * > - When paramType is set to normal, enter the plaintext.
-   * > - When paramType is set to md5, enter the characters of the license plate number except the last two in plaintext + the MD5-encrypted last two characters (32-bit lowercase MD5).
+   * > - When paramType is set to md5, enter the license plate number excluding the last two characters in plaintext + the MD5-encrypted last two characters of the license plate (32-character lowercase MD5).
    * 
    * @example
    * 陕A9****
@@ -61,11 +56,10 @@ export class VehicleMetaVerifyRequest extends $dara.Model {
   vehicleType?: string;
   /**
    * @remarks
-   * The verification type.
-   * 
+   * The verification type. Valid values:
    * > 
-   * > - VEHICLE_2_META: two-element verification. Verifies the name and license plate number.
-   * > - VEHICLE_3_META: three-element verification. Verifies the name, license plate number, and ID card number.
+   * > - VEHICLE_2_META: Two-element verification, which verifies the name and license plate number.
+   * > - VEHICLE_3_META: Three-element verification, which verifies the name, license plate number, and ID card number.
    * 
    * @example
    * VEHICLE_2_META

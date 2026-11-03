@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class Id3MetaVerifyPROResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * The authoritative source verification result. Valid values:
+   * The verification result from the authoritative source. Valid values:
    * 
-   * - **1**: Verification is consistent (billable).
-   * - **2**: Verification is inconsistent (billable).
-   * - **3**: No record found (not billable).
+   * - **1**: Consistent (billed).
+   * - **2**: Inconsistent (billed).
+   * - **3**: No record found (not billed).
    * 
    * @example
    * 1
@@ -17,11 +17,12 @@ export class Id3MetaVerifyPROResponseBodyResultObject extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * - **verifyScore**: The face comparison score. Value range: 0 to 1000. A higher score indicates a higher probability of the same face. A score >= 700.0 confirms the same person.
+   * - **verifyScore**: The face comparison score. Valid values: 0 to 1000. A higher score indicates a higher probability that the faces belong to the same person. A score of 700.0 or higher confirms that the faces belong to the same person.
    * 
-   * - **faceAttack**: Returned when liveness detection is enabled (does not participate in the verification result decision).
+   * - **faceAttack**: Returned when liveness detection is enabled. This value does not affect the verification result.
    * 
-   * - **invokeChannel**: The identifier of the actual invocation channel. 1: authoritative source. 0: comprehensive source.
+   * - **invokeChannel**: The identifier of the actual invocation channel. Valid values:
+   * 1: Authoritative source. 0: Comprehensive source.
    * 
    * @example
    * {
@@ -33,7 +34,7 @@ export class Id3MetaVerifyPROResponseBodyResultObject extends $dara.Model {
   faceDetail?: string;
   /**
    * @remarks
-   * Indicates whether the whitelist is hit: **Y**.
+   * Indicates whether the whitelist is hit. Valid value: **Y**.
    * 
    * @example
    * Y
@@ -41,29 +42,29 @@ export class Id3MetaVerifyPROResponseBodyResultObject extends $dara.Model {
   hitWhitelist?: string;
   /**
    * @remarks
-   * The authoritative source verification details. Valid values:
+   * The verification details from the authoritative source. Valid values:
    * 
    * - **101**: Authentication passed.
    * 
    * - **201**: Authentication failed. The name does not match the ID card number.
    * 
-   * - **202**: Authentication failed. Suspected to be the person.
+   * - **202**: Authentication failed. The person is suspected to be the ID owner.
    * 
-   * - **203**: Authentication failed. No photo in the database.
+   * - **203**: Authentication failed. No photo is found in the database.
    * 
-   * - **204**: Authentication failed. Not the same person.
+   * - **204**: Authentication failed. The faces do not belong to the same person.
    * 
-   * - **205**: Authentication failed. Modeling of the image to be compared failed.
+   * - **205**: Authentication failed. Image modeling for the image to be compared failed.
    * 
    * - **206**: Authentication failed. The image format is incorrect.
    * 
-   * - **207**: Authentication failed. The uploaded image is too small. Upload the image again.
+   * - **207**: Authentication failed. The uploaded image is too small. Upload another image.
    * 
-   * - **208**: Authentication failed. The quality of the uploaded portrait photo is poor. Upload the photo again.
+   * - **208**: Authentication failed. The quality of the uploaded face photo is poor. Upload another photo.
    * 
-   * - **301**: No record found. The ID number does not exist in the database.
+   * - **301**: No record found. The ID card number does not exist in the database.
    * 
-   * - **302**: No record found. Verification is not possible.
+   * - **302**: No record found. Verification cannot be performed.
    * 
    * @example
    * 101
@@ -99,7 +100,7 @@ export class Id3MetaVerifyPROResponseBodyResultObject extends $dara.Model {
 export class Id3MetaVerifyPROResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. **200** indicates that the API call is successful.
+   * The return code. A value of **200** indicates that the API call is successful.
    * 
    * @example
    * 200
@@ -107,8 +108,8 @@ export class Id3MetaVerifyPROResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message of the API call.
-   * >Notice: This parameter only indicates whether the API call is abnormal.
+   * The message returned for the API call.
+   * >Notice: This parameter only indicates whether an exception occurs during the API call.
    * 
    * @example
    * success

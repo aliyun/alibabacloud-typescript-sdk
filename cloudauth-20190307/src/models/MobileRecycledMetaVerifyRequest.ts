@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class MobileRecycledMetaVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * The phone number. Valid values:
-   * - If ParamType is set to normal, pass in the phone number in plaintext.
-   * - If ParamType is set to md5, pass in the MD5-encrypted phone number.
+   * The mobile phone number.
+   * - If ParamType is set to normal, enter the mobile phone number in plaintext.
+   * - If ParamType is set to md5, enter the mobile phone number in ciphertext.
    * 
    * This parameter is required.
    * 
    * @example
-   * 明文：186****2055
+   * Plaintext: 186****2055
    * 
-   * 密文：
+   * Ciphertext:
    * 
    * 849169cd3b20621c1c78bd61a11a4fc2
    */
@@ -22,7 +22,7 @@ export class MobileRecycledMetaVerifyRequest extends $dara.Model {
   /**
    * @remarks
    * The encryption method. Valid values:
-   * - normal: plaintext without encryption
+   * - normal: No encryption. The value is in plaintext.
    * - md5: MD5 encryption.
    * 
    * This parameter is required.
@@ -33,7 +33,7 @@ export class MobileRecycledMetaVerifyRequest extends $dara.Model {
   paramType?: string;
   /**
    * @remarks
-   * The registration date in the format YYYYMMDD. For example, 19800101 indicates January 1, 1980.
+   * The registration date. Format: YYYYMMDD. Example: 19800101, which indicates January 1, 1980.
    * 
    * This parameter is required.
    * 

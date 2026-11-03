@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBlackListStrategyRequestBlackListStrategy extends $dara.Model {
   /**
    * @remarks
-   * The blacklist string. Separate multiple entries with commas (,).
+   * The blacklist string. Multiple entries are separated by commas.
    * 
    * @example
    * 127.0.0.1,127.0.0.2
@@ -14,10 +14,10 @@ export class ModifyBlackListStrategyRequestBlackListStrategy extends $dara.Model
   /**
    * @remarks
    * The blacklist type. Valid values:
-   * - **mobile**: mobile number blacklist.
-   * - **ip**: IP blacklist.
-   * - **identifyNum**: ID card blacklist.
-   * - **bankCard**: bank card blacklist.
+   * - **mobile**: Mobile phone number blacklist.
+   * - **ip**: IP address blacklist.
+   * - **identifyNum**: ID IP blacklist.
+   * - **bankCard**: Bank IP blacklist.
    * 
    * @example
    * ip
@@ -25,9 +25,9 @@ export class ModifyBlackListStrategyRequestBlackListStrategy extends $dara.Model
   bizKey?: string;
   /**
    * @remarks
-   * The rule ID. Valid values:
-   * - **Empty**: creates a rule.
-   * - **Not empty**: modifies a rule.
+   * The rule ID:
+   * - **Empty**: Creates a rule.
+   * - **Not empty**: Modifies a rule.
    * 
    * @example
    * 38
@@ -37,8 +37,8 @@ export class ModifyBlackListStrategyRequestBlackListStrategy extends $dara.Model
    * @remarks
    * The product name. Valid values:
    * - **id2meta**: ID card two-element verification.
-   * - **mobile3Meta**: mobile number element verification.
-   * - **bankcardMeta**: bank card element verification.
+   * - **mobile3Meta**: Mobile phone number element verification.
+   * - **bankcardMeta**: Bank card element verification.
    * 
    * @example
    * id2meta

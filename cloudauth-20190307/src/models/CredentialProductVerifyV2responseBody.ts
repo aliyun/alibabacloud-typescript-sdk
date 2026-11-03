@@ -10,9 +10,9 @@ export class CredentialProductVerifyV2ResponseBodyResultObject extends $dara.Mod
    * @example
    * {
    *  "sameBackgroundDetail": {
-   *  // 相似背景对于的原始图请求RequestId
-   *  "originalRequestId": "130A2C10-B9EE-4D84-88E3-5384FF03****";
-   *  // 相似背景对于的原始图请求商户ID 
+   *  // The request ID of the original image request for the similar background
+   *  "originalRequestId": "130A2C10-B9EE-4D84-88E3-5384FF03****",
+   *  // The merchant ID of the original image request for the similar background 
    *  "originalMerchantId": "xxxxxxxx" 
    *  }
    * }
@@ -20,10 +20,10 @@ export class CredentialProductVerifyV2ResponseBodyResultObject extends $dara.Mod
   materialInfo?: string;
   /**
    * @remarks
-   * Valid values:
-   * - 0: low risk
-   * - 1: high risk
-   * - 2: suspicious.
+   * The risk level. Valid values:
+   * - 0: Low risk.
+   * - 1: High risk.
+   * - 2: Suspicious.
    * 
    * @example
    * 1
@@ -36,10 +36,10 @@ export class CredentialProductVerifyV2ResponseBodyResultObject extends $dara.Mod
   riskScore?: { [key: string]: string };
   /**
    * @remarks
-   * The risk labels. Multiple labels are separated by commas. Valid values:
-   * - PS: image manipulation
-   * - LOW_QUALITY_PRODUCT: low quality (low clarity)
-   * - SAME_BACKGROUND: similar image.
+   * The risk tags. Multiple tags are separated by commas. Valid values:
+   * - PS: Image manipulation.
+   * - LOW_QUALITY_PRODUCT: Low quality (low clarity).
+   * - SAME_BACKGROUND: Similar image.
    * 
    * @example
    * PS,LOW_QUALITY_PRODUCT
@@ -86,7 +86,7 @@ export class CredentialProductVerifyV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success

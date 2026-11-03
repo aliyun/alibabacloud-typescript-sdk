@@ -21,7 +21,7 @@ export class DescribeCloudauthstSceneListResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Marketplace commodity code.
+   * The commodity code in Alibaba Cloud Marketplace.
    * 
    * @example
    * SMART_VERIFY
@@ -48,12 +48,12 @@ export class DescribeCloudauthstSceneListResponseBodyItems extends $dara.Model {
    * The scenario name.
    * 
    * @example
-   * 测试场景
+   * Test scenario
    */
   sceneName?: string;
   /**
    * @remarks
-   * Specifies whether to deliver files generated during authentication to the customer\\"s OSS. Valid values:
+   * Specifies whether to deliver the files generated during verification to the customer\\"s OSS. Valid values:
    * - **Y**: Enabled.
    * - **N**: Disabled.
    * 

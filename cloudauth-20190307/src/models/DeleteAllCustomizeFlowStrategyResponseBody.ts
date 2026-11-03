@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAllCustomizeFlowStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200
@@ -37,7 +37,7 @@ export class DeleteAllCustomizeFlowStrategyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8FC3D6AC-9FED-4311-8DA7-C4BF47D9F260
@@ -45,7 +45,7 @@ export class DeleteAllCustomizeFlowStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the response is successful.
    * 
    * @example
    * true

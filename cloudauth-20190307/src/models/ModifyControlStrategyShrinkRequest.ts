@@ -10,7 +10,7 @@ export class ModifyControlStrategyShrinkRequest extends $dara.Model {
   controlStrategyListShrink?: string;
   /**
    * @remarks
-   * The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
+   * The product type. Currently, only **ANT_CLOUD_AUTH** (Financial-grade ID Verification) is supported. All other types are retired.
    * 
    * @example
    * ANT_CLOUD_AUTH

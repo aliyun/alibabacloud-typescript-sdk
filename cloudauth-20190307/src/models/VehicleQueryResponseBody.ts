@@ -8,8 +8,8 @@ export class VehicleQueryResponseBodyResultObject extends $dara.Model {
    * The verification result code. Valid values:
    * 
    * > 
-   * > - 1: match found (billable).
-   * > - 3: no record found (not billable).
+   * > - 1: Found (billable).
+   * > - 3: No record found (not billable).
    * 
    * @example
    * 1
@@ -25,13 +25,13 @@ export class VehicleQueryResponseBodyResultObject extends $dara.Model {
    * 	"approvedLoad": 0,
    * 	"axleCount": 2,
    * 	"backWheelDistance": 1585,
-   * 	"brand": "雷克萨斯",
+   * 	"brand": "Lexus",
    * 	"compulsoryScrapTo": "****-**-** **:**:**",
    * 	"displacement": 4608,
    * 	"engineNo": "1UR0******",
    * 	"engineType": "1**",
    * 	"frontWheelDistance": 1585,
-   * 	"fuelType": "汽油",
+   * 	"fuelType": "Gasoline",
    * 	"high": 1860,
    * 	"inspectionResultEffectiveTo": "****-**-** **:**:**",
    * 	"modelNo": "UR*****-******",
@@ -39,11 +39,11 @@ export class VehicleQueryResponseBodyResultObject extends $dara.Model {
    * 	"registrationDate": "****-**-** **:**:**",
    * 	"releaseDate": "",
    * 	"state": "0",
-   * 	"stateDesc": "正常",
+   * 	"stateDesc": "Normal",
    * 	"totalMass": 2940,
    * 	"unladenMass": 2350,
    * 	"useProperty": 0,
-   * 	"usePropertyDesc": "非营运",
+   * 	"usePropertyDesc": "Non-commercial",
    * 	"long": 4890,
    * 	"vin": "A***********",
    * 	"wheelBase": 2790,
@@ -77,7 +77,7 @@ export class VehicleQueryResponseBodyResultObject extends $dara.Model {
 export class VehicleQueryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200
@@ -85,7 +85,7 @@ export class VehicleQueryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success

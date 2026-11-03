@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InsertWhiteListSettingRequest extends $dara.Model {
   /**
    * @remarks
-   * The certificate number.
+   * The ID number.
    * 
    * @example
    * 330103xxxxxxxxxxxx
@@ -13,7 +13,7 @@ export class InsertWhiteListSettingRequest extends $dara.Model {
   certNo?: string;
   /**
    * @remarks
-   * The unique identifier of the ID Verification request.
+   * The unique identifier for ID Verification.
    * 
    * @example
    * shsf57a4e0d9981c3bd66dc754f3d3cd
@@ -21,7 +21,7 @@ export class InsertWhiteListSettingRequest extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * The remarks. The maximum length is 32 characters.
+   * The remark. The value must be less than 32 characters in length.
    * 
    * @example
    * xxxxxx
@@ -29,7 +29,7 @@ export class InsertWhiteListSettingRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The verification scenario ID. This ID is automatically generated after you create a verification scenario in the console. For information about how to create a verification scenario, see Add a verification scenario.
+   * The ID of the verification scenario. This ID is automatically generated after you create a verification scenario in the console. For more information about how to create a verification scenario, see Add a verification scenario.
    * 
    * @example
    * 100000xxxx
@@ -37,7 +37,7 @@ export class InsertWhiteListSettingRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * The ServiceCode of the ID Verification cloud service. Set this parameter to **antcloudauth**.
+   * The service code of the ID Verification cloud service. Valid values: **antcloudauth**.
    * 
    * @example
    * antcloudauth
@@ -45,7 +45,7 @@ export class InsertWhiteListSettingRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The number of days the whitelist entry is valid. Valid values: 3, 7, and 30.
+   * The number of days that the whitelist remains valid. Valid values: 3, 7, and 30.
    * 
    * @example
    * 30

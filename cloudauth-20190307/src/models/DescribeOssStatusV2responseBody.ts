@@ -71,7 +71,7 @@ export class DescribeOssStatusV2ResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -92,7 +92,7 @@ export class DescribeOssStatusV2ResponseBody extends $dara.Model {
   resultObject?: DescribeOssStatusV2ResponseBodyResultObject;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

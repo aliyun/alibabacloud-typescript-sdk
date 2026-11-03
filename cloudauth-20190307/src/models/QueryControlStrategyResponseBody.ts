@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryControlStrategyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * The API name, which is the same as the ProductCode of the verification operation.
+   * The API name, which is the same as the **ProductCode** of the authentication operation.
    * 
    * @example
    * ID_PRO
@@ -14,14 +14,13 @@ export class QueryControlStrategyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
    * The rule configuration type. Valid values:
-   * 
-   * - **QPS**: QPS greater than
-   * - **SUCCESS_RATE_5_MIN**: success rate in the last 5 minutes less than
-   * - **RESP_TIME_5_MIN**: average response time in the last 5 minutes greater than
-   * - **AMOUNT_RISE**: call volume increase compared to the previous period greater than
-   * - **AMOUNT_FALL**: call volume decrease compared to the previous period less than
-   * - **PASSED_RATE_1_HOUR**: verification consistency rate in the last hour less than
-   * - **PARAM_ERROR_RATE_1_HOUR**: parameter error rate in the last hour greater than.
+   * - **QPS**: The QPS is greater than the threshold.
+   * - **SUCCESS_RATE_5_MIN**: The success rate in the last 5 minutes is less than the threshold.
+   * - **RESP_TIME_5_MIN**: The average response time in the last 5 minutes is greater than the threshold.
+   * - **AMOUNT_RISE**: The period-over-period growth in call volume is greater than the threshold.
+   * - **AMOUNT_FALL**: The period-over-period decline in call volume is less than the threshold.
+   * - **PASSED_RATE_1_HOUR**: The verification consistency rate in the last 1 hour is less than the threshold.
+   * - **PARAM_ERROR_RATE_1_HOUR**: The parameter error rate in the last 1 hour is greater than the threshold.
    * 
    * @example
    * SUCCESS_RATE_5_MIN
@@ -38,7 +37,6 @@ export class QueryControlStrategyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * 
    * - **disabled**: Disabled.
    * - **normal**: Enabled.
    * 
@@ -48,7 +46,7 @@ export class QueryControlStrategyResponseBodyResultObject extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The alert threshold for configure alerting of the rule.
+   * The alert threshold configured for the rule.
    * 
    * @example
    * 0.9
@@ -96,7 +94,7 @@ export class QueryControlStrategyResponseBodyResultObject extends $dara.Model {
 export class QueryControlStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * Success
@@ -104,7 +102,7 @@ export class QueryControlStrategyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success

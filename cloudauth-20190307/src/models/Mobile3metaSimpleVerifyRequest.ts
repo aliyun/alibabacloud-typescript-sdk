@@ -5,46 +5,45 @@ import * as $dara from '@darabonba/typescript';
 export class Mobile3MetaSimpleVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * ID card number:
+   * The ID card number.
    * 
-   * Note
-   * Only the ID numbers of the second-generation resident ID card and Hong Kong, Macao, and Taiwan residence permits are supported.
+   * Note: Only the numbers of second-generation resident identity cards and residence permits for Hong Kong, Macao, and Taiwan residents are supported.
    * 
-   * - When paramType is set to normal: pass in the ID card number in plaintext.
+   * - If you set paramType to normal, enter the ID card number in plaintext.
    * 
-   * - When paramType is set to md5: pass in the encrypted ID card number.
+   * - If you set paramType to md5, enter the ID card number in ciphertext.
    * 
    * @example
-   * 明文：429001********8211
+   * Plaintext: 429001********8211
    * 
-   * 密文：
+   * Ciphertext:
    * 
    * 32fa7bcd874161bea8ec8fd98f390ec9
    */
   identifyNum?: string;
   /**
    * @remarks
-   * Mobile number:
+   * The mobile phone number.
    * 
-   * - When paramType is set to normal: pass in the mobile number in plaintext.
+   * - If you set paramType to normal, enter the mobile phone number in plaintext.
    * 
-   * - When paramType is set to md5: pass in the encrypted mobile number.
+   * - If you set paramType to md5, enter the mobile phone number in ciphertext.
    * 
    * @example
-   * 明文：186****2055
+   * Plaintext: 186****2055
    * 
-   * 密文：
+   * Ciphertext:
    * 
    * 849169cd3b20621c1c78bd61a11a4fc2
    */
   mobile?: string;
   /**
    * @remarks
-   * Encryption method:
+   * The encryption method. Valid values:
    * 
-   * - normal: plaintext, no encryption
+   * - normal: plaintext without encryption.
    * 
-   * - md5: MD5 encryption
+   * - md5: MD5 encryption.
    * 
    * @example
    * normal
@@ -52,16 +51,16 @@ export class Mobile3MetaSimpleVerifyRequest extends $dara.Model {
   paramType?: string;
   /**
    * @remarks
-   * Name:
+   * The name.
    * 
-   * - When paramType is set to normal: pass in the name in plaintext.
+   * - If you set paramType to normal, enter the name in plaintext.
    * 
-   * - When paramType is set to md5: pass in the encrypted name.
+   * - If you set paramType to md5, enter the name in ciphertext.
    * 
    * @example
-   * 明文：张三
+   * Plaintext: Zhang San
    * 
-   * 密文：
+   * Ciphertext:
    * 
    * 32fa7bcd874161bea8ec8fd98f390ec9
    */

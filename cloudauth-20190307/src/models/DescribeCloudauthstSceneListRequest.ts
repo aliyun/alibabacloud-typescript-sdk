@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudauthstSceneListRequest extends $dara.Model {
   /**
    * @remarks
-   * The commodity code.
+   * The product code.
    * 
    * @example
    * SMART_CARD

@@ -6,9 +6,9 @@ export class DescribeCardVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
    * The identity verification result. Valid values:
-   * - 1: consistent
-   * - 2: inconsistent
-   * - 3: no record found.
+   * - 1: Consistent.
+   * - 2: Inconsistent.
+   * - 3: No record found.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class DescribeCardVerifyResponseBodyResultObject extends $dara.Model {
    * The ID card information submitted for verification.
    * 
    * @example
-   * {"address":"浙江省杭州市余杭区文一西路969号","birthDate":"19901226","certName":"张三","certNo":"1234561990122*****","nationality":"汉","authority":"xxx公安局","startDate":"20201130","endDate":"20301130"}
+   * {"address":"No. 969 West Wenyi Road, Yuhang District, Hangzhou City, Zhejiang Province","birthDate":"19901226","certName":"Zhang San","certNo":"1234561990122*****","nationality":"Han","authority":"xxx Public Security Bureau","startDate":"20201130","endDate":"20301130"}
    */
   cardInfo?: string;
   /**
@@ -37,14 +37,14 @@ export class DescribeCardVerifyResponseBodyResultObject extends $dara.Model {
    * The ID card information read by OCR.
    * 
    * @example
-   * {"address":"浙江省杭州市余杭区文一西路969号","birthDate":"19901226","certName":"张三","certNo":"1234561990122*****","nationality":"汉","authority":"xxx公安局","startDate":"20201130","endDate":"20301130"}
+   * {"address":"No. 969 West Wenyi Road, Yuhang District, Hangzhou City, Zhejiang Province","birthDate":"19901226","certName":"Zhang San","certNo":"1234561990122*****","nationality":"Han","authority":"xxx Public Security Bureau","startDate":"20201130","endDate":"20301130"}
    */
   ocrCardInfo?: string;
   /**
    * @remarks
-   * The returned photo URLs.
-   * - certUrl: front side
-   * - certNationalUrl: national emblem side.
+   * The URLs of the returned photos.
+   * - certUrl: Front side.
+   * - certNationalUrl: National emblem side.
    * 
    * @example
    * {
@@ -85,10 +85,10 @@ export class DescribeCardVerifyResponseBodyResultObject extends $dara.Model {
 export class DescribeCardVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. 200 indicates success. Other values indicate failure.
-   * > **Important**
-   * > - This parameter indicates whether the operation is called correctly. For more information about return codes, refer to error codes.
-   * > - Check the business verification result by viewing the fields in ResultObject.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
+   * Important
+   * - This parameter indicates whether the operation is called correctly. For more information about return codes, see Error codes.
+   * - To view the business verification result, check the fields in ResultObject.
    * 
    * @example
    * 200
@@ -96,9 +96,9 @@ export class DescribeCardVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message of the operation.
-   * > **Important**
-   * > - This parameter only indicates whether the operation is abnormal.
+   * The message returned for the operation call.
+   * Important
+   * - This parameter only indicates whether an exception occurs during the operation call.
    * 
    * @example
    * success

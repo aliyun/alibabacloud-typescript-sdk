@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class InitCardVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * The verification request ID, which is the unique identifier of the verification service authentication request.
-   * - You must specify the authentication request ID when you query the authentication result.
-   * 
-   * - The CertifyId field is used for billing statistics. Save this field locally for future bill reconciliation. The CertifyId returned by the initialization operation is valid for 30 minutes and can be submitted for authentication only once. Use it within the validity period and do not reuse it.
+   * The verification request ID, which is the unique identifier of the authentication request in the verification service.
+   * - When you query the authentication result, you must specify the authentication request ID.
+   * - The CertifyId field is used for billing statistics. To facilitate subsequent bill reconciliation, store the field information locally. The CertifyId returned by the initialization API is valid for 30 minutes and can be submitted for authentication only once. Use it within the validity period to avoid repeated use.
    * 
    * @example
    * 91707dc296d469ad38e4c5efa6a0****
@@ -38,9 +37,10 @@ export class InitCardVerifyResponseBodyResultObject extends $dara.Model {
 export class InitCardVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success. Other values indicate failure.
-   * 
-   * > **Important** This parameter indicates whether the operation is called correctly. For more information about return codes, see error codes. Check the fields in ResultObject for the business result.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
+   * Important:
+   * - This parameter indicates whether the API is called successfully. For more information about return codes, see Error codes.
+   * - To view the business result, check the fields in ResultObject.
    * 
    * @example
    * 200
@@ -48,7 +48,7 @@ export class InitCardVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success

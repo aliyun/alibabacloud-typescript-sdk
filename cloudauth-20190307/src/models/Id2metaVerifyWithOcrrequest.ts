@@ -5,27 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class Id2MetaVerifyWithOCRRequest extends $dara.Model {
   /**
    * @remarks
-   * The input stream of the portrait side image of the ID card.
+   * The input stream of the image for the portrait side of the ID card.
    * Specify either CertUrl or CertFile.
    * 
    * @example
-   * 无
+   * None
    */
   certFile?: string;
   /**
    * @remarks
-   * The image of the national emblem side of the ID card.
-   * Specify either CertNationalUrl or CertNationalFile. You can also leave both empty.
+   * The URL of the image of the national emblem side of the ID card. You can specify either CertNationalUrl or CertNationalFile. You can also specify neither.
    * 
    * @example
-   * 无
+   * None
    */
   certNationalFile?: string;
   /**
    * @remarks
-   * The URL of the national emblem side image of the ID card.
-   * A publicly accessible HTTP or HTTPS URL.
-   * Specify either CertNationalUrl or CertNationalFile. You can also leave both empty.
+   * The URL of the image for the national emblem side of the ID card.
+   * The URL must be a publicly accessible HTTP or HTTPS link.
+   * Specify either CertNationalUrl or CertNationalFile, or leave both empty.
    * 
    * @example
    * https://www.aliyun.com/cert.jpeg
@@ -33,8 +32,8 @@ export class Id2MetaVerifyWithOCRRequest extends $dara.Model {
   certNationalUrl?: string;
   /**
    * @remarks
-   * The image of the portrait side of the ID card.
-   * A publicly accessible HTTP or HTTPS URL.
+   * The URL of the image for the portrait side of the ID card.
+   * The URL must be a publicly accessible HTTP or HTTPS link.
    * Specify either CertUrl or CertFile.
    * 
    * @example

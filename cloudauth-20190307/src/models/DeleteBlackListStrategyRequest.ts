@@ -14,9 +14,9 @@ export class DeleteBlackListStrategyRequest extends $dara.Model {
   /**
    * @remarks
    * The product name. Valid values:
-   * - **id2meta**: ID card two-element verification.
-   * - **mobile3Meta**: Mobile number element verification.
-   * - **bankcardMeta**: Bank card element verification.
+   * - **id2meta**: Two-element verification for ID cards.
+   * - **mobile3Meta**: Element verification for mobile phone numbers.
+   * - **bankcardMeta**: Element verification for bank cards.
    * 
    * @example
    * id2meta

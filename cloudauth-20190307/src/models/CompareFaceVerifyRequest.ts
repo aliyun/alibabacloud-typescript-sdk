@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CompareFaceVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether cropping is allowed. Default value: F.
-   * 
-   * - T: detection is required.
-   * - F: detection is required. (Default: F).
+   * Specifies whether to allow cropping. Default value: F. Valid values:
+   * - T: Allowed.
+   * - F: Not allowed.
    * 
    * @example
    * T
@@ -18,7 +17,7 @@ export class CompareFaceVerifyRequest extends $dara.Model {
    * @remarks
    * The unique identifier of the merchant request.
    * 
-   * The value is a 32-character alphanumeric string. The first few characters are a custom abbreviation defined by the merchant, the middle part can be a time segment, and the last part can be a random or incremental sequence.
+   * The value is a 32-character alphanumeric string. The first few characters are a custom abbreviation of the merchant, the middle part can be a period of time, and the last part can be a random or incremental sequence.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -26,7 +25,7 @@ export class CompareFaceVerifyRequest extends $dara.Model {
   outerOrderNo?: string;
   /**
    * @remarks
-   * Fixed value: PV_FC.
+   * The product code. Fixed value: PV_FC.
    * 
    * @example
    * PV_FC
@@ -34,7 +33,7 @@ export class CompareFaceVerifyRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The verification scenario ID.
+   * The ID of the verification scenario.
    * 
    * @example
    * 1000000006
@@ -42,9 +41,9 @@ export class CompareFaceVerifyRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * The CertifyId from a previous successful ID Verification. The photo captured during that verification is used as the face comparison photo.
+   * The CertifyId of a previous successful ID Verification. The photo used during the verification is used as the face comparison photo.
    * 
-   * > You can use one of the following four methods to submit a face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
+   * > You can use one of the following four methods to upload the face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
    * 
    * @example
    * 0bfa7c493f850e5178b9f8613634c9xx
@@ -52,9 +51,9 @@ export class CompareFaceVerifyRequest extends $dara.Model {
   sourceCertifyId?: string;
   /**
    * @remarks
-   * The Base64-encoded photo.
+   * The Base64-encoded string of the photo.
    * 
-   * > You can use one of the following four methods to submit a face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
+   * > You can use one of the following four methods to upload the face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
    * 
    * @example
    * /9j/4AAQSkZJRgABAQAASxxxxxxx
@@ -62,9 +61,9 @@ export class CompareFaceVerifyRequest extends $dara.Model {
   sourceFaceContrastPicture?: string;
   /**
    * @remarks
-   * The OSS photo URL. Only authorized OSS photo URLs are supported.
+   * The URL of the photo in OSS. Only authorized OSS photo URLs are supported.
    * 
-   * > You can use one of the following four methods to submit a face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
+   * > You can use one of the following four methods to upload the face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
    * 
    * @example
    * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
@@ -72,9 +71,9 @@ export class CompareFaceVerifyRequest extends $dara.Model {
   sourceFaceContrastPictureUrl?: string;
   /**
    * @remarks
-   * The bucket name of the authorized OSS space.
+   * The name of the authorized OSS bucket.
    * 
-   * > You can use one of the following four methods to submit a face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
+   * > You can use one of the following four methods to upload the face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
    * 
    * @example
    * cn-shanghai-aliyun-cloudauth-xxxxx
@@ -82,9 +81,9 @@ export class CompareFaceVerifyRequest extends $dara.Model {
   sourceOssBucketName?: string;
   /**
    * @remarks
-   * The file name in the authorized OSS space.
+   * The name of the object in the authorized OSS bucket.
    * 
-   * > You can use one of the following four methods to submit a face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
+   * > You can use one of the following four methods to upload the face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
    * 
    * @example
    * verify/xxxxx/xxxxxx.jpeg
@@ -92,9 +91,9 @@ export class CompareFaceVerifyRequest extends $dara.Model {
   sourceOssObjectName?: string;
   /**
    * @remarks
-   * The CertifyId from a previous successful ID Verification. The photo captured during that verification is used as the face comparison photo.
+   * The CertifyId of a previous successful ID Verification. The photo used during the verification is used as the base library face comparison photo.
    * 
-   * > You can use one of the following four methods to submit a reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
+   * > You can use one of the following four methods to upload the base library face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
    * 
    * @example
    * 0bfa7c493f850e5178b9f8613634c9xx
@@ -102,9 +101,9 @@ export class CompareFaceVerifyRequest extends $dara.Model {
   targetCertifyId?: string;
   /**
    * @remarks
-   * The Base64-encoded reference photo.
+   * The Base64-encoded string of the base library photo.
    * 
-   * > You can use one of the following four methods to submit a reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
+   * > You can use one of the following four methods to upload the base library face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
    * 
    * @example
    * /9j/4AAQSkZJRgABAQAASxxxxxxx
@@ -112,9 +111,9 @@ export class CompareFaceVerifyRequest extends $dara.Model {
   targetFaceContrastPicture?: string;
   /**
    * @remarks
-   * The OSS URL of the reference photo. Only authorized OSS photo URLs are supported.
+   * The URL of the base library photo in OSS. Only authorized OSS photo URLs are supported.
    * 
-   * > You can use one of the following four methods to submit a reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
+   * > You can use one of the following four methods to upload the base library face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
    * 
    * @example
    * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
@@ -122,9 +121,9 @@ export class CompareFaceVerifyRequest extends $dara.Model {
   targetFaceContrastPictureUrl?: string;
   /**
    * @remarks
-   * The bucket name of the authorized OSS space.
+   * The name of the authorized OSS bucket.
    * 
-   * > You can use one of the following four methods to submit a reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
+   * > You can use one of the following four methods to upload the base library face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
    * 
    * @example
    * cn-shanghai-aliyun-cloudauth-xxxxx
@@ -132,9 +131,9 @@ export class CompareFaceVerifyRequest extends $dara.Model {
   targetOssBucketName?: string;
   /**
    * @remarks
-   * The file name in the authorized OSS space.
+   * The name of the object in the authorized OSS bucket.
    * 
-   * > You can use one of the following four methods to submit a reference face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, or OSS. Select one method.
+   * > You can use one of the following four methods to upload the base library face photo: FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS.
    * 
    * @example
    * verify/xxxxx/xxxxxx.jpeg

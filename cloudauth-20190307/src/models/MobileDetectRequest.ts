@@ -14,7 +14,7 @@ export class MobileDetectRequest extends $dara.Model {
   /**
    * @remarks
    * The encryption method. Valid values:
-   * - normal: plaintext without encryption
+   * - normal: Plaintext without encryption.
    * - md5: MD5 encryption.
    * 
    * @example

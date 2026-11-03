@@ -6,9 +6,9 @@ export class VehicleMetaVerifyV2ResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
    * The verification result code. Valid values:
-   * - **1**: Consistent.
-   * - **2**: Inconsistent.
-   * - **3**: No record found.
+   * - **1**: The verification is consistent.
+   * - **2**: The verification is inconsistent.
+   * - **3**: No record is found.
    * 
    * @example
    * 1
@@ -16,7 +16,7 @@ export class VehicleMetaVerifyV2ResponseBodyResultObject extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The vehicle details.
+   * The detailed vehicle information.
    * 
    * @example
    * {
@@ -24,12 +24,12 @@ export class VehicleMetaVerifyV2ResponseBodyResultObject extends $dara.Model {
    * 	"approvedLoad": "0",
    * 	"axleCount": "2",
    * 	"backWheelDistance": "1585",
-   * 	"brand": "雷克萨斯",
+   * 	"brand": "Lexus",
    * 	"displacement": "4608",
    * 	"engineNum": "1*********",
    * 	"engineType": "1**",
    * 	"frontWheelDistance": "1585",
-   * 	"fuelType": "汽油",
+   * 	"fuelType": "Gasoline",
    * 	"inspectionDate": "****-**-** **:**:**",
    * 	"modelNum": "UR*****-******",
    * 	"power": "228",
@@ -37,8 +37,8 @@ export class VehicleMetaVerifyV2ResponseBodyResultObject extends $dara.Model {
    * 	"retirementDate": "****-**-** **:**:**",
    * 	"totalMass": "2940",
    * 	"unladenMass": "2350",
-   * 	"useProperty": "非营运",
-   * 	"vehicleState": "正常",
+   * 	"useProperty": "Non-commercial",
+   * 	"vehicleState": "Normal",
    * 	"vin": "JT***************",
    * 	"wheelBase": "2790"
    * }
@@ -70,7 +70,7 @@ export class VehicleMetaVerifyV2ResponseBodyResultObject extends $dara.Model {
 export class VehicleMetaVerifyV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. **200** indicates that the request was successful.
+   * The return code. **200** indicates that the API operation is successful.
    * 
    * @example
    * 200
@@ -78,7 +78,7 @@ export class VehicleMetaVerifyV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success

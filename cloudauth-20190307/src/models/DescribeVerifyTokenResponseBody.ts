@@ -21,7 +21,7 @@ export class DescribeVerifyTokenResponseBodyOssUploadToken extends $dara.Model {
   endPoint?: string;
   /**
    * @remarks
-   * The expiration time. The value is in UNIX timestamp format. Unit: milliseconds.
+   * The expiration time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1582636610000
@@ -37,7 +37,7 @@ export class DescribeVerifyTokenResponseBodyOssUploadToken extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The file storage path.
+   * The storage path of the file.
    * 
    * @example
    * prod/RdNLC@Ox2n-1s7NMt
@@ -100,7 +100,7 @@ export class DescribeVerifyTokenResponseBody extends $dara.Model {
   ossUploadToken?: DescribeVerifyTokenResponseBodyOssUploadToken;
   /**
    * @remarks
-   * The ID of this request.
+   * The ID of the request.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -108,7 +108,7 @@ export class DescribeVerifyTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The entry URL for the legacy H5 authentication scheme. This scheme has been discontinued and no longer accepts new integrations. If you need H5 authentication, use the [PC or mobile H5 web integration scheme](https://help.aliyun.com/document_detail/173779.html) of financial-grade ID Verification.
+   * The entry URL of the legacy H5 authentication solution. This solution has been retired and no longer supports new integrations. If you need to integrate an H5 authentication solution, we recommend that you use the [PC or mobile H5 web integration solution](https://help.aliyun.com/document_detail/173779.html) of Financial-grade ID Verification.
    * 
    * @example
    * http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
@@ -116,7 +116,7 @@ export class DescribeVerifyTokenResponseBody extends $dara.Model {
   verifyPageUrl?: string;
   /**
    * @remarks
-   * The token for this authentication, which is used to connect the various operations in the authentication request. The token is valid for 30 minutes.
+   * The token for the authentication. The token is used to link all operations in the authentication request and is valid for 30 minutes.
    * 
    * @example
    * c302c0797679457685410ee51a5ba375

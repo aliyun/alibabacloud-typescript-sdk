@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetectFaceAttributesRequest extends $dara.Model {
   /**
    * @remarks
-   * The business scenario identifier for the ID Verification service.
+   * The business scenario identifier for ID Verification.
    * 
    * @example
    * RPBasicTest
@@ -13,7 +13,7 @@ export class DetectFaceAttributesRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The photo to be detected. For format details, see the notes on uploading image addresses. A maximum of 5 faces can be detected in a single image.
+   * The photo to be detected. For the format description, see the image URL description. A maximum of five faces in the same image can be detected.
    * 
    * This parameter is required.
    * 

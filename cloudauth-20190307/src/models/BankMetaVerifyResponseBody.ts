@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class BankMetaVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * The verification result. Valid values:
+   * The verification result.
    * 
-   * - 1: Consistent (billable).
-   * - 2: Inconsistent (billable).
-   * - 3: No record found (not billable).
+   * - 1: verification passed (billed).
+   * - 2: verification failed (billed).
+   * - 3: no records found (not billed).
    * 
    * @example
    * 1
@@ -17,31 +17,31 @@ export class BankMetaVerifyResponseBodyResultObject extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The verification details. Valid values:
+   * The verification details.
    * 
-   * - **101**: Verification passed.
-   * - **201**: Verification information is inconsistent. The cardholder information is incorrect.
-   * - **202**: Verification information is inconsistent. The bank card has not enabled authenticated payment.
-   * - **203**: Verification information is inconsistent. The bank card has expired.
-   * - **204**: Verification information is inconsistent. The bank card is restricted.
-   * - **205**: Verification information is inconsistent. The card has been confiscated.
-   * - **206**: Verification information is inconsistent. The bank card is invalid.
-   * - **207**: Verification information is inconsistent. No issuing bank found for this card.
-   * - **208**: Verification information is inconsistent. The card has not been initialized or is a dormant card.
-   * - **209**: Verification information is inconsistent. The card is a fraudulent or retained card.
-   * - **210**: Verification information is inconsistent. The card has been reported lost.
-   * - **211**: Verification information is inconsistent. The number of incorrect password attempts has exceeded the limit.
-   * - **212**: Verification information is inconsistent. The issuing bank does not support this transaction.
-   * - **213**: Verification information is inconsistent. The card status is abnormal or the card is invalid.
-   * - **214**: Verification information is inconsistent. No phone number is registered with the card.
-   * - **215**: Verification information is inconsistent. The password, expiration date, or CVN2 is incorrect.
-   * - **216**: Verification information is inconsistent. Other card exceptions.
-   * - **301**: Unable to verify. The bank card does not support this service.
-   * - **302**: Unable to verify. Verification failed or the bank rejected the verification. Contact the issuing bank.
-   * - **303**: Unable to verify. The bank card does not support phone number verification.
-   * - **304**: Unable to verify. The bank card number is incorrect.
-   * - **305**: Unable to verify. Other reasons.
-   * - **306**: Unable to verify. The number of verification attempts has exceeded the limit.
+   * - **101**: verification passed.
+   * - **201**: verification failed. The cardholder information is incorrect.
+   * - **202**: verification failed. Authentication payment is not enabled for the bank card.
+   * - **203**: verification failed. The bank card has expired.
+   * - **204**: verification failed. The bank card is restricted.
+   * - **205**: verification failed. The card has been confiscated.
+   * - **206**: verification failed. The bank card is invalid.
+   * - **207**: verification failed. No matching issuing bank exists.
+   * - **208**: verification failed. The card is not initialized or is a dormant card.
+   * - **209**: verification failed. The card is fraudulent or has been retained.
+   * - **210**: verification failed. The card has been reported lost.
+   * - **211**: verification failed. The maximum number of password attempts has been exceeded.
+   * - **212**: verification failed. The issuing bank does not support this transaction.
+   * - **213**: verification failed. The card status is abnormal or the card is invalid.
+   * - **214**: verification failed. No mobile phone number is registered.
+   * - **215**: verification failed. The password, expiration date, or CVN2 is incorrect.
+   * - **216**: verification failed. Other card exceptions.
+   * - **301**: unable to verify. The bank card does not support this service.
+   * - **302**: unable to verify. Verification failed or the bank refused verification. Contact the issuing bank.
+   * - **303**: unable to verify. The bank card does not support mobile phone number verification.
+   * - **304**: unable to verify. The bank card number is incorrect.
+   * - **305**: unable to verify. Other reasons.
+   * - **306**: unable to verify. The maximum number of verification attempts has been exceeded.
    * 
    * @example
    * 101
@@ -73,7 +73,7 @@ export class BankMetaVerifyResponseBodyResultObject extends $dara.Model {
 export class BankMetaVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success. Other values indicate failure.
+   * The response code. 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -97,7 +97,7 @@ export class BankMetaVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information.
+   * The verification result.
    */
   resultObject?: BankMetaVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

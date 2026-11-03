@@ -5,30 +5,30 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuthVerifyResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * - Card information read by OCR (ocrIdCardInfo)
-   * - Card information photo edited by the client (ocrIdEditInfo)
-   * - OSS storage location and link of the OCR photo (ocrPictureFront).
+   * - The card and certificate information read by OCR (ocrIdCardInfo)
+   * - The photo of the card and certificate information edited on the client (ocrIdEditInfo)
+   * - The OSS storage location and URL of the OCR photo (ocrPictureFront)
    * 
    * @example
    * "ocrIdCardInfo": {
-   *     "certName": "张先生",
-   *     "sex": "男",
-   *     "nationality": "汉",
+   *     "certName": "Mr. Zhang",
+   *     "sex": "Male",
+   *     "nationality": "Han",
    *     "birth": "20010213",
-   *     "address": "XXX省XX市XXX区XX街道X号",
+   *     "address": "No. X, XX Street, XXX District, XX City, XXX Province",
    *     "certNo": "4****************X",
-   *     "authority": "XXX公安局XXX分局",
+   *     "authority": "XXX Branch of XXX Public Security Bureau",
    *     "startDate": "20250523",
    *     "endDate": "20450523"
    *   },
    * "ocrIdEditInfo": {
-   *     "certName": "张先生",
-   *     "sex": "男",
-   *     "nationality": "汉",
+   *     "certName": "Mr. Zhang",
+   *     "sex": "Male",
+   *     "nationality": "Han",
    *     "birth": "20010213",
-   *     "address": "XXX省XX市XXX区XX街道X号",
+   *     "address": "No. X, XX Street, XXX District, XX City, XXX Province",
    *     "certNo": "4****************X",
-   *     "authority": "XXX公安局XXX分局",
+   *     "authority": "XXX Branch of XXX Public Security Bureau",
    *     "startDate": "20250523",
    *     "endDate": "20450523"
    *   },
@@ -43,20 +43,20 @@ export class DescribeAuthVerifyResponseBodyResult extends $dara.Model {
   materialInfo?: string;
   /**
    * @remarks
-   * The anti-spoofing detection result for the back side of the document, including the risk determination result and risk type:
+   * The anti-spoofing detection result for the back side of the ID card, including the risk determination result and risk type:
    * > - 
-   * Card front anti-spoofing detection is enabled only when IdSpoof = Y is set in the Initialize operation. Otherwise, spoofRiskResult returns N by default, and spoofType is empty.
+   * Anti-spoofing detection for the back side of the card is enabled only when IdSpoof is set to Y in the Initialize operation. Otherwise, spoofRiskResult defaults to N, and spoofType is empty.
    * 
    * spoofRiskResult:
-   * - Y: Risk detected.
-   *  - N: No risk detected.
+   * - Y: Risk detected
+   * - N: No risk detected
    * 
    * spoofType:
-   * - SCREEN_REMARK: Recaptured photo.
-   * - PHOTO_COPY: Photocopy.
-   * - TAMPER: Digitally tampered.
+   * - SCREEN_REMARK: Screen recapture
+   * - PHOTO_COPY: Photocopy
+   * - TAMPER: Image tampering
    * 
-   * > - This is an algorithm prediction result. This field may not be returned. Avoid setting a mandatory dependency on this field in your business logic.
+   * > - This field contains algorithm prediction results and may not be returned. Avoid building critical business dependencies on this field.
    * 
    * @example
    * spoofRiskResult：Y
@@ -65,20 +65,20 @@ export class DescribeAuthVerifyResponseBodyResult extends $dara.Model {
   spoofBackInfo?: string;
   /**
    * @remarks
-   * The anti-spoofing detection result for the front side of the document, including the risk determination result and risk type:
+   * The anti-spoofing detection result for the front side of the ID card, including the risk determination result and risk type:
    * > - 
-   * Card front anti-spoofing detection is enabled only when IdSpoof = Y is set in the Initialize operation. Otherwise, spoofRiskResult returns N by default, and spoofType is empty.
+   * Anti-spoofing detection for the front side of the card is enabled only when IdSpoof is set to Y in the Initialize operation. Otherwise, spoofRiskResult defaults to N, and spoofType is empty.
    * 
    * spoofRiskResult:
-   * - Y: Risk detected.
-   *  - N: No risk detected.
+   * - Y: Risk detected
+   * - N: No risk detected
    * 
    * spoofType:
-   * - SCREEN_REMARK: Recaptured photo.
-   * - PHOTO_COPY: Photocopy.
-   * - TAMPER: Digitally tampered.
+   * - SCREEN_REMARK: Screen recapture
+   * - PHOTO_COPY: Photocopy
+   * - TAMPER: Image tampering
    * 
-   * > - This is an algorithm prediction result. This field may not be returned. Avoid setting a mandatory dependency on this field in your business logic.
+   * > - This field contains algorithm prediction results and may not be returned. Avoid building critical business dependencies on this field.
    * 
    * @example
    * spoofRiskResult：Y

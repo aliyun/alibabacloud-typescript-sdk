@@ -6,7 +6,6 @@ export class VehicleMetaVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
    * The verification result. Valid values:
-   * 
    * - 1: Consistent (billable).
    * - 2: Inconsistent (billable).
    * - 3: No record found (not billable).
@@ -39,7 +38,7 @@ export class VehicleMetaVerifyResponseBodyResultObject extends $dara.Model {
 export class VehicleMetaVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. **200** indicates that the request was successful.
+   * The return code. **200** indicates that the request is successful.
    * 
    * @example
    * 200
@@ -47,7 +46,7 @@ export class VehicleMetaVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success
@@ -63,7 +62,7 @@ export class VehicleMetaVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information.
+   * The returned result information.
    */
   resultObject?: VehicleMetaVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

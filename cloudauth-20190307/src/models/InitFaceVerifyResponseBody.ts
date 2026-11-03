@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InitFaceVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the ID Verification session.
+   * The unique identifier of ID Verification.
    * 
    * @example
    * 91707dc296d469ad38e4c5efa6a0f24b
@@ -13,16 +13,16 @@ export class InitFaceVerifyResponseBodyResultObject extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * The URL for performing ID Verification in a web browser. After authentication ends, the page redirects based on the ReturnUrl input parameter.
+   * The URL for ID Verification in a web browser. After the authentication is completed, the user is redirected based on the ReturnUrl parameter.
    * 
    * >Notice: 
    * 
-   * - The CertifyUrl returned by the initialization operation is **valid for 30 minutes and can only be submitted once for authentication**. Use it within the validity period and avoid reuse.
-   * - This parameter requires the correct **MetaInfo** input to return a CertifyUrl that matches the client. If it cannot be obtained, check whether **MetaInfo** and other input parameters are correct.
+   * - The CertifyUrl returned by the initialization API operation is **valid for 30 minutes and can be used to submit authentication only once**. Use it within the validity period to avoid repeated use.
+   * - This parameter requires the correct input of the **MetaInfo** parameter to return a CertifyUrl that matches the client. If you cannot obtain it, check whether **MetaInfo** and other input parameters are correct.
    * 
-   * - The domain name of this URL may change with service updates. To ensure normal service availability, do not apply access control to this domain name.
+   * - The domain name of this URL may change with service updates. To ensure normal service availability, we recommend that you do not configure access control for this domain name.
    * 
-   * - When redirecting in a browser, do not use incognito mode or modify the URL. Otherwise, a **signature exception** error may occur.
+   * - When the browser redirects, try not to use incognito mode or change the URL. Otherwise, a **signature exception** error may occur.
    * 
    * @example
    * https://t.aliyun.com/****
@@ -54,7 +54,7 @@ export class InitFaceVerifyResponseBodyResultObject extends $dara.Model {
 export class InitFaceVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200

@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class InitAuthVerifyResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The verification request ID, which is the unique identifier of the verification service authentication request.
-   * You must pass in the verification request ID when querying the authentication result.
+   * The verification request ID, which is the unique identifier of the authentication request for the verification service.
+   * This ID is required when you query the authentication result.
    * 
    * @example
    * shif9d1a185b8dde7cd07bf0943a448b
@@ -36,7 +36,7 @@ export class InitAuthVerifyResponseBodyResult extends $dara.Model {
 export class InitAuthVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * Success
@@ -44,7 +44,7 @@ export class InitAuthVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success

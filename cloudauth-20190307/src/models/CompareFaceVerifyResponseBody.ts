@@ -13,7 +13,9 @@ export class CompareFaceVerifyResponseBodyResultObject extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * Indicates whether the verification passed. A value of T indicates passed. A value of F indicates not passed.
+   * Indicates whether the verification is passed. Valid values:
+   * - T: Passed.
+   * - F: Failed.
    * 
    * @example
    * T
@@ -55,7 +57,7 @@ export class CompareFaceVerifyResponseBodyResultObject extends $dara.Model {
 export class CompareFaceVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200

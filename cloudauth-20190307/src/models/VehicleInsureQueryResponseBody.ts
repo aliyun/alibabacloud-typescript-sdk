@@ -6,10 +6,9 @@ export class VehicleInsureQueryResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
    * The verification result code. Valid values:
-   * 
    * > 
-   * > - 1: record found (billable).
-   * > - 3: no record found (not billable).
+   * > - 1: Found (billable).
+   * > - 3: No record found (not billable).
    * 
    * @example
    * 1
@@ -54,7 +53,7 @@ export class VehicleInsureQueryResponseBodyResultObject extends $dara.Model {
 export class VehicleInsureQueryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200
@@ -62,7 +61,7 @@ export class VehicleInsureQueryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message of the request.
+   * The response message for the request.
    * 
    * @example
    * success
@@ -78,7 +77,7 @@ export class VehicleInsureQueryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information.
+   * The returned result.
    */
   resultObject?: VehicleInsureQueryResponseBodyResultObject;
   static names(): { [key: string]: string } {

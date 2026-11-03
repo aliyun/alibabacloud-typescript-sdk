@@ -6,8 +6,9 @@ export class Vehicle5ItemQueryResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
    * The verification result code. Valid values:
-   * - **1**: Match found (billable).
-   * - **3**: No record found (not billable).
+   * 
+   * - **1**: found (billed)
+   * - **3**: no record found (not billed)
    * 
    * @example
    * 1
@@ -26,10 +27,10 @@ export class Vehicle5ItemQueryResponseBodyResultObject extends $dara.Model {
    *         "vin": "A********",
    *         "state": "0",
    *         "modelNo": "B********",
-   *         "type": "小型轿车",
-   *         "brand": "宝马",
-   *         "usePropertyDesc": "非营运",
-   *         "stateDesc": "正常"
+   *         "type": "Small sedan",
+   *         "brand": "BMW",
+   *         "usePropertyDesc": "Non-commercial",
+   *         "stateDesc": "Normal"
    *     }
    */
   vehicleInfo?: string;
@@ -67,7 +68,7 @@ export class Vehicle5ItemQueryResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -83,7 +84,7 @@ export class Vehicle5ItemQueryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information.
+   * The returned result information.
    */
   resultObject?: Vehicle5ItemQueryResponseBodyResultObject;
   static names(): { [key: string]: string } {

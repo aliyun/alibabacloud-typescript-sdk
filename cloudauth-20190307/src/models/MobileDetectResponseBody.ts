@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class MobileDetectResponseBodyResultObjectItems extends $dara.Model {
   /**
    * @remarks
-   * The location to which the phone number belongs. This field is available only for plaintext phone numbers.
+   * The phone number location. This field is available only for plaintext phone numbers.
    * 
    * @example
-   * 安徽-马**
+   * Anhui-Ma**
    */
   area?: string;
   /**
@@ -16,7 +16,7 @@ export class MobileDetectResponseBodyResultObjectItems extends $dara.Model {
    * The verification result. Valid values:
    * 
    * - 1: Active and available. 
-   * - 2: Not in active and available status.
+   * - 2: Inactive or unavailable.
    * - 3: No query results.
    * 
    * @example
@@ -25,10 +25,10 @@ export class MobileDetectResponseBodyResultObjectItems extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The carrier name. Valid values:
+   * The name of the carrier. Valid values:
    * 
-   * - CMCC: China Mobile 
-   * - CUCC: China Unicom 
+   * - CMCC: China Mobile. 
+   * - CUCC: China Unicom. 
    * - CTCC: China Telecom.
    * 
    * @example
@@ -48,10 +48,10 @@ export class MobileDetectResponseBodyResultObjectItems extends $dara.Model {
    * The verification details. Valid values:
    * 
    * - 101: Available number.
-   * - 102: Empty number.
-   * - 103: Suspended. 
-   * - 104: Silent number (inactive secondary number in the past six months, new number, or non-smartphone user). 
-   * - 105: Risky number (user with prolonged shutdown, voice service not activated, or prone to complaints).
+   * - 102: Non-existent number.
+   * - 103: Service suspended. 
+   * - 104: Silent number (inactive secondary numbers, new numbers, or non-smartphone users within the last six months). 
+   * - 105: Risky number (powered off for a long time, voice service not activated, or users prone to complaints).
    * - 301: No record found.
    * 
    * @example
@@ -90,7 +90,7 @@ export class MobileDetectResponseBodyResultObjectItems extends $dara.Model {
 export class MobileDetectResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * The total number of billing counts in a single request.
+   * The total number of billable calls in a single request.
    * 
    * @example
    * 2
@@ -130,7 +130,7 @@ export class MobileDetectResponseBodyResultObject extends $dara.Model {
 export class MobileDetectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200
@@ -138,7 +138,7 @@ export class MobileDetectResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success

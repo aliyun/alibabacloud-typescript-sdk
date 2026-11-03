@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssStatusV2Request extends $dara.Model {
   /**
    * @remarks
-   * The ServiceCode of the ID Verification product. Valid values:
-   * - **antcloudauth**: financial-grade ID Verification.
-   * - **cloudauthst (discontinued)**: enhanced ID Verification.
+   * The ServiceCode of the ID Verification cloud service. Valid values:
+   * - **antcloudauth**: Financial-grade ID Verification.
+   * - **cloudauthst** (retired): ID Verification Enhanced Edition.
    * 
    * @example
    * antcloudauth
@@ -15,7 +15,7 @@ export class DescribeOssStatusV2Request extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the requester.
    * 
    * @example
    * 120.25.41.25

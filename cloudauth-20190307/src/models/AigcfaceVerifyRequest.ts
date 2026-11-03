@@ -6,7 +6,7 @@ export class AIGCFaceVerifyRequest extends $dara.Model {
   /**
    * @remarks
    * The Base64-encoded photo.
-   * > You can use one of the following methods to pass in the image: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
+   * > You can pass the image by using one of the following methods: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
    * 
    * @example
    * /9j/4AAQSkZJRgABAQAASxxxxxxx
@@ -14,9 +14,9 @@ export class AIGCFaceVerifyRequest extends $dara.Model {
   faceContrastPicture?: string;
   /**
    * @remarks
-   * The URL of the face image. The URL must be a publicly accessible HTTP or HTTPS link.
+   * The URL of the portrait image. The URL must be a publicly accessible HTTP or HTTPS link.
    * 
-   * > You can use one of the following methods to pass in the image: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
+   * > You can pass the image by using one of the following methods: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
    * 
    * @example
    * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
@@ -24,8 +24,8 @@ export class AIGCFaceVerifyRequest extends $dara.Model {
   faceContrastPictureUrl?: string;
   /**
    * @remarks
-   * The name of the authorized OSS bucket.
-   * > You can use one of the following methods to pass in the image: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
+   * The name of the authorized Object Storage Service (OSS) bucket.
+   * > You can pass the image by using one of the following methods: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
    * 
    * @example
    * cn-shanghai-aliyun-cloudauth-xxxxx
@@ -33,8 +33,8 @@ export class AIGCFaceVerifyRequest extends $dara.Model {
   ossBucketName?: string;
   /**
    * @remarks
-   * The file name in the authorized OSS bucket.
-   * > You can use one of the following methods to pass in the image: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
+   * The name of the object in the authorized OSS bucket.
+   * > You can pass the image by using one of the following methods: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
    * 
    * @example
    * verify/xxxxx/xxxxxx.jpeg
@@ -42,7 +42,7 @@ export class AIGCFaceVerifyRequest extends $dara.Model {
   ossObjectName?: string;
   /**
    * @remarks
-   * The custom business unique identifier on the client side, which is used for subsequent troubleshooting. The value can contain up to 32 characters, including letters and digits. Make sure the value is unique.
+   * The custom unique business identifier on the customer\\"s server, which is used for subsequent troubleshooting. The value can be up to 32 characters in length and can contain letters and digits. Make sure that the value is unique.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -58,7 +58,7 @@ export class AIGCFaceVerifyRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the verification scenario. This ID is automatically generated after you create a verification scenario in the console. For more information about how to create a verification scenario, refer to Add a verification scenario.
+   * The ID of the authentication scenario. This ID is automatically generated after you create an authentication scenario in the console. For more information about how to create an authentication scenario, see Add an authentication scenario.
    * 
    * @example
    * 100000xxxx

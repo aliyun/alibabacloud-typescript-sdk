@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySceneConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The scenario type.
+   * The scene type.
    * 
    * This parameter is required.
    * 

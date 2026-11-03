@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveWhiteListSettingShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the whitelists to delete in batch.
+   * The IDs of the whitelists to delete in batches.
    */
   idsShrink?: string;
   /**
    * @remarks
-   * The ServiceCode of the ID Verification service. Set this parameter to **antcloudauth**.
+   * The service code of the ID Verification service. Valid values: **antcloudauth**.
    * 
    * @example
    * antcloudauth

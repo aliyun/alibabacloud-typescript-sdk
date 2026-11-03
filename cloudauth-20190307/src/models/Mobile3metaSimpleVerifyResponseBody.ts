@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class Mobile3MetaSimpleVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * Verification result code:
-   * - **1**: Verification consistent.
-   * - **2**: Verification inconsistent.
-   * - **3**: No record found.
+   * The verification result code. Valid values:
+   * - **1**: The verification is consistent.
+   * - **2**: The verification is inconsistent.
+   * - **3**: No record is found.
    * 
    * @example
    * 1
@@ -16,7 +16,7 @@ export class Mobile3MetaSimpleVerifyResponseBodyResultObject extends $dara.Model
   bizCode?: string;
   /**
    * @remarks
-   * Carrier name:
+   * The name of the Internet service provider (ISP). Valid values:
    * 
    * - **CMCC**: China Mobile.
    * - **CUCC**: China Unicom.
@@ -52,7 +52,7 @@ export class Mobile3MetaSimpleVerifyResponseBodyResultObject extends $dara.Model
 export class Mobile3MetaSimpleVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code: 200 indicates success, other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200
@@ -60,7 +60,7 @@ export class Mobile3MetaSimpleVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -68,7 +68,7 @@ export class Mobile3MetaSimpleVerifyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

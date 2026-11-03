@@ -21,7 +21,7 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
   accumulateWindow?: number;
   /**
    * @remarks
-   * The API name, which is the same as **ProductCode**.
+   * The API name. This parameter is the same as **ProductCode**.
    * 
    * This parameter is required.
    * 
@@ -32,10 +32,10 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
   /**
    * @remarks
    * The flow type. Valid values:
-   * - **ACCUMULATE**: repeated occurrence of an ID card.
-   * - **PASSED_RATE**: pass rate is less than.
-   * - **SUB_CODE_205**: authentication failed and the proportion of liveness attack 205 is greater than.
-   * - **SUB_CODE_206**: authentication failed and the proportion of liveness attack 206 is greater than.
+   * - **ACCUMULATE**: Duplicate ID cards.
+   * - **PASSED_RATE**: The pass rate is less than the specified value.
+   * - **SUB_CODE_205**: Authentication fails and the proportion of liveness attack 205 is greater than the specified value.
+   * - **SUB_CODE_206**: Authentication fails and the proportion of liveness attack 206 is greater than the specified value.
    * 
    * @example
    * ACCUMULATE
@@ -43,7 +43,7 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
   flowType?: string;
   /**
    * @remarks
-   * The rule ID.
+   * The ID of the rule.
    * 
    * @example
    * 38
@@ -60,8 +60,8 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
   /**
    * @remarks
    * The status. Valid values:
-   * - **disabled**: disabled.
-   * - **normal**: enabled.
+   * - **disabled**: Disabled.
+   * - **normal**: Enabled.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
   threshold?: number;
   /**
    * @remarks
-   * The user ID.
+   * The ID of the user.
    * 
    * @example
    * 126005125163xxxx
@@ -127,7 +127,7 @@ export class ModifyCustomizeFlowStrategyListRequestStrategyObject extends $dara.
 export class ModifyCustomizeFlowStrategyListRequest extends $dara.Model {
   /**
    * @remarks
-   * The product type. Currently, only **ANT_CLOUD_AUTH** (financial-grade ID Verification) is supported. All other types have been discontinued.
+   * The product type. Currently, only **ANT_CLOUD_AUTH** (Financial-grade ID Verification) is supported. All other product types are retired.
    * 
    * @example
    * ANT_CLOUD_AUTH
@@ -135,7 +135,7 @@ export class ModifyCustomizeFlowStrategyListRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The policy list.
+   * The list of policies.
    */
   strategyObject?: ModifyCustomizeFlowStrategyListRequestStrategyObject[];
   static names(): { [key: string]: string } {

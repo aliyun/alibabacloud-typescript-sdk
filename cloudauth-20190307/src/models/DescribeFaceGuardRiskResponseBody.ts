@@ -13,9 +13,9 @@ export class DescribeFaceGuardRiskResponseBodyResultObject extends $dara.Model {
   certifyId?: string;
   /**
    * @remarks
-   * The device risk probability predicted by the device assistant algorithm. A higher score indicates a higher device risk.
+   * The device risk probability predicted by the Device Assistant algorithm. A higher score indicates a higher device risk.
    * 
-   * Value range: 0 to 100.
+   * Valid values: 0 to 100.
    * 
    * @example
    * 80
@@ -23,7 +23,7 @@ export class DescribeFaceGuardRiskResponseBodyResultObject extends $dara.Model {
   guardRiskScore?: number;
   /**
    * @remarks
-   * The extended information in JSON format. The returned content is customized based on tenant requirements.
+   * The extended information in JSON format. This information is customized and returned based on tenant requirements.
    * 
    * @example
    * {
@@ -40,11 +40,11 @@ export class DescribeFaceGuardRiskResponseBodyResultObject extends $dara.Model {
   riskExtends?: string;
   /**
    * @remarks
-   * The device risk labels.
+   * The device risk tags.
    * 
-   * - Multiple device risk labels are separated by commas (,), such as "ROOT,VPN,HOOK".
+   * - Multiple device risk tags are separated by commas (,), such as ROOT,VPN,HOOK.
    * 
-   * - For more information about device risk labels and their descriptions, see the Face Guard label description in the official documentation.
+   * - For more information about device risk tags and their meanings, refer to the Face Guard tag description in the official documentation.
    * 
    * @example
    * ROOT,VPN,HOOK
@@ -80,7 +80,7 @@ export class DescribeFaceGuardRiskResponseBodyResultObject extends $dara.Model {
 export class DescribeFaceGuardRiskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. **200** indicates that the request was successful.
+   * The return code. A value of **200** indicates that the request was successful.
    * 
    * @example
    * 200
@@ -88,7 +88,7 @@ export class DescribeFaceGuardRiskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -104,7 +104,7 @@ export class DescribeFaceGuardRiskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information.
+   * The returned result.
    */
   resultObject?: DescribeFaceGuardRiskResponseBodyResultObject;
   static names(): { [key: string]: string } {

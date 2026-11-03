@@ -6,9 +6,9 @@ export class Id2MetaPeriodVerifyResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
    * The verification result code. Valid values:
-   * - **1**: Consistent.
-   * - **2**: Inconsistent.
-   * - **3**: No record found.
+   * - **1**: The verification is consistent.
+   * - **2**: The verification is inconsistent.
+   * - **3**: No record is found.
    * 
    * @example
    * 1
@@ -38,7 +38,7 @@ export class Id2MetaPeriodVerifyResponseBodyResultObject extends $dara.Model {
 export class Id2MetaPeriodVerifyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200
@@ -46,7 +46,7 @@ export class Id2MetaPeriodVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -62,7 +62,7 @@ export class Id2MetaPeriodVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information.
+   * The returned result information.
    */
   resultObject?: Id2MetaPeriodVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

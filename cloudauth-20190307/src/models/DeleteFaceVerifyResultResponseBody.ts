@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFaceVerifyResultResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier for real-person authentication.
+   * The unique identifier for ID Verification.
    * 
    * @example
    * sha58aeae7ea2f5ed069530f58df4e6d
@@ -14,9 +14,8 @@ export class DeleteFaceVerifyResultResponseBodyResultObject extends $dara.Model 
   /**
    * @remarks
    * The deletion result. Valid values:
-   * 
-   * - Y: Deletion successful.
-   * - N: Deletion failed.
+   * - Y: The deletion succeeded.
+   * - N: The deletion failed.
    * 
    * @example
    * N
@@ -24,10 +23,9 @@ export class DeleteFaceVerifyResultResponseBodyResultObject extends $dara.Model 
   deleteResult?: string;
   /**
    * @remarks
-   * The reason for deletion failure.
-   * 
-   * - NOT_DELETE_REPEATEDLY: The data cannot be deleted repeatedly.
-   * - NEED_QUERY_VERIFY_RESULT: You must query the authentication result before deleting.
+   * The reason for the deletion failure. Valid values:
+   * - NOT_DELETE_REPEATEDLY: The data cannot be repeatedly deleted.
+   * - NEED_QUERY_VERIFY_RESULT: You must query the verification result before you delete the data.
    * 
    * @example
    * NOT_DELETE_REPEATEDLY
@@ -61,7 +59,7 @@ export class DeleteFaceVerifyResultResponseBodyResultObject extends $dara.Model 
 export class DeleteFaceVerifyResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200
@@ -69,7 +67,7 @@ export class DeleteFaceVerifyResultResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Return message.
+   * The returned message.
    * 
    * @example
    * success
@@ -85,7 +83,7 @@ export class DeleteFaceVerifyResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned result information.
    */
   resultObject?: DeleteFaceVerifyResultResponseBodyResultObject;
   static names(): { [key: string]: string } {

@@ -23,7 +23,7 @@ export class DescribeFaceGuardRiskRequest extends $dara.Model {
    * @remarks
    * The identifier used for subsequent troubleshooting. Ensure that this value is unique within your business.
    * 
-   * The value can contain letters (both uppercase and lowercase) and digits, with a maximum length of 32 characters.
+   * The value can contain uppercase and lowercase letters and digits, and can be up to 32 characters in length.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c35xxxx
@@ -31,7 +31,7 @@ export class DescribeFaceGuardRiskRequest extends $dara.Model {
   outerOrderNo?: string;
   /**
    * @remarks
-   * The product code. Set this to FACE_GUARD.
+   * The product code. Set the value to FACE_GUARD.
    * 
    * @example
    * FACE_GUARD

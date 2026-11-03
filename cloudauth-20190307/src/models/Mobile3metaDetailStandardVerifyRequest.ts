@@ -7,8 +7,8 @@ export class Mobile3MetaDetailStandardVerifyRequest extends $dara.Model {
    * @remarks
    * The ID card number.
    * 
-   * - If ParamType is set to normal, pass in the ID card number in plaintext.
-   * - If ParamType is set to md5, pass in the MD5-encrypted ID card number.
+   * - If paramType is set to normal, specify the plaintext ID card number.
+   * - If paramType is set to md5, specify the ciphertext ID card number.
    * 
    * @example
    * 429001********8211
@@ -16,10 +16,10 @@ export class Mobile3MetaDetailStandardVerifyRequest extends $dara.Model {
   identifyNum?: string;
   /**
    * @remarks
-   * The phone number.
+   * The mobile phone number.
    * 
-   * - If ParamType is set to normal, pass in the phone number in plaintext.
-   * - If ParamType is set to md5, pass in the MD5-encrypted phone number.
+   * - If paramType is set to normal, specify the plaintext mobile phone number.
+   * - If paramType is set to md5, specify the ciphertext mobile phone number.
    * 
    * @example
    * 138********
@@ -29,8 +29,8 @@ export class Mobile3MetaDetailStandardVerifyRequest extends $dara.Model {
    * @remarks
    * The parameter type. Valid values:
    * 
-   * - normal: not encrypted.
-   * - md5: MD5-encrypted.
+   * - normal: The value is not encrypted.
+   * - md5: The value is encrypted by using MD5.
    * 
    * @example
    * normal
@@ -40,11 +40,11 @@ export class Mobile3MetaDetailStandardVerifyRequest extends $dara.Model {
    * @remarks
    * The name.
    * 
-   * - If ParamType is set to normal, pass in the name in plaintext.
-   * - If ParamType is set to md5, pass in the MD5-encrypted name.
+   * - If paramType is set to normal, specify the plaintext name.
+   * - If paramType is set to md5, specify the ciphertext name.
    * 
    * @example
-   * 张*
+   * Zhang*
    */
   userName?: string;
   static names(): { [key: string]: string } {

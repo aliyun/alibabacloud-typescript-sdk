@@ -13,7 +13,7 @@ export class ModifyControlStrategyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message returned by the operation.
+   * The message returned by the API.
    * 
    * @example
    * success

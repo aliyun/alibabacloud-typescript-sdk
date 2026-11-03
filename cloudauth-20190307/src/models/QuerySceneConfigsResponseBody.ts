@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySceneConfigsResponseBodySceneConfigs extends $dara.Model {
   /**
    * @remarks
-   * The specific configuration content, in JSON string format.
+   * The specific configuration content, which is a JSON string.
    * 
    * @example
    * {\\"faceCompareMode\\":\\"CUSTOM\\",\\"certConfigs\\":[{\\"index\\":0,\\"openVoiceCompare\\":false,\\"openCustomizedContent\\":true,\\"model\\":\\"QA\\"}],\\"screenEvidence\\":true}
@@ -37,7 +37,7 @@ export class QuerySceneConfigsResponseBodySceneConfigs extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The scenario ID.
+   * The scene ID.
    * 
    * @example
    * 1000009045
@@ -53,7 +53,7 @@ export class QuerySceneConfigsResponseBodySceneConfigs extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The version number of the scenario configuration.
+   * The scene configuration version number.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class QuerySceneConfigsResponseBodySceneConfigs extends $dara.Model {
 export class QuerySceneConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -103,7 +103,7 @@ export class QuerySceneConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of intent verification configurations.
+   * The list of willingness configurations.
    */
   sceneConfigs?: QuerySceneConfigsResponseBodySceneConfigs[];
   static names(): { [key: string]: string } {

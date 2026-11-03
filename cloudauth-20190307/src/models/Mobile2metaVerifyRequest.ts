@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class Mobile2MetaVerifyRequest extends $dara.Model {
   /**
    * @remarks
-   * The mobile phone number. Valid values:
-   * - If ParamType is set to normal, pass in the mobile phone number in plaintext.
-   * - If ParamType is set to md5, pass in the MD5-encrypted mobile phone number.
+   * The mobile phone number.
+   * - If paramType is set to normal, specify the mobile phone number in plaintext.
+   * - If paramType is set to md5, specify the mobile phone number in ciphertext.
    * 
    * This parameter is required.
    * 
    * @example
-   * ● 明文：186****2055
-   * ● 密文：
+   * ● Plaintext: 186****2055
+   * ● Ciphertext:
    * 849169cd3b20621c1c78bd61a11a4fc2
    */
   mobile?: string;
@@ -21,7 +21,7 @@ export class Mobile2MetaVerifyRequest extends $dara.Model {
    * @remarks
    * The encryption method. Valid values:
    * - normal: plaintext without encryption
-   * - md5: MD5 encryption.
+   * - md5: MD5 encryption
    * 
    * This parameter is required.
    * 
@@ -31,15 +31,15 @@ export class Mobile2MetaVerifyRequest extends $dara.Model {
   paramType?: string;
   /**
    * @remarks
-   * The name. Valid values:
-   * - If ParamType is set to normal, pass in the name in plaintext.
-   * - If ParamType is set to md5, pass in the MD5-encrypted name.
+   * The name.
+   * - If paramType is set to normal, specify the name in plaintext.
+   * - If paramType is set to md5, specify the name in ciphertext.
    * 
    * This parameter is required.
    * 
    * @example
-   * ● 明文：张三
-   * ● 密文：
+   * ● Plaintext: Zhang San
+   * ● Ciphertext:
    * 32fa7bcd874161bea8ec8fd98f390ec9
    */
   userName?: string;

@@ -7,9 +7,9 @@ export class Mobile3MetaSimpleStandardVerifyResponseBodyResultObject extends $da
    * @remarks
    * The verification result. Valid values:
    * 
-   * - 1: Consistent (billable).
-   * - 2: Inconsistent (billable).
-   * - 3: No record found (not billable).
+   * - 1: Consistent (billed).
+   * - 2: Inconsistent (billed).
+   * - 3: No record found (not billed).
    * 
    * @example
    * 1
@@ -17,7 +17,7 @@ export class Mobile3MetaSimpleStandardVerifyResponseBodyResultObject extends $da
   bizCode?: string;
   /**
    * @remarks
-   * The carrier name. Valid values:
+   * The name of the Internet service provider (ISP). Valid values:
    * 
    * - **CMCC**: China Mobile.
    * - **CUCC**: China Unicom.
@@ -62,7 +62,7 @@ export class Mobile3MetaSimpleStandardVerifyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -78,7 +78,7 @@ export class Mobile3MetaSimpleStandardVerifyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information.
+   * The returned result information.
    */
   resultObject?: Mobile3MetaSimpleStandardVerifyResponseBodyResultObject;
   static names(): { [key: string]: string } {

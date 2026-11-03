@@ -13,7 +13,7 @@ export class QueryCustomizeFlowStrategyResponseBodyResultObject extends $dara.Mo
   accumulateKey?: string;
   /**
    * @remarks
-   * The rate limiting statistical window. Unit: **minutes**.
+   * The throttling statistics window, in **minutes**.
    * 
    * @example
    * 60
@@ -30,10 +30,10 @@ export class QueryCustomizeFlowStrategyResponseBodyResultObject extends $dara.Mo
   /**
    * @remarks
    * The flow type. Valid values:
-   * - **ACCUMULATE**: repeated occurrence of an ID card number.
-   * - **PASSED_RATE**: pass rate less than the threshold.
-   * - **SUB_CODE_205**: authentication failed and the proportion of liveness attack 205 is greater than the threshold.
-   * - **SUB_CODE_206**: authentication failed and the proportion of liveness attack 206 is greater than the threshold.
+   * - **ACCUMULATE**: Repeated occurrence of ID cards.
+   * - **PASSED_RATE**: Pass rate is less than.
+   * - **SUB_CODE_205**: Authentication fails and the proportion of liveness attack 205 is greater than.
+   * - **SUB_CODE_206**: Authentication fails and the proportion of liveness attack 206 is greater than.
    * 
    * @example
    * ACCUMULATE
@@ -121,7 +121,7 @@ export class QueryCustomizeFlowStrategyResponseBodyResultObject extends $dara.Mo
 export class QueryCustomizeFlowStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200
@@ -145,7 +145,7 @@ export class QueryCustomizeFlowStrategyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -158,7 +158,7 @@ export class QueryCustomizeFlowStrategyResponseBody extends $dara.Model {
   resultObject?: QueryCustomizeFlowStrategyResponseBodyResultObject[];
   /**
    * @remarks
-   * Indicates whether the response is successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true
