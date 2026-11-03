@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageRecognitionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The border pixel information, returned as a comma-separated string.
+   * The border pixel information, which is a comma-separated string.
    * 
    * @example
    * 8,10,0,1,330,330
@@ -77,7 +77,7 @@ export class ImageRecognitionResponseBodyData extends $dara.Model {
   objWatermark?: boolean;
   /**
    * @remarks
-   * The number of products.
+   * The product quantity.
    * 
    * @example
    * 2
@@ -85,7 +85,7 @@ export class ImageRecognitionResponseBodyData extends $dara.Model {
   pdNum?: number;
   /**
    * @remarks
-   * The proportion of the product in the image.
+   * The product proportion.
    * 
    * @example
    * 74.15%
@@ -98,7 +98,7 @@ export class ImageRecognitionResponseBodyData extends $dara.Model {
   recText?: string[];
   /**
    * @remarks
-   * The proportion of text in the image.
+   * The text proportion.
    * 
    * @example
    * 7.52%
@@ -168,7 +168,7 @@ export class ImageRecognitionResponseBodyData extends $dara.Model {
 export class ImageRecognitionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned if the call is successful.
+   * The error code. This parameter is not returned when the call is successful.
    * 
    * @example
    * 200
@@ -181,7 +181,7 @@ export class ImageRecognitionResponseBody extends $dara.Model {
   data?: ImageRecognitionResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The error message. This parameter is not returned when the call is successful.
    * 
    * @example
    * OK
@@ -197,7 +197,7 @@ export class ImageRecognitionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * True

@@ -13,7 +13,7 @@ export class DeleteDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The cause of the failure.
+   * The reason for the failure.
    * 
    * @example
    * Success
@@ -48,12 +48,12 @@ export class DeleteDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
    * The record status. This field is empty for deletion results.
    * 
    * @example
-   * Empty for the deletion API
+   * Empty for deletion API operations
    */
   status?: string;
   /**
    * @remarks
-   * Indicates whether the deletion is successful.
+   * Indicates whether the deletion was successful.
    * 
    * @example
    * True
@@ -143,7 +143,7 @@ export class DeleteDisplayKnowledgeResponseBodyData extends $dara.Model {
   ragId?: string;
   /**
    * @remarks
-   * The number of visible records after the deletion.
+   * The number of visible records after deletion.
    * 
    * @example
    * 50
@@ -156,7 +156,7 @@ export class DeleteDisplayKnowledgeResponseBodyData extends $dara.Model {
   results?: DeleteDisplayKnowledgeResponseBodyDataResults[];
   /**
    * @remarks
-   * Indicates whether the business processing is successful.
+   * Indicates whether the business processing was successful.
    * 
    * @example
    * True
@@ -233,12 +233,12 @@ export class DeleteDisplayKnowledgeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The deletion results for the display knowledge base content.
+   * The result of deleting content from the display knowledge base.
    */
   data?: DeleteDisplayKnowledgeResponseBodyData;
   /**
    * @remarks
-   * The response message or failure description.
+   * The returned message or failure description.
    * 
    * @example
    * success
@@ -254,7 +254,7 @@ export class DeleteDisplayKnowledgeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * True

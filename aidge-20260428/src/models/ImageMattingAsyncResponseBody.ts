@@ -35,7 +35,7 @@ export class ImageMattingAsyncResponseBodyData extends $dara.Model {
 export class ImageMattingAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code, such as "success". This parameter is not returned for normal calls.
+   * The status code, such as success.
    * 
    * @example
    * success
@@ -43,7 +43,7 @@ export class ImageMattingAsyncResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The submission result of the asynchronous task for intelligent image matting.
+   * The submission result of the intelligent image matting asynchronous task.
    */
   data?: ImageMattingAsyncResponseBodyData;
   /**
@@ -56,7 +56,7 @@ export class ImageMattingAsyncResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. It is used to identify a unique request.
+   * The request ID, which is used to identify a unique request.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -64,9 +64,7 @@ export class ImageMattingAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - true: The call is successful.
-   * - false: The call fails.
+   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * True

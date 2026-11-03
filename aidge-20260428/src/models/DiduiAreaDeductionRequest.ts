@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DiduiAreaDeductionRequestProductsBoxes extends $dara.Model {
   /**
    * @remarks
-   * The bottom boundary of the detection box.
+   * The bottom boundary of the bounding box.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DiduiAreaDeductionRequestProductsBoxes extends $dara.Model {
   bottom?: number;
   /**
    * @remarks
-   * The left boundary of the detection box.
+   * The left boundary of the bounding box.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DiduiAreaDeductionRequestProductsBoxes extends $dara.Model {
   left?: number;
   /**
    * @remarks
-   * The right boundary of the detection box.
+   * The right boundary of the bounding box.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DiduiAreaDeductionRequestProductsBoxes extends $dara.Model {
   right?: number;
   /**
    * @remarks
-   * The top boundary of the detection box.
+   * The top boundary of the bounding box.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class DiduiAreaDeductionRequestProductsBoxes extends $dara.Model {
 export class DiduiAreaDeductionRequestProducts extends $dara.Model {
   /**
    * @remarks
-   * The instance boxes for the current SKU. The coordinate range is 0 to 1000.
+   * The bounding boxes of the current SKU, with coordinate values ranging from 0 to 1000.
    * 
    * This parameter is required.
    */
@@ -117,14 +117,14 @@ export class DiduiAreaDeductionRequestProducts extends $dara.Model {
 export class DiduiAreaDeductionRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of products and their detection boxes.
+   * The list of products and bounding boxes.
    * 
    * This parameter is required.
    */
   products?: DiduiAreaDeductionRequestProducts[];
   /**
    * @remarks
-   * The ID of the customer-specific SKU vector database that determines which database is used for recall. The database must be created in advance through the database creation process.
+   * The ID of the customer\\"s dedicated SKU vector database, which determines the database used for retrieval. The database must be created through the database creation process in advance.
    * 
    * @example
    * rag_xxx
@@ -132,7 +132,7 @@ export class DiduiAreaDeductionRequest extends $dara.Model {
   ragId?: string;
   /**
    * @remarks
-   * The optional business request ID used for Tracing Analysis.
+   * The optional business request ID, used for end-to-end Tracing Analysis.
    * 
    * @example
    * didui-request-001

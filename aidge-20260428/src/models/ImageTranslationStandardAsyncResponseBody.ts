@@ -35,7 +35,7 @@ export class ImageTranslationStandardAsyncResponseBodyData extends $dara.Model {
 export class ImageTranslationStandardAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned for normal calls.
+   * The error code. This parameter is not returned for successful calls.
    * 
    * @example
    * 200
@@ -43,12 +43,12 @@ export class ImageTranslationStandardAsyncResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The asynchronous task submission result of Image Translation Standard Edition.
+   * The submission result of the asynchronous task for Image Translation Standard Edition.
    */
   data?: ImageTranslationStandardAsyncResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned for normal calls.
+   * The error message. This parameter is not returned for successful calls.
    * 
    * @example
    * OK

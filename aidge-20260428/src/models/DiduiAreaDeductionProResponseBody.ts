@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DiduiAreaDeductionProResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous task, which is used to call QueryAsyncTaskResult to query the task result.
+   * The ID of the asynchronous task used to query the result by calling QueryAsyncTaskResult.
    * 
    * @example
    * task_778xxxxxxxxxxx
@@ -43,12 +43,12 @@ export class DiduiAreaDeductionProResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The submit status of the asynchronous task.
+   * The submission result of the asynchronous task.
    */
   data?: DiduiAreaDeductionProResponseBodyData;
   /**
    * @remarks
-   * The response message or failure description.
+   * The returned message or failure description.
    * 
    * @example
    * Task submitted
@@ -64,7 +64,7 @@ export class DiduiAreaDeductionProResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * True

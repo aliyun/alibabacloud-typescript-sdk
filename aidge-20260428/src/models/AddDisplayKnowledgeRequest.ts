@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDisplayKnowledgeRequestRecords extends $dara.Model {
   /**
    * @remarks
-   * The HTTP(S) URL of the product image.
+   * The HTTP or HTTPS URL of the product image.
    * 
    * @example
    * https://xxxx/img_1784599244373_9c2309a0.jpg
@@ -15,7 +15,7 @@ export class AddDisplayKnowledgeRequestRecords extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The SKU ID. If this parameter is left empty, the platform generates the ID.
+   * The SKU ID. If this parameter is left empty, the platform generates an ID.
    * 
    * @example
    * sku-001

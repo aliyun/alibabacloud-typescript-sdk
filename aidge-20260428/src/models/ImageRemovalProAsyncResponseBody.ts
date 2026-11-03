@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageRemovalProAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the task. You can use this ID to query the asynchronous task result.
+   * The ID of the task used to query the asynchronous task result.
    * 
    * @example
    * TID_550e8400-e29b-41d4-a716-446655440000
@@ -48,7 +48,7 @@ export class ImageRemovalProAsyncResponseBody extends $dara.Model {
   data?: ImageRemovalProAsyncResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned for successful calls. Example: "The parameters contain sensitive information. Try other inputs."
+   * The error message. This parameter is not returned for successful calls. Example: "The parameters contain sensitive information. Please try another input."
    * 
    * @example
    * OK
@@ -56,7 +56,7 @@ export class ImageRemovalProAsyncResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. This ID is used to uniquely identify the request.
+   * The request ID, which uniquely identifies the request.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -65,8 +65,8 @@ export class ImageRemovalProAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call is successful. Valid values:
-   * - true: successful.
-   * - false: failed.
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * True

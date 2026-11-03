@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDisplayKnowledgeResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
-   * The description of the failure cause. This parameter is returned only when the status is FAILED.
+   * The description of the failure reason. This parameter is returned only when the status is FAILED.
    * 
    * @example
-   * Image is inaccessible
+   * Image not accessible
    */
   failureMessage?: string;
   /**
    * @remarks
-   * The code of the failure cause. This parameter is returned only when the status is FAILED.
+   * The code of the failure reason. This parameter is returned only when the status is FAILED.
    * 
    * @example
-   * Image is inaccessible
+   * Image not accessible
    */
   failureReason?: string;
   /**
@@ -45,7 +45,7 @@ export class QueryDisplayKnowledgeResponseBodyDataRecords extends $dara.Model {
   imageUrlExpireTime?: string;
   /**
    * @remarks
-   * The record ID.
+   * The ID of the record.
    * 
    * @example
    * 4410879640480000
@@ -61,7 +61,7 @@ export class QueryDisplayKnowledgeResponseBodyDataRecords extends $dara.Model {
   skuId?: string;
   /**
    * @remarks
-   * The SKU name.
+   * The name of the SKU.
    * 
    * @example
    * Product side image
@@ -69,7 +69,7 @@ export class QueryDisplayKnowledgeResponseBodyDataRecords extends $dara.Model {
   skuName?: string;
   /**
    * @remarks
-   * The record status.
+   * The status of the record.
    * 
    * @example
    * UPDATING - Updating
@@ -133,7 +133,7 @@ export class QueryDisplayKnowledgeResponseBodyData extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The knowledge base status.
+   * The status of the knowledge base.
    * 
    * @example
    * AVAILABLE - Available
@@ -157,7 +157,7 @@ export class QueryDisplayKnowledgeResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The knowledge base ID.
+   * The ID of the knowledge base.
    * 
    * @example
    * rag_xxx
@@ -178,7 +178,7 @@ export class QueryDisplayKnowledgeResponseBodyData extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The asynchronous task ID. This parameter is empty for synchronous API operations.
+   * The ID of the asynchronous task. This parameter is empty for synchronous API operations.
    * 
    * @example
    * a8323ada-a196-9061-976f-90e38b27323a
@@ -278,7 +278,7 @@ export class QueryDisplayKnowledgeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 70CBEFDF-BB17-1EB3-8A21-569F3124738F

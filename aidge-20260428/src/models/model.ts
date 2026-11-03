@@ -57,6 +57,9 @@ export { ImageTranslationStandardResponseBodyDataEditInfoTextAreas } from './Ima
 export { ImageTranslationStandardResponseBodyDataEditInfo } from './ImageTranslationStandardResponseBody';
 export { ImageTranslationStandardResponseBodyData } from './ImageTranslationStandardResponseBody';
 export { ImageTranslationStandardAsyncResponseBodyData } from './ImageTranslationStandardAsyncResponseBody';
+export { ImageUpscaleResponseBodyDataData } from './ImageUpscaleResponseBody';
+export { ImageUpscaleResponseBodyDataUsageMap } from './ImageUpscaleResponseBody';
+export { ImageUpscaleResponseBodyData } from './ImageUpscaleResponseBody';
 export { LanguageDetectResponseBodyData } from './LanguageDetectResponseBody';
 export { MaterialInspectionResponseBodyDataResultSteps } from './MaterialInspectionResponseBody';
 export { MaterialInspectionResponseBodyDataResult } from './MaterialInspectionResponseBody';
@@ -221,6 +224,9 @@ export { ImageTranslationStandardResponse } from './ImageTranslationStandardResp
 export { ImageTranslationStandardAsyncRequest } from './ImageTranslationStandardAsyncRequest';
 export { ImageTranslationStandardAsyncResponseBody } from './ImageTranslationStandardAsyncResponseBody';
 export { ImageTranslationStandardAsyncResponse } from './ImageTranslationStandardAsyncResponse';
+export { ImageUpscaleRequest } from './ImageUpscaleRequest';
+export { ImageUpscaleResponseBody } from './ImageUpscaleResponseBody';
+export { ImageUpscaleResponse } from './ImageUpscaleResponse';
 export { LanguageDetectRequest } from './LanguageDetectRequest';
 export { LanguageDetectResponseBody } from './LanguageDetectResponseBody';
 export { LanguageDetectResponse } from './LanguageDetectResponse';

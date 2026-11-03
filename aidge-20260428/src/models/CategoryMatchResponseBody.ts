@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CategoryMatchResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the matched category.
+   * The matched category ID.
    * 
    * @example
    * 1522
@@ -13,10 +13,10 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The name of the matched category.
+   * The matched category name.
    * 
    * @example
-   * 位置和活动跟踪器
+   * Location and Activity Trackers
    */
   categoryName?: string;
   /**
@@ -24,12 +24,12 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
    * The full path of the category, separated by forward slashes (/).
    * 
    * @example
-   * 宠物用品/猫用品/猫挂饰、项圈、牵引带/位置和活动跟踪器
+   * Pet Supplies/Cat Supplies/Cat Charms, Collars & Leashes/Location and Activity Trackers
    */
   categoryPath?: string;
   /**
    * @remarks
-   * The match confidence score. Valid values: 0 to 100.
+   * The matching confidence score, ranging from 0 to 100.
    * 
    * @example
    * 96
@@ -37,7 +37,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   confidence?: number;
   /**
    * @remarks
-   * Indicates whether the category matching is successful.
+   * Indicates whether the match is successful.
    * 
    * @example
    * true
@@ -45,10 +45,10 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   matchSuccessful?: boolean;
   /**
    * @remarks
-   * The reason for the category match.
+   * The matching rationale.
    * 
    * @example
-   * The core product is a cat collar with AirTag positioning functionality, belonging to the \\"Location and Activity Trackers\\" category. The leaf node semantically matches its tracking functionality and cat-use attributes precisely
+   * The core of the product is a cat collar with AirTag tracking functionality, which belongs to the \\"Location and Activity Trackers\\" category. The leaf node semantics precisely match its tracking function and cat-specific attributes
    */
   reason?: string;
   /**
@@ -95,7 +95,7 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
 export class CategoryMatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The value "success" is returned for successful calls.
+   * The status code. "success" is returned for successful calls.
    * 
    * @example
    * success
@@ -108,7 +108,7 @@ export class CategoryMatchResponseBody extends $dara.Model {
   data?: CategoryMatchResponseBodyData;
   /**
    * @remarks
-   * The error message. The value "Success" is returned for successful calls.
+   * The error message. "Success" is returned for successful calls.
    * 
    * @example
    * Success
@@ -116,7 +116,7 @@ export class CategoryMatchResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the request.
+   * The request ID, which is used to identify a unique request call.
    * 
    * @example
    * 2157065A-D6C8-1F3E-A4D0-B1234567890
@@ -124,7 +124,7 @@ export class CategoryMatchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * true

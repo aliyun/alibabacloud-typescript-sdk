@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ImageRemovalProRequest extends $dara.Model {
   /**
    * @remarks
-   * The call type. Valid values:
+   * Specifies the call type. Valid values:
    * - true: Asynchronous.
    * - false: Synchronous.
-   * 
    * Default value: false.
    * 
    * @example
@@ -17,7 +16,7 @@ export class ImageRemovalProRequest extends $dara.Model {
   async?: boolean;
   /**
    * @remarks
-   * The URL of the image to process.
+   * The URL of the image to be processed.
    * 
    * This parameter is required.
    * 

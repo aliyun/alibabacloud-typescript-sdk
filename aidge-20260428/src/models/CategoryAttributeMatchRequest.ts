@@ -8,12 +8,12 @@ export class CategoryAttributeMatchRequest extends $dara.Model {
    * The product details.
    * 
    * @example
-   * Silk, new spring style
+   * Silk, spring new arrival
    */
   description?: string;
   /**
    * @remarks
-   * The product image URLs. A maximum of 10 images are supported.
+   * The URLs of the product images. Up to 10 images are supported.
    * 
    * @example
    * https://frametour-assets.oss-cn-shanghai.aliyuncs.com/user-faces/viid_face/dd0dd06c-9351-4e5f-bc70-24166a754d7f.jpg
@@ -21,12 +21,12 @@ export class CategoryAttributeMatchRequest extends $dara.Model {
   imageUrl?: string[];
   /**
    * @remarks
-   * The product attributes that describe the product characteristics.
+   * The product attributes and feature descriptions.
    * 
    * This parameter is required.
    * 
    * @example
-   * For example, the material of the product. Enter the attribute name and attribute value
+   * For example, the material of the product. Enter the product attribute name and attribute content
    */
   itemSpec?: string;
   /**
@@ -36,12 +36,12 @@ export class CategoryAttributeMatchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 0:0:Color:Black (without locator);0:1:Color:Smart Locator (without collar);0:2:Color:Range Locator (without collar);0:3:Color:Blue (without locator);0:4:Color:Orange (without locator);0:5:Color:Pink (without locator);0:6:Color:Red (without locator);0:7:Color:Yellow (without locator);0:8:Color:Purple (without locator)
+   * 0:0:Color:Black (without tracker);0:1:Color:Smart tracking (without collar);0:2:Color:Range tracking (without collar);0:3:Color:Blue (without tracker);0:4:Color:Orange (without tracker);0:5:Color:Pink (without tracker);0:6:Color:Red (without tracker);0:7:Color:Yellow (without tracker);0:8:Color:Purple (without tracker)
    */
   sku?: string;
   /**
    * @remarks
-   * The product category on the source platform.
+   * The product category.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CategoryAttributeMatchRequest extends $dara.Model {
   sourceCategory?: string;
   /**
    * @remarks
-   * The source platform from which the product originates.
+   * The source platform.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class CategoryAttributeMatchRequest extends $dara.Model {
   sourcePlatform?: string;
   /**
    * @remarks
-   * The target listing platform. Currently, only temu is supported.
+   * The target platform. Currently, only TEMU is supported.
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class CategoryAttributeMatchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Women\\"s New Spring Clothing
+   * Women\\"s spring new arrival clothing
    */
   title?: string;
   static names(): { [key: string]: string } {

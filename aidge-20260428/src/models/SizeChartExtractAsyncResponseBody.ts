@@ -43,7 +43,7 @@ export class SizeChartExtractAsyncResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The commit result of the size chart fetch asynchronous task node.
+   * The submission result of the asynchronous task for size chart extraction.
    */
   data?: SizeChartExtractAsyncResponseBodyData;
   /**
@@ -64,7 +64,7 @@ export class SizeChartExtractAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values: true for success and false for failure.
+   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * True

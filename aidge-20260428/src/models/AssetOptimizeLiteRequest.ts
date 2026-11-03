@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssetOptimizeLiteRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom glossary for term intervention.
+   * The intervention glossary.
    * 
    * @example
    * Test

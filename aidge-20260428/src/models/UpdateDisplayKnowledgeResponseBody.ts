@@ -13,7 +13,7 @@ export class UpdateDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The cause of the failure.
+   * The reason for the failure.
    * 
    * @example
    * Success
@@ -21,7 +21,7 @@ export class UpdateDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The index in the original request array.
+   * The index of the original request array.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class UpdateDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the record is accepted.
+   * Indicates whether the record was accepted.
    * 
    * @example
    * True
@@ -148,7 +148,7 @@ export class UpdateDisplayKnowledgeResponseBodyData extends $dara.Model {
   results?: UpdateDisplayKnowledgeResponseBodyDataResults[];
   /**
    * @remarks
-   * Indicates whether the business processing is successful.
+   * Indicates whether the business processing was successful.
    * 
    * @example
    * True
@@ -223,7 +223,7 @@ export class UpdateDisplayKnowledgeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The update result of the display knowledge base content.
+   * The modification result of the display knowledge base content.
    */
   data?: UpdateDisplayKnowledgeResponseBodyData;
   /**
@@ -244,7 +244,7 @@ export class UpdateDisplayKnowledgeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * True

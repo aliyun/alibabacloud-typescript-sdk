@@ -43,7 +43,7 @@ export class AssetOptimizeLiteResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The submit result of the asynchronous task.
+   * The asynchronous task submission result.
    */
   data?: AssetOptimizeLiteResponseBodyData;
   /**
@@ -64,7 +64,7 @@ export class AssetOptimizeLiteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * True

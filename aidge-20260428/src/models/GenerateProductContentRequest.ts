@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GenerateProductContentRequest extends $dara.Model {
   /**
+   * @remarks
+   * Takes effect only when contentType is set to bulletPoint. Valid values: 1 to 5. Default value in generate mode: 1. In rewrite mode, if manually specified, the value must match the number of non-empty paragraphs in sourceText. This parameter is ignored for other copy types.
+   * 
    * @example
    * 5
    */
   bulletPointCount?: number;
   /**
    * @remarks
+   * The copy type. Valid values: title, highlight, keywords, bulletPoint, and description. When a platform is specified, you must select a type supported by the platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,22 +22,35 @@ export class GenerateProductContentRequest extends $dara.Model {
    */
   contentType?: string;
   /**
+   * @remarks
+   * Specifies whether to enable translation. Default value: false. Valid values: true and false.
+   * 
    * @example
    * True
    */
   enableTranslation?: boolean;
   /**
+   * @remarks
+   * The maximum number of characters for the final output text. If specified, the value must be an integer greater than or equal to 30. If a platform is specified and this parameter is not provided, the configured upper limit for the content type on the platform is used. Example: 60.
+   * 
    * @example
    * 1000
    */
   maxLength?: number;
   /**
+   * @remarks
+   * The minimum number of characters for the final output text. If specified, the value must be an integer greater than or equal to 10. If a platform is specified and this parameter is not provided, the configured lower limit for the content type on the platform is used.
+   * 
    * @example
    * 500
    */
   minLength?: number;
   /**
    * @remarks
+   * The operation type. Valid values:
+   * - generate: Generates copy.
+   * - rewrite: Rewrites copy.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40,22 +58,33 @@ export class GenerateProductContentRequest extends $dara.Model {
    */
   operation?: string;
   /**
+   * @remarks
+   * The target platform. Valid values: amazon, temu, tiktok, shopify, Wildberries, and tmall. If this parameter is not provided, the request is processed as a general scenario. Enum values are case-sensitive.
+   * 
    * @example
    * amazon
    */
   platform?: string;
   /**
+   * @remarks
+   * The product attribute information. Default value: empty. The length must be 0 to 500 characters.
+   * 
    * @example
-   * {"brand":"苏泊尔","material":"304不锈钢"}
+   * {"brand":"Supor","material":"304 stainless steel"}
    */
   productAttributes?: string;
   /**
+   * @remarks
+   * The product category. Default value: an empty string. The length must be 0 to 100 characters. This parameter helps understand the category during generation and eliminates ambiguity during rewriting.
+   * 
    * @example
-   * 厨房用具
+   * Kitchen utensils
    */
   productCategory?: string;
   /**
    * @remarks
+   * The source language. Valid values: zh and en. Automatic language detection is not supported. Supported source languages: Chinese (zh) and English (en).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64,13 +93,18 @@ export class GenerateProductContentRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
+   * The product information or copy to be rewritten. The length must be 20 to 3,000 characters.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 不锈钢蒸锅28cm三层大容量家用厨房必备蒸煮两用锅具
+   * Stainless steel 28 cm 3-tier large-capacity steamer for home kitchens
    */
   sourceText?: string;
   /**
+   * @remarks
+   * Required when enableTranslation is set to true. For valid values, see the multilingual processing section. If translation is disabled, this parameter is optional. If provided, it must be the same as the source language. Supported target languages: Chinese (zh), English (en), Russian (ru), German (de), French (fr), Korean (ko), Italian (it), Thai (th), Arabic (ar), Turkish (tr), Hebrew (he), Ukrainian (uk), Polish (pl), Japanese (ja), Dutch (nl), Portuguese (pt), Spanish (es), Malay (ms), Bulgarian (bg), Indonesian (id), and Vietnamese (vi).
+   * 
    * @example
    * en
    */

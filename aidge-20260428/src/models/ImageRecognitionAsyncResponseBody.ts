@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageRecognitionAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task ID used to query the result of the asynchronous task.
+   * The ID of the task. It is used to query the result of the asynchronous task.
    * 
    * @example
    * TID_550e8400-e29b-41d4-a716-446655440000
@@ -43,12 +43,12 @@ export class ImageRecognitionAsyncResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The struct information of the returned recognition result.
+   * The returned struct information of the result.
    */
   data?: ImageRecognitionAsyncResponseBodyData;
   /**
    * @remarks
-   * The error message, such as "The parameter contains sensitive information. Try another input."
+   * The error message, such as The parameter contains sensitive information. Try another input.
    * 
    * @example
    * OK
@@ -56,7 +56,7 @@ export class ImageRecognitionAsyncResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to identify a unique request.
+   * The ID of the request. It is used to identify a unique request.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -64,9 +64,7 @@ export class ImageRecognitionAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - true: successful
-   * - false: failed
+   * Indicates whether the call is successful. Valid values: true: Successful. false: Failed.
    * 
    * @example
    * True

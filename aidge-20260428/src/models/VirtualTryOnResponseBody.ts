@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VirtualTryOnResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID, which is used to query the task result later.
+   * The ID of the asynchronous task, which is used to query the task result later.
    * 
    * @example
    * task-xxxx-xxxx-xxxx
@@ -45,7 +45,7 @@ export class VirtualTryOnResponseBodyData extends $dara.Model {
 export class VirtualTryOnResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned if the call is successful.
+   * The error code. This parameter is not returned when the call is successful.
    * 
    * @example
    * 200
@@ -58,7 +58,7 @@ export class VirtualTryOnResponseBody extends $dara.Model {
   data?: VirtualTryOnResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The error message. This parameter is not returned when the call is successful.
    * 
    * @example
    * OK
@@ -66,7 +66,7 @@ export class VirtualTryOnResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the request.
+   * The request ID, which is used to identify a unique request.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -74,7 +74,9 @@ export class VirtualTryOnResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values: true: The call is successful. false: The call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * True

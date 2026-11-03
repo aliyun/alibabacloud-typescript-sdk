@@ -13,7 +13,7 @@ export class CategoryAttributeMatchResponseBodyDataAttributes extends $dara.Mode
   attrId?: number;
   /**
    * @remarks
-   * The matching confidence score, ranging from 0 to 100.
+   * The matching confidence level. Valid values: 0 to 100.
    * 
    * @example
    * 50
@@ -29,7 +29,7 @@ export class CategoryAttributeMatchResponseBodyDataAttributes extends $dara.Mode
   inputType?: string;
   /**
    * @remarks
-   * Indicates whether the attribute is successfully matched. Valid values: true and false.
+   * Indicates whether the attribute is matched successfully. Valid values: true and false.
    * 
    * @example
    * True
@@ -53,7 +53,7 @@ export class CategoryAttributeMatchResponseBodyDataAttributes extends $dara.Mode
   nameEn?: string;
   /**
    * @remarks
-   * The explanation for the matching result.
+   * The description of the matching reason.
    * 
    * @example
    * a_reason
@@ -61,12 +61,12 @@ export class CategoryAttributeMatchResponseBodyDataAttributes extends $dara.Mode
   reason?: string;
   /**
    * @remarks
-   * The list of selected attribute value texts, such as ["iOS","Android"\\].
+   * The list of selected attribute value texts, such as ["iOS","Android"].
    */
   selectedValues?: string[];
   /**
    * @remarks
-   * The list of selected attribute value IDs, such as [30127,30128\\].
+   * The list of selected attribute value IDs, such as [30127,30128].
    */
   selectedVids?: number[];
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class CategoryAttributeMatchResponseBodyDataAttributes extends $dara.Mode
 export class CategoryAttributeMatchResponseBodyDataUsageMap extends $dara.Model {
   /**
    * @remarks
-   * The number of processing times.
+   * The processing count.
    * 
    * @example
    * 1
@@ -161,20 +161,20 @@ export class CategoryAttributeMatchResponseBodyData extends $dara.Model {
    * The category name.
    * 
    * @example
-   * Cat Collars
+   * Cat collar
    */
   categoryName?: string;
   /**
    * @remarks
-   * The full path of the category, separated by "/".
+   * The full path of the category, separated by forward slashes (/).
    * 
    * @example
-   * Pet Supplies/Cat Supplies/Cat Charms, Collars & Leashes/Cat Collars
+   * Pet Supplies/Cat Supplies/Cat Pendants, Collars, Leashes/Cat Collar
    */
   categoryPath?: string;
   /**
    * @remarks
-   * The number of attributes that are successfully filled.
+   * The number of successfully filled attributes.
    * 
    * @example
    * 7
@@ -182,7 +182,7 @@ export class CategoryAttributeMatchResponseBodyData extends $dara.Model {
   filledCount?: number;
   /**
    * @remarks
-   * Indicates whether the attribute is successfully matched. Valid values: true and false.
+   * Indicates whether the attribute is matched successfully. Valid values: true and false.
    * 
    * @example
    * True
@@ -245,7 +245,7 @@ export class CategoryAttributeMatchResponseBodyData extends $dara.Model {
 export class CategoryAttributeMatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned for successful calls.
+   * The error code. This parameter is not returned when the call is successful.
    * 
    * @example
    * 200
@@ -258,7 +258,7 @@ export class CategoryAttributeMatchResponseBody extends $dara.Model {
   data?: CategoryAttributeMatchResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned for successful calls.
+   * The error message. This parameter is not returned when the call is successful.
    * 
    * @example
    * null

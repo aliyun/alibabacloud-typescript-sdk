@@ -13,7 +13,7 @@ export class DiduiAreaDeductionResponseBodyDataResultStage4AreaLabel extends $da
   areaM2?: number;
   /**
    * @remarks
-   * The left edge length, in meters.
+   * The length of the left boundary, in meters.
    * 
    * @example
    * 1.025
@@ -21,7 +21,7 @@ export class DiduiAreaDeductionResponseBodyDataResultStage4AreaLabel extends $da
   leftEdgeM?: number;
   /**
    * @remarks
-   * The right edge length, in meters.
+   * The length of the right boundary, in meters.
    * 
    * @example
    * 1.419
@@ -55,7 +55,7 @@ export class DiduiAreaDeductionResponseBodyDataResultStage4AreaLabel extends $da
 export class DiduiAreaDeductionResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The stage 4 area label.
+   * The Stage 4 area label.
    */
   stage4AreaLabel?: DiduiAreaDeductionResponseBodyDataResultStage4AreaLabel;
   static names(): { [key: string]: string } {
@@ -109,7 +109,7 @@ export class DiduiAreaDeductionResponseBodyData extends $dara.Model {
   httpStatus?: number;
   /**
    * @remarks
-   * The downstream call latency, in milliseconds.
+   * The duration of the downstream call, in milliseconds.
    * 
    * @example
    * 1000
@@ -154,7 +154,7 @@ export class DiduiAreaDeductionResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the workflow execution is successful.
+   * The business status of the workflow.
    * 
    * @example
    * True
@@ -226,7 +226,7 @@ export class DiduiAreaDeductionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The floor display area inference result.
+   * The inference result of the floor display area.
    */
   data?: DiduiAreaDeductionResponseBodyData;
   /**

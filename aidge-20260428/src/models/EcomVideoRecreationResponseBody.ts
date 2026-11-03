@@ -64,7 +64,7 @@ export class EcomVideoRecreationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the submission is successful.
+   * Indicates whether the submission was successful.
    * 
    * @example
    * true

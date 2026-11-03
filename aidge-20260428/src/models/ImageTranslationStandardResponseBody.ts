@@ -6,26 +6,41 @@ export class ImageTranslationStandardResponseBodyDataEditInfoGoodsRects extends 
   /**
    * @remarks
    * The rotation angle.
+   * 
+   * @example
+   * 0
    */
   degree?: number;
   /**
    * @remarks
    * The height.
+   * 
+   * @example
+   * 0
    */
   height?: number;
   /**
    * @remarks
    * The left coordinate.
+   * 
+   * @example
+   * 0
    */
   left?: number;
   /**
    * @remarks
    * The top coordinate.
+   * 
+   * @example
+   * 0
    */
   top?: number;
   /**
    * @remarks
    * The width.
+   * 
+   * @example
+   * 0
    */
   width?: number;
   static names(): { [key: string]: string } {
@@ -61,26 +76,41 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreasTextsImage
   /**
    * @remarks
    * The rotation angle.
+   * 
+   * @example
+   * 0
    */
   degree?: number;
   /**
    * @remarks
    * The height.
+   * 
+   * @example
+   * 54
    */
   height?: number;
   /**
    * @remarks
    * The left coordinate.
+   * 
+   * @example
+   * 43
    */
   left?: number;
   /**
    * @remarks
    * The top coordinate.
+   * 
+   * @example
+   * 83
    */
   top?: number;
   /**
    * @remarks
    * The width.
+   * 
+   * @example
+   * 418
    */
   width?: number;
   static names(): { [key: string]: string } {
@@ -116,26 +146,41 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreasTextsTextR
   /**
    * @remarks
    * The rotation angle.
+   * 
+   * @example
+   * 0
    */
   degree?: number;
   /**
    * @remarks
    * The height.
+   * 
+   * @example
+   * 30
    */
   height?: number;
   /**
    * @remarks
    * The left coordinate.
+   * 
+   * @example
+   * 8
    */
   left?: number;
   /**
    * @remarks
    * The top coordinate.
+   * 
+   * @example
+   * 95
    */
   top?: number;
   /**
    * @remarks
    * The width.
+   * 
+   * @example
+   * 488
    */
   width?: number;
   static names(): { [key: string]: string } {
@@ -207,7 +252,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreasTexts exte
   language?: string;
   /**
    * @remarks
-   * The line count.
+   * The number of lines.
    * 
    * @example
    * 1
@@ -231,7 +276,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreasTexts exte
    * The text value.
    * 
    * @example
-   * Solid Wood Wardrobe
+   * Solid wood wardrobe
    */
   value?: string;
   /**
@@ -322,7 +367,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreas extends $
   horizontalLayout?: string;
   /**
    * @remarks
-   * The line count.
+   * The number of lines.
    * 
    * @example
    * 2
@@ -520,7 +565,7 @@ export class ImageTranslationStandardResponseBodyData extends $dara.Model {
   editInfo?: ImageTranslationStandardResponseBodyDataEditInfo;
   /**
    * @remarks
-   * The URL of the image generated after image translation.
+   * The URL of the image generated after the image translation.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/xxx.jpg
@@ -528,7 +573,7 @@ export class ImageTranslationStandardResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The usage information, including the number of processed images.
+   * The usage information, such as the number of processed images.
    * 
    * @example
    * {"ProcessedImageCount":1}
@@ -576,12 +621,12 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The translation result data, including the translated image URL and usage information.
+   * The translation result data, including the URL of the translated image and usage information.
    */
   data?: ImageTranslationStandardResponseBodyData;
   /**
    * @remarks
-   * The error message. "Success" is returned for a successful call. A specific error message is returned for a failed call.
+   * The error message. This parameter returns Success for successful calls and specific error messages for exceptions.
    * 
    * @example
    * Success
@@ -589,7 +634,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the request.
+   * The ID of the request.
    * 
    * @example
    * 1CEC4D94-905A-1ED1-A7B4-1BFEFFB3D850
@@ -597,7 +642,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the call was successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   /**
    * @remarks
-   * The failure error code.
+   * The error code for the failure.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class AddDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The failure reason.
+   * The reason for the failure.
    * 
    * @example
    * The deviceName format is incorrect.
@@ -21,7 +21,7 @@ export class AddDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The index in the original request array.
+   * The index of the record in the original request array.
    * 
    * @example
    * 3
@@ -55,7 +55,7 @@ export class AddDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Indicates whether the record is accepted.
+   * Indicates whether the record was accepted.
    * 
    * @example
    * True
@@ -147,12 +147,12 @@ export class AddDisplayKnowledgeResponseBodyData extends $dara.Model {
   ragId?: string;
   /**
    * @remarks
-   * The processing results for each record.
+   * The processing result of each record.
    */
   results?: AddDisplayKnowledgeResponseBodyDataResults[];
   /**
    * @remarks
-   * Indicates whether the business processing is successful.
+   * Indicates whether the business processing was successful.
    * 
    * @example
    * True
@@ -248,7 +248,7 @@ export class AddDisplayKnowledgeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * True

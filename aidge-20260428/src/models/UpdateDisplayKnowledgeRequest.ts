@@ -75,7 +75,7 @@ export class UpdateDisplayKnowledgeRequest extends $dara.Model {
   ragId?: string;
   /**
    * @remarks
-   * The records to update. A maximum of 500 records can be specified.
+   * The records to be modified. A maximum of 500 records can be specified.
    * 
    * This parameter is required.
    */

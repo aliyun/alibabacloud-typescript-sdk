@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssetOptimizeProResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID. Use this ID to query the processing result by calling QueryAsyncTaskResult.
+   * The ID of the asynchronous task, which is used to query the processing result by calling QueryAsyncTaskResult.
    * 
    * @example
    * 8080345d-b28a-9e2e-9ad7-370f8e236949
@@ -35,7 +35,7 @@ export class AssetOptimizeProResponseBodyData extends $dara.Model {
 export class AssetOptimizeProResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The value "success" is returned for a successful call.
+   * The status code. A value of success is returned for successful calls.
    * 
    * @example
    * success
@@ -43,12 +43,12 @@ export class AssetOptimizeProResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The submit result of the asynchronous task, which contains the asynchronous task ID.
+   * The submission result of the asynchronous task, which includes the asynchronous task ID.
    */
   data?: AssetOptimizeProResponseBodyData;
   /**
    * @remarks
-   * The error message. The value "Success" is returned for a successful call.
+   * The error message. A value of Success is returned for successful calls.
    * 
    * @example
    * Success
@@ -56,7 +56,7 @@ export class AssetOptimizeProResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which uniquely identifies the request.
+   * The request ID, which is used to identify a unique request.
    * 
    * @example
    * 4FCCA90A-A7A4-1D37-88C3-C17549886E70
@@ -64,7 +64,7 @@ export class AssetOptimizeProResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * true

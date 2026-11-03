@@ -35,7 +35,7 @@ export class TextTranslateAsyncResponseBodyData extends $dara.Model {
 export class TextTranslateAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code of the submission call. Example: success.
+   * The response code for the submission call. A success example is success.
    * 
    * @example
    * success
@@ -48,7 +48,7 @@ export class TextTranslateAsyncResponseBody extends $dara.Model {
   data?: TextTranslateAsyncResponseBodyData;
   /**
    * @remarks
-   * The invocation message. Example of a successful call: Success. If the call fails, check the actual error message.
+   * The call description. A success example is Success. If the call fails, read the actual error message.
    * 
    * @example
    * success
@@ -64,7 +64,7 @@ export class TextTranslateAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the submission call is successful. A successful call does not mean that the translation is complete.
+   * Indicates whether the submission call is successful. It does not indicate that the translation is complete.
    * 
    * @example
    * True

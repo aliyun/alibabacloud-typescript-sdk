@@ -10,7 +10,7 @@ export class GeneralRephotographyDetectionResponseBodyDataResultGroundingRegions
   bbox2d?: number[];
   /**
    * @remarks
-   * The target category. For valid values, see the table below.
+   * The target category. For enumerations, see the following table.
    * 
    * @example
    * product
@@ -18,7 +18,7 @@ export class GeneralRephotographyDetectionResponseBodyDataResultGroundingRegions
   label?: string;
   /**
    * @remarks
-   * The confirmed short name or text of up to 24 characters. This value is an empty string if the text is unreadable.
+   * The confirmed short name or text of up to 24 characters. This is an empty string if the text is unclear.
    * 
    * @example
    * Product
@@ -55,9 +55,9 @@ export class GeneralRephotographyDetectionResponseBodyDataResultGroundingRegions
 export class GeneralRephotographyDetectionResponseBodyDataResultGrounding extends $dara.Model {
   /**
    * @remarks
-   * The coverage of the localization. Valid values:
-   * - complete: All relevant visible targets are fully covered.
-   * - partial: Only some targets are valid or recognizable.
+   * The coverage. Valid values:
+   * - `complete`: The relevant visible targets are complete.
+   * - `partial`: Only some targets are valid or recognizable.
    * 
    * @example
    * complete
@@ -65,7 +65,7 @@ export class GeneralRephotographyDetectionResponseBodyDataResultGrounding extend
   coverage?: string;
   /**
    * @remarks
-   * The array of targets. A maximum of 12 items are returned. This value can be empty if no relevant targets exist.
+   * The target array. It contains up to 12 items and can be empty if no relevant targets are found.
    */
   regions?: GeneralRephotographyDetectionResponseBodyDataResultGroundingRegions[];
   static names(): { [key: string]: string } {
@@ -102,7 +102,7 @@ export class GeneralRephotographyDetectionResponseBodyDataResult extends $dara.M
   grounding?: GeneralRephotographyDetectionResponseBodyDataResultGrounding;
   /**
    * @remarks
-   * Indicates whether the image is a recaptured photo.
+   * Indicates whether the image is recaptured.
    * 
    * @example
    * true
@@ -110,7 +110,7 @@ export class GeneralRephotographyDetectionResponseBodyDataResult extends $dara.M
   isFake?: boolean;
   /**
    * @remarks
-   * The detection type. The value is fixed as general.
+   * The detection type. The value is fixed to general.
    * 
    * @example
    * general
@@ -147,12 +147,12 @@ export class GeneralRephotographyDetectionResponseBodyDataResult extends $dara.M
 export class GeneralRephotographyDetectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The business result. This value is an empty object if the request fails.
+   * The business result. This is an empty object if the call fails.
    */
   result?: GeneralRephotographyDetectionResponseBodyDataResult;
   /**
    * @remarks
-   * The usage information. The value is `{"ProcessingCount":1}` on success, or an empty object on failure.
+   * The usage information. The value is `{"ProcessingCount":1}` if the call is successful, or an empty object if the call fails.
    * 
    * @example
    * {"ProcessingCount":1}
@@ -203,7 +203,7 @@ export class GeneralRephotographyDetectionResponseBody extends $dara.Model {
   data?: GeneralRephotographyDetectionResponseBodyData;
   /**
    * @remarks
-   * The response message or failure description.
+   * The return message or failure description.
    * 
    * @example
    * Success

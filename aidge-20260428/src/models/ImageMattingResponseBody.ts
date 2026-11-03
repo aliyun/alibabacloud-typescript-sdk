@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageMattingResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The height of the result image in pixels.
+   * The height of the result image. Unit: pixels.
    * 
    * @example
    * 800
@@ -13,7 +13,7 @@ export class ImageMattingResponseBodyData extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * The URL of the image matting result.
+   * The URL of the result image.
    * 
    * @example
    * http://dashscope-7c2c.oss-cn-shanghai.aliyuncs.com/xxx.jpg
@@ -21,12 +21,31 @@ export class ImageMattingResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The quality score of the image matting result.
+   * The matting quality score.
    * 
    * @example
    * 0.11
    */
   score?: number;
+  /**
+   * @remarks
+   * The returned layer information. This includes the URL of the original image, the URL of the matting result, and the matting area information.
+   * 
+   * @example
+   * "origin_url": "xxx",
+   *                     "score": "xxx",
+   *                     "file": "xxxx",
+   *                     "extra_info": "",
+   *                     "pass": "xx",
+   *                     "bbox": "xxx",
+   *                     "plain_url": "xxxxxx",
+   *                     "image_shape": [
+   *                         xxx,
+   *                         xxx
+   *                     ],
+   *                     "url": "xxx"
+   */
+  structData?: any;
   /**
    * @remarks
    * The usage information.
@@ -37,7 +56,7 @@ export class ImageMattingResponseBodyData extends $dara.Model {
   usageMap?: { [key: string]: number };
   /**
    * @remarks
-   * The width of the result image in pixels.
+   * The width of the result image. Unit: pixels.
    * 
    * @example
    * 800
@@ -48,6 +67,7 @@ export class ImageMattingResponseBodyData extends $dara.Model {
       height: 'Height',
       imageUrl: 'ImageUrl',
       score: 'Score',
+      structData: 'StructData',
       usageMap: 'UsageMap',
       width: 'Width',
     };
@@ -58,6 +78,7 @@ export class ImageMattingResponseBodyData extends $dara.Model {
       height: 'number',
       imageUrl: 'string',
       score: 'number',
+      structData: 'any',
       usageMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
       width: 'number',
     };
@@ -86,7 +107,7 @@ export class ImageMattingResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The matting result.
+   * The image matting result.
    */
   data?: ImageMattingResponseBodyData;
   /**
@@ -108,8 +129,8 @@ export class ImageMattingResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call is successful. Valid values:
-   * - true: Successful.
-   * - false: Failed.
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * True
