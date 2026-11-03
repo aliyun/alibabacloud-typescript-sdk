@@ -18,7 +18,7 @@ export class UpdateKibanaPvlNetworkRequest extends $dara.Model {
   securityGroups?: string[];
   /**
    * @remarks
-   * A client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
    * xxxx
@@ -26,7 +26,7 @@ export class UpdateKibanaPvlNetworkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The Kibana private network connection ID.
+   * The ID of the Kibana private network connection.
    * 
    * @example
    * es-cn-vo93ngti8000a****-kibana-internal-internal

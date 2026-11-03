@@ -13,9 +13,8 @@ export class DeleteComponentIndexResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
-   * 
-   * - true: The deletion was successful.
+   * The result of the operation. Valid values:
+   * - true: The deletion succeeded.
    * - false: The deletion failed.
    * 
    * @example

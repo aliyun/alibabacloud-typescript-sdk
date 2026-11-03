@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDescriptionResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The updated instance name.
+   * The updated name of the instance.
    * 
    * @example
    * aliyunes_test_name

@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MigrationJobSourceCluster extends $dara.Model {
+  /**
+   * @remarks
+   * instanceId
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * type
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +37,15 @@ export class MigrationJobSourceCluster extends $dara.Model {
 }
 
 export class MigrationJobStatusResult extends $dara.Model {
+  /**
+   * @remarks
+   * code
+   */
   code?: string;
+  /**
+   * @remarks
+   * success
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -55,7 +71,15 @@ export class MigrationJobStatusResult extends $dara.Model {
 }
 
 export class MigrationJobTargetCluster extends $dara.Model {
+  /**
+   * @remarks
+   * type
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * type
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -81,16 +105,60 @@ export class MigrationJobTargetCluster extends $dara.Model {
 }
 
 export class MigrationJob extends $dara.Model {
+  /**
+   * @remarks
+   * currentState
+   */
   currentState?: string;
+  /**
+   * @remarks
+   * disableSourceClusterAuth
+   */
   disableSourceClusterAuth?: boolean;
+  /**
+   * @remarks
+   * disableTargetClusterAuth
+   */
   disableTargetClusterAuth?: boolean;
+  /**
+   * @remarks
+   * endTime
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * migrationJobId
+   */
   migrationJobId?: string;
+  /**
+   * @remarks
+   * phase
+   */
   phase?: string;
+  /**
+   * @remarks
+   * sourceCluster
+   */
   sourceCluster?: MigrationJobSourceCluster;
+  /**
+   * @remarks
+   * startTime
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * statusResult
+   */
   statusResult?: MigrationJobStatusResult[];
+  /**
+   * @remarks
+   * targetCluster
+   */
   targetCluster?: MigrationJobTargetCluster;
+  /**
+   * @remarks
+   * updateTime
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {

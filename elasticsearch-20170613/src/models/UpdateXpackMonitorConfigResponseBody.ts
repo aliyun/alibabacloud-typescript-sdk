@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateXpackMonitorConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
@@ -13,9 +13,9 @@ export class UpdateXpackMonitorConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
+   * The result of the request. Valid values:
    * 
-   * - true: The update was successful.
+   * - true: The update succeeded.
    * - false: The update failed.
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcEndpointResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The endpoint domain name, which is used for connection configuration.
+   * The endpoint domain name used for connection configuration.
    * 
    * @example
    * ep-bp1tah7zbrwmkjef****.epsrv-bp1w0p3jdirbfmt6****.cn-hangzhou.privatelink.aliyuncs.com
@@ -13,7 +13,7 @@ export class CreateVpcEndpointResponseBodyResult extends $dara.Model {
   endpointDomain?: string;
   /**
    * @remarks
-   * The ID of the service VPC endpoint.
+   * The ID of the endpoint on the service VPC side.
    * 
    * @example
    * ep-bp1tah7zbrwmkjef****
@@ -21,7 +21,7 @@ export class CreateVpcEndpointResponseBodyResult extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The name of the service VPC endpoint.
+   * The name of the endpoint on the service VPC side.
    * 
    * @example
    * vpcElasticSearchABC
@@ -29,7 +29,7 @@ export class CreateVpcEndpointResponseBodyResult extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * The ID of the user endpoint service associated with the endpoint.
+   * The ID of the endpoint service associated with the endpoint.
    * 
    * @example
    * epsrv-bp1w0p3jdirbfmt6****
@@ -73,7 +73,7 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result details.
+   * The result details.
    */
   result?: CreateVpcEndpointResponseBodyResult;
   static names(): { [key: string]: string } {

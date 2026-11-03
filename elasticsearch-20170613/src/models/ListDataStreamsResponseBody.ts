@@ -53,13 +53,13 @@ export class ListDataStreamsResponseBodyResultIndices extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The index status. Valid values:
+   * The health status of the index. Valid values:
    * 
    * - Green: Healthy.
    * 
    * - Yellow: Warning.
    * 
-   * - Red: Abnormal.
+   * - Red: Error.
    * 
    * @example
    * Green
@@ -67,7 +67,7 @@ export class ListDataStreamsResponseBodyResultIndices extends $dara.Model {
   health?: string;
   /**
    * @remarks
-   * This field is deprecated and can be ignored.
+   * **[Deprecated]** This field is deprecated and can be ignored.
    * 
    * @example
    * false
@@ -75,7 +75,7 @@ export class ListDataStreamsResponseBodyResultIndices extends $dara.Model {
   isManaged?: boolean;
   /**
    * @remarks
-   * The index managed status. Valid values:
+   * The managed status of the index. Valid values:
    * - following: Managed.
    * 
    * - closing: Being unmanaged.
@@ -88,7 +88,7 @@ export class ListDataStreamsResponseBodyResultIndices extends $dara.Model {
   managedStatus?: string;
   /**
    * @remarks
-   * The data stream name.
+   * The name of the data stream.
    * 
    * @example
    * Log1
@@ -136,13 +136,13 @@ export class ListDataStreamsResponseBodyResultIndices extends $dara.Model {
 export class ListDataStreamsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The data stream status. Valid values:
+   * The health status of the data stream. Valid values:
    * 
    * - Green: Healthy.
    * 
    * - Yellow: Warning.
    * 
-   * - Red: Abnormal.
+   * - Red: Error.
    * 
    * @example
    * Green
@@ -150,7 +150,7 @@ export class ListDataStreamsResponseBodyResult extends $dara.Model {
   health?: string;
   /**
    * @remarks
-   * The index lifecycle policy name.
+   * The life epoch Policy Name.
    * 
    * @example
    * rollver1
@@ -158,7 +158,7 @@ export class ListDataStreamsResponseBodyResult extends $dara.Model {
   ilmPolicyName?: string;
   /**
    * @remarks
-   * The index template name.
+   * The name of the index template.
    * 
    * @example
    * template1
@@ -166,12 +166,12 @@ export class ListDataStreamsResponseBodyResult extends $dara.Model {
   indexTemplateName?: string;
   /**
    * @remarks
-   * The index information under the current data stream.
+   * The information about the indexes in the current data stream.
    */
   indices?: ListDataStreamsResponseBodyResultIndices[];
   /**
    * @remarks
-   * The total storage space occupied by managed indexes under the current data stream. Unit: bytes.
+   * The total storage space occupied by managed indexes in the current data stream. Unit: bytes.
    * 
    * @example
    * 1788239393298
@@ -179,7 +179,7 @@ export class ListDataStreamsResponseBodyResult extends $dara.Model {
   managedStorageSize?: number;
   /**
    * @remarks
-   * The index name.
+   * The name of the index.
    * 
    * @example
    * my-index-0001
@@ -187,7 +187,7 @@ export class ListDataStreamsResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The total storage space occupied by all indexes under the current data stream. Unit: bytes.
+   * The total storage space occupied by all indexes in the current data stream. Unit: bytes.
    * 
    * @example
    * 1788239393298

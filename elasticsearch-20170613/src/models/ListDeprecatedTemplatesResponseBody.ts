@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDeprecatedTemplatesResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 5
@@ -35,7 +35,7 @@ export class ListDeprecatedTemplatesResponseBodyHeaders extends $dara.Model {
 export class ListDeprecatedTemplatesResponseBodyResultTemplate extends $dara.Model {
   /**
    * @remarks
-   * The aliases configuration of the template.
+   * The alias configuration of the template.
    * 
    * @example
    * "{}"
@@ -85,10 +85,10 @@ export class ListDeprecatedTemplatesResponseBodyResultTemplate extends $dara.Mod
 export class ListDeprecatedTemplatesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the template matches a data stream. Valid values:
+   * Indicates whether the data stream is matched. Valid values:
    * 
-   * - true: matched.
-   * - false: not matched.
+   * - true: Matched.
+   * - false: Not matched.
    * 
    * @example
    * false
@@ -101,7 +101,7 @@ export class ListDeprecatedTemplatesResponseBodyResult extends $dara.Model {
   indexPatterns?: string[];
   /**
    * @remarks
-   * The index template name.
+   * The name of the index template.
    * 
    * @example
    * openstore-index-template
@@ -181,7 +181,7 @@ export class ListDeprecatedTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned results.
+   * The result details.
    */
   result?: ListDeprecatedTemplatesResponseBodyResult[];
   static names(): { [key: string]: string } {

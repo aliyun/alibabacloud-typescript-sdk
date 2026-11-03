@@ -55,7 +55,7 @@ export class LogstashEndpointList extends $dara.Model {
 export class LogstashNetworkConfig extends $dara.Model {
   /**
    * @remarks
-   * The network type. Currently, only Virtual Private Cloud (VPC) is supported.
+   * The network type. Only VPC is supported.
    * 
    * @example
    * vpc
@@ -71,7 +71,7 @@ export class LogstashNetworkConfig extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone in which the instance resides.
+   * The zone where the instance is deployed.
    * 
    * @example
    * cn-hangzhou-*
@@ -206,9 +206,8 @@ export class LogstashZoneInfos extends $dara.Model {
   /**
    * @remarks
    * The zone status. Valid values:
-   * 
    * - ISOLATION: offline
-   * - NORMAL: Normal.
+   * - NORMAL: normal
    * 
    * @example
    * NORMAL
@@ -317,9 +316,8 @@ export class Logstash extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance. Valid values:
-   * 
    * - prepaid: subscription
-   * - postpaid: pay-as-you-go.
+   * - postpaid: pay-as-you-go
    * 
    * @example
    * postpaid
@@ -344,9 +342,8 @@ export class Logstash extends $dara.Model {
   /**
    * @remarks
    * The zone status. Valid values:
-   * 
    * - ISOLATION: offline
-   * - NORMAL: Normal.
+   * - NORMAL: normal
    * 
    * @example
    * NORMAL
@@ -368,9 +365,8 @@ export class Logstash extends $dara.Model {
   /**
    * @remarks
    * The instance version. Valid values:
-   * 
    * - 6.7.0_with_X-Pack
-   * - 7.4.0_with_X-Pack.
+   * - 7.4.0_with_X-Pack
    * 
    * @example
    * 6.7.0_with_X-Pack

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListExtendfilesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The extension file path.
+   * The path of the extension file.
    */
   filePath?: string;
   /**
    * @remarks
-   * The extension file size.
+   * The size of the extension file.
    * 
    * @example
    * 968668
@@ -18,7 +18,7 @@ export class ListExtendfilesResponseBodyResult extends $dara.Model {
   fileSize?: number;
   /**
    * @remarks
-   * The extension file name.
+   * The name of the extension file.
    * 
    * @example
    * mysql-connector-java-5.1.35.jar
@@ -62,7 +62,7 @@ export class ListExtendfilesResponseBodyResult extends $dara.Model {
 export class ListExtendfilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1****

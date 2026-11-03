@@ -7,9 +7,9 @@ export class ListDataStreamsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to display only managed indexes. Valid values:
    * 
-   * - true: Only managed indexes are displayed.
+   * - true: Displays only managed indexes.
    * 
-   * - false (default): All indexes are displayed.
+   * - false: Displays all indexes. This is the default value.
    * 
    * @example
    * false
@@ -17,7 +17,7 @@ export class ListDataStreamsRequest extends $dara.Model {
   isManaged?: boolean;
   /**
    * @remarks
-   * The data stream name.
+   * The name of the data stream.
    * 
    * @example
    * Log1

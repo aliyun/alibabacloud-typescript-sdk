@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableKibanaPvlNetworkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0DC92CFE-62AF-51AF-9D5B-F1078D7C451E
@@ -13,8 +13,7 @@ export class EnableKibanaPvlNetworkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether private network access for Kibana is created.
-   * 
+   * Indicates whether private network access to Kibana is successfully created. Valid values:
    * - true: Succeeded.
    * - false: Failed.
    * 

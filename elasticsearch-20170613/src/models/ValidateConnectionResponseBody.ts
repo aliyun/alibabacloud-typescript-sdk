@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
@@ -13,10 +13,10 @@ export class ValidateConnectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
+   * The return result. Valid values:
    * 
-   * - true: The validation succeeded.
-   * - false: The validation failed.
+   * - true: The verification is successful.
+   * - false: The verification fails.
    * 
    * @example
    * true

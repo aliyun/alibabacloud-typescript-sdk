@@ -13,10 +13,9 @@ export class CloseHttpsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
-   * 
+   * The result. Valid values:
    * - true: The HTTPS protocol is disabled.
-   * - false: Failed to disable the HTTPS protocol.
+   * - false: Disabling the HTTPS protocol failed.
    * 
    * @example
    * true

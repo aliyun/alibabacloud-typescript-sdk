@@ -13,10 +13,10 @@ export class CloseDiagnosisResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the intelligent O&M feature is disabled. Valid values:
+   * Indicates whether the intelligent O&M feature was successfully disabled. Valid values:
    * 
-   * - true: The feature is disabled.
-   * - false: The feature failed to be disabled.
+   * - true: Succeeded.
+   * - false: Failed.
    * 
    * @example
    * true

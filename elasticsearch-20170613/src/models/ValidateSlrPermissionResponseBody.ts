@@ -15,8 +15,8 @@ export class ValidateSlrPermissionResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the service-linked role has been created. Valid values:
    * 
-   * - true: Created.
-   * - false: Not created.
+   * - true: The role has been created.
+   * - false: The role has not been created.
    * 
    * @example
    * true

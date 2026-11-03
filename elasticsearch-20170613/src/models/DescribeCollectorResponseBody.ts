@@ -46,7 +46,6 @@ export class DescribeCollectorResponseBodyResultExtendConfigsMachines extends $d
   /**
    * @remarks
    * The status of each collector on the ECS instance. Valid values:
-   * 
    * - heartOk: The heartbeat is normal.
    * - heartLost: The heartbeat is abnormal.
    * - uninstalled: The collector is not installed.
@@ -91,10 +90,9 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   /**
    * @remarks
    * The configuration type. Valid values:
-   * 
-   * - collectorTargetInstance: the output of the collector.
-   * - collectorDeployMachine: the machine on which the collector is deployed.
-   * - collectorElasticsearchForKibana: the information about the Elasticsearch instance that supports the Kibana dashboard.
+   * - collectorTargetInstance: The output of the collector.
+   * - collectorDeployMachine: The machine on which the collector is deployed.
+   * - collectorElasticsearchForKibana: The information about the Elasticsearch instance that supports the Kibana dashboard.
    * 
    * @example
    * collectorDeployMachine
@@ -103,10 +101,8 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   /**
    * @remarks
    * Specifies whether to enable monitoring. This parameter is displayed when **configType** is set to **collectorTargetInstance**. Valid values:
-   * 
-   * - true: enables monitoring.
-   * 
-   * - false: disables monitoring.
+   * - true: Enables monitoring.
+   * - false: Disables monitoring.
    * 
    * @example
    * true
@@ -130,7 +126,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   host?: string;
   /**
    * @remarks
-   * The list of host addresses of the target instance for the collector.
+   * The list of host addresses of the target instances for the collector.
    */
   hosts?: string[];
   /**
@@ -164,7 +160,7 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   machines?: DescribeCollectorResponseBodyResultExtendConfigsMachines[];
   /**
    * @remarks
-   * The transmission protocol. This protocol must be consistent with the access protocol of the instance specified in the collector output. Valid values: HTTP and HTTPS. This parameter is displayed when **configType** is set to **collectorTargetInstance**.
+   * The transmission protocol, which must be consistent with the access protocol of the instance specified in the collector output. Valid values: HTTP and HTTPS. This parameter is displayed when **configType** is set to **collectorTargetInstance**.
    * 
    * @example
    * HTTP
@@ -189,7 +185,6 @@ export class DescribeCollectorResponseBodyResultExtendConfigs extends $dara.Mode
   /**
    * @remarks
    * The type of the machine on which the collector is deployed. This parameter is displayed when **configType** is set to **collectorDeployMachine**. Valid values:
-   * 
    * - ECSInstanceId: ECS instance.
    * - ACKCluster: ACK cluster.
    * 
@@ -271,10 +266,9 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
   configs?: DescribeCollectorResponseBodyResultConfigs[];
   /**
    * @remarks
-   * Specifies whether to only validate the collector without creating it. Valid values:
-   * 
-   * - true: validates the configuration without creating the collector.
-   * - false: validates the configuration and creates the collector.
+   * Specifies whether to validate and create the collector. Valid values:
+   * - true: Only validates the configuration without creating the collector.
+   * - false: Validates the configuration and creates the collector.
    * 
    * @example
    * false
@@ -344,9 +338,8 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The status of the collector. Valid values:
-   * 
-   * - activing: activating.
-   * - active: activated.
+   * - activing: Activating.
+   * - active: Active.
    * 
    * @example
    * active
@@ -354,7 +347,7 @@ export class DescribeCollectorResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) where the collector is deployed.
+   * The ID of the virtual private cloud (VPC) where the collector resides.
    * 
    * @example
    * vpc-bp16k1dvzxtma*****

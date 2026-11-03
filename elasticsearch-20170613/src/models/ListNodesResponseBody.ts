@@ -45,8 +45,8 @@ export class ListNodesResponseBodyResultIpAddress extends $dara.Model {
    * @remarks
    * The IP address type. Valid values:
    * 
-   * - public: public IP address.
-   * - private: private IP address.
+   * - public: Public IP address.
+   * - private: Private IP address.
    * 
    * @example
    * public
@@ -118,7 +118,7 @@ export class ListNodesResponseBodyResultTags extends $dara.Model {
 export class ListNodesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The status of each collector on the ECS instance. Valid values:
+   * The status of the collectors on the ECS instance. Valid values:
    * 
    * - heartOk: Normal heartbeat.
    * - heartLost: Abnormal heartbeat.
@@ -131,10 +131,10 @@ export class ListNodesResponseBodyResult extends $dara.Model {
   agentStatus?: string;
   /**
    * @remarks
-   * Indicates whether Cloud Assistant is enabled. Valid values:
+   * Indicates whether Cloud Assistant is activated. Valid values:
    * 
-   * - true: Enabled.
-   * - false: Not enabled.
+   * - true: Activated.
+   * - false: Not activated.
    * 
    * @example
    * true
@@ -150,7 +150,7 @@ export class ListNodesResponseBodyResult extends $dara.Model {
   ecsInstanceId?: string;
   /**
    * @remarks
-   * The ECS instance name.
+   * The name of the ECS instance.
    * 
    * @example
    * ECS_beat
@@ -158,7 +158,7 @@ export class ListNodesResponseBodyResult extends $dara.Model {
   ecsInstanceName?: string;
   /**
    * @remarks
-   * The list of IP address information for the ECS instance.
+   * The list of IP addresses of the ECS instance.
    */
   ipAddress?: ListNodesResponseBodyResultIpAddress[];
   /**
@@ -174,7 +174,7 @@ export class ListNodesResponseBodyResult extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The ECS instance status. Valid values:
+   * The instance status of the ECS instance. Valid values:
    * 
    * - running: Running.
    * - starting: Starting.
@@ -187,7 +187,7 @@ export class ListNodesResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tag information of the ECS instance.
+   * The tags of the ECS instance.
    */
   tags?: ListNodesResponseBodyResultTags[];
   static names(): { [key: string]: string } {

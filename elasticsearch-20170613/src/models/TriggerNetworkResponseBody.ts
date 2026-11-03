@@ -13,9 +13,9 @@ export class TriggerNetworkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result. Valid values:
+   * The result. Valid values:
    * 
-   * - true: The operation is successful.
+   * - true: The operation succeeded.
    * - false: The operation failed.
    * 
    * @example

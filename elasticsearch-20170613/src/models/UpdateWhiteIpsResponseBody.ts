@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWhiteIpsResponseBodyResultNetworkConfigWhiteIpGroupList extends $dara.Model {
   /**
    * @remarks
-   * The name of the whitelist group. The default group is included by default.
+   * The name of the whitelist group. By default, the default group is included.
    * 
    * @example
    * test_group
@@ -18,7 +18,7 @@ export class UpdateWhiteIpsResponseBodyResultNetworkConfigWhiteIpGroupList exten
   ips?: string[];
   /**
    * @remarks
-   * The whitelist type. The value is fixed as PRIVATE_ES, which indicates the private network access whitelist.
+   * The whitelist type. The value is fixed to PRIVATE_ES, which indicates a private network access whitelist.
    * 
    * @example
    * PRIVATE_ES
@@ -85,7 +85,7 @@ export class UpdateWhiteIpsResponseBodyResultNetworkConfig extends $dara.Model {
 export class UpdateWhiteIpsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The private network access whitelist (deprecated).
+   * **[Deprecated]** The private network access whitelist.
    */
   esIPWhitelist?: string[];
   /**

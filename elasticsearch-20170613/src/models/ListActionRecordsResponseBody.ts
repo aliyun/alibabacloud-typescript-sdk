@@ -245,16 +245,25 @@ export class ListActionRecordsResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The instance information after the change, represented as a JSON string.
+   * 
+   * @example
+   * ["192.0.2.1","198.51.100.2","203.0.113.3"]
    */
   metaNow?: string;
   /**
    * @remarks
    * The instance information before the change, represented as a JSON string.
+   * 
+   * @example
+   * ["192.0.2.1/32","198.51.100.2/32","203.0.113.3/32"]
    */
   metaOld?: string;
   /**
    * @remarks
    * The ID of the Alibaba Cloud account to which the account that triggered the change belongs.
+   * 
+   * @example
+   * 1234567890123456
    */
   ownerId?: string;
   /**

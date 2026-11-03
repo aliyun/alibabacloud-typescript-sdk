@@ -15,8 +15,8 @@ export class CreateComponentIndexResponseBody extends $dara.Model {
    * @remarks
    * The returned result. Valid values:
    * 
-   * - true: The template was created successfully.
-   * - false: The template failed to be created.
+   * - true: Created.
+   * - false: Creation failed.
    * 
    * @example
    * true

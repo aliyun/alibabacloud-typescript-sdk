@@ -45,12 +45,16 @@ export class EnableKibanaPvlNetworkRequestVSwitchIdsZone extends $dara.Model {
 export class EnableKibanaPvlNetworkRequest extends $dara.Model {
   /**
    * @remarks
-   * The endpoint name.
+   * The name of the endpoint.
    * 
    * @example
    * es-cn-27a3mul6l000xxx-kibana-endpoint
    */
   endpointName?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a managed security group. If you use a managed security group, you do not need to specify the securityGroups parameter, and the system automatically creates a managed security group for you.
+   */
   managedSecurityGroup?: boolean;
   /**
    * @remarks
@@ -64,7 +68,7 @@ export class EnableKibanaPvlNetworkRequest extends $dara.Model {
   vSwitchIdsZone?: EnableKibanaPvlNetworkRequestVSwitchIdsZone[];
   /**
    * @remarks
-   * The VPC-connected instance ID.
+   * The VPC instance ID.
    * 
    * @example
    * vpc-bp19ip2ocyv24w0e2****

@@ -15,7 +15,7 @@ import { WarmNodeConfiguration } from "./WarmNodeConfiguration";
 export class CreateInstanceRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The key of the instance tag.
    * 
    * @example
    * KeyTest
@@ -23,7 +23,7 @@ export class CreateInstanceRequestTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The value of the instance tag.
    * 
    * @example
    * KeyValue
@@ -55,12 +55,12 @@ export class CreateInstanceRequestTags extends $dara.Model {
 export class CreateInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The client node configuration.
+   * The configuration of the client node.
    */
   clientNodeConfiguration?: ClientNodeConfiguration;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * es
@@ -68,7 +68,7 @@ export class CreateInstanceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The elastic node configuration.
+   * The configuration of the elastic node.
    */
   elasticDataNodeConfiguration?: ElasticDataNodeConfiguration;
   /**
@@ -83,7 +83,7 @@ export class CreateInstanceRequest extends $dara.Model {
   esAdminPassword?: string;
   /**
    * @remarks
-   * The instance version. Valid values:
+   * The version of the instance. Valid values:
    * - 8.5.1_with_X-Pack
    * - 7.10_with_X-Pack
    * - 6.7_with_X-Pack
@@ -103,13 +103,13 @@ export class CreateInstanceRequest extends $dara.Model {
   esVersion?: string;
   /**
    * @remarks
-   * The index node configuration. Only instances with the AI engine type support index node configuration.
+   * Only instances that use the AI engine support the configuration of index nodes.
    */
   indexNodeConfiguration?: IndexNodeConfiguration;
   /**
    * @remarks
    * The edition type. Valid values:
-   * - x-pack: Creates a Commercial Edition instance, or an Advanced Edition instance with Indexing Service and OpenStore disabled.
+   * - x-pack: Creates a Commercial Edition instance or an Advanced Edition instance with Indexing Service and OpenStore disabled.
    * - IS: Creates an Advanced Edition instance with Indexing Service or OpenStore enabled.
    * 
    * @example
@@ -118,14 +118,14 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceCategory?: string;
   /**
    * @remarks
-   * The Kibana node configuration.
+   * The configuration of the Kibana node.
    * 
-   * > Enable the Kibana node.
+   * > You are strongly advised to enable the Kibana node.
    */
   kibanaConfiguration?: KibanaNodeConfiguration;
   /**
    * @remarks
-   * The dedicated master node configuration.
+   * The configuration of the dedicated master node.
    * > In the Beijing, Shanghai, Hangzhou, and Shenzhen regions, when you call the createInstance operation to create an instance with a new-generation cloud disk-based dedicated master node, you must specify the instance family with the `.new` suffix, such as elasticsearch.sn1ne.large.new.
    */
   masterConfiguration?: MasterNodeConfiguration;
@@ -150,14 +150,14 @@ export class CreateInstanceRequest extends $dara.Model {
   nodeAmount?: number;
   /**
    * @remarks
-   * The data node configuration.
+   * The configuration of the data node.
    * 
    * > In the Beijing, Shanghai, Hangzhou, and Shenzhen regions, when you call the createInstance operation to create an instance with a new-generation cloud disk-based data node, you must specify the instance family with the `.new` suffix, such as elasticsearch.sn1ne.large.new.
    */
   nodeSpec?: NodeSpec;
   /**
    * @remarks
-   * The payment details of the subscription instance. This parameter is required when you create a subscription instance.
+   * The billing details of the subscription instance. This parameter is required when you create a subscription instance.
    */
   paymentInfo?: PaymentInfo;
   /**
@@ -181,17 +181,17 @@ export class CreateInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The query node configuration. Only instances with the AI engine type support query node configuration.
+   * Only instances that use the AI engine support the configuration of query nodes.
    */
   searchNodeConfiguration?: SearchNodeConfiguration;
   /**
    * @remarks
-   * The instance label group.
+   * The instance tag labels.
    */
   tags?: CreateInstanceRequestTags[];
   /**
    * @remarks
-   * The warm data node configuration.
+   * The configuration of the warm data node.
    */
   warmNodeConfiguration?: WarmNodeConfiguration;
   /**

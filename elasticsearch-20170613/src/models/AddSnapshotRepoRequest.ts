@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddSnapshotRepoRequest extends $dara.Model {
   /**
    * @remarks
-   * The cross-cluster backup information, which specifies the reference instance.
+   * Specifies the cross-cluster backup information, namely the reference instance.
    * 
    * @example
    * {

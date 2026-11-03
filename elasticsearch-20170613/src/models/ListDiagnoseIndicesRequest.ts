@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDiagnoseIndicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language configuration. Default value: browser language. Valid values:
+   * The language configuration. Default value: the browser language. Valid values:
    * 
    * - en: English
    * - zh: Simplified Chinese

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateComponentIndexRequestTemplate extends $dara.Model {
   /**
    * @remarks
-   * The aliases configuration of the template.
+   * The aliases configuration for the template.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class UpdateComponentIndexRequestTemplate extends $dara.Model {
   aliases?: { [key: string]: any };
   /**
    * @remarks
-   * The mappings configuration of the template.
+   * The mappings configuration for the template.
    * 
    * @example
    * { "properties": { "@timestamp": { "type": "date" } } }
@@ -21,7 +21,7 @@ export class UpdateComponentIndexRequestTemplate extends $dara.Model {
   mappings?: { [key: string]: any };
   /**
    * @remarks
-   * The settings configuration of the template.
+   * The settings configuration for the template.
    * 
    * @example
    * { "index.number_of_replicas": 0 }
@@ -64,7 +64,7 @@ export class UpdateComponentIndexRequestTemplate extends $dara.Model {
 export class UpdateComponentIndexRequest extends $dara.Model {
   /**
    * @remarks
-   * The metadata, which is used to store remarks and other information.
+   * The metadata, which is used to store information such as remarks.
    * 
    * @example
    * { "description": "set number of shards to one" }
@@ -72,7 +72,7 @@ export class UpdateComponentIndexRequest extends $dara.Model {
   meta?: { [key: string]: any };
   /**
    * @remarks
-   * The composable template information.
+   * The composite template information.
    */
   template?: UpdateComponentIndexRequestTemplate;
   static names(): { [key: string]: string } {

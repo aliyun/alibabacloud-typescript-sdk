@@ -19,10 +19,19 @@ export class UpdateAdvancedSettingRequest extends $dara.Model {
    * 5A2CFF0E-5718-45B5-9D4D-70B3FF****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The garbage collection (GC) update strategy. Valid values: blue_green (blue-green update, default), normal (in-place update), and intelligent (intelligent recommendation).
+   * 
+   * @example
+   * blue_green
+   */
+  updateStrategy?: string;
   static names(): { [key: string]: string } {
     return {
       body: 'body',
       clientToken: 'clientToken',
+      updateStrategy: 'updateStrategy',
     };
   }
 
@@ -30,6 +39,7 @@ export class UpdateAdvancedSettingRequest extends $dara.Model {
     return {
       body: 'string',
       clientToken: 'string',
+      updateStrategy: 'string',
     };
   }
 

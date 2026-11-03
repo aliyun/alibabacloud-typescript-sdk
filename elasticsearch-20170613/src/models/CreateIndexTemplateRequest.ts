@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIndexTemplateRequestTemplate extends $dara.Model {
   /**
    * @remarks
-   * The aliases configuration.
+   * The aliases.
    * 
    * @example
    * {\\"mydata\\":{}}
@@ -13,7 +13,7 @@ export class CreateIndexTemplateRequestTemplate extends $dara.Model {
   aliases?: string;
   /**
    * @remarks
-   * The mappings configuration.
+   * The mappings.
    * 
    * @example
    * {\\"properties\\":{\\"created_at\\":{\\"format\\":\\"EEE MMM dd HH:mm:ss Z yyyy\\",\\"type\\":\\"date\\"},\\"host_name\\":{\\"type\\":\\"keyword\\"}}}
@@ -21,7 +21,7 @@ export class CreateIndexTemplateRequestTemplate extends $dara.Model {
   mappings?: string;
   /**
    * @remarks
-   * The settings configuration.
+   * The settings.
    * 
    * @example
    * {\\"index.number_of_shards\\":\\"1\\"}
@@ -55,7 +55,7 @@ export class CreateIndexTemplateRequestTemplate extends $dara.Model {
 export class CreateIndexTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * A unique token used to ensure the idempotence of the request. The client generates this value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * E1136AE9-4E49-4585-9358-6FDD2A6D****
@@ -63,10 +63,10 @@ export class CreateIndexTemplateRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to enable data streams. Valid values:
+   * Specifies whether to enable the data stream. Valid values:
    * 
-   * - true: Enabled.
-   * - false (default): Disabled.
+   * - true: enables the data stream.
+   * - false: disables the data stream. This is the default value.
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class CreateIndexTemplateRequest extends $dara.Model {
   dataStream?: boolean;
   /**
    * @remarks
-   * The lifecycle policy name.
+   * The life epoch Policy Name.
    * 
    * @example
    * policy-1
@@ -84,14 +84,14 @@ export class CreateIndexTemplateRequest extends $dara.Model {
   ilmPolicy?: string;
   /**
    * @remarks
-   * The index matching pattern (regular expression).
+   * The regular expression for the index pattern.
    * 
    * This parameter is required.
    */
   indexPatterns?: string[];
   /**
    * @remarks
-   * The index template name.
+   * The name of the index template.
    * 
    * This parameter is required.
    * 
@@ -101,7 +101,7 @@ export class CreateIndexTemplateRequest extends $dara.Model {
   indexTemplate?: string;
   /**
    * @remarks
-   * The priority of the cluster index template.
+   * The priority of the cluster index template. A larger value indicates a higher priority.
    * 
    * @example
    * 30

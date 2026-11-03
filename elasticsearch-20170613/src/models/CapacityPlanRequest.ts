@@ -6,13 +6,12 @@ export class CapacityPlanRequestDataInfo extends $dara.Model {
   /**
    * @remarks
    * The disk data metric code. Valid values:
-   * 
-   * - totalRawData: source data information
-   * - document: data document information, estimated number of documents
-   * - dailyIncrement: daily data growth
-   * - dailyIncrement: daily incremental documents
-   * - retentionTime: data retention period
-   * - replica: replica settings
+   * - totalRawData: source data information.
+   * - document: document information, which indicates the estimated number of documents.
+   * - dailyIncrement: daily data increment.
+   * - dailyIncrement: daily document increment.
+   * - retentionTime: data retention period.
+   * - replica: replica settings.
    * 
    * @example
    * totalRawData
@@ -20,7 +19,7 @@ export class CapacityPlanRequestDataInfo extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The metric value of disk usage.
+   * The metric value for disk usage.
    * 
    * @example
    * 100
@@ -37,9 +36,8 @@ export class CapacityPlanRequestDataInfo extends $dara.Model {
   /**
    * @remarks
    * The disk data type. Valid values:
-   * 
-   * - hot: hot data
-   * - warm: warm data
+   * - hot: hot data.
+   * - warm: warm data.
    * 
    * @example
    * hot
@@ -48,9 +46,8 @@ export class CapacityPlanRequestDataInfo extends $dara.Model {
   /**
    * @remarks
    * The data unit or time unit. Valid values:
-   * 
-   * - Data units: MiB, GiB, TB, PB
-   * - Time units: DAYS, WEEKS, MONTHS, YEARS
+   * - Data units: MiB, GiB, TB, and PB.
+   * - Time units: DAYS, WEEKS, MONTHS, and YEARS.
    * 
    * @example
    * MiB
@@ -97,9 +94,8 @@ export class CapacityPlanRequestMetric extends $dara.Model {
   /**
    * @remarks
    * The search or write metric code. Valid values:
-   * 
-   * - write: write
-   * - search: search
+   * - write: write.
+   * - search: search.
    * 
    * @example
    * write
@@ -107,7 +103,7 @@ export class CapacityPlanRequestMetric extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The number of concurrent connections.
+   * The number of concurrent requests.
    * 
    * @example
    * 2
@@ -123,7 +119,7 @@ export class CapacityPlanRequestMetric extends $dara.Model {
   peakQps?: number;
   /**
    * @remarks
-   * The expected average response time, in milliseconds.
+   * The expected average response time. Unit: milliseconds.
    * 
    * @example
    * 100
@@ -131,7 +127,7 @@ export class CapacityPlanRequestMetric extends $dara.Model {
   responseTime?: number;
   /**
    * @remarks
-   * The throughput, in MB/s.
+   * The throughput. Unit: MB/s.
    * 
    * @example
    * 100
@@ -139,10 +135,9 @@ export class CapacityPlanRequestMetric extends $dara.Model {
   throughput?: number;
   /**
    * @remarks
-   * The search or write peak type. Valid values:
-   * 
-   * - common: normal
-   * - peak: peak
+   * The peak type for search or write operations. Valid values:
+   * - common: normal.
+   * - peak: peak.
    * 
    * @example
    * common
@@ -184,10 +179,10 @@ export class CapacityPlanRequestMetric extends $dara.Model {
 export class CapacityPlanRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether complex aggregation query is required. Valid values:
-   * 
-   * - true: Required.
-   * - false (default): Not required.
+   * Indicates whether complex aggregation queries are required. Valid values:
+   * - true: Yes.
+   * - false: No.
+   * Default value: false.
    * 
    * @example
    * true
@@ -195,23 +190,22 @@ export class CapacityPlanRequest extends $dara.Model {
   complexQueryAvailable?: boolean;
   /**
    * @remarks
-   * The disk usage information.
+   * The disk usage.
    */
   dataInfo?: CapacityPlanRequestDataInfo[];
   /**
    * @remarks
-   * The metric information for disk usage, search and write operations, and aggregation requests.
+   * The metric information such as disk usage, search and write performance, and aggregate requests.
    */
   metric?: CapacityPlanRequestMetric[];
   /**
    * @remarks
    * Scenarios. Valid values:
-   * 
-   * - general: general-purpose scenario
-   * - analysisVisualization: data analytics scenario
-   * - dbAcceleration: database acceleration scenario
-   * - search: search scenario
-   * - log: log scenario
+   * - general: general scenarios.
+   * - analysisVisualization: data analytics scenarios.
+   * - dbAcceleration: database acceleration scenarios.
+   * - search: search scenarios.
+   * - log: log scenarios.
    * 
    * @example
    * general

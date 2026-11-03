@@ -13,10 +13,10 @@ export class CancelTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result. Valid values:
+   * The returned result. Valid values:
    * 
    * - true: The task is canceled.
-   * - false: The task failed to be canceled.
+   * - false: The task fails to be canceled.
    * 
    * @example
    * true

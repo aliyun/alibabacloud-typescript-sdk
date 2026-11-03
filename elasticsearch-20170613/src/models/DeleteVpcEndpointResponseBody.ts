@@ -13,7 +13,7 @@ export class DeleteVpcEndpointResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the endpoint is deleted. Valid values:
+   * Indicates whether the endpoint was deleted. Valid values:
    * 
    * - true: The endpoint is deleted.
    * 

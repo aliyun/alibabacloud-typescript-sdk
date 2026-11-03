@@ -13,7 +13,7 @@ export class ListNodesRequest extends $dara.Model {
   ecsInstanceIds?: string;
   /**
    * @remarks
-   * The ECS instance name.
+   * The name of the ECS instance.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ListNodesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of results per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class ListNodesRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The tag information of the ECS instance. Must include the tag key (tagKey) and tag value (tagValue).
+   * The tags of the ECS instances. Each tag must include a tag key (tagKey) and a tag value (tagValue).
    * 
    * @example
    * [{"tagKey":"abc","tagValue":"xyz"}]

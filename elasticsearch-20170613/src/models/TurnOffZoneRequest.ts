@@ -3,6 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TurnOffZoneRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to drain traffic from the load balancer. Valid values:
+   * - false: Uses the default policy.
+   * - true: Removes traffic from the load balancer.
+   */
   hpAlbZoneDrained?: boolean;
   /**
    * @remarks

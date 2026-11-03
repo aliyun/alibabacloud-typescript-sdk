@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListComponentIndicesResponseBodyHeaders extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned results.
    * 
    * @example
    * 10
@@ -35,7 +35,7 @@ export class ListComponentIndicesResponseBodyHeaders extends $dara.Model {
 export class ListComponentIndicesResponseBodyResultContentTemplateSettingsIndexLifecycle extends $dara.Model {
   /**
    * @remarks
-   * The name of the lifecycle policy.
+   * The Policy Name of the lifecycle epoch.
    * 
    * @example
    * synthetics
@@ -66,9 +66,8 @@ export class ListComponentIndicesResponseBodyResultContentTemplateSettingsIndex 
   /**
    * @remarks
    * The index compression method. Valid values:
-   * 
-   * - LZ4: The default compression algorithm of Elasticsearch. It provides fast compression and decompression but a relatively lower compression ratio.
-   * - best_compression: Uses the best_compression algorithm for compression, which provides a higher compression ratio.
+   * - LZ4: The default compression algorithm for Elasticsearch. It provides fast decompression and compression speeds but has a lower compression ratio.
+   * - best_compression: The best_compression algorithm, which provides a higher compression ratio.
    * 
    * @example
    * best_compression
@@ -221,7 +220,7 @@ export class ListComponentIndicesResponseBodyResultContent extends $dara.Model {
 export class ListComponentIndicesResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The information about index templates that reference this composable template.
+   * The information about the index templates that reference this composable template.
    */
   composed?: string[];
   /**

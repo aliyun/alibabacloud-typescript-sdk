@@ -13,7 +13,7 @@ export class ListComponentIndicesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number for paging. Default value: 1.
+   * The paging Settings for the page number in a paged query. Default value: 1.
    * 
    * @example
    * 5
@@ -24,7 +24,7 @@ export class ListComponentIndicesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page for paging. Default value: 10.
+   * The paging Settings for the number of entries per page in a paged query. Default value: 10.
    * 
    * @example
    * 10

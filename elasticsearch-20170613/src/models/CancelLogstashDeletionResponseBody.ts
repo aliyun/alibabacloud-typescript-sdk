@@ -13,10 +13,10 @@ export class CancelLogstashDeletionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the instance is successfully resumed. Valid values:
+   * Indicates whether the instance was successfully resumed. Valid values:
    * 
-   * - true: The instance is successfully resumed.
-   * - false: The instance failed to be resumed.
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UninstallLogstashPluginResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response headers of this call.
+   * The response headers returned by this call.
    */
   headers?: { [key: string]: any };
   /**

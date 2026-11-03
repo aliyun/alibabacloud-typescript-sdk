@@ -6,7 +6,6 @@ export class CapacityPlanResponseBodyResultExtendConfigs extends $dara.Model {
   /**
    * @remarks
    * The configuration type. The only valid value is sharedDisk.
-   * 
    * > This extendConfigs property may appear when the planned instance type is Advanced Edition (advanced).
    * 
    * @example
@@ -15,7 +14,7 @@ export class CapacityPlanResponseBodyResultExtendConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The disk size, in GiB.
+   * The disk size. Unit: GiB.
    * 
    * @example
    * 2048
@@ -24,7 +23,6 @@ export class CapacityPlanResponseBodyResultExtendConfigs extends $dara.Model {
   /**
    * @remarks
    * The disk type. The only valid value is CPFS_PREMIUM.
-   * 
    * > This extendConfigs property may appear when the planned instance type is Advanced Edition (advanced).
    * 
    * @example
@@ -75,7 +73,7 @@ export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Mode
   cpu?: number;
   /**
    * @remarks
-   * The disk size, in GiB.
+   * The disk size. Unit: GiB.
    * 
    * @example
    * 20
@@ -84,15 +82,10 @@ export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Mode
   /**
    * @remarks
    * The disk type. Valid values:
-   * 
    * - cloud_essd: ESSD.
-   * 
    * - cloud_ssd: standard SSD.
-   * 
-   * - cloud_efficiency: ultra cloud disk.
-   * 
+   * - cloud_efficiency: ultra disk.
    * - local_ssd: local SSD.
-   * 
    * - local_efficiency: local ultra disk.
    * 
    * @example
@@ -101,7 +94,7 @@ export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Mode
   diskType?: string;
   /**
    * @remarks
-   * The memory size of the specification for the current node role.
+   * The memory size for the current node role.
    * 
    * @example
    * 2
@@ -110,17 +103,11 @@ export class CapacityPlanResponseBodyResultNodeConfigurations extends $dara.Mode
   /**
    * @remarks
    * The node type. Valid values:
-   * 
    * - WORKER: data node.
-   * 
    * - WORKER_WARM: warm node.
-   * 
    * - MASTER: dedicated master node.
-   * 
    * - KIBANA: Kibana node.
-   * 
    * - COORDINATING: client node.
-   * 
    * - ELASTIC_WORKER: elastic node.
    * 
    * @example
@@ -167,11 +154,8 @@ export class CapacityPlanResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The edition type. Valid values:
-   * 
    * - advanced: Advanced Edition.
-   * 
    * - x-pack: Commercial Edition.
-   * 
    * - community: Community Edition.
    * 
    * @example
@@ -185,11 +169,9 @@ export class CapacityPlanResponseBodyResult extends $dara.Model {
   nodeConfigurations?: CapacityPlanResponseBodyResultNodeConfigurations[];
   /**
    * @remarks
-   * The result calculated based on capacity planning. No default value is available. Valid values:
-   * 
-   * - true: The cluster is oversized. The number of data nodes calculated by capacity planning exceeds the threshold of 50.
-   * 
-   * - false: The number of data nodes calculated by capacity planning is within 50.
+   * The result calculated based on capacity planning. No default value is provided. Valid values:
+   * - true: indicates an oversized cluster, which means the number of data nodes calculated by capacity planning exceeds the threshold of 50.
+   * - false: indicates that the number of data nodes calculated by capacity planning is 50 or less.
    * 
    * @example
    * true
