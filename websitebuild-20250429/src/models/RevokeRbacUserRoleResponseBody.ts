@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeRbacUserRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {}
@@ -37,7 +37,7 @@ export class RevokeRbacUserRoleResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not in use. Ignore this parameter.
+   * The dynamic message. This parameter is not in use and can be ignored.
    * 
    * @example
    * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/u6qw3gxzu3b7sbj/u6qw3gxzu3b7sbj.diff.zip?Expires=1740975709&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=FP7dDnkrLlOZHmRRORVqbLOtv9c%3D
@@ -50,7 +50,7 @@ export class RevokeRbacUserRoleResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the move succeeded.
    * 
    * @example
    * true
@@ -77,7 +77,7 @@ export class RevokeRbacUserRoleResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

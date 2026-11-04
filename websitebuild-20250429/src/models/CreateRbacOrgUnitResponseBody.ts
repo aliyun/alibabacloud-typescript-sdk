@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRbacOrgUnitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class CreateRbacOrgUnitResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class CreateRbacOrgUnitResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * spring-cloud-b
@@ -29,7 +29,7 @@ export class CreateRbacOrgUnitResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic code. This field is not used and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -45,12 +45,12 @@ export class CreateRbacOrgUnitResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The response object.
+   * The returned object.
    * 
    * @example
    * true
@@ -74,15 +74,15 @@ export class CreateRbacOrgUnitResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Specifies whether synchronous processing is used.
    * 
    * @example
    * True

@@ -42,7 +42,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * The maximum number of results to return for each query.
+   * The maximum number of results returned per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -52,7 +52,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to start the next query. This parameter is empty if no subsequent query is required.
+   * The token used to start the next query. This parameter is empty if no next query exists.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM

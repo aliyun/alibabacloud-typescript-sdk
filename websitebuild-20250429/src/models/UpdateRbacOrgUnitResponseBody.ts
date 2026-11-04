@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRbacOrgUnitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class UpdateRbacOrgUnitResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class UpdateRbacOrgUnitResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * spring-cloud-b
@@ -74,15 +74,15 @@ export class UpdateRbacOrgUnitResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether synchronous processing is performed.
    * 
    * @example
    * True

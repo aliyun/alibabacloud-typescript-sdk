@@ -29,7 +29,7 @@ export class QueryRbacUserRolesRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort type. Valid values: ASC and DESC.
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * BUY

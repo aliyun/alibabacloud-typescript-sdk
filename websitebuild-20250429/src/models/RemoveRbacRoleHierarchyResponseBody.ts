@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveRbacRoleHierarchyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class RemoveRbacRoleHierarchyResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class RemoveRbacRoleHierarchyResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * or
@@ -74,15 +74,15 @@ export class RemoveRbacRoleHierarchyResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed synchronously.
+   * Indicates whether the processing is synchronous.
    * 
    * @example
    * True

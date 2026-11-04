@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryRbacRoleResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created, in ISO 8601 format (such as 2024-01-01T00:00:00+Z).
+   * The time when the task was created, in ISO 8601 format, such as 2024-01-01T00:00:00Z.
    * 
    * @example
    * 2026-02-06T10:20:09Z
@@ -21,9 +21,9 @@ export class QueryRbacRoleResponseBodyModule extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The default status. Valid values:
-   * - 0: not default.
-   * - 1: default.
+   * Indicates whether it is the default. Valid values:
+   * - 0: No.
+   * - 1: Yes.
    * 
    * @example
    * true
@@ -31,7 +31,7 @@ export class QueryRbacRoleResponseBodyModule extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * Indicates whether the approval template is system-defined. Valid values:
+   * Specifies whether the approval template is system-defined. Valid values:
    * - 1: Yes.
    * - 0: No.
    */
@@ -49,7 +49,7 @@ export class QueryRbacRoleResponseBodyModule extends $dara.Model {
    * The file name.
    * 
    * @example
-   * 文件名
+   * File name
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -86,7 +86,7 @@ export class QueryRbacRoleResponseBodyModule extends $dara.Model {
 export class QueryRbacRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -94,9 +94,9 @@ export class QueryRbacRoleResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:
-   * - false: Retry is not allowed.
-   * - true: Retry is allowed.
+   * Specifies whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -104,7 +104,7 @@ export class QueryRbacRoleResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application.
    * 
    * @example
    * spring-cloud-b
@@ -128,7 +128,7 @@ export class QueryRbacRoleResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -157,7 +157,7 @@ export class QueryRbacRoleResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

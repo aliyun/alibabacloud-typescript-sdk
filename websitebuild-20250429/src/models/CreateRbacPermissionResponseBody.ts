@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRbacPermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class CreateRbacPermissionResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -45,7 +45,7 @@ export class CreateRbacPermissionResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -74,10 +74,10 @@ export class CreateRbacPermissionResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

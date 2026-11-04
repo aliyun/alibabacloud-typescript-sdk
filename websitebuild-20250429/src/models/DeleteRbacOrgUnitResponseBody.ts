@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRbacOrgUnitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The access denial details.
    * 
    * @example
    * {}
@@ -13,9 +13,9 @@ export class DeleteRbacOrgUnitResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:
-   * - false: Retry is not allowed.
-   * - true: Retry is allowed.
+   * Specifies whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -23,7 +23,7 @@ export class DeleteRbacOrgUnitResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * or
@@ -31,7 +31,7 @@ export class DeleteRbacOrgUnitResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic code. This parameter is not in use and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -39,8 +39,8 @@ export class DeleteRbacOrgUnitResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message that is used to replace the `%s` variable in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -48,7 +48,7 @@ export class DeleteRbacOrgUnitResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -80,12 +80,12 @@ export class DeleteRbacOrgUnitResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

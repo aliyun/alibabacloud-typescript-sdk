@@ -13,7 +13,7 @@ export class ListRbacOrgTreeRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The maximum number of entries per query.
+   * The number of results returned per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -23,7 +23,7 @@ export class ListRbacOrgTreeRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token used to start the next query. This parameter is empty if no subsequent query is available.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -31,7 +31,7 @@ export class ListRbacOrgTreeRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The field used for sorting.
    * 
    * @example
    * gmtCreated
@@ -39,10 +39,7 @@ export class ListRbacOrgTreeRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
-   * 
-   * - ASC: ascending order.
-   * - DESC: descending order.
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * BUY

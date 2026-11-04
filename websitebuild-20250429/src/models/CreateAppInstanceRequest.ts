@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppInstanceRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * Group
@@ -13,7 +13,7 @@ export class CreateAppInstanceRequestTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of tag 0.
+   * The value of the tag.
    * 
    * @example
    * ufo
@@ -61,13 +61,16 @@ export class CreateAppInstanceRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length.
+   * Ensures request idempotence. You can generate a parameter value from your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length.
    * 
    * @example
    * 210713a117660695309606626a
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The action.
+   * 
    * @example
    * OPEN_SUBSCRIPTION
    */
@@ -81,6 +84,9 @@ export class CreateAppInstanceRequest extends $dara.Model {
    */
   deployArea?: string;
   /**
+   * @remarks
+   * The description of the website.
+   * 
    * @example
    * go-to-the-docks-for-french-fries
    */
@@ -102,13 +108,16 @@ export class CreateAppInstanceRequest extends $dara.Model {
    */
   extend?: string;
   /**
+   * @remarks
+   * The name of the website.
+   * 
    * @example
    * docs
    */
   name?: string;
   /**
    * @remarks
-   * The payment type.
+   * The payment method.
    * 
    * @example
    * AUTO_PAY
@@ -116,11 +125,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * Required. The unit of the subscription period. Valid values:
-   * - Year: year
-   * - Month: month
-   * - Day: day
-   * - Hour: hour.
+   * Required. The unit of the subscription period. Valid values: Year, Month, Day, and Hour.
    * 
    * @example
    * Year
@@ -128,7 +133,7 @@ export class CreateAppInstanceRequest extends $dara.Model {
   pricingCycle?: string;
   /**
    * @remarks
-   * Required. The number of instances to subscribe to.
+   * Required. The number of instances to purchase.
    * 
    * @example
    * 1

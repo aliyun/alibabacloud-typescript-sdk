@@ -6,7 +6,7 @@ import { AppInstanceAggregate } from "./AppInstanceAggregate";
 export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {}
@@ -14,7 +14,7 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -22,7 +22,7 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * or

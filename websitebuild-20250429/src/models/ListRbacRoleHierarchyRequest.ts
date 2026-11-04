@@ -13,7 +13,7 @@ export class ListRbacRoleHierarchyRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The number of entries per query.
+   * The number of entries to return per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -23,7 +23,7 @@ export class ListRbacRoleHierarchyRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token used to start the next query. If no next query is available, this parameter is empty.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -31,7 +31,7 @@ export class ListRbacRoleHierarchyRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field used for sorting.
+   * The sort field.
    * 
    * @example
    * CreationTime
@@ -39,7 +39,7 @@ export class ListRbacRoleHierarchyRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort type. Valid values: ASC and DESC.
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * DOWNGRADE

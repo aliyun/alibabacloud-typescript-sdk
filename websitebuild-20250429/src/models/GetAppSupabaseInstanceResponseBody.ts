@@ -44,6 +44,11 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
    */
   instanceCreateStatus?: string;
   /**
+   * @example
+   * tenant_00000000-0000-4000-8000-000000000001_schema
+   */
+  schemaName?: string;
+  /**
    * @remarks
    * The service key.
    * 
@@ -75,6 +80,11 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
    * 111
    */
   supabasePublicUrl?: string;
+  /**
+   * @example
+   * schema
+   */
+  tenantMode?: string;
   static names(): { [key: string]: string } {
     return {
       anonKey: 'AnonKey',
@@ -82,10 +92,12 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
       dbInstanceId: 'DbInstanceId',
       dbPublicUrl: 'DbPublicUrl',
       instanceCreateStatus: 'InstanceCreateStatus',
+      schemaName: 'SchemaName',
       serviceKey: 'ServiceKey',
       status: 'Status',
       supabaseInstanceId: 'SupabaseInstanceId',
       supabasePublicUrl: 'SupabasePublicUrl',
+      tenantMode: 'TenantMode',
     };
   }
 
@@ -96,10 +108,12 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
       dbInstanceId: 'string',
       dbPublicUrl: 'string',
       instanceCreateStatus: 'string',
+      schemaName: 'string',
       serviceKey: 'string',
       status: 'number',
       supabaseInstanceId: 'string',
       supabasePublicUrl: 'string',
+      tenantMode: 'string',
     };
   }
 

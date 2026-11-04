@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssignRbacUserRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * {}
@@ -13,9 +13,9 @@ export class AssignRbacUserRoleResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:
-   * - false: Retry is not allowed.
-   * - true: Retry is allowed.
+   * Specifies whether a retry is allowed. Valid values:
+   * - false: A retry is not allowed.
+   * - true: A retry is allowed.
    * 
    * @example
    * False
@@ -23,7 +23,7 @@ export class AssignRbacUserRoleResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * or
@@ -39,7 +39,7 @@ export class AssignRbacUserRoleResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, used to replace the %s variable in the ErrMessage response parameter.
+   * The dynamic error message, which is used to replace %s in the ErrMessage response parameter.
    * 
    * @example
    * SYSTEM.ERROR
@@ -52,7 +52,7 @@ export class AssignRbacUserRoleResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the deletion was successful.
+   * Indicates whether the deletion is successful.
    * 
    * @example
    * true
@@ -79,12 +79,12 @@ export class AssignRbacUserRoleResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The backup parameter.
    * 
    * @example
    * True

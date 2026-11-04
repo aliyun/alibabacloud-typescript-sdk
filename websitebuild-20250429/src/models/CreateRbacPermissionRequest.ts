@@ -13,7 +13,7 @@ export class CreateRbacPermissionRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The permission parameter.
+   * The permission parameters.
    * 
    * @example
    * {"resource":"post","action":"read","description":"read post"}

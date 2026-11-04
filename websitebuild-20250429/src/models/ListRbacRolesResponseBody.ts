@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRbacRolesResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * The creation date. The value is in ISO 8601 format with the time zone set to UTC (Z).
+   * The creation date in ISO 8601 format in the UTC time zone.
    * 
    * @example
    * 2026-05-28T17:59:55Z
@@ -21,9 +21,9 @@ export class ListRbacRolesResponseBodyModuleData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Indicates whether this is the default report. Valid values:
+   * Specifies whether the report is the default report. Valid values:
    * - **0**: Not the default report.
-   * - **1**: The default report.
+   * - **1**: Default report.
    * 
    * @example
    * true
@@ -31,7 +31,7 @@ export class ListRbacRolesResponseBodyModuleData extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * Indicates whether the approval template is system-defined. Valid values:
+   * Specifies whether the approval template is system-defined. Valid values:
    * - 1: Yes.
    * - 0: No.
    */
@@ -49,7 +49,7 @@ export class ListRbacRolesResponseBodyModuleData extends $dara.Model {
    * The file name.
    * 
    * @example
-   * FileName
+   * File name
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -86,7 +86,7 @@ export class ListRbacRolesResponseBodyModuleData extends $dara.Model {
 export class ListRbacRolesResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created. The value is in the YYYY-MM-DD HH:mm:ss format.
+   * The task creation time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2020-11-27 16:02:28
@@ -102,7 +102,7 @@ export class ListRbacRolesResponseBodyModuleNext extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Indicates whether this is the default dedicated gateway.
+   * Specifies whether the private gateway is the default one.
    * 
    * @example
    * false
@@ -110,7 +110,7 @@ export class ListRbacRolesResponseBodyModuleNext extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * Indicates whether the approval template is system-defined. Valid values:
+   * Specifies whether the approval template is system-defined. Valid values:
    * - 1: Yes.
    * - 0: No.
    */
@@ -173,7 +173,7 @@ export class ListRbacRolesResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The query results.
+   * The request results.
    */
   data?: ListRbacRolesResponseBodyModuleData[];
   /**
@@ -183,7 +183,7 @@ export class ListRbacRolesResponseBodyModule extends $dara.Model {
   next?: ListRbacRolesResponseBodyModuleNext;
   /**
    * @remarks
-   * Indicates whether a next page exists.
+   * Specifies whether a next page exists.
    * 
    * @example
    * False
@@ -199,7 +199,7 @@ export class ListRbacRolesResponseBodyModule extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Indicates whether a previous page exists.
+   * Specifies whether a previous page exists.
    * 
    * @example
    * False
@@ -207,7 +207,7 @@ export class ListRbacRolesResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * Indicates whether the server-side result limit is reached. The server processes up to 1,000 recent records beyond pagination limits. If the results exceed 1,000, **ResultLimit** is **true** and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    * 
    * @example
    * False
@@ -275,7 +275,7 @@ export class ListRbacRolesResponseBodyModule extends $dara.Model {
 export class ListRbacRolesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason for access denial.
    * 
    * @example
    * {}
@@ -283,7 +283,7 @@ export class ListRbacRolesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -307,7 +307,7 @@ export class ListRbacRolesResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not in use. Ignore this parameter.
+   * The dynamic message. This parameter is not used and can be ignored.
    * 
    * @example
    * SYSTEM_ERROR
@@ -315,14 +315,12 @@ export class ListRbacRolesResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The error parameters returned.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The maximum number of entries to return per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The maximum number of results per query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -335,7 +333,7 @@ export class ListRbacRolesResponseBody extends $dara.Model {
   module?: ListRbacRolesResponseBodyModule;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token used to start the next query. If there is no next query, this parameter is empty.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -359,7 +357,7 @@ export class ListRbacRolesResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
    * System exception

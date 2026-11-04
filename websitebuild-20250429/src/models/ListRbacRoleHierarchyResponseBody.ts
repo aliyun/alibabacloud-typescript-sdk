@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRbacRoleHierarchyResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * The child role ID.
+   * The ID of the child role.
    * 
    * @example
    * fc94cc51-310f-4485-adb2-ed8c706aff3b
@@ -13,7 +13,7 @@ export class ListRbacRoleHierarchyResponseBodyModuleData extends $dara.Model {
   childRoleId?: string;
   /**
    * @remarks
-   * The parent role ID.
+   * The ID of the parent role.
    * 
    * @example
    * 71e07711-9a17-49f4-9f83-387a60ee5b64
@@ -45,7 +45,7 @@ export class ListRbacRoleHierarchyResponseBodyModuleData extends $dara.Model {
 export class ListRbacRoleHierarchyResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * The child role ID.
+   * The ID of the child role.
    * 
    * @example
    * fc94cc51-310f-4485-adb2-ed8c706aff3b
@@ -53,7 +53,7 @@ export class ListRbacRoleHierarchyResponseBodyModuleNext extends $dara.Model {
   childRoleId?: string;
   /**
    * @remarks
-   * The parent role ID.
+   * The ID of the parent role.
    * 
    * @example
    * 71e07711-9a17-49f4-9f83-387a60ee5b64
@@ -93,7 +93,7 @@ export class ListRbacRoleHierarchyResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The request results.
+   * The request result.
    */
   data?: ListRbacRoleHierarchyResponseBodyModuleData[];
   /**
@@ -127,7 +127,7 @@ export class ListRbacRoleHierarchyResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * The server processes up to 1,000 most recent records beyond the pagination limit. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    * 
    * @example
    * False
@@ -195,7 +195,7 @@ export class ListRbacRoleHierarchyResponseBodyModule extends $dara.Model {
 export class ListRbacRoleHierarchyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The details of the access denial.
    * 
    * @example
    * {}
@@ -203,9 +203,9 @@ export class ListRbacRoleHierarchyResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed. Valid values:
-   * - false: No retry is allowed.
-   * - true: A retry is allowed.
+   * Indicates whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -229,8 +229,8 @@ export class ListRbacRoleHierarchyResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -238,12 +238,12 @@ export class ListRbacRoleHierarchyResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The number of entries per query.
+   * The number of entries to return per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -253,12 +253,12 @@ export class ListRbacRoleHierarchyResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response object.
+   * The returned object.
    */
   module?: ListRbacRoleHierarchyResponseBodyModule;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token used to start the next query. If no next query is available, this parameter is empty.
    * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
@@ -285,12 +285,12 @@ export class ListRbacRoleHierarchyResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether the request is processed synchronously.
    * 
    * @example
    * True

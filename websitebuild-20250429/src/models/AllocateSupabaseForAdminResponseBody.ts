@@ -92,6 +92,11 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
    */
   rdsDatabasePassword?: string;
   /**
+   * @example
+   * tenant_00000000-0000-4000-8000-000000000001_schema
+   */
+  schemaName?: string;
+  /**
    * @remarks
    * The service key.
    * 
@@ -182,6 +187,11 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
    */
   tenantId?: string;
   /**
+   * @example
+   * schema
+   */
+  tenantMode?: string;
+  /**
    * @remarks
    * The user ID.
    * 
@@ -202,6 +212,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
       instanceCreateStatus: 'InstanceCreateStatus',
       isDeleted: 'IsDeleted',
       rdsDatabasePassword: 'RdsDatabasePassword',
+      schemaName: 'SchemaName',
       serviceKey: 'ServiceKey',
       status: 'Status',
       supabaseDashboardPassword: 'SupabaseDashboardPassword',
@@ -213,6 +224,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
       supabasePublicIp: 'SupabasePublicIp',
       supabasePublicUrl: 'SupabasePublicUrl',
       tenantId: 'TenantId',
+      tenantMode: 'TenantMode',
       userId: 'UserId',
     };
   }
@@ -230,6 +242,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
       instanceCreateStatus: 'string',
       isDeleted: 'number',
       rdsDatabasePassword: 'string',
+      schemaName: 'string',
       serviceKey: 'string',
       status: 'number',
       supabaseDashboardPassword: 'string',
@@ -241,6 +254,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
       supabasePublicIp: 'string',
       supabasePublicUrl: 'string',
       tenantId: 'string',
+      tenantMode: 'string',
       userId: 'string',
     };
   }

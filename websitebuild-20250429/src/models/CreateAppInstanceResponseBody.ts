@@ -21,7 +21,7 @@ export class CreateAppInstanceResponseBodyModule extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 250822465990301
@@ -65,7 +65,7 @@ export class CreateAppInstanceResponseBodyModule extends $dara.Model {
 export class CreateAppInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -73,7 +73,7 @@ export class CreateAppInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -81,7 +81,7 @@ export class CreateAppInstanceResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -97,8 +97,8 @@ export class CreateAppInstanceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -106,7 +106,7 @@ export class CreateAppInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -135,7 +135,7 @@ export class CreateAppInstanceResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

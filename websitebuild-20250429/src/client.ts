@@ -109,7 +109,7 @@ export default class Client extends OpenApi {
    * Grants a role to a user.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the application instance information.
    * 
    * @param request - AssignRbacUserRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -147,7 +147,7 @@ export default class Client extends OpenApi {
    * Grants a role to a user.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the application instance information.
    * 
    * @param request - AssignRbacUserRoleRequest
    * @returns AssignRbacUserRoleResponse
@@ -1770,10 +1770,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an RBAC permission.
+   * Creates RBAC permissions.
    * 
    * @remarks
-   * Creates an AI conversation session through Wanxiaozhi 2.0.
+   * The Wanxiaozhi 2.0 API operation for creating an AI session.
    * 
    * @param request - CreateRbacPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1808,10 +1808,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an RBAC permission.
+   * Creates RBAC permissions.
    * 
    * @remarks
-   * Creates an AI conversation session through Wanxiaozhi 2.0.
+   * The Wanxiaozhi 2.0 API operation for creating an AI session.
    * 
    * @param request - CreateRbacPermissionRequest
    * @returns CreateRbacPermissionResponse
@@ -2422,10 +2422,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an RBAC permission.
+   * Deletes RBAC permissions.
    * 
    * @remarks
-   * Creates an AI conversation session for WanXiaoZhi 2.0.
+   * The API operation for creating an AI session in Wanxiaozhi 2.0.
    * 
    * @param request - DeleteRbacPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2460,10 +2460,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an RBAC permission.
+   * Deletes RBAC permissions.
    * 
    * @remarks
-   * Creates an AI conversation session for WanXiaoZhi 2.0.
+   * The API operation for creating an AI session in Wanxiaozhi 2.0.
    * 
    * @param request - DeleteRbacPermissionRequest
    * @returns DeleteRbacPermissionResponse
@@ -2477,7 +2477,7 @@ export default class Client extends OpenApi {
    * Deletes an RBAC role.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the application instance information.
    * 
    * @param request - DeleteRbacRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2515,7 +2515,7 @@ export default class Client extends OpenApi {
    * Deletes an RBAC role.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the application instance information.
    * 
    * @param request - DeleteRbacRoleRequest
    * @returns DeleteRbacRoleResponse
@@ -2747,7 +2747,7 @@ export default class Client extends OpenApi {
    * Exports the RBAC configuration.
    * 
    * @remarks
-   * Queries the Supabase instance configuration information corresponding to a resource.
+   * Queries the Supabase instance configuration for a resource.
    * 
    * @param request - ExportRbacConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2781,7 +2781,7 @@ export default class Client extends OpenApi {
    * Exports the RBAC configuration.
    * 
    * @remarks
-   * Queries the Supabase instance configuration information corresponding to a resource.
+   * Queries the Supabase instance configuration for a resource.
    * 
    * @param request - ExportRbacConfigRequest
    * @returns ExportRbacConfigResponse
@@ -3192,10 +3192,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries application instance information.
+   * Queries the details of application instances.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the details of application instances.
    * 
    * @param request - GetAppInstanceForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3230,10 +3230,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries application instance information.
+   * Queries the details of application instances.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the details of application instances.
    * 
    * @param request - GetAppInstanceForAdminRequest
    * @returns GetAppInstanceForAdminResponse
@@ -6466,10 +6466,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the RBAC permission list.
+   * Queries the RBAC permissions.
    * 
    * @remarks
-   * Creates an AI conversation session through WanXiaoZhi 2.0.
+   * Creates an AI session in Wanxiaozhi 2.0.
    * 
    * @param request - ListRbacPermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6524,10 +6524,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the RBAC permission list.
+   * Queries the RBAC permissions.
    * 
    * @remarks
-   * Creates an AI conversation session through WanXiaoZhi 2.0.
+   * Creates an AI session in Wanxiaozhi 2.0.
    * 
    * @param request - ListRbacPermissionsRequest
    * @returns ListRbacPermissionsResponse
@@ -6541,7 +6541,7 @@ export default class Client extends OpenApi {
    * Queries the RBAC role hierarchy.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the application instance information.
    * 
    * @param request - ListRbacRoleHierarchyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6599,7 +6599,7 @@ export default class Client extends OpenApi {
    * Queries the RBAC role hierarchy.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the application instance information.
    * 
    * @param request - ListRbacRoleHierarchyRequest
    * @returns ListRbacRoleHierarchyResponse
@@ -6610,10 +6610,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of RBAC roles.
+   * Queries a list of RBAC roles.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the application instance information.
    * 
    * @param request - ListRbacRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6668,10 +6668,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of RBAC roles.
+   * Queries a list of RBAC roles.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the application instance information.
    * 
    * @param request - ListRbacRolesRequest
    * @returns ListRbacRolesResponse
@@ -8206,7 +8206,7 @@ export default class Client extends OpenApi {
    * Queries a single RBAC role.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the information of an application instance.
    * 
    * @param request - QueryRbacRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8244,7 +8244,7 @@ export default class Client extends OpenApi {
    * Queries a single RBAC role.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the information of an application instance.
    * 
    * @param request - QueryRbacRoleRequest
    * @returns QueryRbacRoleResponse
@@ -8255,10 +8255,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of role permissions.
+   * Queries the role permission list.
    * 
    * @remarks
-   * Creates an AI conversation session for Wan Xiaozhi 2.0.
+   * The API operation to create an AI session for Wanxiaozhi 2.0.
    * 
    * @param request - QueryRbacRolePermissionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8309,10 +8309,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of role permissions.
+   * Queries the role permission list.
    * 
    * @remarks
-   * Creates an AI conversation session for Wan Xiaozhi 2.0.
+   * The API operation to create an AI session for Wanxiaozhi 2.0.
    * 
    * @param request - QueryRbacRolePermissionsRequest
    * @returns QueryRbacRolePermissionsResponse
@@ -8835,10 +8835,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an RBAC role hierarchy.
+   * Removes the RBAC role hierarchy.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the application instance information.
    * 
    * @param request - RemoveRbacRoleHierarchyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8877,10 +8877,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an RBAC role hierarchy.
+   * Removes the RBAC role hierarchy.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the application instance information.
    * 
    * @param request - RemoveRbacRoleHierarchyRequest
    * @returns RemoveRbacRoleHierarchyResponse
@@ -9734,7 +9734,7 @@ export default class Client extends OpenApi {
    * Sets the RBAC role hierarchy.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - SetRbacRoleHierarchyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9776,7 +9776,7 @@ export default class Client extends OpenApi {
    * Sets the RBAC role hierarchy.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plugin.
+   * Retrieves the configuration information of the code generation plug-in.
    * 
    * @param request - SetRbacRoleHierarchyRequest
    * @returns SetRbacRoleHierarchyResponse
@@ -10819,10 +10819,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an RBAC role.
+   * Updates the RBAC role.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plug-in.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - UpdateRbacRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10861,10 +10861,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an RBAC role.
+   * Updates the RBAC role.
    * 
    * @remarks
-   * Retrieves the configuration information of the code generation plug-in.
+   * Retrieves the configuration information of the code generation plugin.
    * 
    * @param request - UpdateRbacRoleRequest
    * @returns UpdateRbacRoleResponse

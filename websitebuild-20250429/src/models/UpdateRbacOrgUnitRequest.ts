@@ -13,7 +13,7 @@ export class UpdateRbacOrgUnitRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The organization parameters.
+   * The organizational unit parameters.
    * 
    * @example
    * {"name":"xx"}
@@ -21,7 +21,7 @@ export class UpdateRbacOrgUnitRequest extends $dara.Model {
   orgUnitData?: string;
   /**
    * @remarks
-   * The organization ID.
+   * The organizational unit ID.
    * 
    * @example
    * f0534aa7-94ec-4368-a34a-310390f66253

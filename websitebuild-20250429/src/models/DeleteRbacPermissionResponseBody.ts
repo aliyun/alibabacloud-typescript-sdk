@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRbacPermissionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class DeleteRbacPermissionResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class DeleteRbacPermissionResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * dewuApp
@@ -37,8 +37,8 @@ export class DeleteRbacPermissionResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -46,7 +46,7 @@ export class DeleteRbacPermissionResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -78,12 +78,12 @@ export class DeleteRbacPermissionResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRbacRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class CreateRbacRoleResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * ish-intelligence-store-platform-admin-web
@@ -45,7 +45,7 @@ export class CreateRbacRoleResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -74,15 +74,15 @@ export class CreateRbacRoleResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * Indicates whether the request is synchronously processed.
+   * Indicates whether synchronous processing is used.
    * 
    * @example
    * True

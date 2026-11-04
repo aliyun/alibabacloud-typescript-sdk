@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRbacOrgTreeResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The time is in ISO 8601 format in the UTC (Z) time zone.
+   * The creation time. The time is in the ISO 8601 format and the UTC time zone.
    * 
    * @example
    * 2026-05-08T02:28:26Z
@@ -32,7 +32,7 @@ export class ListRbacOrgTreeResponseBodyModuleData extends $dara.Model {
    * The file name.
    * 
    * @example
-   * FileName
+   * File name
    */
   name?: string;
   /**
@@ -72,7 +72,7 @@ export class ListRbacOrgTreeResponseBodyModuleData extends $dara.Model {
 export class ListRbacOrgTreeResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * The creation date. The time is in ISO 8601 format in the UTC (Z) time zone.
+   * The creation date. The date is in the ISO 8601 format and the UTC time zone.
    * 
    * @example
    * 2025-12-15T02:29:22Z
@@ -80,7 +80,7 @@ export class ListRbacOrgTreeResponseBodyModuleNext extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The category level. The root category is 1.
+   * The category level. The root category level is 1.
    * 
    * @example
    * 2
@@ -150,12 +150,12 @@ export class ListRbacOrgTreeResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The query results.
+   * The request result.
    */
   data?: ListRbacOrgTreeResponseBodyModuleData[];
   /**
    * @remarks
-   * The next feature ID.
+   * The ID of the next feature.
    */
   next?: ListRbacOrgTreeResponseBodyModuleNext;
   /**
@@ -184,7 +184,7 @@ export class ListRbacOrgTreeResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * In addition to pagination limits, the server processes up to 1,000 recent records for the current query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    * 
    * @example
    * False
@@ -252,7 +252,7 @@ export class ListRbacOrgTreeResponseBodyModule extends $dara.Model {
 export class ListRbacOrgTreeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed cause of the access denial.
    * 
    * @example
    * {}
@@ -260,7 +260,7 @@ export class ListRbacOrgTreeResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -268,7 +268,7 @@ export class ListRbacOrgTreeResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The application with this name is queried.
+   * The name of the application to query.
    * 
    * @example
    * or
@@ -284,8 +284,8 @@ export class ListRbacOrgTreeResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -293,12 +293,12 @@ export class ListRbacOrgTreeResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The maximum number of entries per query.
+   * The number of results returned per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -313,7 +313,7 @@ export class ListRbacOrgTreeResponseBody extends $dara.Model {
   module?: ListRbacOrgTreeResponseBodyModule;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token used to start the next query. This parameter is empty if no subsequent query is available.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -345,7 +345,7 @@ export class ListRbacOrgTreeResponseBody extends $dara.Model {
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

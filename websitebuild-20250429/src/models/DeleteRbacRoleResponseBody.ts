@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRbacRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -13,9 +13,9 @@ export class DeleteRbacRoleResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:
-   * - false: Retry is not allowed.
-   * - true: Retry is allowed.
+   * Specifies whether retries are allowed. Valid values:
+   * - false: Retries are not allowed.
+   * - true: Retries are allowed.
    * 
    * @example
    * False
@@ -23,7 +23,7 @@ export class DeleteRbacRoleResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name cannot exceed 36 characters in length.
+   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
    * 
    * @example
    * spring-cloud-b
@@ -31,7 +31,7 @@ export class DeleteRbacRoleResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic code. This parameter is not used and can be ignored.
    * 
    * @example
    * ERROR-oo1
@@ -39,8 +39,8 @@ export class DeleteRbacRoleResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message used to replace the `%s` variable in the **ErrMessage** parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace `%s` in the error message returned by the **ErrMessage** parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the value of the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -48,7 +48,7 @@ export class DeleteRbacRoleResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -80,12 +80,12 @@ export class DeleteRbacRoleResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * True

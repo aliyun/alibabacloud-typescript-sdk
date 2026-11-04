@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetRbacRoleHierarchyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason for the access denial.
    * 
    * @example
    * {}
@@ -13,9 +13,9 @@ export class SetRbacRoleHierarchyResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed. Valid values:
-   * - false: Retry is not allowed.
-   * - true: Retry is allowed.
+   * Specifies whether a retry is allowed. Valid values:
+   * - false: A retry is not allowed.
+   * - true: A retry is allowed.
    * 
    * @example
    * False
@@ -23,7 +23,7 @@ export class SetRbacRoleHierarchyResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
+   * The application name. It can contain digits, letters, and hyphens (-). It must start with a letter, must not end with a hyphen (-), and must not exceed 36 characters in length.
    * 
    * @example
    * or
@@ -52,7 +52,7 @@ export class SetRbacRoleHierarchyResponseBody extends $dara.Model {
   errorArgs?: any[];
   /**
    * @remarks
-   * Indicates whether the move was successful.
+   * Indicates whether the move is successful.
    * 
    * @example
    * true
@@ -79,12 +79,12 @@ export class SetRbacRoleHierarchyResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * The reserved parameter.
+   * The backup parameter.
    * 
    * @example
    * True

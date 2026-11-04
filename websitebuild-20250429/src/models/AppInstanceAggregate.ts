@@ -12,7 +12,7 @@ import { TemplateRecord } from "./TemplateRecord";
 export class AppInstanceAggregateConversationInfo extends $dara.Model {
   /**
    * @remarks
-   * 0 表示存在空会话。
+   * The number of conversation turns. A value of 0 indicates an empty conversation.
    * 
    * @example
    * 1
@@ -58,7 +58,7 @@ export class AppInstanceAggregatePartnerDetailBindData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time.
+   * The modification time.
    * 
    * @example
    * Wed Nov 26 10:15:28 CST 2025
@@ -189,9 +189,7 @@ export class AppInstanceAggregatePartnerDetail extends $dara.Model {
 export class AppInstanceAggregateTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the instance. Valid values of N: **1** to **20**. If you specify this parameter, it cannot be an empty string.
-   * 
-   * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag key of the instance. Valid values of N: **1** to **20**. The value cannot be an empty string. The value can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
    * 
    * @example
    * Group
@@ -199,9 +197,7 @@ export class AppInstanceAggregateTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the instance. Valid values of N: **1** to **20**. If you specify this parameter, it can be an empty string.
-   * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag value of the instance. Valid values of N: **1** to **20**. The value can be an empty string. The value can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
    * 
    * @example
    * ufo
@@ -233,7 +229,7 @@ export class AppInstanceAggregateTags extends $dara.Model {
 export class AppInstanceAggregate extends $dara.Model {
   /**
    * @remarks
-   * The list of AI agents associated with the application.
+   * The list of AI staff associated with the application.
    */
   aiStaffList?: AppAiStaff[];
   /**
@@ -280,7 +276,7 @@ export class AppInstanceAggregate extends $dara.Model {
   buildType?: string;
   /**
    * @remarks
-   * 没有关联会话时为 null。
+   * The associated conversation information. The value is null if no conversation is associated.
    */
   conversationInfo?: AppInstanceAggregateConversationInfo;
   /**
@@ -317,7 +313,7 @@ export class AppInstanceAggregate extends $dara.Model {
   designSpecBizId?: string;
   /**
    * @remarks
-   * The design specification ID.
+   * The ID of the design configuration.
    */
   designSpecId?: string;
   /**
@@ -354,7 +350,7 @@ export class AppInstanceAggregate extends $dara.Model {
   gmtDelete?: string;
   /**
    * @remarks
-   * The update time.
+   * The modification time.
    * 
    * @example
    * 2025-08-28T02:25:41Z
@@ -362,7 +358,7 @@ export class AppInstanceAggregate extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The publication time.
+   * The publish time.
    * 
    * @example
    * 2025-01-01 00:00:00

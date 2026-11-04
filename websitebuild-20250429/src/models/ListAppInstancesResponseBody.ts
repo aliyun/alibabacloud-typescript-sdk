@@ -6,7 +6,7 @@ import { AppInstanceAggregate } from "./AppInstanceAggregate";
 export class ListAppInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reasons for access denial.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -14,7 +14,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retries are allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -22,7 +22,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The name of the app.
    * 
    * @example
    * dewuApp
@@ -38,7 +38,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The request results.
+   * The request result.
    */
   data?: AppInstanceAggregate[];
   /**
@@ -59,12 +59,12 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The returned error parameters.
+   * The returned error arguments.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The maximum number of results to return for each query.
+   * The maximum number of results returned per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -82,7 +82,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   nextPage?: boolean;
   /**
    * @remarks
-   * The token that is used to start the next query. This parameter is empty if no subsequent query is required.
+   * The token used to start the next query. This parameter is empty if no next query exists.
    * 
    * @example
    * dw+qdTi1EjVSWX/INJdYNw==
@@ -114,7 +114,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
    * 
    * @example
    * False
@@ -122,7 +122,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   resultLimit?: boolean;
   /**
    * @remarks
-   * The error code.
+   * The root error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -130,10 +130,10 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The root error message.
    * 
    * @example
-   * System error
+   * System exception
    */
   rootErrorMsg?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRbacPermissionsResponseBodyModuleData extends $dara.Model {
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **GetDISyncInstanceInfo**.
+   * The system-defined parameter. Set the value to **GetDISyncInstanceInfo**.
    * 
    * @example
    * monitor
@@ -65,7 +65,7 @@ export class ListRbacPermissionsResponseBodyModuleData extends $dara.Model {
 export class ListRbacPermissionsResponseBodyModuleNext extends $dara.Model {
   /**
    * @remarks
-   * The operation that you want to perform. Set the value to **GetRemind**.
+   * The system-defined parameter. Set the value to **GetRemind**.
    * 
    * @example
    * accept
@@ -93,7 +93,7 @@ export class ListRbacPermissionsResponseBodyModuleNext extends $dara.Model {
    * 
    * **Note**: The metadata is constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include the full-path metadata declaration from level 0 to the validLeaf level.
    * 
-   * Appendix: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * For more information, see [ResourceSchema documentation for Alibaba Cloud International](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions).
    * 
    * @example
    * buy
@@ -137,12 +137,12 @@ export class ListRbacPermissionsResponseBodyModule extends $dara.Model {
   currentPageNum?: number;
   /**
    * @remarks
-   * The query results.
+   * The request results.
    */
   data?: ListRbacPermissionsResponseBodyModuleData[];
   /**
    * @remarks
-   * The next feature ID.
+   * The ID of the next feature.
    */
   next?: ListRbacPermissionsResponseBodyModuleNext;
   /**
@@ -171,7 +171,7 @@ export class ListRbacPermissionsResponseBodyModule extends $dara.Model {
   prePage?: boolean;
   /**
    * @remarks
-   * Apart from pagination limits, the server processes up to 1000 recent records for the current query. If the results exceed 1000 entries, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+   * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
    * 
    * @example
    * False
@@ -239,7 +239,7 @@ export class ListRbacPermissionsResponseBodyModule extends $dara.Model {
 export class ListRbacPermissionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The detailed reason why access is denied.
    * 
    * @example
    * {}
@@ -247,7 +247,7 @@ export class ListRbacPermissionsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -255,7 +255,7 @@ export class ListRbacPermissionsResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The name of the app.
    * 
    * @example
    * spring-cloud-b
@@ -279,12 +279,12 @@ export class ListRbacPermissionsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
    * @remarks
-   * The number of entries per query.
+   * The number of entries to return in each query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -294,12 +294,12 @@ export class ListRbacPermissionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response object.
+   * The returned object.
    */
   module?: ListRbacPermissionsResponseBodyModule;
   /**
    * @remarks
-   * The token for the next query. This parameter is empty if no more results exist.
+   * The token that is used to start the next query. This parameter is empty if no next query exists.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
@@ -326,7 +326,7 @@ export class ListRbacPermissionsResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * 系统异常
+   * System exception
    */
   rootErrorMsg?: string;
   /**

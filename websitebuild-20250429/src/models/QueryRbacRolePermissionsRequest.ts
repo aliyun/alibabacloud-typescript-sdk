@@ -13,7 +13,7 @@ export class QueryRbacRolePermissionsRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The field used for sorting.
    * 
    * @example
    * gmtCreated
@@ -45,11 +45,11 @@ export class QueryRbacRolePermissionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The organization role ID, including predefined roles and custom roles:
+   * The organization role ID, including preset roles and custom roles:
    * 
-   * - Organization administrator (predefined role): 111111111
-   * - Permission management administrator (predefined role): 111111112
-   * - Regular user (predefined role): 111111113
+   * - Organization administrator (preset role): 111111111
+   * - Permission management administrator (preset role): 111111112
+   * - Regular user (preset role): 111111113
    * - Custom role: the role ID of the custom role
    * 
    * @example

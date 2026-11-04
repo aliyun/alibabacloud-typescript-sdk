@@ -92,6 +92,11 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
    */
   rdsDatabasePassword?: string;
   /**
+   * @example
+   * tenant_00000000-0000-4000-8000-000000000001_schema
+   */
+  schemaName?: string;
+  /**
    * @remarks
    * The service key.
    * 
@@ -180,6 +185,11 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
    */
   tenantId?: string;
   /**
+   * @example
+   * schema
+   */
+  tenantMode?: string;
+  /**
    * @remarks
    * The user ID.
    * 
@@ -200,6 +210,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
       instanceCreateStatus: 'InstanceCreateStatus',
       isDeleted: 'IsDeleted',
       rdsDatabasePassword: 'RdsDatabasePassword',
+      schemaName: 'SchemaName',
       serviceKey: 'ServiceKey',
       status: 'Status',
       supabaseDashboardPassword: 'SupabaseDashboardPassword',
@@ -211,6 +222,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
       supabasePublicIp: 'SupabasePublicIp',
       supabasePublicUrl: 'SupabasePublicUrl',
       tenantId: 'TenantId',
+      tenantMode: 'TenantMode',
       userId: 'UserId',
     };
   }
@@ -228,6 +240,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
       instanceCreateStatus: 'string',
       isDeleted: 'number',
       rdsDatabasePassword: 'string',
+      schemaName: 'string',
       serviceKey: 'string',
       status: 'number',
       supabaseDashboardPassword: 'string',
@@ -239,6 +252,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
       supabasePublicIp: 'string',
       supabasePublicUrl: 'string',
       tenantId: 'string',
+      tenantMode: 'string',
       userId: 'string',
     };
   }

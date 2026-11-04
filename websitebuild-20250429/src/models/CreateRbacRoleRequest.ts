@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRbacRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * The business ID of the customer.
+   * The customer business ID.
    * 
    * @example
    * WS20250731233102000001
