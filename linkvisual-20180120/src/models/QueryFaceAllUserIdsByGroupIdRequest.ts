@@ -1,0 +1,72 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class QueryFaceAllUserIdsByGroupIdRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The isolation ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TestIsolationId
+   */
+  isolationId?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @remarks
+   * The page size.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The user group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TestUserGroupId
+   */
+  userGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isolationId: 'IsolationId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      userGroupId: 'UserGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isolationId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      userGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
