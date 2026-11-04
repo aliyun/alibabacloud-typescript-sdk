@@ -4,33 +4,55 @@ import { ApiKey } from "./ApiKey";
 
 
 export class ListApiKeysResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of API keys.
+   */
   apiKeys?: ApiKey[];
   /**
+   * @remarks
+   * The response code. A value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response message. A value of success indicates a successful request.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The page number of the current query.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page used in the current query.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 7ADFF8D8-D4BA-5F79-AD49-DDABFEA59B6C
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of API keys that meet the query conditions.
+   * 
    * @example
    * 10
    */

@@ -12,9 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'cn-hangzhou': "sandbox-vpc.cn-hangzhou.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("sandbox", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -33,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 ApiKey
+   * Creates an API key.
    * 
    * @param request - CreateApiKeyRequest
    * @param headers - map
@@ -61,7 +58,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 ApiKey
+   * Creates an API key.
    * 
    * @param request - CreateApiKeyRequest
    * @returns CreateApiKeyResponse
@@ -73,7 +70,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Team
+   * Creates a team.
    * 
    * @param request - CreateTeamRequest
    * @param headers - map
@@ -101,7 +98,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Team
+   * Creates a team.
    * 
    * @param request - CreateTeamRequest
    * @returns CreateTeamResponse
@@ -113,7 +110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Template
+   * Creates a template.
    * 
    * @param request - CreateTemplateRequest
    * @param headers - map
@@ -141,7 +138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Template
+   * Creates a template.
    * 
    * @param request - CreateTemplateRequest
    * @returns CreateTemplateResponse
@@ -153,7 +150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模板缓存
+   * Creates a template cache.
    * 
    * @param request - CreateTemplateCacheRequest
    * @param headers - map
@@ -181,7 +178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模板缓存
+   * Creates a template cache.
    * 
    * @param request - CreateTemplateCacheRequest
    * @returns CreateTemplateCacheResponse
@@ -193,7 +190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Volume
+   * Creates a storage volume.
    * 
    * @param request - CreateVolumeRequest
    * @param headers - map
@@ -221,7 +218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 Volume
+   * Creates a storage volume.
    * 
    * @param request - CreateVolumeRequest
    * @returns CreateVolumeResponse
@@ -233,7 +230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 ApiKey
+   * Deletes a specified API key.
    * 
    * @param request - DeleteApiKeyRequest
    * @param headers - map
@@ -260,7 +257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 ApiKey
+   * Deletes a specified API key.
    * 
    * @param request - DeleteApiKeyRequest
    * @returns DeleteApiKeyResponse
@@ -272,7 +269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 quota 配置
+   * Deletes the quota configuration for a specified team.
    * 
    * @param request - DeleteQuotaRequest
    * @param headers - map
@@ -305,7 +302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 quota 配置
+   * Deletes the quota configuration for a specified team.
    * 
    * @param request - DeleteQuotaRequest
    * @returns DeleteQuotaResponse
@@ -317,7 +314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Team
+   * Deletes a specified team.
    * 
    * @param request - DeleteTeamRequest
    * @param headers - map
@@ -344,7 +341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Team
+   * Deletes a specified team.
    * 
    * @param request - DeleteTeamRequest
    * @returns DeleteTeamResponse
@@ -356,7 +353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Template
+   * Deletes a template.
    * 
    * @param request - DeleteTemplateRequest
    * @param headers - map
@@ -389,7 +386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Template
+   * Deletes a template.
    * 
    * @param request - DeleteTemplateRequest
    * @returns DeleteTemplateResponse
@@ -401,7 +398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模板缓存
+   * Deletes the template cache.
    * 
    * @param request - DeleteTemplateCacheRequest
    * @param headers - map
@@ -434,7 +431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除模板缓存
+   * Deletes the template cache.
    * 
    * @param request - DeleteTemplateCacheRequest
    * @returns DeleteTemplateCacheResponse
@@ -446,7 +443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Volume
+   * Deletes a specified storage volume.
    * 
    * @param request - DeleteVolumeRequest
    * @param headers - map
@@ -479,7 +476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除 Volume
+   * Deletes a specified storage volume.
    * 
    * @param request - DeleteVolumeRequest
    * @returns DeleteVolumeResponse
@@ -491,7 +488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看 ApiKey
+   * Queries the details of a specified API key.
    * 
    * @param request - DescribeApiKeyRequest
    * @param headers - map
@@ -518,7 +515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看 ApiKey
+   * Queries the details of a specified API key.
    * 
    * @param request - DescribeApiKeyRequest
    * @returns DescribeApiKeyResponse
@@ -530,7 +527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 quota 配置
+   * Queries the quota configuration of a specified team.
    * 
    * @param request - DescribeQuotaRequest
    * @param headers - map
@@ -563,7 +560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 quota 配置
+   * Queries the quota configuration of a specified team.
    * 
    * @param request - DescribeQuotaRequest
    * @returns DescribeQuotaResponse
@@ -575,7 +572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模板缓存
+   * Queries the template cache.
    * 
    * @param request - DescribeTemplateCacheRequest
    * @param headers - map
@@ -608,7 +605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询模板缓存
+   * Queries the template cache.
    * 
    * @param request - DescribeTemplateCacheRequest
    * @returns DescribeTemplateCacheResponse
@@ -620,7 +617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Team详情
+   * Queries the details of a specified team.
    * 
    * @param request - GetTeamRequest
    * @param headers - map
@@ -647,7 +644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Team详情
+   * Queries the details of a specified team.
    * 
    * @param request - GetTeamRequest
    * @returns GetTeamResponse
@@ -659,7 +656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 Template
+   * Queries a template.
    * 
    * @param request - GetTemplateRequest
    * @param headers - map
@@ -692,7 +689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 Template
+   * Queries a template.
    * 
    * @param request - GetTemplateRequest
    * @returns GetTemplateResponse
@@ -704,7 +701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看 Volume
+   * Queries the details of a specified storage volume.
    * 
    * @param request - GetVolumeRequest
    * @param headers - map
@@ -737,7 +734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看 Volume
+   * Queries the details of a specified storage volume.
    * 
    * @param request - GetVolumeRequest
    * @returns GetVolumeResponse
@@ -749,7 +746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询 ApiKey
+   * Queries the list of API keys by using paging.
    * 
    * @param request - ListApiKeysRequest
    * @param headers - map
@@ -806,7 +803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询 ApiKey
+   * Queries the list of API keys by using paging.
    * 
    * @param request - ListApiKeysRequest
    * @returns ListApiKeysResponse
@@ -818,7 +815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 quota 配置
+   * Performs a paging query on the quota configurations for the current account.
    * 
    * @param request - ListQuotaRequest
    * @param headers - map
@@ -855,7 +852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 quota 配置
+   * Performs a paging query on the quota configurations for the current account.
    * 
    * @param request - ListQuotaRequest
    * @returns ListQuotaResponse
@@ -867,7 +864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 Team 列表
+   * Queries the team list by using paging.
    * 
    * @param request - ListTeamsRequest
    * @param headers - map
@@ -916,7 +913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 Team 列表
+   * Queries the team list by using paging.
    * 
    * @param request - ListTeamsRequest
    * @returns ListTeamsResponse
@@ -928,7 +925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询模板缓存
+   * Performs a paging query of template caches.
    * 
    * @param request - ListTemplateCacheRequest
    * @param headers - map
@@ -977,7 +974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询模板缓存
+   * Performs a paging query of template caches.
    * 
    * @param request - ListTemplateCacheRequest
    * @returns ListTemplateCacheResponse
@@ -989,7 +986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询 Template
+   * Performs a paged query on the template list by using paging.
    * 
    * @param request - ListTemplatesRequest
    * @param headers - map
@@ -1030,7 +1027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询 Template
+   * Performs a paged query on the template list by using paging.
    * 
    * @param request - ListTemplatesRequest
    * @returns ListTemplatesResponse
@@ -1042,7 +1039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询 Volumes
+   * Queries a list of storage volumes by using paging.
    * 
    * @param request - ListVolumesRequest
    * @param headers - map
@@ -1103,7 +1100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询 Volumes
+   * Queries a list of storage volumes by using paging.
    * 
    * @param request - ListVolumesRequest
    * @returns ListVolumesResponse
@@ -1115,7 +1112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置 ApiKey
+   * Resets a specified API key.
    * 
    * @param request - ResetApiKeyRequest
    * @param headers - map
@@ -1142,7 +1139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置 ApiKey
+   * Resets a specified API key.
    * 
    * @param request - ResetApiKeyRequest
    * @returns ResetApiKeyResponse
@@ -1154,7 +1151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 ApiKey
+   * Updates the configuration of a specified API key.
    * 
    * @param request - UpdateApiKeyRequest
    * @param headers - map
@@ -1182,7 +1179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 ApiKey
+   * Updates the configuration of a specified API key.
    * 
    * @param request - UpdateApiKeyRequest
    * @returns UpdateApiKeyResponse
@@ -1194,7 +1191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 quota 配置
+   * Updates the quota configuration.
    * 
    * @param request - UpdateQuotaRequest
    * @param headers - map
@@ -1222,7 +1219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 quota 配置
+   * Updates the quota configuration.
    * 
    * @param request - UpdateQuotaRequest
    * @returns UpdateQuotaResponse
@@ -1234,7 +1231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Team
+   * Updates the information of a specified team.
    * 
    * @param request - UpdateTeamRequest
    * @param headers - map
@@ -1262,7 +1259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Team
+   * Updates the information of a specified team.
    * 
    * @param request - UpdateTeamRequest
    * @returns UpdateTeamResponse
@@ -1274,7 +1271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Template
+   * Updates a template.
    * 
    * @param request - UpdateTemplateRequest
    * @param headers - map
@@ -1308,7 +1305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Template
+   * Updates a template.
    * 
    * @param request - UpdateTemplateRequest
    * @returns UpdateTemplateResponse
@@ -1320,7 +1317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Volume
+   * Updates the configuration of a specified storage volume.
    * 
    * @param request - UpdateVolumeRequest
    * @param headers - map
@@ -1354,7 +1351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 Volume
+   * Updates the configuration of a specified storage volume.
    * 
    * @param request - UpdateVolumeRequest
    * @returns UpdateVolumeResponse

@@ -4,17 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublicUpdateTemplateVPCConfig extends $dara.Model {
   /**
+   * @remarks
+   * The ARN of the RAM role used to access VPC resources.
+   * 
    * @example
    * acs:ram::123456789012:role/sandbox-vpc-role
    */
   role?: string;
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-bp1abc123
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The list of vSwitch IDs.
+   */
   vSwitchIds?: string[];
   /**
+   * @remarks
+   * VPC ID
+   * 
    * @example
    * vpc-bp1abc123
    */

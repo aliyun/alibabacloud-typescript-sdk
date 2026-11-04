@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTemplateRegistryCertConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to skip HTTPS certificate validation for the image repository. Enable this option only for private repositories that use self-signed certificates.
+   */
   insecure?: boolean;
   static names(): { [key: string]: string } {
     return {

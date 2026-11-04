@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. The value is 200 if the request is successful.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * B5AD8B54-4358-5F5B-ACAA-52F2016459C6
    */

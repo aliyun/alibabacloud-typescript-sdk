@@ -4,6 +4,10 @@ import { CreateTemplateInput } from "./CreateTemplateInput";
 
 
 export class CreateTemplateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request struct for creating a template.
+   */
   body?: CreateTemplateInput;
   static names(): { [key: string]: string } {
     return {

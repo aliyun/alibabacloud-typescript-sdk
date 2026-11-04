@@ -6,8 +6,20 @@ import { PublicUpdateTemplateRegistryNetworkConfig } from "./PublicUpdateTemplat
 
 
 export class PublicUpdateTemplateRegistryConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The image repository authentication configuration.
+   */
   authConfig?: PublicUpdateTemplateRegistryAuthConfig;
+  /**
+   * @remarks
+   * The image repository certificate configuration.
+   */
   certConfig?: PublicUpdateTemplateRegistryCertConfig;
+  /**
+   * @remarks
+   * The image repository network configuration.
+   */
   networkConfig?: PublicUpdateTemplateRegistryNetworkConfig;
   static names(): { [key: string]: string } {
     return {

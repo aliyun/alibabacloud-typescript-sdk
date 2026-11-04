@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PublicUpdateTemplateEnvdInjectAction extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether envd injection is enabled.
+   */
   enabled?: boolean;
   static names(): { [key: string]: string } {
     return {

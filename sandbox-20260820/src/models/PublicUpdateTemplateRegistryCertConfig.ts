@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PublicUpdateTemplateRegistryCertConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to skip repository certificate verification.
+   */
   insecure?: boolean;
   static names(): { [key: string]: string } {
     return {

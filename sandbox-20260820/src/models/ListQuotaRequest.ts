@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListQuotaRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of records to return per page.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token. Leave this parameter empty for the first request. To query the next page, specify the nextToken value returned in the previous response.
+   * 
    * @example
    * Trigger_fasdatalake_deductionfee
    */

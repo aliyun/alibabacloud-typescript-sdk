@@ -7,23 +7,48 @@ import { PublicUpdateTemplateVPCConfig } from "./PublicUpdateTemplateVpcconfig";
 
 export class PublicUpdateTemplateRuntimeConfig extends $dara.Model {
   /**
+   * @remarks
+   * The number of vCPUs.
+   * 
    * @example
    * 2
    */
   cpu?: number;
   /**
+   * @remarks
+   * The system cloud disk size, in MB.
+   * 
    * @example
    * 512
    */
   diskSize?: number;
+  /**
+   * @remarks
+   * Specifies whether the sandbox is allowed to access the Internet.
+   */
   internetAccess?: boolean;
+  /**
+   * @remarks
+   * The log configuration.
+   */
   logConfig?: PublicUpdateTemplateLogConfig;
   /**
+   * @remarks
+   * The memory size, in MB.
+   * 
    * @example
    * 2048
    */
   memorySize?: number;
+  /**
+   * @remarks
+   * The sandbox configuration.
+   */
   sandboxConfig?: PublicUpdateTemplateSandboxConfig;
+  /**
+   * @remarks
+   * The VPC network configuration.
+   */
   vpcConfig?: PublicUpdateTemplateVPCConfig;
   static names(): { [key: string]: string } {
     return {

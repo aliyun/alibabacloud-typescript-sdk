@@ -5,12 +5,23 @@ import { TLSConfig } from "./Tlsconfig";
 
 
 export class UpdateCustomDomainInput extends $dara.Model {
+  /**
+   * @remarks
+   * The new HTTPS certificate configuration for the domain name. When specified, this overwrites the existing configuration.
+   */
   certConfig?: CertConfig;
   /**
+   * @remarks
+   * The new description of the custom domain name.
+   * 
    * @example
-   * 沙箱生产环境入口域名
+   * Entry domain name for the sandbox production environment
    */
   description?: string;
+  /**
+   * @remarks
+   * The new TLS protocol configuration for the domain name. When specified, this overwrites the existing configuration.
+   */
   tlsConfig?: TLSConfig;
   static names(): { [key: string]: string } {
     return {

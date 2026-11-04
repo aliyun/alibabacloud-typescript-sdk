@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteQuotaRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the team to which the quota belongs.
+   * 
    * @example
    * f79d6a95-abcd-47a8-9167-eccf0622a998
    */

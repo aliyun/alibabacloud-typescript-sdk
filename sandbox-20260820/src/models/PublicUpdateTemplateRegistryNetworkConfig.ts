@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublicUpdateTemplateRegistryNetworkConfig extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the security group used to access the repository.
+   * 
    * @example
    * sg-bp1abc123
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The ID of the vSwitch where the repository resides.
+   * 
    * @example
    * vsw-bp1abc123
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The ID of the VPC where the repository resides.
+   * 
    * @example
    * vpc-bp1abc123
    */

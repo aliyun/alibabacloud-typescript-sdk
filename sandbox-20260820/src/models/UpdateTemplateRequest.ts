@@ -4,8 +4,15 @@ import { PublicUpdateTemplateInput } from "./PublicUpdateTemplateInput";
 
 
 export class UpdateTemplateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request struct for updating a template. Specify only the fields to be updated.
+   */
   body?: PublicUpdateTemplateInput;
   /**
+   * @remarks
+   * The team ID.
+   * 
    * @example
    * team-a1b2c3d4e5f6
    */

@@ -5,24 +5,44 @@ import { TLSConfig } from "./Tlsconfig";
 
 
 export class CustomDomainResp extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTPS certificate configuration used by the domain name.
+   */
   certConfig?: CertConfig;
   /**
+   * @remarks
+   * The time when the domain name was created. The value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1755676800000
    */
   createdAt?: number;
   /**
+   * @remarks
+   * The description of the custom domain name.
+   * 
    * @example
-   * 沙箱预览环境入口域名
+   * Domain name for the sandbox preview environment
    */
   description?: string;
   /**
+   * @remarks
+   * The custom domain name.
+   * 
    * @example
    * sandbox.example.com
    */
   domainName?: string;
+  /**
+   * @remarks
+   * The TLS protocol configuration used by the domain name.
+   */
   tlsConfig?: TLSConfig;
   /**
+   * @remarks
+   * The time when the domain name was last updated. The value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1755763200000
    */

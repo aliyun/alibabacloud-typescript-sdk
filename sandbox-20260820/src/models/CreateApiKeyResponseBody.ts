@@ -6,23 +6,43 @@ import { IPConfig } from "./Ipconfig";
 
 export class CreateApiKeyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The API key information.
+   * 
    * @example
-   * 【请替换为脱敏的 API Key 示例】
+   * [Replace with a masked API key example]
    */
   apiKey?: ApiKey;
   /**
+   * @remarks
+   * The response code. A value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The list of IP blacklist rules.
+   */
   ipBlacklist?: IPConfig[];
+  /**
+   * @remarks
+   * The list of IP address whitelist rules.
+   */
   ipWhitelist?: IPConfig[];
   /**
+   * @remarks
+   * The response message. The value is success if the request is successful.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7ADFF8D8-D4BA-5F79-AD49-DDABFEA59B6C
    */

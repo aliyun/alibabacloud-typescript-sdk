@@ -4,6 +4,10 @@ import { CreateApiKeyInput } from "./CreateApiKeyInput";
 
 
 export class CreateApiKeyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request parameters for creating an API key.
+   */
   body?: CreateApiKeyInput;
   static names(): { [key: string]: string } {
     return {

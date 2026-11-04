@@ -3,23 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class JuiceFSVolumeConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The additional mount parameters.
+   */
   args?: string[];
   /**
+   * @remarks
+   * The access point address.
+   * 
    * @example
    * http://127.0.0.1:8080
    */
   baseURL?: string;
   /**
+   * @remarks
+   * The remote mount directory.
+   * 
    * @example
    * /sandbox/workspace
    */
   remoteDir?: string;
   /**
+   * @remarks
+   * The access token.
+   * 
    * @example
    * xxxxxx
    */
   token?: string;
   /**
+   * @remarks
+   * The JuiceFS volume name.
+   * 
    * @example
    * data
    */

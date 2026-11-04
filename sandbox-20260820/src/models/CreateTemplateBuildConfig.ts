@@ -5,12 +5,26 @@ import { CreateTemplateEnvdInjectAction } from "./CreateTemplateEnvdInjectAction
 
 
 export class CreateTemplateBuildConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The action configuration for pulling the source image and pushing it to the destination repository.
+   */
   copy?: CreateTemplateCopyAction;
+  /**
+   * @remarks
+   * The action configuration for packaging the envd daemon process into the image. This is an optional intermediate step in the copy process and is supported only by first-generation sandboxes.
+   */
   envdInject?: CreateTemplateEnvdInjectAction;
+  /**
+   * @remarks
+   * The installation of clients required for storage mounting.
+   */
+  installStorageClients?: boolean;
   static names(): { [key: string]: string } {
     return {
       copy: 'copy',
       envdInject: 'envdInject',
+      installStorageClients: 'installStorageClients',
     };
   }
 
@@ -18,6 +32,7 @@ export class CreateTemplateBuildConfig extends $dara.Model {
     return {
       copy: CreateTemplateCopyAction,
       envdInject: CreateTemplateEnvdInjectAction,
+      installStorageClients: 'boolean',
     };
   }
 

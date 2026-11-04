@@ -5,17 +5,30 @@ import { Quota } from "./Quota";
 
 export class UpdateQuotaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. A value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response message. The value is success if the request is successful.
+   * 
    * @example
    * success
    */
   message?: string;
+  /**
+   * @remarks
+   * The quota configuration information.
+   */
   quota?: Quota;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2BCFAE0A-9FA9-5F72-8E8B-724632BC19A9
    */

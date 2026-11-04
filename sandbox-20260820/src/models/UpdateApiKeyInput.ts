@@ -5,18 +5,37 @@ import { IPConfig } from "./Ipconfig";
 
 export class UpdateApiKeyInput extends $dara.Model {
   /**
+   * @remarks
+   * The new name of the API key. The name can be up to 128 characters in length and can contain letters, digits, spaces, hyphens (-), underscores (_), and periods (.).
+   * 
    * @example
    * ci-pipeline-key-v2
    */
   apiKeyName?: string;
   /**
+   * @remarks
+   * The expiration time of the API key, in UTC, in RFC 3339 format. Leave this parameter empty to indicate that the API key never expires.
+   * 
    * @example
    * 2099-12-31T23:59:59Z
    */
   expireTime?: string;
+  /**
+   * @remarks
+   * The IP blacklist. If specified, the existing blacklist is entirely overwritten. This parameter is mutually exclusive with ipWhitelist.
+   */
   ipBlacklist?: IPConfig[];
+  /**
+   * @remarks
+   * The IP whitelist. If specified, the existing whitelist is entirely overwritten. This parameter is mutually exclusive with ipBlacklist.
+   */
   ipWhitelist?: IPConfig[];
   /**
+   * @remarks
+   * The new status of the API key. Valid values:
+   * - active: Enabled.
+   * - inactive: Disabled.
+   * 
    * @example
    * inactive
    */

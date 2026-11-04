@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublicTemplateStatusReason extends $dara.Model {
   /**
+   * @remarks
+   * The details of the failure reason.
+   * 
    * @example
-   * 拉取源镜像失败：认证信息无效
+   * Failed to pull the source image: invalid authentication information
    */
   message?: string;
   /**
+   * @remarks
+   * The identity of the failed step.
+   * 
    * @example
    * build-context
    */

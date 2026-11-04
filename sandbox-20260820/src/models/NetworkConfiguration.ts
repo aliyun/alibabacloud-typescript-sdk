@@ -4,20 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class NetworkConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * The network access mode. Valid values: PUBLIC (public network only), PRIVATE (VPC only), PUBLIC_AND_PRIVATE (both public network and VPC are reachable).
+   * 
    * @example
    * PUBLIC_AND_PRIVATE
    */
   networkMode?: string;
   /**
+   * @remarks
+   * The ID of the security group used by the sandboxed container instances.
+   * 
    * @example
    * sg-****
    */
   securityGroupID?: string;
   /**
+   * @remarks
+   * The ID of the VPC to which the sandboxed container instances are connected.
+   * 
    * @example
    * vpc-****
    */
   vpcID?: string;
+  /**
+   * @remarks
+   * The list of vSwitch IDs to which the sandboxed container instances are connected. Configure vSwitches in multiple zones to improve availability.
+   */
   vswitchIDs?: string[];
   static names(): { [key: string]: string } {
     return {

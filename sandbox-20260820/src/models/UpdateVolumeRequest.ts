@@ -4,8 +4,15 @@ import { UpdateVolumeInput } from "./UpdateVolumeInput";
 
 
 export class UpdateVolumeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request parameters for updating the storage volume.
+   */
   body?: UpdateVolumeInput;
   /**
+   * @remarks
+   * The ID of the team to which the storage volume belongs.
+   * 
    * @example
    * 9f5a1fe9-****
    */

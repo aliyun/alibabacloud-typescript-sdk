@@ -4,6 +4,10 @@ import { PublicTemplateRegistryNetworkConfig } from "./PublicTemplateRegistryNet
 
 
 export class PublicTemplateRegistryConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The VPC configuration used to access the image repository.
+   */
   networkConfig?: PublicTemplateRegistryNetworkConfig;
   static names(): { [key: string]: string } {
     return {

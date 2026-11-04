@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTemplateEnvdInjectAction extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the envd injection action. This parameter is required when this action block is specified.
+   */
   enabled?: boolean;
   static names(): { [key: string]: string } {
     return {

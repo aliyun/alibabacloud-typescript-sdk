@@ -4,6 +4,10 @@ import { CreateTeamInput } from "./CreateTeamInput";
 
 
 export class CreateTeamRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request parameters for creating a team.
+   */
   body?: CreateTeamInput;
   static names(): { [key: string]: string } {
     return {

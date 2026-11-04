@@ -4,17 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublicTemplateVPCConfig extends $dara.Model {
   /**
+   * @remarks
+   * The ARN of the RAM role assumed by the sandbox instance when accessing the VPC. The format is acs:ram::{account ID}:role/{role name}.
+   * 
    * @example
    * acs:ram::1234567890123456:role/aliyunfcdefaultrole
    */
   role?: string;
   /**
+   * @remarks
+   * The ID of the security group used by the sandbox instance.
+   * 
    * @example
    * sg-****
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The list of vSwitch IDs to which the sandbox instance is connected.
+   */
   vSwitchIds?: string[];
   /**
+   * @remarks
+   * The ID of the VPC to which the sandbox instance is connected.
+   * 
    * @example
    * vpc-****
    */

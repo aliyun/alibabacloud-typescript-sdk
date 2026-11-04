@@ -5,18 +5,35 @@ import { PublicUpdateTemplateRegistryConfig } from "./PublicUpdateTemplateRegist
 
 export class PublicUpdateTemplateCopyAction extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the destination ACR Enterprise instance.
+   * 
    * @example
    * cri-abc123
    */
   acrInstanceId?: string;
+  /**
+   * @remarks
+   * Specifies whether image replication is enabled.
+   */
   enabled?: boolean;
   /**
+   * @remarks
+   * The destination image address for replication.
+   * 
    * @example
    * registry.cn-hangzhou.aliyuncs.com/my/ns:v2
    */
   image?: string;
+  /**
+   * @remarks
+   * The image repository configuration.
+   */
   registryConfig?: PublicUpdateTemplateRegistryConfig;
   /**
+   * @remarks
+   * The destination repository type.
+   * 
    * @example
    * acr
    */

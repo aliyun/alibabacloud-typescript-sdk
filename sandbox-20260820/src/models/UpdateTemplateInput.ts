@@ -6,10 +6,25 @@ import { NetworkConfiguration } from "./NetworkConfiguration";
 
 
 export class UpdateTemplateInput extends $dara.Model {
+  /**
+   * @remarks
+   * The new container image configuration of the template. When passed in, this overwrites the existing configuration entirely.
+   */
   containerConfiguration?: ContainerConfiguration;
+  /**
+   * @remarks
+   * The new log delivery configuration of the template. When passed in, this overwrites the existing configuration entirely.
+   */
   logConfiguration?: LogConfiguration;
+  /**
+   * @remarks
+   * The new network configuration of the template. When passed in, this overwrites the existing configuration entirely.
+   */
   networkConfiguration?: NetworkConfiguration;
   /**
+   * @remarks
+   * The ID of the team to which the template belongs, in UUID format. This parameter is used to locate the template to be updated.
+   * 
    * @example
    * 5f4a2c18-****
    */

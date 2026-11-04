@@ -5,20 +5,33 @@ import { E2BTeam } from "./E2bteam";
 
 export class UpdateTeamResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. A value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response message. The value is success if the request is successful.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7ADFF8D8-D4BA-5F79-AD49-DDABFEA59B6C
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The team information.
+   */
   team?: E2BTeam;
   static names(): { [key: string]: string } {
     return {

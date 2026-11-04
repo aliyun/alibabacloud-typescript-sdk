@@ -4,6 +4,10 @@ import { CreateTemplateCacheInput } from "./CreateTemplateCacheInput";
 
 
 export class CreateTemplateCacheRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request struct for creating a template cache.
+   */
   body?: CreateTemplateCacheInput;
   static names(): { [key: string]: string } {
     return {

@@ -5,30 +5,49 @@ import { E2BVolume } from "./E2bvolume";
 
 export class ListVolumesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. A value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The maximum number of entries per page used in this query.
+   * 
    * @example
    * 4
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The response message. A value of success indicates a successful request.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The pagination token for the next page, which is used for subsequent queries.
+   * 
    * @example
    * qxGrXje86XMrYQ51aJMy
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7ADFF8D8-D4BA-5F79-AD49-DDABFEA59B6C
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of storage volumes.
+   */
   volumes?: E2BVolume[];
   static names(): { [key: string]: string } {
     return {

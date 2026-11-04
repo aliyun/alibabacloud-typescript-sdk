@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateTemplateRegistryAuthConfig extends $dara.Model {
   /**
+   * @remarks
+   * The logon password or access token for the image repository. The value is encrypted on the server side and is not returned in plaintext when queried.
+   * 
    * @example
    * Passw0rd****
    */
   password?: string;
   /**
+   * @remarks
+   * The username for logging on to the image repository.
+   * 
    * @example
    * sandbox-puller
    */

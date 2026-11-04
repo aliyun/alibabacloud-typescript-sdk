@@ -4,6 +4,10 @@ import { CreateVolumeInput } from "./CreateVolumeInput";
 
 
 export class CreateVolumeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request parameters for creating a storage volume.
+   */
   body?: CreateVolumeInput;
   static names(): { [key: string]: string } {
     return {

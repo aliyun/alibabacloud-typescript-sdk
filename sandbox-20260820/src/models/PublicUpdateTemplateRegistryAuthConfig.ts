@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublicUpdateTemplateRegistryAuthConfig extends $dara.Model {
   /**
+   * @remarks
+   * The repository password.
+   * 
    * @example
    * ******
    */
   password?: string;
   /**
+   * @remarks
+   * The repository username.
+   * 
    * @example
    * my-user
    */

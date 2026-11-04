@@ -3,10 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class E2BNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * The allowlist for outbound access from the sandbox. After configuration, the sandbox can access only the destinations in the list.
+   */
   allowOut?: string[];
+  /**
+   * @remarks
+   * Specifies whether to allow Direct Internet Access to the sandbox.
+   */
   allowPublicTraffic?: boolean;
+  /**
+   * @remarks
+   * The denylist for outbound access from the sandbox. After configuration, the sandbox cannot access the destinations in the list.
+   */
   denyOut?: string[];
   /**
+   * @remarks
+   * The domain name used to rewrite the request Host header when accessing the sandbox. If this parameter is not specified, the original Host is retained.
+   * 
    * @example
    * sandbox.example.com
    */

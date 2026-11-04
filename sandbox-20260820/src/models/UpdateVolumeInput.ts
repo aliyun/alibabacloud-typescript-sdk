@@ -7,16 +7,25 @@ import { OSSVolumeConfig } from "./OssvolumeConfig";
 
 export class UpdateVolumeInputAgenticFSVolumeConfig extends $dara.Model {
   /**
+   * @remarks
+   * The group ID of the local directory.
+   * 
    * @example
    * 1000
    */
   groupID?: number;
   /**
+   * @remarks
+   * The access point address.
+   * 
    * @example
    * ap-xxx.xxx-jnk89.cn-hangzhou.nas.aliyuncs.com:/
    */
   serverAddr?: string;
   /**
+   * @remarks
+   * The user ID of the local directory.
+   * 
    * @example
    * 1000
    */
@@ -48,12 +57,22 @@ export class UpdateVolumeInputAgenticFSVolumeConfig extends $dara.Model {
 
 export class UpdateVolumeInputMountConfigVpcConfig extends $dara.Model {
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-xxxx
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The vSwitch IDs.
+   */
   vSwitchIds?: string[];
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-xxxx
    */
@@ -88,10 +107,17 @@ export class UpdateVolumeInputMountConfigVpcConfig extends $dara.Model {
 
 export class UpdateVolumeInputMountConfig extends $dara.Model {
   /**
+   * @remarks
+   * The permission role.
+   * 
    * @example
    * acs:ram::1338904783509062:role/aliyunfcdefaultrole
    */
   role?: string;
+  /**
+   * @remarks
+   * The VPC configuration.
+   */
   vpcConfig?: UpdateVolumeInputMountConfigVpcConfig;
   static names(): { [key: string]: string } {
     return {
@@ -120,10 +146,30 @@ export class UpdateVolumeInputMountConfig extends $dara.Model {
 }
 
 export class UpdateVolumeInput extends $dara.Model {
+  /**
+   * @remarks
+   * The AgenticBucket Volume configuration.
+   */
   agenticBucketVolumeConfig?: AgenticBucketVolumeConfig;
+  /**
+   * @remarks
+   * The AgenticFS Volume configuration.
+   */
   agenticFSVolumeConfig?: UpdateVolumeInputAgenticFSVolumeConfig;
+  /**
+   * @remarks
+   * The JuiceFS Volume configuration.
+   */
   juiceFSVolumeConfig?: JuiceFSVolumeConfig;
+  /**
+   * @remarks
+   * The mount configuration.
+   */
   mountConfig?: UpdateVolumeInputMountConfig;
+  /**
+   * @remarks
+   * The OSS Volume configuration.
+   */
   ossVolumeConfig?: OSSVolumeConfig;
   static names(): { [key: string]: string } {
     return {

@@ -6,41 +6,70 @@ import { CreateTemplateStep } from "./CreateTemplateStep";
 
 export class CreateTemplateSandboxConfig extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Container Registry Enterprise instance. This parameter is required when registryType is set to acree.
+   * 
    * @example
    * cri-****
    */
   acrInstanceId?: string;
   /**
+   * @remarks
+   * The sandbox generation. Valid values: 1 (first generation) and 2 (second generation). Default value: 1.
+   * 
    * @example
    * 1
    */
   generation?: number;
   /**
+   * @remarks
+   * The address of the sandbox base image.
+   * 
    * @example
    * registry-vpc.cn-hangzhou.aliyuncs.com/sandbox-demo/python:3.12
    */
   image?: string;
   /**
+   * @remarks
+   * The operating system type of the second-generation sandbox. Valid values: linux-amd64, android-36-osworld, and windows-osworld.
+   * 
    * @example
    * linux-amd64
    */
   osType?: string;
   /**
+   * @remarks
+   * The readiness probe command for the sandbox. A successful execution indicates that the sandbox is ready to receive requests. This parameter is supported only by first-generation sandboxes.
+   * 
    * @example
    * curl -sf http://127.0.0.1:49983/health
    */
   readyCommand?: string;
+  /**
+   * @remarks
+   * The credentials, TLS, and network configurations required to access the source image repository.
+   */
   registryConfig?: CreateTemplateRegistryConfig;
   /**
+   * @remarks
+   * The type of the image repository. Valid values: oci (standard OCI repository), acr (Container Registry Personal Edition), and acree (Container Registry Enterprise Edition). The default value is inferred from the image address.
+   * 
    * @example
    * acree
    */
   registryType?: string;
   /**
+   * @remarks
+   * The startup command for the sandbox container. This parameter is supported only by first-generation sandboxes.
+   * 
    * @example
    * /usr/local/bin/start.sh
    */
   startCommand?: string;
+  /**
+   * @remarks
+   * The list of custom build steps.
+   */
   steps?: CreateTemplateStep[];
   static names(): { [key: string]: string } {
     return {

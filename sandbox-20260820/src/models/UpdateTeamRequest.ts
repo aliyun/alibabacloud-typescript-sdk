@@ -4,6 +4,10 @@ import { UpdateTeamInput } from "./UpdateTeamInput";
 
 
 export class UpdateTeamRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request parameters for updating a team.
+   */
   body?: UpdateTeamInput;
   static names(): { [key: string]: string } {
     return {

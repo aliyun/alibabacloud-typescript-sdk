@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateTeamInput extends $dara.Model {
   /**
+   * @remarks
+   * The new description of the team.
+   * 
    * @example
-   * 算法团队的生产沙箱环境
+   * Production sandbox environment for the algorithm team
    */
   description?: string;
   /**
+   * @remarks
+   * The new plan specification of the team. Valid values: eco (economy), std (standard), pro (professional), ent (enterprise).
+   * 
    * @example
    * pro
    */
   plan?: string;
   /**
+   * @remarks
+   * The ID of the new Alibaba Cloud resource group to which the team belongs.
+   * 
    * @example
    * rg-****
    */
   resourceGroupID?: string;
   /**
+   * @remarks
+   * The new name of the team. The name can be modified only when allowUpdateTeamName of the team is set to true.
+   * 
    * @example
    * sandbox-prod
    */

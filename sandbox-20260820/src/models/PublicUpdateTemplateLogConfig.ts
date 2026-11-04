@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublicUpdateTemplateLogConfig extends $dara.Model {
   /**
+   * @remarks
+   * The name of the SLS Logstore.
+   * 
    * @example
    * my-logstore
    */
   logstore?: string;
   /**
+   * @remarks
+   * The name of the Simple Log Service (SLS) project.
+   * 
    * @example
    * my-sls-project
    */

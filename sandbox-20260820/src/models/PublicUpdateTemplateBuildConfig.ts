@@ -5,12 +5,26 @@ import { PublicUpdateTemplateEnvdInjectAction } from "./PublicUpdateTemplateEnvd
 
 
 export class PublicUpdateTemplateBuildConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The image replication action configuration.
+   */
   copy?: PublicUpdateTemplateCopyAction;
+  /**
+   * @remarks
+   * The envd injection action configuration.
+   */
   envdInject?: PublicUpdateTemplateEnvdInjectAction;
+  /**
+   * @remarks
+   * Installs the clients required for storage mounting.
+   */
+  installStorageClients?: boolean;
   static names(): { [key: string]: string } {
     return {
       copy: 'copy',
       envdInject: 'envdInject',
+      installStorageClients: 'installStorageClients',
     };
   }
 
@@ -18,6 +32,7 @@ export class PublicUpdateTemplateBuildConfig extends $dara.Model {
     return {
       copy: PublicUpdateTemplateCopyAction,
       envdInject: PublicUpdateTemplateEnvdInjectAction,
+      installStorageClients: 'boolean',
     };
   }
 

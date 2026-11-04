@@ -7,23 +7,48 @@ import { CreateTemplateVPCConfig } from "./CreateTemplateVpcconfig";
 
 export class CreateTemplateRuntimeConfig extends $dara.Model {
   /**
+   * @remarks
+   * The CPU specification of the sandboxed container instance, in cores.
+   * 
    * @example
    * 2
    */
   cpu?: number;
   /**
+   * @remarks
+   * The disk specification of the sandboxed container instance, in MB.
+   * 
    * @example
    * 10240
    */
   diskSize?: number;
+  /**
+   * @remarks
+   * Specifies whether the sandboxed container instance is allowed to access the Internet.
+   */
   internetAccess?: boolean;
+  /**
+   * @remarks
+   * The log delivery configuration of the sandboxed container instance.
+   */
   logConfig?: CreateTemplateLogConfig;
   /**
+   * @remarks
+   * The memory specification of the sandboxed container instance, in MB.
+   * 
    * @example
    * 2048
    */
   memorySize?: number;
+  /**
+   * @remarks
+   * The image and startup configuration of the sandboxed container instance.
+   */
   sandboxConfig?: CreateTemplateSandboxConfig;
+  /**
+   * @remarks
+   * The VPC configuration of the sandboxed container instance.
+   */
   vpcConfig?: CreateTemplateVPCConfig;
   static names(): { [key: string]: string } {
     return {

@@ -7,44 +7,85 @@ import { InnerCreateSandboxVolumeMounts } from "./InnerCreateSandboxVolumeMounts
 
 export class InnerCreateSandboxInput extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the sandbox is allowed to access external networks.
+   * 
    * @example
    * true
    */
   allowInternetAccess?: boolean;
   /**
+   * @remarks
+   * Specifies whether to automatically pause after timeout.
+   * 
    * @example
    * true
    */
   autoPause?: boolean;
   /**
+   * @remarks
+   * Specifies whether to automatically resume.
+   * 
    * @example
    * true
    */
   autoResume?: boolean;
+  /**
+   * @remarks
+   * The environment variable configuration.
+   */
   envVars?: { [key: string]: string };
+  /**
+   * @remarks
+   * The metadata configuration.
+   */
   metadata?: { [key: string]: string };
+  /**
+   * @remarks
+   * The network configuration.
+   */
   network?: E2BNetwork;
+  /**
+   * @remarks
+   * The runtime configuration.
+   */
   runtime?: InnerSandboxRuntimeConfig;
   /**
+   * @remarks
+   * Specifies whether authentication is required to access the sandbox envd.
+   * 
    * @example
    * true
    */
   secure?: boolean;
   /**
+   * @remarks
+   * The unique identifier of the team.
+   * 
    * @example
    * 76eeecaa-****
    */
   teamID?: string;
   /**
+   * @remarks
+   * The unique identifier of the template.
+   * 
    * @example
    * v9vjyzw64bsu83vw0dgs
    */
   templateID?: string;
   /**
+   * @remarks
+   * The timeout period. Unit: seconds.
+   * 
    * @example
    * 180
    */
   timeout?: number;
+  /**
+   * @remarks
+   * The volume mount configuration.
+   */
   volumeMounts?: InnerCreateSandboxVolumeMounts;
   static names(): { [key: string]: string } {
     return {

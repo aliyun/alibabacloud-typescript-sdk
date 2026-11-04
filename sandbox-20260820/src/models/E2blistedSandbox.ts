@@ -2,79 +2,182 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class E2BListedSandboxResourceTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * project
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * demo
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'tagKey',
+      tagValue: 'tagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class E2BListedSandbox extends $dara.Model {
   /**
+   * @remarks
+   * The number of vCPUs.
+   * 
    * @example
    * 2
    */
   cpuCount?: number;
   /**
+   * @remarks
+   * The ephemeral disk specification.
+   * 
    * @example
    * 10240
    */
   diskSizeMB?: number;
   /**
+   * @remarks
+   * The end time.
+   * 
    * @example
    * 2026-09-03T02:06:37.932Z
    */
   endAt?: string;
   /**
+   * @remarks
+   * The sandbox version.
+   * 
    * @example
    * 2
    */
   generation?: number;
   /**
+   * @remarks
+   * The memory specification.
+   * 
    * @example
    * 2
    */
   memoryMB?: number;
+  /**
+   * @remarks
+   * The metadata.
+   */
   metadata?: { [key: string]: string };
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-****
    */
   resourceGroupID?: string;
   /**
+   * @remarks
+   * The resource tags.
+   */
+  resourceTags?: E2BListedSandboxResourceTags[];
+  /**
+   * @remarks
+   * The sandbox ID.
+   * 
    * @example
    * sbx-xxxx
    */
   sandboxID?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2026-09-03T02:05:37.932Z
    */
   startedAt?: string;
   /**
+   * @remarks
+   * The sandbox state. Valid values:
+   * - running: Running.
+   * - pausing: Pausing.
+   * - paused: Paused.
+   * - resuming: Resuming.
+   * - pause_fail: Pause failed.
+   * - resume_fail: Resume failed.
+   * - snapshotting: Creating a snapshot.
+   * - snapshot_failed: Snapshot creation failed.
+   * - terminated: Terminated.
+   * 
    * @example
    * running
    */
   state?: string;
   /**
+   * @remarks
+   * The unique identifier of the team.
+   * 
    * @example
    * 9f5a1fe9-****
    */
   teamID?: string;
   /**
+   * @remarks
+   * The team name.
+   * 
    * @example
    * default
    */
   teamName?: string;
   /**
+   * @remarks
+   * The QoS version.
+   * 
    * @example
    * eco
    */
   teamPlan?: string;
   /**
+   * @remarks
+   * The unique identifier of the template.
+   * 
    * @example
    * f1l97phhfw6ox18iwcfk
    */
   templateID?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * base
    */
   templateName?: string;
   /**
+   * @remarks
+   * The UID of the creator.
+   * 
    * @example
    * 2000****
    */
@@ -88,6 +191,7 @@ export class E2BListedSandbox extends $dara.Model {
       memoryMB: 'memoryMB',
       metadata: 'metadata',
       resourceGroupID: 'resourceGroupID',
+      resourceTags: 'resourceTags',
       sandboxID: 'sandboxID',
       startedAt: 'startedAt',
       state: 'state',
@@ -109,6 +213,7 @@ export class E2BListedSandbox extends $dara.Model {
       memoryMB: 'number',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       resourceGroupID: 'string',
+      resourceTags: { 'type': 'array', 'itemType': E2BListedSandboxResourceTags },
       sandboxID: 'string',
       startedAt: 'string',
       state: 'string',
@@ -124,6 +229,9 @@ export class E2BListedSandbox extends $dara.Model {
   validate() {
     if(this.metadata) {
       $dara.Model.validateMap(this.metadata);
+    }
+    if(Array.isArray(this.resourceTags)) {
+      $dara.Model.validateArray(this.resourceTags);
     }
     super.validate();
   }

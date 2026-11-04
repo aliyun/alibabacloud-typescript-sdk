@@ -5,11 +5,28 @@ import { PublicUpdateTemplateRuntimeConfig } from "./PublicUpdateTemplateRuntime
 
 
 export class PublicUpdateTemplateInput extends $dara.Model {
+  /**
+   * @remarks
+   * The build configuration.
+   */
   buildConfig?: PublicUpdateTemplateBuildConfig;
+  /**
+   * @remarks
+   * The subscription plan for the team. Valid values: eco, std, and pro.
+   * 
+   * @example
+   * pro
+   */
+  plan?: string;
+  /**
+   * @remarks
+   * The runtime configuration.
+   */
   runtimeConfig?: PublicUpdateTemplateRuntimeConfig;
   static names(): { [key: string]: string } {
     return {
       buildConfig: 'buildConfig',
+      plan: 'plan',
       runtimeConfig: 'runtimeConfig',
     };
   }
@@ -17,6 +34,7 @@ export class PublicUpdateTemplateInput extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       buildConfig: PublicUpdateTemplateBuildConfig,
+      plan: 'string',
       runtimeConfig: PublicUpdateTemplateRuntimeConfig,
     };
   }

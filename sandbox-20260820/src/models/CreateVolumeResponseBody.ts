@@ -5,20 +5,33 @@ import { E2BVolume } from "./E2bvolume";
 
 export class CreateVolumeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. A value of 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The response message. The value is success if the request is successful.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B5AD8B54-4358-5F5B-ACAA-52F2016459C6
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The storage volume information.
+   */
   volume?: E2BVolume;
   static names(): { [key: string]: string } {
     return {

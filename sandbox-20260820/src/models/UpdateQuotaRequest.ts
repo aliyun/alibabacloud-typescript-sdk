@@ -4,6 +4,10 @@ import { Quota } from "./Quota";
 
 
 export class UpdateQuotaRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request parameters for updating the quota configuration.
+   */
   body?: Quota;
   static names(): { [key: string]: string } {
     return {
