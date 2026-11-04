@@ -13,7 +13,7 @@ export class CreateInstanceResponseBodyData extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * The instance description.
    * 
    * @example
    * des
@@ -21,7 +21,7 @@ export class CreateInstanceResponseBodyData extends $dara.Model {
   instanceDescription?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * 2999292
@@ -29,7 +29,7 @@ export class CreateInstanceResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * ins
@@ -37,7 +37,7 @@ export class CreateInstanceResponseBodyData extends $dara.Model {
   instanceName?: number;
   /**
    * @remarks
-   * The ID of the region where the resource is located.
+   * The region to which the resource belongs.
    * 
    * @example
    * example
@@ -45,7 +45,7 @@ export class CreateInstanceResponseBodyData extends $dara.Model {
   resourceRegionId?: string;
   /**
    * @remarks
-   * The time when the request was submitted.
+   * The submission time.
    * 
    * @example
    * example
@@ -85,7 +85,7 @@ export class CreateInstanceResponseBodyData extends $dara.Model {
 export class CreateInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -93,7 +93,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. A value of `OK` indicates that the request was successful.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * OK
@@ -101,12 +101,12 @@ export class CreateInstanceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data object.
+   * The returned data.
    */
   data?: CreateInstanceResponseBodyData;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message.
    * 
    * @example
    * NULL
@@ -114,7 +114,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * 2992939*****
@@ -122,7 +122,9 @@ export class CreateInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of `true` indicates success and `false` indicates failure.
+   * Specifies whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * false

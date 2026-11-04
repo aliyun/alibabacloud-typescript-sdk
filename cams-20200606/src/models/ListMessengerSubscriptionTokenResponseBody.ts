@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMessengerSubscriptionTokenResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the security token was created.
+   * The creation time of the token.
    * 
    * @example
    * 172546854885
@@ -29,7 +29,7 @@ export class ListMessengerSubscriptionTokenResponseBodyData extends $dara.Model 
   nextEligibleTime?: number;
   /**
    * @remarks
-   * The re-subscription status.
+   * The resubscription status.
    * 
    * @example
    * Example
@@ -37,7 +37,7 @@ export class ListMessengerSubscriptionTokenResponseBodyData extends $dara.Model 
   notificationMessagesReoptin?: string;
   /**
    * @remarks
-   * The customer\\"s time zone.
+   * The time zone of the customer.
    * 
    * @example
    * Example
@@ -53,7 +53,7 @@ export class ListMessengerSubscriptionTokenResponseBodyData extends $dara.Model 
   notificationMessagesToken?: string;
   /**
    * @remarks
-   * The page ID for Messenger.
+   * The page ID of Messenger.
    * 
    * @example
    * 239***
@@ -69,7 +69,7 @@ export class ListMessengerSubscriptionTokenResponseBodyData extends $dara.Model 
   recipientId?: string;
   /**
    * @remarks
-   * The expiration time of the security token.
+   * The expiration time of the token.
    * 
    * @example
    * 172546854885
@@ -85,7 +85,7 @@ export class ListMessengerSubscriptionTokenResponseBodyData extends $dara.Model 
   topicTitle?: string;
   /**
    * @remarks
-   * The status of the security token.
+   * The token status.
    * 
    * @example
    * Example
@@ -135,7 +135,7 @@ export class ListMessengerSubscriptionTokenResponseBodyData extends $dara.Model 
 export class ListMessengerSubscriptionTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -143,11 +143,11 @@ export class ListMessengerSubscriptionTokenResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code of the request.
+   * The request status code.
    * 
-   * - A return value of OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
-   * - For a list of other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -155,7 +155,7 @@ export class ListMessengerSubscriptionTokenResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data object.
    */
   data?: ListMessengerSubscriptionTokenResponseBodyData[];
   /**
@@ -168,7 +168,7 @@ export class ListMessengerSubscriptionTokenResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The identifier for the next page. Pass this value to query the next page.
+   * The next page token. Pass this value to query the next page.
    * 
    * @example
    * 3399***
@@ -184,11 +184,11 @@ export class ListMessengerSubscriptionTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: successful.
+   * - true: The operation is successful.
    * 
-   * - false: failed.
+   * - false: The operation fails.
    * 
    * @example
    * true

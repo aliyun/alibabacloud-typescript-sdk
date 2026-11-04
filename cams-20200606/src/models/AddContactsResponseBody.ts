@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddContactsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denial details.
    * 
    * @example
    * None
@@ -16,7 +16,7 @@ export class AddContactsResponseBody extends $dara.Model {
    * The status code.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   code?: string;
   /**
@@ -32,7 +32,7 @@ export class AddContactsResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 示例值示例值
+   * Sample value
    */
   message?: string;
   /**
@@ -40,12 +40,12 @@ export class AddContactsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call was successful. Valid values:
    * - **true**: The call was successful.
    * - **false**: The call failed.
    * 

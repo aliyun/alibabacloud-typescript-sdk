@@ -24,7 +24,7 @@ export class CreateChatFlowShrinkRequest extends $dara.Model {
    * The source flowCode for creation.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   createFromFlowCode?: string;
   /**
@@ -32,12 +32,12 @@ export class CreateChatFlowShrinkRequest extends $dara.Model {
    * The source flowVersion for creation.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value sample value sample value
    */
   createFromFlowVersion?: string;
   /**
    * @remarks
-   * The flow trigger type. Valid values:
+   * The trigger type of the flow. Valid values:
    *  - TriggeredManually
    * - TriggeredByWhatsApp
    * - TriggeredByMessenger
@@ -51,25 +51,32 @@ export class CreateChatFlowShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The lifecycle extension input parameters.
+   * 
+   * @deprecated
    */
   lifeCycleExtendDataShrink?: string;
+  /**
+   * @remarks
+   * The lifecycle extension input parameters.
+   */
+  lifeCycleExtendDataV2Shrink?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The flow remarks.
+   * The remarks for the flow.
    * 
    * @example
-   * Send verification template triggered by API
+   * Trigger verification template delivery via API
    */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The flow title.
+   * The title of the flow.
    * 
    * @example
-   * WhatsApp auto-reply
+   * WhatsApp Auto-Reply
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -80,6 +87,7 @@ export class CreateChatFlowShrinkRequest extends $dara.Model {
       createFromFlowVersion: 'CreateFromFlowVersion',
       flowTriggerType: 'FlowTriggerType',
       lifeCycleExtendDataShrink: 'LifeCycleExtendData',
+      lifeCycleExtendDataV2Shrink: 'LifeCycleExtendDataV2',
       ownerId: 'OwnerId',
       remark: 'Remark',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -96,6 +104,7 @@ export class CreateChatFlowShrinkRequest extends $dara.Model {
       createFromFlowVersion: 'string',
       flowTriggerType: 'string',
       lifeCycleExtendDataShrink: 'string',
+      lifeCycleExtendDataV2Shrink: 'string',
       ownerId: 'number',
       remark: 'string',
       resourceOwnerAccount: 'string',

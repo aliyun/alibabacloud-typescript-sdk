@@ -5,22 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class BindDmAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denial details.
    * 
    * @example
-   * 无
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
-   * 示例值示例值
+   * Sample value
    */
   code?: string;
   /**
@@ -28,7 +28,7 @@ export class BindDmAccountResponseBody extends $dara.Model {
    * The returned data.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   data?: string;
   /**
@@ -36,7 +36,7 @@ export class BindDmAccountResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 示例值示例值
+   * Sample value
    */
   message?: string;
   /**
@@ -44,7 +44,7 @@ export class BindDmAccountResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value
    */
   requestId?: string;
   /**

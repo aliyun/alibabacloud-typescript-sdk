@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAuditRequestRequestAuditRecordCompanyAddress extends $dara.Model {
   /**
    * @remarks
-   * Company address.
+   * The company address.
    * 
    * @example
    * 123 Sunshine Street, City, Country
@@ -13,7 +13,7 @@ export class UpdateAuditRequestRequestAuditRecordCompanyAddress extends $dara.Mo
   companyAddress?: string;
   /**
    * @remarks
-   * Company address title.
+   * The company address title.
    * 
    * @example
    * xxx company
@@ -45,7 +45,7 @@ export class UpdateAuditRequestRequestAuditRecordCompanyAddress extends $dara.Mo
 export class UpdateAuditRequestRequestAuditRecordCompanyTel extends $dara.Model {
   /**
    * @remarks
-   * Company phone number.
+   * The company telephone number.
    * 
    * @example
    * 07364245xxxx
@@ -53,7 +53,7 @@ export class UpdateAuditRequestRequestAuditRecordCompanyTel extends $dara.Model 
   companyTelNumber?: string;
   /**
    * @remarks
-   * Phone number title.
+   * The telephone number title.
    * 
    * @example
    * xxx
@@ -85,7 +85,7 @@ export class UpdateAuditRequestRequestAuditRecordCompanyTel extends $dara.Model 
 export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   /**
    * @remarks
-   * Age limit.
+   * The age limit.
    * 
    * @example
    * unlimited
@@ -93,7 +93,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   ageLimit?: string;
   /**
    * @remarks
-   * Application reason.
+   * The reason for the application.
    * 
    * @example
    * reason
@@ -101,7 +101,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   applyReason?: string;
   /**
    * @remarks
-   * Business account name.
+   * The business account name.
    * 
    * @example
    * testaccount
@@ -109,7 +109,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   businessAccountName?: string;
   /**
    * @remarks
-   * Business license registration number.
+   * The business license registration number.
    * 
    * @example
    * 9211515**345
@@ -117,12 +117,12 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   businessLicenseRegistrationNumber?: string;
   /**
    * @remarks
-   * Company addresses.
+   * The company address.
    */
   companyAddress?: UpdateAuditRequestRequestAuditRecordCompanyAddress[];
   /**
    * @remarks
-   * Company English name.
+   * The English name of the company.
    * 
    * @example
    * baidu
@@ -130,7 +130,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   companyEnglishName?: string;
   /**
    * @remarks
-   * Company legal name.
+   * The legal name of the company.
    * 
    * @example
    * example
@@ -138,7 +138,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   companyLegalName?: string;
   /**
    * @remarks
-   * Company legal person name.
+   * The name of the legal representative of the company.
    * 
    * @example
    * example
@@ -146,7 +146,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   companyLegalPerson?: string;
   /**
    * @remarks
-   * Company profile.
+   * The company profile.
    * 
    * @example
    * xxx
@@ -154,7 +154,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   companyProfile?: string;
   /**
    * @remarks
-   * Company registered country or region.
+   * The country or region where the company is registered.
    * 
    * @example
    * example
@@ -162,12 +162,12 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   companyRegisteredCountry?: string;
   /**
    * @remarks
-   * Company phone numbers.
+   * The company telephone number.
    */
   companyTel?: UpdateAuditRequestRequestAuditRecordCompanyTel[];
   /**
    * @remarks
-   * Complete address of headquarters.
+   * The complete address of the headquarters.
    * 
    * @example
    * xxxstreet
@@ -175,7 +175,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   completeAddressOfHeadquarters?: string;
   /**
    * @remarks
-   * Contact mailbox.
+   * The email address of the contact.
    * 
    * @example
    * 5**8585@gmail.com
@@ -183,7 +183,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   contactEmail?: string;
   /**
    * @remarks
-   * Contact mailbox.
+   * The contact email address.
    * 
    * @example
    * xxxx@gamil.com
@@ -191,7 +191,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   contactMail?: string;
   /**
    * @remarks
-   * Contact name.
+   * The name of the contact.
    * 
    * @example
    * mary
@@ -199,7 +199,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   contactName?: string;
   /**
    * @remarks
-   * Contact phone number.
+   * The phone number of the contact.
    * 
    * @example
    * 861515115***
@@ -207,7 +207,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   contactPhone?: string;
   /**
    * @remarks
-   * Contact position.
+   * The position of the contact.
    * 
    * @example
    * job
@@ -215,7 +215,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   contactPosition?: string;
   /**
    * @remarks
-   * Enable auto-reply (this field is deprecated).
+   * Specifies whether to enable auto-reply. This field is deprecated.
    * 
    * @example
    * N/A‌
@@ -223,7 +223,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   enableAutoReply?: string;
   /**
    * @remarks
-   * Industry description.
+   * The industry description.
    * 
    * @example
    * description
@@ -231,7 +231,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   industryDescription?: string;
   /**
    * @remarks
-   * Industry involved.
+   * The industry to which the company belongs.
    * 
    * @example
    * telecommunicationsAndIT
@@ -239,7 +239,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   industryInvolved?: string;
   /**
    * @remarks
-   * Letter of guarantee (download address).
+   * The letter of guarantee (download URL).
    * 
    * @example
    * https://xxx.xxx.xxx
@@ -247,22 +247,22 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   letterGuarantee?: string;
   /**
    * @remarks
-   * Logo
+   * logo
    */
   logo?: string[];
   /**
    * @remarks
-   * Local destination countries or regions.
+   * The local destination countries or regions.
    */
   messageDestinationCountry?: string[];
   /**
    * @remarks
-   * International destination countries and regions.
+   * The international destination countries and regions.
    */
   messageDestinationInternationalCountry?: string[];
   /**
    * @remarks
-   * Commercial message dialogue introduction.
+   * The introduction to the business message dialogue.
    * 
    * @example
    * hello!
@@ -270,7 +270,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   messageDialogueIntroduction?: string;
   /**
    * @remarks
-   * Commercial message enable date (GMT).
+   * The date on which business messaging is enabled (GMT time zone).
    * 
    * @example
    * 2025-11-07
@@ -278,7 +278,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   messageEnableDate?: string;
   /**
    * @remarks
-   * Commercial message dialogue name.
+   * The business message session name.
    * 
    * @example
    * test
@@ -286,7 +286,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   messageSessionName?: string;
   /**
    * @remarks
-   * Supplementary material address.
+   * The URL of the supplementary document.
    * 
    * @example
    * https://xxx.xxx.com
@@ -294,7 +294,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   otherLetterGuarantee?: string;
   /**
    * @remarks
-   * Recovery date.
+   * The recovery date, in YYYY-MM-DD format.
    * 
    * @example
    * 2025-11-07
@@ -302,7 +302,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   recoveryDate?: string;
   /**
    * @remarks
-   * Reply content (deprecated).
+   * The reply content. This field is deprecated.
    * 
    * @example
    * N/A
@@ -310,7 +310,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   replyContent?: string;
   /**
    * @remarks
-   * Deprecated.
+   * This field is deprecated.
    * 
    * @example
    * N/A
@@ -318,7 +318,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   suspensionDate?: string;
   /**
    * @remarks
-   * Company website.
+   * The company web address.
    * 
    * @example
    * https://www.xxx.xxx.com
@@ -425,7 +425,7 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
 export class UpdateAuditRequestRequest extends $dara.Model {
   /**
    * @remarks
-   * Viber audit items.
+   * The Viber audit items.
    * 
    * This parameter is required.
    */
@@ -440,7 +440,7 @@ export class UpdateAuditRequestRequest extends $dara.Model {
   auditResult?: string;
   /**
    * @remarks
-   * The Space ID of the ISV sub-customer or the instance ID. View it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The space ID or instance ID of the ISV sub-customer. This is the channel ID. You can view it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 
@@ -455,7 +455,7 @@ export class UpdateAuditRequestRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The request number.
+   * The request number to update.
    * 
    * This parameter is required.
    * 

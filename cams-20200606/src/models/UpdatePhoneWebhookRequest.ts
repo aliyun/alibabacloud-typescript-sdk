@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePhoneWebhookRequest extends $dara.Model {
   /**
    * @remarks
-   * The SpaceId of the ISV sub-customer.
+   * The space ID of the ISV sub-customer.
    * 
    * This parameter is required.
    * 
@@ -52,7 +52,7 @@ export class UpdatePhoneWebhookRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The callback URL for the HTTP-based status report.
+   * The callback URL for the status report API over HTTP.
    * 
    * @example
    * http://www.aliyun.com
@@ -60,7 +60,7 @@ export class UpdatePhoneWebhookRequest extends $dara.Model {
   statusCallbackUrl?: string;
   /**
    * @remarks
-   * The callback URL for the HTTP-based upstream message.
+   * The callback URL for the upstream message API over HTTP.
    * 
    * @example
    * http://aliyun.com

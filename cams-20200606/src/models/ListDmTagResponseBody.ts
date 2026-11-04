@@ -55,7 +55,7 @@ export class ListDmTagResponseBodyData extends $dara.Model {
 export class ListDmTagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denial details.
    * 
    * @example
    * None
@@ -63,9 +63,9 @@ export class ListDmTagResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response status code.
+   * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request succeeded.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 

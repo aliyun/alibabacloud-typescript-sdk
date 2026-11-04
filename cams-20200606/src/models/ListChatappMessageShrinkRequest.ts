@@ -21,9 +21,9 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
    * @remarks
    * The channel type. Valid values:
    * 
-   * - **whatsapp**
+   * - **whatsapp**.
    * 
-   * - **viber**
+   * - **viber**.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The message receiving status of the user.
+   * The message acceptance status of the user.
    * 
    * @example
    * success
@@ -51,13 +51,16 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The end time. This value is a UNIX timestamp in milliseconds.
+   * The end time. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1727057232686
    */
   endTime?: number;
   /**
+   * @remarks
+   * The end time in the format of YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2024-01-30 00:00:00
    */
@@ -65,8 +68,8 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The message type. Valid values:
-   * - DOWN: outbound message.
-   * - UP: inbound message.
+   * - DOWN: downstream message.
+   * - UP: upstream message.
    * 
    * @example
    * UP
@@ -74,7 +77,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   eventAction?: string;
   /**
    * @remarks
-   * The bulk message ID. View the bulk message ID in the [**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Message List** > **Bulk Sending List** console.
+   * The batch message ID. View the batch message ID in the [**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Message List** > **Batch Sending List** console.
    * 
    * @example
    * 9292****
@@ -100,13 +103,16 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time. This value is a UNIX timestamp in milliseconds.
+   * The start time. This value is a UNIX timestamp. Unit: milliseconds.
    * 
    * @example
    * 1727057232686
    */
   startTime?: number;
   /**
+   * @remarks
+   * The start time in the format of YYYY-MM-DD HH:mm:ss.
+   * 
    * @example
    * 2024-01-01 00:00:00
    */
@@ -121,7 +127,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * The user phone number. This is the phone number that you imported when sending messages in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message Sending** console.
+   * The user phone number. This is the user phone number that you imported when sending messages in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message Sending** console.
    * 
    * @example
    * 86138***

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncMessageCampaignRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Meta ad account.
+   * The Meta ad account ID.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class SyncMessageCampaignRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the Messenger page.
+   * The Messenger page ID.
    * 
    * This parameter is required.
    * 

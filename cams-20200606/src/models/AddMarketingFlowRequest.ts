@@ -8,17 +8,17 @@ export class AddMarketingFlowRequest extends $dara.Model {
    * The description of the campaign.
    * 
    * @example
-   * Example value example value.
+   * 示例值示例值
    */
   activityDesc?: string;
   /**
    * @remarks
-   * The name of the node instance.
+   * The name of the node task instance.
    * 
    * This parameter is required.
    * 
    * @example
-   * Example value example value.
+   * 示例值示例值
    */
   activityName?: string;
   /**
@@ -26,7 +26,7 @@ export class AddMarketingFlowRequest extends $dara.Model {
    * The business code.
    * 
    * @example
-   * Example value.
+   * 示例值
    */
   bizCode?: string;
   /**
@@ -42,15 +42,15 @@ export class AddMarketingFlowRequest extends $dara.Model {
    * The cron expression.
    * 
    * @example
-   * Example value example value example value.
+   * 示例值示例值示例值
    */
   cronExpression?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
-   * Example value example value example value.
+   * 示例值示例值示例值
    */
   endDate?: string;
   /**
@@ -63,7 +63,7 @@ export class AddMarketingFlowRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Example value.
+   * 示例值
    */
   executionType?: string;
   ownerId?: number;
@@ -72,7 +72,7 @@ export class AddMarketingFlowRequest extends $dara.Model {
    * The parameter flag.
    * 
    * @example
-   * Example value.
+   * 示例值
    */
   paramFlag?: string;
   /**
@@ -88,7 +88,7 @@ export class AddMarketingFlowRequest extends $dara.Model {
    * The code of the associated flow.
    * 
    * @example
-   * Example value.
+   * 示例值
    */
   relatedFlowCode?: string;
   /**
@@ -96,7 +96,7 @@ export class AddMarketingFlowRequest extends $dara.Model {
    * The name of the associated flow.
    * 
    * @example
-   * Example value.
+   * 示例值
    */
   relatedFlowName?: string;
   /**
@@ -111,10 +111,10 @@ export class AddMarketingFlowRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time.
+   * The start time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
-   * Example value.
+   * 示例值
    */
   startDate?: string;
   static names(): { [key: string]: string } {

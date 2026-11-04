@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ArchiveChatappTemplateRequestTemplateList extends $dara.Model {
   /**
    * @remarks
-   * The template language. For detailed language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The template language. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ArchiveChatappTemplateRequestTemplateList extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The template code. You can view the template code on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Template Design** page.
+   * The template code. To view the template code, go to the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) page and choose **Manage** > **Template Design**.
    * 
    * This parameter is required.
    * 
@@ -61,24 +61,24 @@ export class ArchiveChatappTemplateRequest extends $dara.Model {
    * @remarks
    * The channel type. Valid values:
    * 
-   * - **WHATSAPP**.
+   * - **WHATSAPP**
    * 
-   * > Only the WhatsApp channel type is supported.
+   * > Currently, only the WhatsApp channel type is supported.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   channelType?: string;
   /**
    * @remarks
-   * The space ID of the ISV sub-customer or the instance ID of the direct customer. You can view the Space ID on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer. You can view the space ID on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Sample value
    */
   custSpaceId?: string;
   /**

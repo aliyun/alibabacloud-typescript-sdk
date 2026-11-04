@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateChatappTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow Facebook to automatically change the template category (to improve the template approval rate). This property is valid only when TemplateType is set to WHATSAPP.
-   * >Notice: This property has been deprecated. WhatsApp no longer supports this property.</notice>
+   * Specifies whether to allow Facebook to automatically change the category of the template to improve the approval rate. This property is valid only when TemplateType is set to WHATSAPP.
+   * >Notice: **[Deprecated]** WhatsApp no longer supports this property.</notice>
    * 
    * @example
    * true
@@ -14,21 +14,21 @@ export class CreateChatappTemplateShrinkRequest extends $dara.Model {
   allowCategoryChange?: boolean;
   /**
    * @remarks
-   * WhatsApp template category. Valid values:
+   * WhatsApp template categories:
    * 
-   * - **UTILITY**: transaction-related.
+   * - **UTILITY**: Transaction-related.
    * 
-   * - **MARKETING**: marketing.
+   * - **MARKETING**: Marketing templates.
    * 
-   * - **AUTHENTICATION**: identity verification.
+   * - **AUTHENTICATION**: Authenticate identity.
    * 
-   * Viber template category. Valid values:
+   * Viber template categories:
    * 
-   * - **UTILITY**: transaction-related.
+   * - **UTILITY**: Transaction-related.
    * 
-   * - **MARKETING**: marketing.
+   * - **MARKETING**: Marketing templates.
    * 
-   * - **AUTHENTICATION**: identity verification.
+   * - **AUTHENTICATION**: Authenticate identity.
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class CreateChatappTemplateShrinkRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether to pause template sending when a Utility template is changed to Marketing type. This property is valid only for WhatsApp templates.
+   * Specifies whether to pause sending the template when a utility template is changed to a marketing template. This property is valid only for WhatsApp templates.
    * 
    * @example
    * false
@@ -48,14 +48,14 @@ export class CreateChatappTemplateShrinkRequest extends $dara.Model {
    * @remarks
    * The list of message template components.
    * 
-   * > When Category=AUTHENTICATION, Components cannot contain nodes with Type=HEADER. When Type=BODY or FOOTER, the Text content must be empty.
+   * > When Category is set to AUTHENTICATION, Components cannot contain nodes with Type set to HEADER. Additionally, when Type is set to BODY or FOOTER, the Text content must be empty.
    * 
    * This parameter is required.
    */
   componentsShrink?: string;
   /**
    * @remarks
-   * The SpaceId of the ISV sub-customer or the direct customer instance ID.
+   * The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * @example
    * 293483938849493
@@ -63,9 +63,9 @@ export class CreateChatappTemplateShrinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The ISV customer WabaId.
+   * The WabaId of the ISV customer.
    * 
-   * > Deprecated parameter. Use CustSpaceId instead.
+   * > **[Deprecated]** Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
@@ -75,7 +75,7 @@ export class CreateChatappTemplateShrinkRequest extends $dara.Model {
   custWabaId?: string;
   /**
    * @remarks
-   * The example for creating the template.
+   * The example for creating a template.
    * 
    * @example
    * hello_whatsapp
@@ -83,7 +83,7 @@ export class CreateChatappTemplateShrinkRequest extends $dara.Model {
   exampleShrink?: string;
   /**
    * @remarks
-   * The ISV verification code, used to verify whether the sub-account is authorized by the ISV.
+   * The ISV verification code used to verify whether the RAM user is authorized by the ISV.
    * 
    * @example
    * skdi3kksloslikdkkdk
@@ -103,9 +103,9 @@ export class CreateChatappTemplateShrinkRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The time-to-live (TTL) for template messages in WhatsApp.
-   * - AUTHENTICATION: valid values range from 30 to 900. 
-   * - UTILITY: valid values range from 30 to 43200.
+   * The validity period for sending template messages in WhatsApp.
+   * - AUTHENTICATION: 30 to 900. 
+   * - UTILITY: 30 to 43200.
    * 
    * @example
    * 120
@@ -131,7 +131,7 @@ export class CreateChatappTemplateShrinkRequest extends $dara.Model {
   productSetId?: string;
   /**
    * @remarks
-   * The templatetype. Valid values:
+   * The templatetype.
    * 
    * - **WHATSAPP**
    * 

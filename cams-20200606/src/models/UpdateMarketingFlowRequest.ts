@@ -13,10 +13,10 @@ export class UpdateMarketingFLowRequest extends $dara.Model {
   activityCode?: string;
   /**
    * @remarks
-   * The campaign description.
+   * The description of the campaign.
    * 
    * @example
-   * 活动描述
+   * Campaign description
    */
   activityDesc?: string;
   /**
@@ -29,7 +29,7 @@ export class UpdateMarketingFLowRequest extends $dara.Model {
   activityId?: string;
   /**
    * @remarks
-   * The campaign name.
+   * The name of the campaign.
    * 
    * @example
    * test
@@ -37,12 +37,12 @@ export class UpdateMarketingFLowRequest extends $dara.Model {
   activityName?: string;
   /**
    * @remarks
-   * The cron expression for timed scheduling.
+   * The cron expression for periodic scheduling.
    */
   cronExpression?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-11-26 09:59:00
@@ -61,15 +61,15 @@ export class UpdateMarketingFLowRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Specifies whether to use custom pass-through parameters.
+   * Specifies whether to pass custom parameters.
    * 
    * @example
-   * Y:传入自定义参数 N:不传参数
+   * Y: Pass custom parameters. N: Do not pass parameters
    */
   paramFlag?: string;
   /**
    * @remarks
-   * The custom pass-through parameters.
+   * The custom parameters to pass.
    * 
    * @example
    * {"testEmail":"wy****999@alibaba-inc.com"}
@@ -103,7 +103,7 @@ export class UpdateMarketingFLowRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time.
+   * The start time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-11-25 09:59:00

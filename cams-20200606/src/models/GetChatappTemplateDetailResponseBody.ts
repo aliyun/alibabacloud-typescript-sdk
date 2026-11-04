@@ -21,7 +21,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttr
   intentCode?: string;
   /**
    * @remarks
-   * The next template language.
+   * The language code of the next template.
    * 
    * @example
    * en
@@ -29,7 +29,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttr
   nextLanguageCode?: string;
   /**
    * @remarks
-   * The next template code.
+   * The code of the next template.
    * 
    * @example
    * 20939920093993
@@ -37,7 +37,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttr
   nextTemplateCode?: string;
   /**
    * @remarks
-   * The next template name.
+   * The name of the next template.
    * 
    * @example
    * abc
@@ -115,7 +115,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedA
 export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $dara.Model {
   /**
    * @remarks
-   * Required for WhatsApp templates with Category set to Authentication and Button Type set to ONE_TAP. Specifies the button text for the WhatsApp Autofill operation.
+   * The button text for the WhatsApp autofill operation. This parameter is required for WhatsApp templates where the category is Authentication and the button type is ONE_TAP.
    * 
    * @example
    * Autofill
@@ -131,16 +131,16 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   couponCode?: string;
   /**
    * @remarks
-   * The extended fields.
+   * The extended attributes.
    */
   extendAttrs?: GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs;
   /**
    * @remarks
-   * The Flow data event type. Valid values:
+   * The flow data event type. Valid values:
    * 
-   * - NAVIGATE: navigation.
+   * - NAVIGATE: Navigation.
    * 
-   * - DATA_EXCHANGE: data exchange.
+   * - DATA_EXCHANGE: Data exchange.
    * 
    * @example
    * NAVIGATE
@@ -156,7 +156,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   flowId?: string;
   /**
    * @remarks
-   * Valid for WhatsApp templates with Category set to Marketing and Button Type set to QUICK_REPLY. Indicates that the button is a marketing opt-out button. If a customer clicks this button and the send control operation is configured on the Chat App Message Service platform, subsequent Marketing messages will not be sent to the customer.
+   * Indicates whether the button is a marketing opt-out button. If a customer clicks this button and sending control is configured on the Chat App Message Service platform, subsequent marketing messages are not sent to the customer. This parameter is valid only for WhatsApp templates where the category is Marketing and the button type is QUICK_REPLY.
    * 
    * @example
    * false
@@ -164,7 +164,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   isOptOut?: boolean;
   /**
    * @remarks
-   * The navigate screen. Required when FlowAction is set to NAVIGATE.
+   * The navigation screen. This parameter is required when FlowAction is set to NAVIGATE.
    * 
    * @example
    * DETAILS
@@ -172,7 +172,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   navigateScreen?: string;
   /**
    * @remarks
-   * Required for WhatsApp templates with Category set to Authentication and Button Type set to ONE_TAP. Specifies the package name for WhatsApp to launch the application.
+   * The package name of the application invoked by WhatsApp. This parameter is required for WhatsApp templates where the category is Authentication and the button type is ONE_TAP.
    * 
    * @example
    * com.aliyun
@@ -180,7 +180,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   packageName?: string;
   /**
    * @remarks
-   * The phone number. Valid only when the button type is **PHONE_NUMBER**.
+   * The phone number. This parameter is valid only when the button type is **PHONE_NUMBER**.
    * 
    * @example
    * +861398745****
@@ -188,7 +188,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   phoneNumber?: string;
   /**
    * @remarks
-   * Required for WhatsApp templates with Category set to Authentication and Button Type set to ONE_TAP. Specifies the signature hash value for WhatsApp to launch the application.
+   * The signature hash value of the application invoked by WhatsApp. This parameter is required for WhatsApp templates where the category is Authentication and the button type is ONE_TAP.
    * 
    * @example
    * 2993839
@@ -196,7 +196,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   signatureHash?: string;
   /**
    * @remarks
-   * The applications supported by the ONE_TAP/ZERO_TAP verification code.
+   * The applications supported by the ONE_TAP or ZERO_TAP verification code button.
    */
   supportedApps?: GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps[];
   /**
@@ -209,28 +209,36 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   text?: string;
   /**
    * @remarks
-   * The button type.
+   * The validity period.
    * 
-   * - **PHONE_NUMBER**: phone call button.
+   * @example
+   * 10800
+   */
+  ttlMinutes?: number;
+  /**
+   * @remarks
+   * The button type. Valid values:
    * 
-   * - **URL**: web page button.
+   * - **PHONE_NUMBER**: Call button.
    * 
-   * - **QUICK_REPLY**: quick reply button.
+   * - **URL**: URL button.
    * 
-   * - **COPY_CODE**: copy verification code or coupon code.
+   * - **QUICK_REPLY**: Quick reply button.
    * 
-   * - **ONE_TAP**: autofill button for AUTHENTICATION templates.
+   * - **COPY_CODE**: Copy verification code or coupon code button.
    * 
-   * - **ZERO_TAP**: autofill button for AUTHENTICATION templates.
+   * - **ONE_TAP**: Autofill button for authentication templates.
    * 
-   * - **MPM**: multi-product catalog.
+   * - **ZERO_TAP**: Autofill button for authentication templates.
    * 
-   * - **CATALOG**: catalog.
+   * - **MPM**: Multi-product message button.
    * 
-   * - **FLOW**: open WhatsApp flow.
+   * - **CATALOG**: Catalog button.
    * 
-   * > - For WhatsApp templates with Category set to AUTHENTICATION, only one button is allowed, and the type can only be COPY_CODE or ONE_TAP. If the type is COPY_CODE, Text is required. If the type is ONE_TAP, Text (displayed when the target application is not installed on the device, indicating the name of the copy verification code button), SignatureHash, PackageName, and AutofillText are required.
-   * > - Viber templates allow only one button, and it must be of the URL type.
+   * - **FLOW**: WhatsApp flow button.
+   * 
+   * > - For WhatsApp templates where the category is AUTHENTICATION, only one button is allowed, and the type must be COPY_CODE or ONE_TAP. If the type is COPY_CODE, Text is required. If the type is ONE_TAP, Text (displayed when the target application is not installed on the device, representing the name of the copy verification code button), SignatureHash, PackageName, and AutofillText are required.
+   * > - For Viber templates, only one button is allowed, and the type must be URL.
    * 
    * @example
    * PHONE_NUMBER
@@ -238,7 +246,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   type?: string;
   /**
    * @remarks
-   * The URL that is accessed when the link button is clicked.
+   * The URL to be accessed when the URL button is clicked.
    * 
    * @example
    * https://example.com
@@ -246,11 +254,11 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   url?: string;
   /**
    * @remarks
-   * The URL type.
+   * The URL type. Valid values:
    * 
-   * - **static**: static.
+   * - **static**: Static.
    * 
-   * - **dynamic**: dynamic.
+   * - **dynamic**: Dynamic.
    * 
    * @example
    * static
@@ -270,6 +278,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
       signatureHash: 'SignatureHash',
       supportedApps: 'SupportedApps',
       text: 'Text',
+      ttlMinutes: 'TtlMinutes',
       type: 'Type',
       url: 'Url',
       urlType: 'UrlType',
@@ -290,6 +299,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
       signatureHash: 'string',
       supportedApps: { 'type': 'array', 'itemType': GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps },
       text: 'string',
+      ttlMinutes: 'number',
       type: 'string',
       url: 'string',
       urlType: 'string',
@@ -330,7 +340,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponen
   text?: string;
   /**
    * @remarks
-   * The button type for a carousel template. Valid values: URL, PHONE_NUMBER, or QUICK_REPLY.
+   * The button type for carousel templates. Valid values: URL, PHONE_NUMBER, and QUICK_REQLY.
    * 
    * @example
    * URL
@@ -338,7 +348,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponen
   type?: string;
   /**
    * @remarks
-   * The URL to visit when the button is clicked.
+   * The URL to visit after the button is clicked.
    * 
    * @example
    * https://aliyun.com
@@ -348,9 +358,9 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponen
    * @remarks
    * The URL type. Valid values:
    *  
-   * - static: static.
+   * - static: Static URL.
    * 
-   * - dynamic: dynamic.
+   * - dynamic: Dynamic URL.
    * 
    * @example
    * static
@@ -393,7 +403,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponen
   buttons?: GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponentsButtons[];
   /**
    * @remarks
-   * The header type in a carousel template. Only IMAGE and VIDEO are supported. All cards must have the same header type.
+   * The header type for carousel templates. Only IMAGE and VIDEO are supported. The header must be consistent across all cards.
    * 
    * @example
    * HEADER
@@ -401,7 +411,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponen
   format?: string;
   /**
    * @remarks
-   * The card text content.
+   * The text content of the card.
    * 
    * @example
    * Body
@@ -417,7 +427,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponen
   type?: string;
   /**
    * @remarks
-   * The web URL.
+   * The web address.
    * 
    * @example
    * https://aliyun.com
@@ -488,7 +498,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCards extends $da
 export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Model {
   /**
    * @remarks
-   * Valid for WhatsApp templates when Category is Authentication and Component Type is Body. Indicates whether a security recommendation message that advises users not to share the verification code is displayed above the Body.
+   * Indicates whether to display a security recommendation above the body to warn users not to share the verification code with others. This parameter is valid only for WhatsApp templates where the category is Authentication and the component type is Body.
    * 
    * @example
    * false
@@ -496,18 +506,18 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
   addSecretRecommendation?: boolean;
   /**
    * @remarks
-   * The button list. Applicable only to the **BUTTONS** component.
+   * The list of buttons. This parameter is valid only for the **BUTTONS** component.
    * 
-   * > WhatsApp button quantity rules:
-   * > - For WhatsApp templates with Category set to MARKETING or UTILITY, a maximum of 10 buttons are allowed.
-   * > - Only 1 PHONE_NUMBER button is allowed.
-   * > - A maximum of 2 URL buttons are allowed.
-   * > - QUICK_REPLY buttons cannot be mixed in random order with PHONE_NUMBER or URL buttons.
+   * > WhatsApp button limits
+   * > - For MARKETING or UTILITY templates, a maximum of 10 buttons are allowed.
+   * > - Only one PHONE_NUMBER button is allowed.
+   * > - A maximum of two URL buttons are allowed.
+   * > - QUICK_REPLY buttons must not be interspersed with PHONE_NUMBER or URL buttons.
    */
   buttons?: GetChatappTemplateDetailResponseBodyDataComponentsButtons[];
   /**
    * @remarks
-   * The file description.
+   * The description of the file.
    * 
    * @example
    * example
@@ -520,7 +530,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
   cards?: GetChatappTemplateDetailResponseBodyDataComponentsCards[];
   /**
    * @remarks
-   * The verification code validity period in minutes for WhatsApp Authentication templates. Valid only when the message type is WhatsApp, Category is Authentication, and Component Type is Footer. This information is displayed in the Footer position.
+   * The expiration time of the verification code in minutes for WhatsApp authentication templates. This is valid only for WhatsApp messages where the category is Authentication and the component type is Footer. This information is displayed in the footer.
    * 
    * @example
    * 5
@@ -528,7 +538,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
   codeExpirationMinutes?: number;
   /**
    * @remarks
-   * The video duration of a Viber video message. Valid values: 0 to 600.
+   * The duration of the video in seconds for Viber video messages. Valid values: 0 to 600.
    * 
    * @example
    * 50
@@ -536,7 +546,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
   duration?: number;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * example
@@ -544,7 +554,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
   fileName?: string;
   /**
    * @remarks
-   * The file type of a Viber file message.
+   * The file type for Viber file messages.
    * 
    * @example
    * docx
@@ -568,7 +578,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
   latitude?: string;
   /**
    * @remarks
-   * The location address.
+   * The address of the location.
    * 
    * @example
    * hangzhou
@@ -576,7 +586,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
   locationAddress?: string;
   /**
    * @remarks
-   * The location name.
+   * The name of the location.
    * 
    * @example
    * hangzhou
@@ -592,7 +602,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
   longitude?: string;
   /**
    * @remarks
-   * The offer code expiration variable in a Limited Time Offer (LTO) template.
+   * The expiration variable of the offer code for limited-time offer (LTO) templates.
    * 
    * @example
    * $(offerExpirationTimeMs)
@@ -600,7 +610,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
   offerExpirationTimeMs?: string;
   /**
    * @remarks
-   * The text of the message to be sent.
+   * The text of the message to send.
    * 
    * @example
    * hello
@@ -608,7 +618,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
   text?: string;
   /**
    * @remarks
-   * The thumbnail for a Viber video message.
+   * The thumbnail URL for Viber video messages.
    * 
    * @example
    * https://img.png
@@ -616,7 +626,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
   thumbUrl?: string;
   /**
    * @remarks
-   * The component type.
+   * The component type. Valid values:
    * 
    * - **BODY**
    * 
@@ -630,9 +640,9 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
    * 
    * - **LIMITED_TIME_OFFER**
    * 
-   * > - For WhatsApp templates, the **BODY** component cannot exceed 1024 characters. The **HEADER** and **FOOTER** components cannot exceed 60 characters.
+   * > - For WhatsApp templates, the **BODY** component cannot exceed 1,024 characters. The **HEADER** and **FOOTER** components cannot exceed 60 characters.
    * > - For Viber templates, the **FOOTER**, **CAROUSEL**, and **LIMITED_TIME_OFFER** types are invalid.
-   * > - For Viber templates, images, videos, and files are placed in the **HEADER** (the device displays images below the text).
+   * > - In Viber templates, images, videos, and files are placed in the **HEADER**. The client displays the image below the text.
    * 
    * @example
    * BODY
@@ -640,7 +650,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
   type?: string;
   /**
    * @remarks
-   * The material URL.
+   * The media URL.
    * 
    * @example
    * https://image.developer.aliyundoc.com
@@ -648,7 +658,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
   url?: string;
   /**
    * @remarks
-   * Specifies whether the offer code has an expiration time in a Limited Time Offer (LTO) template.
+   * Indicates whether the offer code has an expiration time in LTO templates.
    * 
    * @example
    * true
@@ -720,7 +730,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $dara.Mo
 export class GetChatappTemplateDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the current template can be used for sending. This parameter is valid only for Marketing templates.
+   * Indicates whether the current template can be sent. This parameter is valid only for marketing templates.
    * 
    * @example
    * true
@@ -728,7 +738,7 @@ export class GetChatappTemplateDetailResponseBodyData extends $dara.Model {
   allowSend?: boolean;
   /**
    * @remarks
-   * The audit status. Valid values:
+   * The review status. Valid values:
    * 
    * - **pass**: Approved.
    * 
@@ -746,19 +756,19 @@ export class GetChatappTemplateDetailResponseBodyData extends $dara.Model {
    * @remarks
    * The WhatsApp template category. Valid values:
    * 
-   * - **UTILITY**: transaction-related.
+   * - **UTILITY**: Transaction-related.
    * 
-   * - **MARKETING**: marketing template.
+   * - **MARKETING**: Marketing template.
    * 
-   * - **AUTHENTICATION**: identity verification.
+   * - **AUTHENTICATION**: Authentication.
    * 
-   * Viber template category. Valid values:
+   * The Viber template category. Valid values:
    * 
-   * - **UTILITY**: transaction-related.
+   * - **UTILITY**: Transaction-related.
    * 
-   * - **MARKETING**: marketing template.
+   * - **MARKETING**: Marketing template.
    * 
-   * - **AUTHENTICATION**: identity verification.
+   * - **AUTHENTICATION**: Authentication.
    * 
    * @example
    * UTILITY
@@ -766,7 +776,7 @@ export class GetChatappTemplateDetailResponseBodyData extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Indicates whether template sending is paused when a Utility template is changed to a Marketing template.
+   * Indicates whether the template sending is paused when a utility template is changed to a marketing template.
    * 
    * @example
    * true
@@ -784,7 +794,7 @@ export class GetChatappTemplateDetailResponseBodyData extends $dara.Model {
   example?: { [key: string]: string };
   /**
    * @remarks
-   * The language of the template. For detailed language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The template language. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
    * 
    * @example
    * en_US
@@ -792,7 +802,7 @@ export class GetChatappTemplateDetailResponseBodyData extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The message time-to-live when sending WhatsApp Authentication template messages.
+   * The time-to-live (TTL) of the message in seconds when sending messages by using WhatsApp authentication templates.
    * 
    * @example
    * 120
@@ -800,7 +810,7 @@ export class GetChatappTemplateDetailResponseBodyData extends $dara.Model {
   messageSendTtlSeconds?: number;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * @example
    * hello_whatsapp
@@ -816,10 +826,10 @@ export class GetChatappTemplateDetailResponseBodyData extends $dara.Model {
   productSetId?: string;
   /**
    * @remarks
-   * The template quality.
+   * The quality of the template. Valid values:
    * - RED: Low quality.
    * - YELLOW: Medium quality.
-   * - UNKNOWN: Quality unknown.
+   * - UNKNOWN: Unknown quality.
    * - GREEN: High quality.
    * 
    * @example
@@ -828,7 +838,7 @@ export class GetChatappTemplateDetailResponseBodyData extends $dara.Model {
   qualityScore?: string;
   /**
    * @remarks
-   * The reason for template review rejection.
+   * The reason why the template was rejected.
    * 
    * @example
    * None
@@ -836,7 +846,7 @@ export class GetChatappTemplateDetailResponseBodyData extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The code of the template.
+   * The template code.
    * 
    * @example
    * 744c4b5c79c9432497a075bdfca3****
@@ -844,7 +854,7 @@ export class GetChatappTemplateDetailResponseBodyData extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * The templatetype.
+   * The templatetype. Valid values:
    * 
    * - **WHATSAPP**
    * 
@@ -910,7 +920,7 @@ export class GetChatappTemplateDetailResponseBodyData extends $dara.Model {
 export class GetChatappTemplateDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied detail information.
+   * The access denied details.
    * 
    * @example
    * None
@@ -920,7 +930,7 @@ export class GetChatappTemplateDetailResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A return value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -930,7 +940,7 @@ export class GetChatappTemplateDetailResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    * 
    * @example
    * { 		"category": "ACCOUNT_UPDATE", 		"name": "account_notice", 		"language": "en_US", 		"templateCode": "744c4b5c79c9432497a075bdfca3****", 		"auditStatus": "APPROVED", 		"components": "[{\\"type\\":\\"BODY\\",\\"text\\":\\"body_text$(textVariable)\\"},{\\"type\\":\\"HEADER\\",\\"formate\\":\\"IMAGE\\",\\"url\\":\\"$(linkVariable)\\"},{\\"type\\":\\"FOOTER\\",\\"text\\":\\"footer-text\\"},{\\"type\\":\\"BUTTONS\\",\\"buttons\\":[{\\"type\\":\\"PHONE_NUMBER\\",\\"text\\":\\"phone-button-text\\",\\"phone_number\\":\\"+861388888****\\"},{\\"type\\":\\"URL\\",\\"text\\":\\"url-button-text\\",\\"url\\":\\"https://www.website.com/\\"}]}]", 		"example": "{\\"textVariable\\": \\"text\\", \\"linkVariable\\": \\"link\\"}" 	}
@@ -953,6 +963,9 @@ export class GetChatappTemplateDetailResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

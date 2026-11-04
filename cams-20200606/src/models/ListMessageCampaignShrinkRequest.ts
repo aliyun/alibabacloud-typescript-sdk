@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMessageCampaignShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Meta ad account.
+   * The Meta ad account ID.
    * 
    * @example
    * 239**
@@ -13,7 +13,7 @@ export class ListMessageCampaignShrinkRequest extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
-   * The ID of the budget.
+   * The budget ID.
    * 
    * @example
    * 233**
@@ -21,7 +21,7 @@ export class ListMessageCampaignShrinkRequest extends $dara.Model {
   campaignId?: string;
   /**
    * @remarks
-   * The name of the campaign.
+   * The budget name.
    * 
    * @example
    * test-campaign
@@ -29,7 +29,7 @@ export class ListMessageCampaignShrinkRequest extends $dara.Model {
   campaignName?: string;
   /**
    * @remarks
-   * The Space ID of the ISV sub-customer or the instance ID of the direct customer. You can view this ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The SpaceId or instance ID of the ISV sub-customer. This is the channel ID, which can be viewed on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 
@@ -40,14 +40,14 @@ export class ListMessageCampaignShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The pagination parameters.
+   * The pagination parameter object.
    * 
    * This parameter is required.
    */
   pageShrink?: string;
   /**
    * @remarks
-   * The Page ID for Messenger.
+   * The Page ID of Messenger.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class ListMessageCampaignShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the budget.
+   * The budget status.
    * 
    * @example
    * AVAILABLE

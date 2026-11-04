@@ -22,7 +22,7 @@ export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The ISV sub-customer SpaceId or direct customer instance ID. You can view it on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) page.
+   * The space ID of the ISV sub-customer, or the instance ID for direct customers. You can view it on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) page.
    * 
    * @example
    * cams-8c8*********
@@ -30,7 +30,7 @@ export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The ISV customer WABA ID. This parameter is deprecated. Use CustSpaceId instead, which is the direct customer instance ID. You can view it on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) page.
+   * The WABA ID of the ISV customer. This parameter is deprecated. Use CustSpaceId instead, which is the instance ID for direct customers. You can view it on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) page.
    * 
    * @example
    * cams-8c8*********
@@ -40,7 +40,7 @@ export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   custWabaId?: string;
   /**
    * @remarks
-   * The custom fallback content. This parameter is for the China site (Chinese). China site users can ignore this parameter.
+   * The custom fallback content. This parameter applies to the international site only and can be ignored on the China site.
    * 
    * @example
    * Fallback SMS
@@ -48,7 +48,7 @@ export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   fallBackContent?: string;
   /**
    * @remarks
-   * The fallback trigger time. This parameter is for the international site. China site users can ignore this parameter. <props="intl">If no delivery receipt is returned within the specified time, the fallback is triggered. If this parameter is not specified, the fallback is triggered only when the message fails to send or a failure status report is received. Unit: seconds. Minimum value: 60. Maximum value: 43200.
+   * The fallback trigger duration. This parameter applies to the international site only and can be ignored on the China site. <props="intl">If no delivery receipt is returned within the specified duration, a fallback is triggered. If this parameter is not set, the fallback is not triggered based on this duration — a fallback occurs only when the message fails to send or a failure status report is received. Unit: seconds. Minimum value: 60. Maximum value: 43200.
    * 
    * @example
    * 120
@@ -56,7 +56,7 @@ export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   fallBackDuration?: number;
   /**
    * @remarks
-   * The fallback policy ID. This parameter is for the China site (Chinese). China site users can ignore this parameter. <props="intl">You can view the policy ID on the [**Fallback Policy**](https://chatapp.console.alibabacloud.com/FallbackStrategy) page.
+   * The fallback policy ID. This parameter applies to the international site only and can be ignored on the China site. <props="intl">You can view the policy ID on the [**Fallback Policy**](https://chatapp.console.alibabacloud.com/FallbackStrategy) page.
    * 
    * @example
    * S0****
@@ -64,10 +64,10 @@ export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   fallBackId?: string;
   /**
    * @remarks
-   * The fallback rule. This parameter is for the international site. China site users can ignore this parameter.
+   * The fallback rule. This parameter applies to the international site only and can be ignored on the China site.
    * <props="intl">Valid values:
-   * <props="intl">- **undelivered**: the fallback is triggered when the message cannot be delivered to the device. During sending, the template and parameters must pass validation. Blocked templates or blocked numbers are not validated. This rule is used by default if the parameter value is empty.
-   * <props="intl">- **sentFailed**: the fallback is triggered when validation of the template or template variables fails. Only channelType, type, messageType, to, and from (whether it exists) are strictly validated.
+   * <props="intl">- **undelivered**: triggers a fallback when the message cannot be delivered to the endpoint. During the sending phase, the template and parameters must pass validation. Checks for blocked templates or blocked phone numbers are not performed. If this parameter is left empty, this rule is used by default.
+   * <props="intl">- **sentFailed**: triggers a fallback when validation of the template, template variables, or other parameters fails. Only the following parameters are strictly validated: channelType, type, messageType, to, and from (whether they exist).
    * 
    * @example
    * undelivered
@@ -75,12 +75,12 @@ export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   fallBackRule?: string;
   /**
    * @remarks
-   * The sender phone number.
+   * The sender\\"s phone number.
    * 
-   * - If ChannelType is **whatsapp**, this is the phone number registered and bindng with WhatsApp. You can view it on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **WABA Management** > **Phone Number Management** page.
-   * - If ChannelType is **messenger**, this is the Page ID. You can view it on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Public Page** page.
-   * - If ChannelType is **instagram**, this is the Instagram professional Account ID. You can view it on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Professional Account** page.
-   * <props="intl">- If ChannelType is **viber**, this is the Viber Service ID. You can view it on the [**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Service ID Management** page.
+   * - If ChannelType is **whatsapp**, this is the phone number registered and bound to WhatsApp. You can view it on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **WABA Management** > **Number Management** page.
+   * - If ChannelType is **messenger**, this is the Page ID of the public page. You can view it on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Public Pages** page.
+   * - If ChannelType is **instagram**, this is the Instagram professional account ID (Account ID). You can view it on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Professional Accounts** page.
+   * <props="intl">- If ChannelType is **viber**, this is the Viber service number ID (Service ID). You can view it on the [**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Service Number Management** page.
    * 
    * This parameter is required.
    * 
@@ -90,7 +90,7 @@ export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The ISV verification code used to verify whether a RAM user is authorized by the ISV. This parameter is deprecated and can be ignored.
+   * The ISV verification code used to verify whether a sub-account is authorized by an ISV. This parameter is deprecated and can be ignored.
    * 
    * @example
    * skdi3kksloslikd****
@@ -100,9 +100,9 @@ export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The Viber message type. This parameter is for the international site. China site users can ignore this parameter.
+   * The Viber message type. This parameter applies to the international site only and can be ignored on the China site.
    * <props="intl">Valid values:
-   * <props="intl">- **pormotion**: marketing or promotional messages.
+   * <props="intl">- **pormotion**: marketing and promotional messages.
    * <props="intl">- **transaction**: notification messages.
    * 
    * @example
@@ -129,7 +129,7 @@ export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   senderListShrink?: string;
   /**
    * @remarks
-   * The tag information. Custom tag information for Viber message sending.
+   * The tag information. Specifies a custom tag for Viber messages.
    * 
    * @example
    * Tag
@@ -145,7 +145,7 @@ export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The template code. You can view the template code on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Template Design** page.
+   * The template code. You can view the template code on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Template Design** page.
    * 
    * @example
    * 1119***************
@@ -153,7 +153,7 @@ export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * The template name. You can view the template name on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Template Design** page.
+   * The template name. You can view the template name on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Template Design** page.
    * 
    * @example
    * test_name
@@ -161,7 +161,7 @@ export class SendChatappMassMessageShrinkRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The timeout period for Viber message sending. This parameter is for the international site. China site users can ignore this parameter. <props="intl">Unit: seconds. Valid values: 30 to 1209600.
+   * The timeout period for sending Viber messages. This parameter applies to the international site only and can be ignored on the China site. <props="intl">Unit: seconds. Valid values: 30 to 1209600.
    * 
    * @example
    * 46

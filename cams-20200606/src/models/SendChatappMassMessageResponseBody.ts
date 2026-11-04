@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendChatappMassMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -15,9 +15,9 @@ export class SendChatappMassMessageResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A return value of OK indicates that the request was successful.
    * 
-   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error code list](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK

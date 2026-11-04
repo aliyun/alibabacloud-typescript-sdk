@@ -5,65 +5,63 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The templatetype cannot be modified.
+   * The template category for Viber templates. This parameter is invalid for WhatsApp templates.
    * 
    * @example
-   * text
+   * MARKETING
    */
   category?: string;
   /**
    * @remarks
-   * When a Utility template is changed to Marketing type, the template is paused for sending.
+   * Specifies whether to pause sending the template when its category is changed from Utility to Marketing.
    * 
    * @example
-   * 120
+   * true
    */
   categoryChangePaused?: boolean;
   /**
    * @remarks
    * The list of message template components.
    * 
-   * > When Category is AUTHENTICATION, Components cannot contain a node with Type set to HEADER. When Type is BODY/FOOTER, the Text content is empty and is automatically generated.
+   * > When Category is AUTHENTICATION, Components cannot contain nodes with Type set to HEADER. When Type is BODY or FOOTER, if Text is empty, the content is automatically generated.
    * 
    * This parameter is required.
    */
   componentsShrink?: string;
   /**
    * @remarks
-   * The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
+   * The Space ID of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * @example
-   * 28251486512358****
+   * cams-did***
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * The ISV customer WabaId.
-   * 
-   * > This parameter is deprecated. Use CustSpaceId instead.
+   * The WABA ID of the ISV customer. This parameter is deprecated. Use CustSpaceId instead.
    * 
    * @example
-   * 65921621816****
+   * 939***
    */
   custWabaId?: string;
   /**
    * @remarks
-   * The example for creating a template.
+   * The variables in a key-value structure.
    */
   exampleShrink?: string;
   /**
    * @remarks
-   * The ISV verification code used to verify whether the sub-account is authorized by the ISV.
+   * The ISV verification code, which is used to verify whether the RAM user is authorized by the ISV.
    * 
    * @example
-   * ksiekdki39ksks93939
+   * 9393***
    * 
    * @deprecated
    */
   isvCode?: string;
   /**
    * @remarks
-   * The template language. For language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The language.
    * 
    * This parameter is required.
    * 
@@ -73,9 +71,7 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The validity period for sending template messages in WhatsApp.
-   * - AUTHENTICATION: valid values range from 30 to 900. 
-   * - UTILITY: valid values range from 30 to 43200.
+   * The validity period for sending WhatsApp authentication template messages.
    * 
    * @example
    * 120
@@ -94,7 +90,7 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
    * The message template code.
    * 
    * @example
-   * 8472929283883
+   * 93938**
    */
   templateCode?: string;
   /**
@@ -107,9 +103,7 @@ export class ModifyChatappTemplateShrinkRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The templatetype.
-   * 
-   * - **WHATSAPP**
+   * The templatetype to modify. Valid values: WHATSAPP and VIBER. Default value: WHATSAPP.
    * 
    * @example
    * WHATSAPP

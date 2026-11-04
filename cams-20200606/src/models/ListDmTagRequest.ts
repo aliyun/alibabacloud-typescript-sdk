@@ -22,7 +22,7 @@ export class ListDmTagRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10

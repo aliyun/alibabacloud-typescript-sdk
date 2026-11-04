@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductCatalogResponseBodyModelPagingCursors extends $dara.Model {
   /**
    * @remarks
-   * The position of the next record.
+   * The cursor for the next record.
    * 
    * @example
    * sjsuueu83838
@@ -13,7 +13,7 @@ export class ListProductCatalogResponseBodyModelPagingCursors extends $dara.Mode
   after?: string;
   /**
    * @remarks
-   * The position of the previous record.
+   * The cursor for the previous record.
    * 
    * @example
    * sjjsjdjjdjd83883
@@ -45,7 +45,7 @@ export class ListProductCatalogResponseBodyModelPagingCursors extends $dara.Mode
 export class ListProductCatalogResponseBodyModelPaging extends $dara.Model {
   /**
    * @remarks
-   * The cursor position for pagination.
+   * The pagination cursors.
    */
   cursors?: ListProductCatalogResponseBodyModelPagingCursors;
   static names(): { [key: string]: string } {
@@ -118,14 +118,14 @@ export class ListProductCatalogResponseBody extends $dara.Model {
    * The details about the access denial.
    * 
    * @example
-   * 无
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 

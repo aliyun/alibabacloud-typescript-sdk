@@ -13,7 +13,7 @@ export class ListDmAccountResponseBodyData extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The time when the account was created.
+   * The time when the account was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1743579634000
@@ -31,8 +31,8 @@ export class ListDmAccountResponseBodyData extends $dara.Model {
    * @remarks
    * The type of the sender address. Valid values:
    * 
-   * - batch: batch emails
-   * - trigger: triggered emails
+   * - batch: batch email
+   * - trigger: triggered email
    * 
    * @example
    * trigger
@@ -68,7 +68,7 @@ export class ListDmAccountResponseBodyData extends $dara.Model {
 export class ListDmAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -111,9 +111,9 @@ export class ListDmAccountResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: Successful.
+   * - true: The operation was successful.
    * 
-   * - false: Failed.
+   * - false: The operation failed.
    * 
    * @example
    * true

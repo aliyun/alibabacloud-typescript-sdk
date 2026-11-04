@@ -109,7 +109,7 @@ export class ListInstanceResponseBodyData extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The submit time.
+   * The submit time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-12-12 00:00:00
@@ -173,7 +173,7 @@ export class ListInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
+   * The request status code.
    * 
    * - OK indicates that the request was successful.
    * 

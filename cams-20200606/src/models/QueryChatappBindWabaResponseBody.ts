@@ -5,15 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The account review status. Valid values:
-   * 
-   * - `PENDING`: The account is under review.
-   * 
-   * - `APPROVED`: The account is approved.
-   * 
-   * - `REJECTED`: The account is rejected.
-   * 
-   * - `DISABLED`: The account is disabled.
+   * The review status of the WABA. Valid values:
+   *  - PENDING: Pending review.
+   *  - APPROVED: Review approved.
+   *  - REJECTED: Review rejected.
+   *  - DISABLED: Disabled.
    * 
    * @example
    * APPROVED
@@ -21,12 +17,12 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   accountReviewStatus?: string;
   /**
    * @remarks
-   * Details about the WABA account.
+   * The WABA-related information.
    */
   authInternationalRateEligibility?: { [key: string]: any };
   /**
    * @remarks
-   * The Business platform ID.
+   * The ID of the Business platform.
    * 
    * @example
    * 19293988***
@@ -34,7 +30,7 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   businessId?: string;
   /**
    * @remarks
-   * The Business platform name.
+   * The name of the Business platform.
    * 
    * @example
    * Alibaba
@@ -57,6 +53,9 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * Indicates whether the phone number is in use in the WhatsApp Business app.
+   * 
    * @example
    * N
    */
@@ -87,7 +86,7 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The international rate capability qualification.
+   * The international rate eligibility.
    * 
    * @example
    * "start_time":1721952000
@@ -140,7 +139,7 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
 export class QueryChatappBindWabaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denial details.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -150,7 +149,7 @@ export class QueryChatappBindWabaResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A value of `OK` indicates the request was successful.
+   * - A return value of OK indicates that the request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -181,11 +180,9 @@ export class QueryChatappBindWabaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful:
-   * 
-   * - `true`: The request was successful.
-   * 
-   * - `false`: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call succeeded.
+   * - **false**: The call failed.
    * 
    * @example
    * true

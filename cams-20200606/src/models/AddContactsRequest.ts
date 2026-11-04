@@ -8,12 +8,12 @@ export class AddContactsRequest extends $dara.Model {
    * The business code.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value
    */
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: an empty collection.
+   * The business extension information. Default value: an empty set.
    * 
    * @example
    * {}
@@ -48,7 +48,7 @@ export class AddContactsRequest extends $dara.Model {
    * The email address.
    * 
    * @example
-   * 示例值示例值
+   * Sample value
    */
   email?: string;
   /**
@@ -56,7 +56,7 @@ export class AddContactsRequest extends $dara.Model {
    * The file path.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value
    */
   filePath?: string;
   /**
@@ -66,13 +66,12 @@ export class AddContactsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Sample value
    */
   groups?: string;
   /**
    * @remarks
-   * Indicates whether the back-to-origin IP address whitelist needs to be updated. This parameter returns true when the current back-to-origin IP address whitelist differs from the latest back-to-origin IP address whitelist.
-   * 
+   * Specifies whether the whitelist of back-to-origin IP addresses needs to be updated. If the whitelist of back-to-origin IP addresses in use differs from the latest whitelist of back-to-origin IP addresses, the whitelist needs to be updated and this parameter returns true. Valid values:
    * - true: The whitelist needs to be updated.
    * - false: The whitelist does not need to be updated.
    * 

@@ -16,7 +16,7 @@ export class ListPageAdAccountRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The PageId of Messenger.
+   * The Page ID of Messenger.
    * 
    * This parameter is required.
    * 

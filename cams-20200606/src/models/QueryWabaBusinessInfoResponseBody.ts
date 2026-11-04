@@ -32,7 +32,7 @@ export class QueryWabaBusinessInfoResponseBodyData extends $dara.Model {
    * The industry.
    * 
    * @example
-   * Retail
+   * 零售
    * 
    * @deprecated
    */

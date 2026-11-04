@@ -45,7 +45,7 @@ export class AddCustomAudienceUserRequestUsers extends $dara.Model {
 export class AddCustomAudienceUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Meta ad account.
+   * The Meta ad account ID.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class AddCustomAudienceUserRequest extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
-   * Indicates whether this is the last batch of data.
+   * The last batch flag.
    * 
    * @example
    * false
@@ -63,7 +63,9 @@ export class AddCustomAudienceUserRequest extends $dara.Model {
   batchLastFlag?: boolean;
   /**
    * @remarks
-   * The space ID of the Independent Software Vendor (ISV) sub-customer or the instance ID of a direct customer.
+   * The SpaceId of the ISV sub-customer.
+   * 
+   * - The instance ID of the direct customer.
    * 
    * This parameter is required.
    * 
@@ -73,7 +75,7 @@ export class AddCustomAudienceUserRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The ID of the custom audience.
+   * The custom audience ID.
    * 
    * This parameter is required.
    * 
@@ -83,7 +85,7 @@ export class AddCustomAudienceUserRequest extends $dara.Model {
   customAudienceId?: string;
   /**
    * @remarks
-   * The estimated total number of users.
+   * The estimated phone number data.
    * 
    * @example
    * 26
@@ -92,7 +94,7 @@ export class AddCustomAudienceUserRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The Page ID for Messenger.
+   * The Page ID of Messenger.
    * 
    * This parameter is required.
    * 
@@ -104,7 +106,7 @@ export class AddCustomAudienceUserRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * A list of users.
+   * The list of users.
    * 
    * This parameter is required.
    */

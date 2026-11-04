@@ -22,6 +22,9 @@ export class TriggerChatFlowResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned data.
+   * 
+   * @example
+   * {}
    */
   data?: { [key: string]: any };
   /**

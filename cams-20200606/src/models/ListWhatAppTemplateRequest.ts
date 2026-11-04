@@ -13,7 +13,7 @@ export class ListWhatAppTemplateRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * This parameter is reserved for internal use.
+   * The internal parameter.
    * 
    * @example
    * {}

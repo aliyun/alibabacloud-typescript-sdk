@@ -8,14 +8,14 @@ export class ChatappPhoneNumberDeregisterResponseBody extends $dara.Model {
    * The details about the access denial.
    * 
    * @example
-   * 无
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -28,7 +28,7 @@ export class ChatappPhoneNumberDeregisterResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**

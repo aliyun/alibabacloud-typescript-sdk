@@ -45,7 +45,7 @@ export class AddAuditViberOpenRequestAuditRecordCompanyAddress extends $dara.Mod
 export class AddAuditViberOpenRequestAuditRecordCompanyTel extends $dara.Model {
   /**
    * @remarks
-   * The company phone number.
+   * The company telephone number.
    * 
    * @example
    * 156********
@@ -53,7 +53,7 @@ export class AddAuditViberOpenRequestAuditRecordCompanyTel extends $dara.Model {
   companyTelNumber?: string;
   /**
    * @remarks
-   * The title of the company phone number.
+   * The title of the company telephone.
    * 
    * @example
    * title
@@ -93,7 +93,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   ageLimit?: string;
   /**
    * @remarks
-   * The name of the business account.
+   * The business account name.
    * 
    * @example
    * example
@@ -101,7 +101,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   businessAccountName?: string;
   /**
    * @remarks
-   * The registration number of the business license.
+   * The business license registration number.
    * 
    * @example
    * example
@@ -109,7 +109,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   businessLicenseRegistrationNumber?: string;
   /**
    * @remarks
-   * A list of company addresses.
+   * The list of company addresses.
    */
   companyAddress?: AddAuditViberOpenRequestAuditRecordCompanyAddress[];
   /**
@@ -154,7 +154,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   companyRegisteredCountry?: string;
   /**
    * @remarks
-   * A list of company phone number objects.
+   * The list of company telephone objects.
    */
   companyTel?: AddAuditViberOpenRequestAuditRecordCompanyTel[];
   /**
@@ -167,7 +167,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   completeAddressOfHeadquarters?: string;
   /**
    * @remarks
-   * The email address of the contact person.
+   * The email address of the contact.
    * 
    * @example
    * 7151***5@qq.com
@@ -183,7 +183,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   contactMail?: string;
   /**
    * @remarks
-   * The name of the contact person.
+   * The name of the contact.
    * 
    * @example
    * mary
@@ -191,7 +191,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   contactName?: string;
   /**
    * @remarks
-   * The phone number of the contact person.
+   * The phone number of the contact.
    * 
    * @example
    * 8615115**777
@@ -199,7 +199,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   contactPhone?: string;
   /**
    * @remarks
-   * The position of the contact person.
+   * The position of the contact.
    * 
    * @example
    * example
@@ -215,7 +215,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   enableAutoReply?: string;
   /**
    * @remarks
-   * A description of the industry.
+   * The industry description.
    * 
    * @example
    * example
@@ -239,22 +239,22 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   letterGuarantee?: string;
   /**
    * @remarks
-   * A list of logos.
+   * The list of logos.
    */
   logo?: string[];
   /**
    * @remarks
-   * A list of destination countries/regions for messages.
+   * The list of message destination countries.
    */
   messageDestinationCountry?: string[];
   /**
    * @remarks
-   * A list of destination countries/regions for international messages.
+   * The list of international destination countries for messages.
    */
   messageDestinationInternationalCountry?: string[];
   /**
    * @remarks
-   * The introduction in the message dialog box.
+   * The introduction of the message dialog box.
    * 
    * @example
    * example
@@ -262,7 +262,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   messageDialogueIntroduction?: string;
   /**
    * @remarks
-   * The date when messaging is enabled.
+   * The date when messaging is enabled, in the YYYY-MM-DD format.
    * 
    * @example
    * example
@@ -270,7 +270,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   messageEnableDate?: string;
   /**
    * @remarks
-   * The name of the message session.
+   * The message session name.
    * 
    * @example
    * nPHK8uaRo
@@ -278,7 +278,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   messageSessionName?: string;
   /**
    * @remarks
-   * Other letters of guarantee.
+   * The other letter of guarantee.
    * 
    * @example
    * example
@@ -286,7 +286,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   otherLetterGuarantee?: string;
   /**
    * @remarks
-   * The content of the reply.
+   * The reply content.
    * 
    * @example
    * hello
@@ -294,7 +294,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   replyContent?: string;
   /**
    * @remarks
-   * The website address.
+   * The web address.
    * 
    * @example
    * example
@@ -408,7 +408,7 @@ export class AddAuditViberOpenRequest extends $dara.Model {
   auditResult?: string;
   /**
    * @remarks
-   * The Space ID of the ISV sub-customer.
+   * The SpaceId of the ISV sub-customer.
    * 
    * This parameter is required.
    * 

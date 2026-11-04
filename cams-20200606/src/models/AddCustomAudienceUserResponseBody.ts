@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCustomAudienceUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -15,9 +15,9 @@ export class AddCustomAudienceUserResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A value of OK indicates that the request was successful.
+   * - OK indicates that the request is successful.
    * 
-   * - For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -41,9 +41,9 @@ export class AddCustomAudienceUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: The operation is successful.
    * 
    * - false: The operation failed.
    * 

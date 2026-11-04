@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddChatGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The phone number associated with the business account.
+   * The phone number.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,12 @@ export class AddChatGroupRequest extends $dara.Model {
   businessNumber?: string;
   /**
    * @remarks
-   * The channel type. Valid value:
+   * The channel type. Valid values:
    * 
-   * - **WHATSAPP**
+   * - **WHATSAPP**.
    * 
-   * > Currently, only the WhatsApp channel type is supported.
+   * 
+   * > Currently, only WhatsApp channel messages are supported.
    * 
    * @example
    * WHATSAPP
@@ -27,7 +28,7 @@ export class AddChatGroupRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The SpaceId or instance ID of the ISV sub-customer, which is the channel ID. Find it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The space ID or instance ID of the ISV sub-customer, which is the channel ID. You can view the channel ID on the [Channels Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 
@@ -37,7 +38,7 @@ export class AddChatGroupRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The group description.
+   * The description of the group.
    * 
    * @example
    * This is a newly created group
@@ -45,7 +46,7 @@ export class AddChatGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The link to the WhatsApp group.
+   * The Telegram group link.
    * 
    * @example
    * https://t.me/testgroup
@@ -56,7 +57,7 @@ export class AddChatGroupRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The group title.
+   * The title of the group.
    * 
    * @example
    * test

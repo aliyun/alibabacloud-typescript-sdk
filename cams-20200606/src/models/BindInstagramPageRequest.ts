@@ -10,7 +10,7 @@ export class BindInstagramPageRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   instanceId?: string;
   ownerId?: number;
@@ -26,7 +26,7 @@ export class BindInstagramPageRequest extends $dara.Model {
   pageId?: string;
   /**
    * @remarks
-   * The region of the instance.
+   * The region ID of the instance.
    * 
    * @example
    * ap-southeast-1

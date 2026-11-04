@@ -21,7 +21,7 @@ export class GetDownloadExcelListRequest extends $dara.Model {
   bizExtend?: { [key: string]: any };
   /**
    * @remarks
-   * The query conditions.
+   * The query condition.
    * 
    * @example
    * aa
@@ -29,12 +29,12 @@ export class GetDownloadExcelListRequest extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The country names.
+   * The country name.
    */
   countryNames?: string[];
   /**
    * @remarks
-   * The end time.
+   * The end date. Format: YYYY-MM-DD.
    * 
    * @example
    * 2025-12-01
@@ -50,7 +50,7 @@ export class GetDownloadExcelListRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The contact group IDs.
+   * The contact group ID.
    */
   groupIds?: string[];
   ownerId?: number;
@@ -58,7 +58,7 @@ export class GetDownloadExcelListRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time.
+   * The start date. Format: YYYY-MM-DD.
    * 
    * @example
    * 2025-11-01

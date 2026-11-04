@@ -10,13 +10,13 @@ export class BindMessengerPageRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Sample value sample value sample value.
+   * Sample value sample value sample value
    */
   instanceId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The PageId of the Messenger.
+   * The Messenger page ID.
    * 
    * This parameter is required.
    * 

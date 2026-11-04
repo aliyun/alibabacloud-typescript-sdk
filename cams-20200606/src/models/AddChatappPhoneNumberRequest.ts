@@ -37,7 +37,7 @@ export class AddChatappPhoneNumberRequest extends $dara.Model {
   /**
    * @remarks
    * The pre-validated phone number.
-   * > This parameter is deprecated.
+   * > **[Deprecated]**
    * 
    * @example
    * 1020****
@@ -49,7 +49,7 @@ export class AddChatappPhoneNumberRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The display name of the phone number.
+   * The name of the phone number.
    * 
    * This parameter is required.
    * 

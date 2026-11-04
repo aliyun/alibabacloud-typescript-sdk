@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAuditRequestShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Viber audit items.
+   * The Viber audit items.
    * 
    * This parameter is required.
    */
@@ -20,7 +20,7 @@ export class UpdateAuditRequestShrinkRequest extends $dara.Model {
   auditResult?: string;
   /**
    * @remarks
-   * The Space ID of the ISV sub-customer or the instance ID. View it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The space ID or instance ID of the ISV sub-customer. This is the channel ID. You can view it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class UpdateAuditRequestShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The request number.
+   * The request number to update.
    * 
    * This parameter is required.
    * 

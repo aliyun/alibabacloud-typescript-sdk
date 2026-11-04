@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCallingCallHoursHolidaySchedule extends $dara.Model {
   /**
+   * @remarks
+   * The date in YYYY-MM-DD format.
+   * 
    * @example
    * 2026-01-01
    */
   date?: string;
   /**
+   * @remarks
+   * The end time in HHmm format.
+   * 
    * @example
    * 2359
    */
   endTime?: string;
   /**
+   * @remarks
+   * The start time in HHmm format.
+   * 
    * @example
    * 0000
    */
@@ -45,16 +54,25 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCal
 
 export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCallingCallHoursWeeklyOperatingHours extends $dara.Model {
   /**
+   * @remarks
+   * The closing time in HHmm format.
+   * 
    * @example
    * 2359
    */
   closeTime?: string;
   /**
+   * @remarks
+   * The day of the week.
+   * 
    * @example
    * 示例值示例值示例值
    */
   dayOfWeek?: string;
   /**
+   * @remarks
+   * The opening time in HHmm format.
+   * 
    * @example
    * 0000
    */
@@ -86,26 +104,46 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCal
 
 export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCallingCallHours extends $dara.Model {
   /**
+   * @remarks
+   * The visibility of the call icon.
+   * 
    * @example
    * DEFAULT
    */
   callIconVisibility?: string;
   /**
+   * @remarks
+   * The callback permission status.
+   * 
    * @example
    * ENABLED
    */
   callbackPermissionStatus?: string;
+  /**
+   * @remarks
+   * The holiday call hours schedule.
+   */
   holidaySchedule?: QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCallingCallHoursHolidaySchedule[];
   /**
+   * @remarks
+   * The status of the call hours configuration.
+   * 
    * @example
    * ENABLED
    */
   status?: string;
   /**
+   * @remarks
+   * The time zone ID, such as Asia/Shanghai.
+   * 
    * @example
    * Asia/Shanghai
    */
   timezoneId?: string;
+  /**
+   * @remarks
+   * The weekly operating hours schedule.
+   */
   weeklyOperatingHours?: QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCallingCallHoursWeeklyOperatingHours[];
   static names(): { [key: string]: string } {
     return {
@@ -145,8 +183,15 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCal
 }
 
 export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCalling extends $dara.Model {
+  /**
+   * @remarks
+   * The call hours configuration.
+   */
   callHours?: QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCallingCallHours;
   /**
+   * @remarks
+   * The status of the calling feature.
+   * 
    * @example
    * ENABLED
    */
@@ -178,13 +223,23 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCal
 }
 
 export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigure extends $dara.Model {
+  /**
+   * @remarks
+   * The calling feature configuration.
+   */
   calling?: QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCalling;
   /**
+   * @remarks
+   * The callback URL for calls.
+   * 
    * @example
    * https://aliyun.com
    */
   callingCallbackUrl?: string;
   /**
+   * @remarks
+   * The maximum call duration.
+   * 
    * @example
    * 1000
    */
@@ -218,6 +273,10 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigure ex
 }
 
 export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Model {
+  /**
+   * @remarks
+   * The calling configuration.
+   */
   callingConfigure?: QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigure;
   /**
    * @remarks
@@ -228,13 +287,16 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
    */
   codeVerificationStatus?: string;
   /**
+   * @remarks
+   * Indicates whether the phone number is verified.
+   * 
    * @example
    * N
    */
   isOfficial?: string;
   /**
    * @remarks
-   * The messaging limit tier of the phone number.
+   * The messaging volume limit tier of the phone number.
    * 
    * @example
    * TIER_10K
@@ -242,7 +304,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   messagingLimitTier?: string;
   /**
    * @remarks
-   * The status of the name.
+   * The name status.
    * 
    * @example
    * Approval
@@ -274,7 +336,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   qualityRating?: string;
   /**
    * @remarks
-   * The status of the phone number.
+   * The phone number status.
    * 
    * @example
    * CONNECTED
@@ -282,7 +344,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The callback URL for delivery receipts.
+   * The URL for status report notifications.
    * 
    * @example
    * https://ali.com/status
@@ -290,7 +352,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   statusCallbackUrl?: string;
   /**
    * @remarks
-   * The queue for delivery receipts of mobile terminated messages.
+   * The queue for status report notifications.
    * 
    * @example
    * Alicom-Queue-****-ChatAppStatus
@@ -298,7 +360,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   statusQueue?: string;
   /**
    * @remarks
-   * The callback URL for mobile originated messages.
+   * The URL for inbound message notifications.
    * 
    * @example
    * https://ali.com/inbound
@@ -306,7 +368,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   upCallbackUrl?: string;
   /**
    * @remarks
-   * The queue for mobile originated messages.
+   * The queue for inbound message notifications.
    * 
    * @example
    * Alicom-Queue-****-ChatAppInbound
@@ -314,7 +376,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   upQueue?: string;
   /**
    * @remarks
-   * The name used for the request.
+   * The application name.
    * 
    * @example
    * Alibaba
@@ -373,7 +435,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
 export class QueryChatappPhoneNumbersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -383,7 +445,7 @@ export class QueryChatappPhoneNumbersResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A value of OK indicates that the request was successful.
+   * - OK indicates that the request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -392,13 +454,16 @@ export class QueryChatappPhoneNumbersResponseBody extends $dara.Model {
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
-   * 示例值示例值
+   * 示例值
    */
   data?: string;
   /**
    * @remarks
-   * The returned message.
+   * The message.
    * 
    * @example
    * SUCCESS
@@ -418,6 +483,11 @@ export class QueryChatappPhoneNumbersResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

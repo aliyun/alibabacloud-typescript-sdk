@@ -8,7 +8,7 @@ export class AddGroupRequest extends $dara.Model {
    * The business tenant code.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value sample value sample value
    */
   bizCode?: string;
   /**
@@ -48,7 +48,7 @@ export class AddGroupRequest extends $dara.Model {
    * The email address.
    * 
    * @example
-   * 示例值示例值
+   * Sample value sample value
    */
   email?: string;
   /**

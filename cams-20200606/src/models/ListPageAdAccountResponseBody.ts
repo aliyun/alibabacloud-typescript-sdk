@@ -29,7 +29,7 @@ export class ListPageAdAccountResponseBodyData extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The PageId of Messenger.
+   * The Page ID of Messenger.
    * 
    * @example
    * 2030***
@@ -65,19 +65,19 @@ export class ListPageAdAccountResponseBodyData extends $dara.Model {
 export class ListPageAdAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
-   * 无
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
-   * - For other error codes, refer to [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -106,7 +106,7 @@ export class ListPageAdAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
    * - true: Successful.
    * 

@@ -15,7 +15,7 @@ export class GetMessageCampaignInsightsRequest extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
-   * The ID of the campaign.
+   * The budget ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetMessageCampaignInsightsRequest extends $dara.Model {
   campaignId?: string;
   /**
    * @remarks
-   * The Space ID of the Independent Software Vendor (ISV) sub-customer or the instance ID of the direct customers. This is the channel ID. You can find the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The space ID or instance ID of the ISV sub-customer. This is the channel ID, which can be viewed on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class GetMessageCampaignInsightsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The Page ID.
+   * The page number to query.
    * 
    * This parameter is required.
    * 

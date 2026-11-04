@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddChatGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of the access denial.
+   * The access denial details.
    * 
    * @example
    * None
@@ -13,11 +13,11 @@ export class AddChatGroupResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response status code. Valid values:
+   * The status code of the request. Valid values:
    * 
-   * - `OK`: The request was successful.
+   * - OK: The request is successful.
    * 
-   * - For other error codes, see the [error code list](https://help.aliyun.com/document_detail/196974.html).
+   * - Other error codes. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -25,7 +25,7 @@ export class AddChatGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The error message.
    * 
    * @example
    * None
@@ -33,7 +33,7 @@ export class AddChatGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier for the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O
@@ -41,11 +41,9 @@ export class AddChatGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates if the API call succeeded. Valid values:
-   * 
-   * - **true**: The API call was successful.
-   * 
-   * - **false**: The API call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * true
@@ -53,7 +51,7 @@ export class AddChatGroupResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The unique request code.
+   * The unique code of the request.
    * 
    * @example
    * 8938****

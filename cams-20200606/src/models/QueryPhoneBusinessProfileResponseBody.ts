@@ -37,7 +37,7 @@ export class QueryPhoneBusinessProfileResponseBodyData extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The profile picture URL.
+   * The URL of the profile picture.
    * 
    * @example
    * https://example.img
@@ -95,7 +95,7 @@ export class QueryPhoneBusinessProfileResponseBodyData extends $dara.Model {
 export class QueryPhoneBusinessProfileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -105,7 +105,7 @@ export class QueryPhoneBusinessProfileResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -136,9 +136,9 @@ export class QueryPhoneBusinessProfileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * true

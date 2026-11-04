@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuditRequestByTypeUnAuditRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the ISV sub-customer or the instance ID of the direct customer. You can view the Space ID on the [China-China interconnection](https://chatapp.console.aliyun.com/CustomerList) page.
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer. You can view the Space ID on the [China Channel Management](https://chatapp.console.aliyun.com/CustomerList) page.
    * 
    * This parameter is required.
    * 

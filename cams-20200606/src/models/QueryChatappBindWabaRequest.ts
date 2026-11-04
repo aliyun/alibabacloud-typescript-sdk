@@ -13,7 +13,7 @@ export class QueryChatappBindWabaRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The ISV verification code, used to verify that the sub-account is authorized.
+   * The ISV verification code, used to verify whether the sub-account is authorized by the ISV.
    * 
    * @example
    * aksik93kdkkxmwol9****

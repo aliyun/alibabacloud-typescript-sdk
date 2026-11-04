@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAuditRequestResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Access denied details.
+   * The details about the access denial.
    * 
    * @example
    * {}
@@ -13,11 +13,11 @@ export class UpdateAuditRequestResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Request status code.
+   * The request status code.
    * 
-   * - OK indicates a successful request.
+   * - OK indicates that the request was successful.
    * 
-   * - For other error codes, see [Error Codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -25,7 +25,7 @@ export class UpdateAuditRequestResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Returns the RequestNo.
+   * The request number (RequestNo).
    * 
    * @example
    * 14111561****
@@ -33,7 +33,7 @@ export class UpdateAuditRequestResponseBody extends $dara.Model {
   data?: { [key: string]: any };
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * success
@@ -41,7 +41,7 @@ export class UpdateAuditRequestResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of this API call request. Alibaba Cloud generates this unique identifier for the request. Use it to troubleshoot and locate issues.
+   * The ID of the request. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * example
@@ -49,7 +49,7 @@ export class UpdateAuditRequestResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Values:
+   * Indicates whether the operation was successful. Valid values:
    * 
    * - true: Successful.
    * 

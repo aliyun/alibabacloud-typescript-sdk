@@ -16,7 +16,7 @@ export class DeleteMessengerPageRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The PageId of the Messenger page.
+   * The Messenger page ID.
    * 
    * This parameter is required.
    * 

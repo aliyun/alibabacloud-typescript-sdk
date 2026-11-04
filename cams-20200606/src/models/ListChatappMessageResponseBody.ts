@@ -21,7 +21,7 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The name of the message receiving status.
+   * The name of the message acceptance status.
    * 
    * @example
    * Success
@@ -53,7 +53,7 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The inbound or outbound message type.
+   * The upstream or downstream message type.
    * 
    * @example
    * DOWN
@@ -61,11 +61,11 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
   eventAction?: string;
   /**
    * @remarks
-   * The name of the inbound or outbound message type. Valid values:
+   * The name of the upstream or downstream message type. Valid values:
    * 
-   * - DOWN: outbound message.
+   * - DOWN: downstream message.
    * 
-   * - UP: inbound message.
+   * - UP: upstream message.
    * 
    * @example
    * DOWN
@@ -173,7 +173,7 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
   month?: string;
   /**
    * @remarks
-   * The sending time.
+   * The sending time in ISO 8601 format with a time zone offset.
    * 
    * @example
    * 2025-07-11T01:16:49.761+00:00
@@ -293,7 +293,7 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
 export class ListChatappMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -301,7 +301,7 @@ export class ListChatappMessageResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
+   * The request status code.
    * 
    * - OK: The request was successful.
    * 

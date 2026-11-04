@@ -8,14 +8,14 @@ export class AddGroupResponseBody extends $dara.Model {
    * The access denied details.
    * 
    * @example
-   * 无
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - OK: The request succeeded.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -33,7 +33,7 @@ export class AddGroupResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The prompt message. This parameter has a value when an exception is returned.
+   * The message. This parameter has a value when an exception is returned.
    * 
    * @example
    * true

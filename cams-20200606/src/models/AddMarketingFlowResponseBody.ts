@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddMarketingFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -16,7 +16,7 @@ export class AddMarketingFlowResponseBody extends $dara.Model {
    * The status code.
    * 
    * @example
-   * Example value example value.
+   * 示例值示例值
    */
   code?: string;
   /**
@@ -24,15 +24,15 @@ export class AddMarketingFlowResponseBody extends $dara.Model {
    * The returned data.
    * 
    * @example
-   * Example value example value.
+   * 示例值示例值
    */
   data?: string;
   /**
    * @remarks
-   * The message returned with the result.
+   * The message returned for the result.
    * 
    * @example
-   * Example value.
+   * 示例值
    */
   message?: string;
   /**
@@ -40,7 +40,7 @@ export class AddMarketingFlowResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * Example value.
+   * 示例值
    */
   requestId?: string;
   /**

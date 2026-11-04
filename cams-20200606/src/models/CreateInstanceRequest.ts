@@ -6,6 +6,7 @@ export class CreateInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The channel type.
+   * >Notice: The Singapore site supports all channels, and the Germany site currently supports only WhatsApp.</notice>
    * 
    * This parameter is required.
    * 
@@ -31,7 +32,7 @@ export class CreateInstanceRequest extends $dara.Model {
   countryId?: string;
   /**
    * @remarks
-   * The ID of the Facebook Business Manager (BM).
+   * FacebookBmId
    * 
    * @example
    * 393992929
@@ -39,7 +40,7 @@ export class CreateInstanceRequest extends $dara.Model {
   facebookBmId?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * The instance description.
    * 
    * @example
    * ins
@@ -47,7 +48,7 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceDescription?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * This parameter is required.
    * 
@@ -57,7 +58,7 @@ export class CreateInstanceRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Specifies whether to confirm the audit.
+   * Specifies whether the audit is confirmed.
    * 
    * @example
    * Y
@@ -65,7 +66,7 @@ export class CreateInstanceRequest extends $dara.Model {
   isConfirmAudit?: string;
   /**
    * @remarks
-   * The URL of the ISV terms file.
+   * The name of the ISV/client agreement file.
    * 
    * @example
    * https://a.com/1.pdf
@@ -73,7 +74,7 @@ export class CreateInstanceRequest extends $dara.Model {
   isvTerms?: string;
   /**
    * @remarks
-   * The office address of the business.
+   * The enterprise address.
    * 
    * @example
    * example
@@ -81,7 +82,7 @@ export class CreateInstanceRequest extends $dara.Model {
   officeAddress?: string;
   /**
    * @remarks
-   * The ID of the resource group that contains the instance.
+   * The ID of the resource group to which the instance belongs.
    * 
    * @example
    * example

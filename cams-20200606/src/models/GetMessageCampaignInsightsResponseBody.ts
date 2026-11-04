@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMessageCampaignInsightsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The start time.
+   * The start date in the format of YYYY-MM-DD.
    * 
    * @example
    * 2025-07-01
@@ -13,7 +13,7 @@ export class GetMessageCampaignInsightsResponseBodyData extends $dara.Model {
   dateStart?: string;
   /**
    * @remarks
-   * The end time.
+   * The end date in the format of YYYY-MM-DD.
    * 
    * @example
    * 2025-07-29
@@ -29,7 +29,7 @@ export class GetMessageCampaignInsightsResponseBodyData extends $dara.Model {
   marketingMessagesCostPerDelivered?: string;
   /**
    * @remarks
-   * The average cost per message link click. This metric excludes messages sent to Europe, Argentina, Türkiye, South Korea, and Japan.
+   * The average cost per message link click. This metric does not include messages sent to Europe, Argentina, Türkiye, South Korea, or Japan.
    * 
    * @example
    * 268
@@ -37,7 +37,7 @@ export class GetMessageCampaignInsightsResponseBodyData extends $dara.Model {
   marketingMessagesCostPerLinkBtnClick?: string;
   /**
    * @remarks
-   * The number of messages that are sent by the business and successfully delivered to users. Some messages may fail to deliver if a user\\"s device is unavailable. This metric excludes messages delivered to Europe and Japan. In some cases, this metric is an estimate. The value may differ from the data on your bill due to minor discrepancies during data processing.
+   * The number of messages that the business sends to users and that are successfully delivered. Some messages may not be delivered, for example, when the user\\"s device is unavailable. This metric does not include messages delivered to Europe or Japan. In some cases, this metric may be an estimate, and its value may differ from the data shown on your billing statement because of minor differences in the data processing procedure, resulting in data inconsistency.
    * 
    * @example
    * 2755
@@ -53,7 +53,7 @@ export class GetMessageCampaignInsightsResponseBodyData extends $dara.Model {
   marketingMessagesDeliveryRate?: string;
   /**
    * @remarks
-   * The number of times users click or tap a marketing message that take users to an on-Meta or off-Meta destination, as specified by the advertiser. This metric excludes messages sent to Europe, Argentina, Türkiye, South Korea, and Japan.
+   * The number of times users clicked or tapped within marketing messages, directing them to on-Meta or off-Meta destinations specified by the advertiser. This metric does not include messages sent to Europe, Argentina, Türkiye, South Korea, or Japan.
    * 
    * @example
    * 268
@@ -61,7 +61,7 @@ export class GetMessageCampaignInsightsResponseBodyData extends $dara.Model {
   marketingMessagesLinkBtnClick?: string;
   /**
    * @remarks
-   * The percentage of delivered messages that received a link click. This metric excludes messages sent to Europe, Argentina, Türkiye, South Korea, and Japan.
+   * The percentage of delivered messages that received link clicks out of the total number of delivered messages. This metric does not include messages sent to Europe, Argentina, Türkiye, South Korea, or Japan.
    * 
    * @example
    * 79.419238
@@ -69,7 +69,7 @@ export class GetMessageCampaignInsightsResponseBodyData extends $dara.Model {
   marketingMessagesLinkBtnClickRate?: string;
   /**
    * @remarks
-   * The number of read messages divided by the number of delivered messages. The read status of some messages may not be captured if a customer disables read receipts. This metric excludes messages sent to Europe and Japan.
+   * The number of read messages divided by the number of delivered messages. The read status of some messages may not be captured, for example, when a customer disables read receipts. This metric does not include messages sent to Europe or Japan.
    * 
    * @example
    * 79.419238
@@ -77,7 +77,7 @@ export class GetMessageCampaignInsightsResponseBodyData extends $dara.Model {
   marketingMessagesReadRate?: string;
   /**
    * @remarks
-   * The total amount spent on a campaign, message group, or message during over its lifetime.
+   * The total amount spent on a messaging campaign, message set, or message over the entire delivery period.
    * 
    * @example
    * 38.87
@@ -125,7 +125,7 @@ export class GetMessageCampaignInsightsResponseBodyData extends $dara.Model {
 export class GetMessageCampaignInsightsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -137,7 +137,7 @@ export class GetMessageCampaignInsightsResponseBody extends $dara.Model {
    * 
    * - OK: The request was successful.
    * 
-   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, refer to [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -145,12 +145,12 @@ export class GetMessageCampaignInsightsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The returned data object.
    */
   data?: GetMessageCampaignInsightsResponseBodyData[];
   /**
    * @remarks
-   * The error description.
+   * The error message.
    * 
    * @example
    * OK
@@ -168,9 +168,9 @@ export class GetMessageCampaignInsightsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: successful.
+   * - true: The operation was successful.
    * 
-   * - false: failed.
+   * - false: The operation failed.
    * 
    * @example
    * true

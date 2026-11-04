@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetViberByRequestNoRequest extends $dara.Model {
   /**
    * @remarks
-   * The Space ID of an ISV sub-customer or the Instance ID of a direct customer.
+   * The space ID of an ISV sub-customer or the instance ID of a direct customer.
    * 
    * @example
    * 28251486512358****
@@ -14,7 +14,7 @@ export class GetViberByRequestNoRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request number of the application form.
    * 
    * This parameter is required.
    * 

@@ -45,7 +45,7 @@ export class CreateChatappTemplateResponseBodyData extends $dara.Model {
 export class CreateChatappTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -55,7 +55,7 @@ export class CreateChatappTemplateResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - OK: The request is successful.
    * 
    * - For other error codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
    * 

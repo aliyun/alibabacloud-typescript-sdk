@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMarketingFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * The campaign code. You can use the system code or modify it to use a custom code.
+   * The campaign code. You can use the system-generated code or modify it to use a custom code.
    * 
    * @example
    * rewrwerw

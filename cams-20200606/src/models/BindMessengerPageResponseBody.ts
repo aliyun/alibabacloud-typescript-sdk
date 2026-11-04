@@ -13,7 +13,7 @@ export class BindMessengerPageResponseBodyData extends $dara.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * The current page ID.
+   * The current page number.
    * 
    * @example
    * 1654543543543
@@ -55,7 +55,7 @@ export class BindMessengerPageResponseBodyData extends $dara.Model {
 export class BindMessengerPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denial details.
    * 
    * @example
    * None

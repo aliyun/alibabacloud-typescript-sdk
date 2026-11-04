@@ -21,7 +21,7 @@ export class FlowUnbindPhoneShrinkRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The flow code. You can view the flow code on the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+   * The flow code. You can view the flow code on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class FlowUnbindPhoneShrinkRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. You can view the flow version by going to the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, clicking the flow name, and entering the flow editor canvas page.
+   * The flow version. You can click the flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas page of the flow editor and view the flow version.
    * 
    * @example
    * 1
@@ -40,7 +40,7 @@ export class FlowUnbindPhoneShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The list of phone numbers, PageIds, AccountIds,<props="intl"> or ServiceIds under the channel instance.
+   * The list of phone numbers, PageIds, AccountIds<props="intl">, and ServiceIds under the channel instance.
    */
   phoneNumbersShrink?: string;
   resourceOwnerAccount?: string;

@@ -12,9 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'ap-southeast-1': "cams.ap-southeast-1.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cams", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -101,7 +98,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Signs up for a Viber account.
+   * Registers a Viber account and creates an account.
    * 
    * @param tmpReq - AddAuditViberOpenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -158,7 +155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Signs up for a Viber account.
+   * Registers a Viber account and creates an account.
    * 
    * @param request - AddAuditViberOpenRequest
    * @returns AddAuditViberOpenResponse
@@ -172,11 +169,10 @@ export default class Client extends OpenApi {
    * Creates an IM group.
    * 
    * @remarks
-   * >Notice: 
-   * Creating IM groups via the API is a feature in closed beta testing by Meta. Please contact your account manager to be added to the allowlist.
-   * - You can only create an IM group by calling this API.
-   * - After creating an IM group, you can call the [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) API to generate an invite link.
-   * - For the WhatsApp channel type, an IM group is limited to eight members.
+   * >Notice: The feature of creating IM groups through API operations is a Meta closed beta feature. Contact your account manager to apply for whitelist access.</notice>
+   * - You can call this operation to create an IM group. Currently, you can only create IM groups by calling API operations.
+   * - After the group is created, you can call the [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operation to add an invitation link and invite members to the IM group.
+   * - For groups whose channel type is WhatsApp, the maximum number of members is 8.
    * 
    * @param request - AddChatGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -242,11 +238,10 @@ export default class Client extends OpenApi {
    * Creates an IM group.
    * 
    * @remarks
-   * >Notice: 
-   * Creating IM groups via the API is a feature in closed beta testing by Meta. Please contact your account manager to be added to the allowlist.
-   * - You can only create an IM group by calling this API.
-   * - After creating an IM group, you can call the [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) API to generate an invite link.
-   * - For the WhatsApp channel type, an IM group is limited to eight members.
+   * >Notice: The feature of creating IM groups through API operations is a Meta closed beta feature. Contact your account manager to apply for whitelist access.</notice>
+   * - You can call this operation to create an IM group. Currently, you can only create IM groups by calling API operations.
+   * - After the group is created, you can call the [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operation to add an invitation link and invite members to the IM group.
+   * - For groups whose channel type is WhatsApp, the maximum number of members is 8.
    * 
    * @param request - AddChatGroupRequest
    * @returns AddChatGroupResponse
@@ -257,15 +252,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an invite link for an IM group.
+   * Adds an IM group invite link.
    * 
    * @remarks
-   * >Notice: Adding IM group invite links through the API is a Meta beta feature. Contact your account manager to apply for access.
-   * - Before calling this operation, make sure that you have a successfully created IM group.
-   * - If you do not have a successfully created IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
-   * - After you call this operation to add an IM group invite link, you can use the link to invite members to join the IM group.
-   * - Currently, members can join an IM group only through an invite link.
-   * - The maximum number of members in a WhatsApp group is 8.
+   * <notice>The feature to add an IM group invite link through the API is a Meta beta feature. Contact your account manager to request allowlist access.</notice>
+   * - Before calling this API operation, make sure that you have created an IM group.
+   * - If you have not created an IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
+   * - After calling this API operation to add an IM group invite link, you can use the link to invite members to the IM group.
+   * - Currently, members can only join an IM group by using an invite link.
+   * - The maximum number of members in a group with the WhatsApp channel type is 8.
    * 
    * @param request - AddChatGroupInviteLinkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -320,15 +315,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an invite link for an IM group.
+   * Adds an IM group invite link.
    * 
    * @remarks
-   * >Notice: Adding IM group invite links through the API is a Meta beta feature. Contact your account manager to apply for access.
-   * - Before calling this operation, make sure that you have a successfully created IM group.
-   * - If you do not have a successfully created IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
-   * - After you call this operation to add an IM group invite link, you can use the link to invite members to join the IM group.
-   * - Currently, members can join an IM group only through an invite link.
-   * - The maximum number of members in a WhatsApp group is 8.
+   * <notice>The feature to add an IM group invite link through the API is a Meta beta feature. Contact your account manager to request allowlist access.</notice>
+   * - Before calling this API operation, make sure that you have created an IM group.
+   * - If you have not created an IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
+   * - After calling this API operation to add an IM group invite link, you can use the link to invite members to the IM group.
+   * - Currently, members can only join an IM group by using an invite link.
+   * - The maximum number of members in a group with the WhatsApp channel type is 8.
    * 
    * @param request - AddChatGroupInviteLinkRequest
    * @returns AddChatGroupInviteLinkResponse
@@ -339,10 +334,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a phone number to a WABA.
+   * Adds a phone number to WABA.
    * 
    * @remarks
-   * The China site (Chinese mainland) QPS limit for a single user on this API is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+   * The QPS limit per user for this API operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation as needed.
    * 
    * @param request - AddChatappPhoneNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -401,10 +396,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a phone number to a WABA.
+   * Adds a phone number to WABA.
    * 
    * @remarks
-   * The China site (Chinese mainland) QPS limit for a single user on this API is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+   * The QPS limit per user for this API operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation as needed.
    * 
    * @param request - AddChatappPhoneNumberRequest
    * @returns AddChatappPhoneNumberResponse
@@ -511,10 +506,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds users to a custom audience.
+   * Adds a custom audience.
    * 
    * @remarks
-   * After users are submitted to a custom audience, Meta matches them. If fewer than 100 users are matched, Meta discards the data. This prevents phone numbers from being linked directly to user tokens. Each API call supports up to 10,000 user records.
+   * After you submit the users of a custom audience to Meta, Meta discards the matching data if fewer than 100 users are successfully matched. This prevents the submitted phone numbers from being compared with tokens to establish direct relationships. You can pass up to 10,000 user records in a single request.
    * 
    * @param tmpReq - AddCustomAudienceUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -587,10 +582,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds users to a custom audience.
+   * Adds a custom audience.
    * 
    * @remarks
-   * After users are submitted to a custom audience, Meta matches them. If fewer than 100 users are matched, Meta discards the data. This prevents phone numbers from being linked directly to user tokens. Each API call supports up to 10,000 user records.
+   * After you submit the users of a custom audience to Meta, Meta discards the matching data if fewer than 100 users are successfully matched. This prevents the submitted phone numbers from being compared with tokens to establish direct relationships. You can pass up to 10,000 user records in a single request.
    * 
    * @param request - AddCustomAudienceUserRequest
    * @returns AddCustomAudienceUserResponse
@@ -805,7 +800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Archives a Chat App Message Service template. Currently, only WhatsApp templates support archiving.
+   * Archives Chat App templates. Currently, only WhatsApp templates support archiving.
    * 
    * @param tmpReq - ArchiveChatappTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -854,7 +849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Archives a Chat App Message Service template. Currently, only WhatsApp templates support archiving.
+   * Archives Chat App templates. Currently, only WhatsApp templates support archiving.
    * 
    * @param request - ArchiveChatappTemplateRequest
    * @returns ArchiveChatappTemplateResponse
@@ -865,7 +860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a DM account.
+   * Binds a DM account.
    * 
    * @param tmpReq - BindDmAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -922,7 +917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a DM account.
+   * Binds a DM account.
    * 
    * @param request - BindDmAccountRequest
    * @returns BindDmAccountResponse
@@ -995,7 +990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds the selected pageId.
+   * Binds the selected page ID.
    * 
    * @param request - BindMessengerPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1046,7 +1041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds the selected pageId.
+   * Binds the selected page ID.
    * 
    * @param request - BindMessengerPageRequest
    * @returns BindMessengerPageResponse
@@ -1057,7 +1052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a resource to a different resource group.
+   * Transfers a resource to another resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1096,7 +1091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves a resource to a different resource group.
+   * Transfers a resource to another resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -1107,10 +1102,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a WhatsApp Business Account (WABA) through the northbound interface.
+   * Binds a WABA to the northbound interface.
    * 
    * @remarks
-   * The per-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls will be throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * The queries per second (QPS) limit for a single user is 10. If you exceed this limit, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
    * 
    * @param request - ChatappBindWabaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1153,10 +1148,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a WhatsApp Business Account (WABA) through the northbound interface.
+   * Binds a WABA to the northbound interface.
    * 
    * @remarks
-   * The per-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls will be throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * The queries per second (QPS) limit for a single user is 10. If you exceed this limit, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
    * 
    * @param request - ChatappBindWabaRequest
    * @returns ChatappBindWabaResponse
@@ -1299,10 +1294,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deregisters a phone number from WABA.
+   * Unregisters a phone number from WABA.
    * 
    * @remarks
-   * The China Mainland site (Chinese) QPS limit for a single user for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Manage your calls appropriately.
+   * The queries per second (QPS) limit per user for this operation is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
    * 
    * @param request - ChatappPhoneNumberDeregisterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1349,10 +1344,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deregisters a phone number from WABA.
+   * Unregisters a phone number from WABA.
    * 
    * @remarks
-   * The China Mainland site (Chinese) QPS limit for a single user for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Manage your calls appropriately.
+   * The queries per second (QPS) limit per user for this operation is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
    * 
    * @param request - ChatappPhoneNumberDeregisterRequest
    * @returns ChatappPhoneNumberDeregisterResponse
@@ -1363,10 +1358,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a phone number through the northbound interface.
+   * Registers a phone number.
    * 
    * @remarks
-   * The China Mainland Messaging API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
    * 
    * @param request - ChatappPhoneNumberRegisterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1413,10 +1408,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a phone number through the northbound interface.
+   * Registers a phone number.
    * 
    * @remarks
-   * The China Mainland Messaging API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
    * 
    * @param request - ChatappPhoneNumberRegisterRequest
    * @returns ChatappPhoneNumberRegisterResponse
@@ -1487,10 +1482,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies a verification code and registers through the northbound interface.
+   * Verifies the verification code and registers a user through the northbound API.
    * 
    * @remarks
-   * The queries per second (QPS) limit for this API is 10 calls per second per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this API appropriately.
+   * The QPS limit per user is 10 requests per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable frequency.
    * 
    * @param request - ChatappVerifyAndRegisterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1541,10 +1536,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies a verification code and registers through the northbound interface.
+   * Verifies the verification code and registers a user through the northbound API.
    * 
    * @remarks
-   * The queries per second (QPS) limit for this API is 10 calls per second per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this API appropriately.
+   * The QPS limit per user is 10 requests per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable frequency.
    * 
    * @param request - ChatappVerifyAndRegisterRequest
    * @returns ChatappVerifyAndRegisterResponse
@@ -1688,8 +1683,8 @@ export default class Client extends OpenApi {
    * Creates a flow.
    * 
    * @remarks
-   * - You can create a flow by calling this operation or manually in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
-   * - After creating a flow, refer to [Flow editor component description](https://help.aliyun.com/document_detail/2836818.html) to orchestrate the canvas.
+   * - You can create a flow by calling this operation or manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
+   * - After you create a flow, you can refer to [Flow Editor component description](https://help.aliyun.com/document_detail/2836818.html) to orchestrate the canvas.
    * 
    * @param tmpReq - CreateChatFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1705,6 +1700,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(tmpReq.lifeCycleExtendData)) {
       request.lifeCycleExtendDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lifeCycleExtendData, "LifeCycleExtendData", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.lifeCycleExtendDataV2)) {
+      request.lifeCycleExtendDataV2Shrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lifeCycleExtendDataV2, "LifeCycleExtendDataV2", "json");
     }
 
     let query = { };
@@ -1730,6 +1729,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.lifeCycleExtendDataShrink)) {
       query["LifeCycleExtendData"] = request.lifeCycleExtendDataShrink;
+    }
+
+    if (!$dara.isNull(request.lifeCycleExtendDataV2Shrink)) {
+      query["LifeCycleExtendDataV2"] = request.lifeCycleExtendDataV2Shrink;
     }
 
     if (!$dara.isNull(request.ownerId)) {
@@ -1773,8 +1776,8 @@ export default class Client extends OpenApi {
    * Creates a flow.
    * 
    * @remarks
-   * - You can create a flow by calling this operation or manually in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
-   * - After creating a flow, refer to [Flow editor component description](https://help.aliyun.com/document_detail/2836818.html) to orchestrate the canvas.
+   * - You can create a flow by calling this operation or manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
+   * - After you create a flow, you can refer to [Flow Editor component description](https://help.aliyun.com/document_detail/2836818.html) to orchestrate the canvas.
    * 
    * @param request - CreateChatFlowRequest
    * @returns CreateChatFlowResponse
@@ -2005,13 +2008,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a message template. After the template is approved, you can use it to send messages.
+   * Creates a message template. You can send messages after the template is approved.
    * 
    * @remarks
    * ### QPS limit
-   * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+   * The QPS limit for a single user calling this API operation is 50. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
    * ### Status changes
-   * You can monitor template status and quality changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+   * You can listen for template status and quality changes by using MNS or HTTP. For more information, see [Message receipts](https://help.aliyun.com/document_detail/421545.html).
    * 
    * @param tmpReq - CreateChatappTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2100,13 +2103,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a message template. After the template is approved, you can use it to send messages.
+   * Creates a message template. You can send messages after the template is approved.
    * 
    * @remarks
    * ### QPS limit
-   * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+   * The QPS limit for a single user calling this API operation is 50. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
    * ### Status changes
-   * You can monitor template status and quality changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+   * You can listen for template status and quality changes by using MNS or HTTP. For more information, see [Message receipts](https://help.aliyun.com/document_detail/421545.html).
    * 
    * @param request - CreateChatappTemplateRequest
    * @returns CreateChatappTemplateResponse
@@ -3151,7 +3154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a contact from the contact list.
+   * Deletes a contact.
    * 
    * @param tmpReq - DeleteContactsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3220,7 +3223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a contact from the contact list.
+   * Deletes a contact.
    * 
    * @param request - DeleteContactsRequest
    * @returns DeleteContactsResponse
@@ -3711,7 +3714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Messenger page.
+   * Deletes the Messenger page.
    * 
    * @param request - DeleteMessengerPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3758,7 +3761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Messenger page.
+   * Deletes the Messenger page.
    * 
    * @param request - DeleteMessengerPageRequest
    * @returns DeleteMessengerPageResponse
@@ -4232,11 +4235,11 @@ export default class Client extends OpenApi {
    * Dissociates a phone number or merchant account ID from a flow.
    * 
    * @remarks
-   * - Before calling this operation, make sure your flow is in the offline state. If your flow is in the online state, go to the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to enter the canvas orchestration page, and manually take it offline, or call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to take the flow offline.
-   * - You can call this operation to dissociate a phone number or merchant account ID from a flow, or manually dissociate them on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
-   * - Before calling this operation, make sure your successfully created flow has a phone number or merchant account ID associated with it.
-   * - If you have not associated a phone number or merchant account ID, you can manually associate one on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page, or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation to associate one.
-   * - After dissociating a phone number or merchant account ID from a flow, the flow cannot be published. You must re-associate a phone number or merchant account ID before the flow can be published.
+   * - Before you call this operation, make sure that your flow is in the offline state. If your flow is in the online state, you can click the flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and manually take it offline, or call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to take the flow offline.
+   * - You can call this operation to dissociate a phone number or merchant account ID from a flow, or manually dissociate it on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * - Before you call this operation, make sure that a phone number or merchant account ID is associated with the flow you created.
+   * - If no phone number or merchant account ID is associated, you can manually associate one on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation to associate one.
+   * - After a phone number or merchant account ID is dissociated from a flow, the flow cannot be taken online. You must re-associate a phone number or merchant account ID with the flow before you can take it online.
    * 
    * @param tmpReq - FlowUnbindPhoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4300,11 +4303,11 @@ export default class Client extends OpenApi {
    * Dissociates a phone number or merchant account ID from a flow.
    * 
    * @remarks
-   * - Before calling this operation, make sure your flow is in the offline state. If your flow is in the online state, go to the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to enter the canvas orchestration page, and manually take it offline, or call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to take the flow offline.
-   * - You can call this operation to dissociate a phone number or merchant account ID from a flow, or manually dissociate them on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
-   * - Before calling this operation, make sure your successfully created flow has a phone number or merchant account ID associated with it.
-   * - If you have not associated a phone number or merchant account ID, you can manually associate one on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page, or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation to associate one.
-   * - After dissociating a phone number or merchant account ID from a flow, the flow cannot be published. You must re-associate a phone number or merchant account ID before the flow can be published.
+   * - Before you call this operation, make sure that your flow is in the offline state. If your flow is in the online state, you can click the flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and manually take it offline, or call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to take the flow offline.
+   * - You can call this operation to dissociate a phone number or merchant account ID from a flow, or manually dissociate it on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * - Before you call this operation, make sure that a phone number or merchant account ID is associated with the flow you created.
+   * - If no phone number or merchant account ID is associated, you can manually associate one on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation to associate one.
+   * - After a phone number or merchant account ID is dissociated from a flow, the flow cannot be taken online. You must re-associate a phone number or merchant account ID with the flow before you can take it online.
    * 
    * @param request - FlowUnbindPhoneRequest
    * @returns FlowUnbindPhoneResponse
@@ -4369,7 +4372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries pending review tickets for an individual by type.
+   * Queries pending review orders for an individual by type.
    * 
    * @param request - GetAuditRequestByTypeUnAuditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4416,7 +4419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries pending review tickets for an individual by type.
+   * Queries pending review orders for an individual by type.
    * 
    * @param request - GetAuditRequestByTypeUnAuditRequest
    * @returns GetAuditRequestByTypeUnAuditResponse
@@ -4845,11 +4848,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Chat App Message Service message template.
+   * Retrieves the details of a Chat App message template.
    * 
    * @remarks
    * ### QPS limit
-   * The single-user QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
+   * The queries per second (QPS) limit for a single user is 5. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable rate.
    * 
    * @param request - GetChatappTemplateDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4904,11 +4907,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Chat App Message Service message template.
+   * Retrieves the details of a Chat App message template.
    * 
    * @remarks
    * ### QPS limit
-   * The single-user QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
+   * The queries per second (QPS) limit for a single user is 5. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable rate.
    * 
    * @param request - GetChatappTemplateDetailRequest
    * @returns GetChatappTemplateDetailResponse
@@ -5821,7 +5824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves campaign metrics.
+   * Queries budget metrics.
    * 
    * @param request - GetMessageCampaignInsightsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5876,7 +5879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves campaign metrics.
+   * Queries budget metrics.
    * 
    * @param request - GetMessageCampaignInsightsRequest
    * @returns GetMessageCampaignInsightsResponse
@@ -6289,7 +6292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the application by its requestNo.
+   * Queries an application form by request number.
    * 
    * @param request - GetViberByRequestNoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6336,7 +6339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the application by its requestNo.
+   * Queries an application form by request number.
    * 
    * @param request - GetViberByRequestNoRequest
    * @returns GetViberByRequestNoResponse
@@ -6763,7 +6766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of groups.
+   * Queries a list of groups.
    * 
    * @param tmpReq - ListAllGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6816,7 +6819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of groups.
+   * Queries a list of groups.
    * 
    * @param request - ListAllGroupsRequest
    * @returns ListAllGroupsResponse
@@ -7333,7 +7336,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - You can call this operation to query the message list. You can also view the message list in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message List** console.
-   * - This operation only supports querying the message list for WhatsApp<props="intl"> and Viber channel types.
+   * - This API operation supports querying the message list only for WhatsApp<props="intl"> and Viber channels.
    * - Before calling this operation, make sure that you have created a WhatsApp<props="intl"> or Viber channel, bound a phone number or merchant account ID, created a template that has passed the review, and sent messages through the channel.
    * 
    * @param tmpReq - ListChatappMessageRequest
@@ -7439,7 +7442,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - You can call this operation to query the message list. You can also view the message list in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message List** console.
-   * - This operation only supports querying the message list for WhatsApp<props="intl"> and Viber channel types.
+   * - This API operation supports querying the message list only for WhatsApp<props="intl"> and Viber channels.
    * - Before calling this operation, make sure that you have created a WhatsApp<props="intl"> or Viber channel, bound a phone number or merchant account ID, created a template that has passed the review, and sent messages through the channel.
    * 
    * @param request - ListChatappMessageRequest
@@ -7455,7 +7458,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### QPS limit
-   * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
+   * The QPS limit for this operation is 5 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
    * 
    * @param tmpReq - ListChatappTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7544,7 +7547,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### QPS limit
-   * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
+   * The QPS limit for this operation is 5 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
    * 
    * @param request - ListChatappTemplateRequest
    * @returns ListChatappTemplateResponse
@@ -7555,7 +7558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of custom audiences.
+   * Queries a custom audience list.
    * 
    * @param tmpReq - ListCustomAudienceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7628,7 +7631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of custom audiences.
+   * Queries a custom audience list.
    * 
    * @param request - ListCustomAudienceRequest
    * @returns ListCustomAudienceResponse
@@ -7639,7 +7642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the DirectMail accounts under your Alibaba Cloud account.
+   * Queries the DirectMail accounts under your account.
    * 
    * @param request - ListDmAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7694,7 +7697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the DirectMail accounts under your Alibaba Cloud account.
+   * Queries the DirectMail accounts under your account.
    * 
    * @param request - ListDmAccountRequest
    * @returns ListDmAccountResponse
@@ -7705,7 +7708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags of DirectMail.
+   * Queries the tags of DM.
    * 
    * @param request - ListDmTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7756,7 +7759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags of DirectMail.
+   * Queries the tags of DM.
    * 
    * @param request - ListDmTagRequest
    * @returns ListDmTagResponse
@@ -8309,7 +8312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of marketing campaigns.
+   * Queries a list of campaigns.
    * 
    * @param tmpReq - ListMarketingFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8390,7 +8393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of marketing campaigns.
+   * Queries a list of campaigns.
    * 
    * @param request - ListMarketingFlowRequest
    * @returns ListMarketingFlowResponse
@@ -8401,7 +8404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of budgets.
+   * Queries the budget list.
    * 
    * @param tmpReq - ListMessageCampaignRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8474,7 +8477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of budgets.
+   * Queries the budget list.
    * 
    * @param request - ListMessageCampaignRequest
    * @returns ListMessageCampaignResponse
@@ -8765,10 +8768,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the catalog list of the Meta Business platform.
+   * Queries the list of catalogs on the Meta Business platform.
    * 
    * @remarks
-   * The China (Hangzhou) region is used as an example. The China (Hangzhou) region is used as an example. The China (Hangzhou) region is used as an example. The per-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+   * The queries per second (QPS) limit per user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable frequency.
    * 
    * @param request - ListProductCatalogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8831,10 +8834,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the catalog list of the Meta Business platform.
+   * Queries the list of catalogs on the Meta Business platform.
    * 
    * @remarks
-   * The China (Hangzhou) region is used as an example. The China (Hangzhou) region is used as an example. The China (Hangzhou) region is used as an example. The per-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+   * The queries per second (QPS) limit per user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable frequency.
    * 
    * @param request - ListProductCatalogRequest
    * @returns ListProductCatalogResponse
@@ -8899,7 +8902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists message templates.
+   * Queries a list of templates.
    * 
    * @param request - ListWhatAppTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8934,7 +8937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists message templates.
+   * Queries a list of templates.
    * 
    * @param request - ListWhatAppTemplateRequest
    * @returns ListWhatAppTemplateResponse
@@ -8945,13 +8948,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a message template. Only templates that have not been reviewed or that failed the review can be modified.
+   * Modifies a message template. Only templates that are pending review or have failed the review can be modified.
    * 
    * @remarks
    * ### QPS limit
-   * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+   * The queries per second (QPS) limit per user for this API operation is 50. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
    * ### Status changes
-   * You can monitor template status and quality changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+   * You can listen for template status and quality changes by using MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
    * 
    * @param tmpReq - ModifyChatappTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9040,13 +9043,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a message template. Only templates that have not been reviewed or that failed the review can be modified.
+   * Modifies a message template. Only templates that are pending review or have failed the review can be modified.
    * 
    * @remarks
    * ### QPS limit
-   * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+   * The queries per second (QPS) limit per user for this API operation is 50. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
    * ### Status changes
-   * You can monitor template status and quality changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+   * You can listen for template status and quality changes by using MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
    * 
    * @param request - ModifyChatappTemplateRequest
    * @returns ModifyChatappTemplateResponse
@@ -9387,13 +9390,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Offlines a flow version.
+   * Takes a flow version offline.
    * 
    * @remarks
-   * - You can call this operation to offline a flow version, or click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to enter the canvas orchestration page and manually offline the flow version.
-   * - Before calling this operation, make sure the flow you created is already online.
-   * - If the flow you created is not online, click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to enter the canvas orchestration page and manually bring the flow version online, or call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow version online.
-   * - After the flow version is offlined, the orchestrated flow stops running, which may affect your business. Proceed with caution.
+   * - You can call this operation to take a flow version offline, or click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually take the flow version offline.
+   * - Before calling this operation, make sure that the flow you created is online.
+   * - If the flow you created is not online, you can click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually take the flow version online, or call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to take the flow version online.
+   * - After a flow version is taken offline, the orchestrated flow stops running. This may affect your business. Proceed with caution.
    * 
    * @param tmpReq - OfflineFlowVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9458,13 +9461,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Offlines a flow version.
+   * Takes a flow version offline.
    * 
    * @remarks
-   * - You can call this operation to offline a flow version, or click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to enter the canvas orchestration page and manually offline the flow version.
-   * - Before calling this operation, make sure the flow you created is already online.
-   * - If the flow you created is not online, click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to enter the canvas orchestration page and manually bring the flow version online, or call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow version online.
-   * - After the flow version is offlined, the orchestrated flow stops running, which may affect your business. Proceed with caution.
+   * - You can call this operation to take a flow version offline, or click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually take the flow version offline.
+   * - Before calling this operation, make sure that the flow you created is online.
+   * - If the flow you created is not online, you can click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually take the flow version online, or call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to take the flow version online.
+   * - After a flow version is taken offline, the orchestrated flow stops running. This may affect your business. Proceed with caution.
    * 
    * @param request - OfflineFlowVersionRequest
    * @returns OfflineFlowVersionResponse
@@ -9741,10 +9744,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the WhatsApp Business Account (WABA) that is bound to a customer account.
+   * Queries the WABA bound to a customer.
    * 
    * @remarks
-   * This API has a per-user QPS limit of 10. Calls that exceed this limit are subject to flow control, which may impact your business. Make API calls at a reasonable rate.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled. This may affect your business. Call this operation at a reasonable rate.
    * 
    * @param request - QueryChatappBindWabaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9791,10 +9794,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the WhatsApp Business Account (WABA) that is bound to a customer account.
+   * Queries the WABA bound to a customer.
    * 
    * @remarks
-   * This API has a per-user QPS limit of 10. Calls that exceed this limit are subject to flow control, which may impact your business. Make API calls at a reasonable rate.
+   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled. This may affect your business. Call this operation at a reasonable rate.
    * 
    * @param request - QueryChatappBindWabaRequest
    * @returns QueryChatappBindWabaResponse
@@ -9805,10 +9808,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all phone numbers used for sending messages and their statuses for a customer.
+   * Queries all sending phone numbers and their statuses under a customer account.
    * 
    * @remarks
-   * This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+   * The throttling limit for this operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
    * 
    * @param request - QueryChatappPhoneNumbersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9859,10 +9862,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all phone numbers used for sending messages and their statuses for a customer.
+   * Queries all sending phone numbers and their statuses under a customer account.
    * 
    * @remarks
-   * This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+   * The throttling limit for this operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
    * 
    * @param request - QueryChatappPhoneNumbersRequest
    * @returns QueryChatappPhoneNumbersResponse
@@ -9972,7 +9975,7 @@ export default class Client extends OpenApi {
    * Queries the business information of a phone number.
    * 
    * @remarks
-   * The queries per second (QPS) limit for this operation is 10 per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+   * The queries per second (QPS) limit per user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
    * 
    * @param request - QueryPhoneBusinessProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10022,7 +10025,7 @@ export default class Client extends OpenApi {
    * Queries the business information of a phone number.
    * 
    * @remarks
-   * The queries per second (QPS) limit for this operation is 10 per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+   * The queries per second (QPS) limit per user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
    * 
    * @param request - QueryPhoneBusinessProfileRequest
    * @returns QueryPhoneBusinessProfileResponse
@@ -10464,17 +10467,17 @@ export default class Client extends OpenApi {
    * Sends Chat App messages in batches.
    * 
    * @remarks
-   * - You can call this operation to send messages in batches. You can also manually send messages in batches on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Message Sending** page.
+   * - You can call this operation to send messages in batches, or manually send messages in batches on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Message Sending** page.
    * - Before calling this operation, make sure that you have created a channel and have an approved template.
-   * - For WhatsApp channels, complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
-   * - For Messenger channels, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
-   * - For Instagram channels, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
-   * <props="intl">- For Viber channels, complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
-   * ### QPS limit
-   * - The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as appropriate.
-   * - A maximum of 1,000 phone numbers are supported per request.
+   * - For the WhatsApp channel type, complete [WABA registration and binding](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
+   * - For the Messenger channel type, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
+   * - For the Instagram channel type, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
+   * <props="intl">- For the Viber channel type, complete [applying for a service number](https://help.aliyun.com/document_detail/2807995.html).
+   * ### QPS limits
+   * - The QPS limit for this operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
+   * - A single request supports a maximum of 1,000 phone numbers.
    * ### Status changes
-   * You can monitor message sending status through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+   * You can monitor message delivery status changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
    * 
    * @param tmpReq - SendChatappMassMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10590,17 +10593,17 @@ export default class Client extends OpenApi {
    * Sends Chat App messages in batches.
    * 
    * @remarks
-   * - You can call this operation to send messages in batches. You can also manually send messages in batches on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Message Sending** page.
+   * - You can call this operation to send messages in batches, or manually send messages in batches on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Message Sending** page.
    * - Before calling this operation, make sure that you have created a channel and have an approved template.
-   * - For WhatsApp channels, complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
-   * - For Messenger channels, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
-   * - For Instagram channels, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
-   * <props="intl">- For Viber channels, complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
-   * ### QPS limit
-   * - The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as appropriate.
-   * - A maximum of 1,000 phone numbers are supported per request.
+   * - For the WhatsApp channel type, complete [WABA registration and binding](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
+   * - For the Messenger channel type, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
+   * - For the Instagram channel type, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
+   * <props="intl">- For the Viber channel type, complete [applying for a service number](https://help.aliyun.com/document_detail/2807995.html).
+   * ### QPS limits
+   * - The QPS limit for this operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
+   * - A single request supports a maximum of 1,000 phone numbers.
    * ### Status changes
-   * You can monitor message sending status through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+   * You can monitor message delivery status changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
    * 
    * @param request - SendChatappMassMessageRequest
    * @returns SendChatappMassMessageResponse
@@ -10827,7 +10830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits the result of a verification code check.
+   * Submits the verification code validation result.
    * 
    * @param request - SubmitVerifyCodeResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10866,7 +10869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits the result of a verification code check.
+   * Submits the verification code validation result.
    * 
    * @param request - SubmitVerifyCodeResultRequest
    * @returns SubmitVerifyCodeResultResponse
@@ -11339,7 +11342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a Viber application.
+   * Updates a Viber application form.
    * 
    * @param tmpReq - UpdateAuditRequestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11400,7 +11403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a Viber application.
+   * Updates a Viber application form.
    * 
    * @param request - UpdateAuditRequestRequest
    * @returns UpdateAuditRequestResponse
@@ -11914,7 +11917,7 @@ export default class Client extends OpenApi {
    * Updates the content of a flow by using JSON.
    * 
    * @remarks
-   * The China Mobile (China) QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Manage your calls appropriately.
+   * The queries per second (QPS) limit per user is 5. If the number of API calls exceeds this limit, throttling is triggered, which may affect your business. Make API calls at a reasonable rate.
    * 
    * @param request - UpdateFlowJSONAssetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11968,7 +11971,7 @@ export default class Client extends OpenApi {
    * Updates the content of a flow by using JSON.
    * 
    * @remarks
-   * The China Mobile (China) QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Manage your calls appropriately.
+   * The queries per second (QPS) limit per user is 5. If the number of API calls exceeds this limit, throttling is triggered, which may affect your business. Make API calls at a reasonable rate.
    * 
    * @param request - UpdateFlowJSONAssetRequest
    * @returns UpdateFlowJSONAssetResponse
@@ -12205,7 +12208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies campaign information.
+   * Modifies the information of a marketing campaign.
    * 
    * @param tmpReq - UpdateMarketingFLowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12302,7 +12305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies campaign information.
+   * Modifies the information of a marketing campaign.
    * 
    * @param request - UpdateMarketingFLowRequest
    * @returns UpdateMarketingFLowResponse
@@ -12471,10 +12474,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the callback URL information for a phone number.
+   * Updates the callback URL information for a phone number.
    * 
    * @remarks
-   * The per-user QPS limit for this API is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Call this API at a reasonable frequency.
+   * The queries per second (QPS) limit per user is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
    * 
    * @param request - UpdatePhoneWebhookRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12537,10 +12540,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the callback URL information for a phone number.
+   * Updates the callback URL information for a phone number.
    * 
    * @remarks
-   * The per-user QPS limit for this API is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Call this API at a reasonable frequency.
+   * The queries per second (QPS) limit per user is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
    * 
    * @param request - UpdatePhoneWebhookRequest
    * @returns UpdatePhoneWebhookResponse

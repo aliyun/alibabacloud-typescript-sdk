@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FlowUnbindPhoneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class FlowUnbindPhoneResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The status code.
    * 
    * @example
    * OK
@@ -29,24 +29,31 @@ export class FlowUnbindPhoneResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - true: The operation is successful.
+   * - true: Yes.
    * 
-   * - false: The operation failed.
+   * - false: No.
    * 
    * @example
    * true
    */
   model?: boolean;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
+   */
   requestId?: string;
   /**
    * @remarks
    * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation is successful.
+   * - true: Successful.
    * 
-   * - false: The operation failed.
+   * - false: Failed.
    * 
    * @example
    * true

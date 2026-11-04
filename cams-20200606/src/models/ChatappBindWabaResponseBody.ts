@@ -13,7 +13,7 @@ export class ChatappBindWabaResponseBodyData extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * waba Id。
+   * The WABA ID.
    * 
    * @example
    * 293982****
@@ -45,7 +45,7 @@ export class ChatappBindWabaResponseBodyData extends $dara.Model {
 export class ChatappBindWabaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied detail.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -53,9 +53,9 @@ export class ChatappBindWabaResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -86,7 +86,7 @@ export class ChatappBindWabaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call was successful. Valid values:
    * - **true**: The call was successful.
    * - **false**: The call failed.
    * 

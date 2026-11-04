@@ -211,7 +211,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   messageDestinationInternationalCountry?: string[];
   /**
    * @remarks
-   * The business message introduction.
+   * The business messaging introduction.
    * 
    * @example
    * MessageDialogueIntroduction
@@ -219,7 +219,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   messageDialogueIntroduction?: string;
   /**
    * @remarks
-   * The date when business messaging is enabled.
+   * The date when business messaging is enabled, in the YYYY-MM-DD format.
    * 
    * @example
    * 2025-11-01
@@ -227,7 +227,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   messageEnableDate?: string;
   /**
    * @remarks
-   * The business message session name.
+   * The business messaging session name.
    * 
    * @example
    * Message Session Name
@@ -243,7 +243,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   nowRecovery?: string;
   /**
    * @remarks
-   * The recovery date.
+   * The recovery date in the YYYY-MM-DD format.
    * 
    * @example
    * 2025-111-06
@@ -386,7 +386,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyData extends $dara.Model {
   auditResult?: string;
   /**
    * @remarks
-   * The audit time.
+   * The audit time in the YYYYMMDD format.
    * 
    * @example
    * 20250106

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMessageCampaignResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Meta ad account.
+   * The Meta ad account ID.
    * 
    * @example
    * 2339**
@@ -29,7 +29,7 @@ export class ListMessageCampaignResponseBodyData extends $dara.Model {
   budgetType?: string;
   /**
    * @remarks
-   * The campaign ID.
+   * The budget ID.
    * 
    * @example
    * 233**
@@ -37,7 +37,7 @@ export class ListMessageCampaignResponseBodyData extends $dara.Model {
   campaignId?: string;
   /**
    * @remarks
-   * The name of the campaign.
+   * The budget name.
    * 
    * @example
    * campaign-name
@@ -45,7 +45,7 @@ export class ListMessageCampaignResponseBodyData extends $dara.Model {
   campaignName?: string;
   /**
    * @remarks
-   * The time when the campaign was created.
+   * The creation time.
    * 
    * @example
    * 173029392838
@@ -53,7 +53,7 @@ export class ListMessageCampaignResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The Page ID for Messenger.
+   * The Page ID of Messenger.
    * 
    * @example
    * 238***
@@ -61,7 +61,7 @@ export class ListMessageCampaignResponseBodyData extends $dara.Model {
   pageId?: string;
   /**
    * @remarks
-   * The status of the campaign.
+   * The budget status.
    * 
    * @example
    * AVAILABLE
@@ -105,7 +105,7 @@ export class ListMessageCampaignResponseBodyData extends $dara.Model {
 export class ListMessageCampaignResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -115,7 +115,7 @@ export class ListMessageCampaignResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A value of OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -146,11 +146,11 @@ export class ListMessageCampaignResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: successful.
+   * - true: Successful.
    * 
-   * - false: failed.
+   * - false: Failed.
    * 
    * @example
    * true

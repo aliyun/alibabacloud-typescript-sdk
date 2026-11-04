@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The binding ID.
+   */
   bindId?: string;
   /**
    * @remarks
@@ -43,6 +47,10 @@ export class ListInstanceRequest extends $dara.Model {
    * viber_ins
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * Indicates whether the instance is bound.
+   */
   isBind?: boolean;
   /**
    * @remarks
@@ -70,7 +78,7 @@ export class ListInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The submit time.
+   * The submit time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-12-12 00:00:00

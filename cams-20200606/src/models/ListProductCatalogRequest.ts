@@ -21,7 +21,7 @@ export class ListProductCatalogRequest extends $dara.Model {
   before?: string;
   /**
    * @remarks
-   * The ID of the business platform where the WABA is located. You can view the business platform ID in the Chat App Message Service console after WABA registration is complete.
+   * The ID of the business platform where the WhatsApp Business Account (WABA) is located. You can view the business platform ID in the Chat App Message Service console after the WABA registration is completed.
    * 
    * This parameter is required.
    * 
@@ -39,8 +39,7 @@ export class ListProductCatalogRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The list of fields, separated by commas (,).
-   * For specific fields, see [Catalog fields](https://help.aliyun.com/document_detail/2579419.html).
+   * The list of fields. Separate multiple fields with commas (,). For specific fields, refer to [Catalog fields](https://help.aliyun.com/document_detail/2579419.html).
    * 
    * @example
    * id,name

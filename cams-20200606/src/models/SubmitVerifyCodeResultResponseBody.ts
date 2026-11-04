@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVerifyCodeResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The access denial details.
    * 
    * @example
    * None
@@ -15,9 +15,9 @@ export class SubmitVerifyCodeResultResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A value of `OK` indicates that the request was successful.
+   * - A return value of OK indicates that the request is successful.
    * 
-   * - See the [error code list](https://help.aliyun.com/document_detail/196974.html) for other error codes.
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -49,11 +49,11 @@ export class SubmitVerifyCodeResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The request was successful.
+   * - true: Successful.
    * 
-   * - false: The request failed.
+   * - false: Failed.
    * 
    * @example
    * false

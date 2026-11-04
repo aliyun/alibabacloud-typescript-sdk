@@ -13,7 +13,7 @@ export class DeleteContactsShrinkRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: an empty collection.
+   * The extended business information. Default value: an empty set.
    * 
    * @example
    * {}

@@ -21,7 +21,7 @@ export class BindInstagramPageResponseBodyData extends $dara.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * The current page ID.
+   * The current page.
    * 
    * @example
    * 1234322333
@@ -68,7 +68,7 @@ export class BindInstagramPageResponseBody extends $dara.Model {
    * The details about the access denial.
    * 
    * @example
-   * 无
+   * None
    */
   accessDeniedDetail?: string;
   /**
@@ -102,7 +102,7 @@ export class BindInstagramPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the call was successful.
    * - **true**: The call was successful.
    * - **false**: The call failed.
    * 

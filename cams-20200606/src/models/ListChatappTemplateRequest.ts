@@ -15,7 +15,7 @@ export class ListChatappTemplateRequestPage extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * The number of templates to query per page. Default value: 10.
+   * The number of templates to return per query. Default value: 10.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class ListChatappTemplateRequestPage extends $dara.Model {
 export class ListChatappTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The review status. Valid values:
+   * The audit status. Valid values:
    * 
    * - **pass**: Approved.
    * 
@@ -65,7 +65,7 @@ export class ListChatappTemplateRequest extends $dara.Model {
   auditStatus?: string;
   /**
    * @remarks
-   * The category of the template.
+   * The template category.
    * 
    * @example
    * AUTHENTICATION
@@ -73,7 +73,7 @@ export class ListChatappTemplateRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The code of the template.
+   * The template code.
    * 
    * @example
    * 838888822*****
@@ -81,7 +81,7 @@ export class ListChatappTemplateRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The space ID of the ISV sub-customer, or the instance ID of a direct customer.
+   * The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * @example
    * 28251486512358****
@@ -91,7 +91,7 @@ export class ListChatappTemplateRequest extends $dara.Model {
    * @remarks
    * The WabaId of the ISV customer.
    * 
-   * > This is a deprecated parameter. Use CustSpaceId instead.
+   * > This parameter is deprecated. Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
@@ -101,7 +101,7 @@ export class ListChatappTemplateRequest extends $dara.Model {
   custWabaId?: string;
   /**
    * @remarks
-   * The ISV verification code, which is used to verify whether the RAM user is authorized by the ISV.
+   * The ISV verification code, used to verify whether a sub-account is authorized by the ISV.
    * 
    * @example
    * skdi3kksloslikdkkdk
@@ -109,7 +109,7 @@ export class ListChatappTemplateRequest extends $dara.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The language of the template. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The template language. For language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
    * 
    * @example
    * en
@@ -117,7 +117,7 @@ export class ListChatappTemplateRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * @example
    * hello_whatsapp

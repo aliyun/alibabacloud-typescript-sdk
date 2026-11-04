@@ -13,7 +13,7 @@ export class ListCustomAudienceResponseBodyData extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
-   * The time when the audience was created.
+   * The creation time, expressed as a UNIX timestamp in seconds.
    * 
    * @example
    * 1720356898
@@ -21,7 +21,7 @@ export class ListCustomAudienceResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The ID of the custom audience.
+   * The custom audience ID.
    * 
    * @example
    * 339**
@@ -29,7 +29,7 @@ export class ListCustomAudienceResponseBodyData extends $dara.Model {
   customAudienceId?: string;
   /**
    * @remarks
-   * The name of the custom audience.
+   * The custom audience name.
    * 
    * @example
    * custom audience name
@@ -45,7 +45,7 @@ export class ListCustomAudienceResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The Page ID for Messenger.
+   * The page ID of Messenger.
    * 
    * @example
    * 239**
@@ -77,7 +77,7 @@ export class ListCustomAudienceResponseBodyData extends $dara.Model {
   tokenType?: string;
   /**
    * @remarks
-   * The time when the audience was last updated.
+   * The update time.
    * 
    * @example
    * 51
@@ -85,7 +85,7 @@ export class ListCustomAudienceResponseBodyData extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * The upload type.
+   * The user upload type.
    * 
    * @example
    * excel
@@ -135,7 +135,7 @@ export class ListCustomAudienceResponseBodyData extends $dara.Model {
 export class ListCustomAudienceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -145,9 +145,9 @@ export class ListCustomAudienceResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A value of OK indicates that the request was successful.
+   * - A return value of OK indicates that the request was successful.
    * 
-   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error code list](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -160,7 +160,7 @@ export class ListCustomAudienceResponseBody extends $dara.Model {
   data?: ListCustomAudienceResponseBodyData[];
   /**
    * @remarks
-   * The error message.
+   * The error description.
    * 
    * @example
    * OK
@@ -176,11 +176,9 @@ export class ListCustomAudienceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful.
-   * 
-   * - **true**: successful.
-   * 
-   * - **false**: failed.
+   * Indicates whether the call was successful.
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

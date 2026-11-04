@@ -18,7 +18,7 @@ export class AddAuditViberOpenShrinkRequest extends $dara.Model {
   auditResult?: string;
   /**
    * @remarks
-   * The Space ID of the ISV sub-customer.
+   * The SpaceId of the ISV sub-customer.
    * 
    * This parameter is required.
    * 

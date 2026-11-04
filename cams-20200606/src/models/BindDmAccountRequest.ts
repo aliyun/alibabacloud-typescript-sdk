@@ -10,7 +10,7 @@ export class BindDmAccountRequestExtendAttr extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Sample value
    */
   accountName?: string;
   /**
@@ -20,7 +20,7 @@ export class BindDmAccountRequestExtendAttr extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Sample value
    */
   sendType?: string;
   static names(): { [key: string]: string } {
@@ -54,17 +54,17 @@ export class BindDmAccountRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value
    */
   accountCode?: string;
   /**
    * @remarks
-   * The SpaceId of the ISV sub-customer.
+   * The space ID of the ISV sub-customer.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Sample value
    */
   custSpaceId?: string;
   /**

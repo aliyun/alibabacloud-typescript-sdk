@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddAuditViberOpenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed information about the access denial.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -13,11 +13,11 @@ export class AddAuditViberOpenResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response status code.
+   * The request status code.
    * 
-   * - `OK`: The request succeeded.
+   * - OK indicates that the request was successful.
    * 
-   * - For other values, see [Error Codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -25,7 +25,7 @@ export class AddAuditViberOpenResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    * 
    * @example
    * 122
@@ -33,7 +33,7 @@ export class AddAuditViberOpenResponseBody extends $dara.Model {
   data?: { [key: string]: any };
   /**
    * @remarks
-   * A message describing the result of the request.
+   * The error message.
    * 
    * @example
    * example
@@ -41,7 +41,7 @@ export class AddAuditViberOpenResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * 2121-112
@@ -49,11 +49,9 @@ export class AddAuditViberOpenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the request succeeded.
-   * 
-   * - **true**: The request succeeded.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

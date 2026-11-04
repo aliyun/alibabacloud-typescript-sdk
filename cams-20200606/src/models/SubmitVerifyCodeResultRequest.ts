@@ -15,7 +15,7 @@ export class SubmitVerifyCodeResultRequest extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * The verification result.
+   * The backfill result.
    * 
    * This parameter is required.
    * 

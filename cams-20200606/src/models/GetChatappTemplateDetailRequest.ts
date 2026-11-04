@@ -15,7 +15,7 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
    * @remarks
    * The WabaId of the ISV customer.
    * 
-   * > Deprecated parameter. Use CustSpaceId instead.
+   * > **[Deprecated]** Use CustSpaceId.
    * 
    * @example
    * 65921621816****
@@ -25,7 +25,7 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
   custWabaId?: string;
   /**
    * @remarks
-   * The ISV verification code, which is used to verify whether the sub-account is authorized by the ISV.
+   * The ISV verification code used to verify whether the RAM user is authorized by the ISV.
    * 
    * @example
    * skdi3kksloslikdkkdk
@@ -35,7 +35,7 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The language of the template. For detailed language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The template language. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The code of the template.
+   * The template code.
    * 
    * @example
    * ****4b5c79c9432497a075bdfca36bf5
@@ -53,7 +53,7 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * @example
    * test_name
@@ -66,6 +66,8 @@ export class GetChatappTemplateDetailRequest extends $dara.Model {
    * - **WHATSAPP**
    * 
    * - **VIBER**
+   * 
+   * Default value: WHATSAPP.
    * 
    * @example
    * WHATSAPP

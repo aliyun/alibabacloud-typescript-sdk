@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddAddressRecoverSuspendRequestAuditRecord extends $dara.Model {
   /**
    * @remarks
-   * The reason for the application.
+   * The reason for the request.
    * 
    * @example
    * 示例值示例值示例值
@@ -25,7 +25,7 @@ export class AddAddressRecoverSuspendRequestAuditRecord extends $dara.Model {
   messageDestinationInternationalCountry?: string[];
   /**
    * @remarks
-   * The recovery date.
+   * The recovery date in YYYY-MM-DD format.
    * 
    * @example
    * 示例值示例值
@@ -33,7 +33,7 @@ export class AddAddressRecoverSuspendRequestAuditRecord extends $dara.Model {
   recoveryDate?: string;
   /**
    * @remarks
-   * The suspension date.
+   * The suspension date in YYYY-MM-DD format.
    * 
    * @example
    * 示例值示例值

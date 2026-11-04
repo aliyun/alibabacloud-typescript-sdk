@@ -55,7 +55,7 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
    * @remarks
    * The upgrade start time. The upgrade start time is specified as a cron expression.
    * 
-   * For example, `0 0 4 1/1 * ?` indicates that the upgrade starts at 4:00 on the first day of each month and is performed at 4:00 every day.
+   * For example, `0 0 4 1/1 * ?` indicates that the upgrade starts at 4:00 on the first day of each month and runs at 4:00 every day.
    * 
    * @example
    * 0 0 4 1/1 * ?
@@ -63,7 +63,7 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-01-01 XX1:11:11
@@ -74,12 +74,12 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
    * The execution method.
    * 
    * @example
-   * 1(默认corn)
+   * 1(default cron)
    */
   executionType?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-XX-01 11:11:11
@@ -87,7 +87,7 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time (deprecated).
+   * **[Deprecated]** The modification time.
    * 
    * @example
    * N/A
@@ -151,15 +151,15 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   relatedGroupName?: string;
   /**
    * @remarks
-   * The specific time. This parameter is valid when the execution method is set to 2.
+   * The specific time. This parameter is valid when ExecutionType is set to 2.
    * 
    * @example
-   * 特定时间(执行方式为2时)
+   * Specific time (when ExecutionType is 2)
    */
   specificTime?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-01-XX 11:11:11
@@ -276,7 +276,7 @@ export class ListMarketingFlowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
+   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * CB6122C9-09B5-5926-**476A96CB0
