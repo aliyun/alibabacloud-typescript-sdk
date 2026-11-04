@@ -1083,6 +1083,10 @@ export default class Client extends OpenApi {
       body["ssh_flags"] = request.sshFlags;
     }
 
+    if (!$dara.isNull(request.supportPolicy)) {
+      body["support_policy"] = request.supportPolicy;
+    }
+
     if (!$dara.isNull(request.tags)) {
       body["tags"] = request.tags;
     }
@@ -1313,7 +1317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a node pool. A node pool is a logical collection of nodes with the same property, which allows unified management and O&M of nodes, such as node upgrades and elastic scaling. You can further use the automated O&M features of node pools, such as automatic repair of OS CVE vulnerabilities, automatic recovery of faulty nodes, and automatic upgrades of kubelet and containerd versions, to reduce O&M costs. You can invoke CreateClusterNodePool to create a node pool for a cluster.
+   * A node pool is a logical collection of nodes with the same properties, which allows unified management and O&M of nodes, such as node upgrades and elastic scaling. You can further use the automated O&M features of node pools, such as automatic repair of OS CVE vulnerabilities, automatic recovery of faulty nodes, and automatic upgrades of kubelet and containerd versions, to reduce O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
    * 
    * @param request - CreateClusterNodePoolRequest
    * @param headers - map
@@ -1406,7 +1410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a node pool. A node pool is a logical collection of nodes with the same property, which allows unified management and O&M of nodes, such as node upgrades and elastic scaling. You can further use the automated O&M features of node pools, such as automatic repair of OS CVE vulnerabilities, automatic recovery of faulty nodes, and automatic upgrades of kubelet and containerd versions, to reduce O&M costs. You can invoke CreateClusterNodePool to create a node pool for a cluster.
+   * A node pool is a logical collection of nodes with the same properties, which allows unified management and O&M of nodes, such as node upgrades and elastic scaling. You can further use the automated O&M features of node pools, such as automatic repair of OS CVE vulnerabilities, automatic recovery of faulty nodes, and automatic upgrades of kubelet and containerd versions, to reduce O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
    * 
    * @param request - CreateClusterNodePoolRequest
    * @returns CreateClusterNodePoolResponse
@@ -1918,7 +1922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a node pool that is no longer in use. When a node pool is deleted, all pods on its nodes are deleted, which may trigger rescheduling. If rescheduling fails, your services may be affected. Ensure that the cluster has sufficient resources for rescheduling.
+   * Deletes a node pool that is no longer in use. When a node pool is deleted, all pods on its nodes are deleted, which may trigger descheduling. If the pods cannot be rescheduled, your services may be affected. Ensure that the cluster has sufficient resources for descheduling.
    * 
    * @param request - DeleteClusterNodepoolRequest
    * @param headers - map
@@ -1951,7 +1955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a node pool that is no longer in use. When a node pool is deleted, all pods on its nodes are deleted, which may trigger rescheduling. If rescheduling fails, your services may be affected. Ensure that the cluster has sufficient resources for rescheduling.
+   * Deletes a node pool that is no longer in use. When a node pool is deleted, all pods on its nodes are deleted, which may trigger descheduling. If the pods cannot be rescheduled, your services may be affected. Ensure that the cluster has sufficient resources for descheduling.
    * 
    * @param request - DeleteClusterNodepoolRequest
    * @returns DeleteClusterNodepoolResponse
@@ -2952,10 +2956,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - When you remove a node, perform standard operations by using this API operation or the [Container Service console](https://cs.console.aliyun.com). Do not manually remove nodes by running the `kubectl delete node` command.
-   * - Do not release nodes or remove instances in the ECS or Auto Scaling console, or by calling related API operations, or passively release nodes when a subscription instance expires. In these cases, the nodes are directly shut down and automatically removed from the Container Service console.
-   * - If the expected number of nodes is configured for a node pool, the node pool automatically scales out other instances based on the corresponding configurations to maintain the expected number of nodes.
-   * - Removing a node involves pod migration, which may affect your services. Perform this operation during off-peak hours. Unexpected risks may occur during the operation. Back up your data in advance.
-   * - When a node is removed, ACK drains the node. Make sure that other nodes in the cluster have sufficient resources to prevent application pods from failing to be scheduled.
+   * - Do not proactively release nodes or remove instances in the ECS or Auto Scaling (ESS) console or by calling related API operations, or passively release nodes when a subscription instance expires. In these cases, the nodes are directly shut down and automatically removed from the Container Service console.
+   * - If the expected number of nodes is configured for a node pool, the node pool automatically scales out other instances based on the configurations to maintain the expected number of nodes.
+   * - Removing a node involves pod migration and may affect your services. Perform this operation during off-peak hours. Unexpected risks may occur during the operation. Back up your data in advance.
+   * - When a node is removed, ACK performs a drain operation. Make sure that other nodes in the cluster have sufficient resources to prevent application pods from failing to be scheduled.
    * - Check the node affinity rules and scheduling policies of the pods on the node to be removed. Make sure that the pods can be scheduled to other nodes after the node is removed.
    * 
    * @param request - DescribeClusterNodePoolsRequest
@@ -2993,10 +2997,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - When you remove a node, perform standard operations by using this API operation or the [Container Service console](https://cs.console.aliyun.com). Do not manually remove nodes by running the `kubectl delete node` command.
-   * - Do not release nodes or remove instances in the ECS or Auto Scaling console, or by calling related API operations, or passively release nodes when a subscription instance expires. In these cases, the nodes are directly shut down and automatically removed from the Container Service console.
-   * - If the expected number of nodes is configured for a node pool, the node pool automatically scales out other instances based on the corresponding configurations to maintain the expected number of nodes.
-   * - Removing a node involves pod migration, which may affect your services. Perform this operation during off-peak hours. Unexpected risks may occur during the operation. Back up your data in advance.
-   * - When a node is removed, ACK drains the node. Make sure that other nodes in the cluster have sufficient resources to prevent application pods from failing to be scheduled.
+   * - Do not proactively release nodes or remove instances in the ECS or Auto Scaling (ESS) console or by calling related API operations, or passively release nodes when a subscription instance expires. In these cases, the nodes are directly shut down and automatically removed from the Container Service console.
+   * - If the expected number of nodes is configured for a node pool, the node pool automatically scales out other instances based on the configurations to maintain the expected number of nodes.
+   * - Removing a node involves pod migration and may affect your services. Perform this operation during off-peak hours. Unexpected risks may occur during the operation. Back up your data in advance.
+   * - When a node is removed, ACK performs a drain operation. Make sure that other nodes in the cluster have sufficient resources to prevent application pods from failing to be scheduled.
    * - Check the node affinity rules and scheduling policies of the pods on the node to be removed. Make sure that the pods can be scheduled to other nodes after the node is removed.
    * 
    * @param request - DescribeClusterNodePoolsRequest
@@ -3748,6 +3752,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.region)) {
       query["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.supportPolicy)) {
+      query["SupportPolicy"] = request.supportPolicy;
     }
 
     if (!$dara.isNull(request.runtime)) {
@@ -6037,6 +6045,10 @@ export default class Client extends OpenApi {
       body["security_group_id"] = request.securityGroupId;
     }
 
+    if (!$dara.isNull(request.supportPolicy)) {
+      body["support_policy"] = request.supportPolicy;
+    }
+
     if (!$dara.isNull(request.systemEventsLogging)) {
       body["system_events_logging"] = request.systemEventsLogging;
     }
@@ -6140,10 +6152,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a node pool based on the node pool ID by calling the ModifyClusterNodePool operation.
+   * Updates the configurations of a specified node pool.
    * 
    * @remarks
-   * <notice>Starting July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Announcement on changes to input and output parameters of ACK cluster management OpenAPI operations and deprecation of OpenAPI operations](https://help.aliyun.com/document_detail/2932733.html).</notice>
+   * <notice>Starting July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Announcement on changes to request and response parameters and deprecation of OpenAPI operations related to ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
    * 
    * @param request - ModifyClusterNodePoolRequest
    * @param headers - map
@@ -6208,10 +6220,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a node pool based on the node pool ID by calling the ModifyClusterNodePool operation.
+   * Updates the configurations of a specified node pool.
    * 
    * @remarks
-   * <notice>Starting July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Announcement on changes to input and output parameters of ACK cluster management OpenAPI operations and deprecation of OpenAPI operations](https://help.aliyun.com/document_detail/2932733.html).</notice>
+   * <notice>Starting July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Announcement on changes to request and response parameters and deprecation of OpenAPI operations related to ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
    * 
    * @param request - ModifyClusterNodePoolRequest
    * @returns ModifyClusterNodePoolResponse
@@ -6619,14 +6631,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes nodes from a node pool in a cluster and adjusts the expected number of nodes when the nodes are no longer needed. When removing nodes, you can specify whether to release the associated ECS instances and whether to automatically drain the nodes. Node removal involves pod migration, which may affect your workloads. Perform this operation during off-peak hours and back up your data in advance.
+   * Removes nodes from a node pool in a cluster and adjusts the expected number of nodes when the nodes are no longer needed. When removing nodes, you can specify whether to release the associated ECS instances and whether to automatically drain the nodes. Removing nodes involves pod migration and may affect your services. Perform this operation during off-peak hours and back up your data in advance.
    * 
    * @remarks
-   * - Node removal involves pod migration, which may affect your workloads. Perform this operation during off-peak hours.
+   * - Removing nodes involves pod migration and may affect your services. Perform this operation during off-peak hours.
    * - Unexpected risks may occur during the operation. Back up your data in advance.
    * - During the operation, the system sets the nodes to the unschedulable state.
    * - Only worker nodes are removed. Master nodes are not removed.
-   * - Even if you choose to release nodes (by setting release_node to true), subscription nodes are not released. You must release them manually in the [ECS console](https://ecs.console.aliyun.com/) after removing them from the node pool.
+   * - Even if you choose to release nodes (by setting `release_node` to `true`), subscription nodes are not released. To release subscription nodes, you must first [change their billing method to pay-as-you-go](https://www.alibabacloud.com/help/en/ecs/change-the-billing-method-of-an-instance-from-subscription-to-pay-as-you-go-1) and then release them in the [ECS console](https://ecs.console.aliyun.com/).
    * 
    * @param tmpReq - RemoveNodePoolNodesRequest
    * @param headers - map
@@ -6685,14 +6697,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes nodes from a node pool in a cluster and adjusts the expected number of nodes when the nodes are no longer needed. When removing nodes, you can specify whether to release the associated ECS instances and whether to automatically drain the nodes. Node removal involves pod migration, which may affect your workloads. Perform this operation during off-peak hours and back up your data in advance.
+   * Removes nodes from a node pool in a cluster and adjusts the expected number of nodes when the nodes are no longer needed. When removing nodes, you can specify whether to release the associated ECS instances and whether to automatically drain the nodes. Removing nodes involves pod migration and may affect your services. Perform this operation during off-peak hours and back up your data in advance.
    * 
    * @remarks
-   * - Node removal involves pod migration, which may affect your workloads. Perform this operation during off-peak hours.
+   * - Removing nodes involves pod migration and may affect your services. Perform this operation during off-peak hours.
    * - Unexpected risks may occur during the operation. Back up your data in advance.
    * - During the operation, the system sets the nodes to the unschedulable state.
    * - Only worker nodes are removed. Master nodes are not removed.
-   * - Even if you choose to release nodes (by setting release_node to true), subscription nodes are not released. You must release them manually in the [ECS console](https://ecs.console.aliyun.com/) after removing them from the node pool.
+   * - Even if you choose to release nodes (by setting `release_node` to `true`), subscription nodes are not released. To release subscription nodes, you must first [change their billing method to pay-as-you-go](https://www.alibabacloud.com/help/en/ecs/change-the-billing-method-of-an-instance-from-subscription-to-pay-as-you-go-1) and then release them in the [ECS console](https://ecs.console.aliyun.com/).
    * 
    * @param request - RemoveNodePoolNodesRequest
    * @returns RemoveNodePoolNodesResponse

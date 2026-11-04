@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodePoolComponentInstanceNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters nodes by the specified configuration version number of the node component.
+   * Filters nodes by the specified configuration revision of the node component.
    * 
    * @example
    * 1

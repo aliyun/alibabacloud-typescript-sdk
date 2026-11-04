@@ -779,6 +779,11 @@ export class ModifyClusterRequest extends $dara.Model {
    */
   securityGroupId?: string;
   /**
+   * @example
+   * Extended
+   */
+  supportPolicy?: string;
+  /**
    * @remarks
    * The system event storage configuration.
    */
@@ -825,6 +830,7 @@ export class ModifyClusterRequest extends $dara.Model {
       operationPolicy: 'operation_policy',
       resourceGroupId: 'resource_group_id',
       securityGroupId: 'security_group_id',
+      supportPolicy: 'support_policy',
       systemEventsLogging: 'system_events_logging',
       timezone: 'timezone',
       vswitchIds: 'vswitch_ids',
@@ -851,6 +857,7 @@ export class ModifyClusterRequest extends $dara.Model {
       operationPolicy: ModifyClusterRequestOperationPolicy,
       resourceGroupId: 'string',
       securityGroupId: 'string',
+      supportPolicy: 'string',
       systemEventsLogging: ModifyClusterRequestSystemEventsLogging,
       timezone: 'string',
       vswitchIds: { 'type': 'array', 'itemType': 'string' },

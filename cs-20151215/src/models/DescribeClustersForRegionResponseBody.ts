@@ -202,6 +202,11 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
    */
   state?: string;
   /**
+   * @example
+   * Extended
+   */
+  supportPolicy?: string;
+  /**
    * @remarks
    * The list of tags for the cluster.
    */
@@ -257,6 +262,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
       serviceCidr: 'service_cidr',
       size: 'size',
       state: 'state',
+      supportPolicy: 'support_policy',
       tags: 'tags',
       timezone: 'timezone',
       updated: 'updated',
@@ -287,6 +293,7 @@ export class DescribeClustersForRegionResponseBodyClusters extends $dara.Model {
       serviceCidr: 'string',
       size: 'number',
       state: 'string',
+      supportPolicy: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
       timezone: 'string',
       updated: 'string',

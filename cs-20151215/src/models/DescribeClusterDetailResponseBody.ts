@@ -927,6 +927,11 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
    */
   subnetCidr?: string;
   /**
+   * @example
+   * Extended
+   */
+  supportPolicy?: string;
+  /**
    * @remarks
    * The cluster resource tags.
    */
@@ -1026,6 +1031,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
       size: 'size',
       state: 'state',
       subnetCidr: 'subnet_cidr',
+      supportPolicy: 'support_policy',
       tags: 'tags',
       timezone: 'timezone',
       updated: 'updated',
@@ -1075,6 +1081,7 @@ export class DescribeClusterDetailResponseBody extends $dara.Model {
       size: 'number',
       state: 'string',
       subnetCidr: 'string',
+      supportPolicy: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
       timezone: 'string',
       updated: 'string',

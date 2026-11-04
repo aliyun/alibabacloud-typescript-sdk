@@ -1741,6 +1741,11 @@ export class CreateClusterRequest extends $dara.Model {
    */
   sshFlags?: boolean;
   /**
+   * @example
+   * Extended
+   */
+  supportPolicy?: string;
+  /**
    * @remarks
    * The node tags. Tag definition rules:
    * 
@@ -2089,6 +2094,7 @@ export class CreateClusterRequest extends $dara.Model {
       snatEntry: 'snat_entry',
       socEnabled: 'soc_enabled',
       sshFlags: 'ssh_flags',
+      supportPolicy: 'support_policy',
       tags: 'tags',
       taints: 'taints',
       timeoutMins: 'timeout_mins',
@@ -2198,6 +2204,7 @@ export class CreateClusterRequest extends $dara.Model {
       snatEntry: 'boolean',
       socEnabled: 'boolean',
       sshFlags: 'boolean',
+      supportPolicy: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
       taints: { 'type': 'array', 'itemType': Taint },
       timeoutMins: 'number',

@@ -77,6 +77,11 @@ export class DescribeKubernetesVersionMetadataRequest extends $dara.Model {
    */
   region?: string;
   /**
+   * @example
+   * Extended
+   */
+  supportPolicy?: string;
+  /**
    * @remarks
    * The runtime type. You can specify a runtime type to filter system images supported by the runtime. Valid values:
    * 
@@ -100,6 +105,7 @@ export class DescribeKubernetesVersionMetadataRequest extends $dara.Model {
       profile: 'Profile',
       queryUpgradableVersion: 'QueryUpgradableVersion',
       region: 'Region',
+      supportPolicy: 'SupportPolicy',
       runtime: 'runtime',
     };
   }
@@ -112,6 +118,7 @@ export class DescribeKubernetesVersionMetadataRequest extends $dara.Model {
       profile: 'string',
       queryUpgradableVersion: 'boolean',
       region: 'string',
+      supportPolicy: 'string',
       runtime: 'string',
     };
   }

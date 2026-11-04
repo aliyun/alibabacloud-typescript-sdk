@@ -40,7 +40,7 @@ export class ListNodePoolComponentInstanceNodesResponseBodyNodeListComponent ext
   config?: ListNodePoolComponentInstanceNodesResponseBodyNodeListComponentConfig;
   /**
    * @remarks
-   * The custom configuration version number of the component on the node.
+   * The custom configuration revision of the component on the node.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class ListNodePoolComponentInstanceNodesResponseBodyNodeListComponent ext
 export class ListNodePoolComponentInstanceNodesResponseBodyNodeList extends $dara.Model {
   /**
    * @remarks
-   * The details of the component on the node.
+   * The detailed information about the component on the node.
    */
   component?: ListNodePoolComponentInstanceNodesResponseBodyNodeListComponent;
   /**

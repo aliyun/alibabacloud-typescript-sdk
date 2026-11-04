@@ -6,6 +6,27 @@ import { Runtime } from "./Runtime";
 export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.Model {
   /**
    * @remarks
+   * The image architecture.
+   * 
+   * @example
+   * x86_64
+   */
+  architecture?: string;
+  /**
+   * @remarks
+   * The image category. Some valid values:
+   * 
+   * - `system`: public images.
+   * - `self`: your custom images.
+   * - `others`: public images from other users.
+   * - `marketplace`: Alibaba Cloud Marketplace images.
+   * 
+   * @example
+   * system
+   */
+  imageCategory?: string;
+  /**
+   * @remarks
    * The image ID.
    * 
    * @example
@@ -20,26 +41,6 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
    * Alibaba Cloud Linux 3.2104
    */
   imageName?: string;
-  /**
-   * @remarks
-   * The operating system platform. Valid values:
-   * - `AliyunLinux`
-   * - `CentOS`
-   * - `Windows`
-   * - `WindowsCore`
-   * 
-   * @example
-   * AliyunLinux
-   */
-  platform?: string;
-  /**
-   * @remarks
-   * The image version.
-   * 
-   * @example
-   * 3.2104
-   */
-  osVersion?: string;
   /**
    * @remarks
    * The operating system distribution type. Use this field to specify the operating system for nodes. Valid values:
@@ -71,48 +72,47 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   osType?: string;
   /**
    * @remarks
-   * The image category. Some valid values:
-   * 
-   * - `system`: public images.
-   * - `self`: your custom images.
-   * - `others`: public images from other users.
-   * - `marketplace`: Alibaba Cloud Marketplace images.
+   * The image version.
    * 
    * @example
-   * system
+   * 3.2104
    */
-  imageCategory?: string;
+  osVersion?: string;
   /**
    * @remarks
-   * The image architecture.
+   * The operating system platform. Valid values:
+   * - `AliyunLinux`
+   * - `CentOS`
+   * - `Windows`
+   * - `WindowsCore`
    * 
    * @example
-   * x86_64
+   * AliyunLinux
    */
-  architecture?: string;
+  platform?: string;
   static names(): { [key: string]: string } {
     return {
+      architecture: 'architecture',
+      imageCategory: 'image_category',
       imageId: 'image_id',
       imageName: 'image_name',
-      platform: 'platform',
-      osVersion: 'os_version',
       imageType: 'image_type',
       osType: 'os_type',
-      imageCategory: 'image_category',
-      architecture: 'architecture',
+      osVersion: 'os_version',
+      platform: 'platform',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      architecture: 'string',
+      imageCategory: 'string',
       imageId: 'string',
       imageName: 'string',
-      platform: 'string',
-      osVersion: 'string',
       imageType: 'string',
       osType: 'string',
-      imageCategory: 'string',
-      architecture: 'string',
+      osVersion: 'string',
+      platform: 'string',
     };
   }
 
@@ -139,6 +139,27 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   capabilities?: { [key: string]: any };
   /**
    * @remarks
+   * Indicates whether the Kubernetes version can be created.
+   * 
+   * @example
+   * true
+   */
+  creatable?: boolean;
+  /**
+   * @remarks
+   * The expiration time of the Kubernetes version. The time is in ISO 8601 format and includes time zone information.
+   * 
+   * @example
+   * 2026-01-30T00:00:00Z
+   */
+  expirationDate?: string;
+  /**
+   * @example
+   * 2026-04-30T00:00:00Z
+   */
+  extendedExpirationDate?: string;
+  /**
+   * @remarks
    * The list of system images.
    */
   images?: DescribeKubernetesVersionMetadataResponseBodyImages[];
@@ -156,19 +177,6 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   metaData?: { [key: string]: any };
   /**
    * @remarks
-   * The container runtime configurations.
-   */
-  runtimes?: Runtime[];
-  /**
-   * @remarks
-   * The Kubernetes version released by ACK. For more information about versions, see [Overview of Kubernetes version releases](https://help.aliyun.com/document_detail/185269.html).
-   * 
-   * @example
-   * 1.31.1-aliyun.1
-   */
-  version?: string;
-  /**
-   * @remarks
    * The release time of the Kubernetes version. The time is in ISO 8601 format and includes time zone information.
    * 
    * @example
@@ -177,50 +185,56 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   releaseDate?: string;
   /**
    * @remarks
-   * The expiration time of the Kubernetes version. The time is in ISO 8601 format and includes time zone information.
-   * 
-   * @example
-   * 2026-01-30T00:00:00Z
+   * The container runtime configurations.
    */
-  expirationDate?: string;
+  runtimes?: Runtime[];
   /**
-   * @remarks
-   * Indicates whether the Kubernetes version can be created.
-   * 
    * @example
-   * true
+   * Extended
    */
-  creatable?: boolean;
+  supportPolicy?: string;
   /**
    * @remarks
    * The list of upgradable versions.
    */
   upgradableVersions?: string[];
+  /**
+   * @remarks
+   * The Kubernetes version released by ACK. For more information about versions, see [Overview of Kubernetes version releases](https://help.aliyun.com/document_detail/185269.html).
+   * 
+   * @example
+   * 1.31.1-aliyun.1
+   */
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       capabilities: 'capabilities',
+      creatable: 'creatable',
+      expirationDate: 'expiration_date',
+      extendedExpirationDate: 'extended_expiration_date',
       images: 'images',
       metaData: 'meta_data',
-      runtimes: 'runtimes',
-      version: 'version',
       releaseDate: 'release_date',
-      expirationDate: 'expiration_date',
-      creatable: 'creatable',
+      runtimes: 'runtimes',
+      supportPolicy: 'support_policy',
       upgradableVersions: 'upgradable_versions',
+      version: 'version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       capabilities: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      creatable: 'boolean',
+      expirationDate: 'string',
+      extendedExpirationDate: 'string',
       images: { 'type': 'array', 'itemType': DescribeKubernetesVersionMetadataResponseBodyImages },
       metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      runtimes: { 'type': 'array', 'itemType': Runtime },
-      version: 'string',
       releaseDate: 'string',
-      expirationDate: 'string',
-      creatable: 'boolean',
+      runtimes: { 'type': 'array', 'itemType': Runtime },
+      supportPolicy: 'string',
       upgradableVersions: { 'type': 'array', 'itemType': 'string' },
+      version: 'string',
     };
   }
 
