@@ -34,6 +34,16 @@ export class ChannelProperties extends $dara.Model {
   vivoAddBadge?: string;
   vivoCategory?: string;
   vivoPushMode?: string;
+  /**
+   * @example
+   * 发送模版消息时必填，此时vivoCategory不用填
+   */
+  vivoTemplateId?: string;
+  /**
+   * @example
+   * 格式为{"key1":"v1","key2":"v2"}
+   */
+  vivoTemplateParams?: { [key: string]: any };
   xiaomiChannelId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52,6 +62,8 @@ export class ChannelProperties extends $dara.Model {
       vivoAddBadge: 'vivoAddBadge',
       vivoCategory: 'vivoCategory',
       vivoPushMode: 'vivoPushMode',
+      vivoTemplateId: 'vivoTemplateId',
+      vivoTemplateParams: 'vivoTemplateParams',
       xiaomiChannelId: 'xiaomiChannelId',
     };
   }
@@ -73,11 +85,16 @@ export class ChannelProperties extends $dara.Model {
       vivoAddBadge: 'string',
       vivoCategory: 'string',
       vivoPushMode: 'string',
+      vivoTemplateId: 'string',
+      vivoTemplateParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       xiaomiChannelId: 'string',
     };
   }
 
   validate() {
+    if(this.vivoTemplateParams) {
+      $dara.Model.validateMap(this.vivoTemplateParams);
+    }
     super.validate();
   }
 
