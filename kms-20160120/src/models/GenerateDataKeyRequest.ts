@@ -5,19 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateDataKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the DryRun mode.
+   * The name of the managed data key (DK). This parameter is required only when ManagedByKms is set to true.
    * 
-   * - true: enables the DryRun mode.
+   * @example
+   * example-data-key
+   */
+  dataKeyName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the dry run mode. Valid values:
    * 
-   * - false (default): disables the DryRun mode.
+   * - true: Enabled.
+   * - false: Disabled.
    * 
-   * The DryRun mode is used to test the API call. It verifies whether you have the permissions to access the specified resources and whether the request parameters are valid. If you enable the DryRun mode, KMS always returns a failure response and a failure reason. The failure reasons include the following:
+   * Default value: false.
    * 
-   * - DryRunOperationError: The request succeeds if the DryRun parameter is not specified.
+   * The dry run mode is used to test API calls, verify whether you have the required permissions on the resources, and check whether the request parameters are correctly configured. After the dry run mode is enabled, KMS always returns a failure and provides the cause of the failure. The causes include:
    * 
-   * - ValidationError: The parameters specified in the request are invalid.
-   * 
-   * - AccessDeniedError: You are not authorized to perform this operation on the KMS resource.
+   * - DryRunOperationError: The request would succeed if the DryRun parameter is not configured.
+   * - ValidationError: The specified parameters in the request are invalid.
+   * - AccessDeniedError: You do not have the permissions to perform the operation on the KMS resources.
    * 
    * @example
    * false
@@ -25,9 +32,9 @@ export class GenerateDataKeyRequest extends $dara.Model {
   dryRun?: string;
   /**
    * @remarks
-   * A JSON string that consists of key-value pairs.
+   * The JSON string of key-value pairs.
    * 
-   * If you specify this parameter, you must also specify the same parameter when you call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) operation. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
+   * If you specify this parameter, you must provide the same parameter when you call the [Decrypt](https://help.aliyun.com/document_detail/28950.html) API operation. For more information, see [EncryptionContext](https://help.aliyun.com/document_detail/42975.html).
    * 
    * @example
    * {"Example":"Example"}
@@ -35,9 +42,8 @@ export class GenerateDataKeyRequest extends $dara.Model {
   encryptionContext?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the key. You can also specify the alias or the key resource name (ARN) of the key. For more information about aliases, see [Manage aliases](https://help.aliyun.com/document_detail/480655.html).
-   * 
-   * > When you access a key in another Alibaba Cloud account, you must enter the ARN of the key. The key ARN is in the format of `acs:kms:${region}:${account}:key/${keyid}`.
+   * The ID of the key. You can also specify the alias or Alibaba Cloud Resource Name (ARN) of the key. For more information about aliases, see [Manage key aliases](https://help.aliyun.com/document_detail/480655.html).
+   * >When you access a key that belongs to another Alibaba Cloud account, you must enter the ARN of the key. The ARN of a key is in the `acs:kms:${region}:${account}:key/${keyid}` format.
    * 
    * This parameter is required.
    * 
@@ -47,13 +53,21 @@ export class GenerateDataKeyRequest extends $dara.Model {
   keyId?: string;
   /**
    * @remarks
-   * The length of the data key to be generated. Valid values:
+   * The key material of the managed data key (DK). Specify this parameter only when ManagedByKms is set to true and Bring Your Own Key (BYOK) is used.
+   * 
+   * @example
+   * a2V5LXBoeno2YWNkNTNmOTdmZGQyaXZ5Nzctc3UwaDliOTc4q9QB/5uWbEojCtMh0/Y72nto1RlekkSzhZD9Qkxc+WGBT0pHfOU6+fk1W8MTJNJRaAqOum7Ga+w6aJ/4hJUcJrpmDe2voDjQ
+   */
+  keyMaterial?: string;
+  /**
+   * @remarks
+   * Specifies the length of the generated data key (DK). Valid values:
    * 
    * - AES_256: a 256-bit symmetric key.
    * 
    * - AES_128: a 128-bit symmetric key.
    * 
-   * > We recommend that you use the KeySpec or NumberOfBytes parameter to specify the length of a data key. If you do not specify either of the parameters, KMS generates a 256-bit data key. If you specify both parameters, KMS ignores the KeySpec parameter.
+   * >Use KeySpec or NumberOfBytes to specify the length of the data key (DK). If neither parameter is specified, KMS generates a 256-bit data key (DK). If both parameters are specified, KMS ignores the KeySpec parameter.
    * 
    * @example
    * AES_256
@@ -61,31 +75,66 @@ export class GenerateDataKeyRequest extends $dara.Model {
   keySpec?: string;
   /**
    * @remarks
-   * The length of the data key that you want to generate. Unit: bytes.
+   * Specifies whether the data key (DK) is managed and generated by KMS.
+   */
+  managedByKms?: boolean;
+  /**
+   * @remarks
+   * Specifies the length of the generated data key (DK) in bytes.
    * 
    * Valid values: 1 to 1024.
    * 
-   * Default values:
-   * 
-   * - If you set KeySpec to AES_256, the default value of NumberOfBytes is 32.
-   * 
-   * - If you set KeySpec to AES_128, the default value of NumberOfBytes is 16.
+   * Default value:
+   * - If KeySpec is set to AES_256, the default value is 32.
+   * - If KeySpec is set to AES_128, the default value is 16.
    * 
    * @example
    * 256
    */
   numberOfBytes?: number;
   /**
+   * @remarks
+   * The trusted environment authentication information.
+   * 
+   * - AttestationDocument
+   * // The trusted environment attestation document using Base64 encoding, which includes information such as environment measurements, signatures, and certificates.
+   * 
+   * - KeyEncryptionAlgorithm
+   * // The secret key encryption algorithm. Only RSAES_OAEP_SHA_256 is supported.
+   * 
+   * Content structure of AttestationDocument:
+   * - quoted                  
+   *  - extendUserData // The user extension data using Base64 encoding. The decoded structure is as follows:
+   *    - aud // The fixed value "kms". 
+   *    - iat // The issuance time, which is a UNIX timestamp in seconds.
+   *    - exp // The expire time, which is a UNIX timestamp in seconds.
+   *    - pubKey // The RSA2048 public key in SPKI format using Base64 encoding.
+   *    - digestAlg // The summary algorithm. Only "sha256" is supported.
+   *    - ver // The protocol version. Only "v1" is supported.
+   *    - signature // The report signature, which is used to authenticate the integrity of quoted and extendUserData.
+   *  - pcrInfo:
+   *    - pcrValues // The Platform Configuration Register (PCR) measurements.
+   *    - pcrSelectionOut // The PCR selection information.
+   *    - pcrUpdateCounter // The number of PCR updates.
+   *  - cert // The platform attestation certificate, which is used to authenticate the validity of the signature.
+   * >Notice: This parameter takes effect only when you invoke the API operation through a dedicated gateway.</notice>
+   * 
    * @example
-   * { "AttestationDocument":"base64-encoded-attestion-document",  "KeyEncryptionAlgorithm":"RSAES_OAEP_SHA_256" }
+   * {
+   * "AttestationDocument":"base64-encoded-attestion-document", 
+   * "KeyEncryptionAlgorithm":"RSAES_OAEP_SHA_256"
+   * }
    */
   recipient?: string;
   static names(): { [key: string]: string } {
     return {
+      dataKeyName: 'DataKeyName',
       dryRun: 'DryRun',
       encryptionContext: 'EncryptionContext',
       keyId: 'KeyId',
+      keyMaterial: 'KeyMaterial',
       keySpec: 'KeySpec',
+      managedByKms: 'ManagedByKms',
       numberOfBytes: 'NumberOfBytes',
       recipient: 'Recipient',
     };
@@ -93,10 +142,13 @@ export class GenerateDataKeyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataKeyName: 'string',
       dryRun: 'string',
       encryptionContext: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       keyId: 'string',
+      keyMaterial: 'string',
       keySpec: 'string',
+      managedByKms: 'boolean',
       numberOfBytes: 'number',
       recipient: 'string',
     };

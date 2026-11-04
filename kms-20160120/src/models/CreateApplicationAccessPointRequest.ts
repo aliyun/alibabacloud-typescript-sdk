@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationAccessPointRequest extends $dara.Model {
   /**
    * @remarks
-   * The authentication method. Currently, only ClientKey is supported.
+   * The authentication method. Only ClientKey is supported.
    * 
    * @example
    * ClientKey
@@ -13,7 +13,7 @@ export class CreateApplicationAccessPointRequest extends $dara.Model {
   authenticationMethod?: string;
   /**
    * @remarks
-   * The description of the AAP.
+   * The description.
    * 
    * @example
    * aap description
@@ -21,7 +21,7 @@ export class CreateApplicationAccessPointRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the AAP.
+   * The name of the application access point (AAP).
    * 
    * This parameter is required.
    * 
@@ -31,9 +31,9 @@ export class CreateApplicationAccessPointRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The permission policy.
+   * The attached access policies.
    * 
-   * > You can bind up to three permission policies to each AAP.
+   * > You can attach up to three access policies to each application access point (AAP).
    * 
    * This parameter is required.
    * 

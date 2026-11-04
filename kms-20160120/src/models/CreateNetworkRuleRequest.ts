@@ -13,7 +13,7 @@ export class CreateNetworkRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the access control rule.
+   * The name of the network control rule.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateNetworkRuleRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The private IP address or private CIDR block. Separate multiple items with commas (,).
+   * The private IP addresses or private CIDR blocks. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * ["192.10.XX.XX","192.168.XX.XX/24"]
@@ -31,9 +31,7 @@ export class CreateNetworkRuleRequest extends $dara.Model {
   sourcePrivateIp?: string;
   /**
    * @remarks
-   * The network type.
-   * 
-   * Only private IP addresses are supported. Set the value to Private.
+   * The network type. Valid values: Private. This value indicates that only private IP addresses are supported.
    * 
    * This parameter is required.
    * 

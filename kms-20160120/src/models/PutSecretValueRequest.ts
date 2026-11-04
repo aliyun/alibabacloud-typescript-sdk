@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutSecretValueRequest extends $dara.Model {
   /**
    * @remarks
-   * The secret value. The value is encrypted and stored in the specified new version.
+   * The secret value. The secret value is encrypted and stored in the specified new version.
    * 
    * This parameter is required.
    * 
@@ -16,9 +16,7 @@ export class PutSecretValueRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the secret value. Valid values:
-   * 
    * - text (default)
-   * 
    * - binary
    * 
    * @example
@@ -28,8 +26,7 @@ export class PutSecretValueRequest extends $dara.Model {
   /**
    * @remarks
    * The name or Alibaba Cloud Resource Name (ARN) of the secret.
-   * 
-   * > When you access a secret in another Alibaba Cloud account, you must specify the ARN of the secret. The ARN of a secret is in the format of `acs:kms:${region}:${account}:secret/${secret-name}`.
+   * > When you access a secret that belongs to another Alibaba Cloud account, you must specify the ARN of the secret. The ARN of a secret is in the `acs:kms:${region}:${account}:secret/${secret-name}` format.
    * 
    * This parameter is required.
    * 
@@ -39,7 +36,7 @@ export class PutSecretValueRequest extends $dara.Model {
   secretName?: string;
   /**
    * @remarks
-   * The version number of the secret. The value must be unique in the secret.
+   * The version ID of the secret. The version ID must be unique within the secret.
    * 
    * This parameter is required.
    * 
@@ -49,7 +46,7 @@ export class PutSecretValueRequest extends $dara.Model {
   versionId?: string;
   /**
    * @remarks
-   * The stage labels that are used to mark the new version. If you do not specify this parameter, KMS marks the new version with ACSCurrent.
+   * The version stages that are attached to the secret version when it is stored. If you do not specify this parameter, KMS attaches ACSCurrent to the new version by default.
    * 
    * @example
    * ["ACSCurrent","ACSNext"]

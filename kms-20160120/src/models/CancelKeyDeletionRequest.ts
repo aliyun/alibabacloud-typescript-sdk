@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelKeyDeletionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CMK. The ID must be globally unique.
+   * The globally unique identifier of the master key.
    * 
    * This parameter is required.
    * 

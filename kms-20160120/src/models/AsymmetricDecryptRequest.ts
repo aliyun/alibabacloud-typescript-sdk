@@ -15,9 +15,9 @@ export class AsymmetricDecryptRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The ciphertext to be decrypted. The ciphertext is encoded in Base64.
+   * The ciphertext to be decrypted, which is Base64-encoded. 
    * 
-   * > You can generate a ciphertext by calling the [AsymmetricEncrypt](https://help.aliyun.com/document_detail/148131.html) operation.
+   * > You can call the [AsymmetricEncrypt](https://help.aliyun.com/document_detail/148131.html) operation to generate ciphertext.
    * 
    * This parameter is required.
    * 
@@ -27,19 +27,16 @@ export class AsymmetricDecryptRequest extends $dara.Model {
   ciphertextBlob?: string;
   /**
    * @remarks
-   * Specifies whether to enable the dry run feature.
+   * Specifies whether to enable the dry run mode.
    * 
-   * - true: enables the dry run feature.
+   * - true: enables the dry run mode.
+   * - false: disables the dry run mode. This is the default value.
    * 
-   * - false: disables the dry run feature. This is the default value.
+   * The dry run mode is used to test API calls and verify whether you have the required permissions on the resources and whether the request parameters are correctly configured. When the dry run mode is enabled, KMS always returns a failure and provides the cause of the failure. The causes include:
    * 
-   * The dry run feature is used to test API calls, verify the permissions on the specified resources, and check the validity of the request parameters. If you enable the dry run feature, KMS always returns a failure response and the cause of the failure. The causes of the failure include the following:
-   * 
-   * - DryRunOperationError: The request would have succeeded if the DryRun parameter is not specified.
-   * 
-   * - ValidationError: The specified parameter in the request is invalid.
-   * 
-   * - AccessDeniedError: You are not authorized to perform this operation on the KMS resource.
+   * - DryRunOperationError: The request would succeed if the DryRun parameter is not specified.
+   * - ValidationError: A parameter specified in the request is invalid.
+   * - AccessDeniedError: You are not authorized to perform the operation on the KMS resource.
    * 
    * @example
    * false
@@ -47,9 +44,8 @@ export class AsymmetricDecryptRequest extends $dara.Model {
   dryRun?: string;
   /**
    * @remarks
-   * The ID of the key. You can also specify the alias or Amazon Resource Name (ARN) of the key. For more information about aliases, see [Manage aliases](https://help.aliyun.com/document_detail/480655.html).
-   * 
-   * > When you access a key in another Alibaba Cloud account, you must specify the ARN of the key. The ARN of a key is in the `acs:kms:${region}:${account}:key/${keyid}` format.
+   * The ID of the key. You can also specify the alias or Alibaba Cloud Resource Name (ARN) of the key. For more information about aliases, refer to [Manage key aliases](https://help.aliyun.com/document_detail/480655.html).
+   * > To access a key that belongs to another Alibaba Cloud account, you must enter the ARN of the key. The ARN of a key is in the `acs:kms:${region}:${account}:key/${keyid}` format.
    * 
    * This parameter is required.
    * 
@@ -59,7 +55,7 @@ export class AsymmetricDecryptRequest extends $dara.Model {
   keyId?: string;
   /**
    * @remarks
-   * The ID of the key version. The globally unique identifier of the key version.
+   * The ID of the key version, which is the globally unique identifier of the key version.
    * 
    * This parameter is required.
    * 
@@ -68,6 +64,9 @@ export class AsymmetricDecryptRequest extends $dara.Model {
    */
   keyVersionId?: string;
   /**
+   * @remarks
+   * The remote attestation.
+   * 
    * @example
    * { "AttestationDocument":"base64-encoded-attestion-document",  "KeyEncryptionAlgorithm":"RSAES_OAEP_SHA_256" }
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKeyResponseBodyKeyMetadata extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the key.
+   * The ARN of the key.
    * 
    * @example
    * acs:kms:cn-qingdao:154035569884****:key/key-hzz62f1cb66fa42qo****
@@ -15,11 +15,9 @@ export class CreateKeyResponseBodyKeyMetadata extends $dara.Model {
    * @remarks
    * Indicates whether automatic key rotation is enabled. Valid values:
    * 
-   * - Enabled: Automatic rotation is enabled.
-   * 
+   * - Enabled: Automatic rotation is in the enabling status.
    * - Disabled: Automatic rotation is disabled.
-   * 
-   * - Suspended: Automatic rotation is suspended.
+   * - Suspended: Automatic rotation is paused and will not execute.
    * 
    * @example
    * Enabled
@@ -27,7 +25,7 @@ export class CreateKeyResponseBodyKeyMetadata extends $dara.Model {
   automaticRotation?: string;
   /**
    * @remarks
-   * The date and time when the key was created. The time is in UTC.
+   * The date and time when the key was created (UTC).
    * 
    * @example
    * 2024-03-25T10:00:00Z
@@ -43,7 +41,7 @@ export class CreateKeyResponseBodyKeyMetadata extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The ID of the KMS instance.
+   * The instance ID of the KMS instance.
    * 
    * @example
    * kst-bjj62d8f5e0sgtx8h****
@@ -51,9 +49,9 @@ export class CreateKeyResponseBodyKeyMetadata extends $dara.Model {
   DKMSInstanceId?: string;
   /**
    * @remarks
-   * The scheduled time to delete the key. For more information, see [ScheduleKeyDeletion](https://help.aliyun.com/document_detail/601417.html) .
+   * The scheduled deletion time of the key. For more information, see [ScheduleKeyDeletion](https://help.aliyun.com/document_detail/601417.html).
    * 
-   * This parameter is returned only when the value of KeyState is PendingDeletion.
+   * This parameter is returned only when KeyState is set to PendingDeletion.
    * 
    * @example
    * 2025-03-25T10:00:00Z
@@ -69,7 +67,7 @@ export class CreateKeyResponseBodyKeyMetadata extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The globally unique identifier (GUID) of the key.
+   * The globally unique identifier of the key.
    * 
    * @example
    * key-hzz62f1cb66fa42qo****
@@ -85,7 +83,8 @@ export class CreateKeyResponseBodyKeyMetadata extends $dara.Model {
   keySpec?: string;
   /**
    * @remarks
-   * The status of the key.<br> For more information, see [Impact of CMK status on API calls](https://help.aliyun.com/document_detail/44211.html).<br>
+   * The status of the key.  
+   * For more information, see [Impact of customer master key (CMK) status on API calls](https://help.aliyun.com/document_detail/44211.html).
    * 
    * @example
    * Enabled
@@ -93,7 +92,7 @@ export class CreateKeyResponseBodyKeyMetadata extends $dara.Model {
   keyState?: string;
   /**
    * @remarks
-   * The usage of the key.
+   * The purpose of the key.
    * 
    * @example
    * ENCRYPT/DECRYPT
@@ -101,7 +100,8 @@ export class CreateKeyResponseBodyKeyMetadata extends $dara.Model {
   keyUsage?: string;
   /**
    * @remarks
-   * The time when the last rotation was performed. The time is in UTC.<br> If the key is new, this value is the generation time of the initial key version.<br>
+   * The time of the last rotation (UTC).  
+   * If the key is newly created, this value is the generation time of the initial key version.
    * 
    * @example
    * 2023-03-25T10:00:00Z
@@ -109,7 +109,8 @@ export class CreateKeyResponseBodyKeyMetadata extends $dara.Model {
   lastRotationDate?: string;
   /**
    * @remarks
-   * The expiration time of the key material. The time is in UTC.<br> If this value is empty, the key material does not expire.<br>
+   * The expiration time of the key material (UTC).  
+   * If this value is empty, the key material does not expire.
    * 
    * @example
    * 2025-03-25T10:00:00Z
@@ -117,9 +118,9 @@ export class CreateKeyResponseBodyKeyMetadata extends $dara.Model {
   materialExpireTime?: string;
   /**
    * @remarks
-   * The time when the next rotation is scheduled.
+   * The time of the next key rotation.  
    * 
-   * This parameter is returned only when the value of AutomaticRotation is Enabled or Suspended.
+   * This value is returned only when the AutomaticRotation parameter is set to Enabled or Suspended.
    * 
    * @example
    * 2024-03-25T10:00:00Z
@@ -135,7 +136,7 @@ export class CreateKeyResponseBodyKeyMetadata extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The ID of the current primary version of the key.
+   * The identifier of the current primary version of the key.
    * 
    * @example
    * 7ce1d081-06cb-42e6-aab6-5c5de030****
@@ -151,9 +152,9 @@ export class CreateKeyResponseBodyKeyMetadata extends $dara.Model {
   protectionLevel?: string;
   /**
    * @remarks
-   * The automatic rotation period of the key. The value is in seconds. The value is an integer followed by the character s. For example, a rotation period of 7 days is 604800s.
+   * The interval for automatic key rotation. The unit is seconds, and the format is an integer followed by the letter s. For example, a 7-day rotation interval is 604800s.
    * 
-   * This parameter is returned only when the value of AutomaticRotation is Enabled or Suspended.
+   * This value is returned only when the AutomaticRotation parameter is set to Enabled or Suspended.
    * 
    * @example
    * 31536000s
@@ -222,7 +223,7 @@ export class CreateKeyResponseBody extends $dara.Model {
   keyMetadata?: CreateKeyResponseBodyKeyMetadata;
   /**
    * @remarks
-   * The ID of the request. This ID is a globally unique identifier (GUID) generated by Alibaba Cloud for the request. Use this ID to troubleshoot issues.
+   * The ID of the request. It is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
    * 
    * @example
    * 381D5D33-BB8F-395F-8EE4-AE3BB4B523C4

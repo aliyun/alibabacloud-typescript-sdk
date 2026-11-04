@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the KMS instance.
+   * The instance ID of the KMS instance.
    * 
-   * > This parameter is required when you create a key for a KMS instance. This parameter is not required when you create a default key (master key).
+   * > You must specify this parameter when you create a key for a KMS instance. You do not need to specify this parameter when you create a default key (master key).
    * 
    * @example
    * kst-bjj62d8f5e0sgtx8h****
@@ -15,7 +15,8 @@ export class CreateKeyRequest extends $dara.Model {
   DKMSInstanceId?: string;
   /**
    * @remarks
-   * The description of the key.<br> The description can be 0 to 8,192 characters in length.<br>
+   * The description of the key.  
+   * The description must be 0 to 8,192 characters in length.
    * 
    * @example
    * key description example
@@ -23,13 +24,11 @@ export class CreateKeyRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic key rotation. Valid values:
+   * Specifies whether to enable automatic key rotation. Valid values:  
+   * - true: Enables automatic key rotation.
+   * - false (default): Disables automatic key rotation.
    * 
-   * - true: enables automatic key rotation.
-   * 
-   * - false (default): disables automatic key rotation.
-   * 
-   * This parameter is valid only when the key management type of the key supports automatic rotation. For more information, see [Key rotation](https://help.aliyun.com/document_detail/2358146.html).
+   * This parameter takes effect only when the key management type to which the key belongs supports automatic rotation. For more information, see [Key rotation](https://help.aliyun.com/document_detail/2358146.html).
    * 
    * @example
    * true
@@ -37,9 +36,9 @@ export class CreateKeyRequest extends $dara.Model {
   enableAutomaticRotation?: boolean;
   /**
    * @remarks
-   * The specification of the key. The valid values vary based on the key management type. For more information about key specifications, supported standards, and algorithms, see [Key management types and key specifications](https://help.aliyun.com/document_detail/480161.html).
+   * The key specification. Valid values vary based on the key management type. For more information about key specifications, followed standards, and key algorithms, see [Key management types and key specifications](https://help.aliyun.com/document_detail/480161.html).
    * 
-   * > If you do not specify this parameter, the key specification is Aliyun_AES_256 by default.
+   * > If you do not specify this parameter, the default key specification is Aliyun_AES_256.
    * 
    * @example
    * Aliyun_AES_256
@@ -47,15 +46,11 @@ export class CreateKeyRequest extends $dara.Model {
   keySpec?: string;
   /**
    * @remarks
-   * The key storage location. This parameter is valid only when DKMSInstanceId is specified for a hardware key management instance. Valid values:
-   * 
-   * - HsmInternal (default): The key is stored in an HSM and does not support rotation.
-   * 
-   * - HsmEncryptedDatabase: The key is stored in a database.
-   * 
-   *   - Symmetric keys: Rotation is supported.
-   * 
-   *   - Asymmetric keys: Rotation is not supported.
+   * The storage location of hardware-protected key. This parameter takes effect only when DKMSInstanceId is set to the ID of a hardware key management instance. Valid values:
+   * - HsmInternal (default): Hardware-protected key is stored in the HSM and does not support rotation.
+   * - HsmEncryptedDatabase: Hardware-protected key is stored in the database.
+   *   - Symmetric keys: Support rotation.
+   *   - Asymmetric keys: Do not support rotation.
    * 
    * @example
    * HsmInternal
@@ -63,13 +58,11 @@ export class CreateKeyRequest extends $dara.Model {
   keyStorageMechanism?: string;
   /**
    * @remarks
-   * The usage of the key. Valid values:
+   * The purpose of the key. Valid values:  
+   * - ENCRYPT/DECRYPT: Data encryption and decryption.
+   * - SIGN/VERIFY: Digital signature generation and verification.
    * 
-   * - ENCRYPT/DECRYPT: encrypts and decrypts data.
-   * 
-   * - SIGN/VERIFY: generates and verifies digital signatures.
-   * 
-   * Default value: If the key supports signature verification, the default value is SIGN/VERIFY. Otherwise, the default value is ENCRYPT/DECRYPT.
+   * Default value: If the key supports signature generation and verification, the default value is SIGN/VERIFY. Otherwise, the default value is ENCRYPT/DECRYPT.
    * 
    * @example
    * ENCRYPT/DECRYPT
@@ -77,15 +70,13 @@ export class CreateKeyRequest extends $dara.Model {
   keyUsage?: string;
   /**
    * @remarks
-   * The source of the key material. Valid values:
-   * 
+   * The source of the key material. Valid values:  
    * - Aliyun_KMS (default): The key material is generated by Alibaba Cloud KMS.
+   * - EXTERNAL: The key material is imported by you.
    * 
-   * - EXTERNAL: The key material is imported.
    * 
-   * > * The value is case-sensitive.
-   * 
-   * - If you set this parameter to EXTERNAL, import key material. For more information, see [Import key material for a symmetric key](https://help.aliyun.com/document_detail/607841.html) or [Import key material for an asymmetric key](https://help.aliyun.com/document_detail/608827.html).
+   * > - The value is case-sensitive.
+   * - If you select EXTERNAL, you must import the key material. For more information, see [Import symmetric key material](https://help.aliyun.com/document_detail/607841.html) or [Import asymmetric key material](https://help.aliyun.com/document_detail/608827.html).
    * 
    * @example
    * Aliyun_KMS
@@ -93,15 +84,15 @@ export class CreateKeyRequest extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The content of the key policy. The value is in the JSON format. The policy can be up to 32,768 bytes in length. For more information about key policies, see [Key policy overview](https://help.aliyun.com/document_detail/2716468.html). If you do not specify this parameter, the default credential policy is used.
+   * The content of the key policy in JSON format. The maximum length is 32,768 bytes.
+   * For more information about key policies, see [Key policy overview](https://help.aliyun.com/document_detail/2716468.html). If you do not specify this parameter, the default key policy is used.
    * 
-   * A key policy contains the following content:
+   * The key policy includes the following fields:
    * 
    * - Version: The version of the key policy. Only version 1 is supported.
-   * 
    * - Statement: The statements of the key policy. Each key policy contains one or more statements.
    * 
-   * The following is the format of a key policy:
+   * The key policy uses the following format:
    * 
    * ```
    * {
@@ -129,21 +120,19 @@ export class CreateKeyRequest extends $dara.Model {
    * }
    * ```
    * 
-   * Details about a statement:
+   * Statement details:
+   * - Sid: Optional. The custom statement identifier. It can be up to 128 characters in length and can contain uppercase letters (A-Z), lowercase letters (a-z), digits (0-9), and special characters (_/+=.@-).
+   * - Effect: Required. Specifies whether to allow or deny the permissions in the policy statement. Valid values: Allow and Deny.
    * 
-   * - Sid: (Optional) The custom statement identifier. The identifier can be up to 128 characters in length and can contain uppercase letters (A-Z), lowercase letters (a-z), digits (0-9), and special characters, including underscores (_), forward slashes (/), plus signs (+), equal signs (=), periods (.), at signs (@), and hyphens (-).
+   * - Principal: Required. The principal to which the policy is attached. You can set this field to the current Alibaba Cloud account (the account to which the key belongs), RAM users or RAM roles under the current Alibaba Cloud account, or RAM users or RAM roles under other Alibaba Cloud accounts.
    * 
-   * - Effect: (Required) The effect of the policy statement. Valid values: Allow and Deny.
+   * - Action: Required. The API operations to allow or deny. The value must start with "kms:". For the scope of the operation permission list, see [Key policy overview](https://help.aliyun.com/document_detail/2716468.html). If you specify operations outside the list, the settings do not take effect.
    * 
-   * - Principal: (Required) The principal to which the permission is granted. Set this parameter to the current Alibaba Cloud account (the Alibaba Cloud account to which the key belongs), a RAM user or RAM role of the current Alibaba Cloud account, or a RAM user or RAM role of another Alibaba Cloud account.
+   * - Resource: Required. The value can only be *, which indicates the current KMS key.
    * 
-   * - Action: (Required) The API operations that are allowed or denied. The value must start with "kms:". For a list of supported operations, see [Key policy overview](https://help.aliyun.com/document_detail/2716468.html). If you specify an operation that is not in the list, the setting does not take effect.
+   * - Condition: Optional. The conditions that must be met for the authorization to take effect. You can use conditions to evaluate the context of API requests to determine whether the policy statement applies. The format is `"Condition": {"condition operator": {"condition key": "condition value"}}`. For more information, see [Key policy overview](https://help.aliyun.com/document_detail/2716468.html).
    * 
-   * - Resource: (Required) The value can only be \\*, which indicates the current KMS key.
-   * 
-   * - Condition: (Optional) The conditions for the authorization to take effect. Use conditions to evaluate the context of an API request to determine whether to apply the policy statement. The format is `"Condition": {"condition operator": {"condition key": "condition value"}}`. For more information, see [Key policy overview](https://help.aliyun.com/document_detail/2716468.html).
-   * 
-   * > After granting permissions to a RAM user or RAM role of another Alibaba Cloud account, use that account to grant the RAM user or RAM role permissions to use the key in the RAM console. The RAM user or RAM role can use the key only after this is complete. For more information, see [Custom policies for Key Management Service](https://help.aliyun.com/document_detail/480682.html), [Grant permissions to a RAM user](https://help.aliyun.com/document_detail/116146.html), and [Grant permissions to a RAM role](https://help.aliyun.com/document_detail/116147.html).
+   * > After you grant permissions to RAM users or RAM roles under other Alibaba Cloud accounts, you must still use the Alibaba Cloud accounts of the RAM users or RAM roles to authorize them to use the key in the RAM console. Only then can the RAM users or RAM roles use the key. For specific operations, see [Custom policy examples for KMS](https://help.aliyun.com/document_detail/480682.html), [Grant permissions to a RAM user](https://help.aliyun.com/document_detail/116146.html), and [Grant permissions to a RAM role](https://help.aliyun.com/document_detail/116147.html).
    * 
    * @example
    * {"Statement":[{"Action":["kms:*"],"Effect":"Allow","Principal":{"RAM":["acs:ram::119285303511****:*"]},"Resource":["*"],"Sid":"kms default key policy"},{"Action":["kms:List*","kms:Describe*","kms:Create*","kms:Enable*","kms:Disable*","kms:Get*","kms:Set*","kms:Update*","kms:Delete*","kms:Cancel*","kms:TagResource","kms:UntagResource","kms:ImportKeyMaterial","kms:ScheduleKeyDeletion"],"Effect":"Allow","Principal":{"RAM":["acs:ram::119285303511****:user/for_test_policy"]},"Resource":["*"]}],"Version":"1"}
@@ -151,17 +140,14 @@ export class CreateKeyRequest extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * You do not need to specify this parameter. KMS automatically sets an appropriate protection level for your key.
+   * You do not need to specify this parameter. KMS will configure the appropriate protection settings for your key.
    * 
-   * The protection level of the key. Valid values:
-   * 
+   * The protection level of the key. Valid values:  
    * - SOFTWARE
-   * 
    * - HSM
    * 
-   * > * If you specify DKMSInstanceId, this parameter is ignored. If the instance is a software key management instance, the protection level is SOFTWARE. If the instance is a hardware key management instance, the protection level is HSM.
-   * 
-   * - If you do not specify DKMSInstanceId, leave this parameter empty. KMS sets the protection level. If a managed HSM is available in the region, KMS sets this parameter to HSM. Otherwise, KMS sets this parameter to SOFTWARE. For more information, see [Managed HSM overview](https://help.aliyun.com/document_detail/125803.html).
+   * > - If DKMSInstanceId is specified, this parameter does not take effect. If the instance is a software key management instance, the protection level is SOFTWARE. If the instance is a hardware key management instance, the protection level is HSM.
+   * - If DKMSInstanceId is not specified, we recommend that you do not specify this parameter and rely on KMS settings. If KMS has a managed HSM in the region, this parameter will be set to HSM. Otherwise, it is set to SOFTWARE. For more information, see [Managed HSM overview](https://help.aliyun.com/document_detail/125803.html).
    * 
    * @example
    * SOFTWARE
@@ -169,15 +155,15 @@ export class CreateKeyRequest extends $dara.Model {
   protectionLevel?: string;
   /**
    * @remarks
-   * The automatic rotation period. The format is \\`integer[unit]\\`. \\`integer\\` indicates the length of the period. \\`unit\\` indicates the unit of time. Valid units: d (day), h (hour), m (minute), and s (second). For example, both 7d and 604800s represent a period of 7 days.
+   * The epoch for automatic rotation. The format is integer[unit], where integer indicates the time length and unit indicates the time unit. Valid units are d (days), h (hours), m (minutes), and s (seconds). Both 7d and 604800s indicate a 7-day epoch.
    * 
-   * - If the key is a default key, the value is 365d.
+   * - If the key is a default key, the value is 365 days.
    * 
-   * - If the key is a software-protected key, the value can be from 7d to 365d.
+   * - If the key is a software-protected key, the value is 7 to 365 days.
    * 
    * - If the key is a hardware-protected key, automatic rotation is not supported.
    * 
-   * > This parameter is required if you set EnableAutomaticRotation to true.
+   * > You must specify this parameter when EnableAutomaticRotation is set to true.
    * 
    * @example
    * 365d
@@ -185,13 +171,12 @@ export class CreateKeyRequest extends $dara.Model {
   rotationInterval?: string;
   /**
    * @remarks
-   * The tags to bind to the key. Each tag consists of a key-value pair (Key:Value), which includes a tag key and a tag value.
+   * The tags to bind to the key. Each tag consists of a key-value pair, which includes a tag key and a tag value.
    * 
-   * Specify a maximum of 20 tags. To specify multiple tags, use the following format: `[{"TagKey":"key1","TagValue":"value1"},{"TagKey":"key2","TagValue":"value2"},...]`.
+   * You can specify up to 20 tags. To specify multiple tags, use the following format: `[{"TagKey":"key1","TagValue":"value1"},{"TagKey":"key2","TagValue":"value2"},...]`.
    * 
-   * Each tag key and tag value can be up to 128 characters in length and can contain uppercase letters, lowercase letters, digits, forward slashes (/), backslashes (\\), underscores (_), hyphens (-), periods (.), plus signs (+), equal signs (=), colons (:), and at signs (@).
-   * 
-   * > The tag key cannot start with aliyun or acs:.
+   * Each tag key and tag value can be up to 128 characters in length and can contain uppercase and lowercase letters, digits, forward slashes (/), backslashes (\\), underscores (_), hyphens (-), periods (.), plus signs (+), equal signs (=), colons (:), and at signs (@).
+   * > A tag key cannot start with aliyun or acs:.
    * 
    * @example
    * [{"TagKey":"disk-encryption","TagValue":"true"}]

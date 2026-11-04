@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAliasRequest extends $dara.Model {
   /**
    * @remarks
-   * The alias of the CMK.
-   * 
-   * The alias must be 1 to 255 characters in length and must contain the prefix `alias/`. The alias cannot be prefixed with the reserved word `alias/acs`.
+   * The alias of the CMK. The alias must be 1 to 255 characters in length, must contain the `alias/` prefix, and cannot start with the reserved word `alias/acs`.
    * 
    * This parameter is required.
    * 
@@ -17,7 +15,7 @@ export class CreateAliasRequest extends $dara.Model {
   aliasName?: string;
   /**
    * @remarks
-   * The ID of the CMK. The ID must be globally unique.
+   * The globally unique identifier of the CMK.
    * 
    * This parameter is required.
    * 

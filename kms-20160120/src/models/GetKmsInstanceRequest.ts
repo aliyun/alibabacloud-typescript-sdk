@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKmsInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the KMS instance to query.
+   * The ID of the KMS instance.
    * 
    * This parameter is required.
    * 

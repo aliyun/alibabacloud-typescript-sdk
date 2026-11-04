@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeletePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the permission policy that you want to delete.
+   * The name of the permission policy to delete.
    * 
    * This parameter is required.
    * 
