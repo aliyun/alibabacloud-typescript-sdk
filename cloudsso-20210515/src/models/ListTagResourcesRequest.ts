@@ -55,7 +55,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results when the response is truncated.
+   * The pagination token that is used to retrieve the next page of results when the response is truncated.
    * 
    * @example
    * K1c3o9K7pFxoTtxH1Nm7MMLb7zrDGvftYBQBPDVv7AD3a8yhRb3Mk8L9ivmN6bFSjfkZNTAg3h4****
@@ -69,14 +69,16 @@ export class ListTagResourcesRequest extends $dara.Model {
    * > - - If the resource type is user, specify the user ID.
    * > - - If the resource type is access configuration, specify the access configuration ID.
    * 
-   * <notice>If the DirectoryId parameter is not specified, you must add the prefix "${DirectoryId}_" to the resource ID.</notice>
+   * <notice>If the DirectoryId parameter is not specified, you must add the "${DirectoryId}_" prefix to the resource ID.</notice>
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Valid values:
-   * - user: The resource is a user.
-   * - accessConfiguration: The resource is an access configuration.
+   * The resource type. Users and access configurations are supported. Valid values:
+   * 
+   * - user: user
+   * 
+   * - accessConfiguration: access configuration
    * 
    * This parameter is required.
    * 

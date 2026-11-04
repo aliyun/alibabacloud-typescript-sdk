@@ -48,6 +48,11 @@ export class ResetUserPasswordRequest extends $dara.Model {
    */
   requirePasswordResetForNextLogin?: boolean;
   /**
+   * @example
+   * DirectPassword
+   */
+  resetMethod?: string;
+  /**
    * @remarks
    * The user ID.
    * 
@@ -61,6 +66,7 @@ export class ResetUserPasswordRequest extends $dara.Model {
       generateRandomPassword: 'GenerateRandomPassword',
       password: 'Password',
       requirePasswordResetForNextLogin: 'RequirePasswordResetForNextLogin',
+      resetMethod: 'ResetMethod',
       userId: 'UserId',
     };
   }
@@ -71,6 +77,7 @@ export class ResetUserPasswordRequest extends $dara.Model {
       generateRandomPassword: 'boolean',
       password: 'string',
       requirePasswordResetForNextLogin: 'boolean',
+      resetMethod: 'string',
       userId: 'string',
     };
   }

@@ -65,13 +65,13 @@ export class TagResourcesRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The list of resource IDs. You can specify up to 50 resource IDs in a single call.
+   * The list of resource IDs. You can add up to 50 resource IDs in a single call.
    * > 
    * > - Supported resource types include users and access configurations:
-   * > - - If the resource type is user, specify the user ID.
-   * > - - If the resource type is access configuration, specify the access configuration ID.
+   * > - - User: Enter the user ID.
+   * > - - Access configuration: Enter the access configuration ID.
    * 
-   * <notice>If the directory ID parameter is not specified, you must add the prefix "${DirectoryId}_" to the resource ID.</notice>
+   * <notice>If the DirectoryId parameter is not specified, you must add the prefix "${DirectoryId}_" to the resource ID.</notice>
    * 
    * This parameter is required.
    */
@@ -80,9 +80,9 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The resource type. Users and access configurations are supported.
    * 
-   * - If the resource type is user, set the value to user.
+   * - user: user.
    * 
-   * - If the resource type is access configuration, set the value to accessConfiguration.
+   * - accessConfiguration: access configuration.
    * 
    * This parameter is required.
    * 

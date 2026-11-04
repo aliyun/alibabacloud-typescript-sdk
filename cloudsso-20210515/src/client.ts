@@ -3290,7 +3290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the relationships between resources and tags.
+   * Queries the associations between resources and tags.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3337,7 +3337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the relationships between resources and tags.
+   * Queries the associations between resources and tags.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -3890,6 +3890,10 @@ export default class Client extends OpenApi {
       query["RequirePasswordResetForNextLogin"] = request.requirePasswordResetForNextLogin;
     }
 
+    if (!$dara.isNull(request.resetMethod)) {
+      query["ResetMethod"] = request.resetMethod;
+    }
+
     if (!$dara.isNull(request.userId)) {
       query["UserId"] = request.userId;
     }
@@ -4298,7 +4302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tags resources.
+   * Adds tags to resources.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4341,7 +4345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tags resources.
+   * Adds tags to resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -4352,7 +4356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Untags resources.
+   * Removes tags from resources.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4399,7 +4403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Untags resources.
+   * Removes tags from resources.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse

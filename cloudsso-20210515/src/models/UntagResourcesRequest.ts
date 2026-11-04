@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all tags. This parameter takes effect only when the list of tag keys is empty.
+   * Specifies whether to remove all tags. This parameter takes effect only when the tag key list is empty.
    * 
    * @example
    * true
@@ -23,18 +23,18 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * The list of resource IDs. You can specify up to 50 resource IDs in a single call.
    * > 
-   * > - Supported resource types include users and access configurations:
+   * > - The resource type can be user or access configuration:
    * > - - If the resource type is user, specify the user ID.
    * > - - If the resource type is access configuration, specify the access configuration ID.
    * 
-   * <notice>If the DirectoryId parameter is not specified, you must add the prefix "${DirectoryId}_" to the resource ID.</notice>
+   * <notice>If the DirectoryId parameter is not specified, you must add the "${DirectoryId}_" prefix to the resource ID.</notice>
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Users and access configurations are supported. Valid values:
+   * The resource type. Valid values:
    * - user: user
    * - accessConfiguration: access configuration
    * 
