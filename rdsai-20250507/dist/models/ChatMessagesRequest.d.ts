@@ -1,0 +1,158 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ChatMessagesRequestFiles extends $dara.Model {
+    transferMethod?: string;
+    type?: string;
+    uploadFileId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ChatMessagesRequestInputs extends $dara.Model {
+    /**
+     * @remarks
+     * The custom agent ID for the user.
+     *
+     * @example
+     * d1b7d639-f34e-44c7-8231-987da14d****
+     */
+    customAgentId?: string;
+    /**
+     * @remarks
+     * Specifies whether to enable deep thinking mode.
+     *
+     * @example
+     * true
+     */
+    enableThinking?: string;
+    /**
+     * @remarks
+     * The conversation language.
+     *
+     * @example
+     * zh-cn
+     */
+    language?: string;
+    /**
+     * @remarks
+     * The model ID.
+     *
+     * @example
+     * qwen3.7-max
+     */
+    modelId?: string;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * @example
+     * cn-beijing
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * The tool approval call ID for resuming execution. Pass this parameter after all decisions in the current approval round are completed in the console to continue the interrupted ChatMessage Loop. Do not pass this parameter for regular conversations.
+     *
+     * @example
+     * call-example
+     */
+    resumeCallId?: string;
+    /**
+     * @remarks
+     * The thinking depth.
+     *
+     * @example
+     * default
+     */
+    thinkEffort?: string;
+    /**
+     * @remarks
+     * The time zone. Default value: **Asia/Shanghai**.
+     *
+     * @example
+     * UTC
+     */
+    timezone?: string;
+    /**
+     * @remarks
+     * The tool approval mode for the current conversation. Valid values: read_only (read-only, write tools are rejected), manual (write tools require manual approval), and auto (the approval sub-agent automatically determines the action. If the result is needs_human, the request is escalated to manual approval). When this parameter is passed, the approval mode of the current conversation is updated.
+     *
+     * @example
+     * manual
+     */
+    toolApprovalMode?: string;
+    /**
+     * @remarks
+     * The ContextDB workspace ID.
+     *
+     * @example
+     * 00000000-0000-4000-8000-000000000001
+     */
+    workspaceId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ChatMessagesRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The conversation ID.
+     *
+     * @example
+     * fea7bdca-e848-44dd-b1ae-852472b8****
+     */
+    conversationId?: string;
+    /**
+     * @remarks
+     * The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of the event = message response. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
+     *
+     * @example
+     * inline
+     */
+    eventMode?: string;
+    files?: ChatMessagesRequestFiles[];
+    /**
+     * @remarks
+     * The task inputs.
+     */
+    inputs?: ChatMessagesRequestInputs;
+    /**
+     * @remarks
+     * The parent message ID.
+     *
+     * @example
+     * 84dc9f9b-424a-404d-9c36-35e9d000****
+     */
+    parentMessageId?: string;
+    /**
+     * @remarks
+     * The query content.
+     *
+     * @example
+     * Check the disk usage of instance rm-bp14as9914vd3**** and whether storage expansion is needed
+     */
+    query?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

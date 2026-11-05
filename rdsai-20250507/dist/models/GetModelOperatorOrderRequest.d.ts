@@ -1,0 +1,21 @@
+import * as $dara from '@darabonba/typescript';
+export declare class GetModelOperatorOrderRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * @example
+     * cn-beijing
+     */
+    region?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

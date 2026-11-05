@@ -1,0 +1,46 @@
+import * as $dara from '@darabonba/typescript';
+export declare class GetStandAloneReportsRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The end time filter in the YYYY-MM-DDTHH:mm:ssZ format. If this parameter is not specified, no filtering is applied based on the end time.
+     *
+     * @example
+     * 2026-01-19T02:20:20Z
+     */
+    endTime?: string;
+    /**
+     * @remarks
+     * The page number. Default value: 1.
+     *
+     * @example
+     * 1
+     */
+    pageNumber?: number;
+    /**
+     * @remarks
+     * The number of entries per page. Default value: 20. Maximum value: 100.
+     *
+     * @example
+     * 10
+     */
+    pageSize?: number;
+    reportType?: string;
+    /**
+     * @remarks
+     * The start time filter in the YYYY-MM-DDTHH:mm:ssZ format. If this parameter is not specified, no filtering is applied based on the start time.
+     *
+     * @example
+     * 2025-03-11T02:09:00Z
+     */
+    startTime?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

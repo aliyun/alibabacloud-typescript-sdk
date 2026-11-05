@@ -1,0 +1,33 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DeleteContextDatabaseMemberRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The member ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * mb-cz51tnnp8****
+     */
+    memberId?: string;
+    /**
+     * @remarks
+     * The workspace ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * ws-as1llqmkol****
+     */
+    workspaceId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

@@ -1,0 +1,51 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ChatMessagesShrinkRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The conversation ID.
+     *
+     * @example
+     * fea7bdca-e848-44dd-b1ae-852472b8****
+     */
+    conversationId?: string;
+    /**
+     * @remarks
+     * The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of the event = message response. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
+     *
+     * @example
+     * inline
+     */
+    eventMode?: string;
+    filesShrink?: string;
+    /**
+     * @remarks
+     * The task inputs.
+     */
+    inputsShrink?: string;
+    /**
+     * @remarks
+     * The parent message ID.
+     *
+     * @example
+     * 84dc9f9b-424a-404d-9c36-35e9d000****
+     */
+    parentMessageId?: string;
+    /**
+     * @remarks
+     * The query content.
+     *
+     * @example
+     * Check the disk usage of instance rm-bp14as9914vd3**** and whether storage expansion is needed
+     */
+    query?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

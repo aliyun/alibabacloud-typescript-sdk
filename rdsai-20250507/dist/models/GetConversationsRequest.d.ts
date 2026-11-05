@@ -1,0 +1,53 @@
+import * as $dara from '@darabonba/typescript';
+export declare class GetConversationsRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the last conversation record.
+     *
+     * @example
+     * 77be60cd-237b-4ca9-9c46-48b663cb****
+     */
+    lastId?: string;
+    /**
+     * @remarks
+     * The number of entries per page for a paged query. Valid values: 1 to 100.
+     *
+     * @example
+     * 10
+     */
+    limit?: string;
+    /**
+     * @remarks
+     * The pinned bookmark flag for the application.
+     *
+     * @example
+     * true
+     */
+    pinned?: string;
+    /**
+     * @remarks
+     * The sorting criterion.
+     *
+     * @example
+     * CreatedAt
+     */
+    sortBy?: string;
+    /**
+     * @remarks
+     * The ContextDB workspace ID.
+     *
+     * @example
+     * 00000000-0000-4000-8000-000000000001
+     */
+    workspaceId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
