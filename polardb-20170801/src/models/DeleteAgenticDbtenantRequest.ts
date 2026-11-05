@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAgenticDBTenantRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AgenticDB cluster.
+   * The AgenticDB cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteAgenticDBTenantRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the tenant.
+   * The tenant ID.
    * 
    * This parameter is required.
    * 

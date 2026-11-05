@@ -18,7 +18,7 @@ export class CreateAgenticDBTenantRequest extends $dara.Model {
    * The description of the tenant. The description can be up to 256 characters in length.
    * 
    * @example
-   * Example tenant
+   * Sample tenant
    */
   description?: string;
   /**
@@ -33,7 +33,7 @@ export class CreateAgenticDBTenantRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the tenant. It must be 1 to 64 characters in length, start with a letter, and contain only letters, digits, underscores (_), and hyphens (-).
+   * The tenant name. The name must be 1 to 64 characters in length, start with a letter, and contain only letters, digits, underscores (_), and hyphens (-).
    * 
    * This parameter is required.
    * 

@@ -5661,6 +5661,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a periodic inspection task for specified PolarDB clusters.
+   * 
+   * @param request - CreateInspectionTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInspectionTaskResponse
+   */
+  async createInspectionTaskWithOptions(request: $_model.CreateInspectionTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInspectionTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cronExpression)) {
+      query["CronExpression"] = request.cronExpression;
+    }
+
+    if (!$dara.isNull(request.DBClusterList)) {
+      query["DBClusterList"] = request.DBClusterList;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.spaceId)) {
+      query["SpaceId"] = request.spaceId;
+    }
+
+    if (!$dara.isNull(request.taskDescription)) {
+      query["TaskDescription"] = request.taskDescription;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInspectionTask",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInspectionTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateInspectionTaskResponse({}));
+  }
+
+  /**
+   * Creates a periodic inspection task for specified PolarDB clusters.
+   * 
+   * @param request - CreateInspectionTaskRequest
+   * @returns CreateInspectionTaskResponse
+   */
+  async createInspectionTask(request: $_model.CreateInspectionTaskRequest): Promise<$_model.CreateInspectionTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createInspectionTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a knowledge base synchronization link.
    * 
    * @param request - CreateKBSyncLinkRequest
@@ -5932,6 +5994,68 @@ export default class Client extends OpenApi {
   async createKnowledgeSpace(request: $_model.CreateKnowledgeSpaceRequest): Promise<$_model.CreateKnowledgeSpaceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createKnowledgeSpaceWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a Lakebase parameter template.
+   * 
+   * @param request - CreateLakebaseMountParameterGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLakebaseMountParameterGroupResponse
+   */
+  async createLakebaseMountParameterGroupWithOptions(request: $_model.CreateLakebaseMountParameterGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLakebaseMountParameterGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.paramGroupCategory)) {
+      query["ParamGroupCategory"] = request.paramGroupCategory;
+    }
+
+    if (!$dara.isNull(request.parameterGroupDesc)) {
+      query["ParameterGroupDesc"] = request.parameterGroupDesc;
+    }
+
+    if (!$dara.isNull(request.parameterGroupName)) {
+      query["ParameterGroupName"] = request.parameterGroupName;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLakebaseMountParameterGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLakebaseMountParameterGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateLakebaseMountParameterGroupResponse({}));
+  }
+
+  /**
+   * Creates a Lakebase parameter template.
+   * 
+   * @param request - CreateLakebaseMountParameterGroupRequest
+   * @returns CreateLakebaseMountParameterGroupResponse
+   */
+  async createLakebaseMountParameterGroup(request: $_model.CreateLakebaseMountParameterGroupRequest): Promise<$_model.CreateLakebaseMountParameterGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createLakebaseMountParameterGroupWithOptions(request, runtime);
   }
 
   /**
@@ -6668,6 +6792,68 @@ export default class Client extends OpenApi {
   async createPolarClawCronJob(request: $_model.CreatePolarClawCronJobRequest): Promise<$_model.CreatePolarClawCronJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createPolarClawCronJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a PolarClaw skill template.
+   * 
+   * @param request - CreatePolarClawSkillTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePolarClawSkillTemplateResponse
+   */
+  async createPolarClawSkillTemplateWithOptions(request: $_model.CreatePolarClawSkillTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePolarClawSkillTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationType)) {
+      query["ApplicationType"] = request.applicationType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.skillTemplateDesc)) {
+      query["SkillTemplateDesc"] = request.skillTemplateDesc;
+    }
+
+    if (!$dara.isNull(request.skillTemplateName)) {
+      query["SkillTemplateName"] = request.skillTemplateName;
+    }
+
+    if (!$dara.isNull(request.skillTemplateParam)) {
+      query["SkillTemplateParam"] = request.skillTemplateParam;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePolarClawSkillTemplate",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePolarClawSkillTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreatePolarClawSkillTemplateResponse({}));
+  }
+
+  /**
+   * Creates a PolarClaw skill template.
+   * 
+   * @param request - CreatePolarClawSkillTemplateRequest
+   * @returns CreatePolarClawSkillTemplateResponse
+   */
+  async createPolarClawSkillTemplate(request: $_model.CreatePolarClawSkillTemplateRequest): Promise<$_model.CreatePolarClawSkillTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPolarClawSkillTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -7772,7 +7958,7 @@ export default class Client extends OpenApi {
    * Deletes an AgenticDB tenant.
    * 
    * @remarks
-   * Only tenants whose projects and branches have been completely cleaned up can be deleted. After a successful deletion, all API keys associated with the tenant become invalid. This operation does not automatically clean up projects, branches, or storage.
+   * You can only delete a tenant whose projects and branches have been cleaned up. After the tenant is deleted, all its API keys become invalid. This operation does not automatically clean up projects, branches, or storage.
    * 
    * @param request - DeleteAgenticDBTenantRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7814,7 +8000,7 @@ export default class Client extends OpenApi {
    * Deletes an AgenticDB tenant.
    * 
    * @remarks
-   * Only tenants whose projects and branches have been completely cleaned up can be deleted. After a successful deletion, all API keys associated with the tenant become invalid. This operation does not automatically clean up projects, branches, or storage.
+   * You can only delete a tenant whose projects and branches have been cleaned up. After the tenant is deleted, all its API keys become invalid. This operation does not automatically clean up projects, branches, or storage.
    * 
    * @param request - DeleteAgenticDBTenantRequest
    * @returns DeleteAgenticDBTenantResponse
@@ -9435,6 +9621,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a parameter template mounted to Lakebase.
+   * 
+   * @param request - DeleteLakebaseMountParameterGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLakebaseMountParameterGroupResponse
+   */
+  async deleteLakebaseMountParameterGroupWithOptions(request: $_model.DeleteLakebaseMountParameterGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLakebaseMountParameterGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.parameterGroupId)) {
+      query["ParameterGroupId"] = request.parameterGroupId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLakebaseMountParameterGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLakebaseMountParameterGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLakebaseMountParameterGroupResponse({}));
+  }
+
+  /**
+   * Deletes a parameter template mounted to Lakebase.
+   * 
+   * @param request - DeleteLakebaseMountParameterGroupRequest
+   * @returns DeleteLakebaseMountParameterGroupResponse
+   */
+  async deleteLakebaseMountParameterGroup(request: $_model.DeleteLakebaseMountParameterGroupRequest): Promise<$_model.DeleteLakebaseMountParameterGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteLakebaseMountParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a PolarFS S3 account.
    * 
    * @param request - DeleteLakebaseS3AccountRequest
@@ -9973,6 +10209,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a PolarClaw skill.
+   * 
+   * @param request - DeletePolarClawSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePolarClawSkillResponse
+   */
+  async deletePolarClawSkillWithOptions(request: $_model.DeletePolarClawSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePolarClawSkillResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.skillName)) {
+      query["SkillName"] = request.skillName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePolarClawSkill",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePolarClawSkillResponse>(await this.callApi(params, req, runtime), new $_model.DeletePolarClawSkillResponse({}));
+  }
+
+  /**
+   * Deletes a PolarClaw skill.
+   * 
+   * @param request - DeletePolarClawSkillRequest
+   * @returns DeletePolarClawSkillResponse
+   */
+  async deletePolarClawSkill(request: $_model.DeletePolarClawSkillRequest): Promise<$_model.DeletePolarClawSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePolarClawSkillWithOptions(request, runtime);
+  }
+
+  /**
    * Releases a pay-as-you-go PolarFs instance.
    * 
    * @param request - DeletePolarFsRequest
@@ -10426,6 +10708,41 @@ export default class Client extends OpenApi {
   async deleteSQLRateLimitingRules(request: $_model.DeleteSQLRateLimitingRulesRequest): Promise<$_model.DeleteSQLRateLimitingRulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSQLRateLimitingRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the AI assistant order information for the current account, including the order status, version, capacity package, and expiration time.
+   * 
+   * @param request - DescribeAIAgentOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAIAgentOrderResponse
+   */
+  async describeAIAgentOrderWithOptions(request: $_model.DescribeAIAgentOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAIAgentOrderResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAIAgentOrder",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAIAgentOrderResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAIAgentOrderResponse({}));
+  }
+
+  /**
+   * Queries the AI assistant order information for the current account, including the order status, version, capacity package, and expiration time.
+   * 
+   * @param request - DescribeAIAgentOrderRequest
+   * @returns DescribeAIAgentOrderResponse
+   */
+  async describeAIAgentOrder(request: $_model.DescribeAIAgentOrderRequest): Promise<$_model.DescribeAIAgentOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAIAgentOrderWithOptions(request, runtime);
   }
 
   /**
@@ -11456,6 +11773,88 @@ export default class Client extends OpenApi {
   async describeActiveOperationMaintainConf(request: $_model.DescribeActiveOperationMaintainConfRequest): Promise<$_model.DescribeActiveOperationMaintainConfResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeActiveOperationMaintainConfWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of active operation tasks.
+   * 
+   * @param request - DescribeActiveOperationTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActiveOperationTaskResponse
+   */
+  async describeActiveOperationTaskWithOptions(request: $_model.DescribeActiveOperationTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeActiveOperationTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.isHistory)) {
+      query["IsHistory"] = request.isHistory;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeActiveOperationTask",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeActiveOperationTaskResponse>(await this.callApi(params, req, runtime), new $_model.DescribeActiveOperationTaskResponse({}));
+  }
+
+  /**
+   * Queries the details of active operation tasks.
+   * 
+   * @param request - DescribeActiveOperationTaskRequest
+   * @returns DescribeActiveOperationTaskResponse
+   */
+  async describeActiveOperationTask(request: $_model.DescribeActiveOperationTaskRequest): Promise<$_model.DescribeActiveOperationTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeActiveOperationTaskWithOptions(request, runtime);
   }
 
   /**
@@ -14945,6 +15344,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the model enhancement status and API key list of a specified PolarDB cluster.
+   * 
+   * @param request - DescribeDBClusterModelEnhancementRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBClusterModelEnhancementResponse
+   */
+  async describeDBClusterModelEnhancementWithOptions(request: $_model.DescribeDBClusterModelEnhancementRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBClusterModelEnhancementResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBClusterModelEnhancement",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBClusterModelEnhancementResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBClusterModelEnhancementResponse({}));
+  }
+
+  /**
+   * Queries the model enhancement status and API key list of a specified PolarDB cluster.
+   * 
+   * @param request - DescribeDBClusterModelEnhancementRequest
+   * @returns DescribeDBClusterModelEnhancementResponse
+   */
+  async describeDBClusterModelEnhancement(request: $_model.DescribeDBClusterModelEnhancementRequest): Promise<$_model.DescribeDBClusterModelEnhancementResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBClusterModelEnhancementWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the interval at which the monitoring data of a PolarDB cluster is collected.
    * 
    * @param request - DescribeDBClusterMonitorRequest
@@ -16197,6 +16638,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of instances.
+   * 
+   * @param request - DescribeDBInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBInstancesResponse
+   */
+  async describeDBInstancesWithOptions(request: $_model.DescribeDBInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.instanceNetworkType)) {
+      query["InstanceNetworkType"] = request.instanceNetworkType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBInstances",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBInstancesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBInstancesResponse({}));
+  }
+
+  /**
+   * Queries the list of instances.
+   * 
+   * @param request - DescribeDBInstancesRequest
+   * @returns DescribeDBInstancesResponse
+   */
+  async describeDBInstances(request: $_model.DescribeDBInstancesRequest): Promise<$_model.DescribeDBInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBInstancesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the database links of a PolarDB for Oracle cluster.
    * 
    * @remarks
@@ -17024,6 +17539,41 @@ export default class Client extends OpenApi {
   async describeDetachedBackups(request: $_model.DescribeDetachedBackupsRequest): Promise<$_model.DescribeDetachedBackupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDetachedBackupsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the available edge cloud regions for the current account, along with their central control regions and standby edge cloud regions.
+   * 
+   * @param request - DescribeEdgeCloudRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEdgeCloudRegionResponse
+   */
+  async describeEdgeCloudRegionWithOptions(request: $_model.DescribeEdgeCloudRegionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEdgeCloudRegionResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeEdgeCloudRegion",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeEdgeCloudRegionResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEdgeCloudRegionResponse({}));
+  }
+
+  /**
+   * Queries the available edge cloud regions for the current account, along with their central control regions and standby edge cloud regions.
+   * 
+   * @param request - DescribeEdgeCloudRegionRequest
+   * @returns DescribeEdgeCloudRegionResponse
+   */
+  async describeEdgeCloudRegion(request: $_model.DescribeEdgeCloudRegionRequest): Promise<$_model.DescribeEdgeCloudRegionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeEdgeCloudRegionWithOptions(request, runtime);
   }
 
   /**
@@ -18229,6 +18779,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of KVCache instances filtered by region, associated cluster, or instance ID, and returns the results in pages.
+   * 
+   * @param request - DescribeKVCacheInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKVCacheInstancesResponse
+   */
+  async describeKVCacheInstancesWithOptions(request: $_model.DescribeKVCacheInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeKVCacheInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.KVCacheInstanceDescription)) {
+      query["KVCacheInstanceDescription"] = request.KVCacheInstanceDescription;
+    }
+
+    if (!$dara.isNull(request.KVCacheInstanceIds)) {
+      query["KVCacheInstanceIds"] = request.KVCacheInstanceIds;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.relativeDBClusterId)) {
+      query["RelativeDBClusterId"] = request.relativeDBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeKVCacheInstances",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeKVCacheInstancesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeKVCacheInstancesResponse({}));
+  }
+
+  /**
+   * Queries the details of KVCache instances filtered by region, associated cluster, or instance ID, and returns the results in pages.
+   * 
+   * @param request - DescribeKVCacheInstancesRequest
+   * @returns DescribeKVCacheInstancesResponse
+   */
+  async describeKVCacheInstances(request: $_model.DescribeKVCacheInstancesRequest): Promise<$_model.DescribeKVCacheInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeKVCacheInstancesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the single-turn Q&A results of a knowledge base.
    * 
    * @param request - DescribeKnowledgeBaseAnswerRequest
@@ -18558,6 +19170,222 @@ export default class Client extends OpenApi {
   async describeKnowledgeSpaceAttribute(request: $_model.DescribeKnowledgeSpaceAttributeRequest): Promise<$_model.DescribeKnowledgeSpaceAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeKnowledgeSpaceAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a parameter template attached to Lakebase.
+   * 
+   * @param request - DescribeLakebaseMountParameterGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLakebaseMountParameterGroupResponse
+   */
+  async describeLakebaseMountParameterGroupWithOptions(request: $_model.DescribeLakebaseMountParameterGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLakebaseMountParameterGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.parameterGroupId)) {
+      query["ParameterGroupId"] = request.parameterGroupId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLakebaseMountParameterGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLakebaseMountParameterGroupResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLakebaseMountParameterGroupResponse({}));
+  }
+
+  /**
+   * Queries the details of a parameter template attached to Lakebase.
+   * 
+   * @param request - DescribeLakebaseMountParameterGroupRequest
+   * @returns DescribeLakebaseMountParameterGroupResponse
+   */
+  async describeLakebaseMountParameterGroup(request: $_model.DescribeLakebaseMountParameterGroupRequest): Promise<$_model.DescribeLakebaseMountParameterGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLakebaseMountParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the change history of parameter templates mounted to Lakebase.
+   * 
+   * @param request - DescribeLakebaseMountParameterGroupChangeLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLakebaseMountParameterGroupChangeLogsResponse
+   */
+  async describeLakebaseMountParameterGroupChangeLogsWithOptions(request: $_model.DescribeLakebaseMountParameterGroupChangeLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLakebaseMountParameterGroupChangeLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.parameterGroupId)) {
+      query["ParameterGroupId"] = request.parameterGroupId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLakebaseMountParameterGroupChangeLogs",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLakebaseMountParameterGroupChangeLogsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLakebaseMountParameterGroupChangeLogsResponse({}));
+  }
+
+  /**
+   * Queries the change history of parameter templates mounted to Lakebase.
+   * 
+   * @param request - DescribeLakebaseMountParameterGroupChangeLogsRequest
+   * @returns DescribeLakebaseMountParameterGroupChangeLogsResponse
+   */
+  async describeLakebaseMountParameterGroupChangeLogs(request: $_model.DescribeLakebaseMountParameterGroupChangeLogsRequest): Promise<$_model.DescribeLakebaseMountParameterGroupChangeLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLakebaseMountParameterGroupChangeLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of parameter templates associated with Lakebase.
+   * 
+   * @param request - DescribeLakebaseMountParameterGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLakebaseMountParameterGroupsResponse
+   */
+  async describeLakebaseMountParameterGroupsWithOptions(request: $_model.DescribeLakebaseMountParameterGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLakebaseMountParameterGroupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.paramGroupCategory)) {
+      query["ParamGroupCategory"] = request.paramGroupCategory;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLakebaseMountParameterGroups",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLakebaseMountParameterGroupsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLakebaseMountParameterGroupsResponse({}));
+  }
+
+  /**
+   * Queries the list of parameter templates associated with Lakebase.
+   * 
+   * @param request - DescribeLakebaseMountParameterGroupsRequest
+   * @returns DescribeLakebaseMountParameterGroupsResponse
+   */
+  async describeLakebaseMountParameterGroups(request: $_model.DescribeLakebaseMountParameterGroupsRequest): Promise<$_model.DescribeLakebaseMountParameterGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLakebaseMountParameterGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the parameter dictionary supported by Lakebase mounted parameter templates.
+   * 
+   * @param request - DescribeLakebaseMountParameterTemplateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLakebaseMountParameterTemplateListResponse
+   */
+  async describeLakebaseMountParameterTemplateListWithOptions(request: $_model.DescribeLakebaseMountParameterTemplateListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLakebaseMountParameterTemplateListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.engine)) {
+      query["Engine"] = request.engine;
+    }
+
+    if (!$dara.isNull(request.paramGroupCategory)) {
+      query["ParamGroupCategory"] = request.paramGroupCategory;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLakebaseMountParameterTemplateList",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLakebaseMountParameterTemplateListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLakebaseMountParameterTemplateListResponse({}));
+  }
+
+  /**
+   * Queries the parameter dictionary supported by Lakebase mounted parameter templates.
+   * 
+   * @param request - DescribeLakebaseMountParameterTemplateListRequest
+   * @returns DescribeLakebaseMountParameterTemplateListResponse
+   */
+  async describeLakebaseMountParameterTemplateList(request: $_model.DescribeLakebaseMountParameterTemplateListRequest): Promise<$_model.DescribeLakebaseMountParameterTemplateListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLakebaseMountParameterTemplateListWithOptions(request, runtime);
   }
 
   /**
@@ -20191,6 +21019,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of the PolarClaw skill security assessment.
+   * 
+   * @param request - DescribePolarClawSkillAssessmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarClawSkillAssessmentResponse
+   */
+  async describePolarClawSkillAssessmentWithOptions(request: $_model.DescribePolarClawSkillAssessmentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarClawSkillAssessmentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.skillName)) {
+      query["SkillName"] = request.skillName;
+    }
+
+    if (!$dara.isNull(request.skillVersion)) {
+      query["SkillVersion"] = request.skillVersion;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarClawSkillAssessment",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarClawSkillAssessmentResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarClawSkillAssessmentResponse({}));
+  }
+
+  /**
+   * Retrieves the details of the PolarClaw skill security assessment.
+   * 
+   * @param request - DescribePolarClawSkillAssessmentRequest
+   * @returns DescribePolarClawSkillAssessmentResponse
+   */
+  async describePolarClawSkillAssessment(request: $_model.DescribePolarClawSkillAssessmentRequest): Promise<$_model.DescribePolarClawSkillAssessmentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarClawSkillAssessmentWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a PolarClaw Skill.
    * 
    * @param request - DescribePolarClawSkillDetailRequest
@@ -20234,6 +21120,200 @@ export default class Client extends OpenApi {
   async describePolarClawSkillDetail(request: $_model.DescribePolarClawSkillDetailRequest): Promise<$_model.DescribePolarClawSkillDetailResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describePolarClawSkillDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a PolarClaw skill template.
+   * 
+   * @remarks
+   * ## Request description
+   * - This API operation queries all quota rules under a specific Polarlakebase instance and supports fuzzy matching by using the QuotaNameMatch and PatternMatch parameters.
+   * - The pagination feature is not yet public and will be available after the kernel is ready. Currently, there is no pagination limit on the returned results.
+   * - PolarFsInstanceId is required and specifies the Polarlakebase instance to query.
+   * - Optional parameters such as QuotaNameMatch and PatternMatch can be used to further filter the matching quota rules.
+   * - The returned data includes but is not limited to the total number of quota rules, the number of rules on the current page, and specific rule details such as the rule ID, name, description, and capacity limit.
+   * 
+   * @param request - DescribePolarClawSkillTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarClawSkillTemplateResponse
+   */
+  async describePolarClawSkillTemplateWithOptions(request: $_model.DescribePolarClawSkillTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarClawSkillTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationType)) {
+      query["ApplicationType"] = request.applicationType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.skillTemplateId)) {
+      query["SkillTemplateId"] = request.skillTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarClawSkillTemplate",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarClawSkillTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarClawSkillTemplateResponse({}));
+  }
+
+  /**
+   * Queries the details of a PolarClaw skill template.
+   * 
+   * @remarks
+   * ## Request description
+   * - This API operation queries all quota rules under a specific Polarlakebase instance and supports fuzzy matching by using the QuotaNameMatch and PatternMatch parameters.
+   * - The pagination feature is not yet public and will be available after the kernel is ready. Currently, there is no pagination limit on the returned results.
+   * - PolarFsInstanceId is required and specifies the Polarlakebase instance to query.
+   * - Optional parameters such as QuotaNameMatch and PatternMatch can be used to further filter the matching quota rules.
+   * - The returned data includes but is not limited to the total number of quota rules, the number of rules on the current page, and specific rule details such as the rule ID, name, description, and capacity limit.
+   * 
+   * @param request - DescribePolarClawSkillTemplateRequest
+   * @returns DescribePolarClawSkillTemplateResponse
+   */
+  async describePolarClawSkillTemplate(request: $_model.DescribePolarClawSkillTemplateRequest): Promise<$_model.DescribePolarClawSkillTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarClawSkillTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries PolarClaw skills.
+   * 
+   * @param request - DescribePolarClawSkillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarClawSkillsResponse
+   */
+  async describePolarClawSkillsWithOptions(request: $_model.DescribePolarClawSkillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarClawSkillsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarClawSkills",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarClawSkillsResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarClawSkillsResponse({}));
+  }
+
+  /**
+   * Queries PolarClaw skills.
+   * 
+   * @param request - DescribePolarClawSkillsRequest
+   * @returns DescribePolarClawSkillsResponse
+   */
+  async describePolarClawSkills(request: $_model.DescribePolarClawSkillsRequest): Promise<$_model.DescribePolarClawSkillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarClawSkillsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the PolarClaw skills marketplace.
+   * 
+   * @param request - DescribePolarClawSkillsMarketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarClawSkillsMarketResponse
+   */
+  async describePolarClawSkillsMarketWithOptions(request: $_model.DescribePolarClawSkillsMarketRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarClawSkillsMarketResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.searchBySkillName)) {
+      query["SearchBySkillName"] = request.searchBySkillName;
+    }
+
+    if (!$dara.isNull(request.searchByTagName)) {
+      query["SearchByTagName"] = request.searchByTagName;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarClawSkillsMarket",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarClawSkillsMarketResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarClawSkillsMarketResponse({}));
+  }
+
+  /**
+   * Queries the PolarClaw skills marketplace.
+   * 
+   * @param request - DescribePolarClawSkillsMarketRequest
+   * @returns DescribePolarClawSkillsMarketResponse
+   */
+  async describePolarClawSkillsMarket(request: $_model.DescribePolarClawSkillsMarketRequest): Promise<$_model.DescribePolarClawSkillsMarketResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarClawSkillsMarketWithOptions(request, runtime);
   }
 
   /**
@@ -20967,6 +22047,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of the distributed instance.
+   * 
+   * @param request - DescribeReplicationSlotsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeReplicationSlotsResponse
+   */
+  async describeReplicationSlotsWithOptions(request: $_model.DescribeReplicationSlotsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeReplicationSlotsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.subGroupName)) {
+      query["SubGroupName"] = request.subGroupName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeReplicationSlots",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeReplicationSlotsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeReplicationSlotsResponse({}));
+  }
+
+  /**
+   * Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of the distributed instance.
+   * 
+   * @param request - DescribeReplicationSlotsRequest
+   * @returns DescribeReplicationSlotsResponse
+   */
+  async describeReplicationSlots(request: $_model.DescribeReplicationSlotsRequest): Promise<$_model.DescribeReplicationSlotsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeReplicationSlotsWithOptions(request, runtime);
+  }
+
+  /**
    * Describes cross-cloud resource plans.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20995,6 +22121,130 @@ export default class Client extends OpenApi {
   async describeResourcePackages(): Promise<$_model.DescribeResourcePackagesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeResourcePackagesWithOptions(runtime);
+  }
+
+  /**
+   * Checks whether the SQL Explorer feature is enabled for the specified cluster.
+   * 
+   * @param request - DescribeSQLExplorerPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSQLExplorerPolicyResponse
+   */
+  async describeSQLExplorerPolicyWithOptions(request: $_model.DescribeSQLExplorerPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSQLExplorerPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSQLExplorerPolicy",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSQLExplorerPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSQLExplorerPolicyResponse({}));
+  }
+
+  /**
+   * Checks whether the SQL Explorer feature is enabled for the specified cluster.
+   * 
+   * @param request - DescribeSQLExplorerPolicyRequest
+   * @returns DescribeSQLExplorerPolicyResponse
+   */
+  async describeSQLExplorerPolicy(request: $_model.DescribeSQLExplorerPolicyRequest): Promise<$_model.DescribeSQLExplorerPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSQLExplorerPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the SQL Explorer log retention period for a PolarDB cluster.
+   * 
+   * @param request - DescribeSQLExplorerRetentionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSQLExplorerRetentionResponse
+   */
+  async describeSQLExplorerRetentionWithOptions(request: $_model.DescribeSQLExplorerRetentionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSQLExplorerRetentionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSQLExplorerRetention",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSQLExplorerRetentionResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSQLExplorerRetentionResponse({}));
+  }
+
+  /**
+   * Queries the SQL Explorer log retention period for a PolarDB cluster.
+   * 
+   * @param request - DescribeSQLExplorerRetentionRequest
+   * @returns DescribeSQLExplorerRetentionResponse
+   */
+  async describeSQLExplorerRetention(request: $_model.DescribeSQLExplorerRetentionRequest): Promise<$_model.DescribeSQLExplorerRetentionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSQLExplorerRetentionWithOptions(request, runtime);
   }
 
   /**
@@ -21443,6 +22693,78 @@ export default class Client extends OpenApi {
   async describeSlowLogs(request: $_model.DescribeSlowLogsRequest): Promise<$_model.DescribeSlowLogsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSlowLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of storage plans.
+   * 
+   * @remarks
+   * > This operation is only supported in regions where the endpoint is polardb.aliyuncs.com.
+   * 
+   * @param request - DescribeStoragePlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeStoragePlanResponse
+   */
+  async describeStoragePlanWithOptions(request: $_model.DescribeStoragePlanRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeStoragePlanResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeStoragePlan",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeStoragePlanResponse>(await this.callApi(params, req, runtime), new $_model.DescribeStoragePlanResponse({}));
+  }
+
+  /**
+   * Queries the list of storage plans.
+   * 
+   * @remarks
+   * > This operation is only supported in regions where the endpoint is polardb.aliyuncs.com.
+   * 
+   * @param request - DescribeStoragePlanRequest
+   * @returns DescribeStoragePlanResponse
+   */
+  async describeStoragePlan(request: $_model.DescribeStoragePlanRequest): Promise<$_model.DescribeStoragePlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeStoragePlanWithOptions(request, runtime);
   }
 
   /**
@@ -22008,6 +23330,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables the column store table feature for a specified PolarDB cluster.
+   * 
+   * @param request - DisableDBClusterCTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableDBClusterCTableResponse
+   */
+  async disableDBClusterCTableWithOptions(request: $_model.DisableDBClusterCTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableDBClusterCTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableDBClusterCTable",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableDBClusterCTableResponse>(await this.callApi(params, req, runtime), new $_model.DisableDBClusterCTableResponse({}));
+  }
+
+  /**
+   * Disables the column store table feature for a specified PolarDB cluster.
+   * 
+   * @param request - DisableDBClusterCTableRequest
+   * @returns DisableDBClusterCTableResponse
+   */
+  async disableDBClusterCTable(request: $_model.DisableDBClusterCTableRequest): Promise<$_model.DisableDBClusterCTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableDBClusterCTableWithOptions(request, runtime);
+  }
+
+  /**
+   * Disables document database support for a specified PolarDB cluster.
+   * 
+   * @param request - DisableDBClusterDocumentDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableDBClusterDocumentDBResponse
+   */
+  async disableDBClusterDocumentDBWithOptions(request: $_model.DisableDBClusterDocumentDBRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableDBClusterDocumentDBResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableDBClusterDocumentDB",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableDBClusterDocumentDBResponse>(await this.callApi(params, req, runtime), new $_model.DisableDBClusterDocumentDBResponse({}));
+  }
+
+  /**
+   * Disables document database support for a specified PolarDB cluster.
+   * 
+   * @param request - DisableDBClusterDocumentDBRequest
+   * @returns DisableDBClusterDocumentDBResponse
+   */
+  async disableDBClusterDocumentDB(request: $_model.DisableDBClusterDocumentDBRequest): Promise<$_model.DisableDBClusterDocumentDBResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableDBClusterDocumentDBWithOptions(request, runtime);
+  }
+
+  /**
    * Disables DynamoDB compatibility.
    * 
    * @param request - DisableDBClusterDynamoDBRequest
@@ -22337,6 +23743,156 @@ export default class Client extends OpenApi {
   async disablePolarClawPlugin(request: $_model.DisablePolarClawPluginRequest): Promise<$_model.DisablePolarClawPluginResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disablePolarClawPluginWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables the dataset management service for a cold storage instance.
+   * 
+   * @param request - EnableAIDBClusterDatasetServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableAIDBClusterDatasetServiceResponse
+   */
+  async enableAIDBClusterDatasetServiceWithOptions(request: $_model.EnableAIDBClusterDatasetServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableAIDBClusterDatasetServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.relativeDBClusterId)) {
+      query["RelativeDBClusterId"] = request.relativeDBClusterId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableAIDBClusterDatasetService",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableAIDBClusterDatasetServiceResponse>(await this.callApi(params, req, runtime), new $_model.EnableAIDBClusterDatasetServiceResponse({}));
+  }
+
+  /**
+   * Enables the dataset management service for a cold storage instance.
+   * 
+   * @param request - EnableAIDBClusterDatasetServiceRequest
+   * @returns EnableAIDBClusterDatasetServiceResponse
+   */
+  async enableAIDBClusterDatasetService(request: $_model.EnableAIDBClusterDatasetServiceRequest): Promise<$_model.EnableAIDBClusterDatasetServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableAIDBClusterDatasetServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables the column store table feature for a specified PolarDB cluster.
+   * 
+   * @param request - EnableDBClusterCTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableDBClusterCTableResponse
+   */
+  async enableDBClusterCTableWithOptions(request: $_model.EnableDBClusterCTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableDBClusterCTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableDBClusterCTable",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableDBClusterCTableResponse>(await this.callApi(params, req, runtime), new $_model.EnableDBClusterCTableResponse({}));
+  }
+
+  /**
+   * Enables the column store table feature for a specified PolarDB cluster.
+   * 
+   * @param request - EnableDBClusterCTableRequest
+   * @returns EnableDBClusterCTableResponse
+   */
+  async enableDBClusterCTable(request: $_model.EnableDBClusterCTableRequest): Promise<$_model.EnableDBClusterCTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableDBClusterCTableWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables document database support for an instance.
+   * 
+   * @param request - EnableDBClusterDocumentDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableDBClusterDocumentDBResponse
+   */
+  async enableDBClusterDocumentDBWithOptions(request: $_model.EnableDBClusterDocumentDBRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableDBClusterDocumentDBResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableDBClusterDocumentDB",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableDBClusterDocumentDBResponse>(await this.callApi(params, req, runtime), new $_model.EnableDBClusterDocumentDBResponse({}));
+  }
+
+  /**
+   * Enables document database support for an instance.
+   * 
+   * @param request - EnableDBClusterDocumentDBRequest
+   * @returns EnableDBClusterDocumentDBResponse
+   */
+  async enableDBClusterDocumentDB(request: $_model.EnableDBClusterDocumentDBRequest): Promise<$_model.EnableDBClusterDocumentDBResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableDBClusterDocumentDBWithOptions(request, runtime);
   }
 
   /**
@@ -23405,6 +24961,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the central bucket of polarClawSkill.
+   * 
+   * @remarks
+   * ## Request description
+   * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when a rule is missing.
+   * ### Important notes
+   * - The maximum length of the `FilePathQuotas` list is 21.
+   * - To apply rules to multi-level subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
+   * 
+   * @param request - GetPolarClawSkillRegionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPolarClawSkillRegionResponse
+   */
+  async getPolarClawSkillRegionWithOptions(request: $_model.GetPolarClawSkillRegionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPolarClawSkillRegionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPolarClawSkillRegion",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPolarClawSkillRegionResponse>(await this.callApi(params, req, runtime), new $_model.GetPolarClawSkillRegionResponse({}));
+  }
+
+  /**
+   * Retrieves the central bucket of polarClawSkill.
+   * 
+   * @remarks
+   * ## Request description
+   * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when a rule is missing.
+   * ### Important notes
+   * - The maximum length of the `FilePathQuotas` list is 21.
+   * - To apply rules to multi-level subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
+   * 
+   * @param request - GetPolarClawSkillRegionRequest
+   * @returns GetPolarClawSkillRegionResponse
+   */
+  async getPolarClawSkillRegion(request: $_model.GetPolarClawSkillRegionRequest): Promise<$_model.GetPolarClawSkillRegionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPolarClawSkillRegionWithOptions(request, runtime);
+  }
+
+  /**
    * Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
    * 
    * @remarks
@@ -24294,6 +25906,76 @@ export default class Client extends OpenApi {
   async modifyAIDBClusterModel(request: $_model.ModifyAIDBClusterModelRequest): Promise<$_model.ModifyAIDBClusterModelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAIDBClusterModelWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies a task.
+   * 
+   * @param request - ModifyAIDBClusterTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAIDBClusterTaskResponse
+   */
+  async modifyAIDBClusterTaskWithOptions(request: $_model.ModifyAIDBClusterTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAIDBClusterTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.modifyMode)) {
+      query["ModifyMode"] = request.modifyMode;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.relativeDBClusterId)) {
+      query["RelativeDBClusterId"] = request.relativeDBClusterId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAIDBClusterTask",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAIDBClusterTaskResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAIDBClusterTaskResponse({}));
+  }
+
+  /**
+   * Modifies a task.
+   * 
+   * @param request - ModifyAIDBClusterTaskRequest
+   * @returns ModifyAIDBClusterTaskResponse
+   */
+  async modifyAIDBClusterTask(request: $_model.ModifyAIDBClusterTaskRequest): Promise<$_model.ModifyAIDBClusterTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAIDBClusterTaskWithOptions(request, runtime);
   }
 
   /**
@@ -26214,6 +27896,52 @@ export default class Client extends OpenApi {
   async modifyDBClusterAuditLogCollector(request: $_model.ModifyDBClusterAuditLogCollectorRequest): Promise<$_model.ModifyDBClusterAuditLogCollectorResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDBClusterAuditLogCollectorWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the minor engine version update policy of a specified PolarDB cluster.
+   * 
+   * @param request - ModifyDBClusterAutoUpgradeMinorVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBClusterAutoUpgradeMinorVersionResponse
+   */
+  async modifyDBClusterAutoUpgradeMinorVersionWithOptions(request: $_model.ModifyDBClusterAutoUpgradeMinorVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterAutoUpgradeMinorVersionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoUpgradeMinorVersion)) {
+      query["AutoUpgradeMinorVersion"] = request.autoUpgradeMinorVersion;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBClusterAutoUpgradeMinorVersion",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDBClusterAutoUpgradeMinorVersionResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBClusterAutoUpgradeMinorVersionResponse({}));
+  }
+
+  /**
+   * Modifies the minor engine version update policy of a specified PolarDB cluster.
+   * 
+   * @param request - ModifyDBClusterAutoUpgradeMinorVersionRequest
+   * @returns ModifyDBClusterAutoUpgradeMinorVersionResponse
+   */
+  async modifyDBClusterAutoUpgradeMinorVersion(request: $_model.ModifyDBClusterAutoUpgradeMinorVersionRequest): Promise<$_model.ModifyDBClusterAutoUpgradeMinorVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBClusterAutoUpgradeMinorVersionWithOptions(request, runtime);
   }
 
   /**
@@ -28213,6 +29941,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Configures the routing access weights of nodes.
+   * 
+   * @param request - ModifyDBNodeRouterWeightRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBNodeRouterWeightResponse
+   */
+  async modifyDBNodeRouterWeightWithOptions(request: $_model.ModifyDBNodeRouterWeightRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBNodeRouterWeightResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNodeWeights)) {
+      query["DBNodeWeights"] = request.DBNodeWeights;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyDBNodeRouterWeight",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyDBNodeRouterWeightResponse>(await this.callApi(params, req, runtime), new $_model.ModifyDBNodeRouterWeightResponse({}));
+  }
+
+  /**
+   * Configures the routing access weights of nodes.
+   * 
+   * @param request - ModifyDBNodeRouterWeightRequest
+   * @returns ModifyDBNodeRouterWeightResponse
+   */
+  async modifyDBNodeRouterWeight(request: $_model.ModifyDBNodeRouterWeightRequest): Promise<$_model.ModifyDBNodeRouterWeightResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyDBNodeRouterWeightWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the Snapshot Consistency Cluster (SCC) mode for a specified node in a PolarDB cluster.
    * 
    * @param request - ModifyDBNodeSccModeRequest
@@ -28961,6 +30755,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a mounted parameter template for Lakebase.
+   * 
+   * @param request - ModifyLakebaseMountParameterGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyLakebaseMountParameterGroupResponse
+   */
+  async modifyLakebaseMountParameterGroupWithOptions(request: $_model.ModifyLakebaseMountParameterGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyLakebaseMountParameterGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deleteParameters)) {
+      query["DeleteParameters"] = request.deleteParameters;
+    }
+
+    if (!$dara.isNull(request.parameterGroupId)) {
+      query["ParameterGroupId"] = request.parameterGroupId;
+    }
+
+    if (!$dara.isNull(request.parameterGroupName)) {
+      query["ParameterGroupName"] = request.parameterGroupName;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyLakebaseMountParameterGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyLakebaseMountParameterGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModifyLakebaseMountParameterGroupResponse({}));
+  }
+
+  /**
+   * Modifies a mounted parameter template for Lakebase.
+   * 
+   * @param request - ModifyLakebaseMountParameterGroupRequest
+   * @returns ModifyLakebaseMountParameterGroupResponse
+   */
+  async modifyLakebaseMountParameterGroup(request: $_model.ModifyLakebaseMountParameterGroupRequest): Promise<$_model.ModifyLakebaseMountParameterGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyLakebaseMountParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the PolarFS S3 account policy.
+   * 
+   * @param request - ModifyLakebaseS3AccountPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyLakebaseS3AccountPolicyResponse
+   */
+  async modifyLakebaseS3AccountPolicyWithOptions(request: $_model.ModifyLakebaseS3AccountPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyLakebaseS3AccountPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pfsInstanceId)) {
+      query["PfsInstanceId"] = request.pfsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.userAccAk)) {
+      query["UserAccAk"] = request.userAccAk;
+    }
+
+    if (!$dara.isNull(request.userAccPolicy)) {
+      query["UserAccPolicy"] = request.userAccPolicy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyLakebaseS3AccountPolicy",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyLakebaseS3AccountPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyLakebaseS3AccountPolicyResponse({}));
+  }
+
+  /**
+   * Modifies the PolarFS S3 account policy.
+   * 
+   * @param request - ModifyLakebaseS3AccountPolicyRequest
+   * @returns ModifyLakebaseS3AccountPolicyResponse
+   */
+  async modifyLakebaseS3AccountPolicy(request: $_model.ModifyLakebaseS3AccountPolicyRequest): Promise<$_model.ModifyLakebaseS3AccountPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyLakebaseS3AccountPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the log backup retention policy of a PolarDB cluster.
    * 
    * @param tmpReq - ModifyLogBackupPolicyRequest
@@ -29349,6 +31259,182 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a PolarClaw skill.
+   * 
+   * @remarks
+   * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+   * 
+   * @param request - ModifyPolarClawSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPolarClawSkillResponse
+   */
+  async modifyPolarClawSkillWithOptions(request: $_model.ModifyPolarClawSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPolarClawSkillResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.modifyType)) {
+      query["ModifyType"] = request.modifyType;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.skillName)) {
+      query["SkillName"] = request.skillName;
+    }
+
+    if (!$dara.isNull(request.skillVersion)) {
+      query["SkillVersion"] = request.skillVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyPolarClawSkill",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyPolarClawSkillResponse>(await this.callApi(params, req, runtime), new $_model.ModifyPolarClawSkillResponse({}));
+  }
+
+  /**
+   * Modifies a PolarClaw skill.
+   * 
+   * @remarks
+   * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+   * 
+   * @param request - ModifyPolarClawSkillRequest
+   * @returns ModifyPolarClawSkillResponse
+   */
+  async modifyPolarClawSkill(request: $_model.ModifyPolarClawSkillRequest): Promise<$_model.ModifyPolarClawSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyPolarClawSkillWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the PolarFS configuration.
+   * 
+   * @param request - ModifyPolarFsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPolarFsResponse
+   */
+  async modifyPolarFsWithOptions(request: $_model.ModifyPolarFsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPolarFsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customOssAk)) {
+      query["CustomOssAk"] = request.customOssAk;
+    }
+
+    if (!$dara.isNull(request.customOssSk)) {
+      query["CustomOssSk"] = request.customOssSk;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyPolarFs",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyPolarFsResponse>(await this.callApi(params, req, runtime), new $_model.ModifyPolarFsResponse({}));
+  }
+
+  /**
+   * Modifies the PolarFS configuration.
+   * 
+   * @param request - ModifyPolarFsRequest
+   * @returns ModifyPolarFsResponse
+   */
+  async modifyPolarFs(request: $_model.ModifyPolarFsRequest): Promise<$_model.ModifyPolarFsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyPolarFsWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the description of a PolarFS instance.
+   * 
+   * @param request - ModifyPolarFsInstanceDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPolarFsInstanceDescriptionResponse
+   */
+  async modifyPolarFsInstanceDescriptionWithOptions(request: $_model.ModifyPolarFsInstanceDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPolarFsInstanceDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceDescription)) {
+      query["PolarFsInstanceDescription"] = request.polarFsInstanceDescription;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyPolarFsInstanceDescription",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyPolarFsInstanceDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.ModifyPolarFsInstanceDescriptionResponse({}));
+  }
+
+  /**
+   * Modifies the description of a PolarFS instance.
+   * 
+   * @param request - ModifyPolarFsInstanceDescriptionRequest
+   * @returns ModifyPolarFsInstanceDescriptionResponse
+   */
+  async modifyPolarFsInstanceDescription(request: $_model.ModifyPolarFsInstanceDescriptionRequest): Promise<$_model.ModifyPolarFsInstanceDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyPolarFsInstanceDescriptionWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the bucket credentials for a PolarFS path mapping.
    * 
    * @param request - ModifyPolarFsMappingAuthRequest
@@ -29728,6 +31814,76 @@ export default class Client extends OpenApi {
   async modifyScheduleTask(request: $_model.ModifyScheduleTaskRequest): Promise<$_model.ModifyScheduleTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyScheduleTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the IP address whitelist of a specified PolarDB cluster.
+   * 
+   * @param request - ModifySecurityIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySecurityIpsResponse
+   */
+  async modifySecurityIpsWithOptions(request: $_model.ModifySecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySecurityIpsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterIPArrayAttribute)) {
+      query["DBClusterIPArrayAttribute"] = request.DBClusterIPArrayAttribute;
+    }
+
+    if (!$dara.isNull(request.DBClusterIPArrayName)) {
+      query["DBClusterIPArrayName"] = request.DBClusterIPArrayName;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityIps)) {
+      query["SecurityIps"] = request.securityIps;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySecurityIps",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySecurityIpsResponse>(await this.callApi(params, req, runtime), new $_model.ModifySecurityIpsResponse({}));
+  }
+
+  /**
+   * Modifies the IP address whitelist of a specified PolarDB cluster.
+   * 
+   * @param request - ModifySecurityIpsRequest
+   * @returns ModifySecurityIpsResponse
+   */
+  async modifySecurityIps(request: $_model.ModifySecurityIpsRequest): Promise<$_model.ModifySecurityIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySecurityIpsWithOptions(request, runtime);
   }
 
   /**
@@ -30747,6 +32903,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resets the password of an application account.
+   * 
+   * @remarks
+   * > * Only privileged accounts of PolarDB for MySQL clusters can be reset.
+   * > * If the privileged account encounters issues, such as unexpected permission revocation (REVOKE), you can reset the permissions of the privileged account to restore normal access.
+   * 
+   * @param request - ResetApplicationAccountPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetApplicationAccountPasswordResponse
+   */
+  async resetApplicationAccountPasswordWithOptions(request: $_model.ResetApplicationAccountPasswordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetApplicationAccountPasswordResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.newAccountPassword)) {
+      query["NewAccountPassword"] = request.newAccountPassword;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetApplicationAccountPassword",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetApplicationAccountPasswordResponse>(await this.callApi(params, req, runtime), new $_model.ResetApplicationAccountPasswordResponse({}));
+  }
+
+  /**
+   * Resets the password of an application account.
+   * 
+   * @remarks
+   * > * Only privileged accounts of PolarDB for MySQL clusters can be reset.
+   * > * If the privileged account encounters issues, such as unexpected permission revocation (REVOKE), you can reset the permissions of the privileged account to restore normal access.
+   * 
+   * @param request - ResetApplicationAccountPasswordRequest
+   * @returns ResetApplicationAccountPasswordResponse
+   */
+  async resetApplicationAccountPassword(request: $_model.ResetApplicationAccountPasswordRequest): Promise<$_model.ResetApplicationAccountPasswordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resetApplicationAccountPasswordWithOptions(request, runtime);
+  }
+
+  /**
    * Resets an API key.
    * 
    * @param request - ResetConsumerApiKeyRequest
@@ -30960,6 +33174,72 @@ export default class Client extends OpenApi {
   async restartAIDBCluster(request: $_model.RestartAIDBClusterRequest): Promise<$_model.RestartAIDBClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.restartAIDBClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * Restarts a specified PolarDB cluster.
+   * 
+   * @param request - RestartDBClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartDBClusterResponse
+   */
+  async restartDBClusterWithOptions(request: $_model.RestartDBClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartDBClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestartDBCluster",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestartDBClusterResponse>(await this.callApi(params, req, runtime), new $_model.RestartDBClusterResponse({}));
+  }
+
+  /**
+   * Restarts a specified PolarDB cluster.
+   * 
+   * @param request - RestartDBClusterRequest
+   * @returns RestartDBClusterResponse
+   */
+  async restartDBCluster(request: $_model.RestartDBClusterRequest): Promise<$_model.RestartDBClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restartDBClusterWithOptions(request, runtime);
   }
 
   /**
@@ -32354,6 +34634,76 @@ export default class Client extends OpenApi {
   async uninstallPolarClawPlugin(request: $_model.UninstallPolarClawPluginRequest): Promise<$_model.UninstallPolarClawPluginResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.uninstallPolarClawPluginWithOptions(request, runtime);
+  }
+
+  /**
+   * Uninstalls a PolarClaw skill.
+   * 
+   * @remarks
+   * ## Request description
+   * - `PolarFsInstanceId` is required and identifies the Polarlakebase instance to operate on.
+   * - The `FilePathIds` parameter is also required. It accepts a list of file path IDs in string format. These IDs correspond to the specific file paths whose quota rules need to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
+   * - A single API call can process quota deletion requests for multiple file paths. However, control the request size to avoid performance issues.
+   * 
+   * @param request - UninstallPolarClawSkillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UninstallPolarClawSkillsResponse
+   */
+  async uninstallPolarClawSkillsWithOptions(request: $_model.UninstallPolarClawSkillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UninstallPolarClawSkillsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!$dara.isNull(request.uninstallSkillNames)) {
+      query["UninstallSkillNames"] = request.uninstallSkillNames;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UninstallPolarClawSkills",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UninstallPolarClawSkillsResponse>(await this.callApi(params, req, runtime), new $_model.UninstallPolarClawSkillsResponse({}));
+  }
+
+  /**
+   * Uninstalls a PolarClaw skill.
+   * 
+   * @remarks
+   * ## Request description
+   * - `PolarFsInstanceId` is required and identifies the Polarlakebase instance to operate on.
+   * - The `FilePathIds` parameter is also required. It accepts a list of file path IDs in string format. These IDs correspond to the specific file paths whose quota rules need to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
+   * - A single API call can process quota deletion requests for multiple file paths. However, control the request size to avoid performance issues.
+   * 
+   * @param request - UninstallPolarClawSkillsRequest
+   * @returns UninstallPolarClawSkillsResponse
+   */
+  async uninstallPolarClawSkills(request: $_model.UninstallPolarClawSkillsRequest): Promise<$_model.UninstallPolarClawSkillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uninstallPolarClawSkillsWithOptions(request, runtime);
   }
 
   /**

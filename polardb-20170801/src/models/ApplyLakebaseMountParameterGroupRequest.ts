@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyLakebaseMountParameterGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameter template ID. The ID starts with pagp-.
+   * The parameter template ID, which starts with pagp-.
    * 
    * This parameter is required.
    * 
