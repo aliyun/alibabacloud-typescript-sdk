@@ -25,9 +25,9 @@ export class QueryUserUsageReportResponseBodyUserUsageReportDataModel extends $d
    * 
    * Valid values:
    * 
-   * - Connected: At least one currently connected session exists.
-   * - Disconnected: The session binding is retained, but no currently connected session exists.
-   * - Unbound: No session binding exists.
+   * - `Connected`: At least one currently connected session exists.
+   * - `Disconnected`: The session binding is retained, but no currently connected session exists.
+   * - `Unbound`: No session binding exists.
    * 
    * @example
    * Connected
@@ -35,7 +35,7 @@ export class QueryUserUsageReportResponseBodyUserUsageReportDataModel extends $d
   connectionStatus?: string;
   /**
    * @remarks
-   * The last connection time. Format: `yyyy-MM-dd HH:mm:ss`. If no current or historical connection record exists, `-` is returned. The string itself does not carry a time zone and is interpreted as Asia/Shanghai (UTC+8).
+   * The last connection time. Format: `yyyy-MM-dd HH:mm:ss`. If no current or historical connection record exists, - is returned. The string itself does not carry a time zone and is interpreted as Asia/Shanghai (UTC+8).
    * 
    * @example
    * 2026-09-01 10:00:00
@@ -51,7 +51,7 @@ export class QueryUserUsageReportResponseBodyUserUsageReportDataModel extends $d
   regionId?: string;
   /**
    * @remarks
-   * The cumulative session persistence duration within the query range, which is the duration that the user occupies the session from the attach time to the session release time. Multiple sessions under the same app instance group are accumulated. Unit: hours.
+   * The cumulative session persistence duration within the query range. This is the duration during which the user occupies the session from session attach to session release. Multiple sessions under the same app instance group are accumulated. Unit: hours.
    * 
    * @example
    * 3.5
@@ -111,7 +111,7 @@ export class QueryUserUsageReportResponseBodyUserUsageReportDataModel extends $d
 export class QueryUserUsageReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. `200` indicates that the request is successful. Other values indicate that the request failed.
+   * The business status code. A value of 200 indicates that the request is successful. Other values indicate that the request failed.
    * 
    * @example
    * 200
@@ -127,7 +127,7 @@ export class QueryUserUsageReportResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The description of the request processing result. `success` is usually returned when the request is successful.
+   * The description of the request processing result. Typically, success is returned when the request is successful.
    * 
    * @example
    * success
@@ -151,7 +151,7 @@ export class QueryUserUsageReportResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier of the request, which can be used to troubleshoot request issues.
+   * The unique identifier of the request. You can use this ID to troubleshoot request issues.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryConnectionReportRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the app instance group, which is used to filter data for a specified app instance group. You can call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the ID. If this parameter is not specified, data is not filtered by app instance group.
+   * The ID of the app instance group, which is used to filter data for a specified app instance group. You can call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the ID. If you do not specify this parameter, data is not filtered by app instance group.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -21,7 +21,7 @@ export class QueryConnectionReportRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The end time of the statistical period. **Required**. Format: `yyyy-MM-dd HH:mm:ss`. The value cannot be earlier than `StartDate`. The statistical interval includes the start time but excludes the end time. The time span cannot exceed 60 months. The string itself does not carry a time zone and is interpreted as Asia/Shanghai (UTC+8).
+   * The end time of the statistics. **Required**. Format: `yyyy-MM-dd HH:mm:ss`. The value cannot be earlier than `StartDate`. The statistical interval includes the start time but excludes the end time. The time span cannot exceed 60 months. The string itself does not carry a time zone and is interpreted in the Asia/Shanghai (UTC+8) time zone.
    * 
    * @example
    * 2026-09-02 00:00:00
@@ -29,7 +29,7 @@ export class QueryConnectionReportRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The page number to query. We recommend that you explicitly specify a value starting from `1`. If this parameter is not specified, the service processes the request as the first page, but the response may return `0`.
+   * The page number to query. We recommend that you explicitly specify a value starting from `1`. If you do not specify this parameter, the service processes the request as the first page, but the response may echo `0`.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class QueryConnectionReportRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. If this parameter is not specified, the default value is 200. If the value is greater than 1500, it is processed as 1500.
+   * The number of entries per page. Default value: 200. If the value exceeds 1,500, it is processed as 1,500.
    * 
    * @example
    * 100
@@ -49,13 +49,13 @@ export class QueryConnectionReportRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - `CloudApp`: Wuying Cloud App.
-   * - `CloudBrowser`: Cloud Browser.
-   * - `WuyingServer`: Enterprise Edition workstation.
-   * - `WuyingWorkstation`: Personal Edition Linggou container workstation.
-   * - `WuyingWorkstationTeam`: Linggou Team Edition container workstation.
-   * - `WuyingWorkstationBusiness`: Linggou Dedicated Edition container workstation.
-   * - `AndroidCloud`: Cloud Phone.
+   * - `CloudApp`: Wuying cloud app.
+   * - `CloudBrowser`: Cloud browser.
+   * - `WuyingServer`: Enterprise edition workstation.
+   * - `WuyingWorkstation`: Personal edition Linggou container workstation.
+   * - `WuyingWorkstationTeam`: Team edition Linggou container workstation.
+   * - `WuyingWorkstationBusiness`: Dedicated edition Linggou container workstation.
+   * - `AndroidCloud`: Cloud phone.
    * - `AIAgent`: AgentBay (AI agent).
    * 
    * @example
@@ -64,7 +64,7 @@ export class QueryConnectionReportRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The start time of the statistical period. **Required**. Format: `yyyy-MM-dd HH:mm:ss`. The statistical interval includes the start time but excludes the end time. The time span cannot exceed 60 months. The string itself does not carry a time zone and is interpreted as Asia/Shanghai (UTC+8).
+   * The start time of the statistics. **Required**. Format: `yyyy-MM-dd HH:mm:ss`. The statistical interval includes the start time but excludes the end time. The time span cannot exceed 60 months. The string itself does not carry a time zone and is interpreted in the Asia/Shanghai (UTC+8) time zone.
    * 
    * @example
    * 2026-09-01 00:00:00

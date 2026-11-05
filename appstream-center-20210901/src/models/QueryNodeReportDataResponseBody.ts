@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryNodeReportDataResponseBodyReportDataModel extends $dara.Model {
   /**
    * @remarks
-   * The total number of nodes corresponding to the record. Unit: nodes.
+   * The total number of nodes for the record.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class QueryNodeReportDataResponseBodyReportDataModel extends $dara.Model 
   nodeCount?: number;
   /**
    * @remarks
-   * The number of pay-as-you-go nodes in the record. Unit: nodes.
+   * The number of pay-as-you-go nodes in the record.
    * 
    * @example
    * 8
@@ -21,7 +21,7 @@ export class QueryNodeReportDataResponseBodyReportDataModel extends $dara.Model 
   postpaidNodeCount?: number;
   /**
    * @remarks
-   * The number of subscription nodes in the record. Unit: nodes.
+   * The number of subscription nodes in the record.
    * 
    * @example
    * 12
@@ -29,7 +29,7 @@ export class QueryNodeReportDataResponseBodyReportDataModel extends $dara.Model 
   prepaidNodeCount?: number;
   /**
    * @remarks
-   * The statistical time. The `1d` granularity returns `yyyy-MM-dd`. The `1m`, `30m`, and `6h` granularities return `yyyy-MM-dd HH:mm`. The string itself does not carry a time zone and is interpreted as Asia/Shanghai (UTC+8).
+   * The statistical time. The 1d granularity returns the time in the yyyy-MM-dd format. The 1m, 30m, and 6h granularities return the time in the yyyy-MM-dd HH:mm format. The string itself does not carry a time zone and is interpreted in the Asia/Shanghai (UTC+8) time zone.
    * 
    * @example
    * 2026-09-01
@@ -65,7 +65,7 @@ export class QueryNodeReportDataResponseBodyReportDataModel extends $dara.Model 
 export class QueryNodeReportDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. `200` indicates that the request is successful. Other values indicate that the request failed.
+   * The business status code. A value of 200 indicates that the request is successful. Other values indicate that the request failed.
    * 
    * @example
    * 200
@@ -81,7 +81,7 @@ export class QueryNodeReportDataResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The description of the request processing result. `success` is usually returned when the request is successful.
+   * The description of the request processing result. If the request is successful, success is usually returned.
    * 
    * @example
    * success
@@ -110,7 +110,7 @@ export class QueryNodeReportDataResponseBody extends $dara.Model {
   reportDataModel?: QueryNodeReportDataResponseBodyReportDataModel[];
   /**
    * @remarks
-   * The unique identifier of the request, which can be used to troubleshoot the request.
+   * The unique identifier of the request, which can be used to troubleshoot request issues.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

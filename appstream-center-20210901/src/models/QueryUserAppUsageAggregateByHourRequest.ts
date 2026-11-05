@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUserAppUsageAggregateByHourRequest extends $dara.Model {
   /**
    * @remarks
-   * The app instance group ID, which is used to filter data for a specified app instance group. If this parameter is not provided, data is not filtered by app instance group.
+   * The ID of the app instance group, which is used to filter data for a specified app instance group. If this parameter is not provided, data is not filtered by app instance group.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -13,7 +13,7 @@ export class QueryUserAppUsageAggregateByHourRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The business region ID, which is used to filter application usage data. If this parameter is not provided, data is not filtered by business region. You can call [ListRegions](~~ListRegions~~) to obtain the ID.
+   * The business region ID, which is used to filter application usage data. If this parameter is not provided, data is not filtered by business region. You can call [ListRegions](~~ListRegions~~) to obtain the value.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,7 @@ export class QueryUserAppUsageAggregateByHourRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The end date of the statistics. Format: yyyyMMdd. If this parameter is not provided, it defaults to yesterday. The date cannot be earlier than StartDate or 90 days before the call date. The query range includes this date. The date is interpreted as a calendar date in the Asia/Shanghai (UTC+8) time zone.
+   * The end date for statistics in the yyyyMMdd format. If this parameter is not provided, it defaults to yesterday. The date cannot be earlier than StartDate or 90 days before the call date. The query range includes this date. The date is interpreted as a calendar date in the Asia/Shanghai (UTC+8) time zone.
    * 
    * @example
    * 20260907
@@ -37,7 +37,7 @@ export class QueryUserAppUsageAggregateByHourRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start date of the statistics. Format: yyyyMMdd. If this parameter is not provided, it defaults to yesterday. The date cannot be earlier than 90 days before the call date. The query range includes this date. The date is interpreted as a calendar date in the Asia/Shanghai (UTC+8) time zone.
+   * The start date for statistics in the yyyyMMdd format. If this parameter is not provided, it defaults to yesterday. The date cannot be earlier than 90 days before the call date. The query range includes this date. The date is interpreted as a calendar date in the Asia/Shanghai (UTC+8) time zone.
    * 
    * @example
    * 20260901
@@ -45,7 +45,7 @@ export class QueryUserAppUsageAggregateByHourRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The ID of the end user to be queried. This parameter must be explicitly provided. If it is not provided, no matching records are usually returned.
+   * The ID of the end user to query. This parameter must be explicitly provided. If it is not provided, no matching records are usually returned.
    * 
    * @example
    * user01

@@ -13,7 +13,7 @@ export class QueryConnectionReportResponseBodyConnectionReportDataModel extends 
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The average duration of successful connections. In the current version, the return value is in milliseconds. Parse it as milliseconds. The `Seconds` in the field name is retained for compatibility and cannot be used as the unit basis. This value may not be returned when there are no successful connections.
+   * The average duration of successful connections. In the current version, the return value is in milliseconds, so parse it as milliseconds. The `Seconds` in the field name is retained for compatibility and does not indicate the unit. This value may not be returned if there are no successful connections.
    * 
    * @example
    * 1250
@@ -21,7 +21,7 @@ export class QueryConnectionReportResponseBodyConnectionReportDataModel extends 
   connectionAvgDurationSeconds?: number;
   /**
    * @remarks
-   * The number of failed connections within the statistical window. Unit: count.
+   * The number of connection failures within the statistical window.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class QueryConnectionReportResponseBodyConnectionReportDataModel extends 
   connectionFailureCount?: number;
   /**
    * @remarks
-   * The number of successful connections within the statistical window. Unit: count.
+   * The number of successful connections within the statistical window.
    * 
    * @example
    * 98
@@ -37,7 +37,7 @@ export class QueryConnectionReportResponseBodyConnectionReportDataModel extends 
   connectionSuccessCount?: number;
   /**
    * @remarks
-   * The connection success rate, which is calculated by dividing the number of successful connections by the sum of successful and failed connections. The value ranges from 0 to 1. Multiply by 100 to get the percentage. This value may not be returned when there are no connection records.
+   * The connection success rate, which is calculated by dividing the number of successful connections by the sum of successful and failed connections. The value ranges from 0 to 1. Multiply the value by 100 to get the percentage. This value may not be returned if there are no connection records.
    * 
    * @example
    * 0.98
@@ -53,7 +53,7 @@ export class QueryConnectionReportResponseBodyConnectionReportDataModel extends 
   regionId?: string;
   /**
    * @remarks
-   * The end time of the statistical window. Format: `yyyy-MM-dd HH:mm:ss`. The string itself does not carry a time zone and is interpreted as Asia/Shanghai (UTC+8).
+   * The end time of the statistical window. Format: `yyyy-MM-dd HH:mm:ss`. The string itself does not carry a time zone and is interpreted in the Asia/Shanghai (UTC+8) time zone.
    * 
    * @example
    * 2026-09-01 10:05:00
@@ -61,7 +61,7 @@ export class QueryConnectionReportResponseBodyConnectionReportDataModel extends 
   statEndDate?: string;
   /**
    * @remarks
-   * The start time of the statistical window. Format: `yyyy-MM-dd HH:mm:ss`. The string itself does not carry a time zone and is interpreted as Asia/Shanghai (UTC+8).
+   * The start time of the statistical window. Format: `yyyy-MM-dd HH:mm:ss`. The string itself does not carry a time zone and is interpreted in the Asia/Shanghai (UTC+8) time zone.
    * 
    * @example
    * 2026-09-01 10:00:00
@@ -105,7 +105,7 @@ export class QueryConnectionReportResponseBodyConnectionReportDataModel extends 
 export class QueryConnectionReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of `200` indicates that the request is processed successfully. Other values indicate that the request fails to be processed.
+   * The business status code. `200` indicates that the request is successful. Other values indicate that the request failed.
    * 
    * @example
    * 200

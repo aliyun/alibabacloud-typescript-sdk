@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySessionReportDataResponseBodyReportDataModel extends $dara.Model {
   /**
    * @remarks
-   * The number of connected sessions in the record.
+   * The number of sessions in the connected state in this record.
    * 
    * @example
    * 30
@@ -13,7 +13,7 @@ export class QuerySessionReportDataResponseBodyReportDataModel extends $dara.Mod
   connectSessionCount?: number;
   /**
    * @remarks
-   * The total number of sessions corresponding to the record.
+   * The total number of sessions corresponding to this record.
    * 
    * @example
    * 36
@@ -29,7 +29,7 @@ export class QuerySessionReportDataResponseBodyReportDataModel extends $dara.Mod
   statDate?: string;
   /**
    * @remarks
-   * The number of sessions established through streaming access in the record.
+   * The number of sessions established through streaming access in this record.
    * 
    * @example
    * 24
@@ -65,7 +65,7 @@ export class QuerySessionReportDataResponseBodyReportDataModel extends $dara.Mod
 export class QuerySessionReportDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. `200` indicates that the request was processed successfully. Other values indicate that the processing failed.
+   * The business status code. A value of `200` indicates that the request is successful. Other values indicate that the request failed.
    * 
    * @example
    * 200
@@ -81,7 +81,7 @@ export class QuerySessionReportDataResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The description of the request processing result. `success` is usually returned when the request is successful.
+   * The description of the request processing result. If the request is successful, `success` is usually returned.
    * 
    * @example
    * success
@@ -89,7 +89,7 @@ export class QuerySessionReportDataResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number corresponding to the current response.
+   * The page number of the current response.
    * 
    * @example
    * 1
@@ -97,7 +97,7 @@ export class QuerySessionReportDataResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page used in the current response.
+   * The number of records per page in the current response.
    * 
    * @example
    * 200

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAppInstanceGroupReportListResponseBodyIndexData extends $dara.Model {
   /**
    * @remarks
-   * The delivery group ID.
+   * The ID of the app instance group.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -13,7 +13,7 @@ export class QueryAppInstanceGroupReportListResponseBodyIndexData extends $dara.
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The delivery group name.
+   * The name of the app instance group.
    * 
    * @example
    * R&D workstation group
@@ -21,17 +21,17 @@ export class QueryAppInstanceGroupReportListResponseBodyIndexData extends $dara.
   appInstanceGroupName?: string;
   /**
    * @remarks
-   * The current status of the delivery group.
+   * The current status of the app instance group.
    * 
    * Valid values:
    * 
    * - `DEPLOYING`: Deploying.
    * - `DEPLOYED`: Deployed but not published.
-   * - `PUBLISHED`: Published and available for service based on the current configuration.
+   * - `PUBLISHED`: Published and available to provide services based on the current configurations.
    * - `STOPPING`: Stopping.
    * - `STOPPED`: Stopped.
    * - `MAINTAINING`: Maintaining.
-   * - `FAILED`: Deployment or operation failed.
+   * - `FAILED`: Deployment or running failed.
    * - `MAINTAIN_FAILED`: Maintenance failed.
    * - `DELETING`: Deleting.
    * - `DELETED`: Deleted.
@@ -68,7 +68,7 @@ export class QueryAppInstanceGroupReportListResponseBodyIndexData extends $dara.
 export class QueryAppInstanceGroupReportListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. `200` indicates that the request is processed successfully. Other values indicate that the processing failed.
+   * The business status code. A value of `200` indicates that the request is processed. Other values indicate that the processing failed.
    * 
    * @example
    * 200
@@ -76,12 +76,12 @@ export class QueryAppInstanceGroupReportListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of delivery group report data.
+   * The list of app instance group report data.
    */
   indexData?: QueryAppInstanceGroupReportListResponseBodyIndexData[];
   /**
    * @remarks
-   * The description of the request processing result. `success` is usually returned when the request is successful.
+   * The description of the request processing result. If the request is successful, `success` is usually returned.
    * 
    * @example
    * success

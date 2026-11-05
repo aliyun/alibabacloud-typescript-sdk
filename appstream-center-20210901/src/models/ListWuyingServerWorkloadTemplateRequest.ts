@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWuyingServerWorkloadTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The compatibility field. The current version does not read this parameter. The operation returns a maximum of 100 templates.
+   * A compatibility field. The current version does not read this parameter. The operation returns a fixed maximum of the first 100 templates.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class ListWuyingServerWorkloadTemplateRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The compatibility field. The current version does not read this parameter and does not support token-based pagination.
+   * A compatibility field. The current version does not read this parameter and does not support token-based pagination.
    * 
    * @example
    * unused
@@ -21,7 +21,7 @@ export class ListWuyingServerWorkloadTemplateRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the virtual node pool. This parameter is **required**. The node pool must belong to the current account. You can call [ListWuyingServer](~~ListWuyingServer~~) to obtain the VirtualNodePoolId.
+   * The ID of the virtual node pool. This parameter is **required**. The node pool must belong to the current account. You can call [ListWuyingServer](~~ListWuyingServer~~) to obtain the ID.
    * 
    * This parameter is required.
    * 

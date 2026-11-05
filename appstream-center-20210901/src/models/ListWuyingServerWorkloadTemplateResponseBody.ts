@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWuyingServerWorkloadTemplateResponseBodyWorkloadTemplates extends $dara.Model {
   /**
    * @remarks
-   * The rendered template content. The original text is Base64-encoded after being UTF-8 encoded. You must perform Base64 decoding before use.
+   * The rendered template content. The original text is Base64-encoded after being encoded in UTF-8. You must decode the Base64 string before use.
    * 
    * @example
    * IyB3b3JrbG9hZCB0ZW1wbGF0ZQo=
@@ -55,7 +55,7 @@ export class ListWuyingServerWorkloadTemplateResponseBodyWorkloadTemplates exten
 export class ListWuyingServerWorkloadTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The compatibility field. The current version does not use this field to indicate the number of returned entries.
+   * A compatibility field. The current version does not use this field to indicate the number of returned entries.
    * 
    * @example
    * 100
@@ -63,7 +63,7 @@ export class ListWuyingServerWorkloadTemplateResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The compatibility field. The current version does not generate a next page token.
+   * A compatibility field. The current version does not generate a next page token.
    * 
    * @example
    * unused
@@ -71,7 +71,7 @@ export class ListWuyingServerWorkloadTemplateResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique identifier of the request. You can use this ID to troubleshoot request issues.
+   * The unique identifier of the request, which can be used to troubleshoot request issues.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -79,7 +79,7 @@ export class ListWuyingServerWorkloadTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of workload templates. The templates are returned in the configuration order, with a maximum of 100 entries.
+   * The list of workload templates. Up to 100 templates are returned, sorted by template configuration order.
    */
   workloadTemplates?: ListWuyingServerWorkloadTemplateResponseBodyWorkloadTemplates[];
   static names(): { [key: string]: string } {

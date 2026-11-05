@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "appstream-center";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("appstream-center", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -391,6 +395,148 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a custom image based on an existing image and starts an image creation task.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that the parent image is available and that an available image distribution record exists in the region where the image is to be created.
+   * 1. Call ListImage to obtain the parent image ID.
+   * 2. Specify the creation mode, disk capacity, and resource type, and then call this operation.
+   * 3. Save the returned ImageId, VersionId, and TaskId.
+   * 4. Call GetTask to query the creation progress. **A successful request does not indicate that the image creation is complete.**
+   * 
+   * @param tmpReq - BuilderImageByParentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BuilderImageByParentResponse
+   */
+  async builderImageByParentWithOptions(tmpReq: $_model.BuilderImageByParentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BuilderImageByParentResponse> {
+    tmpReq.validate();
+    let request = new $_model.BuilderImageByParentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.propertyMap)) {
+      request.propertyMapShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.propertyMap, "PropertyMap", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.dataDiskSize)) {
+      body["DataDiskSize"] = request.dataDiskSize;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.distro)) {
+      body["Distro"] = request.distro;
+    }
+
+    if (!$dara.isNull(request.driverIdList)) {
+      body["DriverIdList"] = request.driverIdList;
+    }
+
+    if (!$dara.isNull(request.imageCreateMode)) {
+      body["ImageCreateMode"] = request.imageCreateMode;
+    }
+
+    if (!$dara.isNull(request.imageName)) {
+      body["ImageName"] = request.imageName;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.nodeInstanceType)) {
+      body["NodeInstanceType"] = request.nodeInstanceType;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      body["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.packageType)) {
+      body["PackageType"] = request.packageType;
+    }
+
+    if (!$dara.isNull(request.parentImageId)) {
+      body["ParentImageId"] = request.parentImageId;
+    }
+
+    if (!$dara.isNull(request.performanceType)) {
+      body["PerformanceType"] = request.performanceType;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.propertyMapShrink)) {
+      body["PropertyMap"] = request.propertyMapShrink;
+    }
+
+    if (!$dara.isNull(request.resourceList)) {
+      body["ResourceList"] = request.resourceList;
+    }
+
+    if (!$dara.isNull(request.runMode)) {
+      body["RunMode"] = request.runMode;
+    }
+
+    if (!$dara.isNull(request.sourceRegion)) {
+      body["SourceRegion"] = request.sourceRegion;
+    }
+
+    if (!$dara.isNull(request.systemDiskSize)) {
+      body["SystemDiskSize"] = request.systemDiskSize;
+    }
+
+    if (!$dara.isNull(request.vSwitchIdList)) {
+      body["VSwitchIdList"] = request.vSwitchIdList;
+    }
+
+    if (!$dara.isNull(request.versionName)) {
+      body["VersionName"] = request.versionName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BuilderImageByParent",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BuilderImageByParentResponse>(await this.callApi(params, req, runtime), new $_model.BuilderImageByParentResponse({}));
+  }
+
+  /**
+   * Creates a custom image based on an existing image and starts an image creation task.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that the parent image is available and that an available image distribution record exists in the region where the image is to be created.
+   * 1. Call ListImage to obtain the parent image ID.
+   * 2. Specify the creation mode, disk capacity, and resource type, and then call this operation.
+   * 3. Save the returned ImageId, VersionId, and TaskId.
+   * 4. Call GetTask to query the creation progress. **A successful request does not indicate that the image creation is complete.**
+   * 
+   * @param request - BuilderImageByParentRequest
+   * @returns BuilderImageByParentResponse
+   */
+  async builderImageByParent(request: $_model.BuilderImageByParentRequest): Promise<$_model.BuilderImageByParentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.builderImageByParentWithOptions(request, runtime);
+  }
+
+  /**
    * Configures the model group for a resource group.
    * 
    * @remarks
@@ -580,6 +726,80 @@ export default class Client extends OpenApi {
   async configRuntimeModelTemplate(request: $_model.ConfigRuntimeModelTemplateRequest): Promise<$_model.ConfigRuntimeModelTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.configRuntimeModelTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an application and binds it to a specified image version.
+   * 
+   * @remarks
+   * Only custom images and community images that can be managed by the current account are supported. If VersionId is omitted, the current active version of the image is used. If specified, the version must belong to the image specified by ImageId.
+   * Call ListImage first to select an image. After the application is created, save the returned AppId, AppVersionId, ImageId, and VersionId. To dissociate the application, call UnbindApp.
+   * 
+   * @param request - CreateAndBindAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAndBindAppResponse
+   */
+  async createAndBindAppWithOptions(request: $_model.CreateAndBindAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAndBindAppResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appIconUrl)) {
+      body["AppIconUrl"] = request.appIconUrl;
+    }
+
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.originAppType)) {
+      body["OriginAppType"] = request.originAppType;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      body["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.urlSuffix)) {
+      body["UrlSuffix"] = request.urlSuffix;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAndBindApp",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAndBindAppResponse>(await this.callApi(params, req, runtime), new $_model.CreateAndBindAppResponse({}));
+  }
+
+  /**
+   * Creates an application and binds it to a specified image version.
+   * 
+   * @remarks
+   * Only custom images and community images that can be managed by the current account are supported. If VersionId is omitted, the current active version of the image is used. If specified, the version must belong to the image specified by ImageId.
+   * Call ListImage first to select an image. After the application is created, save the returned AppId, AppVersionId, ImageId, and VersionId. To dissociate the application, call UnbindApp.
+   * 
+   * @param request - CreateAndBindAppRequest
+   * @returns CreateAndBindAppResponse
+   */
+  async createAndBindApp(request: $_model.CreateAndBindAppRequest): Promise<$_model.CreateAndBindAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAndBindAppWithOptions(request, runtime);
   }
 
   /**
@@ -1460,6 +1680,136 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a specified application adapter, or dissociates the adapter from a specified image version.
+   * 
+   * @remarks
+   * *Confirm the deletion scope.**
+   * - If both ImageId and VersionId are specified: The adapter is only dissociated from the specified image version.
+   * - If ImageId and VersionId are not both specified: The adapter deletion process is initiated. An adapter cannot be deleted if it is still referenced by multiple images. If the application has other adapters, the application cannot be deleted along with the adapter.
+   * **AdaptorId, AppVersionId, and AppId must be provided together and correspond to the same application adapter.** Verify these identifiers by checking the application and image query results first.
+   * 
+   * @param request - DeleteAdaptorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAdaptorResponse
+   */
+  async deleteAdaptorWithOptions(request: $_model.DeleteAdaptorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAdaptorResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.adaptorId)) {
+      body["AdaptorId"] = request.adaptorId;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appVersionId)) {
+      body["AppVersionId"] = request.appVersionId;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAdaptor",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAdaptorResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAdaptorResponse({}));
+  }
+
+  /**
+   * Deletes a specified application adapter, or dissociates the adapter from a specified image version.
+   * 
+   * @remarks
+   * *Confirm the deletion scope.**
+   * - If both ImageId and VersionId are specified: The adapter is only dissociated from the specified image version.
+   * - If ImageId and VersionId are not both specified: The adapter deletion process is initiated. An adapter cannot be deleted if it is still referenced by multiple images. If the application has other adapters, the application cannot be deleted along with the adapter.
+   * **AdaptorId, AppVersionId, and AppId must be provided together and correspond to the same application adapter.** Verify these identifiers by checking the application and image query results first.
+   * 
+   * @param request - DeleteAdaptorRequest
+   * @returns DeleteAdaptorResponse
+   */
+  async deleteAdaptor(request: $_model.DeleteAdaptorRequest): Promise<$_model.DeleteAdaptorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAdaptorWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a specified application version, or deletes the entire application and its adapters if the version ID is omitted.
+   * 
+   * @remarks
+   * *You must dissociate all image associations from the target application or version before deletion.**
+   * 1. Call ListApp to obtain the AppId and confirm whether the application can be deleted.
+   * 2. Use UnbindApp or DeleteAdaptor to dissociate related image associations.
+   * 3. Specify AppVersionId to delete a single application version, or omit this parameter to delete the entire application.
+   * After an application version is deleted, if the application has no other valid adapters, the application record is also deleted.
+   * 
+   * @param request - DeleteAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppResponse
+   */
+  async deleteAppWithOptions(request: $_model.DeleteAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAppResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appVersionId)) {
+      body["AppVersionId"] = request.appVersionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApp",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAppResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAppResponse({}));
+  }
+
+  /**
+   * Deletes a specified application version, or deletes the entire application and its adapters if the version ID is omitted.
+   * 
+   * @remarks
+   * *You must dissociate all image associations from the target application or version before deletion.**
+   * 1. Call ListApp to obtain the AppId and confirm whether the application can be deleted.
+   * 2. Use UnbindApp or DeleteAdaptor to dissociate related image associations.
+   * 3. Specify AppVersionId to delete a single application version, or omit this parameter to delete the entire application.
+   * After an application version is deleted, if the application has no other valid adapters, the application record is also deleted.
+   * 
+   * @param request - DeleteAppRequest
+   * @returns DeleteAppResponse
+   */
+  async deleteApp(request: $_model.DeleteAppRequest): Promise<$_model.DeleteAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAppWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a resource-based pay-as-you-go delivery group.
    * 
    * @remarks
@@ -1885,10 +2235,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource and session events of the current account within the last 30 days by using paging.
+   * Performs a paged query for the resource and session events of the current account within the last 30 days. Paging is supported.
    * 
    * @remarks
-   * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified at the same time, the intersection is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
+   * Queries the resource and session events of the current account. Both StartTime and EndTime must be specified, and the time range is inclusive. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection of the conditions is applied. The results are returned in descending order of the event log time. For pagination, specify PageSize and PageNumber. The current version does not use MaxResults and NextToken.
    * 
    * @param request - DescribeEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1979,10 +2329,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource and session events of the current account within the last 30 days by using paging.
+   * Performs a paged query for the resource and session events of the current account within the last 30 days. Paging is supported.
    * 
    * @remarks
-   * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified at the same time, the intersection is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
+   * Queries the resource and session events of the current account. Both StartTime and EndTime must be specified, and the time range is inclusive. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection of the conditions is applied. The results are returned in descending order of the event log time. For pagination, specify PageSize and PageNumber. The current version does not use MaxResults and NextToken.
    * 
    * @param request - DescribeEventsRequest
    * @returns DescribeEventsResponse
@@ -2124,6 +2474,82 @@ export default class Client extends OpenApi {
   async getAppInstanceGroup(request: $_model.GetAppInstanceGroupRequest): Promise<$_model.GetAppInstanceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAppInstanceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the connection authorization code and required resource information for an existing image or application building task.
+   * 
+   * @remarks
+   * Before calling this operation, you must create a task, and the building or validation resources corresponding to the task must be available.
+   * 1. Obtain TaskId and the actual TaskType from the response of the task creation operation or GetTask.
+   * 2. Specify ResourceType to obtain the connection information for the building or validation environment.
+   * 3. Use the returned authorization code along with the user, resource group, and application identifiers in the same response for connection.
+   * The authorization code is a sensitive connection credential. Do not record it in public documents or logs. When specifying AppId, you must also specify the matching AppVersionId.
+   * 
+   * @param request - GetAuthCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAuthCodeResponse
+   */
+  async getAuthCodeWithOptions(request: $_model.GetAuthCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAuthCodeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appVersionId)) {
+      body["AppVersionId"] = request.appVersionId;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAuthCode",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAuthCodeResponse>(await this.callApi(params, req, runtime), new $_model.GetAuthCodeResponse({}));
+  }
+
+  /**
+   * Retrieves the connection authorization code and required resource information for an existing image or application building task.
+   * 
+   * @remarks
+   * Before calling this operation, you must create a task, and the building or validation resources corresponding to the task must be available.
+   * 1. Obtain TaskId and the actual TaskType from the response of the task creation operation or GetTask.
+   * 2. Specify ResourceType to obtain the connection information for the building or validation environment.
+   * 3. Use the returned authorization code along with the user, resource group, and application identifiers in the same response for connection.
+   * The authorization code is a sensitive connection credential. Do not record it in public documents or logs. When specifying AppId, you must also specify the matching AppVersionId.
+   * 
+   * @param request - GetAuthCodeRequest
+   * @returns GetAuthCodeResponse
+   */
+  async getAuthCode(request: $_model.GetAuthCodeRequest): Promise<$_model.GetAuthCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAuthCodeWithOptions(request, runtime);
   }
 
   /**
@@ -2489,6 +2915,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the pricing and discount information for scaling out a subscription delivery group to a specified total number of nodes.
+   * 
+   * @remarks
+   * This operation queries the resource scale-out pricing for an existing delivery group. A successful call returns only a quote and does not create an order or add nodes.
+   * **Before you call this operation, verify the following conditions:**
+   * - The delivery group belongs to the current account and is located in a supported region in the Chinese mainland.
+   * - The product type is Wuying Cloud App or Cloud Browser, and the billing method is subscription and purchased by node. This operation does not apply to browser groups that use the pay-as-you-go billing method or are billed by monthly active users (MAU).
+   * - The order status of the delivery group is normal, a resource node pool is associated, and no paid but ineffective renewal or scale-in orders exist.
+   * - The target total number of nodes is greater than the current number of purchased nodes and does not exceed the node quota for the corresponding region, product, and billing method under the account.
+   * **Parameter relationships:**
+   * - ProductType, AppInstanceGroupId, and Amount are all required parameters and must be specified together.
+   * - ProductType must match the product corresponding to AppInstanceGroupId.
+   * - **Amount is the total number of nodes after the scale-out, not the number of nodes added in this operation.** The region, node specifications, and billing method are determined by the existing delivery group and do not need to be passed separately.
+   * **Call sequence:**
+   * 1. First, confirm the target delivery group and the current number of purchased nodes. For Cloud App Common scenarios, you can first invoke [ListAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/ListAppInstanceGroup) to obtain the identity, and then invoke [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query the configuration and NodePool.NodeAmount.
+   * 2. Invoke this operation with the same product type, delivery group identity, and target total number of nodes to read the pricing, coupons, and pricing calculation rules.
+   * 3. After confirming the quote, if you need to execute the scale-out, you can invoke [ModifyNodePoolAmount](https://api.aliyun.com/document/appstream-center/2021-09-01/ModifyNodePoolAmount) and fill in the target total number in NodePool.NodeAmount as required by the operation. **A successful pricing query does not mean that an order has been created or the scale-out has been completed.**
+   * **Example scenario:**
+   * If a cloud app delivery group currently has 1 purchased subscription node and the target is to scale out to 2 nodes, set ProductType to CloudApp, AppInstanceGroupId to the ID of the delivery group, and Amount to 2. Replace the masked resource IDs with the actual values under the current account. The example quantities do not represent default values or quota limits. The pricing examples only illustrate the relationship among the original price, discount amount, and discounted price, and do not represent the fixed selling price of the specifications.
+   * 
+   * @param request - GetResourceModifyPriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceModifyPriceResponse
+   */
+  async getResourceModifyPriceWithOptions(request: $_model.GetResourceModifyPriceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetResourceModifyPriceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      query["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetResourceModifyPrice",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetResourceModifyPriceResponse>(await this.callApi(params, req, runtime), new $_model.GetResourceModifyPriceResponse({}));
+  }
+
+  /**
+   * Queries the pricing and discount information for scaling out a subscription delivery group to a specified total number of nodes.
+   * 
+   * @remarks
+   * This operation queries the resource scale-out pricing for an existing delivery group. A successful call returns only a quote and does not create an order or add nodes.
+   * **Before you call this operation, verify the following conditions:**
+   * - The delivery group belongs to the current account and is located in a supported region in the Chinese mainland.
+   * - The product type is Wuying Cloud App or Cloud Browser, and the billing method is subscription and purchased by node. This operation does not apply to browser groups that use the pay-as-you-go billing method or are billed by monthly active users (MAU).
+   * - The order status of the delivery group is normal, a resource node pool is associated, and no paid but ineffective renewal or scale-in orders exist.
+   * - The target total number of nodes is greater than the current number of purchased nodes and does not exceed the node quota for the corresponding region, product, and billing method under the account.
+   * **Parameter relationships:**
+   * - ProductType, AppInstanceGroupId, and Amount are all required parameters and must be specified together.
+   * - ProductType must match the product corresponding to AppInstanceGroupId.
+   * - **Amount is the total number of nodes after the scale-out, not the number of nodes added in this operation.** The region, node specifications, and billing method are determined by the existing delivery group and do not need to be passed separately.
+   * **Call sequence:**
+   * 1. First, confirm the target delivery group and the current number of purchased nodes. For Cloud App Common scenarios, you can first invoke [ListAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/ListAppInstanceGroup) to obtain the identity, and then invoke [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query the configuration and NodePool.NodeAmount.
+   * 2. Invoke this operation with the same product type, delivery group identity, and target total number of nodes to read the pricing, coupons, and pricing calculation rules.
+   * 3. After confirming the quote, if you need to execute the scale-out, you can invoke [ModifyNodePoolAmount](https://api.aliyun.com/document/appstream-center/2021-09-01/ModifyNodePoolAmount) and fill in the target total number in NodePool.NodeAmount as required by the operation. **A successful pricing query does not mean that an order has been created or the scale-out has been completed.**
+   * **Example scenario:**
+   * If a cloud app delivery group currently has 1 purchased subscription node and the target is to scale out to 2 nodes, set ProductType to CloudApp, AppInstanceGroupId to the ID of the delivery group, and Amount to 2. Replace the masked resource IDs with the actual values under the current account. The example quantities do not represent default values or quota limits. The pricing examples only illustrate the relationship among the original price, discount amount, and discounted price, and do not represent the fixed selling price of the specifications.
+   * 
+   * @param request - GetResourceModifyPriceRequest
+   * @returns GetResourceModifyPriceResponse
+   */
+  async getResourceModifyPrice(request: $_model.GetResourceModifyPriceRequest): Promise<$_model.GetResourceModifyPriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getResourceModifyPriceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the price information of a resource.
    * 
    * @param request - GetResourcePriceRequest
@@ -2556,6 +3068,86 @@ export default class Client extends OpenApi {
   async getResourcePrice(request: $_model.GetResourcePriceRequest): Promise<$_model.GetResourcePriceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getResourcePriceWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the maximum quantity quota applicable to the current account for a specified product, resource type, business region, and billing method.
+   * 
+   * @remarks
+   * This operation queries the maximum quantity quota. It does not query the used quota, remaining quota, or real-time resource inventory.
+   * **Parameter relationships:**
+   * - `ResourceType` and `ProductType` are required.
+   * - `BizRegionId` and `ChargeType` are optional query conditions and can be specified at the same time. They must be consistent with subsequent purchase or authorization operations.
+   * - If the region or billing method is omitted, the general quota for the corresponding dimension is queried. The quotas of different regions or billing methods are not added together.
+   * - If multiple quotas apply at the same time, the larger limit is returned.
+   * **Call sequence:**
+   * 1. Select the resource type, product, business region, and billing method of the payer based on subsequent business needs.
+   * 2. Invoke this operation to read `Data`. Query `AppInstanceGroup` before creating a delivery group, query `AppAuthUser` before adding an authorized user, and query `PoolNodeAmount` before purchasing or scaling out nodes.
+   * 3. Query the current usage in combination with the resources, and then verify the current operation by using subsequent creation, authorization, or scale-out operations. **This query does not reserve quotas or guarantee the success of subsequent purchases.**
+   * `Data=2147483647` indicates that no smaller quota limit is obtained in this query. It does not mean that the physical inventory is unlimited.
+   * 
+   * @param request - GetResourceQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceQuotaResponse
+   */
+  async getResourceQuotaWithOptions(request: $_model.GetResourceQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetResourceQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetResourceQuota",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetResourceQuotaResponse>(await this.callApi(params, req, runtime), new $_model.GetResourceQuotaResponse({}));
+  }
+
+  /**
+   * Queries the maximum quantity quota applicable to the current account for a specified product, resource type, business region, and billing method.
+   * 
+   * @remarks
+   * This operation queries the maximum quantity quota. It does not query the used quota, remaining quota, or real-time resource inventory.
+   * **Parameter relationships:**
+   * - `ResourceType` and `ProductType` are required.
+   * - `BizRegionId` and `ChargeType` are optional query conditions and can be specified at the same time. They must be consistent with subsequent purchase or authorization operations.
+   * - If the region or billing method is omitted, the general quota for the corresponding dimension is queried. The quotas of different regions or billing methods are not added together.
+   * - If multiple quotas apply at the same time, the larger limit is returned.
+   * **Call sequence:**
+   * 1. Select the resource type, product, business region, and billing method of the payer based on subsequent business needs.
+   * 2. Invoke this operation to read `Data`. Query `AppInstanceGroup` before creating a delivery group, query `AppAuthUser` before adding an authorized user, and query `PoolNodeAmount` before purchasing or scaling out nodes.
+   * 3. Query the current usage in combination with the resources, and then verify the current operation by using subsequent creation, authorization, or scale-out operations. **This query does not reserve quotas or guarantee the success of subsequent purchases.**
+   * `Data=2147483647` indicates that no smaller quota limit is obtained in this query. It does not mean that the physical inventory is unlimited.
+   * 
+   * @param request - GetResourceQuotaRequest
+   * @returns GetResourceQuotaResponse
+   */
+  async getResourceQuota(request: $_model.GetResourceQuotaRequest): Promise<$_model.GetResourceQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getResourceQuotaWithOptions(request, runtime);
   }
 
   /**
@@ -2747,6 +3339,184 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a task by task ID, or by resource information and task category.
+   * 
+   * @remarks
+   * Supports two query methods:
+   * - **Query by task ID**: Pass the TaskId parameter. This method takes precedence over querying by resource information.
+   * - **Query by resource**: Omit the TaskId parameter, and pass the EntityId, EntityType, and TaskCategory parameters. You can use the EntityVersionId parameter to specify the resource version.
+   * The API returns the current task status and recorded step information. Determine the overall task result based on the Status parameter. The success of a single step does not indicate the success of the entire task. You can call the ListTaskStep operation to query the names and categories of image creation and application adaptation steps.
+   * 
+   * @param request - GetTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskResponse
+   */
+  async getTaskWithOptions(request: $_model.GetTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
+    if (!$dara.isNull(request.entityType)) {
+      body["EntityType"] = request.entityType;
+    }
+
+    if (!$dara.isNull(request.entityVersionId)) {
+      body["EntityVersionId"] = request.entityVersionId;
+    }
+
+    if (!$dara.isNull(request.taskCategory)) {
+      body["TaskCategory"] = request.taskCategory;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTask",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetTaskResponse({}));
+  }
+
+  /**
+   * Queries the details of a task by task ID, or by resource information and task category.
+   * 
+   * @remarks
+   * Supports two query methods:
+   * - **Query by task ID**: Pass the TaskId parameter. This method takes precedence over querying by resource information.
+   * - **Query by resource**: Omit the TaskId parameter, and pass the EntityId, EntityType, and TaskCategory parameters. You can use the EntityVersionId parameter to specify the resource version.
+   * The API returns the current task status and recorded step information. Determine the overall task result based on the Status parameter. The success of a single step does not indicate the success of the entire task. You can call the ListTaskStep operation to query the names and categories of image creation and application adaptation steps.
+   * 
+   * @param request - GetTaskRequest
+   * @returns GetTaskResponse
+   */
+  async getTask(request: $_model.GetTaskRequest): Promise<$_model.GetTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Performs a paging query on the valid applications of the current account based on conditions such as the application ID, name, type, and associated product.
+   * 
+   * @remarks
+   * When multiple filter conditions are specified simultaneously, they take effect together. AppName supports partial match. When a single-value filter and the corresponding list filter are specified simultaneously, the intersection is used. To avoid empty results, select only one of the formats.
+   * If PageSize is omitted, the value is 10. Query pages sequentially starting from PageNumber 1 until the number of retrieved records reaches Count. Before deleting an application, check Deletable.
+   * 
+   * @param tmpReq - ListAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppResponse
+   */
+  async listAppWithOptions(tmpReq: $_model.ListAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAppResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAppShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.bizTypeList)) {
+      request.bizTypeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.bizTypeList, "BizTypeList", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.productTypeList)) {
+      request.productTypeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.productTypeList, "ProductTypeList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appName)) {
+      body["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.appType)) {
+      body["AppType"] = request.appType;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.bizTypeListShrink)) {
+      body["BizTypeList"] = request.bizTypeListShrink;
+    }
+
+    if (!$dara.isNull(request.originAppType)) {
+      body["OriginAppType"] = request.originAppType;
+    }
+
+    if (!$dara.isNull(request.osType)) {
+      body["OsType"] = request.osType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.productTypeListShrink)) {
+      body["ProductTypeList"] = request.productTypeListShrink;
+    }
+
+    if (!$dara.isNull(request.subAppType)) {
+      body["SubAppType"] = request.subAppType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApp",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAppResponse>(await this.callApi(params, req, runtime), new $_model.ListAppResponse({}));
+  }
+
+  /**
+   * Performs a paging query on the valid applications of the current account based on conditions such as the application ID, name, type, and associated product.
+   * 
+   * @remarks
+   * When multiple filter conditions are specified simultaneously, they take effect together. AppName supports partial match. When a single-value filter and the corresponding list filter are specified simultaneously, the intersection is used. To avoid empty results, select only one of the formats.
+   * If PageSize is omitted, the value is 10. Query pages sequentially starting from PageNumber 1 until the number of retrieved records reaches Count. Before deleting an application, check Deletable.
+   * 
+   * @param request - ListAppRequest
+   * @returns ListAppResponse
+   */
+  async listApp(request: $_model.ListAppRequest): Promise<$_model.ListAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAppWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of multiple delivery groups. This operation queries all delivery groups that meet the specified conditions instead of a specific delivery group.
    * 
    * @param request - ListAppInstanceGroupRequest
@@ -2840,6 +3610,138 @@ export default class Client extends OpenApi {
   async listAppInstanceGroup(request: $_model.ListAppInstanceGroupRequest): Promise<$_model.ListAppInstanceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAppInstanceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the available session instance types for the current account by paging based on the product, region, operating system, and instance type conditions.
+   * 
+   * @remarks
+   * This operation is used to select session instance types and does not create resources. The returned results are affected by the available instance types of the account and the business region. An empty result does not indicate a request failure.
+   * **Filtering and pagination:**
+   * - ProductType is required. Explicitly specify BizRegionId, PageNumber, and PageSize.
+   * - If BizRegionId is not provided, the region of the current request is used. You can call [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) to obtain the business region.
+   * - AppInstanceType and AppInstanceTypeList can be specified at the same time. In this case, only the instance types that meet both conditions are returned. Neither parameter overrides the other. The list can contain up to 100 items.
+   * - Instance type family, CPU, memory, GPU memory, operating system, and category conditions are filtered by intersection. The union is not automatically applied.
+   * - PageNumber starts from 1. Use TotalCount, PageSize, and PageNumber to continue pagination until all matching results are read.
+   * **Inventory and subsequent calls:**
+   * - Inventory is queried only when QueryInventory is set to true. If inventory information is not obtained, do not assume that the inventory is 0.
+   * - The inventory reflects the current query result and does not indicate a successful reservation.
+   * - After obtaining the AppInstanceType, you can query the price based on the session instance type parameter requirements of [GetResourcePrice](https://api.aliyun.com/document/appstream-center/2021-09-01/GetResourcePrice).
+   * - The current query does not use AppCenterImageId to filter instance types. Do not use this parameter to determine the compatibility between images and instance types.
+   * Field examples are used to demonstrate how to specify parameters and do not guarantee that the example instance types exist in the selected region or account. The GPU count field does not currently provide values. Use the GPU memory field to understand the instance type.
+   * 
+   * @param request - ListAppInstanceTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppInstanceTypeResponse
+   */
+  async listAppInstanceTypeWithOptions(request: $_model.ListAppInstanceTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAppInstanceTypeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appCenterImageId)) {
+      query["AppCenterImageId"] = request.appCenterImageId;
+    }
+
+    if (!$dara.isNull(request.appInstanceType)) {
+      query["AppInstanceType"] = request.appInstanceType;
+    }
+
+    if (!$dara.isNull(request.appInstanceTypeFamily)) {
+      query["AppInstanceTypeFamily"] = request.appInstanceTypeFamily;
+    }
+
+    if (!$dara.isNull(request.appInstanceTypeList)) {
+      query["AppInstanceTypeList"] = request.appInstanceTypeList;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.cpu)) {
+      query["Cpu"] = request.cpu;
+    }
+
+    if (!$dara.isNull(request.gpuMemory)) {
+      query["GpuMemory"] = request.gpuMemory;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.memory)) {
+      query["Memory"] = request.memory;
+    }
+
+    if (!$dara.isNull(request.osType)) {
+      query["OsType"] = request.osType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.queryInventory)) {
+      query["QueryInventory"] = request.queryInventory;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAppInstanceType",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAppInstanceTypeResponse>(await this.callApi(params, req, runtime), new $_model.ListAppInstanceTypeResponse({}));
+  }
+
+  /**
+   * Queries the available session instance types for the current account by paging based on the product, region, operating system, and instance type conditions.
+   * 
+   * @remarks
+   * This operation is used to select session instance types and does not create resources. The returned results are affected by the available instance types of the account and the business region. An empty result does not indicate a request failure.
+   * **Filtering and pagination:**
+   * - ProductType is required. Explicitly specify BizRegionId, PageNumber, and PageSize.
+   * - If BizRegionId is not provided, the region of the current request is used. You can call [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) to obtain the business region.
+   * - AppInstanceType and AppInstanceTypeList can be specified at the same time. In this case, only the instance types that meet both conditions are returned. Neither parameter overrides the other. The list can contain up to 100 items.
+   * - Instance type family, CPU, memory, GPU memory, operating system, and category conditions are filtered by intersection. The union is not automatically applied.
+   * - PageNumber starts from 1. Use TotalCount, PageSize, and PageNumber to continue pagination until all matching results are read.
+   * **Inventory and subsequent calls:**
+   * - Inventory is queried only when QueryInventory is set to true. If inventory information is not obtained, do not assume that the inventory is 0.
+   * - The inventory reflects the current query result and does not indicate a successful reservation.
+   * - After obtaining the AppInstanceType, you can query the price based on the session instance type parameter requirements of [GetResourcePrice](https://api.aliyun.com/document/appstream-center/2021-09-01/GetResourcePrice).
+   * - The current query does not use AppCenterImageId to filter instance types. Do not use this parameter to determine the compatibility between images and instance types.
+   * Field examples are used to demonstrate how to specify parameters and do not guarantee that the example instance types exist in the selected region or account. The GPU count field does not currently provide values. Use the GPU memory field to understand the instance type.
+   * 
+   * @param request - ListAppInstanceTypeRequest
+   * @returns ListAppInstanceTypeResponse
+   */
+  async listAppInstanceType(request: $_model.ListAppInstanceTypeRequest): Promise<$_model.ListAppInstanceTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAppInstanceTypeWithOptions(request, runtime);
   }
 
   /**
@@ -4752,6 +5654,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of region IDs available for image services under a specified product for the current account.
+   * 
+   * @remarks
+   * The returned results are affected by the available region configurations of the account and the product type. If ProductType is omitted, the query defaults to CloudApp.
+   * This operation returns the regions available for image services. You cannot use this information to determine whether a specific image has been distributed to these regions. Before you create or distribute an image based on a parent image, you must also check the region information of the destination image.
+   * 
+   * @param request - ListRegionIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRegionIdResponse
+   */
+  async listRegionIdWithOptions(request: $_model.ListRegionIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRegionIdResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRegionId",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRegionIdResponse>(await this.callApi(params, req, runtime), new $_model.ListRegionIdResponse({}));
+  }
+
+  /**
+   * Queries the list of region IDs available for image services under a specified product for the current account.
+   * 
+   * @remarks
+   * The returned results are affected by the available region configurations of the account and the product type. If ProductType is omitted, the query defaults to CloudApp.
+   * This operation returns the regions available for image services. You cannot use this information to determine whether a specific image has been distributed to these regions. Before you create or distribute an image based on a parent image, you must also check the region information of the destination image.
+   * 
+   * @param request - ListRegionIdRequest
+   * @returns ListRegionIdResponse
+   */
+  async listRegionId(request: $_model.ListRegionIdRequest): Promise<$_model.ListRegionIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRegionIdWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the regions supported by WUYING Cloud Application.
    * 
    * @remarks
@@ -4969,6 +5921,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the step identifiers, step categories, and interaction methods for application adaptation or image creation tasks.
+   * 
+   * @remarks
+   * Returns application adaptation steps when Type is set to ADAPTOR, and image creation steps when Type is set to IMAGE.
+   * This operation returns step definitions, not the actual progress of a specific task. Read the step definitions first, and then combine them with the current step and step status returned by GetTask to display the task progress. The step sets vary across different task types. Do not treat the step index as a completion percentage.
+   * 
+   * @param request - ListTaskStepRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTaskStepResponse
+   */
+  async listTaskStepWithOptions(request: $_model.ListTaskStepRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTaskStepResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTaskStep",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTaskStepResponse>(await this.callApi(params, req, runtime), new $_model.ListTaskStepResponse({}));
+  }
+
+  /**
+   * Queries the step identifiers, step categories, and interaction methods for application adaptation or image creation tasks.
+   * 
+   * @remarks
+   * Returns application adaptation steps when Type is set to ADAPTOR, and image creation steps when Type is set to IMAGE.
+   * This operation returns step definitions, not the actual progress of a specific task. Read the step definitions first, and then combine them with the current step and step status returned by GetTask to display the task progress. The step sets vary across different task types. Do not treat the step index as a completion percentage.
+   * 
+   * @param request - ListTaskStepRequest
+   * @returns ListTaskStepResponse
+   */
+  async listTaskStep(request: $_model.ListTaskStepRequest): Promise<$_model.ListTaskStepResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTaskStepWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the configuration information of an administrator account, such as whether resource expiration reminders are enabled.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5133,10 +6135,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available Wuying Workstation workload templates for a specified virtual node pool.
+   * Queries the Wuying Workstation workload templates available for a specified virtual node pool.
    * 
    * @remarks
-   * Queries the available workload templates for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the VirtualNodePoolId under the current account. This operation verifies the ownership of the node pool and returns up to 100 records sorted by the template configuration order. The template content is Base64-encoded after being UTF-8 encoded. You must perform Base64 decoding before use. The current version does not use MaxResults and NextToken for pagination.
+   * Queries the workload templates available for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the `VirtualNodePoolId` of the current account. The operation verifies the ownership of the node pool and returns up to 100 records sorted by template configuration order. The template content is Base64-encoded after being encoded in UTF-8. You must decode the Base64 string before use. The current version does not use `MaxResults` and `NextToken` for pagination.
    * 
    * @param request - ListWuyingServerWorkloadTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5175,10 +6177,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available Wuying Workstation workload templates for a specified virtual node pool.
+   * Queries the Wuying Workstation workload templates available for a specified virtual node pool.
    * 
    * @remarks
-   * Queries the available workload templates for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the VirtualNodePoolId under the current account. This operation verifies the ownership of the node pool and returns up to 100 records sorted by the template configuration order. The template content is Base64-encoded after being UTF-8 encoded. You must perform Base64 decoding before use. The current version does not use MaxResults and NextToken for pagination.
+   * Queries the workload templates available for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the `VirtualNodePoolId` of the current account. The operation verifies the ownership of the node pool and returns up to 100 records sorted by template configuration order. The template content is Base64-encoded after being encoded in UTF-8. You must decode the Base64 string before use. The current version does not use `MaxResults` and `NextToken` for pagination.
    * 
    * @param request - ListWuyingServerWorkloadTemplateRequest
    * @returns ListWuyingServerWorkloadTemplateResponse
@@ -5418,6 +6420,114 @@ export default class Client extends OpenApi {
   async modifyAppInstanceGroupAttribute(request: $_model.ModifyAppInstanceGroupAttributeRequest): Promise<$_model.ModifyAppInstanceGroupAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAppInstanceGroupAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * Changes the billing method of a specified delivery group to the target billing method and returns the ID of the billing conversion task to be created.
+   * 
+   * @remarks
+   * This operation performs billing method conversion, which may create orders and trigger subsequent billing changes. **A successful response or a returned task ID does not indicate that the new billing method has taken effect.**
+   * **Before you begin:**
+   * - The resources belong to the current account, and the product and business region match those in the request. Only one delivery group can be specified per request.
+   * - The target billing method must be different from the current one, and the target resource specifications must support the corresponding sales and Billable methods.
+   * - Delivery groups that have been added to a valid collection cannot be converted to a different billing method individually.
+   * - Multiple delivery groups created in the same batch of orders cannot be converted to different Billable methods separately.
+   * **Parameter relationships and call sequence:**
+   * 1. Query the resource details first to confirm the product, business region, and current `ChargeType`. You can use [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query cloud application delivery groups.
+   * 2. Explicitly specify the target `ChargeType`. If you need to purchase a subscription, specify the purchase duration by combining `Period` and `PeriodUnit`. The period combination must comply with the sales rules currently supported by the resource.
+   * 3. Set `AutoPay` based on whether automatic payment is allowed. If auto-renewal is involved, explicitly set `AutoRenew`.
+   * 4. After the call, save the returned `AppInstanceGroupModel.TaskId`. If there are unpaid orders, complete the payment first, and then query the resource details again to confirm that the billing method has been changed.
+   * This operation does not accept an expiration time parameter. Do not pass the expiration time from other operations into this request. The task examples only illustrate the purpose of the ID and do not define a fixed prefix or length for actual task IDs.
+   * 
+   * @param tmpReq - ModifyAppInstanceGroupChargeTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppInstanceGroupChargeTypeResponse
+   */
+  async modifyAppInstanceGroupChargeTypeWithOptions(tmpReq: $_model.ModifyAppInstanceGroupChargeTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAppInstanceGroupChargeTypeResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyAppInstanceGroupChargeTypeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.appInstanceGroupIds)) {
+      request.appInstanceGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.appInstanceGroupIds, "AppInstanceGroupIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupIdsShrink)) {
+      body["AppInstanceGroupIds"] = request.appInstanceGroupIdsShrink;
+    }
+
+    if (!$dara.isNull(request.autoPay)) {
+      body["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      body["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      body["ChargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      body["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      body["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      body["PromotionId"] = request.promotionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAppInstanceGroupChargeType",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAppInstanceGroupChargeTypeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAppInstanceGroupChargeTypeResponse({}));
+  }
+
+  /**
+   * Changes the billing method of a specified delivery group to the target billing method and returns the ID of the billing conversion task to be created.
+   * 
+   * @remarks
+   * This operation performs billing method conversion, which may create orders and trigger subsequent billing changes. **A successful response or a returned task ID does not indicate that the new billing method has taken effect.**
+   * **Before you begin:**
+   * - The resources belong to the current account, and the product and business region match those in the request. Only one delivery group can be specified per request.
+   * - The target billing method must be different from the current one, and the target resource specifications must support the corresponding sales and Billable methods.
+   * - Delivery groups that have been added to a valid collection cannot be converted to a different billing method individually.
+   * - Multiple delivery groups created in the same batch of orders cannot be converted to different Billable methods separately.
+   * **Parameter relationships and call sequence:**
+   * 1. Query the resource details first to confirm the product, business region, and current `ChargeType`. You can use [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query cloud application delivery groups.
+   * 2. Explicitly specify the target `ChargeType`. If you need to purchase a subscription, specify the purchase duration by combining `Period` and `PeriodUnit`. The period combination must comply with the sales rules currently supported by the resource.
+   * 3. Set `AutoPay` based on whether automatic payment is allowed. If auto-renewal is involved, explicitly set `AutoRenew`.
+   * 4. After the call, save the returned `AppInstanceGroupModel.TaskId`. If there are unpaid orders, complete the payment first, and then query the resource details again to confirm that the billing method has been changed.
+   * This operation does not accept an expiration time parameter. Do not pass the expiration time from other operations into this request. The task examples only illustrate the purpose of the ID and do not define a fixed prefix or length for actual task IDs.
+   * 
+   * @param request - ModifyAppInstanceGroupChargeTypeRequest
+   * @returns ModifyAppInstanceGroupChargeTypeResponse
+   */
+  async modifyAppInstanceGroupChargeType(request: $_model.ModifyAppInstanceGroupChargeTypeRequest): Promise<$_model.ModifyAppInstanceGroupChargeTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAppInstanceGroupChargeTypeWithOptions(request, runtime);
   }
 
   /**
@@ -5927,10 +7037,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries delivery group reports by region, delivery group, status, user authorization relationship, or statistical date.
+   * Queries app instance group reports by region, app instance group, status, user authorization relationship, or statistical date.
    * 
    * @remarks
-   * Queries the delivery group ID, name, and status in delivery group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business region, and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the delivery group. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are passed at the same time, the intersection is taken. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be passed in pairs to represent a closed interval. If both a single day and an interval are passed, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
+   * Queries the IDs, names, and statuses of app instance groups in app instance group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business regions and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the app instance groups. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are specified at the same time, the intersection is used. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be specified in pairs to represent a closed interval. If both a single day and an interval are specified, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
    * 
    * @param request - QueryAppInstanceGroupReportListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6001,10 +7111,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries delivery group reports by region, delivery group, status, user authorization relationship, or statistical date.
+   * Queries app instance group reports by region, app instance group, status, user authorization relationship, or statistical date.
    * 
    * @remarks
-   * Queries the delivery group ID, name, and status in delivery group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business region, and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the delivery group. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are passed at the same time, the intersection is taken. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be passed in pairs to represent a closed interval. If both a single day and an interval are passed, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
+   * Queries the IDs, names, and statuses of app instance groups in app instance group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business regions and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the app instance groups. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are specified at the same time, the intersection is used. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be specified in pairs to represent a closed interval. If both a single day and an interval are specified, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
    * 
    * @param request - QueryAppInstanceGroupReportListRequest
    * @returns QueryAppInstanceGroupReportListResponse
@@ -6018,7 +7128,7 @@ export default class Client extends OpenApi {
    * Queries the number of successful connections, the number of failed connections, the success rate, and the average connection duration within a specified time range.
    * 
    * @remarks
-   * Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
+   * Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. The `ProductType`, `StartDate`, and `EndDate` parameters are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
    * 
    * @param request - QueryConnectionReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6076,7 +7186,7 @@ export default class Client extends OpenApi {
    * Queries the number of successful connections, the number of failed connections, the success rate, and the average connection duration within a specified time range.
    * 
    * @remarks
-   * Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
+   * Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. The `ProductType`, `StartDate`, and `EndDate` parameters are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
    * 
    * @param request - QueryConnectionReportRequest
    * @returns QueryConnectionReportResponse
@@ -6090,7 +7200,7 @@ export default class Client extends OpenApi {
    * Queries the number of daily active users and streaming daily active users by date.
    * 
    * @remarks
-   * Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to `CloudApp`. You can use BizRegionId and AppInstanceGroupId to narrow the scope. If neither is specified, the query returns aggregated data for all business regions. Results are paginated, with a maximum of 1,500 records per page.
+   * Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to CloudApp. You can use BizRegionId and AppInstanceGroupId to narrow down the scope. If neither is specified, the query returns aggregated data for all business regions. Results are returned in pages, with a maximum of 1,500 records per page.
    * 
    * @param request - QueryDauReportDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6148,7 +7258,7 @@ export default class Client extends OpenApi {
    * Queries the number of daily active users and streaming daily active users by date.
    * 
    * @remarks
-   * Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to `CloudApp`. You can use BizRegionId and AppInstanceGroupId to narrow the scope. If neither is specified, the query returns aggregated data for all business regions. Results are paginated, with a maximum of 1,500 records per page.
+   * Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to CloudApp. You can use BizRegionId and AppInstanceGroupId to narrow down the scope. If neither is specified, the query returns aggregated data for all business regions. Results are returned in pages, with a maximum of 1,500 records per page.
    * 
    * @param request - QueryDauReportDataRequest
    * @returns QueryDauReportDataResponse
@@ -6306,7 +7416,7 @@ export default class Client extends OpenApi {
    * Queries the total number of nodes, the number of subscription nodes, and the number of pay-as-you-go nodes by statistical granularity.
    * 
    * @remarks
-   * Queries the node quantity report. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
+   * Queries node quantity reports. StartDate, EndDate, and StatDateType are required. The query span limit is determined by the statistical granularity: up to 1 day for 1m and 30m, up to 15 days for 6h, and up to 180 days for 1d. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
    * 
    * @param request - QueryNodeReportDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6368,7 +7478,7 @@ export default class Client extends OpenApi {
    * Queries the total number of nodes, the number of subscription nodes, and the number of pay-as-you-go nodes by statistical granularity.
    * 
    * @remarks
-   * Queries the node quantity report. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
+   * Queries node quantity reports. StartDate, EndDate, and StatDateType are required. The query span limit is determined by the statistical granularity: up to 1 day for 1m and 30m, up to 15 days for 6h, and up to 180 days for 1d. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
    * 
    * @param request - QueryNodeReportDataRequest
    * @returns QueryNodeReportDataResponse
@@ -6458,7 +7568,7 @@ export default class Client extends OpenApi {
    * Queries the cumulative duration of application usage by a specified user on an hourly basis and returns the top five applications for each hour.
    * 
    * @remarks
-   * Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. A maximum of the top five applications by usage duration are returned for each hour.
+   * Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to query. A maximum of the top five applications by usage duration are returned for each hour.
    * 
    * @param request - QueryUserAppUsageAggregateByHourRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6512,7 +7622,7 @@ export default class Client extends OpenApi {
    * Queries the cumulative duration of application usage by a specified user on an hourly basis and returns the top five applications for each hour.
    * 
    * @remarks
-   * Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. A maximum of the top five applications by usage duration are returned for each hour.
+   * Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to query. A maximum of the top five applications by usage duration are returned for each hour.
    * 
    * @param request - QueryUserAppUsageAggregateByHourRequest
    * @returns QueryUserAppUsageAggregateByHourResponse
@@ -6526,7 +7636,7 @@ export default class Client extends OpenApi {
    * Queries the ranking of cumulative application usage duration for a specified user within a date range.
    * 
    * @remarks
-   * Queries the ranking of application usage duration for a specified user within a statistical range. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
+   * Queries the ranking of application usage duration for a specified user within a statistical range. `StartDate` and `EndDate` use the `yyyyMMdd` format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. `UserId` must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
    * 
    * @param request - QueryUserAppUsageTimeRankRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6580,7 +7690,7 @@ export default class Client extends OpenApi {
    * Queries the ranking of cumulative application usage duration for a specified user within a date range.
    * 
    * @remarks
-   * Queries the ranking of application usage duration for a specified user within a statistical range. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
+   * Queries the ranking of application usage duration for a specified user within a statistical range. `StartDate` and `EndDate` use the `yyyyMMdd` format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. `UserId` must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
    * 
    * @param request - QueryUserAppUsageTimeRankRequest
    * @returns QueryUserAppUsageTimeRankResponse
@@ -6594,7 +7704,7 @@ export default class Client extends OpenApi {
    * Queries the connection status, last connection time, cumulative usage duration, and session persistence duration of users.
    * 
    * @remarks
-   * Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to the `yyyyMMdd` format and aggregated based on a closed interval of natural days. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
+   * Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to `yyyyMMdd` and aggregated by natural days in a closed interval. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
    * 
    * @param request - QueryUserUsageReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6660,7 +7770,7 @@ export default class Client extends OpenApi {
    * Queries the connection status, last connection time, cumulative usage duration, and session persistence duration of users.
    * 
    * @remarks
-   * Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to the `yyyyMMdd` format and aggregated based on a closed interval of natural days. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
+   * Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to `yyyyMMdd` and aggregated by natural days in a closed interval. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
    * 
    * @param request - QueryUserUsageReportRequest
    * @returns QueryUserUsageReportResponse
@@ -7470,6 +8580,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Dissociates multiple applications from a specified image version.
+   * 
+   * @remarks
+   * This operation supports only custom images and community images that the current account can manage. If you omit VersionId, the current effective version is used. If you specify VersionId, it must belong to the image specified by ImageId. Verify the associations between the applications and the version by querying the image before you submit AppIdList. **Dissociating applications does not directly delete the application records.** To delete an application, call DeleteApp.
+   * 
+   * @param request - UnbindAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindAppResponse
+   */
+  async unbindAppWithOptions(request: $_model.UnbindAppRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindAppResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appIdList)) {
+      bodyFlat["AppIdList"] = request.appIdList;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnbindApp",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnbindAppResponse>(await this.callApi(params, req, runtime), new $_model.UnbindAppResponse({}));
+  }
+
+  /**
+   * Dissociates multiple applications from a specified image version.
+   * 
+   * @remarks
+   * This operation supports only custom images and community images that the current account can manage. If you omit VersionId, the current effective version is used. If you specify VersionId, it must belong to the image specified by ImageId. Verify the associations between the applications and the version by querying the image before you submit AppIdList. **Dissociating applications does not directly delete the application records.** To delete an application, call DeleteApp.
+   * 
+   * @param request - UnbindAppRequest
+   * @returns UnbindAppResponse
+   */
+  async unbindApp(request: $_model.UnbindAppRequest): Promise<$_model.UnbindAppResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.unbindAppWithOptions(request, runtime);
+  }
+
+  /**
    * Unbinds tags from cloud resources in a unified manner.
    * 
    * @param request - UntagCloudResourcesRequest
@@ -7620,6 +8791,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the runtime parameters, optimization configurations, and user configurations of a specified application adapter.
+   * 
+   * @remarks
+   * The AdaptorId must correspond to a valid application adapter manageable by the current account. Pass only the configurations that need to be modified in this request.
+   * SilenceParam is used for application startup parameters. UserConfig is used for application runtime configurations. **This operation does not support modifying application scripts or executable file paths through AppScript or ExecuteFileAddress. Do not pass these two parameters.**
+   * 
+   * @param tmpReq - UpdateAdaptorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAdaptorResponse
+   */
+  async updateAdaptorWithOptions(tmpReq: $_model.UpdateAdaptorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAdaptorResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateAdaptorShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.userConfig)) {
+      request.userConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userConfig, "UserConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.adaptorId)) {
+      body["AdaptorId"] = request.adaptorId;
+    }
+
+    if (!$dara.isNull(request.appScript)) {
+      body["AppScript"] = request.appScript;
+    }
+
+    if (!$dara.isNull(request.executeFileAddress)) {
+      body["ExecuteFileAddress"] = request.executeFileAddress;
+    }
+
+    if (!$dara.isNull(request.optimizeParam)) {
+      body["OptimizeParam"] = request.optimizeParam;
+    }
+
+    if (!$dara.isNull(request.silenceParam)) {
+      body["SilenceParam"] = request.silenceParam;
+    }
+
+    if (!$dara.isNull(request.userConfigShrink)) {
+      body["UserConfig"] = request.userConfigShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAdaptor",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAdaptorResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAdaptorResponse({}));
+  }
+
+  /**
+   * Modifies the runtime parameters, optimization configurations, and user configurations of a specified application adapter.
+   * 
+   * @remarks
+   * The AdaptorId must correspond to a valid application adapter manageable by the current account. Pass only the configurations that need to be modified in this request.
+   * SilenceParam is used for application startup parameters. UserConfig is used for application runtime configurations. **This operation does not support modifying application scripts or executable file paths through AppScript or ExecuteFileAddress. Do not pass these two parameters.**
+   * 
+   * @param request - UpdateAdaptorRequest
+   * @returns UpdateAdaptorResponse
+   */
+  async updateAdaptor(request: $_model.UpdateAdaptorRequest): Promise<$_model.UpdateAdaptorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAdaptorWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the image of a delivery group.
    * 
    * @remarks
@@ -7681,6 +8928,156 @@ export default class Client extends OpenApi {
   async updateAppInstanceGroupImage(request: $_model.UpdateAppInstanceGroupImageRequest): Promise<$_model.UpdateAppInstanceGroupImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAppInstanceGroupImageWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the name, description, version information, and associated application adaptations of an image.
+   * 
+   * @remarks
+   * You can only modify images that are owned by the current account and allow modifications. Modifying images shared with the current account is not supported.
+   * You must provide at least one of ImageId and VersionId. If both are provided, they must point to the same image. If VersionId is omitted, the current effective version of the image is used. Passing a non-empty AdaptorIdList updates the application adaptation relationships of the selected version based on the complete list. Make sure to include the adaptations that you still want to retain.
+   * 
+   * @param request - UpdateImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateImageResponse
+   */
+  async updateImageWithOptions(request: $_model.UpdateImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.adaptorIdList)) {
+      body["AdaptorIdList"] = request.adaptorIdList;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.distro)) {
+      body["Distro"] = request.distro;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.imageName)) {
+      body["ImageName"] = request.imageName;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      body["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
+    if (!$dara.isNull(request.versionName)) {
+      body["VersionName"] = request.versionName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateImage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateImageResponse>(await this.callApi(params, req, runtime), new $_model.UpdateImageResponse({}));
+  }
+
+  /**
+   * Modifies the name, description, version information, and associated application adaptations of an image.
+   * 
+   * @remarks
+   * You can only modify images that are owned by the current account and allow modifications. Modifying images shared with the current account is not supported.
+   * You must provide at least one of ImageId and VersionId. If both are provided, they must point to the same image. If VersionId is omitted, the current effective version of the image is used. Passing a non-empty AdaptorIdList updates the application adaptation relationships of the selected version based on the complete list. Make sure to include the adaptations that you still want to retain.
+   * 
+   * @param request - UpdateImageRequest
+   * @returns UpdateImageResponse
+   */
+  async updateImage(request: $_model.UpdateImageRequest): Promise<$_model.UpdateImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateImageWithOptions(request, runtime);
+  }
+
+  /**
+   * Sends a status update request for an existing image creation task to the corresponding creation resource.
+   * 
+   * @remarks
+   * The task must exist before you call this operation, and the corresponding creation resource and resource node must be available. TaskType must match the actual type of the task. **This operation does not support modifying the task step, image version, or destination region by using TaskStep, VersionId, or BizRegionId. Do not pass these three parameters.** A successful request only indicates that this status update call is completed. To query the final status of the task, call GetTask.
+   * 
+   * @param request - UpdateImageTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateImageTaskResponse
+   */
+  async updateImageTaskWithOptions(request: $_model.UpdateImageTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateImageTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.code)) {
+      body["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskStep)) {
+      body["TaskStep"] = request.taskStep;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateImageTask",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateImageTaskResponse>(await this.callApi(params, req, runtime), new $_model.UpdateImageTaskResponse({}));
+  }
+
+  /**
+   * Sends a status update request for an existing image creation task to the corresponding creation resource.
+   * 
+   * @remarks
+   * The task must exist before you call this operation, and the corresponding creation resource and resource node must be available. TaskType must match the actual type of the task. **This operation does not support modifying the task step, image version, or destination region by using TaskStep, VersionId, or BizRegionId. Do not pass these three parameters.** A successful request only indicates that this status update call is completed. To query the final status of the task, call GetTask.
+   * 
+   * @param request - UpdateImageTaskRequest
+   * @returns UpdateImageTaskResponse
+   */
+  async updateImageTask(request: $_model.UpdateImageTaskRequest): Promise<$_model.UpdateImageTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateImageTaskWithOptions(request, runtime);
   }
 
   /**

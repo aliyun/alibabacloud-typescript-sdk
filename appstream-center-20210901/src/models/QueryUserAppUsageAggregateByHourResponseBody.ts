@@ -29,7 +29,7 @@ export class QueryUserAppUsageAggregateByHourResponseBodyIndexData extends $dara
   appTimeCnt?: string;
   /**
    * @remarks
-   * The statistical hour, which is a two-digit 24-hour format string with values ranging from 00 to 23. Hour boundaries are divided based on the Asia/Shanghai (UTC+8) time zone.
+   * The statistical hour in a two-digit 24-hour format string. Valid values: 00 to 23. Hour boundaries are divided based on the Asia/Shanghai (UTC+8) time zone.
    * 
    * @example
    * 02
@@ -65,7 +65,7 @@ export class QueryUserAppUsageAggregateByHourResponseBodyIndexData extends $dara
 export class QueryUserAppUsageAggregateByHourResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of 200 indicates that the request is processed successfully. Other values indicate that the processing failed.
+   * The business status code. A value of 200 indicates that the request is successful. Other values indicate that the request failed.
    * 
    * @example
    * 200

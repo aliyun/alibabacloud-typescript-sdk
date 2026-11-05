@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUserUsageReportRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the app instance group, which is used to filter data for a specified app instance group. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID. If you do not specify this parameter, data is not filtered by app instance group.
+   * The ID of the app instance group. This parameter is used to filter data for a specified app instance group. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID. If you do not specify this parameter, data is not filtered by app instance group.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -13,7 +13,7 @@ export class QueryUserUsageReportRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The ID of the business region, which is used to filter report data. You can call the [ListRegions](~~ListRegions~~) operation to obtain the ID.
+   * The ID of the business region. This parameter is used to filter report data. You can call the [ListRegions](~~ListRegions~~) operation to obtain the ID.
    * 
    * @example
    * cn-hangzhou
@@ -25,9 +25,9 @@ export class QueryUserUsageReportRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - Connected: At least one currently connected session exists.
-   * - Disconnected: The session binding is retained, but no currently connected session exists.
-   * - Unbound: No session binding exists.
+   * - `Connected`: At least one currently connected session exists.
+   * - `Disconnected`: The session binding is retained, but no currently connected session exists.
+   * - `Unbound`: No session binding exists.
    * 
    * @example
    * Connected
@@ -35,7 +35,7 @@ export class QueryUserUsageReportRequest extends $dara.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * The end time of the statistics. **Required**. Format: `yyyy-MM-dd HH:mm:ss`. The value cannot be earlier than StartDate. The server converts the time to the `yyyyMMdd` format and calculates statistics based on a closed interval of natural days. The hours, minutes, and seconds are not involved in day-level filtering. The time span cannot exceed 60 months. The string itself does not carry a time zone and is interpreted as Asia/Shanghai (UTC+8).
+   * The end time of the statistics. **Required**. Format: `yyyy-MM-dd HH:mm:ss`. The end time cannot be earlier than StartDate. The service converts the time to `yyyyMMdd` and calculates the statistics by natural days in a closed interval. The hours, minutes, and seconds are not involved in the day-level filtering. The time span cannot exceed 60 months. The string itself does not carry a time zone and is interpreted as Asia/Shanghai (UTC+8).
    * 
    * @example
    * 2026-09-02 00:00:00
@@ -43,7 +43,7 @@ export class QueryUserUsageReportRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The page number. We recommend that you explicitly specify a value starting from `1`. If you do not specify this parameter, the server processes the request as the first page, but the response may return `0`.
+   * The page number to query. Specify a value starting from 1. If you do not specify this parameter, the service processes the request as the first page, but the response may return 0.
    * 
    * @example
    * 1
@@ -63,14 +63,14 @@ export class QueryUserUsageReportRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - CloudApp: WUYING Cloud App.
-   * - CloudBrowser: Cloud Browser.
-   * - WuyingServer: Enterprise Edition workstation.
-   * - WuyingWorkstation: Personal Edition container workstation.
-   * - WuyingWorkstationTeam: Team Edition container workstation.
-   * - WuyingWorkstationBusiness: Dedicated Edition container workstation.
-   * - AndroidCloud: Cloud Phone.
-   * - AIAgent: AgentBay (AI agent).
+   * - `CloudApp`: WUYING Cloud App.
+   * - `CloudBrowser`: Cloud Browser.
+   * - `WuyingServer`: Enterprise Edition workstation.
+   * - `WuyingWorkstation`: Personal Edition Linggou container workstation.
+   * - `WuyingWorkstationTeam`: Team Edition Linggou container workstation.
+   * - `WuyingWorkstationBusiness`: Dedicated Edition Linggou container workstation.
+   * - `AndroidCloud`: Cloud Phone.
+   * - `AIAgent`: AgentBay (AI agent).
    * 
    * @example
    * CloudApp
@@ -78,7 +78,7 @@ export class QueryUserUsageReportRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The start time of the statistics. **Required**. Format: `yyyy-MM-dd HH:mm:ss`. The server converts the time to the `yyyyMMdd` format and calculates statistics based on a closed interval of natural days. The hours, minutes, and seconds are not involved in day-level filtering. The time span cannot exceed 60 months. The string itself does not carry a time zone and is interpreted as Asia/Shanghai (UTC+8).
+   * The start time of the statistics. **Required**. Format: `yyyy-MM-dd HH:mm:ss`. The service converts the time to `yyyyMMdd` and calculates the statistics by natural days in a closed interval. The hours, minutes, and seconds are not involved in the day-level filtering. The time span cannot exceed 60 months. The string itself does not carry a time zone and is interpreted as Asia/Shanghai (UTC+8).
    * 
    * @example
    * 2026-09-01 00:00:00
@@ -86,7 +86,7 @@ export class QueryUserUsageReportRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The ID of the end user, which is used to precisely filter users. If you do not specify this parameter, data is not filtered by user.
+   * The ID of the end user. This parameter is used to accurately filter users. If you do not specify this parameter, data is not filtered by user.
    * 
    * @example
    * user01

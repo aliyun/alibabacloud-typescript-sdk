@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUserAppUsageTimeRankResponseBodyIndexData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * app-9ciijz60n4xsv****
@@ -13,7 +13,7 @@ export class QueryUserAppUsageTimeRankResponseBodyIndexData extends $dara.Model 
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * Visual Studio Code
@@ -29,7 +29,7 @@ export class QueryUserAppUsageTimeRankResponseBodyIndexData extends $dara.Model 
   appTimeCnt?: string;
   /**
    * @remarks
-   * The version of the application. The current version may not return this value, and callers should not rely on this field. A non-empty value indicates the application version.
+   * The application version. The current version may not return this value, and callers should not rely on this field. A non-empty value indicates the application version.
    * 
    * @example
    * 1.96.0
@@ -65,7 +65,7 @@ export class QueryUserAppUsageTimeRankResponseBodyIndexData extends $dara.Model 
 export class QueryUserAppUsageTimeRankResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. 200 indicates that the request is successful. Other values indicate that the request failed.
+   * The business status code. A value of `200` indicates that the request is processed successfully. Other values indicate that the processing failed.
    * 
    * @example
    * 200
@@ -78,7 +78,7 @@ export class QueryUserAppUsageTimeRankResponseBody extends $dara.Model {
   indexData?: QueryUserAppUsageTimeRankResponseBodyIndexData[];
   /**
    * @remarks
-   * The description of the request processing result. success is usually returned when the request is successful.
+   * The description of the request processing result. If the request is successful, `success` is usually returned.
    * 
    * @example
    * success

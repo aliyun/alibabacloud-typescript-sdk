@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDauReportDataResponseBodyDauReportDataModel extends $dara.Model {
   /**
    * @remarks
-   * The number of active users within the statistical period. Unit: users.
+   * The number of active users within the statistical epoch. Unit: users.
    * 
    * @example
    * 128
@@ -13,7 +13,7 @@ export class QueryDauReportDataResponseBodyDauReportDataModel extends $dara.Mode
   dau?: number;
   /**
    * @remarks
-   * The statistical date. Format: `yyyy-MM-dd`. The string does not contain time zone information and is interpreted as a calendar date in the Asia/Shanghai (UTC+8) time zone.
+   * The statistics date. Format: yyyy-MM-dd. The string does not contain a time zone and is interpreted as a natural date in the Asia/Shanghai (UTC+8) time zone.
    * 
    * @example
    * 2026-09-01
@@ -21,7 +21,7 @@ export class QueryDauReportDataResponseBodyDauReportDataModel extends $dara.Mode
   statDate?: string;
   /**
    * @remarks
-   * The number of active users who initiated sessions through streaming access within the statistical period. Unit: users.
+   * The number of active users who generated sessions through streaming access within the statistical epoch. Unit: users.
    * 
    * @example
    * 96
@@ -55,7 +55,7 @@ export class QueryDauReportDataResponseBodyDauReportDataModel extends $dara.Mode
 export class QueryDauReportDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of `200` indicates that the request was processed. Other values indicate that the request failed.
+   * The business status code. A value of 200 indicates that the request is processed successfully. Other values indicate that the processing failed.
    * 
    * @example
    * 200
@@ -63,7 +63,7 @@ export class QueryDauReportDataResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The total number of entries that meet the query conditions.
+   * The total number of records that meet the query conditions.
    * 
    * @example
    * 3
@@ -76,7 +76,7 @@ export class QueryDauReportDataResponseBody extends $dara.Model {
   dauReportDataModel?: QueryDauReportDataResponseBodyDauReportDataModel[];
   /**
    * @remarks
-   * The message about the request processing result. If the request is successful, `success` is returned.
+   * The description of the request processing result. Typically, success is returned if the request is successful.
    * 
    * @example
    * success
@@ -84,7 +84,7 @@ export class QueryDauReportDataResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number of the current response.
+   * The page number corresponding to the current response.
    * 
    * @example
    * 1
@@ -92,7 +92,7 @@ export class QueryDauReportDataResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in the current response.
+   * The number of records per page used in the current response.
    * 
    * @example
    * 200
@@ -100,7 +100,7 @@ export class QueryDauReportDataResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier of the request. You can use this ID to troubleshoot issues.
+   * The unique identifier of the request, which can be used to troubleshoot request issues.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

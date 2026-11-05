@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMauReportDataResponseBodyMauReportDataModel extends $dara.Model {
   /**
    * @remarks
-   * The ID of the app instance group.
+   * The app instance group ID.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -21,7 +21,7 @@ export class QueryMauReportDataResponseBodyMauReportDataModel extends $dara.Mode
   mau?: number;
   /**
    * @remarks
-   * The ID of the business region to which the report data belongs.
+   * The business region ID to which the report data belongs.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +29,7 @@ export class QueryMauReportDataResponseBodyMauReportDataModel extends $dara.Mode
   regionId?: string;
   /**
    * @remarks
-   * The statistical cutoff date used for the month. Format: `yyyy-MM-dd`. For the last month, the date is usually the day before the requested `EndDate`. The date is interpreted as a natural date in the Asia/Shanghai (UTC+8) time zone.
+   * The statistical cutoff date used for the month. Format: `yyyy-MM-dd`. For the last month, this is usually the day before the requested `EndDate`. The date is interpreted as a calendar date in the Asia/Shanghai (UTC+8) time zone.
    * 
    * @example
    * 2026-09-29
@@ -37,7 +37,7 @@ export class QueryMauReportDataResponseBodyMauReportDataModel extends $dara.Mode
   statDate?: string;
   /**
    * @remarks
-   * The statistical month. Format: `yyyy-MM`. The month is interpreted as a natural month in the Asia/Shanghai (UTC+8) time zone.
+   * The statistical month. Format: `yyyy-MM`. The month is interpreted as a calendar month in the Asia/Shanghai (UTC+8) time zone.
    * 
    * @example
    * 2026-09
@@ -75,7 +75,7 @@ export class QueryMauReportDataResponseBodyMauReportDataModel extends $dara.Mode
 export class QueryMauReportDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of `200` indicates that the request is successful. Other values indicate that the request failed.
+   * The business status code. A value of `200` indicates that the request is processed successfully. Other values indicate that the request fails to be processed.
    * 
    * @example
    * 200

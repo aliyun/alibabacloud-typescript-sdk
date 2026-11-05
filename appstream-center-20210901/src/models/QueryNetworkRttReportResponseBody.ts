@@ -21,7 +21,7 @@ export class QueryNetworkRttReportResponseBodyNetworkRttReportDataModel extends 
   lowRttUserCount?: number;
   /**
    * @remarks
-   * The ratio of low-RTT users to the total number of users included in the statistics. Valid values: 0 to 1. To obtain the percentage, multiply the value by 100.
+   * The ratio of low-RTT users to the total number of users involved in the statistics. Valid values: 0 to 1. To obtain the percentage, multiply the value by 100.
    * 
    * @example
    * 0.85
@@ -37,7 +37,7 @@ export class QueryNetworkRttReportResponseBodyNetworkRttReportDataModel extends 
   regionId?: string;
   /**
    * @remarks
-   * The average RTT of all users included in the statistics. Unit: milliseconds.
+   * The average RTT of all users involved in the statistics. Unit: milliseconds.
    * 
    * @example
    * 35.8
@@ -77,7 +77,7 @@ export class QueryNetworkRttReportResponseBodyNetworkRttReportDataModel extends 
   statStartDate?: string;
   /**
    * @remarks
-   * The total number of users included in the RTT calculation for the current statistical window. Unit: users.
+   * The total number of users involved in the RTT calculation for the current statistical window. Unit: users.
    * 
    * @example
    * 100
@@ -125,7 +125,7 @@ export class QueryNetworkRttReportResponseBodyNetworkRttReportDataModel extends 
 export class QueryNetworkRttReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. `200` indicates that the request is successful. Other values indicate that the request failed.
+   * The business status code. `200` indicates that the request is processed successfully. Other values indicate that the processing failed.
    * 
    * @example
    * 200
@@ -141,7 +141,7 @@ export class QueryNetworkRttReportResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The description of the request processing result. `success` is usually returned when the request is successful.
+   * The description of the request processing result. If the request is successful, `success` is usually returned.
    * 
    * @example
    * success

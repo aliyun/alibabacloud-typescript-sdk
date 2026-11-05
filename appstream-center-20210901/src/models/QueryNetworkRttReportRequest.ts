@@ -29,7 +29,7 @@ export class QueryNetworkRttReportRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The page number to query. We recommend that you explicitly specify a value starting from `1`. If you do not specify this parameter, the service processes the request as the first page, but the response may return `0`.
+   * The page number to query. Explicitly pass a value starting from `1`. If you do not specify this parameter, the service processes the request as the first page, but the response may return `0`.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class QueryNetworkRttReportRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 200. If the value exceeds 1,500, it is processed as 1,500.
+   * The number of entries per page. If you do not specify this parameter, the default value is 200. If the value is greater than 1,500, it is processed as 1,500.
    * 
    * @example
    * 100
@@ -50,12 +50,12 @@ export class QueryNetworkRttReportRequest extends $dara.Model {
    * Valid values:
    * 
    * - `CloudApp`: Wuying Cloud App.
-   * - `CloudBrowser`: Cloud Browser.
+   * - `CloudBrowser`: Cloud browser.
    * - `WuyingServer`: Enterprise Edition workstation.
    * - `WuyingWorkstation`: Personal Edition Linggou container workstation.
    * - `WuyingWorkstationTeam`: Linggou Team Edition container workstation.
    * - `WuyingWorkstationBusiness`: Linggou Dedicated Edition container workstation.
-   * - `AndroidCloud`: Cloud Phone.
+   * - `AndroidCloud`: Cloud phone.
    * - `AIAgent`: AgentBay (AI agent).
    * 
    * @example
