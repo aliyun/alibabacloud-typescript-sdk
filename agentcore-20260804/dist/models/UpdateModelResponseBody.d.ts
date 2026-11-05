@@ -1,0 +1,196 @@
+import * as $dara from '@darabonba/typescript';
+export declare class UpdateModelResponseBodyDataCapabilities extends $dara.Model {
+    /**
+     * @remarks
+     * Indicates whether the model supports audio input or output.
+     */
+    audio?: boolean;
+    /**
+     * @remarks
+     * Indicates whether the model supports document input.
+     */
+    document?: boolean;
+    /**
+     * @remarks
+     * Indicates whether the model is able to invoke tool calling multiple times in a single response.
+     */
+    multiToolCall?: boolean;
+    /**
+     * @remarks
+     * Indicates whether the model supports reasoning capabilities.
+     */
+    reasoning?: boolean;
+    /**
+     * @remarks
+     * Indicates whether the model is able to invoke streaming tool calling.
+     */
+    streamToolCall?: boolean;
+    /**
+     * @remarks
+     * Indicates whether the model is able to invoke tool calling.
+     */
+    toolCall?: boolean;
+    /**
+     * @remarks
+     * Indicates whether the model supports video input.
+     */
+    video?: boolean;
+    /**
+     * @remarks
+     * Indicates whether the model supports image input.
+     */
+    vision?: boolean;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class UpdateModelResponseBodyData extends $dara.Model {
+    /**
+     * @remarks
+     * The model capability configuration.
+     */
+    capabilities?: UpdateModelResponseBodyDataCapabilities;
+    /**
+     * @remarks
+     * The model connection ID.
+     *
+     * @example
+     * mc-1
+     */
+    connectionId?: string;
+    /**
+     * @remarks
+     * The context window size of the model, in tokens. The value must be a positive integer.
+     *
+     * @example
+     * 128000
+     */
+    contextSize?: number;
+    /**
+     * @remarks
+     * The time when the resource was created. The time is in RFC 3339 UTC format.
+     *
+     * @example
+     * 2026-08-09T00:00:00Z
+     */
+    createdAt?: string;
+    /**
+     * @remarks
+     * The model description. The maximum length is 255 characters.
+     *
+     * @example
+     * description
+     */
+    description?: string;
+    /**
+     * @remarks
+     * The maximum number of output tokens supported for a single generation of the model.
+     *
+     * @example
+     * 131072
+     */
+    maxTokens?: number;
+    /**
+     * @remarks
+     * The model ID.
+     *
+     * @example
+     * model-1
+     */
+    modelId?: string;
+    /**
+     * @remarks
+     * The upstream model name.
+     *
+     * @example
+     * qwen-max
+     */
+    modelName?: string;
+    /**
+     * @remarks
+     * The time when the resource was last updated. The time is in RFC 3339 UTC format.
+     *
+     * @example
+     * 2026-08-09T00:00:00Z
+     */
+    updatedAt?: string;
+    /**
+     * @remarks
+     * The workspace ID.
+     *
+     * @example
+     * ws-1
+     */
+    workspaceId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class UpdateModelResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The business status code. The value is SUCCESS when the request is successful.
+     *
+     * @example
+     * SUCCESS
+     */
+    code?: string;
+    /**
+     * @remarks
+     * The updated model information.
+     */
+    data?: UpdateModelResponseBodyData;
+    /**
+     * @remarks
+     * The HTTP status code. The value is 200 when the request is successful.
+     *
+     * @example
+     * 200
+     */
+    httpStatusCode?: number;
+    /**
+     * @remarks
+     * The message about the request processing result.
+     *
+     * @example
+     * success
+     */
+    message?: string;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * request-1
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * Indicates whether the request is successful.
+     */
+    success?: boolean;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

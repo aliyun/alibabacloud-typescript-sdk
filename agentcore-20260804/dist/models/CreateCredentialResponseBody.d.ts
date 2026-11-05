@@ -1,0 +1,188 @@
+import * as $dara from '@darabonba/typescript';
+export declare class CreateCredentialResponseBodyDataResourceRefs extends $dara.Model {
+    /**
+     * @remarks
+     * The unique identifier of the resource.
+     *
+     * @example
+     * agent-xxxx
+     */
+    resourceId?: string;
+    /**
+     * @remarks
+     * The name of the resource. This parameter is empty if the resource is deleted.
+     *
+     * @example
+     * my-agent
+     */
+    resourceName?: string;
+    /**
+     * @remarks
+     * The type of the resource, such as agent.
+     *
+     * @example
+     * agent
+     */
+    resourceType?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateCredentialResponseBodyData extends $dara.Model {
+    /**
+     * @remarks
+     * The time when the credential was created. The time is displayed in UTC and follows the RFC 3339 format.
+     *
+     * @example
+     * 2026-08-12T03:04:05Z
+     */
+    createdAt?: string;
+    /**
+     * @remarks
+     * The credential ID.
+     *
+     * @example
+     * cred-123456
+     */
+    credentialId?: string;
+    /**
+     * @remarks
+     * The desensitized result of the credential content. If credentialType is apiKey, the value of apiKey is returned as asterisks (*) of the same length.
+     *
+     * @example
+     * {"apiKey":"****************"}
+     */
+    credentialMetadata?: string;
+    /**
+     * @remarks
+     * The credential type. Currently, only apiKey is supported.
+     *
+     * @example
+     * apiKey
+     */
+    credentialType?: string;
+    /**
+     * @remarks
+     * The description of the credential. The description can be up to 256 characters in length.
+     *
+     * @example
+     * API key used to call the model service in the production environment
+     */
+    description?: string;
+    /**
+     * @remarks
+     * The name of the credential. The name must be unique within the workspace, can only contain letters, digits, periods, underscores, and hyphens, and must be 3 to 128 characters in length. Runtime reserved names cannot be used.
+     *
+     * @example
+     * model-api-key
+     */
+    name?: string;
+    /**
+     * @remarks
+     * The region ID of the resource.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * Each item contains resourceType, resourceId, and resourceName. If the resource is deleted, resourceName is empty.
+     */
+    resourceRefs?: CreateCredentialResponseBodyDataResourceRefs[];
+    /**
+     * @remarks
+     * The application scope of the credential resource.
+     *
+     * @example
+     * ALL
+     */
+    resourceScope?: string;
+    /**
+     * @remarks
+     * The time when the credential was last modified. The time is displayed in UTC and follows the RFC 3339 format.
+     *
+     * @example
+     * 2026-08-12T03:04:05Z
+     */
+    updatedAt?: string;
+    /**
+     * @remarks
+     * The workspace ID.
+     *
+     * @example
+     * ws-123456
+     */
+    workspaceId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateCredentialResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The business status code.
+     *
+     * @example
+     * SUCCESS
+     */
+    code?: string;
+    /**
+     * @remarks
+     * The information about the created credential.
+     */
+    data?: CreateCredentialResponseBodyData;
+    /**
+     * @remarks
+     * The HTTP status code.
+     *
+     * @example
+     * 200
+     */
+    httpStatusCode?: number;
+    /**
+     * @remarks
+     * The response message. An error description is returned if the request fails.
+     *
+     * @example
+     * success
+     */
+    message?: string;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * request-123456
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * Indicates whether the request is successful.
+     */
+    success?: boolean;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

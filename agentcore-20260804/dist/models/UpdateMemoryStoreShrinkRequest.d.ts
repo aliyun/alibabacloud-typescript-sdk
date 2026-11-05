@@ -1,0 +1,28 @@
+import * as $dara from '@darabonba/typescript';
+export declare class UpdateMemoryStoreShrinkRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The update MemoryStore request.
+     *
+     * This parameter is required.
+     */
+    bodyShrink?: string;
+    /**
+     * @remarks
+     * The client request token.
+     *
+     * @example
+     * memory-store-update-20260909-001
+     */
+    clientToken?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

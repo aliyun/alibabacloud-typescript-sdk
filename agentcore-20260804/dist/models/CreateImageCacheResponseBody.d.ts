@@ -1,0 +1,260 @@
+import * as $dara from '@darabonba/typescript';
+export declare class CreateImageCacheResponseBodyDataError extends $dara.Model {
+    /**
+     * @remarks
+     * The secure and non-empty error code for the current creation failure.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * ACSCacheBuildFailed
+     */
+    code?: string;
+    /**
+     * @remarks
+     * The secure and non-empty display reason for the creation failure, excluding credentials, internal addresses, or stack traces.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * Image cache creation failed. Try again
+     */
+    message?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateImageCacheResponseBodyData extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the source ACR Enterprise instance.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * cri-example
+     */
+    acrInstanceId?: string;
+    /**
+     * @remarks
+     * The deduplicated number of agents in the current workspace that have useImageCache set to true and are associated with this logical resource. The value is greater than or equal to 0. This set is the same as the imageCacheId filter in ListAllAgents. Agents with the feature disabled are not counted, and this value is independent of the number of occupied instances.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 0
+     */
+    agentCount?: number;
+    /**
+     * @remarks
+     * The actual cache size in bytes. A known value is greater than or equal to 0. If the value is unknown, it is null. The compressed size of the source image cannot be used as a substitute.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 1073741824
+     *
+     * **if can be null:**
+     * true
+     */
+    cacheSizeBytes?: number;
+    /**
+     * @remarks
+     * Indicates whether deletion is allowed. The value is true when the current workspace has no configuration references with the switch enabled, no valid instances are occupying the resource, and the resource is not being deleted. If the reference status is unknown, the query should fail instead of allowing deletion by default.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * false
+     */
+    canDelete?: boolean;
+    /**
+     * @remarks
+     * The creation time of the logical resource in the current workspace, in RFC 3339 format with time zone. Content updates for the latest tag do not refresh this time.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 2026-10-10T00:00:00Z
+     */
+    createdAt?: string;
+    /**
+     * @remarks
+     * The reason why deletion is blocked. The value is null when canDelete is true. Otherwise, the value is returned based on the priority of DELETING, AGENT_ENABLED, and INSTANCES_RELEASING. Even if the agent count is 0, old instances may still occupy the resource.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * INSTANCES_RELEASING
+     *
+     * **if can be null:**
+     * true
+     */
+    deleteBlockReason?: string;
+    /**
+     * @remarks
+     * The current content digest in the format of sha256: followed by a 64-character lowercase hexadecimal string. It only describes the currently registered content and does not prove that old instances have been switched.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+     */
+    digest?: string;
+    /**
+     * @remarks
+     * The reason for the cache failure. This is a non-null object when the status is FAILED, and null for other statuses. It only describes the current content and the current creation round.
+     *
+     * This parameter is required.
+     *
+     * **if can be null:**
+     * true
+     */
+    error?: CreateImageCacheResponseBodyDataError;
+    /**
+     * @remarks
+     * The logical resource ID manageable by the current workspace. This is not a shared physical cache ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * img-example
+     */
+    imageId?: string;
+    /**
+     * @remarks
+     * The domain name of the source image, excluding the protocol, path, and credentials.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * example-registry.cn-hangzhou.cr.aliyuncs.com
+     */
+    registry?: string;
+    /**
+     * @remarks
+     * The path of the source image repository in the namespace/repository format, which includes the namespace.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * team/app
+     */
+    repository?: string;
+    /**
+     * @remarks
+     * Valid values: PENDING: The workspace is being created. READY: The workspace is available. FAILED: The workspace is in an abnormal state. DELETING: The workspace is being deleted.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * READY
+     */
+    status?: string;
+    /**
+     * @remarks
+     * The tag of the source image. Case is preserved. Regular tags cannot be registered with different digests, except for the exact lowercase latest tag.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * v1
+     */
+    tag?: string;
+    /**
+     * @remarks
+     * The workspace ID, which is consistent with the requested workspace. Resources with the same content from other workspaces are not returned.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * ws-example
+     */
+    workspaceId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateImageCacheResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The business response code.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * SUCCESS
+     */
+    code?: string;
+    /**
+     * @remarks
+     * The result of creating the image cache.
+     *
+     * This parameter is required.
+     */
+    data?: CreateImageCacheResponseBodyData;
+    /**
+     * @remarks
+     * The HTTP status code.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 200
+     */
+    httpStatusCode?: number;
+    /**
+     * @remarks
+     * The response message.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * success
+     */
+    message?: string;
+    /**
+     * @remarks
+     * The request ID, which is used for troubleshooting.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * req-example
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * Indicates whether the request is successful. This does not indicate that the cache creation is complete.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * true
+     */
+    success?: boolean;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

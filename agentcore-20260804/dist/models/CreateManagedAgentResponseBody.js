@@ -1,0 +1,799 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateManagedAgentResponseBody = exports.CreateManagedAgentResponseBodyData = exports.CreateManagedAgentResponseBodyDataTools = exports.CreateManagedAgentResponseBodyDataTemplate = exports.CreateManagedAgentResponseBodyDataTemplateAiRegistry = exports.CreateManagedAgentResponseBodyDataSubAgents = exports.CreateManagedAgentResponseBodyDataSubAgentsSkills = exports.CreateManagedAgentResponseBodyDataSkills = exports.CreateManagedAgentResponseBodyDataSkillsVersionSelector = exports.CreateManagedAgentResponseBodyDataRuntime = exports.CreateManagedAgentResponseBodyDataRuntimeSessionPolicy = exports.CreateManagedAgentResponseBodyDataRuntimeHpa = exports.CreateManagedAgentResponseBodyDataRuntimeCompute = exports.CreateManagedAgentResponseBodyDataPromptVariables = exports.CreateManagedAgentResponseBodyDataOssMounts = exports.CreateManagedAgentResponseBodyDataNetwork = exports.CreateManagedAgentResponseBodyDataNetworkAccessVpc = exports.CreateManagedAgentResponseBodyDataNetworkAccessInternet = exports.CreateManagedAgentResponseBodyDataModel = exports.CreateManagedAgentResponseBodyDataModelQuota = exports.CreateManagedAgentResponseBodyDataHarness = exports.CreateManagedAgentResponseBodyDataHarnessConfiguration = exports.CreateManagedAgentResponseBodyDataEnvironment = exports.CreateManagedAgentResponseBodyDataEnvironmentVariables = exports.CreateManagedAgentResponseBodyDataEnvironmentCredentialReferences = exports.CreateManagedAgentResponseBodyDataConfiguredSkills = exports.CreateManagedAgentResponseBodyDataConfiguredSkillsVersionSelector = exports.CreateManagedAgentResponseBodyDataAgenticFsMounts = void 0;
+// This file is auto-generated, don't edit it
+const $dara = __importStar(require("@darabonba/typescript"));
+class CreateManagedAgentResponseBodyDataAgenticFsMounts extends $dara.Model {
+    static names() {
+        return {
+            mountPath: 'mountPath',
+            path: 'path',
+            readOnly: 'readOnly',
+            server: 'server',
+        };
+    }
+    static types() {
+        return {
+            mountPath: 'string',
+            path: 'string',
+            readOnly: 'boolean',
+            server: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataAgenticFsMounts = CreateManagedAgentResponseBodyDataAgenticFsMounts;
+class CreateManagedAgentResponseBodyDataConfiguredSkillsVersionSelector extends $dara.Model {
+    static names() {
+        return {
+            type: 'type',
+            value: 'value',
+        };
+    }
+    static types() {
+        return {
+            type: 'string',
+            value: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataConfiguredSkillsVersionSelector = CreateManagedAgentResponseBodyDataConfiguredSkillsVersionSelector;
+class CreateManagedAgentResponseBodyDataConfiguredSkills extends $dara.Model {
+    static names() {
+        return {
+            name: 'name',
+            sourceType: 'sourceType',
+            version: 'version',
+            versionSelector: 'versionSelector',
+        };
+    }
+    static types() {
+        return {
+            name: 'string',
+            sourceType: 'string',
+            version: 'string',
+            versionSelector: CreateManagedAgentResponseBodyDataConfiguredSkillsVersionSelector,
+        };
+    }
+    validate() {
+        if (this.versionSelector && typeof this.versionSelector.validate === 'function') {
+            this.versionSelector.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataConfiguredSkills = CreateManagedAgentResponseBodyDataConfiguredSkills;
+class CreateManagedAgentResponseBodyDataEnvironmentCredentialReferences extends $dara.Model {
+    static names() {
+        return {
+            credentialId: 'credentialId',
+        };
+    }
+    static types() {
+        return {
+            credentialId: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataEnvironmentCredentialReferences = CreateManagedAgentResponseBodyDataEnvironmentCredentialReferences;
+class CreateManagedAgentResponseBodyDataEnvironmentVariables extends $dara.Model {
+    static names() {
+        return {
+            name: 'name',
+            value: 'value',
+        };
+    }
+    static types() {
+        return {
+            name: 'string',
+            value: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataEnvironmentVariables = CreateManagedAgentResponseBodyDataEnvironmentVariables;
+class CreateManagedAgentResponseBodyDataEnvironment extends $dara.Model {
+    static names() {
+        return {
+            credentialReferences: 'credentialReferences',
+            variables: 'variables',
+        };
+    }
+    static types() {
+        return {
+            credentialReferences: { 'type': 'array', 'itemType': CreateManagedAgentResponseBodyDataEnvironmentCredentialReferences },
+            variables: { 'type': 'array', 'itemType': CreateManagedAgentResponseBodyDataEnvironmentVariables },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.credentialReferences)) {
+            $dara.Model.validateArray(this.credentialReferences);
+        }
+        if (Array.isArray(this.variables)) {
+            $dara.Model.validateArray(this.variables);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataEnvironment = CreateManagedAgentResponseBodyDataEnvironment;
+class CreateManagedAgentResponseBodyDataHarnessConfiguration extends $dara.Model {
+    static names() {
+        return {
+            connectorServiceAccountKey: 'connectorServiceAccountKey',
+            connectorServiceAccountName: 'connectorServiceAccountName',
+        };
+    }
+    static types() {
+        return {
+            connectorServiceAccountKey: 'string',
+            connectorServiceAccountName: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataHarnessConfiguration = CreateManagedAgentResponseBodyDataHarnessConfiguration;
+class CreateManagedAgentResponseBodyDataHarness extends $dara.Model {
+    static names() {
+        return {
+            configuration: 'configuration',
+            type: 'type',
+        };
+    }
+    static types() {
+        return {
+            configuration: CreateManagedAgentResponseBodyDataHarnessConfiguration,
+            type: 'string',
+        };
+    }
+    validate() {
+        if (this.configuration && typeof this.configuration.validate === 'function') {
+            this.configuration.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataHarness = CreateManagedAgentResponseBodyDataHarness;
+class CreateManagedAgentResponseBodyDataModelQuota extends $dara.Model {
+    static names() {
+        return {
+            enabled: 'enabled',
+            limitType: 'limitType',
+            overLimit: 'overLimit',
+            periodType: 'periodType',
+            ruleStatus: 'ruleStatus',
+            usageLimit: 'usageLimit',
+            usedAmount: 'usedAmount',
+        };
+    }
+    static types() {
+        return {
+            enabled: 'boolean',
+            limitType: 'string',
+            overLimit: 'boolean',
+            periodType: 'string',
+            ruleStatus: 'string',
+            usageLimit: 'number',
+            usedAmount: 'number',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataModelQuota = CreateManagedAgentResponseBodyDataModelQuota;
+class CreateManagedAgentResponseBodyDataModel extends $dara.Model {
+    static names() {
+        return {
+            modelConnectionId: 'modelConnectionId',
+            modelName: 'modelName',
+            quota: 'quota',
+        };
+    }
+    static types() {
+        return {
+            modelConnectionId: 'string',
+            modelName: 'string',
+            quota: CreateManagedAgentResponseBodyDataModelQuota,
+        };
+    }
+    validate() {
+        if (this.quota && typeof this.quota.validate === 'function') {
+            this.quota.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataModel = CreateManagedAgentResponseBodyDataModel;
+class CreateManagedAgentResponseBodyDataNetworkAccessInternet extends $dara.Model {
+    static names() {
+        return {
+            enabled: 'enabled',
+        };
+    }
+    static types() {
+        return {
+            enabled: 'boolean',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataNetworkAccessInternet = CreateManagedAgentResponseBodyDataNetworkAccessInternet;
+class CreateManagedAgentResponseBodyDataNetworkAccessVpc extends $dara.Model {
+    static names() {
+        return {
+            enabled: 'enabled',
+        };
+    }
+    static types() {
+        return {
+            enabled: 'boolean',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataNetworkAccessVpc = CreateManagedAgentResponseBodyDataNetworkAccessVpc;
+class CreateManagedAgentResponseBodyDataNetwork extends $dara.Model {
+    static names() {
+        return {
+            accessInternet: 'accessInternet',
+            accessVpc: 'accessVpc',
+        };
+    }
+    static types() {
+        return {
+            accessInternet: CreateManagedAgentResponseBodyDataNetworkAccessInternet,
+            accessVpc: CreateManagedAgentResponseBodyDataNetworkAccessVpc,
+        };
+    }
+    validate() {
+        if (this.accessInternet && typeof this.accessInternet.validate === 'function') {
+            this.accessInternet.validate();
+        }
+        if (this.accessVpc && typeof this.accessVpc.validate === 'function') {
+            this.accessVpc.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataNetwork = CreateManagedAgentResponseBodyDataNetwork;
+class CreateManagedAgentResponseBodyDataOssMounts extends $dara.Model {
+    static names() {
+        return {
+            bucketName: 'bucketName',
+            mountPath: 'mountPath',
+            path: 'path',
+            readOnly: 'readOnly',
+        };
+    }
+    static types() {
+        return {
+            bucketName: 'string',
+            mountPath: 'string',
+            path: 'string',
+            readOnly: 'boolean',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataOssMounts = CreateManagedAgentResponseBodyDataOssMounts;
+class CreateManagedAgentResponseBodyDataPromptVariables extends $dara.Model {
+    static names() {
+        return {
+            defaultValue: 'defaultValue',
+            description: 'description',
+            name: 'name',
+        };
+    }
+    static types() {
+        return {
+            defaultValue: 'string',
+            description: 'string',
+            name: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataPromptVariables = CreateManagedAgentResponseBodyDataPromptVariables;
+class CreateManagedAgentResponseBodyDataRuntimeCompute extends $dara.Model {
+    static names() {
+        return {
+            computeClass: 'computeClass',
+        };
+    }
+    static types() {
+        return {
+            computeClass: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataRuntimeCompute = CreateManagedAgentResponseBodyDataRuntimeCompute;
+class CreateManagedAgentResponseBodyDataRuntimeHpa extends $dara.Model {
+    static names() {
+        return {
+            enabled: 'enabled',
+            maxConcurrentSessionsPerSandbox: 'maxConcurrentSessionsPerSandbox',
+            maxSandboxCount: 'maxSandboxCount',
+            minSandboxCount: 'minSandboxCount',
+            sessionTtlSeconds: 'sessionTtlSeconds',
+        };
+    }
+    static types() {
+        return {
+            enabled: 'boolean',
+            maxConcurrentSessionsPerSandbox: 'number',
+            maxSandboxCount: 'number',
+            minSandboxCount: 'number',
+            sessionTtlSeconds: 'number',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataRuntimeHpa = CreateManagedAgentResponseBodyDataRuntimeHpa;
+class CreateManagedAgentResponseBodyDataRuntimeSessionPolicy extends $dara.Model {
+    static names() {
+        return {
+            headerName: 'headerName',
+            type: 'type',
+        };
+    }
+    static types() {
+        return {
+            headerName: 'string',
+            type: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataRuntimeSessionPolicy = CreateManagedAgentResponseBodyDataRuntimeSessionPolicy;
+class CreateManagedAgentResponseBodyDataRuntime extends $dara.Model {
+    static names() {
+        return {
+            compute: 'compute',
+            hpa: 'hpa',
+            sessionPolicy: 'sessionPolicy',
+        };
+    }
+    static types() {
+        return {
+            compute: CreateManagedAgentResponseBodyDataRuntimeCompute,
+            hpa: CreateManagedAgentResponseBodyDataRuntimeHpa,
+            sessionPolicy: CreateManagedAgentResponseBodyDataRuntimeSessionPolicy,
+        };
+    }
+    validate() {
+        if (this.compute && typeof this.compute.validate === 'function') {
+            this.compute.validate();
+        }
+        if (this.hpa && typeof this.hpa.validate === 'function') {
+            this.hpa.validate();
+        }
+        if (this.sessionPolicy && typeof this.sessionPolicy.validate === 'function') {
+            this.sessionPolicy.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataRuntime = CreateManagedAgentResponseBodyDataRuntime;
+class CreateManagedAgentResponseBodyDataSkillsVersionSelector extends $dara.Model {
+    static names() {
+        return {
+            type: 'type',
+            value: 'value',
+        };
+    }
+    static types() {
+        return {
+            type: 'string',
+            value: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataSkillsVersionSelector = CreateManagedAgentResponseBodyDataSkillsVersionSelector;
+class CreateManagedAgentResponseBodyDataSkills extends $dara.Model {
+    static names() {
+        return {
+            appliedVersion: 'appliedVersion',
+            fromTemplate: 'fromTemplate',
+            name: 'name',
+            resolvedVersion: 'resolvedVersion',
+            sourceType: 'sourceType',
+            version: 'version',
+            versionSelector: 'versionSelector',
+        };
+    }
+    static types() {
+        return {
+            appliedVersion: 'string',
+            fromTemplate: 'boolean',
+            name: 'string',
+            resolvedVersion: 'string',
+            sourceType: 'string',
+            version: 'string',
+            versionSelector: CreateManagedAgentResponseBodyDataSkillsVersionSelector,
+        };
+    }
+    validate() {
+        if (this.versionSelector && typeof this.versionSelector.validate === 'function') {
+            this.versionSelector.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataSkills = CreateManagedAgentResponseBodyDataSkills;
+class CreateManagedAgentResponseBodyDataSubAgentsSkills extends $dara.Model {
+    static names() {
+        return {
+            name: 'name',
+            version: 'version',
+        };
+    }
+    static types() {
+        return {
+            name: 'string',
+            version: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataSubAgentsSkills = CreateManagedAgentResponseBodyDataSubAgentsSkills;
+class CreateManagedAgentResponseBodyDataSubAgents extends $dara.Model {
+    static names() {
+        return {
+            instruction: 'instruction',
+            name: 'name',
+            skills: 'skills',
+        };
+    }
+    static types() {
+        return {
+            instruction: 'string',
+            name: 'string',
+            skills: { 'type': 'array', 'itemType': CreateManagedAgentResponseBodyDataSubAgentsSkills },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.skills)) {
+            $dara.Model.validateArray(this.skills);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataSubAgents = CreateManagedAgentResponseBodyDataSubAgents;
+class CreateManagedAgentResponseBodyDataTemplateAiRegistry extends $dara.Model {
+    static names() {
+        return {
+            name: 'name',
+            version: 'version',
+        };
+    }
+    static types() {
+        return {
+            name: 'string',
+            version: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataTemplateAiRegistry = CreateManagedAgentResponseBodyDataTemplateAiRegistry;
+class CreateManagedAgentResponseBodyDataTemplate extends $dara.Model {
+    static names() {
+        return {
+            aiRegistry: 'aiRegistry',
+        };
+    }
+    static types() {
+        return {
+            aiRegistry: CreateManagedAgentResponseBodyDataTemplateAiRegistry,
+        };
+    }
+    validate() {
+        if (this.aiRegistry && typeof this.aiRegistry.validate === 'function') {
+            this.aiRegistry.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataTemplate = CreateManagedAgentResponseBodyDataTemplate;
+class CreateManagedAgentResponseBodyDataTools extends $dara.Model {
+    static names() {
+        return {
+            name: 'name',
+            type: 'type',
+        };
+    }
+    static types() {
+        return {
+            name: 'string',
+            type: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyDataTools = CreateManagedAgentResponseBodyDataTools;
+class CreateManagedAgentResponseBodyData extends $dara.Model {
+    static names() {
+        return {
+            accessMode: 'accessMode',
+            accessScope: 'accessScope',
+            agentId: 'agentId',
+            agenticFsMounts: 'agenticFsMounts',
+            configuredSkills: 'configuredSkills',
+            createMode: 'createMode',
+            createdAt: 'createdAt',
+            deployType: 'deployType',
+            description: 'description',
+            environment: 'environment',
+            harness: 'harness',
+            instruction: 'instruction',
+            latestSpecVersion: 'latestSpecVersion',
+            latestVersionStatus: 'latestVersionStatus',
+            model: 'model',
+            name: 'name',
+            network: 'network',
+            ossMounts: 'ossMounts',
+            promptVariables: 'promptVariables',
+            regionId: 'regionId',
+            runtime: 'runtime',
+            sandboxPhaseCounts: 'sandboxPhaseCounts',
+            skills: 'skills',
+            status: 'status',
+            subAgents: 'subAgents',
+            template: 'template',
+            tools: 'tools',
+            updatedAt: 'updatedAt',
+            workspaceId: 'workspaceId',
+        };
+    }
+    static types() {
+        return {
+            accessMode: 'string',
+            accessScope: 'string',
+            agentId: 'string',
+            agenticFsMounts: { 'type': 'array', 'itemType': CreateManagedAgentResponseBodyDataAgenticFsMounts },
+            configuredSkills: { 'type': 'array', 'itemType': CreateManagedAgentResponseBodyDataConfiguredSkills },
+            createMode: 'string',
+            createdAt: 'string',
+            deployType: 'string',
+            description: 'string',
+            environment: CreateManagedAgentResponseBodyDataEnvironment,
+            harness: CreateManagedAgentResponseBodyDataHarness,
+            instruction: 'string',
+            latestSpecVersion: 'number',
+            latestVersionStatus: 'string',
+            model: CreateManagedAgentResponseBodyDataModel,
+            name: 'string',
+            network: CreateManagedAgentResponseBodyDataNetwork,
+            ossMounts: { 'type': 'array', 'itemType': CreateManagedAgentResponseBodyDataOssMounts },
+            promptVariables: { 'type': 'array', 'itemType': CreateManagedAgentResponseBodyDataPromptVariables },
+            regionId: 'string',
+            runtime: CreateManagedAgentResponseBodyDataRuntime,
+            sandboxPhaseCounts: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+            skills: { 'type': 'array', 'itemType': CreateManagedAgentResponseBodyDataSkills },
+            status: 'string',
+            subAgents: { 'type': 'array', 'itemType': CreateManagedAgentResponseBodyDataSubAgents },
+            template: CreateManagedAgentResponseBodyDataTemplate,
+            tools: { 'type': 'array', 'itemType': CreateManagedAgentResponseBodyDataTools },
+            updatedAt: 'string',
+            workspaceId: 'string',
+        };
+    }
+    validate() {
+        if (Array.isArray(this.agenticFsMounts)) {
+            $dara.Model.validateArray(this.agenticFsMounts);
+        }
+        if (Array.isArray(this.configuredSkills)) {
+            $dara.Model.validateArray(this.configuredSkills);
+        }
+        if (this.environment && typeof this.environment.validate === 'function') {
+            this.environment.validate();
+        }
+        if (this.harness && typeof this.harness.validate === 'function') {
+            this.harness.validate();
+        }
+        if (this.model && typeof this.model.validate === 'function') {
+            this.model.validate();
+        }
+        if (this.network && typeof this.network.validate === 'function') {
+            this.network.validate();
+        }
+        if (Array.isArray(this.ossMounts)) {
+            $dara.Model.validateArray(this.ossMounts);
+        }
+        if (Array.isArray(this.promptVariables)) {
+            $dara.Model.validateArray(this.promptVariables);
+        }
+        if (this.runtime && typeof this.runtime.validate === 'function') {
+            this.runtime.validate();
+        }
+        if (this.sandboxPhaseCounts) {
+            $dara.Model.validateMap(this.sandboxPhaseCounts);
+        }
+        if (Array.isArray(this.skills)) {
+            $dara.Model.validateArray(this.skills);
+        }
+        if (Array.isArray(this.subAgents)) {
+            $dara.Model.validateArray(this.subAgents);
+        }
+        if (this.template && typeof this.template.validate === 'function') {
+            this.template.validate();
+        }
+        if (Array.isArray(this.tools)) {
+            $dara.Model.validateArray(this.tools);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBodyData = CreateManagedAgentResponseBodyData;
+class CreateManagedAgentResponseBody extends $dara.Model {
+    static names() {
+        return {
+            code: 'code',
+            data: 'data',
+            httpStatusCode: 'httpStatusCode',
+            message: 'message',
+            requestId: 'requestId',
+            success: 'success',
+        };
+    }
+    static types() {
+        return {
+            code: 'string',
+            data: CreateManagedAgentResponseBodyData,
+            httpStatusCode: 'number',
+            message: 'string',
+            requestId: 'string',
+            success: 'boolean',
+        };
+    }
+    validate() {
+        if (this.data && typeof this.data.validate === 'function') {
+            this.data.validate();
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateManagedAgentResponseBody = CreateManagedAgentResponseBody;
+//# sourceMappingURL=CreateManagedAgentResponseBody.js.map

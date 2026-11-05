@@ -1,0 +1,202 @@
+import * as $dara from '@darabonba/typescript';
+import { DataResourceValue } from "./DataResourceValue";
+export declare class GetAgentSpecLatestResponseBodyDataMcpServers extends $dara.Model {
+    /**
+     * @remarks
+     * The name.
+     *
+     * @example
+     * agentspec-example
+     */
+    name?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class GetAgentSpecLatestResponseBodyDataSkillsVersionSelector extends $dara.Model {
+    /**
+     * @remarks
+     * The version selector type. Valid values:
+     * - LABEL: selects by label.
+     * - VERSION: selects by specific version.
+     *
+     * @example
+     * LABEL
+     */
+    type?: string;
+    /**
+     * @remarks
+     * The selector value. If the type is LABEL, this value is a label name such as latest. If the type is VERSION, this value is a specific version number.
+     *
+     * @example
+     * latest
+     */
+    value?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class GetAgentSpecLatestResponseBodyDataSkills extends $dara.Model {
+    /**
+     * @remarks
+     * The name.
+     *
+     * @example
+     * agentspec-example
+     */
+    name?: string;
+    /**
+     * @remarks
+     * The Skill source type. Valid values:
+     * - REFERENCE: references AI Registry.
+     * - STATIC: statically bundled with the package.
+     *
+     * @example
+     * REFERENCE
+     */
+    sourceType?: string;
+    /**
+     * @remarks
+     * The version selector for the reference. Defaults to LABEL/latest if omitted.
+     */
+    versionSelector?: GetAgentSpecLatestResponseBodyDataSkillsVersionSelector;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class GetAgentSpecLatestResponseBodyData extends $dara.Model {
+    /**
+     * @remarks
+     * The business tags.
+     *
+     * @example
+     * Sample property value
+     */
+    bizTags?: string;
+    /**
+     * @remarks
+     * The content.
+     *
+     * @example
+     * Sample content
+     */
+    content?: string;
+    /**
+     * @remarks
+     * The description.
+     *
+     * @example
+     * A sample description that explains the purpose of the resource
+     */
+    description?: string;
+    /**
+     * @remarks
+     * The number of downloads.
+     *
+     * @example
+     * 10
+     */
+    downloadCount?: number;
+    /**
+     * @remarks
+     * Indicates whether the AgentSpec is enabled.
+     */
+    enable?: boolean;
+    /**
+     * @remarks
+     * The list of MCP server references.
+     */
+    mcpServers?: GetAgentSpecLatestResponseBodyDataMcpServers[];
+    /**
+     * @remarks
+     * The name.
+     *
+     * @example
+     * agentspec-example
+     */
+    name?: string;
+    /**
+     * @remarks
+     * The resource file mapping.
+     */
+    resource?: {
+        [key: string]: DataResourceValue;
+    };
+    /**
+     * @remarks
+     * The visibility scope.
+     *
+     * @example
+     * PRIVATE
+     */
+    scope?: string;
+    /**
+     * @remarks
+     * The list of Skill references.
+     */
+    skills?: GetAgentSpecLatestResponseBodyDataSkills[];
+    /**
+     * @remarks
+     * The update time. This value is a UNIX timestamp in milliseconds.
+     *
+     * @example
+     * 1787671022000
+     */
+    updateTime?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class GetAgentSpecLatestResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The returned data.
+     */
+    data?: GetAgentSpecLatestResponseBodyData;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * A1B2C3D4-E5F6-47A8-90AB-CDEF12345678
+     */
+    requestId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

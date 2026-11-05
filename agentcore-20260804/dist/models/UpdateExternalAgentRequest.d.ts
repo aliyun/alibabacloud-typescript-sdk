@@ -1,0 +1,332 @@
+import * as $dara from '@darabonba/typescript';
+export declare class UpdateExternalAgentRequestBodyModelQuota extends $dara.Model {
+    /**
+     * @remarks
+     * Specifies whether to enable the token quota. Default value: true. If set to false, the quota is disabled and existing quota rules are deleted.
+     *
+     * @example
+     * true
+     */
+    enabled?: boolean;
+    /**
+     * @remarks
+     * The quota limit type. Required and validated by the backend when the quota is enabled. Fixed value: token.
+     *
+     * @example
+     * token
+     */
+    limitType?: string;
+    /**
+     * @remarks
+     * The statistical period for the quota. Required and validated by the backend when the quota is enabled. Valid values:
+     * - day: Daily.
+     * - month: Monthly.
+     *
+     * @example
+     * day
+     */
+    periodType?: string;
+    /**
+     * @remarks
+     * The maximum number of tokens allowed to be consumed within a single period. Required and validated by the backend when the quota is enabled. The value must be greater than 0.
+     *
+     * @example
+     * 1000000
+     */
+    usageLimit?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class UpdateExternalAgentRequestBodyModel extends $dara.Model {
+    /**
+     * @remarks
+     * The model connection ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * mc-1
+     */
+    modelConnectionId?: string;
+    /**
+     * @remarks
+     * The upstream model name.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * qwen-max
+     */
+    modelName?: string;
+    /**
+     * @remarks
+     * The model token quota configuration. If not passed, no quota is configured.
+     */
+    quota?: UpdateExternalAgentRequestBodyModelQuota;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class UpdateExternalAgentRequestBodySkillsVersionSelector extends $dara.Model {
+    /**
+     * @remarks
+     * The type of the version selector. Valid values:
+     * - LABEL: By label.
+     * - VERSION: By specific version.
+     *
+     * @example
+     * LABEL
+     */
+    type?: string;
+    /**
+     * @remarks
+     * The value of the selector. When the type is LABEL, this is the label name, such as latest. When the type is VERSION, this is the specific version number.
+     *
+     * @example
+     * latest
+     */
+    value?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class UpdateExternalAgentRequestBodySkills extends $dara.Model {
+    /**
+     * @remarks
+     * The skill name.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * code-analysis
+     */
+    name?: string;
+    /**
+     * @remarks
+     * The source type of the skill. Valid values:
+     * - REFERENCE: References the AI Registry.
+     * - STATIC: Statically provided with the package.
+     *
+     * @example
+     * REFERENCE
+     */
+    sourceType?: string;
+    /**
+     * @remarks
+     * The skill version.
+     *
+     * @example
+     * 1.0.0
+     */
+    version?: string;
+    /**
+     * @remarks
+     * The referenced version selector. If omitted, the default is LABEL/latest. Currently, only LABEL/latest is supported.
+     */
+    versionSelector?: UpdateExternalAgentRequestBodySkillsVersionSelector;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class UpdateExternalAgentRequestBodyTemplateAiRegistry extends $dara.Model {
+    /**
+     * @remarks
+     * The name of the template in the AI Registry.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * code-review-template
+     */
+    name?: string;
+    /**
+     * @remarks
+     * The version of the template in the AI Registry.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 1.0.0
+     */
+    version?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class UpdateExternalAgentRequestBodyTemplate extends $dara.Model {
+    /**
+     * @remarks
+     * The AI Registry template configuration.
+     */
+    aiRegistry?: UpdateExternalAgentRequestBodyTemplateAiRegistry;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class UpdateExternalAgentRequestBodyTools extends $dara.Model {
+    /**
+     * @remarks
+     * The tool name.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * code-reviewer
+     */
+    name?: string;
+    /**
+     * @remarks
+     * The tool type. Valid values:
+     * - MCP: MCP tool.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * MCP
+     */
+    type?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class UpdateExternalAgentRequestBody extends $dara.Model {
+    /**
+     * @remarks
+     * The description of the external agent.
+     *
+     * @example
+     * Code review agent running in the user environment
+     */
+    description?: string;
+    /**
+     * @remarks
+     * The agent instructions used to guide the behavior of the agent.
+     *
+     * @example
+     * You are a code review assistant
+     */
+    instruction?: string;
+    /**
+     * @remarks
+     * The model configuration. Available only when modelSource is set to PLATFORM.
+     */
+    model?: UpdateExternalAgentRequestBodyModel;
+    /**
+     * @remarks
+     * The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model independently, and the model parameter cannot be passed at the same time. Valid values:
+     * - PLATFORM: Platform model.
+     * - RUNTIME: Runtime model.
+     *
+     * @example
+     * PLATFORM
+     */
+    modelSource?: string;
+    /**
+     * @remarks
+     * The name of the external agent.
+     *
+     * @example
+     * my-external-agent
+     */
+    name?: string;
+    /**
+     * @remarks
+     * The list of skill configurations.
+     */
+    skills?: UpdateExternalAgentRequestBodySkills[];
+    /**
+     * @remarks
+     * The agent template configuration.
+     */
+    template?: UpdateExternalAgentRequestBodyTemplate;
+    /**
+     * @remarks
+     * The list of tool configurations.
+     */
+    tools?: UpdateExternalAgentRequestBodyTools[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class UpdateExternalAgentRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The request body.
+     */
+    body?: UpdateExternalAgentRequestBody;
+    /**
+     * @remarks
+     * The reserved idempotency token. The backend does not provide idempotency guarantees in the current phase.
+     *
+     * @example
+     * client-token-1
+     */
+    clientToken?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
