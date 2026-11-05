@@ -6,11 +6,17 @@ export class DescribeBandwidthPackagesRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the bandwidth package.
+   * 
+   * @example
+   * bwp-bp1xea10o8qxwaswq****
    */
   bandwidthPackageId?: string;
   /**
    * @remarks
-   * The ID of the NAT gateway. If specified, only bandwidth packages associated with the NAT gateway are returned.
+   * The ID of the NAT gateway. If you specify this parameter, only bandwidth packages associated with the NAT gateway are returned.
+   * 
+   * @example
+   * ngw-bp1uewa15k4iyaszaasza****
    */
   natGatewayId?: string;
   ownerAccount?: string;
@@ -18,11 +24,17 @@ export class DescribeBandwidthPackagesRequest extends $dara.Model {
   /**
    * @remarks
    * The page number. Starting value: 1. Default value: 1.
+   * 
+   * @example
+   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
    * The number of entries to return on each page. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
    */
   pageSize?: number;
   /**
@@ -30,6 +42,9 @@ export class DescribeBandwidthPackagesRequest extends $dara.Model {
    * The region ID of the bandwidth package.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;

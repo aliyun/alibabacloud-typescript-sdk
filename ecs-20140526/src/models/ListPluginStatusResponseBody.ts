@@ -122,7 +122,7 @@ export class ListPluginStatusResponseBody extends $dara.Model {
   instancePluginStatusSet?: ListPluginStatusResponseBodyInstancePluginStatusSet;
   /**
    * @remarks
-   * The pagination token returned in this call.
+   * The pagination token returned in the current call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -130,7 +130,7 @@ export class ListPluginStatusResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the query result.
+   * The page number of the returned results.
    * 
    * @example
    * 1
@@ -154,7 +154,7 @@ export class ListPluginStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the query conditions.
+   * The total number of entries that meet the query conditions.
    * 
    * @example
    * 1

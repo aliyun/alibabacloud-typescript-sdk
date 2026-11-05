@@ -55,7 +55,7 @@ export class CreateDiskRequestArn extends $dara.Model {
 export class CreateDiskRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the cloud disk. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The key of tag N. Valid values of N: 1 to 20. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -63,7 +63,7 @@ export class CreateDiskRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the cloud disk. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * The value of tag N. Valid values of N: 1 to 20. The tag value can be an empty string. It can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -110,10 +110,10 @@ export class CreateDiskRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the performance burst feature. Valid values:
    * 
-   * - true: yes.
-   * - false: no.
+   * - true: Yes.
+   * - false: No.
    * 
-   * > This parameter is supported only when `DiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
+   * > This parameter is supported only when `DiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * false
@@ -121,7 +121,7 @@ export class CreateDiskRequest extends $dara.Model {
   burstingEnabled?: boolean;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -129,7 +129,7 @@ export class CreateDiskRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the cloud disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The disk description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * Default value: empty.
    * 
@@ -139,16 +139,16 @@ export class CreateDiskRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The category of the data cloud disk. Valid values:
+   * The disk category of the data disk. Valid values:
    * 
-   * - cloud: basic cloud disk.
-   * - cloud_efficiency: ultra cloud disk.
+   * - cloud: basic disk.
+   * - cloud_efficiency: ultra disk.
    * - cloud_ssd: standard SSD.
-   * - cloud_essd: ESSD cloud disk.
-   * - cloud_auto: ESSD AutoPL cloud disk.
+   * - cloud_essd: enterprise SSD.
+   * - cloud_auto: ESSD AutoPL disk.
    * - cloud_essd_entry: ESSD Entry disk.
-   * - cloud_regional_disk_auto: regional ESSD cloud disk.
-   * - elastic_ephemeral_disk_standard: elastic ephemeral disk - Standard Edition.
+   * - cloud_regional_disk_auto: regional Enterprise SSD (ESSD).
+   * - elastic_ephemeral_disk_standard: standard elastic ephemeral disk.
    * - elastic_ephemeral_disk_premium: elastic ephemeral disk - Premium Edition.
    * 
    * Default value: cloud.
@@ -159,7 +159,7 @@ export class CreateDiskRequest extends $dara.Model {
   diskCategory?: string;
   /**
    * @remarks
-   * The name of the cloud disk. The name must be 2 to 128 characters in length. It can contain letters and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-). It must start with a letter.
+   * The disk name. The name must be 2 to 128 characters in length. It can contain letters (including English and Chinese characters) and digits (0-9). It can also contain colons (:), underscores (_), periods (.), and hyphens (-). It must start with a letter.
    * 
    * Default value: empty.
    * 
@@ -177,10 +177,10 @@ export class CreateDiskRequest extends $dara.Model {
   encryptAlgorithm?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt the cloud disk. Valid values:
+   * Specifies whether to encrypt the disk. Valid values:
    * 
-   * - true: yes.
-   * - false: no.
+   * - true: Yes.
+   * - false: No.
    * 
    * Default value: false.
    * 
@@ -190,12 +190,12 @@ export class CreateDiskRequest extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The ID of the subscription instance to which the subscription cloud disk is automatically attached.
+   * Creates a subscription disk and automatically attaches it to the specified subscription instance (instance ID).
    * 
-   * - After you specify the instance ID, the ResourceGroupId, Tag.N.Key, Tag.N.Value, ClientToken, and KMSKeyId parameters are ignored.
+   * - After you specify the instance ID, the ResourceGroupId, Tag.N.Key, Tag.N.Value, ClientToken, and KMSKeyId parameters you configured are ignored.
    * - You cannot specify both ZoneId and InstanceId.
    * 
-   * Default value: empty. An empty value indicates that a pay-as-you-go cloud disk is created. The region and zone of the cloud disk are determined by RegionId and ZoneId.
+   * Default value: empty. An empty value indicates that a pay-as-you-go disk is created. The region and zone of the disk are determined by RegionId and ZoneId.
    * 
    * @example
    * i-bp18pnlg1ds9rky4****
@@ -203,12 +203,12 @@ export class CreateDiskRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS) key used by the cloud disk.
+   * The ID of the Key Management Service (KMS) key used to encrypt the disk.
    * 
-   * > If Encrypted is set to true and KMSKeyId is not specified, the default key is used for encryption, and the KMSKeyId value is returned after the instance is created.
-   * > - - If the cloud disk is created from an unshared encrypted snapshot, the encryption key used by the snapshot is used by default.
-   * > - - If the cloud disk is created from a shared encrypted snapshot, the service key is used by default.
-   * > - - If the cloud disk is created in a region where account-level default encryption for Elastic Block Storage (EBS) is enabled, the specified account-level key is used by default.
+   * > If Encrypted is set to true and KMSKeyId is not specified, the default key is used for encryption, and the KMSKeyId value is returned after the disk is created.
+   * > - - If the disk is created from an unshared encrypted snapshot, the encryption key used for the snapshot is used by default.
+   * > - - If the disk is created from a shared encrypted snapshot, the service key is used by default.
+   * > - - If the disk is created in a region where account-level default encryption for block storage is enabled, the specified account-level key is used by default.
    * > - - In other cases, the service key is used by default.
    * 
    * @example
@@ -217,14 +217,14 @@ export class CreateDiskRequest extends $dara.Model {
   KMSKeyId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the multi-mount feature. Valid values:
+   * Specifies whether to enable the multi-attach feature. Valid values:
    * 
-   * - Disabled: does not enable the feature.
-   * - Enabled: enables the feature. Only ESSD cloud disks support this value.
+   * - Disabled: disables the feature.
+   * - Enabled: enables the feature. Only enterprise SSDs support the `Enabled` value.
    * 
    * Default value: Disabled.
    * 
-   * > Cloud disks for which the multi-mount feature is enabled support only the pay-as-you-go billing method. Therefore, when `MultiAttach` is set to `Enabled`, you cannot configure the settings for the `InstanceId` parameter. You can call the [AttachDisk](https://help.aliyun.com/document_detail/25515.html) operation to mount the cloud disk after it is created. Note that a cloud disk for which the multi-mount feature is enabled can be mounted only as a data cloud disk.
+   * > Disks with the multi-attach feature enabled only support the pay-as-you-go billing method. Therefore, when `MultiAttach` is set to `Enabled`, you cannot specify the `InstanceId` parameter at the same time. You can invoke the [AttachDisk](https://help.aliyun.com/document_detail/25515.html) operation to attach the disk after it is created. Note that disks with the multi-attach feature enabled can only be attached as data disks.
    * 
    * @example
    * Disabled
@@ -234,16 +234,16 @@ export class CreateDiskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The performance level settings for the ESSD cloud disk. Valid values:
+   * Specifies the performance level of the enterprise SSD. Valid values:
    * 
-   * - PL0: A single ESSD cloud disk can deliver up to 10,000 random read/write IOPS.
-   * - PL1: A single ESSD cloud disk can deliver up to 50,000 random read/write IOPS.
-   * - PL2: A single ESSD cloud disk can deliver up to 100,000 random read/write IOPS.
-   * - PL3: A single ESSD cloud disk can deliver up to 1,000,000 random read/write IOPS.
+   * - PL0: A single disk can deliver up to 10,000 random read/write IOPS.
+   * - PL1: A single disk can deliver up to 50,000 random read/write IOPS.
+   * - PL2: A single disk can deliver up to 100,000 random read/write IOPS.
+   * - PL3: A single disk can deliver up to 1,000,000 random read/write IOPS.
    * 
    * Default value: PL1.
    * 
-   * For more information about how to select a performance level for an ESSD cloud disk, see [ESSD cloud disk](https://help.aliyun.com/document_detail/122389.html).
+   * For more information about how to select an enterprise SSD performance level, see [enterprise SSDs](https://help.aliyun.com/document_detail/122389.html).
    * 
    * @example
    * PL1
@@ -251,17 +251,17 @@ export class CreateDiskRequest extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The read/write IOPS of the provisioned performance for a single ESSD AutoPL cloud disk. Valid values:
+   * The provisioned read/write IOPS for the ESSD AutoPL disk. Valid values:
    * 
-   * - If the capacity is less than or equal to 3 GiB, you cannot configure the provisioned performance settings.
+   * - If the disk size is less than or equal to 3 GiB, provisioned performance is not supported.
    * 
-   * - If the capacity is greater than or equal to 4 GiB, the valid values are 0 to min{(1,000 IOPS/GiB × Capacity - Baseline IOPS), 50,000}.
-   * 
-   * 
-   * Baseline performance = max{min{1,800 + 50 × Capacity, 50,000}, 3,000}.
+   * - If the disk size is greater than or equal to 4 GiB: [0, min{(1,000 IOPS/GiB × disk size - baseline IOPS), 50,000}].
    * 
    * 
-   * > This parameter is supported only when `DiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
+   * Baseline performance = max{min{1,800 + 50 × disk size, 50,000}, 3,000}.
+   * 
+   * 
+   * > This parameter is supported only when `DiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * 40000
@@ -279,7 +279,7 @@ export class CreateDiskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the cloud disk belongs.
+   * The ID of the resource group to which the disk belongs.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -289,12 +289,12 @@ export class CreateDiskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Snapshot size of the cloud disk. Unit: GiB. You must specify this parameter. Valid values:
+   * The disk size. Unit: GiB. You must specify this parameter. Valid values:
    * 
    * -   cloud: 5 to 2,000.
    * -   cloud_efficiency: 20 to 32,768.
    * -   cloud_ssd: 20 to 32,768.
-   * -   cloud_essd: The valid values vary based on the value of `PerformanceLevel`.
+   * -   cloud_essd: The valid values depend on the `PerformanceLevel` parameter.
    *     - PL0: 1 to 65,536.
    *     - PL1: 20 to 65,536.
    *     - PL2: 461 to 65,536.
@@ -307,8 +307,8 @@ export class CreateDiskRequest extends $dara.Model {
    * 
    * If you specify the `SnapshotId` parameter, the `SnapshotId` and `Size` parameters have the following limits:
    * 
-   * - If snapshot size of the snapshot specified by `SnapshotId` is greater than the value of `Size`, snapshot size of the created cloud disk is equal to snapshot size of the snapshot.
-   * - If snapshot size of the snapshot specified by `SnapshotId` is less than the value of `Size`, snapshot size of the created cloud disk is equal to the value of `Size`.
+   * - If the snapshot size corresponding to `SnapshotId` is greater than the `Size` value, the created disk size is the snapshot size.
+   * - If the snapshot size corresponding to `SnapshotId` is less than the `Size` value, the created disk size is the `Size` value.
    * 
    * @example
    * 2000
@@ -316,13 +316,13 @@ export class CreateDiskRequest extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The ID of the snapshot used to create the cloud disk. Snapshots created on or before July 15, 2013 cannot be used to create cloud disks. 
+   * The ID of the snapshot used to create the disk. Snapshots created on or before July 15, 2013 cannot be used to create disks. 
    * 
    * The `SnapshotId` and `Size` parameters have the following limits:
    * 
-   * - If snapshot size of the snapshot specified by `SnapshotId` is greater than the value of `Size`, snapshot size of the created cloud disk is equal to snapshot size of the snapshot.
-   * - If snapshot size of the snapshot specified by `SnapshotId` is less than the value of `Size`, snapshot size of the created cloud disk is equal to the value of `Size`.
-   * - You cannot use a snapshot to create an elastic ephemeral disk.
+   * - If the snapshot size corresponding to `SnapshotId` is greater than the `Size` value, the created disk size is the snapshot size.
+   * - If the snapshot size corresponding to `SnapshotId` is less than the `Size` value, the created disk size is the `Size` value.
+   * - You cannot use snapshots to create elastic ephemeral disks.
    * 
    * @example
    * s-bp67acfmxazb4p****
@@ -330,9 +330,9 @@ export class CreateDiskRequest extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The ID of the dedicated block storage cluster. If you want to create a cloud disk in a specified dedicated block storage cluster, specify this parameter.
+   * The ID of the dedicated block storage cluster. Specify this parameter if you want to create the disk in a specific dedicated block storage cluster.
    * 
-   * > You can specify only one of the storage set parameters (`StorageSetId` and `StorageSetPartitionNumber`) and the dedicated block storage cluster parameter (`StorageClusterId`). If you specify both, the call fails.
+   * > You can specify only one of the storage set parameters (`StorageSetId` and `StorageSetPartitionNumber`) and the dedicated block storage cluster parameter (`StorageClusterId`). If you specify both, the API call fails.
    * 
    * @example
    * dbsc-j5e1sf2vaf5he8m2****
@@ -342,7 +342,7 @@ export class CreateDiskRequest extends $dara.Model {
    * @remarks
    * The ID of the storage set.
    * 
-   * > You can specify only one of the storage set parameters (`StorageSetId` and `StorageSetPartitionNumber`) and the dedicated block storage cluster parameter (`StorageClusterId`). If you specify both, the call fails.
+   * > You can specify only one of the storage set parameters (`StorageSetId` and `StorageSetPartitionNumber`) and the dedicated block storage cluster parameter (`StorageClusterId`). If you specify both, the API call fails.
    * 
    * @example
    * ss-bp67acfmxazb4p****
@@ -360,18 +360,18 @@ export class CreateDiskRequest extends $dara.Model {
   storageSetPartitionNumber?: number;
   /**
    * @remarks
-   * The tags of the cloud disk.
+   * The tags of the disk.
    */
   tag?: CreateDiskRequestTag[];
   /**
    * @remarks
-   * The zone ID. This parameter is required when you create a pay-as-you-go cloud disk in a specified zone.
+   * The ID of the zone where you want to create the pay-as-you-go disk.
    * 
    * - If you do not specify InstanceId, ZoneId is required.
    * - You cannot specify both ZoneId and InstanceId.
    * 
    * 
-   * > You do not need to specify ZoneId for a `cloud_regional_disk_auto` cloud disk.
+   * > You do not need to specify ZoneId for disks of the `cloud_regional_disk_auto` type.
    * 
    * @example
    * cn-hangzhou-g

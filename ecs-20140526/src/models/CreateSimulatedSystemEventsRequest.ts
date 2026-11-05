@@ -24,7 +24,7 @@ export class CreateSimulatedSystemEventsRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The list of ECS instance IDs. You can specify up to 100 instance IDs.
+   * The IDs of the ECS instances. You can specify up to 100 instance IDs.
    * 
    * This parameter is required.
    * 
@@ -36,9 +36,7 @@ export class CreateSimulatedSystemEventsRequest extends $dara.Model {
    * @remarks
    * The scheduled start time of the event. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
-   * > For unexpected events caused by system errors or instance errors, the event is already in the Executing state after it is created. In this case, the NotBefore parameter specifies the time when the event enters the Executed state.
-   * 
-   * This parameter is required.
+   * > When the TriggerRealOps parameter is set to false, you must specify the NotBefore parameter.
    * 
    * @example
    * 2018-12-01T06:32:31Z
@@ -48,7 +46,7 @@ export class CreateSimulatedSystemEventsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -60,7 +58,7 @@ export class CreateSimulatedSystemEventsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies whether to trigger real O&M operations. Valid values:<br>- true: Triggers real O&M operations. The system will actually stop or release the instance. Test with caution or use instances that do not run workloads.<br>- false (default): Only simulates event notifications without affecting the actual lifecycle of the instance.
+   * Specifies whether to trigger actual O&M operations. Valid values:<br>- true: Triggers actual O&M operations. The system actually stops or releases the instance. Proceed with caution during testing, or select an instance that does not run business workloads for testing. The O&M event is generated approximately 1 minute after the API call succeeds.<br>- false: Simulates only event notifications without affecting the actual lifecycle of the instance. This is the default value.
    * 
    * @example
    * false

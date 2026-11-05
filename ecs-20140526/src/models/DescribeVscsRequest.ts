@@ -7,7 +7,7 @@ export class DescribeVscsRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the command. Valid values of N: 1 to 20. If you specify this parameter, it cannot be an empty string.
    * 
-   * If you use a single tag to filter resources, the resource count returned cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources to which you attach multiple tags at the same time cannot exceed 1,000. If the resource count exceeds 1,000, you must call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+   * If you use a single tag to filter resources, the resource count returned cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources to which you attach multiple tags cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
    * 
    * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
@@ -85,7 +85,7 @@ export class DescribeVscsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs. When you use this parameter to filter resources, the resource count cannot exceed 1,000. Note: Filtering by the default resource group is not supported.
+   * The ID of the resource group to which the instance belongs. If you use this parameter to filter resources, the resource count cannot exceed 1,000. Note: Filtering by the default resource group is not supported.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -95,14 +95,14 @@ export class DescribeVscsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the VSCs to be queried. If you do not specify this parameter, VSCs in all states are returned. Valid values:
+   * The status of the VSCs to query. If you do not specify this parameter, VSCs in all states are returned. Valid values:
    * 
-   * - In_use: In use.
-   * - Attaching: Attaching.
-   * - Detaching: Detaching.
-   * - AttachFailed: Attachment failed.
-   * - DetachFailed: Detachment failed.
-   * - All (default): All states.
+   * - In_use: The VSC is in use.
+   * - Attaching: The VSC is being attached.
+   * - Detaching: The VSC is being detached.
+   * - AttachFailed: The VSC failed to be attached.
+   * - DetachFailed: The VSC failed to be detached.
+   * - All: All states.
    * 
    * Default value: All.
    * 
@@ -112,14 +112,12 @@ export class DescribeVscsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: DescribeVscsRequestTag[];
   /**
    * @remarks
-   * The IDs of the VSCs to be queried.
-   * 
-   * We recommend that you specify no more than 100 VSC IDs.
+   * The IDs of the VSCs to query. Specify up to 100 VSC IDs.
    */
   vscIds?: string[];
   static names(): { [key: string]: string } {

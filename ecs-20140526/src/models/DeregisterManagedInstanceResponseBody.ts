@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   /**
    * @remarks
-   * The activation code ID.
+   * The ID of the activation code.
    * 
    * @example
    * 4ECEEE12-56F1-4FBC-9AB1-890F7494****
@@ -29,7 +29,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   hostname?: string;
   /**
    * @remarks
-   * The managed instance ID.
+   * The instance ID of the managed instance.
    * 
    * @example
    * mi-hz01axdfas****
@@ -61,7 +61,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   intranetIp?: string;
   /**
    * @remarks
-   * The number of times that Cloud Assistant tasks were executed on the managed instance.
+   * The number of Cloud Assistant tasks executed on the managed instance.
    * 
    * @example
    * 2
@@ -69,7 +69,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   invocationCount?: number;
   /**
    * @remarks
-   * The time when the last Cloud Assistant task was executed. The time is displayed in ISO 8601 format in UTC.
+   * The time when the last Cloud Assistant task was executed. The time follows the ISO 8601 standard and is in the UTC time zone.
    * 
    * @example
    * 2021-01-20T09:00:40Z
@@ -77,7 +77,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   lastInvokedTime?: string;
   /**
    * @remarks
-   * The machine code of the managed instance.
+   * The machine ID of the managed instance.
    * 
    * @example
    * e03231b37ab14e53b5795ad625fc****
@@ -93,7 +93,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The version of the operating system.
+   * The version information of the operating system.
    * 
    * @example
    * Linux_#38~18.04.1-Ubuntu SMP Wed Jan 6 18:26:30 UTC 2021_x86_64
@@ -101,7 +101,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
   osVersion?: string;
   /**
    * @remarks
-   * The time when the managed instance was registered. The time is displayed in ISO 8601 format in UTC.
+   * The time when the managed instance was registered. The time follows the ISO 8601 standard and is in the UTC time zone.
    * 
    * @example
    * 2021-01-20T08:57:56Z
@@ -165,7 +165,7 @@ export class DeregisterManagedInstanceResponseBodyInstance extends $dara.Model {
 export class DeregisterManagedInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the managed instance.
+   * The collection of managed instance information.
    */
   instance?: DeregisterManagedInstanceResponseBodyInstance;
   /**

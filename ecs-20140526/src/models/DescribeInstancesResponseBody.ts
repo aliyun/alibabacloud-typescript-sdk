@@ -1238,7 +1238,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   instances?: DescribeInstancesResponseBodyInstances;
   /**
    * @remarks
-   * The pagination token returned in this call.
+   * The pagination token returned by this call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -1254,7 +1254,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page that was specified in the request.
+   * The number of entries per page specified in the request.
    * 
    * @example
    * 10
@@ -1270,9 +1270,9 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of queried instances.
+   * The total number of instances returned.
    * 
-   * > When you use the `MaxResults` and `NextToken` parameters for paging query, the returned `TotalCount` parameter value is meaningless.
+   * > When you use the `MaxResults` and `NextToken` parameters for paging, the returned value of the `TotalCount` parameter is meaningless.
    * 
    * @example
    * 1

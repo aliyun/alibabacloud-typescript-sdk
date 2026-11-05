@@ -13,7 +13,7 @@ export class CreateSnapshotResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the snapshot.
+   * The snapshot ID.
    * 
    * @example
    * s-bp17441ohwka0yuh****

@@ -536,7 +536,7 @@ export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
   networkInterfaceSets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSets;
   /**
    * @remarks
-   * The pagination token returned by the current call.
+   * The pagination token returned by the current request.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -544,9 +544,8 @@ export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The paging query parameter.
-   * 
-   * > This parameter will soon be deprecated. We recommend that you use the `NextToken` and `MaxResults` parameters for paging.
+   * The page number for paged queries.
+   * > This parameter will be deprecated soon. Use NextToken and MaxResults for pagination.
    * 
    * @example
    * 1
@@ -554,9 +553,8 @@ export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The paging query parameter.
-   * 
-   * > This parameter will soon be deprecated. We recommend that you use the `NextToken` and `MaxResults` parameters for paging.
+   * The page size for paged queries.
+   * > This parameter will be deprecated soon. Use NextToken and MaxResults for pagination.
    * 
    * @example
    * 1
@@ -572,8 +570,8 @@ export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of Elastic Network Interface (ENI) resources returned.
-   * > When you use the `MaxResults` and `NextToken` parameters for a paging query, the returned `TotalCount` value is meaningless.
+   * The total number of returned ENIs.
+   * > When you use the `MaxResults` and `NextToken` parameters for pagination, the returned value of the `TotalCount` parameter is meaningless.
    * 
    * @example
    * 2

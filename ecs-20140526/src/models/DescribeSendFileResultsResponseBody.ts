@@ -258,7 +258,7 @@ export class DescribeSendFileResultsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The total number of scripts.
-   * > When you use the MaxResults and NextToken parameters for paging, the returned TotalCount parameter value is meaningless.
+   * > If you use the MaxResults and NextToken parameters to perform a paged query, the returned TotalCount value is meaningless.
    * 
    * @example
    * 2

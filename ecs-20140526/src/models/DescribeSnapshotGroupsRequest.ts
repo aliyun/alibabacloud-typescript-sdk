@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSnapshotGroupsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the snapshot-consistent group. Valid values of N: 1 to 20.
+   * The key of tag N of the snapshot-consistent group. Valid values of N: 1 to 20.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class DescribeSnapshotGroupsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the snapshot-consistent group. Valid values of N: 1 to 20.
+   * The value of tag N of the snapshot-consistent group. Valid values of N: 1 to 20.
    * 
    * @example
    * TestValue
@@ -61,7 +61,7 @@ export class DescribeSnapshotGroupsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries to return per page in a paging query.
    * 
    * Maximum value: 100.
    * 
@@ -81,7 +81,7 @@ export class DescribeSnapshotGroupsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The query token. Set the value to the NextToken value returned in the last API call.
+   * The query token. The value is the NextToken value returned from the previous API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -111,7 +111,7 @@ export class DescribeSnapshotGroupsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The IDs of the snapshot-consistent groups. Valid values of N: 1 to 10.
+   * The ID of snapshot-consistent group N. Valid values of N: 1 to 10.
    * 
    * @example
    * ssg-j6ciyh3k52qp7ovm****
@@ -119,7 +119,7 @@ export class DescribeSnapshotGroupsRequest extends $dara.Model {
   snapshotGroupId?: string[];
   /**
    * @remarks
-   * The status of the snapshot-consistent group. Valid values of N: 1 to 3. Valid values:
+   * The status of snapshot-consistent group N. Valid values of N: 1 to 3. Valid values:
    * 
    * - progressing: The snapshot-consistent group is being created.
    * 

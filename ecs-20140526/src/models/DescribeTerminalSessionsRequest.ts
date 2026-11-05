@@ -13,7 +13,7 @@ export class DescribeTerminalSessionsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query.
+   * The maximum number of entries to return on each page in a paged query.
    * 
    * Maximum value: 100.
    * 
@@ -25,7 +25,7 @@ export class DescribeTerminalSessionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * The pagination token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * AAAAAdDWBF2****

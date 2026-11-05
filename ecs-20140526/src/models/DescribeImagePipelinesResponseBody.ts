@@ -662,7 +662,7 @@ export class DescribeImagePipelinesResponseBody extends $dara.Model {
   imagePipeline?: DescribeImagePipelinesResponseBodyImagePipeline;
   /**
    * @remarks
-   * The number of entries returned per page in a paging query.
+   * The number of rows returned per page during paging in a paged query.
    * 
    * @example
    * 50
@@ -670,7 +670,7 @@ export class DescribeImagePipelinesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by this call. For more information, see the operation description.
+   * The pagination token returned by the current request. For more information, see the operation description.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -686,7 +686,7 @@ export class DescribeImagePipelinesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of image templates returned.
+   * The number of image templates returned.
    * 
    * @example
    * 1

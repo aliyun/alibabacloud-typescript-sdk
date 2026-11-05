@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEipAddressesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The first filter key. Set the value to CreationStartTime, which specifies the start time of resource creation.
+   * The first filter key. Valid value: CreationStartTime, which specifies the start time of resource creation.
    * 
    * @example
    * CreationStartTime
@@ -62,7 +62,7 @@ export class DescribeEipAddressesRequest extends $dara.Model {
   associatedInstanceId?: string;
   /**
    * @remarks
-   * The type of the associated cloud service instance. Valid values: EcsInstance, SlbInstance, Nat, HaVip, NetworkInterface, and IpAddress.
+   * The type of the associated cloud service instance, such as EcsInstance, SlbInstance, Nat, HaVip, NetworkInterface, or IpAddress.
    * 
    * @example
    * EcsInstance
@@ -70,7 +70,7 @@ export class DescribeEipAddressesRequest extends $dara.Model {
   associatedInstanceType?: string;
   /**
    * @remarks
-   * The billing method of the EIP. Valid values: PostPaid (pay-as-you-go) and PrePaid (subscription).
+   * The billing method of the EIP. A value of PostPaid indicates pay-as-you-go, and a value of PrePaid indicates subscription.
    * 
    * @example
    * PostPaid
@@ -94,7 +94,7 @@ export class DescribeEipAddressesRequest extends $dara.Model {
   ISP?: string;
   /**
    * @remarks
-   * The lock type. Valid values: financial (locked due to overdue payment) and security (locked due to security reasons).
+   * The lock type. A value of financial indicates a lock due to an overdue payment, and a value of security indicates a lock due to security reasons.
    * 
    * @example
    * financial
@@ -104,17 +104,23 @@ export class DescribeEipAddressesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number for the paging query. Starting value: 1. Default value: 1.
+   * 
+   * @example
+   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Maximum value: 100. Default value: 10.
+   * The number of entries per page for the paging query. Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
    */
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the EIP resides. You can call the DescribeRegions operation to query region IDs.
+   * The ID of the region where the elastic IP address (EIP) resides. You can call the DescribeRegions operation to query region IDs.
    * 
    * This parameter is required.
    * 

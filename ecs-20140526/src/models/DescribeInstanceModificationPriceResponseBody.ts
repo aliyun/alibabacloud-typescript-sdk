@@ -123,9 +123,9 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
    * @remarks
    * The currency unit. Valid values:
    * 
-   * - China site: CNY.
+   * - CNY: China site.
    * 
-   * - International site: USD.
+   * - USD: international site.
    * 
    * @example
    * CNY
@@ -134,7 +134,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
   detailInfos?: DescribeInstanceModificationPriceResponseBodyPriceInfoPriceDetailInfos;
   /**
    * @remarks
-   * The discount.
+   * The discount amount.
    * 
    * @example
    * 61.320
@@ -150,7 +150,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
   originalPrice?: number;
   /**
    * @remarks
-   * The final price, which is the original price minus the discount.
+   * The final price, which is the original price minus the discount amount.
    * 
    * @example
    * 113.880
@@ -191,11 +191,11 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
 export class DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice extends $dara.Model {
   /**
    * @remarks
-   * The currency unit.
+   * The currency unit. Valid values:
    * 
-   * China site: CNY.
+   * - CNY: China site.
    * 
-   * International site: USD.
+   * - USD: international site.
    * 
    * @example
    * CNY
@@ -203,7 +203,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceM
   currency?: string;
   /**
    * @remarks
-   * The discount.
+   * The discount amount.
    * 
    * @example
    * 0
@@ -219,7 +219,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceM
   originalPrice?: number;
   /**
    * @remarks
-   * The final price, which is the original price minus the discount.
+   * The final price, which is the original price minus the discount amount.
    * 
    * @example
    * 100
@@ -255,7 +255,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceM
 export class DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPrice extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Marketplace image price.
+   * The price of the Alibaba Cloud Marketplace image.
    */
   marketplaceImagePrice?: DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice;
   static names(): { [key: string]: string } {
@@ -342,7 +342,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dar
   price?: DescribeInstanceModificationPriceResponseBodyPriceInfoPrice;
   /**
    * @remarks
-   * The associated price.
+   * The related price.
    */
   relatedPrice?: DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPrice;
   rules?: DescribeInstanceModificationPriceResponseBodyPriceInfoRules;
@@ -383,7 +383,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dar
 export class DescribeInstanceModificationPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The PriceInfo data type, which includes pricing and discount rule information.
+   * The pricing information, including the price and discount rule information.
    */
   priceInfo?: DescribeInstanceModificationPriceResponseBodyPriceInfo;
   /**

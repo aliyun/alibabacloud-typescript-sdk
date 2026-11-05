@@ -60,7 +60,7 @@ export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration extend
   arn?: ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfigurationArn[];
   /**
    * @remarks
-   * Specifies whether to enable encrypted cross-region snapshot replication. Valid values:
+   * Specifies whether to enable encryption for cross-region snapshot replication. Valid values:
    * 
    * - true: Yes. 
    * - false: No. 
@@ -110,14 +110,28 @@ export class ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration extend
 export class ModifyAutoSnapshotPolicyExRequestTargetTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key. Valid values of N: 1 to 5. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with aliyun or acs: or contain http:// or https://.
+   * The tag key.
+   * 
+   * Valid values of N: 1 to 5.
+   * 
+   * The value cannot be an empty string. It can be up to 128 characters in length, and cannot start with aliyun or acs:. It cannot contain http:// or https://.
+   * 
+   * @example
+   * Environment
    */
   key?: string;
   /**
    * @remarks
-   * The tag value. Valid values of N: 1 to 5. It can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * The tag value.
    * 
-   * > If this parameter is left empty or set to an empty string, it indicates any value.
+   * Valid values of N: 1 to 5.
+   * 
+   * It can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * 
+   * > If you leave this parameter empty or specify an empty string, it indicates any value.
+   * 
+   * @example
+   * Production
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -149,7 +163,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
    * The retention period of cross-region replicated snapshots. Unit: days. Valid values:
    * 
    * - -1: The snapshots are permanently retained.
-   * - 1 to 65535: The snapshots are retained for the specified number of days.
+   * - 1 to 65535: The specified number of days for which the snapshots are retained.
    * 
    * Default value: -1.
    * 
@@ -164,10 +178,10 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
   copyEncryptionConfiguration?: ModifyAutoSnapshotPolicyExRequestCopyEncryptionConfiguration;
   /**
    * @remarks
-   * Specifies whether to enable automatic cross-region replication. Valid values:
+   * Specifies whether to enable cross-region replication for automatic snapshots. Valid values:
    * 
-   * - true: Yes.
-   * - false: No.
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * false
@@ -221,10 +235,10 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
    * @remarks
    * The days of the week on which automatic snapshots are created. Valid values: 1 to 7, which represent Monday to Sunday. For example, 1 indicates Monday.
    * 
-   * If you want to create automatic snapshots on multiple days within a week, you can specify multiple days:
+   * If you want to create automatic snapshots multiple times a week, you can specify multiple days:
    * 
    * - You can specify up to 7 days.
-   * - Specify multiple days in a JSON array, such as `["1", "2", ... "7"]`. Separate the days with commas (,).
+   * - Specify multiple days in a JSON array format such as `"1", "2", … "7"`. Separate the days with commas (,).
    * 
    * @example
    * ["1", "7"]
@@ -235,7 +249,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
    * The retention period of automatic snapshots. Unit: days. Valid values:
    * 
    * - -1: The snapshots are permanently retained.
-   * - 1 to 65536: The snapshots are retained for the specified number of days.
+   * - 1 to 65536: The specified number of days for which the snapshots are retained.
    * 
    * Default value: -1.
    * 
@@ -250,7 +264,7 @@ export class ModifyAutoSnapshotPolicyExRequest extends $dara.Model {
    * If you want to create multiple automatic snapshots within a day, you can specify multiple points in time:
    * 
    * - You can specify up to 24 points in time.
-   * - Specify multiple points in time in a JSON array, such as `["0", "1", ... "23"]`. Separate the points in time with commas (,).
+   * - Specify multiple points in time in a JSON array format such as `"0", "1", … "23"`. Separate the points in time with commas (,).
    * 
    * @example
    * ["0", "1"]

@@ -13,7 +13,7 @@ export class DescribeCloudAssistantStatusRequest extends $dara.Model {
   instanceId?: string[];
   /**
    * @remarks
-   * The maximum number of entries to return on each page during a paged query. This parameter is invalid if the **InstanceId** parameter Settings are configured.
+   * The maximum number of entries per page for paging in a paged query. This parameter is invalid if the **InstanceId** parameter settings are specified.
    * 
    * Maximum value: 50.
    * 
@@ -25,7 +25,7 @@ export class DescribeCloudAssistantStatusRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set the value to the NextToken value returned from the previous API call.
+   * The pagination token. Set the value to the NextToken value returned from the previous call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -47,7 +47,7 @@ export class DescribeCloudAssistantStatusRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter will be taken offline soon. We recommend that you use NextToken and MaxResults to perform paged queries.
+   * > This parameter will be taken offline soon. Use NextToken and MaxResults for paging in a paged query.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class DescribeCloudAssistantStatusRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter will be taken offline soon. We recommend that you use NextToken and MaxResults to perform paged queries.
+   * > This parameter will be taken offline soon. Use NextToken and MaxResults for paging in a paged query.
    * 
    * @example
    * 10

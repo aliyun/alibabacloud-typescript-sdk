@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSnapshotGroupRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N of the snapshot-consistent group. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The key of tag N of the snapshot-consistent group. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -13,7 +13,7 @@ export class CreateSnapshotGroupRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N of the snapshot-consistent group. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
+   * The value of tag N of the snapshot-consistent group. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -53,7 +53,7 @@ export class CreateSnapshotGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the snapshot-consistent group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * This is description.
@@ -61,7 +61,7 @@ export class CreateSnapshotGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the disk for which you want to create a snapshot-consistent group. You can specify multiple disk IDs across instances in the same zone. Valid values of N: 1 to 128. A single snapshot-consistent group can contain up to 128 disks with a total capacity of up to 256 TiB.
+   * The ID of the disk for which you want to create a snapshot-consistent group. You can specify multiple disk IDs across instances within the same zone. Valid values of N: 1 to 128. A single snapshot-consistent group can contain up to 128 disks with a total capacity of up to 256 TiB.
    * 
    * Take note of the following items:
    * 
@@ -91,14 +91,14 @@ export class CreateSnapshotGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the snapshot instant access feature. Valid values:
+   * Specifies whether to enable the snapshot instant access (active) feature. Valid values:
    * 
-   * - true: enables the feature.
-   * - false: disables the feature.
+   * - true: active.
+   * - false: shutdown.
    * 
    * Default value: false.
    * 
-   * > This parameter is deprecated. Standard snapshots of ESSDs are upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). You do not need to configure this parameter, and no additional fees are incurred.
+   * > This parameter is deprecated. Standard snapshots of enterprise SSD and standard SSD disks have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). You do not need to configure this parameter, and no additional fees are incurred.
    * 
    * @example
    * false
@@ -106,13 +106,13 @@ export class CreateSnapshotGroupRequest extends $dara.Model {
   instantAccess?: boolean;
   /**
    * @remarks
-   * Sets the retention period for the snapshot instant access feature. Unit: days. Valid values: 1 to 65535.
+   * Specifies the Settings for the usage time of the snapshot instant access (active) feature. Unit: days. Valid values: 1 to 65535.
    * 
-   * This parameter takes effect only when `InstantAccess` is set to true. The snapshot instant access feature is automatically disabled when the specified period expires.
+   * This parameter takes effect only when `InstantAccess` is set to true. An automatic shutdown of the instant access (active) feature is triggered when the specified period expires.
    * 
-   * Default value: empty, which indicates that the retention period is the same as the snapshot release time.
+   * Default value: empty, which indicates that the retention period of the instant access feature is the same as the release time of the snapshot.
    * 
-   * > This parameter is deprecated. Standard snapshots of ESSDs are upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). You do not need to configure this parameter, and no additional fees are incurred.
+   * > This parameter is deprecated. Standard snapshots of enterprise SSD and standard SSD disks have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). You do not need to configure this parameter, and no additional fees are incurred.
    * 
    * @example
    * 1
@@ -120,7 +120,7 @@ export class CreateSnapshotGroupRequest extends $dara.Model {
   instantAccessRetentionDays?: number;
   /**
    * @remarks
-   * The name of the snapshot-consistent group. The name must be 2 to 128 characters in length and can contain letters and Chinese characters. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, periods (.), underscores (_), hyphens (-), and colons (:).
+   * The name of the snapshot consistency group. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character, and cannot start with `http://` or `https://`. It can contain digits, periods (.), underscores (_), hyphens (-), and colons (:).
    * 
    * @example
    * testName
@@ -158,7 +158,7 @@ export class CreateSnapshotGroupRequest extends $dara.Model {
   storageLocationArn?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tag?: CreateSnapshotGroupRequestTag[];
   static names(): { [key: string]: string } {

@@ -153,21 +153,33 @@ export class DescribeBandwidthPackagesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The current page number.
+   * 
+   * @example
+   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
    * The number of entries returned per page.
+   * 
+   * @example
+   * 10
    */
   pageSize?: number;
   /**
    * @remarks
    * The request ID.
+   * 
+   * @example
+   * 8909013D-4A64-41A6-93E6-E3FD08A3EAFE
    */
   requestId?: string;
   /**
    * @remarks
    * The total number of entries that meet the query conditions.
+   * 
+   * @example
+   * 1
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

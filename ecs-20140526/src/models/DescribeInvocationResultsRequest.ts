@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvocationResultsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the command that you execute. Valid values of N: 1 to 20. This parameter cannot be an empty string.
+   * The tag key for the command to execute. Valid values of N: 1 to 20. If you specify this parameter, it cannot be an empty string.
    * 
-   * If you use a single tag to filter resources, the resource count under the tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that are attached to all specified tags cannot exceed 1,000. If the resource count exceeds 1,000, you must call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+   * If you use a single tag to filter resources, the number of queried resources cannot exceed 1,000. If you use multiple tags to filter resources, the number of queried resources that are attached to all specified tags cannot exceed 1,000. If the number of resources exceeds 1,000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
    * 
-   * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The tag key can be up to 64 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
    * 
    * @example
    * TestKey
@@ -18,7 +18,8 @@ export class DescribeInvocationResultsRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag value of the command execution. Valid values of N: 1 to 20. This parameter can be an empty string.
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * 
+   * The tag value can be up to 128 characters in length and cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -58,9 +59,10 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   commandId?: string;
   /**
    * @remarks
-   * The encoding method for the `CommandContent` and `Output` fields in the response. Valid values:
-   * - PlainText: Returns the original command content and output information.
-   * - Base64: Returns the Base64-encoded command content and output information.
+   * The encoding format of the CommandContent and Output fields in the response. Valid values:
+   * - PlainText: returns the original command content and output information.
+   * - Base64: returns the Base64-encoded command content and output information.
+   * 
    * Default value: Base64.
    * 
    * @example
@@ -69,9 +71,11 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   contentEncoding?: string;
   /**
    * @remarks
-   * Specifies whether to return the history records of commands that execute on a schedule. Valid values:
-   * - true: Returns the results of commands that execute on a schedule. If this parameter is set to true, the InvokeId parameter cannot be empty and must be the execution ID of a scheduled command (RepeatMode is Period) or a command that runs after each system startup (RepeatMode is EveryReboot).
-   * - false: Does not return the history records.
+   * Specifies whether to return the historical records of scheduled command executions. Valid values:
+   * 
+   *  - true: returns the results of scheduled command executions. If this parameter is set to true, the InvokeId parameter cannot be empty and must be the execution ID of a command that is executed on a schedule (RepeatMode is set to Period) or executed after each system startup (RepeatMode is set to EveryReboot).
+   *  - false: does not return the historical records.
+   * 
    * Default value: false.
    * 
    * @example
@@ -88,7 +92,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The execution ID of the command. You can call the [DescribeInvocations](https://help.aliyun.com/document_detail/64840.html) operation to query the InvokeId value.
+   * The execution ID of the command. You can call the [DescribeInvocations](https://help.aliyun.com/document_detail/64840.html) operation to query the execution ID.
    * 
    * @example
    * t-hz0jdfwd9f****
@@ -97,23 +101,24 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   /**
    * @remarks
    * The execution status of the command. Valid values:
-   * - Running: The command is running.
-   *     - Scheduled execution: The execution status remains Running until the scheduled command is manually stopped.
-   *     - One-time execution: The overall execution status is Running as long as a command process is running.
-   * - Finished: The command is completed.
-   *     - Scheduled execution: The command process cannot be in the Finished state.
-   *     - One-time execution: The command is completed on all instances, or the command process is manually stopped on some instances and completed on the remaining instances.
+   * 
+   * - Running: the command is running.
+   *     - Scheduled execution: the execution status remains Running until the scheduled command is manually stopped.
+   *     - One-time execution: the overall execution status is Running as long as there is a running command process.
+   * - Finished: the command is completed.
+   *     - Scheduled execution: the command process cannot be in the Finished state.
+   *     - One-time execution: the command is completed on all instances, or the command process is manually stopped on some instances and completed on all other instances.
    * - Success:
-   *     - One-time execution: The command is completed and the exit code is 0.
-   *     - Scheduled execution: The last execution was successful with an exit code of 0, and the specified execution time has ended.
-   * - Failed: The execution failed.
-   *     - Scheduled execution: The command process cannot be in the Failed state.
-   *     - One-time execution: The command failed on all instances.
-   * - PartialFailed: The execution partially failed.
-   *     - Scheduled execution: The command process cannot be in the PartialFailed state.
-   *     - One-time execution: The command process failed on some instances, so the overall execution status is PartialFailed.
-   * - Stopped: The command execution is stopped.
-   * - Stopping: The command execution is being stopped.
+   *     - One-time execution: the command is completed and the exit code is 0.
+   *     - Scheduled execution: the last execution was successful with an exit code of 0, and the specified execution time has ended.
+   * - Failed: the execution failed.
+   *     - Scheduled execution: the command process cannot be in the Failed state.
+   *     - One-time execution: the command failed on all instances.
+   * - PartialFailed: the execution partially failed.
+   *     - Scheduled execution: the command process cannot be in the PartialFailed state.
+   *     - One-time execution: the command process failed on some instances, and the overall execution status is PartialFailed.
+   * - Stopped: the command execution is stopped.
+   * - Stopping: the command execution is being stopped.
    * 
    * @example
    * Running
@@ -121,7 +126,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   invokeRecordStatus?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for paging.
+   * The maximum number of entries to return per page in a paged query.
    * 
    * Maximum value: 50.
    * 
@@ -159,7 +164,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest list of Alibaba Cloud regions.
    * 
    * This parameter is required.
    * 
@@ -169,7 +174,7 @@ export class DescribeInvocationResultsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the command execution belongs. If you specify this parameter, you must specify ResourceGroupId when you run the command. This allows you to filter the corresponding command execution results.
+   * The ID of the resource group in which the command is executed. You can specify this parameter to filter the command execution results by the resource group ID that was specified during command execution.
    * 
    * @example
    * rg-bp67acfmxazb4p****

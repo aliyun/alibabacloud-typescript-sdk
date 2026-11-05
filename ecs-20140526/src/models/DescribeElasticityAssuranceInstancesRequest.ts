@@ -38,7 +38,7 @@ export class DescribeElasticityAssuranceInstancesRequest extends $dara.Model {
   privatePoolOptions?: DescribeElasticityAssuranceInstancesRequestPrivatePoolOptions;
   /**
    * @remarks
-   * The number of entries to return per page for paging.
+   * The number of entries to return per page for a paging query.
    * 
    * Maximum value: 100.
    * 
@@ -50,7 +50,7 @@ export class DescribeElasticityAssuranceInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the query. You can obtain the token from the response of the previous request.
+   * The pagination token for the elasticity assurance query. You can obtain the token from the response of the previous request.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

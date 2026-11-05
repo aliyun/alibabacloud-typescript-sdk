@@ -8,15 +8,21 @@ export class DeleteBandwidthPackageRequest extends $dara.Model {
    * The ID of the bandwidth package to delete.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * bwp-bp1xea10o8qxwaswq****
    */
   bandwidthPackageId?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the bandwidth package. You can call the DescribeRegions operation to query the latest region list.
+   * The ID of the region where the bandwidth package is located. You can call the DescribeRegions operation to query the latest region list.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;

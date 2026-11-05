@@ -7,7 +7,7 @@ export class DescribeManagedInstancesRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the managed instance. Valid values of N: 1 to 20. The tag key cannot be an empty string.
    * 
-   * If you use a single tag to filter resources, the resource count for that tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count for resources attached to multiple tags cannot exceed 1,000. If the resource count exceeds 1,000, you must call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
+   * If you use a single tag to filter resources, the resource count returned cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources attached to multiple tags cannot exceed 1,000. If the resource count exceeds 1,000, you must call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
    * 
    * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
@@ -59,9 +59,9 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
   activationId?: string;
   /**
    * @remarks
-   * Specifies whether the managed instance is connected. Valid values:
+   * Indicates whether the managed instance is connected. Valid values:
    * 
-   * true: The managed instance is connected. You can use Cloud Assistant to manage the managed instance.
+   * true: The managed instance is connected. You can manage the managed instance by using Cloud Assistant.
    * 
    * false: The managed instance is not connected. The server may be stopped or the Cloud Assistant Agent is not properly installed.
    * 
@@ -95,7 +95,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The value of the MachineId parameter specified when the managed instance was registered. The value can be up to 36 characters in length.
+   * The value of the MachineId parameter specified when the managed instance is registered. The value can be up to 36 characters in length.
    * Sample registration script:
    * ```
    * aliyun-service --register \\
@@ -116,7 +116,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
   machineId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page during paging.
+   * The maximum number of entries to return on each page during paging and paged query.
    * 
    * Maximum value: 50.
    * 
@@ -137,6 +137,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The operating system type of the managed instance. Valid values:
+   * 
    * - windows
    * - linux
    * - FreeBSD
@@ -149,7 +150,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults to perform a paged query.
+   * > This parameter will be taken offline. We recommend that you use NextToken and MaxResults for paging and paged query operations.
    * 
    * @example
    * 1
@@ -157,7 +158,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter will be deprecated soon. We recommend that you use NextToken and MaxResults to perform a paged query.
+   * > This parameter will be taken offline. We recommend that you use NextToken and MaxResults for paging and paged query operations.
    * 
    * @example
    * 10
@@ -167,7 +168,7 @@ export class DescribeManagedInstancesRequest extends $dara.Model {
    * @remarks
    * The region ID. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), Hong Kong (China), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
    * 
-   * You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query region IDs and other information.
+   * You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to view region IDs and other information.
    * 
    * This parameter is required.
    * 

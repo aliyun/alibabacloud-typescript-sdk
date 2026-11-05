@@ -13,7 +13,7 @@ export class StartTerminalSessionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The security token that is appended to the WebSocket request header for system verification of the request.
+   * The security token appended to the WebSocket request header, which is used by the system to verify the request.
    * 
    * @example
    * d86c2df2-d19c-4bd8-b817-a19ef123****
@@ -29,7 +29,7 @@ export class StartTerminalSessionResponseBody extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The URL of the WebSocket session for establishing a remote connection to the ECS instance. The URL contains the session ID (`SessionId`) and the `SecurityToken` used for system verification.
+   * The URL corresponding to the WebSocket session for remotely connecting to the ECS instance. It includes the session ID (`SessionId`) and the `SecurityToken` used for system verification.
    * 
    * @example
    * wss://cn-hangzhou.axt.aliyuncs.com/session?sessionId=s-hz023od0x9****&token=d86c2df2-d19c-4bd8-b817-a19ef123****

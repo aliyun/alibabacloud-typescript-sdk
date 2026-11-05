@@ -315,7 +315,7 @@ export class DescribeInvocationsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The total number of commands.
-   * > The TotalCount parameter is meaningless when you use the MaxResults and NextToken parameters for paging.
+   * > When you use the MaxResults and NextToken parameters for paging, the returned TotalCount value is meaningless.
    * 
    * @example
    * 1

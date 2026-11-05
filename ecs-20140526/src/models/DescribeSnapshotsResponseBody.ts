@@ -208,7 +208,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
 export class DescribeSnapshotsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token for the next query.
+   * The pagination token for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -243,7 +243,7 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
    * @remarks
    * The total number of snapshots.
    * 
-   * > When you use the MaxResults and NextToken parameters for pagination, the returned value of the TotalCount parameter is invalid.
+   * > When you use the MaxResults and NextToken parameters for pagination, the returned TotalCount value is invalid.
    * 
    * @example
    * 1

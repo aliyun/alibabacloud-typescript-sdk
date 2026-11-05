@@ -79,7 +79,7 @@ export class DescribeCloudAssistantStatusResponseBody extends $dara.Model {
   instanceCloudAssistantStatusSet?: DescribeCloudAssistantStatusResponseBodyInstanceCloudAssistantStatusSet;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The pagination token returned by the current call.
    * 
    * @example
    * AAAAAdDWBF2
@@ -112,7 +112,7 @@ export class DescribeCloudAssistantStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The total number of instances.
-   * > When you use the MaxResults and NextToken parameters for paged queries, the returned TotalCount value is meaningless.
+   * > If you use the MaxResults and NextToken parameters for paging in a paged query, the returned TotalCount value is meaningless.
    * 
    * @example
    * 1

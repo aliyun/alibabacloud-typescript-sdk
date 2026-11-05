@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDisksRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter key used to query resources. Set the value to `CreationStartTime`. If you specify both `Filter.1.Key` and `Filter.1.Value`, you can query resources created after the specified time.
+   * The filter key used to query resources. Set the value to CreationStartTime. If you specify both Filter.1.Key and Filter.1.Value, you can query resources created after the specified time.
    * 
    * @example
    * CreationStartTime
@@ -13,7 +13,7 @@ export class DescribeDisksRequestFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The filter value used to query resources. If you specify this parameter, you must also specify the `Filter.1.Key` parameter. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+   * The filter value used to query resources. If you specify this parameter, you must also specify Filter.1.Key. The value must be in the yyyy-MM-ddTHH:mmZ format and use the UTC+0 time zone.
    * 
    * @example
    * 2017-12-05T22:40Z
@@ -45,7 +45,7 @@ export class DescribeDisksRequestFilter extends $dara.Model {
 export class DescribeDisksRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the disk. Valid values of N: 1 to 20.
+   * The key of the tag. Valid values of N: 1 to 20.
    * 
    * If you use a single tag to filter resources, the resource count returned cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that attach multiple tags cannot exceed 1,000. If the resource count exceeds 1,000, use the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
    * 
@@ -55,7 +55,7 @@ export class DescribeDisksRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the disk. Valid values of N: 1 to 20.
+   * The value of the tag. Valid values of N: 1 to 20.
    * 
    * @example
    * TestValue
@@ -88,7 +88,7 @@ export class DescribeDisksRequest extends $dara.Model {
   filter?: DescribeDisksRequestFilter[];
   /**
    * @remarks
-   * The list of additional attributes. Currently, only `Placement` is supported, which indicates the data storage location of the disk.
+   * The list of additional attributes. Currently, you can only set the value to Placement to query the data storage location of the disk.
    * 
    * > Currently, only regional disks have a data storage location.
    * 
@@ -98,7 +98,7 @@ export class DescribeDisksRequest extends $dara.Model {
   additionalAttributes?: string[];
   /**
    * @remarks
-   * The ID of the automatic snapshot policy.
+   * The ID of the automatic snapshot policy used to query the disk.
    * 
    * @example
    * sp-m5e2w2jutw8bv31****
@@ -106,14 +106,15 @@ export class DescribeDisksRequest extends $dara.Model {
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
-   * The disk category. Valid values:
-   * - all: all cloud disks, local disks, and elastic ephemeral disks.
+   * The category of the disk. Valid values: 
+   *          
+   * - all: all disks, local disks, and elastic ephemeral disks.
    * - cloud: basic disk.
    * - cloud_efficiency: ultra disk.
    * - cloud_ssd: standard SSD.
    * - cloud_essd: enterprise SSD.
    * - cloud_auto: ESSD AutoPL disk.
-   * - cloud_regional_disk_auto: regional ESSD.
+   * - cloud_regional_disk_auto: regional Enterprise SSD (ESSD).
    * - cloud_essd_entry: ESSD Entry disk.
    * - elastic_ephemeral_disk_standard: standard elastic ephemeral disk.
    * - elastic_ephemeral_disk_premium: premium elastic ephemeral disk.
@@ -130,8 +131,10 @@ export class DescribeDisksRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Specifies whether automatic snapshots are released when the cloud disk is released. Valid values:
+   * Specifies whether automatic snapshots are released when the disk is released. Valid values:
+   * 
    * - true: Automatic snapshots are released.
+   * 
    * - false: Automatic snapshots are not released.
    * 
    * Default value: false.
@@ -143,8 +146,9 @@ export class DescribeDisksRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the disk is released together with the instance. Valid values:
-   * - true: The disk is released together with the instance.
-   * - false: The disk is retained and not released. It is converted to a pay-as-you-go data disk.
+   * 
+   * -   true: The disk is released together with the instance.
+   * -   false: The disk is retained and not released. It is converted to a pay-as-you-go data disk and retained.
    * 
    * Default value: false.
    * 
@@ -155,6 +159,7 @@ export class DescribeDisksRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method of the disk. Valid values:
+   * 
    * - PrePaid: subscription.
    * - PostPaid: pay-as-you-go.
    * 
@@ -164,7 +169,7 @@ export class DescribeDisksRequest extends $dara.Model {
   diskChargeType?: string;
   /**
    * @remarks
-   * The IDs of the cloud disks, local disks, or elastic ephemeral disks. The value is a JSON array that contains up to 100 IDs separated by commas (,).
+   * The IDs of the disks, local disks, or elastic ephemeral disks. The value is a JSON array that supports up to 100 IDs, separated by commas (,).
    * 
    * @example
    * ["d-bp67acfmxazb4p****", "d-bp67acfmxazb4g****", … "d-bp67acfmxazb4d****"]
@@ -180,10 +185,11 @@ export class DescribeDisksRequest extends $dara.Model {
   diskName?: string;
   /**
    * @remarks
-   * The type of the cloud disk, local disk, or elastic ephemeral disk to query. Valid values:
-   * - all: queries both system disks and data disks.
-   * - system: queries only system disks.
-   * - data: queries only data disks.
+   * The type of the disk, local disk, or elastic ephemeral disk. Valid values: 
+   *          
+   * - all: Queries both system disks and data disks.
+   * - system: Queries only system disks.
+   * - data: Queries only data disks.
    * 
    * Default value: all.
    * > Elastic ephemeral disks cannot be used as system disks.
@@ -195,8 +201,9 @@ export class DescribeDisksRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to only perform a dry run for this request. Valid values:
-   * - true: send a check request and do not query resources. The check items include whether the AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * - false: send a Normal request. If the request passes the check, a 2xx HTTP status code is returned and resources are queried.
+   * 
+   * -   true: send a check request and do not query the resource status. The check items include whether the AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
+   * -   false: send a Normal request. If the check succeeds, a 2xx HTTP status code is returned and the resource status is directly queried.
    * 
    * Default value: false.
    * 
@@ -206,11 +213,12 @@ export class DescribeDisksRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether the automatic snapshot policy feature is enabled for the cloud disk. Valid values:
-   * - true: The feature is enabled.
-   * - false: The feature is not enabled.
+   * Specifies whether the automatic snapshot policy feature is enabled for the disk. Valid values:
    * 
-   * > This parameter is deprecated. The automatic snapshot policy feature is enabled by default for newly created cloud disks. You only need to apply an automatic snapshot policy to the cloud disk to use the feature.
+   * - true: Enabled.
+   * - false: Disabled.
+   * 
+   * > **[Deprecated]** This parameter is deprecated. The automatic snapshot policy feature is enabled by default for newly created disks. You only need to apply an automatic snapshot policy to the disk to use this feature.
    * 
    * @example
    * true
@@ -218,7 +226,7 @@ export class DescribeDisksRequest extends $dara.Model {
   enableAutoSnapshot?: boolean;
   /**
    * @remarks
-   * Specifies whether an automatic snapshot policy is applied to the cloud disk. Valid values:
+   * Specifies whether an automatic snapshot policy is applied to the disk. Valid values:
    * - true: An automatic snapshot policy is applied.
    * - false: No automatic snapshot policy is applied.
    * 
@@ -230,7 +238,7 @@ export class DescribeDisksRequest extends $dara.Model {
   enableAutomatedSnapshotPolicy?: boolean;
   /**
    * @remarks
-   * Specifies whether the block storage device is Shared Block Storage.
+   * Specifies whether the disk is a Shared Block Storage device.
    * 
    * @example
    * false
@@ -238,8 +246,10 @@ export class DescribeDisksRequest extends $dara.Model {
   enableShared?: boolean;
   /**
    * @remarks
-   * Specifies whether to query only encrypted cloud disks. Valid values:
+   * Specifies whether to filter only encrypted disks. Valid values:
+   * 
    * - true: Yes.
+   * 
    * - false: No.
    * 
    * Default value: false.
@@ -250,7 +260,7 @@ export class DescribeDisksRequest extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The instance ID to which the disk, local disk, or elastic ephemeral disk is attached.
+   * The ID of the instance to which the disk, local disk, or elastic ephemeral disk is attached.
    * 
    * @example
    * i-bp67acfmxazb4q****
@@ -258,7 +268,7 @@ export class DescribeDisksRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS) key used by the cloud disk.
+   * The ID of the Key Management Service (KMS) key used by the disk.
    * 
    * @example
    * 0e478b7a-4262-4802-b8cb-00d3fb40****
@@ -267,8 +277,9 @@ export class DescribeDisksRequest extends $dara.Model {
   /**
    * @remarks
    * The reason why the disk is locked. Valid values:
+   * 
    * - financial: The disk is locked due to overdue payments.
-   * - security: The disk is locked for security reasons.
+   * - security: The disk is locked due to security reasons.
    * 
    * @example
    * security
@@ -289,9 +300,10 @@ export class DescribeDisksRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the multi-attach feature is enabled. Valid values:
+   * 
    * - Disabled: The feature is disabled.
    * - Enabled: The feature is enabled.
-   * - LegacyShared: Used to query shared block storage devices.
+   * - LegacyShared: Used to query Shared Block Storage devices.
    * 
    * @example
    * Disabled
@@ -299,7 +311,7 @@ export class DescribeDisksRequest extends $dara.Model {
   multiAttach?: string;
   /**
    * @remarks
-   * The query token. The value is the `NextToken` value returned from the previous API call.
+   * The query token. The value is the NextToken value returned from the previous API call.
    * 
    * For more information about how to configure the returned data for this operation, see the operation description section above.
    * 
@@ -311,7 +323,7 @@ export class DescribeDisksRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * > This parameter is about to go offline. We recommend that you use the `NextToken` and `MaxResults` parameters to perform paging and complete the paged query.
+   * > **[Deprecated]** This parameter will be taken offline. We recommend that you use the NextToken and MaxResults parameters to complete the paging and paged query operation.
    * 
    * @example
    * 1
@@ -319,7 +331,7 @@ export class DescribeDisksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * > This parameter is about to go offline. We recommend that you use the `NextToken` and `MaxResults` parameters to perform paging and complete the paged query.
+   * > **[Deprecated]** This parameter will be taken offline. We recommend that you use the NextToken and MaxResults parameters to complete the paging and paged query operation.
    * 
    * @example
    * 10
@@ -327,7 +339,7 @@ export class DescribeDisksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The performance level (PL) of the ESSD disk. Valid values: PL0, PL1, PL2, and PL3.
+   * The performance level (PL) of the enterprise SSD. Valid values: PL0, PL1, PL2, and PL3.
    * 
    * @example
    * PL0
@@ -335,14 +347,17 @@ export class DescribeDisksRequest extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * Specifies whether the disk can be detached. Valid values:
-   * - true: The disk can be detached. It can exist independently and can be freely attached and detached within a zone.
-   * - false: The disk cannot be detached. It cannot exist independently and cannot be freely attached or detached within a zone.
+   * Specifies whether the disk is removable. Valid values:
    * 
-   * The `Portable` attribute is `false` for the following types of block storage devices, and their lifecycles are the same as those of the instances:
-   * - Local disks.
-   * - Local SSDs.
-   * - Subscription data disks.
+   * -   true: The disk is removable. It can exist independently and can be attached and detached freely within a zone.
+   * 
+   * -   false: The disk is not removable. It cannot exist independently and cannot be attached or detached freely within a zone.
+   * 
+   * The Portable attribute of the following types of block storage is false, and their lifecycles are the same as the instances:
+   * 
+   * -   Local disks.
+   * -   Local SSDs.
+   * -   Subscription data disks.
    * 
    * @example
    * false
@@ -350,7 +365,7 @@ export class DescribeDisksRequest extends $dara.Model {
   portable?: boolean;
   /**
    * @remarks
-   * The region ID of the block storage device. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * The region ID of the block storage. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -372,7 +387,7 @@ export class DescribeDisksRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the snapshot used to create the cloud disk.
+   * The ID of the snapshot used to create the disk.
    * 
    * @example
    * s-bp67acfmxazb4p****
@@ -380,14 +395,14 @@ export class DescribeDisksRequest extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The disk status. For more information, see [Disk status](https://help.aliyun.com/document_detail/25689.html). Valid values:
-   * - In_use: The disk is in use.
-   * - Available: The disk is available for attachment.
-   * - Attaching: The disk is being attached.
-   * - Detaching: The disk is being detached.
-   * - Creating: The disk is being created.
-   * - ReIniting: The disk is being initialized.
-   * - All: all statuses.
+   * The status of the disk. For more information, see [Disk status](https://help.aliyun.com/document_detail/25689.html). Valid values:
+   * -   In_use: In use.
+   * -   Available: Unattached.
+   * -   Attaching: Attaching.
+   * -   Detaching: Detaching.
+   * -   Creating: Creating.
+   * -   ReIniting: Initializing.
+   * -   All: All statuses.
    * 
    * Default value: All.
    * 

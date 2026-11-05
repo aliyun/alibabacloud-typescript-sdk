@@ -2886,7 +2886,7 @@ export default class Client extends OpenApi {
    * @remarks
    * When you call this operation, take note of the following items:
    * - The new snapshot cannot be used to roll back the cloud disk for which the source snapshot was created.
-   * - Copying local snapshots is not supported.
+   * - Local snapshots cannot be copied.
    * 
    * @param request - CopySnapshotRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2982,7 +2982,7 @@ export default class Client extends OpenApi {
    * @remarks
    * When you call this operation, take note of the following items:
    * - The new snapshot cannot be used to roll back the cloud disk for which the source snapshot was created.
-   * - Copying local snapshots is not supported.
+   * - Local snapshots cannot be copied.
    * 
    * @param request - CopySnapshotRequest
    * @returns CopySnapshotResponse
@@ -2993,23 +2993,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an activation code that is used to register non-Alibaba Cloud servers as Alibaba Cloud managed instances.
+   * Creates an activation code (dynamic code) that is used to register a server other than Elastic Compute Service as an Alibaba Cloud managed instance.
    * 
    * @remarks
    * ## Operation description
-   * After you use an activation code to register a non-Alibaba Cloud server as an Alibaba Cloud managed instance, you can use various online services provided by Alibaba Cloud in the managed instance, such as Cloud Assistant, operations management, and Alibaba Cloud DevOps.
-   * The operating system of the non-Elastic Compute Service server must meet the following version requirements, and the server must have Internet access before it can be registered as an Alibaba Cloud managed instance.
-   * - Alibaba Cloud Linux 2/3 and later
-   * - CentOS 6/7/8 and later
-   * - Debian 8/9/10 and later
-   * - Ubuntu 12/14/16/18 and later
+   * After you register a server other than Elastic Compute Service as an Alibaba Cloud managed instance by using an activation code (dynamic code), you can use various online services provided by Alibaba Cloud, such as Cloud Assistant, operations management, and Apsara DevOps, on the managed instance.
+   * The operating system of the non-Alibaba Cloud server must meet the following version requirements, and the server must have access to the Internet before it can be registered as an Alibaba Cloud managed instance.
+   * - Alibaba Cloud Linux 2, 3, or later
+   * - CentOS 6, 7, 8, or later
+   * - Debian 8, 9, 10, or later
+   * - Ubuntu 12, 14, 16, 18, or later
    * - CoreOS
    * - OpenSUSE
-   * - RedHat 5/6/7 and later
-   * - SUSE Linux Enterprise Server 11/12/15 and later
-   * - Window Server 2012/2016/2019 and later
-   * In a single Alibaba Cloud region, you can have up to 10 managed instance activation codes. Each activation code can be used to activate up to 10 instances. The maximum validity period of a single activation code is 4 hours.
-   * > On the **ECS Cloud Assistant** page, click the **Managed Instances** tab, and then click **Register New Instance** to view the usage data of activation codes.
+   * - Red Hat 5, 6, 7, or later
+   * - SUSE Linux Enterprise Server 11, 12, 15, or later
+   * - Windows Server 2012, 2016, 2019, or later
+   * In an Alibaba Cloud region, you can have up to 10 activation codes for managed instances. A single activation code can be used to activate up to 10 instances, and the maximum validity period of a single activation code is 4 hours.
+   * > You can go to the **Managed Instances** tab on the **Cloud Assistant** page and click **Register New Instance** to obtain the activation code (dynamic code) and its usage data.
    * 
    * @param request - CreateActivationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3092,23 +3092,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an activation code that is used to register non-Alibaba Cloud servers as Alibaba Cloud managed instances.
+   * Creates an activation code (dynamic code) that is used to register a server other than Elastic Compute Service as an Alibaba Cloud managed instance.
    * 
    * @remarks
    * ## Operation description
-   * After you use an activation code to register a non-Alibaba Cloud server as an Alibaba Cloud managed instance, you can use various online services provided by Alibaba Cloud in the managed instance, such as Cloud Assistant, operations management, and Alibaba Cloud DevOps.
-   * The operating system of the non-Elastic Compute Service server must meet the following version requirements, and the server must have Internet access before it can be registered as an Alibaba Cloud managed instance.
-   * - Alibaba Cloud Linux 2/3 and later
-   * - CentOS 6/7/8 and later
-   * - Debian 8/9/10 and later
-   * - Ubuntu 12/14/16/18 and later
+   * After you register a server other than Elastic Compute Service as an Alibaba Cloud managed instance by using an activation code (dynamic code), you can use various online services provided by Alibaba Cloud, such as Cloud Assistant, operations management, and Apsara DevOps, on the managed instance.
+   * The operating system of the non-Alibaba Cloud server must meet the following version requirements, and the server must have access to the Internet before it can be registered as an Alibaba Cloud managed instance.
+   * - Alibaba Cloud Linux 2, 3, or later
+   * - CentOS 6, 7, 8, or later
+   * - Debian 8, 9, 10, or later
+   * - Ubuntu 12, 14, 16, 18, or later
    * - CoreOS
    * - OpenSUSE
-   * - RedHat 5/6/7 and later
-   * - SUSE Linux Enterprise Server 11/12/15 and later
-   * - Window Server 2012/2016/2019 and later
-   * In a single Alibaba Cloud region, you can have up to 10 managed instance activation codes. Each activation code can be used to activate up to 10 instances. The maximum validity period of a single activation code is 4 hours.
-   * > On the **ECS Cloud Assistant** page, click the **Managed Instances** tab, and then click **Register New Instance** to view the usage data of activation codes.
+   * - Red Hat 5, 6, 7, or later
+   * - SUSE Linux Enterprise Server 11, 12, 15, or later
+   * - Windows Server 2012, 2016, 2019, or later
+   * In an Alibaba Cloud region, you can have up to 10 activation codes for managed instances. A single activation code can be used to activate up to 10 instances, and the maximum validity period of a single activation code is 4 hours.
+   * > You can go to the **Managed Instances** tab on the **Cloud Assistant** page and click **Register New Instance** to obtain the activation code (dynamic code) and its usage data.
    * 
    * @param request - CreateActivationRequest
    * @returns CreateActivationResponse
@@ -3953,7 +3953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a resource diagnostic report. Generates a diagnostic report for multiple diagnostic metrics based on the specified diagnostic metric set ID. You can call the DescribeDiagnosticReportAttributes operation to query the details of the resource diagnostic report based on the returned report ID.
+   * Creates a resource diagnostic report. Generates a diagnostic report for multiple metrics based on the specified metric set ID. You can call the DescribeDiagnosticReportAttributes operation to query the details of the resource diagnostic report by using the returned report ID.
    * 
    * @param tmpReq - CreateDiagnosticReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4010,7 +4010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a resource diagnostic report. Generates a diagnostic report for multiple diagnostic metrics based on the specified diagnostic metric set ID. You can call the DescribeDiagnosticReportAttributes operation to query the details of the resource diagnostic report based on the returned report ID.
+   * Creates a resource diagnostic report. Generates a diagnostic report for multiple metrics based on the specified metric set ID. You can call the DescribeDiagnosticReportAttributes operation to query the details of the resource diagnostic report by using the returned report ID.
    * 
    * @param request - CreateDiagnosticReportRequest
    * @returns CreateDiagnosticReportResponse
@@ -4021,17 +4021,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go or subscription data cloud disk.
+   * Creates a pay-as-you-go or subscription data disk.
    * 
    * @remarks
-   * - When you create a cloud disk, you can enable the multi-mount feature (`MultiAttach`). We recommend that you understand this feature and its limits before you enable it. For more information, see [ESSDs support NVMe](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-mount feature](https://help.aliyun.com/document_detail/262105.html).
-   * - Supported cloud disk types: basic cloud disk, ultra cloud disk, standard SSD, ESSD cloud disk, ESSD Entry disk, regional ESSD cloud disk, ESSD AutoPL cloud disk, elastic ephemeral disk - Standard Edition, and elastic ephemeral disk - Premium Edition.
-   * - To create a cloud disk, you must pass real-name verification. Go to the [Real-name Verification](https://account.console.aliyun.com/#/auth/home) page in the user center.
-   * - Creating a cloud disk incurs fees. We recommend that you understand the billing methods of cloud servers in advance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
-   * - When you create a cloud disk, the following default settings apply:
-   *   - Automatic snapshots of the cloud disk are deleted when the cloud disk is deleted. This means that the `DeleteAutoSnapshot` parameter is set to `true`. You can call the [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) operation to query the settings of this parameter and call the [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) operation to modify the parameter.
-   *   - When you create an ESSD cloud disk, if you do not specify a performance level, the default performance level is PL1. You can call the [ModifyDiskSpec](https://help.aliyun.com/document_detail/123780.html) operation to modify the performance level.
-   *   - The billing method is pay-as-you-go. This means that the `Portable` property is set to `true` by default.
+   * - You can enable the multi-attach feature (`MultiAttach`) when you create a disk. Understand this feature and its limits before you enable it. For more information, see [NVMe support for enterprise SSDs](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
+   * - Supported disk types: basic disk, ultra disk, standard SSD, enterprise SSD, ESSD Entry disk, regional Enterprise SSD (ESSD), ESSD AutoPL disk, standard elastic ephemeral disk, and elastic ephemeral disk - Premium Edition.
+   * - You must pass real-name verification to create a disk. Go to [Real-name Verification](https://account.console.aliyun.com/#/auth/home) to complete the verification.
+   * - Creating a disk incurs resource fees. Understand the billing methods of Elastic Compute Service in advance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
+   * - Default settings when you create a disk:
+   *   - Automatic snapshots of the disk are deleted when the disk is deleted. This means the `DeleteAutoSnapshot` parameter is set to `true`. You can invoke the [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) operation to query the parameter settings and invoke the [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) operation to modify it.
+   *   - When you create an enterprise SSD, if you do not specify a performance level, the default performance level is PL1. You can invoke the [ModifyDiskSpec](https://help.aliyun.com/document_detail/123780.html) operation to modify the performance level.
+   *   - The billing method is pay-as-you-go, which means the `Portable` property is set to `true` by default.
    * 
    * @param request - CreateDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4166,17 +4166,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go or subscription data cloud disk.
+   * Creates a pay-as-you-go or subscription data disk.
    * 
    * @remarks
-   * - When you create a cloud disk, you can enable the multi-mount feature (`MultiAttach`). We recommend that you understand this feature and its limits before you enable it. For more information, see [ESSDs support NVMe](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-mount feature](https://help.aliyun.com/document_detail/262105.html).
-   * - Supported cloud disk types: basic cloud disk, ultra cloud disk, standard SSD, ESSD cloud disk, ESSD Entry disk, regional ESSD cloud disk, ESSD AutoPL cloud disk, elastic ephemeral disk - Standard Edition, and elastic ephemeral disk - Premium Edition.
-   * - To create a cloud disk, you must pass real-name verification. Go to the [Real-name Verification](https://account.console.aliyun.com/#/auth/home) page in the user center.
-   * - Creating a cloud disk incurs fees. We recommend that you understand the billing methods of cloud servers in advance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
-   * - When you create a cloud disk, the following default settings apply:
-   *   - Automatic snapshots of the cloud disk are deleted when the cloud disk is deleted. This means that the `DeleteAutoSnapshot` parameter is set to `true`. You can call the [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) operation to query the settings of this parameter and call the [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) operation to modify the parameter.
-   *   - When you create an ESSD cloud disk, if you do not specify a performance level, the default performance level is PL1. You can call the [ModifyDiskSpec](https://help.aliyun.com/document_detail/123780.html) operation to modify the performance level.
-   *   - The billing method is pay-as-you-go. This means that the `Portable` property is set to `true` by default.
+   * - You can enable the multi-attach feature (`MultiAttach`) when you create a disk. Understand this feature and its limits before you enable it. For more information, see [NVMe support for enterprise SSDs](https://help.aliyun.com/document_detail/256487.html) and [Use the multi-attach feature](https://help.aliyun.com/document_detail/262105.html).
+   * - Supported disk types: basic disk, ultra disk, standard SSD, enterprise SSD, ESSD Entry disk, regional Enterprise SSD (ESSD), ESSD AutoPL disk, standard elastic ephemeral disk, and elastic ephemeral disk - Premium Edition.
+   * - You must pass real-name verification to create a disk. Go to [Real-name Verification](https://account.console.aliyun.com/#/auth/home) to complete the verification.
+   * - Creating a disk incurs resource fees. Understand the billing methods of Elastic Compute Service in advance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
+   * - Default settings when you create a disk:
+   *   - Automatic snapshots of the disk are deleted when the disk is deleted. This means the `DeleteAutoSnapshot` parameter is set to `true`. You can invoke the [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) operation to query the parameter settings and invoke the [ModifyDiskAttribute](https://help.aliyun.com/document_detail/25517.html) operation to modify it.
+   *   - When you create an enterprise SSD, if you do not specify a performance level, the default performance level is PL1. You can invoke the [ModifyDiskSpec](https://help.aliyun.com/document_detail/123780.html) operation to modify the performance level.
+   *   - The billing method is pay-as-you-go, which means the `Portable` property is set to `true` by default.
    * 
    * @param request - CreateDiskRequest
    * @returns CreateDiskResponse
@@ -4841,18 +4841,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an image template. An image template can be used to build images.
+   * Creates an image template. Image templates can be used to build images.
    * 
    * @remarks
    * ## Operation description
-   * You can use an image template to customize image content and support cross-region and cross-account image building. Before you create an image template, take note of the following items:
+   * You can use image templates to customize image content and support cross-region and cross-account image building. Before you create an image template, take note of the following items:
    * - You can only create custom image templates.
-   * - You can only use public images, custom images, shared images, or an image family as source images for building.
-   * - When you build an image by using an image template, multiple intermediate instances are created to assist in the image building process. Intermediate instances are ECS instances that use the pay-as-you-go billing method and incur fees. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
+   * - You can only use public images, custom images, shared images, or image family as source images for building.
+   * - When you build an image by using an image template, multiple intermediate instances are created to assist in the build process. These intermediate instances are ECS instances using the pay-as-you-go billing method and incur fees. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
    * Take note of the following items about the build template content BuildContent:
-   * - The FROM command is deprecated. Regardless of the FROM command Settings in the BuildContent parameter, the system selects the source image based on the BaseImageType and BaseImage parameters.
-   * - The content size of an image template cannot exceed 16 KB. For details about supported commands, see [Commands supported by the image building service](https://help.aliyun.com/document_detail/200206.html).
-   * For more information, see [Image building overview](https://help.aliyun.com/document_detail/197410.html).
+   * - The FROM command is deprecated. Regardless of whether the Settings of the BuildContent parameter include the FROM command, the system selects the source image based on the BaseImageType and BaseImage parameters.
+   * - The content size of an image template cannot exceed 16 KB. For details about supported commands, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
+   * For more information, see [Image Builder overview](https://help.aliyun.com/document_detail/197410.html).
    * 
    * @param request - CreateImagePipelineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5007,18 +5007,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an image template. An image template can be used to build images.
+   * Creates an image template. Image templates can be used to build images.
    * 
    * @remarks
    * ## Operation description
-   * You can use an image template to customize image content and support cross-region and cross-account image building. Before you create an image template, take note of the following items:
+   * You can use image templates to customize image content and support cross-region and cross-account image building. Before you create an image template, take note of the following items:
    * - You can only create custom image templates.
-   * - You can only use public images, custom images, shared images, or an image family as source images for building.
-   * - When you build an image by using an image template, multiple intermediate instances are created to assist in the image building process. Intermediate instances are ECS instances that use the pay-as-you-go billing method and incur fees. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
+   * - You can only use public images, custom images, shared images, or image family as source images for building.
+   * - When you build an image by using an image template, multiple intermediate instances are created to assist in the build process. These intermediate instances are ECS instances using the pay-as-you-go billing method and incur fees. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
    * Take note of the following items about the build template content BuildContent:
-   * - The FROM command is deprecated. Regardless of the FROM command Settings in the BuildContent parameter, the system selects the source image based on the BaseImageType and BaseImage parameters.
-   * - The content size of an image template cannot exceed 16 KB. For details about supported commands, see [Commands supported by the image building service](https://help.aliyun.com/document_detail/200206.html).
-   * For more information, see [Image building overview](https://help.aliyun.com/document_detail/197410.html).
+   * - The FROM command is deprecated. Regardless of whether the Settings of the BuildContent parameter include the FROM command, the system selects the source image based on the BaseImageType and BaseImage parameters.
+   * - The content size of an image template cannot exceed 16 KB. For details about supported commands, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
+   * For more information, see [Image Builder overview](https://help.aliyun.com/document_detail/197410.html).
    * 
    * @param request - CreateImagePipelineRequest
    * @returns CreateImagePipelineResponse
@@ -5034,27 +5034,27 @@ export default class Client extends OpenApi {
    * @remarks
    * > This API operation is no longer updated. Use the [RunInstances](https://help.aliyun.com/document_detail/2679677.html) operation instead.
    * <props="china">
-   * **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of ECS.**
+   * **Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of ECS.**
    * <props="intl">
-   * **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of ECS.**
-   * This operation is asynchronous. After a request to create an instance is sent, the instance ID is returned. The instance is not created immediately. You must call the [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) operation to query the instance status. If the returned status is `Stopped`, the instance is created. Then, you can call the [StartInstance](https://help.aliyun.com/document_detail/2679679.html) operation to start the instance.
+   * **Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of ECS.**
+   * This operation is asynchronous. After the instance creation request is sent, the instance ID is returned. The instance is not created immediately. You must call the [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) operation to query the instance status. When the returned status is Stopped, the instance is created. Then, you can call the [StartInstance](https://help.aliyun.com/document_detail/2679679.html) operation to start the instance.
    * ### Before you begin
    * <props="china">
-   * - Make sure that your account has passed real-name verification. For more information, see [Real-name verification for accounts](https://help.aliyun.com/document_detail/48263.html).
-   * - Creating instances incurs fees. Make sure that you understand the billing methods of Elastic Compute Service (ECS). For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
+   * - Make sure that your account has passed real-name verification. For more information, see [Real-name verification](https://help.aliyun.com/document_detail/48263.html).
+   * - Creating an instance incurs fees. Make sure that you understand the billing methods of Elastic Compute Service (ECS) server. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
    *     
    * - Make sure that the total number of instances or vCPUs across all instance types does not exceed the system quota. For more information, see [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas).
-   * - Before creating a VPC-type instance, [create a VPC](https://help.aliyun.com/document_detail/65430.html) in the corresponding Alibaba Cloud region.
+   * - Before you create a VPC-connected instance, [create a VPC](https://help.aliyun.com/document_detail/65430.html) in the corresponding region.
    * ### Precautions
-   * - When you invoke this operation, the system does not send notifications (including text messages, emails, and internal messages) upon successful instance creation.
-   * - If the billing method of the instance is subscription (PrePaid), active coupons are used by default during payment.
+   * - When you invoke this operation, the system does not send notifications (such as text messages, emails, or internal messages) upon successful instance creation.
+   * - If the billing method of the instance is subscription (`PrePaid`), available coupons are used by default during payment.
    * - If the instance memory is 512 MiB, you cannot use Windows Server images except for the Semi-Annual Channel images. If the instance memory is 4 GiB or larger, you cannot use 32-bit operating system images.
-   * - Instances created by using this operation are not assigned public IP addresses. If the Internet bandwidth is greater than 0, you can call the [AllocatePublicIpAddress](https://help.aliyun.com/document_detail/25544.html) operation to assign a public IP address. If the Internet bandwidth is 0, you must call the [ModifyInstanceNetworkSpec](https://help.aliyun.com/document_detail/2679879.html) operation to adjust the bandwidth and then call the [AllocatePublicIpAddress](https://help.aliyun.com/document_detail/25544.html) operation to assign a public IP address.
-   * > In a single region, the sum of peak Internet bandwidths billed by fixed bandwidth for a single Alibaba Cloud account is limited. For more information, see [Internet bandwidth limits](~~25412#BandwidthQuota~~).
-   * ### Usage recommendations
-   * - **Instance type selection**: See [Instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to view the performance data of the target instance type. Alternatively, see [Instance type selection](https://help.aliyun.com/document_detail/58291.html) to learn how to select an instance type.
-   * - **Inventory query**: Call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) operation to check the resource availability in a specified region or zone.
-   * - **Custom data**: If the instance meets the limits for using [instance user data](https://help.aliyun.com/document_detail/49121.html), you can pass in user data. When you send an API request, the UserData parameter is not encrypted. Do not pass in confidential information such as passwords and private keys in plaintext. If you must pass in such information, encrypt the information, encode it in Base64, and then pass it in. Decrypt the information inside the instance before use.
+   * - Instances created by using this operation are not assigned public IP addresses. If the public bandwidth is greater than 0, you can invoke the [AllocatePublicIpAddress](https://help.aliyun.com/document_detail/25544.html) operation to assign a public IP address. If the public bandwidth is 0, you must invoke the [ModifyInstanceNetworkSpec](https://help.aliyun.com/document_detail/2679879.html) operation to adjust the bandwidth and then invoke the [AllocatePublicIpAddress](https://help.aliyun.com/document_detail/25544.html) operation to assign a public IP address.
+   * > In a single region, the total peak public bandwidth billed by fixed bandwidth for a single Alibaba Cloud account is limited. For more information, see [Public bandwidth limits](~~25412#BandwidthQuota~~).
+   * ### Recommendations
+   * - **Instance type selection**: Refer to [instance family](https://help.aliyun.com/document_detail/25378.html) or invoke the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to view the performance data of the target instance type. You can also refer to the instance type selection [Settings](https://help.aliyun.com/document_detail/58291.html) to learn how to select an instance type.
+   * - **Inventory query**: Invoke the [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) operation to check the active resources in a specified region or zone.
+   * - **Custom data**: If the instance meets the limits for using [instance user data](https://help.aliyun.com/document_detail/49121.html), you can pass the UserData parameter. When you send an API request, the UserData data is not encrypted. Do not pass confidential information such as passwords and private keys in plaintext. If you must pass such information, encrypt the information, use Base64 encoding, and then pass it. Use decryption inside the instance before use.
    * 
    * @param request - CreateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5334,27 +5334,27 @@ export default class Client extends OpenApi {
    * @remarks
    * > This API operation is no longer updated. Use the [RunInstances](https://help.aliyun.com/document_detail/2679677.html) operation instead.
    * <props="china">
-   * **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of ECS.**
+   * **Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of ECS.**
    * <props="intl">
-   * **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of ECS.**
-   * This operation is asynchronous. After a request to create an instance is sent, the instance ID is returned. The instance is not created immediately. You must call the [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) operation to query the instance status. If the returned status is `Stopped`, the instance is created. Then, you can call the [StartInstance](https://help.aliyun.com/document_detail/2679679.html) operation to start the instance.
+   * **Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of ECS.**
+   * This operation is asynchronous. After the instance creation request is sent, the instance ID is returned. The instance is not created immediately. You must call the [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) operation to query the instance status. When the returned status is Stopped, the instance is created. Then, you can call the [StartInstance](https://help.aliyun.com/document_detail/2679679.html) operation to start the instance.
    * ### Before you begin
    * <props="china">
-   * - Make sure that your account has passed real-name verification. For more information, see [Real-name verification for accounts](https://help.aliyun.com/document_detail/48263.html).
-   * - Creating instances incurs fees. Make sure that you understand the billing methods of Elastic Compute Service (ECS). For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
+   * - Make sure that your account has passed real-name verification. For more information, see [Real-name verification](https://help.aliyun.com/document_detail/48263.html).
+   * - Creating an instance incurs fees. Make sure that you understand the billing methods of Elastic Compute Service (ECS) server. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
    *     
    * - Make sure that the total number of instances or vCPUs across all instance types does not exceed the system quota. For more information, see [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas).
-   * - Before creating a VPC-type instance, [create a VPC](https://help.aliyun.com/document_detail/65430.html) in the corresponding Alibaba Cloud region.
+   * - Before you create a VPC-connected instance, [create a VPC](https://help.aliyun.com/document_detail/65430.html) in the corresponding region.
    * ### Precautions
-   * - When you invoke this operation, the system does not send notifications (including text messages, emails, and internal messages) upon successful instance creation.
-   * - If the billing method of the instance is subscription (PrePaid), active coupons are used by default during payment.
+   * - When you invoke this operation, the system does not send notifications (such as text messages, emails, or internal messages) upon successful instance creation.
+   * - If the billing method of the instance is subscription (`PrePaid`), available coupons are used by default during payment.
    * - If the instance memory is 512 MiB, you cannot use Windows Server images except for the Semi-Annual Channel images. If the instance memory is 4 GiB or larger, you cannot use 32-bit operating system images.
-   * - Instances created by using this operation are not assigned public IP addresses. If the Internet bandwidth is greater than 0, you can call the [AllocatePublicIpAddress](https://help.aliyun.com/document_detail/25544.html) operation to assign a public IP address. If the Internet bandwidth is 0, you must call the [ModifyInstanceNetworkSpec](https://help.aliyun.com/document_detail/2679879.html) operation to adjust the bandwidth and then call the [AllocatePublicIpAddress](https://help.aliyun.com/document_detail/25544.html) operation to assign a public IP address.
-   * > In a single region, the sum of peak Internet bandwidths billed by fixed bandwidth for a single Alibaba Cloud account is limited. For more information, see [Internet bandwidth limits](~~25412#BandwidthQuota~~).
-   * ### Usage recommendations
-   * - **Instance type selection**: See [Instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to view the performance data of the target instance type. Alternatively, see [Instance type selection](https://help.aliyun.com/document_detail/58291.html) to learn how to select an instance type.
-   * - **Inventory query**: Call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) operation to check the resource availability in a specified region or zone.
-   * - **Custom data**: If the instance meets the limits for using [instance user data](https://help.aliyun.com/document_detail/49121.html), you can pass in user data. When you send an API request, the UserData parameter is not encrypted. Do not pass in confidential information such as passwords and private keys in plaintext. If you must pass in such information, encrypt the information, encode it in Base64, and then pass it in. Decrypt the information inside the instance before use.
+   * - Instances created by using this operation are not assigned public IP addresses. If the public bandwidth is greater than 0, you can invoke the [AllocatePublicIpAddress](https://help.aliyun.com/document_detail/25544.html) operation to assign a public IP address. If the public bandwidth is 0, you must invoke the [ModifyInstanceNetworkSpec](https://help.aliyun.com/document_detail/2679879.html) operation to adjust the bandwidth and then invoke the [AllocatePublicIpAddress](https://help.aliyun.com/document_detail/25544.html) operation to assign a public IP address.
+   * > In a single region, the total peak public bandwidth billed by fixed bandwidth for a single Alibaba Cloud account is limited. For more information, see [Public bandwidth limits](~~25412#BandwidthQuota~~).
+   * ### Recommendations
+   * - **Instance type selection**: Refer to [instance family](https://help.aliyun.com/document_detail/25378.html) or invoke the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to view the performance data of the target instance type. You can also refer to the instance type selection [Settings](https://help.aliyun.com/document_detail/58291.html) to learn how to select an instance type.
+   * - **Inventory query**: Invoke the [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) operation to check the active resources in a specified region or zone.
+   * - **Custom data**: If the instance meets the limits for using [instance user data](https://help.aliyun.com/document_detail/49121.html), you can pass the UserData parameter. When you send an API request, the UserData data is not encrypted. Do not pass confidential information such as passwords and private keys in plaintext. If you must pass such information, encrypt the information, use Base64 encoding, and then pass it. Use decryption inside the instance before use.
    * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
@@ -6066,28 +6066,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Elastic Network Interface (ENI) and allows you to specify the primary private IP address.
+   * Creates an Elastic Network Interface (ENI) and allows you to specify a primary private IP address.
    * 
    * @remarks
-   * When you invoke this operation, take note of the following items:
-   * - This operation is a synchronization operation. A newly created Elastic Network Interface (ENI) is in the active (`Available`) state and can be attached to an instance immediately.
-   * - If the NetworkInterfaceId parameter in the response is empty, try to create the Elastic Network Interface (ENI) again.
+   * When you call this operation, take note of the following items:
+   * - This operation is a synchronous operation. A newly created Elastic Network Interface (ENI) is in the active (Available) state and can be attached to an instance immediately.
+   * - If the `NetworkInterfaceId` parameter in the response is empty, try to create the Elastic Network Interface (ENI) again.
    * - An Elastic Network Interface (ENI) can be attached to only one instance in a VPC.
-   * - When an Elastic Network Interface (ENI) is reattached to another instance, its property remains unchanged, and network traffic is also redirected to the new instance.
-   * - When you create an Elastic Network Interface (ENI), you can allocate up to 49 secondary private IP addresses by invoking this operation.
-   * - When you create an Elastic Network Interface (ENI), if you need to configure Settings for IPv6 addresses, you must ensure that IPv6 is enabled for the specified vSwitch. For more information, see [What is an IPv6 gateway](https://help.aliyun.com/document_detail/98896.html).
+   * - When an Elastic Network Interface (ENI) is reattached to another instance, its properties remain unchanged, and network traffic is redirected to the new instance.
+   * - When you create an Elastic Network Interface (ENI), you can allocate up to 49 secondary private IP addresses by calling this operation.
+   * - When you create an Elastic Network Interface (ENI), if you need to configure IPv6 addresses, make sure that IPv6 is enabled for the specified vSwitch. For more information, see [What is an IPv6 gateway?](https://help.aliyun.com/document_detail/98896.html).
    * - The number of Elastic Network Interfaces (ENIs) that an Alibaba Cloud account can create in a region is limited. You can view the resource quota in the ECS console. For more information, see [View and increase resource quotas](https://help.aliyun.com/document_detail/184115.html).
    * ### Request examples
    * <details>
    * <summary>Create an Elastic Network Interface (ENI)</summary>
    * ```
-   * RegionId:  cn-hangzhou,   // Settings: China (Hangzhou) region.
-   * SecurityGroupId:  sg-bp10jztp6b0sdsyl****,   // Settings: security group ID.
-   * VSwitchId:  vsw-bp19wo63nleroq22g****,   // Settings: vSwitch ID.
+   * RegionId:  cn-hangzhou,   // Set the China (Hangzhou) region.
+   * SecurityGroupId:  sg-bp10jztp6b0sdsyl****,   // Set the security group ID.
+   * VSwitchId:  vsw-bp19wo63nleroq22g****,   // Set the vSwitch ID.
    * ```
    * </details>
    * <details>
-   * <summary>Create an Elastic Network Interface (ENI) and specify the primary private IP address</summary>
+   * <summary>Create an Elastic Network Interface (ENI) and specify a primary private IP address</summary>
    * ```
    * RegionId:  cn-hangzhou,   // The China (Hangzhou) region.
    * SecurityGroupId:  sg-bp10jztp6b0sdsyl****,   // The security group ID.
@@ -6269,28 +6269,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Elastic Network Interface (ENI) and allows you to specify the primary private IP address.
+   * Creates an Elastic Network Interface (ENI) and allows you to specify a primary private IP address.
    * 
    * @remarks
-   * When you invoke this operation, take note of the following items:
-   * - This operation is a synchronization operation. A newly created Elastic Network Interface (ENI) is in the active (`Available`) state and can be attached to an instance immediately.
-   * - If the NetworkInterfaceId parameter in the response is empty, try to create the Elastic Network Interface (ENI) again.
+   * When you call this operation, take note of the following items:
+   * - This operation is a synchronous operation. A newly created Elastic Network Interface (ENI) is in the active (Available) state and can be attached to an instance immediately.
+   * - If the `NetworkInterfaceId` parameter in the response is empty, try to create the Elastic Network Interface (ENI) again.
    * - An Elastic Network Interface (ENI) can be attached to only one instance in a VPC.
-   * - When an Elastic Network Interface (ENI) is reattached to another instance, its property remains unchanged, and network traffic is also redirected to the new instance.
-   * - When you create an Elastic Network Interface (ENI), you can allocate up to 49 secondary private IP addresses by invoking this operation.
-   * - When you create an Elastic Network Interface (ENI), if you need to configure Settings for IPv6 addresses, you must ensure that IPv6 is enabled for the specified vSwitch. For more information, see [What is an IPv6 gateway](https://help.aliyun.com/document_detail/98896.html).
+   * - When an Elastic Network Interface (ENI) is reattached to another instance, its properties remain unchanged, and network traffic is redirected to the new instance.
+   * - When you create an Elastic Network Interface (ENI), you can allocate up to 49 secondary private IP addresses by calling this operation.
+   * - When you create an Elastic Network Interface (ENI), if you need to configure IPv6 addresses, make sure that IPv6 is enabled for the specified vSwitch. For more information, see [What is an IPv6 gateway?](https://help.aliyun.com/document_detail/98896.html).
    * - The number of Elastic Network Interfaces (ENIs) that an Alibaba Cloud account can create in a region is limited. You can view the resource quota in the ECS console. For more information, see [View and increase resource quotas](https://help.aliyun.com/document_detail/184115.html).
    * ### Request examples
    * <details>
    * <summary>Create an Elastic Network Interface (ENI)</summary>
    * ```
-   * RegionId:  cn-hangzhou,   // Settings: China (Hangzhou) region.
-   * SecurityGroupId:  sg-bp10jztp6b0sdsyl****,   // Settings: security group ID.
-   * VSwitchId:  vsw-bp19wo63nleroq22g****,   // Settings: vSwitch ID.
+   * RegionId:  cn-hangzhou,   // Set the China (Hangzhou) region.
+   * SecurityGroupId:  sg-bp10jztp6b0sdsyl****,   // Set the security group ID.
+   * VSwitchId:  vsw-bp19wo63nleroq22g****,   // Set the vSwitch ID.
    * ```
    * </details>
    * <details>
-   * <summary>Create an Elastic Network Interface (ENI) and specify the primary private IP address</summary>
+   * <summary>Create an Elastic Network Interface (ENI) and specify a primary private IP address</summary>
    * ```
    * RegionId:  cn-hangzhou,   // The China (Hangzhou) region.
    * SecurityGroupId:  sg-bp10jztp6b0sdsyl****,   // The security group ID.
@@ -7195,20 +7195,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Schedules simulated system events for one or more ECS instances. Simulated system events serve as event drills and do not actually execute events or affect ECS instances.
+   * Schedules simulated system events for one or more Elastic Compute Service (ECS) instances. Simulated system events act as event drills that do not actually execute the events or affect the ECS instances.
    * 
    * @remarks
    * ## Operation description
-   * After you schedule a simulated event, you can view the scheduled simulated system events in the ECS console, by invoking [ECS API](https://help.aliyun.com/document_detail/63962.html) operations, or by using CloudMonitor monitoring.
+   * After you schedule simulated events, you can view the scheduled simulated system events in the ECS console, by calling [ECS API](https://help.aliyun.com/document_detail/63962.html) operations, or in CloudMonitor.
    * The following table describes the lifecycle of a simulated system event:
-   * - Scheduled: After you schedule a simulated system event, the event automatic switchover to the Scheduled state.
-   * - Executed: Without manual intervention, the simulated system event automatically enters the Executed state at the specified time (NotBefore).
-   * - Canceled: After you invoke [CancelSimulatedSystemEvents](https://help.aliyun.com/document_detail/88808.html) to cancel the simulated system event, the event enters the Canceled state.         
-   * - Avoided: For a simulated system event of the SystemMaintenance.Reboot type, you can [restart the instance](https://help.aliyun.com/document_detail/25502.html) before the specified time to change the event to the Avoided state.
-   * Take note of the following items when you set TriggerRealOps to true:
-   * - >Warning: The system will actually stop or release the instance, which may cause data loss. Test with caution or use instances that do not run workloads.
+   * - Scheduled: After the event is scheduled, the simulated system event automatically transitions to the Scheduled state.
+   * - Executed: Without manual intervention, the simulated system event automatically transitions to the Executed state at the specified time (NotBefore).
+   * - Canceled: After you call the [CancelSimulatedSystemEvents](https://help.aliyun.com/document_detail/88808.html) operation to cancel the simulated system event, the event transitions to the Canceled state.         
+   * - Avoided: For a simulated system event of the SystemMaintenance.Reboot type, you can [restart the instance](https://help.aliyun.com/document_detail/25502.html) before the specified time to transition the event to the Avoided state.
+   * Take note of the following items when the TriggerRealOps parameter is set to true:
+   * - >Warning: The system actually stops or releases the instance. This may cause data loss. Proceed with caution during testing, or select an instance that does not run business workloads for testing.
    * - EventType supports only SystemMaintenance.Reboot, SystemMaintenance.Redeploy, SystemMaintenance.Stop, InstanceFailure.Reboot, SystemFailure.Reboot, and Instance:PreemptibleInstanceInterruption.
-   * - When EventType is set to SystemMaintenance.Redeploy, the NotBefore parameter is invalid. The execution time of the event is automatically generated by the system.
+   * - When EventType is set to SystemMaintenance.Redeploy, the NotBefore parameter is invalid, and the execution time of the event is automatically generated by the system.
    * 
    * @param request - CreateSimulatedSystemEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7275,20 +7275,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Schedules simulated system events for one or more ECS instances. Simulated system events serve as event drills and do not actually execute events or affect ECS instances.
+   * Schedules simulated system events for one or more Elastic Compute Service (ECS) instances. Simulated system events act as event drills that do not actually execute the events or affect the ECS instances.
    * 
    * @remarks
    * ## Operation description
-   * After you schedule a simulated event, you can view the scheduled simulated system events in the ECS console, by invoking [ECS API](https://help.aliyun.com/document_detail/63962.html) operations, or by using CloudMonitor monitoring.
+   * After you schedule simulated events, you can view the scheduled simulated system events in the ECS console, by calling [ECS API](https://help.aliyun.com/document_detail/63962.html) operations, or in CloudMonitor.
    * The following table describes the lifecycle of a simulated system event:
-   * - Scheduled: After you schedule a simulated system event, the event automatic switchover to the Scheduled state.
-   * - Executed: Without manual intervention, the simulated system event automatically enters the Executed state at the specified time (NotBefore).
-   * - Canceled: After you invoke [CancelSimulatedSystemEvents](https://help.aliyun.com/document_detail/88808.html) to cancel the simulated system event, the event enters the Canceled state.         
-   * - Avoided: For a simulated system event of the SystemMaintenance.Reboot type, you can [restart the instance](https://help.aliyun.com/document_detail/25502.html) before the specified time to change the event to the Avoided state.
-   * Take note of the following items when you set TriggerRealOps to true:
-   * - >Warning: The system will actually stop or release the instance, which may cause data loss. Test with caution or use instances that do not run workloads.
+   * - Scheduled: After the event is scheduled, the simulated system event automatically transitions to the Scheduled state.
+   * - Executed: Without manual intervention, the simulated system event automatically transitions to the Executed state at the specified time (NotBefore).
+   * - Canceled: After you call the [CancelSimulatedSystemEvents](https://help.aliyun.com/document_detail/88808.html) operation to cancel the simulated system event, the event transitions to the Canceled state.         
+   * - Avoided: For a simulated system event of the SystemMaintenance.Reboot type, you can [restart the instance](https://help.aliyun.com/document_detail/25502.html) before the specified time to transition the event to the Avoided state.
+   * Take note of the following items when the TriggerRealOps parameter is set to true:
+   * - >Warning: The system actually stops or releases the instance. This may cause data loss. Proceed with caution during testing, or select an instance that does not run business workloads for testing.
    * - EventType supports only SystemMaintenance.Reboot, SystemMaintenance.Redeploy, SystemMaintenance.Stop, InstanceFailure.Reboot, SystemFailure.Reboot, and Instance:PreemptibleInstanceInterruption.
-   * - When EventType is set to SystemMaintenance.Redeploy, the NotBefore parameter is invalid. The execution time of the event is automatically generated by the system.
+   * - When EventType is set to SystemMaintenance.Redeploy, the NotBefore parameter is invalid, and the execution time of the event is automatically generated by the system.
    * 
    * @param request - CreateSimulatedSystemEventsRequest
    * @returns CreateSimulatedSystemEventsResponse
@@ -7299,30 +7299,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a snapshot for a cloud disk.
+   * Creates a snapshot for a disk.
    * 
    * @remarks
-   * Local snapshots have been replaced by the snapshot instant access feature. The metric description is as follows:
-   * - If you used local snapshots before December 14, 2020, Normal use of the `Category` parameter is allowed.
-   * - If you did not use local snapshots before December 14, 2020, no additional configuration is required. Snapshots created for enterprise SSD series disks (enterprise SSD, ESSD AutoPL, ESSD Entry, and regional enterprise SSD) are active by default after creation, and both the manual snapshot and automatic snapshot features are supported. The `InstantAccess`, `InstantAccessRetentionDays`, and `DisableInstantAccess` parameters related to the instant access feature no longer take effect in API operations. The `DescribeSnapshots` and `DescribeSnapshotGroups` API operations add the `Available` response parameter to describe the active status of snapshots.
+   * Original local snapshots have been replaced by the snapshot instant access feature. The parameter description is as follows:
+   * - If you used local snapshots before December 14, 2020, you can continue Normal use of the `Category` parameter.
+   * - If you did not use local snapshots before December 14, 2020, no additional configuration is required. Snapshots created for ESSD series disks (ESSD, ESSD AutoPL, ESSD Entry, and regional ESSD) are instantly active after creation by default, and both the manual snapshot and automatic snapshot features are supported. The `InstantAccess`, `InstantAccessRetentionDays`, and `DisableInstantAccess` parameters related to the instant access feature in API operations no longer take effect. The `DescribeSnapshots` and `DescribeSnapshotGroups` API operations add the `Available` response parameter to describe the active status of snapshots.
    * Before you begin:
    * - The snapshot feature is activated. For more information, see [Activate the snapshot feature](https://help.aliyun.com/document_detail/108381.html).
-   * - The cloud disk must be in the **In Use** or **Available** state. Take note of the following items based on the disk state:
-   *   - If the cloud disk is in the **In Use** state, the instance must be in the **Running** or **Stopped** state.
-   *   - If the cloud disk is in the **Available** state, make sure that the cloud disk was previously attached to an ECS instance. You cannot create snapshots for cloud disks that have never been attached to an ECS instance.
-   *   - When a cloud disk is used to create a dynamic extended volume or a RAID array, we recommend that you use a snapshot-consistent group and enable application-consistent snapshots to back up data. A snapshot-consistent group ensures the chronological consistency of data written to cloud disks and guarantees crash consistency in scenarios where a business system spans multiple cloud disks. For more information, see [Create a snapshot-consistent group](https://help.aliyun.com/document_detail/199625.html) and [Create an application-consistent snapshot](https://help.aliyun.com/document_detail/208589.html).
+   * - The disk must be in the **In Use** or **Available** state. Precautions for different states:
+   *   - If the disk is in the **In Use** state, the instance must be in the **Running** or **Stopped** state.
+   *   - If the disk is in the **Available** state, make sure that the disk has been attached to an ECS instance before. You cannot create snapshots for disks that have never been attached to an ECS instance.
+   *   - When a disk is used to create a dynamic extended volume or a RAID array, we recommend that you use a snapshot-consistent group and enable application-consistent snapshots to back up data. A snapshot-consistent group ensures the chronological consistency of data written to disks and crash consistency in scenarios where a business system spans multiple disks. For more information, see [Create a snapshot-consistent group](https://help.aliyun.com/document_detail/199625.html) and [Create an application-consistent snapshot](https://help.aliyun.com/document_detail/208589.html).
    * When you create a snapshot, take note of the following items:
-   * - Avoid creating snapshots during peak business hours. When a snapshot is being created, the I/O performance of the disk decreases by less than 10%, and the read and write performance may experience brief instantaneous slowdowns.
+   * - Avoid creating snapshots during peak business hours. When a snapshot is being created, the disk I/O performance decreases by less than 10%, and the read and write performance may experience brief transient slowdowns.
    * - If the snapshot creation is not complete, the snapshot cannot be used to create a custom image ([CreateImage](https://help.aliyun.com/document_detail/25535.html)).
-   * - During snapshot creation, no backup of incremental data generated by operations on the disk is saved to the snapshot.
+   * - During snapshot creation, incremental data generated by disk operations is not included in the backup.
    * - If the disk is attached to an ECS instance, do not change the instance status during snapshot creation, such as stopping or restarting the ECS instance. Otherwise, it results in a failed snapshot creation.
-   * - You cannot perform scale-out on a disk while a snapshot is being created for it. Wait until the snapshot is created before you execute scale-out operations.
-   * - You can create snapshots for cloud disks in the **Expired** (`Expired`) state. If a cloud disk reaches its expiration and release time while a snapshot is being created, the snapshot in the **Creating** (`Creating`) state is deleted when the cloud disk is released.
+   * - Disks for which a snapshot is being created do not support scale-out. Wait until the snapshot is created before you execute the scale-out operation.
+   * - You can create snapshots for disks in the **Expired** (`Expired`) state. If a disk reaches its expiration and release time while a snapshot is being created, the snapshot in the **Creating** (`Creating`) state is deleted when the disk is released.
    * - After a snapshot is created, the system bills you based on the snapshot size in each region. For more information, see [Snapshot billing](https://help.aliyun.com/document_detail/56159.html).
-   * - You cannot create snapshots for a specified cloud disk in the following scenarios:
-   *   - The number of manual snapshots retained for the cloud disk reaches the upper limit. For more information, see [Snapshot limits](~~25412#SnapshotQuota1~~).
+   * - You cannot create snapshots for a specified disk in the following scenarios:
+   *   - The number of manual snapshots retained for the disk reaches the upper limit. For more information, see [Snapshot limits](~~25412#SnapshotQuota1~~).
    *   - Snapshot creation has concurrency limits. Exceeding the limits causes the creation to fail. For more information, see [Snapshot limits](~~25412#SnapshotQuota1~~).
-   *   - If the response to a query for ECS instance information contains `{"OperationLocks": {"LockReason" : "security"}}`, all operations are prohibited.
+   *   - When you query ECS instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}`, all operations are prohibited.
    * 
    * @param request - CreateSnapshotRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7409,30 +7409,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a snapshot for a cloud disk.
+   * Creates a snapshot for a disk.
    * 
    * @remarks
-   * Local snapshots have been replaced by the snapshot instant access feature. The metric description is as follows:
-   * - If you used local snapshots before December 14, 2020, Normal use of the `Category` parameter is allowed.
-   * - If you did not use local snapshots before December 14, 2020, no additional configuration is required. Snapshots created for enterprise SSD series disks (enterprise SSD, ESSD AutoPL, ESSD Entry, and regional enterprise SSD) are active by default after creation, and both the manual snapshot and automatic snapshot features are supported. The `InstantAccess`, `InstantAccessRetentionDays`, and `DisableInstantAccess` parameters related to the instant access feature no longer take effect in API operations. The `DescribeSnapshots` and `DescribeSnapshotGroups` API operations add the `Available` response parameter to describe the active status of snapshots.
+   * Original local snapshots have been replaced by the snapshot instant access feature. The parameter description is as follows:
+   * - If you used local snapshots before December 14, 2020, you can continue Normal use of the `Category` parameter.
+   * - If you did not use local snapshots before December 14, 2020, no additional configuration is required. Snapshots created for ESSD series disks (ESSD, ESSD AutoPL, ESSD Entry, and regional ESSD) are instantly active after creation by default, and both the manual snapshot and automatic snapshot features are supported. The `InstantAccess`, `InstantAccessRetentionDays`, and `DisableInstantAccess` parameters related to the instant access feature in API operations no longer take effect. The `DescribeSnapshots` and `DescribeSnapshotGroups` API operations add the `Available` response parameter to describe the active status of snapshots.
    * Before you begin:
    * - The snapshot feature is activated. For more information, see [Activate the snapshot feature](https://help.aliyun.com/document_detail/108381.html).
-   * - The cloud disk must be in the **In Use** or **Available** state. Take note of the following items based on the disk state:
-   *   - If the cloud disk is in the **In Use** state, the instance must be in the **Running** or **Stopped** state.
-   *   - If the cloud disk is in the **Available** state, make sure that the cloud disk was previously attached to an ECS instance. You cannot create snapshots for cloud disks that have never been attached to an ECS instance.
-   *   - When a cloud disk is used to create a dynamic extended volume or a RAID array, we recommend that you use a snapshot-consistent group and enable application-consistent snapshots to back up data. A snapshot-consistent group ensures the chronological consistency of data written to cloud disks and guarantees crash consistency in scenarios where a business system spans multiple cloud disks. For more information, see [Create a snapshot-consistent group](https://help.aliyun.com/document_detail/199625.html) and [Create an application-consistent snapshot](https://help.aliyun.com/document_detail/208589.html).
+   * - The disk must be in the **In Use** or **Available** state. Precautions for different states:
+   *   - If the disk is in the **In Use** state, the instance must be in the **Running** or **Stopped** state.
+   *   - If the disk is in the **Available** state, make sure that the disk has been attached to an ECS instance before. You cannot create snapshots for disks that have never been attached to an ECS instance.
+   *   - When a disk is used to create a dynamic extended volume or a RAID array, we recommend that you use a snapshot-consistent group and enable application-consistent snapshots to back up data. A snapshot-consistent group ensures the chronological consistency of data written to disks and crash consistency in scenarios where a business system spans multiple disks. For more information, see [Create a snapshot-consistent group](https://help.aliyun.com/document_detail/199625.html) and [Create an application-consistent snapshot](https://help.aliyun.com/document_detail/208589.html).
    * When you create a snapshot, take note of the following items:
-   * - Avoid creating snapshots during peak business hours. When a snapshot is being created, the I/O performance of the disk decreases by less than 10%, and the read and write performance may experience brief instantaneous slowdowns.
+   * - Avoid creating snapshots during peak business hours. When a snapshot is being created, the disk I/O performance decreases by less than 10%, and the read and write performance may experience brief transient slowdowns.
    * - If the snapshot creation is not complete, the snapshot cannot be used to create a custom image ([CreateImage](https://help.aliyun.com/document_detail/25535.html)).
-   * - During snapshot creation, no backup of incremental data generated by operations on the disk is saved to the snapshot.
+   * - During snapshot creation, incremental data generated by disk operations is not included in the backup.
    * - If the disk is attached to an ECS instance, do not change the instance status during snapshot creation, such as stopping or restarting the ECS instance. Otherwise, it results in a failed snapshot creation.
-   * - You cannot perform scale-out on a disk while a snapshot is being created for it. Wait until the snapshot is created before you execute scale-out operations.
-   * - You can create snapshots for cloud disks in the **Expired** (`Expired`) state. If a cloud disk reaches its expiration and release time while a snapshot is being created, the snapshot in the **Creating** (`Creating`) state is deleted when the cloud disk is released.
+   * - Disks for which a snapshot is being created do not support scale-out. Wait until the snapshot is created before you execute the scale-out operation.
+   * - You can create snapshots for disks in the **Expired** (`Expired`) state. If a disk reaches its expiration and release time while a snapshot is being created, the snapshot in the **Creating** (`Creating`) state is deleted when the disk is released.
    * - After a snapshot is created, the system bills you based on the snapshot size in each region. For more information, see [Snapshot billing](https://help.aliyun.com/document_detail/56159.html).
-   * - You cannot create snapshots for a specified cloud disk in the following scenarios:
-   *   - The number of manual snapshots retained for the cloud disk reaches the upper limit. For more information, see [Snapshot limits](~~25412#SnapshotQuota1~~).
+   * - You cannot create snapshots for a specified disk in the following scenarios:
+   *   - The number of manual snapshots retained for the disk reaches the upper limit. For more information, see [Snapshot limits](~~25412#SnapshotQuota1~~).
    *   - Snapshot creation has concurrency limits. Exceeding the limits causes the creation to fail. For more information, see [Snapshot limits](~~25412#SnapshotQuota1~~).
-   *   - If the response to a query for ECS instance information contains `{"OperationLocks": {"LockReason" : "security"}}`, all operations are prohibited.
+   *   - When you query ECS instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}`, all operations are prohibited.
    * 
    * @param request - CreateSnapshotRequest
    * @returns CreateSnapshotResponse
@@ -7443,19 +7443,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a snapshot-consistent group for disks of a specified ECS instance. A snapshot-consistent group contains snapshots of one or more disks.
+   * Creates a snapshot-consistent group for the disks of a specified ECS instance. A snapshot-consistent group contains snapshots of one or more disks.
    * 
    * @remarks
-   * You can set `InstanceId` to create a snapshot-consistent group for specified disks within an instance. Alternatively, you can use only `DiskId.N` to create a snapshot-consistent group for multiple disks attached to multiple ECS instances in the same zone.
+   * You can set `InstanceId` to create a snapshot-consistent group for specified disks within an instance. Alternatively, you can use only `DiskId.N` to create a snapshot-consistent group for multiple disks attached to multiple ECS instances within the same zone.
    * > `DiskId.N` and `ExcludeDiskId.N` cannot be set at the same time. In addition, if `InstanceId` is set, `DiskId.N` can only be set to the IDs of disks attached to the specified instance. Setting multiple cross-instance disk IDs is no longer supported.
    * When you create a snapshot-consistent group, take note of the following items:
-   * - The disks for which you want to create snapshots must be in the **in use** (`In_use`) or **available** (`Available`) state.
-   *     - If a disk is in the **in use** (`In_use`) state, the ECS instance must be in the **running** (`Running`) or **stopped** (`Stopped`) state.
-   *     - If a disk is in the **available** (`Available`) state, make sure that the disk has been attached to an ECS instance before. Snapshots cannot be created for disks that have never been attached to an ECS instance.
+   * - The disks for which you want to create snapshots must be in the **In Use** (`In_use`) or **Available** (`Available`) state.
+   *     - If a disk is in the **In Use** (`In_use`) state, the ECS instance status must be **Running** (`Running`) or **Stopped** (`Stopped`).
+   *     - If a disk is in the **Available** (`Available`) state, make sure that the disk has been attached to an ECS instance before. Snapshots cannot be created for disks that have never been attached to an ECS instance.
    * - Snapshot-consistent groups support only ESSD series disks (ESSD, ESSD AutoPL, and ESSD Entry).
    * - A single snapshot-consistent group can contain up to 128 disks, including system disks and data disks, and the total capacity cannot exceed 256 TiB.
-   * - Snapshots that you create are retained indefinitely. Delete snapshots that you no longer need on a regular basis to avoid continuous billing for snapshot size.
-   * - Disks for which the multi-attach feature is enabled do not support snapshot-consistent groups. If an instance has a disk with the multi-attach feature enabled, you must set the `ExcludeDiskId.N` parameter to exclude the disk.
+   * - Snapshots that you create are retained indefinitely. Delete snapshots that are no longer needed on a regular basis to avoid continuous billing for snapshot size.
+   * - Disks for which the multi-attach attribute is enabled do not support snapshot-consistent groups. If an instance has a disk with the multi-attach attribute enabled, you must configure the Settings of the `ExcludeDiskId.N` parameter to exclude the disk.
    * For more information about the features and billing of snapshot-consistent groups, see [Snapshot-consistent groups](https://help.aliyun.com/document_detail/199625.html).
    * 
    * @param request - CreateSnapshotGroupRequest
@@ -7547,19 +7547,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a snapshot-consistent group for disks of a specified ECS instance. A snapshot-consistent group contains snapshots of one or more disks.
+   * Creates a snapshot-consistent group for the disks of a specified ECS instance. A snapshot-consistent group contains snapshots of one or more disks.
    * 
    * @remarks
-   * You can set `InstanceId` to create a snapshot-consistent group for specified disks within an instance. Alternatively, you can use only `DiskId.N` to create a snapshot-consistent group for multiple disks attached to multiple ECS instances in the same zone.
+   * You can set `InstanceId` to create a snapshot-consistent group for specified disks within an instance. Alternatively, you can use only `DiskId.N` to create a snapshot-consistent group for multiple disks attached to multiple ECS instances within the same zone.
    * > `DiskId.N` and `ExcludeDiskId.N` cannot be set at the same time. In addition, if `InstanceId` is set, `DiskId.N` can only be set to the IDs of disks attached to the specified instance. Setting multiple cross-instance disk IDs is no longer supported.
    * When you create a snapshot-consistent group, take note of the following items:
-   * - The disks for which you want to create snapshots must be in the **in use** (`In_use`) or **available** (`Available`) state.
-   *     - If a disk is in the **in use** (`In_use`) state, the ECS instance must be in the **running** (`Running`) or **stopped** (`Stopped`) state.
-   *     - If a disk is in the **available** (`Available`) state, make sure that the disk has been attached to an ECS instance before. Snapshots cannot be created for disks that have never been attached to an ECS instance.
+   * - The disks for which you want to create snapshots must be in the **In Use** (`In_use`) or **Available** (`Available`) state.
+   *     - If a disk is in the **In Use** (`In_use`) state, the ECS instance status must be **Running** (`Running`) or **Stopped** (`Stopped`).
+   *     - If a disk is in the **Available** (`Available`) state, make sure that the disk has been attached to an ECS instance before. Snapshots cannot be created for disks that have never been attached to an ECS instance.
    * - Snapshot-consistent groups support only ESSD series disks (ESSD, ESSD AutoPL, and ESSD Entry).
    * - A single snapshot-consistent group can contain up to 128 disks, including system disks and data disks, and the total capacity cannot exceed 256 TiB.
-   * - Snapshots that you create are retained indefinitely. Delete snapshots that you no longer need on a regular basis to avoid continuous billing for snapshot size.
-   * - Disks for which the multi-attach feature is enabled do not support snapshot-consistent groups. If an instance has a disk with the multi-attach feature enabled, you must set the `ExcludeDiskId.N` parameter to exclude the disk.
+   * - Snapshots that you create are retained indefinitely. Delete snapshots that are no longer needed on a regular basis to avoid continuous billing for snapshot size.
+   * - Disks for which the multi-attach attribute is enabled do not support snapshot-consistent groups. If an instance has a disk with the multi-attach attribute enabled, you must configure the Settings of the `ExcludeDiskId.N` parameter to exclude the disk.
    * For more information about the features and billing of snapshot-consistent groups, see [Snapshot-consistent groups](https://help.aliyun.com/document_detail/199625.html).
    * 
    * @param request - CreateSnapshotGroupRequest
@@ -8103,7 +8103,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * The activation code must be unused, meaning that the number of managed instances registered with the activation code is 0.
+   * The activation code must be unused. That is, the number of managed instances registered by using the activation code must be 0.
    * 
    * @param request - DeleteActivationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8162,7 +8162,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * The activation code must be unused, meaning that the number of managed instances registered with the activation code is 0.
+   * The activation code must be unused. That is, the number of managed instances registered by using the activation code must be 0.
    * 
    * @param request - DeleteActivationRequest
    * @returns DeleteActivationResponse
@@ -8940,7 +8940,7 @@ export default class Client extends OpenApi {
    * Deletes a custom image by specifying the ImageId and Force parameters.
    * 
    * @remarks
-   * For information about scenarios where custom images cannot be deleted and precautions after deletion, refer to [Delete a custom image](https://help.aliyun.com/document_detail/25466.html).
+   * For information about scenarios in which custom images cannot be deleted and precautions after an image is deleted, refer to [Delete a custom image](https://help.aliyun.com/document_detail/25466.html).
    * 
    * @param request - DeleteImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9002,7 +9002,7 @@ export default class Client extends OpenApi {
    * Deletes a custom image by specifying the ImageId and Force parameters.
    * 
    * @remarks
-   * For information about scenarios where custom images cannot be deleted and precautions after deletion, refer to [Delete a custom image](https://help.aliyun.com/document_detail/25466.html).
+   * For information about scenarios in which custom images cannot be deleted and precautions after an image is deleted, refer to [Delete a custom image](https://help.aliyun.com/document_detail/25466.html).
    * 
    * @param request - DeleteImageRequest
    * @returns DeleteImageResponse
@@ -10799,7 +10799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unregisters a managed instance by calling DeregisterManagedInstance. After the instance is unregistered, you can no longer use Cloud Assistant to send commands or files to the instance.
+   * Deregisters a managed instance. After the instance is deregistered, you can no longer use Cloud Assistant to send commands or files to the instance.
    * 
    * @param request - DeregisterManagedInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10858,7 +10858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unregisters a managed instance by calling DeregisterManagedInstance. After the instance is unregistered, you can no longer use Cloud Assistant to send commands or files to the instance.
+   * Deregisters a managed instance. After the instance is deregistered, you can no longer use Cloud Assistant to send commands or files to the instance.
    * 
    * @param request - DeregisterManagedInstanceRequest
    * @returns DeregisterManagedInstanceResponse
@@ -11020,9 +11020,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * You can view the returned data by using one of the following methods:
-   * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query the next page, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries.
-   * - Method 2: Set PageSize to specify the number of entries to return on each page, and set PageNumber to specify the page number. You can use only one of the preceding methods. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid, and the TotalCount value in the response is invalid.
+   * You can view the returned data in one of the following two ways:
+   * - Method 1: When paged query the first page, specify only `MaxResults` to limit the number of entries to return. The `NextToken` value in the response is used as the token to query the next page. When paged query the next page, set the `NextToken` parameter to the `NextToken` value obtained from the previous response, and specify `MaxResults` to limit the number of entries to return.
+   * - Method 2: Specify `PageSize` to set the number of entries to return per page, and specify `PageNumber` to set the page number. You can use only one of the two methods. If you specify the `MaxResults` or `NextToken` parameter, the `PageSize` and `PageNumber` request parameters become invalid, and the `TotalCount` value in the response is invalid.
    * 
    * @param request - DescribeActivationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11109,9 +11109,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * You can view the returned data by using one of the following methods:
-   * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query the next page, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries.
-   * - Method 2: Set PageSize to specify the number of entries to return on each page, and set PageNumber to specify the page number. You can use only one of the preceding methods. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid, and the TotalCount value in the response is invalid.
+   * You can view the returned data in one of the following two ways:
+   * - Method 1: When paged query the first page, specify only `MaxResults` to limit the number of entries to return. The `NextToken` value in the response is used as the token to query the next page. When paged query the next page, set the `NextToken` parameter to the `NextToken` value obtained from the previous response, and specify `MaxResults` to limit the number of entries to return.
+   * - Method 2: Specify `PageSize` to set the number of entries to return per page, and specify `PageNumber` to set the page number. You can use only one of the two methods. If you specify the `MaxResults` or `NextToken` parameter, the `PageSize` and `PageNumber` request parameters become invalid, and the `TotalCount` value in the response is invalid.
    * 
    * @param request - DescribeActivationsRequest
    * @returns DescribeActivationsResponse
@@ -12132,7 +12132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Cloud Assistant service configurations.
+   * Queries the service configurations of Cloud Assistant.
    * 
    * @param request - DescribeCloudAssistantSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12183,7 +12183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Cloud Assistant service configurations.
+   * Queries the service configurations of Cloud Assistant.
    * 
    * @param request - DescribeCloudAssistantSettingsRequest
    * @returns DescribeCloudAssistantSettingsResponse
@@ -12198,8 +12198,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * - Call this operation to query the Cloud Assistant status of instances before executing commands or sending files, especially for newly purchased instances. Execute commands or send files only when CloudAssistantStatus is true.
-   * - When paged query the first page, specify only `MaxResults` to limit the number of returned entries. The `NextToken` value in the response is used as the token to query the next page. When paged query the next page, set the `NextToken` parameter to the `NextToken` value obtained from the previous response and specify `MaxResults` to limit the number of returned entries.
+   * - Call this operation to query the Cloud Assistant status of an instance before you run commands or send files to the instance, especially for newly purchased instances. Run commands or send files only when the CloudAssistantStatus parameter is set to true.
+   * - When paged query the first page, specify only the MaxResults parameter to limit the number of entries to return. The NextToken value in the response is used as the token to query the next page. When paged query the next page, set the NextToken parameter to the NextToken value obtained from the previous response and specify the MaxResults parameter to limit the number of entries to return.
    * 
    * @param request - DescribeCloudAssistantStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12278,8 +12278,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * - Call this operation to query the Cloud Assistant status of instances before executing commands or sending files, especially for newly purchased instances. Execute commands or send files only when CloudAssistantStatus is true.
-   * - When paged query the first page, specify only `MaxResults` to limit the number of returned entries. The `NextToken` value in the response is used as the token to query the next page. When paged query the next page, set the `NextToken` parameter to the `NextToken` value obtained from the previous response and specify `MaxResults` to limit the number of returned entries.
+   * - Call this operation to query the Cloud Assistant status of an instance before you run commands or send files to the instance, especially for newly purchased instances. Run commands or send files only when the CloudAssistantStatus parameter is set to true.
+   * - When paged query the first page, specify only the MaxResults parameter to limit the number of entries to return. The NextToken value in the response is used as the token to query the next page. When paged query the next page, set the NextToken parameter to the NextToken value obtained from the previous response and specify the MaxResults parameter to limit the number of entries to return.
    * 
    * @param request - DescribeCloudAssistantStatusRequest
    * @returns DescribeCloudAssistantStatusResponse
@@ -12357,8 +12357,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * - If you specify only the Action and RegionId parameters and do not specify any other request parameters, the system queries all available commands (CommandId) that you manually created by default.
-   * - When paged query the first page, you only need to specify the MaxResults parameter to limit the number of entries to return. The NextToken value in the response is used as the token to query the next page. When paged query the next page, set the NextToken parameter to the NextToken value obtained from the previous response and specify the MaxResults parameter to limit the number of entries to return.
+   * - If you specify only the `Action` and `RegionId` parameters and do not specify any other request parameters, the system queries all available commands (`CommandId`) that you manually created by default.
+   * - When paged query the first page, you only need to set `MaxResults` to limit the number of entries to return. The `NextToken` value in the response is used as the token to query the next page. When paged query the next page, set the `NextToken` parameter to the `NextToken` value obtained from the previous response and set `MaxResults` to limit the number of entries to return.
    * 
    * @param request - DescribeCommandsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12465,8 +12465,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * - If you specify only the Action and RegionId parameters and do not specify any other request parameters, the system queries all available commands (CommandId) that you manually created by default.
-   * - When paged query the first page, you only need to specify the MaxResults parameter to limit the number of entries to return. The NextToken value in the response is used as the token to query the next page. When paged query the next page, set the NextToken parameter to the NextToken value obtained from the previous response and specify the MaxResults parameter to limit the number of entries to return.
+   * - If you specify only the `Action` and `RegionId` parameters and do not specify any other request parameters, the system queries all available commands (`CommandId`) that you manually created by default.
+   * - When paged query the first page, you only need to set `MaxResults` to limit the number of entries to return. The `NextToken` value in the response is used as the token to query the next page. When paged query the next page, set the `NextToken` parameter to the `NextToken` value obtained from the previous response and set `MaxResults` to limit the number of entries to return.
    * 
    * @param request - DescribeCommandsRequest
    * @returns DescribeCommandsResponse
@@ -12707,11 +12707,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more dedicated hosts. This operation retrieves information including physical performance metrics, machine codes, usage status, and the list of created ECS instances. You can specify parameters such as dedicated host IDs, dedicated host cluster ID, hostname, and status to accurately query the required details, which provides strong support for the efficient management and optimization of cloud computing resources.
+   * Queries the details of one or more dedicated hosts. This operation retrieves information such as physical performance metrics, machine codes, usage status, and the list of created ECS instances. You can specify parameters such as dedicated host IDs, dedicated host cluster ID, hostname, and status to query specific dedicated host details for efficient management and optimization of cloud computing resources.
    * 
    * @remarks
    * ## Operation description
-   * You can query the details of one or more dedicated hosts by using one of the following methods:
+   * You can query the details of one or more dedicated hosts in one of the following ways:
    * - Specify `DedicatedHostIds` to query the details of dedicated hosts.
    * - Specify `DedicatedHostClusterId` to query the details of dedicated hosts in a dedicated host cluster.
    * 
@@ -12824,11 +12824,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more dedicated hosts. This operation retrieves information including physical performance metrics, machine codes, usage status, and the list of created ECS instances. You can specify parameters such as dedicated host IDs, dedicated host cluster ID, hostname, and status to accurately query the required details, which provides strong support for the efficient management and optimization of cloud computing resources.
+   * Queries the details of one or more dedicated hosts. This operation retrieves information such as physical performance metrics, machine codes, usage status, and the list of created ECS instances. You can specify parameters such as dedicated host IDs, dedicated host cluster ID, hostname, and status to query specific dedicated host details for efficient management and optimization of cloud computing resources.
    * 
    * @remarks
    * ## Operation description
-   * You can query the details of one or more dedicated hosts by using one of the following methods:
+   * You can query the details of one or more dedicated hosts in one of the following ways:
    * - Specify `DedicatedHostIds` to query the details of dedicated hosts.
    * - Specify `DedicatedHostClusterId` to query the details of dedicated hosts in a dedicated host cluster.
    * 
@@ -13125,7 +13125,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a resource diagnostic report by calling DescribeDiagnosticReportAttributes.
+   * Queries the details of a resource diagnostic report.
    * 
    * @param request - DescribeDiagnosticReportAttributesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13160,7 +13160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a resource diagnostic report by calling DescribeDiagnosticReportAttributes.
+   * Queries the details of a resource diagnostic report.
    * 
    * @param request - DescribeDiagnosticReportAttributesRequest
    * @returns DescribeDiagnosticReportAttributesResponse
@@ -13439,14 +13439,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more block storage devices, including cloud disks, local disks, and elastic ephemeral disks.
+   * Queries the details of one or more block storage devices, including disks, local disks, and elastic ephemeral disks.
    * 
    * @remarks
-   * - Request parameters such as `RegionId`, `ZoneId`, `DiskIds`, and `InstanceId` act as filters and are connected by the logical AND operator.
-   * - The `DiskIds` parameter is an array in JSON format. If the parameter is left empty, the filter does not take effect. However, if `DiskIds` is an empty array, the filter is considered valid and an empty result is returned.
-   * - Token-based paging is supported. You can use the `NextToken` parameter to specify the query token, which is the value of the `NextToken` parameter returned from the previous call to the DescribeDisks operation. You can also use the `MaxResults` parameter to specify the maximum number of entries to return on each page.
-   * - A cloud disk with the multi-attach feature enabled can be attached to multiple instances. You can view all attachment information of the cloud disk in the `Attachment` list of the response.
-   * When you invoke API operations by using Cloud Assistant CLI, you must follow the format requirements for the values of request parameters of different data types. For more information, see [Format requirements for CLI parameters](https://help.aliyun.com/document_detail/110340.html).
+   * - Request parameters such as RegionId, ZoneId, DiskIds, and InstanceId act as filters. The logical relationship between these parameters is AND.
+   * - The DiskIds parameter is a JSON-formatted array. If this parameter is empty, the filter does not take effect. However, if DiskIds is an empty array, the filter is considered valid and an empty result is returned.
+   * - Token-based paging is supported. You can use NextToken to specify the query token Settings, which is the NextToken value returned from the previous call of the DescribeDisks operation. You can also use MaxResults to specify the maximum number of entries to return per page.
+   * - Disks with the multi-attach feature enabled can be attached to multiple instances. You can view all attachment information of the disk in the Attachment list of the response.
+   * When you call API operations by using the Alibaba Cloud CLI, the values of request parameters of different data types must follow the format requirements. For more information, see [CLI parameter format description](https://help.aliyun.com/document_detail/110340.html).
    * 
    * @param request - DescribeDisksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13613,14 +13613,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more block storage devices, including cloud disks, local disks, and elastic ephemeral disks.
+   * Queries the details of one or more block storage devices, including disks, local disks, and elastic ephemeral disks.
    * 
    * @remarks
-   * - Request parameters such as `RegionId`, `ZoneId`, `DiskIds`, and `InstanceId` act as filters and are connected by the logical AND operator.
-   * - The `DiskIds` parameter is an array in JSON format. If the parameter is left empty, the filter does not take effect. However, if `DiskIds` is an empty array, the filter is considered valid and an empty result is returned.
-   * - Token-based paging is supported. You can use the `NextToken` parameter to specify the query token, which is the value of the `NextToken` parameter returned from the previous call to the DescribeDisks operation. You can also use the `MaxResults` parameter to specify the maximum number of entries to return on each page.
-   * - A cloud disk with the multi-attach feature enabled can be attached to multiple instances. You can view all attachment information of the cloud disk in the `Attachment` list of the response.
-   * When you invoke API operations by using Cloud Assistant CLI, you must follow the format requirements for the values of request parameters of different data types. For more information, see [Format requirements for CLI parameters](https://help.aliyun.com/document_detail/110340.html).
+   * - Request parameters such as RegionId, ZoneId, DiskIds, and InstanceId act as filters. The logical relationship between these parameters is AND.
+   * - The DiskIds parameter is a JSON-formatted array. If this parameter is empty, the filter does not take effect. However, if DiskIds is an empty array, the filter is considered valid and an empty result is returned.
+   * - Token-based paging is supported. You can use NextToken to specify the query token Settings, which is the NextToken value returned from the previous call of the DescribeDisks operation. You can also use MaxResults to specify the maximum number of entries to return per page.
+   * - Disks with the multi-attach feature enabled can be attached to multiple instances. You can view all attachment information of the disk in the Attachment list of the response.
+   * When you call API operations by using the Alibaba Cloud CLI, the values of request parameters of different data types must follow the format requirements. For more information, see [CLI parameter format description](https://help.aliyun.com/document_detail/110340.html).
    * 
    * @param request - DescribeDisksRequest
    * @returns DescribeDisksResponse
@@ -13989,7 +13989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of running instances matched with an elasticity assurance.
+   * Queries the running instances matched by an elasticity assurance.
    * 
    * @remarks
    * After an elasticity assurance expires, the matching data between instances and the private pool associated with the elasticity assurance becomes invalid. If you call this operation to query an expired assurance, an empty result is returned.
@@ -14051,7 +14051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of running instances matched with an elasticity assurance.
+   * Queries the running instances matched by an elasticity assurance.
    * 
    * @remarks
    * After an elasticity assurance expires, the matching data between instances and the private pool associated with the elasticity assurance becomes invalid. If you call this operation to query an expired assurance, an empty result is returned.
@@ -14772,7 +14772,7 @@ export default class Client extends OpenApi {
    * Queries the details of one or more image templates.
    * 
    * @remarks
-   * You can use the NextToken parameter to paginate queries. Set this parameter to the NextToken value returned from the previous call to the DescribeImagePipelines operation. You can also use the MaxResults parameter to specify the maximum number of entries to return per page.
+   * You can set the `NextToken` query token, which is the value of the `NextToken` parameter returned by the last call to the `DescribeImagePipelines` operation, and use the `MaxResults` parameter to specify the maximum number of entries to return on each page.
    * 
    * @param request - DescribeImagePipelinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14854,7 +14854,7 @@ export default class Client extends OpenApi {
    * Queries the details of one or more image templates.
    * 
    * @remarks
-   * You can use the NextToken parameter to paginate queries. Set this parameter to the NextToken value returned from the previous call to the DescribeImagePipelines operation. You can also use the MaxResults parameter to specify the maximum number of entries to return per page.
+   * You can set the `NextToken` query token, which is the value of the `NextToken` parameter returned by the last call to the `DescribeImagePipelines` operation, and use the `MaxResults` parameter to specify the maximum number of entries to return on each page.
    * 
    * @param request - DescribeImagePipelinesRequest
    * @returns DescribeImagePipelinesResponse
@@ -15301,11 +15301,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the auto-renewal attributes of one or more subscription ECS instances, including whether auto-renewal is enabled and the renewal period.
+   * Queries the auto-renewal property of one or more subscription ECS instances, including whether auto-renewal is enabled and the renewal period.
    * 
    * @remarks
-   * - Only subscription instances are supported. An error is returned if you call this operation for pay-as-you-go instances.
-   * - Before you configure auto-renewal or manual renewal, you can query the renewal status of instances to check whether auto-renewal is already enabled.
+   * - Only subscription instances are supported. Calling this operation for pay-as-you-go instances returns an error.
+   * - Before enabling auto-renewal or manual renewal, querying the renewal status of an instance helps you check whether auto-renewal is already enabled for the instance.
    * 
    * @param request - DescribeInstanceAutoRenewAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15368,11 +15368,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the auto-renewal attributes of one or more subscription ECS instances, including whether auto-renewal is enabled and the renewal period.
+   * Queries the auto-renewal property of one or more subscription ECS instances, including whether auto-renewal is enabled and the renewal period.
    * 
    * @remarks
-   * - Only subscription instances are supported. An error is returned if you call this operation for pay-as-you-go instances.
-   * - Before you configure auto-renewal or manual renewal, you can query the renewal status of instances to check whether auto-renewal is already enabled.
+   * - Only subscription instances are supported. Calling this operation for pay-as-you-go instances returns an error.
+   * - Before enabling auto-renewal or manual renewal, querying the renewal status of an instance helps you check whether auto-renewal is already enabled for the instance.
    * 
    * @param request - DescribeInstanceAutoRenewAttributeRequest
    * @returns DescribeInstanceAutoRenewAttributeResponse
@@ -15606,9 +15606,9 @@ export default class Client extends OpenApi {
    * Queries the pricing information of the target instance type and new subscription data disks when you upgrade an unexpired subscription ECS instance.
    * 
    * @remarks
-   * - Only querying the pricing information for upgrading unexpired subscription ECS instances is supported. Querying the pricing information for downgrading instances is not supported.
+   * - You can only query the pricing information for upgrading unexpired subscription ECS instances. Querying the pricing information for downgrading instances is not supported.
    * - Querying the pricing information for changing the configurations of pay-as-you-go ECS instances is not supported. Because the price of a pay-as-you-go ECS instance after a configuration change is the same as that of a newly created instance, you can directly call [DescribePrice](https://help.aliyun.com/document_detail/107829.html) to query the latest price of the ECS instance.
-   * - Before upgrading an instance, call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in the specified zone.
+   * - Before upgrading the instance, call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in the specified zone.
    * 
    * @param request - DescribeInstanceModificationPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15698,9 +15698,9 @@ export default class Client extends OpenApi {
    * Queries the pricing information of the target instance type and new subscription data disks when you upgrade an unexpired subscription ECS instance.
    * 
    * @remarks
-   * - Only querying the pricing information for upgrading unexpired subscription ECS instances is supported. Querying the pricing information for downgrading instances is not supported.
+   * - You can only query the pricing information for upgrading unexpired subscription ECS instances. Querying the pricing information for downgrading instances is not supported.
    * - Querying the pricing information for changing the configurations of pay-as-you-go ECS instances is not supported. Because the price of a pay-as-you-go ECS instance after a configuration change is the same as that of a newly created instance, you can directly call [DescribePrice](https://help.aliyun.com/document_detail/107829.html) to query the latest price of the ECS instance.
-   * - Before upgrading an instance, call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in the specified zone.
+   * - Before upgrading the instance, call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in the specified zone.
    * 
    * @param request - DescribeInstanceModificationPriceRequest
    * @returns DescribeInstanceModificationPriceResponse
@@ -16109,12 +16109,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of all instance types provided by Elastic Compute Service and retrieves the detailed information of the instance types. This operation also allows you to query specific instance types based on a conditional query to understand the configurations and performance of different instance types and select the instance types that best suit your business needs.
+   * Queries the list of all instance types provided by Elastic Compute Service (ECS) and retrieves the detailed information of instance types. You can also perform a conditional query to retrieve information about specific instance types, helping you understand the configurations and performance of different instance types to select the ones that best suit your business needs.
    * 
    * @remarks
-   * - **Paged query**: You can set the MaxResults parameter to limit the number of instance types returned. If only a subset of the queried instance types is returned, the NextToken parameter is also returned. To implement paged queries, call this operation again and set the NextToken parameter to the value returned in the previous call, along with the MaxResults parameter.
-   * - If you do not specify the NextToken parameter for pagination when calling this API, only the first page of data (up to 100 entries) is returned by default. To retrieve more data, specify the NextToken parameter for pagination or specify filter conditions to limit the scope of the returned data.
-   * > The maximum value of the MaxResults (maximum number of entries per page) parameter is 100. For users who called this API in 2022, the maximum value of the MaxResults parameter remains 1600. On and after November 15, 2023, the maximum value of the MaxResults parameter will be reduced to 100 for all users, and 1600 will no longer be supported.
+   * - **Paged query**: You can set the MaxResults parameter to limit the number of instance types returned. If only a subset of the queried instance types is returned, the NextToken parameter is also returned. You can call this operation again and set the NextToken parameter to the value returned in the previous call along with the MaxResults parameter to query instance type information in pages.
+   * - If you do not specify the NextToken parameter for pagination when you call this operation, only the first page of data (up to 100 entries) is returned by default. To obtain more data, specify the NextToken parameter for pagination or specify filter conditions to limit the scope of the returned data.
+   * > The maximum value of the MaxResults (maximum number of entries per page) parameter is 100. For users who called this operation in 2022, the maximum value of the MaxResults parameter remains 1600. On and after November 15, 2023, the maximum value of the MaxResults parameter is reduced to 100 for all users, and 1600 is no longer supported.
    * - DescribeInstanceTypes only queries the configuration and performance information of instance types. If you need to query the instance types available for purchase in a specific region, use [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html).
    * <props="china">
    * - If you need to use instance types that are not publicly available for sale or have special specification requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
@@ -16339,12 +16339,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of all instance types provided by Elastic Compute Service and retrieves the detailed information of the instance types. This operation also allows you to query specific instance types based on a conditional query to understand the configurations and performance of different instance types and select the instance types that best suit your business needs.
+   * Queries the list of all instance types provided by Elastic Compute Service (ECS) and retrieves the detailed information of instance types. You can also perform a conditional query to retrieve information about specific instance types, helping you understand the configurations and performance of different instance types to select the ones that best suit your business needs.
    * 
    * @remarks
-   * - **Paged query**: You can set the MaxResults parameter to limit the number of instance types returned. If only a subset of the queried instance types is returned, the NextToken parameter is also returned. To implement paged queries, call this operation again and set the NextToken parameter to the value returned in the previous call, along with the MaxResults parameter.
-   * - If you do not specify the NextToken parameter for pagination when calling this API, only the first page of data (up to 100 entries) is returned by default. To retrieve more data, specify the NextToken parameter for pagination or specify filter conditions to limit the scope of the returned data.
-   * > The maximum value of the MaxResults (maximum number of entries per page) parameter is 100. For users who called this API in 2022, the maximum value of the MaxResults parameter remains 1600. On and after November 15, 2023, the maximum value of the MaxResults parameter will be reduced to 100 for all users, and 1600 will no longer be supported.
+   * - **Paged query**: You can set the MaxResults parameter to limit the number of instance types returned. If only a subset of the queried instance types is returned, the NextToken parameter is also returned. You can call this operation again and set the NextToken parameter to the value returned in the previous call along with the MaxResults parameter to query instance type information in pages.
+   * - If you do not specify the NextToken parameter for pagination when you call this operation, only the first page of data (up to 100 entries) is returned by default. To obtain more data, specify the NextToken parameter for pagination or specify filter conditions to limit the scope of the returned data.
+   * > The maximum value of the MaxResults (maximum number of entries per page) parameter is 100. For users who called this operation in 2022, the maximum value of the MaxResults parameter remains 1600. On and after November 15, 2023, the maximum value of the MaxResults parameter is reduced to 100 for all users, and 1600 is no longer supported.
    * - DescribeInstanceTypes only queries the configuration and performance information of instance types. If you need to query the instance types available for purchase in a specific region, use [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html).
    * <props="china">
    * - If you need to use instance types that are not publicly available for sale or have special specification requirements, [submit a ticket](https://selfservice.console.aliyun.com/ticket/createIndex).
@@ -16451,14 +16451,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances based on specified request conditions and retrieves the associated detailed information of the instances.
+   * Queries a list of instances based on specified request conditions and retrieves the detailed information of the instances.
    * 
    * @remarks
    * ### Before you begin
-   * - When you invoke an API operation by using Cloud Assistant CLI, make sure that the request parameter values of different data types comply with the format requirements. For more information, see [CLI parameter format overview](https://help.aliyun.com/document_detail/110340.html).
+   * - When you call an API operation by using Alibaba Cloud CLI, the values of request parameters of different data types must meet the format requirements. For more information, see [CLI parameter format description](https://help.aliyun.com/document_detail/110340.html).
    * ### Usage notes
-   * - Send a dry run request by using the DryRun request parameter to check the validity of parameters and authorization.
-   * - When you perform a paging query for the first page of results, set only `MaxResults` to limit the number of entries to return. The `NextToken` value in the response is used as the credential to query subsequent pages. When you perform a paging query for subsequent pages, set `NextToken` to the `NextToken` value obtained from the previous response and set `MaxResults` to limit the number of entries to return.
+   * - You can send a dry run request by using the DryRun request parameter to check the validity of parameters and the authorization status.
+   * - When performing a paged query for the first page, you only need to set `MaxResults` to limit the number of returned entries. The `NextToken` value in the response is used as the token to query the next page. When performing a paged query for the next page, set the `NextToken` parameter to the `NextToken` value obtained from the previous response, and set `MaxResults` to limit the number of returned entries.
    * 
    * @param request - DescribeInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16653,14 +16653,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances based on specified request conditions and retrieves the associated detailed information of the instances.
+   * Queries a list of instances based on specified request conditions and retrieves the detailed information of the instances.
    * 
    * @remarks
    * ### Before you begin
-   * - When you invoke an API operation by using Cloud Assistant CLI, make sure that the request parameter values of different data types comply with the format requirements. For more information, see [CLI parameter format overview](https://help.aliyun.com/document_detail/110340.html).
+   * - When you call an API operation by using Alibaba Cloud CLI, the values of request parameters of different data types must meet the format requirements. For more information, see [CLI parameter format description](https://help.aliyun.com/document_detail/110340.html).
    * ### Usage notes
-   * - Send a dry run request by using the DryRun request parameter to check the validity of parameters and authorization.
-   * - When you perform a paging query for the first page of results, set only `MaxResults` to limit the number of entries to return. The `NextToken` value in the response is used as the credential to query subsequent pages. When you perform a paging query for subsequent pages, set `NextToken` to the `NextToken` value obtained from the previous response and set `MaxResults` to limit the number of entries to return.
+   * - You can send a dry run request by using the DryRun request parameter to check the validity of parameters and the authorization status.
+   * - When performing a paged query for the first page, you only need to set `MaxResults` to limit the number of returned entries. The `NextToken` value in the response is used as the token to query the next page. When performing a paged query for the next page, set the `NextToken` parameter to the `NextToken` value obtained from the previous response, and set `MaxResults` to limit the number of returned entries.
    * 
    * @param request - DescribeInstancesRequest
    * @returns DescribeInstancesResponse
@@ -16787,18 +16787,18 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * - After you run a command, the command may not be successfully executed or produce the expected results. You must call this operation paged query the actual execution results. The actual output prevails.
-   * - You can query the execution information of the last 30 days. A maximum of 10,000 execution records can be retained.
+   * - When you execute a command, it does not mean that the command is definitely executed successfully and produces the expected results. You must call this operation to view the actual execution results. The actual output results shall prevail.
+   * - You can query the execution information of the last 30 days. The maximum number of retained execution records is 10,000.
    * - You can subscribe to [Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain task results through events. This prevents frequent polling and improves efficiency.
-   * - When you query the first page, you only need to set `MaxResults` to limit the number of returned entries. The `NextToken` value in the response is used as the token paged query the next page. When you query the next page, set the `NextToken` parameter to the `NextToken` value obtained from the previous response, and set `MaxResults` to limit the number of returned entries.
-   * - Differences between `DescribeInvocations` and `DescribeInvocationResults`:
-   *     - When a `RunCommand` or `InvokeCommand` call specifies multiple instances:
-   *         - You can use `DescribeInvocations` to obtain the execution status of the task on each instance and the aggregated status of the task across multiple instances.
-   *         - You can use `DescribeInvocationResults` to obtain only the individual execution status on each instance, which does not include the aggregated status across multiple instances.
-   *     - When a `RunCommand` or `InvokeCommand` call specifies a single instance:
-   *         - `DescribeInvocations` and `DescribeInvocationResults` have little difference and can be used interchangeably.
-   *     - When you need to view each execution record of a scheduled task or a task that runs automatically on startup (`RepeatMode=Period, EveryReboot`), you can only use `DescribeInvocationResults` paged query the historical execution records (you must specify `IncludeHistory=true`). `DescribeInvocations` returns only the latest task status.
-   *     - When you need to view the command content and parameters, only `DescribeInvocations` returns `CommandContent`.
+   * - When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the returned result is used as the token to query the next page. When paged query the next page, set the NextToken parameter to the NextToken value obtained from the previous returned result, and set MaxResults to limit the number of returned entries.
+   * - Differences between DescribeInvocations and DescribeInvocationResults:
+   *     - When a single RunCommand or InvokeCommand call specifies multiple instances:
+   *         - You can use DescribeInvocations to obtain the execution status of the task on each instance and the aggregated status of the task across multiple instances.
+   *         - You can use DescribeInvocationResults to obtain only the individual execution status on each instance, which does not include the aggregated status across multiple instances.
+   *     - When a single RunCommand or InvokeCommand call specifies only one instance:
+   *         - There is little difference between DescribeInvocations and DescribeInvocationResults. They are completely interchangeable.
+   *     - When you need to view the execution records of scheduled (periodic) tasks or tasks that are automatically executed upon startup (RepeatMode=Period, EveryReboot), you can only use DescribeInvocationResults to query the historical execution records (you must specify IncludeHistory=true). DescribeInvocations only returns the latest task status.
+   *     - When you need to view the content and parameters of a command, only DescribeInvocations returns CommandContent.
    * 
    * @param request - DescribeInvocationResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16901,18 +16901,18 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * - After you run a command, the command may not be successfully executed or produce the expected results. You must call this operation paged query the actual execution results. The actual output prevails.
-   * - You can query the execution information of the last 30 days. A maximum of 10,000 execution records can be retained.
+   * - When you execute a command, it does not mean that the command is definitely executed successfully and produces the expected results. You must call this operation to view the actual execution results. The actual output results shall prevail.
+   * - You can query the execution information of the last 30 days. The maximum number of retained execution records is 10,000.
    * - You can subscribe to [Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain task results through events. This prevents frequent polling and improves efficiency.
-   * - When you query the first page, you only need to set `MaxResults` to limit the number of returned entries. The `NextToken` value in the response is used as the token paged query the next page. When you query the next page, set the `NextToken` parameter to the `NextToken` value obtained from the previous response, and set `MaxResults` to limit the number of returned entries.
-   * - Differences between `DescribeInvocations` and `DescribeInvocationResults`:
-   *     - When a `RunCommand` or `InvokeCommand` call specifies multiple instances:
-   *         - You can use `DescribeInvocations` to obtain the execution status of the task on each instance and the aggregated status of the task across multiple instances.
-   *         - You can use `DescribeInvocationResults` to obtain only the individual execution status on each instance, which does not include the aggregated status across multiple instances.
-   *     - When a `RunCommand` or `InvokeCommand` call specifies a single instance:
-   *         - `DescribeInvocations` and `DescribeInvocationResults` have little difference and can be used interchangeably.
-   *     - When you need to view each execution record of a scheduled task or a task that runs automatically on startup (`RepeatMode=Period, EveryReboot`), you can only use `DescribeInvocationResults` paged query the historical execution records (you must specify `IncludeHistory=true`). `DescribeInvocations` returns only the latest task status.
-   *     - When you need to view the command content and parameters, only `DescribeInvocations` returns `CommandContent`.
+   * - When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the returned result is used as the token to query the next page. When paged query the next page, set the NextToken parameter to the NextToken value obtained from the previous returned result, and set MaxResults to limit the number of returned entries.
+   * - Differences between DescribeInvocations and DescribeInvocationResults:
+   *     - When a single RunCommand or InvokeCommand call specifies multiple instances:
+   *         - You can use DescribeInvocations to obtain the execution status of the task on each instance and the aggregated status of the task across multiple instances.
+   *         - You can use DescribeInvocationResults to obtain only the individual execution status on each instance, which does not include the aggregated status across multiple instances.
+   *     - When a single RunCommand or InvokeCommand call specifies only one instance:
+   *         - There is little difference between DescribeInvocations and DescribeInvocationResults. They are completely interchangeable.
+   *     - When you need to view the execution records of scheduled (periodic) tasks or tasks that are automatically executed upon startup (RepeatMode=Period, EveryReboot), you can only use DescribeInvocationResults to query the historical execution records (you must specify IncludeHistory=true). DescribeInvocations only returns the latest task status.
+   *     - When you need to view the content and parameters of a command, only DescribeInvocations returns CommandContent.
    * 
    * @param request - DescribeInvocationResultsRequest
    * @returns DescribeInvocationResultsResponse
@@ -16926,18 +16926,18 @@ export default class Client extends OpenApi {
    * Queries the execution list and status of Cloud Assistant commands.
    * 
    * @remarks
-   * - After you run a command, the command may not run successfully or produce the expected results. You must check the actual execution results based on the API response. The actual output prevails.
+   * - Running a command does not guarantee successful execution or expected results. Check the actual execution results in the API response. The actual output prevails.
    * - You can query the execution information of the last 30 days. A maximum of 10,000 execution records are retained.
-   * - You can subscribe to [Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain task results through events. This prevents frequent polling and improves efficiency.
-   * - When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query the next page, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries.
+   * - You can subscribe to [Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain task results through events. This avoids frequent polling and improves efficiency.
+   * - When paged query the first page, specify only MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response and specify MaxResults to limit the number of returned entries.
    * - Differences between DescribeInvocations and DescribeInvocationResults:
    *     - When multiple instances are specified in a single RunCommand or InvokeCommand call:
-   *         - You can use DescribeInvocations to obtain the execution status of the task on each instance and the aggregated status of the task across multiple instances.
-   *         - You can use DescribeInvocationResults to obtain only the individual execution status on each instance, which does not include the aggregated status across multiple instances.
+   *         - DescribeInvocations returns the execution status of the task on each instance and the aggregated status of the task across multiple instances.
+   *         - DescribeInvocationResults returns only the individual execution status on each instance and does not include the aggregated status across multiple instances.
    *     - When a single instance is specified in a single RunCommand or InvokeCommand call:
-   *         - DescribeInvocations and DescribeInvocationResults have little difference and can be used interchangeably.
-   *     - When you need to view the execution details of each run for scheduled (periodic) tasks or tasks that run automatically on boot (RepeatMode=Period, EveryReboot), you can only use DescribeInvocationResults to query the historical execution records (you must set IncludeHistory=true). DescribeInvocations returns only the latest task status.
-   *     - When you need to view the command content and parameters, only DescribeInvocations returns CommandContent.
+   *         - DescribeInvocations and DescribeInvocationResults have little difference and are fully interchangeable.
+   *     - To view the execution details of each run for scheduled (periodic) tasks or tasks that run automatically on boot (RepeatMode=Period, EveryReboot), you can only use DescribeInvocationResults to query historical execution records (by specifying IncludeHistory=true). DescribeInvocations returns only the latest task status.
+   *     - To view the content and parameters of a command, only DescribeInvocations returns CommandContent.
    * 
    * @param request - DescribeInvocationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17055,18 +17055,18 @@ export default class Client extends OpenApi {
    * Queries the execution list and status of Cloud Assistant commands.
    * 
    * @remarks
-   * - After you run a command, the command may not run successfully or produce the expected results. You must check the actual execution results based on the API response. The actual output prevails.
+   * - Running a command does not guarantee successful execution or expected results. Check the actual execution results in the API response. The actual output prevails.
    * - You can query the execution information of the last 30 days. A maximum of 10,000 execution records are retained.
-   * - You can subscribe to [Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain task results through events. This prevents frequent polling and improves efficiency.
-   * - When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query the next page, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries.
+   * - You can subscribe to [Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain task results through events. This avoids frequent polling and improves efficiency.
+   * - When paged query the first page, specify only MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response and specify MaxResults to limit the number of returned entries.
    * - Differences between DescribeInvocations and DescribeInvocationResults:
    *     - When multiple instances are specified in a single RunCommand or InvokeCommand call:
-   *         - You can use DescribeInvocations to obtain the execution status of the task on each instance and the aggregated status of the task across multiple instances.
-   *         - You can use DescribeInvocationResults to obtain only the individual execution status on each instance, which does not include the aggregated status across multiple instances.
+   *         - DescribeInvocations returns the execution status of the task on each instance and the aggregated status of the task across multiple instances.
+   *         - DescribeInvocationResults returns only the individual execution status on each instance and does not include the aggregated status across multiple instances.
    *     - When a single instance is specified in a single RunCommand or InvokeCommand call:
-   *         - DescribeInvocations and DescribeInvocationResults have little difference and can be used interchangeably.
-   *     - When you need to view the execution details of each run for scheduled (periodic) tasks or tasks that run automatically on boot (RepeatMode=Period, EveryReboot), you can only use DescribeInvocationResults to query the historical execution records (you must set IncludeHistory=true). DescribeInvocations returns only the latest task status.
-   *     - When you need to view the command content and parameters, only DescribeInvocations returns CommandContent.
+   *         - DescribeInvocations and DescribeInvocationResults have little difference and are fully interchangeable.
+   *     - To view the execution details of each run for scheduled (periodic) tasks or tasks that run automatically on boot (RepeatMode=Period, EveryReboot), you can only use DescribeInvocationResults to query historical execution records (by specifying IncludeHistory=true). DescribeInvocations returns only the latest task status.
+   *     - To view the content and parameters of a command, only DescribeInvocations returns CommandContent.
    * 
    * @param request - DescribeInvocationsRequest
    * @returns DescribeInvocationsResponse
@@ -17476,10 +17476,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of managed instances.
+   * Queries the list of managed instances.
    * 
    * @remarks
-   * When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response can be used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value returned in the previous response, and set MaxResults to limit the number of returned entries.
+   * When paged query the first page, you only need to set `MaxResults` to limit the number of returned entries. The `NextToken` value in the response serves as the token for querying the next page. When paged query subsequent pages, set the `NextToken` parameter to the `NextToken` value obtained from the previous response, and set `MaxResults` to limit the number of returned entries.
    * 
    * @param request - DescribeManagedInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17582,10 +17582,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of managed instances.
+   * Queries the list of managed instances.
    * 
    * @remarks
-   * When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response can be used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value returned in the previous response, and set MaxResults to limit the number of returned entries.
+   * When paged query the first page, you only need to set `MaxResults` to limit the number of returned entries. The `NextToken` value in the response serves as the token for querying the next page. When paged query subsequent pages, set the `NextToken` parameter to the `NextToken` value obtained from the previous response, and set `MaxResults` to limit the number of returned entries.
    * 
    * @param request - DescribeManagedInstancesRequest
    * @returns DescribeManagedInstancesResponse
@@ -17675,7 +17675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an Elastic Network Interface (ENI) by ENI ID.
+   * Queries the details of a specified elastic network interface (ENI).
    * 
    * @param request - DescribeNetworkInterfaceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17738,7 +17738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an Elastic Network Interface (ENI) by ENI ID.
+   * Queries the details of a specified elastic network interface (ENI).
    * 
    * @param request - DescribeNetworkInterfaceAttributeRequest
    * @returns DescribeNetworkInterfaceAttributeResponse
@@ -17827,13 +17827,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more Elastic Network Interface (ENI) resources.
+   * Queries the details of one or more Elastic Network Interfaces (ENIs).
    * 
    * @remarks
    * ## Operation description
-   * The `DescribeNetworkInterfaces` operation supports pagination by specifying the `MaxResults` or `NextToken` parameter. Usage notes:
-   * - When paged query the first page, you only need to specify `MaxResults` to limit the number of entries to return. The `NextToken` value in the response can be used as the token to query the next page.
-   * - When paged query subsequent pages, set the `NextToken` parameter to the `NextToken` value returned from the previous request, and specify `MaxResults` to limit the number of entries to return.
+   * The `DescribeNetworkInterfaces` operation supports paged queries by specifying the `MaxResults` or `NextToken` parameter. Usage notes:
+   * - Paged query the first page, specify only `MaxResults` to limit the number of entries returned. The `NextToken` value in the response can be used as the token paged query the next page.
+   * - Paged query subsequent pages, set the `NextToken` parameter to the `NextToken` value obtained from the previous response, and specify `MaxResults` to limit the number of entries returned.
    * 
    * @param request - DescribeNetworkInterfacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17960,13 +17960,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of one or more Elastic Network Interface (ENI) resources.
+   * Queries the details of one or more Elastic Network Interfaces (ENIs).
    * 
    * @remarks
    * ## Operation description
-   * The `DescribeNetworkInterfaces` operation supports pagination by specifying the `MaxResults` or `NextToken` parameter. Usage notes:
-   * - When paged query the first page, you only need to specify `MaxResults` to limit the number of entries to return. The `NextToken` value in the response can be used as the token to query the next page.
-   * - When paged query subsequent pages, set the `NextToken` parameter to the `NextToken` value returned from the previous request, and specify `MaxResults` to limit the number of entries to return.
+   * The `DescribeNetworkInterfaces` operation supports paged queries by specifying the `MaxResults` or `NextToken` parameter. Usage notes:
+   * - Paged query the first page, specify only `MaxResults` to limit the number of entries returned. The `NextToken` value in the response can be used as the token paged query the next page.
+   * - Paged query subsequent pages, set the `NextToken` parameter to the `NextToken` value obtained from the previous response, and specify `MaxResults` to limit the number of entries returned.
    * 
    * @param request - DescribeNetworkInterfacesRequest
    * @returns DescribeNetworkInterfacesResponse
@@ -18142,9 +18142,9 @@ export default class Client extends OpenApi {
    * Queries O&M windows.
    * 
    * @remarks
-   * Queries the configured maintenance policies. Each policy contains two maintenance attributes:
-   * - Maintenance time window: A time period you specify during which O&M operations are performed.
-   * - Maintenance action: The instance down handling policy you specify.
+   * Queries configured maintenance policies. A policy mainly includes the following two maintenance attributes:
+   * - Maintenance time window: a specified time period during which O&M operations are performed.
+   * - Maintenance action: a specified policy for handling instance downtime.
    * 
    * @param tmpReq - DescribePlanMaintenanceWindowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18212,9 +18212,9 @@ export default class Client extends OpenApi {
    * Queries O&M windows.
    * 
    * @remarks
-   * Queries the configured maintenance policies. Each policy contains two maintenance attributes:
-   * - Maintenance time window: A time period you specify during which O&M operations are performed.
-   * - Maintenance action: The instance down handling policy you specify.
+   * Queries configured maintenance policies. A policy mainly includes the following two maintenance attributes:
+   * - Maintenance time window: a specified time period during which O&M operations are performed.
+   * - Maintenance action: a specified policy for handling instance downtime.
    * 
    * @param request - DescribePlanMaintenanceWindowsRequest
    * @returns DescribePlanMaintenanceWindowsResponse
@@ -20236,13 +20236,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list and status of files delivered by Cloud Assistant.
+   * Queries the list and status of files sent by Cloud Assistant.
    * 
    * @remarks
    * ## Operation description:
-   * - After you deliver a file, the delivery is not necessarily successful. You must check the actual delivery result based on the return value of the API operation. The actual output result prevails.
-   * - You can query the execution information from the last 1 day. A maximum of 1,000 execution records can be retained.
-   * - When paged query the first page, you only need to specify `MaxResults` to limit the number of returned entries. The `NextToken` value in the response is used as the token to query the next page. When paged query the next page, set the `NextToken` parameter to the `NextToken` value returned from the previous request, and specify `MaxResults` to limit the number of returned entries.
+   * - Sending a file does not guarantee that the file is successfully sent. You must check the actual sending result based on the return values of this operation.
+   * - You can query the execution information of the last 1 day. A maximum of 1,000 execution records can be retained.
+   * - When paged query the first page, you only need to specify `MaxResults` to limit the number of returned entries. The `NextToken` value in the response can be used as the token to query the next page. When paged query the next page, set the `NextToken` parameter to the `NextToken` value returned from the previous request and specify `MaxResults` to limit the number of returned entries.
    * 
    * @param request - DescribeSendFileResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20333,13 +20333,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list and status of files delivered by Cloud Assistant.
+   * Queries the list and status of files sent by Cloud Assistant.
    * 
    * @remarks
    * ## Operation description:
-   * - After you deliver a file, the delivery is not necessarily successful. You must check the actual delivery result based on the return value of the API operation. The actual output result prevails.
-   * - You can query the execution information from the last 1 day. A maximum of 1,000 execution records can be retained.
-   * - When paged query the first page, you only need to specify `MaxResults` to limit the number of returned entries. The `NextToken` value in the response is used as the token to query the next page. When paged query the next page, set the `NextToken` parameter to the `NextToken` value returned from the previous request, and specify `MaxResults` to limit the number of returned entries.
+   * - Sending a file does not guarantee that the file is successfully sent. You must check the actual sending result based on the return values of this operation.
+   * - You can query the execution information of the last 1 day. A maximum of 1,000 execution records can be retained.
+   * - When paged query the first page, you only need to specify `MaxResults` to limit the number of returned entries. The `NextToken` value in the response can be used as the token to query the next page. When paged query the next page, set the `NextToken` parameter to the `NextToken` value returned from the previous request and specify `MaxResults` to limit the number of returned entries.
    * 
    * @param request - DescribeSendFileResultsRequest
    * @returns DescribeSendFileResultsResponse
@@ -20350,10 +20350,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about one or more snapshot-consistent groups, such as the status, the associated instance ID, and the snapshot creation progress.
+   * Queries the details of one or more snapshot-consistent groups, such as the status, the associated instance ID, and the snapshot creation progress.
    * 
    * @remarks
-   * `InstanceId`, `SnapshotGroupId.N`, and `Status.N` are not required request parameters, but you can use them to build filter logic. The logical relationship between these parameters is AND.
+   * `InstanceId`, `SnapshotGroupId.N`, and `Status.N` are not required request parameters, but you can use them to build filter logic. The parameters are combined with the logical AND operator.
    * 
    * @param request - DescribeSnapshotGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20436,10 +20436,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about one or more snapshot-consistent groups, such as the status, the associated instance ID, and the snapshot creation progress.
+   * Queries the details of one or more snapshot-consistent groups, such as the status, the associated instance ID, and the snapshot creation progress.
    * 
    * @remarks
-   * `InstanceId`, `SnapshotGroupId.N`, and `Status.N` are not required request parameters, but you can use them to build filter logic. The logical relationship between these parameters is AND.
+   * `InstanceId`, `SnapshotGroupId.N`, and `Status.N` are not required request parameters, but you can use them to build filter logic. The parameters are combined with the logical AND operator.
    * 
    * @param request - DescribeSnapshotGroupsRequest
    * @returns DescribeSnapshotGroupsResponse
@@ -20450,12 +20450,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the snapshot chains of disks. A snapshot chain consists of all snapshots of a disk. Each disk has one snapshot chain.
+   * Queries the snapshot chains of disks. A snapshot chain consists of all snapshots of a single disk, and each disk corresponds to one snapshot chain.
    * 
    * @remarks
    * ## Operation description
    * When you call this operation, take note of the following items:
-   * - Request parameters such as `RegionId`, `DiskIds`, and `InstanceId` act as filters. The logical AND operator is applied between these parameters.  
+   * - Request parameters such as `RegionId`, `DiskIds`, and `InstanceId` act as filters and are connected by the logical AND operator.  
    * - If you do not specify any parameters, the filters do not take effect. If both `DiskIds` and `SnapshotLinkIds` are set to empty arrays, the filters are considered valid, but an empty result is returned.
    * 
    * @param request - DescribeSnapshotLinksRequest
@@ -20531,12 +20531,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the snapshot chains of disks. A snapshot chain consists of all snapshots of a disk. Each disk has one snapshot chain.
+   * Queries the snapshot chains of disks. A snapshot chain consists of all snapshots of a single disk, and each disk corresponds to one snapshot chain.
    * 
    * @remarks
    * ## Operation description
    * When you call this operation, take note of the following items:
-   * - Request parameters such as `RegionId`, `DiskIds`, and `InstanceId` act as filters. The logical AND operator is applied between these parameters.  
+   * - Request parameters such as `RegionId`, `DiskIds`, and `InstanceId` act as filters and are connected by the logical AND operator.  
    * - If you do not specify any parameters, the filters do not take effect. If both `DiskIds` and `SnapshotLinkIds` are set to empty arrays, the filters are considered valid, but an empty result is returned.
    * 
    * @param request - DescribeSnapshotLinksRequest
@@ -20700,38 +20700,38 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of snapshots for cloud disks, including information such as snapshot status, the remaining time for snapshots being created, and the retention period of automatic snapshots.
+   * Queries the list of snapshots for a disk, such as the snapshot status, the remaining time for snapshot creation, and the retention period of automatic snapshots.
    * 
    * @remarks
-   * InstanceId, DiskId, and SnapshotIds are not required request parameters, but you can use them to build filter logic. The logical relationship between these parameters is AND.
-   * When you call API operations by using Alibaba Cloud CLI, the values of request parameters of different data types must follow specific format requirements. For details, see [CLI parameter format description](https://help.aliyun.com/document_detail/110340.html).
-   * Request examples:
+   * `InstanceId`, `DiskId`, and `SnapshotIds` are not required request parameters, but you can use them to build filter logic. The logical relationship between these parameters is AND.
+   * When you invoke API operations by using Cloud Assistant CLI, the values of request parameters of different data types must follow specific format requirements. For details, see [CLI parameter format specifications](https://help.aliyun.com/document_detail/110340.html).
+   * Sample requests:
    * <details>
-   * <summary>Query the list of snapshots for all cloud disks of an ECS instance in the China (Hangzhou) region</summary>
+   * <summary>Query the list of snapshots for all disks of an ECS instance in the China (Hangzhou) region</summary>
    * ```
    * RegionId:  cn-hangzhou,   // Set the region to China (Hangzhou).
-   * InstanceId:  i-bp1fh7by6d9mw7zr****   // Set the ID of the instance to query.
+   * InstanceId:  i-bp1fh7by6d9mw7zr****   // Set the ID of the instance to be queried.
    * ```
    * </details>
    * <details>
-   * <summary>Query the snapshot information of a specific cloud disk in the China (Hangzhou) region</summary>
+   * <summary>Query the snapshot information of a specific disk in the China (Hangzhou) region</summary>
    * ```
    * RegionId:  cn-hangzhou,   // Set the region to China (Hangzhou).
-   * DiskId:   d-bp10e7ej8z743dmu****   // Set the ID of the cloud disk to query.
+   * DiskId:   d-bp10e7ej8z743dmu****   // Set the ID of the disk to be queried.
    * ```
    * </details>
    * <details>
    * <summary>Query the information of two snapshots by snapshot ID in the China (Hangzhou) region</summary>
    * ```
    * RegionId:  cn-hangzhou,   // Set the region to China (Hangzhou).
-   * SnapshotIds:   ["d-bp10e7ej8z743dmu****", "s-bp19vd1lorzgzt2s****"]   // Set the array of snapshot IDs to query.
+   * SnapshotIds:   ["d-bp10e7ej8z743dmu****", "s-bp19vd1lorzgzt2s****"]   // Set the array of snapshot IDs to be queried.
    * ```
    * </details>
    * <details>
    * <summary>Query the information of snapshots created after a specific point in time in the China (Hangzhou) region</summary>
    * ```
    * RegionId:  cn-hangzhou,   // Set the region to China (Hangzhou).
-   * Filter.1.Key:   CreationStartTime,   // Set the array of snapshot IDs to query.
+   * Filter.1.Key:   CreationStartTime,   // Set the array of snapshot IDs to be queried.
    * Filter.1.Value:   2024-11-27T00:00Z.
    * ```
    * </details>
@@ -20861,38 +20861,38 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of snapshots for cloud disks, including information such as snapshot status, the remaining time for snapshots being created, and the retention period of automatic snapshots.
+   * Queries the list of snapshots for a disk, such as the snapshot status, the remaining time for snapshot creation, and the retention period of automatic snapshots.
    * 
    * @remarks
-   * InstanceId, DiskId, and SnapshotIds are not required request parameters, but you can use them to build filter logic. The logical relationship between these parameters is AND.
-   * When you call API operations by using Alibaba Cloud CLI, the values of request parameters of different data types must follow specific format requirements. For details, see [CLI parameter format description](https://help.aliyun.com/document_detail/110340.html).
-   * Request examples:
+   * `InstanceId`, `DiskId`, and `SnapshotIds` are not required request parameters, but you can use them to build filter logic. The logical relationship between these parameters is AND.
+   * When you invoke API operations by using Cloud Assistant CLI, the values of request parameters of different data types must follow specific format requirements. For details, see [CLI parameter format specifications](https://help.aliyun.com/document_detail/110340.html).
+   * Sample requests:
    * <details>
-   * <summary>Query the list of snapshots for all cloud disks of an ECS instance in the China (Hangzhou) region</summary>
+   * <summary>Query the list of snapshots for all disks of an ECS instance in the China (Hangzhou) region</summary>
    * ```
    * RegionId:  cn-hangzhou,   // Set the region to China (Hangzhou).
-   * InstanceId:  i-bp1fh7by6d9mw7zr****   // Set the ID of the instance to query.
+   * InstanceId:  i-bp1fh7by6d9mw7zr****   // Set the ID of the instance to be queried.
    * ```
    * </details>
    * <details>
-   * <summary>Query the snapshot information of a specific cloud disk in the China (Hangzhou) region</summary>
+   * <summary>Query the snapshot information of a specific disk in the China (Hangzhou) region</summary>
    * ```
    * RegionId:  cn-hangzhou,   // Set the region to China (Hangzhou).
-   * DiskId:   d-bp10e7ej8z743dmu****   // Set the ID of the cloud disk to query.
+   * DiskId:   d-bp10e7ej8z743dmu****   // Set the ID of the disk to be queried.
    * ```
    * </details>
    * <details>
    * <summary>Query the information of two snapshots by snapshot ID in the China (Hangzhou) region</summary>
    * ```
    * RegionId:  cn-hangzhou,   // Set the region to China (Hangzhou).
-   * SnapshotIds:   ["d-bp10e7ej8z743dmu****", "s-bp19vd1lorzgzt2s****"]   // Set the array of snapshot IDs to query.
+   * SnapshotIds:   ["d-bp10e7ej8z743dmu****", "s-bp19vd1lorzgzt2s****"]   // Set the array of snapshot IDs to be queried.
    * ```
    * </details>
    * <details>
    * <summary>Query the information of snapshots created after a specific point in time in the China (Hangzhou) region</summary>
    * ```
    * RegionId:  cn-hangzhou,   // Set the region to China (Hangzhou).
-   * Filter.1.Key:   CreationStartTime,   // Set the array of snapshot IDs to query.
+   * Filter.1.Key:   CreationStartTime,   // Set the array of snapshot IDs to be queried.
    * Filter.1.Value:   2024-11-27T00:00Z.
    * ```
    * </details>
@@ -21688,7 +21688,7 @@ export default class Client extends OpenApi {
    * Queries the session history of Session Manager.
    * 
    * @remarks
-   * You can query Session Manager session records created within the last 30 days. A maximum of 1,000 successful records are retained.
+   * You can query Session Manager session records created within the last 30 days. The maximum number of retained successful session records is 1,000.
    * 
    * @param request - DescribeTerminalSessionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21754,7 +21754,7 @@ export default class Client extends OpenApi {
    * Queries the session history of Session Manager.
    * 
    * @remarks
-   * You can query Session Manager session records created within the last 30 days. A maximum of 1,000 successful records are retained.
+   * You can query Session Manager session records created within the last 30 days. The maximum number of retained successful session records is 1,000.
    * 
    * @param request - DescribeTerminalSessionsRequest
    * @returns DescribeTerminalSessionsResponse
@@ -22277,7 +22277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries virtual storage channels (VSCs) and supports filtering by VSC ID, instance, status, and tag.
+   * Queries virtual storage channels (VSCs). You can filter VSCs by VSC ID, instance, status, tag, and other conditions.
    * 
    * @remarks
    * If you specify a tag key (Tag.N.Key) but do not specify a tag value (Tag.N.Value), all key-value pairs that match the tag key are queried. If you specify a tag key-value pair, the tags that are an exact match for the key-value pair are queried.
@@ -22355,7 +22355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries virtual storage channels (VSCs) and supports filtering by VSC ID, instance, status, and tag.
+   * Queries virtual storage channels (VSCs). You can filter VSCs by VSC ID, instance, status, tag, and other conditions.
    * 
    * @remarks
    * If you specify a tag key (Tag.N.Key) but do not specify a tag value (Tag.N.Value), all key-value pairs that match the tag key are queried. If you specify a tag key-value pair, the tags that are an exact match for the key-value pair are queried.
@@ -22825,7 +22825,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * If you are concerned that a created activation code may be leaked, you can call this operation to disable the activation code. After the activation code is disabled, it can no longer be used to register new managed instances. However, managed instances that are already registered are not affected.
+   * If you are concerned that a created activation code may be leaked, you can call this operation to disable the activation code. After the activation code is disabled, it can no longer be used to register new managed instances, but existing managed instances are not affected.
    * 
    * @param request - DisableActivationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22884,7 +22884,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * If you are concerned that a created activation code may be leaked, you can call this operation to disable the activation code. After the activation code is disabled, it can no longer be used to register new managed instances. However, managed instances that are already registered are not affected.
+   * If you are concerned that a created activation code may be leaked, you can call this operation to disable the activation code. After the activation code is disabled, it can no longer be used to register new managed instances, but existing managed instances are not affected.
    * 
    * @param request - DisableActivationRequest
    * @returns DisableActivationResponse
@@ -24672,10 +24672,10 @@ export default class Client extends OpenApi {
    * Queries the status of Cloud Assistant plugins on instances.
    * 
    * @remarks
-   * - The Cloud Assistant Agent version on the instance must be at least the following version for the Cloud Assistant plugin status to be queried:
-   *     - Linux: 2.2.3.344
-   *     - Windows: 2.1.3.344
-   * - When performing a paged query for the first page, set only `MaxResults` to limit the number of entries returned. The `NextToken` value in the response serves as the credential for querying subsequent pages. When querying subsequent pages, set the `NextToken` parameter to the `NextToken` value obtained from the previous response, and set `MaxResults` to limit the number of entries returned. Settings for paging are handled through these two parameters.
+   * - You can query the status of Cloud Assistant plugins on an instance only if the Cloud Assistant Agent version on the instance is later than or equal to the following versions:
+   *     - Linux: 2.2.3.344.
+   *     - Windows: 2.1.3.344.
+   * - When you perform a paging query for the first page, you only need to apply the `MaxResults` Settings to limit the number of returned entries. The `NextToken` value in the response serves as the token for querying subsequent pages. To query the next page, set the `NextToken` parameter to the `NextToken` value obtained from the previous response as the query token, and apply the `MaxResults` Settings to limit the number of returned entries.
    * 
    * @param request - ListPluginStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24753,10 +24753,10 @@ export default class Client extends OpenApi {
    * Queries the status of Cloud Assistant plugins on instances.
    * 
    * @remarks
-   * - The Cloud Assistant Agent version on the instance must be at least the following version for the Cloud Assistant plugin status to be queried:
-   *     - Linux: 2.2.3.344
-   *     - Windows: 2.1.3.344
-   * - When performing a paged query for the first page, set only `MaxResults` to limit the number of entries returned. The `NextToken` value in the response serves as the credential for querying subsequent pages. When querying subsequent pages, set the `NextToken` parameter to the `NextToken` value obtained from the previous response, and set `MaxResults` to limit the number of entries returned. Settings for paging are handled through these two parameters.
+   * - You can query the status of Cloud Assistant plugins on an instance only if the Cloud Assistant Agent version on the instance is later than or equal to the following versions:
+   *     - Linux: 2.2.3.344.
+   *     - Windows: 2.1.3.344.
+   * - When you perform a paging query for the first page, you only need to apply the `MaxResults` Settings to limit the number of returned entries. The `NextToken` value in the response serves as the token for querying subsequent pages. To query the next page, set the `NextToken` parameter to the `NextToken` value obtained from the previous response as the query token, and apply the `MaxResults` Settings to limit the number of returned entries.
    * 
    * @param request - ListPluginStatusRequest
    * @returns ListPluginStatusResponse
@@ -25074,10 +25074,10 @@ export default class Client extends OpenApi {
    * Modifies an automatic snapshot policy, such as the snapshot creation time, repeat days, and retention period.
    * 
    * @remarks
-   * When you call this operation, note the following items:
-   * - You cannot modify system policies.
-   * - After you modify an automatic snapshot policy, the disks to which the policy is applied immediately execute the modified automatic snapshot policy.
-   * - If cross-region replication is enabled for snapshots and encryption parameters are not configured, encrypted snapshots are copied and encrypted by using the service key of the destination region by default.
+   * When you call this operation, take note of the following items:
+   * - System policies cannot be modified.
+   * - After you modify an automatic snapshot policy, the modified policy immediately takes effect on the cloud disks to which the policy is applied.
+   * - If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied and encrypted by using the service key of the destination region by default.
    * 
    * @param request - ModifyAutoSnapshotPolicyExRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25163,10 +25163,10 @@ export default class Client extends OpenApi {
    * Modifies an automatic snapshot policy, such as the snapshot creation time, repeat days, and retention period.
    * 
    * @remarks
-   * When you call this operation, note the following items:
-   * - You cannot modify system policies.
-   * - After you modify an automatic snapshot policy, the disks to which the policy is applied immediately execute the modified automatic snapshot policy.
-   * - If cross-region replication is enabled for snapshots and encryption parameters are not configured, encrypted snapshots are copied and encrypted by using the service key of the destination region by default.
+   * When you call this operation, take note of the following items:
+   * - System policies cannot be modified.
+   * - After you modify an automatic snapshot policy, the modified policy immediately takes effect on the cloud disks to which the policy is applied.
+   * - If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied and encrypted by using the service key of the destination region by default.
    * 
    * @param request - ModifyAutoSnapshotPolicyExRequest
    * @returns ModifyAutoSnapshotPolicyExResponse
@@ -26184,17 +26184,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Switches the billing method of data cloud disks mounted on a subscription ECS instance between pay-as-you-go and subscription.
+   * Switches the billing method of data disks attached to a subscription ECS instance between pay-as-you-go and subscription.
    * 
    * @remarks
-   * Before changing the billing method of a data cloud disk, carefully read [Change the billing method of a cloud disk](https://help.aliyun.com/document_detail/145018.html).
+   * Before you change the billing method of data disks, carefully read [Change the billing method of disks](https://help.aliyun.com/document_detail/145018.html).
    * When you call this operation, note the following items:
-   * - You cannot change the billing method of a data cloud disk mounted on a pay-as-you-go instance. Pay-as-you-go instances only support pay-as-you-go cloud disks.
-   * - The instance to which the data cloud disk is attached must not be stopped due to expiration.
-   * - Refunds for the price difference after the billing method is changed are returned to your original payment method. Used vouchers are not refunded.
-   * - After the billing method of a cloud disk is successfully changed, you cannot change it again within 5 minutes.  
-   * <props="china">- Cloud disks with the multi-attach feature enabled only support the pay-as-you-go billing method and cannot be changed to the subscription billing method.
-   * After you change the billing method, automatic payment is enabled by default. You must ensure that your account balance is sufficient. Otherwise, an abnormal order is generated and can only be canceled. If your account balance is insufficient, you can set the AutoPay parameter to false. In this case, a normal unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and pay the order on the <props="china"><ph>[My Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Orders](https://usercenter2-intl.aliyun.com/order/list)</ph> page.
+   * - You cannot change the billing method of data disks attached to pay-as-you-go instances. Pay-as-you-go instances only support pay-as-you-go disks.
+   * - The instance to which the data disk is attached must not be stopped due to expiration.
+   * - Refunds for price differences after the billing method is changed are returned to your original payment method. Used vouchers are not refunded.
+   * - After the billing method of a disk is changed, you cannot change it again within 5 minutes.  
+   * <props="china">- Disks with the multi-attach feature enabled only support the pay-as-you-go billing method and cannot be switched to the subscription billing method.
+   * After you change the billing method, automatic deduction is enabled by default. You must ensure that your account balance is sufficient. Otherwise, an abnormal order is generated and can only be canceled. If your account balance is insufficient, you can set the AutoPay parameter to false. In this case, a normal unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and pay the order on the <props="china"><ph>[My Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Order Management](https://usercenter2-intl.aliyun.com/order/list)</ph> page.
    * 
    * @param request - ModifyDiskChargeTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26261,17 +26261,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Switches the billing method of data cloud disks mounted on a subscription ECS instance between pay-as-you-go and subscription.
+   * Switches the billing method of data disks attached to a subscription ECS instance between pay-as-you-go and subscription.
    * 
    * @remarks
-   * Before changing the billing method of a data cloud disk, carefully read [Change the billing method of a cloud disk](https://help.aliyun.com/document_detail/145018.html).
+   * Before you change the billing method of data disks, carefully read [Change the billing method of disks](https://help.aliyun.com/document_detail/145018.html).
    * When you call this operation, note the following items:
-   * - You cannot change the billing method of a data cloud disk mounted on a pay-as-you-go instance. Pay-as-you-go instances only support pay-as-you-go cloud disks.
-   * - The instance to which the data cloud disk is attached must not be stopped due to expiration.
-   * - Refunds for the price difference after the billing method is changed are returned to your original payment method. Used vouchers are not refunded.
-   * - After the billing method of a cloud disk is successfully changed, you cannot change it again within 5 minutes.  
-   * <props="china">- Cloud disks with the multi-attach feature enabled only support the pay-as-you-go billing method and cannot be changed to the subscription billing method.
-   * After you change the billing method, automatic payment is enabled by default. You must ensure that your account balance is sufficient. Otherwise, an abnormal order is generated and can only be canceled. If your account balance is insufficient, you can set the AutoPay parameter to false. In this case, a normal unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and pay the order on the <props="china"><ph>[My Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Orders](https://usercenter2-intl.aliyun.com/order/list)</ph> page.
+   * - You cannot change the billing method of data disks attached to pay-as-you-go instances. Pay-as-you-go instances only support pay-as-you-go disks.
+   * - The instance to which the data disk is attached must not be stopped due to expiration.
+   * - Refunds for price differences after the billing method is changed are returned to your original payment method. Used vouchers are not refunded.
+   * - After the billing method of a disk is changed, you cannot change it again within 5 minutes.  
+   * <props="china">- Disks with the multi-attach feature enabled only support the pay-as-you-go billing method and cannot be switched to the subscription billing method.
+   * After you change the billing method, automatic deduction is enabled by default. You must ensure that your account balance is sufficient. Otherwise, an abnormal order is generated and can only be canceled. If your account balance is insufficient, you can set the AutoPay parameter to false. In this case, a normal unpaid order is generated. You can log on to the Alibaba Cloud **Expenses and Costs** console and pay the order on the <props="china"><ph>[My Orders](https://usercenter2.aliyun.com/order/list)</ph><props="intl"><ph>[Order Management](https://usercenter2-intl.aliyun.com/order/list)</ph> page.
    * 
    * @param request - ModifyDiskChargeTypeRequest
    * @returns ModifyDiskChargeTypeResponse
@@ -26448,25 +26448,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the category of a disk or modifies the performance level (PL) of an enterprise SSD. The category cannot be changed for regional Enterprise SSD (ESSD), basic disks, elastic ephemeral disks, and local disks.
+   * Modifies the category of a disk or the performance level (PL) of an enterprise SSD. Category changes are not supported for regional Enterprise SSD (ESSD), basic disks, elastic ephemeral disks, and local disks.
    * 
    * @remarks
-   * <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/disk/detail) of disks.
-   * To minimize the impact on your business, upgrade or downgrade disks during off-peak hours.
+   * <props="china">Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/disk/detail) of disks.
+   * To minimize the impact on your business, change the specifications during off-peak hours.
    * When you call this operation, take note of the following items:
    * - Modify the performance level (PL) of an enterprise SSD:
-   *     - You can only upgrade the performance level (PL) of a subscription enterprise SSD.
-   *     - You can upgrade or downgrade the performance level (PL) of a pay-as-you-go enterprise SSD, but you cannot downgrade to PL0.
-   *     - The enterprise SSD must be in the **in use** (In_use) or **Available** state.
-   *     - If the enterprise SSD is attached to an ECS instance, the instance must be in the **Running** or **Stopped** state, and cannot be expired or have an overdue payment.
-   *     - The ESSD performance level is limited by capacity. If you cannot upgrade the performance level (PL), you can expand the disk ([ResizeDisk](https://help.aliyun.com/document_detail/25522.html)) and try again. For more information, see [enterprise SSD](https://help.aliyun.com/document_detail/122389.html).
+   *     - Subscription enterprise SSDs support only performance level (PL) upgrades.
+   *     - Pay-as-you-go enterprise SSDs support performance level (PL) upgrades and downgrades, but do not support downgrades to PL0.
+   *     - The enterprise SSD must be in the **In Use** (In_use) or **Available** (Available) state.
+   *     - If the enterprise SSD is attached to an ECS instance, the instance must be in the **Running** (Running) or **Stopped** (Stopped) state. The instance cannot be expired or have an overdue payment.
+   *     - The performance level (PL) of an enterprise SSD is limited by its capacity. If you cannot upgrade the performance level (PL), expand the disk by calling the [ResizeDisk](https://help.aliyun.com/document_detail/25522.html) operation and try again. For more information, see [enterprise SSDs](https://help.aliyun.com/document_detail/122389.html).
    * - For precautions on changing the category of a disk, see [Change the category of a disk](~~161980#section_s4a_to0_1jx~~).
-   * - For information about the disk categories that support specification changes, see [Disk categories that support specification changes](~~161980#eb8bb54032nho~~).
+   * - For the upgrade and downgrade support of different disk categories, see [Upgrade and downgrade support for disks](~~161980#eb8bb54032nho~~).
    * <props="china">* Disks with the multi-attach attribute enabled do not support specification changes.
-   * After the specifications of a disk are changed, the billing changes are as follows:
-   * - Pay-as-you-go disks: Billed based on the new disk category.
-   * - Subscription disks: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
-   * For more information about disk billing, see [Block storage billing](https://help.aliyun.com/document_detail/179022.html).
+   * After the specifications of a cloud disk are changed, the billing changes are as follows:
+   * - Pay-as-you-go cloud disks: Billed based on the new cloud disk category.
+   * - Subscription cloud disks: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old specifications and the remaining days (from 00:00 the next day to the end of the validity period).
+   * For more information about cloud disk billing, see [Block Storage billing](https://help.aliyun.com/document_detail/179022.html).
    * 
    * @param request - ModifyDiskSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26537,25 +26537,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the category of a disk or modifies the performance level (PL) of an enterprise SSD. The category cannot be changed for regional Enterprise SSD (ESSD), basic disks, elastic ephemeral disks, and local disks.
+   * Modifies the category of a disk or the performance level (PL) of an enterprise SSD. Category changes are not supported for regional Enterprise SSD (ESSD), basic disks, elastic ephemeral disks, and local disks.
    * 
    * @remarks
-   * <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/disk/detail) of disks.
-   * To minimize the impact on your business, upgrade or downgrade disks during off-peak hours.
+   * <props="china">Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/disk/detail) of disks.
+   * To minimize the impact on your business, change the specifications during off-peak hours.
    * When you call this operation, take note of the following items:
    * - Modify the performance level (PL) of an enterprise SSD:
-   *     - You can only upgrade the performance level (PL) of a subscription enterprise SSD.
-   *     - You can upgrade or downgrade the performance level (PL) of a pay-as-you-go enterprise SSD, but you cannot downgrade to PL0.
-   *     - The enterprise SSD must be in the **in use** (In_use) or **Available** state.
-   *     - If the enterprise SSD is attached to an ECS instance, the instance must be in the **Running** or **Stopped** state, and cannot be expired or have an overdue payment.
-   *     - The ESSD performance level is limited by capacity. If you cannot upgrade the performance level (PL), you can expand the disk ([ResizeDisk](https://help.aliyun.com/document_detail/25522.html)) and try again. For more information, see [enterprise SSD](https://help.aliyun.com/document_detail/122389.html).
+   *     - Subscription enterprise SSDs support only performance level (PL) upgrades.
+   *     - Pay-as-you-go enterprise SSDs support performance level (PL) upgrades and downgrades, but do not support downgrades to PL0.
+   *     - The enterprise SSD must be in the **In Use** (In_use) or **Available** (Available) state.
+   *     - If the enterprise SSD is attached to an ECS instance, the instance must be in the **Running** (Running) or **Stopped** (Stopped) state. The instance cannot be expired or have an overdue payment.
+   *     - The performance level (PL) of an enterprise SSD is limited by its capacity. If you cannot upgrade the performance level (PL), expand the disk by calling the [ResizeDisk](https://help.aliyun.com/document_detail/25522.html) operation and try again. For more information, see [enterprise SSDs](https://help.aliyun.com/document_detail/122389.html).
    * - For precautions on changing the category of a disk, see [Change the category of a disk](~~161980#section_s4a_to0_1jx~~).
-   * - For information about the disk categories that support specification changes, see [Disk categories that support specification changes](~~161980#eb8bb54032nho~~).
+   * - For the upgrade and downgrade support of different disk categories, see [Upgrade and downgrade support for disks](~~161980#eb8bb54032nho~~).
    * <props="china">* Disks with the multi-attach attribute enabled do not support specification changes.
-   * After the specifications of a disk are changed, the billing changes are as follows:
-   * - Pay-as-you-go disks: Billed based on the new disk category.
-   * - Subscription disks: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old configurations and the remaining days (from 00:00 the next day to the end of the validity period).
-   * For more information about disk billing, see [Block storage billing](https://help.aliyun.com/document_detail/179022.html).
+   * After the specifications of a cloud disk are changed, the billing changes are as follows:
+   * - Pay-as-you-go cloud disks: Billed based on the new cloud disk category.
+   * - Subscription cloud disks: Within the billing cycle, the supplementary fee is calculated based on the price difference between the new and old specifications and the remaining days (from 00:00 the next day to the end of the validity period).
+   * For more information about cloud disk billing, see [Block Storage billing](https://help.aliyun.com/document_detail/179022.html).
    * 
    * @param request - ModifyDiskSpecRequest
    * @returns ModifyDiskSpecResponse
@@ -27033,7 +27033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of a custom image, such as the image family, name, boot mode, status, and NVMe support, by calling the ModifyImageAttribute operation with parameters such as ImageId and ImageFamily.
+   * Modifies the attributes of a custom image, such as the image family, name, boot mode, status, and NVMe support.
    * 
    * @param request - ModifyImageAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27116,7 +27116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of a custom image, such as the image family, name, boot mode, status, and NVMe support, by calling the ModifyImageAttribute operation with parameters such as ImageId and ImageFamily.
+   * Modifies the attributes of a custom image, such as the image family, name, boot mode, status, and NVMe support.
    * 
    * @param request - ModifyImageAttributeRequest
    * @returns ModifyImageAttributeResponse
@@ -27205,17 +27205,17 @@ export default class Client extends OpenApi {
    * Manages image sharing permissions. You can share your custom images with other Alibaba Cloud accounts or publish them as community images for others to use.
    * 
    * @remarks
-   * Before you call this operation, read [Share a custom image](https://help.aliyun.com/document_detail/25463.html).
+   * Before you call this operation, carefully read [Share custom images](https://help.aliyun.com/document_detail/25463.html).
    * When you call this operation, take note of the following sharing rules:
-   * - **Sharing limits**: You can share only custom images that you created under your account. Each image can be shared with up to 50 Alibaba Cloud accounts, and up to 10 Alibaba Cloud accounts at a time.
-   * - **Impact on instances**: After an ECS instance is created from a shared image by calling [RunInstances](https://help.aliyun.com/document_detail/63440.html), if the image owner cancels the image sharing or deletes the custom image ([DeleteImage](https://help.aliyun.com/document_detail/25537.html)), the instance cannot reinitialize its system disk ([ReInitDisk](https://help.aliyun.com/document_detail/25519.html)).
-   * >Notice: Rule change for sharing encrypted images in Elastic Compute Service (ECS): Only images encrypted with a customer master key (CMK) can be shared. Images encrypted with a service key can no longer be shared and will return an error during sharing. If you have images encrypted with a service key and plan to share them, use the copy image operation (CopyImage) to change the encryption key to a CMK.
-   * To publish or unpublish community images, take note of the following:
-   * - **Responsibilities and agreements**: Community image owners are responsible for the quality and iterative updates of their images. Alibaba Cloud provides only platform support. Before publishing, make sure that you have read and signed the community image agreement. Otherwise, publishing is not allowed. For more information, see [Publish a community image](https://help.aliyun.com/document_detail/208370.html).
+   * - **Sharing limits**: You can only share custom images created under your own account. Each image can be shared with up to 50 Alibaba Cloud accounts, and up to 10 Alibaba Cloud accounts at a time.
+   * - **Instance impact**: After you create an ECS instance by using a shared image ([RunInstances](https://help.aliyun.com/document_detail/63440.html)), if the owner of the custom image removes the image sharing relationship or deletes the custom image ([DeleteImage](https://help.aliyun.com/document_detail/25537.html)), the initialization of the system disk of the instance ([ReInitDisk](https://help.aliyun.com/document_detail/25519.html)) will fail.
+   * >Notice: Changes to the rules for sharing encrypted images in Elastic Compute Service (ECS): Only images encrypted by using a customer master key (CMK) can be shared. Images with service key encryption can no longer be shared, and an error is reported if you attempt to share them. If you have images with service key encryption and plan to share them, perform image replication (CopyImage) and change the image encryption key to a CMK.
+   * When you publish or unpublish a community image, take note of the following items:
+   * - **Responsibilities and agreements**: The owner of a community image is responsible for its quality and iterative updates. Alibaba Cloud only provides platform support. Before publishing, make sure that you have read and signed the community image agreement. Otherwise, you are not allowed to publish the image. For more information, see [Publish a community image](https://help.aliyun.com/document_detail/208370.html).
    * - **Encryption limits**: Encrypted images cannot be published as community images.
-   * - **Public access**: Community images are fully public. All Alibaba Cloud accounts in the region where the image resides can use the image.
-   * - **Feature limits**: Community images do not support sharing, export, or copy.
-   * - **Impact of unpublishing**: After a community image is unpublished, it is no longer publicly available to other Alibaba Cloud accounts. However, existing sharing relationships are retained.
+   * - **Public availability**: Community images are fully public and can be used by all Alibaba Cloud accounts in the region where the images reside.
+   * - **Feature limits**: Community images cannot be shared, exported, or copied.
+   * - **Impact of unpublishing**: After a community image is unpublished, it is no longer public to other Alibaba Cloud accounts, but existing sharing relationships are retained.
    * 
    * @param request - ModifyImageSharePermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27289,17 +27289,17 @@ export default class Client extends OpenApi {
    * Manages image sharing permissions. You can share your custom images with other Alibaba Cloud accounts or publish them as community images for others to use.
    * 
    * @remarks
-   * Before you call this operation, read [Share a custom image](https://help.aliyun.com/document_detail/25463.html).
+   * Before you call this operation, carefully read [Share custom images](https://help.aliyun.com/document_detail/25463.html).
    * When you call this operation, take note of the following sharing rules:
-   * - **Sharing limits**: You can share only custom images that you created under your account. Each image can be shared with up to 50 Alibaba Cloud accounts, and up to 10 Alibaba Cloud accounts at a time.
-   * - **Impact on instances**: After an ECS instance is created from a shared image by calling [RunInstances](https://help.aliyun.com/document_detail/63440.html), if the image owner cancels the image sharing or deletes the custom image ([DeleteImage](https://help.aliyun.com/document_detail/25537.html)), the instance cannot reinitialize its system disk ([ReInitDisk](https://help.aliyun.com/document_detail/25519.html)).
-   * >Notice: Rule change for sharing encrypted images in Elastic Compute Service (ECS): Only images encrypted with a customer master key (CMK) can be shared. Images encrypted with a service key can no longer be shared and will return an error during sharing. If you have images encrypted with a service key and plan to share them, use the copy image operation (CopyImage) to change the encryption key to a CMK.
-   * To publish or unpublish community images, take note of the following:
-   * - **Responsibilities and agreements**: Community image owners are responsible for the quality and iterative updates of their images. Alibaba Cloud provides only platform support. Before publishing, make sure that you have read and signed the community image agreement. Otherwise, publishing is not allowed. For more information, see [Publish a community image](https://help.aliyun.com/document_detail/208370.html).
+   * - **Sharing limits**: You can only share custom images created under your own account. Each image can be shared with up to 50 Alibaba Cloud accounts, and up to 10 Alibaba Cloud accounts at a time.
+   * - **Instance impact**: After you create an ECS instance by using a shared image ([RunInstances](https://help.aliyun.com/document_detail/63440.html)), if the owner of the custom image removes the image sharing relationship or deletes the custom image ([DeleteImage](https://help.aliyun.com/document_detail/25537.html)), the initialization of the system disk of the instance ([ReInitDisk](https://help.aliyun.com/document_detail/25519.html)) will fail.
+   * >Notice: Changes to the rules for sharing encrypted images in Elastic Compute Service (ECS): Only images encrypted by using a customer master key (CMK) can be shared. Images with service key encryption can no longer be shared, and an error is reported if you attempt to share them. If you have images with service key encryption and plan to share them, perform image replication (CopyImage) and change the image encryption key to a CMK.
+   * When you publish or unpublish a community image, take note of the following items:
+   * - **Responsibilities and agreements**: The owner of a community image is responsible for its quality and iterative updates. Alibaba Cloud only provides platform support. Before publishing, make sure that you have read and signed the community image agreement. Otherwise, you are not allowed to publish the image. For more information, see [Publish a community image](https://help.aliyun.com/document_detail/208370.html).
    * - **Encryption limits**: Encrypted images cannot be published as community images.
-   * - **Public access**: Community images are fully public. All Alibaba Cloud accounts in the region where the image resides can use the image.
-   * - **Feature limits**: Community images do not support sharing, export, or copy.
-   * - **Impact of unpublishing**: After a community image is unpublished, it is no longer publicly available to other Alibaba Cloud accounts. However, existing sharing relationships are retained.
+   * - **Public availability**: Community images are fully public and can be used by all Alibaba Cloud accounts in the region where the images reside.
+   * - **Feature limits**: Community images cannot be shared, exported, or copied.
+   * - **Impact of unpublishing**: After a community image is unpublished, it is no longer public to other Alibaba Cloud accounts, but existing sharing relationships are retained.
    * 
    * @param request - ModifyImageSharePermissionRequest
    * @returns ModifyImageSharePermissionResponse
@@ -28750,24 +28750,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the execution information of a Cloud Assistant scheduled task, including the command content, scheduled execution method, and adding ECS instances or managed instances to the task.
+   * Modifies the execution information of a Cloud Assistant scheduled task, including the command content, scheduled execution mode, and the ECS instances or managed instances added to the task.
    * 
    * @remarks
-   * - You can modify scheduled tasks with the following execution modes (see the RepeatMode value returned by [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html)):
+   * - You can modify tasks with the following execution modes (refer to the `RepeatMode` value returned by [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html)):
    *     - Period: periodic execution.
-   *     - NextRebootOnly: automatically executes the command the next time the instance starts.
-   *     - EveryReboot: automatically executes the command each time the instance starts.
-   * - You can modify scheduled tasks in the following states (see the InvocationStatus value returned by [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html)):
-   *     - Pending: The system is verifying or sending the command. If the command execution state on at least one instance is Pending, the overall execution state is Pending.
-   *     - Running: The command is running on the instance. If the command execution state on at least one instance is Running, the overall execution state is Running.
-   *     - Scheduled: The scheduled command has been sent and is waiting to run. If the command execution state on at least one instance is Scheduled, the overall execution state is Scheduled.
-   *     - Stopping: The scheduled task is being stopped. If the command execution state on at least one instance is Stopping, the overall execution state is Stopping.
-   * - Before modifying scheduled task execution information (including command content, custom parameters, and execution frequency), the Cloud Assistant Agent version on the ECS instances or managed instances that have already executed the scheduled task must be later than the following versions:
+   *     - NextRebootOnly: The command is automatically executed the next time the instance starts.
+   *     - EveryReboot: The command is automatically executed every time the instance starts.
+   * - You can modify tasks with the following statuses (refer to the `InvocationStatus` value returned by [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html)):
+   *     - Pending: The system is verifying or sending the command. If the command execution status on at least one instance is Pending, the overall execution status is Pending.
+   *     - Running: The command is running on the instance. If the command execution status on at least one instance is Running, the overall execution status is Running.
+   *     - Scheduled: The scheduled command has been sent and is waiting to be executed. If the command execution status on at least one instance is Scheduled, the overall execution status is Scheduled.
+   *     - Stopping: The task is being stopped. If the command execution status on at least one instance is Stopping, the overall execution status is Stopping.
+   * - Before you modify the execution information of a scheduled task (including the command content, custom parameters, and execution frequency), the Cloud Assistant Agent version on the executed ECS instances or managed instances must be later than the following versions:
    *     - Linux: 2.2.3.541
    *     - Windows: 2.1.3.541
-   *     - If the call result returns the `InvalidOperation.CloudAssistantVersionUnsupported` error code, update the Cloud Assistant Agent to the latest version.
-   * - When you execute a Cloud Assistant common command, you cannot modify the command content CommandContent.
-   * - When you modify the command content CommandContent, and the scheduled task was created by calling [InvokeCommand](https://help.aliyun.com/document_detail/64841.html) or [RunCommand](https://help.aliyun.com/document_detail/141751.html) with KeepCommand set to true, a new command is created and retained permanently, which counts toward your Cloud Assistant command quota. You can retain up to 500 to 50,000 Cloud Assistant commands per region. You can also request a quota increase. For information about how to query and increase quotas, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
+   *     - If the call returns the `InvalidOperation.CloudAssistantVersionUnsupported` error code, update the Cloud Assistant Agent to the latest version.
+   * - When you execute a public Cloud Assistant command, you cannot modify the command content specified by `CommandContent`.
+   * - If you modify the command content specified by `CommandContent` and set `KeepCommand` to `true` when you call [InvokeCommand](https://help.aliyun.com/document_detail/64841.html) or [RunCommand](https://help.aliyun.com/document_detail/141751.html) to create a task, a new command is created and retained long-term, which consumes the Cloud Assistant command quota. You can retain 500 to 50,000 Cloud Assistant commands in a region. You can also apply for a quota increase. For more information about how to view and increase quotas, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
    * 
    * @param tmpReq - ModifyInvocationAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28856,24 +28856,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the execution information of a Cloud Assistant scheduled task, including the command content, scheduled execution method, and adding ECS instances or managed instances to the task.
+   * Modifies the execution information of a Cloud Assistant scheduled task, including the command content, scheduled execution mode, and the ECS instances or managed instances added to the task.
    * 
    * @remarks
-   * - You can modify scheduled tasks with the following execution modes (see the RepeatMode value returned by [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html)):
+   * - You can modify tasks with the following execution modes (refer to the `RepeatMode` value returned by [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html)):
    *     - Period: periodic execution.
-   *     - NextRebootOnly: automatically executes the command the next time the instance starts.
-   *     - EveryReboot: automatically executes the command each time the instance starts.
-   * - You can modify scheduled tasks in the following states (see the InvocationStatus value returned by [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html)):
-   *     - Pending: The system is verifying or sending the command. If the command execution state on at least one instance is Pending, the overall execution state is Pending.
-   *     - Running: The command is running on the instance. If the command execution state on at least one instance is Running, the overall execution state is Running.
-   *     - Scheduled: The scheduled command has been sent and is waiting to run. If the command execution state on at least one instance is Scheduled, the overall execution state is Scheduled.
-   *     - Stopping: The scheduled task is being stopped. If the command execution state on at least one instance is Stopping, the overall execution state is Stopping.
-   * - Before modifying scheduled task execution information (including command content, custom parameters, and execution frequency), the Cloud Assistant Agent version on the ECS instances or managed instances that have already executed the scheduled task must be later than the following versions:
+   *     - NextRebootOnly: The command is automatically executed the next time the instance starts.
+   *     - EveryReboot: The command is automatically executed every time the instance starts.
+   * - You can modify tasks with the following statuses (refer to the `InvocationStatus` value returned by [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html)):
+   *     - Pending: The system is verifying or sending the command. If the command execution status on at least one instance is Pending, the overall execution status is Pending.
+   *     - Running: The command is running on the instance. If the command execution status on at least one instance is Running, the overall execution status is Running.
+   *     - Scheduled: The scheduled command has been sent and is waiting to be executed. If the command execution status on at least one instance is Scheduled, the overall execution status is Scheduled.
+   *     - Stopping: The task is being stopped. If the command execution status on at least one instance is Stopping, the overall execution status is Stopping.
+   * - Before you modify the execution information of a scheduled task (including the command content, custom parameters, and execution frequency), the Cloud Assistant Agent version on the executed ECS instances or managed instances must be later than the following versions:
    *     - Linux: 2.2.3.541
    *     - Windows: 2.1.3.541
-   *     - If the call result returns the `InvalidOperation.CloudAssistantVersionUnsupported` error code, update the Cloud Assistant Agent to the latest version.
-   * - When you execute a Cloud Assistant common command, you cannot modify the command content CommandContent.
-   * - When you modify the command content CommandContent, and the scheduled task was created by calling [InvokeCommand](https://help.aliyun.com/document_detail/64841.html) or [RunCommand](https://help.aliyun.com/document_detail/141751.html) with KeepCommand set to true, a new command is created and retained permanently, which counts toward your Cloud Assistant command quota. You can retain up to 500 to 50,000 Cloud Assistant commands per region. You can also request a quota increase. For information about how to query and increase quotas, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
+   *     - If the call returns the `InvalidOperation.CloudAssistantVersionUnsupported` error code, update the Cloud Assistant Agent to the latest version.
+   * - When you execute a public Cloud Assistant command, you cannot modify the command content specified by `CommandContent`.
+   * - If you modify the command content specified by `CommandContent` and set `KeepCommand` to `true` when you call [InvokeCommand](https://help.aliyun.com/document_detail/64841.html) or [RunCommand](https://help.aliyun.com/document_detail/141751.html) to create a task, a new command is created and retained long-term, which consumes the Cloud Assistant command quota. You can retain 500 to 50,000 Cloud Assistant commands in a region. You can also apply for a quota increase. For more information about how to view and increase quotas, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
    * 
    * @param request - ModifyInvocationAttributeRequest
    * @returns ModifyInvocationAttributeResponse
@@ -28958,7 +28958,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * Currently, you can call the ModifyManagedInstance operation only to modify the name of a managed instance.
+   * Currently, the ModifyManagedInstance operation supports only modifying the name of a managed instance.
    * 
    * @param request - ModifyManagedInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29021,7 +29021,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Operation description
-   * Currently, you can call the ModifyManagedInstance operation only to modify the name of a managed instance.
+   * Currently, the ModifyManagedInstance operation supports only modifying the name of a managed instance.
    * 
    * @param request - ModifyManagedInstanceRequest
    * @returns ModifyManagedInstanceResponse
@@ -29032,7 +29032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of an Elastic Network Interface (ENI), such as the queue number, associated security groups, queue depth, communication mode, and whether to retain the ENI when the associated instance is released.
+   * Modifies the attributes of an Elastic Network Interface (ENI), such as the number of queues, associated security groups, queue depth, traffic mode, and whether to retain the ENI when the instance is released.
    * 
    * @param request - ModifyNetworkInterfaceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29135,7 +29135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of an Elastic Network Interface (ENI), such as the queue number, associated security groups, queue depth, communication mode, and whether to retain the ENI when the associated instance is released.
+   * Modifies the attributes of an Elastic Network Interface (ENI), such as the number of queues, associated security groups, queue depth, traffic mode, and whether to retain the ENI when the instance is released.
    * 
    * @param request - ModifyNetworkInterfaceAttributeRequest
    * @returns ModifyNetworkInterfaceAttributeResponse
@@ -33162,20 +33162,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Replaces the operating system of an ECS instance by replacing its system disk. After the replacement, the disk ID of the system disk changes and the original disk is released.
+   * Replaces the operating system of an ECS instance by replacing the system disk. After the replacement, the disk ID of the system disk changes, and the original disk is released.
    * 
    * @remarks
-   * Before calling this operation, carefully read [Replace the system disk (replace the operating system)](https://help.aliyun.com/document_detail/50134.html).
-   * When replacing the system disk, note the following:
+   * Before you invoke this operation, carefully read [Replace the system disk (replace the operating system)](https://help.aliyun.com/document_detail/50134.html).
+   * When you replace the system disk, take note of the following items:
    * - You cannot change the billing method of the system disk.
-   * - You cannot change the disk type of the system disk.
-   * - The ECS instance to which the system disk is attached must have no unpaid orders. 
+   * - You cannot change the disk category of the system disk.
+   * - The ECS instance to which the system disk is attached must not have unpaid orders. 
    *  
-   * - The instance must be in the **Stopped** (`Stopped`) state.
-   *     > This applies only to VPC-type instances. If the ECS instance uses the pay-as-you-go billing method and the economical mode is enabled by default, set the instance to the standard stop mode when stopping it. This prevents the instance from failing to restart after the system disk is replaced due to insufficient ECS instance inventory in the region. For more information, see [StopInstance](https://help.aliyun.com/document_detail/25501.html).
+   * - The instance must be in the `Stopped` state.
+   *     > This applies only to VPC-type instances. If the ECS instance uses the pay-as-you-go billing method and the economical mode is enabled by default, you must set the stop mode to normal stop mode when you stop the instance. This prevents the instance from failing to restart after the system disk is replaced due to insufficient instance inventory in the region. For more information, see [StopInstance](https://help.aliyun.com/document_detail/25501.html).
    * - You can use the `SystemDisk.Size` parameter to specify a new capacity for the system disk. The new capacity cannot be smaller than the original capacity.
-   * - If the ECS instance is security-locked, meaning the `OperationLocks` parameter of the instance contains `"LockReason": "security"`, replacing the system disk is not supported. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
-   * After replacing the system disk, call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query the instance status and verify whether the replacement was successful. If the returned `OperationLocks` value is empty, the system disk replacement is complete.
+   * - You cannot replace the system disk of an ECS instance that is locked for security reasons. An instance is locked for security reasons if the `OperationLocks` parameter value contains `"LockReason": "security"`. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
+   * After you replace the system disk, you can call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation to query the status of the instance and verify whether the replacement is successful. If the `OperationLocks` value in the response is empty, the replacement is complete.
    * 
    * @param request - ReplaceSystemDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33282,20 +33282,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Replaces the operating system of an ECS instance by replacing its system disk. After the replacement, the disk ID of the system disk changes and the original disk is released.
+   * Replaces the operating system of an ECS instance by replacing the system disk. After the replacement, the disk ID of the system disk changes, and the original disk is released.
    * 
    * @remarks
-   * Before calling this operation, carefully read [Replace the system disk (replace the operating system)](https://help.aliyun.com/document_detail/50134.html).
-   * When replacing the system disk, note the following:
+   * Before you invoke this operation, carefully read [Replace the system disk (replace the operating system)](https://help.aliyun.com/document_detail/50134.html).
+   * When you replace the system disk, take note of the following items:
    * - You cannot change the billing method of the system disk.
-   * - You cannot change the disk type of the system disk.
-   * - The ECS instance to which the system disk is attached must have no unpaid orders. 
+   * - You cannot change the disk category of the system disk.
+   * - The ECS instance to which the system disk is attached must not have unpaid orders. 
    *  
-   * - The instance must be in the **Stopped** (`Stopped`) state.
-   *     > This applies only to VPC-type instances. If the ECS instance uses the pay-as-you-go billing method and the economical mode is enabled by default, set the instance to the standard stop mode when stopping it. This prevents the instance from failing to restart after the system disk is replaced due to insufficient ECS instance inventory in the region. For more information, see [StopInstance](https://help.aliyun.com/document_detail/25501.html).
+   * - The instance must be in the `Stopped` state.
+   *     > This applies only to VPC-type instances. If the ECS instance uses the pay-as-you-go billing method and the economical mode is enabled by default, you must set the stop mode to normal stop mode when you stop the instance. This prevents the instance from failing to restart after the system disk is replaced due to insufficient instance inventory in the region. For more information, see [StopInstance](https://help.aliyun.com/document_detail/25501.html).
    * - You can use the `SystemDisk.Size` parameter to specify a new capacity for the system disk. The new capacity cannot be smaller than the original capacity.
-   * - If the ECS instance is security-locked, meaning the `OperationLocks` parameter of the instance contains `"LockReason": "security"`, replacing the system disk is not supported. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
-   * After replacing the system disk, call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query the instance status and verify whether the replacement was successful. If the returned `OperationLocks` value is empty, the system disk replacement is complete.
+   * - You cannot replace the system disk of an ECS instance that is locked for security reasons. An instance is locked for security reasons if the `OperationLocks` parameter value contains `"LockReason": "security"`. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
+   * After you replace the system disk, you can call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation to query the status of the instance and verify whether the replacement is successful. If the `OperationLocks` value in the response is empty, the replacement is complete.
    * 
    * @param request - ReplaceSystemDiskRequest
    * @returns ReplaceSystemDiskResponse
@@ -33400,15 +33400,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rolls back a cloud disk to a specific historical state by using a cloud disk snapshot.
+   * Rolls back a cloud disk to a specific previous state by using a snapshot.
    * 
    * @remarks
-   * Read [Roll back a cloud disk by using a snapshot](https://help.aliyun.com/document_detail/25450.html) before you call this operation.
-   * Take note of the following items when you call this operation:
+   * Before you call this operation, carefully read [Roll back a cloud disk by using a snapshot](https://help.aliyun.com/document_detail/25450.html).
+   * When you call this operation, take note of the following items:
    * - The cloud disk must be in the In Use (`In_use`) or Available (`Available`) state.  
    * - The instance to which the cloud disk is attached must be in the Stopped (`Stopped`) state. You can call [StopInstances](https://help.aliyun.com/document_detail/155372.html) to stop the instance.  
-   * - The specified `SnapshotId` parameter must be a historical snapshot created from the cloud disk specified by `DiskId`.  
-   * - When you call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query ECS instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}`, all operations are prohibited.
+   * - The specified SnapshotId must be a historical snapshot created from the cloud disk specified by DiskId.  
+   * - When you call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query ECS instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}`, no operations are allowed.
    * 
    * @param request - ResetDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33463,15 +33463,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rolls back a cloud disk to a specific historical state by using a cloud disk snapshot.
+   * Rolls back a cloud disk to a specific previous state by using a snapshot.
    * 
    * @remarks
-   * Read [Roll back a cloud disk by using a snapshot](https://help.aliyun.com/document_detail/25450.html) before you call this operation.
-   * Take note of the following items when you call this operation:
+   * Before you call this operation, carefully read [Roll back a cloud disk by using a snapshot](https://help.aliyun.com/document_detail/25450.html).
+   * When you call this operation, take note of the following items:
    * - The cloud disk must be in the In Use (`In_use`) or Available (`Available`) state.  
    * - The instance to which the cloud disk is attached must be in the Stopped (`Stopped`) state. You can call [StopInstances](https://help.aliyun.com/document_detail/155372.html) to stop the instance.  
-   * - The specified `SnapshotId` parameter must be a historical snapshot created from the cloud disk specified by `DiskId`.  
-   * - When you call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query ECS instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}`, all operations are prohibited.
+   * - The specified SnapshotId must be a historical snapshot created from the cloud disk specified by DiskId.  
+   * - When you call [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) to query ECS instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}`, no operations are allowed.
    * 
    * @param request - ResetDiskRequest
    * @returns ResetDiskResponse
@@ -33542,10 +33542,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rolls back one or more cloud disks by using an instance snapshot.
+   * Rolls back one or more disks by using an instance snapshot.
    * 
    * @remarks
-   * This operation is deprecated. Use [ResetDisk](https://help.aliyun.com/document_detail/25520.html) to roll back a cloud disk instead. Before calling this operation, ensure that the ECS instance to which the cloud disks are attached is in the Stopped state.
+   * This operation is deprecated. Use [ResetDisk](https://help.aliyun.com/document_detail/25520.html) to roll back a disk. Before calling this operation, ensure that the ECS instance to which the disk is attached is in the Stopped state.
    * 
    * @param request - ResetDisksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33600,10 +33600,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rolls back one or more cloud disks by using an instance snapshot.
+   * Rolls back one or more disks by using an instance snapshot.
    * 
    * @remarks
-   * This operation is deprecated. Use [ResetDisk](https://help.aliyun.com/document_detail/25520.html) to roll back a cloud disk instead. Before calling this operation, ensure that the ECS instance to which the cloud disks are attached is in the Stopped state.
+   * This operation is deprecated. Use [ResetDisk](https://help.aliyun.com/document_detail/25520.html) to roll back a disk. Before calling this operation, ensure that the ECS instance to which the disk is attached is in the Stopped state.
    * 
    * @param request - ResetDisksRequest
    * @returns ResetDisksResponse
@@ -34232,28 +34232,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates and runs a Cloud Assistant command on one or more ECS instances. This operation supports Shell, PowerShell, and Bat scripts, and provides features such as scheduled execution, custom parameters, and execution within containers on the instances.
+   * Creates and executes a Cloud Assistant command on one or more ECS instances. This operation supports Shell, PowerShell, and Bat scripts, and provides features such as scheduled execution, custom parameters, and execution within containers on the instances.
    * 
    * @remarks
    * This operation is asynchronous. After the request is sent, you can call the [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html) or [DescribeInvocationResults](https://help.aliyun.com/document_detail/2679916.html) operation and use the returned command ID or invocation ID to query the execution results.
    * ### Before you begin
-   * - The target instances must be in the Running state. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation to query the instance status.
+   * - The target instances are in the Running state. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation to query the instance status.
    * - The Cloud Assistant Agent is installed on the target instances. You can call the [InstallCloudAssistant](https://help.aliyun.com/document_detail/2679925.html) operation to install the agent and call the [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/2679924.html) operation to query the installation status.
-   *   > For ECS instances created from public images after December 1, 2017, the Cloud Assistant Agent is pre-installed by default.
+   *   > The Cloud Assistant Agent is pre-installed on ECS instances that are created from public images after December 1, 2017.
    * - To run PowerShell commands, make sure that the PowerShell module is configured on the Windows operating system of the target ECS instances.
    * [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html)
    * ### Precautions
-   * - In a single region, you can retain 500 to 50,000 Cloud Assistant commands. You can apply for a quota increase. For more information, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
-   * - The Cloud Assistant Agent must be of the following versions or later to support the new features of scheduled tasks (execution at fixed time intervals, one-time execution at a specified time, and specifying the year or time zone for cron expression-based scheduled execution). If the `ClientNeedUpgrade` error code is returned, see [Upgrade or disable the upgrade of the Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html) to update the client to the latest version.
+   * - You can retain 500 to 50,000 Cloud Assistant commands in a single region. You can apply for a quota increase. For more information, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
+   * - The Cloud Assistant Agent must be of the following versions or later to support new features of scheduled tasks, such as execution at fixed intervals, one-time execution at a specified time, and specifying the year or time zone for cron expression-based scheduled execution. If the ClientNeedUpgrade error code is returned, update the client to the latest version. For more information, see [Upgrade or disable the upgrade of the Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html).
    *       - Linux: 2.2.3.282.
    *       - Windows: 2.1.3.282.
-   * - When you execute a scheduled task based on a cron expression and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is subject to the system time of the instance. Make sure that the time or time zone of the ECS instance is consistent with your expected time. For more information about time zones, see [Set the time zone and NTP service for a Linux instance](https://help.aliyun.com/document_detail/92803.html) or [Set the NTP service for a Windows instance](https://help.aliyun.com/document_detail/51890.html).
+   * - When you run a scheduled task based on a cron expression and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is subject to the system time of the instance. Make sure that the time or time zone of the ECS instance is consistent with your expected time. For more information about time zones, see [Set the time zone and NTP service for a Linux instance](https://help.aliyun.com/document_detail/92803.html) or [Set the NTP service for a Windows instance](https://help.aliyun.com/document_detail/51890.html).
    * ### Best practices
-   * - **Timeout settings**: You can specify the `Timeout` parameter to set the maximum timeout period for executing the command on the ECS instance. If the command execution times out, the Cloud Assistant Agent forcefully stops the process.
-   *     - After a one-time execution times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) changes to Failed.
-   *     - The timeout period for scheduled execution applies to each execution record. A timeout in the previous execution does not affect the next execution. After an execution times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) changes to Failed.
-   * - **Execution failures**: A command may fail to execute because of abnormal target instance status, network exceptions, or Cloud Assistant Agent exceptions. In this case, no execution information is generated. For more information, see [Common faults and solutions for execution failures](https://help.aliyun.com/document_detail/87029.html).
-   * - **Custom parameters**: If you set `EnableParameter` to true, the custom parameter feature is enabled. When you set `CommandContent`, you can use the `{{parameter}}` format to define custom parameters and pass in custom parameter key-value pairs when you execute the command.
+   * - **Timeout settings**: You can specify the `Timeout` parameter to set the maximum timeout period for command execution on the ECS instance. If the command execution times out, the Cloud Assistant Agent forcibly stops the process.
+   *     - If a one-time execution times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) of the command changes to Failed.
+   *     - The timeout period for scheduled execution applies to each execution record. A timeout in the previous execution does not affect the next execution. If an execution times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) changes to Failed.
+   * - **Execution failures**: A command may fail to execute due to abnormal target instance status, network exceptions, or Cloud Assistant Agent exceptions. No execution information is generated when the command cannot be executed. For more information, see [Common faults and troubleshooting suggestions for execution failures](https://help.aliyun.com/document_detail/87029.html).
+   * - **Custom parameters**: If you set `EnableParameter` to true, the custom parameter feature is enabled. When you set `CommandContent`, you can use the `{{parameter}}` format to define custom parameters and pass custom parameter key-value pairs when you execute the command.
    * 
    * @param tmpReq - RunCommandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34410,28 +34410,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates and runs a Cloud Assistant command on one or more ECS instances. This operation supports Shell, PowerShell, and Bat scripts, and provides features such as scheduled execution, custom parameters, and execution within containers on the instances.
+   * Creates and executes a Cloud Assistant command on one or more ECS instances. This operation supports Shell, PowerShell, and Bat scripts, and provides features such as scheduled execution, custom parameters, and execution within containers on the instances.
    * 
    * @remarks
    * This operation is asynchronous. After the request is sent, you can call the [DescribeInvocations](https://help.aliyun.com/document_detail/2679916.html) or [DescribeInvocationResults](https://help.aliyun.com/document_detail/2679916.html) operation and use the returned command ID or invocation ID to query the execution results.
    * ### Before you begin
-   * - The target instances must be in the Running state. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation to query the instance status.
+   * - The target instances are in the Running state. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation to query the instance status.
    * - The Cloud Assistant Agent is installed on the target instances. You can call the [InstallCloudAssistant](https://help.aliyun.com/document_detail/2679925.html) operation to install the agent and call the [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/2679924.html) operation to query the installation status.
-   *   > For ECS instances created from public images after December 1, 2017, the Cloud Assistant Agent is pre-installed by default.
+   *   > The Cloud Assistant Agent is pre-installed on ECS instances that are created from public images after December 1, 2017.
    * - To run PowerShell commands, make sure that the PowerShell module is configured on the Windows operating system of the target ECS instances.
    * [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html)
    * ### Precautions
-   * - In a single region, you can retain 500 to 50,000 Cloud Assistant commands. You can apply for a quota increase. For more information, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
-   * - The Cloud Assistant Agent must be of the following versions or later to support the new features of scheduled tasks (execution at fixed time intervals, one-time execution at a specified time, and specifying the year or time zone for cron expression-based scheduled execution). If the `ClientNeedUpgrade` error code is returned, see [Upgrade or disable the upgrade of the Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html) to update the client to the latest version.
+   * - You can retain 500 to 50,000 Cloud Assistant commands in a single region. You can apply for a quota increase. For more information, see [Quota management](https://help.aliyun.com/document_detail/184116.html).
+   * - The Cloud Assistant Agent must be of the following versions or later to support new features of scheduled tasks, such as execution at fixed intervals, one-time execution at a specified time, and specifying the year or time zone for cron expression-based scheduled execution. If the ClientNeedUpgrade error code is returned, update the client to the latest version. For more information, see [Upgrade or disable the upgrade of the Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html).
    *       - Linux: 2.2.3.282.
    *       - Windows: 2.1.3.282.
-   * - When you execute a scheduled task based on a cron expression and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is subject to the system time of the instance. Make sure that the time or time zone of the ECS instance is consistent with your expected time. For more information about time zones, see [Set the time zone and NTP service for a Linux instance](https://help.aliyun.com/document_detail/92803.html) or [Set the NTP service for a Windows instance](https://help.aliyun.com/document_detail/51890.html).
+   * - When you run a scheduled task based on a cron expression and specify a time zone, the scheduled execution time is based on the specified time zone. If you do not specify a time zone, the scheduled execution time is based on the system time zone of the ECS instance, and the execution time is subject to the system time of the instance. Make sure that the time or time zone of the ECS instance is consistent with your expected time. For more information about time zones, see [Set the time zone and NTP service for a Linux instance](https://help.aliyun.com/document_detail/92803.html) or [Set the NTP service for a Windows instance](https://help.aliyun.com/document_detail/51890.html).
    * ### Best practices
-   * - **Timeout settings**: You can specify the `Timeout` parameter to set the maximum timeout period for executing the command on the ECS instance. If the command execution times out, the Cloud Assistant Agent forcefully stops the process.
-   *     - After a one-time execution times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) changes to Failed.
-   *     - The timeout period for scheduled execution applies to each execution record. A timeout in the previous execution does not affect the next execution. After an execution times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) changes to Failed.
-   * - **Execution failures**: A command may fail to execute because of abnormal target instance status, network exceptions, or Cloud Assistant Agent exceptions. In this case, no execution information is generated. For more information, see [Common faults and solutions for execution failures](https://help.aliyun.com/document_detail/87029.html).
-   * - **Custom parameters**: If you set `EnableParameter` to true, the custom parameter feature is enabled. When you set `CommandContent`, you can use the `{{parameter}}` format to define custom parameters and pass in custom parameter key-value pairs when you execute the command.
+   * - **Timeout settings**: You can specify the `Timeout` parameter to set the maximum timeout period for command execution on the ECS instance. If the command execution times out, the Cloud Assistant Agent forcibly stops the process.
+   *     - If a one-time execution times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) of the command changes to Failed.
+   *     - The timeout period for scheduled execution applies to each execution record. A timeout in the previous execution does not affect the next execution. If an execution times out, the execution status ([InvokeRecordStatus](https://help.aliyun.com/document_detail/64845.html)) changes to Failed.
+   * - **Execution failures**: A command may fail to execute due to abnormal target instance status, network exceptions, or Cloud Assistant Agent exceptions. No execution information is generated when the command cannot be executed. For more information, see [Common faults and troubleshooting suggestions for execution failures](https://help.aliyun.com/document_detail/87029.html).
+   * - **Custom parameters**: If you set `EnableParameter` to true, the custom parameter feature is enabled. When you set `CommandContent`, you can use the `{{parameter}}` format to define custom parameters and pass custom parameter key-value pairs when you execute the command.
    * 
    * @param request - RunCommandRequest
    * @returns RunCommandResponse
@@ -34442,33 +34442,33 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple ECS instances in a batch, and supports automatic startup, public IP address allocation, and automatic release time configuration.
+   * Creates ECS instances in batches, supports automatic startup, allocates public IP addresses, and sets the automatic release time.
    * 
    * @remarks
    * <props="china">
-   * Creating instances incurs fees. Billable items include [instance types](https://help.aliyun.com/document_detail/25398.html), [images](https://help.aliyun.com/document_detail/179021.html), [cloud disks](https://help.aliyun.com/document_detail/179022.html), and [public bandwidth](https://help.aliyun.com/document_detail/25411.html). Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of ECS before you call this operation.
+   * Creating instances incurs fees. Billable items include [instance types](https://help.aliyun.com/document_detail/25398.html), [images](https://help.aliyun.com/document_detail/179021.html), [block storage](https://help.aliyun.com/document_detail/179022.html), and [public bandwidth](https://help.aliyun.com/document_detail/25411.html). Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of ECS before you call this operation.
    * <props="intl">Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of ECS before you call this operation.
-   * This operation is asynchronous. After a create instance request is sent, the instance IDs are returned. However, the instances are not immediately created and started. You can call the [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) operation to query the instance information. If the returned status is Running, the instances are created and started.
+   * This operation is asynchronous. After a creation request is sent, the instance IDs are returned. However, the instances are not immediately created and started. You can call [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) to query the instance status. If the returned status is `Running`, the instances are created and started.
    * ### Before you begin
    * <props="china">
    * - Make sure that your account has passed real-name verification. For more information, see [Real-name verification](https://help.aliyun.com/document_detail/48263.html).
-   * - If the resource inventory is insufficient to create the instances, Alibaba Cloud immediately sends a SystemFailure.Delete event to indicate that the instance creation failed. You can call the [DescribeInstanceHistoryEvents](https://help.aliyun.com/document_detail/2679897.html) operation to check whether a SystemFailure.Delete event exists. For more information, see [System events for instance creation failures](https://help.aliyun.com/document_detail/2545990.html).
-   * - Make sure that the total number of instances or the total number of vCPUs for all instance types does not exceed the system quota. For more information, see [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas).
-   * - Before you create a VPC-type instance, create a VPC in the corresponding Alibaba Cloud region. For more information, see [Create a VPC](https://help.aliyun.com/document_detail/65430.html).
+   * - If the resource inventory is insufficient to create the instances, Alibaba Cloud immediately sends a SystemFailure.Delete event. You can call [DescribeInstanceHistoryEvents](https://help.aliyun.com/document_detail/2679897.html) to check whether a creation failure event exists. For more information, see [System events for instance creation failures](https://help.aliyun.com/document_detail/2545990.html).
+   * - Make sure that the total number of instances or the total number of vCPUs for all instance types does not exceed the quota. For more information, see [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas).
+   * - Before you create an instance in a virtual private cloud (VPC), [create a VPC](https://help.aliyun.com/document_detail/65430.html) in the corresponding region.
    * ### Precautions
-   * - If the billing method of the instance is subscription (PrePaid), available coupons are used by default during payment.
-   * - A single request can create up to 100 instances. To create more than 100 instances, we recommend that you send multiple requests in batches or concurrently invoke the operation.
-   * - If the value of the InternetMaxBandwidthOut parameter is greater than 0, a public IP address is automatically allocated to the instance.
-   * > In a single region, the total peak public bandwidth billed by fixed bandwidth for a single Alibaba Cloud account is limited. For more information, see [Public bandwidth limits](~~25412#BandwidthQuota~~).
-   * ### Usage suggestions
-   * - **Test scenarios**: You can send a dry run request by setting DryRun=true.
-   * - **Release instances**: You can set the automatic release time for an instance by using the AutoReleaseTime parameter, or call [DeleteInstances](https://help.aliyun.com/document_detail/2679710.html) to manually release the instance.
-   * - **Management and retrieval**: We recommend that you specify tags (Tag.N.Key and Tag.N.Value) for instances launched in each batch, and add sequential suffixes (UniqueSuffix) to hostnames (HostName) and instance names (InstanceName). For more information, see [Batch configure sequential instance names or hostnames](https://help.aliyun.com/document_detail/196048.html).
-   * - **Launch templates**: Launch templates save you the trouble of entering a large number of configuration parameters each time you create an instance. You can call [CreateLaunchTemplate](https://help.aliyun.com/document_detail/2679729.html) to create a launch template, and then specify LaunchTemplateId and LaunchTemplateVersion in the RunInstances request to use the launch template.
-   * - **Disable hyper-threading**: In memory-intensive business scenarios, you can set CpuOptions.ThreadsPerCore=1 to disable hyper-threading and increase the memory ratio.
-   * - **Enable jumbo frames**: You can specify NetworkOptions.EnableJumboFrame=true to enable the Jumbo frame feature during creation. For more information, see [ECS instance MTU](https://help.aliyun.com/document_detail/200512.html).
+   * - If the billing method of the instance is subscription (`PrePaid`), available coupons are used by default during payment.
+   * - You can create up to 100 instances in a single request. To create more than 100 instances, we recommend that you send multiple requests in batches or concurrently invoke them.
+   * - If the `InternetMaxBandwidthOut` parameter is set to a value greater than 0, an Internet IP address is automatically allocated to the instance.
+   * > In a single region, the sum of peak public bandwidths of all instances that use the pay-by-bandwidth billing method within a single Alibaba Cloud account is limited. For more information, see [Public bandwidth limits](~~25412#BandwidthQuota~~).
+   * ### Best practices
+   * - **Testing scenarios**: You can set `DryRun=true` to send a dry run request.
+   * - **Releasing instances**: You can use the `AutoReleaseTime` parameter to set the automatic release time of the instance, or invoke [DeleteInstances](https://help.aliyun.com/document_detail/2679710.html) for manual release.
+   * - **Management and retrieval**: We recommend that you specify tags (`Tag.N.Key` and `Tag.N.Value`) for instances created in each batch, and add sequential suffixes (`UniqueSuffix`) to hostnames (`HostName`) and instance names (`InstanceName`). For more information, see [Batch configure sequential names or hostnames for instances](https://help.aliyun.com/document_detail/196048.html).
+   * - **Launch templates**: Launch templates save you the trouble of entering a large number of configuration parameters each time you create an instance. You can invoke [CreateLaunchTemplate](https://help.aliyun.com/document_detail/2679729.html) to create a launch template, and then specify `LaunchTemplateId` and `LaunchTemplateVersion` in the `RunInstances` request to use the template.
+   * - **Disabling Hyper-Threading**: In memory-intensive scenarios, set `CpuOptions.ThreadsPerCore` to `1` to disable Hyper-Threading and increase the memory-to-vCPU ratio.
+   * - **Enabling jumbo frames**: Set `NetworkOptions.EnableJumboFrame` to `true` to enable the `Jumbo frame` attribute during instance creation. For more information, see [MTU of ECS instances](https://help.aliyun.com/document_detail/200512.html).
    * ## Request examples
-   * Assume that you need to create several ECS instances in the China (Hangzhou) region. You want to use a specific image, instance type, security group, and vSwitch, configure system disks and data disks of specific sizes, allocate public IP addresses, and set instance names and passwords. The relevant configuration request parameters are as follows:
+   * Assume that you want to create ECS instances in the China (Hangzhou) region. You want to use a specific image, instance type, security group, and vSwitch, configure a system disk and data disks of specific sizes, allocate an Internet IP address, and set the instance name and password. The request parameters are configured as follows:
    * ```
    * RegionId:"cn-hangzhou", // Set the region to China (Hangzhou).
    * ImageId:"aliyun_3_x64_20G_alibase_20221102.vhd", // Set the image ID.
@@ -34476,60 +34476,60 @@ export default class Client extends OpenApi {
    * SecurityGroupId:"sg-bp150uqocpf9jj70****", // Set the security group ID.
    * VSwitchId:"vsw-bp1qo7s91cbch5i4l****", // Set the vSwitch ID.
    * SystemDisk:{
-   *   Category:"cloud_essd", // Set the system disk category to enterprise SSD.
+   *   Category:"cloud_essd", // Set the system disk category to ESSD.
    *   Size:40, // Set the system disk size to 40 GiB.
    * },
    * DataDisk:[
    *   {
-   *     Category:"cloud_essd", // Set the data disk category to enterprise SSD.
+   *     Category:"cloud_essd", // Set the data disk category to ESSD.
    *     Size:100, // Set the data disk size to 100 GiB.
    *   }
    * ],
-   * HostName:"ECS-test", // Set the instance hostname.
-   * Password:"ECS@test1234", // Set the instance logon password.
+   * HostName:"ECS-test", // Set the hostname.
+   * Password:"ECS@test1234", // Set the logon password.
    * InternetMaxBandwidthOut:10 // Set the outbound public bandwidth to 10 Mbit/s.
    * ```
-   * Based on the preceding configuration, create different types of instances:
+   * Based on the preceding configurations, create instances of different types:
    * <details>
-   * <summary>Example: Create 5 subscription instances with auto-renewal enabled</summary>
+   * <summary>Example: Create five subscription instances with auto-renewal enabled</summary>
    * ```
-   * Amount:5, // Set the number of instances to create to 5.
+   * Amount:5, // Set the number of instances to 5.
    * InstanceChargeType:"PrePaid", // Set the billing method to subscription.
    * PeriodUnit:"Month", // Set the time unit to Month.
-   * Period:1, // Set the duration to 1 month.
+   * Period:1, // Set the subscription period to 1 month.
    * AutoRenew:true, // Enable auto-renewal.
-   * AutoRenewPeriod:1 // Set the auto-renewal duration to 1 month.
+   * AutoRenewPeriod:1 // Set the auto-renewal period to 1 month.
    * ```
    * </details>
    * <details>
    * <summary>Example: Create 10 pay-as-you-go instances</summary>
    * ```
-   * Amount:10, // Set the number of instances to create to 10.
+   * Amount:10, // Set the number of instances to 10.
    * InstanceChargeType:"PostPaid", // Set the billing method to pay-as-you-go.
-   * SpotStrategy:"NoSpot" // Default value, which indicates normal pay-as-you-go.
+   * SpotStrategy:"NoSpot" // Default value, indicating normal pay-as-you-go.
    * ```
    * </details>
    * <details>
-   * <summary>Example: Create 20 spot instances and set the bidding policy and protection period</summary>
+   * <summary>Example: Create 20 spot instances and configure the bidding policy and protection period</summary>
    * ```
-   * Amount:20, // Set the number of instances to create to 20.
+   * Amount:20, // Set the number of instances to 20.
    * InstanceChargeType:"PostPaid",
-   * SpotStrategy:"SpotAsPriceGo", // Set the bidding policy for spot instances to automatic bidding based on marketplace prices.
-   * SpotDuration:1 // Set the protection period for spot instances to 1 hour.
+   * SpotStrategy:"SpotAsPriceGo", // Set the bidding policy to SpotAsPriceGo, which means the system automatically places bids based on the marketplace price.
+   * SpotDuration:1 // Set the protection period to 1 hour.
    * ```
    * </details>
-   * Assume that you have created a launch template by calling [CreateLaunchTemplate](https://help.aliyun.com/document_detail/2679729.html) and now need to use the template to create several ECS instances in the China (Hangzhou) region. Examples are as follows:
+   * Assume that you have created a launch template by calling [CreateLaunchTemplate](https://help.aliyun.com/document_detail/2679729.html) and want to use the template to create ECS instances in the China (Hangzhou) region. Example:
    * <details>
    * <summary>Example: Create 10 ECS instances based on a launch template</summary>
    * ```
    * RegionId:"cn-hangzhou", // Set the region to China (Hangzhou).
-   * Amount:10, // Set the number of instances to create to 10.
+   * Amount:10, // Set the number of instances to 10.
    * LaunchTemplateId:"lt-bp14xczpoxvb6rre****" // Set the launch template ID.
    * ```
    * </details>
-   * >Notice: When both instance parameters and template parameters are specified, the instance parameters take precedence. For example, if the billing method in the template is subscription and InstanceChargeType is set to PostPaid, the created instances are pay-as-you-go instances.</notice>
+   * >Notice: If both instance parameters and template parameters are specified, the instance parameters take precedence. For example, if the billing method in the template is subscription but `InstanceChargeType` is set to `PostPaid`, a pay-as-you-go instance is created.</notice>
    * <details>
-   * <summary>Example: Create 1 instance by using a full image (a full instance image that includes the system disk and data disks)</summary>
+   * <summary>Example: Create one instance by using a full image (a full instance image that includes the system disk and data disks)</summary>
    * ```
    * RegionId:"cn-hangzhou", // Set the region to China (Hangzhou).
    * ImageId = m-bp13ohd32cvzpq9e****, // Custom image ID
@@ -34540,8 +34540,8 @@ export default class Client extends OpenApi {
    * SystemDisk.Category = cloud_auto, // Set the category of the system disk included in the full image.
    * DataDisk.1.Device = /dev/xvdb, // Set the mount point of the data disk included in the full image.
    * DataDisk.1.Size = 50, // Set the size of the data disk included in the full image.
-   * DataDisk.1.Category = cloud_essd, // Set the category of the data disk included in the full image.
-   * DataDisk.2.Device = /dev/xvdc, // Set the mount point of the new data disk. If you want to use the new data disk to replace the data disk included in the full image, you can set DataDisk.1.Device = /dev/xvdb (the default mount point of the data disk in the full image).
+   * DataDisk.1.Category = cloud_essd, // Set the data disk category to ESSD.
+   * DataDisk.2.Device = /dev/xvdc, // Set the mount point of the new data disk. If you want to use the new data disk to replace the data disk included in the full image, set DataDisk.1.Device to /dev/xvdb (the default mount point of the data disk in the full image).
    * DataDisk.2.Size = 70, // Set the size of the new data disk.
    * DataDisk.2.Category = cloud_auto, // Set the category of the new data disk.
    * ```
@@ -34892,33 +34892,33 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple ECS instances in a batch, and supports automatic startup, public IP address allocation, and automatic release time configuration.
+   * Creates ECS instances in batches, supports automatic startup, allocates public IP addresses, and sets the automatic release time.
    * 
    * @remarks
    * <props="china">
-   * Creating instances incurs fees. Billable items include [instance types](https://help.aliyun.com/document_detail/25398.html), [images](https://help.aliyun.com/document_detail/179021.html), [cloud disks](https://help.aliyun.com/document_detail/179022.html), and [public bandwidth](https://help.aliyun.com/document_detail/25411.html). Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of ECS before you call this operation.
+   * Creating instances incurs fees. Billable items include [instance types](https://help.aliyun.com/document_detail/25398.html), [images](https://help.aliyun.com/document_detail/179021.html), [block storage](https://help.aliyun.com/document_detail/179022.html), and [public bandwidth](https://help.aliyun.com/document_detail/25411.html). Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of ECS before you call this operation.
    * <props="intl">Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of ECS before you call this operation.
-   * This operation is asynchronous. After a create instance request is sent, the instance IDs are returned. However, the instances are not immediately created and started. You can call the [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) operation to query the instance information. If the returned status is Running, the instances are created and started.
+   * This operation is asynchronous. After a creation request is sent, the instance IDs are returned. However, the instances are not immediately created and started. You can call [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) to query the instance status. If the returned status is `Running`, the instances are created and started.
    * ### Before you begin
    * <props="china">
    * - Make sure that your account has passed real-name verification. For more information, see [Real-name verification](https://help.aliyun.com/document_detail/48263.html).
-   * - If the resource inventory is insufficient to create the instances, Alibaba Cloud immediately sends a SystemFailure.Delete event to indicate that the instance creation failed. You can call the [DescribeInstanceHistoryEvents](https://help.aliyun.com/document_detail/2679897.html) operation to check whether a SystemFailure.Delete event exists. For more information, see [System events for instance creation failures](https://help.aliyun.com/document_detail/2545990.html).
-   * - Make sure that the total number of instances or the total number of vCPUs for all instance types does not exceed the system quota. For more information, see [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas).
-   * - Before you create a VPC-type instance, create a VPC in the corresponding Alibaba Cloud region. For more information, see [Create a VPC](https://help.aliyun.com/document_detail/65430.html).
+   * - If the resource inventory is insufficient to create the instances, Alibaba Cloud immediately sends a SystemFailure.Delete event. You can call [DescribeInstanceHistoryEvents](https://help.aliyun.com/document_detail/2679897.html) to check whether a creation failure event exists. For more information, see [System events for instance creation failures](https://help.aliyun.com/document_detail/2545990.html).
+   * - Make sure that the total number of instances or the total number of vCPUs for all instance types does not exceed the quota. For more information, see [Quota Center](https://quotas.console.aliyun.com/products/ecs/quotas).
+   * - Before you create an instance in a virtual private cloud (VPC), [create a VPC](https://help.aliyun.com/document_detail/65430.html) in the corresponding region.
    * ### Precautions
-   * - If the billing method of the instance is subscription (PrePaid), available coupons are used by default during payment.
-   * - A single request can create up to 100 instances. To create more than 100 instances, we recommend that you send multiple requests in batches or concurrently invoke the operation.
-   * - If the value of the InternetMaxBandwidthOut parameter is greater than 0, a public IP address is automatically allocated to the instance.
-   * > In a single region, the total peak public bandwidth billed by fixed bandwidth for a single Alibaba Cloud account is limited. For more information, see [Public bandwidth limits](~~25412#BandwidthQuota~~).
-   * ### Usage suggestions
-   * - **Test scenarios**: You can send a dry run request by setting DryRun=true.
-   * - **Release instances**: You can set the automatic release time for an instance by using the AutoReleaseTime parameter, or call [DeleteInstances](https://help.aliyun.com/document_detail/2679710.html) to manually release the instance.
-   * - **Management and retrieval**: We recommend that you specify tags (Tag.N.Key and Tag.N.Value) for instances launched in each batch, and add sequential suffixes (UniqueSuffix) to hostnames (HostName) and instance names (InstanceName). For more information, see [Batch configure sequential instance names or hostnames](https://help.aliyun.com/document_detail/196048.html).
-   * - **Launch templates**: Launch templates save you the trouble of entering a large number of configuration parameters each time you create an instance. You can call [CreateLaunchTemplate](https://help.aliyun.com/document_detail/2679729.html) to create a launch template, and then specify LaunchTemplateId and LaunchTemplateVersion in the RunInstances request to use the launch template.
-   * - **Disable hyper-threading**: In memory-intensive business scenarios, you can set CpuOptions.ThreadsPerCore=1 to disable hyper-threading and increase the memory ratio.
-   * - **Enable jumbo frames**: You can specify NetworkOptions.EnableJumboFrame=true to enable the Jumbo frame feature during creation. For more information, see [ECS instance MTU](https://help.aliyun.com/document_detail/200512.html).
+   * - If the billing method of the instance is subscription (`PrePaid`), available coupons are used by default during payment.
+   * - You can create up to 100 instances in a single request. To create more than 100 instances, we recommend that you send multiple requests in batches or concurrently invoke them.
+   * - If the `InternetMaxBandwidthOut` parameter is set to a value greater than 0, an Internet IP address is automatically allocated to the instance.
+   * > In a single region, the sum of peak public bandwidths of all instances that use the pay-by-bandwidth billing method within a single Alibaba Cloud account is limited. For more information, see [Public bandwidth limits](~~25412#BandwidthQuota~~).
+   * ### Best practices
+   * - **Testing scenarios**: You can set `DryRun=true` to send a dry run request.
+   * - **Releasing instances**: You can use the `AutoReleaseTime` parameter to set the automatic release time of the instance, or invoke [DeleteInstances](https://help.aliyun.com/document_detail/2679710.html) for manual release.
+   * - **Management and retrieval**: We recommend that you specify tags (`Tag.N.Key` and `Tag.N.Value`) for instances created in each batch, and add sequential suffixes (`UniqueSuffix`) to hostnames (`HostName`) and instance names (`InstanceName`). For more information, see [Batch configure sequential names or hostnames for instances](https://help.aliyun.com/document_detail/196048.html).
+   * - **Launch templates**: Launch templates save you the trouble of entering a large number of configuration parameters each time you create an instance. You can invoke [CreateLaunchTemplate](https://help.aliyun.com/document_detail/2679729.html) to create a launch template, and then specify `LaunchTemplateId` and `LaunchTemplateVersion` in the `RunInstances` request to use the template.
+   * - **Disabling Hyper-Threading**: In memory-intensive scenarios, set `CpuOptions.ThreadsPerCore` to `1` to disable Hyper-Threading and increase the memory-to-vCPU ratio.
+   * - **Enabling jumbo frames**: Set `NetworkOptions.EnableJumboFrame` to `true` to enable the `Jumbo frame` attribute during instance creation. For more information, see [MTU of ECS instances](https://help.aliyun.com/document_detail/200512.html).
    * ## Request examples
-   * Assume that you need to create several ECS instances in the China (Hangzhou) region. You want to use a specific image, instance type, security group, and vSwitch, configure system disks and data disks of specific sizes, allocate public IP addresses, and set instance names and passwords. The relevant configuration request parameters are as follows:
+   * Assume that you want to create ECS instances in the China (Hangzhou) region. You want to use a specific image, instance type, security group, and vSwitch, configure a system disk and data disks of specific sizes, allocate an Internet IP address, and set the instance name and password. The request parameters are configured as follows:
    * ```
    * RegionId:"cn-hangzhou", // Set the region to China (Hangzhou).
    * ImageId:"aliyun_3_x64_20G_alibase_20221102.vhd", // Set the image ID.
@@ -34926,60 +34926,60 @@ export default class Client extends OpenApi {
    * SecurityGroupId:"sg-bp150uqocpf9jj70****", // Set the security group ID.
    * VSwitchId:"vsw-bp1qo7s91cbch5i4l****", // Set the vSwitch ID.
    * SystemDisk:{
-   *   Category:"cloud_essd", // Set the system disk category to enterprise SSD.
+   *   Category:"cloud_essd", // Set the system disk category to ESSD.
    *   Size:40, // Set the system disk size to 40 GiB.
    * },
    * DataDisk:[
    *   {
-   *     Category:"cloud_essd", // Set the data disk category to enterprise SSD.
+   *     Category:"cloud_essd", // Set the data disk category to ESSD.
    *     Size:100, // Set the data disk size to 100 GiB.
    *   }
    * ],
-   * HostName:"ECS-test", // Set the instance hostname.
-   * Password:"ECS@test1234", // Set the instance logon password.
+   * HostName:"ECS-test", // Set the hostname.
+   * Password:"ECS@test1234", // Set the logon password.
    * InternetMaxBandwidthOut:10 // Set the outbound public bandwidth to 10 Mbit/s.
    * ```
-   * Based on the preceding configuration, create different types of instances:
+   * Based on the preceding configurations, create instances of different types:
    * <details>
-   * <summary>Example: Create 5 subscription instances with auto-renewal enabled</summary>
+   * <summary>Example: Create five subscription instances with auto-renewal enabled</summary>
    * ```
-   * Amount:5, // Set the number of instances to create to 5.
+   * Amount:5, // Set the number of instances to 5.
    * InstanceChargeType:"PrePaid", // Set the billing method to subscription.
    * PeriodUnit:"Month", // Set the time unit to Month.
-   * Period:1, // Set the duration to 1 month.
+   * Period:1, // Set the subscription period to 1 month.
    * AutoRenew:true, // Enable auto-renewal.
-   * AutoRenewPeriod:1 // Set the auto-renewal duration to 1 month.
+   * AutoRenewPeriod:1 // Set the auto-renewal period to 1 month.
    * ```
    * </details>
    * <details>
    * <summary>Example: Create 10 pay-as-you-go instances</summary>
    * ```
-   * Amount:10, // Set the number of instances to create to 10.
+   * Amount:10, // Set the number of instances to 10.
    * InstanceChargeType:"PostPaid", // Set the billing method to pay-as-you-go.
-   * SpotStrategy:"NoSpot" // Default value, which indicates normal pay-as-you-go.
+   * SpotStrategy:"NoSpot" // Default value, indicating normal pay-as-you-go.
    * ```
    * </details>
    * <details>
-   * <summary>Example: Create 20 spot instances and set the bidding policy and protection period</summary>
+   * <summary>Example: Create 20 spot instances and configure the bidding policy and protection period</summary>
    * ```
-   * Amount:20, // Set the number of instances to create to 20.
+   * Amount:20, // Set the number of instances to 20.
    * InstanceChargeType:"PostPaid",
-   * SpotStrategy:"SpotAsPriceGo", // Set the bidding policy for spot instances to automatic bidding based on marketplace prices.
-   * SpotDuration:1 // Set the protection period for spot instances to 1 hour.
+   * SpotStrategy:"SpotAsPriceGo", // Set the bidding policy to SpotAsPriceGo, which means the system automatically places bids based on the marketplace price.
+   * SpotDuration:1 // Set the protection period to 1 hour.
    * ```
    * </details>
-   * Assume that you have created a launch template by calling [CreateLaunchTemplate](https://help.aliyun.com/document_detail/2679729.html) and now need to use the template to create several ECS instances in the China (Hangzhou) region. Examples are as follows:
+   * Assume that you have created a launch template by calling [CreateLaunchTemplate](https://help.aliyun.com/document_detail/2679729.html) and want to use the template to create ECS instances in the China (Hangzhou) region. Example:
    * <details>
    * <summary>Example: Create 10 ECS instances based on a launch template</summary>
    * ```
    * RegionId:"cn-hangzhou", // Set the region to China (Hangzhou).
-   * Amount:10, // Set the number of instances to create to 10.
+   * Amount:10, // Set the number of instances to 10.
    * LaunchTemplateId:"lt-bp14xczpoxvb6rre****" // Set the launch template ID.
    * ```
    * </details>
-   * >Notice: When both instance parameters and template parameters are specified, the instance parameters take precedence. For example, if the billing method in the template is subscription and InstanceChargeType is set to PostPaid, the created instances are pay-as-you-go instances.</notice>
+   * >Notice: If both instance parameters and template parameters are specified, the instance parameters take precedence. For example, if the billing method in the template is subscription but `InstanceChargeType` is set to `PostPaid`, a pay-as-you-go instance is created.</notice>
    * <details>
-   * <summary>Example: Create 1 instance by using a full image (a full instance image that includes the system disk and data disks)</summary>
+   * <summary>Example: Create one instance by using a full image (a full instance image that includes the system disk and data disks)</summary>
    * ```
    * RegionId:"cn-hangzhou", // Set the region to China (Hangzhou).
    * ImageId = m-bp13ohd32cvzpq9e****, // Custom image ID
@@ -34990,8 +34990,8 @@ export default class Client extends OpenApi {
    * SystemDisk.Category = cloud_auto, // Set the category of the system disk included in the full image.
    * DataDisk.1.Device = /dev/xvdb, // Set the mount point of the data disk included in the full image.
    * DataDisk.1.Size = 50, // Set the size of the data disk included in the full image.
-   * DataDisk.1.Category = cloud_essd, // Set the category of the data disk included in the full image.
-   * DataDisk.2.Device = /dev/xvdc, // Set the mount point of the new data disk. If you want to use the new data disk to replace the data disk included in the full image, you can set DataDisk.1.Device = /dev/xvdb (the default mount point of the data disk in the full image).
+   * DataDisk.1.Category = cloud_essd, // Set the data disk category to ESSD.
+   * DataDisk.2.Device = /dev/xvdc, // Set the mount point of the new data disk. If you want to use the new data disk to replace the data disk included in the full image, set DataDisk.1.Device to /dev/xvdb (the default mount point of the data disk in the full image).
    * DataDisk.2.Size = 70, // Set the size of the new data disk.
    * DataDisk.2.Category = cloud_auto, // Set the category of the new data disk.
    * ```
@@ -35460,22 +35460,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes StartTerminalSession to create a session based on the session management feature. You can establish a WebSocket session with an ECS instance by specifying the instance ID. The WebSocketUrl returned by this operation allows you to establish a remote connection to the ECS instance.
+   * Creates a session based on the session management feature by calling StartTerminalSession. You can establish a WebSocket session with an Elastic Compute Service (ECS) instance by specifying the instance ID, and remotely connect to the instance by using the WebSocket URL returned in the response.
    * 
    * @remarks
    * ## Operation description
-   * When you customize a remote connection client by using code, you can invoke this operation to obtain the WebSocketUrl for establishing a remote connection to an ECS instance. Take note of the following items:
+   * When you customize a remote connection client by using code, you can call this operation to obtain the WebSocket URL for remotely connecting to an ECS instance. Take note of the following items when you call this operation:
    * - The specified ECS instance must be in the Running state.
-   * - The specified ECS instance must have Cloud Assistant Agent installed. You can invoke [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/87346.html) to check whether Cloud Assistant Agent is installed on the ECS instance and query the version number of Cloud Assistant Agent.
-   *     - If Cloud Assistant Agent is not installed on the ECS instance, invoke [InstallCloudAssistant](https://help.aliyun.com/document_detail/85916.html) to install it.
-   *     - Cloud Assistant Agent must be later than the following versions to support the session management feature. To upgrade Cloud Assistant Agent, see [Upgrade or disable upgrades for Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html).
+   * - The Cloud Assistant Agent must be installed on the specified ECS instance. You can call [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/87346.html) to query whether the Cloud Assistant Agent is installed on the ECS instance and query the version number of the Cloud Assistant Agent.
+   *     - If the Cloud Assistant Agent is not installed on your ECS instance, call [InstallCloudAssistant](https://help.aliyun.com/document_detail/85916.html) to install it.
+   *     - The Cloud Assistant Agent must be of a version later than the following versions to support the session management feature. To upgrade the Cloud Assistant Agent, see [Upgrade or disable the upgrade of the Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html).
    *         - Linux operating system: 2.2.3.256
    *         - Windows operating system: 2.1.3.256
-   * - After this operation is invoked, the WebSocketUrl is valid for 10 minutes.
-   * - After a session is established, Cloud Assistant performs a shutdown of the connection if no data is transmitted for 3 minutes.
-   * - In a single region, a maximum of 100 sessions can be created and active. A maximum of 20 sessions can be in the connected state for a single ECS instance. The bandwidth limit for a single session connection is 200 KB/s.
-   * - The port forwarding feature supports only TCP port forwarding. UDP is not supported.
-   * - To permanently close a session and invalidate the WebSocketUrl, invoke the EndTerminalSession operation.
+   * - After this operation is successfully called, the WebSocket URL is valid for 10 minutes.
+   * - After a session is established, Cloud Assistant will shutdown the connection if no data is transmitted within 3 minutes.
+   * - In the same region, the number of created and active sessions cannot exceed 100. The number of sessions in the connected state for a single ECS instance cannot exceed 20. The bandwidth limit for a single session connection is 200 Kbit/s.
+   * - The port forwarding feature only supports TCP port forwarding and does not support UDP.
+   * - To permanently shutdown a session and invalidate the WebSocket URL, call the EndTerminalSession operation.
    * 
    * @param tmpReq - StartTerminalSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35568,22 +35568,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invokes StartTerminalSession to create a session based on the session management feature. You can establish a WebSocket session with an ECS instance by specifying the instance ID. The WebSocketUrl returned by this operation allows you to establish a remote connection to the ECS instance.
+   * Creates a session based on the session management feature by calling StartTerminalSession. You can establish a WebSocket session with an Elastic Compute Service (ECS) instance by specifying the instance ID, and remotely connect to the instance by using the WebSocket URL returned in the response.
    * 
    * @remarks
    * ## Operation description
-   * When you customize a remote connection client by using code, you can invoke this operation to obtain the WebSocketUrl for establishing a remote connection to an ECS instance. Take note of the following items:
+   * When you customize a remote connection client by using code, you can call this operation to obtain the WebSocket URL for remotely connecting to an ECS instance. Take note of the following items when you call this operation:
    * - The specified ECS instance must be in the Running state.
-   * - The specified ECS instance must have Cloud Assistant Agent installed. You can invoke [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/87346.html) to check whether Cloud Assistant Agent is installed on the ECS instance and query the version number of Cloud Assistant Agent.
-   *     - If Cloud Assistant Agent is not installed on the ECS instance, invoke [InstallCloudAssistant](https://help.aliyun.com/document_detail/85916.html) to install it.
-   *     - Cloud Assistant Agent must be later than the following versions to support the session management feature. To upgrade Cloud Assistant Agent, see [Upgrade or disable upgrades for Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html).
+   * - The Cloud Assistant Agent must be installed on the specified ECS instance. You can call [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/87346.html) to query whether the Cloud Assistant Agent is installed on the ECS instance and query the version number of the Cloud Assistant Agent.
+   *     - If the Cloud Assistant Agent is not installed on your ECS instance, call [InstallCloudAssistant](https://help.aliyun.com/document_detail/85916.html) to install it.
+   *     - The Cloud Assistant Agent must be of a version later than the following versions to support the session management feature. To upgrade the Cloud Assistant Agent, see [Upgrade or disable the upgrade of the Cloud Assistant Agent](https://help.aliyun.com/document_detail/134383.html).
    *         - Linux operating system: 2.2.3.256
    *         - Windows operating system: 2.1.3.256
-   * - After this operation is invoked, the WebSocketUrl is valid for 10 minutes.
-   * - After a session is established, Cloud Assistant performs a shutdown of the connection if no data is transmitted for 3 minutes.
-   * - In a single region, a maximum of 100 sessions can be created and active. A maximum of 20 sessions can be in the connected state for a single ECS instance. The bandwidth limit for a single session connection is 200 KB/s.
-   * - The port forwarding feature supports only TCP port forwarding. UDP is not supported.
-   * - To permanently close a session and invalidate the WebSocketUrl, invoke the EndTerminalSession operation.
+   * - After this operation is successfully called, the WebSocket URL is valid for 10 minutes.
+   * - After a session is established, Cloud Assistant will shutdown the connection if no data is transmitted within 3 minutes.
+   * - In the same region, the number of created and active sessions cannot exceed 100. The number of sessions in the connected state for a single ECS instance cannot exceed 20. The bandwidth limit for a single session connection is 200 Kbit/s.
+   * - The port forwarding feature only supports TCP port forwarding and does not support UDP.
+   * - To permanently shutdown a session and invalidate the WebSocket URL, call the EndTerminalSession operation.
    * 
    * @param request - StartTerminalSessionRequest
    * @returns StartTerminalSessionResponse
@@ -35684,13 +35684,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops one or more ECS instances. You can specify different stop methods, stop modes, and batch operation modes.
+   * Stops one or more ECS instances and allows you to specify different stop methods, stop modes, and batch operation modes.
    * 
    * @remarks
-   * This is an asynchronous operation. Instances are not stopped immediately after a successful call. After a successful call, the instance enters the Stopping state. You can call [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) to query the instance status. When the returned status is `Stopped`, the instance is stopped.
+   * This operation is asynchronous. The instances are not stopped immediately. After a successful call, the instances enter the Stopping state. You can call [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) to check the instance status. When the returned status is `Stopped`, the instances are successfully stopped.
    * ### Before you begin
-   * - After an instance is stopped, the instance becomes unavailable. Make sure that stopping the instance does not affect your business. You can call [StartInstance](https://help.aliyun.com/document_detail/2679679.html) or [StartInstances](https://help.aliyun.com/document_detail/2679680.html) to start the instance.
-   * - Instances that are locked for security reasons cannot be stopped by calling this operation. For more information, see [Impacts of resource security locks on API operations](https://help.aliyun.com/document_detail/25695.html).
+   * - After an instance is stopped, it becomes unavailable. Make sure that stopping the instance does not affect your business. You can call the [StartInstance](https://help.aliyun.com/document_detail/2679679.html) or [StartInstances](https://help.aliyun.com/document_detail/2679680.html) operation to start the instance.
+   * - Instances that are locked for security reasons cannot be stopped by calling this operation. For more information, see [Impact of resource security locks on API calls](https://help.aliyun.com/document_detail/25695.html).
    * 
    * @param request - StopInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35757,13 +35757,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops one or more ECS instances. You can specify different stop methods, stop modes, and batch operation modes.
+   * Stops one or more ECS instances and allows you to specify different stop methods, stop modes, and batch operation modes.
    * 
    * @remarks
-   * This is an asynchronous operation. Instances are not stopped immediately after a successful call. After a successful call, the instance enters the Stopping state. You can call [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) to query the instance status. When the returned status is `Stopped`, the instance is stopped.
+   * This operation is asynchronous. The instances are not stopped immediately. After a successful call, the instances enter the Stopping state. You can call [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) to check the instance status. When the returned status is `Stopped`, the instances are successfully stopped.
    * ### Before you begin
-   * - After an instance is stopped, the instance becomes unavailable. Make sure that stopping the instance does not affect your business. You can call [StartInstance](https://help.aliyun.com/document_detail/2679679.html) or [StartInstances](https://help.aliyun.com/document_detail/2679680.html) to start the instance.
-   * - Instances that are locked for security reasons cannot be stopped by calling this operation. For more information, see [Impacts of resource security locks on API operations](https://help.aliyun.com/document_detail/25695.html).
+   * - After an instance is stopped, it becomes unavailable. Make sure that stopping the instance does not affect your business. You can call the [StartInstance](https://help.aliyun.com/document_detail/2679679.html) or [StartInstances](https://help.aliyun.com/document_detail/2679680.html) operation to start the instance.
+   * - Instances that are locked for security reasons cannot be stopped by calling this operation. For more information, see [Impact of resource security locks on API calls](https://help.aliyun.com/document_detail/25695.html).
    * 
    * @param request - StopInstancesRequest
    * @returns StopInstancesResponse

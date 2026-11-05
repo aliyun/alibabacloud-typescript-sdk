@@ -32,7 +32,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   allowedUpgradeWindows?: DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfigAllowedUpgradeWindows;
   /**
    * @remarks
-   * Indicates whether the Cloud Assistant Agent checks for and performs updates immediately upon startup.
+   * Specifies whether to immediately check for and perform updates when the Cloud Assistant Agent starts.
    * 
    * @example
    * true
@@ -40,7 +40,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   bootstrapUpgrade?: boolean;
   /**
    * @remarks
-   * Indicates whether the Cloud Assistant Agent is prohibited from checking for and performing updates.
+   * Specifies whether to disable the Cloud Assistant Agent from checking for and performing updates.
    * 
    * @example
    * true
@@ -48,7 +48,7 @@ export class DescribeCloudAssistantSettingsResponseBodyAgentUpgradeConfig extend
   disableUpgrade?: boolean;
   /**
    * @remarks
-   * Indicates whether the custom Agent upgrade configuration is enabled. If the query result is false or empty, the default behavior of attempting an upgrade every 30 minutes is retained.
+   * Specifies whether the custom Cloud Assistant Agent upgrade configuration is enabled. If the value is false or empty, the system attempts to upgrade the agent every 30 minutes by default.
    * 
    * @example
    * true
@@ -164,7 +164,7 @@ export class DescribeCloudAssistantSettingsResponseBodyOssDeliveryConfigs extend
 export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig extends $dara.Model {
   /**
    * @remarks
-   * The maximum CPU usage allowed for the Cloud Assistant Agent main process.
+   * The maximum allowed CPU usage limit for the main process of the Cloud Assistant Agent.
    * 
    * @example
    * 20
@@ -172,7 +172,7 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
   cpuLimit?: number;
   /**
    * @remarks
-   * Indicates whether the script file is retained in the Cloud Assistant directory after command execution is complete.
+   * Specifies whether to retain script files in the Cloud Assistant directory after command execution is complete.
    * 
    * @example
    * false
@@ -196,7 +196,7 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
   logSizeLimit?: string;
   /**
    * @remarks
-   * The maximum memory usage allowed for the Cloud Assistant Agent main process.
+   * The maximum allowed memory usage limit for the main process of the Cloud Assistant Agent.
    * 
    * @example
    * 35MB
@@ -204,7 +204,7 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
   memoryLimit?: string;
   /**
    * @remarks
-   * The maximum number of consecutive times that CPU or memory resources usage can exceed the limit. After this limit is reached, the Cloud Assistant Agent automatically stops running.
+   * The maximum number of consecutive times that the usage of CPU or memory resources exceeds the limit. After reaching this limit, the Cloud Assistant Agent automatically stops.
    * 
    * @example
    * 3
@@ -244,9 +244,9 @@ export class DescribeCloudAssistantSettingsResponseBodyResourceUsageConfig exten
 export class DescribeCloudAssistantSettingsResponseBodySessionManagerConfig extends $dara.Model {
   /**
    * @remarks
-   * The toggle for the Cloud Assistant session feature. Valid values:
-   * * true: Enabled.
-   * * false: Disabled.
+   * The switch for the Cloud Assistant session feature. Valid values:
+   * * true: enabled
+   * * false: disabled
    * 
    * Precautions:
    * * Enabling or disabling the session feature takes effect in all regions.

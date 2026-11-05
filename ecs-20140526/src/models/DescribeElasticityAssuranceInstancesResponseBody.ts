@@ -55,7 +55,7 @@ export class DescribeElasticityAssuranceInstancesResponseBody extends $dara.Mode
   elasticityAssuranceItem?: DescribeElasticityAssuranceInstancesResponseBodyElasticityAssuranceItem;
   /**
    * @remarks
-   * The number of entries returned per page for paging.
+   * The number of entries returned per page for a paging query.
    * 
    * @example
    * 10

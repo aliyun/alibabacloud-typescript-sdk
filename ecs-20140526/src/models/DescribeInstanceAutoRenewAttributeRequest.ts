@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceAutoRenewAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can specify up to 100 subscription instance IDs at a time. Separate multiple instance IDs with commas (,).
+   * The instance IDs. You can specify up to 100 subscription instance IDs for a batch query. Separate multiple instance IDs with commas (,).
    * 
    * > You must specify at least one of the InstanceId and RenewalStatus parameters.
    * 
@@ -17,9 +17,9 @@ export class DescribeInstanceAutoRenewAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the resource list to return.
    * 
-   * Minimum value: 1.
+   * Starting value: 1.
    * 
    * Default value: 1.
    * 
@@ -29,7 +29,7 @@ export class DescribeInstanceAutoRenewAttributeRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page. Unit: entries.
+   * The number of entries per page.
    * 
    * Maximum value: 100.
    * 
@@ -41,7 +41,7 @@ export class DescribeInstanceAutoRenewAttributeRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
+   * The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -51,13 +51,13 @@ export class DescribeInstanceAutoRenewAttributeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The auto-renewal status of ECS instance. Valid values:
+   * The auto-renewal status of the instance. Valid values:
    * 
    * - AutoRenewal: Auto-renewal is enabled.
    * 
    * - Normal: Auto-renewal is disabled.
    * 
-   * - NotRenewal: ECS instance will not be renewed. The system no longer sends expiration reminders but sends only a non-renewal reminder three days before ECS instance expires. You can call [ModifyInstanceAutoRenewAttribute](https://help.aliyun.com/document_detail/52843.html) to change the renewal status of an instance from NotRenewal to `Normal`, and then manually renew ECS instance or enable auto-renewal for ECS instance.
+   * - NotRenewal: The instance is not renewed. The system no longer sends expiration reminders, but sends a non-renewal reminder only on the third day before expiration. For an ECS instance that is not renewed, you can call the [ModifyInstanceAutoRenewAttribute](https://help.aliyun.com/document_detail/52843.html) operation to change its status to Normal, and then manually renew the instance or enable auto-renewal.
    * 
    * @example
    * AutoRenewal

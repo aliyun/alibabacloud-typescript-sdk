@@ -264,9 +264,9 @@ export class DescribeSnapshotGroupsResponseBodySnapshotGroups extends $dara.Mode
 export class DescribeSnapshotGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token for the next query.
+   * The pagination token for the next query.
    * 
-   * > If this parameter is empty, no more data is returned.
+   * > If this value is empty, no more data is returned.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

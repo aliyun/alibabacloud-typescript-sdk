@@ -87,7 +87,7 @@ export class DescribeSnapshotLinksResponseBodySnapshotLinks extends $dara.Model 
 export class DescribeSnapshotLinksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token returned by the current call.
+   * The pagination token returned by this call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -103,7 +103,7 @@ export class DescribeSnapshotLinksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page specified in the request.
    * 
    * @example
    * 50
@@ -121,7 +121,7 @@ export class DescribeSnapshotLinksResponseBody extends $dara.Model {
   /**
    * @remarks
    * The total number of snapshot chains.
-   * > When you use the `MaxResults` and `NextToken` parameters for paging in a paged query, the returned `TotalCount` value is invalid.
+   * > If you use the `MaxResults` and `NextToken` parameters for paged queries, the returned `TotalCount` value is invalid.
    * 
    * @example
    * 9

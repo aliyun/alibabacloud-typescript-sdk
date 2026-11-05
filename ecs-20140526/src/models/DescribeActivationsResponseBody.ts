@@ -53,7 +53,7 @@ export class DescribeActivationsResponseBodyActivationList extends $dara.Model {
   activationId?: string;
   /**
    * @remarks
-   * The creation time. The time follows the ISO 8601 standard and is displayed in UTC.
+   * The creation time. The time follows the ISO 8601 standard in the UTC time zone.
    * 
    * @example
    * 2021-01-20T06:00:00Z
@@ -185,12 +185,12 @@ export class DescribeActivationsResponseBodyActivationList extends $dara.Model {
 export class DescribeActivationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The activation codes and their usage information.
+   * The collection of activation codes and their usage information.
    */
   activationList?: DescribeActivationsResponseBodyActivationList[];
   /**
    * @remarks
-   * The query token returned in the current response.
+   * The query token returned by the current call.
    * 
    * @example
    * AAAAAdDWBF2****
@@ -206,7 +206,7 @@ export class DescribeActivationsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The Settings for the number of entries returned per page during paging in a paged query.
+   * Settings for the number of entries returned per page in a paged query. This parameter is used for paging.
    * 
    * @example
    * 10
@@ -222,8 +222,8 @@ export class DescribeActivationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that meet the conditional query criteria.
-   * > When you perform paging in a paged query by using the MaxResults and NextToken parameters, the returned TotalCount value is meaningless.
+   * The total number of record entries that meet the conditional query.
+   * > If you use the MaxResults and NextToken parameters for a paged query (paging), the returned TotalCount value is meaningless.
    * 
    * @example
    * 1
