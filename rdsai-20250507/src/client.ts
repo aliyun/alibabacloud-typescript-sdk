@@ -957,10 +957,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workspace, the first member, and the first API key in a one-time onboarding process.
+   * Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
    * 
    * @remarks
-   * Creates a workspace along with the first member and the first API key in a one-time onboarding process. The plaintext API key is returned in the response.
+   * Creates a workspace, the first member, and the first API key in a one-time onboarding flow, and returns the plaintext API key.
    * 
    * @param request - CreateContextDatabaseWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -971,6 +971,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.memberName)) {
       query["MemberName"] = request.memberName;
+    }
+
+    if (!$dara.isNull(request.permissionMode)) {
+      query["PermissionMode"] = request.permissionMode;
     }
 
     if (!$dara.isNull(request.workspaceName)) {
@@ -995,10 +999,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a workspace, the first member, and the first API key in a one-time onboarding process.
+   * Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
    * 
    * @remarks
-   * Creates a workspace along with the first member and the first API key in a one-time onboarding process. The plaintext API key is returned in the response.
+   * Creates a workspace, the first member, and the first API key in a one-time onboarding flow, and returns the plaintext API key.
    * 
    * @param request - CreateContextDatabaseWorkspaceRequest
    * @returns CreateContextDatabaseWorkspaceResponse

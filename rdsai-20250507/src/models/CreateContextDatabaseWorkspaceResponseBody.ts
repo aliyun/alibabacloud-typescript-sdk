@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The plaintext API key. This value is returned only once at creation time. The caller must persist it.
+   * The plaintext API key. This key is returned only once upon creation. The caller must persist the key.
    * 
    * @example
    * ctxdb-*****
@@ -13,7 +13,7 @@ export class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The name of the first API key. The value is fixed as default.
+   * The name of the first API key. The value is fixed to default.
    * 
    * @example
    * default
@@ -21,7 +21,7 @@ export class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
   apiKeyName?: string;
   /**
    * @remarks
-   * The time when the workspace was created, in ISO 8601 format.
+   * The creation time in ISO 8601 format.
    * 
    * @example
    * 2026-05-28T17:59:55Z
@@ -45,6 +45,18 @@ export class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
   memberName?: string;
   /**
    * @remarks
+   * The permission mode that actually takes effect after the workspace is created. The value is returned as a lowercase string:
+   * - `personal_compatibility`: Compatibility mode, which corresponds to the request value `compatibility`.
+   * - `advanced`: Advanced permission mode.
+   * 
+   * This field is optional. If it is not returned in the response, check the actual mode in the workspace details. Do not recreate the workspace only because this field is missing.
+   * 
+   * @example
+   * advanced
+   */
+  permissionMode?: string;
+  /**
+   * @remarks
    * The request ID.
    * 
    * @example
@@ -53,7 +65,7 @@ export class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The role of the first member. The value is fixed as owner.
+   * The role of the first member. The value is fixed to owner.
    * 
    * @example
    * owner
@@ -61,9 +73,7 @@ export class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The workspace status. Valid values:
-   * - Active: running as expected.
-   * - Locked: locked due to overdue payment or expiration.
+   * The status of the workspace. Valid values: Active (running normally) and Locked (stopped due to an overdue payment or locked due to expiration).
    * 
    * @example
    * Active
@@ -71,9 +81,7 @@ export class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The workspace type. Valid values:
-   * - personal: individual account.
-   * - enterprise: enterprise account.
+   * The type of the workspace. Valid values: personal and enterprise.
    * 
    * @example
    * personal
@@ -81,7 +89,7 @@ export class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The ID of the new workspace.
+   * The ID of the newly created workspace.
    * 
    * @example
    * ws-as1llqmkol****
@@ -89,7 +97,7 @@ export class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * my-workspace
@@ -102,6 +110,7 @@ export class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
       createdAt: 'CreatedAt',
       memberId: 'MemberId',
       memberName: 'MemberName',
+      permissionMode: 'PermissionMode',
       requestId: 'RequestId',
       role: 'Role',
       status: 'Status',
@@ -118,6 +127,7 @@ export class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
       createdAt: 'string',
       memberId: 'string',
       memberName: 'string',
+      permissionMode: 'string',
       requestId: 'string',
       role: 'string',
       status: 'string',
