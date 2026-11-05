@@ -1,0 +1,99 @@
+import * as $dara from '@darabonba/typescript';
+export declare class SaveAppSupabaseSecretsResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The detailed reason why access is denied.
+     *
+     * @example
+     * {}
+     */
+    accessDeniedDetail?: string;
+    /**
+     * @remarks
+     * Indicates whether retries are allowed.
+     *
+     * @example
+     * False
+     */
+    allowRetry?: boolean;
+    /**
+     * @remarks
+     * The application name.
+     *
+     * @example
+     * or
+     */
+    appName?: string;
+    /**
+     * @remarks
+     * The dynamic error code.
+     *
+     * @example
+     * ERROR-oo1
+     */
+    dynamicCode?: string;
+    /**
+     * @remarks
+     * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the **DtsJobId** request parameter is invalid.
+     *
+     * @example
+     * SYSTEM_ERROR
+     */
+    dynamicMessage?: string;
+    /**
+     * @remarks
+     * The error arguments.
+     */
+    errorArgs?: any[];
+    /**
+     * @remarks
+     * The task object.
+     *
+     * @example
+     * true
+     */
+    module?: boolean;
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * 6C6B99AC-39EC-5350-874C-204128C905E6
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The error code.
+     *
+     * @example
+     * SYSTEM.EROR
+     */
+    rootErrorCode?: string;
+    /**
+     * @remarks
+     * The root error message.
+     *
+     * @example
+     * 系统异常
+     */
+    rootErrorMsg?: string;
+    /**
+     * @remarks
+     * Indicates whether the request is synchronously processed.
+     *
+     * @example
+     * True
+     */
+    synchro?: boolean;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

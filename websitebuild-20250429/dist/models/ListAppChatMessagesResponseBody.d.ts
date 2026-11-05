@@ -1,0 +1,259 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ListAppChatMessagesResponseBodyModule extends $dara.Model {
+    /**
+     * @remarks
+     * The bot ID.
+     *
+     * @example
+     * Zero2
+     */
+    botId?: string;
+    /**
+     * @remarks
+     * The unique ID of the utterance.
+     *
+     * @example
+     * chat-xrz3etcl2bsygwlx8g
+     */
+    chatId?: string;
+    /**
+     * @remarks
+     * The current conversation status.
+     *
+     * @example
+     * created
+     */
+    chatStatus?: string;
+    /**
+     * @remarks
+     * The ID of the called data API.
+     *
+     * @example
+     * {\\"code\\": \\"200\\", \\"success\\": True, \\"content\\": True, \\"requestId\\": \\"028993DE-097E-5F4E-AC48-64A2D5ED5F30\\", \\"businessError\\": False, \\"message\\": \\"success\\", \\"httpStatusCode\\": 200}
+     */
+    content?: string;
+    /**
+     * @remarks
+     * The content type.
+     *
+     * @example
+     * image/png
+     */
+    contentType?: string;
+    /**
+     * @remarks
+     * The conversation ID.
+     *
+     * @example
+     * 872be9bc-3097-433d-b462-596202455102
+     */
+    conversationId?: string;
+    /**
+     * @remarks
+     * The creation time. The value is a UNIX timestamp in seconds.
+     *
+     * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
+     *
+     * @example
+     * 1740479834
+     */
+    gmtCreateTime?: string;
+    /**
+     * @remarks
+     * The modification time. The time is in ISO 8601 format and the UTC time zone (Z).
+     *
+     * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
+     *
+     * @example
+     * 2025-08-28T02:25:41Z
+     */
+    gmtModifiedTime?: string;
+    /**
+     * @remarks
+     * The message ID.
+     *
+     * @example
+     * ee60f5a6-88ca-4074-ad37-515f065bbbd2
+     */
+    messageId?: string;
+    /**
+     * @remarks
+     * The business extension metadata. The value must be a JSON string in map format.
+     *
+     * @example
+     * {\\"appId\\":\\"WS20260506101154000001\\",\\"inputTokens\\":1148,\\"outputTokens\\":60}
+     */
+    metaData?: string;
+    /**
+     * @remarks
+     * **[Deprecated]** The region sequence number.
+     *
+     * @example
+     * 1
+     */
+    no?: number;
+    /**
+     * @remarks
+     * The role of the conversation participant. Valid values:
+     *
+     * - user: User
+     *
+     * - assistant: Assistant
+     *
+     * - system: System
+     * - function: Function
+     *
+     * - plugin: Plug-in
+     *
+     * - tool: Tool
+     *
+     * @example
+     * LoC
+     */
+    role?: string;
+    /**
+     * @remarks
+     * The section ID of the check item.
+     *
+     * @example
+     * 11
+     */
+    sectionId?: string;
+    /**
+     * @remarks
+     * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
+     *
+     * @example
+     * 865181640657408
+     */
+    siteId?: string;
+    /**
+     * @remarks
+     * The file type.
+     *
+     * @example
+     * IMAGE
+     */
+    type?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListAppChatMessagesResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The access denied details.
+     *
+     * @example
+     * {}
+     */
+    accessDeniedDetail?: string;
+    /**
+     * @remarks
+     * Specifies whether a retry is allowed.
+     *
+     * @example
+     * False
+     */
+    allowRetry?: boolean;
+    /**
+     * @remarks
+     * The app name.
+     *
+     * @example
+     * dewuApp
+     */
+    appName?: string;
+    /**
+     * @remarks
+     * The dynamic error code.
+     *
+     * @example
+     * ERROR-oo1
+     */
+    dynamicCode?: string;
+    /**
+     * @remarks
+     * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+     *
+     * @example
+     * xxx
+     */
+    dynamicMessage?: string;
+    /**
+     * @remarks
+     * The returned error parameters.
+     */
+    errorArgs?: any[];
+    /**
+     * @remarks
+     * The maximum number of results per query. Valid values: 10 to 100. Default value: 20.
+     *
+     * @example
+     * 10
+     */
+    maxResults?: number;
+    /**
+     * @remarks
+     * The response data.
+     */
+    module?: ListAppChatMessagesResponseBodyModule[];
+    /**
+     * @remarks
+     * The token used to start the next query. This parameter is empty if there is no next query.
+     *
+     * @example
+     * 0l45bkwM022Dt+rOvPi/oQ==
+     */
+    nextToken?: string;
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * 6C6B99AC-39EC-5350-874C-204128C905E6
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The error code.
+     *
+     * @example
+     * SYSTEM.EROR
+     */
+    rootErrorCode?: string;
+    /**
+     * @remarks
+     * The exception message.
+     *
+     * @example
+     * System exception
+     */
+    rootErrorMsg?: string;
+    /**
+     * @remarks
+     * The reserved parameter.
+     *
+     * @example
+     * True
+     */
+    synchro?: boolean;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

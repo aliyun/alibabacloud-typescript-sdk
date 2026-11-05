@@ -1,0 +1,29 @@
+import * as $dara from '@darabonba/typescript';
+export declare class UpdateAppCodeRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The edit operation content in JSON format.
+     *
+     * @example
+     * verify_6554d8cc0de584306d16506dd119cbfc
+     */
+    content?: string;
+    /**
+     * @remarks
+     * The session ID.
+     *
+     * @example
+     * 81bc5a34-1d8d-4ef7-a208-7401c51b054b
+     */
+    conversationId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

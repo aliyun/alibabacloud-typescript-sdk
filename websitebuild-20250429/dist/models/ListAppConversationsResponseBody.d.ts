@@ -1,0 +1,256 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ListAppConversationsResponseBodyModuleData extends $dara.Model {
+    /**
+     * @remarks
+     * aliyun_pk
+     *
+     * @example
+     * ***
+     */
+    aliyunPk?: string;
+    /**
+     * @remarks
+     * The bot ID.
+     *
+     * @example
+     * Zero2
+     */
+    botId?: string;
+    /**
+     * @remarks
+     * The number of chat records.
+     *
+     * @example
+     * 1
+     */
+    chatNum?: number;
+    /**
+     * @remarks
+     * The conversation ID.
+     *
+     * @example
+     * 799EAC1246C855CAC75B77955E43D841
+     */
+    conversationId?: string;
+    /**
+     * @remarks
+     * The creation time in ISO 8601 format, including the time zone offset.
+     *
+     * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
+     *
+     * @example
+     * 2026-01-27T17:51:25.415+08:00
+     */
+    gmtCreateTime?: string;
+    /**
+     * @remarks
+     * The update time in ISO 8601 format. The time zone is UTC (Z).
+     *
+     * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
+     *
+     * @example
+     * 2025-10-02T02:21:07Z
+     */
+    gmtModifiedTime?: string;
+    /**
+     * @remarks
+     * The extended information in JSON string format.
+     *
+     * @example
+     * {\\"MD5\\":\\"296f6c01e7fea2697ffe1cf41082b774\\",\\"driver\\":\\"vhd\\",\\"flag\\":\\"12845825\\",\\"imds_support\\":\\"v1\\",\\"io_optimized\\":true,\\"nvme_supported\\":true,\\"uefi_preferred\\":false}
+     */
+    metaData?: string;
+    /**
+     * @remarks
+     * The section ID of the check item.
+     *
+     * @example
+     * 255
+     */
+    sectionId?: string;
+    /**
+     * @remarks
+     * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
+     *
+     * @example
+     * 1068725896006128
+     */
+    siteId?: string;
+    /**
+     * @remarks
+     * The current viewpoint, which is equivalent to the news title.
+     *
+     * @example
+     * Sometimes When We Touch
+     */
+    title?: string;
+    /**
+     * @remarks
+     * The user ID.
+     *
+     * @example
+     * 123456
+     */
+    userId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListAppConversationsResponseBodyModule extends $dara.Model {
+    /**
+     * @remarks
+     * The request results.
+     */
+    data?: ListAppConversationsResponseBodyModuleData[];
+    /**
+     * @remarks
+     * The page number. Default value: 1.
+     *
+     * @example
+     * 16
+     */
+    pageNum?: number;
+    /**
+     * @remarks
+     * The page size.
+     *
+     * @example
+     * 50
+     */
+    pageSize?: number;
+    /**
+     * @remarks
+     * The resource count that meets the conditional filters.
+     *
+     * @example
+     * 30
+     */
+    totalCount?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListAppConversationsResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The detailed reasons for access denial.
+     *
+     * @example
+     * {}
+     */
+    accessDeniedDetail?: string;
+    /**
+     * @remarks
+     * Indicates whether retries are allowed.
+     *
+     * @example
+     * False
+     */
+    allowRetry?: boolean;
+    /**
+     * @remarks
+     * The name of the application to query.
+     *
+     * @example
+     * dewuApp
+     */
+    appName?: string;
+    /**
+     * @remarks
+     * The dynamic error code.
+     *
+     * @example
+     * ERROR-oo1
+     */
+    dynamicCode?: string;
+    /**
+     * @remarks
+     * The error message.
+     *
+     * @example
+     * SYSTEM_ERROR
+     */
+    dynamicMessage?: string;
+    /**
+     * @remarks
+     * The error arguments.
+     */
+    errorArgs?: any[];
+    /**
+     * @remarks
+     * The maximum number of results to return for a single query. Valid values: 10 to 100. Default value: 20.
+     *
+     * @example
+     * 10
+     */
+    maxResults?: number;
+    /**
+     * @remarks
+     * The response data.
+     */
+    module?: ListAppConversationsResponseBodyModule;
+    /**
+     * @remarks
+     * The token that is used to start the next query. If no next query is available, this parameter is empty.
+     *
+     * @example
+     * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
+     */
+    nextToken?: string;
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * 6C6B99AC-39EC-5350-874C-204128C905E6
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The error code.
+     *
+     * @example
+     * SYSTEM.ERROR
+     */
+    rootErrorCode?: string;
+    /**
+     * @remarks
+     * The exception message.
+     *
+     * @example
+     * System exception
+     */
+    rootErrorMsg?: string;
+    /**
+     * @remarks
+     * The reserved parameter.
+     *
+     * @example
+     * True
+     */
+    synchro?: boolean;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

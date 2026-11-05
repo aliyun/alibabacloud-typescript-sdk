@@ -1,0 +1,21 @@
+import * as $dara from '@darabonba/typescript';
+export declare class GetAppInstanceRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The business ID.
+     *
+     * @example
+     * WS20250801152639000005
+     */
+    bizId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

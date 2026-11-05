@@ -1,0 +1,61 @@
+import * as $dara from '@darabonba/typescript';
+export declare class SetAppDomainCertificateRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The business ID of the application instance.
+     *
+     * @example
+     * WD20250821161210000001
+     */
+    bizId?: string;
+    /**
+     * @remarks
+     * The name of the SSL certificate.
+     *
+     * @example
+     * 2024
+     */
+    certificateName?: string;
+    /**
+     * @remarks
+     * The certificate type. Valid values: default free certificate and customer-owned certificate.
+     *
+     * @example
+     * Server
+     */
+    certificateType?: string;
+    /**
+     * @remarks
+     * The domain name.
+     *
+     * @example
+     * kaibaidu.com
+     */
+    domainName?: string;
+    /**
+     * @remarks
+     * The private key.
+     *
+     * @example
+     * ***
+     */
+    privateKey?: string;
+    /**
+     * @remarks
+     * The public key.
+     *
+     * @example
+     * c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUxGQnQxUUpyT3IxK2hTTGRkbERMZUx4WGRIZ3hBalBxWHJIbWNFNWxqSk8gbm93Y29kZXJAbm93Y29kZXJkZU1hY0Jvb2stUHJvLmxvY2Fs
+     */
+    publicKey?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

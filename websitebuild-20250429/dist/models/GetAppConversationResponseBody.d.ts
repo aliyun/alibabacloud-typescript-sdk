@@ -1,0 +1,200 @@
+import * as $dara from '@darabonba/typescript';
+export declare class GetAppConversationResponseBodyModule extends $dara.Model {
+    /**
+     * @remarks
+     * The user ID.
+     *
+     * @example
+     * 12343131221311
+     */
+    aliyunPk?: string;
+    /**
+     * @remarks
+     * The bot ID.
+     *
+     * @example
+     * Zero2
+     */
+    botId?: string;
+    /**
+     * @remarks
+     * The chat records.
+     *
+     * @example
+     * 123
+     */
+    chatNum?: number;
+    /**
+     * @remarks
+     * The conversation ID.
+     *
+     * @example
+     * 872be9bc-3097-433d-b462-596202455102
+     */
+    conversationId?: string;
+    /**
+     * @remarks
+     * The creation time. The value is a UNIX timestamp in seconds.
+     *
+     * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
+     *
+     * @example
+     * 1740479834
+     */
+    gmtCreateTime?: string;
+    /**
+     * @remarks
+     * The update time. The time is in the ISO 8601 format and the UTC time zone (Z).
+     *
+     * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
+     *
+     * @example
+     * 2025-10-29T10:34:13Z
+     */
+    gmtModifiedTime?: string;
+    /**
+     * @remarks
+     * The extended information in JSON string format.
+     *
+     * @example
+     * {\\"appId\\":\\"WS20260507200853000001\\",\\"inputTokens\\":1411,\\"outputTokens\\":51}
+     */
+    metaData?: string;
+    /**
+     * @remarks
+     * The section ID of the check item.
+     *
+     * @example
+     * 11
+     */
+    sectionId?: string;
+    /**
+     * @remarks
+     * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+     *
+     * @example
+     * 865181640657408
+     */
+    siteId?: string;
+    /**
+     * @remarks
+     * The current viewpoint, which is equivalent to the news title.
+     *
+     * @example
+     * Feel Like Makin\\" Love
+     */
+    title?: string;
+    /**
+     * @remarks
+     * The user ID.
+     *
+     * @example
+     * User ID
+     */
+    userId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class GetAppConversationResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The details of the permission check failure.
+     *
+     * @example
+     * {}
+     */
+    accessDeniedDetail?: string;
+    /**
+     * @remarks
+     * Indicates whether a retry is allowed.
+     *
+     * @example
+     * False
+     */
+    allowRetry?: boolean;
+    /**
+     * @remarks
+     * The app name.
+     *
+     * @example
+     * dewuApp
+     */
+    appName?: string;
+    /**
+     * @remarks
+     * The dynamic error code.
+     *
+     * @example
+     * ERROR-oo1
+     */
+    dynamicCode?: string;
+    /**
+     * @remarks
+     * The dynamic error message, which is used to replace `%s` in the **ErrMessage** error message.
+     * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
+     *
+     * @example
+     * SYSTEM_ERROR
+     */
+    dynamicMessage?: string;
+    /**
+     * @remarks
+     * The returned error parameters.
+     */
+    errorArgs?: any[];
+    /**
+     * @remarks
+     * The response data.
+     */
+    module?: GetAppConversationResponseBodyModule;
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * 6C6B99AC-39EC-5350-874C-204128C905E6
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The error code.
+     *
+     * @example
+     * SYSTEM.ERROR
+     */
+    rootErrorCode?: string;
+    /**
+     * @remarks
+     * The exception message.
+     *
+     * @example
+     * System exception
+     */
+    rootErrorMsg?: string;
+    /**
+     * @remarks
+     * Indicates whether the request is processed synchronously.
+     *
+     * @example
+     * True
+     */
+    synchro?: boolean;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

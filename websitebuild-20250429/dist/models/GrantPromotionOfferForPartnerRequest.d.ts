@@ -1,0 +1,61 @@
+import * as $dara from '@darabonba/typescript';
+export declare class GrantPromotionOfferForPartnerRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The activity code.
+     *
+     * @example
+     * ACT202606001
+     */
+    activityCode?: string;
+    /**
+     * @remarks
+     * The activity ID.
+     *
+     * @example
+     * 232
+     */
+    activityId?: string;
+    /**
+     * @remarks
+     * The user ID.
+     *
+     * @example
+     * 123456
+     */
+    belongId?: string;
+    /**
+     * @remarks
+     * The channel.
+     *
+     * @example
+     * WECHAT
+     */
+    channel?: string;
+    /**
+     * @remarks
+     * The employee ID.
+     *
+     * @example
+     * WB02409424
+     */
+    employeeCode?: string;
+    /**
+     * @remarks
+     * The operation remark (audit information).
+     *
+     * @example
+     * hz-maven
+     */
+    remark?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

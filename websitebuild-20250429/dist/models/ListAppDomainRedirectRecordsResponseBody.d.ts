@@ -1,0 +1,254 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ListAppDomainRedirectRecordsResponseBodyModuleData extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the redirect record.
+     *
+     * @example
+     * f0379419-433d-410e-98d9-bf5c72f47227
+     */
+    recordId?: string;
+    /**
+     * @remarks
+     * The source domain name.
+     *
+     * @example
+     * abc.wanwang.xin
+     */
+    sourceDomain?: string;
+    /**
+     * @remarks
+     * The target domain name.
+     *
+     * @example
+     * aliyuncs.com
+     */
+    targetDomain?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListAppDomainRedirectRecordsResponseBodyModuleNext extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the redirect record.
+     *
+     * @example
+     * 936956504373539840
+     */
+    recordId?: string;
+    /**
+     * @remarks
+     * The source domain name.
+     *
+     * @example
+     * abc.wanwang.xin
+     */
+    sourceDomain?: string;
+    /**
+     * @remarks
+     * The target domain name.
+     *
+     * @example
+     * aliyuncs.com
+     */
+    targetDomain?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListAppDomainRedirectRecordsResponseBodyModule extends $dara.Model {
+    /**
+     * @remarks
+     * The current page number.
+     *
+     * @example
+     * 12
+     */
+    currentPageNum?: number;
+    /**
+     * @remarks
+     * The member name.
+     */
+    data?: ListAppDomainRedirectRecordsResponseBodyModuleData[];
+    /**
+     * @remarks
+     * The next feature ID.
+     */
+    next?: ListAppDomainRedirectRecordsResponseBodyModuleNext;
+    /**
+     * @remarks
+     * Indicates whether a next page exists.
+     */
+    nextPage?: boolean;
+    /**
+     * @remarks
+     * The page size.
+     *
+     * @example
+     * 50
+     */
+    pageSize?: number;
+    /**
+     * @remarks
+     * Indicates whether a previous page exists.
+     */
+    prePage?: boolean;
+    /**
+     * @remarks
+     * In addition to the pagination limit, the server processes a maximum of the latest 1,000 records for the current query. If the number of results exceeds 1,000, **ResultLimit** is set to **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is set to **false**.
+     */
+    resultLimit?: boolean;
+    /**
+     * @remarks
+     * The total number of entries.
+     *
+     * @example
+     * 1
+     */
+    totalItemNum?: number;
+    /**
+     * @remarks
+     * The total number of pages.
+     *
+     * @example
+     * 1
+     */
+    totalPageNum?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListAppDomainRedirectRecordsResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The detailed reasons for the access denial.
+     *
+     * @example
+     * {}
+     */
+    accessDeniedDetail?: string;
+    /**
+     * @remarks
+     * Indicates whether retries are allowed.
+     *
+     * @example
+     * False
+     */
+    allowRetry?: boolean;
+    /**
+     * @remarks
+     * The name of the frontend application.
+     *
+     * @example
+     * spring-cloud-b
+     */
+    appName?: string;
+    /**
+     * @remarks
+     * The dynamic error code.
+     *
+     * @example
+     * ERROR-oo1
+     */
+    dynamicCode?: string;
+    /**
+     * @remarks
+     * The dynamic message. This parameter is not in use and can be ignored.
+     *
+     * @example
+     * SYSTEM_ERROR
+     */
+    dynamicMessage?: string;
+    /**
+     * @remarks
+     * The error parameters.
+     */
+    errorArgs?: any[];
+    /**
+     * @remarks
+     * The maximum number of results to return per query.
+     *
+     * Valid values: 10 to 100. Default value: 20.
+     *
+     * @example
+     * 10
+     */
+    maxResults?: number;
+    /**
+     * @remarks
+     * The response object.
+     */
+    module?: ListAppDomainRedirectRecordsResponseBodyModule;
+    /**
+     * @remarks
+     * The token used to start the next query. This parameter is empty if no next query is available.
+     *
+     * @example
+     * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
+     */
+    nextToken?: string;
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * 6C6B99AC-39EC-5350-874C-204128C905E6
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The error code.
+     *
+     * @example
+     * SYSTEM.ERROR
+     */
+    rootErrorCode?: string;
+    /**
+     * @remarks
+     * The error message.
+     *
+     * @example
+     * System error
+     */
+    rootErrorMsg?: string;
+    /**
+     * @remarks
+     * Indicates whether the request is processed synchronously.
+     *
+     * @example
+     * True
+     */
+    synchro?: boolean;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

@@ -1,0 +1,294 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ListPromotionActivitiesForPartnerResponseBodyModuleActivities extends $dara.Model {
+    /**
+     * @remarks
+     * The activity code.
+     *
+     * @example
+     * acwfradoj5u
+     */
+    activityCode?: string;
+    /**
+     * @remarks
+     * The activity name.
+     *
+     * @example
+     * IP segment filtering statistics
+     */
+    activityName?: string;
+    /**
+     * @remarks
+     * The activity type.
+     *
+     * @example
+     * SCALE_IN
+     */
+    activityType?: string;
+    /**
+     * @remarks
+     * The consumed quota.
+     *
+     * @example
+     * 100
+     */
+    consumedQuota?: number;
+    /**
+     * @remarks
+     * The creation time. The value is in the YYYY-MM-DD HH:mm:ss format.
+     *
+     * @example
+     * 2022-02-14 11:57:51
+     */
+    createTime?: string;
+    /**
+     * @remarks
+     * The user who created the activity.
+     *
+     * @example
+     * onlinehoztestrolebasicallow1755461756261068111(300216315676902267)
+     */
+    createdBy?: string;
+    /**
+     * @remarks
+     * The eligibility configuration in JSON format.
+     *
+     * @example
+     * {}
+     */
+    eligibilityConfig?: string;
+    /**
+     * @remarks
+     * The end date. The value is in the YYYY-MM-DD HH:mm:ss Z format, where Z is the time zone offset.
+     *
+     * @example
+     * 2026-04-22 10:18:51 +0800
+     */
+    endDate?: string;
+    /**
+     * @remarks
+     * The offer configuration in JSON format.
+     *
+     * @example
+     * {}
+     */
+    offerConfig?: string;
+    /**
+     * @remarks
+     * The offer configuration summary.
+     *
+     * @example
+     * {}
+     */
+    offerConfigSummary?: string;
+    /**
+     * @remarks
+     * The remaining quota.
+     *
+     * @example
+     * 10
+     */
+    remainingQuota?: number;
+    /**
+     * @remarks
+     * The start date. The value is in the ISO 8601 format with the time zone set to UTC (Z).
+     *
+     * @example
+     * 2026-05-12T16:00:00.000Z
+     */
+    startDate?: string;
+    /**
+     * @remarks
+     * The activity status.
+     *
+     * @example
+     * FE_ABORTING
+     */
+    status?: string;
+    /**
+     * @remarks
+     * The total quota.
+     *
+     * @example
+     * 10
+     */
+    totalQuota?: number;
+    /**
+     * @remarks
+     * The touchpoint configuration in JSON format.
+     *
+     * @example
+     * {}
+     */
+    touchpointConfig?: string;
+    /**
+     * @remarks
+     * The update time. The value is in the ISO 8601 format with a time zone offset.
+     *
+     * @example
+     * 2025-10-11T21:13:38.164526965+08:00
+     */
+    updateTime?: string;
+    /**
+     * @remarks
+     * The user who last updated the activity.
+     *
+     * @example
+     * 123414
+     */
+    updatedBy?: string;
+    /**
+     * @remarks
+     * The warning threshold.
+     *
+     * @example
+     * 0
+     */
+    warningThreshold?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListPromotionActivitiesForPartnerResponseBodyModule extends $dara.Model {
+    /**
+     * @remarks
+     * The list of promotional activities.
+     */
+    activities?: ListPromotionActivitiesForPartnerResponseBodyModuleActivities[];
+    /**
+     * @remarks
+     * The total number of entries.
+     *
+     * @example
+     * 30
+     */
+    totalCount?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListPromotionActivitiesForPartnerResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The access denied details.
+     *
+     * @example
+     * {}
+     */
+    accessDeniedDetail?: string;
+    /**
+     * @remarks
+     * Indicates whether retry is allowed.
+     *
+     * @example
+     * False
+     */
+    allowRetry?: boolean;
+    /**
+     * @remarks
+     * The application name.
+     *
+     * @example
+     * spring-cloud-b
+     */
+    appName?: string;
+    /**
+     * @remarks
+     * The dynamic error code.
+     *
+     * @example
+     * ERROR-oo1
+     */
+    dynamicCode?: string;
+    /**
+     * @remarks
+     * The dynamic message.
+     *
+     * @example
+     * SYSTEM_ERROR
+     */
+    dynamicMessage?: string;
+    /**
+     * @remarks
+     * The error arguments.
+     */
+    errorArgs?: any[];
+    /**
+     * @remarks
+     * The number of entries per query.
+     *
+     * Valid values: 10 to 100. Default value: 20.
+     *
+     * @example
+     * 10
+     */
+    maxResults?: number;
+    /**
+     * @remarks
+     * The response data.
+     */
+    module?: ListPromotionActivitiesForPartnerResponseBodyModule;
+    /**
+     * @remarks
+     * The token for the next query. This parameter is empty if no more results exist.
+     *
+     * @example
+     * 0l45bkwM022Dt+rOvPi/oQ==
+     */
+    nextToken?: string;
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * 6C6B99AC-39EC-5350-874C-204128C905E6
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The error code.
+     *
+     * @example
+     * SYSTEM.ERROR
+     */
+    rootErrorCode?: string;
+    /**
+     * @remarks
+     * The root error message.
+     *
+     * @example
+     * System exception
+     */
+    rootErrorMsg?: string;
+    /**
+     * @remarks
+     * Indicates whether the request is synchronously processed.
+     *
+     * @example
+     * True
+     */
+    synchro?: boolean;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

@@ -1,0 +1,69 @@
+import * as $dara from '@darabonba/typescript';
+export declare class QueryInspirationAccountDetailsRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The end time of the query. The time is in the ISO 8601 standard and the UTC (Z) time zone.
+     *
+     * @example
+     * 2025-07-23T16:00:00Z
+     */
+    endTime?: string;
+    /**
+     * @remarks
+     * The field by which to sort the results.
+     *
+     * @example
+     * gmtCreated
+     */
+    orderColumn?: string;
+    /**
+     * @remarks
+     * The sort order. Valid values: ASC and DESC.
+     *
+     * @example
+     * BUY
+     */
+    orderType?: string;
+    /**
+     * @remarks
+     * The page number. Default value: 1.
+     *
+     * @example
+     * 0
+     */
+    pageNum?: number;
+    /**
+     * @remarks
+     * The number of entries per page. Default value: 10.
+     *
+     * @example
+     * 10
+     */
+    pageSize?: number;
+    /**
+     * @remarks
+     * The source type filter, such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, or PURCHASED.
+     *
+     * @example
+     * MARKET_CLOUD_DREAM
+     */
+    sourceType?: string;
+    /**
+     * @remarks
+     * The start time of the query. The time is in the ISO 8601 standard and the UTC (Z) time zone.
+     *
+     * @example
+     * 2025-06-21T16:00:00Z
+     */
+    startTime?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
