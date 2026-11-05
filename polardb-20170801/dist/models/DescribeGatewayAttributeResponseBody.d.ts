@@ -1,0 +1,275 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeGatewayAttributeResponseBodyEndpoints extends $dara.Model {
+    /**
+     * @remarks
+     * The endpoint address.
+     *
+     * @example
+     * pg-xxxxx.polardbaigateway.pre.rds.aliyuncs.com
+     */
+    address?: string;
+    /**
+     * @remarks
+     * The endpoint ID.
+     *
+     * @example
+     * xxx
+     */
+    endpointId?: string;
+    /**
+     * @remarks
+     * The gateway instance ID.
+     *
+     * @example
+     * pg-xxxxxxx
+     */
+    gwClusterId?: string;
+    /**
+     * @remarks
+     * The endpoint type. Valid values:
+     * - Private: VPC address.
+     * - Public: Internet address.
+     *
+     * @example
+     * Public
+     */
+    netType?: string;
+    /**
+     * @remarks
+     * The port.
+     *
+     * @example
+     * 8080
+     */
+    port?: string;
+    /**
+     * @remarks
+     * The tunnel ID.
+     *
+     * @example
+     * 1874631
+     */
+    tunnelId?: string;
+    /**
+     * @remarks
+     * The ID of the VPC to which the vSwitch belongs.
+     *
+     * @example
+     * vpc-*************
+     */
+    vpcId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribeGatewayAttributeResponseBodySecurityIPArrays extends $dara.Model {
+    /**
+     * @remarks
+     * The name of the IP address whitelist. Default value: `default`.
+     *
+     * @example
+     * default
+     */
+    securityIPArrayName?: string;
+    /**
+     * @remarks
+     * The tag of the IP address whitelist.
+     *
+     * @example
+     * mytag
+     */
+    securityIPArrayTag?: string;
+    /**
+     * @remarks
+     * The IP addresses in the whitelist, separated by commas.
+     *
+     * @example
+     * 127.0.0.1
+     */
+    securityIPList?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribeGatewayAttributeResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The specification code.
+     *
+     * @example
+     * polar.app.g2.medium
+     */
+    classCode?: string;
+    /**
+     * @remarks
+     * The creation time. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+     *
+     * @example
+     * 2020-02-24T11:57:54Z
+     */
+    createTime?: string;
+    /**
+     * @remarks
+     * The current version number.
+     *
+     * @example
+     * 2.0.0
+     */
+    currentVersion?: string;
+    /**
+     * @remarks
+     * The database type.
+     *
+     * @example
+     * MySQL
+     */
+    dbType?: string;
+    /**
+     * @remarks
+     * The list of endpoints.
+     */
+    endpoints?: DescribeGatewayAttributeResponseBodyEndpoints[];
+    /**
+     * @remarks
+     * The expiration time. This parameter is empty when the billing method is pay-as-you-go. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+     *
+     * @example
+     * 2027-04-22T16:00:00Z
+     */
+    expireTime?: string;
+    /**
+     * @remarks
+     * Indicates whether the cluster has expired. Valid values:
+     *
+     * - true
+     *
+     * - false
+     *
+     * @example
+     * False
+     */
+    expired?: boolean;
+    /**
+     * @remarks
+     * The gateway instance ID.
+     *
+     * @example
+     * pg-xxxxxxx
+     */
+    gwClusterId?: string;
+    /**
+     * @remarks
+     * The description of the gateway.
+     *
+     * @example
+     * xxx
+     */
+    gwDescription?: string;
+    /**
+     * @remarks
+     * The latest version number.
+     *
+     * @example
+     * 2.0.1
+     */
+    latestVersion?: string;
+    /**
+     * @remarks
+     * The last modification time. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+     *
+     * @example
+     * 2025-10-07T02:19:55Z
+     */
+    modifyTime?: string;
+    /**
+     * @remarks
+     * The billing method. Valid values:
+     *
+     * - **Postpaid**: pay-as-you-go.
+     * - **Prepaid**: subscription.
+     *
+     * @example
+     * Postpaid
+     */
+    payType?: string;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * @example
+     * cn-beijing
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The running version number.
+     *
+     * @example
+     * 2.0.0
+     */
+    runningVersion?: string;
+    /**
+     * @remarks
+     * The application-level whitelist.
+     */
+    securityIPArrays?: DescribeGatewayAttributeResponseBodySecurityIPArrays[];
+    /**
+     * @remarks
+     * The application status. Valid values:
+     *
+     * - CREATE: Creating.
+     * - ACTIVATION: Running.
+     *
+     * @example
+     * ACTIVATION
+     */
+    status?: string;
+    /**
+     * @remarks
+     * The vSwitch ID.
+     *
+     * @example
+     * vsw-*********************
+     */
+    vSwitchId?: string;
+    /**
+     * @remarks
+     * The ID of the VPC to which the vSwitch belongs.
+     *
+     * @example
+     * vpc-*************
+     */
+    vpcId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

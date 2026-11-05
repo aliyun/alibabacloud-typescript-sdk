@@ -1,0 +1,323 @@
+import * as $dara from '@darabonba/typescript';
+export declare class CreateAIDBClusterRequestTimeSlices extends $dara.Model {
+    /**
+     * @remarks
+     * The start time of the task. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+     *
+     * @example
+     * 1758729600
+     */
+    beginTime?: number;
+    /**
+     * @remarks
+     * The end time of the query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
+     *
+     * @example
+     * 1758733200
+     */
+    endTime?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateAIDBClusterRequest extends $dara.Model {
+    /**
+     * @remarks
+     * Specifies whether the cluster is managed by an ACK cluster.
+     *
+     * @example
+     * yes
+     */
+    ackAdmin?: string;
+    /**
+     * @remarks
+     * Specifies whether to enable auto-renewal. Valid values:
+     *
+     * - **true**: enables auto-renewal.
+     * - **false**: disables auto-renewal.
+     *
+     * Default value: **false**.
+     *
+     * > This parameter takes effect only when the **PayType** parameter is set to **Prepaid**.
+     *
+     * @example
+     * false
+     */
+    autoRenew?: string;
+    /**
+     * @remarks
+     * Specifies whether to automatically use coupons. Valid values:
+     * * true (default): uses coupons.
+     * * false: does not use coupons.
+     *
+     * @example
+     * false
+     */
+    autoUseCoupon?: boolean;
+    /**
+     * @remarks
+     * The initial model capacity of the instance. The value must be a positive integer. A capacity unit of 1000 is equivalent to one L20N card.
+     *
+     * @example
+     * 4000
+     */
+    capacity?: number;
+    /**
+     * @remarks
+     * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the token on the client side. Ensure that the token is unique across different requests. The token is case-sensitive and can be up to 64 ASCII characters in length.
+     *
+     * @example
+     * 6000170000591aed949d0f54a343f1a4233c1e7d1c5c******
+     */
+    clientToken?: string;
+    /**
+     * @remarks
+     * Specifies whether to create a public endpoint.
+     *
+     * @example
+     * ON
+     */
+    createPublicEndpoint?: string;
+    /**
+     * @remarks
+     * The description of the cluster. Fuzzy match is supported.
+     *
+     * @example
+     * test
+     */
+    DBClusterDescription?: string;
+    /**
+     * @remarks
+     * The PolarDB instance ID on which the application depends.
+     *
+     * @example
+     * pc-******************
+     */
+    DBClusterId?: string;
+    /**
+     * @remarks
+     * The node specifications.
+     *
+     * @example
+     * polar.pg.g4.6xlarge.gu4
+     */
+    DBNodeClass?: string;
+    /**
+     * @remarks
+     * The extension.
+     *
+     * @example
+     * maas
+     */
+    extension?: string;
+    /**
+     * @remarks
+     * The inference engine.
+     *
+     * @example
+     * sglang
+     */
+    inferenceEngine?: string;
+    /**
+     * @remarks
+     * The ID of the ACK cluster.
+     *
+     * @example
+     * xxxxxxxxxxxxxxxxxxxxxxx
+     */
+    kubeClusterId?: string;
+    /**
+     * @remarks
+     * The Kubernetes configuration.
+     *
+     * @example
+     * xxx
+     */
+    kubeConfig?: string;
+    /**
+     * @remarks
+     * The management mode of the Kubernetes cluster.
+     *
+     * @example
+     * self_k8s
+     */
+    kubeManagement?: string;
+    /**
+     * @remarks
+     * aideploy
+     *
+     * @example
+     * aideploy
+     */
+    kubeType?: string;
+    /**
+     * @remarks
+     * The Kubernetes configuration.
+     *
+     * @example
+     * xxx
+     */
+    kubernetesConfig?: string;
+    /**
+     * @remarks
+     * The management mode.
+     *
+     * @example
+     * ack
+     */
+    managementMode?: string;
+    /**
+     * @remarks
+     * The name of the model.
+     *
+     * @example
+     * Qwen3-30B-A3B
+     */
+    modelName?: string;
+    /**
+     * @remarks
+     * The model operator space.
+     *
+     * @example
+     * pms-xxx
+     */
+    modelSpace?: string;
+    ownerAccount?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The password.
+     *
+     * @example
+     * xxx
+     */
+    password?: string;
+    /**
+     * @remarks
+     * The billing method. Valid values:
+     *
+     * - **Postpaid**: pay-as-you-go.
+     * - **Prepaid**: subscription.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * Postpaid
+     */
+    payType?: string;
+    /**
+     * @remarks
+     * This parameter is required when the **PayType** parameter is set to **Prepaid**. Specifies the billing cycle of the subscription cluster. Valid values:
+     *
+     * - **Year**: yearly subscription.
+     * - **Month**: monthly subscription.
+     *
+     * @example
+     * 5
+     */
+    period?: string;
+    /**
+     * @remarks
+     * The coupon code. If you do not specify this parameter, the default coupon is used.
+     *
+     * @example
+     * 727xxxxxx934
+     */
+    promotionCode?: string;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * cn-beijing
+     */
+    regionId?: string;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    /**
+     * @remarks
+     * The ID of the security group.
+     *
+     * @example
+     * sg-bp**************
+     */
+    securityGroupId?: string;
+    /**
+     * @remarks
+     * The storage space.
+     *
+     * @example
+     * 1024
+     */
+    storageSpace?: number;
+    /**
+     * @remarks
+     * The storage type.
+     *
+     * @example
+     * essdpl0
+     */
+    storageType?: string;
+    /**
+     * @remarks
+     * The pay-as-you-go time ranges.
+     */
+    timeSlices?: CreateAIDBClusterRequestTimeSlices[];
+    /**
+     * @remarks
+     * The subscription duration. This parameter is required when the **PayType** parameter is set to **Prepaid**.
+     * - If the **Period** parameter is set to **Month**, the value of **UsedTime** must be an integer in the range of `[1-9]`.
+     * - If the **Period** parameter is set to **Year**, the value of **UsedTime** must be an integer in the range of `[1-3]`.
+     *
+     * @example
+     * 1
+     */
+    usedTime?: string;
+    /**
+     * @remarks
+     * The ID of the VPC.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * vpc-*******************
+     */
+    VPCId?: string;
+    /**
+     * @remarks
+     * The ID of the vSwitch.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * vsw-**********
+     */
+    vSwitchId?: string;
+    /**
+     * @remarks
+     * The zone ID.
+     *
+     * @example
+     * cn-beijing-i
+     */
+    zoneId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

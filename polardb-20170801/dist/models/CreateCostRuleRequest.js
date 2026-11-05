@@ -1,0 +1,76 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateCostRuleRequest = void 0;
+// This file is auto-generated, don't edit it
+const $dara = __importStar(require("@darabonba/typescript"));
+class CreateCostRuleRequest extends $dara.Model {
+    static names() {
+        return {
+            cacheCostPointsPerMillion: 'CacheCostPointsPerMillion',
+            cacheCreationCostPointsPerMillion: 'CacheCreationCostPointsPerMillion',
+            effectiveStartTime: 'EffectiveStartTime',
+            effectiveTargetType: 'EffectiveTargetType',
+            effectiveTargetValue: 'EffectiveTargetValue',
+            explicitCacheCostPointsPerMillion: 'ExplicitCacheCostPointsPerMillion',
+            gwClusterId: 'GwClusterId',
+            imageCostPointsPerCount: 'ImageCostPointsPerCount',
+            inputCostPointsPerMillion: 'InputCostPointsPerMillion',
+            inputTokenTiers: 'InputTokenTiers',
+            modelName: 'ModelName',
+            modelServiceId: 'ModelServiceId',
+            outputCostPointsPerMillion: 'OutputCostPointsPerMillion',
+            regionId: 'RegionId',
+            videoCostPointsPerSecond: 'VideoCostPointsPerSecond',
+        };
+    }
+    static types() {
+        return {
+            cacheCostPointsPerMillion: 'string',
+            cacheCreationCostPointsPerMillion: 'string',
+            effectiveStartTime: 'string',
+            effectiveTargetType: 'string',
+            effectiveTargetValue: 'string',
+            explicitCacheCostPointsPerMillion: 'string',
+            gwClusterId: 'string',
+            imageCostPointsPerCount: 'string',
+            inputCostPointsPerMillion: 'string',
+            inputTokenTiers: 'string',
+            modelName: 'string',
+            modelServiceId: 'string',
+            outputCostPointsPerMillion: 'string',
+            regionId: 'string',
+            videoCostPointsPerSecond: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateCostRuleRequest = CreateCostRuleRequest;
+//# sourceMappingURL=CreateCostRuleRequest.js.map

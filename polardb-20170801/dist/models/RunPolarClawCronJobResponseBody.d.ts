@@ -1,0 +1,69 @@
+import * as $dara from '@darabonba/typescript';
+export declare class RunPolarClawCronJobResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The application ID.
+     *
+     * @example
+     * pa-**************
+     */
+    applicationId?: string;
+    /**
+     * @remarks
+     * The returned status code.
+     *
+     * @example
+     * 200
+     */
+    code?: number;
+    /**
+     * @remarks
+     * The ID of the executed task.
+     *
+     * @example
+     * 8006e51c-dab3-4602-bc69-4f728002c6ce
+     */
+    jobId?: string;
+    /**
+     * @remarks
+     * The returned message.
+     *
+     * @example
+     * successful
+     */
+    message?: string;
+    /**
+     * @remarks
+     * Indicates whether the operation is successful.
+     *
+     * @example
+     * true
+     */
+    ok?: boolean;
+    /**
+     * @remarks
+     * Indicates whether the task was actually executed.
+     *
+     * @example
+     * true
+     */
+    ran?: boolean;
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * C61892A4-0850-4516-9E26-44D96C1782DE
+     */
+    requestId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

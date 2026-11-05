@@ -1,0 +1,87 @@
+import * as $dara from '@darabonba/typescript';
+export declare class VerifyAgenticDBTenantApiKeyResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the API key. This parameter is empty if the API key is invalid.
+     *
+     * @example
+     * ak-71304e39c7e841a1
+     */
+    apiKeyId?: string;
+    /**
+     * @remarks
+     * The ID of the associated AgenticDB cluster.
+     *
+     * @example
+     * pagc-bp1abcdef1234567
+     */
+    DBClusterId?: string;
+    /**
+     * @remarks
+     * The expiration time. This parameter is empty if the API key is permanently valid.
+     *
+     * The time is in ISO 8601 format and uses the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+     *
+     * @example
+     * 2027-01-01T00:00:00Z
+     */
+    expireTime?: string;
+    /**
+     * @remarks
+     * The reason for validation failure. Valid values: NotFound, Expired, and Revoked. This parameter is empty if the API key is valid.
+     *
+     * @example
+     * NotFound
+     */
+    reason?: string;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * D4E5F6A7-B8C9-0123-DEFA-234567890123
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The ID of the tenant to which the API key belongs. This parameter is empty if the API key is invalid.
+     *
+     * @example
+     * t-4b83e0da66674951
+     */
+    tenantId?: string;
+    /**
+     * @remarks
+     * The name of the tenant to which the API key belongs. This parameter is empty if the API key is invalid.
+     *
+     * @example
+     * my-saas-app
+     */
+    tenantName?: string;
+    /**
+     * @remarks
+     * Indicates whether the API key is valid.
+     *
+     * @example
+     * true
+     */
+    valid?: boolean;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

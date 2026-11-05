@@ -1,0 +1,69 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeAgenticDBBranchRestoreWindowResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The source branch ID.
+     *
+     * @example
+     * br-1a2b3c4d5e6f
+     */
+    branchId?: string;
+    /**
+     * @remarks
+     * DBClusterId
+     *
+     * @example
+     * pagc-bp1abcdef1234567
+     */
+    DBClusterId?: string;
+    /**
+     * @remarks
+     * The earliest time available for creating a historical branch, in UTC RFC3339 format. This time point can be selected. The available range changes over time and is revalidated during creation.
+     *
+     * @example
+     * 2026-10-15T07:32:00Z
+     */
+    earliestRestorableTime?: string;
+    /**
+     * @remarks
+     * ProjectId
+     *
+     * @example
+     * proj-a1b2c3d4e5f6
+     */
+    projectId?: string;
+    /**
+     * @remarks
+     * The time when this query was completed, in UTC RFC3339 format. This does not represent the latest restorable time.
+     *
+     * @example
+     * 2026-10-16T07:32:00Z
+     */
+    queriedAt?: string;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * req-123
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * TenantId
+     *
+     * @example
+     * t-4b83e0da66674951
+     */
+    tenantId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

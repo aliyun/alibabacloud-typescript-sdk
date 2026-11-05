@@ -1,0 +1,67 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ModifyConsumerRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The name of the consumer group.
+     *
+     * @example
+     * cg-xxxxxx
+     */
+    consumerGroupName?: string;
+    /**
+     * @remarks
+     * The ID of the consumer.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * c-mqveroemc***
+     */
+    consumerId?: string;
+    /**
+     * @remarks
+     * The ID of the gateway instance.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pg-xxxxxxxx
+     */
+    gwClusterId?: string;
+    /**
+     * @remarks
+     * Indicates if the consumer is in the default group. Valid values: 0 (No) and 1 (Yes).
+     *
+     * @example
+     * 0
+     */
+    isDefault?: string;
+    /**
+     * @remarks
+     * The new name for the consumer.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * test
+     */
+    name?: string;
+    /**
+     * @remarks
+     * The ID of the region.
+     *
+     * @example
+     * cn-beijing
+     */
+    regionId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

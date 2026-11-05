@@ -1,0 +1,110 @@
+import * as $dara from '@darabonba/typescript';
+export declare class CreateDBEndpointAddressRequestZoneInfo extends $dara.Model {
+    /**
+     * @remarks
+     * The virtual switch ID.
+     *
+     * @example
+     * vsw-**********
+     */
+    vSwitchId?: string;
+    /**
+     * @remarks
+     * The zone ID.
+     *
+     * @example
+     * cn-hangzhou-b
+     */
+    zoneId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateDBEndpointAddressRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The prefix of the new endpoint. The prefix must meet the following requirements:
+     *
+     * - Consist of lowercase letters, digits, and hyphens (-).
+     *
+     * - Start with a letter and end with a digit or a letter.
+     *
+     * - Be 6 to 40 characters in length.
+     *
+     * @example
+     * test-1
+     */
+    connectionStringPrefix?: string;
+    /**
+     * @remarks
+     * The cluster ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pc-**************
+     */
+    DBClusterId?: string;
+    /**
+     * @remarks
+     * The endpoint ID.
+     *
+     * > For more information, see [DescribeDBClusterEndpoints](https://help.aliyun.com/document_detail/98205.html).
+     *
+     * @example
+     * pe-**************
+     */
+    DBEndpointId?: string;
+    /**
+     * @remarks
+     * The network type of the new endpoint. Set the value to **Public**.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * Public
+     */
+    netType?: string;
+    ownerAccount?: string;
+    ownerId?: number;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    /**
+     * @remarks
+     * The ID of the ECS security group.
+     *
+     * @example
+     * sg-bp**************
+     */
+    securityGroupId?: string;
+    /**
+     * @remarks
+     * The ID of the virtual private cloud (VPC).
+     *
+     * @example
+     * vpc-**********
+     */
+    VPCId?: string;
+    /**
+     * @remarks
+     * The zone information.
+     */
+    zoneInfo?: CreateDBEndpointAddressRequestZoneInfo[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

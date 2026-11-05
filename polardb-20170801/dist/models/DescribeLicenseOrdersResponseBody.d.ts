@@ -1,0 +1,174 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeLicenseOrdersResponseBodyItems extends $dara.Model {
+    /**
+     * @remarks
+     * The number of activation codes that have been generated.
+     *
+     * @example
+     * 10
+     */
+    activatedCodeCount?: number;
+    /**
+     * @remarks
+     * The quota of activation codes that can be requested.
+     *
+     * @example
+     * 10
+     */
+    activationCodeQuota?: number;
+    /**
+     * @remarks
+     * The Alibaba Cloud order ID or virtual order ID.
+     *
+     * @example
+     * 227638319690519
+     */
+    aliyunOrderId?: string;
+    /**
+     * @remarks
+     * Indicates whether the System Identifier field can be left empty when generating an activation code.
+     *
+     * @example
+     * false
+     */
+    allowEmptySystemIdentifier?: boolean;
+    /**
+     * @remarks
+     * The database engine type, such as PG, Oracle, or MySQL.
+     *
+     * @example
+     * PG
+     */
+    engine?: string;
+    /**
+     * @remarks
+     * The time when the order was created.
+     *
+     * @example
+     * 2022-02-11 03:14:15
+     */
+    gmtCreated?: string;
+    /**
+     * @remarks
+     * The time when the order was last updated.
+     *
+     * @example
+     * 2022-02-11 03:14:15
+     */
+    gmtModified?: string;
+    /**
+     * @remarks
+     * Indicates whether the order is a virtual order. Virtual orders allow pre-generation of activation codes.
+     *
+     * @example
+     * false
+     */
+    isVirtualOrder?: boolean;
+    /**
+     * @remarks
+     * Indicates whether the virtual order is frozen. A frozen virtual order does not allow further generation of activation codes.
+     *
+     * @example
+     * false
+     */
+    isVirtualOrderFrozen?: boolean;
+    /**
+     * @remarks
+     * The package type. Valid values:
+     *
+     * - single_node_subscribe: single node (subscription).
+     * - single_node_long_term: single node (long-term).
+     * - primary_backup_subscribe: primary/secondary (subscription).
+     * - primary_backup_long_term: primary/secondary (long-term).
+     * - pre_generation_long_term: pre-generation (long-term).
+     *
+     * @example
+     * single_node_subscribe
+     */
+    packageType?: string;
+    /**
+     * @remarks
+     * The validity period of the package. Typical values are one year or long-term (30 years).
+     *
+     * @example
+     * 1 year
+     */
+    packageValidity?: string;
+    /**
+     * @remarks
+     * The purchase channel. Valid values:
+     * - aliyun_market: Alibaba Cloud Marketplace.
+     * - aliyun_public: standard purchase page.
+     *
+     * @example
+     * aliyun_public
+     */
+    purchaseChannel?: string;
+    /**
+     * @remarks
+     * The virtual order ID.
+     *
+     * @example
+     * 227638319690519
+     */
+    virtualAliyunOrderId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribeLicenseOrdersResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The list of orders.
+     */
+    items?: DescribeLicenseOrdersResponseBodyItems[];
+    /**
+     * @remarks
+     * The current page number.
+     *
+     * @example
+     * 1
+     */
+    pageNumber?: number;
+    /**
+     * @remarks
+     * The number of records on the current page.
+     *
+     * @example
+     * 12
+     */
+    pageRecordCount?: number;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * 34458CD3-33E0-4624-BFEF-840C15******
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The total number of records.
+     *
+     * @example
+     * 50
+     */
+    totalRecordCount?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

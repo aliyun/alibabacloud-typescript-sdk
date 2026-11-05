@@ -1,0 +1,37 @@
+import * as $dara from '@darabonba/typescript';
+export declare class CreateAIDBClusterTaskResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The instance ID of the generated model service.
+     *
+     * @example
+     * pm-2zo88***
+     */
+    DBClusterId?: string;
+    /**
+     * @remarks
+     * The order ID.
+     *
+     * @example
+     * 2035638*******
+     */
+    orderId?: string;
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * CED079B7-A408-41A1-BFF1-EC608E******
+     */
+    requestId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

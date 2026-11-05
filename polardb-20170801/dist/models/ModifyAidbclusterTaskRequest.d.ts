@@ -1,0 +1,50 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ModifyAIDBClusterTaskRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The task ID.
+     *
+     * @example
+     * pm-2ze9***
+     */
+    DBClusterId?: string;
+    /**
+     * @remarks
+     * The operation to perform. Valid values:
+     * * **stop**: Stops training. This value applies only to tasks that are being trained.
+     *
+     * @example
+     * stop
+     */
+    modifyMode?: string;
+    ownerAccount?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * @example
+     * cn-beijing
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * The instance ID of the PolarDB database for the AI model service.
+     *
+     * @example
+     * pc-bp10ze***
+     */
+    relativeDBClusterId?: string;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

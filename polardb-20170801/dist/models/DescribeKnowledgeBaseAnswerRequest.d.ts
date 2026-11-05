@@ -1,0 +1,43 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeKnowledgeBaseAnswerRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The unique identifier of the knowledge base.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pkb-xxxxx
+     */
+    knowledgeBaseId?: string;
+    /**
+     * @remarks
+     * The unique identifier of the Q&A task.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * R3BGbnBqcXN******.2a5a23c9-******-179970533d30
+     */
+    queryId?: string;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * cn-beijing
+     */
+    regionId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

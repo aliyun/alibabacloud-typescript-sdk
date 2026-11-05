@@ -1,0 +1,55 @@
+import * as $dara from '@darabonba/typescript';
+export declare class CreateGwConsumerOrderResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The redemption code used for subsequent activation.
+     *
+     * @example
+     * "9"
+     */
+    creditToken?: string;
+    /**
+     * @remarks
+     * The expiration time.
+     *
+     * The time is in ISO 8601 format in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+     *
+     * @example
+     * 2020-11-14T16:00:00Z
+     */
+    expireTime?: string;
+    /**
+     * @remarks
+     * The ID of the AI gateway instance.
+     *
+     * @example
+     * pg-2ze24rr575j5b18cg
+     */
+    gatewayId?: string;
+    /**
+     * @remarks
+     * The order ID returned after the order is placed.
+     *
+     * @example
+     * 2035638*******
+     */
+    orderId?: string;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * A7E6A8FD-C50B-46B2-BA85-D8B8D3******
+     */
+    requestId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

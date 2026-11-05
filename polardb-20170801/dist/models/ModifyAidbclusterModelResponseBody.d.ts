@@ -1,0 +1,82 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ModifyAIDBClusterModelResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * Indicates whether the request is a dry run.
+     *
+     * @example
+     * true
+     */
+    dryRun?: boolean;
+    /**
+     * @remarks
+     * The model type of the instance.
+     *
+     * @example
+     * custom
+     */
+    modelType?: string;
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * 3AA6E0E4-1234-5678-90AB-1234567890AB
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The parsed target model name.
+     *
+     * @example
+     * Qwen3-32B
+     */
+    targetModelName?: string;
+    /**
+     * @remarks
+     * The parsed target OSS path.
+     *
+     * @example
+     * /my-model-bucket/models/qwen3
+     */
+    targetOssPath?: string;
+    /**
+     * @remarks
+     * The ID of the asynchronous task. This parameter is empty when DryRun is set to true.
+     *
+     * @example
+     * 123456
+     */
+    taskId?: number;
+    /**
+     * @remarks
+     * The total number of modification batches.
+     *
+     * @example
+     * 1
+     */
+    totalBatches?: number;
+    /**
+     * @remarks
+     * The number of affected model service instances.
+     *
+     * @example
+     * 2
+     */
+    totalMsds?: number;
+    /**
+     * @remarks
+     * The modification warnings returned by the upstream service. The caller must display these warnings.
+     */
+    warnings?: string[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

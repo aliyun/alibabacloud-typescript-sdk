@@ -1,0 +1,70 @@
+import * as $dara from '@darabonba/typescript';
+export declare class UpdateKnowledgeSpaceShrinkRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The description of the knowledge space. The description can be up to 512 characters in length.
+     *
+     * @example
+     * testDesc
+     */
+    description?: string;
+    /**
+     * @remarks
+     * The unique identifier of the knowledge space.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pks-xxxxxx
+     */
+    knowledgeSpaceId?: string;
+    /**
+     * @remarks
+     * The name of the large language model.
+     *
+     * @example
+     * qwen3.6-plus
+     */
+    LLMModel?: string;
+    /**
+     * @remarks
+     * The name of the knowledge space. The name must be 1 to 128 characters in length.
+     *
+     * @example
+     * testName
+     */
+    name?: string;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * cn-beijing
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * The name of the reranking model.
+     *
+     * @example
+     * qwen3-rerank
+     */
+    rerankModel?: string;
+    /**
+     * @remarks
+     * The default chunking strategy configuration for the knowledge space. Simple strategies and composite strategies matched by content type are supported.
+     */
+    shardingStrategyConfigShrink?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

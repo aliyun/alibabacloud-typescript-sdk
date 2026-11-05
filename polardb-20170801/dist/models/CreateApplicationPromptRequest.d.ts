@@ -1,0 +1,62 @@
+import * as $dara from '@darabonba/typescript';
+export declare class CreateApplicationPromptRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the Application.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pa-**************
+     */
+    applicationId?: string;
+    /**
+     * @remarks
+     * The name of the Prompt.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * my_prompt
+     */
+    promptName?: string;
+    /**
+     * @remarks
+     * The type of the Prompt.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * CONVERSATION_SUMMERY
+     * SEMANTIC_MEMORY
+     * MEMORY_ANSWER_PROMPT
+     * USER_MEMORY_EXTRACTION_PROMPT
+     * AGENT_MEMORY_EXTRACTION_PROMPT
+     * PROCEDURAL_MEMORY_SYSTEM_PROMPT
+     * RETRIEVE_NODES_PROMPT
+     * EXTRACT_RELATIONS_PROMPT
+     * UPDATE_GRAPH_PROMPT
+     * DELETE_RELATIONS_SYSTEM_PROMPT
+     */
+    promptType?: string;
+    /**
+     * @remarks
+     * The content of the Prompt.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * prompt content
+     */
+    promptValue?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

@@ -1,0 +1,198 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeDBClustersRequestTag extends $dara.Model {
+    /**
+     * @remarks
+     * The tag key. You can filter the cluster list based on tags. You can specify up to 20 tag key-value pairs. The number n in each tag key-value pair must be unique and must be a consecutive integer starting from 1. The value of Tag.n.Key is Tag.n.Value.
+     *
+     * > The tag key can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+     *
+     * @example
+     * MySQL
+     */
+    key?: string;
+    /**
+     * @remarks
+     * The tag value that corresponds to the tag key.
+     *
+     * > The tag value can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+     *
+     * @example
+     * 5.6
+     */
+    value?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribeDBClustersRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The database endpoint.
+     *
+     * @example
+     * ********.rwlb.polardb-pg-public.rds.aliyuncs.com
+     */
+    connectionString?: string;
+    /**
+     * @remarks
+     * The cluster description. Fuzzy match is supported.
+     *
+     * @example
+     * pc-****************
+     */
+    DBClusterDescription?: string;
+    /**
+     * @remarks
+     * The cluster IDs. Separate multiple cluster IDs with commas (,).
+     *
+     * @example
+     * pc-****************
+     */
+    DBClusterIds?: string;
+    /**
+     * @remarks
+     * The cluster status. For valid values, see [Cluster status table](https://help.aliyun.com/document_detail/99286.html).
+     *
+     * @example
+     * Running
+     */
+    DBClusterStatus?: string;
+    /**
+     * @remarks
+     * The node IDs. You can specify multiple node IDs and separate them with commas (,).
+     *
+     * @example
+     * pi-***************
+     */
+    DBNodeIds?: string;
+    /**
+     * @remarks
+     * The database type. Valid values:
+     * * **MySQL**
+     * * **PostgreSQL**
+     * * **Oracle**
+     *
+     * @example
+     * MySQL
+     */
+    DBType?: string;
+    /**
+     * @remarks
+     * The database version.
+     *
+     * @example
+     * 5.6
+     */
+    DBVersion?: string;
+    /**
+     * @remarks
+     * The query mode for the list. A value of Simple indicates the simplified mode, in which only the basic metadata of the clusters is returned.
+     * > If this parameter is not specified, the detailed mode is used by default, and the detailed information of the clusters is returned.
+     *
+     * @example
+     * Simple
+     */
+    describeType?: string;
+    /**
+     * @remarks
+     * Specifies whether the cluster has expired. Valid values:
+     *
+     * - **true**
+     *
+     * - **false**
+     *
+     * @example
+     * true
+     */
+    expired?: boolean;
+    ownerAccount?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
+     *
+     * @example
+     * 10
+     */
+    pageNumber?: number;
+    /**
+     * @remarks
+     * The number of entries per page. Valid values: **30**, **50**, and **100**.
+     *
+     * Default value: **30**.
+     *
+     * @example
+     * 30
+     */
+    pageSize?: number;
+    /**
+     * @remarks
+     * The billing method. Valid values:
+     *
+     * - **Postpaid**: pay-as-you-go.
+     * - **Prepaid**: subscription.
+     *
+     * @example
+     * Postpaid
+     */
+    payType?: string;
+    /**
+     * @remarks
+     * Filters the clusters created in the last N days. Valid values: 0 to 15.
+     *
+     * @example
+     * 7
+     */
+    recentCreationInterval?: number;
+    /**
+     * @remarks
+     * Filters the clusters that expire in N days. Valid values: 0 to 15.
+     *
+     * @example
+     * 6
+     */
+    recentExpirationInterval?: number;
+    /**
+     * @remarks
+     * The region ID.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * The resource group ID.
+     *
+     * @example
+     * rg-**********
+     */
+    resourceGroupId?: string;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    /**
+     * @remarks
+     * The list of tags.
+     */
+    tag?: DescribeDBClustersRequestTag[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

@@ -1,0 +1,152 @@
+import * as $dara from '@darabonba/typescript';
+export declare class CreateModelApiRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The gateway retry configuration.
+     *
+     * @example
+     * {
+     * 	"failover": {
+     * 		"enabled": true,
+     * 		"max_provider_retries": 2,
+     * 		"max_failover_providers": 1,
+     * 		"retryable_status_codes": [429, 500, 502, 503, 504],
+     * 		"retry_delay": 0.5
+     * 	}
+     * }
+     */
+    config?: string;
+    /**
+     * @remarks
+     * The forced model.
+     *
+     * @example
+     * xxx
+     */
+    forceModel?: string;
+    /**
+     * @remarks
+     * The gateway instance ID. You can obtain the ID from the GwClusterId returned by CreateGateway.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pg-xxxxxxxxxx
+     */
+    gwClusterId?: string;
+    /**
+     * @remarks
+     * The category. Valid values:
+     * * **text**
+     * * **embedding**
+     * * **rerank**
+     *
+     * This parameter is required.
+     *
+     * @example
+     * text
+     */
+    modelCategory?: string;
+    /**
+     * @remarks
+     * The name of the model API.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * test
+     */
+    name?: string;
+    /**
+     * @remarks
+     * The API path prefix.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * /test
+     */
+    pathPrefix?: string;
+    /**
+     * @remarks
+     * The protocol. Valid values:
+     *
+     * * **openai**
+     * * **anthropic**
+     * * **bailian**
+     * * **vllm**
+     *
+     * This parameter is required.
+     *
+     * @example
+     * openai
+     */
+    protocol?: string;
+    /**
+     * @remarks
+     * The number of input tokens.
+     *
+     * @example
+     * 10
+     */
+    recordInput?: string;
+    /**
+     * @remarks
+     * The number of output tokens.
+     *
+     * @example
+     * 10
+     */
+    recordOutput?: string;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * @example
+     * cn-beijing
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * The list of routing rules, which is a JSON array string.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * [
+     *   {
+     *     "RuleName": "string",
+     *     "FallbackMode": "failover",
+     *     "MatchModelListJson": "[]",
+     *     "providerBalancerAlgorithm": "round-robin",
+     *     "Providers": [
+     *       {
+     *         "ModelServiceName": "string",
+     *         "Weight": "0",
+     *         "model_protocol": "vllm"
+     *         "ModelList": "[]"
+     *       }
+     *     ],
+     *     "FallbackProviders": [
+     *       {
+     *         "ModelServiceName": "string",
+     *         "model_protocol": "anthropic",
+     *         "Weight": "10",
+     *         "ModelList": "[]"
+     *       }
+     *     ]
+     *   }
+     * ]
+     */
+    routeRules?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

@@ -1,0 +1,194 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeBudgetPoliciesResponseBodyItems extends $dara.Model {
+    /**
+     * @remarks
+     * The alert threshold percentage (0 to 100).
+     *
+     * @example
+     * 80
+     */
+    alertThresholdPct?: string;
+    /**
+     * @remarks
+     * Indicates whether the alert threshold is triggered.
+     *
+     * @example
+     * false
+     */
+    alertTriggered?: boolean;
+    /**
+     * @remarks
+     * The ID of the dimension object. This parameter is required when BudgetDimensionType is set to ConsumerGroup or Consumer.
+     *
+     * @example
+     * cg-p3gk2oh55c**
+     */
+    budgetDimensionRefId?: string;
+    /**
+     * @remarks
+     * The type of the policy. Valid values:
+     *
+     * - **ConsumerGroup**: Total budget for consumer groups.
+     * - **Consumer**: Total budget for consumers.
+     *
+     * @example
+     * ConsumerGroup
+     */
+    budgetDimensionType?: string;
+    /**
+     * @remarks
+     * The budget points.
+     *
+     * @example
+     * 10000
+     */
+    budgetPoints?: string;
+    /**
+     * @remarks
+     * The ID of the budget policy.
+     *
+     * @example
+     * 023aacc1effc4b56bb154bfbec6ba9**
+     */
+    budgetPolicyId?: string;
+    /**
+     * @remarks
+     * The budget type. Valid values:
+     *
+     * - **GlobalTotal**: Global total budget.
+     * - **ConsumerTotal**: Total budget for consumers.
+     * - **ConsumerGroupTotal**: Total budget for consumer groups.
+     *
+     * @example
+     * GlobalTotal
+     */
+    budgetType?: string;
+    /**
+     * @remarks
+     * Indicates whether the quota is exceeded.
+     *
+     * @example
+     * false
+     */
+    exceeded?: string;
+    /**
+     * @remarks
+     * The creation time.
+     *
+     * @example
+     * 2025-03-19T14:13:53+08:00
+     */
+    gmtCreated?: string;
+    /**
+     * @remarks
+     * The update time.
+     *
+     * @example
+     * 2025-04-08T10:43:28+08:00
+     */
+    gmtModified?: string;
+    /**
+     * @remarks
+     * The gateway instance ID.
+     *
+     * @example
+     * pg-xxxxxxxx
+     */
+    gwClusterId?: string;
+    /**
+     * @remarks
+     * The day of the month when the budget is reset (1 to 28).
+     *
+     * @example
+     * 2
+     */
+    resetDayOfMonth?: string;
+    /**
+     * @remarks
+     * The status of the policy. Valid values:
+     *
+     * - **Enabled**: Enabled.
+     * - **Disenabled**: Disabled.
+     *
+     * @example
+     * Enabled
+     */
+    status?: string;
+    /**
+     * @remarks
+     * The number of used points.
+     *
+     * @example
+     * 10
+     */
+    usedPoints?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribeBudgetPoliciesResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The list of budget policies.
+     */
+    items?: DescribeBudgetPoliciesResponseBodyItems[];
+    /**
+     * @remarks
+     * The page number.
+     *
+     * @example
+     * 1
+     */
+    pageNumber?: number;
+    /**
+     * @remarks
+     * The number of records on the current page.
+     *
+     * @example
+     * 1
+     */
+    pageRecordCount?: number;
+    /**
+     * @remarks
+     * The number of entries per page. Valid values: **30**, **50**, and **100**.
+     *
+     * Default value: **30**.
+     *
+     * @example
+     * 30
+     */
+    pageSize?: number;
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * 24A1990B-4F6E-482B-B8CB-75C612******
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The total number of records.
+     *
+     * @example
+     * 2
+     */
+    totalRecordCount?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

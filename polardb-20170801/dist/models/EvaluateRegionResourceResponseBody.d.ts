@@ -1,0 +1,58 @@
+import * as $dara from '@darabonba/typescript';
+export declare class EvaluateRegionResourceResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * Indicates whether sufficient resources are available.
+     * * **true**: Sufficient resources are available.
+     * * **false**: Resources are insufficient.
+     *
+     * @example
+     * true
+     */
+    DBInstanceAvailable?: string;
+    /**
+     * @remarks
+     * The type of the database engine. Valid values:
+     * - **MySQL**
+     * - **PostgreSQL**
+     * - **Oracle**
+     *
+     * @example
+     * MySQL
+     */
+    DBType?: string;
+    /**
+     * @remarks
+     * The database DPI engine version number.
+     * * Valid version numbers for MySQL:
+     *     * **5.6**
+     *     * **5.7**
+     *     * **8.0**
+     * * Valid version numbers for PostgreSQL:
+     *     * **11**
+     *     * **14**
+     * * Valid version number for Oracle: **11**.
+     *
+     * @example
+     * 8.0
+     */
+    DBVersion?: string;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * 69A85BAF-1089-4CDF-A82F-0A140F******
+     */
+    requestId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

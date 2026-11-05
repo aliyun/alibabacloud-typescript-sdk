@@ -1,0 +1,41 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribePolarSQLCollectorPolicyResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the cluster.
+     *
+     * @example
+     * pc-bp1s826a1up******
+     */
+    DBClusterId?: string;
+    /**
+     * @remarks
+     * The ID of the request.
+     *
+     * @example
+     * 3655211B-4D74-4E13-91E6-FF2AFE******
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * Indicates whether the SQL Explorer feature is enabled. Valid values:
+     *
+     * - **Enable**: The feature is enabled.
+     *
+     * - **Disabled**: The feature is disabled.
+     *
+     * @example
+     * Enable
+     */
+    SQLCollectorStatus?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

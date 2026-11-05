@@ -1,0 +1,31 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribePolarAgentSessionStatusRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the session. This ID is used to identify a visitor\\"s session and maintain context information.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 1e28530a0da2c4755f165b1b8b9a73c9
+     */
+    sessionId?: string;
+    /**
+     * @remarks
+     * The source of the product. Set the value to polardb-console.
+     *
+     * @example
+     * polardb-console
+     */
+    source?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

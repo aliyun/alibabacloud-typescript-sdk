@@ -1,0 +1,62 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeCrossCloudRegionMappingToAliyunResponseBodyCrossCloudRegionMappingList extends $dara.Model {
+    /**
+     * @remarks
+     * The region ID of Alibaba Cloud.
+     *
+     * @example
+     * cn-beijing
+     */
+    aliyunRegionId?: string;
+    /**
+     * @remarks
+     * The cloud provider.
+     *
+     * @example
+     * HuaweiCloud
+     */
+    cloudProvider?: string;
+    /**
+     * @remarks
+     * The region ID of the third-party cloud.
+     *
+     * @example
+     * cn-east-3
+     */
+    crossCloudRegionId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribeCrossCloudRegionMappingToAliyunResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The list of cross-cloud region mappings.
+     */
+    crossCloudRegionMappingList?: DescribeCrossCloudRegionMappingToAliyunResponseBodyCrossCloudRegionMappingList[];
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * E56531A4-E552-40BA-9C58-137B80******
+     */
+    requestId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

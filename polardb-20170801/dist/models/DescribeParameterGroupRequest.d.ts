@@ -1,0 +1,63 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeParameterGroupRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The database engine type. Valid values:
+     *
+     * - **MySQL**
+     *
+     * - **PostgreSQL**
+     *
+     * - **Oracle**
+     *
+     * @example
+     * MySQL
+     */
+    DBType?: string;
+    ownerAccount?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The ID of the parameter group.
+     *
+     * > You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to query the details of all parameter groups in the specified region.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pcpg-**************
+     */
+    parameterGroupId?: string;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions and their IDs in your account.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * The ID of the resource group.
+     *
+     * @example
+     * rg-************
+     */
+    resourceGroupId?: string;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

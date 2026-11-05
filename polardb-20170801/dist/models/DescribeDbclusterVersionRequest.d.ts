@@ -1,0 +1,39 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeDBClusterVersionRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The cluster ID.
+     * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters under your account, such as the cluster ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pc-****************
+     */
+    DBClusterId?: string;
+    /**
+     * @remarks
+     * Specifies whether to return the latest version information or a list of upgradable versions. Valid values:
+     *
+     * - LATEST_VERSION: Queries the latest version information.
+     * - AVAILABLE_VERSION: Queries the list of upgradable versions.
+     *
+     * @example
+     * LATEST_VERSION
+     */
+    describeType?: string;
+    ownerAccount?: string;
+    ownerId?: number;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

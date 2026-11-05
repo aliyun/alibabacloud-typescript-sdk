@@ -1,0 +1,53 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ModifyEncryptionDBSecretRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The cluster ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pc-****************
+     */
+    DBClusterId?: string;
+    /**
+     * @remarks
+     * The status of the key. Valid values:
+     * - **Enabled**: Enabled.
+     * - **Disabled**: Disabled.
+     *
+     * @example
+     * Enabled
+     */
+    encryptionDBStatus?: string;
+    /**
+     * @remarks
+     * The key ID.
+     *
+     * @example
+     * 749c1df7-****-****-****-*********
+     */
+    encryptionKey?: string;
+    ownerAccount?: string;
+    ownerId?: number;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    /**
+     * @remarks
+     * The global resource descriptor of the RAM role. The descriptor is used to specify a RAM role. For details, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
+     *
+     * @example
+     * acs:ram::1406926*****:role/aliyunrdsinstanceencryptiondefaultrole
+     */
+    roleArn?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

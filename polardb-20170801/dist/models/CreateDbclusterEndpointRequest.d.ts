@@ -1,0 +1,191 @@
+import * as $dara from '@darabonba/typescript';
+export declare class CreateDBClusterEndpointRequest extends $dara.Model {
+    /**
+     * @remarks
+     * Specifies whether new nodes are automatically added to this endpoint. Valid values:
+     * * **Enable**: New nodes are automatically added to this endpoint.
+     * * **Disable** (default): New nodes are not automatically added to this endpoint.
+     *
+     * @example
+     * Disable
+     */
+    autoAddNewNodes?: string;
+    /**
+     * @remarks
+     * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token is case-sensitive and can contain a maximum of 64 ASCII characters.
+     *
+     * @example
+     * 6000170000591aed949d0f******************
+     */
+    clientToken?: string;
+    /**
+     * @remarks
+     * The cluster ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pc-**************
+     */
+    DBClusterId?: string;
+    /**
+     * @remarks
+     * The name of the custom cluster endpoint.
+     *
+     * @example
+     * test
+     */
+    DBEndpointDescription?: string;
+    /**
+     * @remarks
+     * The advanced configurations of the cluster endpoint in JSON format. You can configure the consistency level, transaction splitting, offload reads from primary node, and connection pool settings.
+     * * Configure the load balancing policy. Format: {\\"LoadBalancePolicy\\":\\"Load balancing policy\\"}. Valid values:
+     *    * **0**: connection-based load balancing (default).
+     *    * **1**: active-request-based load balancing.
+     * * Configure the consistency level. Format: `{"ConsistLevel":"Consistency level"}`. Valid values:
+     *     * **0**: eventual consistency.
+     *     * **1**: session consistency (default).
+     *     * **2**: global consistency.
+     * * Configure transaction splitting. Format: `{"DistributedTransaction":"Transaction splitting"}`. Valid values:
+     *     * **on**: enables transaction splitting (default).
+     *     * **off**: disables transaction splitting.
+     * * Configure whether the primary node accepts read requests. Format: `{"MasterAcceptReads":"Offload reads from primary node"}`. Valid values:
+     *     * **on**: the primary node accepts read requests.
+     *     * **off**: the primary node does not accept read requests (default).
+     * * Configure the connection pool. Format: `{"ConnectionPersist":"Connection pool"}`. Valid values:
+     *     * **off**: disables the connection pool (default).
+     *     * **Session**: enables session-level connection pooling.
+     *     * **Transaction**: enables transaction-level connection pooling.
+     * * Configure parallel query. Format: {\\"MaxParallelDegree\\":\\"Parallel query\\"}. Valid values:
+     *     * A specific degree of parallelism. Example: "MaxParallelDegree":"2".
+     *     * **off**: disables parallel query (default).
+     * * Configure automatic request distribution among row store and column store nodes. Format: {\\"EnableHtapImci\\":\\"Automatic request distribution among row store and column store\\"}. Valid values:
+     *     * **on**: enables automatic request distribution among row store and column store nodes.
+     *     * **off**: disables automatic request distribution among row store and column store nodes (default).
+     * * Configure whether to enable overload protection. Format: {\\"EnableOverloadThrottle\\":\\"Enable overload protection\\"}. Valid values:
+     *    * **on**: enables overload protection.
+     *    * **off**: disables overload protection (default).
+     *
+     * > * Transaction splitting, whether the primary node accepts read requests, connection pool, and overload protection can be configured only when the read/write mode of the PolarDB for MySQL cluster endpoint is **ReadWrite (automatic read/write splitting)**.
+     * >* When the read/write mode of the PolarDB for MySQL cluster endpoint is **ReadOnly**, both **connection-based load balancing** and **active-request-based load balancing** are supported. The **ReadWrite (automatic read/write splitting)** mode supports only **active-request-based load balancing**.
+     * >* Automatic request distribution among row store and column store nodes can be configured when the read/write mode of the PolarDB for MySQL cluster endpoint is **ReadWrite (automatic read/write splitting)**, or when the read/write mode is **ReadOnly** and the load balancing policy is **active-request-based load balancing**.
+     * >* Only PolarDB for MySQL supports setting the consistency level to global consistency.
+     * >* If **ReadWriteMode** is set to **ReadOnly**, the consistency level can only be set to **0**.
+     * >* You can configure the consistency level, transaction splitting, offload reads from primary node, and connection pool at the same time. Example: `{"ConsistLevel":"1","DistributedTransaction":"on","ConnectionPersist":"Session","MasterAcceptReads":"on"}`.
+     * >* Transaction splitting is constrained by the consistency level. For example, transaction splitting cannot be enabled when the consistency level is **0**. Transaction splitting can be enabled when the consistency level is **1** or **2**.
+     *
+     * @example
+     * {"ConsistLevel": "1","DistributedTransaction": "on"}
+     */
+    endpointConfig?: string;
+    /**
+     * @remarks
+     * The type of the custom cluster endpoint. Valid values:
+     *
+     * - **Custom**: custom cluster endpoint.
+     *
+     * - **DynamoDB**: DynamoDB endpoint.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * Custom
+     */
+    endpointType?: string;
+    /**
+     * @remarks
+     * The read load nodes to add to the endpoint. Separate multiple nodes with commas (,). By default, all nodes are added.
+     *
+     * > * For PolarDB for MySQL, specify node IDs.
+     * >* For PolarDB for PostgreSQL and PolarDB for PostgreSQL (Compatible with Oracle), specify node role names, such as `Writer,Reader1,Reader2`.
+     * >* If **ReadWriteMode** is set to **ReadOnly**, you can mount only one node. However, if this node fails, the endpoint may be unavailable for up to 1 hour. Do not use this configuration in production environments. Select at least 2 nodes to improve availability.
+     * >* If **ReadWriteMode** is set to **ReadWrite**, select at least 2 nodes.
+     *     * For PolarDB for MySQL, you can select any two nodes. If both nodes are read-only nodes, write requests are forwarded to the primary node.
+     *     * For PolarDB for PostgreSQL and PolarDB for PostgreSQL (Compatible with Oracle), the primary node must be included.
+     *
+     * @example
+     * pi-**********,pi-*********
+     */
+    nodes?: string;
+    ownerAccount?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The PolarFs instance ID.
+     *
+     * @example
+     * pfs-test****
+     */
+    polarFsInstanceId?: string;
+    /**
+     * @remarks
+     * The timeout policy for global consistency. Valid values:
+     *
+     * - **0**: sends the request to the primary node.
+     *
+     * - **2**: timeout degradation. After a global consistency read times out, the query automatically degrades to regular requests, and the client does not receive an error message.
+     *
+     * @example
+     * 0
+     */
+    polarSccTimeoutAction?: string;
+    /**
+     * @remarks
+     * The timeout period for global consistency.
+     *
+     * @example
+     * 100
+     */
+    polarSccWaitTimeout?: string;
+    /**
+     * @remarks
+     * The read/write mode. Valid values:
+     *
+     * - **ReadWrite**: read/write (automatic read/write splitting).
+     * - **ReadOnly** (default): read-only.
+     *
+     * @example
+     * ReadOnly
+     */
+    readWriteMode?: string;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    /**
+     * @remarks
+     * Specifies whether to enable the global consistency (high-performance mode) feature for the node. Valid values:
+     *
+     * - **ON**: Enabled.
+     *
+     * - **OFF**: Disabled.
+     *
+     * @example
+     * on
+     */
+    sccMode?: string;
+    /**
+     * @remarks
+     * The VPC ID.
+     *
+     * @example
+     * vpc-2zehr7ghqovftils0****
+     */
+    VPCId?: string;
+    /**
+     * @remarks
+     * The vSwitch ID.
+     *
+     * @example
+     * vsw-2ze775gnf7jn33ua****
+     */
+    vSwitchId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

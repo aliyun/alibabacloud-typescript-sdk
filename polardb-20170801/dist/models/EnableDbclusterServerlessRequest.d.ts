@@ -1,0 +1,102 @@
+import * as $dara from '@darabonba/typescript';
+export declare class EnableDBClusterServerlessRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The cluster ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pc-**************
+     */
+    DBClusterId?: string;
+    /**
+     * @remarks
+     * Specifies whether to immediately execute or schedule the parameter modification and restart. Valid values:
+     *
+     * - false (default): Schedule the execution.
+     * - true: Immediately execute.
+     *
+     * @example
+     * false
+     */
+    fromTimeService?: boolean;
+    ownerAccount?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The latest time to start executing the target scheduled task. Specify the time in the YYYY-MM-DDThh:mm:ssZ format (UTC).
+     *
+     * @example
+     * 2022-04-28T14:30:00Z
+     */
+    plannedEndTime?: string;
+    /**
+     * @remarks
+     * The earliest time to start executing the scheduled task (that is, the task is executed within the target time period). Specify the time in the YYYY-MM-DDThh:mm:ssZ format (UTC).
+     *
+     * @example
+     * 2022-04-28T14:00:00Z
+     */
+    plannedStartTime?: string;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    /**
+     * @remarks
+     * The maximum number of steady-state AP read-only nodes. Valid values: 0 to 7.
+     *
+     * @example
+     * 1
+     */
+    scaleApRoNumMax?: string;
+    /**
+     * @remarks
+     * The minimum number of steady-state AP read-only nodes. Valid values: 0 to 7.
+     *
+     * @example
+     * 1
+     */
+    scaleApRoNumMin?: string;
+    /**
+     * @remarks
+     * The maximum scaling limit per node. Valid values: 0 PCU to 16 PCU.
+     *
+     * @example
+     * 2
+     */
+    scaleMax?: string;
+    /**
+     * @remarks
+     * The minimum scaling limit per node. Valid values: 0 PCU to 16 PCU.
+     *
+     * @example
+     * 1
+     */
+    scaleMin?: string;
+    /**
+     * @remarks
+     * The maximum number of read-only nodes for scaling. Valid values: 0 to 15.
+     *
+     * @example
+     * 2
+     */
+    scaleRoNumMax?: string;
+    /**
+     * @remarks
+     * The minimum number of read-only nodes for scaling. Valid values: 0 to 15.
+     *
+     * @example
+     * 1
+     */
+    scaleRoNumMin?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

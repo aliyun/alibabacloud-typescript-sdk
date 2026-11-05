@@ -1,0 +1,41 @@
+import * as $dara from '@darabonba/typescript';
+export declare class UninstallPolarClawPluginRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The application ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pa-**************
+     */
+    applicationId?: string;
+    /**
+     * @remarks
+     * The ID of the plugin to uninstall. You can call DescribePolarClawPlugins to query the plugins installed for the application and use the Id of the corresponding plugin in the returned Plugins list.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * openclaw-lark
+     */
+    pluginId?: string;
+    /**
+     * @remarks
+     * Specifies whether to restart the gateway after uninstallation. Default value: true.
+     *
+     * @example
+     * true
+     */
+    restart?: boolean;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

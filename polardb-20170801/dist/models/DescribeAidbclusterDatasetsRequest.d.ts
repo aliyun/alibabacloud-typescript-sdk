@@ -1,0 +1,90 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeAIDBClusterDatasetsRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The initial token for this request. This parameter does not take effect when you query a list.
+     *
+     * @example
+     * EFSDF-DF-***
+     */
+    continuationToken?: string;
+    /**
+     * @remarks
+     * The instance ID of the PolarDB database for the AI model service.
+     *
+     * @example
+     * pc-2ze88***
+     */
+    DBClusterId?: string;
+    /**
+     * @remarks
+     * The dataset ID.
+     *
+     * @example
+     * pds-2ze88***
+     */
+    datasetId?: string;
+    /**
+     * @remarks
+     * The type of the dataset. Valid values:
+     *
+     * * **train**: training dataset.
+     * * **eval**: evaluation dataset.
+     *
+     * @example
+     * train
+     */
+    datasetType?: string;
+    ownerAccount?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The page number. Default value: 1.
+     *
+     * @example
+     * 1
+     */
+    pageNumber?: string;
+    /**
+     * @remarks
+     * The number of entries per page. Valid values: **30**, **50**, and **100**.
+     *
+     * Default value: **30**.
+     *
+     * @example
+     * 30
+     */
+    pageSize?: string;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * @example
+     * cn-beijing
+     */
+    regionId?: string;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    /**
+     * @remarks
+     * The training mode of the dataset. Valid values:
+     *
+     * * **sft**: supervised fine-tuning.
+     * * **grpo**: reinforcement learning.
+     * * **text**: text generation.
+     *
+     * @example
+     * grpo
+     */
+    trainMode?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

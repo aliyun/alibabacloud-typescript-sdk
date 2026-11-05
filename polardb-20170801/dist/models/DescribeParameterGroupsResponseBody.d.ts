@@ -1,0 +1,120 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeParameterGroupsResponseBodyParameterGroups extends $dara.Model {
+    /**
+     * @remarks
+     * The time when the parameter template was created. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example
+     * 2023-03-10T08:40:39Z
+     */
+    createTime?: string;
+    /**
+     * @remarks
+     * The type of the database engine.
+     *
+     * @example
+     * MySQL
+     */
+    DBType?: string;
+    /**
+     * @remarks
+     * The version of the database engine.
+     *
+     * @example
+     * 8.0
+     */
+    DBVersion?: string;
+    /**
+     * @remarks
+     * Indicates whether a cluster restart is required for the parameter template to take effect. Valid values:
+     *
+     * - **0**: A restart is not required.
+     *
+     * - **1**: A restart is required.
+     *
+     * @example
+     * 1
+     */
+    forceRestart?: string;
+    /**
+     * @remarks
+     * The number of parameters in the parameter template.
+     *
+     * @example
+     * 2
+     */
+    parameterCounts?: number;
+    /**
+     * @remarks
+     * The description of the parameter template.
+     *
+     * @example
+     * testgroup
+     */
+    parameterGroupDesc?: string;
+    /**
+     * @remarks
+     * The ID of the parameter template.
+     *
+     * @example
+     * pcpg-**************
+     */
+    parameterGroupId?: string;
+    /**
+     * @remarks
+     * The name of the parameter template.
+     *
+     * @example
+     * test
+     */
+    parameterGroupName?: string;
+    /**
+     * @remarks
+     * The type of the parameter template. Valid values:
+     *
+     * - **0**: system default template
+     *
+     * - **1**: user-defined template
+     *
+     * - **2**: automatic backup template (The system automatically backs up the previous parameter settings as a template after you apply a new template.)
+     *
+     * @example
+     * 1
+     */
+    parameterGroupType?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribeParameterGroupsResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The list of parameter templates.
+     */
+    parameterGroups?: DescribeParameterGroupsResponseBodyParameterGroups[];
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * 944CED46-A6F7-40C6-B6DC-C6E5CC******
+     */
+    requestId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

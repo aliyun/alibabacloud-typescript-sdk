@@ -1,0 +1,126 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeKBSyncLinkAttributeResponseBodyConfig extends $dara.Model {
+    /**
+     * @remarks
+     * The validity period of the successful snapshot of Lark group members for fallback reuse, in seconds. This parameter is returned only for Lark synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 indicates that snapshot fallback reuse is disabled. A positive integer indicates the maximum age of the snapshot allowed for reuse. The valid value configured for the link is returned. If no value is configured, the default value -1 is returned.
+     *
+     * @example
+     * -1
+     */
+    feishuChatMemberStaleTtlSeconds?: number;
+    /**
+     * @remarks
+     * The ID of the DingTalk user who performs the operation. This parameter is returned only for DingTalk synchronization links.
+     *
+     * @example
+     * manager123
+     */
+    userId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribeKBSyncLinkAttributeResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The client ID of the source application.
+     *
+     * @example
+     * cli_a123456
+     */
+    clientId?: string;
+    /**
+     * @remarks
+     * The synchronization configuration whitelist returned based on the source type. For DingTalk, UserId is returned. For Lark, FeishuChatMemberStaleTtlSeconds is returned.
+     */
+    config?: DescribeKBSyncLinkAttributeResponseBodyConfig;
+    /**
+     * @remarks
+     * The time when the synchronization link was created. The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format (UTC time).
+     *
+     * @example
+     * 2026-09-22T12:00:00Z
+     */
+    creationTime?: string;
+    /**
+     * @remarks
+     * The description of the synchronization link.
+     *
+     * @example
+     * Synchronize Lark knowledge base documents
+     */
+    description?: string;
+    /**
+     * @remarks
+     * The source channel of the synchronization link. Valid values: OSS, DINGTALK, FEISHU, and SHAREPOINT.
+     *
+     * @example
+     * FEISHU
+     */
+    imPlatform?: string;
+    /**
+     * @remarks
+     * The unique identifier of the synchronization link.
+     *
+     * @example
+     * pkbl-123456
+     */
+    linkId?: string;
+    /**
+     * @remarks
+     * The name of the synchronization link.
+     *
+     * @example
+     * feishu-doc-sync
+     */
+    linkName?: string;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * 12345678-1234-1234-1234-1234567890ab
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The source directory. For OSS sources, the bucket and object prefix in the oss://<bucket>/<prefix> format are returned. For other sources, the directory identifier or path of the corresponding channel is returned.
+     *
+     * @example
+     * /documents
+     */
+    sourceDir?: string;
+    /**
+     * @remarks
+     * The automatic synchronization interval, in minutes.
+     *
+     * @example
+     * 60
+     */
+    syncIntervalMinutes?: number;
+    /**
+     * @remarks
+     * The status of the synchronization link.
+     *
+     * @example
+     * RUNNING
+     */
+    syncStatus?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

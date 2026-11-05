@@ -1,0 +1,120 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribePolarFsQuotaListResponseBodyQuotaItems extends $dara.Model {
+    /**
+     * @remarks
+     * The capacity.
+     *
+     * @example
+     * 1073741824
+     */
+    capacity?: number;
+    /**
+     * @remarks
+     * Inodes
+     *
+     * @example
+     * 100
+     */
+    inodes?: number;
+    /**
+     * @remarks
+     * The directory path.
+     *
+     * @example
+     * /test
+     */
+    path?: string;
+    /**
+     * @remarks
+     * The used capacity.
+     *
+     * @example
+     * 104857600
+     */
+    usedCapacity?: number;
+    /**
+     * @remarks
+     * The number of used inodes.
+     *
+     * @example
+     * 1
+     */
+    usedInodes?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribePolarFsQuotaListResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The current page number.
+     *
+     * @example
+     * 1
+     */
+    pageNumber?: string;
+    /**
+     * @remarks
+     * The number of records on the current page.
+     *
+     * @example
+     * 30
+     */
+    pageRecordCount?: string;
+    /**
+     * @remarks
+     * The number of entries per page. Valid values: **30**, **50**, and **100**.
+     *
+     * Default value: **30**.
+     *
+     * @example
+     * 30
+     */
+    pageSize?: string;
+    /**
+     * @remarks
+     * The PolarFs instance ID.
+     *
+     * @example
+     * pfs-test****
+     */
+    polarFsInstanceId?: string;
+    /**
+     * @remarks
+     * The directory quotas.
+     */
+    quotaItems?: DescribePolarFsQuotaListResponseBodyQuotaItems[];
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * EBEAA83D-1734-42E3-85E3-E25F6E******
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The total number of records.
+     *
+     * @example
+     * 2
+     */
+    totalRecordCount?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

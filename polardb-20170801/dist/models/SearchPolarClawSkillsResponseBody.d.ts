@@ -1,0 +1,110 @@
+import * as $dara from '@darabonba/typescript';
+export declare class SearchPolarClawSkillsResponseBodyResults extends $dara.Model {
+    /**
+     * @remarks
+     * The display name.
+     *
+     * @example
+     * RDS Copilot
+     */
+    displayName?: string;
+    /**
+     * @remarks
+     * The relevance score.
+     *
+     * @example
+     * 0.95
+     */
+    score?: number;
+    /**
+     * @remarks
+     * The skill identifier.
+     *
+     * @example
+     * alibacloud-rds-copilot
+     */
+    slug?: string;
+    /**
+     * @remarks
+     * The brief description.
+     *
+     * @example
+     * A copilot for RDS
+     */
+    summary?: string;
+    /**
+     * @remarks
+     * The last update timestamp in UNIX seconds.
+     *
+     * @example
+     * 1716000000
+     */
+    updatedAt?: number;
+    /**
+     * @remarks
+     * The latest version.
+     *
+     * @example
+     * 1.2.0
+     */
+    version?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class SearchPolarClawSkillsResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The application ID.
+     *
+     * @example
+     * pa-xxx
+     */
+    applicationId?: string;
+    /**
+     * @remarks
+     * The returned status code.
+     *
+     * @example
+     * 200
+     */
+    code?: number;
+    /**
+     * @remarks
+     * The returned message.
+     *
+     * @example
+     * success
+     */
+    message?: string;
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * F45FFACC-xxx
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The list of search results.
+     */
+    results?: SearchPolarClawSkillsResponseBodyResults[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

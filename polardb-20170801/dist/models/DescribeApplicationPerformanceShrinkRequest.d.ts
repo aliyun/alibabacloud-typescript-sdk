@@ -1,0 +1,127 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeApplicationPerformanceShrinkRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The application cluster ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pa-**************
+     */
+    applicationId?: string;
+    /**
+     * @remarks
+     * The user.
+     *
+     * @example
+     * c-xxxxxxx
+     */
+    consumer?: string;
+    /**
+     * @remarks
+     * The user group.
+     *
+     * @example
+     * cg-xxxxxx
+     */
+    consumerGroup?: string;
+    /**
+     * @remarks
+     * The downsampling policy.
+     *
+     * @example
+     * raw_sample
+     */
+    downsample?: string;
+    /**
+     * @remarks
+     * The end step number.
+     *
+     * @example
+     * 100
+     */
+    endStep?: number;
+    /**
+     * @remarks
+     * The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format (UTC).
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 2020-09-23T01:00Z
+     */
+    endTime?: string;
+    filterShrink?: string;
+    /**
+     * @remarks
+     * The data granularity of performance data. Valid values:
+     * - 5
+     * - 30
+     * - 60
+     * - 600
+     * - 1800
+     * - 3600
+     * - 86400
+     *
+     * @example
+     * 5
+     */
+    interval?: string;
+    /**
+     * @remarks
+     * The performance metrics to query. Separate multiple values with commas (,).
+     *
+     * >  You can specify up to 5 performance metrics.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * PolarDBSupabaseMemUsage
+     */
+    key?: string;
+    /**
+     * @remarks
+     * The maximum number of data points to return.
+     *
+     * @example
+     * 1000
+     */
+    maxPoints?: number;
+    /**
+     * @remarks
+     * The model service.
+     *
+     * @example
+     * ms-xxxxxx
+     */
+    modelService?: string;
+    /**
+     * @remarks
+     * The start step number.
+     *
+     * @example
+     * 1
+     */
+    startStep?: number;
+    /**
+     * @remarks
+     * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format (UTC).
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 2020-09-23T01:01Z
+     */
+    startTime?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
