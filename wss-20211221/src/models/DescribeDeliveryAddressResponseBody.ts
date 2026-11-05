@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDeliveryAddressResponseBodyAddressesArea extends $dara.Model {
   /**
    * @remarks
-   * The area ID.
+   * The district ID.
    * 
    * @example
    * 33****
@@ -13,10 +13,10 @@ export class DescribeDeliveryAddressResponseBodyAddressesArea extends $dara.Mode
   areaId?: number;
   /**
    * @remarks
-   * The area name.
+   * The district name.
    * 
    * @example
-   * 西湖区
+   * Xihu District
    */
   areaName?: string;
   static names(): { [key: string]: string } {
@@ -56,7 +56,7 @@ export class DescribeDeliveryAddressResponseBodyAddressesCity extends $dara.Mode
    * The city name.
    * 
    * @example
-   * 杭州市
+   * Hangzhou
    */
   cityName?: string;
   static names(): { [key: string]: string } {
@@ -85,9 +85,7 @@ export class DescribeDeliveryAddressResponseBodyAddressesCity extends $dara.Mode
 export class DescribeDeliveryAddressResponseBodyAddressesProvince extends $dara.Model {
   /**
    * @remarks
-   * The province ID. For more information, see [China regions, countries and territories codes](https://help.aliyun.com/document_detail/167926.html).
-   * 
-   * For example, **110000** represents Beijing and **120000** represents Tianjin.
+   * The province ID. For more information, see [Codes for regions, countries, and areas in China](https://help.aliyun.com/document_detail/167926.html). For example, **110000** indicates Beijing, and **120000** indicates Tianjin.
    * 
    * @example
    * 330000
@@ -98,7 +96,7 @@ export class DescribeDeliveryAddressResponseBodyAddressesProvince extends $dara.
    * The province name.
    * 
    * @example
-   * 浙江省
+   * Zhejiang Province
    */
   provinceName?: string;
   static names(): { [key: string]: string } {
@@ -138,7 +136,7 @@ export class DescribeDeliveryAddressResponseBodyAddressesTown extends $dara.Mode
    * The town name.
    * 
    * @example
-   * 三墩镇
+   * Sandun Town
    */
   townName?: string;
   static names(): { [key: string]: string } {
@@ -167,7 +165,7 @@ export class DescribeDeliveryAddressResponseBodyAddressesTown extends $dara.Mode
 export class DescribeDeliveryAddressResponseBodyAddresses extends $dara.Model {
   /**
    * @remarks
-   * The area.
+   * The district.
    */
   area?: DescribeDeliveryAddressResponseBodyAddressesArea;
   /**
@@ -177,7 +175,7 @@ export class DescribeDeliveryAddressResponseBodyAddresses extends $dara.Model {
   city?: DescribeDeliveryAddressResponseBodyAddressesCity;
   /**
    * @remarks
-   * The contact name.
+   * The contact.
    * 
    * @example
    * Alice
@@ -185,7 +183,7 @@ export class DescribeDeliveryAddressResponseBodyAddresses extends $dara.Model {
   contacts?: string;
   /**
    * @remarks
-   * Indicates whether this is the default address.
+   * Indicates whether the address is the default address.
    * 
    * @example
    * true
@@ -193,15 +191,15 @@ export class DescribeDeliveryAddressResponseBodyAddresses extends $dara.Model {
   defaultAddress?: boolean;
   /**
    * @remarks
-   * The detailed address, which should include the street name and house number.
+   * The detailed address, which must be accurate down to the street and building number.
    * 
    * @example
-   * 灯彩街1008号云园区2号楼测试中心
+   * Test Center, Building 2, Cloud Park, No. 1008 Dengcai Street
    */
   detail?: string;
   /**
    * @remarks
-   * The mobile number.
+   * The mobile phone number.
    * 
    * @example
    * 1381111****
@@ -277,12 +275,12 @@ export class DescribeDeliveryAddressResponseBodyAddresses extends $dara.Model {
 export class DescribeDeliveryAddressResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The address list.
+   * The list of addresses.
    */
   addresses?: DescribeDeliveryAddressResponseBodyAddresses[];
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates this unique identifier for each request.
+   * The ID of the request.
    * 
    * @example
    * 72481C12-69AB-5CE1-8A35-A8EFA921****
@@ -290,9 +288,7 @@ export class DescribeDeliveryAddressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of addresses.
-   * 
-   * > Up to 20 addresses are supported.
+   * The total number of addresses. A maximum of 20 addresses are supported.
    * 
    * @example
    * 6

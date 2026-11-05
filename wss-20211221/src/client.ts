@@ -12,10 +12,6 @@ export default class Client extends OpenApi {
   constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
-    this._endpointMap = {
-      'ap-southeast-1': "wss.ap-southeast-1.aliyuncs.com",
-      'cn-shanghai': "wss.cn-shanghai.aliyuncs.com",
-    };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("wss", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -34,12 +30,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Places, renews, or modifies orders for specific products of Elastic Desktop Service (EDS) Enterprise Edition, such as monthly duration packages.
+   * Creates an order, renews, or modifies the configuration of specific products such as the monthly duration package for Wuying Workspace Enterprise Edition.
    * 
    * @remarks
-   * <props="china">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of EDS.
-   * <props="intl">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/cloud-desktop?#J_8623712560) of EDS.
-   * If automatic payment is not specified, this operation does not process the payment. You must use the order ID returned by this operation to construct a payment redirect URL and complete the payment before the order takes effect and the resources are provisioned.
+   * <props="china">Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of Wuying Workspace before you call this operation.
+   * <props="intl">Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/cloud-desktop?#J_8623712560) of Wuying Workspace before you call this operation.
+   * If automatic payment is not specified, this operation does not process the payment. You must use the order ID returned by this operation to construct a payment redirect URL and complete the payment. The order takes effect and resources are provisioned only after the payment is completed.
    * 
    * @param tmpReq - CreateMultiOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -92,12 +88,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Places, renews, or modifies orders for specific products of Elastic Desktop Service (EDS) Enterprise Edition, such as monthly duration packages.
+   * Creates an order, renews, or modifies the configuration of specific products such as the monthly duration package for Wuying Workspace Enterprise Edition.
    * 
    * @remarks
-   * <props="china">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of EDS.
-   * <props="intl">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/cloud-desktop?#J_8623712560) of EDS.
-   * If automatic payment is not specified, this operation does not process the payment. You must use the order ID returned by this operation to construct a payment redirect URL and complete the payment before the order takes effect and the resources are provisioned.
+   * <props="china">Make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of Wuying Workspace before you call this operation.
+   * <props="intl">Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/cloud-desktop?#J_8623712560) of Wuying Workspace before you call this operation.
+   * If automatic payment is not specified, this operation does not process the payment. You must use the order ID returned by this operation to construct a payment redirect URL and complete the payment. The order takes effect and resources are provisioned only after the payment is completed.
    * 
    * @param request - CreateMultiOrderRequest
    * @returns CreateMultiOrderResponse
@@ -108,13 +104,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Agents and usage summary information under the current username.
+   * Queries the list of agents and usage summary information under the current username.
    * 
    * @remarks
-   * ## Request description
-   * - **Paging support**: Use the `NextToken` and `MaxResults` parameters for paging. Set `NextToken` to an empty character string for the first request.
-   * - **Filtering**: Use the `AgentType` and `AgentIds` parameters to filter the returned Agent list.
-   * - **Status filtering**: Use the `Status` parameter to filter Agents by status (0: deleted, 1: active).
+   * ## Operation description
+   * - **Paging**: Use the `NextToken` and `MaxResults` parameters for paging. Set `NextToken` to an empty character string for the first request.
+   * - **Filtering**: Use the `AgentType` and `AgentIds` parameters to filter the returned agent list.
+   * - **Status filtering**: Use the `Status` parameter to filter agents by status. Valid values: 0 (deleted) and 1 (active).
    * - **Sorting**: Results are sorted by `id` in ascending order by default.
    * - **Additional parameter for anonymous edition**: The `FillInstance` parameter automatically populates the bound JVS_COPILOT AgentId of the currently logged-on user.
    * 
@@ -163,13 +159,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Agents and usage summary information under the current username.
+   * Queries the list of agents and usage summary information under the current username.
    * 
    * @remarks
-   * ## Request description
-   * - **Paging support**: Use the `NextToken` and `MaxResults` parameters for paging. Set `NextToken` to an empty character string for the first request.
-   * - **Filtering**: Use the `AgentType` and `AgentIds` parameters to filter the returned Agent list.
-   * - **Status filtering**: Use the `Status` parameter to filter Agents by status (0: deleted, 1: active).
+   * ## Operation description
+   * - **Paging**: Use the `NextToken` and `MaxResults` parameters for paging. Set `NextToken` to an empty character string for the first request.
+   * - **Filtering**: Use the `AgentType` and `AgentIds` parameters to filter the returned agent list.
+   * - **Status filtering**: Use the `Status` parameter to filter agents by status. Valid values: 0 (deleted) and 1 (active).
    * - **Sorting**: Results are sorted by `id` in ascending order by default.
    * - **Additional parameter for anonymous edition**: The `FillInstance` parameter automatically populates the bound JVS_COPILOT AgentId of the currently logged-on user.
    * 
@@ -182,18 +178,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries credit usage details by a specified dimension such as user, credit package, or agent.
+   * Queries the credit usage of users, credit packages, or agents based on a specified dimension.
    * 
    * @remarks
    * ## Request description
-   * This API queries credit usage details based on the dimension specified by `UsageType` (User / CreditPackage / Agent). The response includes the total credits, remaining credits, used credits, hourly consumption samples, alert thresholds, and period quotas of the current credit package.
-   * - **User**: User dimension. Returns the aggregated usage and remaining credits of all active credit packages for the current user.
-   * - **CreditPackage**: Credit package dimension. Returns the total credits, remaining credits, and consumption samples of a specified credit package instance.
-   * - **Agent**: Agent dimension. Returns the cumulative usage, current period usage, quota, and alert information of a specified agent.
-   * **Notes**:
-   * - The `InstanceIds` parameter can be omitted when `UsageType=User`. Pass a credit package instance ID when `UsageType=CreditPackage`, or pass an AgentId when `UsageType=Agent`.
-   * - Anonymous requests support the `FillInstance` parameter. When `InstanceIds` is not explicitly provided and `FillInstance=true`, the server automatically populates the bound `JVS_COPILOT` AgentId based on the current logon `wyId`.
-   * - Time window constants: The `dayUsedCredit` statistics window is `now - ONE_DAY_MILLIS`, and the `weekUsedCredit` statistics window is `now - ONE_WEEK_MILLIS`.
+   * This API queries credit usage details based on the dimension specified by `UsageType` (User, CreditPackage, Agent, or EndUser). The response includes the total amount, remaining amount, and used amount of the current credit package, hourly consumption samples, alert thresholds, and periodic quotas.
+   * - **User**: The user dimension. Returns the total used amount and remaining amount of all active credit packages for the current user.
+   * - **CreditPackage**: The credit package dimension. Returns the total amount, remaining amount, and consumption samples of a specified credit package instance.
+   * - **Agent**: The agent dimension. Returns the cumulative used amount, current period used amount, quota, and alerts for a specified agent.
+   * - **EndUser**: The Wuying user dimension. Returns the shared credit usage, pay-as-you-go credit usage, and total credit usage for the current period of a Wuying user.
+   * **Note**:
+   * - The `InstanceIds` parameter can be omitted when `UsageType` is set to `User`. Set it to the credit package instance ID when `UsageType` is `CreditPackage`, the agent ID when `UsageType` is `Agent`, and the Wuying ID when `UsageType` is `EndUser`.
+   * - Anonymous requests support the `FillInstance` parameter. If `InstanceIds` is not explicitly provided and `FillInstance` is set to `true`, the server automatically populates the bound `JVS_COPILOT` agent ID based on the currently logged-in `wyId`.
+   * - Time window constants: The statistical window for `dayUsedCredit` is `now - ONE_DAY_MILLIS`, and the statistical window for `weekUsedCredit` is `now - ONE_WEEK_MILLIS`.
    * - The consumption samples in `currentCreditConsumeList` are aggregated by hour and may have an asynchronous synchronization delay of up to 5 minutes.
    * 
    * @param request - DescribeCreditUsageInfoRequest
@@ -209,6 +206,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceIds)) {
       query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.sceneType)) {
+      query["SceneType"] = request.sceneType;
     }
 
     if (!$dara.isNull(request.usageType)) {
@@ -233,18 +234,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries credit usage details by a specified dimension such as user, credit package, or agent.
+   * Queries the credit usage of users, credit packages, or agents based on a specified dimension.
    * 
    * @remarks
    * ## Request description
-   * This API queries credit usage details based on the dimension specified by `UsageType` (User / CreditPackage / Agent). The response includes the total credits, remaining credits, used credits, hourly consumption samples, alert thresholds, and period quotas of the current credit package.
-   * - **User**: User dimension. Returns the aggregated usage and remaining credits of all active credit packages for the current user.
-   * - **CreditPackage**: Credit package dimension. Returns the total credits, remaining credits, and consumption samples of a specified credit package instance.
-   * - **Agent**: Agent dimension. Returns the cumulative usage, current period usage, quota, and alert information of a specified agent.
-   * **Notes**:
-   * - The `InstanceIds` parameter can be omitted when `UsageType=User`. Pass a credit package instance ID when `UsageType=CreditPackage`, or pass an AgentId when `UsageType=Agent`.
-   * - Anonymous requests support the `FillInstance` parameter. When `InstanceIds` is not explicitly provided and `FillInstance=true`, the server automatically populates the bound `JVS_COPILOT` AgentId based on the current logon `wyId`.
-   * - Time window constants: The `dayUsedCredit` statistics window is `now - ONE_DAY_MILLIS`, and the `weekUsedCredit` statistics window is `now - ONE_WEEK_MILLIS`.
+   * This API queries credit usage details based on the dimension specified by `UsageType` (User, CreditPackage, Agent, or EndUser). The response includes the total amount, remaining amount, and used amount of the current credit package, hourly consumption samples, alert thresholds, and periodic quotas.
+   * - **User**: The user dimension. Returns the total used amount and remaining amount of all active credit packages for the current user.
+   * - **CreditPackage**: The credit package dimension. Returns the total amount, remaining amount, and consumption samples of a specified credit package instance.
+   * - **Agent**: The agent dimension. Returns the cumulative used amount, current period used amount, quota, and alerts for a specified agent.
+   * - **EndUser**: The Wuying user dimension. Returns the shared credit usage, pay-as-you-go credit usage, and total credit usage for the current period of a Wuying user.
+   * **Note**:
+   * - The `InstanceIds` parameter can be omitted when `UsageType` is set to `User`. Set it to the credit package instance ID when `UsageType` is `CreditPackage`, the agent ID when `UsageType` is `Agent`, and the Wuying ID when `UsageType` is `EndUser`.
+   * - Anonymous requests support the `FillInstance` parameter. If `InstanceIds` is not explicitly provided and `FillInstance` is set to `true`, the server automatically populates the bound `JVS_COPILOT` agent ID based on the currently logged-in `wyId`.
+   * - Time window constants: The statistical window for `dayUsedCredit` is `now - ONE_DAY_MILLIS`, and the statistical window for `weekUsedCredit` is `now - ONE_WEEK_MILLIS`.
    * - The consumption samples in `currentCreditConsumeList` are aggregated by hour and may have an asynchronous synchronization delay of up to 5 minutes.
    * 
    * @param request - DescribeCreditUsageInfoRequest
@@ -265,7 +267,7 @@ export default class Client extends OpenApi {
    * - The `resourceTypes` parameter is in JSON array format and contains multiple resource type strings.
    * - The `startTime` and `endTime` parameters are in timestamp format and specify the time range for the query.
    * - Pagination parameters include `nextToken`, `maxResults`, `pageNo`, and `pageSize`, which control the number and pagination of returned results.
-   * - When the `resourceTypes` parameter contains invalid values or the `periods` parameter fails JSON parsing, a `SalesClientException` exception is thrown.
+   * - If the `resourceTypes` parameter contains invalid values or the `periods` parameter fails JSON parsing, a `SalesClientException` exception is thrown.
    * 
    * @param request - DescribeDeductionStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -321,7 +323,7 @@ export default class Client extends OpenApi {
    * - The `resourceTypes` parameter is in JSON array format and contains multiple resource type strings.
    * - The `startTime` and `endTime` parameters are in timestamp format and specify the time range for the query.
    * - Pagination parameters include `nextToken`, `maxResults`, `pageNo`, and `pageSize`, which control the number and pagination of returned results.
-   * - When the `resourceTypes` parameter contains invalid values or the `periods` parameter fails JSON parsing, a `SalesClientException` exception is thrown.
+   * - If the `resourceTypes` parameter contains invalid values or the `periods` parameter fails JSON parsing, a `SalesClientException` exception is thrown.
    * 
    * @param request - DescribeDeductionStatisticRequest
    * @returns DescribeDeductionStatisticResponse
@@ -332,7 +334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about delivery addresses.
+   * Queries logistics address information.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDeliveryAddressResponse
@@ -354,7 +356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about delivery addresses.
+   * Queries logistics address information.
    * @returns DescribeDeliveryAddressResponse
    */
   async describeDeliveryAddress(): Promise<$_model.DescribeDeliveryAddressResponse> {
@@ -363,10 +365,94 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the prices of Elastic Desktop Service products, including prices for new purchases, renewals, specification changes, and unsubscriptions.
+   * Queries deduction group information.
    * 
    * @remarks
-   * <props="china">Before you call this operation, make sure that you fully understand the billing of Elastic Desktop Service and its [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws).
+   * <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of Elastic Desktop Service.
+   * 
+   * @param request - DescribeGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGroupsResponse
+   */
+  async describeGroupsWithOptions(request: $_model.DescribeGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGroupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.groupResourceTypes)) {
+      query["GroupResourceTypes"] = request.groupResourceTypes;
+    }
+
+    if (!$dara.isNull(request.groupType)) {
+      query["GroupType"] = request.groupType;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.states)) {
+      query["States"] = request.states;
+    }
+
+    if (!$dara.isNull(request.timeUsingPeriod)) {
+      query["TimeUsingPeriod"] = request.timeUsingPeriod;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeGroups",
+      version: "2021-12-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeGroupsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeGroupsResponse({}));
+  }
+
+  /**
+   * Queries deduction group information.
+   * 
+   * @remarks
+   * <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of Elastic Desktop Service.
+   * 
+   * @param request - DescribeGroupsRequest
+   * @returns DescribeGroupsResponse
+   */
+  async describeGroups(request: $_model.DescribeGroupsRequest): Promise<$_model.DescribeGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the prices of Elastic Desktop Service products for order types such as new purchases, renewals, configuration changes, and unsubscriptions.
+   * 
+   * @remarks
+   * <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of Elastic Desktop Service.
    * 
    * @param request - DescribeMultiPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -409,10 +495,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the prices of Elastic Desktop Service products, including prices for new purchases, renewals, specification changes, and unsubscriptions.
+   * Queries the prices of Elastic Desktop Service products for order types such as new purchases, renewals, configuration changes, and unsubscriptions.
    * 
    * @remarks
-   * <props="china">Before you call this operation, make sure that you fully understand the billing of Elastic Desktop Service and its [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws).
+   * <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of Elastic Desktop Service.
    * 
    * @param request - DescribeMultiPriceRequest
    * @returns DescribeMultiPriceResponse
@@ -423,7 +509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the deduction details of a core-hour package.
+   * Queries the deduction details of core-hour packages.
    * 
    * @param request - DescribePackageDeductionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -432,12 +518,56 @@ export default class Client extends OpenApi {
   async describePackageDeductionsWithOptions(request: $_model.DescribePackageDeductionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePackageDeductionsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.agentType)) {
+      query["AgentType"] = request.agentType;
+    }
+
+    if (!$dara.isNull(request.agentTypes)) {
+      query["AgentTypes"] = request.agentTypes;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.consumeWyId)) {
+      query["ConsumeWyId"] = request.consumeWyId;
+    }
+
+    if (!$dara.isNull(request.consumeWyIds)) {
+      query["ConsumeWyIds"] = request.consumeWyIds;
+    }
+
+    if (!$dara.isNull(request.deductionRequestId)) {
+      query["DeductionRequestId"] = request.deductionRequestId;
+    }
+
+    if (!$dara.isNull(request.deductionTypes)) {
+      query["DeductionTypes"] = request.deductionTypes;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
+    if (!$dara.isNull(request.groupResourceTypes)) {
+      query["GroupResourceTypes"] = request.groupResourceTypes;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceIdType)) {
+      query["InstanceIdType"] = request.instanceIdType;
+    }
+
     if (!$dara.isNull(request.instanceIds)) {
       query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
     }
 
     if (!$dara.isNull(request.packageIds)) {
@@ -460,8 +590,20 @@ export default class Client extends OpenApi {
       query["ResourceTypes"] = request.resourceTypes;
     }
 
+    if (!$dara.isNull(request.runId)) {
+      query["RunId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.runIdList)) {
+      query["RunIdList"] = request.runIdList;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.wyId)) {
+      query["WyId"] = request.wyId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -482,7 +624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the deduction details of a core-hour package.
+   * Queries the deduction details of core-hour packages.
    * 
    * @param request - DescribePackageDeductionsRequest
    * @returns DescribePackageDeductionsResponse
@@ -496,13 +638,13 @@ export default class Client extends OpenApi {
    * Queries AI credit deductions.
    * 
    * @remarks
-   * ## Operation description
-   * - This operation supports GET and POST methods.
-   * - The `periods` parameter is in JSON array format. Each element is a `PeriodParam` object that contains the `periodUnit` and `baseTime` fields.
-   * - The `resourceTypes` parameter is in JSON array format and contains multiple resource type strings.
-   * - The `startTime` and `endTime` parameters are in timestamp format and specify the time range for the query.
-   * - Pagination parameters include `nextToken`, `maxResults`, `pageNo`, and `pageSize`, which control the number of returned results and pagination.
-   * - When the `resourceTypes` parameter contains invalid values or the `periods` parameter fails JSON parsing, a `SalesClientException` exception is thrown.
+   * ## Request description
+   * - This operation supports the GET and POST methods.
+   * - The periods parameter is in JSON array format. Each element is a PeriodParam object that contains the periodUnit and baseTime fields.
+   * - The resourceTypes parameter is in JSON array format and contains multiple resource type strings.
+   * - The startTime and endTime parameters are in timestamp format and specify the time range for the query.
+   * - The pagination parameters include nextToken, maxResults, pageNo, and pageSize, which are used to control the number of returned results and pagination.
+   * - If the resourceTypes parameter contains invalid values or the JSON parsing of the periods parameter fails, a SalesClientException is thrown.
    * 
    * @param request - DescribeRunIdDeductionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -527,6 +669,18 @@ export default class Client extends OpenApi {
       query["BizType"] = request.bizType;
     }
 
+    if (!$dara.isNull(request.consumeWyId)) {
+      query["ConsumeWyId"] = request.consumeWyId;
+    }
+
+    if (!$dara.isNull(request.consumeWyIds)) {
+      query["ConsumeWyIds"] = request.consumeWyIds;
+    }
+
+    if (!$dara.isNull(request.deductionRequestId)) {
+      query["DeductionRequestId"] = request.deductionRequestId;
+    }
+
     if (!$dara.isNull(request.deductionTypes)) {
       query["DeductionTypes"] = request.deductionTypes;
     }
@@ -547,6 +701,10 @@ export default class Client extends OpenApi {
       query["GroupSeparator"] = request.groupSeparator;
     }
 
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!$dara.isNull(request.instanceIdType)) {
       query["InstanceIdType"] = request.instanceIdType;
     }
@@ -557,6 +715,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
     }
 
     if (!$dara.isNull(request.nextToken)) {
@@ -581,6 +743,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceTypes)) {
       query["ResourceTypes"] = request.resourceTypes;
+    }
+
+    if (!$dara.isNull(request.runId)) {
+      query["RunId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.runIdList)) {
+      query["RunIdList"] = request.runIdList;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -612,13 +782,13 @@ export default class Client extends OpenApi {
    * Queries AI credit deductions.
    * 
    * @remarks
-   * ## Operation description
-   * - This operation supports GET and POST methods.
-   * - The `periods` parameter is in JSON array format. Each element is a `PeriodParam` object that contains the `periodUnit` and `baseTime` fields.
-   * - The `resourceTypes` parameter is in JSON array format and contains multiple resource type strings.
-   * - The `startTime` and `endTime` parameters are in timestamp format and specify the time range for the query.
-   * - Pagination parameters include `nextToken`, `maxResults`, `pageNo`, and `pageSize`, which control the number of returned results and pagination.
-   * - When the `resourceTypes` parameter contains invalid values or the `periods` parameter fails JSON parsing, a `SalesClientException` exception is thrown.
+   * ## Request description
+   * - This operation supports the GET and POST methods.
+   * - The periods parameter is in JSON array format. Each element is a PeriodParam object that contains the periodUnit and baseTime fields.
+   * - The resourceTypes parameter is in JSON array format and contains multiple resource type strings.
+   * - The startTime and endTime parameters are in timestamp format and specify the time range for the query.
+   * - The pagination parameters include nextToken, maxResults, pageNo, and pageSize, which are used to control the number of returned results and pagination.
+   * - If the resourceTypes parameter contains invalid values or the JSON parsing of the periods parameter fails, a SalesClientException is thrown.
    * 
    * @param request - DescribeRunIdDeductionsRequest
    * @returns DescribeRunIdDeductionsResponse
@@ -648,6 +818,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.key)) {
       query["Key"] = request.key;
+    }
+
+    if (!$dara.isNull(request.properties)) {
+      query["Properties"] = request.properties;
     }
 
     if (!$dara.isNull(request.resourceType)) {
@@ -687,15 +861,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the credit quota for specified Agents.
+   * Sets the credit usage quota for a specified Agent.
    * 
    * @remarks
-   * ## Description
-   * This operation sets the credit quota for one or more Agents of a specific type.
-   * ### Usage notes
-   * - The `AgentType` parameter specifies the type of Agent to which the quota applies, such as `JVSClaw` or `OpenClaw`.
-   * - The `AgentIds` parameter is an array of up to 100 Agent IDs.
-   * - The `CreditQuota` parameter specifies the credit quota for each Agent.
+   * ## Operation description
+   * You can use this API operation to set the credit usage quota for a specific type of Agent. Batch setting of quotas for multiple Agents is supported.
+   * ### Before you begin
+   * - The `AgentType` parameter specifies the type of Agent for which you want to set the quota, such as `JVSClaw` or `OpenClaw`.
+   * - The `AgentIds` parameter is an array that can contain up to 100 Agent IDs.
+   * - The `CreditQuota` parameter specifies the credit usage quota for each Agent.
    * ### Examples
    * 
    * @param request - SetAgentCreditQuotaRequest
@@ -721,6 +895,10 @@ export default class Client extends OpenApi {
       query["CreditQuota"] = request.creditQuota;
     }
 
+    if (!$dara.isNull(request.sceneType)) {
+      query["SceneType"] = request.sceneType;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -739,15 +917,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the credit quota for specified Agents.
+   * Sets the credit usage quota for a specified Agent.
    * 
    * @remarks
-   * ## Description
-   * This operation sets the credit quota for one or more Agents of a specific type.
-   * ### Usage notes
-   * - The `AgentType` parameter specifies the type of Agent to which the quota applies, such as `JVSClaw` or `OpenClaw`.
-   * - The `AgentIds` parameter is an array of up to 100 Agent IDs.
-   * - The `CreditQuota` parameter specifies the credit quota for each Agent.
+   * ## Operation description
+   * You can use this API operation to set the credit usage quota for a specific type of Agent. Batch setting of quotas for multiple Agents is supported.
+   * ### Before you begin
+   * - The `AgentType` parameter specifies the type of Agent for which you want to set the quota, such as `JVSClaw` or `OpenClaw`.
+   * - The `AgentIds` parameter is an array that can contain up to 100 Agent IDs.
+   * - The `CreditQuota` parameter specifies the credit usage quota for each Agent.
    * ### Examples
    * 
    * @param request - SetAgentCreditQuotaRequest

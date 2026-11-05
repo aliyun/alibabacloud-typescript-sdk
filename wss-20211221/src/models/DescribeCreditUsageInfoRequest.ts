@@ -13,16 +13,27 @@ export class DescribeCreditUsageInfoRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The JSON string of instance IDs. This parameter can be omitted when `UsageType=User`. Pass a credit package instance ID when `UsageType=CreditPackage`, or pass an `AgentId` when `UsageType=Agent`.
+   * The JSON string of the instance ID list. This parameter can be omitted when `UsageType` is set to `User`. Set it to the credit package instance ID when `UsageType` is `CreditPackage`, and the agent ID when `UsageType` is `Agent`.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The usage type (UsageType). Valid values:
+   * The operator Scenarios type. Valid values:
+   * - Not specified or NaturalMonthlyOwn: Natural monthly exclusive.
+   * - JzYearlyShare: Jz annual shared.
+   * - JzYearlyOwn: Jz annual exclusive.
    * 
-   * *   User: Returns the usage, remaining credits, and consumption trends of the current user\\"s active credit packages.
-   * *   CreditPackage: Requires a CreditPackageId. Returns the total and remaining credits of the specified credit package.
-   * *   Agent: Requires an AgentId. Returns the cumulative credit usage, cumulative allocated quota, and their percentages.
+   * @example
+   * JzYearlyShare
+   */
+  sceneType?: string;
+  /**
+   * @remarks
+   * The usage type. Valid values:
+   * - User: Returns the used amount, remaining amount, and consumption trend of the currently active credit packages for the user.
+   * - CreditPackage: Requires a credit package ID. Returns the total amount and remaining amount of the specified credit package.
+   * - Agent: Requires an agent ID. Returns the cumulative credit usage, cumulative allocated quota, and the percentage between the two.
+   * - EndUser: Requires a Wuying ID. Returns the shared credit usage, pay-as-you-go credit usage, and total credit usage for the current period of the Wuying user.
    * 
    * @example
    * User
@@ -32,6 +43,7 @@ export class DescribeCreditUsageInfoRequest extends $dara.Model {
     return {
       bizType: 'BizType',
       instanceIds: 'InstanceIds',
+      sceneType: 'SceneType',
       usageType: 'UsageType',
     };
   }
@@ -40,6 +52,7 @@ export class DescribeCreditUsageInfoRequest extends $dara.Model {
     return {
       bizType: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
+      sceneType: 'string',
       usageType: 'string',
     };
   }

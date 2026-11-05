@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoCreditTrendList extends $dara.Model {
   /**
    * @remarks
-   * The time point in the format `yyyy-MM-dd HH` (accurate to the hour).
+   * The time point in the `yyyy-MM-dd HH` format, accurate to the hour.
    * 
    * @example
    * 2026-05-02 10
@@ -13,7 +13,7 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoCreditTren
   timePoint?: string;
   /**
    * @remarks
-   * The number of credits consumed in this hour.
+   * The number of credits consumed in the hour.
    * 
    * @example
    * 12
@@ -43,7 +43,21 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoCreditTren
 }
 
 export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoRemainCreditInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The number of instances being deducted.
+   * 
+   * @example
+   * 23
+   */
   deductingAmount?: number;
+  /**
+   * @remarks
+   * The number of instances pending to take effect.
+   * 
+   * @example
+   * 24
+   */
   pendingAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -69,17 +83,35 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoRemainCred
 }
 
 export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The number of currently available instances for the reported resources.
+   * 
+   * @example
+   * 9976.00
+   */
   availableAmount?: number;
+  /**
+   * @remarks
+   * The list of contact group names.
+   */
   contactGroupNames?: string[];
   /**
    * @remarks
    * The hourly consumption samples of the current credit package.
    */
   creditTrendList?: DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoCreditTrendList[];
+  /**
+   * @remarks
+   * The time when the current instance expires, in the `YYYY-MM-DD HH:mm:ss` format.
+   * 
+   * @example
+   * 2026-12-02 00:00:00
+   */
   currentInstanceExpiredTime?: string;
   /**
    * @remarks
-   * The instance ID of the current active credit package.
+   * The instance ID of the currently active credit package.
    * 
    * @example
    * cp-inst-001
@@ -87,37 +119,68 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
   currentInstanceId?: string;
   /**
    * @remarks
-   * The remaining credits of the current active credit package.
+   * The remaining amount of the currently active credit package.
    * 
    * @example
-   * Current period remaining credits
+   * Remaining credits for the current period
    */
   currentRemainCredit?: number;
   /**
    * @remarks
-   * The total credits of the current active credit package.
+   * The total amount of the currently active credit package.
    * 
    * @example
-   * Current period credit quota
+   * Credit quota for the current period
    */
   currentTotalCredit?: number;
   /**
    * @remarks
-   * The used credits of the current active credit package.
+   * The used amount of the currently active credit package.
    * 
    * @example
-   * Current period credits consumed
+   * Credits consumed in the current period
    */
   currentUsedCredit?: number;
   /**
    * @remarks
-   * The credit usage in the last 1 day.
+   * The credit usage in the last day.
    * 
    * @example
    * Credits consumed in the last day
    */
   dayUsedCredit?: number;
+  /**
+   * @remarks
+   * The last trigger time.
+   * 
+   * @example
+   * 2026-05-02 10:10:10
+   */
   lastTriggeredAt?: string;
+  /**
+   * @remarks
+   * The credit quota for the current period.
+   * 
+   * @example
+   * 2000
+   */
+  periodCreditQuota?: number;
+  /**
+   * @remarks
+   * The pay-as-you-go credits consumed in the current period.
+   * 
+   * @example
+   * 240
+   */
+  periodPayGoUsedCredit?: number;
+  /**
+   * @remarks
+   * The shared credits consumed in the current period.
+   * 
+   * @example
+   * 120
+   */
+  periodSharedUsedCredit?: number;
   /**
    * @remarks
    * The shared credit quota in the current active period.
@@ -128,6 +191,14 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
   periodTotalCredit?: number;
   /**
    * @remarks
+   * The total credits consumed in the current period.
+   * 
+   * @example
+   * 360
+   */
+  periodTotalUsedCredit?: number;
+  /**
+   * @remarks
    * The shared credit usage in the current active period.
    * 
    * @example
@@ -136,21 +207,28 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
   periodUsedCredit?: number;
   /**
    * @remarks
-   * The cumulative remaining credits.
+   * The cumulative remaining billable credits.
    * 
    * @example
    * Remaining credits
    */
   remainCredit?: number;
+  /**
+   * @remarks
+   * The remaining credit information.
+   */
   remainCreditInfo?: DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoRemainCreditInfo;
   /**
    * @remarks
-   * The quota used today.
+   * The used quota for today.
+   * 
+   * @example
+   * 200
    */
   todayUsed?: string;
   /**
    * @remarks
-   * The total cumulative credits.
+   * The cumulative total credits.
    * 
    * @example
    * Credit quota
@@ -159,6 +237,9 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
   /**
    * @remarks
    * The cumulative used quota.
+   * 
+   * @example
+   * 100
    */
   totalUsed?: string;
   /**
@@ -171,7 +252,7 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
   totalUsedCredit?: number;
   /**
    * @remarks
-   * The alert threshold percentage (0–100).
+   * The alert threshold percentage, ranging from 0 to 100.
    * 
    * @example
    * 80
@@ -179,7 +260,7 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
   warnPercent?: number;
   /**
    * @remarks
-   * The credit usage in the last 1 week.
+   * The credit usage in the last week.
    * 
    * @example
    * Credits consumed in the last week
@@ -197,7 +278,11 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
       currentUsedCredit: 'CurrentUsedCredit',
       dayUsedCredit: 'DayUsedCredit',
       lastTriggeredAt: 'LastTriggeredAt',
+      periodCreditQuota: 'PeriodCreditQuota',
+      periodPayGoUsedCredit: 'PeriodPayGoUsedCredit',
+      periodSharedUsedCredit: 'PeriodSharedUsedCredit',
       periodTotalCredit: 'PeriodTotalCredit',
+      periodTotalUsedCredit: 'PeriodTotalUsedCredit',
       periodUsedCredit: 'PeriodUsedCredit',
       remainCredit: 'RemainCredit',
       remainCreditInfo: 'RemainCreditInfo',
@@ -222,7 +307,11 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo extends $
       currentUsedCredit: 'number',
       dayUsedCredit: 'number',
       lastTriggeredAt: 'string',
+      periodCreditQuota: 'number',
+      periodPayGoUsedCredit: 'number',
+      periodSharedUsedCredit: 'number',
       periodTotalCredit: 'number',
+      periodTotalUsedCredit: 'number',
       periodUsedCredit: 'number',
       remainCredit: 'number',
       remainCreditInfo: DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoRemainCreditInfo,
@@ -261,7 +350,7 @@ export class DescribeCreditUsageInfoResponseBodyUsageInfoList extends $dara.Mode
   usageInfo?: DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfo;
   /**
    * @remarks
-   * The usage primary key. When `UsageType=User`, this is the `aliUid`. When `UsageType=CreditPackage`, this is the credit package instance ID. When `UsageType=Agent`, this is the `AgentId`.
+   * The primary key for usage. The value is `aliUid` when `UsageType` is `User`, the credit package instance ID when `UsageType` is `CreditPackage`, and the agent ID when `UsageType` is `Agent`.
    * 
    * @example
    * agent-abc
@@ -304,7 +393,7 @@ export class DescribeCreditUsageInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The array of usage data.
+   * The business data array.
    */
   usageInfoList?: DescribeCreditUsageInfoResponseBodyUsageInfoList[];
   static names(): { [key: string]: string } {

@@ -17,6 +17,9 @@ export { DescribeDeliveryAddressResponseBodyAddressesCity } from './DescribeDeli
 export { DescribeDeliveryAddressResponseBodyAddressesProvince } from './DescribeDeliveryAddressResponseBody';
 export { DescribeDeliveryAddressResponseBodyAddressesTown } from './DescribeDeliveryAddressResponseBody';
 export { DescribeDeliveryAddressResponseBodyAddresses } from './DescribeDeliveryAddressResponseBody';
+export { DescribeGroupsResponseBodyGroupsInstancesUsageAlertRule } from './DescribeGroupsResponseBody';
+export { DescribeGroupsResponseBodyGroupsInstances } from './DescribeGroupsResponseBody';
+export { DescribeGroupsResponseBodyGroups } from './DescribeGroupsResponseBody';
 export { DescribeMultiPriceRequestOrderItemsComponents } from './DescribeMultiPriceRequest';
 export { DescribeMultiPriceRequestOrderItems } from './DescribeMultiPriceRequest';
 export { DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetails } from './DescribeMultiPriceResponseBody';
@@ -28,6 +31,7 @@ export { DescribeMultiPriceResponseBodyPriceInfoRules } from './DescribeMultiPri
 export { DescribeMultiPriceResponseBodyPriceInfo } from './DescribeMultiPriceResponseBody';
 export { DescribePackageDeductionsResponseBodyDeductions } from './DescribePackageDeductionsResponseBody';
 export { DescribeRunIdDeductionsResponseBodyDeductions } from './DescribeRunIdDeductionsResponseBody';
+export { ModifyInstancePropertiesRequestProperties } from './ModifyInstancePropertiesRequest';
 export { CreateMultiOrderRequest } from './CreateMultiOrderRequest';
 export { CreateMultiOrderShrinkRequest } from './CreateMultiOrderShrinkRequest';
 export { CreateMultiOrderResponseBody } from './CreateMultiOrderResponseBody';
@@ -43,6 +47,9 @@ export { DescribeDeductionStatisticResponseBody } from './DescribeDeductionStati
 export { DescribeDeductionStatisticResponse } from './DescribeDeductionStatisticResponse';
 export { DescribeDeliveryAddressResponseBody } from './DescribeDeliveryAddressResponseBody';
 export { DescribeDeliveryAddressResponse } from './DescribeDeliveryAddressResponse';
+export { DescribeGroupsRequest } from './DescribeGroupsRequest';
+export { DescribeGroupsResponseBody } from './DescribeGroupsResponseBody';
+export { DescribeGroupsResponse } from './DescribeGroupsResponse';
 export { DescribeMultiPriceRequest } from './DescribeMultiPriceRequest';
 export { DescribeMultiPriceResponseBody } from './DescribeMultiPriceResponseBody';
 export { DescribeMultiPriceResponse } from './DescribeMultiPriceResponse';

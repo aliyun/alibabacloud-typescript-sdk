@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRunIdDeductionsResponseBodyDeductions extends $dara.Model {
   /**
    * @remarks
-   * The agent type: `CREDIT_PACKAGE` / `JVS_CLAW` / `OPEN_CLAW` / `JVS_COPILOT`.
+   * The agent type. Valid values: CREDIT_PACKAGE, JVS_CLAW, OPEN_CLAW, and JVS_COPILOT.
    * 
    * @example
    * OpenClaw
@@ -13,7 +13,7 @@ export class DescribeRunIdDeductionsResponseBodyDeductions extends $dara.Model {
   agentType?: string;
   /**
    * @remarks
-   * The end time of the period.
+   * The end time of the period. The time is in ISO 8601 format and displayed in UTC.
    * 
    * @example
    * 2024-07-31T03:00Z
@@ -21,10 +21,10 @@ export class DescribeRunIdDeductionsResponseBodyDeductions extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The group resource type.
+   * The grouped resource type to which the deduction record belongs.
    * 
    * @example
-   * GROUP_CREDIT_PACKAGE、GROUP_BUSINESS_CREDIT_PACKAGE
+   * GROUP_CREDIT_PACKAGE
    */
   groupResourceType?: string;
   /**
@@ -35,10 +35,17 @@ export class DescribeRunIdDeductionsResponseBodyDeductions extends $dara.Model {
    * jvs-xxxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The identifier of the called large language model. This field is used to distinguish the consumption of each model when grouping by model.
+   * 
+   * @example
+   * qwen-3.7
+   */
   model?: string;
   /**
    * @remarks
-   * The credit or plan package ID.
+   * The ID of the credit or package.
    * 
    * @example
    * crp-xxx
@@ -62,7 +69,7 @@ export class DescribeRunIdDeductionsResponseBodyDeductions extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The unique run ID.
+   * The unique ID of the run.
    * 
    * @example
    * run-szwB1fYHCTocjGkFAIf6V8A
@@ -70,7 +77,7 @@ export class DescribeRunIdDeductionsResponseBodyDeductions extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. The time is in ISO 8601 format and displayed in UTC.
    * 
    * @example
    * 2025-12-16T02:10:00Z
@@ -81,12 +88,12 @@ export class DescribeRunIdDeductionsResponseBodyDeductions extends $dara.Model {
    * The summary of the large language model call.
    * 
    * @example
-   * How is the weather today
+   * How is the weather today?
    */
   summary?: string;
   /**
    * @remarks
-   * The usage duration. Unit: seconds. Do not use this field for AI scenarios.
+   * The usage duration. Unit: seconds. Do not use this field in AI scenarios.
    * 
    * @example
    * 360000000
@@ -94,7 +101,7 @@ export class DescribeRunIdDeductionsResponseBodyDeductions extends $dara.Model {
   usedTime?: number;
   /**
    * @remarks
-   * The credits used.
+   * The used credits.
    * 
    * @example
    * 1.23
@@ -161,7 +168,7 @@ export class DescribeRunIdDeductionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Leave this parameter empty for the first request. For subsequent requests, use the `nextToken` value from the previous response.
+   * The pagination token. Leave this parameter empty for the first request. For subsequent requests, use the nextToken value returned in the previous response.
    * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==
@@ -169,7 +176,7 @@ export class DescribeRunIdDeductionsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -177,7 +184,7 @@ export class DescribeRunIdDeductionsResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The Settings for the number of entries per page during paging in a paged query.
    * 
    * @example
    * 100
@@ -185,7 +192,7 @@ export class DescribeRunIdDeductionsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The unique identifier of the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 68BD3312-53D8-123E-BB32-1A9F25E07A03
@@ -193,7 +200,7 @@ export class DescribeRunIdDeductionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of core-hour package deduction details in the query result.
+   * The total number of core-hour package deduction details returned.
    * 
    * @example
    * 100
@@ -201,7 +208,7 @@ export class DescribeRunIdDeductionsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total usage duration. Unit: seconds. Do not use this field for AI scenarios.
+   * The total usage duration. Unit: seconds. Do not use this field in AI scenarios.
    * 
    * @example
    * 100000
@@ -209,7 +216,7 @@ export class DescribeRunIdDeductionsResponseBody extends $dara.Model {
   totalUsedTime?: number;
   /**
    * @remarks
-   * The total credits used that match the specified conditions.
+   * The total used credits that meet the conditions.
    * 
    * @example
    * 1.23

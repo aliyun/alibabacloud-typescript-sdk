@@ -17,22 +17,22 @@ export class CreateMultiOrderRequestOrderItemsComponents extends $dara.Model {
    * @remarks
    * The value of the module.
    * 
-   * The following section describes the sample values and valid values for each key of the Enterprise Edition monthly duration package:
+   * The sample values and valid values for each key of the monthly duration package for Enterprise Edition are as follows:
    * 
-   * - RegionId: ap-southeast-1
+   * - RegionId: cn-shanghai
    * - InstanceType: eds.enterprise_office.4c8g
-   * - DurationType (hours): Valid values: 
+   * - DurationType (hours): [Enum] 
    *    - 120
    *    - 250
-   * - OsType: Valid values: 
+   * - OsType: [Enum] 
    *    - Windows
    *    - Linux
    * - RootDiskSize (GiB): 80
-   * - RootDiskCategory: Valid values: 
+   * - RootDiskCategory: [Enum] 
    *    - cloud_efficiency (ultra cloud disk)
-   *    - cloud_auto (ultra-fast cloud disk)
-   *    - cloud_essd (enhanced standard SSD. Only specific instance types support this value.)
-   * - RootPerformanceLevel: Valid values: 
+   *    - cloud_auto (ESSD AutoPL cloud disk)
+   *    - cloud_essd (enhanced standard SSD, supported only by specific instance types)
+   * - RootPerformanceLevel: [Enum] 
    *    - PL0
    *    - PL1
    *    - PL2
@@ -71,7 +71,7 @@ export class CreateMultiOrderRequestOrderItemsComponents extends $dara.Model {
 export class CreateMultiOrderRequestOrderItems extends $dara.Model {
   /**
    * @remarks
-   * The quantity to purchase.
+   * The purchase quantity.
    * 
    * @example
    * 1
@@ -95,7 +95,10 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * Specifies whether this is a change purchase.
+   * Specifies whether to modify the configuration of the monthly duration package.
+   * 
+   * @example
+   * true
    */
   buyChange?: boolean;
   /**
@@ -110,16 +113,19 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The callback URL after the payment is completed.
+   * The callback URL after the order is paid. Specify the URL to receive the payment result based on your business requirements.
+   * 
+   * @example
+   * https://example.com/order/paid
    */
   paidCallBackUrl?: string;
   /**
    * @remarks
-   * The subscription duration. Valid values:
+   * The subscription period. Valid values:
    * 
-   * - If PeriodUnit is set to Year: 1, 2, 3, and 5.
+   * - If `PeriodUnit` is set to `Year`, valid values are 1, 2, 3, and 5.
    * 
-   * - If PeriodUnit is set to Month: 1, 2, 3, and 6.
+   * - If `PeriodUnit` is set to `Month`, valid values are 1, 2, 3, and 6.
    * 
    * @example
    * 1
@@ -127,9 +133,9 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration for a subscription instance.
+   * The unit of the subscription period for the subscription instance.
    * 
-   * > This parameter is required only when the billing method of the instance is subscription. This parameter is case-sensitive. Make sure that the value is spelled correctly.
+   * > This parameter is required only when the billing method of the instance is subscription. This parameter is case-sensitive. Make sure that the spelling is correct.
    * 
    * @example
    * Year
@@ -137,7 +143,7 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The promotion ID.
+   * The ID of the promotion.
    * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
@@ -146,13 +152,13 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
   /**
    * @remarks
    * The list of resource IDs.
-   * > For monthly duration packages, this parameter corresponds to the cloud desktop ID. This parameter is required when OrderType is not set to `create`.
+   * > For the monthly duration package, this parameter corresponds to the cloud desktop ID. This parameter is required when OrderType is not set to `create`.
    */
   resourceIds?: string[];
   /**
    * @remarks
    * The resource type.
-   * > This parameter is case-sensitive. Make sure that the value is spelled correctly.
+   * > This parameter is case-sensitive. Make sure that the spelling is correct.
    * 
    * This parameter is required.
    * 
@@ -160,6 +166,14 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
    * DurationPackage
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The unified expiration date, which can be a day from the 1st to the 28th of a month. If this parameter is not specified, the standard renewal process is applied.
+   * 
+   * @example
+   * 15
+   */
+  unifiedExpireDay?: number;
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
@@ -174,6 +188,7 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
       promotionId: 'PromotionId',
       resourceIds: 'ResourceIds',
       resourceType: 'ResourceType',
+      unifiedExpireDay: 'UnifiedExpireDay',
     };
   }
 
@@ -191,6 +206,7 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
       promotionId: 'string',
       resourceIds: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
+      unifiedExpireDay: 'number',
     };
   }
 
@@ -215,7 +231,10 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
 export class CreateMultiOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * The channel cookie information.
+   * The cookie information used for channel attribution. Specify this parameter if channel attribution information exists. Otherwise, you can leave it empty.
+   * 
+   * @example
+   * channel=example
    */
   channelCookie?: string;
   /**
@@ -238,7 +257,10 @@ export class CreateMultiOrderRequest extends $dara.Model {
   properties?: { [key: string]: string };
   /**
    * @remarks
-   * The UID of the reseller owner.
+   * The ID of the actual end user. This parameter is required when a reseller partner places an order.
+   * 
+   * @example
+   * 100000000001
    */
   resellerOwnerUid?: number;
   static names(): { [key: string]: string } {

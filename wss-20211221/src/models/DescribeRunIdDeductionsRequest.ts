@@ -5,12 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRunIdDeductionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent type: `CREDIT_PACKAGE` / `JVS_CLAW` / `OPEN_CLAW` / `JVS_COPILOT`.
+   * The agent type. Valid values: CREDIT_PACKAGE, JVS_CLAW, OPEN_CLAW, and JVS_COPILOT.
    * 
    * @example
    * JVSCopilot、JVSClaw、OpenClaw
    */
   agentType?: string;
+  /**
+   * @remarks
+   * The list of agent types.
+   */
   agentTypes?: string[];
   /**
    * @remarks
@@ -30,27 +34,64 @@ export class DescribeRunIdDeductionsRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
+   * The consumption WyId.
+   * 
+   * @example
+   * 2892766fb8521756
+   */
+  consumeWyId?: string;
+  /**
+   * @remarks
+   * The Wuying user IDs. You can obtain the IDs by calling the GetLoginToken logon operation. The returned parameter is WyId.
+   */
+  consumeWyIds?: string[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * uuid
+   */
+  deductionRequestId?: string;
+  /**
+   * @remarks
    * The deduction types. Do not specify this parameter for non-knowledge base scenarios.
    */
   deductionTypes?: string[];
   /**
    * @remarks
-   * The end time of the period.
+   * The end time of the query. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
-   * Millisecond timestamp: 1785205179000
+   * 1785205179000
    */
   endTime?: number;
+  /**
+   * @remarks
+   * The list of additional grouping fields when aggregating by runId, such as model to distinguish between different models.
+   */
   groupByFields?: string[];
+  /**
+   * @remarks
+   * The list of grouped resource types.
+   */
   groupResourceTypes?: string[];
   /**
    * @remarks
-   * Specifies whether to group results by deduction type.
+   * Specifies whether to group the results by deduction type.
    * 
    * @example
    * false
    */
   groupSeparator?: boolean;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * mdp-0c62ayep0nk4v****
+   */
+  instanceId?: string;
   /**
    * @remarks
    * The instance ID type. Do not specify this parameter for non-knowledge base scenarios.
@@ -61,7 +102,7 @@ export class DescribeRunIdDeductionsRequest extends $dara.Model {
   instanceIdType?: string;
   /**
    * @remarks
-   * The list of cloud computer IDs. If this field has a value, the `PackageIds` field is required.
+   * The list of cloud computer IDs. If this field is specified, the PackageIds field is required.
    */
   instanceIds?: string[];
   /**
@@ -74,7 +115,15 @@ export class DescribeRunIdDeductionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Leave this parameter empty for the first request. For subsequent requests, use the `nextToken` value from the previous response.
+   * The model name.
+   * 
+   * @example
+   * qwen-3.8
+   */
+  model?: string;
+  /**
+   * @remarks
+   * The pagination token. Leave this parameter empty for the first request. For subsequent requests, use the nextToken value returned in the previous response.
    * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==
@@ -87,7 +136,7 @@ export class DescribeRunIdDeductionsRequest extends $dara.Model {
   packageIds?: string[];
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The current page number. Default value: 1.
    * 
    * @example
    * 1
@@ -95,7 +144,7 @@ export class DescribeRunIdDeductionsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The Settings for the number of entries per page during paging in a paged query.
    * 
    * @example
    * 100
@@ -106,7 +155,7 @@ export class DescribeRunIdDeductionsRequest extends $dara.Model {
    * The resource type.
    * 
    * @example
-   * Enterprise Edition: CreditPackage, Commercial Edition: BusinessCreditPackage
+   * Enterprise Edition: CreditPackage, Business Edition: BusinessCreditPackage
    */
   resourceType?: string;
   /**
@@ -116,12 +165,32 @@ export class DescribeRunIdDeductionsRequest extends $dara.Model {
   resourceTypes?: string[];
   /**
    * @remarks
-   * The start time.
+   * The run ID.
    * 
    * @example
-   * Millisecond timestamp: 1785205179000
+   * t-xxx
+   */
+  runId?: string;
+  /**
+   * @remarks
+   * The list of run IDs.
+   */
+  runIdList?: string[];
+  /**
+   * @remarks
+   * The start time of the query. The value is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1785205179000
    */
   startTime?: number;
+  /**
+   * @remarks
+   * The globally unique ID of the Wuying user.
+   * 
+   * @example
+   * wy-123456****
+   */
   wyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,20 +198,27 @@ export class DescribeRunIdDeductionsRequest extends $dara.Model {
       agentTypes: 'AgentTypes',
       aliUid: 'AliUid',
       bizType: 'BizType',
+      consumeWyId: 'ConsumeWyId',
+      consumeWyIds: 'ConsumeWyIds',
+      deductionRequestId: 'DeductionRequestId',
       deductionTypes: 'DeductionTypes',
       endTime: 'EndTime',
       groupByFields: 'GroupByFields',
       groupResourceTypes: 'GroupResourceTypes',
       groupSeparator: 'GroupSeparator',
+      instanceId: 'InstanceId',
       instanceIdType: 'InstanceIdType',
       instanceIds: 'InstanceIds',
       maxResults: 'MaxResults',
+      model: 'Model',
       nextToken: 'NextToken',
       packageIds: 'PackageIds',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       resourceType: 'ResourceType',
       resourceTypes: 'ResourceTypes',
+      runId: 'RunId',
+      runIdList: 'RunIdList',
       startTime: 'StartTime',
       wyId: 'WyId',
     };
@@ -154,20 +230,27 @@ export class DescribeRunIdDeductionsRequest extends $dara.Model {
       agentTypes: { 'type': 'array', 'itemType': 'string' },
       aliUid: 'number',
       bizType: 'string',
+      consumeWyId: 'string',
+      consumeWyIds: { 'type': 'array', 'itemType': 'string' },
+      deductionRequestId: 'string',
       deductionTypes: { 'type': 'array', 'itemType': 'string' },
       endTime: 'number',
       groupByFields: { 'type': 'array', 'itemType': 'string' },
       groupResourceTypes: { 'type': 'array', 'itemType': 'string' },
       groupSeparator: 'boolean',
+      instanceId: 'string',
       instanceIdType: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
+      model: 'string',
       nextToken: 'string',
       packageIds: { 'type': 'array', 'itemType': 'string' },
       pageNum: 'number',
       pageSize: 'number',
       resourceType: 'string',
       resourceTypes: { 'type': 'array', 'itemType': 'string' },
+      runId: 'string',
+      runIdList: { 'type': 'array', 'itemType': 'string' },
       startTime: 'number',
       wyId: 'string',
     };
@@ -176,6 +259,9 @@ export class DescribeRunIdDeductionsRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.agentTypes)) {
       $dara.Model.validateArray(this.agentTypes);
+    }
+    if(Array.isArray(this.consumeWyIds)) {
+      $dara.Model.validateArray(this.consumeWyIds);
     }
     if(Array.isArray(this.deductionTypes)) {
       $dara.Model.validateArray(this.deductionTypes);
@@ -194,6 +280,9 @@ export class DescribeRunIdDeductionsRequest extends $dara.Model {
     }
     if(Array.isArray(this.resourceTypes)) {
       $dara.Model.validateArray(this.resourceTypes);
+    }
+    if(Array.isArray(this.runIdList)) {
+      $dara.Model.validateArray(this.runIdList);
     }
     super.validate();
   }

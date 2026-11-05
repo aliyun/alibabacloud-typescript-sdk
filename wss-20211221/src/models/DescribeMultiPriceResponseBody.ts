@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetails extends $dara.Model {
   /**
    * @remarks
-   * The discount price.
+   * The discounted price.
    * 
    * @example
    * 734.65
@@ -24,7 +24,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetai
    * The module name.
    * 
    * @example
-   * Enterprise Office-8C32G
+   * Enterprise Office - 8C32G
    */
   moduleName?: string;
   /**
@@ -46,6 +46,9 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetai
   /**
    * @remarks
    * The savings plan discount price.
+   * 
+   * @example
+   * 0
    */
   savingPlanDiscountPrice?: number;
   /**
@@ -92,7 +95,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetai
 export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail extends $dara.Model {
   /**
    * @remarks
-   * The discount price.
+   * The discounted price.
    * 
    * @example
    * 20.00
@@ -117,6 +120,9 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail
   /**
    * @remarks
    * The savings plan recommended price.
+   * 
+   * @example
+   * 0
    */
   savingPlanRecommendPrice?: number;
   /**
@@ -159,12 +165,12 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail
 export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails extends $dara.Model {
   /**
    * @remarks
-   * The pricing module details.
+   * The pricing details of the billing module.
    */
   moduleDetails?: DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetails[];
   /**
    * @remarks
-   * The sort property.
+   * The sorting attribute.
    * 
    * @example
    * 1
@@ -172,7 +178,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails extends $d
   orderItem?: number;
   /**
    * @remarks
-   * The price details.
+   * The pricing details.
    */
   priceDetail?: DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail;
   static names(): { [key: string]: string } {
@@ -209,17 +215,23 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails extends $d
 export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dara.Model {
   /**
    * @remarks
-   * The activity ID.
+   * The promotion activity ID.
+   * 
+   * @example
+   * 123456****
    */
   activityId?: string;
   /**
    * @remarks
-   * Indicates whether the activity is effective.
+   * Indicates whether the promotion activity is in effect.
    */
   effective?: boolean;
   /**
    * @remarks
-   * The timestamp when the activity ends.
+   * The end time of the promotion activity. The value is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1790784000000
    */
   endTimestamp?: string;
   /**
@@ -232,12 +244,18 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
   optionCode?: string;
   /**
    * @remarks
-   * The tiered pricing discount value.
+   * The discount amount after the spend-and-save promotion threshold is reached. Unit: CNY. Two decimal places are retained.
+   * 
+   * @example
+   * 10.00
    */
   priceBreakReduceValue?: string;
   /**
    * @remarks
-   * The tiered pricing threshold.
+   * The threshold amount for the spend-and-save promotion. Unit: CNY. Two decimal places are retained.
+   * 
+   * @example
+   * 100.00
    */
   priceBreakThreshold?: string;
   /**
@@ -274,7 +292,10 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
   selected?: boolean;
   /**
    * @remarks
-   * The timestamp when the activity starts.
+   * The start time of the promotion activity. The value is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1788192000000
    */
   startTimestamp?: string;
   static names(): { [key: string]: string } {
@@ -321,7 +342,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPricePromotions extends $dar
 export class DescribeMultiPriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
-   * The currency unit.
+   * The currency unit. CNY for the China site. USD for the international site.
    * 
    * @example
    * CNY
@@ -329,7 +350,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The discount price.
+   * The discounted price.
    * 
    * @example
    * 534.6
@@ -345,7 +366,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoPrice extends $dara.Model {
   originalPrice?: number;
   /**
    * @remarks
-   * The price details.
+   * The pricing details.
    */
   priceDetails?: DescribeMultiPriceResponseBodyPriceInfoPricePriceDetails[];
   /**
@@ -355,12 +376,12 @@ export class DescribeMultiPriceResponseBodyPriceInfoPrice extends $dara.Model {
   promotions?: DescribeMultiPriceResponseBodyPriceInfoPricePromotions[];
   /**
    * @remarks
-   * The unsubscription instance and pricing details.
+   * The unsubscribed instances and pricing details.
    */
   refundInstanceIdPriceMap?: { [key: string]: number };
   /**
    * @remarks
-   * The unsubscription price.
+   * The refund price.
    * 
    * @example
    * 60.00
@@ -429,10 +450,10 @@ export class DescribeMultiPriceResponseBodyPriceInfoRules extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The promotion rule ID.
+   * The pricing rule ID. The value is an integer.
    * 
    * @example
-   * hrzdvc
+   * 1001
    */
   ruleId?: number;
   static names(): { [key: string]: string } {
@@ -461,7 +482,7 @@ export class DescribeMultiPriceResponseBodyPriceInfoRules extends $dara.Model {
 export class DescribeMultiPriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @remarks
-   * The price information.
+   * The pricing information.
    */
   price?: DescribeMultiPriceResponseBodyPriceInfoPrice;
   /**
@@ -501,7 +522,7 @@ export class DescribeMultiPriceResponseBodyPriceInfo extends $dara.Model {
 export class DescribeMultiPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price details.
+   * The detailed pricing information.
    */
   priceInfo?: DescribeMultiPriceResponseBodyPriceInfo;
   /**

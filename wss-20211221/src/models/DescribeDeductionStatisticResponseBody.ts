@@ -13,7 +13,7 @@ export class DescribeDeductionStatisticResponseBodyDataAvailableCorePackages ext
   aliUid?: number;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-01-01 00:00:00
@@ -21,7 +21,7 @@ export class DescribeDeductionStatisticResponseBodyDataAvailableCorePackages ext
   createTime?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-12-31 23:59:59
@@ -29,7 +29,7 @@ export class DescribeDeductionStatisticResponseBodyDataAvailableCorePackages ext
   endTime?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-12-31 23:59:59
@@ -82,7 +82,7 @@ export class DescribeDeductionStatisticResponseBodyDataAvailableCorePackages ext
   resourceType?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-01-01 00:00:00
@@ -170,7 +170,7 @@ export class DescribeDeductionStatisticResponseBodyDataDeductions extends $dara.
   consumeSecond?: number;
   /**
    * @remarks
-   * The deduction date.
+   * The deduction date in the YYYY-MM-DD format.
    * 
    * @example
    * 2024-01-01
@@ -272,7 +272,7 @@ export class DescribeDeductionStatisticResponseBodyData extends $dara.Model {
   deductions?: DescribeDeductionStatisticResponseBodyDataDeductions[];
   /**
    * @remarks
-   * **The usage list.**
+   * **The list of usage records.**
    */
   usages?: DescribeDeductionStatisticResponseBodyDataUsages[];
   static names(): { [key: string]: string } {

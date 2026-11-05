@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model {
   /**
    * @remarks
+   * The agent type.
+   * 
+   * @example
+   * OpenClaw
+   */
+  agentType?: string;
+  /**
+   * @remarks
    * The number of vCPUs.
    * 
    * @example
@@ -13,7 +21,23 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   cpu?: number;
   /**
    * @remarks
-   * The cloud computer ID.
+   * The request ID.
+   * 
+   * @example
+   * r-xxxx
+   */
+  deductionRequestId?: string;
+  /**
+   * @remarks
+   * The deduction types.
+   * 
+   * @example
+   * KNOWLEDGE_SPACE/CONVESATION
+   */
+  deductionType?: string;
+  /**
+   * @remarks
+   * The Cloud Desktop ID.
    * 
    * @example
    * ecd-6wye9optu0kag****
@@ -21,7 +45,7 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud computer.
+   * The name of the cloud desktop.
    * 
    * @example
    * DemoComputer
@@ -29,7 +53,7 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   desktopName?: string;
   /**
    * @remarks
-   * The specifications of the cloud computer.
+   * The specifications of the cloud desktop.
    * 
    * @example
    * eds.enterprise_office.4c8g
@@ -37,20 +61,26 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   desktopType?: string;
   /**
    * @remarks
-   * The end time of the period.
+   * The end time of the deduction record in UTC. The format is yyyy-MM-ddTHH:mm:ssZ. For records aggregated by hour, the format can be yyyy-MM-ddTHH:mmZ with seconds omitted.
    * 
    * @example
-   * 2024-07-31T03:00Z
+   * 2024-07-31T03:00:00Z
    */
   endTime?: string;
   /**
    * @remarks
-   * The group resource type.
+   * The group resource type to which the deduction record belongs.
+   * 
+   * @example
+   * GROUP_CORE_PACKAGE
    */
   groupResourceType?: string;
   /**
    * @remarks
    * The instance ID.
+   * 
+   * @example
+   * A specific instance ID
    */
   instanceId?: string;
   /**
@@ -63,12 +93,15 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   instanceState?: string;
   /**
    * @remarks
-   * The instance type.
+   * The instance specifications for the deduction.
+   * 
+   * @example
+   * ec.agentbay-pc
    */
   instanceType?: string;
   /**
    * @remarks
-   * The memory size. Unit: MB.
+   * The memory. Unit: MB.
    * 
    * @example
    * 8192
@@ -76,7 +109,15 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   memory?: number;
   /**
    * @remarks
-   * The operating system type of the cloud computer.
+   * The model.
+   * 
+   * @example
+   * qwen-3.7
+   */
+  model?: string;
+  /**
+   * @remarks
+   * The operating system type of the cloud desktop.
    * 
    * @example
    * Windows
@@ -84,12 +125,28 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   osType?: string;
   /**
    * @remarks
-   * The region ID of the cloud computer.
+   * The ID of the credit package.
+   * 
+   * @example
+   * crp-xxx
+   */
+  packageId?: string;
+  /**
+   * @remarks
+   * The region ID of the cloud desktop.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the first resource in the deduction item.
+   * 
+   * @example
+   * ecd-xxx
+   */
+  resourceId?: string;
   /**
    * @remarks
    * The resource type.
@@ -100,20 +157,31 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   resourceType?: string;
   /**
    * @remarks
-   * The session ID.
+   * The ID of the session associated with the deduction record.
+   * 
+   * @example
+   * ai-123456****
    */
   sessionId?: string;
   /**
    * @remarks
-   * The start time of the period.
+   * The start time of the deduction record in UTC. The format is yyyy-MM-ddTHH:mm:ssZ. For records aggregated by hour, the format can be yyyy-MM-ddTHH:mmZ with seconds omitted.
    * 
    * @example
-   * 2024-07-31T02:00Z
+   * 2024-07-31T02:00:00Z
    */
   staTime?: string;
   /**
    * @remarks
-   * The number of cores deducted in this period.
+   * The summary.
+   * 
+   * @example
+   * Summary of the AI query
+   */
+  summary?: string;
+  /**
+   * @remarks
+   * The number of cores deducted.
    * 
    * @example
    * 4.0
@@ -129,17 +197,26 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   usedTime?: number;
   /**
    * @remarks
-   * The usage duration in decimal format.
+   * The usage calculated from UsedTime by using a precision factor, rounded to four decimal places. This field is returned only for applicable resource types and must be read based on the metering criteria of the corresponding resource.
+   * 
+   * @example
+   * 1.0000
    */
   usedTimeDecimal?: string;
   /**
    * @remarks
-   * The usage duration after proportional scaling.
+   * The usage that includes the deduction coefficient. In scenarios where deduction is based on duration, the value is measured in seconds and returned as an integer.
+   * 
+   * @example
+   * 3600
    */
   usedTimeWithScale?: number;
   static names(): { [key: string]: string } {
     return {
+      agentType: 'AgentType',
       cpu: 'Cpu',
+      deductionRequestId: 'DeductionRequestId',
+      deductionType: 'DeductionType',
       desktopId: 'DesktopId',
       desktopName: 'DesktopName',
       desktopType: 'DesktopType',
@@ -149,11 +226,15 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
       instanceState: 'InstanceState',
       instanceType: 'InstanceType',
       memory: 'Memory',
+      model: 'Model',
       osType: 'OsType',
+      packageId: 'PackageId',
       regionId: 'RegionId',
+      resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       sessionId: 'SessionId',
       staTime: 'StaTime',
+      summary: 'Summary',
       usedCoreTime: 'UsedCoreTime',
       usedTime: 'UsedTime',
       usedTimeDecimal: 'UsedTimeDecimal',
@@ -163,7 +244,10 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
+      agentType: 'string',
       cpu: 'number',
+      deductionRequestId: 'string',
+      deductionType: 'string',
       desktopId: 'string',
       desktopName: 'string',
       desktopType: 'string',
@@ -173,11 +257,15 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
       instanceState: 'string',
       instanceType: 'string',
       memory: 'number',
+      model: 'string',
       osType: 'string',
+      packageId: 'string',
       regionId: 'string',
+      resourceId: 'string',
       resourceType: 'string',
       sessionId: 'string',
       staTime: 'string',
+      summary: 'string',
       usedCoreTime: 'number',
       usedTime: 'number',
       usedTimeDecimal: 'string',
@@ -210,7 +298,7 @@ export class DescribePackageDeductionsResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Settings the number of rows per page for paging.
+   * The number of entries per page in the Settings for paging during a paged query.
    * 
    * @example
    * 100
@@ -226,7 +314,7 @@ export class DescribePackageDeductionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of deduction detail records returned.
+   * The total number of core-hour package deduction details queried.
    * 
    * @example
    * 100
@@ -250,7 +338,10 @@ export class DescribePackageDeductionsResponseBody extends $dara.Model {
   totalUsedTime?: number;
   /**
    * @remarks
-   * The total usage duration in decimal format.
+   * The total usage calculated by using a precision factor, rounded to four decimal places. This field uses the same metering criteria as UsedTimeDecimal in the details.
+   * 
+   * @example
+   * 10.0000
    */
   totalUsedTimeDecimal?: string;
   static names(): { [key: string]: string } {

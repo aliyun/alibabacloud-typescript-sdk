@@ -10,7 +10,7 @@ export class DescribeCreditPackageAgentsRequest extends $dara.Model {
   agentIds?: string[];
   /**
    * @remarks
-   * The Agent type. Valid values: `CREDIT_PACKAGE`, `JVS_CLAW`, `OPEN_CLAW`, and `JVS_COPILOT`.
+   * The agent type. Valid values: `CREDIT_PACKAGE`, `JVS_CLAW`, `OPEN_CLAW`, and `JVS_COPILOT`.
    * 
    * @example
    * JVS_COPILOT

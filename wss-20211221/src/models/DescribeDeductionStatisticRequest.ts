@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDeductionStatisticRequestPeriods extends $dara.Model {
   /**
    * @remarks
-   * The base time.
+   * The base time in the YYYY-MM-DD format.
    * 
    * @example
    * 2024-01-01
@@ -45,15 +45,15 @@ export class DescribeDeductionStatisticRequestPeriods extends $dara.Model {
 export class DescribeDeductionStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time (timestamp).
+   * The end time of the query. UNIX timestamp, in milliseconds.
    * 
    * @example
-   * 2025-06-06T02:14:00Z
+   * 1749176040000
    */
   endTime?: number;
   /**
    * @remarks
-   * The list of instance IDs (JSON array).
+   * The list of instance IDs in JSON array format.
    */
   instanceIds?: string[];
   /**
@@ -71,10 +71,10 @@ export class DescribeDeductionStatisticRequest extends $dara.Model {
   resourceTypes?: string[];
   /**
    * @remarks
-   * The start time (timestamp).
+   * The start time of the query. UNIX timestamp, in milliseconds.
    * 
    * @example
-   * 2026-03-20T16:00:00Z
+   * 1774022400000
    */
   startTime?: number;
   static names(): { [key: string]: string } {

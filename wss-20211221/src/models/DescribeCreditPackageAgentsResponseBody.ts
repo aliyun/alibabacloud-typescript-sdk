@@ -13,7 +13,7 @@ export class DescribeCreditPackageAgentsResponseBodyAgents extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * **The instance creation time.**
+   * The time when the instance was created, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-04-01 10:00:00
@@ -29,7 +29,7 @@ export class DescribeCreditPackageAgentsResponseBodyAgents extends $dara.Model {
   creditPackageId?: string;
   /**
    * @remarks
-   * **The time when the instance expires.**
+   * The time when the instance expires, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-10-01 10:00:00
@@ -53,7 +53,7 @@ export class DescribeCreditPackageAgentsResponseBodyAgents extends $dara.Model {
   totalCredit?: number;
   /**
    * @remarks
-   * **The amount of credits used.**
+   * **The number of credits used.**
    * 
    * @example
    * 100
@@ -105,7 +105,7 @@ export class DescribeCreditPackageAgentsResponseBodyAgents extends $dara.Model {
 export class DescribeCreditPackageAgentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Agent list.
+   * The agent list.
    */
   agents?: DescribeCreditPackageAgentsResponseBodyAgents[];
   /**
