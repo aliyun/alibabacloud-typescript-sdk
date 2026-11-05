@@ -13,7 +13,7 @@ export class DescribeSagWifiResponseBodyTaskStates extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error code returned for a query task. The 200 error code indicates that the query task is successful.
+   * The error code. A value of 200 indicates that the query task is successful.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DescribeSagWifiResponseBodyTaskStates extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned for a query task. The Successful error message indicates that the query task is successful.
+   * The error message. A value of Successful indicates that the query task is successful.
    * 
    * @example
    * Successful
@@ -29,25 +29,17 @@ export class DescribeSagWifiResponseBodyTaskStates extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The status of the query task. Valid values:
+   * The status of the asynchronous task. Valid values:
    * 
-   * - **Initialized**: The query task has been initialized.
-   * 
-   * - **Offline**: The query task is not dispatched because the SAG device is disconnected from Alibaba Cloud. The task will be dispatched after the SAG device is connected to Alibaba Cloud.
-   * 
-   * - **Succeed**: The query task has been dispatched.
-   * 
-   * - **Processing**: The query task is being dispatched.
-   * 
-   * - **VersionNotSupport**: The current version of the SAG device does not support query tasks.
-   * 
-   * - **BuildRequestError**: The SAG control system does not support query tasks.
-   * 
-   * - **HardwareError**: The query task failed to be dispatched due to device errors.
-   * 
+   * - **Initialized**: The query task is initialized.
+   * - **Offline**: The Smart Access Gateway device is offline and the query task is not delivered. The task will be delivered after the device goes online.
+   * - **Succeed**: The query task is delivered.
+   * - **Processing**: The query task is being delivered.
+   * - **VersionNotSupport**: The current version of the Smart Access Gateway device does not support this feature.
+   * - **BuildRequestError**: The management system does not support the operation.
+   * - **HardwareError**: The query task fails to be delivered due to device errors.
    * - **TaskNotExist**: The query task does not exist.
-   * 
-   * - **OfflineNotConfiged**: The query task is not dispatched because the SAG device is disconnected from Alibaba Cloud. The task will not be dispatched after the device is connected to Alibaba Cloud.
+   * - **OfflineNotConfiged**: The Smart Access Gateway device is offline and the query task is not delivered. The task will not be delivered even after the device goes online.
    * 
    * @example
    * Succeed
@@ -85,10 +77,8 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
    * @remarks
    * The authentication type. Valid values:
    * 
-   * - **NONE**: authentication is disabled.
-   * 
+   * - **NONE**: Authentication is disabled.
    * - **WPA-PSK**: WPA-PSK authentication is enabled.
-   * 
    * - **WPA2-PSK**: WPA2-PSK authentication is enabled.
    * 
    * @example
@@ -97,13 +87,11 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
   authenticationType?: string;
   /**
    * @remarks
-   * The bandwidth of the Wi-Fi channel. Valid values:
+   * The spectrum bandwidth. Valid values:
    * 
-   * - **Automatic**
-   * 
-   * - **20 HMz**
-   * 
-   * - **40 MHz**
+   * - **Auto**.
+   * - **20MHz**.
+   * - **40MHz**.
    * 
    * @example
    * Automatic
@@ -111,7 +99,7 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
   bandwidth?: string;
   /**
    * @remarks
-   * The Wi-Fi channel.
+   * The channel.
    * 
    * @example
    * 0
@@ -119,13 +107,11 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The encryption algorithm.
+   * The encryption algorithm. Valid values:
    * 
-   * - **AUTO**: automatically selects the encryption algorithm.
-   * 
-   * - **TKIP**: uses the Temporal Key Integrity Protocol (TKIP).
-   * 
-   * - **AES**: uses the Advanced Encryption Standard authorized by Wi-Fi®.
+   * - **AUTO**: Automatic encryption.
+   * - **TKIP**: Temporal Key Integrity Protocol.
+   * - **AES**: Advanced Encryption Standard.
    * 
    * @example
    * AES
@@ -133,11 +119,10 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
   encryptAlgorithm?: string;
   /**
    * @remarks
-   * Indicates whether wireless security is enabled.
+   * Indicates whether the wireless security feature is enabled. Valid values:
    * 
-   * - **True**: wireless security is enabled.
-   * 
-   * - **False**: wireless security is disabled.
+   * - **True**: The wireless security feature is enabled.
+   * - **False**: The wireless security feature is disabled.
    * 
    * @example
    * True
@@ -145,11 +130,10 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
   isAuth?: string;
   /**
    * @remarks
-   * Indicates whether broadcast over Wi-Fi is enabled. Valid values:
+   * Indicates whether the Wi-Fi broadcast feature is enabled. Valid values:
    * 
-   * - **True**: broadcast is enabled.
-   * 
-   * - **False**: broadcast is disabled.
+   * - **True**: The Wi-Fi broadcast feature is enabled.
+   * - **False**: The Wi-Fi broadcast feature is disabled.
    * 
    * @example
    * True
@@ -157,11 +141,10 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
   isBroadcast?: string;
   /**
    * @remarks
-   * Indicates whether wireless connections are enabled. Valid values:
+   * Indicates whether the wireless feature is enabled. Valid values:
    * 
-   * - **True**: wireless connections are enabled.
-   * 
-   * - **False**: wireless connections are disabled.
+   * - **True**: Enabled.
+   * - **False**: Disabled.
    * 
    * @example
    * True
@@ -169,7 +152,7 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
   isEnable?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E93884AC-6C21-4FEA-8E3A-7377D33B194F
@@ -177,7 +160,7 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The service set identifier (SSID) of the Wi-Fi network.
+   * The Wi-Fi name.
    * 
    * @example
    * aliyun_sag_123456***
@@ -185,7 +168,7 @@ export class DescribeSagWifiResponseBody extends $dara.Model {
   ssid?: string;
   /**
    * @remarks
-   * The information about the query task.
+   * The status of the query task.
    */
   taskStates?: DescribeSagWifiResponseBodyTaskStates[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSmartAccessGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E26DBAAE-A796-4A48-98B4-B45AFCD1F299

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSmartAccessGatewayAdminPasswordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates that the task is successful.
+   * The response code. A value of 200 indicates that the query task is successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateSmartAccessGatewayAdminPasswordResponseBody extends $dara.Mod
   code?: string;
   /**
    * @remarks
-   * The response message. A value of Successful indicates that the task is successful.
+   * The response message. A value of Successful indicates that the query task is successful.
    * 
    * @example
    * Successful
@@ -29,10 +29,11 @@ export class UpdateSmartAccessGatewayAdminPasswordResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the modification is successful. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * 
+   * - **false**: no.
    * 
    * @example
    * true

@@ -5,16 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSagRouteListResponseBodyRoutes extends $dara.Model {
   /**
    * @remarks
-   * The list of CIDR blocks that overlap with each other.
+   * The list of conflicting CIDR blocks.
    */
   conflictCidrs?: string[];
   /**
    * @remarks
-   * The cost of the route.
-   * 
-   * The number on the left side of the forward slash (/) indicates the administrative distance (AD) of the routing protocol.
-   * 
-   * The number on the right side of the forward slash (/) indicates the metric value.
+   * The routing cost value. The number to the left of the forward slash (/) represents the administrative distance (AD) of the routable protocol. The number to the right of the forward slash (/) represents the metric.
    * 
    * @example
    * [110/11]
@@ -38,7 +34,7 @@ export class DescribeSagRouteListResponseBodyRoutes extends $dara.Model {
   nextHop?: string;
   /**
    * @remarks
-   * The name of the port. If the port name is -1, data is transferred through a VPN tunnel to Alibaba Cloud.
+   * The port name. A port name of -1 indicates that data traffic enters Alibaba Cloud through a VPN connection.
    * 
    * @example
    * 2
@@ -46,11 +42,10 @@ export class DescribeSagRouteListResponseBodyRoutes extends $dara.Model {
   portName?: string;
   /**
    * @remarks
-   * The routing protocol. Valid values:
-   * 
-   * *   **STATIC**: a static routing protocol.
-   * *   **OSPF**: the Open Shortest Path First (OSPF) dynamic routing protocol.
-   * *   **BGP**: the Border Gateway Protocol (BGP) dynamic routing protocol.
+   * The routable protocol type. Valid values:
+   * - **STATIC**: Static routable protocol.
+   * - **OSPF**: OSPF dynamic routable protocol.
+   * - **BGP**: BGP dynamic routable protocol.
    * 
    * @example
    * STATIC
@@ -93,7 +88,7 @@ export class DescribeSagRouteListResponseBodyRoutes extends $dara.Model {
 export class DescribeSagRouteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CE6642D4-21EB-4168-9BF9-F217953F9892
@@ -101,7 +96,7 @@ export class DescribeSagRouteListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The routes.
+   * The route list.
    */
   routes?: DescribeSagRouteListResponseBodyRoutes[];
   static names(): { [key: string]: string } {

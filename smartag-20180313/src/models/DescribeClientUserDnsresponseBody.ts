@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClientUserDNSResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The active and standby DNS servers that the SAG app instance uses when it connects to private networks.
+   * The primary and secondary DNS configurations used when the client of the Smart Access Gateway app instance connects to a private network.
    */
   appDNS?: string[];
   /**
    * @remarks
-   * The active and standby DNS servers that the SAG app instance uses when it disconnects from private networks.
+   * The primary and secondary DNS configurations used when the client of the Smart Access Gateway app instance disconnects from a private network.
    */
   recoveredDNS?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 894AA8BD-0627-45B1-AA18-9CE1D50DA9D0

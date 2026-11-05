@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeInstanceFromCbnResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 07D73949-2508-4169-8C64-7CCDB33871C4

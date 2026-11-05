@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ActiveFlowLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CBBE5EBF-69C1-4395-B36B-26B7605F87EA

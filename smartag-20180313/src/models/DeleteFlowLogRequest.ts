@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFlowLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the flow log.
+   * The flow log instance ID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteFlowLogRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region to which the flow log belongs.
+   * The region ID of the flow log.
    * 
    * This parameter is required.
    * 

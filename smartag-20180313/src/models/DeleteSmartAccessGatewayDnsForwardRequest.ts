@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSmartAccessGatewayDnsForwardRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DNS forwarding rule.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteSmartAccessGatewayDnsForwardRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The ID of the region where the Smart Access Gateway instance resides.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteSmartAccessGatewayDnsForwardRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The ID of the gateway instance.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DeleteSmartAccessGatewayDnsForwardRequest extends $dara.Model {
   sagInsId?: string;
   /**
    * @remarks
-   * The serial number (SN) of the device.
+   * The SN of the device.
    * 
    * This parameter is required.
    * 

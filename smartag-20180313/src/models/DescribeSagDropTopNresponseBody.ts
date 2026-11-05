@@ -13,7 +13,7 @@ export class DescribeSagDropTopNResponseBodyDropTopN extends $dara.Model {
   dropRate?: string;
   /**
    * @remarks
-   * The ID of the Smart Access Gateway instance.
+   * The instance ID of the Smart Access Gateway instance.
    * 
    * @example
    * sag-whfn****
@@ -65,7 +65,7 @@ export class DescribeSagDropTopNResponseBodyDropTopN extends $dara.Model {
 export class DescribeSagDropTopNResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of packet loss information about Smart Access Gateway instances.
+   * The list of packet loss information for the Smart Access Gateway instances.
    */
   dropTopN?: DescribeSagDropTopNResponseBodyDropTopN[];
   /**

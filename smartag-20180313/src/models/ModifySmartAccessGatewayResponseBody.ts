@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySmartAccessGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CE6642D4-21EB-4168-9BF9-F217953F9892

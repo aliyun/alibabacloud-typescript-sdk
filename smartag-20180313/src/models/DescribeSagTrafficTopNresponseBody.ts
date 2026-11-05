@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSagTrafficTopNResponseBodyTrafficTopN extends $dara.Model {
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The instance ID of the Smart Access Gateway instance.
    * 
    * @example
    * sag-whfn****
@@ -13,7 +13,7 @@ export class DescribeSagTrafficTopNResponseBodyTrafficTopN extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the SAG instance.
+   * The name of the Smart Access Gateway instance.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class DescribeSagTrafficTopNResponseBodyTrafficTopN extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * @example
    * cn-shanghai
@@ -29,7 +29,7 @@ export class DescribeSagTrafficTopNResponseBodyTrafficTopN extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The data transfer rate of the SAG instance. Unit: bit/s
+   * The traffic rate of the Smart Access Gateway instance. Unit: bps.
    * 
    * @example
    * 3866.6666666666665
@@ -65,7 +65,7 @@ export class DescribeSagTrafficTopNResponseBodyTrafficTopN extends $dara.Model {
 export class DescribeSagTrafficTopNResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AFF7E5A6-6897-4FDC-A5A8-1978B5B3E545
@@ -73,7 +73,7 @@ export class DescribeSagTrafficTopNResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the data transfer rate of the SAG instance.
+   * The list of traffic rate information for Smart Access Gateway instances.
    */
   trafficTopN?: DescribeSagTrafficTopNResponseBodyTrafficTopN[];
   static names(): { [key: string]: string } {

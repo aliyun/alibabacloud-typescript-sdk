@@ -7,11 +7,11 @@ export class ModifySAGAdminPasswordRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The new logon password for the SAG device.
+   * The new logon password of the Smart Access Gateway device.
    * 
-   * The password must be 8 to 30 characters in length and can contain letters, digits, and underscores (_).
+   * Password format requirements: The password must be 8 to 30 characters in length and can contain uppercase letters, lowercase letters, digits, and underscores (_).
    * 
-   * >  In the example, asterisks (\\*) are used to conceal the real password. This does not mean that the password supports asterisks (\\*). The actual format requirement prevails.
+   * > Asterisks (\\*) are used in the sample value to mask the actual password. This does not mean that asterisks (\\*) are supported in the password. Specify the password based on the format requirements.
    * 
    * This parameter is required.
    * 
@@ -21,7 +21,7 @@ export class ModifySAGAdminPasswordRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ModifySAGAdminPasswordRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The Smart Access Gateway instance ID.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ModifySAGAdminPasswordRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * The serial number (SN) of the SAG device.
+   * The serial number of the Smart Access Gateway device.
    * 
    * This parameter is required.
    * 

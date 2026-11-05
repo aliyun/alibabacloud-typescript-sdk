@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateACLRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of ACL.
+   * The ID of the access control list.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,7 @@ export class AssociateACLRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the ACL is created.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -31,7 +29,7 @@ export class AssociateACLRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG instance to be associated with the ACL.
+   * The ID of the Smart Access Gateway instance to which you want to attach the access control list.
    * 
    * This parameter is required.
    * 

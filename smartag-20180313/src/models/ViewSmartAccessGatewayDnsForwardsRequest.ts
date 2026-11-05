@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ViewSmartAccessGatewayDnsForwardsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region in which the SAG instance resides.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ViewSmartAccessGatewayDnsForwardsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ViewSmartAccessGatewayDnsForwardsRequest extends $dara.Model {
   sagInsId?: string;
   /**
    * @remarks
-   * The serial number (SN) of the device.
+   * The serial number of the device.
    * 
    * This parameter is required.
    * 

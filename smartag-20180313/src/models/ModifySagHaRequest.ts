@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySagHaRequest extends $dara.Model {
   /**
    * @remarks
-   * The HA mode. Valid values:
+   * The HA pattern. Valid values:
    * 
-   * *   **NONE**: disables HA.
-   * *   **STATIC**: enables static HA.
-   * *   **DYNAMIC**: enables dynamic HA.
+   * - **NONE**: The HA feature is disabled.
+   * - **STATIC**: static pattern
+   * - **DYNAMIC**: dynamic schema
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ModifySagHaRequest extends $dara.Model {
    * @remarks
    * The port name.
    * 
-   * >  If Mode is set to STATIC, you must specify a port name.
+   * > If the HA mode is set to STATIC, you must specify a port name.
    * 
    * @example
    * 5
@@ -31,7 +31,7 @@ export class ModifySagHaRequest extends $dara.Model {
   portName?: string;
   /**
    * @remarks
-   * The region ID of the SAG instance.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ModifySagHaRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The SAG instance ID.
+   * The instance ID of the Smart Access Gateway.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class ModifySagHaRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * The serial number of the SAG device associated with the SAG instance.
+   * The serial number of the associated Smart Access Gateway device.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class ModifySagHaRequest extends $dara.Model {
    * @remarks
    * The virtual IP address.
    * 
-   * >  If Mode is set to STATIC, you must specify a virtual IP address.
+   * > If the HA mode is set to STATIC, you must specify a virtual IP address.
    * 
    * @example
    * 192.XX.XX.5

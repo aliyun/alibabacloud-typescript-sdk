@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSagRouteProtocolBgpResponseBodyTaskStates extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the task was created.
+   * The timestamp when the query task was created.
    * 
    * @example
    * 1586765938000
@@ -13,7 +13,7 @@ export class DescribeSagRouteProtocolBgpResponseBodyTaskStates extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The error code returned. A value of 200 indicates that the query task is successful.
+   * The error code. 200 indicates that the query task succeeded.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DescribeSagRouteProtocolBgpResponseBodyTaskStates extends $dara.Mod
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned. A value of Successful indicates that the query task is successful.
+   * The error message. Successful indicates that the query task succeeded.
    * 
    * @example
    * Successful
@@ -29,17 +29,17 @@ export class DescribeSagRouteProtocolBgpResponseBodyTaskStates extends $dara.Mod
   errorMessage?: string;
   /**
    * @remarks
-   * The state of the query task. Valid values:
+   * The status of the asynchronous task. Valid values:
    * 
-   * *   **Initialized**: The query task is initialized.
-   * *   **Offline**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. After the SAG device is connected to Alibaba Cloud, Alibaba Cloud assigns the query task to the SAG device.
-   * *   **Succeed**: Alibaba Cloud has assigned the query task to the SAG device.
-   * *   **Processing**: Alibaba Cloud is assigning the query task to the SAG device.
-   * *   **VersionNotSupport**: The query task is not supported by the current version of the SAG device.
-   * *   **BuildRequestError**: The query task is not supported by the controller of the SAG device.
-   * *   **HardwareError**: Alibaba Cloud failed to assign the query task to the SAG device because the SAG device is faulty.
-   * *   **TaskNotExist**: The query task does not exist.
-   * *   **OfflineNotConfiged**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. Alibaba Cloud does not assign the query task to the SAG device even after the SAG device is connected to Alibaba Cloud.
+   * - **Initialized**: The query task is initialized.
+   * - **Offline**: The Smart Access Gateway device is offline and the query task is not delivered. The task will be delivered after the device comes online.
+   * - **Succeed**: The query task succeeded.
+   * - **Processing**: The query task is being delivered.
+   * - **VersionNotSupport**: The current version of the Smart Access Gateway device does not support this feature.
+   * - **BuildRequestError**: The management and control system does not support the operation.
+   * - **HardwareError**: The query task failed to be delivered due to a device error.
+   * - **TaskNotExist**: The query task does not exist.
+   * - **OfflineNotConfiged**: The Smart Access Gateway device is offline and the query task is not delivered. The task will not be delivered after the device comes online.
    * 
    * @example
    * Succeed
@@ -83,7 +83,7 @@ export class DescribeSagRouteProtocolBgpResponseBody extends $dara.Model {
   holdTime?: number;
   /**
    * @remarks
-   * The time interval at which keep-alive packets are sent. Unit: seconds.
+   * The keepalive interval. Unit: seconds.
    * 
    * @example
    * 3
@@ -91,7 +91,7 @@ export class DescribeSagRouteProtocolBgpResponseBody extends $dara.Model {
   keepAlive?: number;
   /**
    * @remarks
-   * The autonomous system (AS) number to which the SAG device belongs.
+   * The autonomous system (AS) number of the Smart Access Gateway.
    * 
    * @example
    * 65536
@@ -99,7 +99,7 @@ export class DescribeSagRouteProtocolBgpResponseBody extends $dara.Model {
   localAs?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2F39E4FE-B45C-47FF-9921-95780486F52D
@@ -107,7 +107,7 @@ export class DescribeSagRouteProtocolBgpResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the BGP router.
+   * The BGP router ID.
    * 
    * @example
    * 192.XX.XX.1
@@ -115,7 +115,7 @@ export class DescribeSagRouteProtocolBgpResponseBody extends $dara.Model {
   routerId?: string;
   /**
    * @remarks
-   * The details about the query task.
+   * The status of the query task.
    */
   taskStates?: DescribeSagRouteProtocolBgpResponseBodyTaskStates[];
   static names(): { [key: string]: string } {

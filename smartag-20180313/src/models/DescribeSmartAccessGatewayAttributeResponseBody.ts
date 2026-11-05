@@ -31,7 +31,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBodyAclIds extends $dara
 export class DescribeSmartAccessGatewayAttributeResponseBodyApplicationBandwidthPackageOperationLocks extends $dara.Model {
   /**
    * @remarks
-   * The reason for the lock.
+   * The lock reason.
    * 
    * @example
    * Message
@@ -292,7 +292,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBodyQosIds extends $dara
 export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The peak bandwidth of application acceleration for the SAG instance. Unit: Mbit/s.
+   * The peak bandwidth for application acceleration of the Smart Access Gateway instance. Unit: Mbit/s.
    * 
    * @example
    * 1
@@ -300,7 +300,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   accelerateBandwidth?: number;
   /**
    * @remarks
-   * The ID of the access point of the SAG instance.
+   * The ID of the access point for the Smart Access Gateway instance.
    * 
    * @example
    * 238
@@ -309,7 +309,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   aclIds?: DescribeSmartAccessGatewayAttributeResponseBodyAclIds;
   /**
    * @remarks
-   * The status of the application acceleration bandwidth package instance.
+   * The status of the bandwidth plan for application acceleration instance. Valid values:
    * 
    * - **Abnormal**: Abnormal.
    * - **Normal**: Normal.
@@ -320,7 +320,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   applicationBandwidthPackageBussinessStatus?: string;
   /**
    * @remarks
-   * The ID of the application acceleration bandwidth package associated with the SAG instance.
+   * The ID of the bandwidth plan for application acceleration associated with the Smart Access Gateway instance.
    * 
    * @example
    * abwp-7963l7iqnquyj3****
@@ -328,7 +328,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   applicationBandwidthPackageId?: string;
   /**
    * @remarks
-   * The name of the application acceleration bandwidth package associated with the SAG instance.
+   * The name of the bandwidth plan for application acceleration associated with the Smart Access Gateway instance.
    * 
    * @example
    * testname
@@ -336,12 +336,12 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   applicationBandwidthPackageName?: string;
   /**
    * @remarks
-   * The lock information of the application acceleration bandwidth package instance.
+   * The lock information of the bandwidth plan for application acceleration instance.
    */
   applicationBandwidthPackageOperationLocks?: DescribeSmartAccessGatewayAttributeResponseBodyApplicationBandwidthPackageOperationLocks;
   /**
    * @remarks
-   * The ID of the CCN instance associated with the SAG instance.
+   * The ID of the Cloud Connect Network (CCN) instance associated with the Smart Access Gateway instance.
    * 
    * @example
    * ccn-iz26o9zye6lhoo****
@@ -349,7 +349,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   associatedCcnId?: string;
   /**
    * @remarks
-   * The name of the Cloud Connect Network (CCN) instance associated with the SAG instance.
+   * The name of the Cloud Connect Network (CCN) instance associated with the Smart Access Gateway instance.
    * 
    * @example
    * testname
@@ -357,7 +357,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   associatedCcnName?: string;
   /**
    * @remarks
-   * The public IP address of the standby SAG device.
+   * The public IP address of the standby Smart Access Gateway device.
    * 
    * @example
    * 112.XX.XX.27
@@ -365,7 +365,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   backupBoxControllerIp?: string;
   /**
    * @remarks
-   * The public IP address of the primary SAG device.
+   * The public IP address of the active Smart Access Gateway device.
    * 
    * @example
    * 112.XX.XX.25
@@ -373,7 +373,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   boxControllerIp?: string;
   /**
    * @remarks
-   * The private CIDR block used for communication between the on-premises network or clients and the cloud.
+   * The private CIDR block of the on-premises network or client that needs to communicate with Alibaba Cloud.
    * 
    * @example
    * 10.0.9.0/24
@@ -381,7 +381,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   cidrBlock?: string;
   /**
    * @remarks
-   * The ID of the city where the SAG device is located.
+   * The ID of the city where the Smart Access Gateway device is located.
    * 
    * @example
    * cn-shanghai
@@ -389,7 +389,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   city?: string;
   /**
    * @remarks
-   * The creation timestamp of the SAG instance.
+   * The creation timestamp of the Smart Access Gateway instance.
    * 
    * @example
    * 1622617250000
@@ -397,9 +397,9 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   createTime?: number;
   /**
    * @remarks
-   * The data plan of the SAG instance. Unit: GB.
+   * The data plan of the Smart Access Gateway instance. Unit: GB.
    * 
-   * > Currently, only 5 GB of complimentary data traffic is provided for each account per month.
+   * > Currently, only 5 GB of free data traffic is provided per account each month.
    * 
    * @example
    * 5
@@ -407,7 +407,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   dataPlan?: number;
   /**
    * @remarks
-   * The description of the SAG instance.
+   * The description of the Smart Access Gateway instance.
    * 
    * @example
    * testdesc
@@ -416,8 +416,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   devices?: DescribeSmartAccessGatewayAttributeResponseBodyDevices;
   /**
    * @remarks
-   * Indicates whether the optimized retransmission feature is enabled for the SAG instance.
-   * 
+   * Indicates whether the optimized retransmission feature is enabled for the Smart Access Gateway instance. Valid values:
    * - **true**: Enabled.
    * - **false**: Disabled.
    * 
@@ -427,11 +426,11 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   enableOptimization?: boolean;
   /**
    * @remarks
-   * Indicates whether connection log auditing is enabled for the SAG APP instance. Valid values:
+   * Indicates whether connection log auditing is enabled for the Smart Access Gateway app instance. Valid values:
    * 
-   * - **true**: Connection log auditing is enabled for the SAG APP instance.
+   * - **true**: Enables connection log auditing for the Smart Access Gateway app instance.
    * 
-   * - **false**: Connection log auditing is disabled for the SAG APP instance.
+   * - **false**: Shutdown connection log auditing for the Smart Access Gateway app instance.
    * 
    * @example
    * true
@@ -439,7 +438,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   enableSoftwareConnectionAudit?: boolean;
   /**
    * @remarks
-   * The expiration timestamp of the SAG instance.
+   * The UNIX timestamp when the Smart Access Gateway instance expires.
    * 
    * @example
    * 1628265600000
@@ -449,12 +448,11 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   IRIds?: DescribeSmartAccessGatewayAttributeResponseBodyIRIds;
   /**
    * @remarks
-   * The type of the SAG instance.
-   * 
-   * - **sag-1000**: The instance is a hardware SAG instance with a SAG-1000 device.
-   * - **sag-10wm**: The instance is a hardware SAG instance with a SAG-100WM device.
-   * - **sag-software**: The instance is an SAG APP instance.
-   * - **sag-vcpe**: The instance is an SAG vCPE instance.
+   * The type of the Smart Access Gateway instance. Valid values:
+   * - **sag-1000**: The instance is a Smart Access Gateway hardware instance and the associated device is a SAG-1000 device.
+   * - **sag-10wm**: The instance is a Smart Access Gateway hardware instance and the associated device is a SAG-100WM device.
+   * - **sag-software**: The instance is a SAG app instance.
+   * - **sag-vcpe**: The instance is a Smart Access Gateway vCPE instance.
    * 
    * @example
    * sag-vcpe
@@ -462,8 +460,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   instanceType?: string;
   /**
    * @remarks
-   * The status of the IPsec-VPN connection.
-   * 
+   * The connection status of the IPsec-VPN. Valid values:
    * - **up**: The IPsec-VPN connection is normal.
    * - **down**: The IPsec-VPN connection is abnormal.
    * 
@@ -474,7 +471,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   links?: DescribeSmartAccessGatewayAttributeResponseBodyLinks;
   /**
    * @remarks
-   * The peak bandwidth of the SAG instance. Unit: Mbit/s.
+   * The peak bandwidth of the Smart Access Gateway instance. Unit: Mbit/s.
    * 
    * @example
    * 50 M
@@ -482,7 +479,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   maxBandwidth?: string;
   /**
    * @remarks
-   * The name of the SAG instance.
+   * The name of the Smart Access Gateway instance.
    * 
    * @example
    * testname
@@ -490,7 +487,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   name?: string;
   /**
    * @remarks
-   * The optimized retransmission type of the SAG instance. After the optimized retransmission type is enabled, the default value is **fec**.
+   * The optimized retransmission type of the Smart Access Gateway instance. After optimized retransmission is enabled, the default value is **fec**.
    * 
    * @example
    * fec
@@ -498,7 +495,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   optimizationType?: boolean;
   /**
    * @remarks
-   * The location of the SAG device.
+   * The location of the device.
    * 
    * @example
    * shanghai
@@ -515,7 +512,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The ID of the reseller instance.
+   * The instance ID of the reseller.
    * 
    * @example
    * sag-v0fkpk4akfz5******
@@ -531,7 +528,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   resellerUid?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the SAG instance belongs.
+   * The ID of the resource group to which the Smart Access Gateway instance belongs.
    * 
    * @example
    * rg-acfm2iu4fnc****
@@ -539,11 +536,9 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   resourceGroupId?: string;
   /**
    * @remarks
-   * The routing synchronization method of the SAG instance.
-   * 
+   * The on-premises route synchronization method of the Smart Access Gateway instance. Valid values:
    * - **static**: Static routing.
-   * 
-   * - **dynamic**: Dynamic routing.
+   * - **dynamic**: Dynamic route.
    * 
    * @example
    * static
@@ -551,9 +546,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   routingStrategy?: string;
   /**
    * @remarks
-   * The time threshold for locking the SAG device when it goes offline.
-   * 
-   * Unit: seconds.
+   * The time threshold for locking the Smart Access Gateway device when it goes offline. Unit: seconds.
    * 
    * @example
    * 3600
@@ -561,7 +554,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   securityLockThreshold?: number;
   /**
    * @remarks
-   * The serial number of the SAG device.
+   * The serial number of the Smart Access Gateway device.
    * 
    * @example
    * sage6gsdllbidl****,sage6nniq3d****
@@ -569,7 +562,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   serialNumber?: string;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The instance ID of the Smart Access Gateway.
    * 
    * @example
    * sag-6z21oj0vjjrx6s****
@@ -577,15 +570,14 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   smartAGId?: string;
   /**
    * @remarks
-   * The status of the SAG instance.
-   * 
+   * The instance status of the Smart Access Gateway. Valid values:
    * - **Ordered**: Pending delivery.
-   * - **Delivered**: Delivered.
+   * - **Delivered**: Delivered. 
    * - **Received**: Activated.
    * - **Unconfirmed**: Pending confirmation.
-   * - **Active**: Available.
+   * - **Active**: Available. 
    * - **Offline**: Offline.
-   * - **Arrearage**: Locked due to overdue payment.
+   * - **Arrearage**: Locked due to overdue payments.
    * 
    * @example
    * Active
@@ -593,7 +585,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The serial number of the SAG device that is currently responsible for transmitting traffic.
+   * The serial number of the Smart Access Gateway device that is currently primarily responsible for traffic transmission.
    * 
    * @example
    * sage6nniq3d****
@@ -601,7 +593,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   trafficMasterSn?: string;
   /**
    * @remarks
-   * The maximum upstream bandwidth of the 4G public network for the SAG device. Unit: Mbit/s.
+   * The maximum upstream bandwidth over the 4G public network for the Smart Access Gateway device. Unit: Mbit/s.
    * 
    * @example
    * 3
@@ -609,7 +601,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   upBandwidth4G?: number;
   /**
    * @remarks
-   * The maximum upstream bandwidth of the WAN port for the SAG device. Unit: Mbit/s.
+   * The maximum upstream bandwidth of the WAN port for the Smart Access Gateway device. Unit: Mbit/s.
    * 
    * @example
    * 4
@@ -617,7 +609,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   upBandwidthWan?: number;
   /**
    * @remarks
-   * The number of client accounts of the SAG instance.
+   * The number of client accounts for the Smart Access Gateway instance.
    * 
    * @example
    * 3
@@ -625,8 +617,7 @@ export class DescribeSmartAccessGatewayAttributeResponseBody extends $dara.Model
   userCount?: number;
   /**
    * @remarks
-   * The status of the aliVPN connection.
-   * 
+   * The connection status of aliVPN. Valid values:
    * - **up**: The aliVPN connection is normal.
    * - **down**: The aliVPN connection is abnormal.
    * 

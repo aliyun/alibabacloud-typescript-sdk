@@ -13,7 +13,7 @@ export class AddSmartAccessGatewayDnsForwardResponseBodyData extends $dara.Model
   domain?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * sagv3dnsforward-nc7qabskj17werc7su
@@ -37,7 +37,7 @@ export class AddSmartAccessGatewayDnsForwardResponseBodyData extends $dara.Model
   mode?: string;
   /**
    * @remarks
-   * The number of the egress port.
+   * The outbound port index.
    * 
    * @example
    * 0
@@ -45,7 +45,7 @@ export class AddSmartAccessGatewayDnsForwardResponseBodyData extends $dara.Model
   outboundPortIndex?: number;
   /**
    * @remarks
-   * The egress port.
+   * The outbound port.
    * 
    * @example
    * eth0
@@ -53,7 +53,7 @@ export class AddSmartAccessGatewayDnsForwardResponseBodyData extends $dara.Model
   outboundPortName?: string;
   /**
    * @remarks
-   * The type of the egress port.
+   * The outbound port type.
    * 
    * @example
    * PhysicalPort
@@ -105,7 +105,7 @@ export class AddSmartAccessGatewayDnsForwardResponseBodyData extends $dara.Model
 export class AddSmartAccessGatewayDnsForwardResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. A value of 200 indicates that the call is successful.
+   * The error code. A value of 200 indicates that the task was queried successfully.
    * 
    * @example
    * 200
@@ -113,7 +113,7 @@ export class AddSmartAccessGatewayDnsForwardResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information returned for the request.
+   * The business data.
    */
   data?: AddSmartAccessGatewayDnsForwardResponseBodyData;
   /**
@@ -126,7 +126,7 @@ export class AddSmartAccessGatewayDnsForwardResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * Successful

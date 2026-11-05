@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ClearSagCipherResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3712F0B2-721E-4FBF-BBEF-888E3BFE0A20

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSagLanListResponseBodyLans extends $dara.Model {
   /**
    * @remarks
-   * The last IP address of the DHCP pool.
+   * The end address of the DHCP address pool.
    * 
    * @example
    * 192.XX.XX.254
@@ -21,11 +21,11 @@ export class DescribeSagLanListResponseBodyLans extends $dara.Model {
   IP?: string;
   /**
    * @remarks
-   * The connection type of the LAN port.
+   * The connection type of the LAN port. Valid values:
    * 
-   * **DHCP**: a dynamic IP address. Uses the Dynamic Host Configuration Protocol (DHCP) to dynamically assign an IP address to a connected device.
+   * **DHCP**: Dynamic IP. Uses the DHCP protocol to dynamically assign IP addresses to connected devices.
    * 
-   * **STATIC**: a static IP address. Specifies a static IP address for the LAN port.
+   * **STATIC**: Static IP. Statically specifies the IP address of the LAN port.
    * 
    * @example
    * DHCP
@@ -33,7 +33,7 @@ export class DescribeSagLanListResponseBodyLans extends $dara.Model {
   IPType?: string;
   /**
    * @remarks
-   * The time duration that the IP address is retained after it is assigned through DHCP. Unit: minutes.
+   * The DHCP lease time. Unit: minutes.
    * 
    * @example
    * 7
@@ -41,7 +41,7 @@ export class DescribeSagLanListResponseBodyLans extends $dara.Model {
   lease?: string;
   /**
    * @remarks
-   * The subnet mask of the IP address of the port.
+   * The subnet mask.
    * 
    * @example
    * 255.255.255.0
@@ -57,7 +57,7 @@ export class DescribeSagLanListResponseBodyLans extends $dara.Model {
   portName?: string;
   /**
    * @remarks
-   * The first IP address of the DHCP pool.
+   * The start IP address of the DHCP address pool.
    * 
    * @example
    * 192.XX.XX.2
@@ -107,7 +107,7 @@ export class DescribeSagLanListResponseBodyTaskStates extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error code returned. A value of 200 indicates that the query task is successful.
+   * The error code. 200 indicates that the query task succeeded.
    * 
    * @example
    * 200
@@ -115,7 +115,7 @@ export class DescribeSagLanListResponseBodyTaskStates extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message. A value of Successful indicates that the query task is successful.
+   * The error message. Successful indicates that the query task succeeded.
    * 
    * @example
    * Successful
@@ -123,17 +123,16 @@ export class DescribeSagLanListResponseBodyTaskStates extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The state of the query task. Valid values:
-   * 
-   * *   **Initialized**: The query task is initialized.
-   * *   **Offline**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. After the SAG device is connected to Alibaba Cloud, Alibaba Cloud assigns the query task to the SAG device.
-   * *   **Succeed**: Alibaba Cloud has assigned the query task to the SAG device.
-   * *   **Processing**: Alibaba Cloud is assigning the query task to the SAG device.
-   * *   **VersionNotSupport**: The query task is not supported by the current version of the SAG device.
-   * *   **BuildRequestError**: The query task is not supported by the controller of the SAG device.
-   * *   **HardwareError**: Alibaba Cloud failed to assign the query task to the SAG device because the SAG device is faulty.
-   * *   **TaskNotExist**: The query task does not exist.
-   * *   **OfflineNotConfiged**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. Alibaba Cloud does not assign the query task to the SAG device even after the SAG device is connected to Alibaba Cloud.
+   * The status of the asynchronous task. Valid values:
+   * - **Initialized**: The query task is initialized.
+   * - **Offline**: The Smart Access Gateway device is offline and the query task is not delivered. The task will be delivered after the device comes online.
+   * - **Succeed**: The query task was delivered successfully.
+   * - **Processing**: The query task is being delivered.
+   * - **VersionNotSupport**: The current version of the Smart Access Gateway device does not support this operation.
+   * - **BuildRequestError**: The request is not supported by the management system.
+   * - **HardwareError**: The query task failed to be delivered due to a device error.
+   * - **TaskNotExist**: The query task does not exist.
+   * - **OfflineNotConfiged**: The Smart Access Gateway device is offline and the query task is not delivered. The task will not be delivered even after the device comes online.
    * 
    * @example
    * Succeed
@@ -169,7 +168,7 @@ export class DescribeSagLanListResponseBodyTaskStates extends $dara.Model {
 export class DescribeSagLanListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the LAN port.
+   * The list of LAN port information.
    */
   lans?: DescribeSagLanListResponseBodyLans[];
   /**
@@ -182,7 +181,7 @@ export class DescribeSagLanListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of the query task.
+   * The status information of the query task.
    */
   taskStates?: DescribeSagLanListResponseBodyTaskStates[];
   static names(): { [key: string]: string } {

@@ -29,7 +29,7 @@ export class DeleteSmartAccessGatewayDnsForwardResponseBody extends $dara.Model 
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 0BAAF2B9-88B8-4574-BDBE-102A90EE3FEE

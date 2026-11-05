@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSagExpressConnectInterfaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AFF7E5A6-6897-4FDC-A5A8-1978B5B3E545

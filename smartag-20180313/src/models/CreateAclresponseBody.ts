@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateACLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access control instance ID.
+   * The ID of the access control instance.
    * 
    * @example
    * acl-o6yol7zowii5n2****
@@ -13,7 +13,7 @@ export class CreateACLResponseBody extends $dara.Model {
   aclId?: string;
   /**
    * @remarks
-   * The type of the Smart Access Gateway instance associated with the access control instance.
+   * The type of the Smart Access Gateway (SAG) instance associated with the access control instance.
    * 
    * @example
    * acl-hardware
@@ -29,7 +29,7 @@ export class CreateACLResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource group ID of the access control instance.
+   * The ID of the resource group to which the access control instance belongs.
    * 
    * @example
    * rg-acfm2iu4fnc****

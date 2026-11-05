@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/smartag20180313",
-  "version": "2.1.1",
+  "version": "2.1.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

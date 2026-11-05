@@ -57,7 +57,7 @@ export class DescribeSagRemoteAccessResponseBodyRemoteAccesses extends $dara.Mod
 export class DescribeSagRemoteAccessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. The 200 error code indicates that the query task is successful.
+   * The error code. 200 indicates that the query task succeeded.
    * 
    * @example
    * 200
@@ -65,7 +65,7 @@ export class DescribeSagRemoteAccessResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message. The Successful error message indicates that the query task is successful.
+   * The error message. Successful indicates that the query task succeeded.
    * 
    * @example
    * successful
@@ -74,7 +74,7 @@ export class DescribeSagRemoteAccessResponseBody extends $dara.Model {
   remoteAccesses?: DescribeSagRemoteAccessResponseBodyRemoteAccesses;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E38E950D-28A4-4C41-9428-A8908EC6AE5C
@@ -82,7 +82,7 @@ export class DescribeSagRemoteAccessResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The Smart Access Gateway instance ID.
    * 
    * @example
    * sag-1um5x5nwhilymw****
@@ -90,10 +90,10 @@ export class DescribeSagRemoteAccessResponseBody extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * Indicates whether the query task is successful. Valid values:
+   * Indicates whether the query task succeeded.
    * 
-   * *   **true**: The query task is successful.
-   * *   **false**: The query task failed.
+   * - **true**: The query task succeeded.
+   * - **false**: The query task failed.
    * 
    * @example
    * true

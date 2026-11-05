@@ -45,7 +45,7 @@ export class DescribeCloudConnectNetworksRequestTag extends $dara.Model {
 export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CCN.
+   * The Cloud Connect Network (CCN) instance ID.
    * 
    * @example
    * ccn-l9340rlu5enst*****
@@ -53,9 +53,9 @@ export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   ccnId?: string;
   /**
    * @remarks
-   * The name of the CCN.
+   * The name of the Cloud Connect Network (CCN) instance.
    * 
-   * The name must be 2 to 100 characters long, start with a letter or a Chinese character, and can contain digits, underscores (_), periods (.), and hyphens (-).
+   * The name must be 2 to 100 characters in length, and must start with a letter or a Chinese character. It can contain digits, underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * ccnname
@@ -73,7 +73,7 @@ export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**. Maximum value: **50**.
+   * The number of entries to return on each page during paging in a paged query. Default value: **10**. Maximum value: **50**.
    * 
    * @example
    * 10
@@ -81,7 +81,7 @@ export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the CCN is located.
+   * The region ID of the Cloud Connect Network (CCN) instance.
    * 
    * This parameter is required.
    * 
@@ -93,7 +93,7 @@ export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags to filter CCN instances.
+   * The label information used to query Cloud Connect Network (CCN) instances.
    * 
    * @example
    * DescribeCloudConnectNetworks

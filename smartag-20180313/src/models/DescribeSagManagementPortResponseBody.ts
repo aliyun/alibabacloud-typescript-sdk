@@ -13,7 +13,7 @@ export class DescribeSagManagementPortResponseBodyTaskStates extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * The error code returned. A value of 200 indicates that the query task is successful.
+   * The error code. A value of 200 indicates that the query task is successful.
    * 
    * @example
    * 200
@@ -29,17 +29,16 @@ export class DescribeSagManagementPortResponseBodyTaskStates extends $dara.Model
   errorMessage?: string;
   /**
    * @remarks
-   * The state of the query task. Valid values:
-   * 
-   * *   **Initialized**: The query task is initialized.
-   * *   **Offline**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. After the SAG device is connected to Alibaba Cloud, Alibaba Cloud assigns the query task to the SAG device.
-   * *   **Succeed**: Alibaba Cloud has assigned the query task to the SAG device.
-   * *   **Processing**: Alibaba Cloud is assigning the query task to the SAG device.
-   * *   **VersionNotSupport**: The query task is not supported by the current version of the SAG device.
-   * *   **BuildRequestError**: The query task is not supported by the controller of the SAG device.
-   * *   **HardwareError**: Alibaba Cloud failed to assign the query task to the SAG device because the SAG device is faulty.
-   * *   **TaskNotExist**: The query task does not exist.
-   * *   **OfflineNotConfiged**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. Alibaba Cloud does not assign the query task to the SAG device even after the SAG device is connected to Alibaba Cloud.
+   * The status of the asynchronous task. Valid values:
+   * - **Initialized**: The query task is initialized.
+   * - **Offline**: The Smart Access Gateway device is offline and the query task is not delivered. The task will be delivered after the device goes online.
+   * - **Succeed**: The query task is delivered successfully.
+   * - **Processing**: The query task is being delivered.
+   * - **VersionNotSupport**: The current version of the Smart Access Gateway device does not support the feature.
+   * - **BuildRequestError**: The control plane does not support the operation.
+   * - **HardwareError**: The query task failed to be delivered due to a device error.
+   * - **TaskNotExist**: The query task does not exist.
+   * - **OfflineNotConfiged**: The Smart Access Gateway device is offline and the query task is not delivered. The task will not be delivered after the device goes online.
    * 
    * @example
    * Succeed
@@ -75,7 +74,7 @@ export class DescribeSagManagementPortResponseBodyTaskStates extends $dara.Model
 export class DescribeSagManagementPortResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the management port gateway.
+   * The gateway IP address of the management port.
    * 
    * @example
    * 192.XX.XX.254
@@ -91,7 +90,7 @@ export class DescribeSagManagementPortResponseBody extends $dara.Model {
   IP?: string;
   /**
    * @remarks
-   * The subnet gateway of the IP address of the management port.
+   * The subnet mask of the management port.
    * 
    * @example
    * 255.255.255.0
@@ -99,7 +98,7 @@ export class DescribeSagManagementPortResponseBody extends $dara.Model {
   mask?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3616AAA9-3A6F-4604-98AF-86753AB7F040
@@ -107,7 +106,7 @@ export class DescribeSagManagementPortResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of the query task.
+   * The status of the query task.
    */
   taskStates?: DescribeSagManagementPortResponseBodyTaskStates[];
   static names(): { [key: string]: string } {

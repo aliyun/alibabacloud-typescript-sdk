@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ViewSmartAccessGatewayGlobalRouteProtocolResponseBodyTaskStates extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the task was created. Unit: milliseconds.
+   * The timestamp when the query task was created. Unit: milliseconds.
    * 
-   * The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The timestamp is in the UNIX format, which represents the total time elapsed from 00:00:00 on January 1, 1970 (UTC) to the time when the query task was created.
    * 
    * @example
    * 1586843621000
@@ -15,7 +15,7 @@ export class ViewSmartAccessGatewayGlobalRouteProtocolResponseBodyTaskStates ext
   createTime?: string;
   /**
    * @remarks
-   * The error code. A value of 200 indicates that the task is successful.
+   * The error code. A value of 200 indicates that the query task succeeded.
    * 
    * @example
    * 200
@@ -23,7 +23,7 @@ export class ViewSmartAccessGatewayGlobalRouteProtocolResponseBodyTaskStates ext
   errorCode?: string;
   /**
    * @remarks
-   * The error message. A value of Successful indicates that the task is successful.
+   * The error message. A value of Successful indicates that the query task succeeded.
    * 
    * @example
    * Successful
@@ -33,15 +33,15 @@ export class ViewSmartAccessGatewayGlobalRouteProtocolResponseBodyTaskStates ext
    * @remarks
    * The status of the asynchronous task. Valid values:
    * 
-   * *   **Initialized**: The query task is initialized.
-   * *   **Offline**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. After the SAG device is connected to Alibaba Cloud, Alibaba Cloud assigns the query task to the SAG device.
-   * *   **Succeed**: Alibaba Cloud has assigned the query task to the SAG device.
-   * *   **Processing**: Alibaba Cloud is assigning the query task to the SAG device.
-   * *   **VersionNotSupport**: The query task is not supported by the current version of the SAG device.
-   * *   **BuildRequestError**: The query task is not supported by the controller of the SAG device.
-   * *   **HardwareError**: Alibaba Cloud failed to assign the query task to the SAG device because the SAG device is faulty.
-   * *   **TaskNotExist**: The query task does not exist.
-   * *   **OfflineNotConfiged**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. Alibaba Cloud does not assign the query task to the SAG device even after the SAG device is connected to Alibaba Cloud.
+   * - **Initialized**: The query task is initialized.
+   * - **Offline**: The SAG device is offline and the query task is not delivered. The task will be delivered Smart Access Gateway device goes online.
+   * - **Succeed**: The query task is delivered.
+   * - **Processing**: The query task is being delivered.
+   * - **VersionNotSupport**: The current version of the SAG device does not support this operation.
+   * - **BuildRequestError**: The management and control system does not support this operation.
+   * - **HardwareError**: The query task failed to be delivered due to a device error.
+   * - **TaskNotExist**: The query task does not exist.
+   * - **OfflineNotConfiged**: The SAG device is offline and the query task is not delivered. The task will not be delivered Smart Access Gateway device goes online.
    * 
    * @example
    * Succeed
@@ -77,7 +77,7 @@ export class ViewSmartAccessGatewayGlobalRouteProtocolResponseBodyTaskStates ext
 export class ViewSmartAccessGatewayGlobalRouteProtocolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D10FFDB2-AF7D-530A-A2AC-EBDC16500399
@@ -87,9 +87,9 @@ export class ViewSmartAccessGatewayGlobalRouteProtocolResponseBody extends $dara
    * @remarks
    * The routing protocol. Valid values:
    * 
-   * *   **STATIC**
-   * *   **OSPF**
-   * *   **BGP**
+   * - **STATIC**: Static routing protocol.
+   * - **OSPF**: OSPF dynamic routing protocol.
+   * - **BGP**: BGP dynamic routing protocol.
    * 
    * @example
    * STATIC
@@ -97,7 +97,7 @@ export class ViewSmartAccessGatewayGlobalRouteProtocolResponseBody extends $dara
   routeProtocol?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The status of the query task.
    */
   taskStates?: ViewSmartAccessGatewayGlobalRouteProtocolResponseBodyTaskStates[];
   static names(): { [key: string]: string } {

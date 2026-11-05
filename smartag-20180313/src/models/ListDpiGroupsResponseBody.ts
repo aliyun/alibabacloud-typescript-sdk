@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDpiGroupsResponseBodyDpiGroup extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application group.
+   * The application group ID.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListDpiGroupsResponseBodyDpiGroup extends $dara.Model {
   dpiGroupId?: string;
   /**
    * @remarks
-   * The name of the application group.
+   * The application group name.
    * 
    * @example
    * P2P
@@ -21,7 +21,7 @@ export class ListDpiGroupsResponseBodyDpiGroup extends $dara.Model {
   dpiGroupName?: string;
   /**
    * @remarks
-   * The minimum version of the deep packet inspection (DPI) engine that supports the application group.
+   * The minimum database engine version of the DPI engine that supports the application group.
    * 
    * @example
    * 0-0.0.1
@@ -29,7 +29,7 @@ export class ListDpiGroupsResponseBodyDpiGroup extends $dara.Model {
   minEngineVersion?: string;
   /**
    * @remarks
-   * The minimum version of the signature database that supports the application group.
+   * The minimum signature database version that supports the application group.
    * 
    * @example
    * 20201117_1_0-0.0.1
@@ -70,7 +70,7 @@ export class ListDpiGroupsResponseBody extends $dara.Model {
   dpiGroup?: ListDpiGroupsResponseBodyDpiGroup[];
   /**
    * @remarks
-   * The token for the next page of results.
+   * The token used to start the next query.
    * 
    * @example
    * FFPSpX59Ebw****
@@ -86,7 +86,7 @@ export class ListDpiGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of application groups returned.
+   * The total number of application groups returned by the current query.
    * 
    * @example
    * 22

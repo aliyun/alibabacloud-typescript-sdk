@@ -17,7 +17,7 @@ export class AddSnatEntryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class AddSnatEntryRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The Smart Access Gateway instance ID.
    * 
    * This parameter is required.
    * 

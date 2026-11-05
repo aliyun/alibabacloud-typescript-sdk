@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ListDpiConfigErrorResponseBodyDpiConfigErrorRuleConfigErrorList extends $dara.Model {
   /**
    * @remarks
-   * A list of IDs of application groups that have configuration errors.
+   * The IDs of the application groups that have configuration exceptions.
    */
   dpiGroupIds?: string[];
   /**
    * @remarks
-   * A list of IDs of applications that have configuration errors.
+   * The IDs of the applications that have configuration exceptions.
    */
   dpiSignatureIds?: string[];
   /**
    * @remarks
-   * The ID of the rule that is associated with the application that has a configuration error.
+   * The instance IDs of the rules associated with the applications that have configuration exceptions.
    * 
-   * - If you query DPI configuration errors for Resource Access Management, this parameter indicates the ID of the Resource Access Management rule instance that has a configuration error.
-   * - If you query DPI configuration errors for a QoS policy, this parameter indicates the ID of the quintuple rule instance that has a configuration error.
+   * - If you are querying the access control DPI configuration exception information, the instance ID of the access control rule instance that has a configuration exception is displayed.
+   * - If you are querying the QoS policy DPI configuration exception information, the instance ID of the 5-tuple-based quintuple rules instance that has a configuration exception is displayed.
    * 
    * @example
    * qospy-axud4s62gz632b****
@@ -58,11 +58,11 @@ export class ListDpiConfigErrorResponseBodyDpiConfigErrorRuleConfigErrorList ext
 export class ListDpiConfigErrorResponseBodyDpiConfigError extends $dara.Model {
   /**
    * @remarks
-   * The type of the configuration error.
+   * The type of the configuration exception. Valid values:
    * 
-   * - DeviceNotSupported: The Smart Access Gateway device does not support the DPI feature.
-   * - VersionNotSupported: The DPI version of the Smart Access Gateway device is too old.
-   * - **NotEnable**: The DPI feature is disabled for the Smart Access Gateway device.
+   * - **DeviceNotSupported**: The SAG device does not support the DPI feature.
+   * - **VersionNotSupported**: The DPI version running Smart Access Gateway device is too low.
+   * - **NotEnable**: The DPI feature is not enabled Smart Access Gateway device.
    * 
    * @example
    * DeviceNotSupported
@@ -70,7 +70,7 @@ export class ListDpiConfigErrorResponseBodyDpiConfigError extends $dara.Model {
   errorType?: string;
   /**
    * @remarks
-   * A list of rule configuration errors.
+   * The list of DPI configuration exceptions.
    */
   ruleConfigErrorList?: ListDpiConfigErrorResponseBodyDpiConfigErrorRuleConfigErrorList[];
   /**
@@ -83,7 +83,7 @@ export class ListDpiConfigErrorResponseBodyDpiConfigError extends $dara.Model {
   SN?: string;
   /**
    * @remarks
-   * The ID of the Smart Access Gateway instance.
+   * The instance ID of the Smart Access Gateway.
    * 
    * @example
    * sag-1e8sgws6b133b8****
@@ -122,12 +122,12 @@ export class ListDpiConfigErrorResponseBodyDpiConfigError extends $dara.Model {
 export class ListDpiConfigErrorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of DPI configuration errors.
+   * The list of DPI configuration exceptions.
    */
   dpiConfigError?: ListDpiConfigErrorResponseBodyDpiConfigError[];
   /**
    * @remarks
-   * The maximum number of configuration errors to return on each page.
+   * The maximum number of entries allowed per page in a paged query.
    * 
    * @example
    * 10
@@ -135,7 +135,7 @@ export class ListDpiConfigErrorResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The token used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -151,7 +151,7 @@ export class ListDpiConfigErrorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of DPI configuration errors.
+   * The total number of DPI configuration exception entries.
    * 
    * @example
    * 1

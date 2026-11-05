@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeInstanceFromCbnRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CCN instance.
+   * The Cloud Connect Network (CCN) instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RevokeInstanceFromCbnRequest extends $dara.Model {
   ccnInstanceId?: string;
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The Cloud Enterprise Network (CEN) instance ID.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class RevokeInstanceFromCbnRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the CCN instance is deployed.
+   * The region ID.
    * 
    * This parameter is required.
    * 

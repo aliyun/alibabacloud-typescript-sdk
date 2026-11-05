@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateACLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C9A75915-0260-4335-851A-D866A7ED396C

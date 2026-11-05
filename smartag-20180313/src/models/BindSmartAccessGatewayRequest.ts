@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindSmartAccessGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CCN instance with which you want to associate the SAG instance.
+   * The ID of the Cloud Connect Network (CCN).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class BindSmartAccessGatewayRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The region ID of the Smart Access Gateway.
    * 
    * @example
    * cn-hangzhou
@@ -27,7 +27,7 @@ export class BindSmartAccessGatewayRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The ID of the Smart Access Gateway (SAG) instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class BindSmartAccessGatewayRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the SAG instance belongs.
+   * The user ID of the Smart Access Gateway instance.
    * 
    * @example
    * 1250123456123456

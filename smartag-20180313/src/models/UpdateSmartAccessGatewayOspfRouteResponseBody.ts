@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSmartAccessGatewayOspfRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates that the request was successful.
+   * The status code. 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -31,8 +31,9 @@ export class UpdateSmartAccessGatewayOspfRouteResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * - **true**: yes.
+   * 
+   * - **false**: no.
    * 
    * @example
    * true

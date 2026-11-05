@@ -7,7 +7,7 @@ export class DescribeClientUserDNSRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG app instance is deployed.
+   * The region ID of the Smart Access Gateway app instance.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeClientUserDNSRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG app instance.
+   * The instance ID of the Smart Access Gateway app instance.
    * 
    * This parameter is required.
    * 

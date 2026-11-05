@@ -2,6 +2,7 @@ export { AddACLRuleResponseBodyDpiGroupIds } from './AddAclruleResponseBody';
 export { AddACLRuleResponseBodyDpiSignatureIds } from './AddAclruleResponseBody';
 export { AddSmartAccessGatewayDnsForwardResponseBodyData } from './AddSmartAccessGatewayDnsForwardResponseBody';
 export { AssociateSmartAGWithApplicationBandwidthPackageRequestAssociateConfigs } from './AssociateSmartAgwithApplicationBandwidthPackageRequest';
+export { AttachCcnInstanceToCenRequestRegionBindingList } from './AttachCcnInstanceToCenRequest';
 export { CreateQosPolicyResponseBodyDpiGroupIds } from './CreateQosPolicyResponseBody';
 export { CreateQosPolicyResponseBodyDpiSignatureIds } from './CreateQosPolicyResponseBody';
 export { DescribeACLAttributeResponseBodyAcrsAcrDpiGroupIds } from './DescribeAclattributeResponseBody';
@@ -15,6 +16,12 @@ export { DescribeBindableSmartAccessGatewaysResponseBodySmartAccessGateways } fr
 export { DescribeCloudConnectNetworksRequestTag } from './DescribeCloudConnectNetworksRequest';
 export { DescribeCloudConnectNetworksResponseBodyCloudConnectNetworksCloudConnectNetworkTagsTag } from './DescribeCloudConnectNetworksResponseBody';
 export { DescribeCloudConnectNetworksResponseBodyCloudConnectNetworksCloudConnectNetworkTags } from './DescribeCloudConnectNetworksResponseBody';
+export { DescribeCloudConnectNetworksResponseBodyCloudConnectNetworksCloudConnectNetworkTrNetworkConfigRegionBindingListRegionBinding } from './DescribeCloudConnectNetworksResponseBody';
+export { DescribeCloudConnectNetworksResponseBodyCloudConnectNetworksCloudConnectNetworkTrNetworkConfigRegionBindingList } from './DescribeCloudConnectNetworksResponseBody';
+export { DescribeCloudConnectNetworksResponseBodyCloudConnectNetworksCloudConnectNetworkTrNetworkConfig } from './DescribeCloudConnectNetworksResponseBody';
+export { DescribeCloudConnectNetworksResponseBodyCloudConnectNetworksCloudConnectNetworkVpcNetworkConfigRegionBindingListRegionBinding } from './DescribeCloudConnectNetworksResponseBody';
+export { DescribeCloudConnectNetworksResponseBodyCloudConnectNetworksCloudConnectNetworkVpcNetworkConfigRegionBindingList } from './DescribeCloudConnectNetworksResponseBody';
+export { DescribeCloudConnectNetworksResponseBodyCloudConnectNetworksCloudConnectNetworkVpcNetworkConfig } from './DescribeCloudConnectNetworksResponseBody';
 export { DescribeCloudConnectNetworksResponseBodyCloudConnectNetworksCloudConnectNetwork } from './DescribeCloudConnectNetworksResponseBody';
 export { DescribeCloudConnectNetworksResponseBodyCloudConnectNetworks } from './DescribeCloudConnectNetworksResponseBody';
 export { DescribeDnatEntriesResponseBodyDnatEntriesDnatEntry } from './DescribeDnatEntriesResponseBody';
@@ -101,6 +108,7 @@ export { DescribeUserOnlineClientStatisticsResponseBodyUserStatisticsStatistics 
 export { DescribeUserOnlineClientStatisticsResponseBodyUserStatistics } from './DescribeUserOnlineClientStatisticsResponseBody';
 export { DescribeUserOnlineClientsResponseBodyUsersUser } from './DescribeUserOnlineClientsResponseBody';
 export { DescribeUserOnlineClientsResponseBodyUsers } from './DescribeUserOnlineClientsResponseBody';
+export { DetachCcnInstanceFromCenRequestRegionBindingList } from './DetachCcnInstanceFromCenRequest';
 export { DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultDetailsItemsCN } from './DiscribeSmartAccessGatewayDiagnosisReportResponseBody';
 export { DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultDetailsItemsEN } from './DiscribeSmartAccessGatewayDiagnosisReportResponseBody';
 export { DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResultDetailsItems } from './DiscribeSmartAccessGatewayDiagnosisReportResponseBody';
@@ -165,6 +173,7 @@ export { AssociateSmartAGWithApplicationBandwidthPackageRequest } from './Associ
 export { AssociateSmartAGWithApplicationBandwidthPackageResponseBody } from './AssociateSmartAgwithApplicationBandwidthPackageResponseBody';
 export { AssociateSmartAGWithApplicationBandwidthPackageResponse } from './AssociateSmartAgwithApplicationBandwidthPackageResponse';
 export { AttachCcnInstanceToCenRequest } from './AttachCcnInstanceToCenRequest';
+export { AttachCcnInstanceToCenShrinkRequest } from './AttachCcnInstanceToCenShrinkRequest';
 export { AttachCcnInstanceToCenResponseBody } from './AttachCcnInstanceToCenResponseBody';
 export { AttachCcnInstanceToCenResponse } from './AttachCcnInstanceToCenResponse';
 export { BindSerialNumberRequest } from './BindSerialNumberRequest';
@@ -444,6 +453,7 @@ export { DescribeUserOnlineClientsRequest } from './DescribeUserOnlineClientsReq
 export { DescribeUserOnlineClientsResponseBody } from './DescribeUserOnlineClientsResponseBody';
 export { DescribeUserOnlineClientsResponse } from './DescribeUserOnlineClientsResponse';
 export { DetachCcnInstanceFromCenRequest } from './DetachCcnInstanceFromCenRequest';
+export { DetachCcnInstanceFromCenShrinkRequest } from './DetachCcnInstanceFromCenShrinkRequest';
 export { DetachCcnInstanceFromCenResponseBody } from './DetachCcnInstanceFromCenResponseBody';
 export { DetachCcnInstanceFromCenResponse } from './DetachCcnInstanceFromCenResponse';
 export { DiagnoseSmartAccessGatewayRequest } from './DiagnoseSmartAccessGatewayRequest';

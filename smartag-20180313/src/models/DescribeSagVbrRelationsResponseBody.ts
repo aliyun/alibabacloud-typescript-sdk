@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSagVbrRelationsResponseBodySagVbrRelations extends $dara.Model {
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The instance ID of the Smart Access Gateway.
    * 
    * @example
    * sag-0nnteglltw6z4b****
@@ -13,7 +13,7 @@ export class DescribeSagVbrRelationsResponseBodySagVbrRelations extends $dara.Mo
   sagInstanceId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the SAG instance belongs.
+   * The ID of the Alibaba Cloud account to which the Smart Access Gateway instance belongs.
    * 
    * @example
    * 16884015121212****
@@ -21,7 +21,7 @@ export class DescribeSagVbrRelationsResponseBodySagVbrRelations extends $dara.Mo
   sagUid?: string;
   /**
    * @remarks
-   * The ID of the VBR.
+   * The instance ID of the virtual border router (VBR) used for routing.
    * 
    * @example
    * vbr-bp15ihkk93ezxppk****
@@ -55,7 +55,7 @@ export class DescribeSagVbrRelationsResponseBodySagVbrRelations extends $dara.Mo
 export class DescribeSagVbrRelationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 17D79124-104A-42DB-8FCA-CE2957CD1723
@@ -63,7 +63,7 @@ export class DescribeSagVbrRelationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the specified VBR is associated with an SAG instance.
+   * The association information.
    */
   sagVbrRelations?: DescribeSagVbrRelationsResponseBodySagVbrRelations[];
   static names(): { [key: string]: string } {

@@ -7,7 +7,7 @@ export class DescribeUserFlowStatisticsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region where the SAG APP instance is deployed.
+   * The region ID of the Smart Access Gateway app instance.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeUserFlowStatisticsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG APP instance.
+   * The instance ID of the Smart Access Gateway app instance.
    * 
    * This parameter is required.
    * 
@@ -29,9 +29,9 @@ export class DescribeUserFlowStatisticsRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * The month during which the data transfer statistics are collected.
+   * The statistical date in the YYYYMM format.
    * 
-   * If you do not specify a month, the current month is queried.
+   * > If this parameter is not specified, the current month is used by default.
    * 
    * @example
    * 201905
@@ -39,12 +39,9 @@ export class DescribeUserFlowStatisticsRequest extends $dara.Model {
   statisticsDate?: string;
   /**
    * @remarks
-   * The list of usernames of client accounts. Maximum value of N: 50.
+   * The list of usernames. The list can contain up to 50 usernames.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * 12
    */
   userNames?: string[];
   static names(): { [key: string]: string } {

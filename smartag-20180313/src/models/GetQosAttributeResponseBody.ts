@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetQosAttributeResponseBodyQosCars extends $dara.Model {
   /**
    * @remarks
-   * The type of traffic throttling. Valid values:
+   * The rate limiting type. Valid values:
    * 
-   * *   **Absolute**: throttles traffic based on a specific range of bandwidth.
-   * *   **Percent**: throttles traffic based on a specific range of bandwidth percentage.
+   * - **Absolute**: by bandwidth value.
+   * - **Percent**: by percentage.
    * 
    * @example
    * Absolute
@@ -24,7 +24,7 @@ export class GetQosAttributeResponseBodyQosCars extends $dara.Model {
   maxBandwidthAbs?: number;
   /**
    * @remarks
-   * The maximum bandwidth percentage that the traffic is throttled to.
+   * The maximum bandwidth percentage.
    * 
    * @example
    * 20
@@ -48,10 +48,10 @@ export class GetQosAttributeResponseBodyQosCars extends $dara.Model {
   minBandwidthPercent?: number;
   /**
    * @remarks
-   * Bandwidth type when traffic is throttled to a percentage of the total bandwidth of the network.
+   * The bandwidth type when rate limiting is based on percentage. Valid values:
    * 
-   * *   **CcnBandwidth**: Cloud Connect Network (CCN) bandwidth.
-   * *   **InternetUpBandwidth**: Internet upstream bandwidth.
+   * - **CcnBandwidth**: Cloud Connect Network (CCN) bandwidth.
+   * - **InternetUpBandwidth**: Internet upstream bandwidth.
    * 
    * @example
    * InternetUpBandwidth
@@ -59,9 +59,7 @@ export class GetQosAttributeResponseBodyQosCars extends $dara.Model {
   percentSourceType?: string;
   /**
    * @remarks
-   * The priority of the traffic throttling rule.
-   * 
-   * Valid values are from **1** to **3**. A smaller value indicates a higher priority.
+   * The priority of the rate limiting rule. Valid values: **1** to **3**. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -69,7 +67,7 @@ export class GetQosAttributeResponseBodyQosCars extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The description of the traffic throttling rule.
+   * The description of the rate limiting rule.
    * 
    * @example
    * test
@@ -77,7 +75,7 @@ export class GetQosAttributeResponseBodyQosCars extends $dara.Model {
   qosCarDescription?: string;
   /**
    * @remarks
-   * The ID of the traffic throttling rule.
+   * The ID of the rate limiting rule.
    * 
    * @example
    * qoscar-xir1apa8ayjp56ei****
@@ -85,7 +83,7 @@ export class GetQosAttributeResponseBodyQosCars extends $dara.Model {
   qosCarId?: string;
   /**
    * @remarks
-   * The name of the traffic throttling rule.
+   * The name of the rate limiting rule.
    * 
    * @example
    * test
@@ -133,7 +131,7 @@ export class GetQosAttributeResponseBodyQosCars extends $dara.Model {
 export class GetQosAttributeResponseBodyQosPolicies extends $dara.Model {
   /**
    * @remarks
-   * The range of the destination CIDR block.
+   * The destination CIDR block.
    * 
    * @example
    * 0.0.0.0/0
@@ -141,15 +139,13 @@ export class GetQosAttributeResponseBodyQosPolicies extends $dara.Model {
   destCidr?: string;
   /**
    * @remarks
-   * The range of destination ports.
+   * The destination port range. Valid values: **-1** or **1** to **65535**.
    * 
-   * Valid values: **1** to **65535** and **-1**.
+   * Examples of the destination port range format:
    * 
-   * Examples of the format of the destination port range:
-   * 
-   * *   **1/200**: a port range from 1 to 200.
-   * *   **80/80**: port 80.
-   * *   **-1/-1**: all ports.
+   * - **1/200**: indicates ports 1 to 200.
+   * - **80/80**: indicates port 80.
+   * - **-1/-1**: indicates that ports are not restricted.
    * 
    * @example
    * -1/-1
@@ -157,9 +153,7 @@ export class GetQosAttributeResponseBodyQosPolicies extends $dara.Model {
   destPortRange?: string;
   /**
    * @remarks
-   * The end time of the valid time of the 5-tuple.
-   * 
-   * The time must be in UTC+8.
+   * The expiration time of the 5-tuple rules. The time is displayed in Beijing time. Format: UTC+8.
    * 
    * @example
    * 2021-07-29T00:00:00+0800
@@ -167,7 +161,7 @@ export class GetQosAttributeResponseBodyQosPolicies extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The type of the protocol that is applied to the 5-tuple rule.
+   * The protocol type applied to the 5-tuple rules.
    * 
    * @example
    * ALL
@@ -175,9 +169,7 @@ export class GetQosAttributeResponseBodyQosPolicies extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The priority of the traffic throttling rule that is applied to the 5-tuple.rule.
-   * 
-   * A smaller value indicates a higher priority.
+   * The priority of the rate limiting rule to which the 5-tuple rules belong. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -185,7 +177,7 @@ export class GetQosAttributeResponseBodyQosPolicies extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The description of the 5-tuple.
+   * The description of the 5-tuple rules.
    * 
    * @example
    * test
@@ -193,7 +185,7 @@ export class GetQosAttributeResponseBodyQosPolicies extends $dara.Model {
   qosPolicieDescription?: string;
   /**
    * @remarks
-   * The name of the 5-tuple.
+   * The name of the 5-tuple rules.
    * 
    * @example
    * test
@@ -201,7 +193,7 @@ export class GetQosAttributeResponseBodyQosPolicies extends $dara.Model {
   qosPolicieName?: string;
   /**
    * @remarks
-   * The range of the source CIDR block.
+   * The source CIDR block.
    * 
    * @example
    * 0.0.0.0/0
@@ -209,15 +201,13 @@ export class GetQosAttributeResponseBodyQosPolicies extends $dara.Model {
   sourceCidr?: string;
   /**
    * @remarks
-   * The range of source ports.
+   * The source port range. Valid values: **-1** or **1** to **65535**.
    * 
-   * Valid values: **1** to **65535** and **-1**.
+   * Examples of the source port range format:
    * 
-   * Examples of the format of the source port range:
-   * 
-   * *   **1/200**: a port range from 1 to 200.
-   * *   **80/80**: port 80.
-   * *   **-1/-1**: all ports.
+   * - **1/200**: indicates ports 1 to 200.
+   * - **80/80**: indicates port 80.
+   * - **-1/-1**: indicates that ports are not restricted.
    * 
    * @example
    * -1/-1
@@ -225,7 +215,7 @@ export class GetQosAttributeResponseBodyQosPolicies extends $dara.Model {
   sourcePortRange?: string;
   /**
    * @remarks
-   * The start time of the valid time of the 5-tuple.
+   * The start of the effective period for the 5-tuple rules. The time is displayed in Beijing time. Format: UTC+8.
    * 
    * @example
    * 2021-06-21T00:00:00+0800
@@ -273,7 +263,7 @@ export class GetQosAttributeResponseBodyQosPolicies extends $dara.Model {
 export class GetQosAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of Smart Access Gateway (SAG) instances that have exceptional configurations.
+   * The number of Smart Access Gateway instances with configuration errors.
    * 
    * @example
    * 1
@@ -281,12 +271,12 @@ export class GetQosAttributeResponseBody extends $dara.Model {
   errorConfigSmartAGCount?: number;
   /**
    * @remarks
-   * The traffic throttling rule applied to the QoS policies that have exceptional configurations.
+   * The rate limiting rules with configuration errors in the QoS policy.
    */
   qosCars?: GetQosAttributeResponseBodyQosCars[];
   /**
    * @remarks
-   * The description of the QoS policy.
+   * The description of the QoS policy instance.
    * 
    * @example
    * test
@@ -294,7 +284,7 @@ export class GetQosAttributeResponseBody extends $dara.Model {
   qosDescription?: string;
   /**
    * @remarks
-   * The name of the QoS policy.
+   * The name of the QoS policy instance.
    * 
    * @example
    * test
@@ -302,12 +292,12 @@ export class GetQosAttributeResponseBody extends $dara.Model {
   qosName?: string;
   /**
    * @remarks
-   * List of QoS policies based on 5-tuple.
+   * The list of 5-tuple rules for the QoS policy instance.
    */
   qosPolicies?: GetQosAttributeResponseBodyQosPolicies[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 91058E01-1806-45D5-B305-19E4D0A5CE04

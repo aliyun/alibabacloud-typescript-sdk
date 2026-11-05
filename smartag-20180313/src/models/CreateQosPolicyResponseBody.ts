@@ -57,7 +57,7 @@ export class CreateQosPolicyResponseBodyDpiSignatureIds extends $dara.Model {
 export class CreateQosPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the traffic classification rule for the QoS policy.
+   * The description of the traffic classification rule.
    * 
    * @example
    * desctest
@@ -83,7 +83,7 @@ export class CreateQosPolicyResponseBody extends $dara.Model {
   dpiSignatureIds?: CreateQosPolicyResponseBodyDpiSignatureIds;
   /**
    * @remarks
-   * The time when the traffic classification rule expires.
+   * The end time when the traffic classification rule of the quality of service (QoS) policy takes effect. The time follows the ISO 8601 standard and uses the UTC+8 time zone, in the YYYY-MM-DDThh:mm:ss+0800 format.
    * 
    * @example
    * 2022-09-14T16:41:33+0800
@@ -91,7 +91,7 @@ export class CreateQosPolicyResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The protocol type to which the traffic classification rule applies.
+   * The protocol type applied to the traffic classification rule.
    * 
    * @example
    * TCP
@@ -99,7 +99,7 @@ export class CreateQosPolicyResponseBody extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The name of the traffic classification rule for the QoS policy.
+   * The name of the traffic classification rule.
    * 
    * @example
    * nametest
@@ -107,7 +107,7 @@ export class CreateQosPolicyResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The priority of the rate limiting rule to which the traffic classification rule belongs.
+   * The priority of the bandwidth throttling rule to which the traffic classification rule belongs.
    * 
    * @example
    * 3
@@ -155,7 +155,7 @@ export class CreateQosPolicyResponseBody extends $dara.Model {
   sourcePortRange?: string;
   /**
    * @remarks
-   * The time when the traffic classification rule takes effect.
+   * The effective start time of the traffic classification rule for the QoS policy. The time is expressed in the ISO 8601 standard and uses the UTC+8 time zone in the YYYY-MM-DDThh:mm:ss+0800 format.
    * 
    * @example
    * 2022-07-14T16:41:33+0800

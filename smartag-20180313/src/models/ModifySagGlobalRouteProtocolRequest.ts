@@ -7,7 +7,7 @@ export class ModifySagGlobalRouteProtocolRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the SAG instance.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -21,9 +21,9 @@ export class ModifySagGlobalRouteProtocolRequest extends $dara.Model {
    * @remarks
    * The routing protocol. Valid values:
    * 
-   * *   **STATIC**: static routing protocol
-   * *   **OSPF**: Open Shortest Path First protocol (OSPF)
-   * *   **BGP**: Border Gateway Protocol (BGP)
+   * - **STATIC**: static routing protocol
+   * - **OSPF**: OSPF dynamic routing protocol
+   * - **BGP**: BGP dynamic routing protocol
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ModifySagGlobalRouteProtocolRequest extends $dara.Model {
   routeProtocol?: string;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ModifySagGlobalRouteProtocolRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * The serial number of the SAG device that is associated with the SAG instance.
+   * The serial number of the associated Smart Access Gateway device.
    * 
    * This parameter is required.
    * 

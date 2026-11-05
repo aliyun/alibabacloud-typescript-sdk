@@ -63,7 +63,7 @@ export class DescribeSmartAccessGatewayVersionsResponseBodySmartAGVersions exten
 export class DescribeSmartAccessGatewayVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 765AB188-69BF-47C6-BEDD-B9FC72BFBB0

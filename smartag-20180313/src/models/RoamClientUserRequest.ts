@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RoamClientUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the SAG app instance.
+   * The region ID of the source SAG app instance.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class RoamClientUserRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the SAG app instance.
+   * The region ID of the destination SAG app instance.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class RoamClientUserRequest extends $dara.Model {
   targetSmartAGId?: string;
   /**
    * @remarks
-   * The usernames of the client for which you want to enable roaming.
+   * The username of the client account to roam.
    * 
    * This parameter is required.
    * 

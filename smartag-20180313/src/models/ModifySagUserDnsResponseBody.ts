@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySagUserDnsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1120228A-E5E1-4E9C-B56D-96887E1A2B2F

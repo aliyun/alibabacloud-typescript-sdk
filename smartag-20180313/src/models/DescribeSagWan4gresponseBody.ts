@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSagWan4GResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the 4G SIM card.
+   * The IP address of the 4G NIC.
    * 
    * @example
    * 192.XX.XX.1
@@ -13,7 +13,7 @@ export class DescribeSagWan4GResponseBody extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The MAC address of the 4G SIM card.
+   * The MAC address of the 4G NIC.
    * 
    * @example
    * c4:00:ad:a2:f5:****
@@ -21,7 +21,7 @@ export class DescribeSagWan4GResponseBody extends $dara.Model {
   mac?: string;
   /**
    * @remarks
-   * The priority of the 4G SIM card. The default value is **99**, which indicates the lowest priority and cannot be modified.
+   * The priority of the 4G NIC. The default value is **99**, which indicates the lowest priority. The priority cannot be modified.
    * 
    * @example
    * 99
@@ -37,11 +37,10 @@ export class DescribeSagWan4GResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the 4G SIM card. Valid value:
-   * 
-   * *   **Normal**: The 4G SIM card is available.
-   * *   **Abnormal**: The 4G SIM card encountered an error.
-   * *   **Unavailable**: No 4G SIM card is inserted.
+   * The status of the 4G NIC. Valid values:
+   * - **Normal**: The status is normal.
+   * - **Abnormal**: The status is abnormal.
+   * - **Unavailable**: No 4G NIC is available.
    * 
    * @example
    * Normal
@@ -49,12 +48,11 @@ export class DescribeSagWan4GResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The signal strength of the 4G network. Valid values:
-   * 
-   * *   **High**: strong signals.
-   * *   **Middle**: medium-strength signals.
-   * *   **Low**: weak signals.
-   * *   **Unavailable**: no signal.
+   * The 4G signal strength. Valid values:
+   * - **High**: Strong.
+   * - **Middle**: Medium.
+   * - **Low**: Weak.
+   * - **Unavailable**: No signal.
    * 
    * @example
    * High
@@ -62,10 +60,9 @@ export class DescribeSagWan4GResponseBody extends $dara.Model {
   strength?: string;
   /**
    * @remarks
-   * The network status of the 4G SIM card. Valid values:
-   * 
-   * *   **active**: The 4G SIM card is used to establish the active connection. Network traffic is transmitted over the 4G SIM card first.
-   * *   **standby**: The 4G SIM card is used to establish a standby connection. Network traffic is not transmitted over the 4G SIM card unless the active connection fails.
+   * The traffic status of the 4G NIC. Valid values:
+   * - **active**: The 4G NIC acts as the active link, and current traffic is transmitted through this 4G NIC.
+   * - **standby**: The 4G NIC acts as the standby link and does not forward traffic. If the active link fails, traffic is transmitted through this 4G NIC.
    * 
    * @example
    * active

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFlowLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the flow log.
+   * The ID of the flow log instance.
    * 
    * @example
    * fl-7a56mar1kfw9vj****
@@ -13,7 +13,7 @@ export class CreateFlowLogResponseBody extends $dara.Model {
   flowLogId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 650CB9E8-20F3-4538-A4FC-1DA1B36E42D9
@@ -21,7 +21,7 @@ export class CreateFlowLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the flow log belongs.
+   * The ID of the resource group to which the flow log instance belongs.
    * 
    * @example
    * rg-acfm2iu4f****

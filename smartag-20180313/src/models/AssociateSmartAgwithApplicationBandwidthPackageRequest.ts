@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateSmartAGWithApplicationBandwidthPackageRequestAssociateConfigs extends $dara.Model {
   /**
    * @remarks
-   * The maximum bandwidth value for application acceleration. Unit: Mbit/s.
+   * The peak bandwidth for application acceleration of the Smart Access Gateway instance. Unit: Mbit/s.
    * 
-   * >  The maximum bandwidth value of each SAG instance cannot exceed that of the associated bandwidth plan for application acceleration.
+   * > The peak bandwidth for application acceleration of each Smart Access Gateway instance cannot exceed the peak bandwidth of the associated bandwidth plan for application acceleration.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class AssociateSmartAGWithApplicationBandwidthPackageRequestAssociateConf
   bandwidth?: number;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The Smart Access Gateway instance ID.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class AssociateSmartAGWithApplicationBandwidthPackageRequestAssociateConf
 export class AssociateSmartAGWithApplicationBandwidthPackageRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bandwidth plan for application acceleration.
+   * The instance ID of the bandwidth plan for application acceleration.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class AssociateSmartAGWithApplicationBandwidthPackageRequest extends $dar
   applicationBandwidthPackageId?: string;
   /**
    * @remarks
-   * The configuration of application acceleration.
+   * The list of Smart Access Gateway instances to be associated.
    * 
    * This parameter is required.
    */
@@ -70,9 +70,9 @@ export class AssociateSmartAGWithApplicationBandwidthPackageRequest extends $dar
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId of each API request may be different.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -80,10 +80,10 @@ export class AssociateSmartAGWithApplicationBandwidthPackageRequest extends $dar
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to precheck the request. Check items include permissions and the status of the specified cloud resources. Valid values:
+   * Specifies whether to perform a dry run on the association request. The dry run includes permission and instance status checks. Valid values:
    * 
-   * *   **false** (default): sends the request. After the request passes the check, the bandwidth plan for application acceleration is associated with the SAG instance.
-   * *   **true**: prechecks the request but does not associate the bandwidth plan for application acceleration with the SAG instance. If you use this value, the system checks the required parameters and the request syntax. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * - **false** (default): Sends a normal request and associates the bandwidth plan for application acceleration with the Smart Access Gateway instance after the request passes the check.
+   * - **true**: Sends a check request and performs only the check without associating the bandwidth plan for application acceleration with the Smart Access Gateway instance. The check items include whether required parameters are specified and whether the request format is valid. If the request fails the check, an error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
    * 
    * @example
    * false
@@ -91,9 +91,9 @@ export class AssociateSmartAGWithApplicationBandwidthPackageRequest extends $dar
   dryRun?: boolean;
   /**
    * @remarks
-   * The region ID of the bandwidth plan for application acceleration.
+   * The ID of the region to which the bandwidth plan for application acceleration belongs.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

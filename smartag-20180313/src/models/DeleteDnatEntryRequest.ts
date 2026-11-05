@@ -24,7 +24,7 @@ export class DeleteDnatEntryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cn-shanghai
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -38,7 +38,7 @@ export class DeleteDnatEntryRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * sag-ntwc9r1a6z3xz0****
+   * sag-jfh*********
    */
   sagId?: string;
   static names(): { [key: string]: string } {

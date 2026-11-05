@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACL with which the SAG instance is associated.
+   * The instance ID of the access control instance attached to the Smart Access Gateway instance.
    * 
    * @example
    * acl-xhwhyuo43l0n****
@@ -13,7 +13,7 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   aclIds?: string;
   /**
    * @remarks
-   * The ID of the CCN instance with which the SAG instance is associated.
+   * The instance ID of the Cloud Connect Network (CCN) attached to the Smart Access Gateway instance.
    * 
    * @example
    * ccn-bxuau4ezctt****
@@ -21,9 +21,7 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   associatedCcnId?: string;
   /**
    * @remarks
-   * The name of the associated CCN instance.
-   * 
-   * The name must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
+   * The name of the associated Cloud Connect Network (CCN) instance. The name must be 2 to 100 characters in length. It must start with a letter or a Chinese character, and can contain digits, underscores (_), periods (.), and hyphens (-).
    * 
    * @example
    * ccn
@@ -31,10 +29,10 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   associatedCcnName?: string;
   /**
    * @remarks
-   * The business status of the SAG instance. Valid values:
+   * The service status of the Smart Access Gateway instance. Valid values:
    * 
-   * *   **Normal**: running as expected.
-   * *   **Arrearage**: locked due to overdue payments.
+   * - **Normal**: Normal.
+   * - **Arrearage**: Locked due to overdue payment.
    * 
    * @example
    * Normal
@@ -42,12 +40,12 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   businessState?: string;
   /**
    * @remarks
-   * Specifies whether the SAG instance can be associated with a quality of service (QoS) policy. Valid values:
+   * Specifies whether the Smart Access Gateway instance can be associated with a quality of service (QoS) policy instance. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false**: no
+   * - **true**: Yes.
+   * - **false**: No.
    * 
-   * Specifies whether to query SAG instances that cannot be associated with QoS policies.
+   * This parameter is used to query Smart Access Gateway instances based on whether they can be associated with a QoS policy instance.
    * 
    * @example
    * false
@@ -55,10 +53,10 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   canAssociateQos?: boolean;
   /**
    * @remarks
-   * The model of SAG device. Valid values:
+   * The device specification of the Smart Access Gateway device. Valid values:
    * 
-   * *   **sag-1000**
-   * *   **sag-100wm**
+   * - **sag-1000**.
+   * - **sag-100wm**.
    * 
    * @example
    * sag-100wm
@@ -66,10 +64,10 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   hardwareType?: string;
   /**
    * @remarks
-   * The type of the SAG instance. Valid values:
+   * The type of the Smart Access Gateway instance. Valid values:
    * 
-   * *   **software**: an SAG app instance
-   * *   **hardware**: an SAG CPE instance
+   * - **software**: SAG app instance.
+   * - **hardware**: Smart Access Gateway hardware instance.
    * 
    * @example
    * hardware
@@ -77,9 +75,9 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The name of the SAG instance.
+   * The name of the Smart Access Gateway instance.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 128 characters in length, and can contain digits, underscores (_), and hyphens (-). It must start with a letter or a Chinese character.
    * 
    * @example
    * nametest
@@ -89,7 +87,7 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -97,7 +95,7 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+   * The number of entries to return on each page in a paging query. Default value: **10**. Valid values: **1** to **50**.
    * 
    * @example
    * 10
@@ -105,7 +103,7 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The ID of the region to which the Smart Access Gateway instance belongs.
    * 
    * @example
    * cn-shanghai
@@ -113,7 +111,7 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the SAG instance belongs.
+   * The ID of the resource group to which the Smart Access Gateway instance belongs.
    * 
    * @example
    * rg-acfm2iu4fnc****
@@ -123,7 +121,7 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The serial number of the SAG device.
+   * The serial number of the Smart Access Gateway device.
    * 
    * @example
    * sag32a3****
@@ -131,7 +129,7 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   serialNumber?: string;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The instance ID of the Smart Access Gateway.
    * 
    * @example
    * sag-6z21oj0vjjrx6s****
@@ -139,12 +137,12 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * The IDs of the SAG instances.
+   * The list of Smart Access Gateway instance IDs.
    */
   smartAGIds?: string[];
   /**
    * @remarks
-   * The software version of the SAG device.
+   * The software version running on the Smart Access Gateway device.
    * 
    * @example
    * 2.3.0.0
@@ -152,15 +150,15 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   softwareVersion?: string;
   /**
    * @remarks
-   * The status of the SAG instance. Valid values:
+   * The status of the Smart Access Gateway instance. Valid values:
    * 
-   * *   **Ordered**: Your order has been placed.
-   * *   **Delivered**: Your order has been shipped.
-   * *   **Received**: You have received the SAG device.
-   * *   **Returning**: The order is being returned.
-   * *   **Active**: The SAG device is active.
-   * *   **init**: The SAG device is being initialized.
-   * *   **Offline**: The SAG device is disconnected.
+   * - **Ordered**: Ordered.
+   * - **Delivered**: Delivered.
+   * - **Received**: Received.
+   * - **Returning**: Returning.
+   * - **Active**: Active.
+   * - **Init**: Initializing.
+   * - **Offline**: Offline.
    * 
    * @example
    * Active
@@ -168,9 +166,7 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the ACL rule.
-   * 
-   * Specifies that the SAG instance which is not associated with the ACL is queried. Separate ACL IDs with commas (,).
+   * The ID of the access control instance. This parameter is used to query Smart Access Gateway instances that are not associated with the specified access control instance. Separate multiple access control instance IDs with commas (,).
    * 
    * @example
    * acl-sjfbgngj****
@@ -180,9 +176,9 @@ export class DescribeSmartAccessGatewaysRequest extends $dara.Model {
    * @remarks
    * The version filter. Valid values:
    * 
-   * *   **greater**: later than the current version
-   * *   **less**: earlier than the current version
-   * *   **equals**: equal to the current version
+   * - **greater**: Greater than the current version.
+   * - **less**: Less than the current version.
+   * - **equals**: Equal to the current version.
    * 
    * @example
    * equals

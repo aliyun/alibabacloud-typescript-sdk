@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSmartAccessGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the SAG instance that you want to delete.
+   * The instance ID of the Smart Access Gateway instance that you want to delete.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteSmartAccessGatewayRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * @example
    * cn-hangzhou

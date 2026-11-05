@@ -13,7 +13,7 @@ export class ViewSmartAccessGatewayDnsForwardsResponseBodyData extends $dara.Mod
   domain?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * sagv3dnsforward-nc7qabskj17werc7su
@@ -30,9 +30,7 @@ export class ViewSmartAccessGatewayDnsForwardsResponseBodyData extends $dara.Mod
   /**
    * @remarks
    * The forwarding mode.
-   * 
-   * > 
-   * *   This parameter is not in use. Ignore this parameter.
+   * > - Invalid field. Ignore this field.
    * 
    * @example
    * first
@@ -40,7 +38,7 @@ export class ViewSmartAccessGatewayDnsForwardsResponseBodyData extends $dara.Mod
   mode?: string;
   /**
    * @remarks
-   * The number of the egress port.
+   * The outbound interface index.
    * 
    * @example
    * 0
@@ -48,7 +46,7 @@ export class ViewSmartAccessGatewayDnsForwardsResponseBodyData extends $dara.Mod
   outboundPortIndex?: number;
   /**
    * @remarks
-   * The egress port.
+   * The outbound interface.
    * 
    * @example
    * eth0
@@ -56,7 +54,7 @@ export class ViewSmartAccessGatewayDnsForwardsResponseBodyData extends $dara.Mod
   outboundPortName?: string;
   /**
    * @remarks
-   * The type of the egress port.
+   * The outbound interface type.
    * 
    * @example
    * PhysicalPort
@@ -116,7 +114,7 @@ export class ViewSmartAccessGatewayDnsForwardsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1914
@@ -124,7 +122,7 @@ export class ViewSmartAccessGatewayDnsForwardsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * A DNS forwarding list.
+   * The list of DNS forwarding instances.
    */
   data?: ViewSmartAccessGatewayDnsForwardsResponseBodyData[];
   /**
@@ -137,7 +135,7 @@ export class ViewSmartAccessGatewayDnsForwardsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * Successful

@@ -60,7 +60,7 @@ export class DescribeUserFlowStatisticsResponseBodySagStatistics extends $dara.M
 export class DescribeUserFlowStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9552AD68-18EA-4074-B27D-40040FBA9683

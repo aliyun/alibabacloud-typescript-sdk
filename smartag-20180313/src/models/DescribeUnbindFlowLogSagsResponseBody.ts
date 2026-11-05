@@ -60,7 +60,7 @@ export class DescribeUnbindFlowLogSagsResponseBodySags extends $dara.Model {
 export class DescribeUnbindFlowLogSagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of the SAG instances.
+   * The total number of entries.
    * 
    * @example
    * 20
@@ -68,7 +68,7 @@ export class DescribeUnbindFlowLogSagsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C850C10E-9856-45FF-8640-80288BA467DF

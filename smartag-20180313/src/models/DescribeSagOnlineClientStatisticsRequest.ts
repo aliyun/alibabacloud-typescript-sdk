@@ -7,7 +7,7 @@ export class DescribeSagOnlineClientStatisticsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the SAG app instance.
+   * The region ID of the Smart Access Gateway app instance.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeSagOnlineClientStatisticsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The IDs of the SAG app instances. The list can contain up to 50 instance IDs.
+   * The instance IDs of the Smart Access Gateway app instances. Maximum value of N: 50.
    * 
    * @example
    * sag-va03wf4l4idaj*****

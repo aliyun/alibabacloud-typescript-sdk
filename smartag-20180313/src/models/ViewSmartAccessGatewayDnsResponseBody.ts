@@ -7,7 +7,7 @@ export class ViewSmartAccessGatewayDnsResponseBodyTaskStates extends $dara.Model
    * @remarks
    * The time when the query task was created.
    * 
-   * The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+   * The time is a UNIX timestamp that indicates the number of seconds elapsed since 00:00:00 UTC on January 1, 1970.
    * 
    * @example
    * 1586857309000
@@ -15,7 +15,7 @@ export class ViewSmartAccessGatewayDnsResponseBodyTaskStates extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * The error code. A value of 200 indicates that the task is successful.
+   * The error code. A value of 200 indicates that the query task is successful.
    * 
    * @example
    * 200
@@ -23,7 +23,7 @@ export class ViewSmartAccessGatewayDnsResponseBodyTaskStates extends $dara.Model
   errorCode?: string;
   /**
    * @remarks
-   * The error message. A value of Successful indicates that the task is successful.
+   * The error message. A value of Successful indicates that the query task is successful.
    * 
    * @example
    * Successful
@@ -33,15 +33,15 @@ export class ViewSmartAccessGatewayDnsResponseBodyTaskStates extends $dara.Model
    * @remarks
    * The status of the asynchronous task. Valid values:
    * 
-   * *   **Initialized**: The query task is initialized.
-   * *   **Offline**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. After the SAG device is connected to Alibaba Cloud, Alibaba Cloud assigns the query task to the SAG device.
-   * *   **Succeed**: Alibaba Cloud has assigned the query task to the SAG device.
-   * *   **Processing**: Alibaba Cloud is assigning the query task to the SAG device.
-   * *   **VersionNotSupport**: The query task is not supported by the current version of the SAG device.
-   * *   **BuildRequestError**: The query task is not supported by the controller of the SAG device.
-   * *   **HardwareError**: Alibaba Cloud failed to assign the query task to the SAG device because the SAG device is faulty.
-   * *   **TaskNotExist**: The query task does not exist.
-   * *   **OfflineNotConfiged**: The SAG device is disconnected from Alibaba Cloud and Alibaba Cloud has not assigned the query task to the SAG device. Alibaba Cloud does not assign the query task to the SAG device even after the SAG device is connected to Alibaba Cloud.
+   * - **Initialized**: The query task is initialized.
+   * - **Offline**: The Smart Access Gateway device is offline and the query task is not delivered. The task will be delivered after the device goes online.
+   * - **Succeed**: The query task is delivered successfully.
+   * - **Processing**: The query task is being delivered.
+   * - **VersionNotSupport**: The current version of the Smart Access Gateway device does not support this operation.
+   * - **BuildRequestError**: The management and control system does not support this operation.
+   * - **HardwareError**: The query task fails to be delivered due to device errors.
+   * - **TaskNotExist**: The query task does not exist.
+   * - **OfflineNotConfiged**: The Smart Access Gateway device is offline and the query task is not delivered. The task will not be delivered after the device goes online.
    * 
    * @example
    * Succeed
@@ -101,7 +101,7 @@ export class ViewSmartAccessGatewayDnsResponseBody extends $dara.Model {
   slaveDns?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The status of the query task.
    */
   taskStates?: ViewSmartAccessGatewayDnsResponseBodyTaskStates[];
   static names(): { [key: string]: string } {

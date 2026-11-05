@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDnatEntryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the DNAT entry.
+   * The DNAT entry ID.
    * 
    * @example
    * fwd-kxe4fq3xuzczze****
@@ -13,7 +13,7 @@ export class AddDnatEntryResponseBody extends $dara.Model {
   dnatEntryId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 56BF6C79-C77D-41A0-86DD-A4B156E784EA

@@ -7,9 +7,7 @@ export class DescribeSagVbrRelationsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the most recent region list.
+   * The region ID of the Smart Access Gateway instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to query the regions supported by Smart Access Gateway and their corresponding region IDs.
    * 
    * @example
    * cn-shanghai
@@ -19,7 +17,7 @@ export class DescribeSagVbrRelationsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The IDs of the VBRs.
+   * The instance IDs of the virtual border routers (VBRs) used for routing. You can query multiple VBR instance IDs at a time. The maximum value of N is **20**.
    * 
    * This parameter is required.
    * 
@@ -29,9 +27,7 @@ export class DescribeSagVbrRelationsRequest extends $dara.Model {
   vbrInstanceIds?: string[];
   /**
    * @remarks
-   * The ID of the region where the VBR is deployed.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The region ID of the virtual border router (VBR) instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

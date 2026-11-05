@@ -7,7 +7,7 @@ export class DescribeSagRemoteAccessRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeSagRemoteAccessRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The serial number of the SAG device.
+   * The serial number of the Smart Access Gateway device.
    * 
    * @example
    * sage62x022502****
@@ -27,7 +27,7 @@ export class DescribeSagRemoteAccessRequest extends $dara.Model {
   serialNumber?: string;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The Smart Access Gateway instance ID.
    * 
    * This parameter is required.
    * 

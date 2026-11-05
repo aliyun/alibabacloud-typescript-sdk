@@ -7,7 +7,7 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
    * @remarks
    * The OSPF area ID.
    * 
-   * The value must be an integer from **1** to **2147483647**.
+   * Valid values: **1** to **2147483647**.
    * 
    * This parameter is required.
    * 
@@ -17,11 +17,13 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
   areaId?: number;
   /**
    * @remarks
-   * The authentication method. Valid values:
+   * The authentication type. Valid values:
    * 
-   * - **NONE**: No authentication is configured.
-   * - **CLEARTEXT**: Plaintext authentication is used.
-   * - **MD5**: MD5 authentication is used.
+   * - **NONE**: disables authentication.
+   * 
+   * - **CLEARTEXT**: uses plaintext authentication.
+   * 
+   * - **MD5**: uses MD5 authentication.
    * 
    * This parameter is required.
    * 
@@ -31,10 +33,11 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
   authenticationType?: string;
   /**
    * @remarks
-   * Specifies whether to query only the SAG instances that belong to other Alibaba Cloud accounts. Valid values:
+   * Specifies whether to query only cross-account Smart Access Gateway instances. Valid values:
    * 
-   * - **false** (default): No.
-   * - **true**: Yes.
+   * - **false** (default): no.
+   * 
+   * - **true**: yes.
    * 
    * @example
    * false
@@ -42,9 +45,9 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
   crossAccount?: boolean;
   /**
    * @remarks
-   * The dead interval. Unit: seconds.
+   * The OSPF dead interval. Unit: seconds.
    * 
-   * The value must be an integer from **1** to **65535**.
+   * Valid values: **1** to **65535**.
    * 
    * This parameter is required.
    * 
@@ -56,7 +59,7 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
    * @remarks
    * The interval at which Hello packets are sent. Unit: seconds.
    * 
-   * The value must be an integer from **1** to **65535**.
+   * Valid values: **1** to **65535**.
    * 
    * This parameter is required.
    * 
@@ -68,7 +71,7 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
    * @remarks
    * The port name.
    * 
-   * > This parameter is not in use.
+   * > This parameter does not take effect.
    * 
    * @example
    * 2
@@ -76,11 +79,11 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
   interfaceName?: string;
   /**
    * @remarks
-   * The MD5 key.
+   * The value of the MD5 key.
    * 
-   * The value must be 1 to **47** characters in length.
+   * Valid values: **1** to **47**.
    * 
-   * > This parameter is required only when you set **AuthenticationType** to **MD5**.
+   * > This parameter is required only when **AuthenticationType** is set to **MD5**.
    * 
    * @example
    * 5
@@ -88,11 +91,11 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
   md5Key?: string;
   /**
    * @remarks
-   * The MD5 key ID.
+   * The ID of the MD5 key.
    * 
-   * The value must be an integer from 1 to **2147483647**.
+   * Valid values: **1** to **2147483647**.
    * 
-   * > This parameter is required only when you set **AuthenticationType** to **MD5**.
+   * > This parameter is required only when **AuthenticationType** is set to **MD5**.
    * 
    * @example
    * 7
@@ -100,9 +103,8 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
   md5KeyId?: number;
   /**
    * @remarks
-   * The network segment.
-   * 
-   * > This parameter is not in use.
+   * The CIDR block.
+   * > This parameter does not take effect.
    * 
    * @example
    * 192.168.10.0/24
@@ -110,19 +112,17 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
   networks?: string;
   /**
    * @remarks
-   * The cost of the OSPF route.
-   * 
-   * > This parameter is not in use.
+   * The OSPF route cost.
+   * > This parameter does not take effect.
    * 
    * @example
-   * [110/11]
+   * 11
    */
   ospfCost?: number;
   /**
    * @remarks
-   * The OSPF network type.
-   * 
-   * > This parameter is not in use.
+   * The OSPF area type.
+   * > This parameter does not take effect.
    * 
    * @example
    * NSSA
@@ -134,7 +134,7 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
    * 
    * The password must be 1 to 8 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
    * 
-   * > This parameter is required only when you set **AuthenticationType** to **CLEARTEXT**.
+   * > This parameter is required only when **AuthenticationType** is set to **CLEARTEXT**.
    * 
    * @example
    * duuf****
@@ -143,8 +143,7 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
   /**
    * @remarks
    * The route redistribution protocol.
-   * 
-   * > This parameter is not in use.
+   * > This parameter does not take effect.
    * 
    * @example
    * OSPF
@@ -152,9 +151,9 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
   redistributeProtocol?: string;
   /**
    * @remarks
-   * The ID of the region where the SAG instance is deployed.
+   * The region ID of the Smart Access Gateway instance.
    * 
-   * For more information, see [DescribeRegions](https://help.aliyun.com/document_detail/69813.html).
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/69813.html) operation to obtain region IDs.
    * 
    * This parameter is required.
    * 
@@ -182,7 +181,7 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
   routerId?: string;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The Smart Access Gateway instance ID.
    * 
    * This parameter is required.
    * 
@@ -192,7 +191,7 @@ export class UpdateSmartAccessGatewayOspfRouteRequest extends $dara.Model {
   sagInsId?: string;
   /**
    * @remarks
-   * The serial number of the SAG device.
+   * The serial number of the Smart Access Gateway device.
    * 
    * This parameter is required.
    * 

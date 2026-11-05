@@ -17,7 +17,7 @@ export class AssociateQosRequest extends $dara.Model {
   qosId?: string;
   /**
    * @remarks
-   * The ID of the region to which the QoS policy belongs.
+   * The region ID of the QoS policy.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class AssociateQosRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG instance to which the QoS policy is to be applied.
+   * The Smart Access Gateway instance ID to which the QoS policy is applied.
    * 
    * This parameter is required.
    * 

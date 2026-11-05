@@ -69,7 +69,7 @@ export class DescribeSmartAccessGatewayHaResponseBodyLinkBackupInfoList extends 
 export class DescribeSmartAccessGatewayHaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The serial number of the standby SAG device.
+   * The serial number of the standby device.
    * 
    * @example
    * sag11axxxx
@@ -77,10 +77,10 @@ export class DescribeSmartAccessGatewayHaResponseBody extends $dara.Model {
   backupDeviceId?: string;
   /**
    * @remarks
-   * Indicates whether device-based HA is enabled. Valid values:
+   * The device-level backup state. Valid values:
    * 
-   * *   **ON**: enabled
-   * *   **OFF**: disabled
+   * - **ON**: Enabled.
+   * - **OFF**: Disabled.
    * 
    * @example
    * OFF
@@ -88,11 +88,11 @@ export class DescribeSmartAccessGatewayHaResponseBody extends $dara.Model {
   deviceLevelBackupState?: string;
   /**
    * @remarks
-   * The deployment mode of the SAG devices that have HA enabled. Valid values:
+   * The device-level high-availability type. Valid values:
    * 
-   * *   **warm_backup**: active-active mode.
-   * *   **cold_backup**: active-standby mode.
-   * *   **no_backup**: HA is disabled.
+   * - **warm_backup**: Active-active mode.
+   * - **cold_backup**: Active-standby mode.
+   * - **no_backup**: No backup.
    * 
    * @example
    * cold_backup
@@ -101,7 +101,7 @@ export class DescribeSmartAccessGatewayHaResponseBody extends $dara.Model {
   linkBackupInfoList?: DescribeSmartAccessGatewayHaResponseBodyLinkBackupInfoList;
   /**
    * @remarks
-   * The serial number of the active SAG device.
+   * The serial number of the active device.
    * 
    * @example
    * sag11axxxx
@@ -109,7 +109,7 @@ export class DescribeSmartAccessGatewayHaResponseBody extends $dara.Model {
   mainDeviceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 582FE511-FEFE-42BC-BBF4-4F8ECF92Exxx
@@ -117,7 +117,7 @@ export class DescribeSmartAccessGatewayHaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The instance ID of the Smart Access Gateway.
    * 
    * @example
    * sag-i8mogwi9kisigc3xxxx
