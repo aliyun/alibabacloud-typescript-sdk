@@ -1,0 +1,148 @@
+import * as $dara from '@darabonba/typescript';
+export declare class GetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
+    /**
+     * @remarks
+     * Indicates whether logon is blocked after the password expires.
+     *
+     * @example
+     * false
+     */
+    hardExpire?: boolean;
+    /**
+     * @remarks
+     * The validity period of the initial password.
+     *
+     * @example
+     * 14
+     */
+    initialPasswordAge?: number;
+    /**
+     * @remarks
+     * Indicates whether threat passwords are blocked when set using APIs.
+     *
+     * Valid values:
+     *
+     * - true
+     *
+     * - false (default)
+     *
+     * @example
+     * false
+     */
+    interceptRiskPasswordOnApi?: boolean;
+    /**
+     * @remarks
+     * Maximum number of failed password attempts.
+     *
+     * @example
+     * 0
+     */
+    maxLoginAttemps?: number;
+    /**
+     * @remarks
+     * The password validity period.
+     *
+     * @example
+     * 0
+     */
+    maxPasswordAge?: number;
+    /**
+     * @remarks
+     * The minimum number of different characters in the password.
+     *
+     * @example
+     * 0
+     */
+    minimumPasswordDifferentCharacter?: number;
+    /**
+     * @remarks
+     * The minimum password length.
+     *
+     * @example
+     * 8
+     */
+    minimumPasswordLength?: number;
+    /**
+     * @remarks
+     * Indicates whether the password must not contain the user name.
+     *
+     * @example
+     * false
+     */
+    passwordNotContainUserName?: boolean;
+    /**
+     * @remarks
+     * The password reuse prevention policy.
+     *
+     * @example
+     * 0
+     */
+    passwordReusePrevention?: number;
+    /**
+     * @remarks
+     * Indicates whether the password must contain lowercase letters.
+     *
+     * @example
+     * false
+     */
+    requireLowercaseCharacters?: boolean;
+    /**
+     * @remarks
+     * Indicates whether the password must contain numbers.
+     *
+     * @example
+     * false
+     */
+    requireNumbers?: boolean;
+    /**
+     * @remarks
+     * Indicates whether the password must contain special characters.
+     *
+     * @example
+     * false
+     */
+    requireSymbols?: boolean;
+    /**
+     * @remarks
+     * Indicates whether the password must contain uppercase letters.
+     *
+     * @example
+     * false
+     */
+    requireUppercaseCharacters?: boolean;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class GetPasswordPolicyResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * Details of the password policy.
+     */
+    passwordPolicy?: GetPasswordPolicyResponseBodyPasswordPolicy;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * BDAA8408-E67C-428B-BFF0-1B2AC05C9610
+     */
+    requestId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

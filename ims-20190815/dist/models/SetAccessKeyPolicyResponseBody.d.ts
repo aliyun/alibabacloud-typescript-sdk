@@ -1,0 +1,39 @@
+import * as $dara from '@darabonba/typescript';
+export declare class SetAccessKeyPolicyResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The access key ID.
+     *
+     * @example
+     * LTAI*******************
+     */
+    accessKeyId?: string;
+    /**
+     * @remarks
+     * The network access restriction policy.
+     *
+     * A JSON-formatted string. For more information, see the AccessKeyPolicy structure description.
+     *
+     * @example
+     * {"Status":"Inactive","Statements":[{"Value":"AllowAllVPC","Type":"VPCWhiteList","IPList":["::/0","0.0.0.0/0"]}]}
+     */
+    accessKeyPolicy?: string;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * 30C9068D-FBAA-4998-9986-8A562FED0BC3
+     */
+    requestId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

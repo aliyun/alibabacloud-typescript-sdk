@@ -1,0 +1,165 @@
+import * as $dara from '@darabonba/typescript';
+export declare class GetUserResponseBodyUserTagsTag extends $dara.Model {
+    tagKey?: string;
+    tagValue?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class GetUserResponseBodyUserTags extends $dara.Model {
+    tag?: GetUserResponseBodyUserTagsTag[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class GetUserResponseBodyUser extends $dara.Model {
+    /**
+     * @remarks
+     * The description.
+     *
+     * @example
+     * This is a cloud computing engineer.
+     */
+    comments?: string;
+    /**
+     * @remarks
+     * The time when the Resource Access Management (RAM) user was created.
+     *
+     * The format is RFC 3339 (UTC). Example: 2020-10-12T09:12:00Z.
+     *
+     * @example
+     * 2020-10-12T09:12:00Z
+     */
+    createDate?: string;
+    /**
+     * @remarks
+     * The display name of the Resource Access Management (RAM) user.
+     *
+     * @example
+     * test
+     */
+    displayName?: string;
+    /**
+     * @remarks
+     * The electron mailbox of the Resource Access Management (RAM) user.
+     * > This parameter applies only to the China site.
+     *
+     * @example
+     * alice@example.com
+     */
+    email?: string;
+    /**
+     * @remarks
+     * The time of the last console logon of the Resource Access Management (RAM) user.
+     *
+     * The format is RFC 3339 (UTC). Example: 2020-10-12T09:12:00Z.
+     *
+     * @example
+     * 2020-10-12T09:12:00Z
+     */
+    lastLoginDate?: string;
+    /**
+     * @remarks
+     * The mobile phone number of the Resource Access Management (RAM) user.
+     * > This parameter applies only to the China site.
+     *
+     * @example
+     * 86-1868888****
+     */
+    mobilePhone?: string;
+    /**
+     * @remarks
+     * The synchronization type. Valid values:
+     * - Manual: The Resource Access Management (RAM) user is manually created in RAM.
+     * - SCIM: The Resource Access Management (RAM) user is created through synchronization via the System for Cross-domain Identity Management protocol.
+     * - CloudSSO: The user is created through CloudSSO synchronization.
+     *
+     * @example
+     * CloudSSO
+     */
+    provisionType?: string;
+    tags?: GetUserResponseBodyUserTags;
+    /**
+     * @remarks
+     * The time when the Resource Access Management (RAM) user was updated.
+     *
+     * The format is RFC 3339 (UTC). Example: 2020-10-13T07:39:22Z.
+     *
+     * @example
+     * 2020-10-13T07:39:22Z
+     */
+    updateDate?: string;
+    /**
+     * @remarks
+     * The ID of the Resource Access Management (RAM) user.
+     *
+     * @example
+     * 20732900249392****
+     */
+    userId?: string;
+    /**
+     * @remarks
+     * The name of the Resource Access Management (RAM) user, which is the prefix of the logon name.
+     *
+     * @example
+     * test
+     */
+    userName?: string;
+    /**
+     * @remarks
+     * The logon name of the Resource Access Management (RAM) user.
+     *
+     * @example
+     * test@example.onaliyun.com
+     */
+    userPrincipalName?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class GetUserResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * 4507D1CD-526A-4E2B-A1E2-3AB045D1EE0B
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The information about the Resource Access Management (RAM) user.
+     */
+    user?: GetUserResponseBodyUser;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

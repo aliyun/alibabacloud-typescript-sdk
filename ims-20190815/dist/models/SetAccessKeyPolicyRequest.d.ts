@@ -1,0 +1,45 @@
+import * as $dara from '@darabonba/typescript';
+export declare class SetAccessKeyPolicyRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The network access restriction policy.
+     *
+     * A JSON-formatted string. For more information, see the AccessKeyPolicy structure description.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * {"Status":"Inactive","Statements":[{"Value":"AllowAllVPC","Type":"VPCWhiteList","IPList":["::/0","0.0.0.0/0"]}]}
+     */
+    accessKeyPolicy?: string;
+    /**
+     * @remarks
+     * The access key ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * LTAI*******************
+     */
+    userAccessKeyId?: string;
+    /**
+     * @remarks
+     * The logon name of the RAM user.
+     *
+     * If this parameter is left empty, the network access restriction policy is set for the specified access key of the current user by default.
+     *
+     * @example
+     * test@example.onaliyun.com
+     */
+    userPrincipalName?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

@@ -1,0 +1,128 @@
+import * as $dara from '@darabonba/typescript';
+/**
+ */
+export declare class AddClientIdToOIDCProviderResponseBodyOIDCProvider extends $dara.Model {
+    /**
+     * @remarks
+     * The Alibaba Cloud Resource Name (ARN) of the OIDC IdP.
+     *
+     * @example
+     * acs:ram::177242285274****:oidc-provider/TestOIDCProvider
+     */
+    arn?: string;
+    /**
+     * @remarks
+     * The client IDs. Multiple client IDs are separated by commas (,).
+     *
+     * @example
+     * 498469743454717****,598469743454717****
+     */
+    clientIds?: string;
+    /**
+     * @remarks
+     * The time when the OIDC IdP was created. The time is displayed in UTC.
+     *
+     * @example
+     * 2021-11-11T06:56:03Z
+     */
+    createDate?: string;
+    /**
+     * @remarks
+     * The description of the OIDC IdP.
+     *
+     * @example
+     * This is a new OIDC Provider.
+     */
+    description?: string;
+    /**
+     * @remarks
+     * The verification fingerprints of the HTTPS CA certificate. Multiple fingerprints are separated by commas (,).
+     *
+     * @example
+     * 902ef2deeb3c5b13ea4c3d5193629309e231****
+     */
+    fingerprints?: string;
+    /**
+     * @remarks
+     * The time when the OIDC IdP was created. The value is a UNIX timestamp.
+     *
+     * @example
+     * 1636613763000
+     */
+    gmtCreate?: string;
+    /**
+     * @remarks
+     * The time when the OIDC IdP was modified. The value is a UNIX timestamp.
+     *
+     * @example
+     * 1636706309000
+     */
+    gmtModified?: string;
+    /**
+     * @remarks
+     * The earliest time when an external IdP is allowed to issue an ID token. If the value of the iat field in the ID token is greater than the current time by more than this value, the request is rejected. Unit: hours. Valid values: 1 to 168.
+     *
+     * @example
+     * 12
+     */
+    issuanceLimitTime?: number;
+    /**
+     * @remarks
+     * The issuer URL.
+     *
+     * @example
+     * https://xxxxxx.example.com
+     */
+    issuerUrl?: string;
+    /**
+     * @remarks
+     * The name of the OIDC IdP.
+     *
+     * @example
+     * TestOIDCProvider
+     */
+    OIDCProviderName?: string;
+    /**
+     * @remarks
+     * The time when the OIDC IdP was modified. The time is displayed in UTC.
+     *
+     * @example
+     * 2021-11-12T08:38:29Z
+     */
+    updateDate?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class AddClientIdToOIDCProviderResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The information about the OIDC IdP.
+     */
+    OIDCProvider?: AddClientIdToOIDCProviderResponseBodyOIDCProvider;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * B49B8FA7-87FC-5308-AE75-5EC9E36C360A
+     */
+    requestId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
