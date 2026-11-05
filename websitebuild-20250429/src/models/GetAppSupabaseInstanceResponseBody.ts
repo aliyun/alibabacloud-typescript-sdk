@@ -44,6 +44,9 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
    */
   instanceCreateStatus?: string;
   /**
+   * @remarks
+   * The read-only business schema name resolved by Builder trusted binding, which cannot be used as input for tenant switching.
+   * 
    * @example
    * tenant_00000000-0000-4000-8000-000000000001_schema
    */
@@ -74,13 +77,16 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
   supabaseInstanceId?: string;
   /**
    * @remarks
-   * The public URL of the Supabase instance.
+   * The public URL of Supabase.
    * 
    * @example
    * 111
    */
   supabasePublicUrl?: string;
   /**
+   * @remarks
+   * The read-only tenant mode. The schema is the legacy Builder pool, and db/agenticdb is the new platform. History records can be empty.
+   * 
    * @example
    * schema
    */
@@ -129,7 +135,7 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
 export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access is denied.
+   * The detailed reason for access denial.
    * 
    * @example
    * {}
@@ -137,7 +143,7 @@ export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether a retry is allowed.
+   * Indicates whether retries are allowed.
    * 
    * @example
    * False
@@ -161,8 +167,8 @@ export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** return parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace `%s` in the error message of the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -170,7 +176,7 @@ export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters returned.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -199,12 +205,12 @@ export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
    * The exception message.
    * 
    * @example
-   * System exception.
+   * System exception
    */
   rootErrorMsg?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The backup parameter.
    * 
    * @example
    * True

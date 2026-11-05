@@ -22,7 +22,7 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The name of the application to query.
+   * The name of the application.
    * 
    * @example
    * or

@@ -5,6 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application type. Valid values: 
+   * - PC_WebSite: web application. 
+   * - Mini_Program: mini program. 
+   * If this parameter is not specified or left empty, applications are not filtered by type. For compatibility, historical missing, NULL, or empty types are treated as PC_WebSite.
+   * 
+   * @example
+   * PC_WebSite
+   */
+  applicationType?: string;
+  /**
+   * @remarks
    * The business ID.
    * 
    * @example
@@ -42,9 +53,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * The maximum number of results returned per query.
-   * 
-   * Valid values: 10 to 100. Default value: 20.
+   * The maximum number of results returned per query. Valid values: 10 to 100. Default value: 20.
    * 
    * @example
    * 10
@@ -92,7 +101,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query parameters.
+   * The query parameter.
    * 
    * @example
    * {\\"RequestId\\":\\"\\"}
@@ -100,7 +109,8 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The query mode. A value of CONTENT_CREATION indicates a lightweight query for the content creation site selector, which queries only published sites and does not load aggregated information such as profiles, services, and AI staff.
+   * The query mode. Valid values: 
+   * - CONTENT_CREATION: specifies a lightweight query for the content creation site selector. It queries only published sites and does not load aggregated information such as profiles, services, and AI staff.
    * 
    * @example
    * CONTENT_CREATION
@@ -113,6 +123,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
   statusListShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      applicationType: 'ApplicationType',
       bizId: 'BizId',
       bizIdsShrink: 'BizIds',
       endTimeBegin: 'EndTimeBegin',
@@ -132,6 +143,7 @@ export class ListAppInstancesShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      applicationType: 'string',
       bizId: 'string',
       bizIdsShrink: 'string',
       endTimeBegin: 'string',

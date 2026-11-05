@@ -21,7 +21,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   bizId?: string;
   /**
    * @remarks
-   * The creation time of the database instance.
+   * The time when the database instance was created.
    * 
    * @example
    * 111
@@ -45,7 +45,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   dbPublicUrl?: string;
   /**
    * @remarks
-   * The database type. Valid values: rds, polardb.
+   * The database type. Valid values: rds and polardb.
    * 
    * @example
    * ORACLE
@@ -53,7 +53,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   dbType?: string;
   /**
    * @remarks
-   * The additional information.
+   * The extra information.
    * 
    * @example
    * {\\"appId\\":\\"APP_NTJAK8P11SNZDJ3M6BWC\\"}
@@ -61,7 +61,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   extra?: string;
   /**
    * @remarks
-   * The completion time of the instance creation.
+   * The time when the instance creation was completed.
    * 
    * @example
    * 111
@@ -69,7 +69,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   instanceCreateFinishedTime?: string;
   /**
    * @remarks
-   * The creation status of the instance.
+   * The instance creation status.
    * 
    * @example
    * 1111
@@ -92,6 +92,9 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
    */
   rdsDatabasePassword?: string;
   /**
+   * @remarks
+   * The read-only business schema name parsed by the Builder trusted binding. This name cannot be used as input for tenant switching.
+   * 
    * @example
    * tenant_00000000-0000-4000-8000-000000000001_schema
    */
@@ -106,7 +109,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   serviceKey?: string;
   /**
    * @remarks
-   * The status. Valid values: 0: Paused. 1: Running.
+   * The status. Valid values: 0 (Paused) and 1 (Running).
    * 
    * @example
    * RUNNING
@@ -114,7 +117,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   status?: number;
   /**
    * @remarks
-   * The password for the Supabase Dashboard.
+   * The Supabase Dashboard password.
    * 
    * @example
    * 1111
@@ -122,7 +125,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabaseDashboardPassword?: string;
   /**
    * @remarks
-   * The username for the Supabase Dashboard.
+   * The Supabase Dashboard username.
    * 
    * @example
    * 1111
@@ -130,7 +133,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabaseDashboardUserName?: string;
   /**
    * @remarks
-   * The creation time of the Supabase instance.
+   * The time when the Supabase instance was created.
    * 
    * @example
    * 111
@@ -154,7 +157,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
   supabaseKongUrl?: string;
   /**
    * @remarks
-   * The private endpoint of the Supabase instance.
+   * The private network endpoint of the Supabase instance.
    * 
    * @example
    * 1111
@@ -185,6 +188,9 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
    */
   tenantId?: string;
   /**
+   * @remarks
+   * The read-only tenant mode. A value of schema indicates the legacy Builder pool, and a value of db or agenticdb indicates the new platform. The history record can be empty.
+   * 
    * @example
    * schema
    */
@@ -269,7 +275,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBodyModule extends $dara.M
 export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The detailed reason for access denial.
    * 
    * @example
    * {}
@@ -277,7 +283,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retries are allowed.
+   * Specifies whether retries are allowed.
    * 
    * @example
    * False
@@ -302,7 +308,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
    * The dynamic error message, which is used to replace `%s` in the **ErrMessage** response parameter.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -336,7 +342,7 @@ export class QuerySupabaseInstanceInfoForAdminResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The exception message.
+   * The error message.
    * 
    * @example
    * System exception

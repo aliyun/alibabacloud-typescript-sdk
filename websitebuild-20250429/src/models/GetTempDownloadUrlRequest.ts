@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetTempDownloadUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * The key of the OSS object.
+   * The business ID.
+   * 
+   * @example
+   * WD20250703155602000001
+   */
+  bizId?: string;
+  /**
+   * @remarks
+   * The OSS object key.
    * 
    * @example
    * backend/detection/objects/r-0008ujvfksltf5j45n81/task-000hckiuwyau0gwn17vq.jpg
@@ -13,12 +21,14 @@ export class GetTempDownloadUrlRequest extends $dara.Model {
   ossKey?: string;
   static names(): { [key: string]: string } {
     return {
+      bizId: 'BizId',
       ossKey: 'OssKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizId: 'string',
       ossKey: 'string',
     };
   }

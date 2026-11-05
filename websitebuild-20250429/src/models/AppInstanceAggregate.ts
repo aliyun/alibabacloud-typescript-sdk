@@ -12,7 +12,7 @@ import { TemplateRecord } from "./TemplateRecord";
 export class AppInstanceAggregateConversationInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of conversation turns. A value of 0 indicates an empty conversation.
+   * The number of user conversation turns. A value of 0 indicates an empty conversation.
    * 
    * @example
    * 1
@@ -152,7 +152,7 @@ export class AppInstanceAggregatePartnerDetail extends $dara.Model {
   partnerId?: string;
   /**
    * @remarks
-   * The partner binding status. Valid values: BOUND (bound) and UNBOUND (unbound).
+   * The partner binding status. Valid values: BOUND (bound) and UNBOUND (to be bound).
    * 
    * @example
    * BOUND
@@ -189,7 +189,9 @@ export class AppInstanceAggregatePartnerDetail extends $dara.Model {
 export class AppInstanceAggregateTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the instance. Valid values of N: **1** to **20**. The value cannot be an empty string. The value can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
+   * The tag key of the instance. Valid values of N: **1** to **20**. If you specify this parameter, it cannot be an empty string.
+   * 
+   * The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * Group
@@ -197,7 +199,9 @@ export class AppInstanceAggregateTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the instance. Valid values of N: **1** to **20**. The value can be an empty string. The value can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
+   * The tag value of the instance. Valid values of N: **1** to **20**. If you specify this parameter, it can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * ufo
@@ -234,7 +238,7 @@ export class AppInstanceAggregate extends $dara.Model {
   aiStaffList?: AppAiStaff[];
   /**
    * @remarks
-   * The operation address of the application.
+   * The application operation address.
    */
   appOperationAddress?: AppOperationAddress;
   /**
@@ -276,7 +280,7 @@ export class AppInstanceAggregate extends $dara.Model {
   buildType?: string;
   /**
    * @remarks
-   * The associated conversation information. The value is null if no conversation is associated.
+   * The associated conversation information. This field is null if no associated conversation exists.
    */
   conversationInfo?: AppInstanceAggregateConversationInfo;
   /**
@@ -313,7 +317,7 @@ export class AppInstanceAggregate extends $dara.Model {
   designSpecBizId?: string;
   /**
    * @remarks
-   * The ID of the design configuration.
+   * The ID of the design configuration sheet.
    */
   designSpecId?: string;
   /**
@@ -358,7 +362,7 @@ export class AppInstanceAggregate extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The publish time.
+   * The publication time.
    * 
    * @example
    * 2025-01-01 00:00:00
@@ -382,7 +386,12 @@ export class AppInstanceAggregate extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The partner details.
+   * The current offline status. A value of true explicitly indicates that the website is currently offline. A value of false indicates that the website is not offline, and historical offline reasons do not determine the current status. If the current status cannot be determined or the legacy response does not contain this field, the caller must not default the unknown status to online.
+   */
+  offline?: boolean;
+  /**
+   * @remarks
+   * The details.
    */
   partnerDetail?: AppInstanceAggregatePartnerDetail;
   /**
@@ -503,6 +512,7 @@ export class AppInstanceAggregate extends $dara.Model {
       gmtPublish: 'GmtPublish',
       iconUrl: 'IconUrl',
       name: 'Name',
+      offline: 'Offline',
       partnerDetail: 'PartnerDetail',
       profile: 'Profile',
       resourceGroupId: 'ResourceGroupId',
@@ -543,6 +553,7 @@ export class AppInstanceAggregate extends $dara.Model {
       gmtPublish: 'string',
       iconUrl: 'string',
       name: 'string',
+      offline: 'boolean',
       partnerDetail: AppInstanceAggregatePartnerDetail,
       profile: AppInstanceProfile,
       resourceGroupId: 'string',

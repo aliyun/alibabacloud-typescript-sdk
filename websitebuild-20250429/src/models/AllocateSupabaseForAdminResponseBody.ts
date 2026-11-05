@@ -53,7 +53,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The additional information.
+   * The extra information.
    * 
    * @example
    * {\\"appId\\":\\"APP_NTJAK8P11SNZDJ3M6BWC\\"}
@@ -85,13 +85,16 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   isDeleted?: number;
   /**
    * @remarks
-   * The access password of the RDS database.
+   * The access password for the RDS database.
    * 
    * @example
    * 111
    */
   rdsDatabasePassword?: string;
   /**
+   * @remarks
+   * The read-only business schema name parsed by the Builder trusted binding. This name cannot be used as input for tenant switching.
+   * 
    * @example
    * tenant_00000000-0000-4000-8000-000000000001_schema
    */
@@ -106,9 +109,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   serviceKey?: string;
   /**
    * @remarks
-   * The status of the instance. Valid values:
-   * - 0: Paused.
-   * - 1: Running.
+   * The status. Valid values: 0 (Paused) and 1 (Running).
    * 
    * @example
    * NORMAL
@@ -156,7 +157,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   supabaseKongUrl?: string;
   /**
    * @remarks
-   * The private endpoint of the Supabase instance.
+   * The private network endpoint of the Supabase instance.
    * 
    * @example
    * 1111
@@ -164,7 +165,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   supabasePrivateIp?: string;
   /**
    * @remarks
-   * The public endpoint of the Supabase instance.
+   * The public network connection endpoint of the Supabase instance.
    * 
    * @example
    * 111
@@ -172,7 +173,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   supabasePublicIp?: string;
   /**
    * @remarks
-   * The public URL of the Supabase instance.
+   * The public URL of Supabase.
    * 
    * @example
    * 111
@@ -187,6 +188,9 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
    */
   tenantId?: string;
   /**
+   * @remarks
+   * The read-only tenant mode: schema indicates the legacy Builder pool, and db or agenticdb indicates the new platform. The history record can be empty.
+   * 
    * @example
    * schema
    */
@@ -271,7 +275,7 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
 export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details of the permission check failure.
    * 
    * @example
    * {}
@@ -287,7 +291,7 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The name of the app.
+   * The name of the application.
    * 
    * @example
    * or
@@ -337,10 +341,10 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The exception message.
+   * The error message.
    * 
    * @example
-   * System exception
+   * System error
    */
   rootErrorMsg?: string;
   /**

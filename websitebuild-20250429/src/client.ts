@@ -34,10 +34,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs resource allocation for a Supabase instance.
+   * Allocates a Supabase instance to a resource allocation.
    * 
    * @remarks
-   * Queries the information about the Supabase instance associated with a resource.
+   * Queries the Supabase instance information of a resource.
    * 
    * @param request - AllocateSupabaseForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -92,10 +92,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs resource allocation for a Supabase instance.
+   * Allocates a Supabase instance to a resource allocation.
    * 
    * @remarks
-   * Queries the information about the Supabase instance associated with a resource.
+   * Queries the Supabase instance information of a resource.
    * 
    * @param request - AllocateSupabaseForAdminRequest
    * @returns AllocateSupabaseForAdminResponse
@@ -3192,10 +3192,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of application instances.
+   * Queries application instance information.
    * 
    * @remarks
-   * Queries the details of application instances.
+   * Queries application instance information.
    * 
    * @param request - GetAppInstanceForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3230,10 +3230,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of application instances.
+   * Queries application instance information.
    * 
    * @remarks
-   * Queries the details of application instances.
+   * Queries application instance information.
    * 
    * @param request - GetAppInstanceForAdminRequest
    * @returns GetAppInstanceForAdminResponse
@@ -3876,10 +3876,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a Supabase instance.
+   * Retrieves the information about a Supabase instance.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the information about an application instance.
    * 
    * @param request - GetAppSupabaseInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3910,10 +3910,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a Supabase instance.
+   * Retrieves the information about a Supabase instance.
    * 
    * @remarks
-   * Queries application instance information.
+   * Queries the information about an application instance.
    * 
    * @param request - GetAppSupabaseInstanceRequest
    * @returns GetAppSupabaseInstanceResponse
@@ -4528,12 +4528,18 @@ export default class Client extends OpenApi {
    */
   async getTempDownloadUrlWithOptions(request: $_model.GetTempDownloadUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTempDownloadUrlResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.ossKey)) {
       body["OssKey"] = request.ossKey;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -5442,7 +5448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of application instances.
+   * Queries the list of application instances.
    * 
    * @param tmpReq - ListAppInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5461,6 +5467,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.applicationType)) {
+      query["ApplicationType"] = request.applicationType;
+    }
+
     if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
     }
@@ -5535,7 +5545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of application instances.
+   * Queries the list of application instances.
    * 
    * @param request - ListAppInstancesRequest
    * @returns ListAppInstancesResponse

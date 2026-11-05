@@ -13,7 +13,7 @@ export class GetTempDownloadUrlResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * Indicates whether retry is allowed.
+   * Indicates whether a retry is allowed.
    * 
    * @example
    * False
@@ -21,7 +21,7 @@ export class GetTempDownloadUrlResponseBody extends $dara.Model {
   allowRetry?: boolean;
   /**
    * @remarks
-   * The application name.
+   * The app name.
    * 
    * @example
    * spring-cloud-b
@@ -37,8 +37,8 @@ export class GetTempDownloadUrlResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
-   * > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * SYSTEM_ERROR
@@ -46,7 +46,7 @@ export class GetTempDownloadUrlResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error parameters.
+   * The returned error parameters.
    */
   errorArgs?: any[];
   /**
@@ -67,7 +67,7 @@ export class GetTempDownloadUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The error code.
+   * The root error code.
    * 
    * @example
    * SYSTEM.ERROR
@@ -75,10 +75,10 @@ export class GetTempDownloadUrlResponseBody extends $dara.Model {
   rootErrorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The exception message.
    * 
    * @example
-   * System exception.
+   * System exception
    */
   rootErrorMsg?: string;
   /**

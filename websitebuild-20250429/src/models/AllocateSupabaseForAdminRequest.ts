@@ -23,7 +23,7 @@ export class AllocateSupabaseForAdminRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The sort column.
+   * The field used for sorting.
    * 
    * @example
    * gmtCreated
@@ -31,7 +31,7 @@ export class AllocateSupabaseForAdminRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort order. Valid values: ASC, DESC.
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * BUY

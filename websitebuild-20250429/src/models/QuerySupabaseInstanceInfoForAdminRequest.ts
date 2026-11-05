@@ -25,7 +25,7 @@ export class QuerySupabaseInstanceInfoForAdminRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The sort field.
+   * The field used for sorting.
    * 
    * @example
    * gmtCreated
@@ -33,7 +33,7 @@ export class QuerySupabaseInstanceInfoForAdminRequest extends $dara.Model {
   orderColumn?: string;
   /**
    * @remarks
-   * The sort order. Valid values: ASC, DESC.
+   * The sort order. Valid values: ASC and DESC.
    * 
    * @example
    * ASC
