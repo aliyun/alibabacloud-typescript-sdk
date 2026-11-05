@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetCallDetailRecordResponseBodyDataLabels extends $dara.Model {
   /**
    * @remarks
-   * The set of preset values for the label.
+   * The candidate values for the label.
    */
   candidateValues?: string[];
   /**
    * @remarks
-   * Indicates whether the label has been collected.
+   * Indicates whether the label is collected.
    * 
    * @example
    * false
@@ -42,7 +42,7 @@ export class GetCallDetailRecordResponseBodyDataLabels extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the label is a system label.
+   * The system label.
    * 
    * @example
    * false
@@ -85,7 +85,7 @@ export class GetCallDetailRecordResponseBodyDataLabels extends $dara.Model {
 export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model {
   /**
    * @remarks
-   * The assistant answer.
+   * The assistant response.
    * 
    * @example
    * Sorry, I cannot find your phone bill
@@ -93,7 +93,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   answer?: string;
   /**
    * @remarks
-   * Indicates whether the transcript is a backchannel response.
+   * Indicates whether it is a backchannel.
    * 
    * @example
    * false
@@ -101,7 +101,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   backchannels?: boolean;
   /**
    * @remarks
-   * The begin time.
+   * The start time.
    * 
    * @example
    * 1760667651655
@@ -109,7 +109,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   beginTime?: number;
   /**
    * @remarks
-   * The list of control parameters.
+   * The control parameter list.
    * 
    * @example
    * {"transferCode":"Transfer02","type":"Transfer"}]
@@ -117,7 +117,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   controlParamsList?: string;
   /**
    * @remarks
-   * The end time of the call.
+   * The call end time.
    * 
    * @example
    * 1760667651655
@@ -149,7 +149,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   inputTokens?: number;
   /**
    * @remarks
-   * Indicates whether the response was interrupted.
+   * Indicates whether it was interrupted.
    * 
    * @example
    * false
@@ -157,7 +157,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
   interrupted?: boolean;
   /**
    * @remarks
-   * Indicates whether the transcript is from the legacy version.
+   * Indicates whether it is a legacy version.
    * 
    * @example
    * false
@@ -180,13 +180,19 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
    */
   outputTokens?: number;
   /**
+   * @remarks
+   * The playback status.
+   * 
    * @example
    * INTERRUPTED
    */
   playbackStatus?: string;
   /**
+   * @remarks
+   * The played content.
+   * 
    * @example
-   * 好的
+   * Okay
    */
   playedAnswer?: string;
   /**
@@ -194,7 +200,7 @@ export class GetCallDetailRecordResponseBodyDataTranscripts extends $dara.Model 
    * The played text.
    * 
    * @example
-   * Sorry, check
+   * Sorry, checking
    */
   playedWords?: string;
   /**
@@ -325,7 +331,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   accessChannelType?: string;
   /**
    * @remarks
-   * The callee number.
+   * The called number.
    * 
    * @example
    * 13612617599
@@ -333,7 +339,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   callee?: string;
   /**
    * @remarks
-   * The caller number.
+   * The calling number.
    * 
    * @example
    * 02867871030
@@ -365,7 +371,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   dispositionReason?: string;
   /**
    * @remarks
-   * Indicates whether this is a draft version.
+   * Indicates whether it is a draft version.
    * 
    * @example
    * true
@@ -381,7 +387,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The end time of the call.
+   * The call end time.
    * 
    * @example
    * 1786960840667
@@ -389,12 +395,12 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The list of labels.
+   * The label list.
    */
   labels?: GetCallDetailRecordResponseBodyDataLabels[];
   /**
    * @remarks
-   * The party that initiated the hang-up.
+   * The hang-up initiator.
    * 
    * @example
    * Customer
@@ -410,7 +416,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The start time of the call.
+   * The call start time.
    * 
    * @example
    * 1786960840667
@@ -434,7 +440,7 @@ export class GetCallDetailRecordResponseBodyData extends $dara.Model {
   talkTurns?: number;
   /**
    * @remarks
-   * Indicates whether the task was completed.
+   * Indicates whether the task is completed.
    * 
    * @example
    * false
@@ -571,7 +577,7 @@ export class GetCallDetailRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

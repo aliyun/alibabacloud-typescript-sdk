@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "OutboundBot";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("outboundbot", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -500,6 +504,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a language model access configuration.
+   * 
+   * @remarks
+   * Creates a language model access configuration for a specified instance.
+   * 
+   * @param tmpReq - CreateLlmAccessProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLlmAccessProfileResponse
+   */
+  async createLlmAccessProfileWithOptions(tmpReq: $_model.CreateLlmAccessProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLlmAccessProfileResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateLlmAccessProfileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.profile)) {
+      request.profileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.profile, "Profile", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.profileShrink)) {
+      body["Profile"] = request.profileShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLlmAccessProfile",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLlmAccessProfileResponse>(await this.callApi(params, req, runtime), new $_model.CreateLlmAccessProfileResponse({}));
+  }
+
+  /**
+   * Creates a language model access configuration.
+   * 
+   * @remarks
+   * Creates a language model access configuration for a specified instance.
+   * 
+   * @param request - CreateLlmAccessProfileRequest
+   * @returns CreateLlmAccessProfileResponse
+   */
+  async createLlmAccessProfile(request: $_model.CreateLlmAccessProfileRequest): Promise<$_model.CreateLlmAccessProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createLlmAccessProfileWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an instance.
    * 
    * @param tmpReq - CreateOutboundCallRestrictionRequest
@@ -804,6 +866,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a tenant number.
+   * 
+   * @remarks
+   * Deletes a tenant number.
+   * 
+   * @param request - DeleteCorpNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCorpNumberResponse
+   */
+  async deleteCorpNumberWithOptions(request: $_model.DeleteCorpNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCorpNumberResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.force)) {
+      body["Force"] = request.force;
+    }
+
+    if (!$dara.isNull(request.number)) {
+      body["Number"] = request.number;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCorpNumber",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCorpNumberResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCorpNumberResponse({}));
+  }
+
+  /**
+   * Deletes a tenant number.
+   * 
+   * @remarks
+   * Deletes a tenant number.
+   * 
+   * @param request - DeleteCorpNumberRequest
+   * @returns DeleteCorpNumberResponse
+   */
+  async deleteCorpNumber(request: $_model.DeleteCorpNumberRequest): Promise<$_model.DeleteCorpNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCorpNumberWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a flash message configuration.
    * 
    * @param request - DeleteFlashSmsAccessProfileRequest
@@ -889,6 +1007,122 @@ export default class Client extends OpenApi {
   async deleteInstance(request: $_model.DeleteInstanceRequest): Promise<$_model.DeleteInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes the language model access configuration.
+   * 
+   * @remarks
+   * Deletes the language model access configuration for a specified instance.
+   * 
+   * @param request - DeleteLlmAccessProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLlmAccessProfileResponse
+   */
+  async deleteLlmAccessProfileWithOptions(request: $_model.DeleteLlmAccessProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLlmAccessProfileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessProfileId)) {
+      body["AccessProfileId"] = request.accessProfileId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLlmAccessProfile",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLlmAccessProfileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLlmAccessProfileResponse({}));
+  }
+
+  /**
+   * Deletes the language model access configuration.
+   * 
+   * @remarks
+   * Deletes the language model access configuration for a specified instance.
+   * 
+   * @param request - DeleteLlmAccessProfileRequest
+   * @returns DeleteLlmAccessProfileResponse
+   */
+  async deleteLlmAccessProfile(request: $_model.DeleteLlmAccessProfileRequest): Promise<$_model.DeleteLlmAccessProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteLlmAccessProfileWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes the numbers of an instance.
+   * 
+   * @remarks
+   * Deletes the numbers of a specified instance.
+   * 
+   * @param tmpReq - DeleteNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNumbersResponse
+   */
+  async deleteNumbersWithOptions(tmpReq: $_model.DeleteNumbersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNumbersResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteNumbersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.numbers)) {
+      request.numbersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.numbers, "Numbers", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.numbersShrink)) {
+      body["Numbers"] = request.numbersShrink;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNumbers",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteNumbersResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNumbersResponse({}));
+  }
+
+  /**
+   * Deletes the numbers of an instance.
+   * 
+   * @remarks
+   * Deletes the numbers of a specified instance.
+   * 
+   * @param request - DeleteNumbersRequest
+   * @returns DeleteNumbersResponse
+   */
+  async deleteNumbers(request: $_model.DeleteNumbersRequest): Promise<$_model.DeleteNumbersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteNumbersWithOptions(request, runtime);
   }
 
   /**
@@ -1078,7 +1312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a call session.
+   * Retrieves the call details.
    * 
    * @remarks
    * ***
@@ -1120,7 +1354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a call session.
+   * Retrieves the call details.
    * 
    * @remarks
    * ***
@@ -1409,6 +1643,48 @@ export default class Client extends OpenApi {
   async getSubscription(request: $_model.GetSubscriptionRequest): Promise<$_model.GetSubscriptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSubscriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the list of ASR models.
+   * 
+   * @param request - ListAsrModelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAsrModelsResponse
+   */
+  async listAsrModelsWithOptions(request: $_model.ListAsrModelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAsrModelsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAsrModels",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAsrModelsResponse>(await this.callApi(params, req, runtime), new $_model.ListAsrModelsResponse({}));
+  }
+
+  /**
+   * Retrieves the list of ASR models.
+   * 
+   * @param request - ListAsrModelsRequest
+   * @returns ListAsrModelsResponse
+   */
+  async listAsrModels(request: $_model.ListAsrModelsRequest): Promise<$_model.ListAsrModelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAsrModelsWithOptions(request, runtime);
   }
 
   /**
@@ -1754,6 +2030,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of tenant numbers.
+   * 
+   * @remarks
+   * Queries the list of tenant numbers.
+   * 
+   * @param request - ListCorpNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCorpNumbersResponse
+   */
+  async listCorpNumbersWithOptions(request: $_model.ListCorpNumbersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCorpNumbersResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.number)) {
+      body["Number"] = request.number;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sipTrunkId)) {
+      body["SipTrunkId"] = request.sipTrunkId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCorpNumbers",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCorpNumbersResponse>(await this.callApi(params, req, runtime), new $_model.ListCorpNumbersResponse({}));
+  }
+
+  /**
+   * Queries the list of tenant numbers.
+   * 
+   * @remarks
+   * Queries the list of tenant numbers.
+   * 
+   * @param request - ListCorpNumbersRequest
+   * @returns ListCorpNumbersResponse
+   */
+  async listCorpNumbers(request: $_model.ListCorpNumbersRequest): Promise<$_model.ListCorpNumbersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCorpNumbersWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the list of flash SMS configurations.
    * 
    * @param request - ListFlashSmsAccessProfilesRequest
@@ -1900,6 +2240,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the instances bound to a number.
+   * 
+   * @remarks
+   * Queries the binding information between a number and instances.
+   * 
+   * @param request - ListInstanceBindingsOfNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceBindingsOfNumberResponse
+   */
+  async listInstanceBindingsOfNumberWithOptions(request: $_model.ListInstanceBindingsOfNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceBindingsOfNumberResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.number)) {
+      body["Number"] = request.number;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceBindingsOfNumber",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceBindingsOfNumberResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceBindingsOfNumberResponse({}));
+  }
+
+  /**
+   * Queries the instances bound to a number.
+   * 
+   * @remarks
+   * Queries the binding information between a number and instances.
+   * 
+   * @param request - ListInstanceBindingsOfNumberRequest
+   * @returns ListInstanceBindingsOfNumberResponse
+   */
+  async listInstanceBindingsOfNumber(request: $_model.ListInstanceBindingsOfNumberRequest): Promise<$_model.ListInstanceBindingsOfNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInstanceBindingsOfNumberWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves instance details.
    * 
    * @param request - ListInstancesRequest
@@ -1947,6 +2339,182 @@ export default class Client extends OpenApi {
   async listInstances(request: $_model.ListInstancesRequest): Promise<$_model.ListInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the language model access configurations.
+   * 
+   * @remarks
+   * Queries the list of language model access configurations of a specified instance by paging.
+   * 
+   * @param request - ListLlmAccessProfilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLlmAccessProfilesResponse
+   */
+  async listLlmAccessProfilesWithOptions(request: $_model.ListLlmAccessProfilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLlmAccessProfilesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLlmAccessProfiles",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLlmAccessProfilesResponse>(await this.callApi(params, req, runtime), new $_model.ListLlmAccessProfilesResponse({}));
+  }
+
+  /**
+   * Queries the language model access configurations.
+   * 
+   * @remarks
+   * Queries the list of language model access configurations of a specified instance by paging.
+   * 
+   * @param request - ListLlmAccessProfilesRequest
+   * @returns ListLlmAccessProfilesResponse
+   */
+  async listLlmAccessProfiles(request: $_model.ListLlmAccessProfilesRequest): Promise<$_model.ListLlmAccessProfilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLlmAccessProfilesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of numbers bound to an instance.
+   * 
+   * @remarks
+   * Queries the binding information between an instance and numbers.
+   * 
+   * @param request - ListNumberBindingsOfInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNumberBindingsOfInstanceResponse
+   */
+  async listNumberBindingsOfInstanceWithOptions(request: $_model.ListNumberBindingsOfInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListNumberBindingsOfInstanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNumberBindingsOfInstance",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNumberBindingsOfInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ListNumberBindingsOfInstanceResponse({}));
+  }
+
+  /**
+   * Queries the list of numbers bound to an instance.
+   * 
+   * @remarks
+   * Queries the binding information between an instance and numbers.
+   * 
+   * @param request - ListNumberBindingsOfInstanceRequest
+   * @returns ListNumberBindingsOfInstanceResponse
+   */
+  async listNumberBindingsOfInstance(request: $_model.ListNumberBindingsOfInstanceRequest): Promise<$_model.ListNumberBindingsOfInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listNumberBindingsOfInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the phone numbers of an instance.
+   * 
+   * @remarks
+   * Queries the phone numbers of a specified instance.
+   * 
+   * @param request - ListNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNumbersResponse
+   */
+  async listNumbersWithOptions(request: $_model.ListNumbersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListNumbersResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.number)) {
+      body["Number"] = request.number;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sipTrunkId)) {
+      body["SipTrunkId"] = request.sipTrunkId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNumbers",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNumbersResponse>(await this.callApi(params, req, runtime), new $_model.ListNumbersResponse({}));
+  }
+
+  /**
+   * Queries the phone numbers of an instance.
+   * 
+   * @remarks
+   * Queries the phone numbers of a specified instance.
+   * 
+   * @param request - ListNumbersRequest
+   * @returns ListNumbersResponse
+   */
+  async listNumbers(request: $_model.ListNumbersRequest): Promise<$_model.ListNumbersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listNumbersWithOptions(request, runtime);
   }
 
   /**
@@ -2633,6 +3201,192 @@ export default class Client extends OpenApi {
   async updateInstance(request: $_model.UpdateInstanceRequest): Promise<$_model.UpdateInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the instances bound to a number.
+   * 
+   * @remarks
+   * Updates the binding between a number and instances.
+   * 
+   * @param tmpReq - UpdateInstanceBindingsOfNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceBindingsOfNumberResponse
+   */
+  async updateInstanceBindingsOfNumberWithOptions(tmpReq: $_model.UpdateInstanceBindingsOfNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInstanceBindingsOfNumberResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateInstanceBindingsOfNumberShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      body["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.number)) {
+      body["Number"] = request.number;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateInstanceBindingsOfNumber",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateInstanceBindingsOfNumberResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInstanceBindingsOfNumberResponse({}));
+  }
+
+  /**
+   * Updates the instances bound to a number.
+   * 
+   * @remarks
+   * Updates the binding between a number and instances.
+   * 
+   * @param request - UpdateInstanceBindingsOfNumberRequest
+   * @returns UpdateInstanceBindingsOfNumberResponse
+   */
+  async updateInstanceBindingsOfNumber(request: $_model.UpdateInstanceBindingsOfNumberRequest): Promise<$_model.UpdateInstanceBindingsOfNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateInstanceBindingsOfNumberWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the language model access configuration.
+   * 
+   * @remarks
+   * Updates the language model access configuration for a specified instance.
+   * 
+   * @param tmpReq - UpdateLlmAccessProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLlmAccessProfileResponse
+   */
+  async updateLlmAccessProfileWithOptions(tmpReq: $_model.UpdateLlmAccessProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLlmAccessProfileResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateLlmAccessProfileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.profile)) {
+      request.profileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.profile, "Profile", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessProfileId)) {
+      body["AccessProfileId"] = request.accessProfileId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.profileShrink)) {
+      body["Profile"] = request.profileShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateLlmAccessProfile",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateLlmAccessProfileResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLlmAccessProfileResponse({}));
+  }
+
+  /**
+   * Updates the language model access configuration.
+   * 
+   * @remarks
+   * Updates the language model access configuration for a specified instance.
+   * 
+   * @param request - UpdateLlmAccessProfileRequest
+   * @returns UpdateLlmAccessProfileResponse
+   */
+  async updateLlmAccessProfile(request: $_model.UpdateLlmAccessProfileRequest): Promise<$_model.UpdateLlmAccessProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateLlmAccessProfileWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the phone numbers bound to an instance.
+   * 
+   * @remarks
+   * Updates the binding relationship between an instance and phone numbers.
+   * 
+   * @param tmpReq - UpdateNumberBindingsOfInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNumberBindingsOfInstanceResponse
+   */
+  async updateNumberBindingsOfInstanceWithOptions(tmpReq: $_model.UpdateNumberBindingsOfInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNumberBindingsOfInstanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateNumberBindingsOfInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.numbers)) {
+      request.numbersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.numbers, "Numbers", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.numbersShrink)) {
+      body["Numbers"] = request.numbersShrink;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNumberBindingsOfInstance",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNumberBindingsOfInstanceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNumberBindingsOfInstanceResponse({}));
+  }
+
+  /**
+   * Updates the phone numbers bound to an instance.
+   * 
+   * @remarks
+   * Updates the binding relationship between an instance and phone numbers.
+   * 
+   * @param request - UpdateNumberBindingsOfInstanceRequest
+   * @returns UpdateNumberBindingsOfInstanceResponse
+   */
+  async updateNumberBindingsOfInstance(request: $_model.UpdateNumberBindingsOfInstanceRequest): Promise<$_model.UpdateNumberBindingsOfInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateNumberBindingsOfInstanceWithOptions(request, runtime);
   }
 
   /**
