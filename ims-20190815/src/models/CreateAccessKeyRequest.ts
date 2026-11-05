@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccessKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The logon name of the RAM user.
-   * 
-   * If this parameter is empty, an AccessKey pair is created for the current user.
+   * The logon name of the Resource Access Management (RAM) user. If this parameter is left empty, an access key is created for the current user by default.
    * 
    * @example
    * test@example.onaliyun.com

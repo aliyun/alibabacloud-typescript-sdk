@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppSecretRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetAppSecretRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the application secret.
+   * The app secret ID.
    * 
    * This parameter is required.
    * 

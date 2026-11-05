@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether console logon is automatically disabled if the user is inactive. This feature is enabled by default and cannot be disabled.
+   * Specifies whether console logon is automatically disabled when the idle disablement conditions are met. This feature is enabled by default and cannot be disabled.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
   autoDisableLoginStatus?: string;
   /**
    * @remarks
-   * The time when the RAM user last logged on to the console. The time is displayed in UTC.
+   * The last console logon time in UTC.
    * 
    * @example
    * 2020-10-14T07:25:25Z
@@ -21,11 +21,10 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
   lastLoginTime?: string;
   /**
    * @remarks
-   * Indicates whether multi-factor authentication (MFA) is required for the user. Valid values:
+   * Specifies whether the user is required to enable multi-factor authentication (MFA). Valid values:
    * 
-   * - false
-   * 
-   * - true
+   * - false: MFA is not required.
+   * - true: MFA is required.
    * 
    * @example
    * false
@@ -33,11 +32,10 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
   MFABindRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether the RAM user must reset the password at the next logon. Valid values:
+   * Specifies whether the Resource Access Management (RAM) user must reset the password upon the next logon. Valid values:
    * 
-   * - false.
-   * 
-   * - true
+   * - false: The user is not required to reset the password.
+   * - true: The user must reset the password.
    * 
    * @example
    * false
@@ -45,14 +43,10 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
   passwordResetRequired?: boolean;
   /**
    * @remarks
-   * The status of the initial password. An initial password is the password that is configured when you create a logon profile or re-enable console logon.
-   * 
-   * Valid values
+   * The status of the initial password. An initial password is the password set when console logon is newly created or re-enabled. Valid values:
    * 
    * - "NotInitial": The password is not an initial password.
-   * 
    * - "InitialValid": The initial password is valid.
-   * 
    * - "InitialExpired": The initial password has expired.
    * 
    * @example
@@ -61,10 +55,9 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
   passwordStatus?: string;
   /**
    * @remarks
-   * The status of console logon. Valid values:
+   * Indicates whether console logon is enabled or disabled. Valid values:
    * 
    * - Active: Console logon is enabled.
-   * 
    * - Inactive: Console logon is disabled.
    * 
    * @example
@@ -73,7 +66,7 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the logon settings were last updated. The time is displayed in UTC.
+   * The update time in UTC.
    * 
    * @example
    * 2020-10-14T06:56:45Z
@@ -81,7 +74,7 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
   updateDate?: string;
   /**
    * @remarks
-   * The logon name of the RAM user.
+   * The logon name of the Resource Access Management (RAM) user.
    * 
    * @example
    * test@example.onaliyun.com
@@ -125,12 +118,12 @@ export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
 export class GetLoginProfileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The console logon settings for the RAM user.
+   * The console logon profile.
    */
   loginProfile?: GetLoginProfileResponseBodyLoginProfile;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E517F18B-632C-48FC-93F1-CDCBCC6F8444

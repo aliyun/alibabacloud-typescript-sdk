@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the RAM user is required to enable MFA.
+   * Indicates whether the Resource Access Management (RAM) user is required to enable multi-factor authentication (MFA).
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   MFABindRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether the RAM user must reset the password at the next logon.
+   * Indicates whether the Resource Access Management (RAM) user is required to reset the password upon the next logon.
    * 
    * @example
    * false
@@ -21,14 +21,9 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   passwordResetRequired?: boolean;
   /**
    * @remarks
-   * The status of the initial password. This password is set when a logon configuration is created or when console logon is re-enabled.
-   * 
-   * Valid values
-   * 
+   * The status of the initial password. An initial password is the password set when console logon is created or re-enabled. Valid values:
    * - "NotInitial": The password is not an initial password.
-   * 
    * - "InitialValid": The initial password is valid.
-   * 
    * - "InitialExpired": The initial password has expired.
    * 
    * @example
@@ -37,7 +32,7 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   passwordStatus?: string;
   /**
    * @remarks
-   * Indicates whether password-based logon for the console is enabled or disabled.
+   * The status of console password logon.
    * 
    * @example
    * Active
@@ -45,7 +40,7 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the logon configuration was last updated.
+   * The update time. The time is in the RFC 3339 format in UTC, such as 2020-10-14T03:47:51Z.
    * 
    * @example
    * 2020-10-14T03:47:51Z
@@ -53,7 +48,7 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   updateDate?: string;
   /**
    * @remarks
-   * The logon name of the RAM user.
+   * The logon name of the Resource Access Management (RAM) user.
    * 
    * @example
    * test@example.onaliyun.com
@@ -93,7 +88,7 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
 export class CreateLoginProfileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The console logon settings of the RAM user.
+   * The console logon profile.
    */
   loginProfile?: CreateLoginProfileResponseBodyLoginProfile;
   /**

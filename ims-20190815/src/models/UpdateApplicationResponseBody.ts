@@ -152,6 +152,16 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   appType?: string;
   /**
    * @remarks
+   * The application assignment type. Valid values:
+   * + AllowAll: Full assignment. All RAM users and roles under the account are allowed to use the application.
+   * + OnDemand: On-demand assignment. Only specified RAM users and roles under the account are allowed to use the application.
+   * 
+   * @example
+   * AlloAll
+   */
+  assignmentType?: string;
+  /**
+   * @remarks
    * The creation time.
    * 
    * Format: RFC 3339 (UTC). Example: 2020-10-23T08:06:57Z.
@@ -162,7 +172,7 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The permission scope information of the application.
+   * The application permission scope information.
    */
   delegatedScope?: UpdateApplicationResponseBodyApplicationDelegatedScope;
   /**
@@ -175,12 +185,22 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Indicates whether the application is allowed to be installed by other accounts.
+   * Indicates whether the application can be installed by other accounts.
    * 
    * @example
    * true
    */
   isMultiTenant?: boolean;
+  /**
+   * @remarks
+   * Specifies whether user authorization is required. Valid values:
+   * + true: User authorization is required.
+   * + false: User authorization is not required.
+   * 
+   * @example
+   * true
+   */
+  needPrincipalConsent?: boolean;
   /**
    * @remarks
    * The OAuth protocol version of the application. Valid values:
@@ -225,10 +245,12 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
       appId: 'AppId',
       appName: 'AppName',
       appType: 'AppType',
+      assignmentType: 'AssignmentType',
       createDate: 'CreateDate',
       delegatedScope: 'DelegatedScope',
       displayName: 'DisplayName',
       isMultiTenant: 'IsMultiTenant',
+      needPrincipalConsent: 'NeedPrincipalConsent',
       protocolVersion: 'ProtocolVersion',
       redirectUris: 'RedirectUris',
       refreshTokenValidity: 'RefreshTokenValidity',
@@ -244,10 +266,12 @@ export class UpdateApplicationResponseBodyApplication extends $dara.Model {
       appId: 'string',
       appName: 'string',
       appType: 'string',
+      assignmentType: 'string',
       createDate: 'string',
       delegatedScope: UpdateApplicationResponseBodyApplicationDelegatedScope,
       displayName: 'string',
       isMultiTenant: 'boolean',
+      needPrincipalConsent: 'boolean',
       protocolVersion: 'string',
       redirectUris: UpdateApplicationResponseBodyApplicationRedirectUris,
       refreshTokenValidity: 'number',

@@ -290,7 +290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+   * Creates an access key for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - CreateAccessKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -321,7 +321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+   * Creates an access key for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - CreateAccessKeyRequest
    * @returns CreateAccessKeyResponse
@@ -332,7 +332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application secret for an application.
+   * Creates an application secret for a specified application.
    * 
    * @param request - CreateAppSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -363,7 +363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application secret for an application.
+   * Creates an application secret for a specified application.
    * 
    * @param request - CreateAppSecretRequest
    * @returns CreateAppSecretResponse
@@ -395,12 +395,20 @@ export default class Client extends OpenApi {
       query["AppType"] = request.appType;
     }
 
+    if (!$dara.isNull(request.assignmentType)) {
+      query["AssignmentType"] = request.assignmentType;
+    }
+
     if (!$dara.isNull(request.displayName)) {
       query["DisplayName"] = request.displayName;
     }
 
     if (!$dara.isNull(request.isMultiTenant)) {
       query["IsMultiTenant"] = request.isMultiTenant;
+    }
+
+    if (!$dara.isNull(request.needPrincipalConsent)) {
+      query["NeedPrincipalConsent"] = request.needPrincipalConsent;
     }
 
     if (!$dara.isNull(request.predefinedScopes)) {
@@ -456,7 +464,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Resource Access Management (RAM) user group.
+   * Creates an application assignment record to grant a specified principal the permissions to use a specified application.
+   * 
+   * @param request - CreateApplicationAssignmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationAssignmentResponse
+   */
+  async createApplicationAssignmentWithOptions(request: $_model.CreateApplicationAssignmentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApplicationAssignmentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.principalName)) {
+      query["PrincipalName"] = request.principalName;
+    }
+
+    if (!$dara.isNull(request.principalType)) {
+      query["PrincipalType"] = request.principalType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApplicationAssignment",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApplicationAssignmentResponse>(await this.callApi(params, req, runtime), new $_model.CreateApplicationAssignmentResponse({}));
+  }
+
+  /**
+   * Creates an application assignment record to grant a specified principal the permissions to use a specified application.
+   * 
+   * @param request - CreateApplicationAssignmentRequest
+   * @returns CreateApplicationAssignmentResponse
+   */
+  async createApplicationAssignment(request: $_model.CreateApplicationAssignmentRequest): Promise<$_model.CreateApplicationAssignmentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApplicationAssignmentWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a user group.
    * 
    * @param request - CreateGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -495,7 +553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Resource Access Management (RAM) user group.
+   * Creates a user group.
    * 
    * @param request - CreateGroupRequest
    * @returns CreateGroupResponse
@@ -506,7 +564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a logon configuration for a Resource Access Management (RAM) user.
+   * Creates a logon profile for a Resource Access Management (RAM) user.
    * 
    * @param request - CreateLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -553,7 +611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a logon configuration for a Resource Access Management (RAM) user.
+   * Creates a logon profile for a Resource Access Management (RAM) user.
    * 
    * @param request - CreateLoginProfileRequest
    * @returns CreateLoginProfileResponse
@@ -754,10 +812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a RAM user.
-   * 
-   * @remarks
-   * This topic provides an example on how to create a RAM user named `test`.
+   * Creates a Resource Access Management (RAM) user.
    * 
    * @param request - CreateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -808,10 +863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a RAM user.
-   * 
-   * @remarks
-   * This topic provides an example on how to create a RAM user named `test`.
+   * Creates a Resource Access Management (RAM) user.
    * 
    * @param request - CreateUserRequest
    * @returns CreateUserResponse
@@ -1041,6 +1093,56 @@ export default class Client extends OpenApi {
   async deleteApplication(request: $_model.DeleteApplicationRequest): Promise<$_model.DeleteApplicationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteApplicationWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an application assignment record and revokes the access of a specified principal to a specified application.
+   * 
+   * @param request - DeleteApplicationAssignmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApplicationAssignmentResponse
+   */
+  async deleteApplicationAssignmentWithOptions(request: $_model.DeleteApplicationAssignmentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApplicationAssignmentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.principalName)) {
+      query["PrincipalName"] = request.principalName;
+    }
+
+    if (!$dara.isNull(request.principalType)) {
+      query["PrincipalType"] = request.principalType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApplicationAssignment",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteApplicationAssignmentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteApplicationAssignmentResponse({}));
+  }
+
+  /**
+   * Deletes an application assignment record and revokes the access of a specified principal to a specified application.
+   * 
+   * @param request - DeleteApplicationAssignmentRequest
+   * @returns DeleteApplicationAssignmentResponse
+   */
+  async deleteApplicationAssignment(request: $_model.DeleteApplicationAssignmentRequest): Promise<$_model.DeleteApplicationAssignmentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteApplicationAssignmentWithOptions(request, runtime);
   }
 
   /**
@@ -1456,11 +1558,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uninstalls an external application or an internal application of the ServerApp type.
+   * Uninstalls an installed external application or an internal application of the ServerApp type.
    * 
    * @remarks
-   * If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
-   * > For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+   * When you uninstall an internal application, the application must be of the **ServerApp** type. Otherwise, the call fails.
+   * > Among **internal applications**, only applications of the ServerApp type require the **provisioning** operation. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not require and cannot be uninstalled**.
    * 
    * @param request - DeprovisionApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1491,11 +1593,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uninstalls an external application or an internal application of the ServerApp type.
+   * Uninstalls an installed external application or an internal application of the ServerApp type.
    * 
    * @remarks
-   * If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
-   * > For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+   * When you uninstall an internal application, the application must be of the **ServerApp** type. Otherwise, the call fails.
+   * > Among **internal applications**, only applications of the ServerApp type require the **provisioning** operation. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not require and cannot be uninstalled**.
    * 
    * @param request - DeprovisionApplicationRequest
    * @returns DeprovisionApplicationResponse
@@ -1506,7 +1608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an installed external application.
+   * Uninstalls an installed external application.
    * 
    * @param request - DeprovisionExternalApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1537,7 +1639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an installed external application.
+   * Uninstalls an installed external application.
    * 
    * @param request - DeprovisionExternalApplicationRequest
    * @returns DeprovisionExternalApplicationResponse
@@ -1652,7 +1754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
+   * Queries the details of a specified revoked access key that belongs to a Resource Access Management (RAM) user.
    * 
    * @param request - GetAccessKeyInfoInRecycleBinRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1683,7 +1785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
+   * Queries the details of a specified revoked access key that belongs to a Resource Access Management (RAM) user.
    * 
    * @param request - GetAccessKeyInfoInRecycleBinRequest
    * @returns GetAccessKeyInfoInRecycleBinResponse
@@ -1694,7 +1796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the time when an AccessKey pair was used for the last time.
+   * Queries the last used time of a specified access key.
    * 
    * @param request - GetAccessKeyLastUsedRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1729,7 +1831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the time when an AccessKey pair was used for the last time.
+   * Queries the last used time of a specified access key.
    * 
    * @param request - GetAccessKeyLastUsedRequest
    * @returns GetAccessKeyLastUsedResponse
@@ -1914,7 +2016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an application secret.
+   * Queries the app secret information of a specified application.
    * 
    * @param request - GetAppSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1949,7 +2051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an application secret.
+   * Queries the app secret information of a specified application.
    * 
    * @param request - GetAppSecretRequest
    * @returns GetAppSecretResponse
@@ -1960,10 +2062,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information of an application.
+   * Queries the configuration information of a specified application.
    * 
    * @remarks
-   * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+   * This topic provides an example to query the configuration information of the application `472457090344041****`.
    * 
    * @param request - GetApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1994,10 +2096,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information of an application.
+   * Queries the configuration information of a specified application.
    * 
    * @remarks
-   * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+   * This topic provides an example to query the configuration information of the application `472457090344041****`.
    * 
    * @param request - GetApplicationRequest
    * @returns GetApplicationResponse
@@ -2056,7 +2158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the user credential reports of an Alibaba Cloud account.
+   * Queries the user credential report for an Alibaba Cloud account.
    * 
    * @param request - GetCredentialReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2091,7 +2193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the user credential reports of an Alibaba Cloud account.
+   * Queries the user credential report for an Alibaba Cloud account.
    * 
    * @param request - GetCredentialReportRequest
    * @returns GetCredentialReportResponse
@@ -2262,7 +2364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a Resource Access Management (RAM) user group.
+   * Queries the details of a specified user group.
    * 
    * @param request - GetGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2293,7 +2395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a Resource Access Management (RAM) user group.
+   * Queries the details of a specified user group.
    * 
    * @param request - GetGroupRequest
    * @returns GetGroupResponse
@@ -2304,10 +2406,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the console logon settings for a Resource Access Management (RAM) user.
+   * Queries the logon information of a specified Resource Access Management (RAM) user.
    * 
    * @remarks
-   * 查询前，目标 RAM 用户必须已有控制台登录配置（`LoginProfile`）；如果尚未配置，需先调用 `CreateLoginProfile` 创建登录配置。
+   * Before querying, the target RAM user must have a console logon profile (LoginProfile). If the profile is not configured, call CreateLoginProfile to create a logon profile first.
    * 
    * @param request - GetLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2338,10 +2440,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the console logon settings for a Resource Access Management (RAM) user.
+   * Queries the logon information of a specified Resource Access Management (RAM) user.
    * 
    * @remarks
-   * 查询前，目标 RAM 用户必须已有控制台登录配置（`LoginProfile`）；如果尚未配置，需先调用 `CreateLoginProfile` 创建登录配置。
+   * Before querying, the target RAM user must have a console logon profile (LoginProfile). If the profile is not configured, call CreateLoginProfile to create a logon profile first.
    * 
    * @param request - GetLoginProfileRequest
    * @returns GetLoginProfileResponse
@@ -2552,7 +2654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a RAM user.
+   * Queries the details of a specified Resource Access Management (RAM) user.
    * 
    * @param request - GetUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2591,7 +2693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a RAM user.
+   * Queries the details of a specified Resource Access Management (RAM) user.
    * 
    * @param request - GetUserRequest
    * @returns GetUserResponse
@@ -2889,6 +2991,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists the assignment records of a specified application.
+   * 
+   * @param request - ListApplicationAssignmentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationAssignmentsResponse
+   */
+  async listApplicationAssignmentsWithOptions(request: $_model.ListApplicationAssignmentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationAssignmentsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationAssignments",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationAssignmentsResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationAssignmentsResponse({}));
+  }
+
+  /**
+   * Lists the assignment records of a specified application.
+   * 
+   * @param request - ListApplicationAssignmentsRequest
+   * @returns ListApplicationAssignmentsResponse
+   */
+  async listApplicationAssignments(request: $_model.ListApplicationAssignmentsRequest): Promise<$_model.ListApplicationAssignmentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationAssignmentsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists the application assignment records for a specified identity principal.
+   * 
+   * @param request - ListApplicationAssignmentsForPrincipalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationAssignmentsForPrincipalResponse
+   */
+  async listApplicationAssignmentsForPrincipalWithOptions(request: $_model.ListApplicationAssignmentsForPrincipalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationAssignmentsForPrincipalResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.principalName)) {
+      query["PrincipalName"] = request.principalName;
+    }
+
+    if (!$dara.isNull(request.principalType)) {
+      query["PrincipalType"] = request.principalType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationAssignmentsForPrincipal",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationAssignmentsForPrincipalResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationAssignmentsForPrincipalResponse({}));
+  }
+
+  /**
+   * Lists the application assignment records for a specified identity principal.
+   * 
+   * @param request - ListApplicationAssignmentsForPrincipalRequest
+   * @returns ListApplicationAssignmentsForPrincipalResponse
+   */
+  async listApplicationAssignmentsForPrincipal(request: $_model.ListApplicationAssignmentsForPrincipalRequest): Promise<$_model.ListApplicationAssignmentsForPrincipalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationAssignmentsForPrincipalWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the installation information of all installed applications.
    * 
    * @param request - ListApplicationProvisionInfosRequest
@@ -2931,10 +3137,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the applications that you have created.
+   * Lists the applications.
    * 
    * @remarks
-   * This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
+   * This topic provides an example of querying the applications within the current account. The response indicates that the current account has only one application named `myapp`.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListApplicationsResponse
@@ -2956,10 +3162,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the applications that you have created.
+   * Lists the applications.
    * 
    * @remarks
-   * This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
+   * This topic provides an example of querying the applications within the current account. The response indicates that the current account has only one application named `myapp`.
    * @returns ListApplicationsResponse
    */
   async listApplications(): Promise<$_model.ListApplicationsResponse> {
@@ -4428,7 +4634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a mobile phone or email to a Resource Access Management (RAM) user.
+   * Attaches a secure phone or security email address to a Resource Access Management (RAM) user.
    * 
    * @param request - SetVerificationInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4471,7 +4677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a mobile phone or email to a Resource Access Management (RAM) user.
+   * Attaches a secure phone or security email address to a Resource Access Management (RAM) user.
    * 
    * @param request - SetVerificationInfoRequest
    * @returns SetVerificationInfoResponse
@@ -4578,7 +4784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
+   * Unbinds a secure phone or security email address from a Resource Access Management (RAM) user.
    * 
    * @param request - UnbindVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4621,7 +4827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
+   * Unbinds a secure phone or security email address from a Resource Access Management (RAM) user.
    * 
    * @param request - UnbindVerificationRequest
    * @returns UnbindVerificationResponse
@@ -4740,7 +4946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a specified application.
+   * Modifies the configuration information of a specified application.
    * 
    * @param request - UpdateApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4757,12 +4963,20 @@ export default class Client extends OpenApi {
       query["NewAccessTokenValidity"] = request.newAccessTokenValidity;
     }
 
+    if (!$dara.isNull(request.newAssignmentType)) {
+      query["NewAssignmentType"] = request.newAssignmentType;
+    }
+
     if (!$dara.isNull(request.newDisplayName)) {
       query["NewDisplayName"] = request.newDisplayName;
     }
 
     if (!$dara.isNull(request.newIsMultiTenant)) {
       query["NewIsMultiTenant"] = request.newIsMultiTenant;
+    }
+
+    if (!$dara.isNull(request.newNeedPrincipalConsent)) {
+      query["NewNeedPrincipalConsent"] = request.newNeedPrincipalConsent;
     }
 
     if (!$dara.isNull(request.newPredefinedScopes)) {
@@ -4803,7 +5017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a specified application.
+   * Modifies the configuration information of a specified application.
    * 
    * @param request - UpdateApplicationRequest
    * @returns UpdateApplicationResponse

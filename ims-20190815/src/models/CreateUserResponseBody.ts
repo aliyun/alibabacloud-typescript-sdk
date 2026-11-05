@@ -65,7 +65,9 @@ export class CreateUserResponseBodyUser extends $dara.Model {
   comments?: string;
   /**
    * @remarks
-   * The time when the RAM user was created.
+   * The creation time of the Resource Access Management (RAM) user.
+   * 
+   * Format: RFC 3339 (UTC), such as 2020-10-12T09:12:00Z.
    * 
    * @example
    * 2020-10-12T09:12:00Z
@@ -73,7 +75,7 @@ export class CreateUserResponseBodyUser extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The display name of the RAM user.
+   * The display name of the Resource Access Management (RAM) user.
    * 
    * @example
    * test
@@ -81,9 +83,8 @@ export class CreateUserResponseBodyUser extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The email address of the RAM user.
-   * 
-   * > This parameter is valid only on the China site (aliyun.com).
+   * The electron mailbox of the Resource Access Management (RAM) user.
+   * > This parameter is applicable only to the China site.
    * 
    * @example
    * alice@example.com
@@ -91,7 +92,9 @@ export class CreateUserResponseBodyUser extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The last time when the RAM user logged on to the Alibaba Cloud Management Console.
+   * The time of the last logon to the console by the Resource Access Management (RAM) user.
+   * 
+   * Format: RFC 3339 (UTC), such as 2020-10-12T09:12:00Z.
    * 
    * @example
    * 2020-10-12T09:12:00Z
@@ -99,9 +102,8 @@ export class CreateUserResponseBodyUser extends $dara.Model {
   lastLoginDate?: string;
   /**
    * @remarks
-   * The mobile phone number of the RAM user.
-   * 
-   * > This parameter is valid only on the China site (aliyun.com).
+   * The mobile phone number of the Resource Access Management (RAM) user.
+   * > This parameter is applicable only to the China site.
    * 
    * @example
    * 86-1868888****
@@ -109,13 +111,10 @@ export class CreateUserResponseBodyUser extends $dara.Model {
   mobilePhone?: string;
   /**
    * @remarks
-   * The source of the RAM user. Valid values:
-   * 
-   * - Manual: The RAM user is manually created in the RAM console.
-   * 
-   * - SCIM: The RAM user is mapped by using System for Cross-domain Identity Management (SCIM).
-   * 
-   * - CloudSSO: The RAM user is mapped from a CloudSSO user.
+   * The provision type. Valid values:
+   * - Manual: The Resource Access Management (RAM) user is manually created in RAM.
+   * - SCIM: The Resource Access Management (RAM) user is created through the System for Cross-domain Identity Management protocol.
+   * - CloudSSO: The user is created through CloudSSO synchronization.
    * 
    * @example
    * Manual
@@ -124,7 +123,9 @@ export class CreateUserResponseBodyUser extends $dara.Model {
   tags?: CreateUserResponseBodyUserTags;
   /**
    * @remarks
-   * The time when the information about the RAM user was updated.
+   * The update time of the Resource Access Management (RAM) user.
+   * 
+   * Format: RFC 3339 (UTC), such as 2020-10-12T09:12:00Z.
    * 
    * @example
    * 2020-10-12T09:12:00Z
@@ -132,7 +133,7 @@ export class CreateUserResponseBodyUser extends $dara.Model {
   updateDate?: string;
   /**
    * @remarks
-   * The ID of the RAM user.
+   * The ID of the Resource Access Management (RAM) user.
    * 
    * @example
    * 20732900249392****
@@ -140,7 +141,7 @@ export class CreateUserResponseBodyUser extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The logon name of the RAM user.
+   * The logon name of the Resource Access Management (RAM) user.
    * 
    * @example
    * test@example.onaliyun.com
@@ -201,7 +202,7 @@ export class CreateUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the RAM user.
+   * The Resource Access Management (RAM) user information.
    */
   user?: CreateUserResponseBodyUser;
   static names(): { [key: string]: string } {

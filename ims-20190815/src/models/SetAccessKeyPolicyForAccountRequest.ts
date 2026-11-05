@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetAccessKeyPolicyForAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The network access restriction policy. The value is a JSON-formatted string. For more information, see the AccessKeyPolicy structure description in the SetAccessKeyPolicy documentation.
+   * The network access restriction policy. A JSON-formatted string. For more information about the AccessKeyPolicy structure, see the SetAccessKeyPolicy documentation.
    * 
    * This parameter is required.
    * 

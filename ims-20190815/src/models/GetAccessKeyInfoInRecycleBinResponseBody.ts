@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccessKeyInfoInRecycleBinResponseBodyAccessKey extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID.
+   * The access key ID.
    * 
    * @example
    * LTAI*******************
@@ -13,7 +13,9 @@ export class GetAccessKeyInfoInRecycleBinResponseBodyAccessKey extends $dara.Mod
   accessKeyId?: string;
   /**
    * @remarks
-   * The time when the AccessKey pair was created.
+   * The time when the access key was created.
+   * 
+   * Format: RFC 3339 (UTC). Example: 2020-10-12T09:12:00Z.
    * 
    * @example
    * 2020-10-12T09:12:00Z
@@ -21,7 +23,9 @@ export class GetAccessKeyInfoInRecycleBinResponseBodyAccessKey extends $dara.Mod
   createDate?: string;
   /**
    * @remarks
-   * The time when the AccessKey pair will be permanently deleted from the recycle bin.
+   * The time when the access key will be permanently deleted from the recycle bin.
+   * 
+   * Format: RFC 3339 (UTC). Example: 2020-11-12T10:12:00Z.
    * 
    * @example
    * 2020-11-12T10:12:00Z
@@ -29,7 +33,9 @@ export class GetAccessKeyInfoInRecycleBinResponseBodyAccessKey extends $dara.Mod
   deleteDate?: string;
   /**
    * @remarks
-   * The time when the AccessKey pair was deleted and moved to the recycle bin.
+   * The time when the access key was deleted and moved to the recycle bin.
+   * 
+   * Format: RFC 3339 (UTC). Example: 2020-10-12T10:12:00Z.
    * 
    * @example
    * 2020-10-12T10:12:00Z
@@ -37,7 +43,7 @@ export class GetAccessKeyInfoInRecycleBinResponseBodyAccessKey extends $dara.Mod
   recycleDate?: string;
   /**
    * @remarks
-   * The ID of the RAM user.
+   * The ID of the Resource Access Management (RAM) user.
    * 
    * @example
    * 20732900249392****
@@ -45,7 +51,7 @@ export class GetAccessKeyInfoInRecycleBinResponseBodyAccessKey extends $dara.Mod
   userId?: string;
   /**
    * @remarks
-   * The logon name of the RAM user.
+   * The logon name of the Resource Access Management (RAM) user.
    * 
    * @example
    * test@example.onaliyun.com
@@ -53,11 +59,10 @@ export class GetAccessKeyInfoInRecycleBinResponseBodyAccessKey extends $dara.Mod
   userPrincipalName?: string;
   /**
    * @remarks
-   * Indicates whether the RAM user to which the AccessKey pair belongs is in the recycle bin. Valid values:
+   * Indicates whether the Resource Access Management (RAM) user to which the access key belongs is revoked. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * - true: The Resource Access Management (RAM) user is revoked.
+   * - false: The Resource Access Management (RAM) user is not revoked.
    * 
    * @example
    * true
@@ -99,7 +104,7 @@ export class GetAccessKeyInfoInRecycleBinResponseBodyAccessKey extends $dara.Mod
 export class GetAccessKeyInfoInRecycleBinResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the AccessKey pair.
+   * The access key information.
    */
   accessKey?: GetAccessKeyInfoInRecycleBinResponseBodyAccessKey;
   /**

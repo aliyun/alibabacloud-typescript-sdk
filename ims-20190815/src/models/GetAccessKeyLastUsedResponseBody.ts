@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $dara.Model {
   /**
    * @remarks
-   * The time when the AccessKey pair was used for the last time.
+   * The last used time. Format: RFC 3339 (UTC). Example: 2020-10-16T01:37:37Z.
    * 
    * @example
    * 2020-10-16T01:37:37Z
@@ -13,7 +13,7 @@ export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $dara.Mod
   lastUsedDate?: string;
   /**
    * @remarks
-   * The Alibaba Cloud service that was last accessed by using the AccessKey pair.
+   * The last used cloud service.
    * 
    * @example
    * Ram
@@ -45,7 +45,7 @@ export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $dara.Mod
 export class GetAccessKeyLastUsedResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the time when the AccessKey pair was used for the last time.
+   * The last usage information of the access key.
    */
   accessKeyLastUsed?: GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed;
   /**

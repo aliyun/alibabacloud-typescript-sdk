@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppSecretResponseBodyAppSecret extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 472457090344041****
@@ -13,7 +13,7 @@ export class GetAppSecretResponseBodyAppSecret extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the application secret.
+   * The app secret ID.
    * 
    * @example
    * 2efd5004-005c-4f05-83c6-5b1dd176****
@@ -21,7 +21,7 @@ export class GetAppSecretResponseBodyAppSecret extends $dara.Model {
   appSecretId?: string;
   /**
    * @remarks
-   * The content of the application secret.
+   * The app secret content.
    * 
    * @example
    * ai78ZmmxnlUG1jXlBZRDFKos9DIjY4m17Q7dCpMwn1rqXsTGb1X1XmrmveMp****
@@ -30,6 +30,8 @@ export class GetAppSecretResponseBodyAppSecret extends $dara.Model {
   /**
    * @remarks
    * The creation time.
+   * 
+   * Format: RFC 3339 (UTC). Example: 2020-10-26T02:52:31Z.
    * 
    * @example
    * 2020-10-26T02:52:31Z
@@ -65,7 +67,7 @@ export class GetAppSecretResponseBodyAppSecret extends $dara.Model {
 export class GetAppSecretResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the application secret.
+   * The app secret information.
    */
   appSecret?: GetAppSecretResponseBodyAppSecret;
   /**

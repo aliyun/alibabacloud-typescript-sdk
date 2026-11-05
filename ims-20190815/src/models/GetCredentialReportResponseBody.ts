@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCredentialReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The content of the user credential report.
-   * 
-   * The report is Base64-encoded. After you decode the report, the credential report is in the CSV format.
+   * The content of the user credential report. The content is Base64-encoded. After decoding, the content is in CSV format.
    * 
    * @example
    * OVZWK4RMOVZW****
@@ -15,7 +13,7 @@ export class GetCredentialReportResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The time when the user credential report was generated.
+   * The time when the user credential report was generated. The time is displayed in the RFC 3339 format in UTC. Example: 2020-10-19T15:06:52Z.
    * 
    * @example
    * 2020-10-19T15:06:52Z
@@ -26,7 +24,6 @@ export class GetCredentialReportResponseBody extends $dara.Model {
    * Indicates whether the response is truncated. Valid values:
    * 
    * - true
-   * 
    * - false
    * 
    * @example
@@ -35,7 +32,7 @@ export class GetCredentialReportResponseBody extends $dara.Model {
   isTruncated?: string;
   /**
    * @remarks
-   * The parameter that is used to obtain the truncated part. This parameter takes effect only when `IsTruncated` is set to true.
+   * The token used to retrieve the next set of results. This parameter takes effect only when IsTruncated is set to true.
    * 
    * @example
    * EXAMPLE
@@ -43,7 +40,7 @@ export class GetCredentialReportResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7A01826E-7601-44B0-B4DF-2B0C509836DE

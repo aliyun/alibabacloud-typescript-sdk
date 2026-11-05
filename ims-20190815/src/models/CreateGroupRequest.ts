@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The description.
+   * The comments.
    * 
-   * The description can be up to 128 characters in length.
+   * The maximum length is 128 characters.
    * 
    * @example
-   * 开发团队
+   * Development team
    */
   comments?: string;
   /**
    * @remarks
-   * The display name of the RAM user group.
+   * The display name of the user group.
    * 
-   * The name can be up to 24 characters in length.
+   * The maximum length is 24 characters.
    * 
    * @example
    * Dev-Team
@@ -25,9 +25,9 @@ export class CreateGroupRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The name of the RAM user group. You must specify this parameter.
+   * The name of the user group. This parameter is required.
    * 
-   * The name can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * The maximum length is 64 characters. It can contain letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * Dev-Team

@@ -19,7 +19,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * @remarks
    * The application name.
    * 
-   * It can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * The maximum length is 64 characters. Only letters, digits, periods (.), underscores (_), and hyphens (-) are allowed.
    * 
    * @example
    * myapp
@@ -27,13 +27,11 @@ export class CreateApplicationRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The type of the application. Valid values:
+   * The application type. Valid values:
    * 
-   * - WebApp: a web application that is based on browser interaction.
-   * 
-   * - NativeApp: a native application that runs on an operating system, such as a desktop or mobile operating system.
-   * 
-   * - ServerApp: an application that directly accesses Alibaba Cloud services without user logon. Currently, only applications that use the System for Cross-domain Identity Management (SCIM) protocol for user synchronization are supported.
+   * - WebApp: web applications that interact with users through browsers. 
+   * - NativeApp: native applications that run in operating systems, primarily on desktop or shift operating systems. 
+   * - ServerApp: applications that directly access Alibaba Cloud services without requiring user logons. Currently, only user synchronization applications based on the System for Cross-domain Identity Management protocol are supported.
    * 
    * This parameter is required.
    * 
@@ -43,9 +41,20 @@ export class CreateApplicationRequest extends $dara.Model {
   appType?: string;
   /**
    * @remarks
+   * The application assignment type. Valid values:
+   * 
+   * + AllowAll: assigns the application to all RAM users and roles in the account, allowing them to use the application.
+   * + OnDemand: assigns the application only to specified RAM users and roles in the account, allowing only them to use the application.
+   * 
+   * @example
+   * AllowAll
+   */
+  assignmentType?: string;
+  /**
+   * @remarks
    * The display name of the application.
    * 
-   * It can be up to 24 characters in length.
+   * Maximum length: 24 characters.
    * 
    * This parameter is required.
    * 
@@ -55,11 +64,10 @@ export class CreateApplicationRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Specifies whether the application can be installed by other Alibaba Cloud accounts. Valid values:
+   * Specifies whether the application can be installed by other accounts. Valid values:
    * 
-   * - true: If not specified, the default value is true for NativeApp and ServerApp applications.
-   * 
-   * - false: If not specified, the default value is false for WebApp applications.
+   * - true: For NativeApp and ServerApp applications, if this value is empty, the default value is true.
+   * - false: For WebApp applications, if this value is empty, the default value is false.
    * 
    * @example
    * false
@@ -67,11 +75,22 @@ export class CreateApplicationRequest extends $dara.Model {
   isMultiTenant?: boolean;
   /**
    * @remarks
-   * The scope of application permissions.
+   * Specifies whether user authorization is required. Valid values:
    * 
-   * For more information about the application permission scope, see [OAuth overview](https://help.aliyun.com/document_detail/93693.html). You can also call the [ListPredefinedScopes](https://help.aliyun.com/document_detail/187206.html) operation to obtain the scopes that are supported by different application types.
+   * + true: In addition to the authorization required during application installation, users must also authorize the application **each time** they use it for OAuth logon.
+   * + false: Authorization is required only during application installation. Users do not need additional authorization when they use the application for OAuth logon later.
    * 
-   * To specify multiple permissions, separate them with semicolons (;).
+   * @example
+   * true
+   */
+  needPrincipalConsent?: boolean;
+  /**
+   * @remarks
+   * The scopes of the application.
+   * 
+   * For the valid values and descriptions of application scopes, see [OAuth scopes](https://help.aliyun.com/document_detail/93693.html). You can also call the [ListPredefinedScopes](https://help.aliyun.com/document_detail/187206.html) operation to obtain the scopes supported by different application types.
+   * 
+   * Separate multiple scopes with semicolons (;).
    * 
    * @example
    * aliuid;profile
@@ -80,12 +99,10 @@ export class CreateApplicationRequest extends $dara.Model {
   /**
    * @remarks
    * The OAuth protocol version of the application. Valid values:
+   * + 2.0: OAuth 2.0 protocol.
+   * + 2.1: OAuth 2.1 protocol.
    * 
-   * - `2.0`: OAuth 2.0
-   * 
-   * - `2.1`: OAuth 2.1
-   * 
-   * Default value: `2.0`.
+   * Default value: 2.0.
    * 
    * @example
    * 2.0
@@ -93,9 +110,9 @@ export class CreateApplicationRequest extends $dara.Model {
   protocolVersion?: string;
   /**
    * @remarks
-   * The redirect URL of the application.
+   * The redirect URIs.
    * 
-   * To specify multiple URLs, separate them with semicolons (;).
+   * Separate multiple URIs with semicolons (;).
    * 
    * @example
    * https://www.example.com
@@ -109,9 +126,8 @@ export class CreateApplicationRequest extends $dara.Model {
    * 
    * Default value:
    * 
-   * - If not specified, the default value is 2,592,000 seconds (30 days) for NativeApp and ServerApp applications.
-   * 
-   * - If not specified, the default value is 7,776,000 seconds (90 days) for WebApp applications.
+   * - For NativeApp and ServerApp applications, if this value is empty, the default value is 2592000 seconds (30 days).
+   * - For WebApp applications, if this value is empty, the default value is 7776000 seconds (90 days).
    * 
    * @example
    * 2592000
@@ -119,13 +135,13 @@ export class CreateApplicationRequest extends $dara.Model {
   refreshTokenValidity?: number;
   /**
    * @remarks
-   * The required permission.
+   * The required scopes of the application.
    * 
-   * You can specify one or more permissions for the `RequiredScopes` parameter. When a user grants permissions to the application, the scopes specified in this parameter are pre-selected and cannot be deselected.
+   * You can set one or more scopes in RequiredScopes as required. After a scope is set as required, it is selected by default and cannot be deselected when a user authorizes the application.
    * 
-   * To enter multiple scopes, separate them with semicolons (;).
+   * Separate multiple scopes with semicolons (;).
    * 
-   * > Any scope specified here must also be included in `PredefinedScopes`. Otherwise, the scope will not be set as required.
+   * > If a scope that you specify in RequiredScopes is not included in PredefinedScopes, the required scope does not take effect.
    * 
    * @example
    * aliuid
@@ -133,15 +149,13 @@ export class CreateApplicationRequest extends $dara.Model {
   requiredScopes?: string;
   /**
    * @remarks
-   * Specifies whether a secret is required. Valid values:
+   * Specifies whether an application secret is required. Valid values:
    * 
    * - true
-   * 
    * - false
    * 
-   * > * For applications of the WebApp and ServerApp types, this parameter is required and is always set to true.
-   * 
-   * - For applications of the NativeApp type, you can set this parameter to true or false. If not specified, the default value is false. Since native applications are public clients and cannot reliably protect secrets, we recommend keeping this false unless a secret is strictly required. For more information, see [Access Alibaba Cloud APIs from a native application](https://help.aliyun.com/document_detail/93697.html).
+   * > - + For WebApp and ServerApp applications, this value is forcibly set to true and cannot be modified.
+   * > - + For NativeApp applications, you can set this value to true or false. If you do not specify this value, the default value is false. Because such applications often run in untrusted environments and cannot effectively protect application secrets, do not set this value to true unless necessary. For more information, see [Log on to Alibaba Cloud from a native application](https://help.aliyun.com/document_detail/93697.html).
    * 
    * @example
    * true
@@ -152,8 +166,10 @@ export class CreateApplicationRequest extends $dara.Model {
       accessTokenValidity: 'AccessTokenValidity',
       appName: 'AppName',
       appType: 'AppType',
+      assignmentType: 'AssignmentType',
       displayName: 'DisplayName',
       isMultiTenant: 'IsMultiTenant',
+      needPrincipalConsent: 'NeedPrincipalConsent',
       predefinedScopes: 'PredefinedScopes',
       protocolVersion: 'ProtocolVersion',
       redirectUris: 'RedirectUris',
@@ -168,8 +184,10 @@ export class CreateApplicationRequest extends $dara.Model {
       accessTokenValidity: 'number',
       appName: 'string',
       appType: 'string',
+      assignmentType: 'string',
       displayName: 'string',
       isMultiTenant: 'boolean',
+      needPrincipalConsent: 'boolean',
       predefinedScopes: 'string',
       protocolVersion: 'string',
       redirectUris: 'string',

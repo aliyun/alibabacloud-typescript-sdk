@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccessKeyLastUsedRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AccessKey pair that you want to query.
+   * The ID of the access key to query.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,7 @@ export class GetAccessKeyLastUsedRequest extends $dara.Model {
   userAccessKeyId?: string;
   /**
    * @remarks
-   * The logon name of the RAM user.
-   * 
-   * If you do not specify this parameter, the AccessKey pair of the current user is queried.
+   * The logon name of the Resource Access Management (RAM) user. If this parameter is left empty, the access keys of the current user are queried by default.
    * 
    * @example
    * test@example.onaliyun.com

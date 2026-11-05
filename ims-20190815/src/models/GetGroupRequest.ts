@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the RAM user group.
+   * The name of the user group.
    * 
    * @example
    * Dev-Team

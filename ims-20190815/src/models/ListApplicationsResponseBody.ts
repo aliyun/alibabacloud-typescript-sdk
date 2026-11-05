@@ -115,10 +115,12 @@ export class ListApplicationsResponseBodyApplicationsApplication extends $dara.M
   appId?: string;
   appName?: string;
   appType?: string;
+  assignmentType?: string;
   createDate?: string;
   delegatedScope?: ListApplicationsResponseBodyApplicationsApplicationDelegatedScope;
   displayName?: string;
   isMultiTenant?: boolean;
+  needPrincipalConsent?: boolean;
   protocolVersion?: string;
   redirectUris?: ListApplicationsResponseBodyApplicationsApplicationRedirectUris;
   refreshTokenValidity?: number;
@@ -131,10 +133,12 @@ export class ListApplicationsResponseBodyApplicationsApplication extends $dara.M
       appId: 'AppId',
       appName: 'AppName',
       appType: 'AppType',
+      assignmentType: 'AssignmentType',
       createDate: 'CreateDate',
       delegatedScope: 'DelegatedScope',
       displayName: 'DisplayName',
       isMultiTenant: 'IsMultiTenant',
+      needPrincipalConsent: 'NeedPrincipalConsent',
       protocolVersion: 'ProtocolVersion',
       redirectUris: 'RedirectUris',
       refreshTokenValidity: 'RefreshTokenValidity',
@@ -150,10 +154,12 @@ export class ListApplicationsResponseBodyApplicationsApplication extends $dara.M
       appId: 'string',
       appName: 'string',
       appType: 'string',
+      assignmentType: 'string',
       createDate: 'string',
       delegatedScope: ListApplicationsResponseBodyApplicationsApplicationDelegatedScope,
       displayName: 'string',
       isMultiTenant: 'boolean',
+      needPrincipalConsent: 'boolean',
       protocolVersion: 'string',
       redirectUris: ListApplicationsResponseBodyApplicationsApplicationRedirectUris,
       refreshTokenValidity: 'number',

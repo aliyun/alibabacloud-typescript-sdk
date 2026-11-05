@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID of the RAM user.
-   * 
-   * > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
+   * The AccessKey ID of the Resource Access Management (RAM) user.
+   * > You must specify exactly one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
    * 
    * @example
    * LTAI*******************
@@ -15,9 +14,8 @@ export class GetUserRequest extends $dara.Model {
   userAccessKeyId?: string;
   /**
    * @remarks
-   * The ID of the RAM user.
-   * 
-   * > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
+   * The ID of the Resource Access Management (RAM) user.
+   * > You must specify exactly one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
    * 
    * @example
    * 20732900249392****
@@ -25,13 +23,13 @@ export class GetUserRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The logon name of the RAM user.
+   * The logon Resource Access Management (RAM) user.
    * 
-   * The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name.
+   * The format is `<username>@<AccountAlias>.onaliyun.com`, where `<username>` is the Resource Access Management (RAM) user and `<AccountAlias>.onaliyun.com` is the default domain name. 
    * 
-   * The value of `UserPrincipalName` must be `1 to 128` characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be `1 to 64` characters in length.
+   * The `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The `<username>` must be 1 to 64 characters in length.
    * 
-   * > You must specify only one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
+   * > You must specify exactly one of the following parameters: `UserPrincipalName`, `UserId`, and `UserAccessKeyId`.
    * 
    * @example
    * test@example.onaliyun.com

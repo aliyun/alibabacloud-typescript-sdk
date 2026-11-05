@@ -58,10 +58,6 @@ export class CreateApplicationResponseBodyApplicationDelegatedScopePredefinedSco
 }
 
 export class CreateApplicationResponseBodyApplicationDelegatedScope extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the permissions that are granted on the application.
-   */
   predefinedScopes?: CreateApplicationResponseBodyApplicationDelegatedScopePredefinedScopes;
   static names(): { [key: string]: string } {
     return {
@@ -124,7 +120,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   accessTokenValidity?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the application belongs.
+   * The Alibaba Cloud account ID to which the application belongs.
    * 
    * @example
    * 177242285274****
@@ -156,7 +152,19 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The time when the application was created.
+   * The application assignment type. Valid values:
+   * + AllowAll: assigns the application to all RAM users and roles in the account, allowing them to use the application.
+   * + OnDemand: assigns the application only to specified RAM users and roles in the account, allowing only them to use the application.
+   * 
+   * @example
+   * AllowAll
+   */
+  assignmentType?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * Format: RFC 3339 (UTC). Example: 2020-10-23T08:06:57Z.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -164,7 +172,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The information about the permissions that are granted on the application.
+   * The application scope information.
    */
   delegatedScope?: CreateApplicationResponseBodyApplicationDelegatedScope;
   /**
@@ -177,7 +185,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Indicates whether the application can be installed by using other Alibaba Cloud accounts.
+   * Indicates whether the application can be installed by other accounts.
    * 
    * @example
    * true
@@ -185,20 +193,24 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   isMultiTenant?: boolean;
   /**
    * @remarks
+   * Specifies whether user authorization is required. Valid values:
+   * + true: User authorization is required.
+   * + false: User authorization is not required.
+   * 
+   * @example
+   * true
+   */
+  needPrincipalConsent?: boolean;
+  /**
+   * @remarks
    * The OAuth protocol version of the application. Valid values:
-   * 
-   * - `2.0`: OAuth 2.0
-   * 
-   * - `2.1`: OAuth 2.1
+   * + 2.0: OAuth 2.0 protocol.
+   * + 2.1: OAuth 2.1 protocol.
    * 
    * @example
    * 2.0
    */
   protocolVersion?: string;
-  /**
-   * @remarks
-   * The redirect URLs.
-   */
   redirectUris?: CreateApplicationResponseBodyApplicationRedirectUris;
   /**
    * @remarks
@@ -210,7 +222,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   refreshTokenValidity?: number;
   /**
    * @remarks
-   * Indicates whether a secret is required.
+   * Indicates whether an application secret is required.
    * 
    * @example
    * true
@@ -218,7 +230,9 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   secretRequired?: boolean;
   /**
    * @remarks
-   * The time when the application information was last updated.
+   * The update time.
+   * 
+   * Format: RFC 3339 (UTC). Example: 2020-10-23T08:06:57Z.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -231,10 +245,12 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
       appId: 'AppId',
       appName: 'AppName',
       appType: 'AppType',
+      assignmentType: 'AssignmentType',
       createDate: 'CreateDate',
       delegatedScope: 'DelegatedScope',
       displayName: 'DisplayName',
       isMultiTenant: 'IsMultiTenant',
+      needPrincipalConsent: 'NeedPrincipalConsent',
       protocolVersion: 'ProtocolVersion',
       redirectUris: 'RedirectUris',
       refreshTokenValidity: 'RefreshTokenValidity',
@@ -250,10 +266,12 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
       appId: 'string',
       appName: 'string',
       appType: 'string',
+      assignmentType: 'string',
       createDate: 'string',
       delegatedScope: CreateApplicationResponseBodyApplicationDelegatedScope,
       displayName: 'string',
       isMultiTenant: 'boolean',
+      needPrincipalConsent: 'boolean',
       protocolVersion: 'string',
       redirectUris: CreateApplicationResponseBodyApplicationRedirectUris,
       refreshTokenValidity: 'number',
