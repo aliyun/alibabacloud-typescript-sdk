@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCElasticScalingRequest extends $dara.Model {
+  acuType?: string;
   /**
    * @example
    * Prepaid
@@ -30,6 +31,7 @@ export class DescribeRCElasticScalingRequest extends $dara.Model {
   supportCase?: string;
   static names(): { [key: string]: string } {
     return {
+      acuType: 'AcuType',
       instanceChargeType: 'InstanceChargeType',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
@@ -40,6 +42,7 @@ export class DescribeRCElasticScalingRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acuType: 'string',
       instanceChargeType: 'string',
       instanceId: 'string',
       instanceType: 'string',

@@ -39,6 +39,8 @@ export class DescribeRCElasticScalingResponseBody extends $dara.Model {
    * rc-a0e466b01tif2pk
    */
   instanceId?: string;
+  maxAcu?: number;
+  minAcu?: number;
   /**
    * @example
    * 1F7B8B09-36F3-1165-BADB-13E376FE9BD7
@@ -61,6 +63,8 @@ export class DescribeRCElasticScalingResponseBody extends $dara.Model {
     return {
       acuType: 'AcuType',
       instanceId: 'InstanceId',
+      maxAcu: 'MaxAcu',
+      minAcu: 'MinAcu',
       requestId: 'RequestId',
       scalingEnabled: 'ScalingEnabled',
       scalingSupported: 'ScalingSupported',
@@ -74,6 +78,8 @@ export class DescribeRCElasticScalingResponseBody extends $dara.Model {
     return {
       acuType: 'string',
       instanceId: 'string',
+      maxAcu: 'number',
+      minAcu: 'number',
       requestId: 'string',
       scalingEnabled: 'boolean',
       scalingSupported: 'boolean',

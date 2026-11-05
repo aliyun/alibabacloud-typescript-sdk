@@ -13,7 +13,7 @@ export class DescribeRCMetricListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of monitoring data.
+   * The monitoring data points.
    * 
    * @example
    * [{\\"timestamp\\":1722909960000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988******\\",\\"Minimum\\":0.097,\\"Maximum\\":0.097,\\"Average\\":0.097},{\\"timestamp\\":1722910020000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988******\\",\\"Minimum\\":0.093,\\"Maximum\\":0.093,\\"Average\\":0.093}]

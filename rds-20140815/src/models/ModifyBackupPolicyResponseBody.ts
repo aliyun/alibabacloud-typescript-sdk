@@ -28,10 +28,10 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether instance log backup is enabled. Valid values:
    * * **1**: enabled.
-   * * **0**: shutdown.
+   * * **0**: disabled.
    * 
    * 
-   * > Instance log backup is enabled by default and cannot be shut down for ApsaraDB RDS for SQL Server instances.
+   * > Instance log backup is enabled by default and cannot be disabled for ApsaraDB RDS for SQL Server instances.
    * 
    * @example
    * 1
@@ -65,7 +65,7 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
   incBackupInterval?: number;
   /**
    * @remarks
-   * The number of hours for which instance log backups are retained locally on the **MySQL** instance.
+   * The number of hours for which instance log backups are retained locally on the **ApsaraDB RDS for MySQL** instance.
    * 
    * @example
    * 18
@@ -73,7 +73,7 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
   localLogRetentionHours?: number;
   /**
    * @remarks
-   * The maximum loop space usage of the local binary log on the **MySQL** instance.
+   * The maximum loop space usage of the binary log on the **ApsaraDB RDS for MySQL** instance.
    * 
    * @example
    * 30
@@ -81,7 +81,7 @@ export class ModifyBackupPolicyResponseBody extends $dara.Model {
   localLogRetentionSpace?: string;
   /**
    * @remarks
-   * The number of binary log files retained locally on the **ApsaraDB RDS for MySQL** instance.
+   * The number of local binary log files retained on the **ApsaraDB RDS for MySQL** instance.
    * 
    * @example
    * 60

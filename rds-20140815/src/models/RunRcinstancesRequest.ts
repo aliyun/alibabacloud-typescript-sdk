@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunRCInstancesRequestCreateAckEdgeParam extends $dara.Model {
   /**
    * @remarks
-   * The ID of the target ACK Edge cluster.
+   * The ID of the destination ACK Edge cluster.
    * 
    * @example
    * c463aaa89e2b84cacacfbf23c4867****
@@ -13,7 +13,7 @@ export class RunRCInstancesRequestCreateAckEdgeParam extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the target edge node pool in the ACK Edge cluster.
+   * The ID of the destination edge node pool in the ACK Edge cluster.
    * 
    * @example
    * np47e018268fb34e2289ff4c4d22b5****
@@ -45,12 +45,11 @@ export class RunRCInstancesRequestCreateAckEdgeParam extends $dara.Model {
 export class RunRCInstancesRequestDataDisk extends $dara.Model {
   /**
    * @remarks
-   * The type of the data cloud disk. Valid values:
-   * 
-   * - **cloud_efficiency**: ultra cloud disk.
-   * - **cloud_ssd**: standard SSD.
-   * - **cloud_essd** (default): ESSD.
-   * - **cloud_auto**: premium performance disk.
+   * The category of the data cloud disk. Valid values:
+   * - **cloud_efficiency**: ultra disk
+   * - **cloud_ssd**: standard SSD
+   * - **cloud_essd** (default): ESSD
+   * - **cloud_auto**: premium performance disk
    * 
    * @example
    * cloud_essd
@@ -58,7 +57,7 @@ export class RunRCInstancesRequestDataDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * A reserved parameter. This parameter is not supported.
    * 
    * @example
    * null
@@ -68,7 +67,7 @@ export class RunRCInstancesRequestDataDisk extends $dara.Model {
    * @remarks
    * The mount point of the data cloud disk.
    * 
-   * >This parameter is applicable only to full image (whole-machine image) scenarios. You can set this parameter to the mount point of the data cloud disk in the full image and modify the corresponding **DataDisk.Size** and **DataDisk.Category** parameters to change the cloud disk type and size of the data cloud disk in the full image.
+   * > This parameter is applicable only to full images. You can set this parameter to the mount point of the data cloud disk in the full image, and modify the **DataDisk.Size** and **DataDisk.Category** parameters to change the category and size of the data cloud disk in the full image.
    * 
    * @example
    * /dev/xvdb
@@ -77,8 +76,8 @@ export class RunRCInstancesRequestDataDisk extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to encrypt the cloud disk. Valid values:
-   * - **true**: The cloud disk is encrypted.
-   * - **false** (default): The cloud disk is not encrypted.
+   * - **true**: yes
+   * - **false** (default): no
    * 
    * @example
    * false
@@ -86,14 +85,11 @@ export class RunRCInstancesRequestDataDisk extends $dara.Model {
   encrypted?: string;
   /**
    * @remarks
-   * The performance level (PL) of the data cloud disk when it is an ESSD. For information about the performance differences of ESSDs, see [ESSD](https://help.aliyun.com/document_detail/2859916.html). Valid values:
-   * 
+   * The performance level of the data cloud disk when it is an ESSD. For the performance differences of ESSD, see [ESSD](https://help.aliyun.com/document_detail/2859916.html). Valid values:
    * - **PL0**
    * - **PL1** (default)
    * - **PL2**
    * - **PL3**
-   * 
-   * > When the data cloud disk type is standard SSD, this parameter is not applicable.
    * 
    * @example
    * PL1
@@ -102,17 +98,16 @@ export class RunRCInstancesRequestDataDisk extends $dara.Model {
   /**
    * @remarks
    * The size of the data cloud disk. Unit: GiB. Valid values:
+   * - cloud_efficiency: 20 to 32,768
+   * - cloud_ssd: 20 to 32,768
+   * - cloud_auto: 1 to 65,536
+   * - cloud_essd: The valid values vary based on the **DataDisk.PerformanceLevel** parameter.
+   *   - PL0: 1 to 65,536
+   *   - PL1: 20 to 65,536
+   *   - PL2: 461 to 65,536
+   *   - PL3: 1,261 to 65,536
    * 
-   * - cloud_efficiency: 20 to 32,768.
-   * - cloud_ssd: 20 to 32,768.
-   * - cloud_auto: 1 to 65,536.
-   * - cloud_essd: The valid values depend on the value of **DataDisk.PerformanceLevel**.
-   *   - PL0: 1 to 65,536.
-   *   - PL1: 20 to 65,536.
-   *   - PL2: 461 to 65,536.
-   *   - PL3: 1,261 to 65,536.
-   * 
-   * If the **DataDisk.SnapshotId** parameter is specified and the snapshot size is greater than the value of **DataDisk.Size**, the cloud disk is created with the same size as the snapshot. If the snapshot size is smaller than the value of **DataDisk.Size**, the cloud disk is created with the size specified by **DataDisk.Size**.
+   * If you specify the **DataDisk.SnapshotId** parameter and the size of the snapshot specified by this parameter is larger than the value of **DataDisk.Size**, the created cloud disk has the same size as the snapshot. If the snapshot size is smaller than the value of **DataDisk.Size**, the created cloud disk has the size specified by **DataDisk.Size**.
    * 
    * @example
    * 20
@@ -122,7 +117,7 @@ export class RunRCInstancesRequestDataDisk extends $dara.Model {
    * @remarks
    * The snapshot used to create the data cloud disk.
    * 
-   * - If the snapshot size corresponding to **DataDisk.SnapshotId** is greater than the value of **DataDisk.Size**, the cloud disk is created with the same size as the snapshot. If the snapshot size is smaller than the value of **DataDisk.Size**, the cloud disk is created with the size specified by **DataDisk.Size**.
+   * - If the size of the snapshot specified by **DataDisk.SnapshotId** is larger than the value of **DataDisk.Size**, the created cloud disk has the same size as the snapshot. If the snapshot size is smaller than the value of **DataDisk.Size**, the created cloud disk has the size specified by **DataDisk.Size**.
    * - Snapshots cannot be used to create elastic ephemeral disks.
    * - Snapshots created on or before July 15, 2013 cannot be used to create cloud disks.
    * 
@@ -166,12 +161,14 @@ export class RunRCInstancesRequestDataDisk extends $dara.Model {
 export class RunRCInstancesRequestNetworkOptions extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the Jumbo frame feature for the instance. Valid values:
+   * Specifies whether to enable the Jumbo Frame feature for the instance. Valid values:
    * 
-   * - **false** (default): Jumbo frame is disabled. The MTU of all NICs (including the primary NIC and secondary NICs) on the instance is set to 1500.
-   * - **true**: Jumbo frame is enabled. The MTU of all NICs (including the primary NIC and secondary NICs) on the instance is set to 8500.
+   * - false: disables the Jumbo Frame feature. The maximum transmission unit (MTU) of all ENIs (including the primary ENI and secondary ENIs) on the instance is set to 1500.
+   * - true: enables the Jumbo Frame feature. The MTU of all ENIs (including the primary ENI and secondary ENIs) on the instance is set to 8500.
    * 
-   * > Only specific instance types of the eighth generation or later support the Jumbo frame feature. For more information, see ECS Instance MTU.
+   * Default value: false.
+   * 
+   * Note: Only specific instance types of the eighth generation and later support the Jumbo Frame feature. For more information, see ECS instance MTU.
    */
   enableJumboFrame?: boolean;
   static names(): { [key: string]: string } {
@@ -198,12 +195,11 @@ export class RunRCInstancesRequestNetworkOptions extends $dara.Model {
 export class RunRCInstancesRequestSystemDisk extends $dara.Model {
   /**
    * @remarks
-   * The type of the system cloud disk. Valid values:
-   * 
-   * - **cloud_efficiency**: ultra cloud disk.
-   * - **cloud_ssd**: standard SSD.
-   * - **cloud_essd** (default): ESSD.
-   * - **cloud_auto**: premium performance disk.
+   * The category of the system cloud disk. Valid values:
+   * - **cloud_efficiency**: ultra disk
+   * - **cloud_ssd**: standard SSD
+   * - **cloud_essd** (default): ESSD
+   * - **cloud_auto**: premium performance disk
    * 
    * @example
    * cloud_essd
@@ -211,14 +207,11 @@ export class RunRCInstancesRequestSystemDisk extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The performance level (PL) of the system cloud disk when it is an ESSD. For information about the performance differences of ESSDs, see [ESSD](https://help.aliyun.com/document_detail/2859916.html). Valid values:
-   * 
+   * The performance level of the system cloud disk when it is an ESSD. For the performance differences of ESSD, see [ESSD](https://help.aliyun.com/document_detail/2859916.html). Valid values:
    * - **PL0**
    * - **PL1** (default)
    * - **PL2**
    * - **PL3**
-   * 
-   * > When the system cloud disk type is standard SSD, this parameter is not applicable.
    * 
    * @example
    * PL1
@@ -227,15 +220,14 @@ export class RunRCInstancesRequestSystemDisk extends $dara.Model {
   /**
    * @remarks
    * The size of the system cloud disk. Unit: GiB. The value must be greater than or equal to the size of the image specified by the **ImageId** parameter. Valid values:
-   * 
-   * - **cloud_efficiency**: 20 to 2048.
-   * - **cloud_ssd**: 20 to 2048.
-   * - **cloud_auto**: 1 to 2048.
-   * - **cloud_essd**: The valid values depend on the value of **SystemDisk.PerformanceLevel**.
-   *   - PL0: 1 to 2048.
-   *   - PL1: 20 to 2048.
-   *   - PL2: 461 to 2048.
-   *   - PL3: 1,261 to 2048.
+   * - **cloud_efficiency**: 20 to 2048
+   * - **cloud_ssd**: 20 to 2048
+   * - **cloud_auto**: 1 to 2048
+   * - **cloud_essd**: The valid values vary based on the **SystemDisk.PerformanceLevel** parameter.
+   *   - PL0: 1 to 2048
+   *   - PL1: 20 to 2048
+   *   - PL2: 461 to 2048
+   *   - PL3: 1,261 to 2048
    * 
    * @example
    * 20
@@ -269,7 +261,7 @@ export class RunRCInstancesRequestSystemDisk extends $dara.Model {
 export class RunRCInstancesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can create up to N tag keys at a time. Valid values of N: **1 to 20**. Empty strings are not allowed.
+   * The tag key. You can create up to N tag keys at a time. Valid values of N: **1** to **20**. Empty strings are not allowed.
    * 
    * @example
    * Testkey1
@@ -277,7 +269,7 @@ export class RunRCInstancesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value corresponding to the tag key. You can create up to N tag values at a time. Valid values of N: **1 to 20**. Empty strings are allowed.
+   * The tag value that corresponds to the tag key. You can create up to N tag values at a time. Valid values of N: **1** to **20**. Empty strings are allowed.
    * 
    * @example
    * Testvalue1
@@ -317,7 +309,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   acuType?: string;
   /**
    * @remarks
-   * The number of RDS Custom instances to create. This parameter is applicable only to batch creation of RDS Custom instances.
+   * The number of RDS Custom instances to create. This parameter is applicable only when you create multiple RDS Custom instances at a time.
    * 
    * Valid values: **1** to **30**. Default value: **1**.
    * 
@@ -328,10 +320,9 @@ export class RunRCInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
-   * - **true** (default): Automatic payment is enabled. Ensure that your account balance is sufficient.
-   * - **false**: Only an order is generated. No payment is made.
-   * > If your payment method has an insufficient balance, set the AutoPay parameter to false. An unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
-   * >
+   * - **true** (default): Automatic payment is enabled. You must ensure that your account balance is sufficient.
+   * - **false**: Only an order is generated and no payment is deducted.
+   * > If the balance of your payment method is insufficient, you can set the AutoPay parameter to false. In this case, an unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
    * 
    * @example
    * true
@@ -339,10 +330,9 @@ export class RunRCInstancesRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. Valid values:
-   * 
-   * * **true** (default): Auto-renewal is enabled.
-   * * **false**: Auto-renewal is disabled.
+   * Specifies whether to enable auto-renewal for the instance. Valid values:
+   * - **true** (default): yes
+   * - **false**: no
    * 
    * @example
    * true
@@ -350,11 +340,11 @@ export class RunRCInstancesRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * Specifies whether to automatically use coupons. Valid values:
-   * * **true** (default): Coupons are automatically used.
-   * * **false**: Coupons are not automatically used.
+   * Specifies whether to automatically use a coupon. Valid values:
+   * - **true** (default): yes
+   * - **false**: no
    * 
-   * > After a coupon is used, the amount deducted by the coupon is not refunded if you perform a downgrade operation.
+   * > If you use a coupon and then downgrade the instance configuration, the amount deducted by the voucher is not refunded.
    * 
    * @example
    * true
@@ -370,7 +360,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request and prevent repeated submissions. The value is generated by the client and must be unique across different requests. The value can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the token, but you must ensure that the token is unique among different requests. The token can contain a maximum of 64 ASCII characters and cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -383,7 +373,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   createAckEdgeParam?: RunRCInstancesRequestCreateAckEdgeParam;
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * A reserved parameter. This parameter is not supported.
    * 
    * @example
    * None
@@ -391,10 +381,10 @@ export class RunRCInstancesRequest extends $dara.Model {
   createExtraParam?: string;
   /**
    * @remarks
-   * Specifies whether the instance can be added to an ACK cluster. If this parameter is set to **1**, the created instance can be added to an ACK cluster by calling the **AttachRCInstances** API operation, which enables efficient management of containerized applications.
+   * Specifies whether the instance is allowed to join an ACK cluster. When this parameter is set to **1**, the created instance can be added to an ACK cluster by calling the **AttachRCInstances** API operation, which enables efficient management of containerized applications.
    * 
-   * - **1**: The instance can be added to an ACK cluster.
-   * - **0** (default): The instance cannot be added to an ACK cluster.
+   * - **1**: yes
+   * - **0** (default): no
    * 
    * @example
    * 0
@@ -402,14 +392,14 @@ export class RunRCInstancesRequest extends $dara.Model {
   createMode?: string;
   /**
    * @remarks
-   * The list of data cloud disks.
+   * The data cloud disks.
    */
   dataDisk?: RunRCInstancesRequestDataDisk[];
   /**
    * @remarks
-   * Specifies whether to enable deletion protection. Valid values:
-   * * **true**: Deletion protection is enabled.
-   * * **false** (default): Deletion protection is disabled.
+   * Specifies whether to enable release protection. Valid values:
+   * - **true**: enabled
+   * - **false** (default): disabled
    * 
    * @example
    * false
@@ -433,9 +423,9 @@ export class RunRCInstancesRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run for the instance creation. Valid values:
-   * * **true**: A dry run is performed without creating the instance. The check items include request parameters, request format, business limits, and inventory.
-   * * **false** (default): A normal request is sent. After the check is passed, the instance is created.
+   * Specifies whether to perform a dry run before creating the instance. Valid values:
+   * - **true**: performs a dry run without creating the instance. The dry run checks items such as request parameters, request format, service limits, and inventory.
+   * - **false** (default): sends a normal request and creates the instance directly after the check passes.
    * 
    * @example
    * false
@@ -443,10 +433,10 @@ export class RunRCInstancesRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The hostname of the instance (2 to 64 characters).
+   * The hostname of the instance. The hostname must be 2 to 64 characters in length.
    * 
-   * - Periods (.) can be used to separate the hostname into multiple segments. Each segment can contain uppercase and lowercase letters, digits, and hyphens (-).
-   * - Periods (.) and hyphens (-) cannot be used as the first or last character, and cannot be used consecutively.
+   * - The hostname can be segmented by periods (.). Each segment can contain letters, digits, and hyphens (-).
+   * - A period (.) or hyphen (-) cannot be used as the first or last character, and cannot be used consecutively.
    * 
    * @example
    * testHost1
@@ -454,7 +444,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The image ID used by the instance.
+   * The image ID of the instance.
    * 
    * @example
    * image-dsvjzw2ii8n4******
@@ -463,8 +453,8 @@ export class RunRCInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * * **Prepaid**: subscription.
-   * * **Postpaid**: pay-as-you-go.
+   * - **Prepaid**: subscription
+   * - **Postpaid**: pay-as-you-go
    * 
    * @example
    * Prepaid
@@ -472,7 +462,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The instance name. The name must be 2 to 128 characters in length and must start with an uppercase or lowercase letter or a Chinese character. The name can contain uppercase and lowercase letters, Chinese characters, digits, periods (.), underscores (_), colons (:), or hyphens (-). The default value is the InstanceId of the instance. When creating multiple RDS Custom instances, you can set sequential instance names that can contain brackets ([]) and commas (,). For more information, see [Create an RDS Custom instance](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/create-an-rds-custom-instance#00481f9ba381u).
+   * The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and can contain letters, Chinese characters, digits, periods (.), underscores (_), colons (:), and hyphens (-). The default value is the instance ID. When you create multiple RDS Custom instances, you can specify sequential instance names in batches. The names can contain square brackets ([]) and commas (,). For more information, see [Create an RDS Custom instance](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/create-an-rds-custom-instance#00481f9ba381u).
    * 
    * @example
    * rc-node-[99,1]-rchost
@@ -490,7 +480,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * A reserved parameter. This parameter is not supported.
    * 
    * @example
    * null
@@ -508,7 +498,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   internetMaxBandwidthOut?: number;
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * A reserved parameter. This parameter is not supported.
    * 
    * @example
    * null
@@ -529,7 +519,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   networkOptions?: RunRCInstancesRequestNetworkOptions;
   /**
    * @remarks
-   * The password of the instance account. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported: `()~!@#$%^&*-_+=|{}[]:;\\"<>,.?/`.
+   * The password of the instance account. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include: `()~!@#$%^&*-_+=|{}[]:;\\"<>,.?/`.
    * 
    * @example
    * TestRDS123!
@@ -537,7 +527,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Specifies whether to use the preset password of the image. When this parameter is used, the Password parameter must be empty, and the image must have a password configured. Default value: false.
+   * Specifies whether to use the password preset in the image. If you specify this parameter, you must leave the Password parameter empty and ensure that a password is preset in the image. Default value: false.
    */
   passwordInherit?: boolean;
   /**
@@ -550,7 +540,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription billable methods duration. Valid values:
+   * The unit of the billing duration for the subscription billing method. Valid values:
    * - **Year**
    * - **Month** (default)
    * 
@@ -560,7 +550,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The private IP address of the instance. When setting the private IP address for a VPC-type ECS instance, you must select an address from the idle CIDR block of the vSwitch (VSwitchId).
+   * The private IP address of the instance. When you assign a private IP address to a VPC-connected ECS instance, you must select an available IP address from the CIDR block of the vSwitch specified by VSwitchId.
    * 
    * @example
    * ``10.1.**.**``
@@ -576,7 +566,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   promotionCode?: string;
   /**
    * @remarks
-   * The region ID. You can call DescribeRegions to obtain the region ID.
+   * The region ID. You can call the DescribeRegions operation to query available regions.
    * 
    * This parameter is required.
    * 
@@ -594,7 +584,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The time-based elastic scaling rule.
+   * The time-based elastic rule.
    * 
    * @example
    * {"rule":[{"beginTime":"09:00","endTime":"17:00","acu":4}]}
@@ -602,7 +592,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   scheduledRule?: string;
   /**
    * @remarks
-   * Reserved parameter. Not supported.
+   * A reserved parameter. This parameter is not supported.
    * 
    * @example
    * null
@@ -610,8 +600,8 @@ export class RunRCInstancesRequest extends $dara.Model {
   securityEnhancementStrategy?: string;
   /**
    * @remarks
-   * The ID of the security group to which the instance belongs. Instances in the same security group can communicate with each other. The maximum number of instances that a security group can contain depends on the security group type. For more information, see the security group section in [Limits](https://help.aliyun.com/document_detail/25412.html).
-   * > The SecurityGroupId parameter determines the network type of the instance. For example, if the specified security group is of the VPC type, the instance is a VPC-type instance, and you must also specify the VSwitchId parameter.
+   * The ID of the security group to which the instance belongs. Instances in the same security group can access each other. The maximum number of instances that a security group can contain depends on the security group type. For more information, see the "Security groups" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
+   * > The SecurityGroupId parameter determines the network type of the instance. For example, if the network type of the specified security group is VPC, the instance is a VPC-connected instance and the VSwitchId parameter is required.
    * 
    * @example
    * sg-uf6av412xaxixu******
@@ -619,15 +609,15 @@ export class RunRCInstancesRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * Adds the instance to multiple security groups. The maximum number of associated security groups is 10. You cannot set both SecurityGroupId and SecurityGroupIds.N at the same time.
+   * The security groups to which the instance is added. You can add the instance to up to 10 security groups. Note: You cannot specify both SecurityGroupId and SecurityGroupIds.N at the same time.
    */
   securityGroupIds?: string[];
   /**
    * @remarks
-   * The bidding strategy for pay-as-you-go instances. This parameter takes effect only when the **InstanceChargeType** parameter is set to **PostPaid**. Valid values:
+   * The bidding policy for the pay-as-you-go instance. This parameter takes effect only when the **InstanceChargeType** parameter is set to **PostPaid**. Valid values:
    * 
-   * - **NoSpot**: a regular pay-as-you-go instance.
-   * - **SpotAsPriceGo**: the system automatically bids at the current market price.
+   * - **NoSpot**: regular pay-as-you-go instance
+   * - **SpotAsPriceGo**: system automatically bids based on the current market price
    * 
    * Default value: **NoSpot**.
    * 
@@ -637,11 +627,11 @@ export class RunRCInstancesRequest extends $dara.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * The form factor of RDS Custom. Valid values:
+   * The form of RDS Custom. Valid values:
    * 
-   * - **eni**: dual network interface.
-   * - **edge**: edge node pool.
-   * - **share**: VPC.
+   * - **eni**: dual ENI
+   * - **edge**: edge node pool
+   * - **share**: VPC
    * 
    * @example
    * share
@@ -649,7 +639,7 @@ export class RunRCInstancesRequest extends $dara.Model {
   supportCase?: string;
   /**
    * @remarks
-   * The system cloud disk specifications.
+   * The system cloud disk.
    */
   systemDisk?: RunRCInstancesRequestSystemDisk;
   /**
@@ -661,7 +651,7 @@ export class RunRCInstancesRequest extends $dara.Model {
    * @remarks
    * The instance user data. The raw data can be up to 32 KB in size.
    * 
-   * Do not pass confidential information such as passwords and private keys in plaintext. If you must pass such information, encrypt it first and then use Base64 encoding before transmission. Perform decryption inside the instance. The following example shows how to transform a script to a Base64 character string:
+   * Do not pass confidential information such as passwords and private keys in plaintext. If you must pass such information, encrypt and use Base64 encoding before transmission, and then perform decryption and use it inside the instance. The following example shows how to transform a script to a Base64 character string:
    * 
    * ```
    * echo -n \\"#!/bin/sh
@@ -674,10 +664,10 @@ export class RunRCInstancesRequest extends $dara.Model {
   userData?: string;
   /**
    * @remarks
-   * Specifies whether the custom data is Base64-encoded.
+   * Specifies whether the custom data is encoded in Base64.
    * 
-   * - **true**: The custom data is Base64-encoded.
-   * - **false** (default): The custom data is not Base64-encoded.
+   * - **true**: yes
+   * - **false** (default): no
    * 
    * @example
    * true
@@ -685,8 +675,8 @@ export class RunRCInstancesRequest extends $dara.Model {
   userDataInBase64?: boolean;
   /**
    * @remarks
-   * The vSwitch ID of the target instance. If you are creating a VPC-type RDS Custom instance, you must specify the vSwitch ID. The security group and the vSwitch must belong to the same VPC.
-   * > If you configure the VSwitchId parameter, the ZoneId parameter must match the zone of the vSwitch. You can also leave ZoneId empty, and the system automatically selects the zone of the specified vSwitch.
+   * The vSwitch ID of the target instance. If you create a VPC-connected RDS Custom instance, you must specify a vSwitch ID, and the security group and the vSwitch must belong to the same VPC.
+   * > If you configure the VSwitchId parameter, the ZoneId parameter must be set to the zone where the vSwitch resides. You can also leave the ZoneId parameter empty, and the system automatically selects the zone where the specified vSwitch resides.
    * 
    * This parameter is required.
    * 
@@ -696,8 +686,8 @@ export class RunRCInstancesRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The zone ID of the instance. You can call DescribeZones to obtain the list of zones.
-   * > If you specify the VSwitchId parameter, the ZoneId parameter must match the zone of the vSwitch. You can also leave ZoneId empty, and the system automatically selects the zone of the specified vSwitch.
+   * The zone ID of the instance. You can call the DescribeZones operation to query the zone list.
+   * > If you specify the VSwitchId parameter, the ZoneId parameter must be set to the zone where the vSwitch resides. You can also leave the ZoneId parameter empty, and the system automatically selects the zone where the specified vSwitch resides.
    * 
    * @example
    * cn-beijing-f

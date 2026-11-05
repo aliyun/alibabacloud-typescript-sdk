@@ -8,8 +8,8 @@ export class AddRCInstancesToDeploymentSetResponseBodyResults extends $dara.Mode
   /**
    * @remarks
    * The node status. Valid values:
-   * * **activation**: running.
-   * * **creating**: creating.
+   * * **activation**: The node is running.
+   * * **creating**: The node is being created.
    * 
    * @example
    * completed
@@ -26,8 +26,8 @@ export class AddRCInstancesToDeploymentSetResponseBodyResults extends $dara.Mode
   /**
    * @remarks
    * The node status. Valid values:
-   * * **Success**: succeeded.
-   * * **Failed**: failed.
+   * * **Success**: Successful.
+   * * **Failed**: Failed.
    * 
    * @example
    * Success
@@ -61,7 +61,7 @@ export class AddRCInstancesToDeploymentSetResponseBodyResults extends $dara.Mode
 export class AddRCInstancesToDeploymentSetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 08A3B71B-FE08-4B03-974F-CC7EA6DB1828

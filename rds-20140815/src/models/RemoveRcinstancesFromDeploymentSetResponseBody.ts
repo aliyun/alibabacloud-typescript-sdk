@@ -13,9 +13,9 @@ export class RemoveRCInstancesFromDeploymentSetResponseBodyResults extends $dara
   RCInstanceId?: string;
   /**
    * @remarks
-   * The node status. Valid values:
-   * * **Success**: successful
-   * *  **Failed**: failed
+   * The status of the node. Valid values:
+   * * **Success**: Successful.
+   * * **Failed**: Failed.
    * 
    * @example
    * Success

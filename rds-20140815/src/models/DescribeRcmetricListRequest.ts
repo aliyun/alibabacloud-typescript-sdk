@@ -37,9 +37,7 @@ export class DescribeRCMetricListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of records to return on each page for paging in a paged query.
-   * 
-   * Default value: 1000.
+   * The number of records to return on each page for paging in a paged query. Default value: 1000.
    * 
    * @example
    * 1000
@@ -47,7 +45,7 @@ export class DescribeRCMetricListRequest extends $dara.Model {
   length?: string;
   /**
    * @remarks
-   * The [monitored metrics](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
+   * The [monitored metric](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
    * 
    * This parameter is required.
    * 

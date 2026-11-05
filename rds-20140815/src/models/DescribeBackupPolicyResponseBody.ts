@@ -173,13 +173,16 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the advanced backup policy is enabled.
+   * 
+   * @example
+   * false
    */
   advancedBackupPolicyEnabled?: boolean;
   advancedDataPolicies?: DescribeBackupPolicyResponseBodyAdvancedDataPolicies;
   advancedLogPolicies?: DescribeBackupPolicyResponseBodyAdvancedLogPolicies;
   /**
    * @remarks
-   * The number of archived backups retained for a **MySQL** instance.
+   * The number of archive backups retained for the **MySQL** instance.
    * 
    * @example
    * 1
@@ -187,7 +190,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   archiveBackupKeepCount?: string;
   /**
    * @remarks
-   * The retention period for archived backups of a **MySQL** instance.
+   * The retention period of archive backups for the **MySQL** instance.
    * 
    * @example
    * ByMonth
@@ -195,7 +198,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   archiveBackupKeepPolicy?: string;
   /**
    * @remarks
-   * The number of days for which archived backups of a **MySQL** instance are retained.
+   * The number of days for which archive backups are retained for the **MySQL** instance.
    * 
    * @example
    * 365
@@ -220,7 +223,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
    * **For SQL Server instances:**
    * 
    * - **Enable** is returned only when instance log backup frequency is **every 5 minutes**.
-   * - **Disabled** is returned when instance log backup frequency is **every 30 minutes** or **the same as the data backup frequency**. **Refer to the BackupInterval parameter for the actual frequency**.
+   * - **Disabled** is returned when instance log backup frequency is **every 30 minutes** or **the same as the data backup frequency**. **Refer to the value of BackupInterval**.
    * 
    * @example
    * Enable
@@ -239,8 +242,8 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The secondary node backup setting for **SQL Server Enterprise Cluster Edition** instances. Valid values:
-   * - **1**: prefer secondary node
-   * - **2**: force primary node
+   * - **1**: Prefer secondary node.
+   * - **2**: Force primary node.
    * 
    * > This parameter is returned only when SupportModifyBackupPriority is True.
    * 
@@ -290,7 +293,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
    * 
    * **For SQL Server instances:**
    * - **1** is returned only when instance log backup frequency is **every 5 minutes**.
-   * - **0** is returned when instance log backup frequency is **every 30 minutes** or **the same as the data backup frequency**. **Refer to the BackupInterval parameter for the actual frequency**.
+   * - **0** is returned when instance log backup frequency is **every 30 minutes** or **the same as the data backup frequency**. **Refer to the value of BackupInterval**.
    * 
    * @example
    * 1
@@ -298,7 +301,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   enableBackupLog?: string;
   /**
    * @remarks
-   * Indicates whether incremental backup is enabled for **SQL Server** instances. Valid values:
+   * Indicates whether incremental backup is enabled for the **SQL Server** instance. Valid values:
    * * **True**: yes
    * * **False**: no
    * 
@@ -308,7 +311,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   enableIncrementDataBackup?: boolean;
   /**
    * @remarks
-   * Indicates whether point-in-time recovery (PITR) is enabled for **MySQL** instances. PITR is an upgraded version of log backup. Valid values:
+   * Indicates whether point-in-time recovery (PITR), an upgraded version of log backup, is enabled for the **MySQL** instance. Valid values:
    * - **True**: yes
    * - **False**: no
    * 
@@ -320,10 +323,10 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   enablePitrProtection?: boolean;
   /**
    * @remarks
-   * Indicates whether binary logs are forcibly deleted when the storage usage of a **MySQL** instance exceeds 80% or the remaining storage is less than 5 GB. Valid values:
+   * Indicates whether binary logs are forcibly deleted when the storage usage of the **MySQL** instance exceeds 80% or the remaining storage is less than 5 GB. Valid values:
    * 
-   * * **Disable**: does not delete binary logs
-   * * **Enable**: deletes binary logs
+   * * **Disable**: no
+   * * **Enable**: yes
    * 
    * @example
    * Enable
@@ -339,7 +342,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   incBackupInterval?: number;
   /**
    * @remarks
-   * The number of hours for which binary log backups of a **MySQL** instance are retained.
+   * The number of hours for which local log backups are retained for the **MySQL** instance.
    * 
    * @example
    * 0
@@ -347,7 +350,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   localLogRetentionHours?: number;
   /**
    * @remarks
-   * The maximum storage usage for binary logs of a **MySQL** instance.
+   * The maximum storage usage of local binary logs for the **MySQL** instance.
    * 
    * @example
    * 30
@@ -355,7 +358,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   localLogRetentionSpace?: string;
   /**
    * @remarks
-   * The log backup frequency for **SQL Server** instances. Valid values:
+   * The log backup frequency for the **SQL Server** instance. Valid values:
    * 
    * * **LogInterval**: every 30 minutes
    * * Default: the same as the data backup cycle specified by **PreferredBackupPeriod**
@@ -366,7 +369,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   logBackupFrequency?: string;
   /**
    * @remarks
-   * The number of local binary logs retained for a **MySQL** instance.
+   * The number of local binary logs retained for the **MySQL** instance.
    * 
    * @example
    * 60
@@ -382,7 +385,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   logBackupRetentionPeriod?: number;
   /**
    * @remarks
-   * The number of days for which point-in-time recovery is available for a **MySQL** instance.
+   * The number of days for which point-in-time recovery is available for the **MySQL** instance.
    * 
    * @example
    * 7
@@ -421,10 +424,10 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   preferredNextBackupTime?: string;
   /**
    * @remarks
-   * The data retention policy for archived backups of deleted **MySQL** instances. Valid values:
+   * The data retention policy for archive backups of deleted **MySQL** instances. Valid values:
    * * **None**: no retention
-   * * **Lastest**: retains the last backup
-   * * **All**: retains all backups
+   * * **Lastest**: retains the last archive backup
+   * * **All**: retains all archive backups
    * 
    * @example
    * None
@@ -440,7 +443,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the secondary node backup option can be modified for **SQL Server** instances. Valid values:
+   * Indicates whether the **SQL Server** instance supports modifying the secondary node backup option. Valid values:
    * 
    * - **True**: yes
    * - **False**: no
@@ -451,7 +454,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   supportModifyBackupPriority?: boolean;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved parameter.
    * 
    * @example
    * 0
@@ -459,7 +462,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   supportReleasedKeep?: number;
   /**
    * @remarks
-   * Indicates whether snapshot backup is supported for **SQL Server** instances. Valid values:
+   * Indicates whether the **SQL Server** instance supports snapshot backup. Valid values:
    * 
    * - **1**: yes
    * - **0**: no
@@ -470,7 +473,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   supportVolumeShadowCopy?: number;
   /**
    * @remarks
-   * Indicates whether the [5-minute log backup feature](https://help.aliyun.com/document_detail/95717.html) is supported for **SQL Server** instances. Valid values:
+   * Indicates whether the **SQL Server** instance supports the [5-minute log backup feature](https://help.aliyun.com/document_detail/95717.html). Valid values:
    * - **0**: not supported
    * - **1**: supported
    * 

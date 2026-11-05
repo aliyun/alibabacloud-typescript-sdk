@@ -28,7 +28,7 @@ export class DescribeBackupPolicyRequest extends $dara.Model {
   compressType?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to retrieve the ID.
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -40,11 +40,11 @@ export class DescribeBackupPolicyRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The data retention policy for archived backups of deleted **MySQL** instances. Valid values:
+   * The data retention policy for archive backups of deleted **MySQL** instances. Valid values:
    * 
    * * **None**: no retention
-   * * **Lastest**: retains the last backup
-   * * **All**: retains all backups
+   * * **Lastest**: retains the last archive backup
+   * * **All**: retains all archive backups
    * 
    * @example
    * Lastest

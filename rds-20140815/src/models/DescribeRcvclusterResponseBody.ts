@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRCVClusterResponseBodyMysqlOperator extends $dara.Model {
   dashboardPublicEndpoint?: string;
+  dashboardPublicEndpointExpireTime?: string;
   dashboardUsername?: string;
   dashboardVpcEndpoint?: string;
   deployTime?: string;
@@ -11,6 +12,7 @@ export class DescribeRCVClusterResponseBodyMysqlOperator extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dashboardPublicEndpoint: 'DashboardPublicEndpoint',
+      dashboardPublicEndpointExpireTime: 'DashboardPublicEndpointExpireTime',
       dashboardUsername: 'DashboardUsername',
       dashboardVpcEndpoint: 'DashboardVpcEndpoint',
       deployTime: 'DeployTime',
@@ -21,6 +23,7 @@ export class DescribeRCVClusterResponseBodyMysqlOperator extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dashboardPublicEndpoint: 'string',
+      dashboardPublicEndpointExpireTime: 'string',
       dashboardUsername: 'string',
       dashboardVpcEndpoint: 'string',
       deployTime: 'string',

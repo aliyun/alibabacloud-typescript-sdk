@@ -195,10 +195,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds instances to a deployment set.
+   * Adds an instance to a deployment set.
    * 
    * @remarks
-   * By default, instances with local disks are not allowed to be added to a deployment set, and the UNSUPPORTED_DBINSTANCE_OPERATEION error is returned. To add such an instance, contact the administrator to add your UID to the whitelist. This restriction does not apply to cloud disk instances. Forcibly adding an instance to a deployment set may cause the instance to restart. Proceed with caution.
+   * By default, instances with local disks cannot be added to a deployment set, and the UNSUPPORTED_DBINSTANCE_OPERATEION error is returned. To add such an instance, contact the development team and ask the administrator to add the UID to the whitelist. This restriction does not apply to cloud disk instances. Forcibly adding an instance to a deployment set may cause the instance to restart. Proceed with caution.
    * 
    * @param request - AddRCInstancesToDeploymentSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -245,10 +245,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds instances to a deployment set.
+   * Adds an instance to a deployment set.
    * 
    * @remarks
-   * By default, instances with local disks are not allowed to be added to a deployment set, and the UNSUPPORTED_DBINSTANCE_OPERATEION error is returned. To add such an instance, contact the administrator to add your UID to the whitelist. This restriction does not apply to cloud disk instances. Forcibly adding an instance to a deployment set may cause the instance to restart. Proceed with caution.
+   * By default, instances with local disks cannot be added to a deployment set, and the UNSUPPORTED_DBINSTANCE_OPERATEION error is returned. To add such an instance, contact the development team and ask the administrator to add the UID to the whitelist. This restriction does not apply to cloud disk instances. Forcibly adding an instance to a deployment set may cause the instance to restart. Proceed with caution.
    * 
    * @param request - AddRCInstancesToDeploymentSetRequest
    * @returns AddRCInstancesToDeploymentSetResponse
@@ -5029,9 +5029,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Supported cloud disk types: ultra disk, standard SSD, ESSD, and premium performance disk (default).
-   * - When the billing method of the cloud disk is subscription (**Prepaid**), you must specify the instance ID of a subscription instance (**InstanceId**) to which the cloud disk is mounted. The expiration time of the cloud disk is the same as that of the mounted instance.
-   * - You can create a pay-as-you-go (**Postpaid**) cloud disk separately without mounting it to an instance. You can also mount it to an instance of any billing method when you create it as needed.
-   * - The types and number of cloud disks that can be mounted vary based on the instance type.
+   * - When the billing method of the cloud disk is subscription (**Prepaid**), you must specify the instance ID (**InstanceId**) of a subscription instance to which this cloud disk is mounted. The expiration time of the cloud disk is the same as that of the mounted instance.
+   * - You can create a pay-as-you-go (**Postpaid**) cloud disk separately without mounting it to an instance. You can also mount it to an instance of any billing method during creation as needed.
+   * - The supported cloud disk types and the maximum number of cloud disks that can be mounted vary based on the instance type.
    * 
    * @param request - CreateRCDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5126,9 +5126,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * - Supported cloud disk types: ultra disk, standard SSD, ESSD, and premium performance disk (default).
-   * - When the billing method of the cloud disk is subscription (**Prepaid**), you must specify the instance ID of a subscription instance (**InstanceId**) to which the cloud disk is mounted. The expiration time of the cloud disk is the same as that of the mounted instance.
-   * - You can create a pay-as-you-go (**Postpaid**) cloud disk separately without mounting it to an instance. You can also mount it to an instance of any billing method when you create it as needed.
-   * - The types and number of cloud disks that can be mounted vary based on the instance type.
+   * - When the billing method of the cloud disk is subscription (**Prepaid**), you must specify the instance ID (**InstanceId**) of a subscription instance to which this cloud disk is mounted. The expiration time of the cloud disk is the same as that of the mounted instance.
+   * - You can create a pay-as-you-go (**Postpaid**) cloud disk separately without mounting it to an instance. You can also mount it to an instance of any billing method during creation as needed.
+   * - The supported cloud disk types and the maximum number of cloud disks that can be mounted vary based on the instance type.
    * 
    * @param request - CreateRCDiskRequest
    * @returns CreateRCDiskResponse
@@ -15988,7 +15988,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询操作权限
+   * Queries the authorization information of a service account.
+   * 
+   * @remarks
+   * ### Supported engines
+   * - ApsaraDB RDS for MySQL
+   * - ApsaraDB RDS for PostgreSQL
+   * - ApsaraDB RDS for SQL Server
+   * ### Related documentation
+   * >Notice: Before you call this operation, read the related documentation carefully to fully understand the prerequisites and impacts of this operation.
+   * - [Grant permissions to a service account for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96102.html)
+   * - [Grant permissions to a service account for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/146887.html)
+   * - [Grant permissions to a service account for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95693.html)
    * 
    * @param request - DescribeOperatorPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16035,7 +16046,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询操作权限
+   * Queries the authorization information of a service account.
+   * 
+   * @remarks
+   * ### Supported engines
+   * - ApsaraDB RDS for MySQL
+   * - ApsaraDB RDS for PostgreSQL
+   * - ApsaraDB RDS for SQL Server
+   * ### Related documentation
+   * >Notice: Before you call this operation, read the related documentation carefully to fully understand the prerequisites and impacts of this operation.
+   * - [Grant permissions to a service account for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96102.html)
+   * - [Grant permissions to a service account for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/146887.html)
+   * - [Grant permissions to a service account for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95693.html)
    * 
    * @param request - DescribeOperatorPermissionRequest
    * @returns DescribeOperatorPermissionResponse
@@ -17283,6 +17305,10 @@ export default class Client extends OpenApi {
   async describeRCElasticScalingWithOptions(request: $_model.DescribeRCElasticScalingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRCElasticScalingResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.acuType)) {
+      query["AcuType"] = request.acuType;
+    }
+
     if (!$dara.isNull(request.instanceChargeType)) {
       query["InstanceChargeType"] = request.instanceChargeType;
     }
@@ -17370,7 +17396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single RDS Custom instance by calling the DescribeRCInstanceAttribute operation.
+   * Queries the details of a single RDS Custom instance.
    * 
    * @param request - DescribeRCInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17417,7 +17443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single RDS Custom instance by calling the DescribeRCInstanceAttribute operation.
+   * Queries the details of a single RDS Custom instance.
    * 
    * @param request - DescribeRCInstanceAttributeRequest
    * @returns DescribeRCInstanceAttributeResponse
@@ -23181,8 +23207,8 @@ export default class Client extends OpenApi {
    * - ApsaraDB RDS for PostgreSQL
    * - ApsaraDB RDS for SQL Server
    * - ApsaraDB RDS for MariaDB
-   * ### Related documentation
-   * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.</notice>
+   * ### Related feature documentation
+   * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.
    * - [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
    * - [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
    * - [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
@@ -23349,8 +23375,8 @@ export default class Client extends OpenApi {
    * - ApsaraDB RDS for PostgreSQL
    * - ApsaraDB RDS for SQL Server
    * - ApsaraDB RDS for MariaDB
-   * ### Related documentation
-   * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.</notice>
+   * ### Related feature documentation
+   * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.
    * - [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
    * - [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
    * - [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
@@ -23920,13 +23946,15 @@ export default class Client extends OpenApi {
    * Modifies the minor version upgrade method for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server instances.
    * 
    * @remarks
-   * ### Applicable engines
+   * ### Supported engines
    * - ApsaraDB RDS for MySQL
    * - ApsaraDB RDS for PostgreSQL
+   * - ApsaraDB RDS for SQL Server
    * ### Related feature documentation
-   * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+   * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.</notice>
    * - [Modify the automatic upgrade settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96059.html)
    * - [Modify the automatic upgrade settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/146895.html)
+   * - [Modify the automatic upgrade settings for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/213582.html)
    * 
    * @param request - ModifyDBInstanceAutoUpgradeMinorVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23980,13 +24008,15 @@ export default class Client extends OpenApi {
    * Modifies the minor version upgrade method for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server instances.
    * 
    * @remarks
-   * ### Applicable engines
+   * ### Supported engines
    * - ApsaraDB RDS for MySQL
    * - ApsaraDB RDS for PostgreSQL
+   * - ApsaraDB RDS for SQL Server
    * ### Related feature documentation
-   * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+   * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.</notice>
    * - [Modify the automatic upgrade settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96059.html)
    * - [Modify the automatic upgrade settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/146895.html)
+   * - [Modify the automatic upgrade settings for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/213582.html)
    * 
    * @param request - ModifyDBInstanceAutoUpgradeMinorVersionRequest
    * @returns ModifyDBInstanceAutoUpgradeMinorVersionResponse
@@ -30849,10 +30879,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an RDS custom instance from a deployment set.
+   * Removes ApsaraDB RDS Custom instances from a deployment set.
    * 
    * @remarks
-   * Removing an RDS custom instance from a deployment set is a non-disruptive operation and does not cause the instance to restart.
+   * Removing an instance from a deployment set is a lossless operation and does not cause the instance to restart.
    * 
    * @param request - RemoveRCInstancesFromDeploymentSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30891,10 +30921,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes an RDS custom instance from a deployment set.
+   * Removes ApsaraDB RDS Custom instances from a deployment set.
    * 
    * @remarks
-   * Removing an RDS custom instance from a deployment set is a non-disruptive operation and does not cause the instance to restart.
+   * Removing an instance from a deployment set is a lossless operation and does not cause the instance to restart.
    * 
    * @param request - RemoveRCInstancesFromDeploymentSetRequest
    * @returns RemoveRCInstancesFromDeploymentSetResponse
@@ -32217,12 +32247,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates one or more RDS Custom instances by calling the RunRCInstances operation. You can specify parameters such as ImageId, InstanceType, VSwitchId, and SecurityGroupId.
+   * Creates one or more RDS Custom instances by specifying parameters such as ImageId, InstanceType, VSwitchId, and SecurityGroupId.
    * 
    * @remarks
-   * - Before creating an RDS Custom instance, submit a ticket to request that your Alibaba Cloud account be added to the whitelist.
-   * - Only subscription RDS Custom instances can be created.
-   * - Supported regions are Beijing, Shanghai, Shenzhen, and Hangzhou.
+   * - Before you create an RDS Custom instance, submit a ticket to apply for adding your Alibaba Cloud account to the whitelist.
+   * - Only subscription RDS Custom instances are supported.
+   * - Supported regions include Beijing, Shanghai, Shenzhen, and Hangzhou.
    * 
    * @param tmpReq - RunRCInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32451,12 +32481,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates one or more RDS Custom instances by calling the RunRCInstances operation. You can specify parameters such as ImageId, InstanceType, VSwitchId, and SecurityGroupId.
+   * Creates one or more RDS Custom instances by specifying parameters such as ImageId, InstanceType, VSwitchId, and SecurityGroupId.
    * 
    * @remarks
-   * - Before creating an RDS Custom instance, submit a ticket to request that your Alibaba Cloud account be added to the whitelist.
-   * - Only subscription RDS Custom instances can be created.
-   * - Supported regions are Beijing, Shanghai, Shenzhen, and Hangzhou.
+   * - Before you create an RDS Custom instance, submit a ticket to apply for adding your Alibaba Cloud account to the whitelist.
+   * - Only subscription RDS Custom instances are supported.
+   * - Supported regions include Beijing, Shanghai, Shenzhen, and Hangzhou.
    * 
    * @param request - RunRCInstancesRequest
    * @returns RunRCInstancesResponse
