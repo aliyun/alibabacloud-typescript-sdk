@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   /**
    * @remarks
-   * The time when the snapshot was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+   * The time when the snapshot was created. The time is displayed in UTC and follows the [ISO8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
    * 
    * @example
    * 2020-12-20T14:52:28Z
@@ -21,7 +21,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the cloud computer to which the snapshot belongs.
+   * The ID of the cloud desktop to which the snapshot belongs.
    * 
    * @example
    * ecd-g03l3tlm8djoj****
@@ -29,7 +29,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The progress of creating the cloud computer.
+   * The progress of creating the cloud desktop.
    * 
    * @example
    * 100%
@@ -37,7 +37,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   progress?: string;
   /**
    * @remarks
-   * The remaining time required to complete snapshot creation. Unit: seconds.
+   * The remaining time required to complete the creation of the snapshot. Unit: seconds.
    * 
    * @example
    * 30
@@ -45,7 +45,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   remainTime?: number;
   /**
    * @remarks
-   * The ID of the restore point.
+   * The restore point ID.
    * 
    * @example
    * rp-btgmaa20wkcju****
@@ -53,7 +53,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   restorePointId?: string;
   /**
    * @remarks
-   * The name of the restore point.
+   * The restore point name.
    * 
    * @example
    * Data disk backup
@@ -77,12 +77,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   snapshotName?: string;
   /**
    * @remarks
-   * The snapshot type.
-   * 
-   * Valid values:
-   * 
-   * *   AUTO: an automatic snapshot.
-   * *   USER: a manual snapshot.
+   * The snapshot creation type.
    * 
    * @example
    * USER
@@ -90,7 +85,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   snapshotType?: string;
   /**
    * @remarks
-   * The size of the source disk. Unit: GiB.
+   * The size of the source cloud disk. Unit: GiB.
    * 
    * @example
    * 150
@@ -98,12 +93,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   sourceDiskSize?: string;
   /**
    * @remarks
-   * The type of the source disk.
-   * 
-   * Valid values:
-   * 
-   * *   SYSTEM: a system disk.
-   * *   DATA: a data disk.
+   * The type of the source cloud disk.
    * 
    * @example
    * SYSTEM
@@ -112,12 +102,6 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   /**
    * @remarks
    * The snapshot status.
-   * 
-   * Valid values:
-   * 
-   * *   PROGRESSING: The snapshot is being created.
-   * *   FAILED: The snapshot failed to be created.
-   * *   ACCOMPLISHED: The snapshot is created.
    * 
    * @example
    * ACCOMPLISHED
@@ -171,7 +155,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
 export class DescribeSnapshotsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.If NextToken is empty, no next page exists.
+   * The pagination token used to start the next query. An empty value indicates that no more results are available.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
@@ -187,7 +171,7 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The snapshots.
+   * The snapshot information.
    */
   snapshots?: DescribeSnapshotsResponseBodySnapshots[];
   static names(): { [key: string]: string } {

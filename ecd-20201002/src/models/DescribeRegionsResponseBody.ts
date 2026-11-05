@@ -45,7 +45,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The region object.
+   * The region information objects.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**

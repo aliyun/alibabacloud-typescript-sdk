@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReportSessionStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * End user.
+   * The connected user.
    * 
    * @example
    * liming
@@ -13,7 +13,7 @@ export class ReportSessionStatusRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ReportSessionStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ReportSessionStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Duration of the session change.
+   * The duration of the session change.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ReportSessionStatusRequest extends $dara.Model {
   sessionChangeTime?: number;
   /**
    * @remarks
-   * Session ID.
+   * The session ID.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,21 @@ export class ReportSessionStatusRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Session status.
+   * The session status. Valid values:
+   * 
+   * - SessionLogOff: The session is closed.
+   * - DesktopTimerDisconnection: The cloud computer is disconnected by a scheduled task.
+   * - SessionReboot: The session is rebooted.
+   * - DesktopTimerShutdown: The cloud computer is started by a scheduled task.
+   * - SessionLock: The logged-on user locks the session.
+   * - SessionShutdown: The session is shut down.
+   * - SessionUnLock: The logged-on user unlocks the session.
+   * - DesktopTimerReboot: The cloud computer is rebooted by a scheduled task.
+   * - ConsoleConnect: The console is connected before the session starts.
+   * - SessionLogOn: The session starts.
+   * - SessionPopup: The session exits before disconnection.
+   * - SessionDisconnect: The session is disconnected.
+   * - ConsoleDisconnect: The console is disconnected after the session is logged off.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetFingerPrintTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Encrypted password.
+   * The encrypted password.
    * 
    * @example
    * 0711abb9-4cf8-41b2-9d0e-b51209468631;da4VFPNxwY3CZegFjOrCNw==;iHp2l9/qGcfD4tWx7jZIZQ==
@@ -13,7 +13,7 @@ export class SetFingerPrintTemplateResponseBody extends $dara.Model {
   encryptedPassword?: string;
   /**
    * @remarks
-   * Index.
+   * The index.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class SetFingerPrintTemplateResponseBody extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * CDE666EA-4FCD-5024-895C-8698E3D3****

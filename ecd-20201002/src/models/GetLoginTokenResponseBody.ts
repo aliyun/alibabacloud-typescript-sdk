@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetLoginTokenResponseBodyPasswordStrategy extends $dara.Model {
   /**
    * @remarks
-   * > This is an internal field and is not available for public use.
+   * > Internal private field. Not available for external use.
    */
   tenantAlternativeChars?: string[];
   /**
    * @remarks
-   * > This is an internal field and is not available for public use.
+   * > Internal private field. Not available for external use.
    * 
    * @example
    * null
@@ -45,7 +45,7 @@ export class GetLoginTokenResponseBodyPasswordStrategy extends $dara.Model {
 export class GetLoginTokenResponseBodyRiskVerifyInfo extends $dara.Model {
   /**
    * @remarks
-   * The email address used for identity verification when risk verification is triggered.
+   * The email address used for verification when identity verification is triggered.
    * 
    * @example
    * user@example.com
@@ -69,7 +69,7 @@ export class GetLoginTokenResponseBodyRiskVerifyInfo extends $dara.Model {
   locked?: string;
   /**
    * @remarks
-   * The phone number used for identity verification when risk verification is triggered.
+   * The mobile phone number used for verification when identity verification is triggered.
    * 
    * @example
    * 1381111****
@@ -105,10 +105,10 @@ export class GetLoginTokenResponseBodyRiskVerifyInfo extends $dara.Model {
 export class GetLoginTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The email address of the user. This value is returned with the LoginToken after logon.    
+   * The email address of the user. This parameter is returned along with LoginToken after logon.    
    * 
    * - For a convenience user, the email address specified when the convenience user was created is returned.
-   * - For an AD user, the value is returned in the format of `username@AD domain name`.
+   * - For an AD user, the email address is returned in the following format: Username@AD domain name.
    * 
    * @example
    * alice
@@ -116,7 +116,7 @@ export class GetLoginTokenResponseBody extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The convenience account username or AD username.
+   * The username of the convenience account or AD user.
    * 
    * @example
    * alice
@@ -124,7 +124,7 @@ export class GetLoginTokenResponseBody extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * > This is an internal field and is not available for public use.
+   * > Internal private field. Not available for external use.
    * 
    * @example
    * edu
@@ -132,7 +132,7 @@ export class GetLoginTokenResponseBody extends $dara.Model {
   industry?: string;
   /**
    * @remarks
-   * The token used to keep the logon session alive. After a successful logon with the keep-alive option enabled, the operation returns a `KeepAliveToken`. If the keep-alive option is not enabled, an empty value is returned.
+   * The token used to keep the user logged on. After a successful logon and if the user enables the keep-logged-on option, the API returns KeepAliveToken. If the keep-logged-on option is not enabled, an empty value is returned.
    * 
    * @example
    * 006YwvYMsesWWsDBZnVB+Wq9AvJDVIqOY3YCktvtb7+KxMb3ClnNlV8+l/knhZYrXUmeP06IzkjF+IgcZ3vZKOyMprDyFHjCy1r27FRE/U7+geWCl8iQ+yF8GaCRHfJEkC2+ROs93HkT4tfHxyY1J8W7O7ZQGUC/cdCvm+cCP6FIy73IUuPuVR6PcKYXIpEZPW
@@ -140,7 +140,7 @@ export class GetLoginTokenResponseBody extends $dara.Model {
   keepAliveToken?: string;
   /**
    * @remarks
-   * The property of the convenience user. If the user is an AD user, an empty value is returned.
+   * The properties of the convenience user. If the user is an AD user, an empty value is returned.
    * 
    * @example
    * test:wuying
@@ -148,7 +148,7 @@ export class GetLoginTokenResponseBody extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The logon credential.
+   * The logon token.
    * 
    * @example
    * v18101ac6a9e69c66b04a163031680463660b4b216cd758f34b60b9ad6a7c7f7334b83dd8f75eef4209c68f9f1080b****
@@ -156,25 +156,46 @@ export class GetLoginTokenResponseBody extends $dara.Model {
   loginToken?: string;
   /**
    * @remarks
-   * The expected next stage. For example, if the administrator has enabled MFA authentication in the Elastic Desktop Service console, after the username and password authentication is passed (the `ADPassword` stage), this parameter returns `MFAVerify`, indicating that MFA authentication is required.
+   * The expected next stage. For example, if the administrator enables MFA authentication in the Elastic Desktop Service console, this parameter returns `MFAVerify` after the username and password authentication succeeds (that is, after the `ADPassword` stage). This indicates that MFA authentication is required.
    * 
-   * > For more information about each authentication stage, see the parameter description of the `CurrentStage` request parameter of this operation.
+   * > For more information about each authentication stage, see the metric description of the `CurrentStage` request parameter.
    * 
    * @example
    * MFAVerify
    */
   nextStage?: string;
+  /**
+   * @remarks
+   * The nickname of the user.
+   * 
+   * @example
+   * user-001
+   */
   nickName?: string;
+  /**
+   * @remarks
+   * The ID of the workspace.
+   * 
+   * @example
+   * cn-hangzhou+dir-885351****
+   */
   officeSiteId?: string;
+  /**
+   * @remarks
+   * The name of the workspace.
+   * 
+   * @example
+   * test
+   */
   officeSiteName?: string;
   /**
    * @remarks
-   * > This is an internal field and is not available for public use.
+   * > Internal private field. Not available for external use.
    */
   passwordStrategy?: GetLoginTokenResponseBodyPasswordStrategy;
   /**
    * @remarks
-   * The phone number of the convenience user. If the user is an AD user, an empty value is returned.
+   * The mobile phone number of the convenience user. If the user is an AD user, an empty value is returned.
    * 
    * @example
    * 1381111****
@@ -182,14 +203,14 @@ export class GetLoginTokenResponseBody extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * > This is an internal field and is not available for public use.
+   * > Internal private field. Not available for external use.
    */
   props?: { [key: string]: string };
   /**
    * @remarks
-   * The QR code of the secret key used when attaching a virtual MFA device. The value uses Base64 encoding. This value can be empty and is used in the `MFABind` stage.
+   * The QR code of the secret key used to attach a virtual MFA device. Uses Base64 encoding. This parameter can be empty and is used in the `MFABind` stage.
    * 
-   * > For more information about each authentication stage, see the parameter description of the `CurrentStage` request parameter of this operation.
+   * > For more information about each authentication stage, see the metric description of the `CurrentStage` request parameter.
    * 
    * @example
    * 5OCLLKKOJU5HPBX66H3QCTWY******
@@ -197,7 +218,7 @@ export class GetLoginTokenResponseBody extends $dara.Model {
   qrCodePng?: string;
   /**
    * @remarks
-   * > This is an internal field and is not available for public use.
+   * > Internal private field. Not available for external use.
    * 
    * @example
    * null
@@ -218,9 +239,9 @@ export class GetLoginTokenResponseBody extends $dara.Model {
   riskVerifyInfo?: GetLoginTokenResponseBodyRiskVerifyInfo;
   /**
    * @remarks
-   * The secret key used when attaching a virtual MFA device. This value is used in the `MFABind` stage.
+   * The secret key used to attach a virtual MFA device. Used in the `MFABind` stage.
    * 
-   * > For more information about each authentication stage, see the parameter description of the `CurrentStage` request parameter of this operation.
+   * > For more information about each authentication stage, see the metric description of the `CurrentStage` request parameter.
    * 
    * @example
    * 5OCLLKKOJU5HPBX66H3QCTWYI7MH****
@@ -228,9 +249,9 @@ export class GetLoginTokenResponseBody extends $dara.Model {
   secret?: string;
   /**
    * @remarks
-   * The session ID. This value is returned only when `GetLoginToken` is invoked for the first time within the same session. For subsequent stages that require multiple authentications, pass in this parameter.
+   * The session ID. This parameter is returned only when `GetLoginToken` is invoked for the first time in the same session. If multiple authentication steps are required, you must pass this parameter in subsequent stages.
    * 
-   * > For more information about each authentication stage, see the parameter description of the `CurrentStage` request parameter of this operation.
+   * > For more information about each authentication stage, see the metric description of the `CurrentStage` request parameter.
    * 
    * @example
    * d6ec166d-ab93-4286-bf7f-a18bb929****
@@ -238,7 +259,7 @@ export class GetLoginTokenResponseBody extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID. This value is used for hardware terminal identification.
+   * The Alibaba Cloud account ID. This parameter is used for hardware terminal identification.
    * 
    * @example
    * 166353906220****
@@ -246,12 +267,16 @@ export class GetLoginTokenResponseBody extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * > This is an internal field and is not available for public use.
+   * > Internal private field. Not available for external use.
    * 
    * @example
    * mode
    */
   windowDisplayMode?: string;
+  /**
+   * @example
+   * 0123456789abcdef
+   */
   wyId?: string;
   static names(): { [key: string]: string } {
     return {

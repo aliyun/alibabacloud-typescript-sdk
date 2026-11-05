@@ -4,45 +4,89 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeUserResourcesResponseBodyAgentBriefSummaryAgentBriefs extends $dara.Model {
   /**
+   * @remarks
+   * The agent platform.
+   * 
    * @example
    * ENTERPRISE_JVS
    */
   agentPlatform?: string;
   /**
+   * @remarks
+   * The agent provider.
+   * 
    * @example
    * OpenClaw
    */
   agentProvider?: string;
   /**
+   * @remarks
+   * The generic avatar download URL for this agent type when no cloud resources are available.
+   * The backend automatically returns different avatars based on ClientType. If no match is found, a generic avatar is returned.
+   * 
    * @example
    * https://xxx.png
    */
   avatarNoResourceUrl?: string;
   /**
+   * @remarks
+   * The generic avatar download URL for this agent type.
+   * The backend automatically returns different avatars based on ClientType. If no match is found, a generic avatar is returned.
+   * 
    * @example
    * https://abc.com/efg.png
    */
   avatarUrl?: string;
   /**
+   * @remarks
+   * The count.
+   * 
    * @example
    * 2
    */
   count?: number;
   /**
+   * @remarks
+   * The display name, such as JVS Claw.
+   * The backend automatically returns different display names based on Language.
+   * 
    * @example
    * JVS Claw
    */
   displayName?: string;
   /**
+   * @remarks
+   * The generic PC avatar download URL for this agent type.
+   * 
    * @example
-   * Intelligent Evolution, Happy Shrimp Farming.
+   * https://xxx.png
+   */
+  pcAvatarUrl?: string;
+  /**
+   * @remarks
+   * The subtitle, such as: Intelligent evolution, happy shrimp farming.
+   * The backend automatically returns different subtitles based on Language.
+   * 
+   * @example
+   * Intelligent evolution, happy shrimp farming
    */
   subTitle?: string;
   /**
+   * @remarks
+   * The URL of the agent management page.
+   * 
    * @example
    * https://test.png
    */
   url?: string;
+  /**
+   * @remarks
+   * The URL of the avatar watermark selected for this type of agent based on the client type.
+   * 
+   * @example
+   * https://xxxx.png
+   */
+  watermark?: string;
   static names(): { [key: string]: string } {
     return {
       agentPlatform: 'AgentPlatform',
@@ -51,8 +95,10 @@ export class DescribeUserResourcesResponseBodyAgentBriefSummaryAgentBriefs exten
       avatarUrl: 'AvatarUrl',
       count: 'Count',
       displayName: 'DisplayName',
+      pcAvatarUrl: 'PcAvatarUrl',
       subTitle: 'SubTitle',
       url: 'Url',
+      watermark: 'Watermark',
     };
   }
 
@@ -64,8 +110,10 @@ export class DescribeUserResourcesResponseBodyAgentBriefSummaryAgentBriefs exten
       avatarUrl: 'string',
       count: 'number',
       displayName: 'string',
+      pcAvatarUrl: 'string',
       subTitle: 'string',
       url: 'string',
+      watermark: 'string',
     };
   }
 
@@ -79,8 +127,15 @@ export class DescribeUserResourcesResponseBodyAgentBriefSummaryAgentBriefs exten
 }
 
 export class DescribeUserResourcesResponseBodyAgentBriefSummary extends $dara.Model {
+  /**
+   * @remarks
+   * The list of brief information for the included agent instance types.
+   */
   agentBriefs?: DescribeUserResourcesResponseBodyAgentBriefSummaryAgentBriefs[];
   /**
+   * @remarks
+   * The total number of agent instances.
+   * 
    * @example
    * 10
    */
@@ -114,7 +169,7 @@ export class DescribeUserResourcesResponseBodyAgentBriefSummary extends $dara.Mo
 export class DescribeUserResourcesResponseBodyResourcesClients extends $dara.Model {
   /**
    * @remarks
-   * The client type.
+   * The type of the client.
    * 
    * @example
    * windows
@@ -162,7 +217,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   orderInstanceId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in ISO 8601 format and in UTC (indicated by Z).
    * 
    * @example
    * 2025-01-17T07:01Z
@@ -170,7 +225,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   packageCreationTime?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The time is in ISO 8601 format and in UTC (indicated by Z).
    * 
    * @example
    * 2025-02-17T15:59Z
@@ -178,7 +233,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   packageExpiredTime?: string;
   /**
    * @remarks
-   * The package ID.
+   * The ID of the package.
    * 
    * @example
    * mdp-0bxls4qpi6bl6****
@@ -194,7 +249,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   packageStatus?: string;
   /**
    * @remarks
-   * The duration package type.
+   * The type of the duration package.
    * 
    * @example
    * NORMAL_PACKAGE
@@ -202,7 +257,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   packageType?: string;
   /**
    * @remarks
-   * The cloud desktop status policy after the monthly quota of the plan is used up.
+   * The status policy for the cloud computer after the monthly package quota is exhausted.
    * 
    * @example
    * Postpaid
@@ -210,7 +265,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   packageUsedUpStrategy?: string;
   /**
    * @remarks
-   * The end time of the current monthly package.
+   * The end time of the monthly package. The time is in ISO 8601 format and in UTC (indicated by Z).
    * 
    * @example
    * 2025-02-17T15:59Z
@@ -218,7 +273,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   periodEndTime?: string;
   /**
    * @remarks
-   * The start time of the current monthly package.
+   * The start time of the monthly package. The time is in ISO 8601 format and in UTC (indicated by Z).
    * 
    * @example
    * 2025-01-17T07:01Z
@@ -226,7 +281,9 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
   periodStartTime?: string;
   /**
    * @remarks
-   * The cap amount for the second-phase package.
+   * The maximum amount for the second-stage package.
+   * 
+   * > This parameter is returned only when ResourceType is `POSTPAID_PACKAG` or `FREE_PACKAGE`.
    * 
    * @example
    * 199
@@ -294,7 +351,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList exten
 export class DescribeUserResourcesResponseBodyResourcesDesktopTimers extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the client is allowed to configure this setting.
+   * Specifies whether to allow client settings.
    * 
    * @example
    * false
@@ -310,7 +367,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopTimers extends $da
   cronExpression?: string;
   /**
    * @remarks
-   * Indicates whether the task is forcibly executed.
+   * Specifies whether to forcibly execute the task.
    * 
    * @example
    * false
@@ -318,7 +375,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopTimers extends $da
   enforce?: boolean;
   /**
    * @remarks
-   * The execution time.
+   * The execution time. The time is formatted in ISO 8601 and uses the UTC time zone (indicated by Z).
    * 
    * @example
    * 2025-01-21T11:37Z
@@ -350,7 +407,7 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopTimers extends $da
   resetType?: string;
   /**
    * @remarks
-   * The task type.
+   * The type of the task.
    * 
    * @example
    * TimerBoot
@@ -391,6 +448,46 @@ export class DescribeUserResourcesResponseBodyResourcesDesktopTimers extends $da
   }
 }
 
+export class DescribeUserResourcesResponseBodyResourcesDisks extends $dara.Model {
+  /**
+   * @remarks
+   * The disk size in GB.
+   * 
+   * @example
+   * 300
+   */
+  diskSize?: number;
+  /**
+   * @remarks
+   * The disk type.
+   * 
+   * @example
+   * SYSTEM
+   */
+  diskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskSize: 'DiskSize',
+      diskType: 'DiskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskSize: 'number',
+      diskType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.Model {
   /**
    * @remarks
@@ -402,7 +499,7 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
   channel?: string;
   /**
    * @remarks
-   * The version number of the current image on the cloud desktop.
+   * The version number of the current image of the cloud computer.
    * 
    * @example
    * 2.7.0-R-20250122.154826
@@ -410,7 +507,7 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
   currentAppVersion?: string;
   /**
    * @remarks
-   * Indicates whether the upgrade is mandatory.
+   * Specifies whether the upgrade is mandatory.
    * 
    * @example
    * false
@@ -418,7 +515,7 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
   force?: boolean;
   /**
    * @remarks
-   * The version number available for upgrade on the cloud desktop.
+   * The version number to which the cloud computer can be upgraded.
    * 
    * @example
    * 2.7.0-R-20250125.154826
@@ -426,7 +523,7 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
   newAppVersion?: string;
   /**
    * @remarks
-   * The component disk version number available for upgrade.
+   * The version number of the upgradable component disk.
    * 
    * @example
    * 2.6.9-R-20250123.153415
@@ -434,7 +531,7 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
   newDcdVersion?: string;
   /**
    * @remarks
-   * The project name.
+   * The name of the project.
    * 
    * @example
    * wuying-asp_single_session_desktop_win_x64
@@ -442,15 +539,15 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
   project?: string;
   /**
    * @remarks
-   * The release note for the available upgrade version.
+   * The description of the upgradable version.
    * 
    * @example
-   * New version.
+   * New version
    */
   releaseNote?: string;
   /**
    * @remarks
-   * The English release note for the available upgrade version.
+   * The English description of the upgradable version.
    * 
    * @example
    * new version
@@ -458,15 +555,15 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
   releaseNoteEn?: string;
   /**
    * @remarks
-   * The Japanese release note for the available upgrade version.
+   * The Japanese description of the upgradable version.
    * 
    * @example
-   * 新バージョン.
+   * 新バージョン
    */
   releaseNoteJp?: string;
   /**
    * @remarks
-   * The installation package size of the available upgrade version. Unit: KB.
+   * The size of the installation package for the upgradable version. Unit: KB.
    * 
    * @example
    * 474981930
@@ -514,15 +611,15 @@ export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.
 export class DescribeUserResourcesResponseBodyResourcesOsUpdatePackages extends $dara.Model {
   /**
    * @remarks
-   * The patch description.
+   * The description of the patch.
    * 
    * @example
-   * Install this update to modify the files that are used to detect viruses, spyware, and other potentially unwanted software. Once installed, this item cannot be removed.
+   * Installing this update modifies the files used to detect viruses, spyware, and other potentially unwanted software. Once installed, this item cannot be removed
    */
   description?: string;
   /**
    * @remarks
-   * The patch number.
+   * The KB number.
    * 
    * @example
    * KB2267***
@@ -530,10 +627,10 @@ export class DescribeUserResourcesResponseBodyResourcesOsUpdatePackages extends 
   kb?: string;
   /**
    * @remarks
-   * The patch title.
+   * The title of the patch.
    * 
    * @example
-   * Patch for ****.
+   * Patch for ****
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -572,7 +669,7 @@ export class DescribeUserResourcesResponseBodyResourcesOsUpdate extends $dara.Mo
   checkId?: string;
   /**
    * @remarks
-   * The patch number list information.
+   * The list of KB numbers.
    * 
    * @example
    * KB2267***
@@ -593,7 +690,7 @@ export class DescribeUserResourcesResponseBodyResourcesOsUpdate extends $dara.Mo
   packages?: DescribeUserResourcesResponseBodyResourcesOsUpdatePackages[];
   /**
    * @remarks
-   * The update catalog URL.
+   * The URL of the update catalog.
    * 
    * @example
    * https://catalog.update.microsoft.com/home.aspx
@@ -632,6 +729,13 @@ export class DescribeUserResourcesResponseBodyResourcesOsUpdate extends $dara.Mo
 }
 
 export class DescribeUserResourcesResponseBodyResourcesSessions extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address of the client from which the user last logged on.
+   * 
+   * @example
+   * 1.2.3.4:22068
+   */
   lastClientIp?: string;
   /**
    * @remarks
@@ -643,7 +747,7 @@ export class DescribeUserResourcesResponseBodyResourcesSessions extends $dara.Mo
   nickName?: string;
   /**
    * @remarks
-   * The time when the resource session was connected.
+   * The start time of the resource session. The time is in ISO 8601 format and in UTC (indicated by Z).
    * 
    * @example
    * 2025-01-22T11:03:36Z
@@ -651,7 +755,7 @@ export class DescribeUserResourcesResponseBodyResourcesSessions extends $dara.Mo
   resourceSessionStartTime?: string;
   /**
    * @remarks
-   * The username logged on to the resource.
+   * The username of the user who logged on to the resource.
    * 
    * @example
    * user001
@@ -659,7 +763,7 @@ export class DescribeUserResourcesResponseBodyResourcesSessions extends $dara.Mo
   userId?: string;
   /**
    * @remarks
-   * The User Principal Name (UPN) of the user bound to the resource, if available. This value is populated only for the session of the currently queried user.
+   * The user principal name (UPN) of the user bound to the resource, if any. This value is returned only for the session of the currently queried user.
    * 
    * @example
    * benchmark_test@test.shenzhen
@@ -704,10 +808,21 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    */
   accessType?: string;
   /**
+   * @remarks
+   * The URL of the AgentIM page.
+   * 
    * @example
    * https://wuying.aliyun.com/OpenIM/chat?desktopId=ecd-xxxxx
    */
   agentImUrl?: string;
+  /**
+   * @remarks
+   * The list of agent providers.
+   * 
+   * **if can be null:**
+   * true
+   */
+  agentProviderList?: string[];
   /**
    * @remarks
    * The Alibaba Cloud account ID.
@@ -718,7 +833,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * The application ID. This parameter is specific to resources of the App type.
+   * The application ID. This parameter is specific to resources whose resource type is App.
    * 
    * @example
    * app-0001
@@ -726,7 +841,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The cloud application authorization mode.
+   * The authorization mode of the cloud application.
    * 
    * @example
    * App
@@ -734,7 +849,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   authMode?: string;
   /**
    * @remarks
-   * The secondary category of the resource. This parameter is specific to resources of the App type.
+   * The level-2 category of the resource. This parameter is specific to resources whose resource type is App.
    * 
    * @example
    * 0
@@ -742,7 +857,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
-   * The primary category of the resource. This parameter is specific to resources of the App type.
+   * The level-1 category of the resource. This parameter is specific to resources whose resource type is App.
    * 
    * @example
    * 1
@@ -750,7 +865,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   categoryType?: number;
   /**
    * @remarks
-   * The cloud drive name. This parameter is specific to resources of the CloudDrive type.
+   * The name of the cloud drive. This parameter is specific to resources whose resource type is CloudDrive.
    * 
    * @example
    * cn-shanghai+cds-695277****
@@ -779,7 +894,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   clients?: DescribeUserResourcesResponseBodyResourcesClients[];
   /**
    * @remarks
-   * The connection properties in JSON string format. The client does not need to parse the content. The value is passed directly to the central resource management service when the application resource establishes a connection.
+   * The connection properties in JSON string format. The client does not need to process the content and directly passes it to the central resource management when establishing a connection for application resources.
    * 
    * @example
    * {"authMode":"App"}
@@ -787,7 +902,18 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   connectionProperties?: string;
   /**
    * @remarks
-   * The time when the resource was created.
+   * The number of CPU cores.
+   * 
+   * @example
+   * 4
+   * 
+   * **if can be null:**
+   * true
+   */
+  cpu?: number;
+  /**
+   * @remarks
+   * The resource creation time. The time is in ISO 8601 format and UTC time zone (indicated by Z).
    * 
    * @example
    * 2024-12-11T07:12:12Z
@@ -795,17 +921,25 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The list of cloud desktop package information.
+   * The list of cloud computer duration package information.
    */
   desktopDurationList?: DescribeUserResourcesResponseBodyResourcesDesktopDurationList[];
   /**
    * @remarks
-   * The list of Cloud Desktop scheduled task settings.
+   * The list of scheduled task settings for the cloud desktop.
    */
   desktopTimers?: DescribeUserResourcesResponseBodyResourcesDesktopTimers[];
   /**
    * @remarks
-   * The expiration time of subscription resources.
+   * The list of disk information.
+   * 
+   * **if can be null:**
+   * true
+   */
+  disks?: DescribeUserResourcesResponseBodyResourcesDisks[];
+  /**
+   * @remarks
+   * The expiration time of subscription resources. The time is formatted in ISO 8601 and uses the UTC time zone (indicated by Z).
    * 
    * @example
    * 2025-02-22T16:00:00Z
@@ -813,7 +947,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The external domain ID. This parameter is specific to resources of the CloudDrive type.
+   * The external domain ID. This parameter is specific to resources whose resource type is CloudDrive.
    * 
    * @example
    * stg114510
@@ -821,7 +955,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   externalDomainId?: string;
   /**
    * @remarks
-   * The external user ID. This parameter is specific to resources of the CloudDrive type.
+   * The external user ID. This parameter is specific to resources whose resource type is CloudDrive.
    * 
    * @example
    * test001
@@ -829,17 +963,28 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   externalUserId?: string;
   /**
    * @remarks
-   * The cloud desktop upgrade information.
+   * The upgrade information of the cloud computer.
    */
   fotaUpdate?: DescribeUserResourcesResponseBodyResourcesFotaUpdate;
   /**
    * @remarks
-   * Indicates whether cross-region access is supported. This parameter is specific to resources of the CloudDrive type.
+   * Indicates whether cross-region access is supported. This parameter is specific to resources whose resource type is CloudDrive.
    * 
    * @example
    * true
    */
   globalStatus?: boolean;
+  /**
+   * @remarks
+   * The GPU specifications.
+   * 
+   * @example
+   * 40GiB
+   * 
+   * **if can be null:**
+   * true
+   */
+  gpuSpec?: string;
   /**
    * @remarks
    * Indicates whether an update is available.
@@ -850,7 +995,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   hasUpgrade?: boolean;
   /**
    * @remarks
-   * Indicates whether the resource is a hibernation beta version.
+   * Indicates whether the hibernation feature is in beta.
    * 
    * @example
    * false
@@ -858,7 +1003,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   hibernationBeta?: boolean;
   /**
    * @remarks
-   * The resource icon URL. This parameter is specific to resources of the App type.
+   * The URL of the resource icon. This parameter is specific to resources whose resource type is App.
    * 
    * @example
    * http://example.com/icon.png
@@ -866,7 +1011,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   icon?: string;
   /**
    * @remarks
-   * The last time the resource was started.
+   * The last start time of the resource. The time is formatted in ISO 8601 and uses the UTC time zone (indicated by Z).
    * 
    * @example
    * 2025-01-24T03:12:04Z
@@ -874,10 +1019,10 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   lastStartTime?: string;
   /**
    * @remarks
-   * The region name.
+   * The name of the region.
    * 
    * @example
-   * Singapore.
+   * China (Hangzhou)
    */
   localName?: string;
   /**
@@ -885,6 +1030,17 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    * The list of management statuses.
    */
   managementStatuses?: string[];
+  /**
+   * @remarks
+   * The memory size in MB.
+   * 
+   * @example
+   * 4096
+   * 
+   * **if can be null:**
+   * true
+   */
+  memory?: number;
   /**
    * @remarks
    * The office network ID.
@@ -895,7 +1051,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The order status.
+   * The status of the order.
    * 
    * @example
    * Normal
@@ -914,7 +1070,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    * The operating system platform description.
    * 
    * @example
-   * Windows Genuine License.
+   * Windows genuine license
    */
   osDescription?: string;
   /**
@@ -948,7 +1104,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   protocolType?: string;
   /**
    * @remarks
-   * The real cloud desktop ID of the shared cloud desktop. This value exists only when the shared cloud desktop has an active session.
+   * The ID of the actual cloud computer in a shared cloud computer group. This parameter is returned only when a session exists for the shared cloud computer.
    * 
    * @example
    * ecd-0001
@@ -1012,7 +1168,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   resourceSessionStatus?: string;
   /**
    * @remarks
-   * The resource status.
+   * The status of the resource.
    * 
    * @example
    * Running
@@ -1036,7 +1192,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   sessionType?: string;
   /**
    * @remarks
-   * The list of resource user session information.
+   * The list of user session information for the resource.
    */
   sessions?: DescribeUserResourcesResponseBodyResourcesSessions[];
   /**
@@ -1047,6 +1203,10 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
    * PrePaid
    */
   subPayType?: string;
+  /**
+   * @remarks
+   * Indicates whether AgentIM is supported.
+   */
   supportAgentIm?: boolean;
   /**
    * @remarks
@@ -1058,12 +1218,12 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   supportHibernation?: boolean;
   /**
    * @remarks
-   * The list of supported action types. Currently supported only for cloud phones and cloud desktops (including shared cloud desktops).
+   * The list of supported operation types. Currently, only cloud phones and cloud computers (including shared cloud computers) are supported.
    */
   supportedActions?: string[];
   /**
    * @remarks
-   * The resource theme color. This parameter is specific to resources of the App type.
+   * The theme color of the resource. This parameter is specific to resources whose resource type is App.
    * 
    * @example
    * #FFFFFF
@@ -1071,24 +1231,25 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   themeColor?: string;
   /**
    * @remarks
-   * The user-defined name.
+   * The custom name specified by the user.
    * 
    * @example
-   * My cloud desktop
+   * My cloud computer
    */
   userCustomName?: string;
   /**
    * @remarks
-   * The resource version. This parameter is specific to resources of the App type.
+   * The resource version. This parameter is specific to resources whose resource type is App.
    * 
    * @example
-   * Resource version.
+   * Resource version
    */
   version?: string;
   static names(): { [key: string]: string } {
     return {
       accessType: 'AccessType',
       agentImUrl: 'AgentImUrl',
+      agentProviderList: 'AgentProviderList',
       aliUid: 'AliUid',
       appId: 'AppId',
       authMode: 'AuthMode',
@@ -1099,20 +1260,24 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
       chargeType: 'ChargeType',
       clients: 'Clients',
       connectionProperties: 'ConnectionProperties',
+      cpu: 'Cpu',
       createTime: 'CreateTime',
       desktopDurationList: 'DesktopDurationList',
       desktopTimers: 'DesktopTimers',
+      disks: 'Disks',
       expiredTime: 'ExpiredTime',
       externalDomainId: 'ExternalDomainId',
       externalUserId: 'ExternalUserId',
       fotaUpdate: 'FotaUpdate',
       globalStatus: 'GlobalStatus',
+      gpuSpec: 'GpuSpec',
       hasUpgrade: 'HasUpgrade',
       hibernationBeta: 'HibernationBeta',
       icon: 'Icon',
       lastStartTime: 'LastStartTime',
       localName: 'LocalName',
       managementStatuses: 'ManagementStatuses',
+      memory: 'Memory',
       officeSiteId: 'OfficeSiteId',
       orderStatus: 'OrderStatus',
       os: 'Os',
@@ -1147,6 +1312,7 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
     return {
       accessType: 'string',
       agentImUrl: 'string',
+      agentProviderList: { 'type': 'array', 'itemType': 'string' },
       aliUid: 'number',
       appId: 'string',
       authMode: 'string',
@@ -1157,20 +1323,24 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
       chargeType: 'string',
       clients: { 'type': 'array', 'itemType': DescribeUserResourcesResponseBodyResourcesClients },
       connectionProperties: 'string',
+      cpu: 'number',
       createTime: 'string',
       desktopDurationList: { 'type': 'array', 'itemType': DescribeUserResourcesResponseBodyResourcesDesktopDurationList },
       desktopTimers: { 'type': 'array', 'itemType': DescribeUserResourcesResponseBodyResourcesDesktopTimers },
+      disks: { 'type': 'array', 'itemType': DescribeUserResourcesResponseBodyResourcesDisks },
       expiredTime: 'string',
       externalDomainId: 'string',
       externalUserId: 'string',
       fotaUpdate: DescribeUserResourcesResponseBodyResourcesFotaUpdate,
       globalStatus: 'boolean',
+      gpuSpec: 'string',
       hasUpgrade: 'boolean',
       hibernationBeta: 'boolean',
       icon: 'string',
       lastStartTime: 'string',
       localName: 'string',
       managementStatuses: { 'type': 'array', 'itemType': 'string' },
+      memory: 'number',
       officeSiteId: 'string',
       orderStatus: 'string',
       os: 'string',
@@ -1202,6 +1372,9 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.agentProviderList)) {
+      $dara.Model.validateArray(this.agentProviderList);
+    }
     if(Array.isArray(this.clients)) {
       $dara.Model.validateArray(this.clients);
     }
@@ -1210,6 +1383,9 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
     }
     if(Array.isArray(this.desktopTimers)) {
       $dara.Model.validateArray(this.desktopTimers);
+    }
+    if(Array.isArray(this.disks)) {
+      $dara.Model.validateArray(this.disks);
     }
     if(this.fotaUpdate && typeof (this.fotaUpdate as any).validate === 'function') {
       (this.fotaUpdate as any).validate();
@@ -1235,10 +1411,14 @@ export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
 }
 
 export class DescribeUserResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The brief summary information of the agent.
+   */
   agentBriefSummary?: DescribeUserResourcesResponseBodyAgentBriefSummary;
   /**
    * @remarks
-   * The maximum number of results returned.
+   * The maximum number of returned results.
    * 
    * @example
    * 100
@@ -1246,7 +1426,7 @@ export class DescribeUserResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to start the next query. An empty NextToken indicates that there is no next page.
+   * The token used to start the next page of query results. An empty NextToken indicates that no more pages are available.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
@@ -1259,7 +1439,7 @@ export class DescribeUserResourcesResponseBody extends $dara.Model {
   queryFailedResourceTypes?: string[];
   /**
    * @remarks
-   * The ranking data version number.
+   * The version number of the ranking data.
    * 
    * @example
    * 1732869815062

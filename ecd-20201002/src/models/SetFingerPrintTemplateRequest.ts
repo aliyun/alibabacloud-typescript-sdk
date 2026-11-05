@@ -15,7 +15,7 @@ export class SetFingerPrintTemplateRequest extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * Ensure request idempotence. Generate a parameter value from your client to ensure its uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -23,7 +23,7 @@ export class SetFingerPrintTemplateRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * testDescription
@@ -39,7 +39,7 @@ export class SetFingerPrintTemplateRequest extends $dara.Model {
   encryptedFingerPrintTemplate?: string;
   /**
    * @remarks
-   * Encryption key.
+   * The encryption key.
    * 
    * @example
    * drjfspchj
@@ -47,7 +47,7 @@ export class SetFingerPrintTemplateRequest extends $dara.Model {
   encryptedKey?: string;
   /**
    * @remarks
-   * Fingerprint template.
+   * The fingerprint template.
    * 
    * @example
    * goG3gG8AAABhujtscn
@@ -55,7 +55,7 @@ export class SetFingerPrintTemplateRequest extends $dara.Model {
   fingerPrintTemplate?: string;
   /**
    * @remarks
-   * Logon credential.
+   * The logon credential.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class SetFingerPrintTemplateRequest extends $dara.Model {
   loginToken?: string;
   /**
    * @remarks
-   * Password.
+   * The password.
    * 
    * This parameter is required.
    * 
@@ -75,7 +75,7 @@ export class SetFingerPrintTemplateRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -85,7 +85,7 @@ export class SetFingerPrintTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Session ID.
+   * The session ID.
    * 
    * This parameter is required.
    * 

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetConnectionTicketResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ecd-1234567890abcdefg
+   */
   desktopId?: string;
   p2PToken?: string;
   /**
@@ -15,7 +19,7 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ticket used to connect to the user instance. Before you use the ticket, decode its content from Base64, save it as an .ica file, and then open the file. The following code provides a Python example:
+   * The ticket used to connect to the user instance. Before you use the ticket, you must decode its content by using Base64, save the decoded content as an .ica file (for example, xxx.ica), and then open the file. Python code example:
    * 
    * ```
    * import base64
@@ -35,7 +39,7 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   taskCode?: string;
   /**
    * @remarks
-   * The ID of the cloud computer connection task.
+   * The ID of the cloud desktop connection task.
    * 
    * @example
    * 2afbad19-778a-4fc5-9674-1f19c63862da
@@ -43,7 +47,7 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The ID of the cloud computer connection task.
+   * The ID of the cloud desktop connection task.
    * 
    * @example
    * 2afbad19-778a-4fc5-9674-1f19c638****
@@ -59,7 +63,7 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The connection ticket for the cloud computer.
+   * The connection credentials for the cloud desktop.
    * 
    * @example
    * W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********

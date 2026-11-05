@@ -14,6 +14,7 @@ export { DescribeUserResourcesResponseBodyAgentBriefSummary } from './DescribeUs
 export { DescribeUserResourcesResponseBodyResourcesClients } from './DescribeUserResourcesResponseBody';
 export { DescribeUserResourcesResponseBodyResourcesDesktopDurationList } from './DescribeUserResourcesResponseBody';
 export { DescribeUserResourcesResponseBodyResourcesDesktopTimers } from './DescribeUserResourcesResponseBody';
+export { DescribeUserResourcesResponseBodyResourcesDisks } from './DescribeUserResourcesResponseBody';
 export { DescribeUserResourcesResponseBodyResourcesFotaUpdate } from './DescribeUserResourcesResponseBody';
 export { DescribeUserResourcesResponseBodyResourcesOsUpdatePackages } from './DescribeUserResourcesResponseBody';
 export { DescribeUserResourcesResponseBodyResourcesOsUpdate } from './DescribeUserResourcesResponseBody';
