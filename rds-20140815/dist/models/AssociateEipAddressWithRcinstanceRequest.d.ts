@@ -1,0 +1,39 @@
+import * as $dara from '@darabonba/typescript';
+export declare class AssociateEipAddressWithRCInstanceRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the elastic IP address (EIP).
+     *
+     * > If you do not have an EIP, [create an EIP](https://help.aliyun.com/document_detail/292841.html) first.
+     *
+     * @example
+     * eip-bp166out2x4bpcf******
+     */
+    allocationId?: string;
+    /**
+     * @remarks
+     * The RDS Custom instance ID.
+     *
+     * @example
+     * rc-i322y2t562oh7o******
+     */
+    instanceId?: string;
+    /**
+     * @remarks
+     * The region ID. You can call the DescribeRegions operation to query available regions.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

@@ -1,0 +1,34 @@
+import * as $dara from '@darabonba/typescript';
+export declare class PrecheckDuckDBDependencyRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The primary instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pgm-2zegy5pdkg58****
+     */
+    DBInstanceId?: string;
+    ownerId?: number;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    /**
+     * @remarks
+     * The target node mode for the precheck. primary indicates the primary node. readOnly indicates a read-only node. If you do not specify this parameter, the default value is readOnly.
+     *
+     * @example
+     * readOnly
+     */
+    targetMode?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

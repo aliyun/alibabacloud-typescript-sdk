@@ -1,0 +1,39 @@
+import * as $dara from '@darabonba/typescript';
+export declare class GetDbProxyInstanceSslRequest extends $dara.Model {
+    /**
+     * @remarks
+     * A reserved parameter. No configuration is required.
+     *
+     * @example
+     * normal
+     */
+    DBProxyEngineType?: string;
+    /**
+     * @remarks
+     * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * rm-t4n3a****
+     */
+    dbInstanceId?: string;
+    /**
+     * @remarks
+     * The region ID. You can call the DescribeRegions operation to query the region ID.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

@@ -1,0 +1,148 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeResourceDetailsResponseBodyRdsEcsSecurityGroupRel extends $dara.Model {
+    /**
+     * @remarks
+     * The security group name.
+     *
+     * @example
+     * test_switch
+     */
+    securityGroupName?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribeResourceDetailsResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The storage space occupied by data backups, excluding archived backups. Unit: bytes.
+     *
+     * @example
+     * 8139046912
+     */
+    backupDataSize?: number;
+    /**
+     * @remarks
+     * The size of backup logs. Unit: bytes.
+     *
+     * @example
+     * 21183797
+     */
+    backupLogSize?: number;
+    /**
+     * @remarks
+     * The backup size. Unit: MB.
+     *
+     * @example
+     * 53002759
+     */
+    backupSize?: number;
+    /**
+     * @remarks
+     * The storage capacity.
+     *
+     * @example
+     * 200
+     */
+    dbInstanceStorage?: number;
+    /**
+     * @remarks
+     * The name of the proxy instance.
+     *
+     * @example
+     * mr-n1m1wjrylfolvrt67s
+     */
+    dbProxyInstanceName?: string;
+    /**
+     * @remarks
+     * The used storage space, which consists of the space occupied by data files and logs. Unit: bytes. A value of -1 indicates that no data is available.
+     *
+     * @example
+     * 4871684096
+     */
+    diskUsed?: number;
+    /**
+     * @remarks
+     * The instance storage type.
+     *
+     * @example
+     * cloud_essd
+     */
+    instanceStorageType?: string;
+    /**
+     * @remarks
+     * The whitelist group specifications.
+     */
+    rdsEcsSecurityGroupRel?: DescribeResourceDetailsResponseBodyRdsEcsSecurityGroupRel[];
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * @example
+     * cn-beijing
+     */
+    region?: string;
+    /**
+     * @remarks
+     * Id of the request
+     *
+     * @example
+     * EA815761-F7AC-5CFE-A1AC-709D6A00B58A
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The resource group ID.
+     *
+     * @example
+     * rg-acfmv3h25bj7yhq
+     */
+    resourceGroupId?: string;
+    /**
+     * @remarks
+     * The [IP address whitelist](https://help.aliyun.com/document_detail/43185.html) of the instance. Separate multiple entries with commas (,). Duplicate entries are not allowed. You can add up to 1,000 entries. The following two formats are supported:
+     * * IP address format, such as 10.10.XX.XX.
+     * * CIDR format, such as 10.10.XX.XX/24. In this format, 24 indicates the length of the prefix in the IP address, and the value ranges from 1 to 32.
+     *
+     * If this parameter is not specified, the default whitelist of the original instance is used.
+     *
+     * @example
+     * 172.16.1.14,172.16.1.13,172.16.1.44,172.16.1.43,172.16.1.74,172.16.1.73
+     */
+    securityIPList?: string;
+    /**
+     * @remarks
+     * The vSwitch ID.
+     *
+     * > The vSwitch must reside in the same zone as the ApsaraDB RDS instance.
+     *
+     * @example
+     * vsw-2zelwi1jd271p670lzl8h
+     */
+    vSwitchId?: string;
+    /**
+     * @remarks
+     * The VPC ID.
+     *
+     * @example
+     * vpc-wz9rbibex7v0lxbeyo6at
+     */
+    vpcId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

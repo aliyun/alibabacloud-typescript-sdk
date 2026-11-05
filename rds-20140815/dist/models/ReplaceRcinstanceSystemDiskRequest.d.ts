@@ -1,0 +1,64 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ReplaceRCInstanceSystemDiskRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the image used to reinstall the operating system.
+     *
+     * @example
+     * m-2zec4lvlhcdkyd13****
+     */
+    imageId?: string;
+    /**
+     * @remarks
+     * The instance ID.
+     *
+     * @example
+     * rc-m5ei7b1w38w2l91x****
+     */
+    instanceId?: string;
+    /**
+     * @remarks
+     * Reserved parameter. Not supported.
+     *
+     * @example
+     * None
+     */
+    isLocalDisk?: boolean;
+    /**
+     * @remarks
+     * The name of the new key pair. If you do not specify this parameter, you must reset the key pair after the operating system is reinstalled.
+     *
+     * @example
+     * testKeyPairName
+     */
+    keyPairName?: string;
+    /**
+     * @remarks
+     * The new logon password for the RDS Custom instance. If you do not specify this parameter, you must reset the logon password after the operating system is reinstalled.
+     *
+     * - The password must be 8 to 30 characters in length.
+     * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include: ()`~!@#$%^&*-_+=.
+     *
+     * @example
+     * testPassword
+     */
+    password?: string;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * @example
+     * cn-beijing
+     */
+    regionId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

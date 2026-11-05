@@ -1,0 +1,70 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeInstanceAutoRenewalAttributeRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example
+     * ETnLKlblzczshOTUbOCz****
+     */
+    clientToken?: string;
+    /**
+     * @remarks
+     * The instance ID. You can call DescribeDBInstances to query the instance ID.
+     *
+     * @example
+     * rm-bp****
+     */
+    DBInstanceId?: string;
+    ownerAccount?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The page number.
+     *
+     * @example
+     * 1
+     */
+    pageNumber?: number;
+    /**
+     * @remarks
+     * The number of entries per page. Valid values:
+     * * **30** (default)
+     * * **50**
+     * * **100**
+     *
+     * @example
+     * 30
+     */
+    pageSize?: number;
+    /**
+     * @remarks
+     * The region ID. You can call DescribeRegions to query the most recent region list.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionId?: string;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    /**
+     * @remarks
+     * A reserved parameter. You do not need to configure this parameter.
+     *
+     * @example
+     * test
+     */
+    proxyId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

@@ -1,0 +1,45 @@
+import * as $dara from '@darabonba/typescript';
+export declare class CreateRCImageRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The name of the custom image.
+     *
+     * @example
+     * Created_from_rc-vma9w5z699x9********
+     */
+    imageName?: string;
+    /**
+     * @remarks
+     * The RDS Custom instance ID.
+     *
+     * @example
+     * rc-vma9w5z699x93204****
+     */
+    instanceId?: string;
+    /**
+     * @remarks
+     * The region ID. You can call the DescribeRegions operation to query the region ID.
+     *
+     * @example
+     * cn-beijing
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * The ID of the snapshot used to create the custom image. You can call the DescribeRCSnapshots operation to query the snapshot ID.
+     *
+     * @example
+     * rcds-c9bjdl79vz5dx********
+     */
+    snapshotId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

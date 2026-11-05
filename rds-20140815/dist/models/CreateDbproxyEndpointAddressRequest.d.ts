@@ -1,0 +1,110 @@
+import * as $dara from '@darabonba/typescript';
+export declare class CreateDBProxyEndpointAddressRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The prefix of the new database proxy endpoint. You can customize the prefix.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * test1234
+     */
+    connectionStringPrefix?: string;
+    /**
+     * @remarks
+     * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * rm-t4n3****
+     */
+    DBInstanceId?: string;
+    /**
+     * @remarks
+     * The network type of the new database proxy endpoint. Valid values:
+     * * **Public**: Internet
+     * * **VPC** (default): VPC
+     *
+     * This parameter is required.
+     *
+     * @example
+     * Public
+     */
+    DBProxyConnectStringNetType?: string;
+    /**
+     * @remarks
+     * The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the database proxy endpoint ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * ta9um4****
+     */
+    DBProxyEndpointId?: string;
+    /**
+     * @remarks
+     * The reserved parameter. You do not need to specify this parameter.
+     *
+     * @example
+     * normal
+     */
+    DBProxyEngineType?: string;
+    /**
+     * @remarks
+     * The port of the new database proxy endpoint. Default values:
+     *
+     * - MySQL: **3306**
+     * - PostgreSQL: **5432**
+     *
+     * @example
+     * 3306
+     */
+    DBProxyNewConnectStringPort?: string;
+    /**
+     * @remarks
+     * The region ID. You can call the DescribeRegions operation to query the region ID.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * The resource group ID.
+     *
+     * @example
+     * rg-acfmy****
+     */
+    resourceGroupId?: string;
+    /**
+     * @remarks
+     * The VPC ID of the new database proxy endpoint. You can call the DescribeDBInstanceAttribute operation to query the VPC ID.
+     *
+     * > This parameter is required when **DBProxyConnectStringNetType** is set to **VPC**.
+     *
+     * @example
+     * vpc-bp****
+     */
+    VPCId?: string;
+    /**
+     * @remarks
+     * The vSwitch ID of the new database proxy endpoint. You can call the DescribeDBInstanceAttribute operation to query the vSwitch ID.
+     *
+     * > This parameter is required when **DBProxyConnectStringNetType** is set to **VPC**.
+     *
+     * @example
+     * vsw-bp****
+     */
+    vSwitchId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

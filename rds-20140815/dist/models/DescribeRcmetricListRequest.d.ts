@@ -1,0 +1,98 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeRCMetricListRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The dimensions used to query the monitoring data of specified resources in batches for Custom for SQL Server. Format: a collection of `key:value` pairs.
+     *
+     * @example
+     * [{"instanceId":"rc-l9hv3rv74ql7oa******"},{"instanceId":"rc-b532l1uj8n6sex******"}]
+     */
+    dimensions?: string;
+    /**
+     * @remarks
+     * The end time of the query. Format: `2024-08-06 10:15:00`. The end time must be later than the start time.
+     *
+     * @example
+     * 2024-08-06 10:15:00
+     */
+    endTime?: string;
+    /**
+     * @remarks
+     * The reserved parameter.
+     *
+     * @example
+     * None
+     */
+    express?: string;
+    /**
+     * @remarks
+     * The instance ID. This parameter is required.
+     *
+     * @example
+     * rc-dh2jf9n6j4s14926****
+     */
+    instanceId?: string;
+    /**
+     * @remarks
+     * The number of records to return on each page for paging in a paged query. Default value: 1000.
+     *
+     * @example
+     * 1000
+     */
+    length?: string;
+    /**
+     * @remarks
+     * The [monitored metric](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
+     *
+     * This parameter is required.
+     *
+     * @example
+     * CPUUtilization
+     */
+    metricName?: string;
+    /**
+     * @remarks
+     * The pagination token.
+     *
+     * @example
+     * 6178f1825f9fb76ce0b5e8707e******
+     */
+    nextToken?: string;
+    /**
+     * @remarks
+     * The statistical period of the monitoring data. Unit: seconds. Valid values:
+     *
+     * - 60 (default)
+     * - Any integer multiple of 60
+     *
+     * @example
+     * 60
+     */
+    period?: string;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * The start time of the query. Format: `2024-08-06 10:05:00`.
+     *
+     * @example
+     * 2024-08-06 10:05:00
+     */
+    startTime?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

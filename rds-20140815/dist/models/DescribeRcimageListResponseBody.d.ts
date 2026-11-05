@@ -1,0 +1,254 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeRCImageListResponseBodyImagesDiskDeviceMappings extends $dara.Model {
+    /**
+     * @remarks
+     * The device information of the cloud disk, such as `/dev/xvdb`.
+     *
+     * @example
+     * /dev/xvdb
+     */
+    device?: string;
+    /**
+     * @remarks
+     * The size of the cloud disk. Unit: GiB.
+     *
+     * @example
+     * 40
+     */
+    size?: string;
+    /**
+     * @remarks
+     * The attribute of the cloud disk. Valid values:
+     *
+     * - **system**: System cloud disk.
+     * - **data**: Data cloud disk.
+     *
+     * @example
+     * system
+     */
+    type?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribeRCImageListResponseBodyImages extends $dara.Model {
+    /**
+     * @remarks
+     * The system architecture of the image. Valid values:
+     *
+     * - x86_64
+     * - arm64
+     *
+     * @example
+     * x86_64
+     */
+    architecture?: string;
+    /**
+     * @remarks
+     * The creation time of the image.
+     *
+     * @example
+     * 2024-04-25T02:17:40Z
+     */
+    creationTime?: string;
+    /**
+     * @remarks
+     * The description of the image.
+     *
+     * @example
+     * test
+     */
+    description?: string;
+    /**
+     * @remarks
+     * The mappings between cloud disks and snapshots included in the image.
+     */
+    diskDeviceMappings?: DescribeRCImageListResponseBodyImagesDiskDeviceMappings[];
+    /**
+     * @remarks
+     * The image ID.
+     *
+     * @example
+     * m-2oqiu973jwcxe****
+     */
+    imageId?: string;
+    /**
+     * @remarks
+     * The image name.
+     *
+     * @example
+     * Created_from_i-2zeh17y17sz677x****
+     */
+    imageName?: string;
+    /**
+     * @remarks
+     * The image version.
+     *
+     * @example
+     * 2
+     */
+    imageVersion?: string;
+    /**
+     * @remarks
+     * Indicates whether the image is public. Public images include public images provided by Alibaba Cloud and custom images that you have published as community images. Valid values:
+     *
+     * - **true**: The image is public.
+     * - **false**: The image is not public.
+     *
+     * @example
+     * false
+     */
+    isPublic?: boolean;
+    /**
+     * @remarks
+     * Indicates whether the image supports RDS Custom instances. Valid values:
+     *
+     * - **true**: Yes.
+     * - **false**: No.
+     *
+     * @example
+     * true
+     */
+    isSupportRdsCustom?: boolean;
+    /**
+     * @remarks
+     * The Chinese display name of the operating system.
+     *
+     * @example
+     * Alibaba Cloud Linux  2.1903 LTS 64位 快速启动版
+     */
+    OSName?: string;
+    /**
+     * @remarks
+     * The English display name of the operating system.
+     *
+     * @example
+     * Alibaba Cloud Linux  2.1903 LTS 64 bit Quick Boot
+     */
+    OSNameEn?: string;
+    /**
+     * @remarks
+     * The operating system type. Valid values:
+     *
+     * - **windows**
+     * - **linux**
+     *
+     * @example
+     * linux
+     */
+    OSType?: string;
+    /**
+     * @remarks
+     * The operating system platform.
+     *
+     * @example
+     * Aliyun
+     */
+    platform?: string;
+    /**
+     * @remarks
+     * The size of the image. Unit: GiB.
+     *
+     * @example
+     * 40
+     */
+    size?: number;
+    /**
+     * @remarks
+     * The status of the image. Valid values:
+     *
+     * - **UnAvailable**: The image is unavailable.
+     * - **Available**: The image is available.
+     * - **Creating**: The image is being created.
+     * - **CreateFailed**: The image failed to be created.
+     *
+     * @example
+     * Available
+     */
+    status?: string;
+    /**
+     * @remarks
+     * Indicates whether the image is used by RDS Custom instances. Valid values:
+     *
+     * - **instance**: One or more RDS Custom instances are created.
+     * - **none**: No RDS Custom instances are created.
+     *
+     * @example
+     * instance
+     */
+    usage?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribeRCImageListResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The image information.
+     */
+    images?: DescribeRCImageListResponseBodyImages[];
+    /**
+     * @remarks
+     * The page number.
+     *
+     * @example
+     * 1
+     */
+    pageNumber?: number;
+    /**
+     * @remarks
+     * The number of entries per page.
+     *
+     * @example
+     * 5
+     */
+    pageSize?: number;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * 2553A660-E4EB-4AF4-A402-8AFF70A49143
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The total number of images.
+     *
+     * @example
+     * 2
+     */
+    totalCount?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

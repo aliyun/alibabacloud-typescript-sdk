@@ -1,0 +1,37 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ModifyRCInstanceDescriptionRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The name of the RDS Custom instance. The name must be 2 to 255 characters in length and start with a letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-).
+     *
+     * @example
+     * testInstance
+     */
+    instanceDescription?: string;
+    /**
+     * @remarks
+     * The instance ID.
+     *
+     * @example
+     * rc-m5ei7b1w38w2l91x****
+     */
+    instanceId?: string;
+    /**
+     * @remarks
+     * The region ID.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

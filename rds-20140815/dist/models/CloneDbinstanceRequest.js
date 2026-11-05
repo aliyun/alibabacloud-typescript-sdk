@@ -1,0 +1,166 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CloneDBInstanceRequest = exports.CloneDBInstanceRequestTag = exports.CloneDBInstanceRequestServerlessConfig = void 0;
+// This file is auto-generated, don't edit it
+const $dara = __importStar(require("@darabonba/typescript"));
+class CloneDBInstanceRequestServerlessConfig extends $dara.Model {
+    static names() {
+        return {
+            autoPause: 'AutoPause',
+            maxCapacity: 'MaxCapacity',
+            minCapacity: 'MinCapacity',
+            switchForce: 'SwitchForce',
+        };
+    }
+    static types() {
+        return {
+            autoPause: 'boolean',
+            maxCapacity: 'number',
+            minCapacity: 'number',
+            switchForce: 'boolean',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CloneDBInstanceRequestServerlessConfig = CloneDBInstanceRequestServerlessConfig;
+class CloneDBInstanceRequestTag extends $dara.Model {
+    static names() {
+        return {
+            key: 'Key',
+            value: 'Value',
+        };
+    }
+    static types() {
+        return {
+            key: 'string',
+            value: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CloneDBInstanceRequestTag = CloneDBInstanceRequestTag;
+class CloneDBInstanceRequest extends $dara.Model {
+    static names() {
+        return {
+            autoPay: 'AutoPay',
+            backupId: 'BackupId',
+            backupType: 'BackupType',
+            bpeEnabled: 'BpeEnabled',
+            burstingEnabled: 'BurstingEnabled',
+            category: 'Category',
+            clientToken: 'ClientToken',
+            customExtraInfo: 'CustomExtraInfo',
+            DBInstanceClass: 'DBInstanceClass',
+            DBInstanceDescription: 'DBInstanceDescription',
+            DBInstanceId: 'DBInstanceId',
+            DBInstanceStorage: 'DBInstanceStorage',
+            DBInstanceStorageType: 'DBInstanceStorageType',
+            dbNames: 'DbNames',
+            dedicatedHostGroupId: 'DedicatedHostGroupId',
+            deletionProtection: 'DeletionProtection',
+            instanceNetworkType: 'InstanceNetworkType',
+            ioAccelerationEnabled: 'IoAccelerationEnabled',
+            payType: 'PayType',
+            period: 'Period',
+            privateIpAddress: 'PrivateIpAddress',
+            regionId: 'RegionId',
+            resourceOwnerId: 'ResourceOwnerId',
+            restoreTable: 'RestoreTable',
+            restoreTime: 'RestoreTime',
+            serverlessConfig: 'ServerlessConfig',
+            tableMeta: 'TableMeta',
+            tag: 'Tag',
+            usedTime: 'UsedTime',
+            VPCId: 'VPCId',
+            vSwitchId: 'VSwitchId',
+            zoneId: 'ZoneId',
+            zoneIdSlave1: 'ZoneIdSlave1',
+            zoneIdSlave2: 'ZoneIdSlave2',
+        };
+    }
+    static types() {
+        return {
+            autoPay: 'boolean',
+            backupId: 'string',
+            backupType: 'string',
+            bpeEnabled: 'string',
+            burstingEnabled: 'boolean',
+            category: 'string',
+            clientToken: 'string',
+            customExtraInfo: 'string',
+            DBInstanceClass: 'string',
+            DBInstanceDescription: 'string',
+            DBInstanceId: 'string',
+            DBInstanceStorage: 'number',
+            DBInstanceStorageType: 'string',
+            dbNames: 'string',
+            dedicatedHostGroupId: 'string',
+            deletionProtection: 'boolean',
+            instanceNetworkType: 'string',
+            ioAccelerationEnabled: 'string',
+            payType: 'string',
+            period: 'string',
+            privateIpAddress: 'string',
+            regionId: 'string',
+            resourceOwnerId: 'number',
+            restoreTable: 'string',
+            restoreTime: 'string',
+            serverlessConfig: CloneDBInstanceRequestServerlessConfig,
+            tableMeta: 'string',
+            tag: { 'type': 'array', 'itemType': CloneDBInstanceRequestTag },
+            usedTime: 'number',
+            VPCId: 'string',
+            vSwitchId: 'string',
+            zoneId: 'string',
+            zoneIdSlave1: 'string',
+            zoneIdSlave2: 'string',
+        };
+    }
+    validate() {
+        if (this.serverlessConfig && typeof this.serverlessConfig.validate === 'function') {
+            this.serverlessConfig.validate();
+        }
+        if (Array.isArray(this.tag)) {
+            $dara.Model.validateArray(this.tag);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CloneDBInstanceRequest = CloneDBInstanceRequest;
+//# sourceMappingURL=CloneDbinstanceRequest.js.map

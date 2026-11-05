@@ -1,0 +1,195 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ListUserBackupFilesResponseBodyRecords extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the user backup.
+     *
+     * @example
+     * b-kwwvr7v8t7of****
+     */
+    backupId?: string;
+    /**
+     * @remarks
+     * The information about the binlog files in the backup file. This parameter is returned if incremental data is generated during the backup process.
+     *
+     * @example
+     * {\\"binlogPosition\\":\\"154\\",\\"binlogFile\\":\\"0.000002\\"}
+     */
+    binlogInfo?: string;
+    /**
+     * @remarks
+     * The comment of the user backup.
+     *
+     * @example
+     * BackupTest
+     */
+    comment?: string;
+    /**
+     * @remarks
+     * The time when the import of the user backup started. The time is in the UNIX timestamp format. Unit: milliseconds.
+     *
+     * @example
+     * 1623231084000
+     */
+    creationTime?: string;
+    /**
+     * @remarks
+     * The database engine.
+     *
+     * @example
+     * mysql
+     */
+    engine?: string;
+    /**
+     * @remarks
+     * The database engine version.
+     *
+     * @example
+     * 5.7
+     */
+    engineVersion?: string;
+    /**
+     * @remarks
+     * The time when the user backup was successfully imported. The time is in the UNIX timestamp format. Unit: milliseconds.
+     *
+     * @example
+     * 1623231750000
+     */
+    finishTime?: string;
+    /**
+     * @remarks
+     * The time when the import of the user backup was completed. The time is in the UNIX timestamp format. Unit: milliseconds.
+     *
+     * @example
+     * 1623231750000
+     */
+    modificationTime?: string;
+    /**
+     * @remarks
+     * The name of the OSS bucket where the user backup file is stored.
+     *
+     * @example
+     * BackupTest
+     */
+    ossBucket?: string;
+    /**
+     * @remarks
+     * The metadata of the user backup file. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
+     *
+     * @example
+     * {\\"Accept-Ranges\\":\\"bytes\\",\\"Connection\\":\\"keep-alive\\",\\"Content-Length\\":81014337,\\"Content-Type\\":\\"application/octet-stream\\",\\"Date\\":1623309548000,\\"ETag\\":\\"889FE9E5FCEBFE4781829488A352863B-1\\",\\"Last-Modified\\":1622186844000,\\"Server\\":\\"AliyunOSS\\",\\"x-oss-hash-crc64ecma\\":\\"5793608435727323129\\",\\"x-oss-object-type\\":\\"Multipart\\",\\"x-oss-request-id\\":\\"60C1BCEC92572F37318BD499\\",\\"x-oss-server-time\\":\\"166\\",\\"x-oss-storage-class\\":\\"Standard\\"}
+     */
+    ossFileMetaData?: string;
+    /**
+     * @remarks
+     * The name of the user backup file in OSS.
+     *
+     * @example
+     * backup_qp.xb
+     */
+    ossFileName?: string;
+    /**
+     * @remarks
+     * The path of the user backup file in OSS.
+     *
+     * @example
+     * test/backup_qp.xb
+     */
+    ossFilePath?: string;
+    /**
+     * @remarks
+     * The size of the user backup file in OSS. Unit: KB.
+     *
+     * @example
+     * 79115
+     */
+    ossFileSize?: number;
+    /**
+     * @remarks
+     * The OSS download URL of the user backup file.
+     *
+     * @example
+     * https://****.oss-ap-****.aliyuncs.com/backup_qp.xb
+     */
+    ossUrl?: string;
+    /**
+     * @remarks
+     * The reason why the user backup file failed to be imported.
+     *
+     * @example
+     * success
+     */
+    reason?: string;
+    /**
+     * @remarks
+     * The storage space required to restore the user backup. Unit: GB.
+     *
+     * @example
+     * 20
+     */
+    restoreSize?: string;
+    /**
+     * @remarks
+     * The retention period of the user backup file. Unit: days.
+     *
+     * @example
+     * 3
+     */
+    retention?: number;
+    /**
+     * @remarks
+     * The status of the user backup file. Valid values:
+     * * **Importing**: The backup is being imported.
+     * * **Failed**: The import failed.
+     * * **CheckSuccess**: The verification passed.
+     * * **BackupSuccess**: The import succeeded.
+     * * **Deleted**: The backup is deleted.
+     *
+     * @example
+     * BackupSuccess
+     */
+    status?: string;
+    /**
+     * @remarks
+     * The zone ID of the user backup.
+     *
+     * @example
+     * cn-hangzhou-b
+     */
+    zoneId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class ListUserBackupFilesResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The list of user backup file details.
+     */
+    records?: ListUserBackupFilesResponseBodyRecords[];
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * AD67C22F-64F3-4448-A9A8-D1606D242879
+     */
+    requestId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

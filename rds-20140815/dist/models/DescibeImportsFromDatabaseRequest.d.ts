@@ -1,0 +1,105 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescibeImportsFromDatabaseRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example
+     * ETnLKlblzczshOTUbOCz*******
+     */
+    clientToken?: string;
+    /**
+     * @remarks
+     * The instance ID. You can call DescribeDBInstances to query the instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * rm-bp*****
+     */
+    DBInstanceId?: string;
+    /**
+     * @remarks
+     * The end time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 2023-06-11T16:00Z
+     */
+    endTime?: string;
+    /**
+     * @remarks
+     * The database engine. Set the value to **MySQL**.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * MySQL
+     */
+    engine?: string;
+    /**
+     * @remarks
+     * The ID of the migration task.
+     *
+     * @example
+     * 123
+     */
+    importId?: number;
+    ownerAccount?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The page number. Valid values: any non-zero positive integer that does not exceed the maximum value of the Integer data type.
+     *
+     * Default value: **1**.
+     *
+     * @example
+     * 1
+     */
+    pageNumber?: number;
+    /**
+     * @remarks
+     * The number of entries per page. Valid values:
+     *
+     * * **30**
+     * * **50**
+     * * **100**
+     *
+     * Default value: **30**.
+     *
+     * @example
+     * 30
+     */
+    pageSize?: number;
+    /**
+     * @remarks
+     * The resource group ID. You can call DescribeDBInstanceAttribute to query the resource group ID.
+     *
+     * @example
+     * rg-acfmy*****
+     */
+    resourceGroupId?: string;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    /**
+     * @remarks
+     * The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 2023-06-11T15:00Z
+     */
+    startTime?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

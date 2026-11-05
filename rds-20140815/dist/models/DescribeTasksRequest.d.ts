@@ -1,0 +1,75 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeTasksRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * rm-uf6wjk5****
+     */
+    DBInstanceId?: string;
+    /**
+     * @remarks
+     * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
+     *
+     * @example
+     * 2020-11-20T02:00Z
+     */
+    endTime?: string;
+    ownerAccount?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The page number. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
+     *
+     * @example
+     * 1
+     */
+    pageNumber?: number;
+    /**
+     * @remarks
+     * The number of entries to return on each page. Valid values: **30** to **100**. Default value: **30**.
+     *
+     * @example
+     * 30
+     */
+    pageSize?: number;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    /**
+     * @remarks
+     * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
+     *
+     * @example
+     * 2020-11-20T01:00Z
+     */
+    startTime?: string;
+    /**
+     * @remarks
+     * The task status. This parameter is invalid.
+     *
+     * @example
+     * 2
+     */
+    status?: string;
+    /**
+     * @remarks
+     * The API operation used by the task.
+     *
+     * @example
+     * CreateInstance
+     */
+    taskAction?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

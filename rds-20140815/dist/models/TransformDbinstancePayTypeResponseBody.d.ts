@@ -1,0 +1,56 @@
+import * as $dara from '@darabonba/typescript';
+export declare class TransformDBInstancePayTypeResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The billing method. Valid values:
+     * - POSTPAY: Pay-as-you-go.
+     * - PREPAY: Subscription.
+     *
+     * @example
+     * POSTPAY
+     */
+    chargeType?: string;
+    /**
+     * @remarks
+     * The instance ID.
+     *
+     * @example
+     * rm-uf6wjk5****
+     */
+    DBInstanceId?: string;
+    /**
+     * @remarks
+     * The expiration time.
+     * > This parameter is not returned if the billing method is changed to pay-as-you-go.
+     *
+     * @example
+     * 2020-04-20T10:00:00Z
+     */
+    expiredTime?: string;
+    /**
+     * @remarks
+     * The ID of the order.
+     *
+     * @example
+     * 20515760028****
+     */
+    orderId?: number;
+    /**
+     * @remarks
+     * The ID of the request.
+     *
+     * @example
+     * 5E6E09DE-5B12-4BFF-A55E-1C86EDE06D9A
+     */
+    requestId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

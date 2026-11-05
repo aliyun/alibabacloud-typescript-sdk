@@ -1,0 +1,46 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ModifyDBInstanceAutoUpgradeMinorVersionRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The method used to upgrade the minor engine version of the instance. Valid values:
+     * * **Auto**: automatically upgrades the minor engine version.
+     * * **Manual**: does not automatically upgrade the minor engine version. The minor engine version is forcibly upgraded only when the current version is retired.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * Auto
+     */
+    autoUpgradeMinorVersion?: string;
+    /**
+     * @remarks
+     * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The value can be up to 64 characters in length and can contain only ASCII characters.
+     *
+     * @example
+     * ETnLKlblzczshOTUbOCz****
+     */
+    clientToken?: string;
+    /**
+     * @remarks
+     * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * rm-uf6wjk5****
+     */
+    DBInstanceId?: string;
+    ownerId?: number;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

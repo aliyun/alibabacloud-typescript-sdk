@@ -1,0 +1,53 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribePostgresExtensionsRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example
+     * ETnLKlblzczshOTUbOCz****
+     */
+    clientToken?: string;
+    /**
+     * @remarks
+     * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * pgm-bp156o9ti493****
+     */
+    DBInstanceId?: string;
+    /**
+     * @remarks
+     * The name of the database. You can call the DescribeDatabases operation to query the database name.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * test_db
+     */
+    DBName?: string;
+    ownerAccount?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The resource group ID.
+     *
+     * @example
+     * rg-acfmy****
+     */
+    resourceGroupId?: string;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

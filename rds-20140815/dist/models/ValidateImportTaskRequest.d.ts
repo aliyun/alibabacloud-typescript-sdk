@@ -1,0 +1,117 @@
+import * as $dara from '@darabonba/typescript';
+export declare class ValidateImportTaskRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * rm-sdfljk123****
+     */
+    dbInstanceId?: string;
+    /**
+     * @remarks
+     * The estimated size of the instance. Unit: GB.
+     *
+     * @example
+     * 100
+     */
+    estimatedSize?: number;
+    /**
+     * @remarks
+     * The address of the source MySQL database.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 192.168.10.1
+     */
+    host?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The Base64-encoded password of the source MySQL database user.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * UGFzc3dvcmQxMjMK
+     */
+    password?: string;
+    /**
+     * @remarks
+     * The port number of the source MySQL database.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 3306
+     */
+    port?: number;
+    /**
+     * @remarks
+     * The region ID. You can call the DescribeRegions operation to query the region ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * The ID of the source cloud instance.
+     *
+     * @example
+     * i-wz9ff3acy500io5wdf5s
+     */
+    sourceInstanceId?: string;
+    /**
+     * @remarks
+     * The type of the source platform. Valid values:
+     * - ECS
+     *
+     * @example
+     * ECS
+     */
+    sourcePlatform?: string;
+    /**
+     * @remarks
+     * The port number for backup transmission.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 9999
+     */
+    streamPort?: number;
+    /**
+     * @remarks
+     * The username of the source MySQL database.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * myadmin
+     */
+    user?: string;
+    /**
+     * @remarks
+     * The path to the XtraBackup tool on the source instance.
+     *
+     * @example
+     * /usr/local/bin/xtrabackup
+     */
+    xtrabackupPath?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

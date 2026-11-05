@@ -1,0 +1,69 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeDatabasesRequest extends $dara.Model {
+    /**
+     * @remarks
+     * Instance ID of the instance. You can call the DescribeDBInstances operation to obtain instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * rm-uf6wjk5****
+     */
+    DBInstanceId?: string;
+    /**
+     * @remarks
+     * The name of the database.
+     *
+     * @example
+     * testDB01
+     */
+    DBName?: string;
+    /**
+     * @remarks
+     * The status of the database. Valid values:
+     * * **Creating**: The database is being created.
+     * * **Running**: The database is in use.
+     * * **Deleting**: The database is being deleted.
+     *
+     * @example
+     * Creating
+     */
+    DBStatus?: string;
+    ownerAccount?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The page number. Valid values: any integer greater than 0 and less than or equal to the maximum integer value.
+     *
+     * Default value: **1**.
+     *
+     * @example
+     * 1
+     */
+    pageNumber?: number;
+    /**
+     * @remarks
+     * The number of entries per page. Valid values:
+     * * **30**
+     * * **50**
+     * * **100**
+     *
+     * Default value: 30.
+     *
+     * @example
+     * 30
+     */
+    pageSize?: number;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

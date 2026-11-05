@@ -1,0 +1,65 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeErrorLogsRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the instance. You can call the DescribeDBInstances operation to query the instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * rm-uf6wjk5****
+     */
+    DBInstanceId?: string;
+    /**
+     * @remarks
+     * The end time of the query. The end time must be later than the start time, and the interval between the start time and the end time must be less than 31 days. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 2011-05-30T20:10Z
+     */
+    endTime?: string;
+    ownerAccount?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
+     *
+     * Default value: **1**.
+     *
+     * @example
+     * 1
+     */
+    pageNumber?: number;
+    /**
+     * @remarks
+     * The number of entries per page. Valid values: **30** to **100**. Default value: **30**.
+     *
+     * @example
+     * 30
+     */
+    pageSize?: number;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    /**
+     * @remarks
+     * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * 2011-05-01T20:10Z
+     */
+    startTime?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

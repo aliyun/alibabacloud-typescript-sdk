@@ -1,0 +1,228 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribePostgresExtensionsResponseBodyInstalledExtensions extends $dara.Model {
+    /**
+     * @remarks
+     * The category of the extension. Valid values:
+     *
+     * - **external_access**: external access
+     * - **index_support**: index support
+     * - **information_sta**t: information statistics
+     * - **geography_space**: geospatial
+     * - **vector_engine**: vector engine
+     * - **timing_engine**: time series engine
+     * - **data_type**: data type
+     * - **encrypt_secure**: encryption and security
+     * - **text_process**: text processing
+     * - **operation_maintenance**: application O&M
+     * - **self_develop**: self-developed
+     *
+     * @example
+     * information_stat
+     */
+    category?: string;
+    /**
+     * @remarks
+     * The purpose of the extension.
+     *
+     * @example
+     * PostgreSQL load profile repository and report builder
+     */
+    comment?: string;
+    /**
+     * @remarks
+     * The default version of the extension.
+     *
+     * @example
+     * 4.1
+     */
+    defaultVersion?: string;
+    /**
+     * @remarks
+     * The currently installed version of the extension.
+     *
+     * @example
+     * 4.1
+     */
+    installedVersion?: string;
+    /**
+     * @remarks
+     * The name of the extension.
+     *
+     * @example
+     * pg_profile
+     */
+    name?: string;
+    /**
+     * @remarks
+     * The owner of the extension.
+     *
+     * @example
+     * test_user
+     */
+    owner?: string;
+    /**
+     * @remarks
+     * The priority of the extension. Valid values:
+     *
+     * - **0**: displayed by default
+     * - **1**: displayed with priority
+     *
+     * @example
+     * 0
+     */
+    priority?: string;
+    /**
+     * @remarks
+     * The extensions on which this extension depends when it is installed.
+     *
+     * @example
+     * {dblink,plpgsql}
+     */
+    requires?: string;
+    /**
+     * @remarks
+     * The Alibaba Cloud account ID.
+     *
+     * > This parameter is returned only for exclusive extensions (extensions written by users). Each Alibaba Cloud account displays only its own exclusive extensions.
+     *
+     * @example
+     * 181578148294****
+     */
+    uid?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribePostgresExtensionsResponseBodyUninstalledExtensions extends $dara.Model {
+    /**
+     * @remarks
+     * The category of the extension.
+     *
+     * @example
+     * information_stat
+     */
+    category?: string;
+    /**
+     * @remarks
+     * The purpose of the extension.
+     *
+     * @example
+     * PostgreSQL load profile repository and report builder
+     */
+    comment?: string;
+    /**
+     * @remarks
+     * The default version of the extension.
+     *
+     * @example
+     * 4.1
+     */
+    defaultVersion?: string;
+    /**
+     * @remarks
+     * The currently installed version of the extension.
+     *
+     * @example
+     * 4.1
+     */
+    installedVersion?: string;
+    /**
+     * @remarks
+     * The name of the extension.
+     *
+     * @example
+     * pg_cron
+     */
+    name?: string;
+    /**
+     * @remarks
+     * The owner of the extension.
+     *
+     * @example
+     * test_user
+     */
+    owner?: string;
+    /**
+     * @remarks
+     * The priority of the extension.
+     *
+     * @example
+     * 0
+     */
+    priority?: string;
+    /**
+     * @remarks
+     * The extensions on which this extension depends when it is installed.
+     *
+     * @example
+     * {dblink,plpgsql}
+     */
+    requires?: string;
+    /**
+     * @remarks
+     * The Alibaba Cloud account ID.
+     *
+     * > This parameter is returned only for exclusive extensions (extensions written by users). Each Alibaba Cloud account displays only its own exclusive extensions.
+     *
+     * @example
+     * 181578148294****
+     */
+    uid?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class DescribePostgresExtensionsResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The list of installed extensions in the specified database.
+     */
+    installedExtensions?: DescribePostgresExtensionsResponseBodyInstalledExtensions[];
+    /**
+     * @remarks
+     * The overview information about the extensions.
+     *
+     * @example
+     * None
+     */
+    overview?: {
+        [key: string]: any;
+    };
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * 7E4448A6-9FE6-4474-A0C1-AA7CFC772CAC
+     */
+    requestId?: string;
+    /**
+     * @remarks
+     * The list of uninstalled extensions in the specified database.
+     */
+    uninstalledExtensions?: DescribePostgresExtensionsResponseBodyUninstalledExtensions[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

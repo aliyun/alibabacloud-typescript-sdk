@@ -1,0 +1,32 @@
+import * as $dara from '@darabonba/typescript';
+export declare class DescribeRCInstanceVncUrlResponseBody extends $dara.Model {
+    /**
+     * @remarks
+     * The VNC logon URL.
+     *
+     *
+     * >Notice: The VNC logon URL is time-sensitive and valid for 15 seconds. If the URL is not used within 15 seconds after a successful API call, it automatically expires. You must call the API operation again to obtain a new URL.
+     *
+     * @example
+     * https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.8/index.html?vncUrl=****&instanceId=i-2vcb1qjj8z5dl8iw****&isWindows=false
+     */
+    loginUrl?: string;
+    /**
+     * @remarks
+     * The request ID.
+     *
+     * @example
+     * F2911788-25E8-42E5-A3A3-1B38D263F01E
+     */
+    requestId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

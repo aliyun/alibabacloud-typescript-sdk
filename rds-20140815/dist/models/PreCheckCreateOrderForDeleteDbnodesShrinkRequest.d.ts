@@ -1,0 +1,130 @@
+import * as $dara from '@darabonba/typescript';
+export declare class PreCheckCreateOrderForDeleteDBNodesShrinkRequest extends $dara.Model {
+    /**
+     * @remarks
+     * Specifies whether to automatically pay for the order. Valid values:
+     *
+     * - **true**: enables automatic payment. Make sure that your account balance is sufficient.
+     * - **false**: generates an unpaid order without deducting fees.
+     *
+     * Default value: true. If your payment method has an insufficient balance, you can set this parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+     *
+     * @example
+     * True
+     */
+    autoPay?: boolean;
+    /**
+     * @remarks
+     * The business extension parameters.
+     *
+     * @example
+     * {\\"promotion_input_param\\":\\"{\\\\\\"promotionFilter\\\\\\":{},\\\\\\"promotionOptionCode\\\\\\":\\\\\\"youhui_quan\\\\\\"}\\"}
+     */
+    businessInfo?: string;
+    /**
+     * @remarks
+     * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value of this parameter on the client side. The value must be unique across different requests and can be up to 64 ASCII characters in length. It cannot contain non-ASCII characters.
+     *
+     * @example
+     * ETnLKlblzczshOTUbOC****
+     */
+    clientToken?: string;
+    /**
+     * @remarks
+     * The commodity code. Valid values:
+     *
+     * * **bards**: pay-as-you-go primary instance
+     * * **rds**: subscription primary instance
+     * * **rords**: pay-as-you-go read-only instance
+     * * **rds_rordspre_public_cn**: subscription read-only instance
+     * * **bards_intl**: pay-as-you-go primary instance
+     * * **rds_intl**: subscription primary instance
+     * * **rords_intl**: pay-as-you-go read-only instance
+     * * **rds_rordspre_public_intl**: subscription read-only instance
+     *
+     * This parameter is required.
+     *
+     * @example
+     * rds
+     */
+    commodityCode?: string;
+    /**
+     * @remarks
+     * The instance ID.
+     *
+     * @example
+     * rm-wz9rziy3he051if82
+     */
+    DBInstanceId?: string;
+    /**
+     * @remarks
+     * The list of node IDs.
+     */
+    DBNodeIdShrink?: string;
+    /**
+     * @remarks
+     * The destination database engine version. Valid values vary based on the value of the **Engine** parameter:
+     * * MySQL: **5.5/5.6/5.7/8.0**
+     * * SQL Server: **2008r2/08r2_ent_ha/2012/2012_ent_ha/2012_std_ha/2012_web/2014_std_ha/2016_ent_ha/2016_std_ha/2016_web/2017_std_ha/2017_ent/2019_std_ha/2019_ent**
+     * * PostgreSQL: **10.0/11.0/12.0/13.0/14.0/15.0**
+     *
+     * @example
+     * 8.0
+     */
+    engineVersion?: string;
+    /**
+     * @remarks
+     * The database node type. Valid values:
+     * - **Master**: primary node
+     * - **Slave**: secondary node
+     *
+     * @example
+     * Master
+     */
+    nodeType?: string;
+    ownerId?: number;
+    /**
+     * @remarks
+     * The coupon code.
+     *
+     * @example
+     * aliwood-1688-mobile-promotion
+     */
+    promotionCode?: string;
+    /**
+     * @remarks
+     * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query region IDs.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionId?: string;
+    /**
+     * @remarks
+     * The resource.
+     *
+     * @example
+     * buy
+     */
+    resource?: string;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    /**
+     * @remarks
+     * The zone ID.
+     *
+     * @example
+     * cn-hangzhou-a
+     */
+    zoneId?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

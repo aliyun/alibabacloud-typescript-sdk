@@ -1,0 +1,34 @@
+import * as $dara from '@darabonba/typescript';
+export declare class QueryRecommendByCodeRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The code.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * rds_recommend
+     */
+    code?: string;
+    ownerId?: string;
+    /**
+     * @remarks
+     * The resource group ID.
+     *
+     * @example
+     * rg-acfmy****
+     */
+    resourceGroupId?: string;
+    resourceOwnerAccount?: string;
+    resourceOwnerId?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}

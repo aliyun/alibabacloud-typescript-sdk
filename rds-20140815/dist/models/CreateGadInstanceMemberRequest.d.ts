@@ -1,0 +1,271 @@
+import * as $dara from '@darabonba/typescript';
+export declare class CreateGadInstanceMemberRequestUnitNode extends $dara.Model {
+    /**
+     * @remarks
+     * The name of the new unit node. The naming rules are as follows:
+     * - The name must be **2** to **255** characters in length.
+     * - The name must start with a letter or a Chinese character and can contain letters, digits, Chinese characters, underscores (_), and hyphens (-).
+     * - The name cannot start with `http://` or `https://`.
+     *
+     * @example
+     * test
+     */
+    DBInstanceDescription?: string;
+    /**
+     * @remarks
+     * The storage capacity of the new unit node. Unit: GB. The storage capacity increases in increments of 5 GB. For more information about the valid values, see [Instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableResource operation to query the available storage capacity range for the target instance type.
+     *
+     * @example
+     * 20
+     */
+    DBInstanceStorage?: number;
+    /**
+     * @remarks
+     * The instance storage type. Valid values:
+     *
+     * * **local_ssd**: local SSD
+     * * **cloud_ssd**: standard SSD
+     * * **cloud_essd**: PL1 ESSD
+     * * **cloud_essd2**: PL2 ESSD
+     * * **cloud_essd3**: PL3 ESSD
+     *
+     * @example
+     * cloud_essd
+     */
+    DBInstanceStorageType?: string;
+    /**
+     * @remarks
+     * The instance type of the new unit node. For more information about the valid values, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableResource operation to query the available instance types in the target region.
+     *
+     * @example
+     * rds.mysql.t1.small
+     */
+    dbInstanceClass?: string;
+    /**
+     * @remarks
+     * The resolution policy for primary key conflicts that occur during synchronization on the new unit node. Valid values:
+     * * **overwrite**: Overwrites the conflicting primary keys in the destination node.
+     * * **interrupt**: Interrupts the synchronization task, reports an error, and exits.
+     * * **ignore**: Overwrites the conflicting primary keys in the current node.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * overwrite
+     */
+    dtsConflict?: string;
+    /**
+     * @remarks
+     * The specification of the data synchronization link for the new unit node. Valid values:
+     * * **small**
+     * * **medium**
+     * * **large**
+     * * **micro**
+     *
+     * > For more information about the differences between specifications, see [Data synchronization link specifications](https://help.aliyun.com/document_detail/26605.html).
+     *
+     * This parameter is required.
+     *
+     * @example
+     * medium
+     */
+    dtsInstanceClass?: string;
+    /**
+     * @remarks
+     * The database engine of the new unit node. Only **MySQL** is supported.
+     *
+     * @example
+     * MySQL
+     */
+    engine?: string;
+    /**
+     * @remarks
+     * The database engine version of the new unit node. Valid values:
+     * * **8.0**
+     * * **5.7**
+     * * **5.6**
+     * * **5.5**
+     *
+     * @example
+     * 8.0
+     */
+    engineVersion?: string;
+    /**
+     * @remarks
+     * The region ID of the new unit node (secondary node). You can call the DescribeRegions operation to query the region ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    regionID?: string;
+    /**
+     * @remarks
+     * The [IP address whitelist](https://help.aliyun.com/document_detail/43185.html) of the new unit node. Separate multiple entries with commas (,). Duplicate entries are not allowed. A maximum of 1,000 entries can be added. The following two formats are supported:
+     * * IP address format, such as `10.10.XX.XX`.
+     * * CIDR format, such as `10.10.XX.XX/24`. **24** indicates the length of the prefix in the IP address, and the valid values are **1** to **32**.
+     *
+     * @example
+     * 10.10.XX.XX
+     */
+    securityIPList?: string;
+    /**
+     * @remarks
+     * The vSwitch ID of the new unit node.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * vsw-bp1tg609m5j85****
+     */
+    vSwitchID?: string;
+    /**
+     * @remarks
+     * The VPC ID of the new unit node.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * vpc-bp19ame5m1r3o****
+     */
+    vpcID?: string;
+    /**
+     * @remarks
+     * The zone ID of the new unit node. You can call the DescribeRegions operation to query the zone ID.
+     *
+     * @example
+     * cn-hangzhou-j
+     */
+    zoneID?: string;
+    /**
+     * @remarks
+     * The zone ID of the secondary node for the new unit node. You can call the DescribeRegions operation to query the zone ID where the node is active.
+     * * If the value is the same as the **ZoneId** of the current unit node, it is a single-zone deployment.
+     * * If the value is different from the **ZoneId** of the current unit node, it is a multi-zone deployment.
+     *
+     * @example
+     * cn-hangzhou-j
+     */
+    zoneIDSlave1?: string;
+    /**
+     * @remarks
+     * The zone ID of the logger node for the new unit node. You can call the DescribeRegions operation to query the zone ID where the node is active.
+     * * If the value is the same as the **ZoneId** of the current unit node, it is a single-zone deployment.
+     * * If the value is different from the **ZoneId** of the current unit node, it is a multi-zone deployment.
+     *
+     * @example
+     * cn-hangzhou-j
+     */
+    zoneIDSlave2?: string;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
+export declare class CreateGadInstanceMemberRequest extends $dara.Model {
+    /**
+     * @remarks
+     * The ID of the central node. You can call the DescribeGadInstances operation to query the ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * rm-bp190h8y69tad****
+     */
+    centralDBInstanceId?: string;
+    /**
+     * @remarks
+     * The privileged account of the central node. You can call the DescribeAccounts operation to query the account.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * test
+     */
+    centralRdsDtsAdminAccount?: string;
+    /**
+     * @remarks
+     * The password of the privileged account of the central node.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * Test12345
+     */
+    centralRdsDtsAdminPassword?: string;
+    /**
+     * @remarks
+     * The region ID of the central node (primary node). You can call the DescribeRegions operation to query the region ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * cn-hangzhou
+     */
+    centralRegionId?: string;
+    /**
+     * @remarks
+     * The JSON array of database information in the central node. All database information in the array is synchronized to the current unit node. Parameter description:
+     * * **name**: the name of the database.
+     * * **all**: specifies whether to synchronize all data in the current database or table. Valid values: **true** and **false**.
+     * * **Table**: the name of the table. If the **all** parameter is set to **false**, you must also include the names of the tables to be synchronized in the JSON array.
+     *
+     * Example: `{
+     *    "testdb": {
+     *     "name": "testdb",
+     *     "all": false,
+     *     "Table": {
+     *       "order": {
+     *         "name": "order",
+     *         "all": true
+     *       },
+     *       "ordernew": {
+     *         "name": "ordernew",
+     *         "all": true
+     *       }
+     *     }
+     *   }
+     * }`
+     * > For more information, see [Objects for migration, synchronization, or subscription](https://help.aliyun.com/document_detail/209545.html).
+     *
+     * This parameter is required.
+     *
+     * @example
+     * {    "testdb": {     "name": "testdb",     "all": false,     "Table": {       "order": {         "name": "order",         "all": true       },       "ordernew": {         "name": "ordernew",         "all": true       }     }   } }
+     */
+    DBList?: string;
+    /**
+     * @remarks
+     * The ID of the ApsaraDB RDS global active database cluster. You can call the DescribeGadInstances operation to query the ID.
+     *
+     * This parameter is required.
+     *
+     * @example
+     * gad-rm-bp1npi2j8****
+     */
+    gadInstanceId?: string;
+    /**
+     * @remarks
+     * The list of unit node (secondary node) information.
+     *
+     * This parameter is required.
+     */
+    unitNode?: CreateGadInstanceMemberRequestUnitNode[];
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
