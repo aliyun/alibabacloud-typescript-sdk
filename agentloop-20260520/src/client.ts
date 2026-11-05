@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "AgentLoop";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("agentloop", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -1760,8 +1764,14 @@ export default class Client extends OpenApi {
    */
   async getDatasetWithOptions(agentSpace: string, datasetName: string, request: $_model.GetDatasetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.version)) {
+      query["version"] = request.version;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "GetDataset",

@@ -6,7 +6,7 @@ import { IndexKey } from "./IndexKey";
 export class GetDatasetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the agent space.
+   * The name of the agent workspace.
    * 
    * @example
    * sop-agent
