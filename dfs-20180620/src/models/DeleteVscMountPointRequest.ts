@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVscMountPointRequest extends $dara.Model {
   /**
    * @remarks
+   * The file system ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 037c****1d
+   * e389e5c7-bcb4-4558-846a-e5afc444****
    */
   fileSystemId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,10 +25,12 @@ export class DeleteVscMountPointRequest extends $dara.Model {
   inputRegionId?: string;
   /**
    * @remarks
+   * The mount point ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 037cb49e1d-c***5
+   * f-037cb49e1d-c****.com
    */
   mountPointId?: string;
   static names(): { [key: string]: string } {

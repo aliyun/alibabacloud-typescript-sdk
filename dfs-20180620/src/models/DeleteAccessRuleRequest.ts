@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccessRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the permission group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteAccessRuleRequest extends $dara.Model {
   accessGroupId?: string;
   /**
    * @remarks
+   * The ID of the permission group rule to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteAccessRuleRequest extends $dara.Model {
   accessRuleId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

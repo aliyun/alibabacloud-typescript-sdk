@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserGroupsMappingsRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the Apsara File Storage for HDFS file system.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListUserGroupsMappingsRequest extends $dara.Model {
   filesystemId?: string;
   /**
    * @remarks
+   * The region where the file system resides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +24,17 @@ export class ListUserGroupsMappingsRequest extends $dara.Model {
    */
   inputRegionId?: string;
   /**
+   * @remarks
+   * The number of users to return per query.
+   * 
    * @example
    * 10
    */
   limit?: number;
   /**
+   * @remarks
+   * The starting point for the next page in a paged query. Set this parameter to an empty string for the first query. If paged queries are required, the response to each request includes the NextToken value for the next request.
+   * 
    * @example
    * user1
    */

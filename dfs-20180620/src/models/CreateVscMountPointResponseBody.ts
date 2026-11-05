@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateVscMountPointResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The mount target ID.
+   * 
    * @example
    * e389e5c7-bcb4-4558-846a-e5afc444****
    */
   mountPointId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 55C5FFD6-BF99-41BD-9C66-FFF39189****
    */

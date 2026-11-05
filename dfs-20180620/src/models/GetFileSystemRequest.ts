@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class GetFileSystemRequest extends $dara.Model {
   /**
    * @remarks
+   * The file system ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 37af8f42-2abc-4e74-889d-664f5163****
    */
   fileSystemId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

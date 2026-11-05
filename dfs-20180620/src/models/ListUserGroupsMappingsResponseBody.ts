@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUserGroupsMappingsResponseBodyUserGroupsMappings extends $dara.Model {
+  /**
+   * @remarks
+   * The list of groups to which the user belongs.
+   */
   groupNames?: string[];
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * user1
    */
@@ -37,20 +44,33 @@ export class ListUserGroupsMappingsResponseBodyUserGroupsMappings extends $dara.
 
 export class ListUserGroupsMappingsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether more data is available when paging is used.
+   * 
    * @example
    * true
    */
   hasMore?: boolean;
   /**
+   * @remarks
+   * The NextToken value for the next paged query.
+   * 
    * @example
    * user1
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 55C5FFD6-BF99-41BD-9C66-FFF39189****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The mappings between users and groups in the file system.
+   */
   userGroupsMappings?: ListUserGroupsMappingsResponseBodyUserGroupsMappings[];
   static names(): { [key: string]: string } {
     return {

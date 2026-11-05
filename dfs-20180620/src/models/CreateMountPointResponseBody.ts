@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMountPointResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The mount target ID.
+   * 
+   * @example
+   * f-37af8f42f****.cn-hangzhou.dfs.aliyuncs.com
+   */
   mountPointId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 55C5FFD6-BF99-41BD-9C66-FFF39189****
    */

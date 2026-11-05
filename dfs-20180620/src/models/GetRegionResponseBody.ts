@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRegionResponseBodyAvailableZonesOptions extends $dara.Model {
   /**
+   * @remarks
+   * The protocol type. Only Hadoop Distributed File System (HDFS) is supported.
+   * 
    * @example
    * HDFS
    */
   protocolType?: string;
   /**
+   * @remarks
+   * The storage medium type. Valid values:
+   * - STANDARD: Standard.
+   * - PERFORMANCE: Performance.
+   * 
    * @example
    * STANDARD
    */
@@ -37,8 +45,15 @@ export class GetRegionResponseBodyAvailableZonesOptions extends $dara.Model {
 }
 
 export class GetRegionResponseBodyAvailableZones extends $dara.Model {
+  /**
+   * @remarks
+   * The list of configurations.
+   */
   options?: GetRegionResponseBodyAvailableZonesOptions[];
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-b
    */
@@ -70,8 +85,15 @@ export class GetRegionResponseBodyAvailableZones extends $dara.Model {
 }
 
 export class GetRegionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The collection of zone information.
+   */
   availableZones?: GetRegionResponseBodyAvailableZones[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AEC07154-5A4C-4B34-BB74-0893C6E9****
    */

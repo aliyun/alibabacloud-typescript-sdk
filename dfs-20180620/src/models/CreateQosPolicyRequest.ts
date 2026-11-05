@@ -17,6 +17,7 @@ export class CreateQosPolicyRequest extends $dara.Model {
   maxMetaQps?: number;
   reqTags?: string[];
   zoneIds?: string[];
+  storageType?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -29,6 +30,7 @@ export class CreateQosPolicyRequest extends $dara.Model {
       maxMetaQps: 'MaxMetaQps',
       reqTags: 'ReqTags',
       zoneIds: 'ZoneIds',
+      storageType: 'storageType',
     };
   }
 
@@ -44,6 +46,7 @@ export class CreateQosPolicyRequest extends $dara.Model {
       maxMetaQps: 'number',
       reqTags: { 'type': 'array', 'itemType': 'string' },
       zoneIds: { 'type': 'array', 'itemType': 'string' },
+      storageType: 'string',
     };
   }
 

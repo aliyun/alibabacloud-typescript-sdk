@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAccessGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the access group.
+   * 
    * @example
    * acg-e3755fb0-358d-4286-9942-8d461048****
    */
   accessGroupId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 55C5FFD6-BF99-41BD-9C66-FFF39189****
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserGroupsMappingRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID of the Apsara File Storage for HDFS file system.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,23 @@ export class DeleteUserGroupsMappingRequest extends $dara.Model {
    */
   fileSystemId?: string;
   /**
+   * @remarks
+   * The names of the groups to which the user belongs.
+   * Limits:
+   * - Must start with a letter or an underscore (_).
+   * 
+   * - Must be 1 to 32 characters in length and cannot be empty.
+   * 
+   * - Can contain only lowercase letters, digits, and underscores (_).
+   * 
    * @example
    * ["group1","group2"]
    */
   groupNames?: string[];
   /**
    * @remarks
+   * The region where the file system resides.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +39,17 @@ export class DeleteUserGroupsMappingRequest extends $dara.Model {
   inputRegionId?: string;
   /**
    * @remarks
+   * The username.
+   * Limits:
+   * 
+   * - Must start with a letter or an underscore (_).
+   * 
+   * - Must be 1 to 32 characters in length and cannot be empty.
+   * 
+   * - Can contain only lowercase letters, digits, and underscores (_).
+   * 
+   * > Each user can belong to up to 10 groups.
+   * 
    * This parameter is required.
    * 
    * @example

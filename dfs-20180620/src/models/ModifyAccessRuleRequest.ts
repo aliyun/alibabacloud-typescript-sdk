@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccessRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the permission group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,15 +15,28 @@ export class ModifyAccessRuleRequest extends $dara.Model {
   accessGroupId?: string;
   /**
    * @remarks
+   * The ID of the permission group rule.
+   * 
    * This parameter is required.
    * 
    * @example
    * acr-c38028f0-f313-4385-9456-3501b1f5****
    */
   accessRuleId?: string;
+  /**
+   * @remarks
+   * The description of the permission group rule.
+   * 
+   * The description can be up to 32 characters in length.
+   * 
+   * @example
+   * CIDR block of the log upload server
+   */
   description?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,11 +44,24 @@ export class ModifyAccessRuleRequest extends $dara.Model {
    */
   inputRegionId?: string;
   /**
+   * @remarks
+   * The priority of the permission group rule.
+   * 
+   * Valid values: 1 to 100. A value of 1 indicates the highest priority.
+   * 
    * @example
    * 2
    */
   priority?: number;
   /**
+   * @remarks
+   * The read and write permissions that the authorized object has on the file system.
+   * 
+   * Valid values:
+   * 
+   * - RDWR: read and write
+   * - RDONLY: read-only
+   * 
    * @example
    * RDWR
    */

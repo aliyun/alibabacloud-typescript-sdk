@@ -3,9 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVscMountPointsResponseBodyMountPointsInstancesVscs extends $dara.Model {
+  /**
+   * @remarks
+   * VSC ID
+   * 
+   * @example
+   * vsc-asjodjoio****
+   */
   vscId?: string;
   vscName?: string;
+  /**
+   * @remarks
+   * The mount status of the VSC. Valid values:
+   * - NORMAL: The mount operation succeeded.
+   * - CREATING: The mount operation is in progress.
+   * - INVALID: The mount operation failed.
+   * 
+   * @example
+   * NORMAL
+   */
   vscStatus?: string;
+  /**
+   * @remarks
+   * The VSC type. Valid values:
+   * - Primary (default): The reserved default VSC on the ECS instance.
+   * - Secondary: The reusable VSC on the ECS instance.
+   * 
+   * @example
+   * Primary
+   */
   vscType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,15 +62,28 @@ export class DescribeVscMountPointsResponseBodyMountPointsInstancesVscs extends 
 
 export class DescribeVscMountPointsResponseBodyMountPointsInstances extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID of the ECS instance on which the HDFS file system is mounted.
+   * 
    * @example
-   * ["ecs-instance1", "ecs-instance2"]
+   * i-bp1g6zv0ce8oghu7****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance status of the ECS instance on which the HDFS file system is mounted. Valid values:
+   * - NORMAL: The mount operation succeeded.
+   * - CREATING: The mount operation is in progress.
+   * - INVALID: The mount operation failed.
+   * 
    * @example
-   * AVAILABLE
+   * NORMAL
    */
   status?: string;
+  /**
+   * @remarks
+   * The list of VSCs on which the HDFS file system is mounted.
+   */
   vscs?: DescribeVscMountPointsResponseBodyMountPointsInstancesVscs[];
   static names(): { [key: string]: string } {
     return {
@@ -75,21 +114,41 @@ export class DescribeVscMountPointsResponseBodyMountPointsInstances extends $dar
 }
 
 export class DescribeVscMountPointsResponseBodyMountPoints extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the mount point.
+   * 
+   * @example
+   * The HDFS file system mounted on the internal instance
+   */
   description?: string;
   /**
+   * @remarks
+   * The number of ECS instances to which the HDFS file system is to be mounted.
+   * 
    * @example
    * 1
    */
   instanceTotalCount?: number;
+  /**
+   * @remarks
+   * The ECS instances on which the HDFS file system is mounted.
+   */
   instances?: DescribeVscMountPointsResponseBodyMountPointsInstances[];
   /**
+   * @remarks
+   * The alias of the mount point.
+   * 
    * @example
    * hdfs1
    */
   mountPointAlias?: string;
   /**
+   * @remarks
+   * The mount point ID.
+   * 
    * @example
-   * 037cb49e1d-c***5
+   * f-037cb49e1d-c****.dfs.aliyuncs.com
    */
   mountPointId?: string;
   static names(): { [key: string]: string } {
@@ -125,13 +184,23 @@ export class DescribeVscMountPointsResponseBodyMountPoints extends $dara.Model {
 }
 
 export class DescribeVscMountPointsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The mount point information.
+   */
   mountPoints?: DescribeVscMountPointsResponseBodyMountPoints[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 55C5FFD6-BF99-41BD-9C66-FFF39189****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of returned entries.
+   * 
    * @example
    * 1
    */

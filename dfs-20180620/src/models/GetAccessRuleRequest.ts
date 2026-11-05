@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccessRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * Permission group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetAccessRuleRequest extends $dara.Model {
   accessGroupId?: string;
   /**
    * @remarks
+   * Permission group rule ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetAccessRuleRequest extends $dara.Model {
   accessRuleId?: string;
   /**
    * @remarks
+   * Region ID.
+   * 
    * This parameter is required.
    * 
    * @example

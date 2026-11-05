@@ -3,13 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
+  /**
+   * @remarks
+   * The region name.
+   * 
+   * @example
+   * China (Hangzhou)
+   */
   localName?: string;
   /**
+   * @remarks
+   * The endpoint of the region.
+   * 
    * @example
    * dfs.cn-hangzhou.aliyuncs.com
    */
   regionEndpoint?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -40,6 +53,10 @@ export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
+  /**
+   * @remarks
+   * The region information.
+   */
   region?: DescribeRegionsResponseBodyRegionsRegion[];
   static names(): { [key: string]: string } {
     return {
@@ -66,8 +83,15 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The collection of region information.
+   */
   regions?: DescribeRegionsResponseBodyRegions;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2B51751B-F837-49AA-8EF3-B2B10703****
    */

@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AttachVscToMountPointsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The mount information list.
+   */
   attachInfosShrink?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +19,11 @@ export class AttachVscToMountPointsShrinkRequest extends $dara.Model {
    */
   inputRegionId?: string;
   /**
+   * @remarks
+   * Specifies whether to use an assumed role to check the permissions of the compute node. Valid values:
+   * - true: Yes.
+   * - false (default): No.
+   * 
    * @example
    * false
    */

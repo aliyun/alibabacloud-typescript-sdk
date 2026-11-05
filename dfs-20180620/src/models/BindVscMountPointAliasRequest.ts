@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BindVscMountPointAliasRequest extends $dara.Model {
   /**
    * @remarks
+   * The mount point alias.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,14 +15,18 @@ export class BindVscMountPointAliasRequest extends $dara.Model {
   aliasPrefix?: string;
   /**
    * @remarks
+   * The file system ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 037****e1d
+   * e389e5c7-bcb4-4558-846a-e5afc444****
    */
   fileSystemId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,10 +35,12 @@ export class BindVscMountPointAliasRequest extends $dara.Model {
   inputRegionId?: string;
   /**
    * @remarks
+   * The mount point ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 037cb49e1d-c***5
+   * f-037cb49e1d-c****.dfs.aliyuncs.com
    */
   mountPointId?: string;
   static names(): { [key: string]: string } {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccessRulesRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the access group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListAccessRulesRequest extends $dara.Model {
   accessGroupId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,22 +24,57 @@ export class ListAccessRulesRequest extends $dara.Model {
    */
   inputRegionId?: string;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * Default value: 10
+   * 
    * @example
    * 10
    */
   limit?: number;
+  /**
+   * @remarks
+   * The token for the next page.
+   * 
+   * If a single query does not return all entries, a non-empty NextToken is returned. You can specify the NextToken in a subsequent query to continue the query.
+   * 
+   * @example
+   * MYR6sz6qkmauspAy8oxjHP-tOLtD4KSv3DzI7G6iywTx1ZCExO50GtSuiTB9z0JppvYQ2iUa8s4HbcFanMQfDIlds4da87_Ax4UJMva****
+   */
   nextToken?: string;
   /**
+   * @remarks
+   * The field by which to sort the returned results.
+   * 
+   * Valid values:
+   * 
+   * - Priority (default): sort by priority
+   * - CreateTime: sort by creation time
+   * 
    * @example
    * Priority
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The sort order of the returned results.
+   * 
+   * Valid values:
+   * 
+   * - ASC (default): ascending order
+   * - DESC: descending order
+   * 
    * @example
    * ASC
    */
   orderType?: string;
   /**
+   * @remarks
+   * Specifies the starting position of the query.
+   * 
+   * Default value: 1
+   * 
    * @example
    * 10
    */
