@@ -1885,6 +1885,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the resource and session events of the current account within the last 30 days by using paging.
+   * 
+   * @remarks
+   * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified at the same time, the intersection is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
+   * 
+   * @param request - DescribeEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEventsResponse
+   */
+  async describeEventsWithOptions(request: $_model.DescribeEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEventsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.appInstanceGroupName)) {
+      body["AppInstanceGroupName"] = request.appInstanceGroupName;
+    }
+
+    if (!$dara.isNull(request.appInstanceId)) {
+      body["AppInstanceId"] = request.appInstanceId;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      body["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.eventType)) {
+      body["EventType"] = request.eventType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.memberEniIp)) {
+      body["MemberEniIp"] = request.memberEniIp;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      body["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeEvents",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeEventsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEventsResponse({}));
+  }
+
+  /**
+   * Queries the resource and session events of the current account within the last 30 days by using paging.
+   * 
+   * @remarks
+   * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified at the same time, the intersection is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
+   * 
+   * @param request - DescribeEventsRequest
+   * @returns DescribeEventsResponse
+   */
+  async describeEvents(request: $_model.DescribeEventsRequest): Promise<$_model.DescribeEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeEventsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a development host.
    * 
    * @param request - DescribeWuyingServerRequest
@@ -5025,6 +5133,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the available Wuying Workstation workload templates for a specified virtual node pool.
+   * 
+   * @remarks
+   * Queries the available workload templates for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the VirtualNodePoolId under the current account. This operation verifies the ownership of the node pool and returns up to 100 records sorted by the template configuration order. The template content is Base64-encoded after being UTF-8 encoded. You must perform Base64 decoding before use. The current version does not use MaxResults and NextToken for pagination.
+   * 
+   * @param request - ListWuyingServerWorkloadTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWuyingServerWorkloadTemplateResponse
+   */
+  async listWuyingServerWorkloadTemplateWithOptions(request: $_model.ListWuyingServerWorkloadTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWuyingServerWorkloadTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.virtualNodePoolId)) {
+      query["VirtualNodePoolId"] = request.virtualNodePoolId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWuyingServerWorkloadTemplate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWuyingServerWorkloadTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ListWuyingServerWorkloadTemplateResponse({}));
+  }
+
+  /**
+   * Queries the available Wuying Workstation workload templates for a specified virtual node pool.
+   * 
+   * @remarks
+   * Queries the available workload templates for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the VirtualNodePoolId under the current account. This operation verifies the ownership of the node pool and returns up to 100 records sorted by the template configuration order. The template content is Base64-encoded after being UTF-8 encoded. You must perform Base64 decoding before use. The current version does not use MaxResults and NextToken for pagination.
+   * 
+   * @param request - ListWuyingServerWorkloadTemplateRequest
+   * @returns ListWuyingServerWorkloadTemplateResponse
+   */
+  async listWuyingServerWorkloadTemplate(request: $_model.ListWuyingServerWorkloadTemplateRequest): Promise<$_model.ListWuyingServerWorkloadTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWuyingServerWorkloadTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the list of available zone IDs for a specified region, product type, and operating system type.
    * 
    * @remarks
@@ -5551,7 +5715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shares an image with other WUYING users or cancels the sharing of a shared image.
+   * Shares an image with other WUYING users or unshares a shared image.
    * 
    * @param request - ModifyShareImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5598,7 +5762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Shares an image with other WUYING users or cancels the sharing of a shared image.
+   * Shares an image with other WUYING users or unshares a shared image.
    * 
    * @param request - ModifyShareImageRequest
    * @returns ModifyShareImageResponse
@@ -5760,6 +5924,750 @@ export default class Client extends OpenApi {
   async pageListAppInstanceGroupUser(request: $_model.PageListAppInstanceGroupUserRequest): Promise<$_model.PageListAppInstanceGroupUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.pageListAppInstanceGroupUserWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries delivery group reports by region, delivery group, status, user authorization relationship, or statistical date.
+   * 
+   * @remarks
+   * Queries the delivery group ID, name, and status in delivery group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business region, and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the delivery group. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are passed at the same time, the intersection is taken. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be passed in pairs to represent a closed interval. If both a single day and an interval are passed, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
+   * 
+   * @param request - QueryAppInstanceGroupReportListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAppInstanceGroupReportListResponse
+   */
+  async queryAppInstanceGroupReportListWithOptions(request: $_model.QueryAppInstanceGroupReportListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAppInstanceGroupReportListResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.appInstanceGroupName)) {
+      body["AppInstanceGroupName"] = request.appInstanceGroupName;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.endUserId)) {
+      body["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.statDate)) {
+      body["StatDate"] = request.statDate;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAppInstanceGroupReportList",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAppInstanceGroupReportListResponse>(await this.callApi(params, req, runtime), new $_model.QueryAppInstanceGroupReportListResponse({}));
+  }
+
+  /**
+   * Queries delivery group reports by region, delivery group, status, user authorization relationship, or statistical date.
+   * 
+   * @remarks
+   * Queries the delivery group ID, name, and status in delivery group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business region, and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the delivery group. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are passed at the same time, the intersection is taken. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be passed in pairs to represent a closed interval. If both a single day and an interval are passed, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
+   * 
+   * @param request - QueryAppInstanceGroupReportListRequest
+   * @returns QueryAppInstanceGroupReportListResponse
+   */
+  async queryAppInstanceGroupReportList(request: $_model.QueryAppInstanceGroupReportListRequest): Promise<$_model.QueryAppInstanceGroupReportListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAppInstanceGroupReportListWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the number of successful connections, the number of failed connections, the success rate, and the average connection duration within a specified time range.
+   * 
+   * @remarks
+   * Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
+   * 
+   * @param request - QueryConnectionReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryConnectionReportResponse
+   */
+  async queryConnectionReportWithOptions(request: $_model.QueryConnectionReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryConnectionReportResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryConnectionReport",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryConnectionReportResponse>(await this.callApi(params, req, runtime), new $_model.QueryConnectionReportResponse({}));
+  }
+
+  /**
+   * Queries the number of successful connections, the number of failed connections, the success rate, and the average connection duration within a specified time range.
+   * 
+   * @remarks
+   * Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
+   * 
+   * @param request - QueryConnectionReportRequest
+   * @returns QueryConnectionReportResponse
+   */
+  async queryConnectionReport(request: $_model.QueryConnectionReportRequest): Promise<$_model.QueryConnectionReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryConnectionReportWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the number of daily active users and streaming daily active users by date.
+   * 
+   * @remarks
+   * Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to `CloudApp`. You can use BizRegionId and AppInstanceGroupId to narrow the scope. If neither is specified, the query returns aggregated data for all business regions. Results are paginated, with a maximum of 1,500 records per page.
+   * 
+   * @param request - QueryDauReportDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDauReportDataResponse
+   */
+  async queryDauReportDataWithOptions(request: $_model.QueryDauReportDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDauReportDataResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryDauReportData",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryDauReportDataResponse>(await this.callApi(params, req, runtime), new $_model.QueryDauReportDataResponse({}));
+  }
+
+  /**
+   * Queries the number of daily active users and streaming daily active users by date.
+   * 
+   * @remarks
+   * Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to `CloudApp`. You can use BizRegionId and AppInstanceGroupId to narrow the scope. If neither is specified, the query returns aggregated data for all business regions. Results are paginated, with a maximum of 1,500 records per page.
+   * 
+   * @param request - QueryDauReportDataRequest
+   * @returns QueryDauReportDataResponse
+   */
+  async queryDauReportData(request: $_model.QueryDauReportDataRequest): Promise<$_model.QueryDauReportDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryDauReportDataWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the number of monthly active users for each month within a specified time range.
+   * 
+   * @remarks
+   * Queries the monthly active user (MAU) report. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation, and the time span cannot exceed 60 months. The API returns statistical values by month. To adapt to offline data generated on the next day, the last month in the query range uses the day before `EndDate` as the statistical cutoff date. Results are returned in pages, with a maximum of 1,500 entries per page.
+   * 
+   * @param request - QueryMauReportDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMauReportDataResponse
+   */
+  async queryMauReportDataWithOptions(request: $_model.QueryMauReportDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMauReportDataResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMauReportData",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMauReportDataResponse>(await this.callApi(params, req, runtime), new $_model.QueryMauReportDataResponse({}));
+  }
+
+  /**
+   * Queries the number of monthly active users for each month within a specified time range.
+   * 
+   * @remarks
+   * Queries the monthly active user (MAU) report. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation, and the time span cannot exceed 60 months. The API returns statistical values by month. To adapt to offline data generated on the next day, the last month in the query range uses the day before `EndDate` as the statistical cutoff date. Results are returned in pages, with a maximum of 1,500 entries per page.
+   * 
+   * @param request - QueryMauReportDataRequest
+   * @returns QueryMauReportDataResponse
+   */
+  async queryMauReportData(request: $_model.QueryMauReportDataRequest): Promise<$_model.QueryMauReportDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMauReportDataWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the network RTT and low-RTT user statistics within a specified time range.
+   * 
+   * @remarks
+   * Queries network round-trip time (RTT) reports. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`. The minimum, maximum, and average RTT values are measured in milliseconds. The low-RTT threshold is determined by the report statistical caliber, and the current API operation does not return this threshold. Results are returned in pages, with a maximum of 1,500 entries per page.
+   * 
+   * @param request - QueryNetworkRttReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryNetworkRttReportResponse
+   */
+  async queryNetworkRttReportWithOptions(request: $_model.QueryNetworkRttReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryNetworkRttReportResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryNetworkRttReport",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryNetworkRttReportResponse>(await this.callApi(params, req, runtime), new $_model.QueryNetworkRttReportResponse({}));
+  }
+
+  /**
+   * Queries the network RTT and low-RTT user statistics within a specified time range.
+   * 
+   * @remarks
+   * Queries network round-trip time (RTT) reports. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`. The minimum, maximum, and average RTT values are measured in milliseconds. The low-RTT threshold is determined by the report statistical caliber, and the current API operation does not return this threshold. Results are returned in pages, with a maximum of 1,500 entries per page.
+   * 
+   * @param request - QueryNetworkRttReportRequest
+   * @returns QueryNetworkRttReportResponse
+   */
+  async queryNetworkRttReport(request: $_model.QueryNetworkRttReportRequest): Promise<$_model.QueryNetworkRttReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryNetworkRttReportWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the total number of nodes, the number of subscription nodes, and the number of pay-as-you-go nodes by statistical granularity.
+   * 
+   * @remarks
+   * Queries the node quantity report. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
+   * 
+   * @param request - QueryNodeReportDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryNodeReportDataResponse
+   */
+  async queryNodeReportDataWithOptions(request: $_model.QueryNodeReportDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryNodeReportDataResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.statDateType)) {
+      body["StatDateType"] = request.statDateType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryNodeReportData",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryNodeReportDataResponse>(await this.callApi(params, req, runtime), new $_model.QueryNodeReportDataResponse({}));
+  }
+
+  /**
+   * Queries the total number of nodes, the number of subscription nodes, and the number of pay-as-you-go nodes by statistical granularity.
+   * 
+   * @remarks
+   * Queries the node quantity report. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
+   * 
+   * @param request - QueryNodeReportDataRequest
+   * @returns QueryNodeReportDataResponse
+   */
+  async queryNodeReportData(request: $_model.QueryNodeReportDataRequest): Promise<$_model.QueryNodeReportDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryNodeReportDataWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the total number of sessions, connected sessions, and streaming sessions by statistical granularity.
+   * 
+   * @remarks
+   * Queries session quantity reports. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 records per page.
+   * 
+   * @param request - QuerySessionReportDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySessionReportDataResponse
+   */
+  async querySessionReportDataWithOptions(request: $_model.QuerySessionReportDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuerySessionReportDataResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.statDateType)) {
+      body["StatDateType"] = request.statDateType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuerySessionReportData",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QuerySessionReportDataResponse>(await this.callApi(params, req, runtime), new $_model.QuerySessionReportDataResponse({}));
+  }
+
+  /**
+   * Queries the total number of sessions, connected sessions, and streaming sessions by statistical granularity.
+   * 
+   * @remarks
+   * Queries session quantity reports. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 records per page.
+   * 
+   * @param request - QuerySessionReportDataRequest
+   * @returns QuerySessionReportDataResponse
+   */
+  async querySessionReportData(request: $_model.QuerySessionReportDataRequest): Promise<$_model.QuerySessionReportDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.querySessionReportDataWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the cumulative duration of application usage by a specified user on an hourly basis and returns the top five applications for each hour.
+   * 
+   * @remarks
+   * Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. A maximum of the top five applications by usage duration are returned for each hour.
+   * 
+   * @param request - QueryUserAppUsageAggregateByHourRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryUserAppUsageAggregateByHourResponse
+   */
+  async queryUserAppUsageAggregateByHourWithOptions(request: $_model.QueryUserAppUsageAggregateByHourRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryUserAppUsageAggregateByHourResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryUserAppUsageAggregateByHour",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryUserAppUsageAggregateByHourResponse>(await this.callApi(params, req, runtime), new $_model.QueryUserAppUsageAggregateByHourResponse({}));
+  }
+
+  /**
+   * Queries the cumulative duration of application usage by a specified user on an hourly basis and returns the top five applications for each hour.
+   * 
+   * @remarks
+   * Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. A maximum of the top five applications by usage duration are returned for each hour.
+   * 
+   * @param request - QueryUserAppUsageAggregateByHourRequest
+   * @returns QueryUserAppUsageAggregateByHourResponse
+   */
+  async queryUserAppUsageAggregateByHour(request: $_model.QueryUserAppUsageAggregateByHourRequest): Promise<$_model.QueryUserAppUsageAggregateByHourResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryUserAppUsageAggregateByHourWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the ranking of cumulative application usage duration for a specified user within a date range.
+   * 
+   * @remarks
+   * Queries the ranking of application usage duration for a specified user within a statistical range. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
+   * 
+   * @param request - QueryUserAppUsageTimeRankRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryUserAppUsageTimeRankResponse
+   */
+  async queryUserAppUsageTimeRankWithOptions(request: $_model.QueryUserAppUsageTimeRankRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryUserAppUsageTimeRankResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryUserAppUsageTimeRank",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryUserAppUsageTimeRankResponse>(await this.callApi(params, req, runtime), new $_model.QueryUserAppUsageTimeRankResponse({}));
+  }
+
+  /**
+   * Queries the ranking of cumulative application usage duration for a specified user within a date range.
+   * 
+   * @remarks
+   * Queries the ranking of application usage duration for a specified user within a statistical range. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
+   * 
+   * @param request - QueryUserAppUsageTimeRankRequest
+   * @returns QueryUserAppUsageTimeRankResponse
+   */
+  async queryUserAppUsageTimeRank(request: $_model.QueryUserAppUsageTimeRankRequest): Promise<$_model.QueryUserAppUsageTimeRankResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryUserAppUsageTimeRankWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the connection status, last connection time, cumulative usage duration, and session persistence duration of users.
+   * 
+   * @remarks
+   * Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to the `yyyyMMdd` format and aggregated based on a closed interval of natural days. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
+   * 
+   * @param request - QueryUserUsageReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryUserUsageReportResponse
+   */
+  async queryUserUsageReportWithOptions(request: $_model.QueryUserUsageReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryUserUsageReportResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.connectionStatus)) {
+      body["ConnectionStatus"] = request.connectionStatus;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryUserUsageReport",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryUserUsageReportResponse>(await this.callApi(params, req, runtime), new $_model.QueryUserUsageReportResponse({}));
+  }
+
+  /**
+   * Queries the connection status, last connection time, cumulative usage duration, and session persistence duration of users.
+   * 
+   * @remarks
+   * Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to the `yyyyMMdd` format and aggregated based on a closed interval of natural days. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
+   * 
+   * @param request - QueryUserUsageReportRequest
+   * @returns QueryUserUsageReportResponse
+   */
+  async queryUserUsageReport(request: $_model.QueryUserUsageReportRequest): Promise<$_model.QueryUserUsageReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryUserUsageReportWithOptions(request, runtime);
   }
 
   /**
