@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class RetryImageCacheShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body is a fixed empty object {}. WorkspaceId is passed as a query parameter. Do not pass the Pool, role, Digest, or network parameters.
+   * The request body, which is a fixed empty object {}. WorkspaceId is placed in the query. Do not pass Pool, role, Digest, or network.
    */
   bodyShrink?: string;
   /**
    * @remarks
-   * This parameter is required and cannot be empty. It is reserved to keep the API compatible. This field does not currently deduplicate requests or recover the original result. If a timeout occurs or the result is not confirmed, query the query cache status first before deciding whether to commit again.
+   * The client token. It is required and non-empty, and is reserved to keep the API compatible. This field does not currently deduplicate requests or recover original results. If a timeout occurs or the result is not confirmed, query the query cache status first before deciding whether to commit again.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class RetryImageCacheShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The current routed workspace. The server verifies the account, region, and resource ownership. You cannot omit this parameter or use it to access other workspaces.
+   * The current routed workspace. The server verifies the account, region, and resource ownership. This parameter cannot be omitted or used to access other workspaces.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImageCacheRequestBody extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow the current source reading and transfer to use the public network. At least one of this parameter and accessVpc must be set to true. The server verifies the access conditions of the current workspace.
+   * Specifies whether to allow the use of the public network for the current source read and transfer. At least one of this parameter and accessVpc must be set to true. The server verifies the access conditions of the current workspace.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateImageCacheRequestBody extends $dara.Model {
   accessInternet?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow the current source reading and transfer to use a VPC. At least one of this parameter and accessInternet must be set to true. The server parses the trusted network of the current workspace and does not modify the agent runtime network.
+   * Specifies whether to allow the use of a VPC for the current source read and transfer. At least one of this parameter and accessInternet must be set to true. The server parses the trusted network of the current workspace and does not modify the agent runtime network.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class CreateImageCacheRequestBody extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The name of the repository under the namespace. Do not include the namespace repeatedly.
+   * The name of the repository under the namespace. Do not include the namespace in the repository name.
    * 
    * This parameter is required.
    * 
@@ -104,7 +104,7 @@ export class CreateImageCacheRequest extends $dara.Model {
   body?: CreateImageCacheRequestBody;
   /**
    * @remarks
-   * This parameter is required and cannot be empty. It is reserved to be compatible with the API. Currently, it does not provide the ability to deduplicate requests or recover the original result based on this field. If a timeout occurs or the result is unconfirmed, query the query cache status first before deciding whether to recommit.
+   * Required and non-empty. This parameter is reserved for API compatibility. It currently does not provide request deduplication or original result recovery based on this field. If a timeout occurs or the result is unconfirmed, query the cache status first before deciding whether to resubmit.
    * 
    * This parameter is required.
    * 

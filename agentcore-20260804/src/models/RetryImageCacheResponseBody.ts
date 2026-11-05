@@ -20,7 +20,7 @@ export class RetryImageCacheResponseBodyDataError extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Image cache production failed. Please retry
+   * Image cache production failed. Try again
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -59,7 +59,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   acrInstanceId?: string;
   /**
    * @remarks
-   * The deduplicated number of agents in the current workspace that have useImageCache set to true and are associated with this logical resource. The value is greater than or equal to 0. This uses the same set as the imageCacheId filter in ListAllAgents. Agents with the feature disabled are not counted, regardless of the number of occupied instances.
+   * The deduplicated number of agents in the current workspace that have useImageCache set to true and are associated with this logical resource. The value is greater than or equal to 0. This is the same set as the imageCacheId filter in ListAllAgents. Agents with the feature disabled are not counted, regardless of the number of occupied instances.
    * 
    * This parameter is required.
    * 
@@ -82,7 +82,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   cacheSizeBytes?: number;
   /**
    * @remarks
-   * Indicates whether deletion is allowed. The value is true when the current workspace has no configuration references with the switch enabled, no valid instances are occupying the resource, and the resource is not being deleted. If the reference status is unknown, the query fails instead of allowing deletion by default.
+   * Indicates whether deletion is allowed. The value is true when the current workspace has no configuration references with the switch enabled, no valid instances occupy the resource, and the resource is not being deleted. If the reference status is unknown, the query should fail instead of allowing deletion by default.
    * 
    * This parameter is required.
    * 
@@ -102,7 +102,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The reason why deletion is blocked. The value is null when canDelete is true. Otherwise, the value is returned based on the priority of DELETING, AGENT_ENABLED, and INSTANCES_RELEASING. Old instances may still occupy the resource even if the agent count is 0.
+   * The reason for blocking deletion. The value is null when canDelete is true. Otherwise, the value is returned based on the priority of DELETING, AGENT_ENABLED, and INSTANCES_RELEASING. Old instances may still occupy the resource even if the agent count is 0.
    * 
    * This parameter is required.
    * 
@@ -125,7 +125,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * The reason for cache failure. This is a non-empty object when the status is FAILED, and null for other statuses. It only describes the current content and the current production round.
+   * The cache failure reason. It must be a non-empty object when the status is FAILED, and null for other statuses. It only describes the current content and the current production round.
    * 
    * This parameter is required.
    * 
@@ -166,10 +166,10 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The image cache status. Valid values:
-   * - PENDING: The cache is being created.
-   * - READY: The cache is available.
-   * - FAILED: An exception occurred.
-   * - DELETING: The cache is being deleted in the current workspace.
+   * - PENDING: creating
+   * - READY: available
+   * - FAILED: abnormal
+   * - DELETING: deleting in the current workspace
    * 
    * This parameter is required.
    * 
@@ -179,7 +179,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The source image tag with case preserved. Regular tags cannot be registered with different digests, except for the exact lowercase "latest" tag.
+   * The source image tag. Case is preserved. Regular tags cannot be registered with different digests, except for the exact lowercase "latest" tag.
    * 
    * This parameter is required.
    * 
@@ -189,7 +189,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The workspace ID, which is consistent with the requested workspace. Resources with the same content from other workspaces are not returned.
+   * The workspace ID. It is consistent with the requested workspace. Resources with the same content from other workspaces are not returned.
    * 
    * This parameter is required.
    * 

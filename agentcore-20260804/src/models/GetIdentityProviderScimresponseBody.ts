@@ -13,7 +13,10 @@ export class GetIdentityProviderSCIMResponseBodyDataConfiguration extends $dara.
   baseUrl?: string;
   /**
    * @remarks
-   * The AgentIdentity receiving status. Enabled indicates that SCIM receiving is enabled. Disabled indicates that it is disabled. This is not equivalent to the expected value of syncEnabled for AC.
+   * The AgentIdentity receiving status. Valid values:
+   * - Enabled: SCIM receiving is enabled.
+   * - Disabled: SCIM receiving is disabled.
+   * This is not equivalent to the expected value of syncEnabled for AC.
    * 
    * @example
    * Enabled
@@ -45,19 +48,19 @@ export class GetIdentityProviderSCIMResponseBodyDataConfiguration extends $dara.
 export class GetIdentityProviderSCIMResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The actual receiving status and URL. The actual SAML configuration is read back on demand only in GetIdentityProvider. SCIM queries and preparations return the actual receiving status and URL.
+   * The actual SAML configuration is read back on demand only in GetIdentityProvider. SCIM queries and preparation return the actual receiving status and URL.
    */
   configuration?: GetIdentityProviderSCIMResponseBodyDataConfiguration;
   /**
    * @remarks
    * The status of the most recent SCIM operation task. This status is independent of the SAML logon binding status. Valid values:
-   * - PENDING: Waiting for execution.
-   * - RUNNING: Executing.
+   * - PENDING: Waiting to be executed.
+   * - RUNNING: Being executed.
    * - PAUSED: Paused.
    * - SUCCESS: Succeeded.
    * - FAILED: Failed.
    * - CANCELED: Canceled.
-   * If there are no tasks, it returns null or is not returned. This status only represents the most recent SCIM switch and the initial full import task when enabled. It does not indicate credential issuance, external provisioning connection tests, or continuous incremental synchronization health. Clients poll this operation when the status is PENDING or RUNNING.
+   * Returns null or is omitted if no tasks exist. This status only represents the most recent SCIM switch and the initial full import task when enabled. It does not indicate credential issuance, external provisioning connection tests, or the health of continuous incremental synchronization. Clients poll this operation when the status is PENDING or RUNNING.
    * 
    * @example
    * SUCCESS
@@ -67,12 +70,12 @@ export class GetIdentityProviderSCIMResponseBodyData extends $dara.Model {
    * @remarks
    * The independent SCIM configuration status. Valid values:
    * - UNCONFIGURED: Preparation is not complete.
-   * - WAITING_CONFIGURATION: Receiving is enabled, a valid HTTPS URL and at least one valid token are available, waiting for external configuration and enablement confirmation.
-   * - UPDATING: The enablement or disablement task is PENDING or RUNNING.
-   * - READY: Synchronization is enabled and the current enablement task succeeded, and the receiving end, URL, and token are still available.
+   * - WAITING_CONFIGURATION: The receiving endpoint is enabled, a valid HTTPS URL and at least one valid token are available, and it is waiting for external configuration and enablement confirmation.
+   * - UPDATING: An enablement or disablement task is PENDING or RUNNING.
+   * - READY: Synchronization is enabled and the current enablement task succeeded. The receiving endpoint, URL, and token remain available.
    * - DISABLED: The disablement task succeeded, and the configuration, credentials, and users are retained.
    * - UPDATE_FAILED: The operation failed, was paused, was canceled, or the configuration and credentials are unavailable when enablement is expected.
-   * This status is independent of the SAML or OIDC status. READY does not prove that Matrix execution or the continuous incremental link has been accepted.
+   * This status is independent of the SAML or OIDC status. The READY state does not prove that Matrix execution or the continuous incremental link has been verified.
    * 
    * @example
    * READY
@@ -80,7 +83,7 @@ export class GetIdentityProviderSCIMResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Specifies whether local synchronization is expected. You must determine whether it takes effect based on the actual configuration and task records. Do not set this parameter to true during CustomSSO initialization. You can only update it later by calling UpdateIdentityProviderSCIM, and determine the result based on operationStatus.
+   * Specifies whether the local expected synchronization switch is enabled. Do not pass true during CustomSSO initialization. You can only update this value later by using UpdateIdentityProviderSCIM. Determine the effective result by combining this value with operationStatus.
    */
   syncEnabled?: boolean;
   static names(): { [key: string]: string } {
@@ -116,7 +119,7 @@ export class GetIdentityProviderSCIMResponseBodyData extends $dara.Model {
 export class GetIdentityProviderSCIMResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business result code. Use this code along with the HTTP status code and message for error handling.
+   * The business result code. Combine this code with the HTTP status code and message for handling failures.
    * 
    * @example
    * SUCCESS
@@ -124,12 +127,12 @@ export class GetIdentityProviderSCIMResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The SCIM actual configuration, expected synchronization switch, and independent operation status. For the result structure, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, but does not guarantee that the background task is complete.
+   * The result structure. For details, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, but does not guarantee that the background task is complete.
    */
   data?: GetIdentityProviderSCIMResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code of the current request. This code indicates the processing status of the request and is not equivalent to the final result of the background task.
+   * The processing status of this request. This is not equivalent to the final result of the background task.
    * 
    * @example
    * 200
@@ -137,7 +140,7 @@ export class GetIdentityProviderSCIMResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Task result message. It indicates that the request is accepted or provides an error message. For asynchronous tasks, you must check task results by calling the corresponding query operation.
+   * The request acceptance or error message. For asynchronous tasks, check the task result by using the corresponding query operation.
    * 
    * @example
    * success
@@ -145,7 +148,7 @@ export class GetIdentityProviderSCIMResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. It is used to associate the current call with troubleshooting. Retain this ID when a failure occurs.
+   * The ID used to associate this call with troubleshooting. Retain this ID when a failure occurs.
    * 
    * @example
    * request-example
@@ -153,7 +156,7 @@ export class GetIdentityProviderSCIMResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the current request is successful. A value of true indicates that the request is processed successfully. For asynchronous write operations, you must continue to query the task results.
+   * Indicates whether the current request is processed successfully. A value of true indicates success. For asynchronous writes, you must continue to query the task results.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomAgentRequestBodyAgenticFsMounts extends $dara.Model {
   /**
    * @remarks
-   * The subdirectory under /mnt/agenticfs/ in the container. This parameter is required for each mount item and is verified by the backend. Mount targets must not be duplicated or form parent-child overrides.
+   * The subdirectory under /mnt/agenticfs/ in the container. This parameter is required for each mount item. Mount targets must not be duplicated or form parent-child overrides.
    * 
    * @example
    * /mnt/agenticfs/data
@@ -29,7 +29,7 @@ export class CreateCustomAgentRequestBodyAgenticFsMounts extends $dara.Model {
   readOnly?: boolean;
   /**
    * @remarks
-   * The domain name of the access point. This parameter is required for each mount item. Specify the DomainName value from the ListAccessPoints response of NAS. Do not include the protocol, port, or path.
+   * The domain name of the access point. This parameter is required for each mount item. Use the DomainName value from the response of the NAS ListAccessPoints operation. Do not include the protocol, port, or path.
    * 
    * @example
    * ap-0123456789abcdef0.0123456789-vlm36.cn-hangzhou.nas.aliyuncs.com
@@ -75,7 +75,7 @@ export class CreateCustomAgentRequestBodyArtifactCode extends $dara.Model {
   entrypoint?: string;
   /**
    * @remarks
-   * The identifier of the code runtime environment, such as python3.12. When you create or switch the environment, use the identifier returned by ListAgentCodeRuntimes. The identifier is verified by the current version catalog and is not a fixed enumeration.
+   * The code runtime environment identifier, such as python3.12. When you create or switch environments, use the identifier returned by the ListAgentCodeRuntimes operation. The identifier is validated by the current version catalog and is not a fixed enumeration.
    * 
    * This parameter is required.
    * 
@@ -85,7 +85,7 @@ export class CreateCustomAgentRequestBodyArtifactCode extends $dara.Model {
   languageRuntime?: string;
   /**
    * @remarks
-   * The source URI of the code package. This parameter supports oss:// addresses or HTTPS object addresses of standard OSS public domain names, including OSS signed URLs. Arbitrary external sites, custom domain names, or additional authentication request headers are not supported. For local uploads, use the sourceUri returned by GetAgentCodePackageUploadUrl. The URI is reverified and transferred during creation or update. After the URI is saved, a fixed oss:// address of the platform is returned. You can reuse this fixed address for regular updates.
+   * The source address of the code package. This parameter supports oss:// addresses or HTTPS object addresses of standard OSS public domain names, including OSS signed URLs. Arbitrary external sites, custom domain names, and additional authentication request headers are not supported. After a local upload, use the sourceUri returned by the GetAgentCodePackageUploadUrl operation. The address is revalidated and transferred during creation or update. After the address is saved, a fixed oss:// address of the platform is returned. You can reuse this fixed address for regular updates.
    * 
    * This parameter is required.
    * 
@@ -121,7 +121,7 @@ export class CreateCustomAgentRequestBodyArtifactCode extends $dara.Model {
 export class CreateCustomAgentRequestBodyArtifactContainer extends $dara.Model {
   /**
    * @remarks
-   * The optional image startup command. If specified, it must be a non-empty string. If omitted, the default startup method of the image is used.
+   * The optional image startup command. If specified, this parameter must be a non-empty string. If omitted, the default startup method of the image is used.
    * 
    * @example
    * python app.py
@@ -161,7 +161,7 @@ export class CreateCustomAgentRequestBodyArtifactContainer extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The source type of the image. Currently, only acr is supported, which indicates Alibaba Cloud Container Registry (ACR).
+   * The image source type. Currently, only acr is supported, which indicates Alibaba Cloud Container Registry (ACR).
    * 
    * This parameter is required.
    * 
@@ -203,12 +203,12 @@ export class CreateCustomAgentRequestBodyArtifactContainer extends $dara.Model {
 export class CreateCustomAgentRequestBodyArtifact extends $dara.Model {
   /**
    * @remarks
-   * The code package deployment configuration. This parameter is mutually exclusive with container. The code package uses the ZIP or TAR.GZ format. Dependencies must be packaged by the user. The platform does not install dependencies or perform online builds.
+   * The code package deployment configuration. This parameter is mutually exclusive with the container parameter. The code package must be in ZIP or TAR.GZ format. Dependencies must be packaged by the user. The platform does not install dependencies or perform online builds.
    */
   code?: CreateCustomAgentRequestBodyArtifactCode;
   /**
    * @remarks
-   * The Container Registry (ACR) container image configuration. You must specify the type, instanceId, namespace, repo, and tag parameters. Do not configure code at the same time.
+   * The Container Registry (ACR) container image configuration. You must specify the type, instanceId, namespace, repo, and tag parameters. Do not configure the code parameter at the same time.
    */
   container?: CreateCustomAgentRequestBodyArtifactContainer;
   /**
@@ -255,7 +255,7 @@ export class CreateCustomAgentRequestBodyArtifact extends $dara.Model {
 export class CreateCustomAgentRequestBodyCustomImagePullNetwork extends $dara.Model {
   /**
    * @remarks
-   * The ID of the security group. This parameter is required when type is set to vpc. The security group must belong to the selected VPC.
+   * The security group ID. This parameter is required when type is set to vpc and must belong to the selected VPC.
    * 
    * @example
    * sg-example
@@ -263,7 +263,7 @@ export class CreateCustomAgentRequestBodyCustomImagePullNetwork extends $dara.Mo
   securityGroupId?: string;
   /**
    * @remarks
-   * The type of the pull network. This parameter is required when you submit pullNetwork and is verified by the backend. The default value is public network, which is independent of the agent runtime network.
+   * The network type. This parameter is required when you submit pullNetwork and is validated by the backend. The default value for new creations is public network, which is independent of the agent runtime network.
    * 
    * @example
    * public
@@ -271,7 +271,7 @@ export class CreateCustomAgentRequestBodyCustomImagePullNetwork extends $dara.Mo
   type?: string;
   /**
    * @remarks
-   * The ID of the security group. This parameter is required when type is set to vpc. The security group must belong to the selected VPC.
+   * The security group ID. This parameter is required when type is set to vpc and must belong to the selected VPC.
    * 
    * @example
    * vsw-example
@@ -279,7 +279,7 @@ export class CreateCustomAgentRequestBodyCustomImagePullNetwork extends $dara.Mo
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC. This parameter is required when type is set to vpc. The associated account and region are verified by the backend.
+   * The VPC ID. This parameter is required when type is set to vpc. The associated account and region are validated by the backend.
    * 
    * @example
    * vpc-example
@@ -315,7 +315,7 @@ export class CreateCustomAgentRequestBodyCustomImagePullNetwork extends $dara.Mo
 export class CreateCustomAgentRequestBodyCustomImage extends $dara.Model {
   /**
    * @remarks
-   * The address of the custom image. This parameter is required when you submit customImage and is verified by the backend. Specify the full registry[:port]/repository:tag or registry[:port]/repository@sha256:digest format. Multi-level paths are supported. Do not include the protocol or user information.
+   * The image address. This parameter is required when you submit customImage and is validated by the backend. Specify the full registry[:port]/repository:tag or registry[:port]/repository@sha256:digest. Multi-level paths are supported. Do not include the protocol or user information.
    * 
    * @example
    * registry.example.com/team/agent:v1
@@ -323,7 +323,7 @@ export class CreateCustomAgentRequestBodyCustomImage extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The password or token for the current repository.
+   * The repository password or token for this request.
    * 
    * @example
    * example-registry-token
@@ -331,7 +331,7 @@ export class CreateCustomAgentRequestBodyCustomImage extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The independent network configuration for pulling the image. This parameter is required when you submit customImage and is verified by the backend. For public networks, only pass type=public.
+   * The pull network configuration. This parameter is required when you submit customImage and is validated by the backend. Specify the complete independent pull network configuration. For public networks, pass only type=public.
    */
   pullNetwork?: CreateCustomAgentRequestBodyCustomImagePullNetwork;
   /**
@@ -344,7 +344,7 @@ export class CreateCustomAgentRequestBodyCustomImage extends $dara.Model {
   skipTlsVerify?: boolean;
   /**
    * @remarks
-   * The username for the current repository.
+   * The repository username for this request.
    * 
    * @example
    * reader
@@ -395,7 +395,7 @@ export class CreateCustomAgentRequestBodyEnvironmentVariables extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The value of the environment variable. The value must be a string. Empty strings are allowed.
+   * The value of the environment variable. This parameter must be a string. Empty strings are allowed.
    * 
    * This parameter is required.
    * 
@@ -459,7 +459,7 @@ export class CreateCustomAgentRequestBodyEnvironment extends $dara.Model {
 export class CreateCustomAgentRequestBodyHealthCheck extends $dara.Model {
   /**
    * @remarks
-   * This parameter is currently invalid. Omit this field.
+   * This parameter is currently not in effect. Omit this parameter.
    * 
    * @example
    * 1
@@ -477,7 +477,7 @@ export class CreateCustomAgentRequestBodyHealthCheck extends $dara.Model {
   intervalSeconds?: number;
   /**
    * @remarks
-   * The HTTP health check path. The path must start with a forward slash (/). Default value: /healthz.
+   * The HTTP health check path. This value must start with a forward slash (/). Default value: /healthz.
    * 
    * @example
    * /healthz
@@ -485,7 +485,7 @@ export class CreateCustomAgentRequestBodyHealthCheck extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The port accessed for health checks. This field is required when health checks are configured. Valid values: 1 to 65535.
+   * The port accessed for health checks. This field is required when you configure a health check. Valid values: 1 to 65535.
    * 
    * @example
    * 8080
@@ -541,7 +541,7 @@ export class CreateCustomAgentRequestBodyHealthCheck extends $dara.Model {
 export class CreateCustomAgentRequestBodyLoggingSls extends $dara.Model {
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore that receives agent logs.
+   * The name of the SLS Logstore that receives agent logs.
    * 
    * @example
    * agent-runtime
@@ -549,7 +549,7 @@ export class CreateCustomAgentRequestBodyLoggingSls extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project that receives agent logs.
+   * The name of the SLS project that receives agent logs.
    * 
    * @example
    * my-agent-logs
@@ -581,7 +581,7 @@ export class CreateCustomAgentRequestBodyLoggingSls extends $dara.Model {
 export class CreateCustomAgentRequestBodyLogging extends $dara.Model {
   /**
    * @remarks
-   * The Simple Log Service log delivery destination. When this object is configured, neither the project nor the logstore field can be empty.
+   * The SLS log delivery destination. When you configure this object, both the project and logstore fields must be specified.
    */
   sls?: CreateCustomAgentRequestBodyLoggingSls;
   static names(): { [key: string]: string } {
@@ -611,7 +611,7 @@ export class CreateCustomAgentRequestBodyLogging extends $dara.Model {
 export class CreateCustomAgentRequestBodyNetworkAccessInternet extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow the agent to access the Internet. A Boolean value is required when accessInternet is configured. For this setting to take effect, the workspace must also allow Internet access.
+   * Specifies whether to allow the agent to access the Internet. A Boolean value is required when you configure accessInternet. For this setting to take effect, the workspace must also allow Internet access.
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {
@@ -638,7 +638,7 @@ export class CreateCustomAgentRequestBodyNetworkAccessInternet extends $dara.Mod
 export class CreateCustomAgentRequestBodyNetworkAccessVpc extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow the agent to access the user VPC configured for the workspace. A Boolean value is required when accessVpc is configured. For this setting to take effect, the workspace must also allow VPC access.
+   * Specifies whether to allow the agent to access the user VPC configured for the workspace. A Boolean value is required when you configure accessVpc. For this setting to take effect, the workspace must also allow VPC access.
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {
@@ -670,7 +670,7 @@ export class CreateCustomAgentRequestBodyNetwork extends $dara.Model {
   accessInternet?: CreateCustomAgentRequestBodyNetworkAccessInternet;
   /**
    * @remarks
-   * The user VPC access configuration. If this access item is omitted, VPC access is not restricted on the agent side. However, the workspace must be configured to allow access to the user VPC.
+   * The user VPC access configuration. If this access item is omitted, VPC access is not restricted on the agent side. However, the workspace must still be configured to allow access to the user VPC.
    */
   accessVpc?: CreateCustomAgentRequestBodyNetworkAccessVpc;
   static names(): { [key: string]: string } {
@@ -842,9 +842,9 @@ export class CreateCustomAgentRequestBodyProtocol extends $dara.Model {
   /**
    * @remarks
    * The invocation protocol type. Valid values:
-   * - agui: AG-UI protocol.
-   * - openai-chat-completion: OpenAI Chat Completions compatible protocol.
-   * - custom: Custom protocol.
+   * - agui: AG-UI protocol
+   * - openai-chat-completion: OpenAI Chat Completions compatible protocol
+   * - custom: custom protocol
    * 
    * This parameter is required.
    * 
@@ -887,9 +887,9 @@ export class CreateCustomAgentRequestBodyRuntimeCompute extends $dara.Model {
   /**
    * @remarks
    * The compute specification. Valid values:
-   * - INTERACTIVE: 1 vCPU and 2 GiB of memory.
-   * - STANDARD: 2 vCPUs and 4 GiB of memory.
-   * - HEAVY: 4 vCPUs and 8 GiB of memory.
+   * - INTERACTIVE: 1 vCPU and 2 GiB of memory
+   * - STANDARD: 2 vCPUs and 4 GiB of memory
+   * - HEAVY: 4 vCPUs and 8 GiB of memory
    * 
    * This parameter is required.
    * 
@@ -921,7 +921,7 @@ export class CreateCustomAgentRequestBodyRuntimeCompute extends $dara.Model {
 export class CreateCustomAgentRequestBodyRuntimeHpa extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable elastic scaling. A value of true indicates that elastic scaling is enabled, and false indicates that it is disabled. When runtime is provided, omitting this field defaults to false.
+   * Specifies whether to enable elastic scaling. A value of true indicates that elastic scaling is enabled, and a value of false indicates that elastic scaling is disabled. When runtime is provided, omitting this field defaults to false.
    * 
    * This parameter is required.
    */
@@ -999,10 +999,10 @@ export class CreateCustomAgentRequestBodyRuntimeSessionPolicy extends $dara.Mode
   /**
    * @remarks
    * The session policy type. Valid values:
-   * - AFFINITY: Session affinity.
-   * - ISOLATED_HEADER_FIELD: Associates sessions by using the request header specified in headerName.
-   * - ISOLATED_COOKIE: Not recommended for use at this time.
-   * - DISABLED: A compatibility option. The response returns AFFINITY.
+   * - AFFINITY: session affinity
+   * - ISOLATED_HEADER_FIELD: uses the request header specified by headerName to associate sessions
+   * - ISOLATED_COOKIE: not recommended for use at this time
+   * - DISABLED: compatibility option, where the response returns AFFINITY
    * 
    * This parameter is required.
    * 
@@ -1048,7 +1048,7 @@ export class CreateCustomAgentRequestBodyRuntime extends $dara.Model {
   hpa?: CreateCustomAgentRequestBodyRuntimeHpa;
   /**
    * @remarks
-   * The session policy configuration used to set the session association method for requests.
+   * The session policy configuration, which is used to set the session association method for requests.
    * 
    * This parameter is required.
    */
@@ -1090,7 +1090,7 @@ export class CreateCustomAgentRequestBodyRuntime extends $dara.Model {
 export class CreateCustomAgentRequestBody extends $dara.Model {
   /**
    * @remarks
-   * 省略时默认为 API_KEY。USER 表示使用用户身份访问。
+   * The inbound access mode.
    * 
    * @example
    * API_KEY
@@ -1098,7 +1098,7 @@ export class CreateCustomAgentRequestBody extends $dara.Model {
   accessMode?: string;
   /**
    * @remarks
-   * accessMode 为 USER 时必填；ALL 表示全部用户，SPECIFIED 表示指定用户。
+   * The user access scope.
    * 
    * @example
    * ALL
@@ -1106,24 +1106,24 @@ export class CreateCustomAgentRequestBody extends $dara.Model {
   accessScope?: string;
   /**
    * @remarks
-   * The list of additional AgenticFS mounts. The total number of AgenticFS mounts and ossMounts cannot exceed 10. If you omit this parameter or pass an empty array [] during creation, no additional mounts are configured. If you omit this parameter during an update, the original value is retained. If you pass an empty array [], the mounts are cleared. You cannot pass null.
+   * The list of additional AgenticFS mounts. The total number of AgenticFS mounts and ossMounts cannot exceed 10. If you omit this parameter or pass an empty array during creation, no additional mounts are configured. If you omit this parameter during an update, the original value is retained. If you pass an empty array during an update, the mounts are cleared. You cannot pass null.
    */
   agenticFsMounts?: CreateCustomAgentRequestBodyAgenticFsMounts[];
   /**
    * @remarks
-   * The deployment artifact configuration. You must specify the service listening port in the port parameter and choose either code or container as the deployment method.
+   * The deployment artifact configuration. You must specify the service listening port and choose either the code or container deployment method.
    * 
    * This parameter is required.
    */
   artifact?: CreateCustomAgentRequestBodyArtifact;
   /**
    * @remarks
-   * The source of the custom image. This parameter is required when artifact.container.type is set to custom. Omit this parameter for other sources.
+   * The custom image source. This parameter is required when artifact.container.type is set to custom. Omit this parameter for other sources.
    */
   customImage?: CreateCustomAgentRequestBodyCustomImage;
   /**
    * @remarks
-   * The description of the agent\\"s purpose. The maximum length is 1,024 characters after leading and trailing whitespaces are removed.
+   * The description of the agent purpose. The maximum length is 1,024 characters after leading and trailing whitespaces are removed.
    * 
    * @example
    * Custom agent that provides conversation services
@@ -1131,22 +1131,22 @@ export class CreateCustomAgentRequestBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment variable configuration passed to the agent runtime process.
+   * The environment variable configurations passed to the agent runtime process.
    */
   environment?: CreateCustomAgentRequestBodyEnvironment;
   /**
    * @remarks
-   * The optional HTTP health check configuration. When this object is provided, the port field is required, and unspecified fields use default values. Omitting this field during creation means no health check is configured. During an update, omitting this top-level field retains the original configuration, while passing null removes the health check.
+   * The optional HTTP health check configuration. When this object is provided, the port field is required, and unspecified fields use default values. Omitting this object during creation means no health check is configured. Omitting this top-level field during an update retains the original configuration, while passing null removes the health check.
    */
   healthCheck?: CreateCustomAgentRequestBodyHealthCheck;
   /**
    * @remarks
-   * The log delivery configuration for the agent. You can specify the Simple Log Service project and Logstore. After a successful creation or update, verify that logs are delivered properly.
+   * The log delivery configuration for the agent. You can specify the Simple Log Service (SLS) project and Logstore. After a successful creation or update, verify that logs are delivered as expected.
    */
   logging?: CreateCustomAgentRequestBodyLogging;
   /**
    * @remarks
-   * The custom name of the agent. The name must be 1 to 128 characters in length after leading and trailing spaces are removed, and must be unique within the same workspace.
+   * The custom name of the agent. The name must be 1 to 128 characters in length after leading and trailing whitespaces are removed, and must be unique within the same workspace.
    * 
    * This parameter is required.
    * 
@@ -1161,12 +1161,12 @@ export class CreateCustomAgentRequestBody extends $dara.Model {
   network?: CreateCustomAgentRequestBodyNetwork;
   /**
    * @remarks
-   * The observability configuration for high-code agents.
+   * The high-code agent observability configuration.
    */
   observability?: CreateCustomAgentRequestBodyObservability;
   /**
    * @remarks
-   * The OSS mount list. The total number of items in this list and agenticFsMounts cannot exceed 10. Each item must include bucketName, path, and mountPath. Mount targets must not be duplicated or overlap with each other. During an update, this list is replaced entirely. Pass an empty array to clear the list.
+   * The OSS mount list. The total number of items in this list and agenticFsMounts cannot exceed 10. Each item must specify bucketName, path, and mountPath. Mount targets must not be duplicated or overlap with each other. During an update, this list is replaced entirely. Pass an empty array [] to clear the list.
    */
   ossMounts?: CreateCustomAgentRequestBodyOssMounts[];
   /**
@@ -1186,14 +1186,14 @@ export class CreateCustomAgentRequestBody extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The runtime configuration, including compute specifications, session policies, and optional elastic policy. Both compute and sessionPolicy must be specified at the same time.
+   * The runtime configuration, including compute specifications, session policy, and optional elastic policy. Both compute and sessionPolicy must be specified at the same time.
    * 
    * This parameter is required.
    */
   runtime?: CreateCustomAgentRequestBodyRuntime;
   /**
    * @remarks
-   * Specifies whether to use the image cache. If omitted during creation, the default value is false. Explicit true or false settings are supported. The new contract rejects null and invalid types. Existing compatibility endpoints are handled according to migration agreements.
+   * Specifies whether to use the image cache. Default value: false. Explicit true or false settings are supported. The new contract rejects null and invalid types. Existing compatibility endpoints are handled according to migration agreements.
    * 
    * @example
    * true
@@ -1293,7 +1293,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
   body?: CreateCustomAgentRequestBody;
   /**
    * @remarks
-   * Idempotence is not currently guaranteed. Do not rely on this parameter to prevent duplicate requests.
+   * Idempotence is currently not guaranteed. Do not rely on this parameter to prevent duplicate requests.
    * 
    * @example
    * custom-agent-request-20261010-001

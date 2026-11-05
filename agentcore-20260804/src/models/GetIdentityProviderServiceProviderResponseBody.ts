@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderServiceProviderResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The SAML assertion consumer service (ACS) URL of the SP. Configure this URL in the external IdP.
+   * The SAML assertion consumer service (ACS) URL of the local SP, which is configured in the external IdP.
    * 
    * @example
    * https://sp.example.com/saml/acs
@@ -13,7 +13,7 @@ export class GetIdentityProviderServiceProviderResponseBodyData extends $dara.Mo
   acsUrl?: string;
   /**
    * @remarks
-   * The entity ID of the SP. Configure this ID in the external IdP. This is not the entity ID of the external IdP.
+   * The entity ID of the local SP, which is configured in the external IdP. This is not the Entity ID of the external IdP.
    * 
    * @example
    * https://sp.example.com/entity
@@ -21,7 +21,7 @@ export class GetIdentityProviderServiceProviderResponseBodyData extends $dara.Mo
   entityId?: string;
   /**
    * @remarks
-   * The SP metadata XML for the external IdP to import. You cannot submit this XML as the IdP XML for SAML configuration.
+   * The metadata XML of the local SP, which is imported by the external IdP. You cannot submit this XML as the IdP XML for SAML configuration.
    * 
    * @example
    * <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sp.example.com/entity"><SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.example.com/saml/acs" index="0"/></SPSSODescriptor></EntityDescriptor>
@@ -29,7 +29,7 @@ export class GetIdentityProviderServiceProviderResponseBodyData extends $dara.Mo
   metadataXml?: string;
   /**
    * @remarks
-   * The query parameter is required and only supports the exact value SAML. The response returns SAML.
+   * Required. The query parameter supports only the exact value SAML. The response returns SAML.
    * 
    * @example
    * SAML
@@ -65,7 +65,7 @@ export class GetIdentityProviderServiceProviderResponseBodyData extends $dara.Mo
 export class GetIdentityProviderServiceProviderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * If the request fails, handle the error based on the HTTP status code and the message.
+   * The business result code. Handle failures by combining the HTTP status code and the message.
    * 
    * @example
    * SUCCESS
@@ -73,12 +73,12 @@ export class GetIdentityProviderServiceProviderResponseBody extends $dara.Model 
   code?: string;
   /**
    * @remarks
-   * For the result structure, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, but does not guarantee that the background task is completed.
+   * The result structure is described in the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, which does not ensure that the background node is completed.
    */
   data?: GetIdentityProviderServiceProviderResponseBodyData;
   /**
    * @remarks
-   * The processing status of the current request. This is not equivalent to the final result of the background task.
+   * The processing status of this request, which is not equivalent to the final result of the background node.
    * 
    * @example
    * 200
@@ -86,7 +86,7 @@ export class GetIdentityProviderServiceProviderResponseBody extends $dara.Model 
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request acceptance or error message. For the result of an asynchronous task, check the corresponding query operation.
+   * The request acceptance or fault message. For asynchronous node results, check by using the corresponding query operation.
    * 
    * @example
    * success
@@ -94,7 +94,7 @@ export class GetIdentityProviderServiceProviderResponseBody extends $dara.Model 
   message?: string;
   /**
    * @remarks
-   * The ID used to associate the current call with troubleshooting. Keep this ID if the request fails.
+   * The ID used to associate this call with troubleshooting. Retain this ID when a failure occurs.
    * 
    * @example
    * request-example
@@ -102,7 +102,7 @@ export class GetIdentityProviderServiceProviderResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * A value of true indicates that the current request is processed successfully. For asynchronous writes, you must continue to query the task result.
+   * Indicates whether the request is successful. A value of true indicates that the request is processed successfully. For asynchronous writes, you must continue to query the task results.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

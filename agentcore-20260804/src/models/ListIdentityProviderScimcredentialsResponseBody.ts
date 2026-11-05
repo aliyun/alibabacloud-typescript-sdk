@@ -21,7 +21,7 @@ export class ListIdentityProviderSCIMCredentialsResponseBodyData extends $dara.M
   credentialId?: string;
   /**
    * @remarks
-   * The expiration time returned by AgentIdentity. Only credentials with a status of Enabled that have not expired are considered available.
+   * The expiration time returned by AgentIdentity. Only credentials with the status Enabled and that have not expired are considered available.
    * 
    * @example
    * 2027-10-26T00:00:00Z
@@ -29,7 +29,7 @@ export class ListIdentityProviderSCIMCredentialsResponseBodyData extends $dara.M
   expireTime?: string;
   /**
    * @remarks
-   * The credential status of AgentIdentity. Only credentials with a status of Enabled that have not expired are considered available. This field is not the operationStatus of a SCIM task.
+   * The credential status. Only credentials with the status Enabled and that have not expired are considered available. This field is not the operationStatus of a SCIM task.
    * 
    * @example
    * READY
@@ -65,7 +65,7 @@ export class ListIdentityProviderSCIMCredentialsResponseBodyData extends $dara.M
 export class ListIdentityProviderSCIMCredentialsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business result code. If the request fails, handle the error based on the HTTP status code and the message.
+   * The business result code. Handle failures by combining the HTTP status code and the message.
    * 
    * @example
    * SUCCESS
@@ -73,12 +73,12 @@ export class ListIdentityProviderSCIMCredentialsResponseBody extends $dara.Model
   code?: string;
   /**
    * @remarks
-   * The operation result. For the result structure, see the response fields of this operation. For asynchronous write operations, the response indicates that the request is accepted, but does not guarantee that the background task is completed.
+   * The operation result. For the result structure, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, but does not guarantee that the background node is completed.
    */
   data?: ListIdentityProviderSCIMCredentialsResponseBodyData[];
   /**
    * @remarks
-   * The HTTP status code of the current request. This code indicates the processing status of the request and is not equivalent to the final result of the background task.
+   * The processing status of this request. This is not equivalent to the final result of the background node.
    * 
    * @example
    * 200
@@ -86,7 +86,7 @@ export class ListIdentityProviderSCIMCredentialsResponseBody extends $dara.Model
   httpStatusCode?: number;
   /**
    * @remarks
-   * Task result message, which indicates that the request is accepted or contains an error message. For task results of asynchronous tasks, check the corresponding query operation.
+   * The request acceptance or error message. For asynchronous tasks, check the result by using the corresponding query operation.
    * 
    * @example
    * success
@@ -94,7 +94,7 @@ export class ListIdentityProviderSCIMCredentialsResponseBody extends $dara.Model
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to associate the current call with troubleshooting. Retain this ID if the request fails.
+   * The request ID. Retain this ID for troubleshooting if the call fails.
    * 
    * @example
    * request-example
@@ -102,7 +102,7 @@ export class ListIdentityProviderSCIMCredentialsResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the current request is successful. A value of true indicates that the request is processed successfully. For asynchronous write operations, you still need to query the task results.
+   * Indicates whether the request is successful. A value of true indicates that the request is processed successfully. For asynchronous writes, you must continue to query the task results.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

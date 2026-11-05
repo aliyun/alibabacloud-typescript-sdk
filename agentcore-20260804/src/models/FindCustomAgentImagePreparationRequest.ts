@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FindCustomAgentImagePreparationRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token submitted when creating or explicitly updating the image. Do not specify AgentId or the operation type.
+   * The client token submitted when creating or explicitly updating an image. Do not specify AgentId or the operation type.
    * 
    * This parameter is required.
    * 

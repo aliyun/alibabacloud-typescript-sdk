@@ -73,7 +73,7 @@ export class GetAgentCodePackageOssRamAuthorizeUrlResponseBody extends $dara.Mod
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response data.
    */
   data?: GetAgentCodePackageOssRamAuthorizeUrlResponseBodyData;
   /**

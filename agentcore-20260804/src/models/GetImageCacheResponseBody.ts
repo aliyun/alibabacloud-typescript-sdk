@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageCacheResponseBodyDataError extends $dara.Model {
   /**
    * @remarks
-   * The secure and non-empty error code for the current creation failure.
+   * The secure and non-null error code for the current creation failure.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,12 @@ export class GetImageCacheResponseBodyDataError extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The secure and non-empty display message for the creation failure, excluding credentials, internal addresses, or stack traces.
+   * The secure and non-null description of the failure reason, excluding credentials, internal addresses, or stack traces.
    * 
    * This parameter is required.
    * 
    * @example
-   * Image cache creation failed. Please try again
+   * Failed to create the image cache. Please try again
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -59,7 +59,7 @@ export class GetImageCacheResponseBodyData extends $dara.Model {
   acrInstanceId?: string;
   /**
    * @remarks
-   * The number of unique agents in the current workspace that have useImageCache set to true and are associated with this logical resource. The value is greater than or equal to 0. This uses the same collection as the imageCacheId filter in ListAllAgents. Disabled agents are not counted, regardless of the number of occupied instances.
+   * The deduplicated number of agents that have useImageCache set to true and are associated with this logical resource in the current workspace. The value is greater than or equal to 0. This set is the same as the imageCacheId filter in ListAllAgents. Agents with the feature disabled are not counted, regardless of the number of instances occupied.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class GetImageCacheResponseBodyData extends $dara.Model {
   agentCount?: number;
   /**
    * @remarks
-   * The actual cache size in bytes. The known value is greater than or equal to 0. If unknown, the value is null. The compressed size of the source image cannot be used as a substitute.
+   * The actual cache size in bytes. The known value is greater than or equal to 0. If the value is unknown, it is null. The compressed size of the source image cannot be used as a substitute.
    * 
    * This parameter is required.
    * 
@@ -82,7 +82,7 @@ export class GetImageCacheResponseBodyData extends $dara.Model {
   cacheSizeBytes?: number;
   /**
    * @remarks
-   * Indicates whether deletion is allowed. The value is true if there are no configuration references with the switch enabled, no valid instances occupying the resource, and the resource is not being deleted in the current workspace. If the reference status is unknown, the query fails instead of allowing deletion by default.
+   * Indicates whether deletion is allowed. The value is true if there are no configuration references with the feature enabled, no valid instances are occupied, and the resource is not being deleted in the current workspace. If the reference status is unknown, the query should fail instead of allowing deletion by default.
    * 
    * This parameter is required.
    * 
@@ -92,7 +92,7 @@ export class GetImageCacheResponseBodyData extends $dara.Model {
   canDelete?: boolean;
   /**
    * @remarks
-   * The creation time of the logical resource in the current workspace, in RFC3339 format with time zone. Content updates for the latest tag do not refresh this time.
+   * The creation time of the logical resource in the current workspace, in RFC3339 format with time zone. The time is not refreshed when the content of the "latest" tag is updated.
    * 
    * This parameter is required.
    * 
@@ -102,7 +102,7 @@ export class GetImageCacheResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The reason why deletion is blocked. The value is null if canDelete is true. Otherwise, the value is returned based on the priority of DELETING, AGENT_ENABLED, and INSTANCES_RELEASING. Even if the agent count is 0, old instances may still occupy the resource.
+   * The reason why deletion is blocked. The value is null if canDelete is true. Otherwise, the value is returned based on the priority of DELETING, AGENT_ENABLED, and INSTANCES_RELEASING. Legacy instances may still be occupied even if the number of agents is 0.
    * 
    * This parameter is required.
    * 
@@ -115,7 +115,7 @@ export class GetImageCacheResponseBodyData extends $dara.Model {
   deleteBlockReason?: string;
   /**
    * @remarks
-   * The current content digest in the sha256: format followed by a 64-character lowercase hexadecimal string. It only describes the currently registered content and does not prove that old instances have been switched.
+   * The current content digest in the format of sha256: followed by a 64-character lowercase hexadecimal string. It only describes the currently registered content and does not prove that legacy instances have been switched.
    * 
    * This parameter is required.
    * 
@@ -125,7 +125,7 @@ export class GetImageCacheResponseBodyData extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * The cache failure reason. This must be a non-null object when the status is FAILED, and null for other statuses. It only describes the current content and the current creation round.
+   * The reason for cache failure. This is a non-null object when the status is FAILED, and null for other statuses. It only describes the current content and the current creation round.
    * 
    * This parameter is required.
    * 
@@ -135,7 +135,7 @@ export class GetImageCacheResponseBodyData extends $dara.Model {
   error?: GetImageCacheResponseBodyDataError;
   /**
    * @remarks
-   * The logical resource ID manageable by the current workspace, not the shared physical cache ID.
+   * The logical resource ID that can be managed in the current workspace. This is not a shared physical cache ID.
    * 
    * This parameter is required.
    * 
@@ -179,7 +179,7 @@ export class GetImageCacheResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The source image tag with case preserved. Regular tags cannot be registered with different digests, except for the exact lowercase latest tag.
+   * The source image tag with case preserved. Regular tags cannot be registered with different digests, except for the exact lowercase "latest" tag.
    * 
    * This parameter is required.
    * 
@@ -189,7 +189,7 @@ export class GetImageCacheResponseBodyData extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The workspace ID, which must match the requested workspace. Resources with the same content from other workspaces are not returned.
+   * The workspace ID, which is consistent with the requested workspace. Resources with the same content from other workspaces are not returned.
    * 
    * This parameter is required.
    * 
@@ -260,7 +260,7 @@ export class GetImageCacheResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The query result of the image cache details.
+   * The result of querying the image cache details.
    * 
    * This parameter is required.
    */

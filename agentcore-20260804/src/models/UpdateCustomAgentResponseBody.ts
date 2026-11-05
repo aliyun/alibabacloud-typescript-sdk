@@ -21,9 +21,7 @@ export class UpdateCustomAgentResponseBodyDataAgenticFsMounts extends $dara.Mode
   path?: string;
   /**
    * @remarks
-   * Specifies whether the mount is read-only. Valid values:
-   * - true: Read-only.
-   * - false: Read and write.
+   * Specifies whether the mount is read-only. true indicates read-only, and false indicates read-write.
    * 
    * @example
    * false
@@ -87,7 +85,7 @@ export class UpdateCustomAgentResponseBodyDataArtifactCode extends $dara.Model {
   languageRuntime?: string;
   /**
    * @remarks
-   * The oss:// address of the platform-fixed code package referenced in the currently saved configuration. This address does not include the signature parameters of the source HTTPS link. You can use this address to reuse an existing code package. To download the content, call the GetAgentCodePackageDownloadUrl operation.
+   * The oss:// address of the platform-fixed code package referenced in the currently saved configuration, excluding the signature parameters of the source HTTPS link. You can use this address to reuse an existing code package. To download the content, call GetAgentCodePackageDownloadUrl.
    * 
    * This parameter is required.
    * 
@@ -163,7 +161,7 @@ export class UpdateCustomAgentResponseBodyDataArtifactContainer extends $dara.Mo
   tag?: string;
   /**
    * @remarks
-   * The source type of the image. A value of acr indicates Alibaba Cloud Container Registry.
+   * The source type of the image. acr indicates Alibaba Cloud Container Registry.
    * 
    * This parameter is required.
    * 
@@ -205,7 +203,7 @@ export class UpdateCustomAgentResponseBodyDataArtifactContainer extends $dara.Mo
 export class UpdateCustomAgentResponseBodyDataArtifact extends $dara.Model {
   /**
    * @remarks
-   * The code package deployment configuration. This field is mutually exclusive with the container field. Code packages use the ZIP or TAR.GZ format. Dependencies must be packaged by the user. The platform does not install dependencies or perform online builds.
+   * The code package deployment configuration. This field is mutually exclusive with container. Code packages use the ZIP or TAR.GZ format. Dependencies are packaged by the user. The platform does not install dependencies or perform online builds.
    */
   code?: UpdateCustomAgentResponseBodyDataArtifactCode;
   /**
@@ -327,7 +325,7 @@ export class UpdateCustomAgentResponseBodyDataCodePackageInfo extends $dara.Mode
 export class UpdateCustomAgentResponseBodyDataCurrentImagePullNetwork extends $dara.Model {
   /**
    * @remarks
-   * The security group ID. This field is required when type is set to vpc and must belong to the selected VPC.
+   * This field is required when type is set to vpc. The security group must belong to the selected VPC.
    * 
    * @example
    * sg-example
@@ -335,7 +333,7 @@ export class UpdateCustomAgentResponseBodyDataCurrentImagePullNetwork extends $d
   securityGroupId?: string;
   /**
    * @remarks
-   * The pull network type. This field is required when submitting pullNetwork and is validated by the backend. The default is a public network, which is independent of the agent runtime network.
+   * This field is required when submitting pullNetwork and is verified by the backend. The default value is public network for new creations, which is independent of the agent runtime network.
    * 
    * @example
    * public
@@ -343,7 +341,7 @@ export class UpdateCustomAgentResponseBodyDataCurrentImagePullNetwork extends $d
   type?: string;
   /**
    * @remarks
-   * The security group ID. This field is required when type is set to vpc and must belong to the selected VPC.
+   * This field is required when type is set to vpc. The security group must belong to the selected VPC.
    * 
    * @example
    * vsw-example
@@ -351,7 +349,7 @@ export class UpdateCustomAgentResponseBodyDataCurrentImagePullNetwork extends $d
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID. This field is required when type is set to vpc. The associated account and region are validated by the backend.
+   * This field is required when type is set to vpc. The associated account and region are verified by the backend.
    * 
    * @example
    * vpc-example
@@ -440,7 +438,7 @@ export class UpdateCustomAgentResponseBodyDataCurrentImage extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The tag for the ACR source.
+   * The tag of the ACR source.
    * 
    * @example
    * v1
@@ -497,7 +495,7 @@ export class UpdateCustomAgentResponseBodyDataCurrentImage extends $dara.Model {
 export class UpdateCustomAgentResponseBodyDataCustomImagePullNetwork extends $dara.Model {
   /**
    * @remarks
-   * The security group ID. This field is required when type is set to vpc and must belong to the selected VPC.
+   * This field is required when type is set to vpc. The security group must belong to the selected VPC.
    * 
    * @example
    * sg-example
@@ -505,7 +503,7 @@ export class UpdateCustomAgentResponseBodyDataCustomImagePullNetwork extends $da
   securityGroupId?: string;
   /**
    * @remarks
-   * The pull network type. This field is required when submitting pullNetwork and is validated by the backend. The default is a public network, which is independent of the agent runtime network.
+   * This field is required when submitting pullNetwork and is verified by the backend. The default value is public network for new creations, which is independent of the agent runtime network.
    * 
    * @example
    * public
@@ -513,7 +511,7 @@ export class UpdateCustomAgentResponseBodyDataCustomImagePullNetwork extends $da
   type?: string;
   /**
    * @remarks
-   * The security group ID. This field is required when type is set to vpc and must belong to the selected VPC.
+   * This field is required when type is set to vpc. The security group must belong to the selected VPC.
    * 
    * @example
    * vsw-example
@@ -521,7 +519,7 @@ export class UpdateCustomAgentResponseBodyDataCustomImagePullNetwork extends $da
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID. This field is required when type is set to vpc. The associated account and region are validated by the backend.
+   * This field is required when type is set to vpc. The associated account and region are verified by the backend.
    * 
    * @example
    * vpc-example
@@ -773,7 +771,7 @@ export class UpdateCustomAgentResponseBodyDataHealthCheck extends $dara.Model {
 export class UpdateCustomAgentResponseBodyDataImageCachePreparation extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cache associated with this request.
+   * The ID of the currently associated cache.
    * 
    * This parameter is required.
    * 
@@ -837,7 +835,7 @@ export class UpdateCustomAgentResponseBodyDataImagePreparation extends $dara.Mod
   phase?: string;
   /**
    * @remarks
-   * The task ID submitted from the console for this request. This is not the RM operationId.
+   * The task ID submitted by the console for this operation. This is not the RM operationId.
    * 
    * @example
    * agent-example:1
@@ -889,7 +887,7 @@ export class UpdateCustomAgentResponseBodyDataLatestExecutionError extends $dara
   message?: string;
   /**
    * @remarks
-   * Specifies whether automatic retry is enabled. If true, you can query again later. If false, check and fix the configuration based on the reason, and then resubmit.
+   * Specifies whether the backend automatically retries the operation. If the value is true, you can query again later. If the value is false, check and fix the configuration based on the reason, and then resubmit the agent.
    * 
    * This parameter is required.
    */
@@ -992,7 +990,7 @@ export class UpdateCustomAgentResponseBodyDataLogging extends $dara.Model {
 export class UpdateCustomAgentResponseBodyDataNetworkAccessInternet extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether Internet access is allowed on the agent side. The actual access is still restricted by the workspace.
+   * Specifies whether Internet access is allowed on the agent side. The actual access remains restricted by the workspace.
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {
@@ -1019,7 +1017,7 @@ export class UpdateCustomAgentResponseBodyDataNetworkAccessInternet extends $dar
 export class UpdateCustomAgentResponseBodyDataNetworkAccessVpc extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether access to the user VPC configured for the workspace is allowed on the agent side. The actual access is still restricted by the workspace.
+   * Specifies whether access to the user VPC configured for the workspace is allowed on the agent side. The actual access remains restricted by the workspace.
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {
@@ -1046,12 +1044,12 @@ export class UpdateCustomAgentResponseBodyDataNetworkAccessVpc extends $dara.Mod
 export class UpdateCustomAgentResponseBodyDataNetwork extends $dara.Model {
   /**
    * @remarks
-   * The Internet access configuration of the agent. If this parameter is not configured, Internet access is allowed on the agent side but is still restricted by the workspace.
+   * The Internet access configuration of the agent. If this parameter is not configured, Internet access is allowed on the agent side but remains restricted by the workspace.
    */
   accessInternet?: UpdateCustomAgentResponseBodyDataNetworkAccessInternet;
   /**
    * @remarks
-   * The user VPC access configuration of the agent. If this parameter is not configured, user VPC access is allowed on the agent side but is still restricted by the workspace.
+   * The user VPC access configuration of the agent. If this parameter is not configured, user VPC access is allowed on the agent side but remains restricted by the workspace.
    */
   accessVpc?: UpdateCustomAgentResponseBodyDataNetworkAccessVpc;
   static names(): { [key: string]: string } {
@@ -1121,7 +1119,7 @@ export class UpdateCustomAgentResponseBodyDataOssMounts extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The OSS mount directory in the container, which is located under /mnt/oss/.
+   * The OSS mount directory in the container, located under /mnt/oss/.
    * 
    * @example
    * /mnt/oss/train
@@ -1137,9 +1135,7 @@ export class UpdateCustomAgentResponseBodyDataOssMounts extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * Specifies whether the mount is read-only. Valid values:
-   * - true: Read-only.
-   * - false: Read and write.
+   * Specifies whether the mount is read-only. true indicates read-only, and false indicates read-write.
    */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
@@ -1214,7 +1210,7 @@ export class UpdateCustomAgentResponseBodyDataProtocolPaths extends $dara.Model 
 export class UpdateCustomAgentResponseBodyDataProtocol extends $dara.Model {
   /**
    * @remarks
-   * The request header configuration for the current protocol. The key is the name and the value is a string.
+   * The request header configuration for the current protocol. The key is the header name and the value is a string.
    */
   headers?: { [key: string]: string };
   /**
@@ -1224,7 +1220,10 @@ export class UpdateCustomAgentResponseBodyDataProtocol extends $dara.Model {
   paths?: UpdateCustomAgentResponseBodyDataProtocolPaths[];
   /**
    * @remarks
-   * The invocation protocol type. Valid values: agui: AG-UI protocol; openai-chat-completion: OpenAI Chat Completions compatible protocol; custom: custom protocol.
+   * The invocation protocol type. Valid values:
+   * - agui: AG-UI protocol.
+   * - openai-chat-completion: OpenAI Chat Completions compatible protocol.
+   * - custom: Custom protocol.
    * 
    * This parameter is required.
    * 
@@ -1266,7 +1265,10 @@ export class UpdateCustomAgentResponseBodyDataProtocol extends $dara.Model {
 export class UpdateCustomAgentResponseBodyDataRuntimeCompute extends $dara.Model {
   /**
    * @remarks
-   * The compute specification. Valid values: INTERACTIVE: 1 vCPU and 2 GiB of memory; STANDARD: 2 vCPUs and 4 GiB of memory; HEAVY: 4 vCPUs and 8 GiB of memory.
+   * The compute specification. Valid values:
+   * - INTERACTIVE: 1 vCPU and 2 GiB of memory.
+   * - STANDARD: 2 vCPUs and 4 GiB of memory.
+   * - HEAVY: 4 vCPUs and 8 GiB of memory.
    * 
    * This parameter is required.
    * 
@@ -1298,16 +1300,14 @@ export class UpdateCustomAgentResponseBodyDataRuntimeCompute extends $dara.Model
 export class UpdateCustomAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether auto scaling is enabled. Valid values:
-   * - true: Enabled.
-   * - false: Disabled.
+   * The currently saved auto scaling switch. Valid values: true: enabled. false: disabled. If HPA is not configured, the backend defaults this parameter to false.
    * 
    * This parameter is required.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The maximum number of concurrent sessions configured for a single runtime instance.
+   * The configured maximum number of concurrent sessions per running instance.
    * 
    * @example
    * 100
@@ -1315,7 +1315,7 @@ export class UpdateCustomAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   maxConcurrentSessionsPerSandbox?: number;
   /**
    * @remarks
-   * The maximum number of runtime instances configured.
+   * The currently saved upper limit of the number of instances. Valid values: 0 to 100. Default value: 10. This value cannot be less than minSandboxCount.
    * 
    * @example
    * 10
@@ -1323,7 +1323,7 @@ export class UpdateCustomAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   maxSandboxCount?: number;
   /**
    * @remarks
-   * The minimum number of runtime instances configured.
+   * The currently saved lower limit of the number of instances. Valid values: 0 to 100. Default value: 1. For the actual number of running instances, see sandboxPhaseCounts.
    * 
    * @example
    * 1
@@ -1331,7 +1331,7 @@ export class UpdateCustomAgentResponseBodyDataRuntimeHpa extends $dara.Model {
   minSandboxCount?: number;
   /**
    * @remarks
-   * The maximum idle time configured for a session, in seconds.
+   * The configured session idle timeout in seconds.
    * 
    * @example
    * 600
@@ -1369,7 +1369,7 @@ export class UpdateCustomAgentResponseBodyDataRuntimeHpa extends $dara.Model {
 export class UpdateCustomAgentResponseBodyDataRuntimeSessionPolicy extends $dara.Model {
   /**
    * @remarks
-   * The name of the HTTP request header used by the session policy. This parameter is applicable when the session policy type is ISOLATED_HEADER_FIELD.
+   * The name of the HTTP request header used by the session policy. This parameter applies to ISOLATED_HEADER_FIELD.
    * 
    * @example
    * X-Session-Id
@@ -1377,11 +1377,7 @@ export class UpdateCustomAgentResponseBodyDataRuntimeSessionPolicy extends $dara
   headerName?: string;
   /**
    * @remarks
-   * The session policy type. Valid values:
-   * - AFFINITY: Session affinity.
-   * - ISOLATED_HEADER_FIELD: Associates sessions by using the request header specified by headerName.
-   * - ISOLATED_COOKIE: Not recommended.
-   * The compatibility value DISABLED in requests is returned as AFFINITY.
+   * The session policy type. Valid values: AFFINITY: session affinity. ISOLATED_HEADER_FIELD: uses the request header specified by headerName to associate sessions. ISOLATED_COOKIE is not recommended. The compatible value DISABLED in requests is returned as AFFINITY.
    * 
    * This parameter is required.
    * 
@@ -1415,14 +1411,14 @@ export class UpdateCustomAgentResponseBodyDataRuntimeSessionPolicy extends $dara
 export class UpdateCustomAgentResponseBodyDataRuntime extends $dara.Model {
   /**
    * @remarks
-   * The compute resource configuration for the agent runtime instances.
+   * The compute resource configuration for the agent runtime instance.
    * 
    * This parameter is required.
    */
   compute?: UpdateCustomAgentResponseBodyDataRuntimeCompute;
   /**
    * @remarks
-   * The elastic policy configuration of the agent.
+   * The currently saved elastic policy configuration, including the switch, the upper and lower limits of the number of instances, the maximum number of concurrent sessions per instance, and the session idle timeout. The upper and lower limits of the number of instances are configurations. For the actual number of instances, refer to the snapshot queried by sandboxPhaseCounts.
    */
   hpa?: UpdateCustomAgentResponseBodyDataRuntimeHpa;
   /**
@@ -1485,7 +1481,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   accessScope?: string;
   /**
    * @remarks
-   * The unique identifier of the custom agent. You can obtain this identifier from the response of the CreateCustomAgent or ListCustomAgents operation.
+   * The unique identifier of the custom agent. You can obtain it from the response of CreateCustomAgent or ListCustomAgents.
    * 
    * This parameter is required.
    * 
@@ -1500,7 +1496,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   agenticFsMounts?: UpdateCustomAgentResponseBodyDataAgenticFsMounts[];
   /**
    * @remarks
-   * The latest submitted deployment artifact configuration, including the service listening port and the ACR container image. Check the latestVersionStatus parameter to determine whether the configuration has taken effect.
+   * The latest submitted deployment artifact configuration, including the service listening port and the ACR container image. To check whether the configuration has taken effect, refer to latestVersionStatus.
    */
   artifact?: UpdateCustomAgentResponseBodyDataArtifact;
   /**
@@ -1510,7 +1506,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   codePackageInfo?: UpdateCustomAgentResponseBodyDataCodePackageInfo;
   /**
    * @remarks
-   * The creation method of the agent. The value is CUSTOM for custom agents.
+   * The creation method of the agent. CUSTOM is returned for custom agents.
    * 
    * @example
    * CUSTOM
@@ -1518,7 +1514,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   createMode?: string;
   /**
    * @remarks
-   * The time when the agent was created. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
+   * The creation time of the agent. The time is in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
    * 
    * @example
    * 2026-10-10T06:00:00Z
@@ -1526,7 +1522,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The image source snapshot of the current valid configuration version. The value is null before the initial configuration takes effect. This parameter does not indicate the health status.
+   * The image source snapshot of the current active configuration version. The value is null before the first configuration takes effect and does not indicate the health status.
    */
   currentImage?: UpdateCustomAgentResponseBodyDataCurrentImage;
   /**
@@ -1593,7 +1589,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   imageCachePreparation?: UpdateCustomAgentResponseBodyDataImageCachePreparation;
   /**
    * @remarks
-   * The currently associated image preparation task. The phase indicates the acceptance prompt. Query the preparation API for real-time progress. Normal saves do not create image preparation tasks.
+   * The currently associated image preparation task. The phase field indicates the acceptance status. Query the preparation API for real-time progress. Normal save operations do not create image preparations.
    */
   imagePreparation?: UpdateCustomAgentResponseBodyDataImagePreparation;
   /**
@@ -1613,7 +1609,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   latestSpecVersion?: number;
   /**
    * @remarks
-   * The execution status corresponding to latestSpecVersion. Valid values: pending: waiting for execution; processing: executing; waiting_retry: waiting for retry; succeeded: execution succeeded; failed: execution failed; superseded: superseded by a subsequent version.
+   * The execution status corresponding to latestSpecVersion. Valid values: pending (waiting for execution), processing (executing), waiting_retry (waiting for retry), succeeded (execution succeeded), failed (execution failed), and superseded (superseded by a subsequent version).
    * 
    * @example
    * succeeded
@@ -1667,7 +1663,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ARN of the RAM role used when the agent accesses user cloud resources.
+   * The ARN of the RAM role used by the agent to access user cloud resources.
    * 
    * @example
    * acs:ram::1234567890123456:role/agentcore-runtime-role
@@ -1680,19 +1676,12 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   runtime?: UpdateCustomAgentResponseBodyDataRuntime;
   /**
    * @remarks
-   * The instance counts grouped by runtime instance phase. Keys include PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed). Only phases that actually occur are returned. Missing keys are treated as 0.
+   * The number of instances by running phase. Keys include PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed). Only phases that actually occur are returned. Missing keys are treated as 0.
    */
   sandboxPhaseCounts?: { [key: string]: number };
   /**
    * @remarks
-   * The overall status of the agent. Valid values:
-   * - Creating: Creating.
-   * - Running: Running.
-   * - Failed: Failed.
-   * - Updating: Updating.
-   * - Deleting: Deleting.
-   * - Deleted: Deleted.
-   * To check the execution progress of the latest configuration, query latestVersionStatus.
+   * The overall status of the agent. Valid values: Creating: creating. Running: running. Failed: failed. Updating: updating. Deleting: deleting. Deleted: deleted. To query the execution progress of the latest configuration, see latestVersionStatus.
    * 
    * This parameter is required.
    * 
@@ -1702,7 +1691,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the agent was last updated. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
+   * The last update time of the agent in ISO 8601 format. The trailing Z indicates the UTC time zone. Fractional seconds may be included.
    * 
    * @example
    * 2026-10-10T06:05:00Z
@@ -1710,7 +1699,7 @@ export class UpdateCustomAgentResponseBodyData extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * The image cache switch.
+   * Specifies whether the image cache is enabled.
    * 
    * This parameter is required.
    * 
@@ -1881,14 +1870,14 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The latest submitted configuration and status of the custom agent. A successful response indicates that the request is accepted, but the configuration may not have taken effect yet.
+   * The latest submitted configuration and status of the custom agent. A successful response indicates that the request is accepted, but the configuration may not have taken effect.
    * 
    * This parameter is required.
    */
   data?: UpdateCustomAgentResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code of the request. A value of 200 indicates success.
+   * The HTTP status code of the request. The value is 200 if the request is successful.
    * 
    * This parameter is required.
    * 
@@ -1908,7 +1897,7 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request. You can use the ID to locate and troubleshoot issues.
+   * The unique identifier of the request, which is used to locate and troubleshoot issues.
    * 
    * This parameter is required.
    * 
@@ -1918,7 +1907,7 @@ export class UpdateCustomAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operation is complete.
+   * Indicates whether the request is successful. A value of true indicates that the request is successful. A successful creation, update, or deletion does not mean that the background operation is complete.
    * 
    * This parameter is required.
    */

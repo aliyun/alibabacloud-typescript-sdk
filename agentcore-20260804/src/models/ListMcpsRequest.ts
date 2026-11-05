@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListMcpsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters results by custom tag. The tag must be an exact match.
+   * Filters the results by custom tags. An exact match is required.
    * 
    * @example
-   * KnowledgeBase
+   * Knowledge base
    */
   customTag?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of entries to return per page.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListMcpsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The MCP service name or service ID. Used together with SearchType.
+   * The MCP service name or service ID. This parameter is used in conjunction with SearchType.
    * 
    * @example
    * my-mcp-server
@@ -37,7 +37,7 @@ export class ListMcpsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Filters results by official usage tag.
+   * Filters the results by official usage tags.
    * 
    * @example
    * KNOWLEDGE_BASE
@@ -45,11 +45,7 @@ export class ListMcpsRequest extends $dara.Model {
   officialTag?: string;
   /**
    * @remarks
-   * The name matching method. Takes effect only when Name is specified. Valid values:
-   * - accurate: exact match.
-   * - blur: fuzzy match.
-   * 
-   * Default value: blur.
+   * The name matching mode. This parameter takes effect only when Name is specified. Valid values: accurate (exact match) and blur (fuzzy match). Default value: blur.
    * 
    * @example
    * blur
@@ -57,7 +53,7 @@ export class ListMcpsRequest extends $dara.Model {
   searchType?: string;
   /**
    * @remarks
-   * Specifies whether the service is still bound by the official template usage.
+   * Specifies whether the service is still subject to official template usage constraints.
    */
   usageActive?: boolean;
   static names(): { [key: string]: string } {

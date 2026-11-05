@@ -131,7 +131,7 @@ export class CreatePermissionRulesRequestBodyRules extends $dara.Model {
 export class CreatePermissionRulesRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The list of permission rules to create.
+   * The list of permission rules to be created.
    * 
    * This parameter is required.
    */
@@ -168,7 +168,7 @@ export class CreatePermissionRulesRequest extends $dara.Model {
   body?: CreatePermissionRulesRequestBody;
   /**
    * @remarks
-   * The idempotency token.
+   * The client token.
    * 
    * @example
    * 550e8400-e29b-41d4-a716-446655440000

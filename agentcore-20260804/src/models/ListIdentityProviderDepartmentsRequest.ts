@@ -13,7 +13,7 @@ export class ListIdentityProviderDepartmentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The nextToken returned from the previous page. Do not specify this parameter for the first query. When continuing pagination, keep the identity provider and parentDepartmentId unchanged, and pass the token as is. An empty or missing return value indicates that there are no subsequent pages at the current hierarchy level.
+   * The nextToken returned from the previous page. Do not specify this parameter for the first query. When continuing pagination, keep the identity provider and parentDepartmentId unchanged, and pass the token as is. An empty or missing return value indicates that there are no subsequent pages at the current hierarchy.
    * 
    * @example
    * example-next-page-token

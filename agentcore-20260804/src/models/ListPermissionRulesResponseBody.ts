@@ -186,7 +186,7 @@ export class ListPermissionRulesResponseBody extends $dara.Model {
   items?: ListPermissionRulesResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of entries returned in the current request.
+   * The maximum number of results returned in this response.
    * 
    * @example
    * 20
@@ -202,7 +202,7 @@ export class ListPermissionRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The next page token.
+   * The pagination token for the next page.
    * 
    * @example
    * token-example
@@ -223,7 +223,7 @@ export class ListPermissionRulesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of rules that meet the specified conditions.
+   * The total number of rules that match the query conditions.
    * 
    * @example
    * 1

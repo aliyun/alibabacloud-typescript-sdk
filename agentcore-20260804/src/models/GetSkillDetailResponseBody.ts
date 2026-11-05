@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   /**
    * @remarks
-   * The version author.
+   * The author of the version.
    * 
    * @example
    * alice
@@ -21,7 +21,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   commitMsg?: string;
   /**
    * @remarks
-   * The MD5 checksum of the Skill content package for this version, used to verify content consistency.
+   * The MD5 checksum of the skill content package for this version, which is used to verify content consistency.
    * 
    * @example
    * 9e107d9d372bb6826bd81d3542a419d6
@@ -29,7 +29,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   contentMd5?: string;
   /**
    * @remarks
-   * The creation time. This value is a UNIX timestamp in milliseconds.
+   * The creation time. It is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -40,7 +40,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
    * The description.
    * 
    * @example
-   * A sample description that explains the purpose of the resource
+   * Sample description to illustrate the purpose of the resource
    */
   description?: string;
   /**
@@ -69,7 +69,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time. This value is a UNIX timestamp in milliseconds.
+   * The update time. It is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -125,7 +125,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
 export class GetSkillDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The business label JSON array string.
+   * The JSON array string of business tags.
    * 
    * @example
    * Sample property value
@@ -136,7 +136,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * A sample description that explains the purpose of the resource
+   * Sample description to illustrate the purpose of the resource
    */
   description?: string;
   /**
@@ -149,12 +149,17 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   downloadCount?: number;
   /**
    * @remarks
-   * The draft pattern. HEAD indicates that the Skill has a persistent draft. VERSIONED indicates that each edit creates a draft with a version number. The server determines the pattern, and the invoker uses it for routing what to do next.
+   * The draft pattern. HEAD indicates that the skill has a persistent draft, and VERSIONED indicates that a draft with a version number is created for each edit. This pattern is determined by the server, and the invoker uses this value for routing What to do next.
    * 
    * @example
    * HEAD
    */
   draftMode?: string;
+  /**
+   * @remarks
+   * Specifies whether the root data is editable.
+   */
+  editable?: boolean;
   /**
    * @remarks
    * The version being edited.
@@ -165,7 +170,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   editingVersion?: string;
   /**
    * @remarks
-   * Indicates whether the Skill is enabled.
+   * Specifies whether the skill is enabled.
    */
   enable?: boolean;
   /**
@@ -223,7 +228,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The update time. This value is a UNIX timestamp in milliseconds.
+   * The update time. It is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -244,7 +249,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * Indicates whether the current user has write permissions.
+   * Specifies whether the current user has write permissions.
    */
   writeable?: boolean;
   static names(): { [key: string]: string } {
@@ -253,6 +258,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
       description: 'description',
       downloadCount: 'downloadCount',
       draftMode: 'draftMode',
+      editable: 'editable',
       editingVersion: 'editingVersion',
       enable: 'enable',
       from: 'from',
@@ -275,6 +281,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
       description: 'string',
       downloadCount: 'number',
       draftMode: 'string',
+      editable: 'boolean',
       editingVersion: 'string',
       enable: 'boolean',
       from: 'string',

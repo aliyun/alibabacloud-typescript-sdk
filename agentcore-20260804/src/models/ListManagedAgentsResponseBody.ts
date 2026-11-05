@@ -85,7 +85,7 @@ export class ListManagedAgentsResponseBodyItemsHarness extends $dara.Model {
 export class ListManagedAgentsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * API_KEY 表示使用 API Key；USER 表示使用用户身份。
+   * The inbound access mode.
    * 
    * @example
    * API_KEY
@@ -93,7 +93,7 @@ export class ListManagedAgentsResponseBodyItems extends $dara.Model {
   accessMode?: string;
   /**
    * @remarks
-   * 仅 accessMode 为 USER 时返回：ALL 表示全部用户，SPECIFIED 表示指定用户。
+   * The user access scope.
    * 
    * @example
    * ALL
@@ -269,7 +269,7 @@ export class ListManagedAgentsResponseBody extends $dara.Model {
   items?: ListManagedAgentsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of results returned for this request.
+   * The maximum number of results returned for the current request.
    * 
    * @example
    * 20
@@ -277,7 +277,7 @@ export class ListManagedAgentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The message about the request processing result.
+   * The request processing result message.
    * 
    * @example
    * success
@@ -285,7 +285,7 @@ export class ListManagedAgentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token for the next page. An empty value indicates that the last page is reached.
+   * The token for the next page. An empty value indicates that the end of the list is reached.
    * 
    * @example
    * next-token-1

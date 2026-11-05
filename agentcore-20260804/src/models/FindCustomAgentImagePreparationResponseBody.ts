@@ -45,7 +45,7 @@ export class FindCustomAgentImagePreparationResponseBodyDataError extends $dara.
 export class FindCustomAgentImagePreparationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the target agent.
+   * The target agent ID.
    * 
    * @example
    * agent-example
@@ -53,12 +53,12 @@ export class FindCustomAgentImagePreparationResponseBodyData extends $dara.Model
   agentId?: string;
   /**
    * @remarks
-   * The security error. This parameter is returned only when the task fails. Otherwise, the value is null.
+   * The security error. This field is returned only when the task fails. Otherwise, the value is null.
    */
   error?: FindCustomAgentImagePreparationResponseBodyDataError;
   /**
    * @remarks
-   * The phase where the failure occurred. This parameter is returned only when the phase is FAILED. Otherwise, the value is null.
+   * The failed phase. This field is returned only when the phase is FAILED. Otherwise, the value is null.
    * 
    * @example
    * COPYING
@@ -74,7 +74,7 @@ export class FindCustomAgentImagePreparationResponseBodyData extends $dara.Model
   phase?: string;
   /**
    * @remarks
-   * The ID of the task submitted in the console.
+   * The ID of the task submitted from the console.
    * 
    * @example
    * agent-example:1
@@ -123,7 +123,7 @@ export class FindCustomAgentImagePreparationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The preparation query result. For the asynchronous execution status, refer to the phase.
+   * The preparation query result. Check the phase for the asynchronous execution status.
    */
   data?: FindCustomAgentImagePreparationResponseBodyData;
   /**

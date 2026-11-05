@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of entries to return per page.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListSkillsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The token for the next page.
    * 
    * @example
    * next-page-token
@@ -21,7 +21,7 @@ export class ListSkillsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The field by which to sort results. The value download_count is supported. Default value: gmt_modified.
+   * The field by which to sort the results. Valid value: download_count. Default value: gmt_modified.
    * 
    * @example
    * download_count
@@ -29,7 +29,7 @@ export class ListSkillsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * Filters results by owner.
+   * The owner used to filter the results.
    * 
    * @example
    * user123
@@ -53,9 +53,7 @@ export class ListSkillsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters results by visibility. Valid values:
-   * - PUBLIC
-   * - PRIVATE
+   * The visibility used to filter the results. Valid values: PUBLIC and PRIVATE.
    * 
    * @example
    * PUBLIC
@@ -63,9 +61,7 @@ export class ListSkillsRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The search mode. Valid values:
-   * - accurate: exact match.
-   * - blur: fuzzy match.
+   * The search mode. Valid values: accurate (exact match) and blur (fuzzy match).
    * 
    * @example
    * blur

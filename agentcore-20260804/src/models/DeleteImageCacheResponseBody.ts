@@ -15,7 +15,7 @@ export class DeleteImageCacheResponseBodyData extends $dara.Model {
   deletionPending?: boolean;
   /**
    * @remarks
-   * The image cache ID, which matches the request. The requested ID is still returned even if the current workspace no longer exists.
+   * The image cache ID, which matches the request. This ID is still returned even if the current workspace no longer exists.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class DeleteImageCacheResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of deleting the image cache.
+   * The image cache deletion result.
    * 
    * This parameter is required.
    */
@@ -96,7 +96,7 @@ export class DeleteImageCacheResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. This does not mean that the cache creation is complete.
+   * Indicates whether the request is successful. This does not indicate that the cache creation is complete.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteManagedAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * API_KEY 表示使用 API Key；USER 表示使用用户身份。
+   * The inbound access mode.
    * 
    * @example
    * API_KEY
@@ -13,7 +13,7 @@ export class DeleteManagedAgentResponseBodyData extends $dara.Model {
   accessMode?: string;
   /**
    * @remarks
-   * 仅 accessMode 为 USER 时返回：ALL 表示全部用户，SPECIFIED 表示指定用户。
+   * The user access scope.
    * 
    * @example
    * SPECIFIED
@@ -61,7 +61,7 @@ export class DeleteManagedAgentResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The latest specification version.
+   * The latest specification version number.
    * 
    * @example
    * 1

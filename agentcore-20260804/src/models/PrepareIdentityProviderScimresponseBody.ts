@@ -13,7 +13,7 @@ export class PrepareIdentityProviderSCIMResponseBodyDataConfiguration extends $d
   baseUrl?: string;
   /**
    * @remarks
-   * The receiving status of AgentIdentity. Enabled indicates that SCIM receiving is enabled, and Disabled indicates that it is disabled. This status is not equivalent to the expected value of syncEnabled for access control.
+   * The receiving status of AgentIdentity. Enabled indicates that SCIM receiving is enabled, and Disabled indicates that it is disabled. This is not equivalent to the expected value of syncEnabled in access control.
    * 
    * @example
    * Enabled
@@ -53,7 +53,7 @@ export class PrepareIdentityProviderSCIMResponseBodyDataCredential extends $dara
   createTime?: string;
   /**
    * @remarks
-   * The credential ID. This parameter is required and cannot be empty when you delete a credential. Use the ID returned in the credential list, not the plaintext token.
+   * The ID of the credential. This parameter is required and cannot be empty when you delete a credential. Use the ID returned in the credential list, not the plaintext token.
    * 
    * @example
    * credential-example
@@ -61,7 +61,7 @@ export class PrepareIdentityProviderSCIMResponseBodyDataCredential extends $dara
   credentialId?: string;
   /**
    * @remarks
-   * The expiration time returned by AgentIdentity. Only credentials that are in the Enabled state and have not expired are considered available.
+   * The expiration time returned by AgentIdentity. Only credentials with the Enabled status that have not expired are considered available.
    * 
    * @example
    * 2027-10-26T00:00:00Z
@@ -69,7 +69,7 @@ export class PrepareIdentityProviderSCIMResponseBodyDataCredential extends $dara
   expireTime?: string;
   /**
    * @remarks
-   * The credential status of AgentIdentity. Only credentials that are in the Enabled state and have not expired are considered available. This field is not the operationStatus of a SCIM task.
+   * The status of the AgentIdentity credential. Only credentials with the Enabled status that have not expired are considered available. This field is not the operationStatus of the SCIM task.
    * 
    * @example
    * Enabled
@@ -110,12 +110,12 @@ export class PrepareIdentityProviderSCIMResponseBodyData extends $dara.Model {
   configuration?: PrepareIdentityProviderSCIMResponseBodyDataConfiguration;
   /**
    * @remarks
-   * The current credential summary, which includes the credentialId, status, createTime, and expireTime fields. This summary does not include the token.
+   * The current credential summary, including credentialId, status, createTime, and expireTime. It does not include the token.
    */
   credential?: PrepareIdentityProviderSCIMResponseBodyDataCredential;
   /**
    * @remarks
-   * The plaintext token is returned only when a new credential is created. If the prepare operation reuses a valid credential, this field is null. The token cannot be retrieved again from the list. If the response is lost, query the list first instead of automatically reissuing the token. Do not write the token to logs or persist it in frontend caches.
+   * The plaintext token returned only when a new credential is created. If the prepare operation reuses a valid credential, this value is null. The token cannot be retrieved from the list. If the response is lost, query the list first instead of automatically reissuing the token. Do not write the token to logs or persistent frontend caches.
    * 
    * @example
    * example-scim-token
@@ -155,7 +155,7 @@ export class PrepareIdentityProviderSCIMResponseBodyData extends $dara.Model {
 export class PrepareIdentityProviderSCIMResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business result code. If the request fails, handle the error based on the HTTP status code and the message.
+   * The business result code. Handle failures by combining the HTTP status code and the message.
    * 
    * @example
    * SUCCESS
@@ -163,12 +163,12 @@ export class PrepareIdentityProviderSCIMResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The operation result. For the result structure, see the response fields of this API. For asynchronous write APIs, the response indicates that the request is accepted, but does not guarantee that the background task is completed.
+   * The operation result. For the result structure, see the response fields of this API. The response of an asynchronous write API indicates that the request is accepted, but does not guarantee that the background task is completed.
    */
   data?: PrepareIdentityProviderSCIMResponseBodyData;
   /**
    * @remarks
-   * The processing status of the current request. This status is not equivalent to the final result of the background task.
+   * The processing status of the current request. This is not equivalent to the final result of the background task.
    * 
    * @example
    * 200
@@ -176,7 +176,7 @@ export class PrepareIdentityProviderSCIMResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request acceptance or error message. For asynchronous tasks, you must check the task result by using the corresponding query API.
+   * The request acceptance or error message. Check the result of an asynchronous task by using the corresponding query API.
    * 
    * @example
    * success
@@ -184,7 +184,7 @@ export class PrepareIdentityProviderSCIMResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. It is used to associate the current call with troubleshooting. Retain this ID if the request fails.
+   * The ID used to associate the current call with troubleshooting. Retain this ID when a failure occurs.
    * 
    * @example
    * request-example
@@ -192,7 +192,7 @@ export class PrepareIdentityProviderSCIMResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the current request is processed successfully. A value of true indicates success. For asynchronous write operations, you must continue to query the task result.
+   * Specifies whether the current request is processed successfully. A value of true indicates success. For asynchronous writes, you must continue to query the task results.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

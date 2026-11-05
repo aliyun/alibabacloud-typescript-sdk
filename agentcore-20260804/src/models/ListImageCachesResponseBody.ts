@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageCachesResponseBodyItemsError extends $dara.Model {
   /**
    * @remarks
-   * The secure and non-empty error code for the current creation attempt.
+   * The secure and non-null error code for the current creation attempt.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,12 @@ export class ListImageCachesResponseBodyItemsError extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The secure and non-empty description of the failure. It does not contain credentials, internal addresses, or stack traces.
+   * The secure and non-null description of the failure, excluding credentials, internal addresses, or stack traces.
    * 
    * This parameter is required.
    * 
    * @example
-   * Failed to create the image cache. Please try again
+   * Image cache creation failed. Please try again
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -69,7 +69,7 @@ export class ListImageCachesResponseBodyItems extends $dara.Model {
   agentCount?: number;
   /**
    * @remarks
-   * The actual cache size in bytes. The value is greater than or equal to 0 if known, or null if unknown. The compressed size of the source image cannot be used as a substitute.
+   * The actual cache size in bytes. A known value is greater than or equal to 0. If the size is unknown, the value is null. The compressed size of the source image cannot be used as a substitute.
    * 
    * This parameter is required.
    * 
@@ -82,7 +82,7 @@ export class ListImageCachesResponseBodyItems extends $dara.Model {
   cacheSizeBytes?: number;
   /**
    * @remarks
-   * Indicates whether the resource can be deleted. The value is true if no configuration references with the switch enabled exist in the current workspace, no valid instances are occupying the resource, and the resource is not being deleted. If the reference status is unknown, the query fails instead of defaulting to true.
+   * Indicates whether deletion is allowed. The value is true if the current workspace has no configuration references with the switch enabled, no valid instances are occupying the resource, and the resource is not being deleted. If the reference status is unknown, the query fails instead of defaulting to true.
    * 
    * This parameter is required.
    * 
@@ -102,7 +102,7 @@ export class ListImageCachesResponseBodyItems extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The reason why deletion is blocked. The value is null if canDelete is true. Otherwise, the value is returned based on the priority of DELETING, AGENT_ENABLED, and INSTANCES_RELEASING. Old instances may still occupy the resource even if the agent count is 0.
+   * The reason for blocking deletion. The value is null when canDelete is true. Otherwise, the value is returned based on the priority of DELETING, AGENT_ENABLED, and INSTANCES_RELEASING. Even if the number of agents is 0, old instances may still occupy the resource.
    * 
    * This parameter is required.
    * 
@@ -115,7 +115,7 @@ export class ListImageCachesResponseBodyItems extends $dara.Model {
   deleteBlockReason?: string;
   /**
    * @remarks
-   * The digest in the sha256: format followed by a 64-character lowercase hexadecimal string. It only describes the currently registered content and does not indicate whether old instances have been switched.
+   * The content digest in the sha256: format followed by a 64-character lowercase hexadecimal string. It only describes the currently registered content and does not indicate that old instances have been switched.
    * 
    * This parameter is required.
    * 
@@ -125,7 +125,7 @@ export class ListImageCachesResponseBodyItems extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * The cache failure details. It is a non-null object when the status is FAILED, and null for other statuses. It only describes the current content and the current creation attempt.
+   * The reason for the cache failure. This is a non-null object when the status is FAILED, and null for other statuses. It only describes the current content and the current creation attempt.
    * 
    * This parameter is required.
    * 
@@ -135,7 +135,7 @@ export class ListImageCachesResponseBodyItems extends $dara.Model {
   error?: ListImageCachesResponseBodyItemsError;
   /**
    * @remarks
-   * The logical resource ID that can be managed in the current workspace. This is not the shared physical cache ID.
+   * The logical resource ID manageable by the current workspace. This is not the shared physical cache ID.
    * 
    * This parameter is required.
    * 
@@ -145,7 +145,7 @@ export class ListImageCachesResponseBodyItems extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The domain name of the source image. It does not include the protocol, path, or credentials.
+   * The domain name of the source image, excluding the protocol, path, and credentials.
    * 
    * This parameter is required.
    * 
@@ -165,7 +165,7 @@ export class ListImageCachesResponseBodyItems extends $dara.Model {
   repository?: string;
   /**
    * @remarks
-   * The status of the image cache. Valid values: PENDING (creating), READY (available), FAILED (abnormal), and DELETING (deleting in the current workspace).
+   * The status of the image cache. Valid values: PENDING: creating, READY: available, FAILED: abnormal, DELETING: deleting in the current workspace.
    * 
    * This parameter is required.
    * 
@@ -175,7 +175,7 @@ export class ListImageCachesResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tag of the source image. It is case-sensitive. Regular tags cannot be registered with different digests, except for the exact lowercase \\"latest\\".
+   * The tag of the source image. It is case-sensitive. Regular tags cannot be registered with different digests, except for the exact lowercase latest.
    * 
    * This parameter is required.
    * 
@@ -185,7 +185,7 @@ export class ListImageCachesResponseBodyItems extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The workspace ID. It must be consistent with the requested workspace. Resources with the same content from other workspaces must not be returned.
+   * The workspace ID. It is consistent with the requested workspace. Resources with the same content from other workspaces must not be returned.
    * 
    * This parameter is required.
    * 
@@ -266,14 +266,14 @@ export class ListImageCachesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The records on the current page. An empty array is returned if no matching items are found.
+   * The records on the current page. An empty array is returned if no matches are found.
    * 
    * This parameter is required.
    */
   items?: ListImageCachesResponseBodyItems[];
   /**
    * @remarks
-   * The actual page size used for this request. This is not the number of items on the current page.
+   * The actual page size used for this request, not the number of items on the current page.
    * 
    * This parameter is required.
    * 
@@ -293,7 +293,7 @@ export class ListImageCachesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The opaque cursor for the next page. An empty string indicates that no more pages are available.
+   * The opaque cursor for the next page. An empty string indicates the end.
    * 
    * This parameter is required.
    * 
@@ -313,7 +313,7 @@ export class ListImageCachesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. A value of true does not indicate that the cache creation is complete.
+   * Indicates whether the request was successful. This does not indicate that the cache creation is complete.
    * 
    * This parameter is required.
    * 
@@ -323,7 +323,7 @@ export class ListImageCachesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records that match the current filter conditions. Do not use this value to determine whether all pages have been returned.
+   * The total number of records under the current filter conditions. Do not use this value to determine the end of traversal.
    * 
    * This parameter is required.
    * 

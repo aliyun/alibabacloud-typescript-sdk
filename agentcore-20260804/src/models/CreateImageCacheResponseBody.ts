@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImageCacheResponseBodyDataError extends $dara.Model {
   /**
    * @remarks
-   * The secure and non-null error code for the current creation failure.
+   * The secure and non-empty error code for the current creation failure.
    * 
    * This parameter is required.
    * 
@@ -15,12 +15,12 @@ export class CreateImageCacheResponseBodyDataError extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The secure and non-null display reason for the creation failure, excluding credentials, internal addresses, or stack traces.
+   * The secure and non-empty display reason for the creation failure, excluding credentials, internal addresses, or stack traces.
    * 
    * This parameter is required.
    * 
    * @example
-   * Failed to create the image cache. Please try again
+   * Image cache creation failed. Try again
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -59,7 +59,7 @@ export class CreateImageCacheResponseBodyData extends $dara.Model {
   acrInstanceId?: string;
   /**
    * @remarks
-   * The deduplicated number of agents that have useImageCache set to true and are associated with this logical resource in the current workspace. The value is greater than or equal to 0. This set is the same as the set filtered by imageCacheId in ListAllAgents. Agents with the feature disabled are not counted, and this value is independent of the number of occupied instances.
+   * The deduplicated number of agents in the current workspace that have useImageCache set to true and are associated with this logical resource. The value is greater than or equal to 0. This set is the same as the imageCacheId filter in ListAllAgents. Agents with the feature disabled are not counted, and this value is independent of the number of occupied instances.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class CreateImageCacheResponseBodyData extends $dara.Model {
   agentCount?: number;
   /**
    * @remarks
-   * The actual cache size in bytes. The known value is greater than or equal to 0. If the value is unknown, it is null. The compressed size of the source image cannot be used as a substitute.
+   * The actual cache size in bytes. A known value is greater than or equal to 0. If the value is unknown, it is null. The compressed size of the source image cannot be used as a substitute.
    * 
    * This parameter is required.
    * 
@@ -82,7 +82,7 @@ export class CreateImageCacheResponseBodyData extends $dara.Model {
   cacheSizeBytes?: number;
   /**
    * @remarks
-   * Indicates whether deletion is allowed. The value is true when there are no configuration references with the switch enabled, no valid instances occupying the resource, and the resource is not being deleted in the current workspace. If the reference status is unknown, the query should fail, and deletion cannot be allowed by default.
+   * Indicates whether deletion is allowed. The value is true when the current workspace has no configuration references with the switch enabled, no valid instances are occupying the resource, and the resource is not being deleted. If the reference status is unknown, the query should fail instead of allowing deletion by default.
    * 
    * This parameter is required.
    * 
@@ -92,7 +92,7 @@ export class CreateImageCacheResponseBodyData extends $dara.Model {
   canDelete?: boolean;
   /**
    * @remarks
-   * The creation time of the logical resource in the current workspace, in RFC3339 format with time zone. The time is not refreshed when the content of the latest tag is updated.
+   * The creation time of the logical resource in the current workspace, in RFC 3339 format with time zone. Content updates for the latest tag do not refresh this time.
    * 
    * This parameter is required.
    * 
@@ -102,7 +102,7 @@ export class CreateImageCacheResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The reason why deletion is blocked. The value is null when canDelete is true. Otherwise, the value is returned based on the priority of DELETING, AGENT_ENABLED, and INSTANCES_RELEASING. Even if the number of agents is 0, old instances may still occupy the resource.
+   * The reason why deletion is blocked. The value is null when canDelete is true. Otherwise, the value is returned based on the priority of DELETING, AGENT_ENABLED, and INSTANCES_RELEASING. Even if the agent count is 0, old instances may still occupy the resource.
    * 
    * This parameter is required.
    * 
@@ -135,7 +135,7 @@ export class CreateImageCacheResponseBodyData extends $dara.Model {
   error?: CreateImageCacheResponseBodyDataError;
   /**
    * @remarks
-   * The logical resource ID manageable by the current workspace, which is not a shared physical cache ID.
+   * The logical resource ID manageable by the current workspace. This is not a shared physical cache ID.
    * 
    * This parameter is required.
    * 
@@ -155,7 +155,7 @@ export class CreateImageCacheResponseBodyData extends $dara.Model {
   registry?: string;
   /**
    * @remarks
-   * The path of the source image repository in the namespace/repository format, which already includes the namespace.
+   * The path of the source image repository in the namespace/repository format, which includes the namespace.
    * 
    * This parameter is required.
    * 
@@ -165,7 +165,7 @@ export class CreateImageCacheResponseBodyData extends $dara.Model {
   repository?: string;
   /**
    * @remarks
-   * The status of the image cache. Valid values: PENDING: creating, READY: available, FAILED: abnormal, DELETING: deleting in the current workspace.
+   * Valid values: PENDING: The workspace is being created. READY: The workspace is available. FAILED: The workspace is in an abnormal state. DELETING: The workspace is being deleted.
    * 
    * This parameter is required.
    * 
@@ -175,7 +175,7 @@ export class CreateImageCacheResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tag of the source image. Case is preserved. Regular tags cannot be registered with different digests, with the exact lowercase latest tag being the only exception.
+   * The tag of the source image. Case is preserved. Regular tags cannot be registered with different digests, except for the exact lowercase latest tag.
    * 
    * This parameter is required.
    * 

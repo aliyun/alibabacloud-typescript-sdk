@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
   /**
    * @remarks
-   * The business tags as a JSON array string.
+   * The JSON array string of business tags.
    * 
    * @example
    * Sample property value
@@ -16,7 +16,7 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
    * The description.
    * 
    * @example
-   * A sample description that explains the purpose of the resource
+   * Sample description used to explain the purpose of the resource
    */
   description?: string;
   /**
@@ -29,11 +29,7 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
   downloadCount?: number;
   /**
    * @remarks
-   * The draft mode. Valid values:
-   * - HEAD: The Skill has a persistent draft.
-   * - VERSIONED: Each edit creates a versioned draft.
-   * 
-   * The value is determined by the server. The caller uses this value to render the status column.
+   * The draft mode. A value of HEAD indicates that the skill has a persistent draft. A value of VERSIONED indicates that a versioned draft is created for each edit. This value is determined by the server, and the caller renders the status column based on this value.
    * 
    * @example
    * HEAD
@@ -41,7 +37,12 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
   draftMode?: string;
   /**
    * @remarks
-   * The version that is being edited. In HEAD draft mode, the value is HEAD.
+   * Indicates whether the page item is editable.
+   */
+  editable?: boolean;
+  /**
+   * @remarks
+   * The version being edited. The value is HEAD in HEAD draft mode.
    * 
    * @example
    * 1.0.0
@@ -49,7 +50,7 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
   editingVersion?: string;
   /**
    * @remarks
-   * Indicates whether the Skill is enabled.
+   * Indicates whether the skill is enabled.
    */
   enable?: boolean;
   /**
@@ -91,7 +92,7 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The version that is under review. In HEAD draft mode, the value is HEAD.
+   * The version under review. The value is HEAD in HEAD draft mode.
    * 
    * @example
    * 1.0.0
@@ -107,7 +108,7 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The update time. This value is a UNIX timestamp in milliseconds.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -132,6 +133,7 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
       description: 'description',
       downloadCount: 'downloadCount',
       draftMode: 'draftMode',
+      editable: 'editable',
       editingVersion: 'editingVersion',
       enable: 'enable',
       from: 'from',
@@ -153,6 +155,7 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
       description: 'string',
       downloadCount: 'number',
       draftMode: 'string',
+      editable: 'boolean',
       editingVersion: 'string',
       enable: 'boolean',
       from: 'string',
@@ -248,7 +251,7 @@ export class ListSkillsResponseBody extends $dara.Model {
   data?: ListSkillsResponseBodyData;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of entries to return per page.
    * 
    * @example
    * 20
@@ -256,7 +259,7 @@ export class ListSkillsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The token for the next page.
    * 
    * @example
    * next-page-token

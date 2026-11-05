@@ -85,7 +85,7 @@ export class CreatePermissionRulesResponseBodyDataRules extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The rule source details.
+   * The details of the rule source.
    * 
    * @example
    * OpenAPI

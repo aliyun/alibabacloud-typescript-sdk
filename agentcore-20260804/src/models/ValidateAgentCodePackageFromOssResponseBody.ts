@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateAgentCodePackageFromOssResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The original file name of the code package.
+   * The file name of the original code package.
    * 
    * @example
    * main.zip

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageCacheRequest extends $dara.Model {
   /**
    * @remarks
-   * The product entry region, which is determined by the selected regional endpoint.
+   * The region ID of the service endpoint, which is determined by the selected regional endpoint.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteImageCacheRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The current routed workspace. The server verifies the account, region, and resource ownership. This parameter cannot be omitted or used to access other workspaces.
+   * The ID of the current workspace. The server verifies the account, region, and resource ownership. This parameter cannot be omitted or used to access other workspaces.
    * 
    * This parameter is required.
    * 

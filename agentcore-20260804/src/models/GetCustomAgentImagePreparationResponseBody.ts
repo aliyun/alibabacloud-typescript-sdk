@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomAgentImagePreparationResponseBodyDataError extends $dara.Model {
   /**
    * @remarks
-   * The business error code for image preparation. This code is used to identify the failure type. For the specific cause, refer to the message.
+   * The business error code for image preparation. This code is used to identify the failure type. For the specific cause, see the message parameter.
    * 
    * @example
    * ImageSyncFailed
@@ -53,12 +53,12 @@ export class GetCustomAgentImagePreparationResponseBodyData extends $dara.Model 
   agentId?: string;
   /**
    * @remarks
-   * The error information. This field is returned only when the task fails. Otherwise, the value is null.
+   * The security error. This parameter is returned only when the task fails. Otherwise, null is returned.
    */
   error?: GetCustomAgentImagePreparationResponseBodyDataError;
   /**
    * @remarks
-   * The failed phase. This field is returned only when the status is FAILED. Otherwise, the value is null.
+   * The failed phase. This parameter is returned only when the phase is FAILED. Otherwise, null is returned.
    * 
    * @example
    * COPYING
@@ -66,7 +66,7 @@ export class GetCustomAgentImagePreparationResponseBodyData extends $dara.Model 
   failedPhase?: string;
   /**
    * @remarks
-   * The current phase. Only SUCCEEDED indicates that the deployment of the target version is successful.
+   * The current phase. Only SUCCEEDED indicates that the target version is deployed successfully.
    * 
    * @example
    * FAILED
@@ -74,7 +74,7 @@ export class GetCustomAgentImagePreparationResponseBodyData extends $dara.Model 
   phase?: string;
   /**
    * @remarks
-   * The console submission task ID.
+   * The Console submission task ID.
    * 
    * @example
    * agent-example:1
@@ -123,7 +123,7 @@ export class GetCustomAgentImagePreparationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The preparation query result. Refer to the phase for the asynchronous execution status.
+   * The preparation query result. Check the phase parameter for the asynchronous execution status.
    */
   data?: GetCustomAgentImagePreparationResponseBodyData;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageCachesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the source ACR Enterprise instance. The match must be exact. Empty character strings are invalid.
+   * The ID of the source ACR Enterprise instance. Exact match is required. Empty character strings are invalid.
    * 
    * @example
    * cri-example
@@ -13,7 +13,7 @@ export class ListImageCachesRequest extends $dara.Model {
   acrInstanceId?: string;
   /**
    * @remarks
-   * The complete image digest in the sha256: format followed by a 64-character lowercase hexadecimal string. The format is verified by the console. The match must be exact, and prefixes are not supported.
+   * The complete image digest in the sha256: format followed by a 64-character lowercase hexadecimal string. The format is verified by the console. Exact match is required, and prefixes are not supported.
    * 
    * @example
    * sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -37,7 +37,7 @@ export class ListImageCachesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The source namespace. The match is case-sensitive and must be exact. Empty strings are invalid.
+   * The source namespace. Exact and case-sensitive match is required. Empty strings are invalid.
    * 
    * @example
    * team
@@ -63,7 +63,7 @@ export class ListImageCachesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The domain name of the source repository. The match is case-insensitive and must be exact. Do not include the protocol, path, or tag. Public network and VPC domain names are not considered equal. Empty strings are invalid.
+   * The domain name of the source repository. Exact and case-insensitive match is required. The value must not include the protocol, path, or tag. Public network and VPC domain names are not considered equal. Empty strings are invalid.
    * 
    * @example
    * example-registry.cn-hangzhou.cr.aliyuncs.com
@@ -71,7 +71,7 @@ export class ListImageCachesRequest extends $dara.Model {
   registry?: string;
   /**
    * @remarks
-   * The name of the repository under the namespace. The match is case-sensitive and must be exact. Do not include the namespace. If this parameter is provided, the namespace parameter must also be provided. Empty strings are invalid.
+   * The repository name under the namespace. Exact and case-sensitive match is required. The value must not include the namespace. If this parameter is provided, the namespace parameter must also be provided. Empty strings are invalid.
    * 
    * @example
    * app
@@ -87,7 +87,7 @@ export class ListImageCachesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tag of the source image. The match is case-sensitive and must be exact. The latest tag is not inferred. Empty strings are invalid.
+   * The source image tag. Exact and case-sensitive match is required. The latest tag is not inferred. Empty strings are invalid.
    * 
    * @example
    * v1
