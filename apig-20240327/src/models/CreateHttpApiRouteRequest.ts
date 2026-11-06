@@ -9,7 +9,7 @@ import { HttpDubboTranscoder } from "./HttpDubboTranscoder";
 export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * The service group. Used in HTTP-to-Dubbo transcoding scenarios.
+   * The service group. Used for HTTP-to-Dubbo conversion scenarios.
    * 
    * @example
    * DEFAULT_GROUP
@@ -17,7 +17,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   groupName?: string;
   /**
    * @remarks
-   * The HTTP-to-Dubbo protocol transcoding configuration. Only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
+   * The HTTP-to-Dubbo protocol conversion configuration. This configuration only supports SingleService MSE_NACOS DUBBO backends for HTTP APIs.
    * 
    * @example
    * {"dubboServiceName":"com.alibaba.nacos.example.dubbo.service.DemoService","dubboServiceVersion":"1.0.0","dubboServiceGroup":"DEV","methodMapList":[{"dubboMethodName":"sayName","httpMethod":"ALL_GET","methodPath":"/dubbo/sayName","passThroughAllHeaders":"PASS_ALL"}]}
@@ -25,7 +25,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   httpDubboTranscoder?: HttpDubboTranscoder;
   /**
    * @remarks
-   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If not specified in the AiAutoRouter scenario, the default model of the AI service is used.
+   * The target model name. This field is shared by multiple existing model backend scenarios, and the specific routing or model rewriting semantics are determined by backendConfig.scene. It is required for the SemanticRouter scenario. If not configured for the AiAutoRouter scenario, the default model of the AI service is used.
    * 
    * @example
    * qwen-plus
@@ -33,7 +33,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   modelName?: string;
   /**
    * @remarks
-   * The service namespace. Used in HTTP-to-Dubbo transcoding scenarios.
+   * The service namespace. Used for HTTP-to-Dubbo conversion scenarios.
    * 
    * @example
    * public
@@ -50,8 +50,8 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   /**
    * @remarks
    * The service protocol. Valid values:
-   * - HTTP
-   * - HTTPS
+   * - HTTP.
+   * - HTTPS.
    * 
    * @example
    * HTTP
@@ -67,7 +67,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   serviceId?: string;
   /**
    * @remarks
-   * The service source type. Used in HTTP-to-Dubbo transcoding scenarios.
+   * The service source type. Used for HTTP-to-Dubbo conversion scenarios.
    * 
    * @example
    * MSE_NACOS
@@ -75,7 +75,7 @@ export class CreateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   sourceType?: string;
   /**
    * @remarks
-   * The service version. This parameter takes effect only in the by-tag scenario.
+   * The service version. This parameter is valid only in the tag-based scenario.
    * 
    * @example
    * v1
@@ -136,7 +136,7 @@ export class CreateHttpApiRouteRequestBackendConfig extends $dara.Model {
    * @remarks
    * The backend service scenario. Valid values:
    * - SingleService: Single service.
-   * - MultiServiceByRatio: Multi-service canary release by ratio.
+   * - MultiServiceByRatio: Multiple services with ratio-based canary release.
    * - Mock: Mock service.
    * - Redirect: Redirect service.
    * 
@@ -175,6 +175,36 @@ export class CreateHttpApiRouteRequestBackendConfig extends $dara.Model {
   }
 }
 
+export class CreateHttpApiRouteRequestDfpConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the imported ExtProc gRPC service.
+   * 
+   * @example
+   * svc-cr8k0udlhtgt80sh7png
+   */
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceId: 'serviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
   /**
    * @remarks
@@ -195,9 +225,9 @@ export class CreateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
   /**
    * @remarks
    * The service protocol. Valid values:
-   * - TCP
-   * - HTTP
-   * - DUBBO
+   * - TCP.
+   * - HTTP.
+   * - DUBBO.
    * 
    * @example
    * HTTP,HTTPS
@@ -231,7 +261,7 @@ export class CreateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
 export class CreateHttpApiRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * The backend service configuration of the route.
+   * The backend service configuration for the route.
    */
   backendConfig?: CreateHttpApiRouteRequestBackendConfig;
   /**
@@ -249,6 +279,11 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
    * User login route
    */
   description?: string;
+  /**
+   * @remarks
+   * The fixed dynamic forwarding and ExtProc combination configuration. When you use this configuration, specify only serviceId, and do not specify environmentId or backendConfig.
+   */
+  dfpConfig?: CreateHttpApiRouteRequestDfpConfig;
   /**
    * @remarks
    * The domain name IDs.
@@ -282,7 +317,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The policy type.
+   * The policy types.
    */
   policyConfigs?: HttpApiPolicyConfigs[];
   static names(): { [key: string]: string } {
@@ -290,6 +325,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
       backendConfig: 'backendConfig',
       deployConfigs: 'deployConfigs',
       description: 'description',
+      dfpConfig: 'dfpConfig',
       domainIds: 'domainIds',
       environmentId: 'environmentId',
       match: 'match',
@@ -304,6 +340,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
       backendConfig: CreateHttpApiRouteRequestBackendConfig,
       deployConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfig },
       description: 'string',
+      dfpConfig: CreateHttpApiRouteRequestDfpConfig,
       domainIds: { 'type': 'array', 'itemType': 'string' },
       environmentId: 'string',
       match: HttpRouteMatch,
@@ -319,6 +356,9 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
     }
     if(Array.isArray(this.deployConfigs)) {
       $dara.Model.validateArray(this.deployConfigs);
+    }
+    if(this.dfpConfig && typeof (this.dfpConfig as any).validate === 'function') {
+      (this.dfpConfig as any).validate();
     }
     if(Array.isArray(this.domainIds)) {
       $dara.Model.validateArray(this.domainIds);

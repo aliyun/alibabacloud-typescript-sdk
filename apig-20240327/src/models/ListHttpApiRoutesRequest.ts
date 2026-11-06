@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHttpApiRoutesRequest extends $dara.Model {
   /**
    * @remarks
-   * The backend service name. You can use this parameter to filter routes.
+   * The backend service name. You can use this name to filter routes.
    * 
    * @example
    * test-svc
@@ -13,7 +13,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   backendServiceName?: string;
   /**
    * @remarks
-   * Filters the API list by a specific consumer authorization rule ID. The API list in the response contains only authorized APIs.
+   * The ID of the consumer authorization rule used to filter the route list. The route list in the response contains only authorized routes.
    * 
    * @example
    * cas-xxx
@@ -29,7 +29,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   deployStatuses?: string;
   /**
    * @remarks
-   * Filters route information by domain name ID.
+   * The ID of the domain name used to filter route information.
    * 
    * @example
    * d-xxx
@@ -45,7 +45,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Specifies whether the request is for a deployment scenario.
+   * Specifies whether the query is for a deployment scenario.
    * 
    * @example
    * true
@@ -69,7 +69,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Performs a fuzzy match by route name.
+   * The route name used for fuzzy match.
    * 
    * @example
    * item
@@ -77,7 +77,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. If you do not specify this parameter, the default value is 1.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The page size. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -93,7 +93,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Performs a fuzzy match by route path.
+   * The route path used for fuzzy match.
    * 
    * @example
    * /v1
@@ -101,7 +101,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   pathLike?: string;
   /**
    * @remarks
-   * Includes consumer authorization information in the response.
+   * Specifies whether to include consumer authorization information in the response.
    * 
    * @example
    * true
@@ -109,7 +109,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   withAuthPolicyInfo?: boolean;
   /**
    * @remarks
-   * Includes the authorization rule list of the specified consumer ID in each route in the response.
+   * Specifies whether to include the authorization rule list of the specified consumer ID in each route in the response.
    * 
    * @example
    * cs-xxx
@@ -117,7 +117,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   withConsumerInfoById?: string;
   /**
    * @remarks
-   * Includes the mount information of the specified plug-in ID in each route in the response.
+   * Specifies whether to include the mount information of the specified plugin ID in each route in the response.
    * 
    * @example
    * pl-xxx

@@ -40,7 +40,7 @@ export class CreateAiModelProviderRequest extends $dara.Model {
   serviceIds?: string[];
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that ensures the idempotence of the request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000

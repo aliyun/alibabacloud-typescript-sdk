@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAiModelCardResponseBodyDataAvailablePaths extends $dara.Model {
   /**
    * @remarks
-   * The model invocation path.
+   * The model call path.
    * 
    * @example
    * /v1/chat/completions
@@ -13,7 +13,7 @@ export class CreateAiModelCardResponseBodyDataAvailablePaths extends $dara.Model
   path?: string;
   /**
    * @remarks
-   * The protocol type of the path.
+   * The protocol type corresponding to the path.
    * 
    * @example
    * OpenAICompatible
@@ -45,7 +45,7 @@ export class CreateAiModelCardResponseBodyDataAvailablePaths extends $dara.Model
 export class CreateAiModelCardResponseBodyDataCredit extends $dara.Model {
   /**
    * @remarks
-   * The cache hit token cost, in Credits per million tokens.
+   * The cost of cache hit tokens, in Credits per million tokens.
    * 
    * @example
    * 0.5
@@ -53,7 +53,7 @@ export class CreateAiModelCardResponseBodyDataCredit extends $dara.Model {
   cacheCost?: number;
   /**
    * @remarks
-   * The input token cost, in Credits per million tokens.
+   * The cost of input tokens, in Credits per million tokens.
    * 
    * @example
    * 1.5
@@ -61,7 +61,7 @@ export class CreateAiModelCardResponseBodyDataCredit extends $dara.Model {
   inputCost?: number;
   /**
    * @remarks
-   * The output token cost, in Credits per million tokens.
+   * The cost of output tokens, in Credits per million tokens.
    * 
    * @example
    * 3
@@ -69,7 +69,7 @@ export class CreateAiModelCardResponseBodyDataCredit extends $dara.Model {
   outputCost?: number;
   /**
    * @remarks
-   * The billing type. The current value is fixed.
+   * The billing type. Currently, fixed is returned.
    * 
    * @example
    * fixed
@@ -181,7 +181,7 @@ export class CreateAiModelCardResponseBodyDataMeta extends $dara.Model {
 export class CreateAiModelCardResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of invocation paths supported by the model.
+   * The list of call paths supported by the model.
    * 
    * @example
    * [{"path":"/v1/chat/completions","type":"OpenAICompatible"}]
@@ -213,7 +213,7 @@ export class CreateAiModelCardResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The token limits and input/output modality information of the model.
+   * The token limits and input and output modality information of the model.
    * 
    * @example
    * {"maxInputTokens":131072,"maxOutputTokens":8192,"maxTokens":131072,"supportedInputModalities":["text","image"],"supportedOutputModalities":["text"]}
@@ -221,7 +221,7 @@ export class CreateAiModelCardResponseBodyData extends $dara.Model {
   meta?: CreateAiModelCardResponseBodyDataMeta;
   /**
    * @remarks
-   * The model card ID.
+   * The ID of the model card.
    * 
    * @example
    * mc-8c13d2b4f8a1
@@ -229,7 +229,7 @@ export class CreateAiModelCardResponseBodyData extends $dara.Model {
   modelCardId?: string;
   /**
    * @remarks
-   * The model name.
+   * The name of the model.
    * 
    * @example
    * qwen-plus
@@ -237,7 +237,7 @@ export class CreateAiModelCardResponseBodyData extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model provider identifier.
+   * The identifier of the model provider.
    * 
    * @example
    * qwen
@@ -245,7 +245,7 @@ export class CreateAiModelCardResponseBodyData extends $dara.Model {
   modelProvider?: string;
   /**
    * @remarks
-   * The source of the model card. The current value is user.
+   * The source of the model card. Currently, user is returned.
    * 
    * @example
    * user
@@ -321,7 +321,7 @@ export class CreateAiModelCardResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The model card information returned after successful creation.
+   * The model card information returned after the model card is created.
    * 
    * @example
    * {"modelCardId":"mc-8c13d2b4f8a1","gatewayId":"gw-8c13d2b4f8a1","modelProvider":"qwen","modelName":"qwen-plus","source":"user","credit":{"type":"fixed","inputCost":1.5,"outputCost":3,"cacheCost":0.5},"features":{"functionCalling":true,"toolChoice":true},"meta":{"maxInputTokens":131072,"maxOutputTokens":8192,"maxTokens":131072,"supportedInputModalities":["text","image"],"supportedOutputModalities":["text"]},"availablePaths":[{"path":"/v1/chat/completions","type":"OpenAICompatible"}],"updateTime":"2026-07-14 18:30:00"}
@@ -337,7 +337,7 @@ export class CreateAiModelCardResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

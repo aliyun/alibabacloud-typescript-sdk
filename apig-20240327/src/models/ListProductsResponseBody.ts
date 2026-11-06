@@ -11,12 +11,12 @@ import { HiMarketModelConfig } from "./HiMarketModelConfig";
 export class ListProductsResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The agent-related configurations of the API product. The agentAPIConfig member includes agentProtocols (the list of protocols supported by the agent) and routes (the route list).
+   * The agent-related configurations of the API product. The agentAPIConfig member includes agentProtocols (the list of protocols supported by the agent) and routes (the list of routes).
    */
   agentConfig?: HiMarketAgentConfig;
   /**
    * @remarks
-   * Specifies whether to automatically approve subscription requests for the API product, which is the AutoApprove property of the API product resource Product.
+   * Specifies whether subscription requests for the API product are automatically approved. This corresponds to the AutoApprove property of the API product resource.
    */
   autoApprove?: boolean;
   /**
@@ -26,7 +26,7 @@ export class ListProductsResponseBodyDataContent extends $dara.Model {
   categories?: HiMarketProductCategory[];
   /**
    * @remarks
-   * The description of the API product, which is the Description property of the API product resource Product.
+   * The description of the API product, which corresponds to the Description property of the API product resource.
    * 
    * @example
    * An API product that provides weather query capabilities
@@ -34,7 +34,7 @@ export class ListProductsResponseBodyDataContent extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The documentation of the API product, which is the Document property of the API product resource Product.
+   * The documentation of the API product, which corresponds to the Document property of the API product resource.
    * 
    * @example
    * The invocation methods, parameters, and billing instructions for this product
@@ -47,22 +47,22 @@ export class ListProductsResponseBodyDataContent extends $dara.Model {
   feature?: HiMarketProductFeature;
   /**
    * @remarks
-   * The icon of the API product, which is the Icon property of the API product resource Product. It consists of two fields: type (the icon type) and value (the icon information).
+   * The icon of the API product, which corresponds to the Icon property of the API product resource. It consists of two fields: the icon type (type) and the icon information (value).
    */
   icon?: HiMarketIcon;
   /**
    * @remarks
-   * The MCP-related configurations of the API product. The members include mcpServerName (the MCP server name), tools, mcpServerConfig (path and domains), and meta (protocol).
+   * The MCP-related configurations of the API product. The members include mcpServerName (MCP server name), tools, mcpServerConfig (path and domains), and meta (protocol).
    */
   mcpConfig?: HiMarketMcpConfig;
   /**
    * @remarks
-   * The model API-related configurations of the API product. The modelAPIConfig member includes modelCategory (the AI model category), aiProtocols (the list of AI API protocols), and routes (the route list).
+   * The model API-related configurations of the API product. The modelAPIConfig member includes modelCategory (AI model category), aiProtocols (the list of AI API protocols), and routes (the list of routes).
    */
   modelConfig?: HiMarketModelConfig;
   /**
    * @remarks
-   * The name of the API product, which is the Name property of the API product resource Product.
+   * The name of the API product, which corresponds to the Name property of the API product resource.
    * 
    * @example
    * weather-query-api
@@ -70,7 +70,7 @@ export class ListProductsResponseBodyDataContent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the API product, which is the primary ID of the API product resource Product. It can be used to locate the product in operations such as GetProduct, UpdateProduct, DeleteProduct, PublishProduct, SetProductCategories, and ListProductPublications.
+   * The ID of the API product, which is the primary ID of the API product resource. You can use this ID to locate the product in operations such as GetProduct, UpdateProduct, DeleteProduct, PublishProduct, SetProductCategories, and ListProductPublications.
    * 
    * @example
    * product-xxxxxxxx
@@ -78,7 +78,7 @@ export class ListProductsResponseBodyDataContent extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The status of the API product, which is the Status property of the API product resource Product. Valid values: Pending, Ready, and Published.
+   * The status of the API product, which corresponds to the Status property of the API product resource. Valid values: Pending, Ready, and Published.
    * 
    * @example
    * Published
@@ -86,7 +86,7 @@ export class ListProductsResponseBodyDataContent extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the API product, which is the Type property of the API product resource Product. The valid values are not declared in the API definition. Refer to the types displayed in the console.
+   * The type of the API product, which corresponds to the Type property of the API product resource. The valid values are not declared in the API definition. Refer to the types displayed in the console.
    * 
    * @example
    * API
@@ -231,7 +231,7 @@ export class ListProductsResponseBody extends $dara.Model {
   data?: ListProductsResponseBodyData;
   /**
    * @remarks
-   * The maximum number of entries returned for this request.
+   * The maximum number of entries returned in this request.
    * 
    * @example
    * 10
@@ -247,7 +247,7 @@ export class ListProductsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for querying the next page.
+   * The pagination token for the next page.
    * 
    * @example
    * next-token-xxxxxxxx

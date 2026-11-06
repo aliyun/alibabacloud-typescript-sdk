@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCategoryProductsRequest extends $dara.Model {
   /**
    * @remarks
-   * The direction of the batch operation: adds the API products specified in productIds to the category, or removes these API products from the category. The set of valid values is not declared in the API definition.
+   * The operation type for the bulk operation. This parameter specifies whether to add the API products specified by productIds to the category or remove them from the category. The valid values are not declared in the API definition.
    * 
    * @example
    * action-xxxxxxxx
@@ -13,7 +13,7 @@ export class UpdateCategoryProductsRequest extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The list of API product IDs to process. Each element is the primary ID of the API product resource Product.
+   * The list of API product IDs to be processed. Each element is the primary ID of an API product resource.
    */
   productIds?: string[];
   static names(): { [key: string]: string } {

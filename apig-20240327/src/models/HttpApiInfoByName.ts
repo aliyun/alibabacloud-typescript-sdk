@@ -38,7 +38,7 @@ export class HttpApiInfoByName extends $dara.Model {
   versionEnabled?: boolean;
   /**
    * @remarks
-   * The versioned API version information.
+   * The version information of the versioned APIs.
    */
   versionedHttpApis?: HttpApiApiInfo[];
   static names(): { [key: string]: string } {

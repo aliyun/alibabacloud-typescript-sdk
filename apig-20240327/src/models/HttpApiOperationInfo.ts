@@ -10,7 +10,7 @@ import { HttpApiResponseContract } from "./HttpApiResponseContract";
 export class HttpApiOperationInfo extends $dara.Model {
   /**
    * @remarks
-   * The authentication configuration.
+   * The permission authentication configuration.
    */
   authConfig?: AuthConfig;
   /**
@@ -23,7 +23,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The backend service deployment information for the API operation.
+   * The API operation backend service deployment information.
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
@@ -36,7 +36,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether authentication is enabled.
+   * Specifies whether authentication is enabled.
    * 
    * @example
    * true
@@ -44,7 +44,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   enableAuth?: boolean;
   /**
    * @remarks
-   * The HTTP method of the API operation.
+   * The API operation method.
    * 
    * @example
    * GET
@@ -52,12 +52,12 @@ export class HttpApiOperationInfo extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The mock parameter settings for the API operation.
+   * The API operation mock parameter settings.
    */
   mock?: HttpApiMockContract;
   /**
    * @remarks
-   * The name of the API operation.
+   * The API operation name.
    * 
    * @example
    * GetUserInfo
@@ -65,7 +65,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the API operation.
+   * The API operation ID.
    * 
    * @example
    * op-xxx
@@ -73,7 +73,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * The path of the API operation.
+   * The API operation path.
    * 
    * @example
    * /user/123
@@ -81,17 +81,17 @@ export class HttpApiOperationInfo extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The request parameter definition of the API operation.
+   * The API operation request parameter definition.
    */
   request?: HttpApiRequestContract;
   /**
    * @remarks
-   * The response parameter definition of the API operation.
+   * The API operation response parameter definition.
    */
   response?: HttpApiResponseContract;
   /**
    * @remarks
-   * The publish status of the API operation on the gateway.
+   * The publication status of the API operation on the gateway.
    * 
    * @example
    * Deployed

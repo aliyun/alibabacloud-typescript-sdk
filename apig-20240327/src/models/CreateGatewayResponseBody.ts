@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The gateway ID.
+   * The ID of the gateway.
    * 
    * @example
    * gw-cq2vundlhtg***

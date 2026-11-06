@@ -35,7 +35,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   parentResourceInfo?: ParentResourceInfo;
   /**
    * @remarks
-   * The plugin mount ID.
+   * The ID of the plugin mount.
    * 
    * @example
    * pa-d0j9t5em1hkncrlo51mg
@@ -43,7 +43,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   pluginAttachmentId?: string;
   /**
    * @remarks
-   * The plugin type information.
+   * The plugin class information.
    */
   pluginClassInfo?: PluginClassInfo;
   /**
@@ -64,7 +64,7 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * The mount resource information.
+   * The mounted resource information.
    */
   resourceInfos?: ResourceInfo[];
   static names(): { [key: string]: string } {

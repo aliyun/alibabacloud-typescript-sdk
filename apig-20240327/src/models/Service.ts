@@ -9,7 +9,7 @@ import { LabelDetail } from "./LabelDetail";
 export class ServiceOutlierDetection extends $dara.Model {
   /**
    * @remarks
-   * The base ejection duration in seconds. Valid values: 1 to 3600.
+   * The base ejection time in seconds. Valid values: 1 to 3600.
    * 
    * @example
    * 30
@@ -17,7 +17,7 @@ export class ServiceOutlierDetection extends $dara.Model {
   baseEjectionTime?: number;
   /**
    * @remarks
-   * Specifies whether to enable outlier detection.
+   * Specifies whether to enable the feature.
    * 
    * @example
    * false
@@ -25,7 +25,7 @@ export class ServiceOutlierDetection extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The minimum number of hosts. The value must be greater than or equal to 0.
+   * The minimum number of hosts. Valid values: 0 or greater.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ServiceOutlierDetection extends $dara.Model {
   failurePercentageMinimumHosts?: number;
   /**
    * @remarks
-   * The failure rate threshold in percentage. Valid values: 1 to 100.
+   * The failure percentage threshold. Valid values: 1 to 100.
    * 
    * @example
    * 80
@@ -95,7 +95,7 @@ export class ServicePorts extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The protocol. Valid values: TCP and UDP.
+   * The protocol.
    * 
    * @example
    * TCP
@@ -114,6 +114,40 @@ export class ServicePorts extends $dara.Model {
       name: 'string',
       port: 'number',
       protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ServiceServiceMetaData extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the current service is referenced by an explicit DFP ExtProc binding of the gateway.
+   */
+  dfpReferenced?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the current service is referenced by an ExtProc configuration of the same user and gateway.
+   */
+  extProc?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      dfpReferenced: 'dfpReferenced',
+      extProc: 'extProc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dfpReferenced: 'boolean',
+      extProc: 'boolean',
     };
   }
 
@@ -209,7 +243,7 @@ export class ServiceVersions extends $dara.Model {
 export class Service extends $dara.Model {
   /**
    * @remarks
-   * The address information, which is a list of IP addresses or domain names.
+   * The address information, such as IP addresses or domain names.
    */
   addresses?: string[];
   /**
@@ -224,7 +258,7 @@ export class Service extends $dara.Model {
   aiServiceConfig?: AiServiceConfig;
   /**
    * @remarks
-   * The time when the service was created.
+   * The creation time.
    * 
    * @example
    * 1725617840096
@@ -237,7 +271,7 @@ export class Service extends $dara.Model {
   dnsServers?: string[];
   /**
    * @remarks
-   * The execution mode of CloudFlow.
+   * The execution method of CloudFlow.
    * 
    * @example
    * StartExecution
@@ -245,7 +279,7 @@ export class Service extends $dara.Model {
   expressType?: string;
   /**
    * @remarks
-   * The instance ID of the gateway.
+   * The gateway instance ID.
    * 
    * @example
    * gw-xxxx
@@ -266,7 +300,7 @@ export class Service extends $dara.Model {
   healthCheck?: ServiceHealthCheck;
   /**
    * @remarks
-   * The health check status. Valid values: Healthy and Unhealthy.
+   * The monitoring check status.
    * 
    * @example
    * Healthy
@@ -311,12 +345,12 @@ export class Service extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The outlier detection configuration for removing abnormal instances.
+   * The outlier detection configuration.
    */
   outlierDetection?: ServiceOutlierDetection;
   /**
    * @remarks
-   * The circuit-broken endpoints.
+   * The ejected endpoints.
    */
   outlierEndpoints?: string[];
   /**
@@ -350,7 +384,7 @@ export class Service extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The masked error code of the runtime details.
+   * The masked error code in the runtime details.
    * 
    * @example
    * RuntimeEndpointTimeout
@@ -374,6 +408,11 @@ export class Service extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
+   * The ExtProc reference status in the service list. This field is not returned if the relationship read fails.
+   */
+  serviceMetaData?: ServiceServiceMetaData;
+  /**
+   * @remarks
    * The source type of the service.
    * 
    * @example
@@ -387,7 +426,7 @@ export class Service extends $dara.Model {
   unhealthyEndpoints?: string[];
   /**
    * @remarks
-   * The time when the service was updated.
+   * The update time.
    * 
    * @example
    * 1725868548440
@@ -424,6 +463,7 @@ export class Service extends $dara.Model {
       runtimeDetailErrorCode: 'runtimeDetailErrorCode',
       runtimeDetailStatus: 'runtimeDetailStatus',
       serviceId: 'serviceId',
+      serviceMetaData: 'serviceMetaData',
       sourceType: 'sourceType',
       unhealthyEndpoints: 'unhealthyEndpoints',
       updateTimestamp: 'updateTimestamp',
@@ -457,6 +497,7 @@ export class Service extends $dara.Model {
       runtimeDetailErrorCode: 'string',
       runtimeDetailStatus: 'string',
       serviceId: 'string',
+      serviceMetaData: ServiceServiceMetaData,
       sourceType: 'string',
       unhealthyEndpoints: { 'type': 'array', 'itemType': 'string' },
       updateTimestamp: 'number',
@@ -491,6 +532,9 @@ export class Service extends $dara.Model {
     }
     if(Array.isArray(this.ports)) {
       $dara.Model.validateArray(this.ports);
+    }
+    if(this.serviceMetaData && typeof (this.serviceMetaData as any).validate === 'function') {
+      (this.serviceMetaData as any).validate();
     }
     if(Array.isArray(this.unhealthyEndpoints)) {
       $dara.Model.validateArray(this.unhealthyEndpoints);

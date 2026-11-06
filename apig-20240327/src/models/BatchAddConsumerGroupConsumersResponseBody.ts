@@ -10,12 +10,12 @@ export class BatchAddConsumerGroupConsumersResponseBodyData extends $dara.Model 
   failedConsumerIds?: string[];
   /**
    * @remarks
-   * The list of consumer IDs that already exist in the consumer group and were skipped.
+   * The list of consumer IDs that are already in the consumer group and are skipped in this operation.
    */
   skippedConsumerIds?: string[];
   /**
    * @remarks
-   * The list of consumer IDs that were successfully added to the consumer group.
+   * The list of consumer IDs successfully added to the consumer group.
    */
   successConsumerIds?: string[];
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class BatchAddConsumerGroupConsumersResponseBodyData extends $dara.Model 
 export class BatchAddConsumerGroupConsumersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned if the request is successful.
+   * The response status code. The value is Ok if the request succeeds.
    * 
    * @example
    * Ok

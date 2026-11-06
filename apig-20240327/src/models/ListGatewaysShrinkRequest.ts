@@ -21,7 +21,7 @@ export class ListGatewaysShrinkRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The keyword for case-insensitive full match search.
+   * The keyword for full match search. The search is case-insensitive.
    * 
    * @example
    * dev

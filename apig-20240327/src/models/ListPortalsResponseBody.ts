@@ -31,12 +31,12 @@ export class ListPortalsResponseBodyDataContent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of portal domain configurations. The list elements are named domainConfig.
+   * The portal domain configuration list. The list element is named domainConfig.
    */
   portalDomainConfig?: HiMarketPortalDomainConfig[];
   /**
    * @remarks
-   * The portal ID. This is the primary ID of the portal resource and can be used to locate the portal in the GetPortal, UpdatePortal, and DeletePortal operations through the /himarket/v1/portals/{portalId} path.
+   * The portal ID, which is the primary ID of the portal resource. It can be used in GetPortal, UpdatePortal, and DeletePortal to locate the portal at /himarket/v1/portals/{portalId}.
    * 
    * @example
    * portal-xxxxxxxx
@@ -44,7 +44,7 @@ export class ListPortalsResponseBodyDataContent extends $dara.Model {
   portalId?: string;
   /**
    * @remarks
-   * The portal configuration, which specifies whether username and password authentication is enabled, whether developer registrations are automatically approved, and whether subscription requests are automatically approved.
+   * The portal settings, including whether to enable username and password authentication, whether to automatically approve developer registrations, and whether to automatically approve subscription requests.
    */
   portalSettingConfig?: HiMarketPortalSettingConfig;
   /**
@@ -97,7 +97,7 @@ export class ListPortalsResponseBodyDataContent extends $dara.Model {
 export class ListPortalsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The portal list. Each element in the list is named portalConfig and contains information about a HiMarket developer portal.
+   * The portal list. The list element is named portalConfig, and each element contains the information of a HiMarket developer portal.
    */
   content?: ListPortalsResponseBodyDataContent[];
   /**
@@ -186,7 +186,7 @@ export class ListPortalsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The cursor token for querying the next page.
    * 
    * @example
    * next-token-xxxxxxxx

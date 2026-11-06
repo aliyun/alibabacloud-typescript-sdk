@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHttpApiOperationsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the list of API operations by a specific consumer authorization rule ID. The response only includes authorized API operations.
+   * Filters API operations by a specific consumer authorization rule ID. The response includes only authorized API operations.
    * 
    * @example
    * cas-xxx
@@ -29,7 +29,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   forDeploy?: boolean;
   /**
    * @remarks
-   * The ID of the gateway used for filtering.
+   * The ID of the gateway used to filter API operations.
    * 
    * @example
    * gw-001
@@ -45,7 +45,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * Filters API operations by exact API name.
+   * Searches for API operations by exact name.
    * 
    * @example
    * getUserInfo
@@ -53,7 +53,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Filters API operations by API name prefix.
+   * Searches for API operations by name prefix.
    * 
    * @example
    * GetUser
@@ -77,7 +77,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters API operations by path prefix.
+   * Searches for API operations by path prefix.
    * 
    * @example
    * /v1
@@ -85,7 +85,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   pathLike?: string;
   /**
    * @remarks
-   * Specifies whether to include the list of authorization rules for a specific consumer in a specified environment in the response for each API operation. You must also specify the withConsumerInfoById parameter.
+   * The ID of the environment. The response includes the list of authorization rules for the specified consumer in this environment for each API operation. You must also specify the withConsumerInfoById parameter.
    * 
    * @example
    * env-xxx
@@ -93,7 +93,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   withConsumerInEnvironmentId?: string;
   /**
    * @remarks
-   * Specifies whether to include the list of authorization rules for a specific consumer in a specified environment in the response for each API operation. You must also specify the withConsumerInEnvironmentId parameter.
+   * The ID of the consumer. The response includes the list of authorization rules for this consumer in the specified environment for each API operation. You must also specify the withConsumerInEnvironmentId parameter.
    * 
    * @example
    * cs-xxx
@@ -101,7 +101,7 @@ export class ListHttpApiOperationsRequest extends $dara.Model {
   withConsumerInfoById?: string;
   /**
    * @remarks
-   * The ID of the plugin used to retrieve plugin release information.
+   * The ID of the plugin. Retrieves the plugin release information based on this plugin ID.
    * 
    * @example
    * pl-xxx

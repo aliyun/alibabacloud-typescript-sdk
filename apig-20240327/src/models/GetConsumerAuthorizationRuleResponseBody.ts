@@ -13,7 +13,7 @@ export class GetConsumerAuthorizationRuleResponseBody extends $dara.Model {
   apiInfo?: HttpApiApiInfo;
   /**
    * @remarks
-   * Filters the list of APIs by a specific consumer authorization rule ID. The list of APIs in the response contains only authorized APIs.
+   * Filters the API list by a specified consumer authorization rule ID. The API list in the response contains only authorized APIs.
    * 
    * @example
    * car-ctgdn8em1hko5krqq03g
@@ -37,7 +37,7 @@ export class GetConsumerAuthorizationRuleResponseBody extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The deployment status of the API in the current environment.
+   * The publishing status of the API in the current environment.
    * 
    * @example
    * ""
@@ -50,7 +50,7 @@ export class GetConsumerAuthorizationRuleResponseBody extends $dara.Model {
   environmentInfo?: EnvironmentInfo;
   /**
    * @remarks
-   * The expiration mode. Valid values: LongTerm, ShortTerm.
+   * The expiration mode. Valid values: LongTerm and ShortTerm. Specify one of the two.
    * 
    * @example
    * LongTerm

@@ -22,8 +22,9 @@ export class ListPrivateLinkSecurityGroupsResponseBodyDataItems extends $dara.Mo
   /**
    * @remarks
    * Specifies whether the resource is created by a service account. Valid values:
-   * - 0: The resource is not created by a service account.
-   * - 1: The resource is created by a service account.
+   * 
+   * - 0: Not created by a service account.
+   * - 1: Created by a service account.
    */
   serviceManaged?: boolean;
   /**
@@ -69,7 +70,7 @@ export class ListPrivateLinkSecurityGroupsResponseBodyData extends $dara.Model {
   items?: ListPrivateLinkSecurityGroupsResponseBodyDataItems[];
   /**
    * @remarks
-   * The maximum number of results returned for this query.
+   * The maximum number of entries returned in this query.
    * 
    * @example
    * 100
@@ -77,7 +78,7 @@ export class ListPrivateLinkSecurityGroupsResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page.
+   * The next token.
    * 
    * @example
    * None

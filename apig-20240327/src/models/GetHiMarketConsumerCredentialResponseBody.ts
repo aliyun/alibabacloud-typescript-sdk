@@ -7,12 +7,12 @@ import { HiMarketHmacConfig } from "./HiMarketHmacConfig";
 export class GetHiMarketConsumerCredentialResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The API key consumer credential configuration, which corresponds to the common data structure HiMarketApiKeyConfig. The members include key, source, and the credential list credentials, where each list item contains an apiKey.
+   * The API key credential configuration of the consumer, which corresponds to the common data structure HiMarketApiKeyConfig. The members include key, source, and the credentials list, where each list item contains an apiKey.
    */
   apiKeyConfig?: HiMarketApiKeyConfig;
   /**
    * @remarks
-   * The HMAC consumer credential configuration, which corresponds to the common data structure HiMarketHmacConfig. The members include the credential list credentials, where each list item contains ak and sk.
+   * The HMAC credential configuration of the consumer, which corresponds to the common data structure HiMarketHmacConfig. The members include the credentials list, where each list item contains ak and sk.
    */
   hmacConfig?: HiMarketHmacConfig;
   static names(): { [key: string]: string } {

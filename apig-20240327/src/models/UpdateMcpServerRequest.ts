@@ -14,7 +14,7 @@ export class UpdateMcpServerRequestAssembledSources extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * The MCP server name.
+   * The name of the MCP server.
    * 
    * @example
    * test-mcp
@@ -64,7 +64,7 @@ export class UpdateMcpServerRequestBackendConfigServices extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The Terms of Service. Valid values:
+   * The service protocol. Valid values:
    * - TCP.
    * - HTTP.
    * - DUBBO.
@@ -91,7 +91,7 @@ export class UpdateMcpServerRequestBackendConfigServices extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The percentage value of the traffic ratio.
+   * The percentage value of the traffic proportion.
    * 
    * @example
    * 49
@@ -177,7 +177,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices ext
   port?: number;
   /**
    * @remarks
-   * The Terms of Service.
+   * The service protocol.
    * 
    * @example
    * HTTP
@@ -279,12 +279,12 @@ export class UpdateMcpServerRequestGrayMcpServerConfigsBackendConfig extends $da
 export class UpdateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
   /**
    * @remarks
-   * The backend configuration.
+   * The backend configurations.
    */
   backendConfig?: UpdateMcpServerRequestGrayMcpServerConfigsBackendConfig;
   /**
    * @remarks
-   * The route match rule.
+   * The route match rules.
    */
   match?: HttpRouteMatch;
   /**
@@ -329,7 +329,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
 export class UpdateMcpServerRequestMcpServerConfig extends $dara.Model {
   /**
    * @remarks
-   * The MCP server configuration. This parameter is mutually exclusive with swaggerConfig.
+   * The MCP server configurations. This parameter is mutually exclusive with the swaggerConfig parameter.
    * 
    * @example
    * mcp-server-spec-yaml
@@ -337,7 +337,7 @@ export class UpdateMcpServerRequestMcpServerConfig extends $dara.Model {
   mcpServerSpec?: string;
   /**
    * @remarks
-   * The Swagger document for HTTP-to-MCP conversion. The document must comply with the OpenAPI 3.0 specification.
+   * The Swagger document for HTTP-to-MCP. The document must comply with the OpenAPI 3.0 specification.
    * 
    * @example
    * swagger-content
@@ -369,22 +369,22 @@ export class UpdateMcpServerRequestMcpServerConfig extends $dara.Model {
 export class UpdateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of assembled sources. This parameter is required when type is set to AssemblyMCP.
+   * The list of assembly sources. This parameter is required when type is set to AssemblyMCP.
    */
   assembledSources?: UpdateMcpServerRequestAssembledSources[];
   /**
    * @remarks
-   * The backend service configuration of the route. This parameter is conditionally required. If this parameter is not specified, the API returns InvalidParameter.WithValue(400).
+   * The backend service configurations of the route. This parameter is conditionally required. If it is not provided, the API returns InvalidParameter.WithValue(400).
    */
   backendConfig?: UpdateMcpServerRequestBackendConfig;
   /**
    * @remarks
    * The creation source type. Valid values:
-   * - ApiGatewayHttpToMCP: Gateway-managed HTTP-to-MCP conversion.
-   * - ApiGatewayProxyMcpHosting: Gateway-managed MCP direct proxy.
-   * - ApiGatewayAssembly: Gateway MCP assembly.
-   * - NacosHttpToMCP: Gateway-managed Nacos-synced HTTP-to-MCP conversion.
-   * - NacosMcpHosting: Gateway-managed Nacos-synced MCP direct proxy.
+   * - ApiGatewayHttpToMCP: API gateway-hosted HTTP-to-MCP.
+   * - ApiGatewayProxyMcpHosting: API gateway-hosted MCP direct proxy.
+   * - ApiGatewayAssembly: API gateway MCP assembly.
+   * - NacosHttpToMCP: API gateway-hosted Nacos-synchronized HTTP-to-MCP.
+   * - NacosMcpHosting: API gateway-hosted Nacos-synchronized MCP direct proxy.
    * 
    * @example
    * ApiGatewayMcpHosting
@@ -395,12 +395,12 @@ export class UpdateMcpServerRequest extends $dara.Model {
    * The description.
    * 
    * @example
-   * 商品中心服务路由
+   * Product center service route
    */
   description?: string;
   /**
    * @remarks
-   * The domain name ID.
+   * The domain name IDs.
    */
   domainIds?: string[];
   /**
@@ -413,17 +413,17 @@ export class UpdateMcpServerRequest extends $dara.Model {
   exposedUriPath?: string;
   /**
    * @remarks
-   * The list of canary release MCP server route configurations.
+   * The list of canary MCP server route configurations.
    */
   grayMcpServerConfigs?: UpdateMcpServerRequestGrayMcpServerConfigs[];
   /**
    * @remarks
-   * The route match rule. This parameter is conditionally required. If this parameter is not specified, the API returns InvalidParameter.IsEmpty(400).
+   * The route match rules. This parameter is conditionally required. If it is not provided, the API returns InvalidParameter.IsEmpty(400).
    */
   match?: HttpRouteMatch;
   /**
    * @remarks
-   * The HTTP-to-MCP configuration.
+   * The HTTP-to-MCP configurations.
    */
   mcpServerConfig?: UpdateMcpServerRequestMcpServerConfig;
   /**
@@ -437,10 +437,10 @@ export class UpdateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
    * The protocol type. Valid values:
-   * - HTTP: HTTP protocol.
-   * - HTTPS: HTTPS protocol.
-   * - SSE: Server-Sent Events protocol.
-   * - StreamableHTTP: Streamable HTTP protocol.
+   * - HTTP: HTTP.
+   * - HTTPS: HTTPS.
+   * - SSE: Server-Sent Events.
+   * - StreamableHTTP: Streaming HTTP.
    * 
    * This parameter is required.
    * 
@@ -450,7 +450,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The MCP server type filter. Valid values: RealMCP, AssemblyMCP.
+   * The MCP server type filter. Valid values: RealMCP and AssemblyMCP.
    * 
    * This parameter is required.
    * 

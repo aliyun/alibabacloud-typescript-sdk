@@ -14,7 +14,7 @@ export class UpdateProductCategoryRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The icon of the product category, which consists of the icon type (type) and icon information (value) fields.
+   * The icon of the product category. It consists of two fields: icon type (type) and icon information (value).
    */
   icon?: HiMarketIcon;
   /**

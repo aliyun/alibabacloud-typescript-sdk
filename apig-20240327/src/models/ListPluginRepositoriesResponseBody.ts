@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginRepositoriesResponseBodyDataRepositories extends $dara.Model {
   /**
    * @remarks
-   * The Codeup repository ID (numeric string).
+   * The Codeup repository ID, which is a numeric string.
    * 
    * @example
    * 12345678

@@ -16,7 +16,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   groupName?: string;
   /**
    * @remarks
-   * The HTTP-to-Dubbo protocol conversion configuration. This is only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
+   * The HTTP-to-Dubbo protocol conversion configuration. This configuration is only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
    * 
    * @example
    * {"dubboServiceName":"com.alibaba.nacos.example.dubbo.service.DemoService","dubboServiceVersion":"1.0.0","dubboServiceGroup":"DEV","methodMapList":[{"dubboMethodName":"sayName","httpMethod":"ALL_GET","methodPath":"/dubbo/sayName","passThroughAllHeaders":"PASS_ALL"}]}
@@ -24,7 +24,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   httpDubboTranscoder?: HttpDubboTranscoder;
   /**
    * @remarks
-   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewriting semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If this field is not configured for the AiAutoRouter scenario, the default model of the AI service is used.
+   * The name of the target model. This field is shared by multiple existing model backend scenarios. The specific routing or model rewriting semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If it is not configured for the AiAutoRouter scenario, the default model of the AI service is used.
    * 
    * @example
    * qwen-plus
@@ -49,8 +49,8 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   /**
    * @remarks
    * The service protocol. Valid values:
-   * - HTTP
-   * - HTTPS
+   * - HTTP.
+   * - HTTPS.
    * 
    * @example
    * HTTP
@@ -66,7 +66,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   serviceId?: string;
   /**
    * @remarks
-   * The service source type. MSE_NACOS is used in HTTP-to-Dubbo conversion scenarios.
+   * The service source type. Use MSE_NACOS for HTTP-to-Dubbo conversion scenarios.
    * 
    * @example
    * MSE_NACOS
@@ -170,6 +170,36 @@ export class UpdateHttpApiRouteRequestBackendConfig extends $dara.Model {
   }
 }
 
+export class UpdateHttpApiRouteRequestDfpConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the ExtProc service mounted to the current route. When updating a fixed DFP route, this ID must match the existing service. Service switching is not supported.
+   * 
+   * @example
+   * svc-cr8k0udlhtgt80sh7png
+   */
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceId: 'serviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateHttpApiRouteRequestMcpRouteConfig extends $dara.Model {
   /**
    * @remarks
@@ -236,6 +266,11 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The current ExtProc service selection for fixed DFP routes. You can only edit mounted routes. This parameter cannot be submitted together with backendConfig, mcpRouteConfig, or policyConfigs.
+   */
+  dfpConfig?: UpdateHttpApiRouteRequestDfpConfig;
+  /**
+   * @remarks
    * The list of domain name IDs.
    */
   domainIds?: string[];
@@ -266,6 +301,7 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
     return {
       backendConfig: 'backendConfig',
       description: 'description',
+      dfpConfig: 'dfpConfig',
       domainIds: 'domainIds',
       environmentId: 'environmentId',
       match: 'match',
@@ -278,6 +314,7 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
     return {
       backendConfig: UpdateHttpApiRouteRequestBackendConfig,
       description: 'string',
+      dfpConfig: UpdateHttpApiRouteRequestDfpConfig,
       domainIds: { 'type': 'array', 'itemType': 'string' },
       environmentId: 'string',
       match: HttpRouteMatch,
@@ -289,6 +326,9 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
   validate() {
     if(this.backendConfig && typeof (this.backendConfig as any).validate === 'function') {
       (this.backendConfig as any).validate();
+    }
+    if(this.dfpConfig && typeof (this.dfpConfig as any).validate === 'function') {
+      (this.dfpConfig as any).validate();
     }
     if(Array.isArray(this.domainIds)) {
       $dara.Model.validateArray(this.domainIds);

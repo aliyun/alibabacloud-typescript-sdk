@@ -13,7 +13,7 @@ export class ListServicesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The service name for exact match.
+   * The exact name of the service to query.
    * 
    * @example
    * user-service

@@ -10,7 +10,7 @@ import { HiMarketModelConfig } from "./HiMarketModelConfig";
 export class GetProductResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Agent-related configurations of the API product. The agentAPIConfig member includes agentProtocols, which is a list of protocols supported by the agent, and routes, which is a list of routes.
+   * The agent-related configurations of the API product. The agentAPIConfig member includes agentProtocols (the list of protocols supported by the agent) and routes (the list of routes).
    */
   agentConfig?: HiMarketAgentConfig;
   /**
@@ -23,7 +23,7 @@ export class GetProductResponseBodyData extends $dara.Model {
    * The description of the API product.
    * 
    * @example
-   * An API product that provides weather query capabilities
+   * API product that provides weather query capabilities
    */
   description?: string;
   /**
@@ -31,27 +31,27 @@ export class GetProductResponseBodyData extends $dara.Model {
    * The documentation content of the API product.
    * 
    * @example
-   * The invocation methods, parameters, and billing instructions for this product
+   * Invocation methods, parameters, and billing instructions for this product
    */
   document?: string;
   /**
    * @remarks
-   * The capability configurations of the API product. Currently, this includes only the modelFeature member for model capabilities, which contains model, maxTokens, temperature, streaming, webSearch, enableThinking, and enableMultiModal.
+   * The capability configurations of the API product. Currently, this includes only the modelFeature (model capabilities) member, which contains model, maxTokens, temperature, streaming, webSearch, enableThinking, and enableMultiModal.
    */
   feature?: HiMarketProductFeature;
   /**
    * @remarks
-   * The icon configurations of the API product, which consist of two fields: the icon type (type) and the icon information (value).
+   * The icon configuration of the API product, which consists of two fields: icon type (type) and icon information (value).
    */
   icon?: HiMarketIcon;
   /**
    * @remarks
-   * The MCP-related configurations of the API product. The members include mcpServerName for the MCP server name, tools, mcpServerConfig for the path and domains, and meta for the protocol.
+   * The MCP-related configurations of the API product. The members include mcpServerName (the name of the MCP server), tools, mcpServerConfig (path and domains), and meta (protocol).
    */
   mcpConfig?: HiMarketMcpConfig;
   /**
    * @remarks
-   * The model API-related configurations of the API product. The modelAPIConfig member includes modelCategory for the AI model category, aiProtocols for the list of AI API protocols, and routes for the list of routes.
+   * The model API-related configurations of the API product. The modelAPIConfig member includes modelCategory (the AI model category), aiProtocols (the list of AI API protocols), and routes (the list of routes).
    */
   modelConfig?: HiMarketModelConfig;
   /**
@@ -88,7 +88,7 @@ export class GetProductResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the API product. The set of valid values is not declared in the API definition. Refer to the types displayed in the console.
+   * The type of the API product. The valid values are not declared in the API definition. Refer to the types displayed in the console.
    * 
    * @example
    * API

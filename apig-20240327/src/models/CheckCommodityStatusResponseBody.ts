@@ -45,7 +45,7 @@ export class CheckCommodityStatusResponseBodyCommodities extends $dara.Model {
 export class CheckCommodityStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of commodity statuses. Each item contains the commodity code and indicates whether the commodity capability is enabled for the current account.
+   * The list of commodity statuses. Each item includes the commodity code and indicates whether the commodity capability is enabled for the current account.
    */
   commodities?: CheckCommodityStatusResponseBodyCommodities[];
   /**

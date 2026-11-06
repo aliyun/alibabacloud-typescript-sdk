@@ -55,7 +55,7 @@ export class ListApiPathFieldTemplatesResponseBodyDataItems extends $dara.Model 
 export class ListApiPathFieldTemplatesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of field templates. Each element in the items list is a field template record that contains the templateId, path, and protocol.
+   * The list of field templates. The list element is named items, and each element is a field template record that contains the templateId, path, and protocol.
    */
   items?: ListApiPathFieldTemplatesResponseBodyDataItems[];
   /**
@@ -76,7 +76,7 @@ export class ListApiPathFieldTemplatesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of items.
    * 
    * @example
    * 10

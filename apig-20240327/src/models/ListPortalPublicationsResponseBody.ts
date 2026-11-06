@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPortalPublicationsResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The time is formatted in ISO 8601 (RFC 3339) and in the UTC time zone, such as 2026-05-15T10:00:00Z.
+   * The creation time. The time is in ISO 8601 (RFC 3339) format in the UTC time zone, such as 2026-05-15T10:00:00Z.
    * 
    * @example
    * 2026-05-15T10:00:00Z
@@ -16,12 +16,12 @@ export class ListPortalPublicationsResponseBodyDataContent extends $dara.Model {
    * The description of the API product.
    * 
    * @example
-   * An API product for model services that is open to internal developers
+   * A model service API product available to internal developers
    */
   description?: string;
   /**
    * @remarks
-   * The API product ID. It is the primary ID of the API product resource Product and identifies the API product corresponding to this publication record.
+   * The API product ID. This is the primary ID of the API product resource and identifies the API product corresponding to this publication record.
    * 
    * @example
    * product-xxxxxxxx
@@ -29,7 +29,7 @@ export class ListPortalPublicationsResponseBodyDataContent extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The API product name. It is the Name property of the API product resource Product.
+   * The API product name. This is the Name property of the API product resource.
    * 
    * @example
    * model-service
@@ -37,7 +37,7 @@ export class ListPortalPublicationsResponseBodyDataContent extends $dara.Model {
   productName?: string;
   /**
    * @remarks
-   * The API product type. The valid values are not declared in the API definition. Refer to the types displayed in the console.
+   * The API product type. The valid values are not defined in the API specification. Refer to the types displayed in the console.
    * 
    * @example
    * HTTP_API
@@ -45,7 +45,7 @@ export class ListPortalPublicationsResponseBodyDataContent extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The publication record ID of the API product. It is returned when PublishProduct publishes the API product to the portal. You can use this ID in the /himarket/v1/products/{productId}/publications/{publicationId} path to locate the publication record for UnpublishProduct.
+   * The publication record ID of the API product. This ID is returned when an API product is published to a portal by using the PublishProduct operation. You can use this ID in the /himarket/v1/products/{productId}/publications/{publicationId} path to locate the publication record for the UnpublishProduct operation.
    * 
    * @example
    * publication-xxxxxxxx
@@ -85,7 +85,7 @@ export class ListPortalPublicationsResponseBodyDataContent extends $dara.Model {
 export class ListPortalPublicationsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of published API products on the portal. The list element is named portalConfig, and each element represents an API product publication record.
+   * The list of published API products on the portal. The list elements are named portalConfig, and each element represents an API product publication record.
    */
   content?: ListPortalPublicationsResponseBodyDataContent[];
   /**
@@ -106,7 +106,7 @@ export class ListPortalPublicationsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of items.
    * 
    * @example
    * 10

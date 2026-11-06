@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayMaintenancePeriodRequestMaintenancePeriod extends $dara.Model {
   /**
    * @remarks
-   * The O&M end time (HH:mm).
+   * The end time of the O&M window (HH:mm).
    * 
    * @example
    * 02:00
@@ -13,7 +13,7 @@ export class UpdateGatewayMaintenancePeriodRequestMaintenancePeriod extends $dar
   endTime?: string;
   /**
    * @remarks
-   * The O&M start time (HH:mm).
+   * The start time of the O&M window (HH:mm).
    * 
    * @example
    * 02:00

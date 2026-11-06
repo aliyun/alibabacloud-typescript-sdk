@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductsRequest extends $dara.Model {
   /**
    * @remarks
-   * The product category IDs, which correspond to the Categories property of the API product resource Product. The members are category IDs.
+   * The product category IDs, which correspond to the Categories property of the API product resource. The members are category IDs.
    * 
    * @example
    * category-xxxxxxxx
@@ -13,7 +13,7 @@ export class ListProductsRequest extends $dara.Model {
   categoryIds?: string;
   /**
    * @remarks
-   * The maximum number of entries to return for each request.
+   * The maximum number of entries to return per request.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListProductsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The name of the API product, which is the Name property of the API product resource Product. This is the same field as name in the response list items.
+   * The name of the API product, which corresponds to the Name property of the API product resource. This is the same field as name in the response list items.
    * 
    * @example
    * weather-query-api
@@ -29,7 +29,7 @@ export class ListProductsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token for querying the next page.
+   * The pagination token for the next page.
    * 
    * @example
    * next-token-xxxxxxxx
@@ -53,7 +53,7 @@ export class ListProductsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the HiMarket developer portal where the API product is published, which corresponds to the PortalId property of the API product resource Product. This property is used only for list queries in the product resource definition.
+   * The ID of the HiMarket developer portal where the API product is published, which corresponds to the PortalId property of the API product resource. This property is used only for list queries in the product resource definition.
    * 
    * @example
    * portal-xxxxxxxx
@@ -61,7 +61,7 @@ export class ListProductsRequest extends $dara.Model {
   portalId?: string;
   /**
    * @remarks
-   * The status of the API product, which corresponds to the Status property of the API product resource Product. This is the same field as status in the response list items. Valid values: Pending, Ready, and Published.
+   * The status of the API product, which corresponds to the Status property of the API product resource. This is the same field as status in the response list items. Valid values: Pending, Ready, and Published.
    * 
    * @example
    * Published
@@ -69,7 +69,7 @@ export class ListProductsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the API product, which corresponds to the Type property of the API product resource Product. This is the same field as type in the response list items. The valid values are not declared in the API definition. Refer to the types displayed in the console.
+   * The type of the API product, which corresponds to the Type property of the API product resource. This is the same field as type in the response list items. The valid values are not declared in the API definition. Refer to the types displayed in the console.
    * 
    * @example
    * API

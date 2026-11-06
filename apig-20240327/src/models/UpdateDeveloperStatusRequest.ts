@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDeveloperStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the portal to which the developer belongs. This is the primary ID of the portal resource. You can obtain this ID from the portalId field in the CreatePortal response or the portalId field of an item in the ListPortals response.
+   * The ID of the portal to which the developer belongs. This is the primary ID of the portal resource. You can obtain this ID from the portalId field in the response of CreatePortal or the portalId field of an item in the ListPortals response.
    * 
    * @example
    * portal-xxxxxxxx

@@ -65,7 +65,7 @@ export class CreateGatewayRequestLogConfig extends $dara.Model {
 export class CreateGatewayRequestNetworkAccessConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the endpoint security group. This parameter is required when a multi-tenant API gateway or multi-tenant AI gateway Enterprise Edition uses private network or dual-entry access, and must be a non-managed security group in your VPC. Do not specify this parameter for public network requests.
+   * The ID of the endpoint security group. This parameter is required when a multi-tenant API gateway or multi-tenant AI gateway Enterprise Edition selects private network or dual-entry access. It must be an unmanaged security group in the user VPC. Do not pass this parameter for public network requests.
    * 
    * @example
    * sg-bp1example123456789
@@ -235,7 +235,7 @@ export class CreateGatewayRequestZoneConfig extends $dara.Model {
 export class CreateGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method. This parameter is required for Serverless instances and must be set to POSTPAY.
+   * The billing method. This parameter is required for the Serverless edition and must be set to POSTPAY.
    * 
    * @example
    * POSTPAY
@@ -243,15 +243,15 @@ export class CreateGatewayRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The gateway instance edition. Valid values:
+   * The gateway instance edition:
    * 
-   * - Professional: Standard instance.
+   * - Standard instance: Professional
    * 
-   * - Serverless: Serverless instance.
+   * - Serverless: Serverless
    * 
-   * - MultiTenantServerless: Multi-tenant Serverless instance.
+   * - Multi-tenant Serverless: MultiTenantServerless
    * 
-   * - Unknown: Unknown.
+   * - Unknown: Unknown
    * 
    * @example
    * Professional
@@ -259,7 +259,7 @@ export class CreateGatewayRequest extends $dara.Model {
   gatewayEdition?: string;
   /**
    * @remarks
-   * The operation mode for AI multi-tenant V2. The default value is ENTERPRISE. This parameter is only allowed for AI and MultiTenantServerless gateways.
+   * The operation mode for AI multi-tenant V2. The default value is ENTERPRISE. This parameter is only allowed for AI and MultiTenantServerless.
    * 
    * @example
    * ENTERPRISE
@@ -280,7 +280,7 @@ export class CreateGatewayRequest extends $dara.Model {
   logConfig?: CreateGatewayRequestLogConfig;
   /**
    * @remarks
-   * The name of the gateway. This parameter is required for all gateway types.
+   * The name of the gateway. This parameter is required for all editions.
    * 
    * @example
    * test-ceshi
@@ -301,7 +301,7 @@ export class CreateGatewayRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The node specifications. This parameter is required for Serverless instances.
+   * The node specifications. This parameter is required for the Serverless edition.
    * 
    * @example
    * apigw.dev.x1
@@ -314,7 +314,7 @@ export class CreateGatewayRequest extends $dara.Model {
   tag?: CreateGatewayRequestTag[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC). This parameter is required for all gateway types.
+   * The ID of the VPC. This parameter is required for all editions.
    * 
    * @example
    * vpc-zm0x16tomfiat1mk9f6rs
@@ -322,7 +322,7 @@ export class CreateGatewayRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone configuration. This parameter is required for all gateway types.
+   * The zone configuration. This parameter is required for all editions.
    */
   zoneConfig?: CreateGatewayRequestZoneConfig;
   static names(): { [key: string]: string } {

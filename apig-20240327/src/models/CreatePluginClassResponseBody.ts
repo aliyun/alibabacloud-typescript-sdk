@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePluginClassResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The plugin class ID.
+   * The ID of the plug-in class.
    * 
    * @example
    * pls-csqmjxxxxxxx

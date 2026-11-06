@@ -4,10 +4,40 @@ import { Backend } from "./Backend";
 import { HttpRouteMatch } from "./HttpRouteMatch";
 
 
+export class HttpRouteDfpConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The ExtProc gRPC service ID.
+   * 
+   * @example
+   * svc-cr8k0udlhtgt80sh7png
+   */
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceId: 'serviceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HttpRouteDomainInfos extends $dara.Model {
   /**
    * @remarks
-   * The domain name ID.
+   * The domain ID.
    * 
    * @example
    * d-cr3v7dllhtgi9s***
@@ -107,7 +137,7 @@ export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
 export class HttpRouteEnvironmentInfoSubDomains extends $dara.Model {
   /**
    * @remarks
-   * The domain name ID.
+   * The domain ID.
    * 
    * @example
    * d-cqu19hdlhtgjuv4***
@@ -167,7 +197,7 @@ export class HttpRouteEnvironmentInfoSubDomains extends $dara.Model {
 export class HttpRouteEnvironmentInfo extends $dara.Model {
   /**
    * @remarks
-   * The environment name alias.
+   * The alias of the environment name.
    * 
    * @example
    * 商品中心预发环境
@@ -196,7 +226,7 @@ export class HttpRouteEnvironmentInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of default subdomains of the environment.
+   * The list of default subdomains for the environment.
    */
   subDomains?: HttpRouteEnvironmentInfoSubDomains[];
   static names(): { [key: string]: string } {
@@ -394,7 +424,12 @@ export class HttpRoute extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The domain name information list.
+   * The ExtProc service selected for the fixed dynamic forwarding route. This field is not returned when no matching binding exists.
+   */
+  dfpConfig?: HttpRouteDfpConfig;
+  /**
+   * @remarks
+   * The list of domain information.
    */
   domainInfos?: HttpRouteDomainInfos[];
   /**
@@ -448,6 +483,7 @@ export class HttpRoute extends $dara.Model {
       createTimestamp: 'createTimestamp',
       deployStatus: 'deployStatus',
       description: 'description',
+      dfpConfig: 'dfpConfig',
       domainInfos: 'domainInfos',
       environmentInfo: 'environmentInfo',
       gatewayStatus: 'gatewayStatus',
@@ -466,6 +502,7 @@ export class HttpRoute extends $dara.Model {
       createTimestamp: 'number',
       deployStatus: 'string',
       description: 'string',
+      dfpConfig: HttpRouteDfpConfig,
       domainInfos: { 'type': 'array', 'itemType': HttpRouteDomainInfos },
       environmentInfo: HttpRouteEnvironmentInfo,
       gatewayStatus: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
@@ -480,6 +517,9 @@ export class HttpRoute extends $dara.Model {
   validate() {
     if(this.backend && typeof (this.backend as any).validate === 'function') {
       (this.backend as any).validate();
+    }
+    if(this.dfpConfig && typeof (this.dfpConfig as any).validate === 'function') {
+      (this.dfpConfig as any).validate();
     }
     if(Array.isArray(this.domainInfos)) {
       $dara.Model.validateArray(this.domainInfos);

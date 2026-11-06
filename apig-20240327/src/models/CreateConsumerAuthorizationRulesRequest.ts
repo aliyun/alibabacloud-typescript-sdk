@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceIdentifier extends $dara.Model {
   /**
    * @remarks
-   * The environment ID.
+   * The ID of the environment.
    * 
    * @example
    * env-******
@@ -13,7 +13,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
   environmentId?: string;
   /**
    * @remarks
-   * The parent resource ID.
+   * The ID of the parent resource.
    * 
    * @example
    * api-******
@@ -21,7 +21,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
   parentResourceId?: string;
   /**
    * @remarks
-   * The ID of the target resource to authorize. The required ID type is determined by resourceType, and the prefix must match.
+   * The ID of the target resource for authorization. The required ID type is determined by resourceType, and the prefix must match.
    * 
    * @example
    * ha-cn-li942gy8p03
@@ -65,7 +65,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
 export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $dara.Model {
   /**
    * @remarks
-   * The consumer group ID.
+   * The ID of the consumer group.
    * 
    * @example
    * csg-8c13d2b4f8a1
@@ -73,7 +73,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   consumerGroupId?: string;
   /**
    * @remarks
-   * The consumer ID.
+   * The ID of the consumer.
    * 
    * @example
    * cs-******
@@ -81,7 +81,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   consumerId?: string;
   /**
    * @remarks
-   * The expiration mode. Currently, only LongTerm is supported.
+   * The expiration mode. Only LongTerm is supported.
    * 
    * @example
    * LongTerm
@@ -97,7 +97,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   expireTimestamp?: number;
   /**
    * @remarks
-   * The principal type.
+   * The type of the principal.
    * 
    * @example
    * ConsumerGroup
@@ -105,7 +105,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   principalType?: string;
   /**
    * @remarks
-   * The resource identifier, which serves as a unique identifier for space reuse by non-standard code sources.
+   * The resource identifier, which is provided to non-standard code sources as a unique identifier for space reuse.
    */
   resourceIdentifier?: CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceIdentifier;
   /**

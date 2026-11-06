@@ -15,8 +15,8 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancersPorts extends $dara.M
   /**
    * @remarks
    * The protocol. Valid values:
-   * - TCP.
-   * - UDP.
+   * - TCP: TCP.
+   * - UDP: UDP.
    * 
    * @example
    * TCP
@@ -116,7 +116,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   ports?: ListGatewaysResponseBodyDataItemsLoadBalancersPorts[];
   /**
    * @remarks
-   * The status of the load balancing. Valid values:
+   * The load balancing status. Valid values:
    * - Ready: Active.
    * - NotCreate: Not associated with an instance.
    * 
@@ -127,7 +127,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
   /**
    * @remarks
    * The load balancing type of the gateway. Valid values:
-   * - NLB: Network load balancing.
+   * - NLB: Network Load Balancer (NLB) load balancing.
    * - CLB: Classic load balancing.
    * 
    * @example
@@ -187,7 +187,7 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $dara.Model 
 export class ListGatewaysResponseBodyDataItemsNetworkAccessConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the security group configured for the internal endpoint. The security group belongs to the VPC selected by the user and is a non-managed security group.
+   * The ID of the security group configured for the private endpoint. The security group belongs to the VPC selected by the user and is a non-managed security group.
    * 
    * @example
    * sg-bp1example123456789
@@ -195,7 +195,7 @@ export class ListGatewaysResponseBodyDataItemsNetworkAccessConfig extends $dara.
   endpointSecurityGroupId?: string;
   /**
    * @remarks
-   * The access ingress type of the gateway.
+   * The gateway access ingress type.
    * 
    * @example
    * UnionSearchMCP
@@ -267,7 +267,7 @@ export class ListGatewaysResponseBodyDataItemsPrivateLinkZones extends $dara.Mod
 export class ListGatewaysResponseBodyDataItemsPrivateLink extends $dara.Model {
   /**
    * @remarks
-   * The connection status between the internal endpoint and the endpoint service.
+   * The connection status between the private endpoint and the endpoint service.
    * 
    * @example
    * Connected
@@ -291,7 +291,7 @@ export class ListGatewaysResponseBodyDataItemsPrivateLink extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The ID of the security group configured for the internal endpoint.
+   * The ID of the security group configured for the private endpoint.
    * 
    * @example
    * sg-bp1example123456789
@@ -299,7 +299,7 @@ export class ListGatewaysResponseBodyDataItemsPrivateLink extends $dara.Model {
   endpointSecurityGroupId?: string;
   /**
    * @remarks
-   * The status of the internal endpoint.
+   * The status of the private endpoint.
    * 
    * @example
    * Active
@@ -307,7 +307,7 @@ export class ListGatewaysResponseBodyDataItemsPrivateLink extends $dara.Model {
   endpointStatus?: string;
   /**
    * @remarks
-   * The error code of the most recent fault that occurred during the create or delete procedure of the private network ingress. This parameter is not returned if no error message is available.
+   * The error code of the most recent fault that occurred during the private network ingress creation or delete procedure. This parameter is not returned if no error message is available.
    * 
    * @example
    * Forbidden.RAM
@@ -315,7 +315,7 @@ export class ListGatewaysResponseBodyDataItemsPrivateLink extends $dara.Model {
   lastErrorCode?: string;
   /**
    * @remarks
-   * The description of the most recent fault that occurred during the create or delete procedure of the private network ingress. You can use this description along with the error code to troubleshoot the issue. This parameter is not returned if no error message is available.
+   * The description of the most recent fault that occurred during the private network ingress creation or delete procedure. You can use this description along with the error code to troubleshoot the issue. This parameter is not returned if no error message is available.
    * 
    * @example
    * private ingress CheckProductOpen failed (Forbidden.RAM)
@@ -323,7 +323,7 @@ export class ListGatewaysResponseBodyDataItemsPrivateLink extends $dara.Model {
   lastErrorMessage?: string;
   /**
    * @remarks
-   * The time when the system last obtained the status of the internal endpoint. The time is in RFC 3339 format, such as 2026-11-02T10:00:00Z. This parameter is not returned if the status has not been obtained.
+   * The time when the system last obtained the status of the private endpoint. The time is in RFC 3339 format, such as 2026-11-02T10:00:00Z. This parameter is not returned if the status has not been obtained.
    * 
    * @example
    * 2026-11-02T10:00:00Z
@@ -331,7 +331,7 @@ export class ListGatewaysResponseBodyDataItemsPrivateLink extends $dara.Model {
   observedAt?: string;
   /**
    * @remarks
-   * Indicates whether the internal endpoint may continue to incur charges. A value of true indicates that the endpoint has been created and its release has not been confirmed. A value of false indicates that there is no such charge prompt currently. The actual charges are subject to the bill.
+   * Indicates whether the private endpoint may continue to incur charges. A value of true indicates that the endpoint has been created and its release has not been confirmed. A value of false indicates that there is no charge prompt. Actual charges are subject to the bill.
    * 
    * @example
    * true
@@ -339,7 +339,7 @@ export class ListGatewaysResponseBodyDataItemsPrivateLink extends $dara.Model {
   resourceMayBeCharged?: boolean;
   /**
    * @remarks
-   * The current processing stage of the internal ingress. A value of Ready indicates that the internal ingress is ready.
+   * The current processing stage of the private ingress. A value of Ready indicates that the private ingress is ready.
    * 
    * @example
    * Ready
@@ -608,7 +608,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
    * The source from which the gateway was created. Valid values:
-   * - Console: Alibaba Cloud Management Console.
+   * - Console: The console.
    * 
    * @example
    * Console
@@ -616,7 +616,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   createFrom?: string;
   /**
    * @remarks
-   * The timestamp when the gateway was created. Unit: milliseconds.
+   * The creation timestamp. Unit: milliseconds.
    * 
    * @example
    * 1719386834548
@@ -624,7 +624,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * Indicates whether elastic scaling is enabled. A value of true indicates that elastic scaling is enabled. A value of false indicates that elastic scaling is disabled. A value of null or a missing value indicates that the status is unknown. This parameter is for query and display purposes only.
+   * Indicates whether elastic scaling is enabled. A value of true indicates that elastic scaling is enabled. A value of false indicates that elastic scaling is disabled. A value of null or an empty value indicates that the status is unknown. This parameter is for query and display purposes only.
    * 
    * @example
    * false
@@ -632,7 +632,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   elasticEnabled?: boolean;
   /**
    * @remarks
-   * The expiration timestamp of the subscription gateway. Unit: milliseconds.
+   * The expiration timestamp for subscription instances. Unit: milliseconds.
    * 
    * @example
    * 172086834548
@@ -698,7 +698,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network access configuration of the gateway, including the access ingress type and the security group used by the internal endpoint. This parameter is returned only when the gateway is configured with an internal ingress.
+   * The network access configuration of the gateway, including the access ingress type and the security group used by the private endpoint. This parameter is returned only when the gateway is configured with a private ingress.
    */
   networkAccessConfig?: ListGatewaysResponseBodyDataItemsNetworkAccessConfig;
   /**
@@ -730,7 +730,7 @@ export class ListGatewaysResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
    * The gateway specification. Valid values:
-   * - apigw.small.x1: Small.
+   * - apigw.small.x1: Small specification.
    * 
    * @example
    * apigw.small.x1

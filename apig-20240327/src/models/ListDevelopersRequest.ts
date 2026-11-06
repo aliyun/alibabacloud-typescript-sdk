@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDevelopersRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return per page. The default value and valid values are not specified in the API definition.
+   * The maximum number of entries per page. The default value and valid values are not specified in the API definition.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListDevelopersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Pass the nextToken returned in the previous response to retrieve the next page. Do not specify this parameter for the first request.
+   * The pagination token. Pass the nextToken value returned in the previous response to retrieve the next page. Do not specify this parameter for the first query.
    * 
    * @example
    * token-xxxxxxxx
@@ -37,7 +37,7 @@ export class ListDevelopersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the portal used to filter developers.
+   * The portal ID used to filter developers.
    * 
    * @example
    * portal-xxxxxxxx
@@ -53,7 +53,7 @@ export class ListDevelopersRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The logon username of the developer used to filter developers by username.
+   * The logon username used to filter developers.
    * 
    * @example
    * developer-demo

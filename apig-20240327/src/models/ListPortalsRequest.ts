@@ -13,7 +13,7 @@ export class ListPortalsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The name of the portal. This corresponds to the Name property of the portal resource and matches the name field in the response list items.
+   * The portal name, which is the Name property of the portal resource. This corresponds to the name field in the response list items.
    * 
    * @example
    * developer-portal
@@ -21,7 +21,7 @@ export class ListPortalsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The cursor token for querying the next page.
    * 
    * @example
    * next-token-xxxxxxxx

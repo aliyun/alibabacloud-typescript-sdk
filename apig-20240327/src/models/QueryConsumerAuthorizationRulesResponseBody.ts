@@ -57,7 +57,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   apiInfo?: HttpApiApiInfo;
   /**
    * @remarks
-   * The consumer authorization rule ID.
+   * The ID of the consumer authorization rule.
    * 
    * @example
    * car-csgeka5lhtggrjcprok0

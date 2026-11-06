@@ -55,7 +55,7 @@ export class ListPublishableProductsResponseBodyDataContent extends $dara.Model 
 export class ListPublishableProductsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of API products that can be published to the portal. The list element is named productInfo, and each element contains the information about an API product.
+   * The list of API products that can be published to the portal. Each element in the list is named productInfo and contains the information about an API product.
    */
   content?: ListPublishableProductsResponseBodyDataContent[];
   /**
@@ -76,7 +76,7 @@ export class ListPublishableProductsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 10

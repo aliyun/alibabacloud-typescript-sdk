@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHttpApiOperationResponseBodyDataOperations extends $dara.Model {
   /**
    * @remarks
-   * The operation ID.
+   * The API operation ID.
    * 
    * @example
    * op-xxx
@@ -35,7 +35,7 @@ export class CreateHttpApiOperationResponseBodyDataOperations extends $dara.Mode
 export class CreateHttpApiOperationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The operation information.
+   * The API operation information.
    */
   operations?: CreateHttpApiOperationResponseBodyDataOperations[];
   static names(): { [key: string]: string } {
@@ -73,7 +73,7 @@ export class CreateHttpApiOperationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The operation information.
+   * The API operation information.
    */
   data?: CreateHttpApiOperationResponseBodyData;
   /**

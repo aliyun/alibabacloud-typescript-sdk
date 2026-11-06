@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApiPathFieldTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The API request path used to query the corresponding field template.
+   * The URI of the request, used to query the field template corresponding to the URI.
    * 
    * @example
    * /v1/chat/completions

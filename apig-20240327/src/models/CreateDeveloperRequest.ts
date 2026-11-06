@@ -13,7 +13,7 @@ export class CreateDeveloperRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The logon username of the developer. The length must not exceed 64 characters.
+   * The logon username of the developer. The length cannot exceed 64 characters.
    * 
    * @example
    * developer-demo

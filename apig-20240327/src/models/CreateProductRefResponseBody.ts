@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProductRefResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code.
+   * The status code of the response.
    * 
    * @example
    * Ok
@@ -21,7 +21,7 @@ export class CreateProductRefResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A

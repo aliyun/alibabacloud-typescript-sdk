@@ -10,12 +10,12 @@ export class BatchRemoveConsumerGroupConsumersResponseBodyData extends $dara.Mod
   failedConsumerIds?: string[];
   /**
    * @remarks
-   * The list of consumer IDs that were skipped because they are not in the consumer group.
+   * The list of consumer IDs that are skipped because they are not in the consumer group.
    */
   skippedConsumerIds?: string[];
   /**
    * @remarks
-   * The list of consumer IDs that were successfully removed from the consumer group.
+   * The list of consumer IDs that are successfully removed from the consumer group.
    */
   successConsumerIds?: string[];
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class BatchRemoveConsumerGroupConsumersResponseBodyData extends $dara.Mod
 export class BatchRemoveConsumerGroupConsumersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned if the request is successful.
+   * The response status code. Returns Ok if the request succeeds.
    * 
    * @example
    * Ok

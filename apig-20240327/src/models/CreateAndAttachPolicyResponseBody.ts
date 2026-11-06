@@ -6,7 +6,7 @@ import { Attachment } from "./Attachment";
 export class CreateAndAttachPolicyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The attachment information.
+   * The attachment relationship information.
    */
   attachment?: Attachment;
   /**
@@ -54,7 +54,7 @@ export class CreateAndAttachPolicyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response struct.
+   * The response structure.
    */
   data?: CreateAndAttachPolicyResponseBodyData;
   /**

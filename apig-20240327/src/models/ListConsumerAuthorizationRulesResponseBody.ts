@@ -21,7 +21,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   consumerAuthorizationRuleId?: string;
   /**
    * @remarks
-   * The ID of the consumer.
+   * The consumer ID.
    * 
    * @example
    * cs-csheiftlhtgmp0j0hp4g
@@ -50,7 +50,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   environmentInfo?: EnvironmentInfo;
   /**
    * @remarks
-   * The expiration mode. Valid values: LongTerm, ShortTerm.
+   * The expiration mode. Valid values: LongTerm and ShortTerm.
    * 
    * @example
    * ShortTerm
@@ -66,7 +66,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   expireStatus?: string;
   /**
    * @remarks
-   * The expiration timestamp.
+   * The expiration time.
    * 
    * @example
    * 172086834548
@@ -79,7 +79,7 @@ export class ListConsumerAuthorizationRulesResponseBodyDataItems extends $dara.M
   gatewayInfo?: GatewayInfo;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * 2351944

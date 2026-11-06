@@ -63,7 +63,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   caCertIdentifier?: string;
   /**
    * @remarks
-   * The certificate detail error code.
+   * The error code for the certificate details.
    * 
    * @example
    * -
@@ -71,7 +71,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   certDetailErrorCode?: string;
   /**
    * @remarks
-   * The certificate detail error message.
+   * The error message for the certificate details.
    * 
    * @example
    * -
@@ -118,7 +118,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * The creation source.
+   * The source from which the domain name was created.
    * 
    * @example
    * Console
@@ -158,7 +158,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   domainScope?: string;
   /**
    * @remarks
-   * The Settings for the HTTPS Protocol Type and whether forced HTTPS redirection is enabled.
+   * The HTTPS protocol type settings. Specifies whether forced HTTPS redirection is enabled.
    * 
    * @example
    * false
@@ -174,7 +174,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * The certification authority.
+   * The certificate issuer.
    * 
    * @example
    * Alibaba
@@ -214,10 +214,9 @@ export class GetDomainResponseBodyData extends $dara.Model {
   notBeforeTimestamp?: number;
   /**
    * @remarks
-   * The protocol types supported by the domain name.
-   * 
-   * - HTTP: Supports only the HTTP protocol.
-   * - HTTPS: Supports only the HTTPS protocol.
+   * The protocol types supported by the domain name. Valid values:
+   * - HTTP: Only the HTTP protocol is supported.
+   * - HTTPS: Only the HTTPS protocol is supported.
    * 
    * @example
    * HTTP
@@ -233,7 +232,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * All the domain names bound to the certificate.
+   * All domain names bound to the certificate.
    * 
    * @example
    * aliyun.com
@@ -241,7 +240,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   sans?: string;
   /**
    * @remarks
-   * The online resource information.
+   * The production resource information.
    */
   statisticsInfo?: GetDomainResponseBodyDataStatisticsInfo;
   /**
@@ -378,7 +377,7 @@ export class GetDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID used to trace the API call chain.
+   * The request ID, which is used to trace the API call chain.
    * 
    * @example
    * 3ACFC7A7-45A9-58CF-B2D5-765B60254695

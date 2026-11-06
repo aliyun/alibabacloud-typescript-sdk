@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePortalResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The portal ID. It can be used to locate the portal in API operations such as GetPortal, UpdatePortal, and DeletePortal.
+   * The portal ID. You can use this ID to locate the portal in API operations such as GetPortal, UpdatePortal, and DeletePortal.
    * 
    * @example
    * portal-xxxxxxxx

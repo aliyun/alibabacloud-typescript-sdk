@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchImportHttpApisResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID. You can call the GetBatchImportTask operation to query the task progress.
+   * The ID of the asynchronous task. You can call the GetBatchImportTask operation to query the task progress.
    * 
    * @example
    * async-task-xxx

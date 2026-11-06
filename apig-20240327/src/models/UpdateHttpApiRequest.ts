@@ -24,7 +24,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   ingressClass?: string;
   /**
    * @remarks
-   * Specifies whether to update the address in the Ingress status.
+   * Specifies whether to update the IP address in the Ingress status.
    * 
    * @example
    * false
@@ -40,7 +40,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The namespace to listen on.
+   * The namespace to watch.
    * 
    * @example
    * default
@@ -93,9 +93,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The base path of the API. The value must start with a forward slash (/).
-   * 
-   * This parameter is required.
+   * The base path of the API. It must start with a forward slash (/).
    * 
    * @example
    * /v1
@@ -108,10 +106,10 @@ export class UpdateHttpApiRequest extends $dara.Model {
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The API description.
+   * The description of the API.
    * 
    * @example
-   * Update API description
+   * Updated API description
    */
   description?: string;
   /**
@@ -124,7 +122,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   enableAuth?: boolean;
   /**
    * @remarks
-   * The first byte timeout period. Unit: seconds.
+   * The first byte timeout period, in seconds.
    * 
    * @example
    * 30
@@ -132,12 +130,12 @@ export class UpdateHttpApiRequest extends $dara.Model {
   firstByteTimeout?: number;
   /**
    * @remarks
-   * The configuration of the HTTP Ingress API.
+   * The configuration information of the HTTP Ingress API.
    */
   ingressConfig?: UpdateHttpApiRequestIngressConfig;
   /**
    * @remarks
-   * Specifies whether to only modify the configuration. If this parameter is set to true, only the configuration is modified without triggering redeployment.
+   * Specifies whether to only modify the configuration. A value of true indicates that only the configuration is modified without triggering a redeployment.
    * 
    * @example
    * true
@@ -150,7 +148,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   protocols?: string[];
   /**
    * @remarks
-   * Specifies whether to remove the base path when forwarding requests.
+   * Specifies whether to remove the base path during forwarding.
    * 
    * @example
    * true
@@ -158,12 +156,12 @@ export class UpdateHttpApiRequest extends $dara.Model {
   removeBasePathOnForward?: boolean;
   /**
    * @remarks
-   * The API versioning configuration.
+   * The versioning configuration of the API.
    */
   versionConfig?: HttpApiVersionConfig;
   /**
    * @remarks
-   * The idempotency token. If you call this operation for the same HTTP API by using the same clientToken value and request parameters, the result of the first successful call is returned.
+   * The idempotent request token. If you call the same HTTP API with the same client token and request parameters, the result of the first successful call is returned.
    * 
    * @example
    * update-http-api-client-token-001
@@ -171,7 +169,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run. If this parameter is set to true, all synchronous validations identical to an actual update are performed, but no configurations are updated and no side effects are produced. If this parameter is not specified or is set to false, the behavior is the same as the existing version.
+   * Specifies whether to perform a dry run. If you set this parameter to true, all synchronization checks consistent with a real update are performed, but no configurations are updated and no side effects are generated. If this parameter is left empty or set to false, the behavior remains the same as the existing version.
    */
   dryRun?: boolean;
   static names(): { [key: string]: string } {

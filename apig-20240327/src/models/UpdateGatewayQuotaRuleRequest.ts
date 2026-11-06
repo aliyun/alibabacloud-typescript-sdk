@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayQuotaRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of IDs of the subjects (consumption subjects) to be bound.
+   * The list of subject (consumer) IDs to associate.
    * 
    * @example
    * cs-001,cs-002
@@ -13,11 +13,11 @@ export class UpdateGatewayQuotaRuleRequest extends $dara.Model {
   addIds?: string[];
   /**
    * @remarks
-   * The conflict snapshot hash, which is used to prevent concurrent dirty overwrites when you confirm an overwrite. You can obtain this value by first performing a dry run with dryRun=true and extracting it from the response.
+   * The conflict snapshot hash, which is used to prevent concurrent dirty overwrites when you confirm an overwrite. You can obtain this value by first executing a request with dryRun=true and extracting it from the response.
    * 
-   * You do not need to specify this parameter in the following scenarios: no conflicts exist; you are only performing a dry run with dryRun=true; or overwrite=false, which means you do not confirm the overwrite.
+   * You do not need to specify this parameter in the following scenarios: no conflicts exist; the request is a dry run with dryRun=true; or overwrite=false, which means overwriting is not confirmed.
    * 
-   * If dryRun=false and overwrite=true but this parameter is not specified or has expired and does not match, the backend returns accepted=false along with a new conflict preview. In this case, you must perform a dry run again to confirm the new conflicts.
+   * If dryRun=false and overwrite=true, but this parameter is not provided or has expired and does not match, the backend returns accepted=false along with a new conflict preview. In this case, you must perform a dry run again to confirm the new conflicts.
    * 
    * @example
    * f8f44dc6cf369a017d56b7197eb4fb5ac4bbb6b09a92b9b41999541f50xxxxxx
@@ -35,7 +35,7 @@ export class UpdateGatewayQuotaRuleRequest extends $dara.Model {
   consumerGroupIds?: string[];
   /**
    * @remarks
-   * Specifies whether to perform a dry run only without saving data to the database or delivering actual configurations. This is used to check whether conflicting rules exist on the bound consumption subjects. A single consumption subject cannot be configured with two natural period quotas of the same period. For example, a consumption subject that already has a natural daily quota cannot be added with another natural daily quota rule.
+   * Specifies whether to perform a dry run only without saving the configuration to the database or delivering the actual configuration. This parameter is used to check whether conflicting rules exist on the associated consumers. A single consumer cannot be configured with two natural period quotas of the same period. For example, a consumer that already has a natural daily quota cannot be assigned another natural daily quota rule.
    * 
    * @example
    * true
@@ -43,7 +43,7 @@ export class UpdateGatewayQuotaRuleRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow overwriting when conflicts exist. Note that if you choose to allow overwriting, the conflicting subjects (consumers or consumer groups) are unbound from the old rule and bound to the new rule.
+   * Specifies whether to allow overwriting when conflicts occur. Note that if overwriting is allowed, the conflicting subjects (consumers or consumer groups) will be disassociated from the old rule and associated with the new rule.
    */
   overwrite?: boolean;
   /**
@@ -56,7 +56,7 @@ export class UpdateGatewayQuotaRuleRequest extends $dara.Model {
   quotaLimit?: number;
   /**
    * @remarks
-   * The list of IDs of the subjects (consumption subjects) to be unbound.
+   * The list of subject (consumer) IDs to disassociate.
    * 
    * @example
    * cs003,cs-004
@@ -64,7 +64,7 @@ export class UpdateGatewayQuotaRuleRequest extends $dara.Model {
   removeIds?: string[];
   /**
    * @remarks
-   * The updated rule name.
+   * The updated name of the rule.
    * 
    * @example
    * team-rule

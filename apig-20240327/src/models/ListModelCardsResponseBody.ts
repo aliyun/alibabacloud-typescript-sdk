@@ -13,7 +13,7 @@ export class ListModelCardsResponseBodyDataAvailablePaths extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The type identifier of the available path record. The valid values are not declared in the API definition.
+   * The type identifier of the available path record. The set of valid values is not declared in the API definition.
    * 
    * @example
    * type-xxxxxxxx
@@ -75,17 +75,17 @@ export class ListModelCardsResponseBodyDataMeta extends $dara.Model {
 export class ListModelCardsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of available paths for the model card. Each element consists of a path and a type member. The API definition does not specify the criteria for availability.
+   * The list of available paths for the model card. Each element consists of the path and type members. The criteria for availability are not specified in the API definition.
    */
   availablePaths?: ListModelCardsResponseBodyDataAvailablePaths[];
   /**
    * @remarks
-   * The feature configuration of the model card. This is a key-value pair map structure. The key set is not declared in the API definition.
+   * The feature configuration of the model card, structured as a key-value pair mapping. The set of keys is not declared in the API definition.
    */
   features?: { [key: string]: any };
   /**
    * @remarks
-   * The metadata container for the model card. Only the description member is declared in the API definition.
+   * The metadata container of the model card. Only the description member is declared in the API definition.
    */
   meta?: ListModelCardsResponseBodyDataMeta;
   /**
@@ -98,7 +98,7 @@ export class ListModelCardsResponseBodyData extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The pricing information of the model card. This is a key-value pair map structure. The key set and billing criteria are not declared in the API definition.
+   * The pricing information of the model card, structured as a key-value pair mapping. The set of keys and billing metrics are not declared in the API definition.
    */
   pricing?: { [key: string]: any };
   /**
@@ -111,12 +111,12 @@ export class ListModelCardsResponseBodyData extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * The list of snapshots for the model card. Array items are map structures with undeclared members. The API definition does not specify the snapshot content or generation rules.
+   * The list of snapshots for the model card. Array items are mapping structures with undeclared members. The snapshot content and generation rules are not specified in the API definition.
    */
   snapshots?: { [key: string]: any }[];
   /**
    * @remarks
-   * The source identifier of the model card. The valid values are not declared in the API definition.
+   * The source identifier of the model card. The set of valid values is not declared in the API definition.
    * 
    * @example
    * source-xxxxxxxx

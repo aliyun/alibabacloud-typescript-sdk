@@ -37,7 +37,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBodyDataContent extends $d
   productName?: string;
   /**
    * @remarks
-   * The type of the subscribed API product. No enum is specified for this response parameter. However, the related ListProductSubscriptions operation specifies the following valid values for the parameter with the same name: REST_API, HTTP_API, MCP_SERVER, AGENT_API, and MODEL_API.
+   * The type of the subscribed API product. This response parameter does not have an enum annotation. For the response parameter with the same name in the related ListProductSubscriptions operation, the valid values are REST_API, HTTP_API, MCP_SERVER, AGENT_API, and MODEL_API.
    * 
    * @example
    * MCP_SERVER
@@ -45,7 +45,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBodyDataContent extends $d
   productType?: string;
   /**
    * @remarks
-   * The subscription status. Valid values: PENDING and APPROVED. These valid values are declared in the enum of the status request parameter, and no enum is specified for this response parameter.
+   * The subscription status. Valid values: PENDING and APPROVED. These valid values are declared in the enum of the status request parameter. This response parameter does not have an enum annotation.
    * 
    * @example
    * APPROVED
@@ -53,7 +53,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBodyDataContent extends $d
   status?: string;
   /**
    * @remarks
-   * The subscription ID. You can use this ID to cancel the subscription by calling UnsubscribeHiMarketProduct or approve the subscription by calling ApproveProductSubscription. Both operations locate the subscription by using the /himarket/v1/consumers/{consumerId}/subscriptions/{subscriptionId} path.
+   * The subscription ID. You can use this ID to cancel a subscription by calling UnsubscribeHiMarketProduct or approve a subscription by calling ApproveProductSubscription. Both operations use the /himarket/v1/consumers/{consumerId}/subscriptions/{subscriptionId} path to locate the subscription.
    * 
    * @example
    * sub-xxxxxxxx
@@ -95,7 +95,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBodyDataContent extends $d
 export class ListHiMarketConsumerSubscriptionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of API product subscriptions for the consumer. The list element is named subscription, and each element represents an API product subscription record.
+   * The API product subscriptions of the consumer. Each element in the list is named subscription and represents an API product subscription record.
    */
   content?: ListHiMarketConsumerSubscriptionsResponseBodyDataContent[];
   /**
@@ -108,7 +108,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBodyData extends $dara.Mod
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -155,7 +155,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBodyData extends $dara.Mod
 export class ListHiMarketConsumerSubscriptionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code.
+   * The response code.
    * 
    * @example
    * Ok
@@ -168,7 +168,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBody extends $dara.Model {
   data?: ListHiMarketConsumerSubscriptionsResponseBodyData;
   /**
    * @remarks
-   * The maximum number of entries on the current page.
+   * The maximum number of entries returned on the current page.
    * 
    * @example
    * 10
@@ -184,7 +184,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. An empty value indicates that the last page is reached.
+   * The pagination token for the next page. An empty value indicates that the last page has been reached.
    * 
    * @example
    * token-xxxxxxxx

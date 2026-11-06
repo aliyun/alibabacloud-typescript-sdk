@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSyncMCPServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The AI gateway ID. This parameter is required. If this parameter is not specified, the API returns InvalidParameter.IsEmpty(400).
+   * The ID of the AI gateway. Note: This parameter is required. If it is not provided, the API returns InvalidParameter.IsEmpty(400).
    * 
    * @example
    * gw-xxxx
@@ -13,7 +13,7 @@ export class ListSyncMCPServerRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The Nacos namespace ID. This parameter is required. If this parameter is not specified, the API returns InvalidParameter.IsEmpty(400).
+   * The Nacos namespace ID. Note: This parameter is required. If it is not provided, the API returns InvalidParameter.IsEmpty(400).
    * 
    * @example
    * public
@@ -21,7 +21,7 @@ export class ListSyncMCPServerRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The Nacos service source ID. In a single Nacos source scenario, this parameter can be omitted because the server automatically populates the unique source. In a multi-Nacos source scenario, this parameter is required. Otherwise, a parameter error indicating that sourceId is empty is returned. If the gateway has no Nacos source, the error ErrServiceSourceNotFound is returned.
+   * The Nacos service source ID. This parameter can be omitted in single Nacos source scenarios because the server automatically populates the unique source. It is required in multiple Nacos source scenarios. Otherwise, a parameter error indicating that sourceId is empty is returned. If the gateway has no Nacos source, ErrServiceSourceNotFound is returned.
    * 
    * @example
    * src-xxxx

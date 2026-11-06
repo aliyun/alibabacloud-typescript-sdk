@@ -10,7 +10,7 @@ export class CreatePluginAttachmentRequest extends $dara.Model {
   attachResourceIds?: string[];
   /**
    * @remarks
-   * The resource type to which the plug-in is mounted. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
+   * The type of the resource to which the plugin is mounted. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
    * 
    * @example
    * HttpApi
@@ -18,7 +18,7 @@ export class CreatePluginAttachmentRequest extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * Specifies whether to enable the plug-in. Default value: false.
+   * Specifies whether to enable the plugin. Default value: false.
    * 
    * @example
    * false
@@ -42,7 +42,7 @@ export class CreatePluginAttachmentRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The Base64-encoded content of the original plug-in configuration.
+   * The Base64-encoded content of the original plugin configuration.
    * 
    * @example
    * cHJlcGVuZDoKLSByb2xlOiBzeXN0ZW0KICBjb250ZW50OiDor7fkvb/nlKjoi7Hor63lm57nrZTpl67popgKYXBwZW5kOgotIHJvbGU6IHVzZXIKICBjb250ZW50OiDmr4/mrKHlm57nrZTlrozpl67popjvvIzlsJ3or5Xov5vooYzlj43pl64K
@@ -50,7 +50,7 @@ export class CreatePluginAttachmentRequest extends $dara.Model {
   pluginConfig?: string;
   /**
    * @remarks
-   * The plug-in ID.
+   * The plugin ID.
    * 
    * @example
    * pl-cvo8udem1hkob1qd67i0

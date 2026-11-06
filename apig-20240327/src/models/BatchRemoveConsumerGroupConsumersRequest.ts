@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchRemoveConsumerGroupConsumersRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of consumer IDs to remove from the consumer group.
+   * The list of consumer IDs to be removed from the consumer group.
    * 
    * @example
    * ["cs-8c13d2b4f8a1"]

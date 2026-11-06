@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAiModelCardRequestAvailablePaths extends $dara.Model {
   /**
    * @remarks
-   * The model invocation path. The value can be up to 2,048 characters in length.
+   * The path. The model call path, which can be up to 2,048 characters in length.
    * 
    * @example
    * /v1/chat/completions
@@ -13,7 +13,7 @@ export class CreateAiModelCardRequestAvailablePaths extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The protocol type of the path. The value can be up to 64 characters in length.
+   * The protocol type corresponding to the path, which can be up to 64 characters in length.
    * 
    * @example
    * OpenAICompatible
@@ -45,7 +45,7 @@ export class CreateAiModelCardRequestAvailablePaths extends $dara.Model {
 export class CreateAiModelCardRequestCredit extends $dara.Model {
   /**
    * @remarks
-   * The cache hit token cost, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+   * The cost of cache hit tokens, in Credits per million tokens. The value must be greater than or equal to 0. If this parameter is not specified, the default value is 0.
    * 
    * @example
    * 0.5
@@ -53,7 +53,7 @@ export class CreateAiModelCardRequestCredit extends $dara.Model {
   cacheCost?: number;
   /**
    * @remarks
-   * The input token cost, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+   * The cost of input tokens, in Credits per million tokens. The value must be greater than or equal to 0. If this parameter is not specified, the default value is 0.
    * 
    * @example
    * 1.5
@@ -61,7 +61,7 @@ export class CreateAiModelCardRequestCredit extends $dara.Model {
   inputCost?: number;
   /**
    * @remarks
-   * The output token cost, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+   * The cost of output tokens, in Credits per million tokens. The value must be greater than or equal to 0. If this parameter is not specified, the default value is 0.
    * 
    * @example
    * 3
@@ -129,7 +129,7 @@ export class CreateAiModelCardRequestMeta extends $dara.Model {
   maxTokens?: number;
   /**
    * @remarks
-   * The list of input modalities supported by the model. The list can contain up to 16 entries, and each entry must not be empty.
+   * The list of input modalities supported by the model. The list can contain up to 16 items, and each item cannot be empty.
    * 
    * @example
    * ["text","image"]
@@ -137,7 +137,7 @@ export class CreateAiModelCardRequestMeta extends $dara.Model {
   supportedInputModalities?: string[];
   /**
    * @remarks
-   * The list of output modalities supported by the model. The list can contain up to 16 entries, and each entry must not be empty.
+   * The list of output modalities supported by the model. The list can contain up to 16 items, and each item cannot be empty.
    * 
    * @example
    * ["text"]
@@ -181,7 +181,7 @@ export class CreateAiModelCardRequestMeta extends $dara.Model {
 export class CreateAiModelCardRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of API paths supported by the model. Each entry must include both path and type.
+   * The list of API call paths supported by the model. Each item must include both path and type.
    * 
    * @example
    * [{"path":"/v1/chat/completions","type":"OpenAICompatible"}]
@@ -189,7 +189,7 @@ export class CreateAiModelCardRequest extends $dara.Model {
   availablePaths?: CreateAiModelCardRequestAvailablePaths[];
   /**
    * @remarks
-   * The credit billing information of the model. Currently, only the fixed type is supported, and the cost unit is Credits per million tokens. If this parameter is not specified, all cost values default to 0.
+   * The credit billing information of the model. Currently, only the fixed type is supported, and the billing unit is Credits per million tokens. If this parameter is not specified, all costs default to 0.
    * 
    * @example
    * {"type":"fixed","inputCost":1.5,"outputCost":3,"cacheCost":0.5}
@@ -197,7 +197,7 @@ export class CreateAiModelCardRequest extends $dara.Model {
   credit?: CreateAiModelCardRequestCredit;
   /**
    * @remarks
-   * The model capability switches. Keys must be model capability names supported by API Gateway, and values must be Boolean values.
+   * The model capability switches. The key must be the name of a model capability supported by the API gateway, and the value must be a Boolean value.
    * 
    * @example
    * {"functionCalling":true,"toolChoice":true,"promptCaching":false}
@@ -215,7 +215,7 @@ export class CreateAiModelCardRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The token limits and input/output modality information of the model.
+   * The token limits and input and output modality information of the model.
    * 
    * @example
    * {"maxInputTokens":131072,"maxOutputTokens":8192,"maxTokens":131072,"supportedInputModalities":["text","image"],"supportedOutputModalities":["text"]}
@@ -223,7 +223,7 @@ export class CreateAiModelCardRequest extends $dara.Model {
   meta?: CreateAiModelCardRequestMeta;
   /**
    * @remarks
-   * The model name. The model name must be unique within the same AI gateway instance and the same model provider. The value can be up to 256 characters in length.
+   * The name of the model. The model name must be unique within the same AI gateway instance and model provider, and can be up to 256 characters in length.
    * 
    * This parameter is required.
    * 
@@ -233,7 +233,7 @@ export class CreateAiModelCardRequest extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model provider identifier. The value must reference a model provider that already exists in the target AI gateway instance. The value can be up to 128 characters in length.
+   * The identifier of the model provider. It must reference an existing model provider in the target AI gateway instance and can be up to 128 characters in length.
    * 
    * This parameter is required.
    * 

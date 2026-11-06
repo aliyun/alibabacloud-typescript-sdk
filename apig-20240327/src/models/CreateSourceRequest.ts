@@ -60,7 +60,7 @@ export class CreateSourceRequestK8sSourceConfig extends $dara.Model {
   authorizeSecurityGroupRules?: CreateSourceRequestK8sSourceConfigAuthorizeSecurityGroupRules[];
   /**
    * @remarks
-   * The container service cluster ID.
+   * The Container Service cluster ID.
    * 
    * @example
    * c3fbe6caaaece4062b*****
@@ -125,8 +125,7 @@ export class CreateSourceRequestNacosSourceConfig extends $dara.Model {
 export class CreateSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The gateway ID.
-   * > Note: This parameter is required. If this parameter is not specified, the API returns a 400 InvalidParameter.IsEmpty error.
+   * The gateway ID. Note: This parameter is required. If it is not provided, the API returns a 400 InvalidParameter.IsEmpty error.
    * 
    * @example
    * gw-cq7l5s5lhtgi6q***
@@ -134,7 +133,7 @@ export class CreateSourceRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The container service source configuration.
+   * The Container Service source configuration.
    */
   k8sSourceConfig?: CreateSourceRequestK8sSourceConfig;
   /**
@@ -154,7 +153,7 @@ export class CreateSourceRequest extends $dara.Model {
    * @remarks
    * The source type. Valid values:
    * - MSE_NACOS: MSE Nacos.
-   * - K8S: container service.
+   * - K8S: Container Service.
    * 
    * @example
    * MSE_NACOS

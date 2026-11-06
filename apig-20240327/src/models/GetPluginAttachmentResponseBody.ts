@@ -10,7 +10,7 @@ import { ResourceInfo } from "./ResourceInfo";
 export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the plugin attachment is enabled.
+   * Indicates whether the plugin is enabled.
    * 
    * @example
    * true

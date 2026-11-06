@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DataPathConfigsFieldPathsValue extends $dara.Model {
   /**
    * @remarks
-   * The identifier key of the field, which is unique within the same request path, such as input_token.
+   * The identity key of the field, which is unique within the same request path, such as input_token.
    * 
    * @example
    * input_token
@@ -21,7 +21,7 @@ export class DataPathConfigsFieldPathsValue extends $dara.Model {
   jsonPath?: string;
   /**
    * @remarks
-   * The value extraction rule of the field.
+   * The value rule for the field.
    * 
    * @example
    * first
@@ -45,7 +45,7 @@ export class DataPathConfigsFieldPathsValue extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The source of the field value, indicating which part of the message the field is read from, such as response_body.
+   * The source of the field value, which indicates the part of the message from which the field is read, such as response_body.
    * 
    * @example
    * response_body
@@ -61,7 +61,7 @@ export class DataPathConfigsFieldPathsValue extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The message direction to which the field belongs, indicating whether it is extracted from the request or the response.
+   * The message direction of the field, which indicates whether it is extracted from the request or the response.
    * 
    * @example
    * response
@@ -77,7 +77,7 @@ export class DataPathConfigsFieldPathsValue extends $dara.Model {
   sensitive?: boolean;
   /**
    * @remarks
-   * Indicates whether collection is enabled for the field.
+   * Indicates whether the collection of the field is enabled.
    * 
    * @example
    * true

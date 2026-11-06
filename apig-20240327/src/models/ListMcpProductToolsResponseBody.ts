@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMcpProductToolsResponseBodyDataTools extends $dara.Model {
   /**
    * @remarks
-   * The annotation information of the tool in a map structure. The API definition declares it only as map<any> without specifying its members and purposes.
+   * The annotations of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and usage.
    */
   annotations?: { [key: string]: any };
   /**
@@ -13,17 +13,17 @@ export class ListMcpProductToolsResponseBodyDataTools extends $dara.Model {
    * The description of the tool.
    * 
    * @example
-   * The functional description of the sample tool
+   * Functional description of the sample tool
    */
   description?: string;
   /**
    * @remarks
-   * The input parameter structure definition of the tool in a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
+   * The input parameter schema of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
    */
   inputSchema?: { [key: string]: any };
   /**
    * @remarks
-   * The metadata information of the tool in a map structure. The API definition declares it only as map<any> without specifying its members and purposes.
+   * The metadata of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and usage.
    */
   meta?: { [key: string]: any };
   /**
@@ -36,7 +36,7 @@ export class ListMcpProductToolsResponseBodyDataTools extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output result structure definition of the tool in a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
+   * The output schema of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
    */
   outputSchema?: { [key: string]: any };
   /**
@@ -95,7 +95,7 @@ export class ListMcpProductToolsResponseBodyDataTools extends $dara.Model {
 export class ListMcpProductToolsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of MCP tools. The list element is named tool, and each element represents an MCP tool.
+   * The list of MCP tools. Each element in the list is named tool and represents an MCP tool.
    */
   tools?: ListMcpProductToolsResponseBodyDataTools[];
   static names(): { [key: string]: string } {

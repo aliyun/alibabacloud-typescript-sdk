@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHiMarketConsumerSubscriptionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page. The default value and valid values are not specified in the API definition.
+   * The maximum number of entries per page. The default value and valid values are not declared in the API definition.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListHiMarketConsumerSubscriptionsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from 1.
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListHiMarketConsumerSubscriptionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The subscription status, which is used to filter subscriptions. Valid values: PENDING and APPROVED.
+   * The subscription status. Filters subscriptions by status. Valid values: PENDING and APPROVED.
    * 
    * @example
    * APPROVED

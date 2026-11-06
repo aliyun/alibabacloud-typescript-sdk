@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
   /**
    * @remarks
-   * The ID of the subject (consumer).
+   * The subject (consumer) ID.
    * 
    * @example
    * c-aaa
@@ -13,7 +13,7 @@ export class GetGatewayQuotaRuleResponseBodyDataConsumers extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the subject (consumer).
+   * The subject (consumer) name.
    * 
    * @example
    * consumer-a
@@ -95,7 +95,7 @@ export class GetGatewayQuotaRuleResponseBodyDataSubjects extends $dara.Model {
 export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The base timestamp of the cycle, in UNIX seconds.
+   * The base timestamp of the period.
    * 
    * @example
    * 1745846400000
@@ -124,7 +124,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   currentCycleResetAt?: string;
   /**
    * @remarks
-   * The number of days in the custom cycle. This parameter is returned only when windowAlignment is set to epoch. Valid values: 1 to 106751. This parameter is not returned for natural cycles.
+   * The number of days in a custom period. This parameter is returned only when windowAlignment is set to epoch. Valid values: 1 to 106751. This parameter is not returned for natural periods.
    * 
    * @example
    * 3
@@ -132,7 +132,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   periodMultiplier?: number;
   /**
    * @remarks
-   * The quota cycle type.
+   * The quota period type.
    * 
    * @example
    * day
@@ -201,7 +201,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   subjects?: GetGatewayQuotaRuleResponseBodyDataSubjects[];
   /**
    * @remarks
-   * The time zone corresponding to the natural cycle, in UTC+x format.
+   * The time zone corresponding to the natural period, in UTC+x format.
    * 
    * @example
    * GMT+8
@@ -209,7 +209,7 @@ export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The reset cycle type.
+   * The reset period type.
    * 
    * @example
    * calendar

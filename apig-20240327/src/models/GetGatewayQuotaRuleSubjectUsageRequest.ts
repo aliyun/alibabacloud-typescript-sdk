@@ -21,7 +21,7 @@ export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
   filterFailedRequests?: boolean;
   /**
    * @remarks
-   * The page number of the detailed consumption (request) records for the consumer subject within the period.
+   * The page number of the detailed consumption (request) records for the consumption subject within the period.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for the detailed consumption (request) records of the consumer subject within the period. Maximum value: 10.
+   * The number of entries per page for the detailed consumption (request) records of the consumption subject within the period. Maximum value: 10.
    * 
    * @example
    * 10

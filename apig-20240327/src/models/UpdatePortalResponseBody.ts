@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePortalResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The portal ID. It is the ID of the updated portal, which corresponds to the primary ID of the portal resource specified by the portalId path parameter.
+   * The portal ID. This is the ID of the updated portal and corresponds to the primary ID of the portal resource specified by the portalId path parameter.
    * 
    * @example
    * portal-xxxxxxxx

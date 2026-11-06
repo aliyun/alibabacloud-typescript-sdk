@@ -14,7 +14,7 @@ export class GetServiceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The service details.
+   * The service details data.
    */
   data?: Service;
   /**

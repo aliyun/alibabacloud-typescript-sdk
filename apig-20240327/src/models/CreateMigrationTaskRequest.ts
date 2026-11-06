@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMigrationTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the source ACK cluster. The value must be the same as the cluster specified in the IngressInfo of the API. Note: This parameter is actually required. If this parameter is not specified, the API returns 400 InvalidParameter.IsEmpty.
+   * The ID of the source ACK cluster. It must match the cluster in the IngressInfo of the API. Note: This parameter is required. If it is not provided, the API returns a 400 InvalidParameter.IsEmpty error.
    * 
    * @example
    * c-xxxxxx
@@ -13,7 +13,7 @@ export class CreateMigrationTaskRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The description of the task. The description is stored only when the task is created.
+   * The task description. It is stored in the database only when the task is created.
    * 
    * @example
    * migration from Nginx
@@ -21,7 +21,7 @@ export class CreateMigrationTaskRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the destination environment. The value must be the same as the Ingress import environment of the API. Note: This parameter is actually required. If this parameter is not specified, the API returns 400 InvalidParameter.IsEmpty. You can call ListEnvironments to query existing environment IDs. CreateEnvironment has been deprecated.
+   * The ID of the destination environment. It must match the Ingress import environment of the API. Note: This parameter is required. If it is not provided, the API returns a 400 InvalidParameter.IsEmpty error. You can call ListEnvironments to query existing environment IDs. CreateEnvironment is deprecated.
    * 
    * @example
    * env-xxxx
@@ -31,7 +31,7 @@ export class CreateMigrationTaskRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The ID of the destination gateway to which traffic is migrated.
+   * The ID of the destination gateway to which migration traffic is switched.
    * 
    * @example
    * gw-xxxx
@@ -39,7 +39,7 @@ export class CreateMigrationTaskRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The HTTP API ID. The API must have been imported as an Ingress type (HttpIngress) API. Note: This parameter is actually required. If this parameter is not specified, the API returns 400 InvalidParameter.IsEmpty.
+   * The ID of the HTTP API. The API must be imported as an Ingress type (HttpIngress) API. Note: This parameter is required. If it is not provided, the API returns a 400 InvalidParameter.IsEmpty error.
    * 
    * @example
    * api-xxxx
@@ -47,7 +47,7 @@ export class CreateMigrationTaskRequest extends $dara.Model {
   httpApiId?: string;
   /**
    * @remarks
-   * The Ingress class. If specified, the value must be the same as the API import configuration. Otherwise, an ingress class conflict error is returned.
+   * The Ingress class. It must match the API import configuration. Otherwise, an ingress class conflict error is reported.
    * 
    * @example
    * nginx
@@ -56,7 +56,6 @@ export class CreateMigrationTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The migration type.
-   * [_single.params.body.props.migrationType.enum.Nginx Ingress]Nginx Ingress migration.
    * 
    * @example
    * Nginx Ingress
@@ -64,7 +63,7 @@ export class CreateMigrationTaskRequest extends $dara.Model {
   migrationType?: string;
   /**
    * @remarks
-   * The watched namespace. If specified, the value must be the same as the API import configuration. Otherwise, a watchNamespace conflict error is returned.
+   * The watched namespace. It must match the API import configuration. Otherwise, a watchNamespace conflict error is reported.
    * 
    * @example
    * default

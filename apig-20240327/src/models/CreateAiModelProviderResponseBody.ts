@@ -46,7 +46,7 @@ export class CreateAiModelProviderResponseBodyDataModelCardsAvailablePaths exten
 export class CreateAiModelProviderResponseBodyDataModelCardsCredit extends $dara.Model {
   /**
    * @remarks
-   * The credits consumption coefficient for cached tokens.
+   * The credit consumption coefficient for cached tokens.
    * 
    * @example
    * 0.015
@@ -54,7 +54,7 @@ export class CreateAiModelProviderResponseBodyDataModelCardsCredit extends $dara
   cacheCost?: number;
   /**
    * @remarks
-   * The credits consumption coefficient for input tokens.
+   * The credit consumption coefficient for input tokens.
    * 
    * @example
    * 0.03
@@ -62,7 +62,7 @@ export class CreateAiModelProviderResponseBodyDataModelCardsCredit extends $dara
   inputCost?: number;
   /**
    * @remarks
-   * The credits consumption coefficient for output tokens.
+   * The credit consumption coefficient for output tokens.
    * 
    * @example
    * 0.06
@@ -70,7 +70,7 @@ export class CreateAiModelProviderResponseBodyDataModelCardsCredit extends $dara
   outputCost?: number;
   /**
    * @remarks
-   * The credits billing type.
+   * The billing type for credits.
    * 
    * @example
    * token
@@ -181,7 +181,7 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
   availablePaths?: CreateAiModelProviderResponseBodyDataModelCardsAvailablePaths[];
   /**
    * @remarks
-   * The credits consumption configuration of the model.
+   * The credits consumption configuration for the model.
    */
   credit?: CreateAiModelProviderResponseBodyDataModelCardsCredit;
   /**
@@ -194,7 +194,7 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
   features?: { [key: string]: any };
   /**
    * @remarks
-   * The instance ID of the gateway to which the model card belongs.
+   * The associated gateway instance ID.
    * 
    * @example
    * gw-ucbx3s2m****
@@ -202,12 +202,12 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
   gatewayId?: string;
   /**
    * @remarks
-   * The model metadata.
+   * The metadata of the model.
    */
   meta?: CreateAiModelProviderResponseBodyDataModelCardsMeta;
   /**
    * @remarks
-   * The model card ID.
+   * The ID of the model card.
    * 
    * @example
    * mc-xxx****
@@ -215,7 +215,7 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
   modelCardId?: string;
   /**
    * @remarks
-   * The model name.
+   * The name of the model.
    * 
    * @example
    * gpt-4
@@ -223,7 +223,7 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
   modelName?: string;
   /**
    * @remarks
-   * The identifier of the model provider to which the model card belongs.
+   * The identifier of the associated model provider.
    * 
    * @example
    * openai
@@ -231,7 +231,7 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
   modelProvider?: string;
   /**
    * @remarks
-   * The model source.
+   * The source of the model.
    * 
    * @example
    * custom
@@ -239,7 +239,7 @@ export class CreateAiModelProviderResponseBodyDataModelCards extends $dara.Model
   source?: string;
   /**
    * @remarks
-   * The URL of the model metadata.
+   * The URL for the model metadata.
    * 
    * @example
    * https://dashscope-intl.aliyuncs.com
@@ -343,7 +343,7 @@ export class CreateAiModelProviderResponseBodyData extends $dara.Model {
   modelCount?: number;
   /**
    * @remarks
-   * The model provider ID.
+   * The ID of the model provider.
    * 
    * @example
    * mp-xxx****
@@ -427,7 +427,7 @@ export class CreateAiModelProviderResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response struct.
+   * The response structure.
    */
   data?: CreateAiModelProviderResponseBodyData;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHiMarketConsumersResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The consumer ID. You can use this ID to locate the consumer in API operations such as GetHiMarketConsumer, DeleteHiMarketConsumer, GetHiMarketConsumerCredential, and ListHiMarketConsumerSubscriptions.
+   * The consumer ID. You can use this ID to locate the consumer in operations such as GetHiMarketConsumer, DeleteHiMarketConsumer, GetHiMarketConsumerCredential, and ListHiMarketConsumerSubscriptions.
    * 
    * @example
    * cs-xxxxxxxxxxxx
@@ -62,7 +62,7 @@ export class ListHiMarketConsumersResponseBodyDataContent extends $dara.Model {
 export class ListHiMarketConsumersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of consumers. The list element is named consumer, and each element represents a HiMarket consumer.
+   * The list of consumers. Each element represents a HiMarket consumer.
    */
   content?: ListHiMarketConsumersResponseBodyDataContent[];
   /**
@@ -75,7 +75,7 @@ export class ListHiMarketConsumersResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -151,7 +151,7 @@ export class ListHiMarketConsumersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. An empty value indicates that the last page is reached.
+   * The cursor for the next page. An empty value indicates that the last page has been reached.
    * 
    * @example
    * token-xxxxxxxx

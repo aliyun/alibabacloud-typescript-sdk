@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductSubscriptionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword of the consumer name, which is used to search for subscription records of the API product by consumer name.
+   * The keyword of the consumer name. This parameter is used to search for subscription records of the API product by consumer name.
    * 
    * @example
    * consumer-1
@@ -29,7 +29,7 @@ export class ListProductSubscriptionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The subscription status, which is used to filter subscriptions by status. Valid values:
+   * The subscription status. This parameter is used to filter subscriptions by status. Valid values: PENDING and APPROVED.
    * 
    * @example
    * APPROVED

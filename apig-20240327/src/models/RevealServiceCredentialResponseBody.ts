@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Model {
   /**
    * @remarks
-   * The API key generation mode. Valid values: Custom and Reference. Historical null values are processed as Custom.
+   * The API key generation mode. Valid values: Custom and Reference. Historical null values are treated as Custom.
    * 
    * @example
    * Custom
@@ -13,7 +13,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   apiKeyGenerateMode?: string;
   /**
    * @remarks
-   * The list of Key Management Service (KMS) reference names. This parameter is returned only in Reference mode. The reference values are not returned.
+   * The list of Key Management Service (KMS) reference names. This field is returned only in Reference mode. Reference values are not returned.
    * 
    * @example
    * ["my-kms-ref"]
@@ -21,7 +21,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   apiKeyReferences?: string[];
   /**
    * @remarks
-   * The list of custom API keys. This parameter is returned only when apiKeyGenerateMode is set to Custom. The keys are returned in their original order without deduplication.
+   * The list of custom API keys. This field is returned only when apiKeyGenerateMode is set to Custom. The keys are returned in their original order without deduplication.
    * 
    * @example
    * ["sk-xxxxxxxx","sk-yyyyyyyy"]
@@ -53,7 +53,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   awsSecretKey?: string;
   /**
    * @remarks
-   * The source of the credential. The value is pai-eas when backfilled by the PAI-EAS system.
+   * The source of the credential. When backfilled by the PAI-EAS system, the value is pai-eas.
    * 
    * @example
    * pai-eas
@@ -61,7 +61,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   credentialSource?: string;
   /**
    * @remarks
-   * The Bedrock endpoint mode. The value runtime is returned for historical null values.
+   * The Bedrock endpoint mode. A value of runtime is returned for historical null values.
    * 
    * @example
    * runtime
@@ -161,7 +161,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
 export class RevealServiceCredentialResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The current configuration revision. The value is legacy for historical objects.
+   * The current configuration revision. For legacy objects, the value is legacy.
    * 
    * @example
    * 1
@@ -177,7 +177,7 @@ export class RevealServiceCredentialResponseBodyData extends $dara.Model {
   credential?: RevealServiceCredentialResponseBodyDataCredential;
   /**
    * @remarks
-   * The type of the currently active credential. Valid values: apiKey, bedrock, vertex, and kling.
+   * The currently active credential type. Valid values: apiKey, bedrock, vertex, and kling.
    * 
    * @example
    * apiKey
@@ -234,7 +234,7 @@ export class RevealServiceCredentialResponseBodyData extends $dara.Model {
 export class RevealServiceCredentialResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The value is Ok if the request is successful.
+   * The response code. A value of Ok indicates success.
    * 
    * @example
    * Ok
@@ -250,7 +250,7 @@ export class RevealServiceCredentialResponseBody extends $dara.Model {
   data?: RevealServiceCredentialResponseBodyData;
   /**
    * @remarks
-   * The response message. The value is success if the request is successful.
+   * The response message. A value of success indicates success.
    * 
    * @example
    * success

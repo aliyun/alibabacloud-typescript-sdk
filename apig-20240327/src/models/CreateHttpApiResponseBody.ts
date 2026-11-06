@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHttpApiResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * HTTP API ID。
+   * The HTTP API ID.
    * 
    * @example
    * api-xxx

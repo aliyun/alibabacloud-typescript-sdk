@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDashboardResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * The unique identifier of the gateway.
    * 
    * @example
    * gw-co370icmjeu****
@@ -13,7 +13,7 @@ export class GetDashboardResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The name of the dashboard.
+   * The dashboard name.
    * 
    * @example
    * PLUGIN
@@ -21,7 +21,7 @@ export class GetDashboardResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The title of the dashboard.
+   * The dashboard title.
    * 
    * @example
    * APIG Plugin
@@ -29,7 +29,7 @@ export class GetDashboardResponseBodyData extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The URL of the dashboard.
+   * The dashboard URL.
    * 
    * @example
    * https://sls.console.aliyun.com/lognext/project/xxxxx
@@ -102,7 +102,7 @@ export class GetDashboardResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

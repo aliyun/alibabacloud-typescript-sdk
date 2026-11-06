@@ -6,7 +6,7 @@ import { SubDomainInfo } from "./SubDomainInfo";
 export class GetGatewayResponseBodyDataEnvironments extends $dara.Model {
   /**
    * @remarks
-   * The alias of the environment.
+   * The environment alias.
    * 
    * @example
    * Default environment
@@ -116,8 +116,8 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * The type of the load balancing address. Valid values:
-   * - Internet: Internet-facing.
+   * The load balancing address type. Valid values:
+   * - Internet: Internet.
    * - Intranet: Private network.
    * 
    * @example
@@ -152,7 +152,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The load balancing pattern of the gateway. Valid values:
+   * The load balancing provisioning pattern for the gateway. Valid values:
    * - Managed: Managed by Cloud-native API Gateway.
    * 
    * @example
@@ -161,7 +161,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The list of listener ports.
+   * The list of listened ports.
    */
   ports?: GetGatewayResponseBodyDataLoadBalancersPorts[];
   /**
@@ -176,7 +176,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the load balancing. Valid values:
+   * The load balancing type. Valid values:
    * - NLB: Network Load Balancer (NLB).
    * - CLB: Classic Load Balancer.
    * 
@@ -237,7 +237,7 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $dara.Model {
 export class GetGatewayResponseBodyDataMaintenancePeriod extends $dara.Model {
   /**
    * @remarks
-   * The end time of the O&M window in the HH:mm format.
+   * The O&M end time in HH:mm format.
    * 
    * @example
    * 06:00
@@ -245,7 +245,7 @@ export class GetGatewayResponseBodyDataMaintenancePeriod extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The start time of the O&M window in the HH:mm format.
+   * The O&M start time in HH:mm format.
    * 
    * @example
    * 02:00
@@ -277,7 +277,7 @@ export class GetGatewayResponseBodyDataMaintenancePeriod extends $dara.Model {
 export class GetGatewayResponseBodyDataNetworkAccessConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the security group configured for the private endpoint. The security group belongs to the VPC selected by the user and is an unmanaged security group.
+   * The ID of the security group configured for the internal endpoint. The security group belongs to the VPC selected by the user and is an unmanaged security group.
    * 
    * @example
    * sg-bp1example123456789
@@ -286,8 +286,8 @@ export class GetGatewayResponseBodyDataNetworkAccessConfig extends $dara.Model {
   /**
    * @remarks
    * The access endpoint type of the gateway. Valid values:
-   * - Intranet: Private endpoint only.
-   * - InternetAndIntranet: Both Internet and private endpoints.
+   * - Intranet: Internal endpoint only.
+   * - InternetAndIntranet: Internet and internal endpoints.
    * 
    * @example
    * InternetAndIntranet
@@ -359,7 +359,7 @@ export class GetGatewayResponseBodyDataPrivateLinkZones extends $dara.Model {
 export class GetGatewayResponseBodyDataPrivateLink extends $dara.Model {
   /**
    * @remarks
-   * The connection status between the private endpoint and the endpoint service. A value of Connected indicates that the endpoint is connected.
+   * The connection status between the internal endpoint and the endpoint service. A value of Connected indicates that the endpoint is connected.
    * 
    * @example
    * Connected
@@ -367,7 +367,7 @@ export class GetGatewayResponseBodyDataPrivateLink extends $dara.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * The access domain name of the private endpoint, which can be used to access the gateway from the user VPC.
+   * The access domain name of the internal endpoint, which can be used to access the gateway from the user VPC.
    * 
    * @example
    * ep-bp1example123456789.epsrv-bp1example123456789.cn-hangzhou.privatelink.aliyuncs.com
@@ -375,7 +375,7 @@ export class GetGatewayResponseBodyDataPrivateLink extends $dara.Model {
   endpointDomain?: string;
   /**
    * @remarks
-   * The ID of the private endpoint.
+   * The internal endpoint ID.
    * 
    * @example
    * ep-bp1example123456789
@@ -383,7 +383,7 @@ export class GetGatewayResponseBodyDataPrivateLink extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The ID of the security group configured for the private endpoint.
+   * The ID of the security group configured for the internal endpoint.
    * 
    * @example
    * sg-bp1example123456789
@@ -391,7 +391,7 @@ export class GetGatewayResponseBodyDataPrivateLink extends $dara.Model {
   endpointSecurityGroupId?: string;
   /**
    * @remarks
-   * The status of the private endpoint. A value of Active indicates that the endpoint is available.
+   * The status of the internal endpoint. A value of Active indicates that the endpoint is available.
    * 
    * @example
    * Active
@@ -399,7 +399,7 @@ export class GetGatewayResponseBodyDataPrivateLink extends $dara.Model {
   endpointStatus?: string;
   /**
    * @remarks
-   * The error code of the most recent error that occurred during the creation or delete operations of the private endpoint. This parameter is not returned if no error message is available.
+   * The error code of the most recent fault that occurred during the creation or delete procedure of the private network ingress. This parameter is not returned if no error message is available.
    * 
    * @example
    * Forbidden.RAM
@@ -407,7 +407,7 @@ export class GetGatewayResponseBodyDataPrivateLink extends $dara.Model {
   lastErrorCode?: string;
   /**
    * @remarks
-   * The description of the most recent error that occurred during the creation or delete operations of the private endpoint. You can use this description along with the error code to troubleshoot the issue. This parameter is not returned if no error message is available.
+   * The description of the most recent fault that occurred during the creation or delete procedure of the private network ingress. You can use this description along with the error code to troubleshoot the issue. This parameter is not returned if no error message is available.
    * 
    * @example
    * private ingress CheckProductOpen failed (Forbidden.RAM)
@@ -423,7 +423,7 @@ export class GetGatewayResponseBodyDataPrivateLink extends $dara.Model {
   observedAt?: string;
   /**
    * @remarks
-   * Indicates whether the private endpoint may continue to incur fees. A value of true indicates that the endpoint is created and its release is not confirmed. A value of false indicates that no fee prompt is available. The actual fees are subject to the bill.
+   * Indicates whether the private endpoint may continue to incur charges. A value of true indicates that the endpoint is created and its release is not confirmed. A value of false indicates that no charge prompt is available. Actual charges are subject to the bill.
    * 
    * @example
    * true
@@ -749,7 +749,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The creation source of the gateway. Valid values:
+   * The source from which the gateway was created. Valid values:
    * - Console: The console.
    * 
    * @example
@@ -787,7 +787,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   expireTimestamp?: number;
   /**
    * @remarks
-   * The edition of the gateway instance. Valid values:
+   * The gateway edition. Valid values:
    * - Professional: Professional instance.
    * - Serverless: Serverless instance.
    * 
@@ -805,7 +805,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The operation mode for AI multi-tenant V2. The default value is ENTERPRISE. This parameter is applicable only to AI and MultiTenantServerless gateways.
+   * The AI multi-tenant V2 operation mode. The default value is ENTERPRISE. This parameter is allowed only for AI and MultiTenantServerless.
    * 
    * @example
    * STANDARD
@@ -823,7 +823,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The type of the Internet service provider (ISP).
+   * The network ISP type.
    * 
    * @example
    * BGP
@@ -849,7 +849,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network access configuration of the gateway, including the access endpoint type and the security group used by the private endpoint. This parameter is returned only when the gateway is configured with a private endpoint.
+   * The network access configuration of the gateway, including the access endpoint type and the security group used by the internal endpoint. This parameter is returned only when the gateway is configured with an internal endpoint.
    */
   networkAccessConfig?: GetGatewayResponseBodyDataNetworkAccessConfig;
   /**
@@ -881,7 +881,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The gateway specifications. Valid values:
-   * - apigw.small.x1: Small specifications.
+   * - apigw.small.x1: Small.
    * 
    * @example
    * apigw.small.x1
@@ -916,7 +916,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   tags?: GetGatewayResponseBodyDataTags[];
   /**
    * @remarks
-   * The target version of the gateway. If this value is different from the current version, you can upgrade the gateway.
+   * The target version of the gateway. You can upgrade the gateway if this value is different from the current version.
    * 
    * @example
    * 2.0.2

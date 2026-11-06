@@ -13,7 +13,7 @@ export class UpdateGatewayQuotaRuleStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message content.
+   * The message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class UpdateGatewayQuotaRuleStatusResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 1234567890

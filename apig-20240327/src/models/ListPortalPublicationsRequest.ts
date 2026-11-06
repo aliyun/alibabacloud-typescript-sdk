@@ -21,7 +21,7 @@ export class ListPortalPublicationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The API product name. This is the same field as productName in the response list items.
+   * The API product name. This corresponds to the productName field in the response list items.
    * 
    * @example
    * model-service

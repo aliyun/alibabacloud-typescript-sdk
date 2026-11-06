@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayResourceQuotaUsageResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether quota numerical values are provided.
+   * Specifies whether the quota value is provided.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class GetGatewayResourceQuotaUsageResponseBodyDataItems extends $dara.Mod
   limit?: number;
   /**
    * @remarks
-   * The scope to which the limit applies.
+   * The applicable scope of the limit.
    * 
    * @example
    * GATEWAY
@@ -45,7 +45,7 @@ export class GetGatewayResourceQuotaUsageResponseBodyDataItems extends $dara.Mod
   used?: number;
   /**
    * @remarks
-   * The scope for usage statistics.
+   * The scope of usage statistics.
    * 
    * @example
    * GATEWAY

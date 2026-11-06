@@ -6,7 +6,7 @@ import { HiMarketIcon } from "./HiMarketIcon";
 export class ListProductCategoriesResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The ID of the product category. You can use this ID as the categoryId path parameter in the GetProductCategory, UpdateProductCategory, and DeleteProductCategory operations, or as an element in the categories parameter in the SetProductCategories and CreateProduct operations.
+   * The product category ID. You can use this ID as the categoryId path parameter for GetProductCategory, UpdateProductCategory, and DeleteProductCategory. You can also use it as an element in the categories parameter (a set of category IDs) for SetProductCategories and CreateProduct.
    * 
    * @example
    * category-xxxxxxxx
@@ -14,20 +14,20 @@ export class ListProductCategoriesResponseBodyDataContent extends $dara.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The description of the product category.
+   * The product category description.
    * 
    * @example
-   * Product categories with AI-related capabilities
+   * Product category containing AI-related capabilities
    */
   description?: string;
   /**
    * @remarks
-   * The icon of the product category. It consists of two fields: type (the icon type) and value (the icon information).
+   * The product category icon. It consists of two fields: icon type (type) and icon information (value).
    */
   icon?: HiMarketIcon;
   /**
    * @remarks
-   * The name of the product category.
+   * The product category name.
    * 
    * @example
    * ai-capabilities
@@ -66,7 +66,7 @@ export class ListProductCategoriesResponseBodyDataContent extends $dara.Model {
 export class ListProductCategoriesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of product categories. Each element in the list represents a product category.
+   * The list of product categories. Each element in the list is named category and contains the information about a product category.
    */
   content?: ListProductCategoriesResponseBodyDataContent[];
   /**
@@ -147,7 +147,7 @@ export class ListProductCategoriesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A

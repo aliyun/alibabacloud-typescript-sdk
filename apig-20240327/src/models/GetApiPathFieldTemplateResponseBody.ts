@@ -19,7 +19,7 @@ export class GetApiPathFieldTemplateResponseBodyData extends $dara.Model {
   fieldPaths?: { [key: string]: DataFieldPathsValue[] };
   /**
    * @remarks
-   * The API request path corresponding to the field template.
+   * The URI of the request corresponding to the field template.
    * 
    * @example
    * /v1/chat/completions

@@ -6,7 +6,7 @@ import { HiMarketProductRefConfig } from "./HiMarketProductRefConfig";
 export class GetProductRefResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The API configurations currently associated with the API product. The structure is derived from the common struct HiMarketProductRefConfig. This struct contains two members: gatewayId and apigRefConfig. The inner apigRefConfig contains the following members: mcpServerId, mcpRouteId, mcpServerName, agentApiId, agentApiName, modelApiId, and modelApiName.
+   * The API configuration currently associated with the API product. The structure is derived from the common structure HiMarketProductRefConfig. This structure contains two members: gatewayId and apigRefConfig. The inner apigRefConfig contains the following members: mcpServerId, mcpRouteId, mcpServerName, agentApiId, agentApiName, modelApiId, and modelApiName.
    */
   apigRefConfig?: HiMarketProductRefConfig;
   /**

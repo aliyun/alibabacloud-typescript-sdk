@@ -10,7 +10,7 @@ export class UpdatePluginAttachmentRequest extends $dara.Model {
   attachResourceIds?: string[];
   /**
    * @remarks
-   * Specifies whether to enable the plugin mount.
+   * Specifies whether the plugin mount is enabled.
    * 
    * @example
    * false

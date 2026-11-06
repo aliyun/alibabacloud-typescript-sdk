@@ -6,7 +6,7 @@ import { DataPathConfigsFieldPathsValue } from "./DataPathConfigsFieldPathsValue
 export class GetApiPathFieldConfigResponseBodyDataPathConfigs extends $dara.Model {
   /**
    * @remarks
-   * The collection of field configurations under the path, grouped by mapping key. Each group contains a set of field configuration items.
+   * The collection of field configurations under the path, grouped by mapping key, where each group represents a set of field configuration items.
    */
   fieldPaths?: { [key: string]: DataPathConfigsFieldPathsValue[] };
   /**

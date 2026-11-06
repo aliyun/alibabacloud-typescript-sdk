@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePluginClassRequest extends $dara.Model {
   /**
    * @remarks
-   * The alias of the plugin class. This parameter is required. If this parameter is not specified, the service returns an InvalidParameter.WithValue error.
+   * The alias of the plug-in. This parameter is required. If it is not provided, the service returns InvalidParameter.WithValue.
    * 
    * @example
    * My Wasm Plugin
@@ -13,7 +13,7 @@ export class CreatePluginClassRequest extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The description of the plugin.
+   * The description of the plug-in.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreatePluginClassRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The execution priority of the plugin. This parameter is required when executeStage is specified. The default value 0 is invalid. We recommend that you set this parameter to 200.
+   * The execution priority of the plug-in. This parameter is required when executeStage is specified. The default value 0 is invalid. Set this parameter to 200.
    * 
    * @example
    * 100
@@ -31,7 +31,7 @@ export class CreatePluginClassRequest extends $dara.Model {
   executePriority?: number;
   /**
    * @remarks
-   * The execution stage of the plugin.
+   * The execution stage of the plug-in.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class CreatePluginClassRequest extends $dara.Model {
   executeStage?: string;
   /**
    * @remarks
-   * The name of the plugin class.
+   * The name of the plug-in class.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CreatePluginClassRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The minimum gateway version that the plugin is compatible with.
+   * The minimum supported gateway version.
    * 
    * @example
    * 2.0.0
@@ -59,7 +59,7 @@ export class CreatePluginClassRequest extends $dara.Model {
   supportedMinGatewayVersion?: string;
   /**
    * @remarks
-   * The version number of the plugin.
+   * The version number of the plug-in.
    * 
    * This parameter is required.
    * 
@@ -79,7 +79,7 @@ export class CreatePluginClassRequest extends $dara.Model {
   versionDescription?: string;
   /**
    * @remarks
-   * The development language of the WASM plugin. Valid values: TinyGo.
+   * The development language of the WASM plug-in. Valid values: TinyGo.
    * 
    * This parameter is required.
    * 
@@ -89,7 +89,7 @@ export class CreatePluginClassRequest extends $dara.Model {
   wasmLanguage?: string;
   /**
    * @remarks
-   * The download URL of the WASM plugin binary file.
+   * The download URL of the WASM plug-in binary file.
    * 
    * This parameter is required.
    * 

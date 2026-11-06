@@ -53,7 +53,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Specifies whether to group the results by API.
+   * Specifies whether to group by API.
    * 
    * @example
    * true

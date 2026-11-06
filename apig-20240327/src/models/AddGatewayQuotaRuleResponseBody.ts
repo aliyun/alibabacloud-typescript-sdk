@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $dara.Model {
   /**
    * @remarks
-   * The period type of the existing conflicting rule on the consumption subject. A value of day, week, or month indicates that the period of the existing conflicting rule is day, week, or month, respectively.
+   * The period type of the existing conflicting rule on the subject. This is a legacy field. Use periodType in the actual response instead. This field is not guaranteed to be returned. A value of day, week, or month indicates that the period of the existing conflicting rule is day, week, or month.
    * 
    * @example
    * week
@@ -15,7 +15,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
   conflictPeriodType?: string;
   /**
    * @remarks
-   * The type of the existing conflicting rule on the consumption subject. A value of calendar indicates that the existing conflicting rule is a natural period rule. A value of epoch indicates that the existing conflicting rule is a custom period rule.
+   * The type of the existing conflicting rule on the subject. A value of calendar indicates that the existing conflicting rule uses a natural period. A value of epoch indicates that the existing conflicting rule uses a custom period.
    * 
    * @example
    * calendar
@@ -23,7 +23,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
   conflictType?: string;
   /**
    * @remarks
-   * The ID of the conflicting consumer. This parameter is deprecated. Use subjectId instead.
+   * The ID of the conflicting consumer. You can use subjectId instead.
    * 
    * @example
    * cs-xxxxxx
@@ -31,13 +31,16 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
   consumerId?: string;
   /**
    * @remarks
-   * The name of the conflicting consumer. This parameter is deprecated. Use subjectName instead.
+   * The name of the conflicting consumer. You can use subjectName instead.
    * 
    * @example
    * consumer-a
    */
   consumerName?: string;
   /**
+   * @remarks
+   * The period type of the existing conflicting rule. Valid values: day, week, and month.
+   * 
    * @example
    * day
    */
@@ -104,7 +107,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreviewItems extends $da
 export class AddGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.Model {
   /**
    * @remarks
-   * The hash of the conflict.
+   * The hash of the conflicts.
    * 
    * @example
    * f8f44dc6cf369a017d56b7197eb4fb5ac4bbb6b09a92b9b41999541fxxxxxxxx
@@ -154,7 +157,7 @@ export class AddGatewayQuotaRuleResponseBodyDataConflictPreview extends $dara.Mo
 export class AddGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the semantics of the current write request can be accepted by the system. A value of false typically occurs in retryable scenarios, such as when a conflict is not confirmed for overwriting.
+   * Indicates whether the semantics of the write request can be accepted by the system. A value of false typically occurs in retryable scenarios, such as when conflicts are not confirmed for overwriting.
    * 
    * @example
    * true

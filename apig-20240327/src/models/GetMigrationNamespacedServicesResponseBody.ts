@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMigrationNamespacedServicesResponseBodyDataNamespacedServicesServices extends $dara.Model {
   /**
    * @remarks
-   * The service name. After you select a Server Load Balancer (SLB) instance, the frontend populates this value into the serviceName field.
+   * The name of the service. After an SLB instance is selected, the frontend populates this value into the serviceName field.
    * 
    * @example
    * nginx-ingress-lb
@@ -115,7 +115,7 @@ export class GetMigrationNamespacedServicesResponseBodyData extends $dara.Model 
 export class GetMigrationNamespacedServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code.
+   * The status code of the response.
    * 
    * @example
    * 200
@@ -136,7 +136,7 @@ export class GetMigrationNamespacedServicesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7D513911-206E-5E93-9C9E-71D63C0D68E7

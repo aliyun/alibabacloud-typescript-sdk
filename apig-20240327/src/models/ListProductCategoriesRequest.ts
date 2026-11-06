@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductCategoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword used to search for product categories by name.
+   * The keyword for the category name. This parameter is used to search for product categories by name.
    * 
    * @example
    * ai-capabilities
@@ -21,7 +21,7 @@ export class ListProductCategoriesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Minimum value: 1.
+   * The number of entries per page. The minimum value is 1.
    * 
    * @example
    * 10

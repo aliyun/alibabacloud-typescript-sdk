@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return online resource information.
+   * Specifies whether to return production resource information.
    * 
    * @example
    * true

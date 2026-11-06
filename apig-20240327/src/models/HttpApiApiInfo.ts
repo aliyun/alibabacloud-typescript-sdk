@@ -11,7 +11,7 @@ import { HttpApiBackendMatchConditions } from "./HttpApiBackendMatchConditions";
 export class HttpApiApiInfoEnvironmentsGatewayInfo extends $dara.Model {
   /**
    * @remarks
-   * The edition of the gateway instance. Valid values: Professional, Serverless, MultiTenantServerless, and Unknown.
+   * The gateway instance edition. Valid values: Professional, Serverless, MultiTenantServerless, and Unknown.
    * 
    * @example
    * MultiTenantServerless
@@ -69,7 +69,7 @@ export class HttpApiApiInfoEnvironmentsServiceConfigs extends $dara.Model {
   gatewayServiceId?: string;
   /**
    * @remarks
-   * The match condition.
+   * The match conditions.
    */
   match?: HttpApiBackendMatchConditions;
   /**
@@ -229,7 +229,7 @@ export class HttpApiApiInfoEnvironments extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The deployment scenario.
+   * The release scenario.
    * 
    * @example
    * SingleService
@@ -245,12 +245,12 @@ export class HttpApiApiInfoEnvironments extends $dara.Model {
   backendType?: string;
   /**
    * @remarks
-   * The information about the custom domain names published by the user.
+   * The published domain name information.
    */
   customDomains?: HttpApiDomainInfo[];
   /**
    * @remarks
-   * The deployment status of the API in the current environment.
+   * The API deployment status in the current environment.
    * 
    * @example
    * Deployed
@@ -266,7 +266,7 @@ export class HttpApiApiInfoEnvironments extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The information about the gateway instance to which the current environment belongs.
+   * The gateway instance information for the current environment.
    */
   gatewayInfo?: HttpApiApiInfoEnvironmentsGatewayInfo;
   /**
@@ -406,7 +406,7 @@ export class HttpApiApiInfoIngressInfo extends $dara.Model {
   environmentInfo?: HttpApiApiInfoIngressInfoEnvironmentInfo;
   /**
    * @remarks
-   * The Ingress class being listened to.
+   * The ingress class to listen on.
    * 
    * @example
    * mse
@@ -419,7 +419,7 @@ export class HttpApiApiInfoIngressInfo extends $dara.Model {
   k8sClusterInfo?: HttpApiApiInfoIngressInfoK8sClusterInfo;
   /**
    * @remarks
-   * Specifies whether to override the IP address in the Ingress status.
+   * Specifies whether to update the address in the ingress status.
    * 
    * @example
    * true
@@ -504,7 +504,7 @@ export class HttpApiApiInfo extends $dara.Model {
   basePath?: string;
   /**
    * @remarks
-   * The deployment status of the API operation.
+   * The API operation deployment status.
    */
   deployCntMap?: { [key: string]: HttpApiApiInfoDeployCntMapValue };
   /**
@@ -517,12 +517,12 @@ export class HttpApiApiInfo extends $dara.Model {
    * The API description.
    * 
    * @example
-   * Test API
+   * Test-specific API
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether authentication is enabled.
+   * Specifies whether to enable authentication.
    * 
    * @example
    * true
@@ -551,7 +551,7 @@ export class HttpApiApiInfo extends $dara.Model {
   httpApiId?: string;
   /**
    * @remarks
-   * The HTTP Ingress API information.
+   * The HTTP ingress API information.
    */
   ingressInfo?: HttpApiApiInfoIngressInfo;
   /**
