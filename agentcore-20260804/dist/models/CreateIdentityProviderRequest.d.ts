@@ -18,7 +18,7 @@ export declare class CreateIdentityProviderRequestBodyMetadata extends $dara.Mod
     appKey?: string;
     /**
      * @remarks
-     * Required. The secret of the external identity provider application. This parameter is used only for writing and is not returned by query API operations.
+     * Required. The secret of the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
      *
      * @example
      * example-app-secret
@@ -34,7 +34,7 @@ export declare class CreateIdentityProviderRequestBodyMetadata extends $dara.Mod
     corpId?: string;
     /**
      * @remarks
-     * The data encryption key for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for writing and is not returned by query API operations.
+     * The data encryption key for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
      *
      * @example
      * example-encrypt-key
@@ -42,7 +42,7 @@ export declare class CreateIdentityProviderRequestBodyMetadata extends $dara.Mod
     encryptKey?: string;
     /**
      * @remarks
-     * The verification token for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for writing and is not returned by query API operations.
+     * The verification token for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations and is not returned by query operations.
      *
      * @example
      * example-verification-token
@@ -62,7 +62,7 @@ export declare class CreateIdentityProviderRequestBodyMetadata extends $dara.Mod
 export declare class CreateIdentityProviderRequestBodySyncScope extends $dara.Model {
     /**
      * @remarks
-     * When the mode is SelectedDepartments, the list must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
+     * When the mode is SelectedDepartments, this parameter must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
      *
      * @example
      * ["10001"]
@@ -70,7 +70,7 @@ export declare class CreateIdentityProviderRequestBodySyncScope extends $dara.Mo
     departmentIds?: string[];
     /**
      * @remarks
-     * AllAuthorized: the full authorization scope, which is limited by the application address book authorization. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
+     * AllAuthorized: the entire authorized scope, which is limited by the application address book authorization. SelectedDepartments: the selected departments and all their sub-departments. When you explicitly submit syncScope, you must provide a valid mode, which is verified by the backend.
      *
      * @example
      * SelectedDepartments
@@ -110,17 +110,17 @@ export declare class CreateIdentityProviderRequestBody extends $dara.Model {
     metadata?: CreateIdentityProviderRequestBodyMetadata;
     /**
      * @remarks
-     * Specifies whether to enable organization member synchronization. If enabled, the external identity provider synchronizes organization members as workspace users.
+     * Specifies whether to enable organization member synchronization. When enabled, organization members are synchronized as workspace users by the external identity provider.
      */
     syncEnabled?: boolean;
     /**
      * @remarks
-     * Controls the first synchronization when DingTalk or Lark is bound. If omitted or set to null, the default value is true. If set to false, only the configuration is saved, and synchronization is explicitly triggered later. CustomSSO does not use the vendor pull link.
+     * Controls the initial synchronization when DingTalk or Feishu is bound. If this parameter is omitted or set to null, the default value is true. If this parameter is set to false, only the configuration is saved, and synchronization must be explicitly triggered later. CustomSSO does not use the provider pull channel.
      */
     syncOnBind?: boolean;
     /**
      * @remarks
-     * Retains the department-based synchronization scope definition. If omitted during creation, the default value is AllAuthorized. The first vendor synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically perform full synchronization.
+     * Uses the department-based synchronization scope definition. If this parameter is omitted during creation, the default value is AllAuthorized. The initial provider synchronization is determined by syncOnBind. If this parameter is omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
      */
     syncScope?: CreateIdentityProviderRequestBodySyncScope;
     static names(): {
@@ -137,7 +137,7 @@ export declare class CreateIdentityProviderRequestBody extends $dara.Model {
 export declare class CreateIdentityProviderRequest extends $dara.Model {
     /**
      * @remarks
-     * The request content for binding an external identity provider.
+     * The request body for binding an external identity provider.
      */
     body?: CreateIdentityProviderRequestBody;
     static names(): {

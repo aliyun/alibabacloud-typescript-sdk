@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListAgentSpecsRequest extends $dara.Model {
     /**
      * @remarks
-     * The AgentSpec name used as a search keyword. This parameter is used together with the search parameter.
+     * The name of the AgentSpec, used as a search keyword in combination with the search parameter.
      *
      * @example
      * my-worker
@@ -18,7 +18,7 @@ export declare class ListAgentSpecsRequest extends $dara.Model {
     bizTag?: string;
     /**
      * @remarks
-     * The field by which to sort the results. Set the value to download_count to sort by download count. By default, results are sorted by update time.
+     * The field by which to sort the results. Supports download_count. By default, the results are sorted by update time.
      *
      * @example
      * download_count
@@ -26,7 +26,7 @@ export declare class ListAgentSpecsRequest extends $dara.Model {
     orderBy?: string;
     /**
      * @remarks
-     * The owner used to filter the results.
+     * The owner filter.
      *
      * @example
      * user1
@@ -50,10 +50,7 @@ export declare class ListAgentSpecsRequest extends $dara.Model {
     pageSize?: number;
     /**
      * @remarks
-     * The visibility scope used to filter the results. Valid values:
-     *
-     * - PUBLIC
-     * - PRIVATE
+     * The visibility scope filter. Valid values: PUBLIC and PRIVATE.
      *
      * @example
      * PUBLIC
@@ -61,12 +58,7 @@ export declare class ListAgentSpecsRequest extends $dara.Model {
     scope?: string;
     /**
      * @remarks
-     * The search mode. Valid values:
-     *
-     * - accurate: exact match.
-     * - blur: fuzzy match.
-     *
-     * Default value: blur.
+     * The search mode. Valid values: accurate (exact match) and blur (fuzzy match). Default value: blur.
      *
      * @example
      * blur
@@ -74,7 +66,7 @@ export declare class ListAgentSpecsRequest extends $dara.Model {
     search?: string;
     /**
      * @remarks
-     * Specifies whether to return the Skills and McpServers lists. Default value: false.
+     * Specifies whether to return the lists of skills and MCP servers. Default value: false.
      *
      * @example
      * true

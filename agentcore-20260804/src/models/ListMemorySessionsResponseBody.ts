@@ -13,7 +13,7 @@ export class ListMemorySessionsResponseBodyItems extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Session ID
+   * The session ID.
    * 
    * @example
    * session-001
@@ -71,7 +71,7 @@ export class ListMemorySessionsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The list of sessions.
+   * The session list.
    */
   items?: ListMemorySessionsResponseBodyItems[];
   /**

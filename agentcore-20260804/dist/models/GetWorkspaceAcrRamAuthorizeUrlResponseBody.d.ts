@@ -32,7 +32,7 @@ export declare class GetWorkspaceAcrRamAuthorizeUrlResponseBodyData extends $dar
     roleName?: string;
     /**
      * @remarks
-     * The source of the shared role. This does not indicate that authorization is complete.
+     * The source of the shared role. This does not indicate that the authorization is complete.
      *
      * This parameter is required.
      *

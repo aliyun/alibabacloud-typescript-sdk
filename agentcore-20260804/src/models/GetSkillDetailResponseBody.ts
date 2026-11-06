@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   /**
    * @remarks
-   * The author of the version.
+   * The version author.
    * 
    * @example
    * alice
@@ -149,7 +149,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   downloadCount?: number;
   /**
    * @remarks
-   * The draft pattern. HEAD indicates that the skill has a persistent draft, and VERSIONED indicates that a draft with a version number is created for each edit. This pattern is determined by the server, and the invoker uses this value for routing What to do next.
+   * The draft pattern. A value of HEAD indicates that the skill has a persistent draft, and a value of VERSIONED indicates that a draft with a version number is created for each edit. This is determined by the server, and the client uses this value to invoke routing for What to do next.
    * 
    * @example
    * HEAD

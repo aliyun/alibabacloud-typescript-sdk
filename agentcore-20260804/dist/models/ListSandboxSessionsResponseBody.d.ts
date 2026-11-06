@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListSandboxSessionsResponseBodyItems extends $dara.Model {
     /**
      * @remarks
-     * The external channel type, such as DINGTALK, FEISHU, or WECOM. This parameter is empty for non-external channels.
+     * The type of the external channel, such as DINGTALK, FEISHU, or WECOM. This parameter is empty for non-external channels.
      *
      * @example
      * DINGTALK
@@ -18,11 +18,7 @@ export declare class ListSandboxSessionsResponseBodyItems extends $dara.Model {
     sessionId?: string;
     /**
      * @remarks
-     * The session source type. Valid values:
-     * - API: API call.
-     * - CONSOLE_DEBUG: Console debugging.
-     * - EXTERNAL_CHANNEL: External channel.
-     * - UNKNOWN: Unknown source.
+     * The source type of the session. A value of API indicates an API call. A value of CONSOLE_DEBUG indicates console debugging. A value of EXTERNAL_CHANNEL indicates an external channel. A value of UNKNOWN indicates an unknown source.
      *
      * @example
      * EXTERNAL_CHANNEL
@@ -42,7 +38,7 @@ export declare class ListSandboxSessionsResponseBodyItems extends $dara.Model {
 export declare class ListSandboxSessionsResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business status code. The value SUCCESS is returned if the request was successful.
+     * The business status code. The value is SUCCESS if the request is successful.
      *
      * @example
      * SUCCESS
@@ -50,7 +46,7 @@ export declare class ListSandboxSessionsResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The HTTP status code. The value 200 is returned if the request was successful.
+     * The HTTP status code. The value is 200 if the request is successful.
      *
      * @example
      * 200
@@ -63,7 +59,7 @@ export declare class ListSandboxSessionsResponseBody extends $dara.Model {
     items?: ListSandboxSessionsResponseBodyItems[];
     /**
      * @remarks
-     * The maximum number of records per page for this query.
+     * The maximum number of records per page for the current query.
      *
      * @example
      * 20
@@ -71,7 +67,7 @@ export declare class ListSandboxSessionsResponseBody extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The response message. The value success is returned if the request was successful.
+     * The response message. The value is success if the request is successful.
      *
      * @example
      * success
@@ -95,14 +91,12 @@ export declare class ListSandboxSessionsResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful. Valid values:
-     * - true: The request was successful.
-     * - false: The request failed.
+     * Indicates whether the request is successful. A value of true indicates that the request is successful. A value of false indicates that the request fails.
      */
     success?: boolean;
     /**
      * @remarks
-     * The total number of records that match the query conditions.
+     * The total number of records that meet the query conditions.
      *
      * @example
      * 27

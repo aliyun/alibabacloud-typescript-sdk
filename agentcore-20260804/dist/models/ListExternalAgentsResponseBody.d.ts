@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListExternalAgentsResponseBodyItems extends $dara.Model {
     /**
      * @remarks
-     * The ID of the external agent.
+     * The ID of the managed agent.
      *
      * @example
      * agent-1
@@ -34,7 +34,7 @@ export declare class ListExternalAgentsResponseBodyItems extends $dara.Model {
     deployType?: string;
     /**
      * @remarks
-     * The description of the external agent.
+     * The description of the managed agent.
      *
      * @example
      * Code review agent running in the user environment
@@ -50,7 +50,7 @@ export declare class ListExternalAgentsResponseBodyItems extends $dara.Model {
     latestSpecVersion?: number;
     /**
      * @remarks
-     * The name of the external agent.
+     * The name of the managed agent.
      *
      * @example
      * my-external-agent
@@ -58,7 +58,7 @@ export declare class ListExternalAgentsResponseBodyItems extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The runtime type reported by the external agent.
+     * The runtime type reported by the managed agent.
      *
      * @example
      * qwenpaw
@@ -66,7 +66,7 @@ export declare class ListExternalAgentsResponseBodyItems extends $dara.Model {
     runtime?: string;
     /**
      * @remarks
-     * The status of the external agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted.
+     * The status of the managed agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted.
      *
      * @example
      * Running
@@ -118,10 +118,10 @@ export declare class ListExternalAgentsResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The list of external agents.
+     * The list of managed agents.
      *
      * @example
-     * [{"agentId":"agent-1","workspaceId":"ws-1","name":"my-external-agent","description":"Code review agent running in the user environment","status":"Running","latestSpecVersion":1,"effectiveSpecVersion":1,"createMode":"CUSTOM","runtime":"qwenpaw","deployType":"SELF_HOSTED","createdAt":"2026-01-01T00:00:00Z","updatedAt":"2026-01-01T00:00:00Z"}]
+     * [{"agentId":"agent-1","workspaceId":"ws-1","name":"my-external-agent","description":"运行在用户环境中的代码评审智能体","status":"Running","latestSpecVersion":1,"effectiveSpecVersion":1,"createMode":"CUSTOM","runtime":"qwenpaw","deployType":"SELF_HOSTED","createdAt":"2026-01-01T00:00:00Z","updatedAt":"2026-01-01T00:00:00Z"}]
      */
     items?: ListExternalAgentsResponseBodyItems[];
     /**

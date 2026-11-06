@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DebugModelRequestBody extends $dara.Model {
     /**
      * @remarks
-     * The prompt used to verify the model call chain.
+     * The prompt used to verify the model invocation pipeline.
      *
      * This parameter is required.
      *

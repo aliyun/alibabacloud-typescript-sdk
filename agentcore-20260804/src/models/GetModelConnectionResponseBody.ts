@@ -55,7 +55,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
+   * The name of the model connection. The name is 1 to 128 non-whitespace characters in length.
    * 
    * @example
    * name
@@ -63,7 +63,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The protocol used to invoke the model. Currently, only OpenAI/v1 is supported. If no Settings are specified during model creation, this default value is used.
+   * The protocol to invoke the model. Currently, only OpenAI/v1 is supported. If the Settings are not specified during model creation, this default value is used.
    * 
    * @example
    * OpenAI/v1
@@ -95,7 +95,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The failure summary returned when the model connection fails to be published, or when deletion fails but the resource remains in the deleting state. This field is empty in other states.
+   * The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the deleting state. This field is empty in other states.
    * 
    * @example
    * GatewayOperationException
@@ -172,7 +172,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
 export class GetModelConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS when the request is successful.
+   * The business status code. The value is SUCCESS when the operation is successful.
    * 
    * @example
    * SUCCESS
@@ -185,7 +185,7 @@ export class GetModelConnectionResponseBody extends $dara.Model {
   data?: GetModelConnectionResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 when the request is successful.
+   * The HTTP status code. The value is 200 if the request is successful.
    * 
    * @example
    * 200

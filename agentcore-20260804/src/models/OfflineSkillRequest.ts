@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OfflineSkillRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The operation scope. Valid values:
-   * - skill: the entire Skill.
-   * - version: a specified version.
+   * The scope of the operation. Valid values: skill (the entire skill) and version (a specified version).
    * 
    * @example
    * version
@@ -15,7 +13,7 @@ export class OfflineSkillRequestBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The Skill version number.
+   * The skill version number.
    * 
    * @example
    * 0.0.1

@@ -10,7 +10,7 @@ export declare class CreateUserResponseBodyData extends $dara.Model {
     agentCoreUserId?: string;
     /**
      * @remarks
-     * The authentication method of the user. A value of password indicates that local password authentication in the workspace is used. A value of dingtalk or feishu indicates that the user is synchronized and authenticated by the corresponding external identity provider.
+     * The authentication method of the user. A value of password indicates that local password authentication in the workspace is used. A value of dingtalk or feishu indicates that the user is synchronized and authenticated by the corresponding external identity provider (IdP).
      *
      * @example
      * password
@@ -18,7 +18,7 @@ export declare class CreateUserResponseBodyData extends $dara.Model {
     authMethod?: string;
     /**
      * @remarks
-     * The time when the user was created. The time is displayed in UTC and follows the RFC 3339 format.
+     * The creation time. The time is displayed in UTC and follows the RFC 3339 format.
      *
      * @example
      * 2026-08-12T03:04:05Z
@@ -58,10 +58,10 @@ export declare class CreateUserResponseBodyData extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The note for the user. The note can be up to 1,024 characters in length.
+     * The remarks for the user. The remarks can be up to 1,024 characters in length.
      *
      * @example
-     * Agent operations team member
+     * Agent operation team member
      */
     note?: string;
     /**
@@ -82,7 +82,7 @@ export declare class CreateUserResponseBodyData extends $dara.Model {
     status?: string;
     /**
      * @remarks
-     * The time when the user was last modified. The time is displayed in UTC and follows the RFC 3339 format.
+     * The time of the last update. The time is displayed in UTC and follows the RFC 3339 format.
      *
      * @example
      * 2026-08-12T03:04:05Z

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
   /**
    * @remarks
-   * The JSON array string of business tags.
+   * The business tags in a JSON array string.
    * 
    * @example
    * Sample property value
@@ -16,7 +16,7 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
    * The description.
    * 
    * @example
-   * Sample description used to explain the purpose of the resource
+   * Sample description used to illustrate the purpose of the resource
    */
   description?: string;
   /**
@@ -29,7 +29,7 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
   downloadCount?: number;
   /**
    * @remarks
-   * The draft mode. A value of HEAD indicates that the skill has a persistent draft. A value of VERSIONED indicates that a versioned draft is created for each edit. This value is determined by the server, and the caller renders the status column based on this value.
+   * The draft mode. Valid values: HEAD (the skill has a persistent draft) and VERSIONED (each edit creates a versioned draft). This is determined by the server and used by the caller to render the status column.
    * 
    * @example
    * HEAD
@@ -108,7 +108,7 @@ export class ListSkillsResponseBodyDataPageItems extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The update time. The value is a UNIX timestamp in milliseconds.
+   * The update time. It is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -251,7 +251,7 @@ export class ListSkillsResponseBody extends $dara.Model {
   data?: ListSkillsResponseBodyData;
   /**
    * @remarks
-   * The maximum number of entries to return per page.
+   * The maximum number of items to return per page.
    * 
    * @example
    * 20

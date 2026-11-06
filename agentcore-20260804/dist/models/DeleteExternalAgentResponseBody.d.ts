@@ -18,7 +18,7 @@ export declare class DeleteExternalAgentResponseBodyData extends $dara.Model {
     accessScope?: string;
     /**
      * @remarks
-     * The external agent ID.
+     * The managed agent ID.
      *
      * @example
      * agent-1
@@ -50,7 +50,7 @@ export declare class DeleteExternalAgentResponseBodyData extends $dara.Model {
     deployType?: string;
     /**
      * @remarks
-     * The description of the external agent.
+     * The description of the managed agent.
      *
      * @example
      * Code review agent running in the user environment
@@ -66,7 +66,7 @@ export declare class DeleteExternalAgentResponseBodyData extends $dara.Model {
     latestSpecVersion?: number;
     /**
      * @remarks
-     * The name of the external agent.
+     * The name of the managed agent.
      *
      * @example
      * my-external-agent
@@ -74,7 +74,7 @@ export declare class DeleteExternalAgentResponseBodyData extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The runtime type reported by the external agent.
+     * The runtime type reported by the managed agent.
      *
      * @example
      * qwenpaw
@@ -82,7 +82,7 @@ export declare class DeleteExternalAgentResponseBodyData extends $dara.Model {
     runtime?: string;
     /**
      * @remarks
-     * The status of the external agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted.
+     * The status of the managed agent. Valid values: Creating, Running, Failed, Updating, Deleting, and Deleted.
      *
      * @example
      * Running
@@ -126,7 +126,7 @@ export declare class DeleteExternalAgentResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The summary information of the deleted external agent.
+     * The summary information of the deleted managed agent.
      */
     data?: DeleteExternalAgentResponseBodyData;
     /**
@@ -139,7 +139,7 @@ export declare class DeleteExternalAgentResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The request processing result message.
+     * The message about the request processing result.
      *
      * @example
      * success

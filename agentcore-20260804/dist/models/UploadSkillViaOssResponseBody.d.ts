@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class UploadSkillViaOssResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The response data.
+     * The returned data.
      *
      * @example
      * skill-1234567890abcdef

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallWorkspacePluginRequestBodyConfigNetworkInternet extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable Internet access. If set to true and no VPC is specified, PUB_NET is used. If set to true and a VPC is specified, PRIVATE_PUBNET is used. If only a VPC is specified, PRIVATE_NET is used. At least one of Internet access and VPC must be configured.
+   * Specifies whether to enable Internet access. If this parameter is set to true and no VPC is specified, PUB_NET is used. If this parameter is set to true and a VPC is specified, PRIVATE_PUBNET is used. If only a VPC is specified, PRIVATE_NET is used. You must configure at least one of Internet access and VPC access.
    * 
    * @example
    * true
@@ -35,7 +35,7 @@ export class InstallWorkspacePluginRequestBodyConfigNetworkInternet extends $dar
 export class InstallWorkspacePluginRequestBodyConfigNetworkVpc extends $dara.Model {
   /**
    * @remarks
-   * Explicitly controls whether the collaboration plugin uses the VPC network. If set to false, vpcId and vSwitchIds are ignored. If set to true, you must provide both vpcId and at least two vSwitchIds.
+   * Explicitly controls whether the collaboration component uses a VPC network. If this parameter is set to false, vpcId and vSwitchIds are ignored. If this parameter is set to true, you must provide a vpcId and at least two vSwitchIds.
    * 
    * @example
    * true
@@ -43,14 +43,14 @@ export class InstallWorkspacePluginRequestBodyConfigNetworkVpc extends $dara.Mod
   enabled?: boolean;
   /**
    * @remarks
-   * The list of vSwitch IDs. The collaboration plugin requires that the vSwitches cover at least two different zones, and all vSwitches must belong to the VPC specified by vpcId.
+   * The list of vSwitch IDs. The collaboration component requires that the vSwitches cover at least two different zones, and all vSwitches must belong to the VPC specified by vpcId.
    * 
    * This parameter is required.
    */
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The user VPC ID.
+   * The ID of the user VPC.
    * 
    * This parameter is required.
    * 
@@ -89,12 +89,12 @@ export class InstallWorkspacePluginRequestBodyConfigNetworkVpc extends $dara.Mod
 export class InstallWorkspacePluginRequestBodyConfigNetwork extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow public network access for collaboration components. This configuration only controls public network access capabilities and does not expose component services to the public network.
+   * Specifies whether the collaboration component is allowed to access the public network. This configuration only controls the public network access capability and does not expose the component service to the public network.
    */
   internet?: InstallWorkspacePluginRequestBodyConfigNetworkInternet;
   /**
    * @remarks
-   * The user VPC and vSwitch list used for deploying the collaboration plugin. The zones corresponding to the vSwitches are queried by the server, and users do not need to pass in Zones.
+   * The user VPC and the list of vSwitches used to deploy the collaboration component. The zones corresponding to the vSwitches are queried by the server. You do not need to pass the Zones parameter.
    */
   vpc?: InstallWorkspacePluginRequestBodyConfigNetworkVpc;
   static names(): { [key: string]: string } {
@@ -129,7 +129,7 @@ export class InstallWorkspacePluginRequestBodyConfigNetwork extends $dara.Model 
 export class InstallWorkspacePluginRequestBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * The network configuration used by the collaboration plugin. If not specified, the server uses the existing network configuration of the workspace.
+   * The network configuration used by the collaboration component. If not specified, the server uses the existing network configuration of the workspace.
    */
   network?: InstallWorkspacePluginRequestBodyConfigNetwork;
   static names(): { [key: string]: string } {
@@ -159,7 +159,7 @@ export class InstallWorkspacePluginRequestBodyConfig extends $dara.Model {
 export class InstallWorkspacePluginRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The plugin-specific configuration. The configuration structure is determined by pluginName. Currently, the collaboration plugin supports network.
+   * The component-specific configuration. The configuration structure is determined by the pluginName parameter. Currently, the collaboration component supports the network configuration.
    */
   config?: InstallWorkspacePluginRequestBodyConfig;
   static names(): { [key: string]: string } {
@@ -189,7 +189,7 @@ export class InstallWorkspacePluginRequestBody extends $dara.Model {
 export class InstallWorkspacePluginRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body for installing a plugin.
+   * The request body for installing the component.
    */
   body?: InstallWorkspacePluginRequestBody;
   /**

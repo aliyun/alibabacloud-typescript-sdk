@@ -85,12 +85,12 @@ export class UpdateTeamRequestBodyUsers extends $dara.Model {
 export class UpdateTeamRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The new list of agent members. The existing agent members are replaced based on full overwrite semantics. If this parameter is not specified, the existing agent members remain unchanged.
+   * The new list of agent members. This list replaces the existing agent members based on full overwrite semantics. If not specified, the existing list remains unchanged.
    */
   agents?: UpdateTeamRequestBodyAgents[];
   /**
    * @remarks
-   * The new team description. If this parameter is not specified, the existing description remains unchanged.
+   * The new team description. If not specified, the existing description remains unchanged.
    * 
    * @example
    * Team responsible for intelligent customer service
@@ -98,7 +98,7 @@ export class UpdateTeamRequestBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The new list of user members. The existing user members are replaced based on full overwrite semantics. If this parameter is specified, it must contain exactly one member with the ADMIN role. If this parameter is not specified, the existing user members remain unchanged.
+   * The new list of user members. This list replaces the existing user members based on full overwrite semantics. If this parameter is specified, it must contain exactly one member with the ADMIN role. If not specified, the existing list remains unchanged.
    */
   users?: UpdateTeamRequestBodyUsers[];
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class UpdateTeamRequestBody extends $dara.Model {
 export class UpdateTeamRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body for updating a team.
+   * The request body for updating the team.
    */
   body?: UpdateTeamRequestBody;
   /**

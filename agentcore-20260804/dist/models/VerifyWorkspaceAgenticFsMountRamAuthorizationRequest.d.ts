@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class VerifyWorkspaceAgenticFsMountRamAuthorizationRequest extends $dara.Model {
     /**
      * @remarks
-     * The domain name of the target AccessPoint, obtained from the DomainName field of NAS ListAccessPoints. Do not include the protocol, port, or path.
+     * The domain name of the target access point. Obtain the value from the DomainName parameter of the NAS ListAccessPoints operation. Do not include the protocol, port, or path.
      *
      * This parameter is required.
      *

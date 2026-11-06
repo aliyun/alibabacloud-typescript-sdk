@@ -14,7 +14,7 @@ export declare class GetMcpMarketItemResponseBodyData extends $dara.Model {
      * The MCP service description.
      *
      * @example
-     * An MCP service for querying knowledge bases
+     * MCP service for querying knowledge bases
      */
     description?: string;
     /**
@@ -26,7 +26,7 @@ export declare class GetMcpMarketItemResponseBodyData extends $dara.Model {
     };
     /**
      * @remarks
-     * The multilingual display content, organized by BCP-47 language tags. Falls back to default fields when the specified language is not matched.
+     * The multilingual display content organized by BCP-47 language tags. If a language is not matched, the default fields are used.
      */
     i18n?: {
         [key: string]: DataI18nValue;
@@ -41,7 +41,7 @@ export declare class GetMcpMarketItemResponseBodyData extends $dara.Model {
     iconUrl?: string;
     /**
      * @remarks
-     * The number of times the template has been installed.
+     * The template installation count.
      *
      * @example
      * 12
@@ -89,7 +89,7 @@ export declare class GetMcpMarketItemResponseBodyData extends $dara.Model {
     protocol?: string;
     /**
      * @remarks
-     * The usage instructions for the MCP marketplace template.
+     * The MCP marketplace template instructions.
      *
      * @example
      * # Knowledge\\nKnowledge base query service
@@ -162,7 +162,7 @@ export declare class GetMcpMarketItemResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The request ID, which is used to locate and troubleshoot issues.
+     * The request ID used to locate and troubleshoot the request.
      *
      * @example
      * request-123456
@@ -170,7 +170,7 @@ export declare class GetMcpMarketItemResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful.
+     * Indicates whether the request is successful.
      */
     success?: boolean;
     static names(): {

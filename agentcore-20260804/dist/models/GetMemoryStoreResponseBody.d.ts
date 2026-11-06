@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class GetMemoryStoreResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The creation time.
+     * The creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * @example
      * 2026-09-23T10:00:00Z
@@ -26,7 +26,7 @@ export declare class GetMemoryStoreResponseBodyData extends $dara.Model {
     extractInstructions?: string;
     /**
      * @remarks
-     * The MemoryStore ID.
+     * The MemoryStore identifier.
      *
      * @example
      * ms-2f5f9c5a8d0e4c3b
@@ -50,7 +50,7 @@ export declare class GetMemoryStoreResponseBodyData extends $dara.Model {
     status?: string;
     /**
      * @remarks
-     * The last updated time.
+     * The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * @example
      * 2026-09-23T10:05:00Z

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteAgentIMChannelRequest extends $dara.Model {
     /**
      * @remarks
-     * The reserved idempotence token. The backend does not provide persistent idempotence guarantee in the current version.
+     * The reserved idempotence token. The backend does not provide persistent idempotence guarantees in the current phase.
      *
      * @example
      * client-token-1

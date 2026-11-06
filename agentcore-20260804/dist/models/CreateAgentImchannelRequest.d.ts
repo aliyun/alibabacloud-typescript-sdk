@@ -39,7 +39,7 @@ export declare class CreateAgentIMChannelRequestBody extends $dara.Model {
     channelType?: string;
     /**
      * @remarks
-     * The channel credentials. You must pass all fields and ensure that the field values are non-empty strings. For DingTalk, use clientID and clientSecret. For Lark, use appId and appSecret. For WeCom, use botId and secret.
+     * The channel credentials. You must pass all credential fields and ensure that the field values are non-empty strings. For DingTalk, use clientID and clientSecret. For Lark, use appId and appSecret. For WeCom, use botId and secret.
      *
      * This parameter is required.
      */
@@ -53,7 +53,7 @@ export declare class CreateAgentIMChannelRequestBody extends $dara.Model {
     enabled?: boolean;
     /**
      * @remarks
-     * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, and must be ready and have a public network address.
+     * The ID of the bound service endpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a publicly accessible address.
      *
      * This parameter is required.
      *
@@ -80,7 +80,7 @@ export declare class CreateAgentIMChannelRequest extends $dara.Model {
     body?: CreateAgentIMChannelRequestBody;
     /**
      * @remarks
-     * The reserved idempotence token. The backend does not provide persistent idempotence guarantees in the current phase.
+     * The reserved idempotency token. The backend does not provide persistent idempotency guarantees in the current phase.
      *
      * @example
      * client-token-1

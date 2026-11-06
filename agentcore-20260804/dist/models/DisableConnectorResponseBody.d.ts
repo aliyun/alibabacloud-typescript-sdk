@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DisableConnectorResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The number of Agents bound to the Connector.
+     * The number of bound agents.
      *
      * @example
      * 3
@@ -10,7 +10,7 @@ export declare class DisableConnectorResponseBodyData extends $dara.Model {
     boundAgentCount?: number;
     /**
      * @remarks
-     * The time when the Connector was enabled.
+     * The time when the connector was enabled.
      *
      * @example
      * 2026-09-01T08:00:00Z
@@ -18,7 +18,7 @@ export declare class DisableConnectorResponseBodyData extends $dara.Model {
     enabledAt?: string;
     /**
      * @remarks
-     * The Connector configuration JSON string before the Connector was disabled. This is sensitive data.
+     * The JSON string of the connector configuration before it was disabled. This is sensitive information.
      *
      * @example
      * {"site":"global","organizationId":"org-xxxx"}
@@ -26,7 +26,7 @@ export declare class DisableConnectorResponseBodyData extends $dara.Model {
     metadata?: string;
     /**
      * @remarks
-     * The Connector name. Currently, the value is qodercli.
+     * The connector name. The current value is qodercli.
      *
      * @example
      * qodercli
@@ -34,7 +34,7 @@ export declare class DisableConnectorResponseBodyData extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The Connector status.
+     * The connector status.
      *
      * @example
      * ENABLED
@@ -62,7 +62,7 @@ export declare class DisableConnectorResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The Connector details.
+     * The connector details.
      */
     data?: DisableConnectorResponseBodyData;
     /**
@@ -91,7 +91,7 @@ export declare class DisableConnectorResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful.
+     * Indicates whether the request is successful.
      *
      * @example
      * true

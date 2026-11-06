@@ -22,7 +22,7 @@ export declare class CreateModelRequestBodyCapabilities extends $dara.Model {
     reasoning?: boolean;
     /**
      * @remarks
-     * Specifies whether the model is able to invoke tool calling in a streaming manner.
+     * Specifies whether the model is able to invoke streaming tool calling.
      */
     streamToolCall?: boolean;
     /**
@@ -69,7 +69,7 @@ export declare class CreateModelRequestBody extends $dara.Model {
     connectionId?: string;
     /**
      * @remarks
-     * The context window size of the model, in tokens. It must be a positive integer.
+     * The context window size of the model, in tokens. The value must be a positive integer.
      *
      * @example
      * 128000
@@ -77,7 +77,7 @@ export declare class CreateModelRequestBody extends $dara.Model {
     contextSize?: number;
     /**
      * @remarks
-     * The model description. Maximum length: 255 characters.
+     * The model description, up to 255 characters in length.
      *
      * @example
      * description
@@ -85,7 +85,7 @@ export declare class CreateModelRequestBody extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The maximum number of output tokens supported per generation.
+     * The maximum number of output tokens supported by the model per generation.
      *
      * @example
      * 131072
@@ -120,7 +120,7 @@ export declare class CreateModelRequest extends $dara.Model {
     body?: CreateModelRequestBody;
     /**
      * @remarks
-     * The client token used for idempotence. This parameter is not supported.
+     * The client token used for idempotence. This parameter is currently not supported.
      *
      * @example
      * client-token-1

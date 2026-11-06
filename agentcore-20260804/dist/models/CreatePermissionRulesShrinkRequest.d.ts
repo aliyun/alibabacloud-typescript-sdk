@@ -7,7 +7,7 @@ export declare class CreatePermissionRulesShrinkRequest extends $dara.Model {
     bodyShrink?: string;
     /**
      * @remarks
-     * The client token.
+     * The idempotency token.
      *
      * @example
      * 550e8400-e29b-41d4-a716-446655440000

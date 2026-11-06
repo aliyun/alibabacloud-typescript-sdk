@@ -13,7 +13,7 @@ export class UploadSkillViaOssRequestBody extends $dara.Model {
   commitMsg?: string;
   /**
    * @remarks
-   * The OSS object name (path).
+   * The name or path of the OSS object.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UploadSkillViaOssRequestBody extends $dara.Model {
   ossObjectName?: string;
   /**
    * @remarks
-   * Specifies whether to overwrite an existing Skill. Default value: false.
+   * Specifies whether to overwrite an existing skill. Default value: false.
    * 
    * @example
    * false
@@ -31,7 +31,7 @@ export class UploadSkillViaOssRequestBody extends $dara.Model {
   overwrite?: boolean;
   /**
    * @remarks
-   * The target upload version number. This parameter is optional and serves as a fallback when the ZIP package does not contain version information.
+   * The target version to upload. This parameter is optional and serves as a fallback when no version information is included in the ZIP package.
    * 
    * @example
    * 1.0.0

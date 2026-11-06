@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCustomAgentImagePreparationResponseBodyDataError extends $dara.Model {
   /**
    * @remarks
-   * The business error code for image preparation. This code is used to identify the failure type. For the specific cause, see the message parameter.
+   * The business error code for image preparation. It is used to identify the failure type. For the specific cause, see message.
    * 
    * @example
    * ImageSyncFailed
@@ -13,7 +13,7 @@ export class GetCustomAgentImagePreparationResponseBodyDataError extends $dara.M
   code?: string;
   /**
    * @remarks
-   * The specific cause of the failure. This may include underlying errors such as image not found, authentication failure, network timeout, or certificate verification error. Passwords, tokens, or authentication headers are not returned. If the underlying system does not provide a cause, a general description is returned.
+   * The specific cause of the failure. It may include underlying errors such as image not found, authentication failure, network timeout, or certificate verification error. Passwords, tokens, or authentication headers are not returned. If the underlying system does not provide a cause, a general description is returned.
    * 
    * @example
    * tls: failed to verify certificate: x509: certificate signed by unknown authority
@@ -53,12 +53,12 @@ export class GetCustomAgentImagePreparationResponseBodyData extends $dara.Model 
   agentId?: string;
   /**
    * @remarks
-   * The security error. This parameter is returned only when the task fails. Otherwise, null is returned.
+   * The error. This parameter is returned only when the task fails. Otherwise, the value is null.
    */
   error?: GetCustomAgentImagePreparationResponseBodyDataError;
   /**
    * @remarks
-   * The failed phase. This parameter is returned only when the phase is FAILED. Otherwise, null is returned.
+   * The phase where the failure occurred. This parameter is returned only when the phase is FAILED. Otherwise, the value is null.
    * 
    * @example
    * COPYING
@@ -74,7 +74,7 @@ export class GetCustomAgentImagePreparationResponseBodyData extends $dara.Model 
   phase?: string;
   /**
    * @remarks
-   * The Console submission task ID.
+   * The Console task ID for the current submission.
    * 
    * @example
    * agent-example:1
@@ -123,7 +123,7 @@ export class GetCustomAgentImagePreparationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The preparation query result. Check the phase parameter for the asynchronous execution status.
+   * The preparation query result. For the asynchronous execution status, see phase.
    */
   data?: GetCustomAgentImagePreparationResponseBodyData;
   /**

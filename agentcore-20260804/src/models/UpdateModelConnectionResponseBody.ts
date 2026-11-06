@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateModelConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of API keys configured for the model connection.
+   * The number of API keys configured in the model connection.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class UpdateModelConnectionResponseBodyData extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * The time when the resource was created. The time is in RFC 3339 UTC format.
+   * The time when the resource was created, in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z
@@ -34,7 +34,7 @@ export class UpdateModelConnectionResponseBodyData extends $dara.Model {
   credentialConfigured?: boolean;
   /**
    * @remarks
-   * The description of the model connection. The description can be up to 255 characters in length.
+   * The description of the model connection, which can be up to 255 characters in length.
    * 
    * @example
    * description
@@ -42,7 +42,7 @@ export class UpdateModelConnectionResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The absolute HTTP or HTTPS URL of the upstream model service. The URL can be up to 1,024 characters in length.
+   * The absolute HTTP or HTTPS URL of the upstream model service, which can be up to 1,024 characters in length.
    * 
    * @example
    * https://dashscope.aliyuncs.com/compatible-mode/v1
@@ -50,7 +50,7 @@ export class UpdateModelConnectionResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
+   * The name of the model connection, which must be 1 to 128 non-whitespace characters in length.
    * 
    * @example
    * name
@@ -82,7 +82,7 @@ export class UpdateModelConnectionResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the Deleting state. This field is empty in other states.
+   * The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the deleting state. This field is empty in other states.
    * 
    * @example
    * GatewayOperationException
@@ -90,7 +90,7 @@ export class UpdateModelConnectionResponseBodyData extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * The time when the resource was last updated. The time is in RFC 3339 UTC format.
+   * The time when the resource was last updated, in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z
@@ -152,7 +152,7 @@ export class UpdateModelConnectionResponseBodyData extends $dara.Model {
 export class UpdateModelConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS if the request succeeds.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -165,7 +165,7 @@ export class UpdateModelConnectionResponseBody extends $dara.Model {
   data?: UpdateModelConnectionResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 if the request succeeds.
+   * The HTTP status code. The value is 200 if the request is successful.
    * 
    * @example
    * 200

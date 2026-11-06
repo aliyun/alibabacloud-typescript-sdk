@@ -7,7 +7,7 @@ export declare class UpdateModelConnectionRequestBody extends $dara.Model {
     apiKeys?: string[];
     /**
      * @remarks
-     * The description of the model connection. The description can be up to 255 characters in length.
+     * The description of the model connection, which can be up to 255 characters in length.
      *
      * @example
      * description
@@ -15,7 +15,7 @@ export declare class UpdateModelConnectionRequestBody extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The absolute HTTP or HTTPS URL of the upstream model service. The URL can be up to 1,024 characters in length.
+     * The absolute HTTP or HTTPS URL of the upstream model service, which can be up to 1,024 characters in length.
      *
      * @example
      * https://dashscope.aliyuncs.com/compatible-mode/v1
@@ -23,7 +23,7 @@ export declare class UpdateModelConnectionRequestBody extends $dara.Model {
     endpoint?: string;
     /**
      * @remarks
-     * The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
+     * The name of the model connection, which must be 1 to 128 non-whitespace characters in length.
      *
      * @example
      * name

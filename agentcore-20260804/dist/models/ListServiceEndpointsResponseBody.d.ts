@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListServiceEndpointsResponseBodyItemsAccessUrls extends $dara.Model {
     /**
      * @remarks
-     * The access URL type. Valid values: INTERNET and VPC.
+     * The type of the access URL. Valid values: INTERNET and VPC.
      *
      * @example
      * INTERNET
@@ -10,7 +10,7 @@ export declare class ListServiceEndpointsResponseBodyItemsAccessUrls extends $da
     accessType?: string;
     /**
      * @remarks
-     * The access URL status. Valid values: CREATING, READY, and DEGRADED.
+     * The status of the access URL. Valid values: CREATING, READY, and DEGRADED.
      *
      * @example
      * READY
@@ -46,7 +46,7 @@ export declare class ListServiceEndpointsResponseBodyItemsAccessUrls extends $da
 export declare class ListServiceEndpointsResponseBodyItemsAuthentication extends $dara.Model {
     /**
      * @remarks
-     * The authentication method. NONE indicates that no authentication is required. API_KEY indicates that authentication is performed by passing an API key in the x-api-key request header.
+     * The authentication method. NONE indicates that no authentication is required. API_KEY indicates that authentication is performed by passing an API key in the `x-api-key` request header.
      *
      * @example
      * API_KEY
@@ -63,10 +63,46 @@ export declare class ListServiceEndpointsResponseBodyItemsAuthentication extends
         [key: string]: any;
     });
 }
+export declare class ListServiceEndpointsResponseBodyItemsElasticityPolicy extends $dara.Model {
+    /**
+     * @remarks
+     * 是否开启弹性。
+     *
+     * @example
+     * true
+     */
+    enabled?: boolean;
+    /**
+     * @remarks
+     * 最大实例数，不小于 1。
+     *
+     * @example
+     * 5
+     */
+    maxSandboxCount?: number;
+    /**
+     * @remarks
+     * 最小实例数，不小于 0 且不大于 maxSandboxCount。
+     *
+     * @example
+     * 1
+     */
+    minSandboxCount?: number;
+    static names(): {
+        [key: string]: string;
+    };
+    static types(): {
+        [key: string]: any;
+    };
+    validate(): void;
+    constructor(map?: {
+        [key: string]: any;
+    });
+}
 export declare class ListServiceEndpointsResponseBodyItemsTarget extends $dara.Model {
     /**
      * @remarks
-     * The target agent ID. This parameter is returned when the target type is AGENT_VERSION.
+     * The ID of the target agent. This parameter is returned when the target type is AGENT_VERSION.
      *
      * @example
      * agent-123456
@@ -74,7 +110,7 @@ export declare class ListServiceEndpointsResponseBodyItemsTarget extends $dara.M
     agentId?: string;
     /**
      * @remarks
-     * The target agent version. This parameter is returned when the target type is AGENT_VERSION.
+     * The version of the target agent. This parameter is returned when the target type is AGENT_VERSION.
      *
      * @example
      * v1
@@ -82,7 +118,7 @@ export declare class ListServiceEndpointsResponseBodyItemsTarget extends $dara.M
     agentVersion?: string;
     /**
      * @remarks
-     * The collaboration component type. This parameter is returned when the target type is TEAM_COLLABORATION.
+     * The type of the collaboration component. This parameter is returned when the target type is TEAM_COLLABORATION.
      *
      * @example
      * ELEMENT_WEB
@@ -136,7 +172,17 @@ export declare class ListServiceEndpointsResponseBodyItems extends $dara.Model {
     createdAt?: string;
     /**
      * @remarks
-     * The service endpoint type. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by a user.
+     * publicAccessEnabled 与工作空间公网入向上限叠加后的结果：二者均允许时为 true。仅表示策略目标，不代表公网入口已发布完成，实际状态以 accessUrls 与 status 为准。
+     */
+    effectivePublicAccessEnabled?: boolean;
+    /**
+     * @remarks
+     * 仅在服务端点设置过弹性覆盖值时返回，可设置的为 Router 类型服务端点与 GATEWAY_API_WITH_VPC_INGRESS 类型的 DEFAULT 服务端点；未设置覆盖值时不返回该对象，表示继承智能体源配置，不得当作空对象或默认策略。返回时三个字段必全。
+     */
+    elasticityPolicy?: ListServiceEndpointsResponseBodyItemsElasticityPolicy;
+    /**
+     * @remarks
+     * The type of the service endpoint. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by the user.
      *
      * @example
      * NAMED
@@ -144,7 +190,7 @@ export declare class ListServiceEndpointsResponseBodyItems extends $dara.Model {
     endpointType?: string;
     /**
      * @remarks
-     * The service endpoint name. The name must be unique within the workspace and 1 to 128 characters in length.
+     * The name of the service endpoint. The name must be unique within the workspace and be 1 to 128 characters in length.
      *
      * @example
      * my-agent-endpoint
@@ -152,7 +198,12 @@ export declare class ListServiceEndpointsResponseBodyItems extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The region ID of the service endpoint.
+     * 用户在服务端点上设置的公网入向期望；未设置过的历史服务端点按 true 返回。仅表示配置期望，实际公网地址是否可用以 accessUrls 与 status 为准。
+     */
+    publicAccessEnabled?: boolean;
+    /**
+     * @remarks
+     * The ID of the region where the service endpoint resides.
      *
      * @example
      * cn-hangzhou
@@ -160,7 +211,7 @@ export declare class ListServiceEndpointsResponseBodyItems extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The service endpoint ID.
+     * The ID of the service endpoint.
      *
      * @example
      * se-123456
@@ -168,7 +219,7 @@ export declare class ListServiceEndpointsResponseBodyItems extends $dara.Model {
     serviceEndpointId?: string;
     /**
      * @remarks
-     * The service endpoint status. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
+     * The status of the service endpoint. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
      *
      * @example
      * READY
@@ -189,7 +240,7 @@ export declare class ListServiceEndpointsResponseBodyItems extends $dara.Model {
     target?: ListServiceEndpointsResponseBodyItemsTarget;
     /**
      * @remarks
-     * The last update time in UTC format compliant with RFC 3339.
+     * The time of the last modification in UTC format compliant with RFC 3339.
      *
      * @example
      * 2026-08-12T03:04:05Z
@@ -238,7 +289,7 @@ export declare class ListServiceEndpointsResponseBody extends $dara.Model {
     items?: ListServiceEndpointsResponseBodyItems[];
     /**
      * @remarks
-     * The maximum number of records per page that takes effect in this query.
+     * The maximum number of entries returned on a single page for this query.
      *
      * @example
      * 20

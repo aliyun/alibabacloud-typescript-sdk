@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateImageCacheRequestBody extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to allow the use of the public network for the current source read and transfer. At least one of this parameter and accessVpc must be set to true. The server verifies the access conditions of the current workspace.
+     * Specifies whether to allow public network access for the current source reading and transfer. At least one of this parameter and `accessVpc` must be set to true. The server validates the access conditions of the current workspace.
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class CreateImageCacheRequestBody extends $dara.Model {
     accessInternet?: boolean;
     /**
      * @remarks
-     * Specifies whether to allow the use of a VPC for the current source read and transfer. At least one of this parameter and accessInternet must be set to true. The server parses the trusted network of the current workspace and does not modify the agent runtime network.
+     * Specifies whether to allow the use of a VPC for the current source reading and transfer. At least one of this parameter and `accessInternet` must be set to true. The server resolves the trusted network of the current workspace and does not modify the runtime network of the agent.
      *
      * This parameter is required.
      *
@@ -74,14 +74,14 @@ export declare class CreateImageCacheRequestBody extends $dara.Model {
 export declare class CreateImageCacheRequest extends $dara.Model {
     /**
      * @remarks
-     * The business parameters for creating an image cache.
+     * The request body for creating an image cache.
      *
      * This parameter is required.
      */
     body?: CreateImageCacheRequestBody;
     /**
      * @remarks
-     * Required and non-empty. This parameter is reserved for API compatibility. It currently does not provide request deduplication or original result recovery based on this field. If a timeout occurs or the result is unconfirmed, query the cache status first before deciding whether to resubmit.
+     * The non-empty request token passed as a query parameter. The current implementation does not guarantee deduplication by this token or recovery of the original acceptance result.
      *
      * This parameter is required.
      *
@@ -91,7 +91,7 @@ export declare class CreateImageCacheRequest extends $dara.Model {
     clientToken?: string;
     /**
      * @remarks
-     * The product entry region, which is determined by the selected region endpoint.
+     * The product entry region, passed as a query parameter. It must match the selected region endpoint and the workspace region.
      *
      * This parameter is required.
      *
@@ -101,7 +101,7 @@ export declare class CreateImageCacheRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The current routed workspace. The server verifies the account, region, and resource ownership. This parameter cannot be omitted or used to access other workspaces.
+     * The workspace ID.
      *
      * This parameter is required.
      *

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExternalAgentBootstrapTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The network type for onboarding. Valid values: INTRANET (internal network) and INTERNET (Internet).
+   * The access network type. Valid values: INTRANET (internal network) and INTERNET (Internet).
    * 
    * This parameter is required.
    * 

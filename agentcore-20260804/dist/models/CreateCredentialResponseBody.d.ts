@@ -2,10 +2,10 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateCredentialResponseBodyDataResourceRefs extends $dara.Model {
     /**
      * @remarks
-     * The unique identifier of the resource.
+     * The ID of the applicable MCP service.
      *
      * @example
-     * agent-xxxx
+     * mcp-example
      */
     resourceId?: string;
     /**
@@ -13,15 +13,15 @@ export declare class CreateCredentialResponseBodyDataResourceRefs extends $dara.
      * The name of the resource. This parameter is empty if the resource is deleted.
      *
      * @example
-     * my-agent
+     * my-mcp-service
      */
     resourceName?: string;
     /**
      * @remarks
-     * The type of the resource, such as agent.
+     * The type of the resource. Set the value to mcpServer, which indicates an MCP service.
      *
      * @example
-     * agent
+     * mcpServer
      */
     resourceType?: string;
     static names(): {
@@ -38,7 +38,7 @@ export declare class CreateCredentialResponseBodyDataResourceRefs extends $dara.
 export declare class CreateCredentialResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The time when the credential was created. The time is displayed in UTC and follows the RFC 3339 format.
+     * The time when the credential was created. The time is in UTC and follows the RFC 3339 format.
      *
      * @example
      * 2026-08-12T03:04:05Z
@@ -54,7 +54,7 @@ export declare class CreateCredentialResponseBodyData extends $dara.Model {
     credentialId?: string;
     /**
      * @remarks
-     * The desensitized result of the credential content. If credentialType is apiKey, the value of apiKey is returned as asterisks (*) of the same length.
+     * The masked result of the credential content. For the apiKey type, a masked key is returned. For the mcpHeader type, only header names are returned, and values are not returned.
      *
      * @example
      * {"apiKey":"****************"}
@@ -62,7 +62,7 @@ export declare class CreateCredentialResponseBodyData extends $dara.Model {
     credentialMetadata?: string;
     /**
      * @remarks
-     * The credential type. Currently, only apiKey is supported.
+     * The credential type. Valid values: apiKey (API key) and mcpHeader (MCP request header).
      *
      * @example
      * apiKey
@@ -78,7 +78,7 @@ export declare class CreateCredentialResponseBodyData extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The name of the credential. The name must be unique within the workspace, can only contain letters, digits, periods, underscores, and hyphens, and must be 3 to 128 characters in length. Runtime reserved names cannot be used.
+     * The name of the credential. The name must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. Runtime reserved names cannot be used.
      *
      * @example
      * model-api-key
@@ -86,7 +86,7 @@ export declare class CreateCredentialResponseBodyData extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The region ID of the resource.
+     * The ID of the region where the resource resides.
      *
      * @example
      * cn-hangzhou
@@ -94,12 +94,12 @@ export declare class CreateCredentialResponseBodyData extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * Each item contains resourceType, resourceId, and resourceName. If the resource is deleted, resourceName is empty.
+     * The list of MCP services to which the credential applies.
      */
     resourceRefs?: CreateCredentialResponseBodyDataResourceRefs[];
     /**
      * @remarks
-     * The application scope of the credential resource.
+     * The application scope of the credential. ALL indicates all scopes, and SPECIFIED indicates the specified MCP services.
      *
      * @example
      * ALL
@@ -107,7 +107,7 @@ export declare class CreateCredentialResponseBodyData extends $dara.Model {
     resourceScope?: string;
     /**
      * @remarks
-     * The time when the credential was last modified. The time is displayed in UTC and follows the RFC 3339 format.
+     * The time when the credential was last modified. The time is in UTC and follows the RFC 3339 format.
      *
      * @example
      * 2026-08-12T03:04:05Z

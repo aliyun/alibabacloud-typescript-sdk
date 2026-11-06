@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateExternalAgentRequestBodyModelQuota extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to enable the token quota. Default value: true. If you set this parameter to false, the quota is disabled and existing quota rules are deleted.
+     * Specifies whether to enable the token quota. If this parameter is not specified, the default value is true. If you set this parameter to false, the quota is disabled and existing quota rules are deleted.
      *
      * @example
      * true
@@ -10,7 +10,7 @@ export declare class CreateExternalAgentRequestBodyModelQuota extends $dara.Mode
     enabled?: boolean;
     /**
      * @remarks
-     * The quota limit type. This parameter is required when the quota is enabled. Fixed value: token.
+     * The quota limit type. This parameter is required and validated by the backend when the quota is enabled. Fixed value: token.
      *
      * @example
      * token
@@ -18,9 +18,7 @@ export declare class CreateExternalAgentRequestBodyModelQuota extends $dara.Mode
     limitType?: string;
     /**
      * @remarks
-     * The statistical period of the quota. This parameter is required when the quota is enabled. Valid values:
-     * - day: Daily.
-     * - month: Monthly.
+     * The quota statistical period. This parameter is required and validated by the backend when the quota is enabled. Valid values: day (daily) and month (monthly).
      *
      * @example
      * day
@@ -28,7 +26,7 @@ export declare class CreateExternalAgentRequestBodyModelQuota extends $dara.Mode
     periodType?: string;
     /**
      * @remarks
-     * The maximum number of tokens that can be consumed in a single period. This parameter is required when the quota is enabled and must be greater than 0.
+     * The maximum number of tokens that can be consumed in a single period. This parameter is required and validated by the backend when the quota is enabled. The value must be greater than 0.
      *
      * @example
      * 1000000
@@ -68,7 +66,7 @@ export declare class CreateExternalAgentRequestBodyModel extends $dara.Model {
     modelName?: string;
     /**
      * @remarks
-     * The model token quota configuration. If this parameter is not specified, no quota is configured.
+     * The model token quota configuration. If this parameter is not provided, no quota is configured.
      */
     quota?: CreateExternalAgentRequestBodyModelQuota;
     static names(): {
@@ -85,9 +83,7 @@ export declare class CreateExternalAgentRequestBodyModel extends $dara.Model {
 export declare class CreateExternalAgentRequestBodySkillsVersionSelector extends $dara.Model {
     /**
      * @remarks
-     * The type of the version selector. Valid values:
-     * - LABEL: By label.
-     * - VERSION: By specific version.
+     * The version selector type. Valid values: LABEL (selects by tag) and VERSION (selects by specific version).
      *
      * @example
      * LABEL
@@ -95,7 +91,7 @@ export declare class CreateExternalAgentRequestBodySkillsVersionSelector extends
     type?: string;
     /**
      * @remarks
-     * The value of the selector. If the type is LABEL, this value is the label name, such as latest. If the type is VERSION, this value is the specific version number.
+     * The selector value. When the type is LABEL, this is the tag name, such as latest. When the type is VERSION, this is the specific version number.
      *
      * @example
      * latest
@@ -125,9 +121,7 @@ export declare class CreateExternalAgentRequestBodySkills extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The source type of the skill. Valid values:
-     * - REFERENCE: References the AI Registry.
-     * - STATIC: Statically provided with the package.
+     * The skill source type. Valid values: REFERENCE (references the AI Registry) and STATIC (statically provided with the package).
      *
      * @example
      * REFERENCE
@@ -135,7 +129,7 @@ export declare class CreateExternalAgentRequestBodySkills extends $dara.Model {
     sourceType?: string;
     /**
      * @remarks
-     * The skill version.
+     * The skill version field for compatibility with legacy requests. For new requests, use sourceType and versionSelector. Do not submit this parameter in combination with sourceType.
      *
      * @example
      * 1.0.0
@@ -143,7 +137,7 @@ export declare class CreateExternalAgentRequestBodySkills extends $dara.Model {
     version?: string;
     /**
      * @remarks
-     * The referenced version selector. If omitted, the default value is LABEL/latest. Currently, only LABEL/latest is supported.
+     * The skill reference version selector. Supports LABEL for tags and VERSION for specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
      */
     versionSelector?: CreateExternalAgentRequestBodySkillsVersionSelector;
     static names(): {
@@ -219,8 +213,7 @@ export declare class CreateExternalAgentRequestBodyTools extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The tool type. Valid values:
-     * - MCP: MCP tool.
+     * The tool type. Valid values: MCP (MCP tool).
      *
      * This parameter is required.
      *
@@ -242,7 +235,7 @@ export declare class CreateExternalAgentRequestBodyTools extends $dara.Model {
 export declare class CreateExternalAgentRequestBody extends $dara.Model {
     /**
      * @remarks
-     * The description of the external agent.
+     * The description of the managed agent.
      *
      * @example
      * Code review agent running in the user environment
@@ -250,7 +243,7 @@ export declare class CreateExternalAgentRequestBody extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The instructions that guide the behavior of the agent.
+     * The agent instructions used to guide the behavior of the agent.
      *
      * @example
      * You are a code review assistant
@@ -258,14 +251,12 @@ export declare class CreateExternalAgentRequestBody extends $dara.Model {
     instruction?: string;
     /**
      * @remarks
-     * The model configuration. This parameter is available only when modelSource is set to PLATFORM.
+     * The model configuration. Available only when modelSource is set to PLATFORM.
      */
     model?: CreateExternalAgentRequestBodyModel;
     /**
      * @remarks
-     * The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model, and the model parameter cannot be passed at the same time. Valid values:
-     * - PLATFORM: Platform model.
-     * - RUNTIME: Runtime model.
+     * The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model, and the model parameter cannot be provided at the same time. Valid values: PLATFORM (platform model) and RUNTIME (runtime model).
      *
      * @example
      * PLATFORM
@@ -273,7 +264,7 @@ export declare class CreateExternalAgentRequestBody extends $dara.Model {
     modelSource?: string;
     /**
      * @remarks
-     * The name of the external agent.
+     * The name of the managed agent.
      *
      * This parameter is required.
      *
@@ -315,7 +306,7 @@ export declare class CreateExternalAgentRequest extends $dara.Model {
     body?: CreateExternalAgentRequestBody;
     /**
      * @remarks
-     * The reserved idempotency token. The backend does not provide idempotency guarantees in the current phase.
+     * A reserved query parameter. Currently, the backend does not provide idempotency guarantees for deduplication or restoring the original processing result based on this identifier.
      *
      * @example
      * client-token-1

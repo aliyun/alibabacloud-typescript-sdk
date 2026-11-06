@@ -13,7 +13,7 @@ export class ValidateAgentCodePackageFromOssResponseBodyData extends $dara.Model
   fileName?: string;
   /**
    * @remarks
-   * The compressed size of the code package.
+   * The compressed file size of the code package, in bytes.
    * 
    * @example
    * 123

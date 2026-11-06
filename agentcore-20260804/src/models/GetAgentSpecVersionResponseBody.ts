@@ -25,7 +25,7 @@ export class GetAgentSpecVersionResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * Sample description used to explain the purpose of the resource
+   * A sample description used to explain the purpose of the resource
    */
   description?: string;
   /**

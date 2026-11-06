@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMemorySessionMessagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent ID. You must specify at least one of AgentId and UserId. The length is limited to 1 to 128 UTF-8 bytes. The forward slash (/) and asterisk (*) are not allowed.
+   * The agent ID. At least one of Agent ID and User ID must be provided. The length limit is 1 to 128 UTF-8 bytes. The value cannot contain / or *.
    * 
    * @example
    * agent-001
@@ -29,7 +29,7 @@ export class ListMemorySessionMessagesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The session ID. The length is limited to 1 to 128 UTF-8 bytes. The forward slash (/) and asterisk (*) are not allowed.
+   * The session ID. The length limit is 1 to 128 UTF-8 bytes. The value cannot contain / or *.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class ListMemorySessionMessagesRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The user ID. You must specify at least one of UserId and AgentId. The length is limited to 1 to 128 UTF-8 bytes. The forward slash (/) and asterisk (*) are not allowed.
+   * The user ID. At least one of User ID and Agent ID must be provided. The length limit is 1 to 128 UTF-8 bytes. The value cannot contain / or *.
    * 
    * @example
    * user-001

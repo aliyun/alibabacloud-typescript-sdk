@@ -75,7 +75,7 @@ export declare class ListAgentTeamsResponseBody extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The response message. Returns an error description when the request fails.
+     * The response message. Returns an error description if the request fails.
      *
      * @example
      * success
@@ -83,7 +83,7 @@ export declare class ListAgentTeamsResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The cursor used to retrieve the next page. An empty value indicates that no more data is available.
+     * The cursor used to obtain the next page. An empty value indicates that no more data is available.
      *
      * @example
      * dXNlci1vZmZzZXQ6MTA
@@ -104,7 +104,7 @@ export declare class ListAgentTeamsResponseBody extends $dara.Model {
     success?: boolean;
     /**
      * @remarks
-     * The total number of records that match the query conditions.
+     * The total number of records that meet the conditions.
      *
      * @example
      * 5

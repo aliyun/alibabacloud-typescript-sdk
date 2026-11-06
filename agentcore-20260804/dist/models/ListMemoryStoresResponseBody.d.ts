@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListMemoryStoresResponseBodyItems extends $dara.Model {
     /**
      * @remarks
-     * The creation time.
+     * The creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * @example
      * 2026-09-23T10:00:00Z
@@ -10,10 +10,10 @@ export declare class ListMemoryStoresResponseBodyItems extends $dara.Model {
     createdAt?: string;
     /**
      * @remarks
-     * The MemoryStore description.
+     * The description of the MemoryStore.
      *
      * @example
-     * Used to store long-term user preferences
+     * Used to store the long-term preferences of users
      */
     description?: string;
     /**
@@ -21,7 +21,7 @@ export declare class ListMemoryStoresResponseBodyItems extends $dara.Model {
      * The custom extraction instructions.
      *
      * @example
-     * Extract only long-term preferences explicitly expressed by the user
+     * Extract only the long-term preferences explicitly expressed by the user
      */
     extractInstructions?: string;
     /**
@@ -34,7 +34,7 @@ export declare class ListMemoryStoresResponseBodyItems extends $dara.Model {
     memoryStoreId?: string;
     /**
      * @remarks
-     * The MemoryStore name. It cannot be modified after creation.
+     * The name of the MemoryStore. It cannot be modified after creation.
      *
      * @example
      * customer-memory
@@ -50,7 +50,7 @@ export declare class ListMemoryStoresResponseBodyItems extends $dara.Model {
     status?: string;
     /**
      * @remarks
-     * The last update time.
+     * The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * @example
      * 2026-09-23T10:05:00Z

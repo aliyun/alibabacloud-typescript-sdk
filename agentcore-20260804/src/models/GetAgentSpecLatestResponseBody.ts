@@ -36,9 +36,7 @@ export class GetAgentSpecLatestResponseBodyDataMcpServers extends $dara.Model {
 export class GetAgentSpecLatestResponseBodyDataSkillsVersionSelector extends $dara.Model {
   /**
    * @remarks
-   * The version selector type. Valid values:
-   * - LABEL: selects by label.
-   * - VERSION: selects by specific version.
+   * The type of the version selector.
    * 
    * @example
    * LABEL
@@ -46,7 +44,7 @@ export class GetAgentSpecLatestResponseBodyDataSkillsVersionSelector extends $da
   type?: string;
   /**
    * @remarks
-   * The selector value. If the type is LABEL, this value is a label name such as latest. If the type is VERSION, this value is a specific version number.
+   * The value of the selector. If the type is LABEL, the value is the label name, such as latest. If the type is VERSION, the value is the specific version number.
    * 
    * @example
    * latest
@@ -86,9 +84,7 @@ export class GetAgentSpecLatestResponseBodyDataSkills extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Skill source type. Valid values:
-   * - REFERENCE: references AI Registry.
-   * - STATIC: statically bundled with the package.
+   * The source type of the skill.
    * 
    * @example
    * REFERENCE
@@ -96,7 +92,7 @@ export class GetAgentSpecLatestResponseBodyDataSkills extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The version selector for the reference. Defaults to LABEL/latest if omitted.
+   * The referenced version selector. If omitted, the default is LABEL/latest.
    */
   versionSelector?: GetAgentSpecLatestResponseBodyDataSkillsVersionSelector;
   static names(): { [key: string]: string } {
@@ -149,7 +145,7 @@ export class GetAgentSpecLatestResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * A sample description that explains the purpose of the resource
+   * A sample description used to explain the purpose of the resource
    */
   description?: string;
   /**
@@ -162,12 +158,12 @@ export class GetAgentSpecLatestResponseBodyData extends $dara.Model {
   downloadCount?: number;
   /**
    * @remarks
-   * Indicates whether the AgentSpec is enabled.
+   * Indicates whether it is enabled.
    */
   enable?: boolean;
   /**
    * @remarks
-   * The list of MCP server references.
+   * The list of MCP service references.
    */
   mcpServers?: GetAgentSpecLatestResponseBodyDataMcpServers[];
   /**
@@ -193,12 +189,12 @@ export class GetAgentSpecLatestResponseBodyData extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The list of Skill references.
+   * The list of skill references.
    */
   skills?: GetAgentSpecLatestResponseBodyDataSkills[];
   /**
    * @remarks
-   * The update time. This value is a UNIX timestamp in milliseconds.
+   * The update time. It is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000

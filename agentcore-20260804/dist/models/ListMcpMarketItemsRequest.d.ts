@@ -10,7 +10,7 @@ export declare class ListMcpMarketItemsRequest extends $dara.Model {
     keyword?: string;
     /**
      * @remarks
-     * The maximum number of records to return in this query.
+     * The maximum number of records to return for this query.
      *
      * @example
      * 20
@@ -26,7 +26,7 @@ export declare class ListMcpMarketItemsRequest extends $dara.Model {
     mcpType?: string;
     /**
      * @remarks
-     * The pagination token used to retrieve the next page of results.
+     * The pagination token used to query the next page.
      *
      * @example
      * 20

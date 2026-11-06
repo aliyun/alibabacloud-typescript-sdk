@@ -42,7 +42,7 @@ export class GetExternalAgentBootstrapOptionsResponseBodyDataNetworkOptions exte
 export class GetExternalAgentBootstrapOptionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The external agent ID.
+   * The ID of the managed agent.
    * 
    * @example
    * agent-1
@@ -92,7 +92,7 @@ export class GetExternalAgentBootstrapOptionsResponseBodyData extends $dara.Mode
 export class GetExternalAgentBootstrapOptionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS when the request is successful.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -100,12 +100,12 @@ export class GetExternalAgentBootstrapOptionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The access network information available for the external agent.
+   * The available access network information for the managed agent.
    */
   data?: GetExternalAgentBootstrapOptionsResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 when the request is successful.
+   * The HTTP status code. The value is 200 if the request is successful.
    * 
    * @example
    * 200

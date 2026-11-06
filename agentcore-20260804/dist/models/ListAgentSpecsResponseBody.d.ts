@@ -22,10 +22,7 @@ export declare class ListAgentSpecsResponseBodyDataPageItemsMcpServers extends $
 export declare class ListAgentSpecsResponseBodyDataPageItemsSkillsVersionSelector extends $dara.Model {
     /**
      * @remarks
-     * The version selector type. Valid values:
-     *
-     * - LABEL: selects by label.
-     * - VERSION: selects by specific version.
+     * The type of the version selector. Valid values: LABEL (by label) and VERSION (by specific version).
      *
      * @example
      * LABEL
@@ -33,7 +30,7 @@ export declare class ListAgentSpecsResponseBodyDataPageItemsSkillsVersionSelecto
     type?: string;
     /**
      * @remarks
-     * The selector value. If the type is LABEL, this value is a label name such as latest. If the type is VERSION, this value is a specific version number.
+     * The value of the selector. If the type is LABEL, the value is the label name, such as latest. If the type is VERSION, the value is the specific version number.
      *
      * @example
      * latest
@@ -61,10 +58,7 @@ export declare class ListAgentSpecsResponseBodyDataPageItemsSkills extends $dara
     name?: string;
     /**
      * @remarks
-     * The Skill source type. Valid values:
-     *
-     * - REFERENCE: references the AI Registry.
-     * - STATIC: statically bundled with the package.
+     * The source type of the skill. Valid values: REFERENCE (references the AI Registry) and STATIC (statically provided with the package).
      *
      * @example
      * REFERENCE
@@ -100,12 +94,12 @@ export declare class ListAgentSpecsResponseBodyDataPageItems extends $dara.Model
      * The description.
      *
      * @example
-     * A sample description that explains the purpose of the resource
+     * Sample description used to explain the purpose of the resource
      */
     description?: string;
     /**
      * @remarks
-     * The download count.
+     * The number of downloads.
      *
      * @example
      * 10
@@ -113,7 +107,7 @@ export declare class ListAgentSpecsResponseBodyDataPageItems extends $dara.Model
     downloadCount?: number;
     /**
      * @remarks
-     * The version that is currently being edited.
+     * The version currently being edited.
      *
      * @example
      * 1.0.0
@@ -121,7 +115,7 @@ export declare class ListAgentSpecsResponseBodyDataPageItems extends $dara.Model
     editingVersion?: string;
     /**
      * @remarks
-     * Indicates whether the AgentSpec is enabled.
+     * Indicates whether it is enabled.
      */
     enable?: boolean;
     /**
@@ -141,7 +135,7 @@ export declare class ListAgentSpecsResponseBodyDataPageItems extends $dara.Model
     };
     /**
      * @remarks
-     * The list of MCP server references.
+     * The list of referenced MCP servers.
      */
     mcpServers?: ListAgentSpecsResponseBodyDataPageItemsMcpServers[];
     /**
@@ -162,7 +156,7 @@ export declare class ListAgentSpecsResponseBodyDataPageItems extends $dara.Model
     onlineCnt?: number;
     /**
      * @remarks
-     * The version that is currently under review.
+     * The version currently under review.
      *
      * @example
      * 1.0.0
@@ -178,12 +172,12 @@ export declare class ListAgentSpecsResponseBodyDataPageItems extends $dara.Model
     scope?: string;
     /**
      * @remarks
-     * The list of Skill references.
+     * The list of referenced skills.
      */
     skills?: ListAgentSpecsResponseBodyDataPageItemsSkills[];
     /**
      * @remarks
-     * The update time. This value is a UNIX timestamp in milliseconds.
+     * The update time. The value is a UNIX timestamp in milliseconds.
      *
      * @example
      * 1787671022000

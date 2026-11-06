@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class UpdateModelShrinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The model update request body. You must specify at least one non-null parameter among description, contextSize, maxTokens, and capabilities.
+     * The model update request body. At least one of the description, contextSize, maxTokens, and capabilities parameters must be non-null.
      */
     bodyShrink?: string;
     /**

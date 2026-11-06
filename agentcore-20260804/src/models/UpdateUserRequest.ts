@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The display name of the user. The name must be 1 to 32 characters in length. You must specify at least one of the displayName, email, and note parameters.
+   * The display name of the user. The name must be 1 to 32 characters in length. At least one of displayName, email, and note must be specified.
    * 
    * @example
-   * Zhang San
+   * John Doe
    */
   displayName?: string;
   /**
@@ -55,7 +55,7 @@ export class UpdateUserRequestBody extends $dara.Model {
 export class UpdateUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body for updating a user.
+   * The request body for updating the user.
    */
   body?: UpdateUserRequestBody;
   /**

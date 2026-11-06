@@ -10,7 +10,7 @@ export declare class CreateExternalAgentBootstrapTokenResponseBodyDataCms extend
     endpoint?: string;
     /**
      * @remarks
-     * The license key used for CMS connection.
+     * The license key used for CMS access.
      *
      * @example
      * license-key
@@ -18,7 +18,7 @@ export declare class CreateExternalAgentBootstrapTokenResponseBodyDataCms extend
     licenseKey?: string;
     /**
      * @remarks
-     * The CMS workspace name.
+     * The name of the CMS workspace.
      *
      * @example
      * cms-workspace
@@ -38,7 +38,7 @@ export declare class CreateExternalAgentBootstrapTokenResponseBodyDataCms extend
 export declare class CreateExternalAgentBootstrapTokenResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The external agent ID.
+     * The ID of the managed agent.
      *
      * @example
      * agent-1
@@ -46,7 +46,7 @@ export declare class CreateExternalAgentBootstrapTokenResponseBodyData extends $
     agentId?: string;
     /**
      * @remarks
-     * The Bootstrap token used to onboard the external agent.
+     * The bootstrap token used for the managed agent onboarding.
      *
      * @example
      * bootstrap-token
@@ -54,12 +54,12 @@ export declare class CreateExternalAgentBootstrapTokenResponseBodyData extends $
     bootstrapToken?: string;
     /**
      * @remarks
-     * The CMS configuration used to onboard the external agent.
+     * The CMS configuration used for the managed agent onboarding.
      */
     cms?: CreateExternalAgentBootstrapTokenResponseBodyDataCms;
     /**
      * @remarks
-     * The network type for onboarding. Valid values: INTRANET (internal network) and INTERNET (Internet).
+     * The access network type. Valid values: INTRANET (internal network) and INTERNET (Internet).
      *
      * @example
      * INTERNET
@@ -67,7 +67,7 @@ export declare class CreateExternalAgentBootstrapTokenResponseBodyData extends $
     networkType?: string;
     /**
      * @remarks
-     * The fingerprint of the Bootstrap token.
+     * The fingerprint of the bootstrap token.
      *
      * @example
      * fingerprint
@@ -95,7 +95,7 @@ export declare class CreateExternalAgentBootstrapTokenResponseBodyData extends $
 export declare class CreateExternalAgentBootstrapTokenResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business status code. The value is SUCCESS when the operation is successful.
+     * The business status code. The value is SUCCESS if the request is successful.
      *
      * @example
      * SUCCESS
@@ -103,12 +103,12 @@ export declare class CreateExternalAgentBootstrapTokenResponseBody extends $dara
     code?: string;
     /**
      * @remarks
-     * The Bootstrap token and CMS configuration required to onboard the external agent.
+     * The bootstrap token and CMS configuration required for the managed agent onboarding.
      */
     data?: CreateExternalAgentBootstrapTokenResponseBodyData;
     /**
      * @remarks
-     * The HTTP status code. The value is 200 when the operation is successful.
+     * The HTTP status code. The value is 200 if the request is successful.
      *
      * @example
      * 200
@@ -116,7 +116,7 @@ export declare class CreateExternalAgentBootstrapTokenResponseBody extends $dara
     httpStatusCode?: number;
     /**
      * @remarks
-     * The result message of the request.
+     * The request processing result message.
      *
      * @example
      * success

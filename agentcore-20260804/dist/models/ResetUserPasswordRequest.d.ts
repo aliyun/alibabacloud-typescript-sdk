@@ -38,7 +38,7 @@ export declare class ResetUserPasswordRequestBody extends $dara.Model {
 export declare class ResetUserPasswordRequest extends $dara.Model {
     /**
      * @remarks
-     * The request body for resetting the user password.
+     * The request body for resetting a user password.
      */
     body?: ResetUserPasswordRequestBody;
     static names(): {

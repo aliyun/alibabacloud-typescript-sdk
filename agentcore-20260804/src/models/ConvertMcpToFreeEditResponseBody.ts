@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAccessControl extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AgentCore credential that is referenced when the mode is CREDENTIAL.
+   * The ID of the access credential. References an AgentCore credential when the mode is set to CREDENTIAL.
    * 
    * @example
    * credential-id
@@ -13,12 +13,12 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAccessControl e
   credentialId?: string;
   /**
    * @remarks
-   * Specifies whether to enable entry access control.
+   * Specifies whether entry access control is enabled.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The access control mode. A value of ANONYMOUS indicates anonymous access. A value of CREDENTIAL indicates access by using AgentCore credentials.
+   * The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates that AgentCore access credentials are used.
    * 
    * @example
    * CREDENTIAL
@@ -190,7 +190,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfig
   imageRegistryType?: string;
   /**
    * @remarks
-   * The MCP runtime mode. Custom containers must currently expose the standard MCP by themselves. The value is SELF_HOSTED.
+   * The MCP runtime mode. Custom containers must expose the standard MCP themselves. Valid value: SELF_HOSTED.
    * 
    * @example
    * SELF_HOSTED
@@ -198,7 +198,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigContainerConfig
   mcpRuntimeMode?: string;
   /**
    * @remarks
-   * The container source type. The value is fixed as CONTAINER_IMAGE.
+   * The container source type. The value is fixed to CONTAINER_IMAGE.
    * 
    * @example
    * CONTAINER_IMAGE
@@ -257,7 +257,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookConfigurati
    * The description of the hook.
    * 
    * @example
-   * Record MCP tool calls
+   * Log MCP tool invocations
    */
   description?: string;
   /**
@@ -267,7 +267,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookConfigurati
   enabled?: boolean;
   /**
    * @remarks
-   * The event of the hook.
+   * The event that triggers the hook.
    * 
    * @example
    * PRE_CALL_TOOL
@@ -333,7 +333,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookConfigurati
 export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
+   * The ordered list of hooks. Executes PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
    */
   hooks?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigHookConfigurationHooks[];
   static names(): { [key: string]: string } {
@@ -373,7 +373,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigLogConfiguratio
   enableRequestMetrics?: boolean;
   /**
    * @remarks
-   * The start rule for log splitting in Function Compute.
+   * The start rule for splitting Function Compute logs.
    * 
    * @example
    * DefaultRegex
@@ -427,7 +427,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigLogConfiguratio
 export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigMcpConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The MCP endpoint path, such as /mcp or /sse.
+   * Example: /mcp or /sse.
    * 
    * @example
    * /mcp
@@ -435,7 +435,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigMcpConfiguratio
   endpointPath?: string;
   /**
    * @remarks
-   * The session concurrency per instance. This value is currently fixed at 1.
+   * The value is fixed to 1.
    * 
    * @example
    * 1
@@ -443,7 +443,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigMcpConfiguratio
   sessionConcurrencyPerInstance?: number;
   /**
    * @remarks
-   * The session idle timeout in seconds. Default value: 1800.
+   * The idle timeout period, in seconds. Default value: 1800.
    * 
    * @example
    * 1800
@@ -451,7 +451,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigMcpConfiguratio
   sessionIdleTimeoutSeconds?: number;
   /**
    * @remarks
-   * The maximum session lifetime in seconds. Default value: 21600.
+   * The maximum lifetime, in seconds. Default value: 21600.
    * 
    * @example
    * 21600
@@ -500,7 +500,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNasConfiguratio
   mountDir?: string;
   /**
    * @remarks
-   * The NAS server address.
+   * The NAS service address.
    * 
    * @example
    * example.cn-hangzhou.nas.aliyuncs.com
@@ -534,7 +534,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNasConfiguratio
 export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNasConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The group ID.
+   * The user group ID.
    * 
    * @example
    * 1000
@@ -542,7 +542,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNasConfiguratio
   groupId?: number;
   /**
    * @remarks
-   * The list of NAS mount points.
+   * The list of NAS mount targets.
    */
   mountPoints?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNasConfigurationMountPoints[];
   /**
@@ -592,7 +592,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNetworkConfigur
   networkMode?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-example
@@ -605,7 +605,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigNetworkConfigur
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * vpc-example
@@ -676,7 +676,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigOssMountConfigu
   mountDir?: string;
   /**
    * @remarks
-   * Specifies whether the mount point is read-only.
+   * Specifies whether the mount target is read-only.
    */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
@@ -711,7 +711,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigOssMountConfigu
 export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigOssMountConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The list of OSS mount points.
+   * The list of OSS mount targets.
    */
   mountPoints?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigOssMountConfigurationMountPoints[];
   static names(): { [key: string]: string } {
@@ -746,7 +746,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigParameterTransf
   enabled?: boolean;
   /**
    * @remarks
-   * The reserved reference to the rule set for parameter transformation and result enhancement.
+   * The reserved reference to the parameter transformation and result enhancement rule set.
    * 
    * @example
    * rules-1
@@ -788,7 +788,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigParameterTransf
 export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigProxyConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the MCP proxy.
+   * Specifies whether the MCP proxy is enabled.
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {
@@ -815,7 +815,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigProxyConfigurat
 export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntimeConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The CPU specification, in cores. Default value: 0.25.
+   * The CPU specifications, in cores. Default value: 0.25.
    * 
    * @example
    * 0.25
@@ -836,7 +836,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntimeConfigur
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
+   * The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
    * 
    * @example
    * acs:ram::1234567890123456:role/agentcore-mcp-execution
@@ -844,7 +844,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntimeConfigur
   executionRoleArn?: string;
   /**
    * @remarks
-   * The instance concurrency. Default value: 200.
+   * Default value: 200.
    * 
    * @example
    * 200
@@ -852,7 +852,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntimeConfigur
   instanceConcurrency?: number;
   /**
    * @remarks
-   * The memory specification, in MB. Default value: 512.
+   * The memory size, in MB. Default value: 512.
    * 
    * @example
    * 512
@@ -860,7 +860,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntimeConfigur
   memory?: number;
   /**
    * @remarks
-   * The service port. Default value: 9000.
+   * Default value: 9000.
    * 
    * @example
    * 9000
@@ -868,7 +868,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfigRuntimeConfigur
   port?: number;
   /**
    * @remarks
-   * The function timeout period, in seconds. Default value: 300.
+   * The timeout period, in seconds. Default value: 300.
    * 
    * @example
    * 300
@@ -925,7 +925,9 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfig extends $dara.
   agentIdentityConfiguration?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigAgentIdentityConfiguration;
   /**
    * @remarks
-   * The artifact type. A value of Code indicates a ZIP code package, and a value of Container indicates a custom container.
+   * The artifact type. Valid values:
+   * - Code: ZIP code package.
+   * - Container: Custom container.
    * 
    * @example
    * Code
@@ -973,7 +975,7 @@ export class ConvertMcpToFreeEditResponseBodyDataDeploymentConfig extends $dara.
   ossMountConfiguration?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigOssMountConfiguration;
   /**
    * @remarks
-   * The configuration for parameter transformation and result enhancement.
+   * The parameter transformation and result enhancement configuration.
    */
   parameterTransformConfiguration?: ConvertMcpToFreeEditResponseBodyDataDeploymentConfigParameterTransformConfiguration;
   /**
@@ -1121,7 +1123,7 @@ export class ConvertMcpToFreeEditResponseBodyDataTemplate extends $dara.Model {
   latestTemplateVersion?: string;
   /**
    * @remarks
-   * The schema version of the template.
+   * The template schema version.
    * 
    * @example
    * 1.0
@@ -1129,7 +1131,7 @@ export class ConvertMcpToFreeEditResponseBodyDataTemplate extends $dara.Model {
   schemaVersion?: string;
   /**
    * @remarks
-   * The input schema of the template, represented as a JSON Schema string.
+   * The template input schema, represented as a JSON Schema string.
    * 
    * @example
    * {"type":"object","properties":{"addresses":{"type":"array","items":{"type":"string"}}}}
@@ -1137,7 +1139,7 @@ export class ConvertMcpToFreeEditResponseBodyDataTemplate extends $dara.Model {
   templateInputSchema?: string;
   /**
    * @remarks
-   * Specifies whether an updated template version is available.
+   * Indicates whether an updated template version is available.
    */
   updateAvailable?: boolean;
   static names(): { [key: string]: string } {
@@ -1269,7 +1271,10 @@ export class ConvertMcpToFreeEditResponseBodyData extends $dara.Model {
   template?: ConvertMcpToFreeEditResponseBodyDataTemplate;
   /**
    * @remarks
-   * The MCP type. Valid values: DIRECT_PROXY (direct proxy), HTTP_TO_MCP (HTTP to MCP), and CODE_PACKAGE (code deployment).
+   * The MCP type. Valid values:
+   * - DIRECT_PROXY: Direct proxy.
+   * - HTTP_TO_MCP: HTTP to MCP.
+   * - CODE_PACKAGE: Code deployment.
    * 
    * @example
    * CODE_PACKAGE

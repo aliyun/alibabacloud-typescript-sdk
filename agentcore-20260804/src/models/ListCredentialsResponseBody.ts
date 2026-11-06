@@ -5,26 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class ListCredentialsResponseBodyItemsResourceRefs extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the resource.
+   * The ID of the applicable MCP service.
    * 
    * @example
-   * agent-xxxx
+   * mcp-example
    */
   resourceId?: string;
   /**
    * @remarks
-   * The resource name. It is empty if the resource has been deleted.
+   * The resource name. This parameter is empty if the resource is deleted.
    * 
    * @example
-   * my-agent
+   * my-mcp-service
    */
   resourceName?: string;
   /**
    * @remarks
-   * The resource type, such as agent.
+   * The resource type. Currently, the value is mcpServer, which indicates an MCP service.
    * 
    * @example
-   * agent
+   * mcpServer
    */
   resourceType?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +79,7 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The masked credential content. When credentialType is apiKey, the apiKey value is returned as asterisks (*) of the same length.
+   * The desensitized credential content. For the apiKey type, a key mask is returned. For the mcpHeader type, only the header name is returned, and the value is not returned.
    * 
    * @example
    * {"apiKey":"****************"}
@@ -87,7 +87,7 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
   credentialMetadata?: string;
   /**
    * @remarks
-   * The credential type. Currently, only apiKey is supported.
+   * The credential type. Valid values: apiKey (API key) and mcpHeader (MCP request header).
    * 
    * @example
    * apiKey
@@ -95,7 +95,7 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
   credentialType?: string;
   /**
    * @remarks
-   * The credential description, which cannot exceed 256 characters in length.
+   * The credential description. The description can be up to 256 characters in length.
    * 
    * @example
    * API key used to call model services in the production environment
@@ -103,7 +103,7 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The credential name. It must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 128 characters in length. Runtime reserved names cannot be used.
+   * The credential name. The name must be unique within the workspace, can contain only letters, digits, periods, underscores, and hyphens, and must be 3 to 99 characters in length. Runtime reserved names cannot be used.
    * 
    * @example
    * model-api-key
@@ -119,12 +119,12 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of resources to which the credential can be applied.
+   * The list of MCP services to which the credential applies.
    */
   resourceRefs?: ListCredentialsResponseBodyItemsResourceRefs[];
   /**
    * @remarks
-   * The application scope of the credential resource.
+   * The application scope of the credential. ALL indicates all scopes. SPECIFIED indicates specified MCP services.
    * 
    * @example
    * ALL
@@ -216,7 +216,7 @@ export class ListCredentialsResponseBody extends $dara.Model {
   items?: ListCredentialsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records per page that takes effect in this query.
+   * The maximum number of records per page that takes effect in the current query.
    * 
    * @example
    * 10
@@ -232,7 +232,7 @@ export class ListCredentialsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The cursor for the next page. It is empty if there is no next page.
+   * The cursor for the next page. This parameter is empty if no next page exists.
    * 
    * @example
    * 10

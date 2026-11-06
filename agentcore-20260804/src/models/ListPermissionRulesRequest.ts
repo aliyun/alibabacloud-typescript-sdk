@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPermissionRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results to return per page.
+   * The maximum number of entries to return per page.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListPermissionRulesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token used to retrieve the next page.
+   * The token used to retrieve the next page.
    * 
    * @example
    * token-example
@@ -73,7 +73,7 @@ export class ListPermissionRulesRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The rule target.
+   * The target of the rule.
    * 
    * @example
    * agent-1234567890

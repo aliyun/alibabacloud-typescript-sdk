@@ -7,7 +7,7 @@ export declare class CreatePermissionRulesRequestBodyRules extends $dara.Model {
      * This parameter is required.
      *
      * @example
-     * ALLOW
+     * PERMIT
      */
     effect?: string;
     /**
@@ -123,7 +123,7 @@ export declare class CreatePermissionRulesRequest extends $dara.Model {
     body?: CreatePermissionRulesRequestBody;
     /**
      * @remarks
-     * The client token.
+     * The idempotency token.
      *
      * @example
      * 550e8400-e29b-41d4-a716-446655440000

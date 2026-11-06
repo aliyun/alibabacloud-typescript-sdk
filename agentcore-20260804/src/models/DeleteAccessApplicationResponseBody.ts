@@ -21,7 +21,7 @@ export class DeleteAccessApplicationResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request processing result message.
+   * The message about the request processing result.
    * 
    * @example
    * success

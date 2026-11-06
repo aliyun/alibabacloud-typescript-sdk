@@ -10,7 +10,7 @@ export class UpdateManagedAgentShrinkRequest extends $dara.Model {
   bodyShrink?: string;
   /**
    * @remarks
-   * The reserved idempotency token. The backend does not provide idempotency guarantees in the current phase.
+   * The reserved query parameter. The backend currently does not provide idempotency guarantees, such as deduplication or returning the original processing result, based on this token.
    * 
    * @example
    * client-token-1

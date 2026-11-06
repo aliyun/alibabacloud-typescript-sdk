@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListMcpsRequest extends $dara.Model {
     /**
      * @remarks
-     * Filters the results by custom tags. An exact match is required.
+     * Filters the results by custom tags. An exact match with the tags is required.
      *
      * @example
      * Knowledge base
@@ -18,7 +18,7 @@ export declare class ListMcpsRequest extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The MCP service name or service ID. This parameter is used in conjunction with SearchType.
+     * The service name or ID of the MCP service. This parameter is used in conjunction with SearchType.
      *
      * @example
      * my-mcp-server
@@ -42,7 +42,10 @@ export declare class ListMcpsRequest extends $dara.Model {
     officialTag?: string;
     /**
      * @remarks
-     * The name matching mode. This parameter takes effect only when Name is specified. Valid values: accurate (exact match) and blur (fuzzy match). Default value: blur.
+     * The name matching mode. This parameter takes effect only when Name is specified. Valid values:
+     * - accurate: Exact match.
+     * - blur: Fuzzy match.
+     * Default value: blur.
      *
      * @example
      * blur

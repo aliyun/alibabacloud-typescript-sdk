@@ -13,7 +13,7 @@ export class ListAgentCodeRuntimesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page.
+   * The next page token.
    * 
    * @example
    * d3MtYTFiMmMzZDRlNWY2CmNvZGUtcnVudGltZS1leGFtcGxlCjE

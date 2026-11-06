@@ -13,7 +13,7 @@ export class ListSkillReferencesRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. If not specified, the default value on the server is used.
+   * The number of entries per page. If not specified, the server default value is used.
    * 
    * @example
    * 20

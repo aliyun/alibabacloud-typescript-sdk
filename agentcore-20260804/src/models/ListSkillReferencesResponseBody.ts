@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillReferencesResponseBodyDataPageItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the referencing entity, which is the identifier of the agent or agent spec.
+   * The ID of the referencing entity, which is the identifier of the agent or AgentSpec.
    * 
    * @example
    * agent-1234567890abcdef
@@ -100,7 +100,7 @@ export class ListSkillReferencesResponseBodyData extends $dara.Model {
   pageItems?: ListSkillReferencesResponseBodyDataPageItems[];
   /**
    * @remarks
-   * The current page number, starting from 1.
+   * The current page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -108,7 +108,7 @@ export class ListSkillReferencesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The total number of available pages.
+   * The total number of pages.
    * 
    * @example
    * 5
@@ -116,7 +116,7 @@ export class ListSkillReferencesResponseBodyData extends $dara.Model {
   pagesAvailable?: number;
   /**
    * @remarks
-   * The total number of reference relationships that meet the conditions.
+   * The total number of reference relationships that meet the specified conditions.
    * 
    * @example
    * 100
@@ -155,7 +155,7 @@ export class ListSkillReferencesResponseBodyData extends $dara.Model {
 export class ListSkillReferencesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The skill reference relationship data returned by the paging query.
+   * The skill reference data returned in the paging query.
    */
   data?: ListSkillReferencesResponseBodyData;
   /**

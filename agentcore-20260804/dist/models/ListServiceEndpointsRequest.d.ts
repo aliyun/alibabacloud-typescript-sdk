@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListServiceEndpointsRequest extends $dara.Model {
     /**
      * @remarks
-     * Filters the results by target agent ID.
+     * The ID of the target agent used to filter the results.
      *
      * @example
      * agent-123456
@@ -10,7 +10,7 @@ export declare class ListServiceEndpointsRequest extends $dara.Model {
     agentId?: string;
     /**
      * @remarks
-     * Filters the results by target agent version.
+     * The version of the target agent used to filter the results.
      *
      * @example
      * v1
@@ -18,7 +18,7 @@ export declare class ListServiceEndpointsRequest extends $dara.Model {
     agentVersion?: string;
     /**
      * @remarks
-     * Filters the results by collaboration component type. Valid values: MATRIX_CLIENT, MATRIX_FEDERATION, and ELEMENT_WEB.
+     * The collaboration component type used to filter the results. Valid values: MATRIX_CLIENT, MATRIX_FEDERATION, and ELEMENT_WEB.
      *
      * @example
      * ELEMENT_WEB
@@ -26,7 +26,7 @@ export declare class ListServiceEndpointsRequest extends $dara.Model {
     collaborationComponent?: string;
     /**
      * @remarks
-     * The maximum number of records to return per page. Valid values: 1 to 100. Default value: 20.
+     * The maximum number of entries to return on a single page. Valid values: 1 to 100. Default value: 20.
      *
      * @example
      * 20
@@ -34,7 +34,7 @@ export declare class ListServiceEndpointsRequest extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The cursor for querying the next page. Do not specify this parameter for the first call. For subsequent calls, specify the nextToken value returned in the previous response.
+     * The cursor used to query the next page. Do not specify this parameter in the first call. For subsequent calls, specify the `nextToken` value returned in the previous call.
      *
      * @example
      * djE6YWdlbnRjb3JlLnNlcnZpY2UtZW5kcG9pbnQubGlzdDoyMA
@@ -42,7 +42,7 @@ export declare class ListServiceEndpointsRequest extends $dara.Model {
     nextToken?: string;
     /**
      * @remarks
-     * Filters the results by the workspace resource binding ID of the target collaboration component.
+     * The workspace resource binding ID of the target collaboration component used to filter the results.
      *
      * @example
      * wrb-123456
@@ -50,7 +50,7 @@ export declare class ListServiceEndpointsRequest extends $dara.Model {
     resourceBindingId?: string;
     /**
      * @remarks
-     * Filters the results by service endpoint status. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
+     * The service endpoint status used to filter the results. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
      *
      * @example
      * READY
@@ -58,7 +58,7 @@ export declare class ListServiceEndpointsRequest extends $dara.Model {
     status?: string;
     /**
      * @remarks
-     * Filters the results by target type. Valid values: AGENT_VERSION and TEAM_COLLABORATION.
+     * The target type used to filter the results. Valid values: AGENT_VERSION and TEAM_COLLABORATION.
      *
      * @example
      * AGENT_VERSION

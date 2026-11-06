@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class InstallWorkspacePluginResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * Indicates whether the plugin is enabled.
+     * Indicates whether the component is enabled.
      *
      * @example
      * false
@@ -10,7 +10,7 @@ export declare class InstallWorkspacePluginResponseBodyData extends $dara.Model 
     enabled?: boolean;
     /**
      * @remarks
-     * The plugin name.
+     * The component name.
      *
      * @example
      * collaboration
@@ -18,7 +18,7 @@ export declare class InstallWorkspacePluginResponseBodyData extends $dara.Model 
     pluginName?: string;
     /**
      * @remarks
-     * The plugin status. Valid values: DISABLED, ENABLING, ENABLED, ENABLE_FAILED, DISABLING, and DISABLE_FAILED.
+     * The component status. Valid values: DISABLED, ENABLING, ENABLED, ENABLE_FAILED, DISABLING, and DISABLE_FAILED.
      *
      * @example
      * ENABLING
@@ -54,7 +54,7 @@ export declare class InstallWorkspacePluginResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The details of the plugin installation operation.
+     * The details of the component installation operation.
      */
     data?: InstallWorkspacePluginResponseBodyData;
     /**
@@ -67,7 +67,7 @@ export declare class InstallWorkspacePluginResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The response message. Returns an error description when the request fails.
+     * The response message. An error description is returned if the request fails.
      *
      * @example
      * success

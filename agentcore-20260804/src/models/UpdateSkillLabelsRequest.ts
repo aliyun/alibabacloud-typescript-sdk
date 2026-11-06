@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSkillLabelsRequestBody extends $dara.Model {
   /**
    * @remarks
-   * A JSON string of version label mappings.
+   * The JSON string for version label mapping.
    * 
    * This parameter is required.
    * 

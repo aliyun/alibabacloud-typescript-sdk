@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListMemoriesRequest extends $dara.Model {
     /**
      * @remarks
-     * The agent ID. If you do not specify this parameter, all agents are matched. The value must be 1 to 128 bytes in length and encoded in UTF-8. The value cannot contain a forward slash (/) or an asterisk (*).
+     * The agent ID. If you do not specify this parameter, all agents are matched. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*).
      *
      * @example
      * agent-001
@@ -26,7 +26,7 @@ export declare class ListMemoriesRequest extends $dara.Model {
     nextToken?: string;
     /**
      * @remarks
-     * The session ID. If you do not specify this parameter, all sessions are matched. The value must be 1 to 128 bytes in length and encoded in UTF-8. The value cannot contain a forward slash (/) or an asterisk (*).
+     * The session ID. If you do not specify this parameter, all sessions are matched. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*).
      *
      * @example
      * session-001
@@ -34,7 +34,7 @@ export declare class ListMemoriesRequest extends $dara.Model {
     sessionId?: string;
     /**
      * @remarks
-     * The user ID. If you do not specify this parameter, all users are matched. The value must be 1 to 128 bytes in length and encoded in UTF-8. The value cannot contain a forward slash (/) or an asterisk (*).
+     * The user ID. If you do not specify this parameter, all users are matched. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*).
      *
      * @example
      * user-001

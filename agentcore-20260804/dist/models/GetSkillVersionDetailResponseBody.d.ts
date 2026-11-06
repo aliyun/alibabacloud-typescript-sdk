@@ -6,7 +6,7 @@ export declare class GetSkillVersionDetailResponseBodyData extends $dara.Model {
      * The description.
      *
      * @example
-     * A sample description that explains the purpose of the resource
+     * Sample description to illustrate the purpose of the resource
      */
     description?: string;
     /**
@@ -19,19 +19,19 @@ export declare class GetSkillVersionDetailResponseBodyData extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The resource mapping in which the key is the resource name.
+     * The resource mapping, where the key is the resource name.
      */
     resource?: {
         [key: string]: DataResourceValue;
     };
     /**
      * @remarks
-     * The Skill card content (SKILL.md).
+     * The skill card content (SKILL.md).
      *
      * @example
-     * # Sample Skill
+     * # Sample skill
      *
-     * Used to demonstrate Skill document content
+     * Used to demonstrate skill document content
      */
     skillMd?: string;
     /**
@@ -56,7 +56,7 @@ export declare class GetSkillVersionDetailResponseBodyData extends $dara.Model {
 export declare class GetSkillVersionDetailResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The response data.
+     * The returned data.
      */
     data?: GetSkillVersionDetailResponseBodyData;
     /**

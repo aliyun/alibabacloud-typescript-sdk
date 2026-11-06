@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class EnableConnectorRequestBody extends $dara.Model {
     /**
      * @remarks
-     * The Connector configuration JSON string. Set site to global or cn. apiKey is required. serviceAccountKeys must contain at least one named service account key. organizationId is optional.
+     * The JSON string for the connector configuration. The site parameter must be global or cn. The apiKey parameter is required. The serviceAccountKeys parameter must contain at least one named service account key. The organizationId parameter is optional.
      *
      * This parameter is required.
      *
@@ -24,7 +24,7 @@ export declare class EnableConnectorRequestBody extends $dara.Model {
 export declare class EnableConnectorRequest extends $dara.Model {
     /**
      * @remarks
-     * The enable request body.
+     * The request body for enabling the connector.
      *
      * This parameter is required.
      */

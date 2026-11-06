@@ -10,7 +10,7 @@ export declare class ListModelsRequest extends $dara.Model {
     connectionId?: string;
     /**
      * @remarks
-     * The number of results per page. Valid values: 0 to 100. If this parameter is not set or set to 0, the default value 10 is used.
+     * The number of entries to return on each page. Valid values: 0 to 100. If this parameter is not specified or is set to 0, the default value is 10.
      *
      * @example
      * 10
@@ -26,7 +26,7 @@ export declare class ListModelsRequest extends $dara.Model {
     modelName?: string;
     /**
      * @remarks
-     * The pagination token. Pass the token returned from the previous query. An empty response indicates that no more pages are available.
+     * The pagination token. Specify the token returned from the previous request to retrieve the next page. An empty response indicates that no more pages are available.
      *
      * @example
      * bW9kZWwtbWFuYWdlbWVudC1vZmZzZXQ6bW9kZWw6MTA

@@ -16,7 +16,7 @@ export class CreatePermissionRulesResponseBodyDataRules extends $dara.Model {
    * The authorization effect.
    * 
    * @example
-   * ALLOW
+   * PERMIT
    */
   effect?: string;
   /**
@@ -85,10 +85,10 @@ export class CreatePermissionRulesResponseBodyDataRules extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The details of the rule source.
+   * The rule source details.
    * 
    * @example
-   * OpenAPI
+   * EXPLICIT
    */
   sourceDetail?: string;
   /**

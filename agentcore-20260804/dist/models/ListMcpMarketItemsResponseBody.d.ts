@@ -14,7 +14,7 @@ export declare class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
      * The description of the MCP service.
      *
      * @example
-     * An MCP service for querying knowledge bases
+     * MCP service for querying knowledge bases
      */
     description?: string;
     /**
@@ -26,7 +26,7 @@ export declare class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
     };
     /**
      * @remarks
-     * The multilingual display content organized by BCP-47 language tags. Falls back to default fields if the specified language is not matched.
+     * The multilingual display content organized by BCP-47 language tags. If a language is not matched, the system falls back to the default fields.
      */
     i18n?: {
         [key: string]: ItemsI18nValue;
@@ -105,7 +105,7 @@ export declare class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
     schemaVersion?: string;
     /**
      * @remarks
-     * The template input schema, represented as a JSON Schema string.
+     * The input schema of the template, represented as a JSON Schema string.
      *
      * @example
      * {"type":"object","properties":{"addresses":{"type":"array","items":{"type":"string"}}}}
@@ -154,7 +154,7 @@ export declare class ListMcpMarketItemsResponseBody extends $dara.Model {
     items?: ListMcpMarketItemsResponseBodyItems[];
     /**
      * @remarks
-     * The maximum number of records to return in this query.
+     * The maximum number of records to return for this query.
      *
      * @example
      * 20
@@ -170,7 +170,7 @@ export declare class ListMcpMarketItemsResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The pagination token used to retrieve the next page of results.
+     * The pagination token used to query the next page.
      *
      * @example
      * 20
@@ -178,7 +178,7 @@ export declare class ListMcpMarketItemsResponseBody extends $dara.Model {
     nextToken?: string;
     /**
      * @remarks
-     * The request ID, which is used to locate and troubleshoot issues.
+     * The request ID used to locate and troubleshoot the request.
      *
      * @example
      * request-123456
@@ -186,12 +186,12 @@ export declare class ListMcpMarketItemsResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful.
+     * Indicates whether the request is successful.
      */
     success?: boolean;
     /**
      * @remarks
-     * The total number of records that match the specified conditions.
+     * The total number of records that meet the conditions.
      *
      * @example
      * 12

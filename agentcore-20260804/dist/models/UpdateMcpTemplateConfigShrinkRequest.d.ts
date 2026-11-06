@@ -2,12 +2,12 @@ import * as $dara from '@darabonba/typescript';
 export declare class UpdateMcpTemplateConfigShrinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The MCP configuration to update by the specified template version. The configuration must conform to the input schema of the template.
+     * The MCP configuration updated based on the specified template version, which must comply with the input schema of the template.
      */
     bodyShrink?: string;
     /**
      * @remarks
-     * The client token that is used to ensure the idempotency of the request.
+     * The reserved query request identifier. The current console backend does not read this parameter and does not provide idempotency guarantees such as deduplication or restoring the original processing result based on this identifier.
      *
      * @example
      * 123e4567-e89b-12d3-a456-426655440000

@@ -9,7 +9,7 @@ export declare class CreateMemoryStoreShrinkRequest extends $dara.Model {
     bodyShrink?: string;
     /**
      * @remarks
-     * The client token.
+     * The client request token.
      *
      * @example
      * memory-store-create-20260909-001

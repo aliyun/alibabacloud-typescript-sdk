@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body for updating a user.
+   * The request body for updating the user.
    */
   bodyShrink?: string;
   /**

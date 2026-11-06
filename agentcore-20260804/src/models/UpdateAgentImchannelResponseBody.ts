@@ -118,7 +118,7 @@ export class UpdateAgentIMChannelResponseBodyData extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The public network access URL of the attached ServiceEndpoint.
+   * The public network access URL of the bound ServiceEndpoint.
    * 
    * @example
    * https://agent.example.com
@@ -142,7 +142,7 @@ export class UpdateAgentIMChannelResponseBodyData extends $dara.Model {
   serviceEndpointId?: string;
   /**
    * @remarks
-   * The IM channel status. Valid values: CREATING (Creating), READY (Ready), UPDATING (Updating), FAILED (Failed), DELETING (Deleting), and DELETE_FAILED (Deletion failed).
+   * The IM channel status. Valid values: CREATING (Creating), READY (Ready), UPDATING (Updating), FAILED (Failed), DELETING (Deleting), and DELETE_FAILED (Delete failed).
    * 
    * @example
    * READY
@@ -226,7 +226,7 @@ export class UpdateAgentIMChannelResponseBodyData extends $dara.Model {
 export class UpdateAgentIMChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS if the request is successful.
+   * The business status code. The value is SUCCESS when the request is successful.
    * 
    * @example
    * SUCCESS
@@ -239,7 +239,7 @@ export class UpdateAgentIMChannelResponseBody extends $dara.Model {
   data?: UpdateAgentIMChannelResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 if the request is successful.
+   * The HTTP status code. The value is 200 when the request is successful.
    * 
    * @example
    * 200

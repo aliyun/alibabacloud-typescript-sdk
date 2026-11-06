@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class GetAgentCodePackageUploadUrlRequestBody extends $dara.Model {
     /**
      * @remarks
-     * The file name of the code package.
+     * The name of the code package file.
      *
      * This parameter is required.
      *

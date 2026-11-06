@@ -10,7 +10,7 @@ export declare class DebugModelResponseBodyData extends $dara.Model {
     connectionId?: string;
     /**
      * @remarks
-     * Indicates whether the model debugging was successful.
+     * Indicates whether the model debugging is successful.
      */
     debugSuccess?: boolean;
     /**
@@ -23,7 +23,7 @@ export declare class DebugModelResponseBodyData extends $dara.Model {
     errorCode?: string;
     /**
      * @remarks
-     * The error message returned when debugging fails.
+     * The error description returned when debugging fails.
      *
      * @example
      * The model endpoint rejected the debug request.
@@ -39,7 +39,7 @@ export declare class DebugModelResponseBodyData extends $dara.Model {
     inputTokens?: number;
     /**
      * @remarks
-     * The time consumed by this model debugging call, in milliseconds.
+     * The duration of this model debugging invocation, in milliseconds.
      *
      * @example
      * 12
@@ -63,7 +63,7 @@ export declare class DebugModelResponseBodyData extends $dara.Model {
     outputTokens?: number;
     /**
      * @remarks
-     * The text response returned by the model when debugging succeeds. This value is empty when debugging fails.
+     * The text response returned by the model when model debugging succeeds. This field is empty if debugging fails.
      *
      * @example
      * ok
@@ -71,7 +71,7 @@ export declare class DebugModelResponseBodyData extends $dara.Model {
     response?: string;
     /**
      * @remarks
-     * The debug result status.
+     * The debugging result status.
      *
      * @example
      * NORMAL
@@ -91,7 +91,7 @@ export declare class DebugModelResponseBodyData extends $dara.Model {
 export declare class DebugModelResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business status code. The value SUCCESS indicates success.
+     * The business status code. The value is SUCCESS if the request is successful.
      *
      * @example
      * SUCCESS
@@ -104,7 +104,7 @@ export declare class DebugModelResponseBody extends $dara.Model {
     data?: DebugModelResponseBodyData;
     /**
      * @remarks
-     * The HTTP status code. The value 200 indicates success.
+     * The HTTP status code. The value is 200 if the request is successful.
      *
      * @example
      * 200
@@ -112,7 +112,7 @@ export declare class DebugModelResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The request processing result message.
+     * The message about the request processing result.
      *
      * @example
      * success
@@ -128,7 +128,7 @@ export declare class DebugModelResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful.
+     * Indicates whether the request is successful.
      */
     success?: boolean;
     static names(): {

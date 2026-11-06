@@ -61,7 +61,7 @@ export class UpdateAccessApplicationResponseBodyData extends $dara.Model {
    * The user source.
    * 
    * @example
-   * RAM
+   * LOCAL
    */
   userSource?: string;
   /**
@@ -136,7 +136,7 @@ export class UpdateAccessApplicationResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message about the request processing result.
+   * The request processing result message.
    * 
    * @example
    * success

@@ -13,7 +13,7 @@ export class UpdateConnectorResponseBodyData extends $dara.Model {
   boundAgentCount?: number;
   /**
    * @remarks
-   * The time when the Connector was enabled.
+   * The time when the connector was enabled.
    * 
    * @example
    * 2026-09-01T08:00:00Z
@@ -21,7 +21,7 @@ export class UpdateConnectorResponseBodyData extends $dara.Model {
   enabledAt?: string;
   /**
    * @remarks
-   * The updated Connector configuration JSON string. This is sensitive information.
+   * The updated JSON string for the connector configuration. This is sensitive information.
    * 
    * @example
    * {"site":"global","organizationId":"org-xxxx"}
@@ -29,7 +29,7 @@ export class UpdateConnectorResponseBodyData extends $dara.Model {
   metadata?: string;
   /**
    * @remarks
-   * The Connector name. Currently, the value is qodercli.
+   * The name of the connector. Currently, the value is qodercli.
    * 
    * @example
    * qodercli
@@ -37,7 +37,7 @@ export class UpdateConnectorResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Connector status.
+   * The status of the connector.
    * 
    * @example
    * ENABLED
@@ -83,7 +83,7 @@ export class UpdateConnectorResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The Connector details.
+   * The connector details.
    */
   data?: UpdateConnectorResponseBodyData;
   /**
@@ -112,7 +112,7 @@ export class UpdateConnectorResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

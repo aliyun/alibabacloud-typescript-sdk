@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListSkillsRequest extends $dara.Model {
     /**
      * @remarks
-     * The maximum number of entries to return per page.
+     * The maximum number of items to return per page.
      *
      * @example
      * 20
@@ -18,7 +18,7 @@ export declare class ListSkillsRequest extends $dara.Model {
     nextToken?: string;
     /**
      * @remarks
-     * The field by which to sort the results. Valid value: download_count. Default value: gmt_modified.
+     * The sort field. Valid value: download_count. Default value: gmt_modified.
      *
      * @example
      * download_count
@@ -26,7 +26,7 @@ export declare class ListSkillsRequest extends $dara.Model {
     orderBy?: string;
     /**
      * @remarks
-     * The owner used to filter the results.
+     * Filters the skills by owner.
      *
      * @example
      * user123
@@ -42,7 +42,7 @@ export declare class ListSkillsRequest extends $dara.Model {
     pageNo?: number;
     /**
      * @remarks
-     * The number of entries per page. Default value: 10. Maximum value: 50.
+     * The number of items per page. Default value: 10. Maximum value: 50.
      *
      * @example
      * 10
@@ -50,7 +50,7 @@ export declare class ListSkillsRequest extends $dara.Model {
     pageSize?: number;
     /**
      * @remarks
-     * The visibility used to filter the results. Valid values: PUBLIC and PRIVATE.
+     * Filters the skills by visibility. Valid values: PUBLIC and PRIVATE.
      *
      * @example
      * PUBLIC

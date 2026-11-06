@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListConnectorModelsRequest extends $dara.Model {
     /**
      * @remarks
-     * The Connector Key ID. This parameter is not supported in the current version.
+     * The connector key ID. This parameter is not supported in the current version.
      *
      * @example
      * ckey-xxxx
@@ -18,7 +18,7 @@ export declare class ListConnectorModelsRequest extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The next page token. This parameter is not supported in the current version.
+     * The next token. This parameter is not supported in the current version.
      *
      * @example
      * dGVzdA==

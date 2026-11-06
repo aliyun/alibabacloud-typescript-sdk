@@ -120,7 +120,7 @@ export declare class UpdateMcpRequestBodyAuth extends $dara.Model {
     directProxy?: UpdateMcpRequestBodyAuthDirectProxy;
     /**
      * @remarks
-     * Specifies whether to enable the configuration.
+     * Specifies whether the configuration is enabled.
      */
     enabled?: boolean;
     /**
@@ -142,7 +142,7 @@ export declare class UpdateMcpRequestBodyAuth extends $dara.Model {
 export declare class UpdateMcpRequestBodyDeploymentConfigAccessControl extends $dara.Model {
     /**
      * @remarks
-     * References an AgentCore credential when the mode is CREDENTIAL.
+     * The AgentCore credential referenced when the mode is CREDENTIAL.
      *
      * @example
      * credential-id
@@ -150,12 +150,12 @@ export declare class UpdateMcpRequestBodyDeploymentConfigAccessControl extends $
     credentialId?: string;
     /**
      * @remarks
-     * Specifies whether to enable entrypoint access control.
+     * Specifies whether to enable access control for the MCP entry point.
      */
     enabled?: boolean;
     /**
      * @remarks
-     * Specifies the access control mode. ANONYMOUS indicates anonymous access. CREDENTIAL indicates the use of AgentCore access credentials.
+     * The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates the use of AgentCore access credentials.
      *
      * @example
      * CREDENTIAL
@@ -226,7 +226,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigCodeConfiguration exten
     command?: string[];
     /**
      * @remarks
-     * The runtime of the code package. Valid values: python3.13, nodejs22, and java17.
+     * The code package runtime: python3.13, nodejs22, or java17.
      *
      * @example
      * python3.13
@@ -259,12 +259,12 @@ export declare class UpdateMcpRequestBodyDeploymentConfigContainerConfiguration 
     command?: string[];
     /**
      * @remarks
-     * The entrypoint parameters of the container.
+     * The entrypoint arguments for the container.
      */
     entrypoint?: string[];
     /**
      * @remarks
-     * The URL of the container image.
+     * The address of the container image.
      *
      * @example
      * registry.cn-hangzhou.aliyuncs.com/example/mcp:1.0.0
@@ -280,7 +280,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigContainerConfiguration 
     imageRegistryType?: string;
     /**
      * @remarks
-     * The MCP runtime mode. Custom containers must currently expose standard MCP by themselves. Valid value: SELF_HOSTED.
+     * The MCP runtime mode. Custom containers must expose standard MCP themselves. Set the value to SELF_HOSTED.
      *
      * @example
      * SELF_HOSTED
@@ -288,7 +288,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigContainerConfiguration 
     mcpRuntimeMode?: string;
     /**
      * @remarks
-     * The source type of the container. Currently fixed to CONTAINER_IMAGE.
+     * The source type of the container. Currently, this is fixed to CONTAINER_IMAGE.
      *
      * @example
      * CONTAINER_IMAGE
@@ -319,7 +319,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigHookConfigurationHooks 
      * The description of the hook.
      *
      * @example
-     * Log MCP tool invoke
+     * Log MCP tool invocations
      */
     description?: string;
     /**
@@ -329,7 +329,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigHookConfigurationHooks 
     enabled?: boolean;
     /**
      * @remarks
-     * The event of the hook.
+     * The hook event.
      *
      * @example
      * PRE_CALL_TOOL
@@ -337,14 +337,14 @@ export declare class UpdateMcpRequestBodyDeploymentConfigHookConfigurationHooks 
     event?: string;
     /**
      * @remarks
-     * The request headers of the hook.
+     * The hook request headers.
      */
     headers?: {
         [key: string]: string;
     };
     /**
      * @remarks
-     * The timeout period of the hook, in milliseconds.
+     * The timeout period in milliseconds.
      *
      * @example
      * 3000
@@ -352,7 +352,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigHookConfigurationHooks 
     timeout?: number;
     /**
      * @remarks
-     * The callback URL of the hook.
+     * The hook callback URL.
      *
      * @example
      * https://example.com/mcp-hook
@@ -372,7 +372,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigHookConfigurationHooks 
 export declare class UpdateMcpRequestBodyDeploymentConfigHookConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Executes PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the array order.
+     * The ordered list of hooks. Executes PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in array order.
      */
     hooks?: UpdateMcpRequestBodyDeploymentConfigHookConfigurationHooks[];
     static names(): {
@@ -399,7 +399,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigLogConfiguration extend
     enableRequestMetrics?: boolean;
     /**
      * @remarks
-     * The start rule for Function Compute log splitting.
+     * The start rule for Function Compute log segmentation.
      *
      * @example
      * DefaultRegex
@@ -492,7 +492,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigNasConfigurationMountPo
     mountDir?: string;
     /**
      * @remarks
-     * The address of the NAS server.
+     * The NAS server address.
      *
      * @example
      * example.cn-hangzhou.nas.aliyuncs.com
@@ -602,7 +602,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigOssMountConfigurationMo
     bucketPath?: string;
     /**
      * @remarks
-     * The endpoint of the OSS service.
+     * The OSS endpoint.
      *
      * @example
      * https://oss-cn-hangzhou.aliyuncs.com
@@ -685,7 +685,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigParameterTransformConfi
 export declare class UpdateMcpRequestBodyDeploymentConfigProxyConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to enable the MCP proxy.
+     * Specifies whether the MCP proxy is enabled.
      */
     enabled?: boolean;
     static names(): {
@@ -702,7 +702,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigProxyConfiguration exte
 export declare class UpdateMcpRequestBodyDeploymentConfigRuntimeConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The CPU specification in cores. Default value: 0.25.
+     * The CPU specification, in cores. Default value: 0.25.
      *
      * @example
      * 0.25
@@ -710,7 +710,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
     cpu?: number;
     /**
      * @remarks
-     * The ephemeral disk size in MB. Valid values: 512 and 10240.
+     * The ephemeral disk size, in MB. Valid values: 512 and 10240.
      *
      * @example
      * 512
@@ -733,7 +733,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
     executionRoleArn?: string;
     /**
      * @remarks
-     * Default value: 200.
+     * The number of concurrent requests per instance. Default value: 200.
      *
      * @example
      * 200
@@ -741,7 +741,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
     instanceConcurrency?: number;
     /**
      * @remarks
-     * The unit is MB. Default value: 512.
+     * The memory specification, in MB. Default value: 512.
      *
      * @example
      * 512
@@ -749,7 +749,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
     memory?: number;
     /**
      * @remarks
-     * Default value: 9000.
+     * The service port. Default value: 9000.
      *
      * @example
      * 9000
@@ -757,7 +757,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
     port?: number;
     /**
      * @remarks
-     * The unit is seconds. Default value: 300.
+     * The function timeout period, in seconds. Default value: 300.
      *
      * @example
      * 300
@@ -777,7 +777,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfigRuntimeConfiguration ex
 export declare class UpdateMcpRequestBodyDeploymentConfig extends $dara.Model {
     /**
      * @remarks
-     * The MCP entrypoint access control.
+     * The access control for the MCP entry point.
      */
     accessControl?: UpdateMcpRequestBodyDeploymentConfigAccessControl;
     /**
@@ -787,7 +787,7 @@ export declare class UpdateMcpRequestBodyDeploymentConfig extends $dara.Model {
     agentIdentityConfiguration?: UpdateMcpRequestBodyDeploymentConfigAgentIdentityConfiguration;
     /**
      * @remarks
-     * The artifact type. Code indicates a ZIP code package. Container indicates a custom container.
+     * The artifact type. Code indicates a ZIP code package, and Container indicates a custom container.
      *
      * @example
      * Code
@@ -867,7 +867,7 @@ export declare class UpdateMcpRequestBody extends $dara.Model {
     addresses?: string[];
     /**
      * @remarks
-     * The backend authentication configuration. When enabled is set to true, specify directProxy (name and value) for DIRECT_PROXY, specify the httpToMcp array (each item includes id, type, and credential; apiKey also requires position and name) for HTTP_TO_MCP, which supports multiple authentication objects where the first one is the default upstream credential, and specify codePackage (headerName and apiKey) for CODE_PACKAGE to verify MCP callers. HTTP_TO_MCP credentials are merged into the securitySchemes of Swagger.
+     * The backend authentication configuration. When enabled is set to true, specify directProxy (name and value) for DIRECT_PROXY, specify the httpToMcp array (each item includes id, type, and credential; apiKey also requires position and name) for HTTP_TO_MCP, and specify codePackage for CODE_PACKAGE. Multiple authentication objects are supported, and the first one serves as the default upstream credential. HTTP_TO_MCP credentials are merged into the securitySchemes of Swagger.
      */
     auth?: UpdateMcpRequestBodyAuth;
     /**
@@ -877,7 +877,7 @@ export declare class UpdateMcpRequestBody extends $dara.Model {
     customTags?: string[];
     /**
      * @remarks
-     * The deployment configuration patch for CODE_PACKAGE MCP, where object fields are merged hierarchically. To retain the current code package, omit CodeConfiguration.CodePackageToken and the server reuses the deployed code package. To replace the code package, provide a new non-empty token. CodePackageUrl is supported only in CreateMcp and not in updates.
+     * The deployment configuration patch for a CODE_PACKAGE MCP. Object fields are merged hierarchically. To retain the current code package, omit CodeConfiguration.CodePackageToken, and the server reuses the deployed code package. To replace the code package, provide a new non-empty token. CodePackageUrl is only supported in CreateMcp and is not supported during updates.
      */
     deploymentConfig?: UpdateMcpRequestBodyDeploymentConfig;
     /**
@@ -885,12 +885,12 @@ export declare class UpdateMcpRequestBody extends $dara.Model {
      * The description.
      *
      * @example
-     * A sample description to illustrate the purpose of the resource
+     * A sample description that illustrates the purpose of the resource
      */
     description?: string;
     /**
      * @remarks
-     * The access permission mode. PUBLIC indicates public access, and CONTROLLED indicates that access is controlled based on permission rules.
+     * The access permission mode. PUBLIC indicates public access. CONTROLLED indicates that access is controlled based on permission rules.
      *
      * @example
      * CONTROLLED
@@ -923,7 +923,7 @@ export declare class UpdateMcpRequest extends $dara.Model {
     body?: UpdateMcpRequestBody;
     /**
      * @remarks
-     * The client token used to ensure the idempotency of the request.
+     * The client token that is used to ensure request idempotency. This is a reserved query parameter. The current console backend does not read this parameter and does not provide idempotency guarantees such as deduplication or recovery of the original acceptance result based on this token.
      *
      * @example
      * 123e4567-e89b-12d3-a456-426614174000

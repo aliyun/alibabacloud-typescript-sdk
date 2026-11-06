@@ -109,7 +109,7 @@ export class ListMcpsResponseBodyItemsAuthHttpToMcp extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The location of the credential.
+   * The position of the credential.
    * 
    * @example
    * header
@@ -155,7 +155,7 @@ export class ListMcpsResponseBodyItemsAuthHttpToMcp extends $dara.Model {
 export class ListMcpsResponseBodyItemsAuth extends $dara.Model {
   /**
    * @remarks
-   * The caller API key authentication configuration for code-deployed MCP.
+   * The API key authentication configuration for callers of code-deployed MCP.
    */
   codePackage?: ListMcpsResponseBodyItemsAuthCodePackage;
   /**
@@ -165,7 +165,7 @@ export class ListMcpsResponseBodyItemsAuth extends $dara.Model {
   directProxy?: ListMcpsResponseBodyItemsAuthDirectProxy;
   /**
    * @remarks
-   * Specifies whether the feature is enabled.
+   * Specifies whether it is enabled.
    */
   enabled?: boolean;
   /**
@@ -212,7 +212,7 @@ export class ListMcpsResponseBodyItemsAuth extends $dara.Model {
 export class ListMcpsResponseBodyItemsDeploymentConfigAccessControl extends $dara.Model {
   /**
    * @remarks
-   * References the AgentCore credential when mode is set to CREDENTIAL.
+   * References the AgentCore credential when mode is CREDENTIAL.
    * 
    * @example
    * credential-id
@@ -220,12 +220,12 @@ export class ListMcpsResponseBodyItemsDeploymentConfigAccessControl extends $dar
   credentialId?: string;
   /**
    * @remarks
-   * Specifies whether entry access control is enabled.
+   * Specifies whether ingress access control is enabled.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * ANONYMOUS indicates anonymous access. CREDENTIAL indicates the use of AgentCore access credentials.
+   * ANONYMOUS indicates anonymous access, and CREDENTIAL indicates the use of AgentCore access credentials.
    * 
    * @example
    * CREDENTIAL
@@ -326,7 +326,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigCodeConfiguration extends 
   command?: string[];
   /**
    * @remarks
-   * The code package runtime. Valid values: python3.13, nodejs22, and java17.
+   * The runtime environment of the code package, such as python3.13, nodejs22, or java17.
    * 
    * @example
    * python3.13
@@ -376,12 +376,12 @@ export class ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration ext
   command?: string[];
   /**
    * @remarks
-   * The container entrypoint arguments.
+   * The container entrypoint parameters.
    */
   entrypoint?: string[];
   /**
    * @remarks
-   * The container image address.
+   * The address of the container image.
    * 
    * @example
    * registry.cn-hangzhou.aliyuncs.com/example/mcp:1.0.0
@@ -389,7 +389,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration ext
   image?: string;
   /**
    * @remarks
-   * The image registry type.
+   * The type of the image registry.
    * 
    * @example
    * ACR
@@ -397,7 +397,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration ext
   imageRegistryType?: string;
   /**
    * @remarks
-   * The MCP runtime mode. Custom containers must currently expose the standard MCP themselves. Valid value: SELF_HOSTED.
+   * Custom containers must currently expose the standard MCP themselves. Valid value: SELF_HOSTED.
    * 
    * @example
    * SELF_HOSTED
@@ -405,7 +405,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration ext
   mcpRuntimeMode?: string;
   /**
    * @remarks
-   * The container source type. The value is fixed to CONTAINER_IMAGE.
+   * The source type of the container. Currently fixed to CONTAINER_IMAGE.
    * 
    * @example
    * CONTAINER_IMAGE
@@ -453,7 +453,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigContainerConfiguration ext
 export class ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationHooks extends $dara.Model {
   /**
    * @remarks
-   * The hook API version.
+   * The API version of the hook.
    * 
    * @example
    * 1.0
@@ -461,10 +461,10 @@ export class ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationHooks ext
   apiVersion?: string;
   /**
    * @remarks
-   * The hook description.
+   * The description of the hook.
    * 
    * @example
-   * Record MCP tool invocations
+   * Record MCP tool invocation
    */
   description?: string;
   /**
@@ -482,12 +482,12 @@ export class ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationHooks ext
   event?: string;
   /**
    * @remarks
-   * The hook request headers.
+   * The request headers for the hook.
    */
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The hook timeout in milliseconds.
+   * The timeout period for the hook, in milliseconds.
    * 
    * @example
    * 3000
@@ -495,7 +495,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationHooks ext
   timeout?: number;
   /**
    * @remarks
-   * The hook callback URL.
+   * The callback URL for the hook.
    * 
    * @example
    * https://example.com/mcp-hook
@@ -540,7 +540,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationHooks ext
 export class ListMcpsResponseBodyItemsDeploymentConfigHookConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The ordered list of hooks. Executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in array order.
+   * Executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
    */
   hooks?: ListMcpsResponseBodyItemsDeploymentConfigHookConfigurationHooks[];
   static names(): { [key: string]: string } {
@@ -580,7 +580,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigLogConfiguration extends $
   enableRequestMetrics?: boolean;
   /**
    * @remarks
-   * The Function Compute log splitting start rule.
+   * The start rule for Function Compute log splitting.
    * 
    * @example
    * DefaultRegex
@@ -634,7 +634,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigLogConfiguration extends $
 export class ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The MCP endpoint path, such as /mcp or /sse.
+   * The path for the MCP endpoint, such as /mcp or /sse.
    * 
    * @example
    * /mcp
@@ -642,7 +642,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration extends $
   endpointPath?: string;
   /**
    * @remarks
-   * The number of concurrent sessions per instance. The value is fixed to 1.
+   * Currently fixed at 1.
    * 
    * @example
    * 1
@@ -650,7 +650,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration extends $
   sessionConcurrencyPerInstance?: number;
   /**
    * @remarks
-   * The session idle timeout in seconds. Default value: 1800.
+   * The unit is seconds. Default value: 1800.
    * 
    * @example
    * 1800
@@ -658,7 +658,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration extends $
   sessionIdleTimeoutSeconds?: number;
   /**
    * @remarks
-   * The maximum session lifetime in seconds. Default value: 21600.
+   * The unit is seconds. Default value: 21600.
    * 
    * @example
    * 21600
@@ -694,7 +694,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigMcpConfiguration extends $
 export class ListMcpsResponseBodyItemsDeploymentConfigNasConfigurationMountPoints extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether TLS is enabled.
+   * Specifies whether to enable TLS.
    */
   enableTls?: boolean;
   /**
@@ -707,7 +707,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigNasConfigurationMountPoint
   mountDir?: string;
   /**
    * @remarks
-   * The NAS service address.
+   * The NAS server address.
    * 
    * @example
    * example.cn-hangzhou.nas.aliyuncs.com
@@ -741,7 +741,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigNasConfigurationMountPoint
 export class ListMcpsResponseBodyItemsDeploymentConfigNasConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The ID of the runtime user group.
+   * The runtime user group ID.
    * 
    * @example
    * 1000
@@ -754,7 +754,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigNasConfiguration extends $
   mountPoints?: ListMcpsResponseBodyItemsDeploymentConfigNasConfigurationMountPoints[];
   /**
    * @remarks
-   * The ID of the user that runs the service.
+   * The runtime user ID.
    * 
    * @example
    * 1000
@@ -812,7 +812,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigNetworkConfiguration exten
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * vpc-example
@@ -851,7 +851,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigNetworkConfiguration exten
 export class ListMcpsResponseBodyItemsDeploymentConfigOssMountConfigurationMountPoints extends $dara.Model {
   /**
    * @remarks
-   * The name of the OSS bucket.
+   * The OSS bucket name.
    * 
    * @example
    * example-bucket
@@ -859,7 +859,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigOssMountConfigurationMount
   bucketName?: string;
   /**
    * @remarks
-   * The path in the OSS bucket.
+   * The OSS bucket path.
    * 
    * @example
    * /data
@@ -867,7 +867,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigOssMountConfigurationMount
   bucketPath?: string;
   /**
    * @remarks
-   * The endpoint of the OSS service.
+   * The OSS service endpoint.
    * 
    * @example
    * https://oss-cn-hangzhou.aliyuncs.com
@@ -953,7 +953,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigParameterTransformConfigur
   enabled?: boolean;
   /**
    * @remarks
-   * The reserved reference to the rule set for parameter transformation and result enhancement.
+   * The reserved reference to the parameter transformation and result enhancement rule set.
    * 
    * @example
    * rules-1
@@ -961,7 +961,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigParameterTransformConfigur
   ruleSetId?: string;
   /**
    * @remarks
-   * The version of the transformation rule.
+   * The transformation rule version.
    * 
    * @example
    * 1.0
@@ -1022,7 +1022,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigProxyConfiguration extends
 export class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The CPU specifications, in cores. Default value: 0.25.
+   * The unit is cores. Default value: 0.25.
    * 
    * @example
    * 0.25
@@ -1030,7 +1030,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfiguration exten
   cpu?: number;
   /**
    * @remarks
-   * The size of the ephemeral disk, in MB. Valid values: 512 and 10240.
+   * The unit is MB. Valid values: 512 and 10240.
    * 
    * @example
    * 512
@@ -1043,7 +1043,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfiguration exten
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
+   * The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
    * 
    * @example
    * acs:ram::1234567890123456:role/agentcore-mcp-execution
@@ -1051,7 +1051,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfiguration exten
   executionRoleArn?: string;
   /**
    * @remarks
-   * The maximum number of concurrent requests per instance. Default value: 200.
+   * Default value: 200.
    * 
    * @example
    * 200
@@ -1059,7 +1059,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfiguration exten
   instanceConcurrency?: number;
   /**
    * @remarks
-   * The memory specifications, in MB. Default value: 512.
+   * The unit is MB. Default value: 512.
    * 
    * @example
    * 512
@@ -1067,7 +1067,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfiguration exten
   memory?: number;
   /**
    * @remarks
-   * The service port. Default value: 9000.
+   * Default value: 9000.
    * 
    * @example
    * 9000
@@ -1075,7 +1075,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfiguration exten
   port?: number;
   /**
    * @remarks
-   * The function timeout period, in seconds. Default value: 300.
+   * The unit is seconds. Default value: 300.
    * 
    * @example
    * 300
@@ -1122,7 +1122,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfigRuntimeConfiguration exten
 export class ListMcpsResponseBodyItemsDeploymentConfig extends $dara.Model {
   /**
    * @remarks
-   * The MCP entry access control.
+   * The MCP ingress access control.
    */
   accessControl?: ListMcpsResponseBodyItemsDeploymentConfigAccessControl;
   /**
@@ -1132,7 +1132,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfig extends $dara.Model {
   agentIdentityConfiguration?: ListMcpsResponseBodyItemsDeploymentConfigAgentIdentityConfiguration;
   /**
    * @remarks
-   * Code indicates a ZIP code package. Container indicates a custom container.
+   * Code indicates a ZIP code package, and Container indicates a custom container.
    * 
    * @example
    * Code
@@ -1180,7 +1180,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfig extends $dara.Model {
   ossMountConfiguration?: ListMcpsResponseBodyItemsDeploymentConfigOssMountConfiguration;
   /**
    * @remarks
-   * The configuration for parameter transformation and result enhancement.
+   * The parameter transformation and result enhancement configuration.
    */
   parameterTransformConfiguration?: ListMcpsResponseBodyItemsDeploymentConfigParameterTransformConfiguration;
   /**
@@ -1282,7 +1282,7 @@ export class ListMcpsResponseBodyItemsDeploymentConfig extends $dara.Model {
 export class ListMcpsResponseBodyItemsMarketSource extends $dara.Model {
   /**
    * @remarks
-   * The ID of the MCP marketplace template.
+   * The ID of the marketplace template.
    * 
    * @example
    * market-1
@@ -1317,12 +1317,12 @@ export class ListMcpsResponseBodyItems extends $dara.Model {
   addresses?: string[];
   /**
    * @remarks
-   * The backend authentication configuration. enabled specifies whether the feature is enabled. directProxy specifies the custom authentication header for the direct proxy. httpToMcp specifies the list of OpenAPI credentials for HTTP_TO_MCP.
+   * The backend authentication configuration. enabled specifies whether it is enabled. directProxy specifies the custom authentication header for the direct proxy. httpToMcp specifies the list of OpenAPI credentials for HTTP_TO_MCP.
    */
   auth?: ListMcpsResponseBodyItemsAuth;
   /**
    * @remarks
-   * The time when the MCP was created, in ISO 8601 UTC format.
+   * The creation time of the MCP, in ISO 8601 UTC format.
    * 
    * @example
    * 2026-08-23T00:00:00Z
@@ -1343,7 +1343,7 @@ export class ListMcpsResponseBodyItems extends $dara.Model {
    * The description.
    * 
    * @example
-   * A sample description that illustrates the purpose of the resource
+   * A sample description to illustrate the purpose of the resource
    */
   description?: string;
   /**
@@ -1364,7 +1364,7 @@ export class ListMcpsResponseBodyItems extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * The marketplace template from which the MCP is sourced.
+   * The marketplace source template of the MCP.
    */
   marketSource?: ListMcpsResponseBodyItemsMarketSource;
   /**
@@ -1393,7 +1393,7 @@ export class ListMcpsResponseBodyItems extends $dara.Model {
   officialTag?: string;
   /**
    * @remarks
-   * The access permission mode. PUBLIC indicates public access. CONTROLLED indicates that access is controlled based on permission rules.
+   * The access permission mode.
    * 
    * @example
    * CONTROLLED
@@ -1441,7 +1441,7 @@ export class ListMcpsResponseBodyItems extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The last update time of the MCP, in ISO 8601 UTC format.
+   * The last time the MCP was updated, in ISO 8601 UTC format.
    * 
    * @example
    * 2026-08-23T01:00:00Z
@@ -1449,7 +1449,7 @@ export class ListMcpsResponseBodyItems extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * Specifies whether the MCP is still subject to the usage constraints of the official template.
+   * Indicates whether the MCP is still subject to the usage constraints of the official template.
    */
   usageActive?: boolean;
   static names(): { [key: string]: string } {
@@ -1582,7 +1582,7 @@ export class ListMcpsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   /**

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class UpdateTeamShrinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The request body for updating a team.
+     * The request body for updating the team.
      */
     bodyShrink?: string;
     /**

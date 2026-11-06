@@ -21,7 +21,7 @@ export class ListConnectorModelsResponseBodyItems extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The associated Connector Key ID. This field is not returned in the current version.
+   * The associated connector key ID. This field is not returned in the current version.
    * 
    * @example
    * ckey-xxxx
@@ -29,7 +29,7 @@ export class ListConnectorModelsResponseBodyItems extends $dara.Model {
   keyId?: string;
   /**
    * @remarks
-   * The associated Connector Key name. This field is not returned in the current version.
+   * The name of the associated connector key. This field is not returned in the current version.
    * 
    * @example
    * default
@@ -106,7 +106,7 @@ export class ListConnectorModelsResponseBody extends $dara.Model {
   items?: ListConnectorModelsResponseBodyItems[];
   /**
    * @remarks
-   * The number of models returned in this request.
+   * The number of models returned in this response.
    * 
    * @example
    * 10
@@ -122,7 +122,7 @@ export class ListConnectorModelsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The next page token. This field is not returned in the current version.
+   * The next token. This field is not returned in the current version.
    * 
    * @example
    * dGVzdA==
@@ -138,7 +138,7 @@ export class ListConnectorModelsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

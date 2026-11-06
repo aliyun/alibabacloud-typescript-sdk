@@ -16,7 +16,7 @@ export class ListPermissionRulesResponseBodyItems extends $dara.Model {
    * The authorization effect.
    * 
    * @example
-   * ALLOW
+   * PERMIT
    */
   effect?: string;
   /**
@@ -88,7 +88,7 @@ export class ListPermissionRulesResponseBodyItems extends $dara.Model {
    * The rule source details.
    * 
    * @example
-   * OpenAPI
+   * EXPLICIT
    */
   sourceDetail?: string;
   /**
@@ -101,7 +101,7 @@ export class ListPermissionRulesResponseBodyItems extends $dara.Model {
   targetScope?: string;
   /**
    * @remarks
-   * The list of rule targets.
+   * The list of targets to which the rule applies.
    */
   targets?: string[];
   /**
@@ -186,7 +186,7 @@ export class ListPermissionRulesResponseBody extends $dara.Model {
   items?: ListPermissionRulesResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of results returned in this response.
+   * The maximum number of entries returned in the current request.
    * 
    * @example
    * 20
@@ -194,7 +194,7 @@ export class ListPermissionRulesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The request processing result message.
+   * The message about the request processing result.
    * 
    * @example
    * success
@@ -202,7 +202,7 @@ export class ListPermissionRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The token for the next page.
    * 
    * @example
    * token-example
@@ -223,7 +223,7 @@ export class ListPermissionRulesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of rules that match the query conditions.
+   * The total number of rules that meet the conditions.
    * 
    * @example
    * 1

@@ -10,7 +10,7 @@ export declare class GetIdentityProviderSyncScopeResponseBodyDataSelectedDepartm
     exists?: boolean;
     /**
      * @remarks
-     * The unique identifier of the department returned by the identity provider. When querying the sub-departments of this node, use this value as parentDepartmentId.
+     * The unique identifier of the department returned by the identity provider. When querying the child departments of this node, use this value as parentDepartmentId.
      *
      * @example
      * 10001
@@ -38,7 +38,7 @@ export declare class GetIdentityProviderSyncScopeResponseBodyDataSelectedDepartm
 export declare class GetIdentityProviderSyncScopeResponseBodyDataSyncScope extends $dara.Model {
     /**
      * @remarks
-     * When the mode is SelectedDepartments, this list must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
+     * When the mode is SelectedDepartments, the list must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
      *
      * @example
      * ["10001"]
@@ -46,7 +46,7 @@ export declare class GetIdentityProviderSyncScopeResponseBodyDataSyncScope exten
     departmentIds?: string[];
     /**
      * @remarks
-     * AllAuthorized: the entire authorized scope, subject to the application\\"s address book authorization limits. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, a valid mode must be provided and is verified by the backend.
+     * AllAuthorized: the full authorized scope, which is restricted by the application\\"s address book authorization. SelectedDepartments: the selected departments and all their child departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
      *
      * @example
      * SelectedDepartments
@@ -66,7 +66,7 @@ export declare class GetIdentityProviderSyncScopeResponseBodyDataSyncScope exten
 export declare class GetIdentityProviderSyncScopeResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The user count estimation status for the synchronization scope. The count is available only when the status is Ready. A missing count in other states cannot be considered as 0.
+     * The estimation status of the user count for the synchronization scope. The counts are available only when the status is Ready. Missing counts in other states must not be treated as 0.
      *
      * @example
      * Ready
@@ -74,7 +74,7 @@ export declare class GetIdentityProviderSyncScopeResponseBodyData extends $dara.
     estimateStatus?: string;
     /**
      * @remarks
-     * The estimated number of users in the saved synchronization scope. This is returned only when estimateStatus is Ready and the downstream identity provider provides this value. It does not represent the number of users that have already been synchronized.
+     * The estimated number of users in the saved synchronization scope. This value is returned only when estimateStatus is Ready and the downstream system provides the value. It does not represent the number of users that have already been synchronized.
      *
      * @example
      * 12
@@ -82,7 +82,7 @@ export declare class GetIdentityProviderSyncScopeResponseBodyData extends $dara.
     estimatedUserCount?: number;
     /**
      * @remarks
-     * The estimated number of departments including sub-departments. This is returned only when estimateStatus is Ready and the downstream identity provider provides this value.
+     * The estimated number of departments, including child departments. This value is returned only when estimateStatus is Ready and the downstream system provides the value.
      *
      * @example
      * 2
@@ -93,12 +93,12 @@ export declare class GetIdentityProviderSyncScopeResponseBodyData extends $dara.
      * The names and validity of the saved selected departments. This can be an empty array when the mode is AllAuthorized. An empty array does not indicate that the organization has no departments.
      *
      * @example
-     * [{"id":"10001","name":"R&D Department","exists":true}]
+     * [{"id":"10001","name":"研发部","exists":true}]
      */
     selectedDepartments?: GetIdentityProviderSyncScopeResponseBodyDataSelectedDepartments[];
     /**
      * @remarks
-     * The saved synchronization scope of the downstream identity provider. AllAuthorized indicates the address book scope authorized for the application.
+     * The saved synchronization scope of the downstream system. AllAuthorized indicates the address book scope authorized for the application.
      *
      * @example
      * {"mode":"SelectedDepartments","departmentIds":["10001"]}
@@ -118,7 +118,7 @@ export declare class GetIdentityProviderSyncScopeResponseBodyData extends $dara.
 export declare class GetIdentityProviderSyncScopeResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business status code for the current API request. SUCCESS indicates that the current request is successful, which does not mean that the asynchronous synchronization task is completed.
+     * The business status code of the API request. SUCCESS indicates that the request is successful, but does not indicate that the asynchronous synchronization task is completed.
      *
      * @example
      * SUCCESS
@@ -126,15 +126,15 @@ export declare class GetIdentityProviderSyncScopeResponseBody extends $dara.Mode
     code?: string;
     /**
      * @remarks
-     * The business data returned by the current request.
+     * The business data returned in the response.
      *
      * @example
-     * {"syncScope":{"mode":"SelectedDepartments","departmentIds":["10001"]},"selectedDepartments":[{"id":"10001","name":"R&D Department","exists":true}],"estimateStatus":"Ready","expandedDepartmentCount":2,"estimatedUserCount":12}
+     * {"syncScope":{"mode":"SelectedDepartments","departmentIds":["10001"]},"selectedDepartments":[{"id":"10001","name":"研发部","exists":true}],"estimateStatus":"Ready","expandedDepartmentCount":2,"estimatedUserCount":12}
      */
     data?: GetIdentityProviderSyncScopeResponseBodyData;
     /**
      * @remarks
-     * The HTTP status code for the current API request, which does not indicate the execution result of an asynchronous task.
+     * The HTTP status code of the API request. This code does not indicate the execution result of the asynchronous task.
      *
      * @example
      * 200
@@ -142,7 +142,7 @@ export declare class GetIdentityProviderSyncScopeResponseBody extends $dara.Mode
     httpStatusCode?: number;
     /**
      * @remarks
-     * The response message for the current API request.
+     * The response message of the API request.
      *
      * @example
      * success
@@ -158,7 +158,7 @@ export declare class GetIdentityProviderSyncScopeResponseBody extends $dara.Mode
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the current API request is successful. To check whether an asynchronous task is completed, query the task status.
+     * Indicates whether the API request is successful. To check whether the asynchronous task is completed, query the task status.
      *
      * @example
      * true

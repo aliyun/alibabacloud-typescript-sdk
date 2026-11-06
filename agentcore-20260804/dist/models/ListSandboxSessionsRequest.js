@@ -31,12 +31,14 @@ class ListSandboxSessionsRequest extends $dara.Model {
         return {
             maxResults: 'maxResults',
             nextToken: 'nextToken',
+            serviceEndpointId: 'serviceEndpointId',
         };
     }
     static types() {
         return {
             maxResults: 'number',
             nextToken: 'string',
+            serviceEndpointId: 'string',
         };
     }
     validate() {

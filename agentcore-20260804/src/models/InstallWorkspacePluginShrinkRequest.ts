@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallWorkspacePluginShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body for installing a plugin.
+   * The request body for installing the component.
    */
   bodyShrink?: string;
   /**

@@ -15,7 +15,7 @@ export class ListPredefinedModelsResponseBodyDataCapabilities extends $dara.Mode
   document?: boolean;
   /**
    * @remarks
-   * Specifies whether the model is able to invoke multiple tool calling in a single response.
+   * Specifies whether the model is able to invoke multiple tool calling operations in a single response.
    */
   multiToolCall?: boolean;
   /**
@@ -94,7 +94,7 @@ export class ListPredefinedModelsResponseBodyData extends $dara.Model {
   contextSize?: number;
   /**
    * @remarks
-   * The maximum number of output tokens supported by the model in a single generation.
+   * The maximum number of output tokens supported by the model per generation.
    * 
    * @example
    * 131072
@@ -110,7 +110,7 @@ export class ListPredefinedModelsResponseBodyData extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The release date of the model. The format is YYYY-MM-DD.
+   * The release date of the model, in the YYYY-MM-DD format.
    * 
    * @example
    * 2025-02-01
@@ -151,7 +151,7 @@ export class ListPredefinedModelsResponseBodyData extends $dara.Model {
 export class ListPredefinedModelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS if the request is successful.
+   * The business status code. The value is SUCCESS if the request succeeds.
    * 
    * @example
    * SUCCESS
@@ -164,7 +164,7 @@ export class ListPredefinedModelsResponseBody extends $dara.Model {
   data?: ListPredefinedModelsResponseBodyData[];
   /**
    * @remarks
-   * The HTTP status code. The value is 200 if the request is successful.
+   * The HTTP status code. The value is 200 if the request succeeds.
    * 
    * @example
    * 200
@@ -172,7 +172,7 @@ export class ListPredefinedModelsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message indicating the request processing result.
+   * The message about the request processing result.
    * 
    * @example
    * success

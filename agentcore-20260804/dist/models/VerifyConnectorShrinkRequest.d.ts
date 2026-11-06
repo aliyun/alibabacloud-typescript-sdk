@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class VerifyConnectorShrinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The validation request body.
+     * The verification request body.
      *
      * This parameter is required.
      */

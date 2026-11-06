@@ -18,7 +18,7 @@ export declare class ListTeamsResponseBodyItemsAgents extends $dara.Model {
     agentName?: string;
     /**
      * @remarks
-     * The role of the agent in the team. Valid values: LEADER, WORKER.
+     * The role of the agent in the team. Valid values: LEADER and WORKER.
      *
      * @example
      * WORKER
@@ -38,7 +38,7 @@ export declare class ListTeamsResponseBodyItemsAgents extends $dara.Model {
 export declare class ListTeamsResponseBodyItemsUsers extends $dara.Model {
     /**
      * @remarks
-     * The role of the user in the team. Valid values: ADMIN, MEMBER. Each team must have exactly one ADMIN.
+     * The role of the user in the team. Valid values: ADMIN and MEMBER. Each team must have exactly one ADMIN.
      *
      * @example
      * ADMIN
@@ -79,7 +79,7 @@ export declare class ListTeamsResponseBodyItems extends $dara.Model {
     agents?: ListTeamsResponseBodyItemsAgents[];
     /**
      * @remarks
-     * The creation time in RFC 3339 UTC format.
+     * The creation time in UTC format compliant with RFC 3339.
      *
      * @example
      * 2026-08-12T03:04:05Z
@@ -95,7 +95,7 @@ export declare class ListTeamsResponseBodyItems extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The team name. It can contain only lowercase letters, digits, and hyphens. It must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
+     * The team name. It can contain only lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
      *
      * @example
      * team-01
@@ -119,7 +119,7 @@ export declare class ListTeamsResponseBodyItems extends $dara.Model {
     teamId?: string;
     /**
      * @remarks
-     * The time of the last modification in RFC 3339 UTC format.
+     * The time of the last modification in UTC format compliant with RFC 3339.
      *
      * @example
      * 2026-08-12T03:04:05Z
@@ -173,7 +173,7 @@ export declare class ListTeamsResponseBody extends $dara.Model {
     items?: ListTeamsResponseBodyItems[];
     /**
      * @remarks
-     * The maximum number of records per page applied to this query.
+     * The maximum number of records per page that takes effect for this query.
      *
      * @example
      * 10
@@ -181,7 +181,7 @@ export declare class ListTeamsResponseBody extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The response message. An error description is returned if the request fails.
+     * The response message. An error description is returned when the request fails.
      *
      * @example
      * success
@@ -189,7 +189,7 @@ export declare class ListTeamsResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The pagination token for the next page. This parameter is empty if no next page exists.
+     * The cursor for the next page. This parameter is empty if there is no next page.
      *
      * @example
      * dGVhbS1vZmZzZXQ6MTA

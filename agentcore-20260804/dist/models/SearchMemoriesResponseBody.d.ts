@@ -22,7 +22,7 @@ export declare class SearchMemoriesResponseBodyDataMemoriesMemoryContent extends
 export declare class SearchMemoriesResponseBodyDataMemoriesMemoryScope extends $dara.Model {
     /**
      * @remarks
-     * The agent ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain a forward slash (/) or an asterisk (*). If the memory is not associated with an agent ID, this field is not returned.
+     * The agent ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain forward slashes (/) or asterisks (*). If the memory is not associated with an agent ID, this field is not returned.
      *
      * @example
      * agent-001
@@ -30,7 +30,7 @@ export declare class SearchMemoriesResponseBodyDataMemoriesMemoryScope extends $
     agentId?: string;
     /**
      * @remarks
-     * The session ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain a forward slash (/) or an asterisk (*). If the memory is not associated with a session ID, this field is not returned.
+     * The session ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain forward slashes (/) or asterisks (*). If the memory is not associated with a session ID, this field is not returned.
      *
      * @example
      * session-001
@@ -38,7 +38,7 @@ export declare class SearchMemoriesResponseBodyDataMemoriesMemoryScope extends $
     sessionId?: string;
     /**
      * @remarks
-     * The user ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain a forward slash (/) or an asterisk (*). If the memory is not associated with a user ID, this field is not returned.
+     * The user ID. The ID must be 1 to 128 bytes in length and encoded in UTF-8. The ID cannot contain forward slashes (/) or asterisks (*). If the memory is not associated with a user ID, this field is not returned.
      *
      * @example
      * user-001
@@ -63,7 +63,7 @@ export declare class SearchMemoriesResponseBodyDataMemoriesMemory extends $dara.
     content?: SearchMemoriesResponseBodyDataMemoriesMemoryContent;
     /**
      * @remarks
-     * The time when the memory was created.
+     * The creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * @example
      * 2026-09-23T10:00:00Z
@@ -91,7 +91,7 @@ export declare class SearchMemoriesResponseBodyDataMemoriesMemory extends $dara.
     scope?: SearchMemoriesResponseBodyDataMemoriesMemoryScope;
     /**
      * @remarks
-     * The time when the memory was last updated.
+     * The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * @example
      * 2026-09-23T10:05:00Z

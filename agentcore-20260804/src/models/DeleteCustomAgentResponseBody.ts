@@ -21,7 +21,7 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   accessScope?: string;
   /**
    * @remarks
-   * The unique identifier of the custom agent. You can obtain it from the response of CreateCustomAgent or ListCustomAgents.
+   * The unique identifier of the custom code or image agent. You can obtain this value from the response of CreateCustomAgent or ListCustomAgents.
    * 
    * @example
    * agent-550e8400e29b41d4a716446655440000
@@ -29,7 +29,7 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The creation mode of the agent. The value is CUSTOM for custom agents.
+   * The creation mode of the agent. The value is CUSTOM for custom code or image agents.
    * 
    * @example
    * CUSTOM
@@ -37,7 +37,7 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   createMode?: string;
   /**
    * @remarks
-   * The time when the agent was created. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
+   * The time when the agent was created. The time is in ISO 8601 format, with a trailing Z indicating the UTC time zone. Fractional seconds may be included.
    * 
    * @example
    * 2026-10-10T06:00:00Z
@@ -45,7 +45,7 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The deployment mode of the agent. Custom agents are deployed and managed by the platform, so the value is MANAGED.
+   * The deployment mode of the agent. The value is MANAGED for custom code or image agents because they are deployed and managed by the platform.
    * 
    * @example
    * MANAGED
@@ -53,10 +53,10 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   deployType?: string;
   /**
    * @remarks
-   * The description of the agent.
+   * The description of the agent\\"s purpose.
    * 
    * @example
-   * Custom agent that provides conversation services
+   * Custom agent providing conversation services
    */
   description?: string;
   /**
@@ -69,7 +69,7 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   latestSpecVersion?: number;
   /**
    * @remarks
-   * The name of the custom agent.
+   * The name of the custom code or image agent.
    * 
    * @example
    * my-custom-agent
@@ -77,7 +77,7 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The compute specifications of the agent. Valid values: INTERACTIVE, STANDARD, and HEAVY.
+   * The compute specification of the agent. Valid values: INTERACTIVE, STANDARD, and HEAVY.
    * 
    * @example
    * STANDARD
@@ -92,6 +92,7 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
    * - Updating: The agent is being updated.
    * - Deleting: The agent is being deleted.
    * - Deleted: The agent is deleted.
+   * 
    * Call GetCustomAgent to query the execution progress of the latest configuration.
    * 
    * @example
@@ -100,7 +101,7 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the agent was last updated. The time is in ISO 8601 format. A trailing Z indicates the UTC time zone. Fractional seconds may be included.
+   * The time when the agent was last updated. The time is in ISO 8601 format, with a trailing Z indicating the UTC time zone. Fractional seconds may be included.
    * 
    * @example
    * 2026-10-10T06:05:00Z
@@ -108,7 +109,7 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the custom agent belongs.
+   * The ID of the workspace to which the custom code or image agent belongs.
    * 
    * @example
    * ws-a1b2c3d4e5f6
@@ -170,7 +171,7 @@ export class DeleteCustomAgentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The summary of the custom agent whose deletion is accepted. The runtime resources are subsequently cleaned up in the background.
+   * The summary of the custom code or image agent whose deletion is accepted. Runtime resources are subsequently cleaned up in the background.
    */
   data?: DeleteCustomAgentResponseBodyData;
   /**
@@ -191,7 +192,7 @@ export class DeleteCustomAgentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the request. You can use this ID to locate and troubleshoot issues.
+   * The unique identifier of the request, which is used to locate and troubleshoot issues.
    * 
    * @example
    * 550E8400-E29B-41D4-A716-446655440000
@@ -199,7 +200,7 @@ export class DeleteCustomAgentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was processed successfully. A value of true indicates success. A successful creation, update, or deletion does not mean that the background operations are complete.
+   * Indicates whether the request was successful. A value of true indicates that the request was successful. A successful creation, update, or deletion does not mean that the background operations are complete.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

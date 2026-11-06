@@ -102,7 +102,7 @@ export class BatchUploadSkillsViaOssResponseBodyData extends $dara.Model {
 export class BatchUploadSkillsViaOssResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: BatchUploadSkillsViaOssResponseBodyData;
   /**

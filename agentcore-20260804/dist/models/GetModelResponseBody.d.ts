@@ -12,7 +12,7 @@ export declare class GetModelResponseBodyDataCapabilities extends $dara.Model {
     document?: boolean;
     /**
      * @remarks
-     * Indicates whether the model supports tool calling and is able to invoke multiple tools in a single response.
+     * Indicates whether the model is able to invoke multiple tool calling operations in a single response.
      */
     multiToolCall?: boolean;
     /**
@@ -22,7 +22,7 @@ export declare class GetModelResponseBodyDataCapabilities extends $dara.Model {
     reasoning?: boolean;
     /**
      * @remarks
-     * Indicates whether the model supports tool calling and is able to invoke tools in a streaming manner.
+     * Indicates whether the model supports streaming tool calling.
      */
     streamToolCall?: boolean;
     /**
@@ -67,7 +67,7 @@ export declare class GetModelResponseBodyData extends $dara.Model {
     connectionId?: string;
     /**
      * @remarks
-     * The context window size of the model, in tokens. It must be a positive integer.
+     * The context window size of the model, in tokens. The value must be a positive integer.
      *
      * @example
      * 128000
@@ -75,7 +75,7 @@ export declare class GetModelResponseBodyData extends $dara.Model {
     contextSize?: number;
     /**
      * @remarks
-     * The time when the resource was created, in RFC 3339 UTC format.
+     * The creation time of the resource, in RFC 3339 UTC format.
      *
      * @example
      * 2026-08-09T00:00:00Z
@@ -83,7 +83,7 @@ export declare class GetModelResponseBodyData extends $dara.Model {
     createdAt?: string;
     /**
      * @remarks
-     * The description of the model, up to 255 characters in length.
+     * The model description. The maximum length is 255 characters.
      *
      * @example
      * description
@@ -107,7 +107,7 @@ export declare class GetModelResponseBodyData extends $dara.Model {
     modelId?: string;
     /**
      * @remarks
-     * The name of the upstream model.
+     * The upstream model name.
      *
      * @example
      * qwen-max
@@ -123,7 +123,7 @@ export declare class GetModelResponseBodyData extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The time when the resource was last updated, in RFC 3339 UTC format.
+     * The last update time of the resource, in RFC 3339 UTC format.
      *
      * @example
      * 2026-08-09T00:00:00Z
@@ -172,7 +172,7 @@ export declare class GetModelResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The request processing result message.
+     * The message indicating the request processing result.
      *
      * @example
      * success

@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ListServiceEndpointsResponseBody = exports.ListServiceEndpointsResponseBodyItems = exports.ListServiceEndpointsResponseBodyItemsTarget = exports.ListServiceEndpointsResponseBodyItemsAuthentication = exports.ListServiceEndpointsResponseBodyItemsAccessUrls = void 0;
+exports.ListServiceEndpointsResponseBody = exports.ListServiceEndpointsResponseBodyItems = exports.ListServiceEndpointsResponseBodyItemsTarget = exports.ListServiceEndpointsResponseBodyItemsElasticityPolicy = exports.ListServiceEndpointsResponseBodyItemsAuthentication = exports.ListServiceEndpointsResponseBodyItemsAccessUrls = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class ListServiceEndpointsResponseBodyItemsAccessUrls extends $dara.Model {
@@ -70,6 +70,29 @@ class ListServiceEndpointsResponseBodyItemsAuthentication extends $dara.Model {
     }
 }
 exports.ListServiceEndpointsResponseBodyItemsAuthentication = ListServiceEndpointsResponseBodyItemsAuthentication;
+class ListServiceEndpointsResponseBodyItemsElasticityPolicy extends $dara.Model {
+    static names() {
+        return {
+            enabled: 'enabled',
+            maxSandboxCount: 'maxSandboxCount',
+            minSandboxCount: 'minSandboxCount',
+        };
+    }
+    static types() {
+        return {
+            enabled: 'boolean',
+            maxSandboxCount: 'number',
+            minSandboxCount: 'number',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListServiceEndpointsResponseBodyItemsElasticityPolicy = ListServiceEndpointsResponseBodyItemsElasticityPolicy;
 class ListServiceEndpointsResponseBodyItemsTarget extends $dara.Model {
     static names() {
         return {
@@ -103,8 +126,11 @@ class ListServiceEndpointsResponseBodyItems extends $dara.Model {
             accessUrls: 'accessUrls',
             authentication: 'authentication',
             createdAt: 'createdAt',
+            effectivePublicAccessEnabled: 'effectivePublicAccessEnabled',
+            elasticityPolicy: 'elasticityPolicy',
             endpointType: 'endpointType',
             name: 'name',
+            publicAccessEnabled: 'publicAccessEnabled',
             regionId: 'regionId',
             serviceEndpointId: 'serviceEndpointId',
             status: 'status',
@@ -119,8 +145,11 @@ class ListServiceEndpointsResponseBodyItems extends $dara.Model {
             accessUrls: { 'type': 'array', 'itemType': ListServiceEndpointsResponseBodyItemsAccessUrls },
             authentication: ListServiceEndpointsResponseBodyItemsAuthentication,
             createdAt: 'string',
+            effectivePublicAccessEnabled: 'boolean',
+            elasticityPolicy: ListServiceEndpointsResponseBodyItemsElasticityPolicy,
             endpointType: 'string',
             name: 'string',
+            publicAccessEnabled: 'boolean',
             regionId: 'string',
             serviceEndpointId: 'string',
             status: 'string',
@@ -136,6 +165,9 @@ class ListServiceEndpointsResponseBodyItems extends $dara.Model {
         }
         if (this.authentication && typeof this.authentication.validate === 'function') {
             this.authentication.validate();
+        }
+        if (this.elasticityPolicy && typeof this.elasticityPolicy.validate === 'function') {
+            this.elasticityPolicy.validate();
         }
         if (this.target && typeof this.target.validate === 'function') {
             this.target.validate();

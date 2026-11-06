@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImageCacheShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The business parameters for creating an image cache.
+   * The request body for creating an image cache.
    * 
    * This parameter is required.
    */
   bodyShrink?: string;
   /**
    * @remarks
-   * Required and non-empty. This parameter is reserved for API compatibility. It currently does not provide request deduplication or original result recovery based on this field. If a timeout occurs or the result is unconfirmed, query the cache status first before deciding whether to resubmit.
+   * The non-empty request token passed as a query parameter. The current implementation does not guarantee deduplication by this token or recovery of the original acceptance result.
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,7 @@ export class CreateImageCacheShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The product entry region, which is determined by the selected region endpoint.
+   * The product entry region, passed as a query parameter. It must match the selected region endpoint and the workspace region.
    * 
    * This parameter is required.
    * 
@@ -32,7 +32,7 @@ export class CreateImageCacheShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The current routed workspace. The server verifies the account, region, and resource ownership. This parameter cannot be omitted or used to access other workspaces.
+   * The workspace ID.
    * 
    * This parameter is required.
    * 

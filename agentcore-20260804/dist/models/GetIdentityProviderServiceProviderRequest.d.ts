@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class GetIdentityProviderServiceProviderRequest extends $dara.Model {
     /**
      * @remarks
-     * Required. The query parameter supports only the exact value SAML. The response returns SAML.
+     * Required. The query parameter. Only the exact value SAML is supported. The response returns SAML.
      *
      * This parameter is required.
      *

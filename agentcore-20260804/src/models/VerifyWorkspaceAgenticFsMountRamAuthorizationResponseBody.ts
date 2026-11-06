@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyWorkspaceAgenticFsMountRamAuthorizationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The authorization status. A value of AUTHORIZED does not indicate that the actual mount was successful.
+   * The authorization status. A value of AUTHORIZED does not indicate that the actual mount is successful.
    * 
    * @example
    * AUTHORIZED
@@ -72,7 +72,7 @@ export class VerifyWorkspaceAgenticFsMountRamAuthorizationResponseBody extends $
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

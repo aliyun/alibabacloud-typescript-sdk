@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddMemoriesResponseBodyDataMemories extends $dara.Model {
   /**
    * @remarks
-   * The ID of the long-term memory.
+   * The long-term memory ID.
    * 
    * @example
    * mem-2f5f9c5a8d0e4c3b
@@ -35,12 +35,12 @@ export class AddMemoriesResponseBodyDataMemories extends $dara.Model {
 export class AddMemoriesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The memory references returned only when sync is set to true. An empty array is allowed. This parameter is not returned together with taskId.
+   * The memory references. This parameter is returned only when sync is set to true. An empty array is allowed. This parameter is not returned together with taskId.
    */
   memories?: AddMemoriesResponseBodyDataMemories[];
   /**
    * @remarks
-   * The ID of the task returned only when sync is set to false. This parameter is not returned together with memories.
+   * The task ID. This parameter is returned only when sync is set to false. This parameter is not returned together with memories.
    * 
    * @example
    * task-2f5f9c5a8d0e4c3b
@@ -83,7 +83,7 @@ export class AddMemoriesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of the write operation.
+   * The write result.
    */
   data?: AddMemoriesResponseBodyData;
   /**
@@ -104,7 +104,7 @@ export class AddMemoriesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 01A00000-0000-0000-0000-000000000001

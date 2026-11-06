@@ -32,6 +32,7 @@ class ListSandboxesRequest extends $dara.Model {
             maxResults: 'maxResults',
             nextToken: 'nextToken',
             searchText: 'searchText',
+            serviceEndpointId: 'serviceEndpointId',
             sessionId: 'sessionId',
         };
     }
@@ -40,6 +41,7 @@ class ListSandboxesRequest extends $dara.Model {
             maxResults: 'number',
             nextToken: 'string',
             searchText: 'string',
+            serviceEndpointId: 'string',
             sessionId: 'string',
         };
     }

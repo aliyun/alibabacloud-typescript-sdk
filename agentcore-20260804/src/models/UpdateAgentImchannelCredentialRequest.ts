@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAgentIMChannelCredentialRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The channel credentials. All fields must be provided and the field values must be non-empty strings. For DingTalk, use clientID and clientSecret. For Lark, use appId and appSecret. For WeCom, use botId and secret.
+   * The channel credentials. You must pass all fields and ensure that the field values are non-empty strings. DingTalk uses clientID and clientSecret. Lark uses appId and appSecret. WeCom uses botId and secret.
    * 
    * This parameter is required.
    */

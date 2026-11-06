@@ -74,12 +74,12 @@ export declare class CreateTeamResponseBodyData extends $dara.Model {
      * The team description.
      *
      * @example
-     * A team responsible for intelligent customer service
+     * Team responsible for intelligent customer service
      */
     description?: string;
     /**
      * @remarks
-     * The team name. The name can only contain lowercase letters, digits, and hyphens. It must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
+     * The team name. It can only contain lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
      *
      * @example
      * team-01
@@ -103,7 +103,7 @@ export declare class CreateTeamResponseBodyData extends $dara.Model {
     teamId?: string;
     /**
      * @remarks
-     * The time of the last update in RFC 3339 UTC format.
+     * The last update time in RFC 3339 UTC format.
      *
      * @example
      * 2026-08-12T03:04:05Z

@@ -22,7 +22,7 @@ export declare class GetMemoryResponseBodyDataContent extends $dara.Model {
 export declare class GetMemoryResponseBodyDataScope extends $dara.Model {
     /**
      * @remarks
-     * The agent ID. The length is limited to 1 to 128 UTF-8 bytes, and it must not contain / or *. This field is not returned if the memory is not associated with an agent ID.
+     * The agent ID. The length is limited to 1 to 128 UTF-8 bytes. Slashes (/) and asterisks (*) are not allowed. This field is not returned if the memory is not associated with an agent ID.
      *
      * @example
      * agent-001
@@ -30,7 +30,7 @@ export declare class GetMemoryResponseBodyDataScope extends $dara.Model {
     agentId?: string;
     /**
      * @remarks
-     * The session ID. The length is limited to 1 to 128 UTF-8 bytes, and it must not contain / or *. This field is not returned if the memory is not associated with a session ID.
+     * The session ID. The length is limited to 1 to 128 UTF-8 bytes. Slashes (/) and asterisks (*) are not allowed. This field is not returned if the memory is not associated with a session ID.
      *
      * @example
      * session-001
@@ -38,7 +38,7 @@ export declare class GetMemoryResponseBodyDataScope extends $dara.Model {
     sessionId?: string;
     /**
      * @remarks
-     * The user ID. The length is limited to 1 to 128 UTF-8 bytes, and it must not contain / or *. This field is not returned if the memory is not associated with a user ID.
+     * The user ID. The length is limited to 1 to 128 UTF-8 bytes. Slashes (/) and asterisks (*) are not allowed. This field is not returned if the memory is not associated with a user ID.
      *
      * @example
      * user-001
@@ -63,7 +63,7 @@ export declare class GetMemoryResponseBodyData extends $dara.Model {
     content?: GetMemoryResponseBodyDataContent;
     /**
      * @remarks
-     * The creation time.
+     * The creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * @example
      * 2026-09-23T10:00:00Z
@@ -91,7 +91,7 @@ export declare class GetMemoryResponseBodyData extends $dara.Model {
     scope?: GetMemoryResponseBodyDataScope;
     /**
      * @remarks
-     * The last update time.
+     * The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * @example
      * 2026-09-23T10:05:00Z
@@ -148,7 +148,7 @@ export declare class GetMemoryResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful.
+     * Indicates whether the request is successful.
      */
     success?: boolean;
     static names(): {

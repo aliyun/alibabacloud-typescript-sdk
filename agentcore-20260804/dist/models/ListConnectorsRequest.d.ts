@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListConnectorsRequest extends $dara.Model {
     /**
      * @remarks
-     * The page size. The current version does not support this parameter.
+     * The page size. This parameter is not supported in the current version.
      *
      * @example
      * 10
@@ -10,7 +10,7 @@ export declare class ListConnectorsRequest extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The next page token. The current version does not support this parameter.
+     * The next token. This parameter is not supported in the current version.
      *
      * @example
      * dGVzdA==

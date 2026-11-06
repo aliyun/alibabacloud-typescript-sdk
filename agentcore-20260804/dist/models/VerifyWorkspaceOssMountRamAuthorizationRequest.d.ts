@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class VerifyWorkspaceOssMountRamAuthorizationRequest extends $dara.Model {
     /**
      * @remarks
-     * The OSS bucket name.
+     * The name of the OSS bucket.
      *
      * @example
      * bucket-001

@@ -10,7 +10,7 @@ export declare class ListConnectorsResponseBodyItems extends $dara.Model {
     boundAgentCount?: number;
     /**
      * @remarks
-     * The time when the connector was enabled.
+     * The activation time.
      *
      * @example
      * 2026-09-01T08:00:00Z
@@ -18,7 +18,7 @@ export declare class ListConnectorsResponseBodyItems extends $dara.Model {
     enabledAt?: string;
     /**
      * @remarks
-     * The connector configuration JSON string. After the connector is enabled, this string may contain sensitive credentials.
+     * The JSON string of the connector configuration. It may contain sensitive credentials after being enabled.
      *
      * @example
      * {"site":"global","organizationId":"org-xxxx"}
@@ -70,7 +70,7 @@ export declare class ListConnectorsResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The list of connectors.
+     * The connector list.
      */
     items?: ListConnectorsResponseBodyItems[];
     /**
@@ -91,7 +91,7 @@ export declare class ListConnectorsResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The next page token. The current version does not return this field.
+     * The next token. This field is not returned in the current version.
      *
      * @example
      * dGVzdA==
@@ -107,7 +107,7 @@ export declare class ListConnectorsResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful.
+     * Indicates whether the request is successful.
      *
      * @example
      * true

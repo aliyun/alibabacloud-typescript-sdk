@@ -35,7 +35,7 @@ export declare class CreateWorkspaceResponseBodyDataNetworkConfigurationVpc exte
 export declare class CreateWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Returns the target configuration value. Updating indicates that the change is still in progress, and UpdateFailed indicates that the current change failed. This parameter only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+     * Returns the target configuration value. Updating indicates that the change is still being executed, and UpdateFailed indicates that the current change failed. This parameter only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
      *
      * @example
      * true
@@ -100,7 +100,7 @@ export declare class CreateWorkspaceResponseBodyDataTags extends $dara.Model {
 export declare class CreateWorkspaceResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The AI Registry namespace ID. This value is returned after related resources are bound and may be empty during initialization.
+     * The AI Registry namespace ID. This value is returned after the related resources are bound and may be empty during initialization.
      *
      * @example
      * namespace-0123456789abcdef
@@ -127,7 +127,7 @@ export declare class CreateWorkspaceResponseBodyData extends $dara.Model {
     bucketName?: string;
     /**
      * @remarks
-     * The CloudMonitor workspace ID. This value is returned after related resources are bound and may be empty during initialization.
+     * The CloudMonitor workspace ID. This value is returned after the related resources are bound and may be empty during initialization.
      *
      * @example
      * cms-ws-0123456789abcdef
@@ -138,7 +138,7 @@ export declare class CreateWorkspaceResponseBodyData extends $dara.Model {
     cmsWorkspaceId?: string;
     /**
      * @remarks
-     * The time when the workspace was created. The time follows the ISO 8601 standard.
+     * The time when the workspace was created. The time is displayed in the ISO 8601 format.
      *
      * This parameter is required.
      *
@@ -161,7 +161,7 @@ export declare class CreateWorkspaceResponseBodyData extends $dara.Model {
     networkConfiguration?: CreateWorkspaceResponseBodyDataNetworkConfiguration;
     /**
      * @remarks
-     * The ID of the region where the workspace resides.
+     * The ID of the region where the workspace is located.
      *
      * @example
      * cn-hangzhou
@@ -222,7 +222,7 @@ export declare class CreateWorkspaceResponseBodyData extends $dara.Model {
     tenantId?: string;
     /**
      * @remarks
-     * The ID of the workspace.
+     * The workspace ID.
      *
      * @example
      * ws-123456

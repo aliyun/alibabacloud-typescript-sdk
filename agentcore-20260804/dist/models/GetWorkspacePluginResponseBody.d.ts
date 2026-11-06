@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class GetWorkspacePluginResponseBodyDataConfigAgentLoop extends $dara.Model {
     /**
      * @remarks
-     * The name of the AgentSpace associated with the AgentLoop plugin.
+     * The name of the AgentSpace associated with the AgentLoop component.
      *
      * @example
      * agentcore-ws-123456
@@ -18,7 +18,7 @@ export declare class GetWorkspacePluginResponseBodyDataConfigAgentLoop extends $
     createdAt?: string;
     /**
      * @remarks
-     * The region ID of the AgentSpace.
+     * The region ID where the AgentSpace resides.
      *
      * @example
      * cn-hangzhou
@@ -58,7 +58,7 @@ export declare class GetWorkspacePluginResponseBodyDataConfigNetworkInternet ext
 export declare class GetWorkspacePluginResponseBodyDataConfigNetworkVpc extends $dara.Model {
     /**
      * @remarks
-     * Indicates whether VPC networking is currently enabled for the collaboration plugin.
+     * Indicates whether VPC network access is currently enabled for the collaboration component.
      *
      * @example
      * true
@@ -66,12 +66,12 @@ export declare class GetWorkspacePluginResponseBodyDataConfigNetworkVpc extends 
     enabled?: boolean;
     /**
      * @remarks
-     * The list of vSwitch IDs used for plugin deployment.
+     * The list of vSwitch IDs used for component deployment.
      */
     vSwitchIds?: string[];
     /**
      * @remarks
-     * The VPC ID used for plugin deployment.
+     * The VPC ID used for component deployment.
      *
      * @example
      * vpc-bp1example
@@ -113,12 +113,12 @@ export declare class GetWorkspacePluginResponseBodyDataConfigNetwork extends $da
 export declare class GetWorkspacePluginResponseBodyDataConfig extends $dara.Model {
     /**
      * @remarks
-     * The AgentLoop plugin configuration.
+     * The AgentLoop component configuration.
      */
     agentLoop?: GetWorkspacePluginResponseBodyDataConfigAgentLoop;
     /**
      * @remarks
-     * The network configuration of the plugin, including the public network access configuration and VPC configuration.
+     * The network configuration of the component, including the public network access configuration and VPC configuration.
      */
     network?: GetWorkspacePluginResponseBodyDataConfigNetwork;
     static names(): {
@@ -135,17 +135,17 @@ export declare class GetWorkspacePluginResponseBodyDataConfig extends $dara.Mode
 export declare class GetWorkspacePluginResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The user-configurable properties that are currently in effect for the plugin. This field is empty if the plugin is not installed.
+     * The user-configurable properties that currently take effect for the component. This field is empty when the component is not installed.
      */
     config?: GetWorkspacePluginResponseBodyDataConfig;
     /**
      * @remarks
-     * Indicates whether the plugin is enabled. The value is true if the status is ENABLED.
+     * Indicates whether the component is enabled. The value is true when the status is ENABLED.
      */
     enabled?: boolean;
     /**
      * @remarks
-     * The plugin name.
+     * The component name.
      *
      * @example
      * collaboration
@@ -153,7 +153,7 @@ export declare class GetWorkspacePluginResponseBodyData extends $dara.Model {
     pluginName?: string;
     /**
      * @remarks
-     * The plugin status. Valid values: DISABLED, ENABLING, ENABLED, ENABLE_FAILED, DISABLING, and DISABLE_FAILED.
+     * The component status. Valid values: DISABLED, ENABLING, ENABLED, ENABLE_FAILED, DISABLING, and DISABLE_FAILED.
      *
      * @example
      * ENABLED
@@ -189,7 +189,7 @@ export declare class GetWorkspacePluginResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The plugin details.
+     * The component details.
      */
     data?: GetWorkspacePluginResponseBodyData;
     /**
@@ -202,7 +202,7 @@ export declare class GetWorkspacePluginResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The response message. An error description is returned if the request fails.
+     * The response message. An error description is returned when the request fails.
      *
      * @example
      * success

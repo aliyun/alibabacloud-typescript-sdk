@@ -90,7 +90,7 @@ export class UpdateMemoryResponseBodyData extends $dara.Model {
   content?: UpdateMemoryResponseBodyDataContent;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
    * 
    * @example
    * 2026-09-23T10:00:00Z
@@ -116,7 +116,7 @@ export class UpdateMemoryResponseBodyData extends $dara.Model {
   scope?: UpdateMemoryResponseBodyDataScope;
   /**
    * @remarks
-   * The last update time.
+   * The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
    * 
    * @example
    * 2026-09-23T10:05:00Z

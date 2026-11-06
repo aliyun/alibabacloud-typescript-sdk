@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class VerifyConnectorResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The list of Service Account Key labels that failed validation or returned indeterminate results.
+     * The list of service account key labels that failed the verification or have uncertain verification results.
      *
      * @example
      * default
@@ -10,7 +10,7 @@ export declare class VerifyConnectorResponseBodyData extends $dara.Model {
     invalidServiceAccountKeys?: string[];
     /**
      * @remarks
-     * Indicates whether all validated Service Account Keys are valid.
+     * Indicates whether all verified service account keys are valid.
      *
      * @example
      * true
@@ -38,7 +38,7 @@ export declare class VerifyConnectorResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The validation result.
+     * The verification result.
      */
     data?: VerifyConnectorResponseBodyData;
     /**
@@ -67,7 +67,7 @@ export declare class VerifyConnectorResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful.
+     * Indicates whether the request is successful.
      *
      * @example
      * true

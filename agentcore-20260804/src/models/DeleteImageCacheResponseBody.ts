@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageCacheResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the deletion is still in progress. A value of true indicates that the deletion is accepted but not yet complete, and a Get request returns DELETING until ImageCacheNotFound is explicitly returned. A value of false indicates that the current workspace is deleted or no longer exists.
+   * Indicates whether the deletion is in progress. The current implementation always returns false. To confirm the visibility of the cache, call GetImageCache or ListImageCaches.
    * 
    * This parameter is required.
    * 
    * @example
-   * true
+   * false
    */
   deletionPending?: boolean;
   /**
    * @remarks
-   * The image cache ID, which matches the request. This ID is still returned even if the current workspace no longer exists.
+   * The image cache ID.
    * 
    * This parameter is required.
    * 
@@ -96,7 +96,7 @@ export class DeleteImageCacheResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. This does not indicate that the cache creation is complete.
+   * Indicates whether the request is successful. A successful request does not mean that the cache creation is complete.
    * 
    * This parameter is required.
    * 

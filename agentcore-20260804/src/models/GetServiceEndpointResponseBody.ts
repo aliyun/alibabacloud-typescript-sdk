@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceEndpointResponseBodyDataAccessUrls extends $dara.Model {
   /**
    * @remarks
-   * The access URL type. Valid values: INTERNET, VPC.
+   * The access address type. Valid values: INTERNET and VPC.
    * 
    * @example
    * INTERNET
@@ -13,7 +13,7 @@ export class GetServiceEndpointResponseBodyDataAccessUrls extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The access URL status. Valid values: CREATING, READY, DEGRADED.
+   * The access address status. Valid values: CREATING, READY, and DEGRADED.
    * 
    * @example
    * READY
@@ -21,7 +21,7 @@ export class GetServiceEndpointResponseBodyDataAccessUrls extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason for the access URL status. A specific reason is returned when the status is abnormal.
+   * The reason for the access address status. A specific reason is returned when the status is abnormal.
    * 
    * @example
    * ServiceEndpoint.Provider.Unavailable: no provider for the target type
@@ -29,7 +29,7 @@ export class GetServiceEndpointResponseBodyDataAccessUrls extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * The access URL.
+   * The access address.
    * 
    * @example
    * https://endpoint.example.com
@@ -65,7 +65,7 @@ export class GetServiceEndpointResponseBodyDataAccessUrls extends $dara.Model {
 export class GetServiceEndpointResponseBodyDataAuthentication extends $dara.Model {
   /**
    * @remarks
-   * The authentication method. NONE indicates that no authentication is required. API_KEY indicates that an API key is passed through the x-api-key request header for authentication.
+   * The authentication method. NONE indicates that no authentication is required. API_KEY indicates that authentication is performed by passing an API key in the x-api-key request header.
    * 
    * @example
    * API_KEY
@@ -80,6 +80,56 @@ export class GetServiceEndpointResponseBodyDataAuthentication extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceEndpointResponseBodyDataElasticityPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * 是否开启弹性。
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * 最大实例数，不小于 1。
+   * 
+   * @example
+   * 5
+   */
+  maxSandboxCount?: number;
+  /**
+   * @remarks
+   * 最小实例数，不小于 0 且不大于 maxSandboxCount。
+   * 
+   * @example
+   * 1
+   */
+  minSandboxCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      maxSandboxCount: 'maxSandboxCount',
+      minSandboxCount: 'minSandboxCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      maxSandboxCount: 'number',
+      minSandboxCount: 'number',
     };
   }
 
@@ -127,7 +177,7 @@ export class GetServiceEndpointResponseBodyDataTarget extends $dara.Model {
   resourceBindingId?: string;
   /**
    * @remarks
-   * The target type. Valid values: AGENT_VERSION, TEAM_COLLABORATION.
+   * The target type. Valid values: AGENT_VERSION and TEAM_COLLABORATION.
    * 
    * @example
    * AGENT_VERSION
@@ -165,7 +215,7 @@ export class GetServiceEndpointResponseBodyDataTarget extends $dara.Model {
 export class GetServiceEndpointResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of access URLs for the service endpoint.
+   * The list of access addresses for the service endpoint.
    */
   accessUrls?: GetServiceEndpointResponseBodyDataAccessUrls[];
   /**
@@ -175,7 +225,7 @@ export class GetServiceEndpointResponseBodyData extends $dara.Model {
   authentication?: GetServiceEndpointResponseBodyDataAuthentication;
   /**
    * @remarks
-   * The creation time in UTC, formatted in RFC 3339.
+   * The creation time in UTC format compliant with RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -183,7 +233,17 @@ export class GetServiceEndpointResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The service endpoint type. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by the user.
+   * publicAccessEnabled 与工作空间公网入向上限叠加后的结果：二者均允许时为 true。仅表示策略目标，不代表公网入口已发布完成，实际状态以 accessUrls 与 status 为准。
+   */
+  effectivePublicAccessEnabled?: boolean;
+  /**
+   * @remarks
+   * 仅在服务端点设置过弹性覆盖值时返回，可设置的为 Router 类型服务端点与 GATEWAY_API_WITH_VPC_INGRESS 类型的 DEFAULT 服务端点；未设置覆盖值时不返回该对象，表示继承智能体源配置，不得当作空对象或默认策略。返回时三个字段必全。
+   */
+  elasticityPolicy?: GetServiceEndpointResponseBodyDataElasticityPolicy;
+  /**
+   * @remarks
+   * The service endpoint type. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by a user.
    * 
    * @example
    * NAMED
@@ -191,12 +251,17 @@ export class GetServiceEndpointResponseBodyData extends $dara.Model {
   endpointType?: string;
   /**
    * @remarks
-   * The service endpoint name. The name must be unique within the workspace and can be 1 to 128 characters in length.
+   * The service endpoint name. It must be unique within the workspace and is 1 to 128 characters in length.
    * 
    * @example
    * my-agent-endpoint
    */
   name?: string;
+  /**
+   * @remarks
+   * 用户在服务端点上设置的公网入向期望；未设置过的历史服务端点按 true 返回。仅表示配置期望，实际公网地址是否可用以 accessUrls 与 status 为准。
+   */
+  publicAccessEnabled?: boolean;
   /**
    * @remarks
    * The region ID of the service endpoint.
@@ -215,7 +280,7 @@ export class GetServiceEndpointResponseBodyData extends $dara.Model {
   serviceEndpointId?: string;
   /**
    * @remarks
-   * The service endpoint status. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, DELETING.
+   * The service endpoint status. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
    * 
    * @example
    * READY
@@ -231,12 +296,12 @@ export class GetServiceEndpointResponseBodyData extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * The target routing configuration of the service endpoint.
+   * The target route configuration of the service endpoint.
    */
   target?: GetServiceEndpointResponseBodyDataTarget;
   /**
    * @remarks
-   * The time of the last modification in UTC, formatted in RFC 3339.
+   * The last modification time in UTC format compliant with RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -255,8 +320,11 @@ export class GetServiceEndpointResponseBodyData extends $dara.Model {
       accessUrls: 'accessUrls',
       authentication: 'authentication',
       createdAt: 'createdAt',
+      effectivePublicAccessEnabled: 'effectivePublicAccessEnabled',
+      elasticityPolicy: 'elasticityPolicy',
       endpointType: 'endpointType',
       name: 'name',
+      publicAccessEnabled: 'publicAccessEnabled',
       regionId: 'regionId',
       serviceEndpointId: 'serviceEndpointId',
       status: 'status',
@@ -272,8 +340,11 @@ export class GetServiceEndpointResponseBodyData extends $dara.Model {
       accessUrls: { 'type': 'array', 'itemType': GetServiceEndpointResponseBodyDataAccessUrls },
       authentication: GetServiceEndpointResponseBodyDataAuthentication,
       createdAt: 'string',
+      effectivePublicAccessEnabled: 'boolean',
+      elasticityPolicy: GetServiceEndpointResponseBodyDataElasticityPolicy,
       endpointType: 'string',
       name: 'string',
+      publicAccessEnabled: 'boolean',
       regionId: 'string',
       serviceEndpointId: 'string',
       status: 'string',
@@ -290,6 +361,9 @@ export class GetServiceEndpointResponseBodyData extends $dara.Model {
     }
     if(this.authentication && typeof (this.authentication as any).validate === 'function') {
       (this.authentication as any).validate();
+    }
+    if(this.elasticityPolicy && typeof (this.elasticityPolicy as any).validate === 'function') {
+      (this.elasticityPolicy as any).validate();
     }
     if(this.target && typeof (this.target as any).validate === 'function') {
       (this.target as any).validate();
@@ -342,7 +416,7 @@ export class GetServiceEndpointResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

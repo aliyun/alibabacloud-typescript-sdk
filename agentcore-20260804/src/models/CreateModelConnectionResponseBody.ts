@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelConnectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of API keys configured for the model connection.
+   * The number of API keys configured in the model connection.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class CreateModelConnectionResponseBodyData extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * The time when the resource was created. The time is in RFC 3339 UTC format.
+   * The time when the resource was created. The time is in the RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z
@@ -50,7 +50,7 @@ export class CreateModelConnectionResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
+   * The name of the model connection. It must be 1 to 128 non-whitespace characters in length.
    * 
    * @example
    * name
@@ -58,7 +58,7 @@ export class CreateModelConnectionResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The model invoke protocol. Currently, only OpenAI/v1 is supported. If the Settings are not specified during model creation, this default value is used.
+   * The model invoke protocol. Currently, only OpenAI/v1 is supported. If this parameter is not specified in Settings during model creation, this default value is used.
    * 
    * @example
    * OpenAI/v1
@@ -82,7 +82,7 @@ export class CreateModelConnectionResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the Deleting state. This field is empty in other states.
+   * The failure summary returned when the model connection fails to be published, or when the deletion fails but the connection remains in the Deleting state. This field is empty in other states.
    * 
    * @example
    * GatewayOperationException
@@ -90,7 +90,7 @@ export class CreateModelConnectionResponseBodyData extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * The time when the resource was last updated. The time is in RFC 3339 UTC format.
+   * The time when the resource was last updated. The time is in the RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z

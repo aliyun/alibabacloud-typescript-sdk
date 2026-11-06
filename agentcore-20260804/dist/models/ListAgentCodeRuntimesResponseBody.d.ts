@@ -54,7 +54,7 @@ export declare class ListAgentCodeRuntimesResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The list of supported code runtime environments.
+     * The supported code runtime environments.
      */
     items?: ListAgentCodeRuntimesResponseBodyItems[];
     /**
@@ -75,7 +75,7 @@ export declare class ListAgentCodeRuntimesResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The token for the next page.
+     * The next page token.
      *
      * @example
      * d3MtYTFiMmMzZDRlNWY2CmNvZGUtcnVudGltZS1leGFtcGxlCjE

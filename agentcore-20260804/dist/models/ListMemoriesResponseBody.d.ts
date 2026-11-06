@@ -22,7 +22,7 @@ export declare class ListMemoriesResponseBodyItemsContent extends $dara.Model {
 export declare class ListMemoriesResponseBodyItemsScope extends $dara.Model {
     /**
      * @remarks
-     * The agent ID. The value must be 1 to 128 bytes in length and encoded in UTF-8. The value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with an agent ID.
+     * The agent ID. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*). This field is not returned if the memory is not associated with an agent ID.
      *
      * @example
      * agent-001
@@ -30,7 +30,7 @@ export declare class ListMemoriesResponseBodyItemsScope extends $dara.Model {
     agentId?: string;
     /**
      * @remarks
-     * The session ID. The value must be 1 to 128 bytes in length and encoded in UTF-8. The value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a session ID.
+     * The session ID. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*). This field is not returned if the memory is not associated with a session ID.
      *
      * @example
      * session-001
@@ -38,7 +38,7 @@ export declare class ListMemoriesResponseBodyItemsScope extends $dara.Model {
     sessionId?: string;
     /**
      * @remarks
-     * The user ID. The value must be 1 to 128 bytes in length and encoded in UTF-8. The value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a user ID.
+     * The user ID. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*). This field is not returned if the memory is not associated with a user ID.
      *
      * @example
      * user-001
@@ -63,7 +63,7 @@ export declare class ListMemoriesResponseBodyItems extends $dara.Model {
     content?: ListMemoriesResponseBodyItemsContent;
     /**
      * @remarks
-     * The creation time.
+     * The creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * @example
      * 2026-09-23T10:00:00Z
@@ -91,7 +91,7 @@ export declare class ListMemoriesResponseBodyItems extends $dara.Model {
     scope?: ListMemoriesResponseBodyItemsScope;
     /**
      * @remarks
-     * The last update time.
+     * The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * @example
      * 2026-09-23T10:05:00Z

@@ -2,42 +2,42 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListModelsResponseBodyItemsCapabilities extends $dara.Model {
     /**
      * @remarks
-     * Indicates whether the model supports audio input or output.
+     * Specifies whether the model supports audio input or output.
      */
     audio?: boolean;
     /**
      * @remarks
-     * Indicates whether the model supports document input.
+     * Specifies whether the model supports document input.
      */
     document?: boolean;
     /**
      * @remarks
-     * Indicates whether the model supports invoking multiple tools in a single response.
+     * Specifies whether the model supports multiple tool calls in a single response.
      */
     multiToolCall?: boolean;
     /**
      * @remarks
-     * Indicates whether the model supports reasoning capabilities.
+     * Specifies whether the model supports reasoning capabilities.
      */
     reasoning?: boolean;
     /**
      * @remarks
-     * Indicates whether the model supports streaming tool calling.
+     * Specifies whether the model supports streaming tool calling.
      */
     streamToolCall?: boolean;
     /**
      * @remarks
-     * Indicates whether the model supports tool calling.
+     * Specifies whether the model supports tool calling.
      */
     toolCall?: boolean;
     /**
      * @remarks
-     * Indicates whether the model supports video input.
+     * Specifies whether the model supports video input.
      */
     video?: boolean;
     /**
      * @remarks
-     * Indicates whether the model supports image input.
+     * Specifies whether the model supports image input.
      */
     vision?: boolean;
     static names(): {
@@ -54,7 +54,7 @@ export declare class ListModelsResponseBodyItemsCapabilities extends $dara.Model
 export declare class ListModelsResponseBodyItems extends $dara.Model {
     /**
      * @remarks
-     * The model capability configuration.
+     * The model capability configurations.
      */
     capabilities?: ListModelsResponseBodyItemsCapabilities;
     /**
@@ -67,7 +67,7 @@ export declare class ListModelsResponseBodyItems extends $dara.Model {
     connectionId?: string;
     /**
      * @remarks
-     * The model context window size, in tokens. The value must be a positive integer.
+     * The context window size of the model, in tokens. The value must be a positive integer.
      *
      * @example
      * 128000
@@ -75,7 +75,7 @@ export declare class ListModelsResponseBodyItems extends $dara.Model {
     contextSize?: number;
     /**
      * @remarks
-     * The time when the resource was created, in RFC 3339 UTC format.
+     * The time when the resource was created. The time is in the RFC 3339 UTC format.
      *
      * @example
      * 2026-08-09T00:00:00Z
@@ -83,7 +83,7 @@ export declare class ListModelsResponseBodyItems extends $dara.Model {
     createdAt?: string;
     /**
      * @remarks
-     * The model description. Maximum length: 255 characters.
+     * The model description. The description can be up to 255 characters in length.
      *
      * @example
      * description
@@ -91,7 +91,7 @@ export declare class ListModelsResponseBodyItems extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The maximum number of output tokens supported by the model in a single generation.
+     * The maximum number of output tokens supported by the model per generation.
      *
      * @example
      * 131072
@@ -115,7 +115,7 @@ export declare class ListModelsResponseBodyItems extends $dara.Model {
     modelName?: string;
     /**
      * @remarks
-     * The time when the resource was last updated, in RFC 3339 UTC format.
+     * The time when the resource was last updated. The time is in the RFC 3339 UTC format.
      *
      * @example
      * 2026-08-09T00:00:00Z
@@ -143,7 +143,7 @@ export declare class ListModelsResponseBodyItems extends $dara.Model {
 export declare class ListModelsResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business status code. A value of SUCCESS indicates success.
+     * The business status code. The value is SUCCESS if the request is successful.
      *
      * @example
      * SUCCESS
@@ -151,7 +151,7 @@ export declare class ListModelsResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The HTTP status code. A value of 200 indicates success.
+     * The HTTP status code. The value is 200 if the request is successful.
      *
      * @example
      * 200
@@ -164,7 +164,7 @@ export declare class ListModelsResponseBody extends $dara.Model {
     items?: ListModelsResponseBodyItems[];
     /**
      * @remarks
-     * The number of results per page. Valid values: 0 to 100. If this parameter is not set or set to 0, the default value 10 is used.
+     * The number of entries to return on each page. Valid values: 0 to 100. If this parameter is not specified or is set to 0, the default value is 10.
      *
      * @example
      * 10
@@ -172,7 +172,7 @@ export declare class ListModelsResponseBody extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The message of the request processing result.
+     * The message about the request processing result.
      *
      * @example
      * success
@@ -180,7 +180,7 @@ export declare class ListModelsResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The pagination token. Pass the token returned from the previous query. An empty response indicates that no more pages are available.
+     * The pagination token. Specify the token returned from the previous request to retrieve the next page. An empty response indicates that no more pages are available.
      *
      * @example
      * bW9kZWwtbWFuYWdlbWVudC1vZmZzZXQ6bW9kZWw6MTA
@@ -196,12 +196,12 @@ export declare class ListModelsResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful.
+     * Indicates whether the request is successful.
      */
     success?: boolean;
     /**
      * @remarks
-     * The total number of resources that match the query conditions.
+     * The total number of resources that meet the query conditions.
      *
      * @example
      * 1

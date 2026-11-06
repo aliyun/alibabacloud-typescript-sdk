@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class UpdateIdentityProviderResponseBodyDataConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The actual SAML binding type saved upstream, which is HTTP-Redirect or HTTP-POST.
+     * HTTP-Redirect or HTTP-POST. Required for manual entry. The query returns the short name.
      *
      * @example
      * HTTP-Redirect
@@ -10,7 +10,7 @@ export declare class UpdateIdentityProviderResponseBodyDataConfiguration extends
     bindingType?: string;
     /**
      * @remarks
-     * The actual enterprise IdP entity ID saved upstream.
+     * Required for manual entry. It must be non-empty and contain a maximum of 2,048 characters. The existing configuration does not support replacement. It is different from our Entity ID returned by the SP query.
      *
      * @example
      * https://idp.example.com/entity
@@ -18,7 +18,7 @@ export declare class UpdateIdentityProviderResponseBodyDataConfiguration extends
     entityId?: string;
     /**
      * @remarks
-     * The actual enterprise IdP SSO logon URL saved upstream.
+     * Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
      *
      * @example
      * https://idp.example.com/sso
@@ -26,7 +26,7 @@ export declare class UpdateIdentityProviderResponseBodyDataConfiguration extends
     loginUrl?: string;
     /**
      * @remarks
-     * The actual SSO logon status upstream. Enabled indicates that it is turned on, and Disabled indicates that it is turned off. This should be evaluated separately from the expected value of loginEnabled.
+     * The actual switch value is Enabled or Disabled, which is not equivalent to the expected loginEnabled value saved in AC.
      *
      * @example
      * Enabled
@@ -46,7 +46,7 @@ export declare class UpdateIdentityProviderResponseBodyDataConfiguration extends
 export declare class UpdateIdentityProviderResponseBodyDataSaml extends $dara.Model {
     /**
      * @remarks
-     * The saved SAML binding type, which is HTTP-Redirect or HTTP-POST.
+     * HTTP-Redirect or HTTP-POST. Required for manual entry. The query returns the short name.
      *
      * @example
      * HTTP-Redirect
@@ -54,7 +54,7 @@ export declare class UpdateIdentityProviderResponseBodyDataSaml extends $dara.Mo
     bindingType?: string;
     /**
      * @remarks
-     * The saved enterprise IdP entity ID, which is different from the entity ID of the service provider (SP).
+     * Required for manual entry. It must be non-empty and contain a maximum of 2,048 characters. The existing configuration does not support replacement. It is different from our Entity ID returned by the SP query.
      *
      * @example
      * https://idp.example.com/entity
@@ -62,7 +62,7 @@ export declare class UpdateIdentityProviderResponseBodyDataSaml extends $dara.Mo
     entityId?: string;
     /**
      * @remarks
-     * The saved enterprise IdP SSO logon URL.
+     * Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
      *
      * @example
      * https://idp.example.com/sso
@@ -70,7 +70,7 @@ export declare class UpdateIdentityProviderResponseBodyDataSaml extends $dara.Mo
     loginUrl?: string;
     /**
      * @remarks
-     * The list of saved enterprise IdP X.509 signing certificates.
+     * Required for manual entry. It must be a non-empty array and use PEM X.509 certificate text. The current validity period is verified. A maximum of two certificates are allowed after deduplication.
      *
      * @example
      * ["-----BEGIN CERTIFICATE-----\\\\nMIICwDCCAaigAwIBAgIULlsHLfcADyBax5ZtFlj+YGzZVo0wDQYJKoZIhvcNAQEL\\\\nBQAwGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMB4XDTI2MDEwMTAwMDAwMFoX\\\\nDTM2MDEwMTAwMDAwMFowGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMIIBIjAN\\\\nBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAto0DN0W1CrPRzK9QZ9A1aApb4Lg8\\\\noGlp2c0PbN3LokXe/HzwxCMXx65IDnrenttxzTwp9BgUnUN/3LRzWaOL2UQ/vNYN\\\\nW9LFLkI1T64UPyI7eyi28YlALhb41xkYhEp7rz+MjqifBzVZeTDUxBYtbK2hAhbY\\\\nEL1+udwsXEx0KB7xuQ/rbI2OKeqAEAD1tfYg7T/SM2wrXNYhx+o1HtchM4/0I8Ok\\\\nkk27JQ4y3ofzC5sTySmFF1Y7XcpSd+5WSyazedhkAieo8AB01DkJV6nnKfH8sH0E\\\\nBsnH3FP8FhqCLrIeEkjX9B9OcIRLGjiZqx4u/ryW1QhMldnv+pFfNjWy/wIDAQAB\\\\nMA0GCSqGSIb3DQEBCwUAA4IBAQC1hSQG8AwtGOoX2gKBK4Hi5XBrBreij8WlLTUW\\\\nld0FINQ0Rg84f/27CjDthywj6wgxCesCuOVFhpxQa1UacsP/Gcai1aKABtLWImca\\\\nWECRYK5gDkwhTMFKM9mXA26hH1l4v/UR2iTpEK9H78egC4W7bs2LDTpPryuaNKTq\\\\nP2O0tMbNkAHB8yecz5LxHXnxadL9Egow25g2RClvpifWqDnuS9TSbKkIWLcPLjoc\\\\nJj2K9ILpBwhXiXi/BiSgyYTLiYvVvih9vX4s+hKGZNJc0j92YLiOHDF0XH1oxgdV\\\\njfTmRiedeb2VZJZElptD92z0AqFR7z2d5B+OqpPA2gjuMLV5\\\\n-----END CERTIFICATE-----"]
@@ -90,7 +90,7 @@ export declare class UpdateIdentityProviderResponseBodyDataSaml extends $dara.Mo
 export declare class UpdateIdentityProviderResponseBodyDataSyncScope extends $dara.Model {
     /**
      * @remarks
-     * The list of department IDs in the synchronization scope, which are obtained from ListIdentityProviderDepartments. In SelectedDepartments mode, you must provide at least one non-empty department ID. In AllAuthorized mode, this field should be omitted or an empty array should be passed.
+     * When the mode is SelectedDepartments, it must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When the mode is AllAuthorized, pass an empty array or omit this parameter.
      *
      * @example
      * ["10001"]
@@ -98,7 +98,7 @@ export declare class UpdateIdentityProviderResponseBodyDataSyncScope extends $da
     departmentIds?: string[];
     /**
      * @remarks
-     * The synchronization scope mode. Valid values: AllAuthorized and SelectedDepartments. AllAuthorized indicates all members within the authorization scope of the application address book. SelectedDepartments indicates the selected departments and all their sub-departments. When explicitly submitting syncScope, you must provide a valid mode.
+     * AllAuthorized: the full authorization scope, which is subject to the application directory authorization limits. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
      *
      * @example
      * SelectedDepartments
@@ -118,25 +118,25 @@ export declare class UpdateIdentityProviderResponseBodyDataSyncScope extends $da
 export declare class UpdateIdentityProviderResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The actual SAML configuration read back from the upstream. This update API does not perform this read-back and usually does not return this field. Use GetIdentityProvider to obtain it.
+     * The actual SAML configuration is read back on demand only in GetIdentityProvider. SCIM queries and preparations return the actual receiving status and URL.
      */
     configuration?: UpdateIdentityProviderResponseBodyDataConfiguration;
     /**
      * @remarks
-     * The type of the identity provider. DingTalk indicates DingTalk. Feishu indicates Feishu. CustomSSO indicates a custom enterprise identity provider connected through SAML. The value must be the same as the type of the identity provider bound to the current workspace.
+     * General CRUD operations support DingTalk, Feishu, and CustomSSO. SP queries support only CustomSSO. The SCIM path uses the CustomSSO shared pool.
      *
      * @example
-     * DingTalk
+     * CustomSSO
      */
     identityProviderType?: string;
     /**
      * @remarks
-     * The currently saved expected value for the logon switch. This alone does not prove that the upstream logon configuration has taken effect.
+     * Do not set this parameter to true during CustomSSO initialization. A valid SAML configuration must be saved before you enable logon. Disabling logon does not delete the configuration. If an asynchronous failure occurs, this expected value does not mean that the change has taken effect upstream.
      */
     loginEnabled?: boolean;
     /**
      * @remarks
-     * The currently saved logon protocol for CustomSSO. The value is SAML when configured. This field is not returned for DingTalk or Lark.
+     * The logon protocol for CustomSSO. Currently, only SAML is supported. You can pass SAML when saving the SAML configuration. You can omit this parameter if you only modify loginEnabled. DingTalk and Feishu do not accept this field.
      *
      * @example
      * SAML
@@ -144,22 +144,12 @@ export declare class UpdateIdentityProviderResponseBodyData extends $dara.Model 
     protocol?: string;
     /**
      * @remarks
-     * The saved standardized SAML configuration for CustomSSO. The original metadata XML is not echoed. This field is not returned if no valid configuration is saved or if the identity provider is DingTalk or Lark. This value is the locally saved configuration and is not equivalent to the actual upstream configuration.
+     * The SAML configuration for CustomSSO. Choose between metadataXml and the four manually entered fields: entityId, loginUrl, bindingType, and x509Certificates. If not submitted, the existing configuration is retained. DingTalk and Feishu do not accept this field.
      */
     saml?: UpdateIdentityProviderResponseBodyDataSaml;
     /**
      * @remarks
-     * The status of the identity provider resource and logon configuration. Valid values:
-     * - CONFIGURED: The configuration is accepted.
-     * - UPDATING: The configuration is being updated.
-     * - SYNCING: Synchronization is in progress.
-     * - SYNCED: The synchronization phase is complete.
-     * - READY: The resource is ready.
-     * - SYNC_FAILED: Synchronization failed.
-     * - UPDATE_FAILED: The update failed.
-     * - DISCONNECTING: Unbinding is in progress.
-     * - DISCONNECT_FAILED: Unbinding failed.
-     * A value of READY does not alone indicate that users are imported. Query the SCIM operation results for CustomSSO separately.
+     * For a CustomSSO shared pool, READY does not mean that SAML is configured. The SCIM operation result is queried independently through operationStatus.
      *
      * @example
      * READY
@@ -167,20 +157,20 @@ export declare class UpdateIdentityProviderResponseBodyData extends $dara.Model 
     status?: string;
     /**
      * @remarks
-     * The currently saved expected value for the synchronization switch. For DingTalk and Lark, this is used for subsequent address book change events. For CustomSSO, the SCIM switch is managed by using UpdateIdentityProviderSCIM, and the operation results are queried by using GetIdentityProviderSCIM.
+     * Do not set this parameter to true during CustomSSO initialization. It can only be updated later by calling UpdateIdentityProviderSCIM, and the result is determined in combination with operationStatus.
      */
     syncEnabled?: boolean;
     /**
      * @remarks
-     * The saved synchronization scope for DingTalk and Lark. The default value for valid historical configurations is AllAuthorized. This field may not be returned for corrupted historical configurations. This field is not returned for CustomSSO.
+     * Uses the definition of the department-based synchronization scope. If omitted during creation, the default value is AllAuthorized. The initial vendor synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically execute a full synchronization.
      */
     syncScope?: UpdateIdentityProviderResponseBodyDataSyncScope;
     /**
      * @remarks
-     * The ID of the workspace to which the identity provider belongs.
+     * Required. The ID of the destination workspace. The region of the request must be the same as the region of the destination workspace.
      *
      * @example
-     * ws-123456
+     * ws-example
      */
     workspaceId?: string;
     static names(): {
@@ -197,7 +187,7 @@ export declare class UpdateIdentityProviderResponseBodyData extends $dara.Model 
 export declare class UpdateIdentityProviderResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business status code for this API request. A value of SUCCESS indicates that the request succeeded, but does not indicate that the asynchronous configuration or synchronization task is complete.
+     * Handle failures by combining the HTTP status code and the message.
      *
      * @example
      * SUCCESS
@@ -205,12 +195,12 @@ export declare class UpdateIdentityProviderResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The currently saved identity provider binding information, including the expected configuration and resource status. The actual update may still be executing in the background.
+     * The result structure is described in the response fields of this operation. For asynchronous write operations, the response indicates that the request is accepted, but does not guarantee that the background task is completed.
      */
     data?: UpdateIdentityProviderResponseBodyData;
     /**
      * @remarks
-     * The HTTP status code for this API request. This does not indicate the execution result of the background task.
+     * The processing status of the current request, which is not equivalent to the final result of the background task.
      *
      * @example
      * 200
@@ -218,7 +208,7 @@ export declare class UpdateIdentityProviderResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The response message for this API request. An error description is returned if the request fails.
+     * The request acceptance or error message. You must verify the result of the asynchronous task by calling the corresponding query operation.
      *
      * @example
      * success
@@ -226,15 +216,15 @@ export declare class UpdateIdentityProviderResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The unique identifier for this request. Provide this value when you troubleshoot issues.
+     * Used to associate the current call with troubleshooting. Keep it when a failure occurs.
      *
      * @example
-     * request-123456
+     * request-example
      */
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether this API request succeeded. To check whether the background configuration has taken effect, you must query the identity provider status separately.
+     * A value of true indicates that the current request is processed successfully. For asynchronous write operations, you must continue to query the task result.
      */
     success?: boolean;
     static names(): {

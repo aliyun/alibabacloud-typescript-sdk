@@ -15,7 +15,7 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
   acrInstanceId?: string;
   /**
    * @remarks
-   * The current attachment status of the policy for the target repository.
+   * The mount status of the policy for the current target repository.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
   authorizationStatus?: string;
   /**
    * @remarks
-   * The access prerequisite status, which does not indicate Secret Ready.
+   * The onboarding prerequisite, which is not Secret Ready.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
   eligibilityStatus?: string;
   /**
    * @remarks
-   * The stable reason code for unauthorized or unmet conditions. This field is omitted if no reason exists.
+   * The stable reason code for unauthorized or unmet conditions. This field is omitted when no reason is available.
    * 
    * @example
    * AcrRamUnauthorized
@@ -46,7 +46,7 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
   reasonCode?: string;
   /**
    * @remarks
-   * The user-readable reason. This field is omitted if no reason exists.
+   * The user-readable reason. This field is omitted when no reason is available.
    * 
    * @example
    * Authorize the Workspace role for this ACR instance.
@@ -67,7 +67,7 @@ export class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends $dara.Mo
   roleName?: string;
   /**
    * @remarks
-   * The source of the shared role. This does not indicate that authorization is complete.
+   * The source of the shared role. This does not indicate that the authorization is complete.
    * 
    * This parameter is required.
    * 

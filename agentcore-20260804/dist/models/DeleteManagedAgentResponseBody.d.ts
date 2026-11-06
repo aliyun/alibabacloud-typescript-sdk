@@ -18,7 +18,7 @@ export declare class DeleteManagedAgentResponseBodyData extends $dara.Model {
     accessScope?: string;
     /**
      * @remarks
-     * The managed agent ID.
+     * The ID of the managed Harness agent.
      *
      * @example
      * agent-1
@@ -50,7 +50,7 @@ export declare class DeleteManagedAgentResponseBodyData extends $dara.Model {
     deployType?: string;
     /**
      * @remarks
-     * The description of the managed agent.
+     * The description of the managed Harness agent.
      *
      * @example
      * Agent for code review
@@ -66,7 +66,7 @@ export declare class DeleteManagedAgentResponseBodyData extends $dara.Model {
     latestSpecVersion?: number;
     /**
      * @remarks
-     * The name of the managed agent.
+     * The name of the managed Harness agent.
      *
      * @example
      * my-agent
@@ -82,7 +82,7 @@ export declare class DeleteManagedAgentResponseBodyData extends $dara.Model {
     runtime?: string;
     /**
      * @remarks
-     * The status of the managed agent.
+     * The status of the managed Harness agent.
      *
      * @example
      * Running
@@ -126,7 +126,7 @@ export declare class DeleteManagedAgentResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The summary information of the deleted managed agent.
+     * The summary information of the managed Harness agent after deletion.
      */
     data?: DeleteManagedAgentResponseBodyData;
     /**
@@ -139,7 +139,7 @@ export declare class DeleteManagedAgentResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The request processing result message.
+     * The message about the request processing result.
      *
      * @example
      * success

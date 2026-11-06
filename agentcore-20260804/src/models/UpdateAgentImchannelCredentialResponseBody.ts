@@ -45,7 +45,7 @@ export class UpdateAgentIMChannelCredentialResponseBodyData extends $dara.Model 
 export class UpdateAgentIMChannelCredentialResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS when the request is successful.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -58,7 +58,7 @@ export class UpdateAgentIMChannelCredentialResponseBody extends $dara.Model {
   data?: UpdateAgentIMChannelCredentialResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 when the request is successful.
+   * The HTTP status code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -66,7 +66,7 @@ export class UpdateAgentIMChannelCredentialResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message indicating the request processing result.
+   * The message about the request processing result.
    * 
    * @example
    * success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyAgentCodePackageOssRamAuthorizationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The binding status of the policy.
+   * The policy binding status.
    * 
    * @example
    * AUTHORIZED

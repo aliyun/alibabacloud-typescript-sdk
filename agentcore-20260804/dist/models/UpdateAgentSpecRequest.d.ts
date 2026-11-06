@@ -18,9 +18,7 @@ export declare class UpdateAgentSpecRequestBody extends $dara.Model {
     labels?: string;
     /**
      * @remarks
-     * The visibility scope. Valid values:
-     * - PUBLIC
-     * - PRIVATE
+     * The visibility scope. Valid values: PUBLIC and PRIVATE.
      *
      * @example
      * PUBLIC

@@ -13,7 +13,7 @@ export class DeleteCredentialResponseBodyData extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The credential name. It must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 128 characters in length. Runtime reserved names cannot be used.
+   * The credential name. The name must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. You cannot use runtime reserved names.
    * 
    * @example
    * model-api-key

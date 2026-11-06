@@ -29,7 +29,7 @@ export class DeleteMcpResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A1B2C3D4-E5F6-47A8-90AB-CDEF12345678

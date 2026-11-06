@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The draft mode: HEAD or VERSIONED, determined by the server.
+   * The draft mode. Valid values: HEAD and VERSIONED. The value is determined by the server.
    * 
    * @example
    * HEAD
@@ -21,7 +21,7 @@ export class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
   editingVersion?: string;
   /**
    * @remarks
-   * The entry path of the Skill package.
+   * The entry path of the skill package.
    * 
    * @example
    * SKILL.md
@@ -29,12 +29,12 @@ export class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
   entryPath?: string;
   /**
    * @remarks
-   * Indicates whether the Skill already exists.
+   * Indicates whether the skill already exists.
    */
   exists?: boolean;
   /**
    * @remarks
-   * The content revision identifier of the persistent draft, used to determine whether the local cache has expired. Returned only in HEAD draft mode.
+   * The content revision identifier of the persistent draft, which is used to determine whether the local cache has expired. This parameter is returned only in HEAD draft mode.
    * 
    * @example
    * rev-1a2b3c4d
@@ -42,7 +42,7 @@ export class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
   headRevision?: string;
   /**
    * @remarks
-   * The status of the persistent draft: draft, reviewing, or reviewed. Returned only in HEAD draft mode.
+   * The status of the persistent draft. Valid values: draft, reviewing, and reviewed. This parameter is returned only in HEAD draft mode.
    * 
    * @example
    * draft
@@ -74,7 +74,7 @@ export class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
   parsedVersion?: string;
   /**
    * @remarks
-   * The dry run result code.
+   * The precheck result code. HEAD_EXISTS indicates that the upload will overwrite the existing persistent draft and requires secondary confirmation. HEAD_LOCKED indicates that the draft is under review and cannot be overwritten. You must withdraw the review first.
    * 
    * @example
    * VALIDATION_FAILED
@@ -98,7 +98,7 @@ export class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
   reviewingVersion?: string;
   /**
    * @remarks
-   * The Skill name.
+   * The skill name.
    * 
    * @example
    * skill-example
@@ -172,7 +172,7 @@ export class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
 export class PrecheckSkillUploadViaOssResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: PrecheckSkillUploadViaOssResponseBodyData[];
   /**

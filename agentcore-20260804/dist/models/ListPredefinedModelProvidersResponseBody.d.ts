@@ -67,7 +67,7 @@ export declare class ListPredefinedModelProvidersResponseBody extends $dara.Mode
     httpStatusCode?: number;
     /**
      * @remarks
-     * The message about the request processing result.
+     * The request processing result message.
      *
      * @example
      * success

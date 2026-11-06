@@ -5,26 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCredentialRequestBodyResourceRefs extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the resource.
+   * The ID of the applicable MCP service.
    * 
    * @example
-   * agent-xxxx
+   * mcp-example
    */
   resourceId?: string;
   /**
    * @remarks
-   * The resource name. This parameter is empty if the resource is deleted.
+   * The resource name. This field is empty if the resource has been deleted.
    * 
    * @example
-   * my-agent
+   * my-mcp-service
    */
   resourceName?: string;
   /**
    * @remarks
-   * The resource type, such as agent.
+   * The resource type. Currently, the value is mcpServer, which indicates an MCP service.
    * 
    * @example
-   * agent
+   * mcpServer
    */
   resourceType?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class UpdateCredentialRequestBodyResourceRefs extends $dara.Model {
 export class UpdateCredentialRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The new credential content, which is a JSON string. If credentialType is apiKey, this parameter can only contain the apiKey field, and the value cannot be empty. You must specify at least one of credentialMetadata and description.
+   * The credential content, submitted as a JSON string. For the apiKey type, it contains only a non-empty apiKey. For the mcpHeader type, it contains a non-empty headers array, where each item includes a name and a value.
    * 
    * @example
    * {"apiKey":"sk-example-value"}
@@ -63,20 +63,20 @@ export class UpdateCredentialRequestBody extends $dara.Model {
   credentialMetadata?: string;
   /**
    * @remarks
-   * The new credential description, which can be up to 256 characters in length. You must specify at least one of credentialMetadata and description.
+   * The new credential description. The description can be up to 256 characters in length. If omitted, the original description is retained. It can be updated independently of the credential content or application scope.
    * 
    * @example
-   * API key used to call model services in the production environment
+   * API key used to call the model service in the production environment
    */
   description?: string;
   /**
    * @remarks
-   * If resourceScope is SPECIFIED, this parameter must be a non-empty array. Each item must include resourceType and resourceId. resourceName is optional.
+   * The list of applicable resources for the MCP header credential. If submitted, resourceScope must also be submitted. An empty array [] is allowed when the scope is SPECIFIED. Omit this field when the scope is ALL.
    */
   resourceRefs?: UpdateCredentialRequestBodyResourceRefs[];
   /**
    * @remarks
-   * The application scope of the credential resources. A value of ALL indicates all resources. A value of SPECIFIED indicates only the resources specified by resourceRefs.
+   * The application scope of the MCP header credential. This field is supported only for the mcpHeader type. ALL indicates all MCP services, and SPECIFIED indicates the MCP services specified in resourceRefs. Do not submit this field for the apiKey type.
    * 
    * @example
    * ALL

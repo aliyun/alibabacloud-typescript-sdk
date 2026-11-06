@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIdentityProviderSyncJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The current execution step of the AgentCore asynchronous task. This parameter may not be returned if the task has not started.
+   * The current execution step of the AgentCore asynchronous task. This may not be returned if the task has not started executing.
    * 
    * @example
    * SYNC
@@ -13,7 +13,7 @@ export class CreateIdentityProviderSyncJobResponseBodyData extends $dara.Model {
   currentStep?: string;
   /**
    * @remarks
-   * The failure summary of the asynchronous task. This parameter is not returned if no failure information is available. You can use this parameter together with taskId and requestId to troubleshoot issues.
+   * The failure summary of the asynchronous task. This is not returned when no failure information is available. You can use this in combination with taskId and requestId for troubleshooting.
    * 
    * @example
    * The identity provider synchronization job failed.
@@ -21,14 +21,7 @@ export class CreateIdentityProviderSyncJobResponseBodyData extends $dara.Model {
   failureReason?: string;
   /**
    * @remarks
-   * The status of the synchronization task. Valid values:
-   * - PENDING: Pending.
-   * - RUNNING: Running.
-   * - PAUSED: Paused.
-   * - SUCCESS: Successful.
-   * - FAILED: Failed.
-   * - CANCELED: Canceled.
-   * The first three values are non-terminal states, and the last three values are terminal states. Query the status until a terminal state is reached to determine the result.
+   * The status of the synchronization task. Valid values: PENDING: to be executed; RUNNING: executing; PAUSED: paused; SUCCESS: successful; FAILED: failed; CANCELED: canceled. The first three are non-terminal states, and the last three are terminal states. Query the status until a terminal state is reached to determine the result.
    * 
    * @example
    * SUCCESS
@@ -36,7 +29,7 @@ export class CreateIdentityProviderSyncJobResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The number of user entries that are locally read and written or updated, including existing users. This number does not represent the number of new users or the synchronization percentage. This parameter is not returned if no statistics are available.
+   * The number of user entries that have been locally read and written or updated, including existing users. This does not represent the number of newly added users or the synchronization percentage. This is not returned when no statistics are available.
    * 
    * @example
    * 12
@@ -44,7 +37,7 @@ export class CreateIdentityProviderSyncJobResponseBodyData extends $dara.Model {
   syncedUserCount?: number;
   /**
    * @remarks
-   * The downstream AgentIdentity synchronization task ID. This parameter is not returned if the task is not created. You cannot use this ID instead of taskId to call GetIdentityProviderSyncJob.
+   * The downstream AgentIdentity synchronization task ID. This is not returned if the task has not been created. You cannot use this ID instead of taskId to call GetIdentityProviderSyncJob.
    * 
    * @example
    * syncjob_0123456789abcdef0123456789abcdef
@@ -52,7 +45,7 @@ export class CreateIdentityProviderSyncJobResponseBodyData extends $dara.Model {
   synchronizationJobId?: string;
   /**
    * @remarks
-   * The local AgentCore task ID returned by CreateIdentityProviderSyncJob. This is not the synchronizationJobId of AgentIdentity. You must use the same workspace and identity provider when you query the task.
+   * The local AgentCore task ID returned by CreateIdentityProviderSyncJob. This is not the synchronizationJobId of AgentIdentity. You must use the same workspace and identity provider when querying.
    * 
    * @example
    * 12345678-1234-4234-8234-123456789abc
@@ -92,7 +85,7 @@ export class CreateIdentityProviderSyncJobResponseBodyData extends $dara.Model {
 export class CreateIdentityProviderSyncJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code of the API request. A value of SUCCESS indicates that the request is successful, but does not indicate that the asynchronous synchronization task is completed.
+   * The business status code for the current API request. SUCCESS indicates that the current request is successful, but does not indicate that the asynchronous synchronization task is complete.
    * 
    * @example
    * SUCCESS
@@ -100,7 +93,7 @@ export class CreateIdentityProviderSyncJobResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business data returned in the response.
+   * The business data returned by the current request.
    * 
    * @example
    * {"taskId":"12345678-1234-4234-8234-123456789abc","status":"PENDING"}
@@ -108,7 +101,7 @@ export class CreateIdentityProviderSyncJobResponseBody extends $dara.Model {
   data?: CreateIdentityProviderSyncJobResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code of the API request. This status code does not indicate the execution result of the asynchronous task.
+   * The HTTP status code for the current API request. This does not indicate the execution result of the asynchronous task.
    * 
    * @example
    * 200
@@ -116,7 +109,7 @@ export class CreateIdentityProviderSyncJobResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message of the API request.
+   * The response message for the current API request.
    * 
    * @example
    * success
@@ -124,7 +117,7 @@ export class CreateIdentityProviderSyncJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the request. Provide this value when you troubleshoot issues.
+   * The unique identifier of the request. Provide this value when troubleshooting issues.
    * 
    * @example
    * 01234567-89AB-CDEF-0123-456789ABCDEF
@@ -132,7 +125,7 @@ export class CreateIdentityProviderSyncJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API request is successful. To check whether the asynchronous task is completed, query the task status.
+   * Indicates whether the current API request is successful. To determine whether the asynchronous task is complete, query the task status.
    * 
    * @example
    * true

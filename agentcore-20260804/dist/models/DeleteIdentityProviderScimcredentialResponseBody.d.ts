@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteIdentityProviderSCIMCredentialResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business result code. Use this code in combination with the HTTP status code and message to handle failures.
+     * The business result code. If the call fails, use this code in combination with the HTTP status code and message for troubleshooting.
      *
      * @example
      * SUCCESS
@@ -10,7 +10,7 @@ export declare class DeleteIdentityProviderSCIMCredentialResponseBody extends $d
     code?: string;
     /**
      * @remarks
-     * The processing status of this request, which is not equivalent to the final result of the background task.
+     * The processing status of this request. This does not indicate the final result of the background task.
      *
      * @example
      * 200
@@ -18,7 +18,7 @@ export declare class DeleteIdentityProviderSCIMCredentialResponseBody extends $d
     httpStatusCode?: number;
     /**
      * @remarks
-     * The request acceptance or error message. For asynchronous tasks, check the task result by using the corresponding query API.
+     * The request acceptance or error message. Check the asynchronous task result by calling the corresponding query operation.
      *
      * @example
      * success
@@ -26,7 +26,7 @@ export declare class DeleteIdentityProviderSCIMCredentialResponseBody extends $d
     message?: string;
     /**
      * @remarks
-     * The request ID. Used to associate this call with troubleshooting. Keep this ID when a failure occurs.
+     * The request ID. Used to associate this call with troubleshooting. Retain this ID if the call fails.
      *
      * @example
      * request-example
@@ -34,7 +34,7 @@ export declare class DeleteIdentityProviderSCIMCredentialResponseBody extends $d
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request is successful. A value of true indicates that the request is processed successfully. For asynchronous writes, continue to query the task results.
+     * Indicates whether the request was successful. A value of true indicates that the request was processed successfully. For asynchronous writes, you must continue to query the task result.
      */
     success?: boolean;
     static names(): {

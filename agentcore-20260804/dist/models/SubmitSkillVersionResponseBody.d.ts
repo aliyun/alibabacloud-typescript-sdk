@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class SubmitSkillVersionResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The response data.
+     * The returned data.
      *
      * @example
      * 1.0.0

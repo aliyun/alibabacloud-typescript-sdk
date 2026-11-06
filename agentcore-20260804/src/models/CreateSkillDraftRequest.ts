@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSkillDraftRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The version from which to fork the draft. If not specified, a new Skill is created.
+   * The version to fork from. If you do not specify this parameter, a new skill is created.
    * 
    * @example
    * 0.0.1
@@ -21,7 +21,7 @@ export class CreateSkillDraftRequestBody extends $dara.Model {
   commitMsg?: string;
   /**
    * @remarks
-   * The Skill card JSON string that contains the complete Skill information.
+   * The JSON string of the skill card, which contains the complete skill information.
    * 
    * @example
    * {"name":"customer-service-skill","description":"..."}
@@ -29,7 +29,7 @@ export class CreateSkillDraftRequestBody extends $dara.Model {
   skillCard?: string;
   /**
    * @remarks
-   * The Skill name.
+   * The skill name.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class CreateSkillDraftRequestBody extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The draft version number. If not specified, the version number is automatically incremented.
+   * Specifies the draft version number. If not specified, the version number automatically increments.
    * 
    * @example
    * 0.0.2

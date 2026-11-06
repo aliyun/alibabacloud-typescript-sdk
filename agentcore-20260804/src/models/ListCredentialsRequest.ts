@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCredentialsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters by credential type. Currently, only apiKey is supported.
+   * The credential type used for filtering. Valid values: apiKey and mcpHeader.
    * 
    * @example
    * apiKey
@@ -21,7 +21,7 @@ export class ListCredentialsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Filters by credential name.
+   * The credential name used for filtering.
    * 
    * @example
    * credentialxxx
@@ -37,7 +37,7 @@ export class ListCredentialsRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * The cursor used to query the next page. Do not specify this parameter in the first call. For subsequent calls, specify the nextToken returned in the previous response.
+   * The cursor for querying the next page. Do not specify this parameter for the first call. For subsequent calls, specify the nextToken value returned in the previous response.
    * 
    * @example
    * 10

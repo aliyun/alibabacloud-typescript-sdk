@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCredentialRequestBodyResourceRefs extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the resource.
+   * The ID of the applicable MCP service.
    * 
    * @example
-   * agent-xxxx
+   * mcp-example
    */
   resourceId?: string;
   /**
@@ -16,15 +16,15 @@ export class CreateCredentialRequestBodyResourceRefs extends $dara.Model {
    * The name of the resource. This parameter is empty if the resource is deleted.
    * 
    * @example
-   * my-agent
+   * my-mcp-service
    */
   resourceName?: string;
   /**
    * @remarks
-   * The type of the resource, such as agent.
+   * The type of the resource. Set the value to mcpServer, which indicates an MCP service.
    * 
    * @example
-   * agent
+   * mcpServer
    */
   resourceType?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class CreateCredentialRequestBodyResourceRefs extends $dara.Model {
 export class CreateCredentialRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The credential content, which is a JSON string. If credentialType is apiKey, this parameter can only contain the apiKey field, and the value cannot be empty. After the credential is written, only desensitized queries are supported.
+   * The credential content, submitted as a JSON string. For the apiKey type, it contains only a non-empty apiKey. For the mcpHeader type, it contains a non-empty headers array, where each item includes a name and a value.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class CreateCredentialRequestBody extends $dara.Model {
   credentialMetadata?: string;
   /**
    * @remarks
-   * The credential type. Currently, only apiKey is supported.
+   * The credential type. Valid values: apiKey (API key) and mcpHeader (MCP request header).
    * 
    * This parameter is required.
    * 
@@ -83,7 +83,7 @@ export class CreateCredentialRequestBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the credential. The name must be unique within the workspace, can only contain letters, digits, periods, underscores, and hyphens, and must be 3 to 128 characters in length. Runtime reserved names cannot be used.
+   * The name of the credential. The name must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. Runtime reserved names cannot be used.
    * 
    * This parameter is required.
    * 
@@ -93,12 +93,12 @@ export class CreateCredentialRequestBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * If resourceScope is SPECIFIED, this parameter must be a non-empty array. Each item must contain resourceType and resourceId. resourceName is optional.
+   * The list of applicable resources for an mcpHeader credential. This parameter must be non-empty when resourceScope is set to SPECIFIED, and must be omitted when resourceScope is set to ALL.
    */
   resourceRefs?: CreateCredentialRequestBodyResourceRefs[];
   /**
    * @remarks
-   * The application scope of the credential resource. A value of ALL indicates all resources. A value of SPECIFIED indicates that the credential is applied only to the resources specified by resourceRefs.
+   * The application scope of an mcpHeader credential. This parameter is supported only for the mcpHeader type. ALL indicates all MCP services, and SPECIFIED indicates the MCP services specified in resourceRefs. Do not submit this field for the apiKey type.
    * 
    * @example
    * ALL

@@ -12,7 +12,7 @@ export declare class UpdateModelResponseBodyDataCapabilities extends $dara.Model
     document?: boolean;
     /**
      * @remarks
-     * Indicates whether the model is able to invoke tool calling multiple times in a single response.
+     * Indicates whether the model is able to invoke multiple tool calling in a single response.
      */
     multiToolCall?: boolean;
     /**
@@ -75,7 +75,7 @@ export declare class UpdateModelResponseBodyData extends $dara.Model {
     contextSize?: number;
     /**
      * @remarks
-     * The time when the resource was created. The time is in RFC 3339 UTC format.
+     * The time when the resource was created. The time is displayed in the RFC 3339 UTC format.
      *
      * @example
      * 2026-08-09T00:00:00Z
@@ -91,7 +91,7 @@ export declare class UpdateModelResponseBodyData extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The maximum number of output tokens supported for a single generation of the model.
+     * The maximum number of output tokens supported by the model in a single generation.
      *
      * @example
      * 131072
@@ -115,7 +115,7 @@ export declare class UpdateModelResponseBodyData extends $dara.Model {
     modelName?: string;
     /**
      * @remarks
-     * The time when the resource was last updated. The time is in RFC 3339 UTC format.
+     * The time when the resource was last updated. The time is displayed in the RFC 3339 UTC format.
      *
      * @example
      * 2026-08-09T00:00:00Z
@@ -143,7 +143,7 @@ export declare class UpdateModelResponseBodyData extends $dara.Model {
 export declare class UpdateModelResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business status code. The value is SUCCESS when the request is successful.
+     * The business status code. The value is SUCCESS if the request is successful.
      *
      * @example
      * SUCCESS
@@ -156,7 +156,7 @@ export declare class UpdateModelResponseBody extends $dara.Model {
     data?: UpdateModelResponseBodyData;
     /**
      * @remarks
-     * The HTTP status code. The value is 200 when the request is successful.
+     * The HTTP status code. The value is 200 if the request is successful.
      *
      * @example
      * 200

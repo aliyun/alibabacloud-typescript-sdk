@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListManagedAgentsResponseBodyItemsHarnessConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Connector Service Account Key
+     * The ID of the connector account key record bound to qodercli, not the original service account key.
      *
      * @example
      * key-xxxx
@@ -10,7 +10,7 @@ export declare class ListManagedAgentsResponseBodyItemsHarnessConfiguration exte
     connectorServiceAccountKey?: string;
     /**
      * @remarks
-     * Connector Service Account Name
+     * The name of the connector account bound to qodercli.
      *
      * @example
      * my-connector-key
@@ -55,7 +55,7 @@ export declare class ListManagedAgentsResponseBodyItemsHarness extends $dara.Mod
 export declare class ListManagedAgentsResponseBodyItems extends $dara.Model {
     /**
      * @remarks
-     * The inbound access mode.
+     * The inbound access method.
      *
      * @example
      * API_KEY
@@ -71,7 +71,7 @@ export declare class ListManagedAgentsResponseBodyItems extends $dara.Model {
     accessScope?: string;
     /**
      * @remarks
-     * The ID of the managed agent.
+     * The ID of the managed Harness agent.
      *
      * @example
      * agent-1
@@ -103,7 +103,7 @@ export declare class ListManagedAgentsResponseBodyItems extends $dara.Model {
     deployType?: string;
     /**
      * @remarks
-     * The description of the managed agent.
+     * The description of the managed Harness agent.
      *
      * @example
      * Agent for code review
@@ -124,7 +124,7 @@ export declare class ListManagedAgentsResponseBodyItems extends $dara.Model {
     latestSpecVersion?: number;
     /**
      * @remarks
-     * The name of the managed agent.
+     * The name of the managed Harness agent.
      *
      * @example
      * my-agent
@@ -140,7 +140,7 @@ export declare class ListManagedAgentsResponseBodyItems extends $dara.Model {
     runtime?: string;
     /**
      * @remarks
-     * The status of the managed agent.
+     * The status of the managed Harness agent.
      *
      * @example
      * Running
@@ -176,7 +176,7 @@ export declare class ListManagedAgentsResponseBodyItems extends $dara.Model {
 export declare class ListManagedAgentsResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business status code. The value is SUCCESS if the request is successful.
+     * The business status code. The value is SUCCESS when the request is successful.
      *
      * @example
      * SUCCESS
@@ -184,7 +184,7 @@ export declare class ListManagedAgentsResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The HTTP status code. The value is 200 if the request is successful.
+     * The HTTP status code. The value is 200 when the request is successful.
      *
      * @example
      * 200
@@ -192,7 +192,7 @@ export declare class ListManagedAgentsResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The list of managed agents.
+     * The list of managed Harness agents.
      *
      * @example
      * [{"agentId":"agent-xxxxxx","workspaceId":"ws-xxxxxx","agentName":"demo-agent","status":"Running","template":{"templateId":"tpl-xxxxxx","templateVersion":"v1.0.0"},"spec":{"replicas":1,"cpu":"2","memory":"4Gi"},"createTime":"2026-01-01T00:00:00Z","updateTime":"2026-01-01T00:00:00Z"}]
@@ -208,7 +208,7 @@ export declare class ListManagedAgentsResponseBody extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The request processing result message.
+     * The message about the request processing result.
      *
      * @example
      * success
