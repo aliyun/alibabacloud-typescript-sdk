@@ -21,8 +21,8 @@ export class TagDataAssetsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The data asset type. Valid values:
-   * - DataWorks table (ACS::DataWorks::Table)
-   * - DataWorks scheduled task (ACS::DataWorks::Task)
+   * - Data table (ACS::DataWorks::Table)
+   * - Scheduling task (ACS::DataWorks::Task)
    * 
    * This parameter is required.
    * 
@@ -33,8 +33,8 @@ export class TagDataAssetsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The workspace environment to which the data asset belongs. Valid values:
-   * - Dev (development environment)
-   * - Prod (production environment)
+   * - Dev: development environment
+   * - Prod: production environment
    * 
    * @example
    * Prod
@@ -50,7 +50,7 @@ export class TagDataAssetsShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The list of data asset tags to attach.
+   * The list of tags to attach to the data assets.
    * 
    * This parameter is required.
    */

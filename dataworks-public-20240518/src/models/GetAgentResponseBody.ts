@@ -65,7 +65,7 @@ export class GetAgentResponseBodyAgentCallableAgents extends $dara.Model {
 export class GetAgentResponseBodyAgentExpertSuites extends $dara.Model {
   /**
    * @remarks
-   * If the suite is deleted, the release snapshot is missing, or the caller does not have permission to view it, the suite summary is not returned, and only the ID and version number are retained.
+   * If the suite is deleted, the published snapshot is missing, or the caller does not have permission to view it, the suite summary is not returned, and only the ID and version number are retained.
    * 
    * @example
    * Data analytics expert capability set
@@ -89,7 +89,7 @@ export class GetAgentResponseBodyAgentExpertSuites extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The fixed official artifact version returned when explicitly querying a released version of the agent. This is not returned when querying a draft or a custom suite.
+   * Returns the fixed official artifact version when explicitly querying a published version of the agent. Not returned when querying a draft or a custom suite.
    * 
    * @example
    * 0.1.0.202610211408
@@ -97,7 +97,7 @@ export class GetAgentResponseBodyAgentExpertSuites extends $dara.Model {
   packageVersion?: string;
   /**
    * @remarks
-   * An optional suite summary field that is not returned by current new DataAgent applications. A default value does not indicate version 0. This cannot be used as the Version for UpdateAgent and must be omitted when writing back references. For the fixed version of official artifacts, read PackageVersion.
+   * An optional suite summary field that is not returned by current new DataAgent applications. A missing value does not indicate version 0. This field cannot be used as the Version for UpdateAgent and must be omitted when writing back references. For the fixed version of official artifacts, read PackageVersion.
    * 
    * @example
    * 1.2.0
@@ -113,7 +113,7 @@ export class GetAgentResponseBodyAgentExpertSuites extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The expert suite ID.
+   * The ID of the expert suite.
    * 
    * @example
    * suite_example
@@ -121,7 +121,7 @@ export class GetAgentResponseBodyAgentExpertSuites extends $dara.Model {
   suiteId?: string;
   /**
    * @remarks
-   * Returned only when a personal or enterprise suite explicitly specifies a fixed integer version in the reference. This is not returned for official suites. An unreturned value is not 0. If the SDK initializes the default integer to 0, it must be omitted when writing back. For official items, only Source and SuiteId are written back, and Version, VersionSelector, SemanticVersion, or PackageVersion are not passed.
+   * Returned only when a personal or enterprise suite explicitly specifies a fixed integer version in the reference. Not returned for official suites. A missing value is not 0. If the SDK initializes a missing integer to 0, it must be omitted when writing back. For official items, only Source and SuiteId are written back, and Version, VersionSelector, SemanticVersion, or PackageVersion are not passed.
    * 
    * @example
    * 3
@@ -129,7 +129,7 @@ export class GetAgentResponseBodyAgentExpertSuites extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * Returned only for personal or enterprise resources to indicate the saved version selection strategy, which is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This is not returned for official resources.
+   * Returned only for personal or enterprise resources to indicate the saved version selection policy, which is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. Not returned for official resources.
    * 
    * @example
    * ^1.2.3
@@ -183,7 +183,7 @@ export class GetAgentResponseBodyAgentModel extends $dara.Model {
   config?: { [key: string]: any };
   /**
    * @remarks
-   * The maximum number of output tokens per generation.
+   * The maximum number of output tokens per request.
    * 
    * @example
    * 8192
@@ -191,7 +191,7 @@ export class GetAgentResponseBodyAgentModel extends $dara.Model {
   maxTokens?: number;
   /**
    * @remarks
-   * The model name.
+   * The name of the model.
    * 
    * @example
    * qwen3-max
@@ -199,7 +199,7 @@ export class GetAgentResponseBodyAgentModel extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * Specifies whether streaming output is enabled.
+   * Specifies whether to use streaming output.
    * 
    * @example
    * true
@@ -215,7 +215,7 @@ export class GetAgentResponseBodyAgentModel extends $dara.Model {
   temperature?: number;
   /**
    * @remarks
-   * The nucleus sampling Top-P value.
+   * The top-P value for nucleus sampling.
    * 
    * @example
    * 1
@@ -258,7 +258,7 @@ export class GetAgentResponseBodyAgentModel extends $dara.Model {
 export class GetAgentResponseBodyAgentSkills extends $dara.Model {
   /**
    * @remarks
-   * The skill name.
+   * The name of the skill.
    * 
    * @example
    * my-skill
@@ -266,7 +266,7 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The fixed official artifact version returned when querying a released snapshot with a specified AgentVersion. This is not returned when querying a draft or a custom skill.
+   * Returns the fixed official artifact version when querying a published snapshot with a specified AgentVersion. Not returned when querying a draft or a custom skill.
    * 
    * @example
    * 0.6.0.202608201110
@@ -274,7 +274,7 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
   packageVersion?: string;
   /**
    * @remarks
-   * The official skill ID.
+   * The ID of the official skill.
    * 
    * @example
    * dataworks-semantic
@@ -290,7 +290,7 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The skill version number.
+   * The version number of the skill.
    * 
    * @example
    * -
@@ -298,7 +298,7 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * Returned only for personal or enterprise resources to indicate the saved version selection strategy, which is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This is not returned for official resources.
+   * Returned only for personal or enterprise resources to indicate the saved version selection policy, which is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. Not returned for official resources.
    * 
    * @example
    * ^1.2.3
@@ -338,7 +338,7 @@ export class GetAgentResponseBodyAgentSkills extends $dara.Model {
 export class GetAgentResponseBodyAgentTools extends $dara.Model {
   /**
    * @remarks
-   * **The built-in tool name. Valid when Kind is `builtin`.**
+   * **The name of the built-in tool. Valid when Kind is builtin.**
    * 
    * @example
    * builtin_sql
@@ -354,12 +354,12 @@ export class GetAgentResponseBodyAgentTools extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * **The selected MCP tool items. Valid when Kind is `mcp`.**
+   * **The selected MCP tool items. Valid when Kind is mcp.**
    */
   mcpItems?: string[];
   /**
    * @remarks
-   * **The associated MCP server name. Valid when Kind is `mcp`.**
+   * **The name of the associated MCP server. Valid when Kind is mcp.**
    * 
    * @example
    * server-name
@@ -475,29 +475,25 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The expert suites associated with the agent definition, including a fixed integer revision number or a version selection strategy. Official resources continue to use PackageVersion to indicate the artifact version.
+   * The expert suites bound to the agent definition, including a fixed integer revision number or a version selection policy. Official resources continue to use PackageVersion to indicate the artifact version.
    */
   expertSuites?: GetAgentResponseBodyAgentExpertSuites[];
   /**
    * @remarks
-   * The creation time (millisecond timestamp).
-   * 
-   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * The creation time, expressed as a timestamp in milliseconds.
    * 
    * @example
    * 1780555634000
    */
-  gmtCreateTime?: string;
+  gmtCreateTime?: number;
   /**
    * @remarks
-   * The last modification time (millisecond timestamp).
-   * 
-   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * The last modified time, expressed as a timestamp in milliseconds.
    * 
    * @example
    * 1780555634000
    */
-  gmtModifiedTime?: string;
+  gmtModifiedTime?: number;
   /**
    * @remarks
    * **The extended metadata.**
@@ -529,7 +525,7 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The environment dependencies required for execution.
+   * The environment dependencies required for runtime.
    */
   requiredRuntime?: string[];
   /**
@@ -594,8 +590,8 @@ export class GetAgentResponseBodyAgent extends $dara.Model {
       description: 'string',
       displayName: 'string',
       expertSuites: { 'type': 'array', 'itemType': GetAgentResponseBodyAgentExpertSuites },
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
+      gmtCreateTime: 'number',
+      gmtModifiedTime: 'number',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       model: GetAgentResponseBodyAgentModel,
       modifierId: 'string',

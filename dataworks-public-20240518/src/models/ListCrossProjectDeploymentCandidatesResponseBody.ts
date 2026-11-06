@@ -13,7 +13,7 @@ export class ListCrossProjectDeploymentCandidatesResponseBodyDataDeploymentCandi
   changeType?: string;
   /**
    * @remarks
-   * The commit time. This value is a UNIX timestamp in milliseconds.
+   * The commit time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1788739200000
@@ -21,7 +21,7 @@ export class ListCrossProjectDeploymentCandidatesResponseBodyDataDeploymentCandi
   commitTime?: number;
   /**
    * @remarks
-   * The committer.
+   * The submitter.
    * 
    * @example
    * operator
@@ -37,7 +37,7 @@ export class ListCrossProjectDeploymentCandidatesResponseBodyDataDeploymentCandi
   objectId?: string;
   /**
    * @remarks
-   * The candidate object name.
+   * The name of the candidate object.
    * 
    * @example
    * object-1
@@ -53,7 +53,7 @@ export class ListCrossProjectDeploymentCandidatesResponseBodyDataDeploymentCandi
   objectType?: string;
   /**
    * @remarks
-   * The candidate object version.
+   * The version of the candidate object.
    * 
    * @example
    * 7
@@ -95,7 +95,7 @@ export class ListCrossProjectDeploymentCandidatesResponseBodyDataDeploymentCandi
 export class ListCrossProjectDeploymentCandidatesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of candidate objects from the source workspace that are available for cross-workspace deployment.
+   * The list of candidate objects in the source workspace that are available for cross-workspace deployment.
    * 
    * @example
    * [{"ObjectId":"1","ObjectType":"ODPS_SQL","ObjectName":"object-1","ObjectVersion":"7","ChangeType":"ADD","CommitUser":"operator","CommitTime":1788739200000}]
@@ -168,7 +168,7 @@ export class ListCrossProjectDeploymentCandidatesResponseBodyData extends $dara.
 export class ListCrossProjectDeploymentCandidatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business response.
+   * The response data.
    * 
    * @example
    * {"RequestId":"735894D1-D5E5-50B8-8A6D-041C90A98B23","PageNumber":1,"PageSize":10,"TotalCount":1,"DeploymentCandidates":[{"ObjectId":"1","ObjectType":"ODPS_SQL","ObjectName":"object-1","ObjectVersion":"7","ChangeType":"ADD","CommitUser":"operator","CommitTime":1788739200000}]}
@@ -176,7 +176,7 @@ export class ListCrossProjectDeploymentCandidatesResponseBody extends $dara.Mode
   data?: ListCrossProjectDeploymentCandidatesResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot this API call.
+   * The request ID. You can use the ID to locate and troubleshoot the API call.
    * 
    * @example
    * 735894D1-D5E5-50B8-8A6D-041C90A98B23
@@ -184,7 +184,7 @@ export class ListCrossProjectDeploymentCandidatesResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

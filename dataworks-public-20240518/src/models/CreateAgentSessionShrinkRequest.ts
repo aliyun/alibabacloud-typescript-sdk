@@ -13,7 +13,7 @@ export class CreateAgentSessionShrinkRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. This value is always 2.0.
+   * The JSON-RPC version. Fixed to 2.0.
    * 
    * @example
    * 2.0

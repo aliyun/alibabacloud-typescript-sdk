@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPartitionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The partition name. Fuzzy match is supported. This parameter is valid only for MaxCompute tables.
+   * The name of the partition. Fuzzy match is supported. This parameter is valid only for MaxCompute tables.
    * 
    * @example
    * ds=20250101
@@ -13,7 +13,7 @@ export class ListPartitionsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The sort direction. Default value: Asc. Valid values:
+   * The sort order. Default value: Asc. Valid values:
    * 
    * 
    * - Asc: ascending order.
@@ -41,12 +41,12 @@ export class ListPartitionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field by which to sort the results. Default value: CreateTime. Valid values:
+   * The field used for sorting. Default value: CreateTime. Valid values:
    * 
    * 
    * - CreateTime: the creation time. Only MaxCompute tables are supported.
    * - ModifyTime: the modification time. Only MaxCompute tables are supported.
-   * - Name: the name. This is the sort method used for HMS tables.
+   * - Name: the name. Used for HMS tables.
    * - RecordCount: the number of records. Only MaxCompute tables are supported.
    * - DataSize: the storage size. Only MaxCompute tables are supported.
    * 
@@ -56,7 +56,7 @@ export class ListPartitionsRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The ID of the table. You can obtain this value from the response of the [ListTables](https://help.aliyun.com/document_detail/2880092.html) operation. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
+   * The ID of the table. You can refer to the response of the ListTables API operation and [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
    * 
    * This parameter is required.
    * 

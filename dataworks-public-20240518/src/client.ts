@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "dataworks-public";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-1': "dataworks.ap-northeast-1.aliyuncs.com",
@@ -482,6 +486,72 @@ export default class Client extends OpenApi {
   async approveProcessInstance(request: $_model.ApproveProcessInstanceRequest): Promise<$_model.ApproveProcessInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.approveProcessInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Sets the archive status of a specified agent session to archived or unarchived. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the destination region.
+   * 
+   * @remarks
+   * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the destination region.
+   * Archiving only modifies the archive flag of the session and does not stop or delete the session. If Archived is set to true, the session is archived. If Archived is set to false, the session is unarchived. If this parameter is omitted, the default value true is used. You can use the Archived parameter of ListAgentSessions to query archived and unarchived sessions separately.
+   * The caller must have access permissions on the current session and the corresponding OpenAPI action permissions. An HTTP 200 status code does not indicate that the business operation is successful. You must check JsonRpcResponse.Error. The successful result is located in JsonRpcResponse.Result.
+   * 
+   * @param tmpReq - ArchiveAgentSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ArchiveAgentSessionResponse
+   */
+  async archiveAgentSessionWithOptions(tmpReq: $_model.ArchiveAgentSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ArchiveAgentSessionResponse> {
+    tmpReq.validate();
+    let request = new $_model.ArchiveAgentSessionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ArchiveAgentSession",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ArchiveAgentSessionResponse>(await this.callApi(params, req, runtime), new $_model.ArchiveAgentSessionResponse({}));
+  }
+
+  /**
+   * Sets the archive status of a specified agent session to archived or unarchived. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the destination region.
+   * 
+   * @remarks
+   * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the destination region.
+   * Archiving only modifies the archive flag of the session and does not stop or delete the session. If Archived is set to true, the session is archived. If Archived is set to false, the session is unarchived. If this parameter is omitted, the default value true is used. You can use the Archived parameter of ListAgentSessions to query archived and unarchived sessions separately.
+   * The caller must have access permissions on the current session and the corresponding OpenAPI action permissions. An HTTP 200 status code does not indicate that the business operation is successful. You must check JsonRpcResponse.Error. The successful result is located in JsonRpcResponse.Result.
+   * 
+   * @param request - ArchiveAgentSessionRequest
+   * @returns ArchiveAgentSessionResponse
+   */
+  async archiveAgentSession(request: $_model.ArchiveAgentSessionRequest): Promise<$_model.ArchiveAgentSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.archiveAgentSessionWithOptions(request, runtime);
   }
 
   /**
@@ -1069,12 +1139,12 @@ export default class Client extends OpenApi {
    * Creates an agent.
    * 
    * @remarks
-   * ## Request instructions
+   * ## Request description
    * - **Agent name**: Must be unique within the current account.
-   * - **Model configuration**: Optional parameter used to specify the model used by the agent and its related settings.
-   * - **Visibility level**: Defines who can access the agent. Supports visibility within the account, project, or specific users.
-   * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must further specify the specific project IDs or user ID lists.
-   * - **Other parameters**: Display name and description are optional and can be filled in as needed.
+   * - **Model configuration**: Optional. Specifies the model used by the agent and its related settings.
+   * - **Visibility level**: Defines who can access the agent. Supports account-wide, project-specific, or user-specific visibility.
+   * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must specify the specific project IDs or user IDs.
+   * - **Other parameters**: Parameters such as the display name and description are optional. Specify them as needed.
    * 
    * @param tmpReq - CreateAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1186,12 +1256,12 @@ export default class Client extends OpenApi {
    * Creates an agent.
    * 
    * @remarks
-   * ## Request instructions
+   * ## Request description
    * - **Agent name**: Must be unique within the current account.
-   * - **Model configuration**: Optional parameter used to specify the model used by the agent and its related settings.
-   * - **Visibility level**: Defines who can access the agent. Supports visibility within the account, project, or specific users.
-   * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must further specify the specific project IDs or user ID lists.
-   * - **Other parameters**: Display name and description are optional and can be filled in as needed.
+   * - **Model configuration**: Optional. Specifies the model used by the agent and its related settings.
+   * - **Visibility level**: Defines who can access the agent. Supports account-wide, project-specific, or user-specific visibility.
+   * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must specify the specific project IDs or user IDs.
+   * - **Other parameters**: Parameters such as the display name and description are optional. Specify them as needed.
    * 
    * @param request - CreateAgentRequest
    * @returns CreateAgentResponse
@@ -1202,17 +1272,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an agent session and returns the session ID.
+   * Creates a new agent session and returns the session ID.
    * 
    * @remarks
    * ## Request description
-   * - This operation creates an agent session.
-   * - You must specify the name of the bound agent by using `_meta.agent.agentName`. This parameter is required.
+   * - This operation creates a new agent session.
+   * - Specify the name of the bound agent by using `Params.Meta.Agent.AgentName`. This parameter is required.
    *   - dataworks_data_agent: DataWorks built-in agent - Data Agent. It provides AI capabilities for the entire data development lifecycle, including data integration, development, O&M, governance, and analysis.
    *   - dataworks_chatbi_agent: DataWorks built-in agent - ChatBI. Based on natural language processing and intelligent analysis technologies, it automates the entire analysis process from requirement parsing, data extraction, and automatic code generation to visual report output through conversational interaction.
    *   - dataworks_ai_assistant_agent: DataWorks built-in agent - AI Assistant. An enterprise-grade AI assistant for DataWorks built on open-source frameworks such as OpenClaw and Hermes Agent.
-   * - You can pass through the session source identifier by using `_meta.config.sessionSource` to facilitate subsequent retrieval by source.
-   * - You can pass session tags by using `_meta.config.sessionTags[].sessionTagCode`.
+   * - You can specify the session source by using `Params.Meta.Config.SessionSource` to facilitate subsequent retrieval by source.
+   * - You can pass session tags by using `Params.Meta.Config.SessionTags[].SessionTagCode`.
+   * - Set optional initial session configurations by using `Params.Meta.InitialConfigOptions`. Use `Model`, `Mode`, and `ReasoningEffort` for the model, authorization mode, and reasoning configuration, respectively. After the session is created, save the session ID from the response to send prompts or subscribe to session events later.
    * 
    * @param tmpReq - CreateAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1257,17 +1328,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an agent session and returns the session ID.
+   * Creates a new agent session and returns the session ID.
    * 
    * @remarks
    * ## Request description
-   * - This operation creates an agent session.
-   * - You must specify the name of the bound agent by using `_meta.agent.agentName`. This parameter is required.
+   * - This operation creates a new agent session.
+   * - Specify the name of the bound agent by using `Params.Meta.Agent.AgentName`. This parameter is required.
    *   - dataworks_data_agent: DataWorks built-in agent - Data Agent. It provides AI capabilities for the entire data development lifecycle, including data integration, development, O&M, governance, and analysis.
    *   - dataworks_chatbi_agent: DataWorks built-in agent - ChatBI. Based on natural language processing and intelligent analysis technologies, it automates the entire analysis process from requirement parsing, data extraction, and automatic code generation to visual report output through conversational interaction.
    *   - dataworks_ai_assistant_agent: DataWorks built-in agent - AI Assistant. An enterprise-grade AI assistant for DataWorks built on open-source frameworks such as OpenClaw and Hermes Agent.
-   * - You can pass through the session source identifier by using `_meta.config.sessionSource` to facilitate subsequent retrieval by source.
-   * - You can pass session tags by using `_meta.config.sessionTags[].sessionTagCode`.
+   * - You can specify the session source by using `Params.Meta.Config.SessionSource` to facilitate subsequent retrieval by source.
+   * - You can pass session tags by using `Params.Meta.Config.SessionTags[].SessionTagCode`.
+   * - Set optional initial session configurations by using `Params.Meta.InitialConfigOptions`. Use `Model`, `Mode`, and `ReasoningEffort` for the model, authorization mode, and reasoning configuration, respectively. After the session is created, save the session ID from the response to send prompts or subscribe to session events later.
    * 
    * @param request - CreateAgentSessionRequest
    * @returns CreateAgentSessionResponse
@@ -1510,6 +1582,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a code review.
+   * 
+   * @param request - CreateCodeReviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCodeReviewResponse
+   */
+  async createCodeReviewWithOptions(request: $_model.CreateCodeReviewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCodeReviewResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.pipelineRunId)) {
+      body["PipelineRunId"] = request.pipelineRunId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.reviewers)) {
+      body["Reviewers"] = request.reviewers;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCodeReview",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCodeReviewResponse>(await this.callApi(params, req, runtime), new $_model.CreateCodeReviewResponse({}));
+  }
+
+  /**
+   * Creates a code review.
+   * 
+   * @param request - CreateCodeReviewRequest
+   * @returns CreateCodeReviewResponse
+   */
+  async createCodeReview(request: $_model.CreateCodeReviewRequest): Promise<$_model.CreateCodeReviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCodeReviewWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a component.
    * 
    * @remarks
@@ -1746,10 +1872,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cross-workspace deployment flow.
+   * Creates a cross-workspace deployment pipeline.
    * 
    * @remarks
-   * Creates and persists a cross-workspace deployment flow. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Child objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects, call ExecCrossProjectPipelineRun to execute the deployment after creation, and call GetCrossProjectPipelineRun to query the deployment status.
+   * Creates and solidifies a cross-project deployment pipeline. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call the ListCrossProjectDeploymentCandidates operation to query candidate objects. After the pipeline is created, call the ExecCrossProjectPipelineRun operation to execute the deployment, and call the GetCrossProjectPipelineRun operation to query the status.
    * 
    * @param tmpReq - CreateCrossProjectPipelineRunRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1802,10 +1928,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cross-workspace deployment flow.
+   * Creates a cross-workspace deployment pipeline.
    * 
    * @remarks
-   * Creates and persists a cross-workspace deployment flow. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Child objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects, call ExecCrossProjectPipelineRun to execute the deployment after creation, and call GetCrossProjectPipelineRun to query the deployment status.
+   * Creates and solidifies a cross-project deployment pipeline. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call the ListCrossProjectDeploymentCandidates operation to query candidate objects. After the pipeline is created, call the ExecCrossProjectPipelineRun operation to execute the deployment, and call the GetCrossProjectPipelineRun operation to query the status.
    * 
    * @param request - CreateCrossProjectPipelineRunRequest
    * @returns CreateCrossProjectPipelineRunResponse
@@ -4739,9 +4865,9 @@ export default class Client extends OpenApi {
    * Creates a resource group.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or later is required.
-   * 2. **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
-   * 3. **Before you call this operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
+   * 2. **Before you call this API operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
+   * 3. **Before you call this API operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
    * 
    * @param tmpReq - CreateResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4825,9 +4951,9 @@ export default class Client extends OpenApi {
    * Creates a resource group.
    * 
    * @remarks
-   * 1. DataWorks Basic Edition or later is required.
-   * 2. **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
-   * 3. **Before you call this operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
+   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
+   * 2. **Before you call this API operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
+   * 3. **Before you call this API operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
    * 
    * @param request - CreateResourceGroupRequest
    * @returns CreateResourceGroupResponse
@@ -5591,6 +5717,72 @@ export default class Client extends OpenApi {
   async deleteAgent(request: $_model.DeleteAgentRequest): Promise<$_model.DeleteAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a specified agent session. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+   * 
+   * @remarks
+   * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+   * Verify the target session before proceeding. A deleted session cannot be recovered by unarchiving it through ArchiveAgentSession. To temporarily hide a session, use ArchiveAgentSession. To stop the current execution, use CancelAgentSession.
+   * The caller must have access permissions for the current session and the corresponding OpenAPI action permissions. An HTTP 200 status code does not indicate a successful business operation. You must check JsonRpcResponse.Error for errors. Successful results are located in JsonRpcResponse.Result.
+   * 
+   * @param tmpReq - DeleteAgentSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgentSessionResponse
+   */
+  async deleteAgentSessionWithOptions(tmpReq: $_model.DeleteAgentSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentSessionResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteAgentSessionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgentSession",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgentSessionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgentSessionResponse({}));
+  }
+
+  /**
+   * Deletes a specified agent session. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+   * 
+   * @remarks
+   * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+   * Verify the target session before proceeding. A deleted session cannot be recovered by unarchiving it through ArchiveAgentSession. To temporarily hide a session, use ArchiveAgentSession. To stop the current execution, use CancelAgentSession.
+   * The caller must have access permissions for the current session and the corresponding OpenAPI action permissions. An HTTP 200 status code does not indicate a successful business operation. You must check JsonRpcResponse.Error for errors. Successful results are located in JsonRpcResponse.Result.
+   * 
+   * @param request - DeleteAgentSessionRequest
+   * @returns DeleteAgentSessionResponse
+   */
+  async deleteAgentSession(request: $_model.DeleteAgentSessionRequest): Promise<$_model.DeleteAgentSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgentSessionWithOptions(request, runtime);
   }
 
   /**
@@ -7785,7 +7977,7 @@ export default class Client extends OpenApi {
    * Deletes a specified task.
    * 
    * @remarks
-   * You must purchase DataWorks Basic Edition or later to use this feature.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param request - DeleteTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7823,7 +8015,7 @@ export default class Client extends OpenApi {
    * Deletes a specified task.
    * 
    * @remarks
-   * You must purchase DataWorks Basic Edition or later to use this feature.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
    * 
    * @param request - DeleteTaskRequest
    * @returns DeleteTaskResponse
@@ -8758,8 +8950,8 @@ export default class Client extends OpenApi {
    * Retrieves the details of an agent.
    * 
    * @remarks
-   * ## Operation description
-   * This operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
+   * ## Request description
+   * This API operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
    * 
    * @param request - GetAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8797,8 +8989,8 @@ export default class Client extends OpenApi {
    * Retrieves the details of an agent.
    * 
    * @remarks
-   * ## Operation description
-   * This operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
+   * ## Request description
+   * This API operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
    * 
    * @param request - GetAgentRequest
    * @returns GetAgentResponse
@@ -8872,6 +9064,125 @@ export default class Client extends OpenApi {
   async getAgentSessionArtifactMeta(request: $_model.GetAgentSessionArtifactMetaRequest): Promise<$_model.GetAgentSessionArtifactMetaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAgentSessionArtifactMetaWithOptions(request, runtime);
+  }
+
+  /**
+   * Subscribes to real-time Server-Sent Events (SSE) for a specified agent session independently, with support for resumption using a remote cursor. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+   * 
+   * @remarks
+   * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+   * This API operation provides a read-only SSE subscription and does not submit questions. Use a GET request and maintain streaming reads. Do not read the response as a standard JSON object at once. For long-running tasks that may exceed the timeout of a single request, establish an independent event subscription before calling PromptAgentSession. After creating a session, set SessionCode to the SessionId and read both streams in parallel. The Events stream displays real-time progress, while the built-in SSE of the Prompt stream is used to read the final state and business errors of the current turn.
+   * Events display messages, tool invoke, and execution progress. The establishment of a subscription connection, heartbeats, or an HTTP 200 status code does not indicate task completion. Determine task completion based on the actual final state events and the Prompt invoke results.
+   * When resuming after a disconnection, pass the ID of the last consumed remote event as Last-Event-Id. Also, save and pass back the EventEpoch of the same event stream if the server has returned it. When subscribing for the first time without a cursor, omit these two parameters to receive only real-time events after the subscription is established. Explicitly setting Last-Event-Id to 0 attempts to replay from the starting point still in the cache, which does not mean the complete history can be retrieved. Retrieve the complete history by calling LoadAgentSession. Do not generate cursors or epochs yourself, or use local message sequence numbers as replacements.
+   * The event cache is bounded. If you receive a resynchronization prompt such as state_resync_required or the cursor is no longer available, restore the history by calling LoadAgentSession and then re-establish the subscription. LoadAgentSession is used for refreshing and exception recovery, and should not be called repeatedly to replace real-time event subscriptions. If the Prompt stream times out or disconnects before receiving the business final state, the result of the current turn is unknown, and you can continue to observe the progress through the Events stream. Avoid automatically resending the Prompt. Closing the Events subscription does not trigger CancelAgentSession.
+   * Servers that support epoch information return eventEpoch in the data of the stream_open control frame and provide a mapping between the business sessionId and nativeSessionId. Save the identifiers returned by the server. Do not assume that the business session ID is the same as the native session ID. The cursor and eventEpoch must come from the same event stream epoch of the same native session, and cannot be reused across native sessions or epochs. Do not advance the cursor when the control frame does not have an ID.
+   * 
+   * @param request - GetAgentSessionEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentSessionEventsResponse
+   */
+  async *getAgentSessionEventsWithSSE(request: $_model.GetAgentSessionEventsRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.GetAgentSessionEventsResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eventEpoch)) {
+      query["EventEpoch"] = request.eventEpoch;
+    }
+
+    if (!$dara.isNull(request.sessionCode)) {
+      query["SessionCode"] = request.sessionCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentSessionEvents",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.GetAgentSessionEventsResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.GetAgentSessionEventsResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Subscribes to real-time Server-Sent Events (SSE) for a specified agent session independently, with support for resumption using a remote cursor. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+   * 
+   * @remarks
+   * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+   * This API operation provides a read-only SSE subscription and does not submit questions. Use a GET request and maintain streaming reads. Do not read the response as a standard JSON object at once. For long-running tasks that may exceed the timeout of a single request, establish an independent event subscription before calling PromptAgentSession. After creating a session, set SessionCode to the SessionId and read both streams in parallel. The Events stream displays real-time progress, while the built-in SSE of the Prompt stream is used to read the final state and business errors of the current turn.
+   * Events display messages, tool invoke, and execution progress. The establishment of a subscription connection, heartbeats, or an HTTP 200 status code does not indicate task completion. Determine task completion based on the actual final state events and the Prompt invoke results.
+   * When resuming after a disconnection, pass the ID of the last consumed remote event as Last-Event-Id. Also, save and pass back the EventEpoch of the same event stream if the server has returned it. When subscribing for the first time without a cursor, omit these two parameters to receive only real-time events after the subscription is established. Explicitly setting Last-Event-Id to 0 attempts to replay from the starting point still in the cache, which does not mean the complete history can be retrieved. Retrieve the complete history by calling LoadAgentSession. Do not generate cursors or epochs yourself, or use local message sequence numbers as replacements.
+   * The event cache is bounded. If you receive a resynchronization prompt such as state_resync_required or the cursor is no longer available, restore the history by calling LoadAgentSession and then re-establish the subscription. LoadAgentSession is used for refreshing and exception recovery, and should not be called repeatedly to replace real-time event subscriptions. If the Prompt stream times out or disconnects before receiving the business final state, the result of the current turn is unknown, and you can continue to observe the progress through the Events stream. Avoid automatically resending the Prompt. Closing the Events subscription does not trigger CancelAgentSession.
+   * Servers that support epoch information return eventEpoch in the data of the stream_open control frame and provide a mapping between the business sessionId and nativeSessionId. Save the identifiers returned by the server. Do not assume that the business session ID is the same as the native session ID. The cursor and eventEpoch must come from the same event stream epoch of the same native session, and cannot be reused across native sessions or epochs. Do not advance the cursor when the control frame does not have an ID.
+   * 
+   * @param request - GetAgentSessionEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentSessionEventsResponse
+   */
+  async getAgentSessionEventsWithOptions(request: $_model.GetAgentSessionEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentSessionEventsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eventEpoch)) {
+      query["EventEpoch"] = request.eventEpoch;
+    }
+
+    if (!$dara.isNull(request.sessionCode)) {
+      query["SessionCode"] = request.sessionCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentSessionEvents",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentSessionEventsResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentSessionEventsResponse({}));
+  }
+
+  /**
+   * Subscribes to real-time Server-Sent Events (SSE) for a specified agent session independently, with support for resumption using a remote cursor. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+   * 
+   * @remarks
+   * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+   * This API operation provides a read-only SSE subscription and does not submit questions. Use a GET request and maintain streaming reads. Do not read the response as a standard JSON object at once. For long-running tasks that may exceed the timeout of a single request, establish an independent event subscription before calling PromptAgentSession. After creating a session, set SessionCode to the SessionId and read both streams in parallel. The Events stream displays real-time progress, while the built-in SSE of the Prompt stream is used to read the final state and business errors of the current turn.
+   * Events display messages, tool invoke, and execution progress. The establishment of a subscription connection, heartbeats, or an HTTP 200 status code does not indicate task completion. Determine task completion based on the actual final state events and the Prompt invoke results.
+   * When resuming after a disconnection, pass the ID of the last consumed remote event as Last-Event-Id. Also, save and pass back the EventEpoch of the same event stream if the server has returned it. When subscribing for the first time without a cursor, omit these two parameters to receive only real-time events after the subscription is established. Explicitly setting Last-Event-Id to 0 attempts to replay from the starting point still in the cache, which does not mean the complete history can be retrieved. Retrieve the complete history by calling LoadAgentSession. Do not generate cursors or epochs yourself, or use local message sequence numbers as replacements.
+   * The event cache is bounded. If you receive a resynchronization prompt such as state_resync_required or the cursor is no longer available, restore the history by calling LoadAgentSession and then re-establish the subscription. LoadAgentSession is used for refreshing and exception recovery, and should not be called repeatedly to replace real-time event subscriptions. If the Prompt stream times out or disconnects before receiving the business final state, the result of the current turn is unknown, and you can continue to observe the progress through the Events stream. Avoid automatically resending the Prompt. Closing the Events subscription does not trigger CancelAgentSession.
+   * Servers that support epoch information return eventEpoch in the data of the stream_open control frame and provide a mapping between the business sessionId and nativeSessionId. Save the identifiers returned by the server. Do not assume that the business session ID is the same as the native session ID. The cursor and eventEpoch must come from the same event stream epoch of the same native session, and cannot be reused across native sessions or epochs. Do not advance the cursor when the control frame does not have an ID.
+   * 
+   * @param request - GetAgentSessionEventsRequest
+   * @returns GetAgentSessionEventsResponse
+   */
+  async getAgentSessionEvents(request: $_model.GetAgentSessionEventsRequest): Promise<$_model.GetAgentSessionEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgentSessionEventsWithOptions(request, runtime);
   }
 
   /**
@@ -9260,6 +9571,52 @@ export default class Client extends OpenApi {
   async getCertificate(request: $_model.GetCertificateRequest): Promise<$_model.GetCertificateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the metadata of a code review.
+   * 
+   * @param request - GetCodeReviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCodeReviewResponse
+   */
+  async getCodeReviewWithOptions(request: $_model.GetCodeReviewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCodeReviewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCodeReview",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCodeReviewResponse>(await this.callApi(params, req, runtime), new $_model.GetCodeReviewResponse({}));
+  }
+
+  /**
+   * Retrieves the metadata of a code review.
+   * 
+   * @param request - GetCodeReviewRequest
+   * @returns GetCodeReviewResponse
+   */
+  async getCodeReview(request: $_model.GetCodeReviewRequest): Promise<$_model.GetCodeReviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCodeReviewWithOptions(request, runtime);
   }
 
   /**
@@ -12347,7 +12704,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of a specified workflow.
    * 
    * @remarks
-   * This feature requires DataWorks Basic Edition or later.
+   * This feature requires DataWorks Basic Edition or a higher edition.
    * 
    * @param request - GetWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12377,7 +12734,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of a specified workflow.
    * 
    * @remarks
-   * This feature requires DataWorks Basic Edition or later.
+   * This feature requires DataWorks Basic Edition or a higher edition.
    * 
    * @param request - GetWorkflowRequest
    * @returns GetWorkflowResponse
@@ -12881,12 +13238,11 @@ export default class Client extends OpenApi {
    * Retrieves the conversation history list of agent sessions.
    * 
    * @remarks
-   * ## Request description
-   * - You must specify at least one of agentName and sessionSourceList.
-   * - You can combine tagList, sessionId, and sessionTitle for filtering.
-   * - The response follows the Alibaba Cloud OpenAPI paging specification, including totalCount, maxResults, nextToken, and sessionList.
-   * - If nextToken is an invalid string, it is processed as 1 by default.
-   * - By default, 50 records are returned per page. You can adjust this by using the maxResults parameter.
+   * ## Request instructions
+   * - You must specify at least one of `Params.AgentName` and `Params.SessionSourceList`. You can also filter sessions by `Params.TagList`, `Params.SessionId`, and `Params.SessionTitle`.
+   * - If `Params.Archived` is set to `true`, only archived sessions are queried. If it is set to `false` or omitted, only unarchived sessions are queried. To query both types of sessions, send separate requests and handle the pagination for each.
+   * - The session list is located in `JsonRpcResponse.Result.AgentSessions`. The pagination information is located in `TotalCount`, `MaxResults`, and `NextToken` under the same `Result`.
+   * - The default value of `Params.MaxResults` is 50. For the first page, you can pass `Params.NextToken=1`. For subsequent pages, pass the `NextToken` value from the response as is.
    * 
    * @param tmpReq - ListAgentSessionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12934,12 +13290,11 @@ export default class Client extends OpenApi {
    * Retrieves the conversation history list of agent sessions.
    * 
    * @remarks
-   * ## Request description
-   * - You must specify at least one of agentName and sessionSourceList.
-   * - You can combine tagList, sessionId, and sessionTitle for filtering.
-   * - The response follows the Alibaba Cloud OpenAPI paging specification, including totalCount, maxResults, nextToken, and sessionList.
-   * - If nextToken is an invalid string, it is processed as 1 by default.
-   * - By default, 50 records are returned per page. You can adjust this by using the maxResults parameter.
+   * ## Request instructions
+   * - You must specify at least one of `Params.AgentName` and `Params.SessionSourceList`. You can also filter sessions by `Params.TagList`, `Params.SessionId`, and `Params.SessionTitle`.
+   * - If `Params.Archived` is set to `true`, only archived sessions are queried. If it is set to `false` or omitted, only unarchived sessions are queried. To query both types of sessions, send separate requests and handle the pagination for each.
+   * - The session list is located in `JsonRpcResponse.Result.AgentSessions`. The pagination information is located in `TotalCount`, `MaxResults`, and `NextToken` under the same `Result`.
+   * - The default value of `Params.MaxResults` is 50. For the first page, you can pass `Params.NextToken=1`. For subsequent pages, pass the `NextToken` value from the response as is.
    * 
    * @param request - ListAgentSessionsRequest
    * @returns ListAgentSessionsResponse
@@ -13370,6 +13725,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Performs a paging query of code reviews.
+   * 
+   * @param request - ListCodeReviewsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCodeReviewsResponse
+   */
+  async listCodeReviewsWithOptions(request: $_model.ListCodeReviewsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCodeReviewsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.creator)) {
+      query["Creator"] = request.creator;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.reviewer)) {
+      query["Reviewer"] = request.reviewer;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCodeReviews",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCodeReviewsResponse>(await this.callApi(params, req, runtime), new $_model.ListCodeReviewsResponse({}));
+  }
+
+  /**
+   * Performs a paging query of code reviews.
+   * 
+   * @param request - ListCodeReviewsRequest
+   * @returns ListCodeReviewsResponse
+   */
+  async listCodeReviews(request: $_model.ListCodeReviewsRequest): Promise<$_model.ListCodeReviewsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCodeReviewsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the columns of a specified table in DataWorks Data Map.
    * 
    * @remarks
@@ -13779,7 +14196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cross-workspace deployment candidate objects.
+   * Queries cross-workspace deployment candidates.
    * 
    * @param request - ListCrossProjectDeploymentCandidatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13850,7 +14267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cross-workspace deployment candidate objects.
+   * Queries cross-workspace deployment candidates.
    * 
    * @param request - ListCrossProjectDeploymentCandidatesRequest
    * @returns ListCrossProjectDeploymentCandidatesResponse
@@ -13911,7 +14328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the publish items of a cross-workspace publish pipeline.
+   * Queries the deployment items of a cross-workspace deployment pipeline.
    * 
    * @param request - ListCrossProjectPipelineRunItemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13954,7 +14371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the publish items of a cross-workspace publish pipeline.
+   * Queries the deployment items of a cross-workspace deployment pipeline.
    * 
    * @param request - ListCrossProjectPipelineRunItemsRequest
    * @returns ListCrossProjectPipelineRunItemsResponse
@@ -14416,7 +14833,7 @@ export default class Client extends OpenApi {
    * Queries a list of tags.
    * 
    * @remarks
-   * DataWorks Enterprise Edition or a higher edition is required.
+   * You must purchase DataWorks Enterprise Edition or higher to use this operation.
    * 
    * @param request - ListDataAssetTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14446,7 +14863,7 @@ export default class Client extends OpenApi {
    * Queries a list of tags.
    * 
    * @remarks
-   * DataWorks Enterprise Edition or a higher edition is required.
+   * You must purchase DataWorks Enterprise Edition or higher to use this operation.
    * 
    * @param request - ListDataAssetTagsRequest
    * @returns ListDataAssetTagsResponse
@@ -14624,10 +15041,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the data quality monitoring task list.
+   * Queries the data quality monitoring task list by page.
    * 
    * @remarks
-   * You must purchase DataWorks Basic Edition or later to use this feature.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
    * 
    * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
    * 
@@ -14656,10 +15073,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the data quality monitoring task list.
+   * Queries the data quality monitoring task list by page.
    * 
    * @remarks
-   * You must purchase DataWorks Basic Edition or later to use this feature.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
    * 
    * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
    * 
@@ -15550,10 +15967,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of downstream nodes for a specified node.
+   * Retrieves a paginated list of downstream tasks for a specified task.
    * 
    * @remarks
-   * DataWorks Basic Edition or later is required.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListDownstreamTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15580,10 +15997,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of downstream nodes for a specified node.
+   * Retrieves a paginated list of downstream tasks for a specified task.
    * 
    * @remarks
-   * DataWorks Basic Edition or later is required.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
    * 
    * @param request - ListDownstreamTasksRequest
    * @returns ListDownstreamTasksResponse
@@ -17034,12 +17451,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the partition list of a specified table in DataWorks Data Map. Currently supports MaxCompute and HMS (EMR cluster) types.
+   * Queries the partitions of a specified table in DataWorks Data Map. MaxCompute and HMS (EMR cluster) tables are supported.
    * 
    * @remarks
-   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-   * 2. Only MaxCompute and HMS (EMR cluster) table types are supported.
-   * 3. Before calling this API, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, then call ListDatabases to obtain the database ID. For MaxCompute projects with Schema enabled, call ListSchemas to obtain the schema ID. Then call ListTables to obtain the TableId, and pass the returned table ID to this API.
+   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 2. Currently, only MaxCompute and HMS (EMR cluster) tables are supported.
+   * 3. Before you call this API operation, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, and then call ListDatabases to obtain the database ID. For MaxCompute projects with the schema feature enabled, call ListSchemas to obtain the schema ID. Then, call ListTables to obtain the TableId, and pass the returned table ID to this API operation.
    * 
    * @param request - ListPartitionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17066,12 +17483,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the partition list of a specified table in DataWorks Data Map. Currently supports MaxCompute and HMS (EMR cluster) types.
+   * Queries the partitions of a specified table in DataWorks Data Map. MaxCompute and HMS (EMR cluster) tables are supported.
    * 
    * @remarks
-   * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-   * 2. Only MaxCompute and HMS (EMR cluster) table types are supported.
-   * 3. Before calling this API, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, then call ListDatabases to obtain the database ID. For MaxCompute projects with Schema enabled, call ListSchemas to obtain the schema ID. Then call ListTables to obtain the TableId, and pass the returned table ID to this API.
+   * 1. DataWorks Basic Edition or a higher edition is required.
+   * 2. Currently, only MaxCompute and HMS (EMR cluster) tables are supported.
+   * 3. Before you call this API operation, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, and then call ListDatabases to obtain the database ID. For MaxCompute projects with the schema feature enabled, call ListSchemas to obtain the schema ID. Then, call ListTables to obtain the TableId, and pass the returned table ID to this API operation.
    * 
    * @param request - ListPartitionsRequest
    * @returns ListPartitionsResponse
@@ -18524,10 +18941,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of operation logs for a specified node instance.
+   * Retrieves a paginated list of operation logs for a specified task instance.
    * 
    * @remarks
-   * You must purchase DataWorks Basic Edition or later to use this API.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this API.
    * You can only query operation logs generated within the past 31 days.
    * 
    * @param request - ListTaskInstanceOperationLogsRequest
@@ -18555,10 +18972,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of operation logs for a specified node instance.
+   * Retrieves a paginated list of operation logs for a specified task instance.
    * 
    * @remarks
-   * You must purchase DataWorks Basic Edition or later to use this API.
+   * You must purchase DataWorks Basic Edition or a higher edition to use this API.
    * You can only query operation logs generated within the past 31 days.
    * 
    * @param request - ListTaskInstanceOperationLogsRequest
@@ -19190,15 +19607,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Loads the historical messages of an existing session and returns them in a Server-Sent Events (SSE) stream. If the session does not exist, a JSONRPCResponse.error with a code of 400 is output through SSE. The Content-Type is text/event-stream. This operation applies to session context restoration scenarios.
+   * Loads the historical messages of an existing agent session and returns them by using Server-Sent Events (SSE) for page refreshes and history recovery after exceptions.
    * 
    * @remarks
    * ## Request description
-   * - This operation is used to recover the details of a specified session and return the agent response in a Server-Sent Events (SSE) stream.
-   * - If the target session does not exist, an error frame with an error code of 400 is returned.
-   * - The response contains process information about how the agent handles the request, such as message chunks, reasoning steps, and tool call status updates.
-   * - The stopReason field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum turn limit and being canceled.
-   * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
+   * - This operation recovers the details of a specified session and returns the agent response in a streaming manner by using Server-Sent Events (SSE).
+   * - If the target session does not exist, an error frame with the error code 400 is returned.
+   * - The response includes processing information about how the agent handles the request, such as message chunks, thinking process, and tool invocation status updates.
+   * - The `stopReason` field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum number of turns and being canceled.
+   * - The returned content complies with the open source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
    * 
    * @param tmpReq - LoadAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19257,15 +19674,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Loads the historical messages of an existing session and returns them in a Server-Sent Events (SSE) stream. If the session does not exist, a JSONRPCResponse.error with a code of 400 is output through SSE. The Content-Type is text/event-stream. This operation applies to session context restoration scenarios.
+   * Loads the historical messages of an existing agent session and returns them by using Server-Sent Events (SSE) for page refreshes and history recovery after exceptions.
    * 
    * @remarks
    * ## Request description
-   * - This operation is used to recover the details of a specified session and return the agent response in a Server-Sent Events (SSE) stream.
-   * - If the target session does not exist, an error frame with an error code of 400 is returned.
-   * - The response contains process information about how the agent handles the request, such as message chunks, reasoning steps, and tool call status updates.
-   * - The stopReason field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum turn limit and being canceled.
-   * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
+   * - This operation recovers the details of a specified session and returns the agent response in a streaming manner by using Server-Sent Events (SSE).
+   * - If the target session does not exist, an error frame with the error code 400 is returned.
+   * - The response includes processing information about how the agent handles the request, such as message chunks, thinking process, and tool invocation status updates.
+   * - The `stopReason` field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum number of turns and being canceled.
+   * - The returned content complies with the open source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
    * 
    * @param tmpReq - LoadAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19310,15 +19727,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Loads the historical messages of an existing session and returns them in a Server-Sent Events (SSE) stream. If the session does not exist, a JSONRPCResponse.error with a code of 400 is output through SSE. The Content-Type is text/event-stream. This operation applies to session context restoration scenarios.
+   * Loads the historical messages of an existing agent session and returns them by using Server-Sent Events (SSE) for page refreshes and history recovery after exceptions.
    * 
    * @remarks
    * ## Request description
-   * - This operation is used to recover the details of a specified session and return the agent response in a Server-Sent Events (SSE) stream.
-   * - If the target session does not exist, an error frame with an error code of 400 is returned.
-   * - The response contains process information about how the agent handles the request, such as message chunks, reasoning steps, and tool call status updates.
-   * - The stopReason field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum turn limit and being canceled.
-   * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
+   * - This operation recovers the details of a specified session and returns the agent response in a streaming manner by using Server-Sent Events (SSE).
+   * - If the target session does not exist, an error frame with the error code 400 is returned.
+   * - The response includes processing information about how the agent handles the request, such as message chunks, thinking process, and tool invocation status updates.
+   * - The `stopReason` field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum number of turns and being canceled.
+   * - The returned content complies with the open source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
    * 
    * @param request - LoadAgentSessionRequest
    * @returns LoadAgentSessionResponse
@@ -19577,18 +19994,101 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Previews scheduling parameters without creating actual nodes or running instances.
+   * 
+   * @remarks
+   * Previews the parameter parsing results for each cycle based on the provided script parameters, business date, and scheduling configuration. A task ID is not required.
+   * - This operation only performs a simulated preview and does not create or run actual tasks. The simulated cycles returned for weekly and monthly schedules cannot be used as the basis for determining actual trigger dates.
+   * - `Bizdate` is the starting business date, normalized to 00:00:00 on that date in the time zone of the service region. `TriggerTime` is the scheduled trigger time for the corresponding simulated cycle.
+   * - System identifiers such as `$nodeid` use a simulated context. The preview value of `$nodeid` is `0`, which does not represent an actual task.
+   * - The parsing result for each cycle is indicated by `Success`. If the parsing is successful, `Parameters` is returned. If the parsing fails, `ErrorMessage` is returned, and partial parsing results for the cycle are not returned.
+   * 
+   * @param request - PreviewTaskParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PreviewTaskParametersResponse
+   */
+  async previewTaskParametersWithOptions(request: $_model.PreviewTaskParametersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PreviewTaskParametersResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizdate)) {
+      body["Bizdate"] = request.bizdate;
+    }
+
+    if (!$dara.isNull(request.cron)) {
+      body["Cron"] = request.cron;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      body["Parameters"] = request.parameters;
+    }
+
+    if (!$dara.isNull(request.previewCount)) {
+      body["PreviewCount"] = request.previewCount;
+    }
+
+    if (!$dara.isNull(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PreviewTaskParameters",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PreviewTaskParametersResponse>(await this.callApi(params, req, runtime), new $_model.PreviewTaskParametersResponse({}));
+  }
+
+  /**
+   * Previews scheduling parameters without creating actual nodes or running instances.
+   * 
+   * @remarks
+   * Previews the parameter parsing results for each cycle based on the provided script parameters, business date, and scheduling configuration. A task ID is not required.
+   * - This operation only performs a simulated preview and does not create or run actual tasks. The simulated cycles returned for weekly and monthly schedules cannot be used as the basis for determining actual trigger dates.
+   * - `Bizdate` is the starting business date, normalized to 00:00:00 on that date in the time zone of the service region. `TriggerTime` is the scheduled trigger time for the corresponding simulated cycle.
+   * - System identifiers such as `$nodeid` use a simulated context. The preview value of `$nodeid` is `0`, which does not represent an actual task.
+   * - The parsing result for each cycle is indicated by `Success`. If the parsing is successful, `Parameters` is returned. If the parsing fails, `ErrorMessage` is returned, and partial parsing results for the cycle are not returned.
+   * 
+   * @param request - PreviewTaskParametersRequest
+   * @returns PreviewTaskParametersResponse
+   */
+  async previewTaskParameters(request: $_model.PreviewTaskParametersRequest): Promise<$_model.PreviewTaskParametersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.previewTaskParametersWithOptions(request, runtime);
+  }
+
+  /**
    * Sends a user prompt to an existing session and streams the agent response.
    * 
    * @remarks
    * ## Request description
-   * - This API operation sends a user prompt to a specified session ID and accepts the response from the agent in a streaming manner by using Server-Sent Events (SSE).
-   * - The response may include information such as message chunks, thinking procedures, and tool calling status updates.
-   * - If the specified session does not exist, a 400 fault is returned in an SSE fault frame.
-   * - The stopReason field indicates the reason why the agent stopped the current conversation.
-   * - Multiple types of content blocks are supported as prompt inputs, such as text and OSS file download links.
-   * - You can optionally provide additional metadata in the Meta field to pass more context to the server.
+   * - This API operation sends a user prompt to a specified session ID and accepts the agent response as Server-Sent Events (SSE) streams.
+   * - The response may include message chunks, thinking procedures, and tool invocation status updates.
+   * - If the specified session does not exist, a 400 error is returned in an SSE error frame.
+   * - The `stopReason` field indicates the reason why the agent stopped the current conversation turn.
+   * - This operation supports multiple types of content blocks as prompt input, such as text and OSS file download links.
+   * - You can optionally provide additional metadata in `Meta` to pass more context to the server.
    * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
-   * - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+   * - **Before you use this API operation, make sure that you fully understand the billing methods and pricing of Data Agent**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+   * ## Long-running tasks and timeout recovery
+   * For long-running tasks that may exceed the single-request timeout, after the GetAgentSessionEvents canary release is enabled for the current account and target region, first establish an Events subscription and then call PromptAgentSession to read both streams in parallel. Use Events to display real-time progress, and use the Prompt stream to read the final state and business errors of the current turn. Each message is displayed only once.
+   * If the Prompt stream times out or disconnects before the final business state is received, the result of the current turn is unknown. Continue to observe Events, and call LoadAgentSession when you need to verify the session history. Do not automatically resend the prompt.
    * 
    * @param tmpReq - PromptAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19651,14 +20151,17 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - This API operation sends a user prompt to a specified session ID and accepts the response from the agent in a streaming manner by using Server-Sent Events (SSE).
-   * - The response may include information such as message chunks, thinking procedures, and tool calling status updates.
-   * - If the specified session does not exist, a 400 fault is returned in an SSE fault frame.
-   * - The stopReason field indicates the reason why the agent stopped the current conversation.
-   * - Multiple types of content blocks are supported as prompt inputs, such as text and OSS file download links.
-   * - You can optionally provide additional metadata in the Meta field to pass more context to the server.
+   * - This API operation sends a user prompt to a specified session ID and accepts the agent response as Server-Sent Events (SSE) streams.
+   * - The response may include message chunks, thinking procedures, and tool invocation status updates.
+   * - If the specified session does not exist, a 400 error is returned in an SSE error frame.
+   * - The `stopReason` field indicates the reason why the agent stopped the current conversation turn.
+   * - This operation supports multiple types of content blocks as prompt input, such as text and OSS file download links.
+   * - You can optionally provide additional metadata in `Meta` to pass more context to the server.
    * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
-   * - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+   * - **Before you use this API operation, make sure that you fully understand the billing methods and pricing of Data Agent**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+   * ## Long-running tasks and timeout recovery
+   * For long-running tasks that may exceed the single-request timeout, after the GetAgentSessionEvents canary release is enabled for the current account and target region, first establish an Events subscription and then call PromptAgentSession to read both streams in parallel. Use Events to display real-time progress, and use the Prompt stream to read the final state and business errors of the current turn. Each message is displayed only once.
+   * If the Prompt stream times out or disconnects before the final business state is received, the result of the current turn is unknown. Continue to observe Events, and call LoadAgentSession when you need to verify the session history. Do not automatically resend the prompt.
    * 
    * @param tmpReq - PromptAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19707,14 +20210,17 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - This API operation sends a user prompt to a specified session ID and accepts the response from the agent in a streaming manner by using Server-Sent Events (SSE).
-   * - The response may include information such as message chunks, thinking procedures, and tool calling status updates.
-   * - If the specified session does not exist, a 400 fault is returned in an SSE fault frame.
-   * - The stopReason field indicates the reason why the agent stopped the current conversation.
-   * - Multiple types of content blocks are supported as prompt inputs, such as text and OSS file download links.
-   * - You can optionally provide additional metadata in the Meta field to pass more context to the server.
+   * - This API operation sends a user prompt to a specified session ID and accepts the agent response as Server-Sent Events (SSE) streams.
+   * - The response may include message chunks, thinking procedures, and tool invocation status updates.
+   * - If the specified session does not exist, a 400 error is returned in an SSE error frame.
+   * - The `stopReason` field indicates the reason why the agent stopped the current conversation turn.
+   * - This operation supports multiple types of content blocks as prompt input, such as text and OSS file download links.
+   * - You can optionally provide additional metadata in `Meta` to pass more context to the server.
    * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
-   * - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+   * - **Before you use this API operation, make sure that you fully understand the billing methods and pricing of Data Agent**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+   * ## Long-running tasks and timeout recovery
+   * For long-running tasks that may exceed the single-request timeout, after the GetAgentSessionEvents canary release is enabled for the current account and target region, first establish an Events subscription and then call PromptAgentSession to read both streams in parallel. Use Events to display real-time progress, and use the Prompt stream to read the final state and business errors of the current turn. Each message is displayed only once.
+   * If the Prompt stream times out or disconnects before the final business state is received, the result of the current turn is unknown. Continue to observe Events, and call LoadAgentSession when you need to verify the session history. Do not automatically resend the prompt.
    * 
    * @param request - PromptAgentSessionRequest
    * @returns PromptAgentSessionResponse
@@ -21464,7 +21970,7 @@ export default class Client extends OpenApi {
    * Attaches tags to data assets.
    * 
    * @remarks
-   * This operation requires DataWorks Enterprise Edition or later.
+   * You must purchase DataWorks Enterprise Edition or higher to use this operation.
    * 
    * @param tmpReq - TagDataAssetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21528,7 +22034,7 @@ export default class Client extends OpenApi {
    * Attaches tags to data assets.
    * 
    * @remarks
-   * This operation requires DataWorks Enterprise Edition or later.
+   * You must purchase DataWorks Enterprise Edition or higher to use this operation.
    * 
    * @param request - TagDataAssetsRequest
    * @returns TagDataAssetsResponse
@@ -21728,6 +22234,144 @@ export default class Client extends OpenApi {
   async unTagDataAssets(request: $_model.UnTagDataAssetsRequest): Promise<$_model.UnTagDataAssetsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.unTagDataAssetsWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the definition of a specified agent, increments the definition version, and optionally publishes the agent immediately. This operation is available only when the canary release feature is enabled. Before calling this operation, make sure that the canary release feature is enabled for the current account and the target region.
+   * 
+   * @remarks
+   * This operation is available only when the canary release feature is enabled. Before calling this operation, make sure that the canary release feature is enabled for the current account and the target region.
+   * Updates a custom agent that the current identity has administrative permissions for. The Name parameter is used to locate the target agent and cannot be used to rename the agent. Call the GetAgent operation first to read the current AgentVersion, and then explicitly pass the ExpectedVersion parameter during the update. If a conflict occurs, read the version again and verify the differences instead of blindly overwriting the agent.
+   * Omit reference lists that do not need to be modified. The current new backend retains existing references for empty arrays of Tools, Skills, and CallableAgents, but clears references for an empty array of ExpertSuites. A unified empty array clearing rule cannot be used. The Tools parameter already includes Kind and the corresponding tool configurations, and uses the same structure as CreateAgent. Specifying only Name does not constitute a valid tool configuration.
+   * For official skills, specify only Source=OFFICIAL and SkillId. For official suites, specify only Source=OFFICIAL and SuiteId. Do not mix in name, version, or artifact fields. The integer Version and VersionSelector parameters for custom resources are mutually exclusive. The version selection capability depends on the deployment of the target server.
+   * If PublishImmediately is omitted or set to false, only the definition is saved. If it is set to true, a new draft version is saved first and then a publish request is initiated. Saving and publishing are not atomic operations. If publishing fails, the draft version may have already been incremented. In this case, call GetAgent to read the current version back before deciding whether to retry, to avoid generating duplicate versions.
+   * 
+   * @param tmpReq - UpdateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgentResponse
+   */
+  async updateAgentWithOptions(tmpReq: $_model.UpdateAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.callableAgents)) {
+      request.callableAgentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callableAgents, "CallableAgents", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.expertSuites)) {
+      request.expertSuitesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.expertSuites, "ExpertSuites", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.metadata)) {
+      request.metadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metadata, "Metadata", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.model)) {
+      request.modelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.model, "Model", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.skills)) {
+      request.skillsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.skills, "Skills", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tools)) {
+      request.toolsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tools, "Tools", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.visibilityScope)) {
+      request.visibilityScopeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.visibilityScope, "VisibilityScope", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.callableAgentsShrink)) {
+      body["CallableAgents"] = request.callableAgentsShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.expectedVersion)) {
+      body["ExpectedVersion"] = request.expectedVersion;
+    }
+
+    if (!$dara.isNull(request.expertSuitesShrink)) {
+      body["ExpertSuites"] = request.expertSuitesShrink;
+    }
+
+    if (!$dara.isNull(request.metadataShrink)) {
+      body["Metadata"] = request.metadataShrink;
+    }
+
+    if (!$dara.isNull(request.modelShrink)) {
+      body["Model"] = request.modelShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.publishImmediately)) {
+      body["PublishImmediately"] = request.publishImmediately;
+    }
+
+    if (!$dara.isNull(request.skillsShrink)) {
+      body["Skills"] = request.skillsShrink;
+    }
+
+    if (!$dara.isNull(request.systemPrompt)) {
+      body["SystemPrompt"] = request.systemPrompt;
+    }
+
+    if (!$dara.isNull(request.toolsShrink)) {
+      body["Tools"] = request.toolsShrink;
+    }
+
+    if (!$dara.isNull(request.visibility)) {
+      body["Visibility"] = request.visibility;
+    }
+
+    if (!$dara.isNull(request.visibilityScopeShrink)) {
+      body["VisibilityScope"] = request.visibilityScopeShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAgent",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAgentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAgentResponse({}));
+  }
+
+  /**
+   * Updates the definition of a specified agent, increments the definition version, and optionally publishes the agent immediately. This operation is available only when the canary release feature is enabled. Before calling this operation, make sure that the canary release feature is enabled for the current account and the target region.
+   * 
+   * @remarks
+   * This operation is available only when the canary release feature is enabled. Before calling this operation, make sure that the canary release feature is enabled for the current account and the target region.
+   * Updates a custom agent that the current identity has administrative permissions for. The Name parameter is used to locate the target agent and cannot be used to rename the agent. Call the GetAgent operation first to read the current AgentVersion, and then explicitly pass the ExpectedVersion parameter during the update. If a conflict occurs, read the version again and verify the differences instead of blindly overwriting the agent.
+   * Omit reference lists that do not need to be modified. The current new backend retains existing references for empty arrays of Tools, Skills, and CallableAgents, but clears references for an empty array of ExpertSuites. A unified empty array clearing rule cannot be used. The Tools parameter already includes Kind and the corresponding tool configurations, and uses the same structure as CreateAgent. Specifying only Name does not constitute a valid tool configuration.
+   * For official skills, specify only Source=OFFICIAL and SkillId. For official suites, specify only Source=OFFICIAL and SuiteId. Do not mix in name, version, or artifact fields. The integer Version and VersionSelector parameters for custom resources are mutually exclusive. The version selection capability depends on the deployment of the target server.
+   * If PublishImmediately is omitted or set to false, only the definition is saved. If it is set to true, a new draft version is saved first and then a publish request is initiated. Saving and publishing are not atomic operations. If publishing fails, the draft version may have already been incremented. In this case, call GetAgent to read the current version back before deciding whether to retry, to avoid generating duplicate versions.
+   * 
+   * @param request - UpdateAgentRequest
+   * @returns UpdateAgentResponse
+   */
+  async updateAgent(request: $_model.UpdateAgentRequest): Promise<$_model.UpdateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAgentWithOptions(request, runtime);
   }
 
   /**
@@ -22028,6 +22672,56 @@ export default class Client extends OpenApi {
   async updateCalendar(request: $_model.UpdateCalendarRequest): Promise<$_model.UpdateCalendarResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCalendarWithOptions(request, runtime);
+  }
+
+  /**
+   * Approves or rejects a code review.
+   * 
+   * @param request - UpdateCodeReviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCodeReviewResponse
+   */
+  async updateCodeReviewWithOptions(request: $_model.UpdateCodeReviewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCodeReviewResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCodeReview",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCodeReviewResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCodeReviewResponse({}));
+  }
+
+  /**
+   * Approves or rejects a code review.
+   * 
+   * @param request - UpdateCodeReviewRequest
+   * @returns UpdateCodeReviewResponse
+   */
+  async updateCodeReview(request: $_model.UpdateCodeReviewRequest): Promise<$_model.UpdateCodeReviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCodeReviewWithOptions(request, runtime);
   }
 
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PromptAgentSessionResponseBodyMetaEventCursor extends $dara.Model {
   /**
    * @remarks
-   * The event stream generation identifier returned when the current prompt is accepted. It is paired with EventId during resumption. Pass this value as is to the EventEpoch query parameter of GetAgentSessionEvents to verify the same event stream.
+   * The event stream epoch.
    * 
    * @example
    * f7c6a27a-09f6-4bc9-b924-0c360351373c
@@ -13,7 +13,7 @@ export class PromptAgentSessionResponseBodyMetaEventCursor extends $dara.Model {
   eventEpoch?: string;
   /**
    * @remarks
-   * The integer ID of the current native event, returned as a decimal string. The client saves it after fully processing the event, and passes this value as the Last-Event-Id HTTP header of GetAgentSessionEvents during resumption to continue receiving subsequent events.
+   * The event ID.
    * 
    * @example
    * 4
@@ -21,7 +21,7 @@ export class PromptAgentSessionResponseBodyMetaEventCursor extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The type of the current native event, obtained from the type field of the native event. The examples do not constitute a fixed enumeration.
+   * The event type.
    * 
    * @example
    * session_update
@@ -29,7 +29,7 @@ export class PromptAgentSessionResponseBodyMetaEventCursor extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The execution identifier returned when the current prompt is accepted. It is used to associate the current execution with its events.
+   * The prompt execution ID.
    * 
    * @example
    * p1
@@ -37,7 +37,7 @@ export class PromptAgentSessionResponseBodyMetaEventCursor extends $dara.Model {
   promptId?: string;
   /**
    * @remarks
-   * The identifier of the current DataAgent session. It is used to associate the event with its session.
+   * The session ID.
    * 
    * @example
    * 79fea58a-45f5-45c6-9169-c59beac0d5b6
@@ -75,7 +75,7 @@ export class PromptAgentSessionResponseBodyMetaEventCursor extends $dara.Model {
 export class PromptAgentSessionResponseBodyMeta extends $dara.Model {
   /**
    * @remarks
-   * The resumption cursor of the current native event. Carried only by verified native events. The client saves the cursor after fully processing the event, and uses the EventId and EventEpoch in it to resume the subscription to GetAgentSessionEvents after a disconnection without resending the prompt.
+   * The event continuation cursor.
    */
   eventCursor?: PromptAgentSessionResponseBodyMetaEventCursor;
   static names(): { [key: string]: string } {
@@ -113,7 +113,7 @@ export class PromptAgentSessionResponseBody extends $dara.Model {
   error?: any;
   /**
    * @remarks
-   * The ID passed by the requester. The value is returned as is.
+   * The ID passed by the requester, which is echoed back as is.
    * 
    * @example
    * 631478864897630XXXX
@@ -121,7 +121,7 @@ export class PromptAgentSessionResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. Set the value to 2.0.
+   * The JSON-RPC version. Fixed to 2.0.
    * 
    * @example
    * 2.0
@@ -129,12 +129,12 @@ export class PromptAgentSessionResponseBody extends $dara.Model {
   jsonrpc?: string;
   /**
    * @remarks
-   * Carried only by verified native events. The client saves the EventCursor after fully applying the event, and uses EventId and EventEpoch to resume the subscription to GetAgentSessionEvents after a disconnection. Common subscription errors do not contain proof of the native execution terminal state.
+   * The event continuation metadata.
    */
   meta?: PromptAgentSessionResponseBodyMeta;
   /**
    * @remarks
-   * The method of the SSE. The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
+   * The SSE method. The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
    * 
    * @example
    * session/update
@@ -142,7 +142,7 @@ export class PromptAgentSessionResponseBody extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The params of the SSE. The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
+   * The SSE parameters. The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
    * 
    * @example
    * {"sessionId":"af4f5ef8-e8f5-481c-ad1f-94886c6c0aed","update":{"sessionUpdate":"agent_message_chunk","content":{"type":"text","text":"hello world"}}}
@@ -150,7 +150,7 @@ export class PromptAgentSessionResponseBody extends $dara.Model {
   params?: any;
   /**
    * @remarks
-   * Id of the request
+   * The request ID of this API invocation, which is used to troubleshoot invocation issues.
    * 
    * @example
    * D5D70885-7CC7-594A-80C7-2EF1B00FFB4B

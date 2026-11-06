@@ -35,7 +35,7 @@ export class CreateAgentRequestCallableAgents extends $dara.Model {
 export class CreateAgentRequestExpertSuites extends $dara.Model {
   /**
    * @remarks
-   * The source of the expert suite. Valid values: OFFICIAL: official catalog resources. DB: personal or enterprise resources. If this parameter is omitted, the original database resource query semantics are retained. For official resources, the artifact version is fixed when the agent is released.
+   * OFFICIAL indicates an official catalog resource. DB indicates a personal or enterprise resource. If omitted, the original database resource query semantics are maintained. For official resources, the artifact version is fixed when the agent is published.
    * 
    * @example
    * OFFICIAL
@@ -43,7 +43,7 @@ export class CreateAgentRequestExpertSuites extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The ID of the expert suite. When you specify expert suite references, each item must include a SuiteId, which is verified by the server. When Source is set to OFFICIAL, this is the official catalog ID. Otherwise, this is the ID returned by expert suite management. The referenced resource must be visible to the caller.
+   * When passing expert suite references, each item must provide a SuiteId, which is validated by the server. When Source is OFFICIAL, this is the official catalog ID. Otherwise, this is the ID returned by expert suite management. The referenced resource must be visible to the caller.
    * 
    * @example
    * dataworks-data-analysis-extension
@@ -51,7 +51,7 @@ export class CreateAgentRequestExpertSuites extends $dara.Model {
   suiteId?: string;
   /**
    * @remarks
-   * The fixed integer revision number of a released snapshot. This parameter applies only to personal or enterprise suites and is mutually exclusive with VersionSelector. Releasing a new version does not change the fixed reference. If both parameters are omitted, the latest version is used for each new session. Do not specify this parameter when Source is set to OFFICIAL.
+   * Used only for personal or enterprise suites. Specifies the fixed integer revision number of a published snapshot. This parameter is mutually exclusive with VersionSelector. Publishing a new version does not change the fixed reference. If both are omitted, the latest version is used for each new session. Do not specify this parameter when Source is OFFICIAL.
    * 
    * @example
    * 1
@@ -59,7 +59,7 @@ export class CreateAgentRequestExpertSuites extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * The version selection expression. This parameter applies only to personal or enterprise resources and is mutually exclusive with Version. It supports exact semantic versions, latest, and the full npm/node-semver range syntax, such as 1.2.*, ^1.2.3, ~1.2.3, >=1.0.0 <2.0.0, and 1.x || 2.x. If both parameters are omitted, latest is used, and the highest matching released version is selected for each new session. Existing fixed integer references remain unchanged. Do not specify this parameter when Source is set to OFFICIAL.
+   * Used only for personal or enterprise resources. This parameter is mutually exclusive with Version. Supports exact semantic versions, latest, and full npm/node-semver range syntax, such as 1.2.*, ^1.2.3, ~1.2.3, >=1.0.0 <2.0.0, and 1.x || 2.x. If both are omitted, the latest version is used, and the highest matching published version is selected for each new session. Existing fixed integer references remain unchanged. Do not specify this parameter when Source is OFFICIAL.
    * 
    * @example
    * ^1.2.3
@@ -103,7 +103,7 @@ export class CreateAgentRequestSkills extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The official catalog ID. Specify this parameter when Source is set to OFFICIAL. Do not specify Name, Version, or VersionSelector. Do not specify this parameter for personal or enterprise skills.
+   * When Source is OFFICIAL, specify the official catalog ID. Do not specify Name, Version, or VersionSelector. Do not specify this field for personal or enterprise skills.
    * 
    * @example
    * dataworks-semantic
@@ -111,7 +111,7 @@ export class CreateAgentRequestSkills extends $dara.Model {
   skillId?: string;
   /**
    * @remarks
-   * The source of the skill. Valid values: OFFICIAL: official catalog resources. DB: personal or enterprise resources. If this parameter is omitted, the original query-by-name semantics are retained.
+   * OFFICIAL indicates an official catalog resource. DB indicates a personal or enterprise resource. If omitted, the original query-by-name semantics are maintained.
    * 
    * @example
    * OFFICIAL
@@ -119,7 +119,7 @@ export class CreateAgentRequestSkills extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The fixed integer revision number of a released snapshot. This parameter applies only to personal or enterprise skills and is mutually exclusive with VersionSelector. Releasing a new version does not change the fixed reference. If both parameters are omitted, the latest version is used for each new session. Do not specify this parameter when Source is set to OFFICIAL.
+   * Used only for personal or enterprise skills. Specifies the fixed integer revision number of a published snapshot. This parameter is mutually exclusive with VersionSelector. Publishing a new version does not change the fixed reference. If both are omitted, the latest version is used for each new session. Do not specify this parameter when Source is OFFICIAL.
    * 
    * @example
    * 1
@@ -127,7 +127,7 @@ export class CreateAgentRequestSkills extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * The version selection expression. This parameter applies only to personal or enterprise resources and is mutually exclusive with Version. It supports exact semantic versions, latest, and the full npm/node-semver range syntax, such as 1.2.*, ^1.2.3, ~1.2.3, >=1.0.0 <2.0.0, and 1.x || 2.x. If both parameters are omitted, latest is used, and the highest matching released version is selected for each new session. Existing fixed integer references remain unchanged. Do not specify this parameter when Source is set to OFFICIAL.
+   * Used only for personal or enterprise resources. This parameter is mutually exclusive with Version. Supports exact semantic versions, latest, and full npm/node-semver range syntax, such as 1.2.*, ^1.2.3, ~1.2.3, >=1.0.0 <2.0.0, and 1.x || 2.x. If both are omitted, the latest version is used, and the highest matching published version is selected for each new session. Existing fixed integer references remain unchanged. Do not specify this parameter when Source is OFFICIAL.
    * 
    * @example
    * ^1.2.3
@@ -165,6 +165,38 @@ export class CreateAgentRequestSkills extends $dara.Model {
 export class CreateAgentRequestTools extends $dara.Model {
   /**
    * @remarks
+   * Required when Kind is BUILTIN_TOOLSET. Specifies the name of the built-in toolset supported by the target server. Omit this parameter when Kind is MCP_TOOLSET.
+   * 
+   * @example
+   * web_search
+   */
+  builtinName?: string;
+  /**
+   * @remarks
+   * Required for valid tool references. BUILTIN_TOOLSET indicates a built-in toolset, and BuiltinName must be specified. MCP_TOOLSET indicates an MCP toolset, and McpServerName must be specified. The target server validates the parameter based on the tool type.
+   * 
+   * @example
+   * MCP_TOOLSET
+   */
+  kind?: string;
+  /**
+   * @remarks
+   * Optional when Kind is MCP_TOOLSET. If specified, only the listed tools are used. If omitted or left as an empty array, tools are not filtered by name. Each item must be the name of an actual tool in the target MCP service.
+   * 
+   * @example
+   * ["only-this-tool"]
+   */
+  mcpItems?: string[];
+  /**
+   * @remarks
+   * Required when Kind is MCP_TOOLSET. Specifies the MCP service name that the current caller has permission to reference and that has an active published version.
+   * 
+   * @example
+   * mcp-a
+   */
+  mcpServerName?: string;
+  /**
+   * @remarks
    * The name of the MCP server.
    * 
    * @example
@@ -173,17 +205,28 @@ export class CreateAgentRequestTools extends $dara.Model {
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      builtinName: 'BuiltinName',
+      kind: 'Kind',
+      mcpItems: 'McpItems',
+      mcpServerName: 'McpServerName',
       name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      builtinName: 'string',
+      kind: 'string',
+      mcpItems: { 'type': 'array', 'itemType': 'string' },
+      mcpServerName: 'string',
       name: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.mcpItems)) {
+      $dara.Model.validateArray(this.mcpItems);
+    }
     super.validate();
   }
 
@@ -259,7 +302,7 @@ export class CreateAgentRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The released expert suites bound to the agent. For personal or enterprise suites, use SuiteId and optionally specify a fixed Version or VersionSelector. For official suites, you must explicitly set Source to OFFICIAL and specify the SuiteId from the official catalog. Do not specify Version or VersionSelector. If this parameter is not specified, an empty list is created, and official suites are not loaded by default.
+   * The published expert suites bound to the agent. For personal or enterprise suites, use SuiteId, and optionally specify a fixed Version or VersionSelector. For official suites, you must explicitly specify Source=OFFICIAL and the SuiteId from the official catalog, and do not specify Version or VersionSelector. If not specified, an empty list is created, and all official suites are not loaded by default.
    * 
    * @example
    * [{"Source":"OFFICIAL","SuiteId":"dataworks-data-analysis-extension"},{"SuiteId":"suite_example","Version":1}]
@@ -267,7 +310,7 @@ export class CreateAgentRequest extends $dara.Model {
   expertSuites?: CreateAgentRequestExpertSuites[];
   /**
    * @remarks
-   * The extended metadata as key-value pairs.
+   * The extended metadata in key-value pairs.
    * 
    * @example
    * {}
@@ -285,7 +328,7 @@ export class CreateAgentRequest extends $dara.Model {
   model?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the agent. It must be unique within the current account.
+   * The name of the agent. The name must be unique within the current account.
    * 
    * This parameter is required.
    * 
@@ -295,10 +338,7 @@ export class CreateAgentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether to publish the agent immediately after creation. Valid values:
-   * - true: Publishes the created version.
-   * - false or omitted: Retains the original behavior of creating a draft only.
-   * Saving and publishing are not atomic operations. If publishing fails, the draft may already exist. Query the agent before retrying to avoid duplicate creation.
+   * Specifies whether to publish the agent immediately after creation. A value of true publishes the created version. A value of false or omitting this parameter maintains the original behavior of creating a draft only. Saving and publishing are not atomic operations. If publishing fails, the draft may already exist. Before retrying, query the agent first to avoid duplicate creation.
    * 
    * @example
    * false
@@ -341,7 +381,7 @@ export class CreateAgentRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The visibility scope. The corresponding fields are used based on the Visibility parameter.
+   * The visibility scope. Specify the corresponding fields based on the Visibility value.
    */
   visibilityScope?: CreateAgentRequestVisibilityScope;
   static names(): { [key: string]: string } {

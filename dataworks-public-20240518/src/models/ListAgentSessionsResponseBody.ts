@@ -65,7 +65,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseError extends $dara.Mod
 export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMetaSessionTagList extends $dara.Model {
   /**
    * @remarks
-   * The session tag. You can filter sessions based on session tags. For example, if you use a fixed RAM user to call OpenAPI operations but the calling system has its own account system, you need to filter the session list based on the account ID. In this case, you can pass the account ID of the calling system as this tag.
+   * The session tag. You can filter sessions based on session tags. For example, if you use a fixed RAM user when calling OpenAPI but the calling system has its own account system, you need to filter the session list based on the account ID. In this case, you can pass the account ID of the calling system as this tag.
    * 
    * @example
    * user_123456
@@ -155,7 +155,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta
 export class ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessions extends $dara.Model {
   /**
    * @remarks
-   * The session information extended by DataWorks, which is not part of the standard ACP protocol.
+   * The DataWorks extended session information, which is not part of the standard ACP protocol.
    */
   meta?: ListAgentSessionsResponseBodyJsonRpcResponseResultAgentSessionsMeta;
   /**
@@ -295,12 +295,12 @@ export class ListAgentSessionsResponseBodyJsonRpcResponseResult extends $dara.Mo
 export class ListAgentSessionsResponseBodyJsonRpcResponse extends $dara.Model {
   /**
    * @remarks
-   * The JSON-RPC error message. This parameter is returned when the call fails and is not returned when the call succeeds.
+   * The JSON-RPC error information. This field is returned when the call fails and is not returned when the call succeeds.
    */
   error?: ListAgentSessionsResponseBodyJsonRpcResponseError;
   /**
    * @remarks
-   * The ID passed by the requester, which is returned as is.
+   * The request ID provided by the caller. This ID is returned as is in the response.
    * 
    * @example
    * 29d9a29c-a284-48c1-9eaa-4a42c7c616d5
@@ -308,7 +308,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponse extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. Fixed to 2.0.
+   * The JSON-RPC version, which is fixed to 2.0.
    * 
    * @example
    * 2.0
@@ -316,7 +316,7 @@ export class ListAgentSessionsResponseBodyJsonRpcResponse extends $dara.Model {
   jsonrpc?: string;
   /**
    * @remarks
-   * The paginated result set of the session query.
+   * The paginated result set for the session query.
    */
   result?: ListAgentSessionsResponseBodyJsonRpcResponseResult;
   static names(): { [key: string]: string } {
@@ -355,12 +355,12 @@ export class ListAgentSessionsResponseBodyJsonRpcResponse extends $dara.Model {
 export class ListAgentSessionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The JSON-RPC response.
+   * The JSON-RPC response result.
    */
   jsonRpcResponse?: ListAgentSessionsResponseBodyJsonRpcResponse;
   /**
    * @remarks
-   * Id of the request
+   * The request ID for this OpenAPI request, which can be used to troubleshoot call failures. This is not a session ID or event cursor.
    * 
    * @example
    * 50C5A9F7-B5BD-58B2-9EB8-ADFFA9E6A56F

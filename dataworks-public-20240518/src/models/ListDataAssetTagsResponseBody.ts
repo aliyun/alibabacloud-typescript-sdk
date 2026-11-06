@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAssetTagsResponseBodyPagingInfoDataAssetTags extends $dara.Model {
   /**
    * @remarks
-   * The tag type.
+   * The tag category. Valid values:
    * - Normal
    * - System
    * 
@@ -15,7 +15,7 @@ export class ListDataAssetTagsResponseBodyPagingInfoDataAssetTags extends $dara.
   category?: string;
   /**
    * @remarks
-   * The creation time of the tag.
+   * The time when the tag was created.
    * 
    * The value is a 13-digit number, such as `1735890003000`.
    * 
@@ -25,7 +25,7 @@ export class ListDataAssetTagsResponseBodyPagingInfoDataAssetTags extends $dara.
   createTime?: number;
   /**
    * @remarks
-   * The creator of the tag.
+   * The user who created the tag.
    * 
    * @example
    * 12345
@@ -54,7 +54,7 @@ export class ListDataAssetTagsResponseBodyPagingInfoDataAssetTags extends $dara.
   managers?: string[];
   /**
    * @remarks
-   * The last modification time of the tag.
+   * The time when the tag was last modified.
    * 
    * The value is a 13-digit number, such as `1735890003000`.
    * 
@@ -191,7 +191,7 @@ export class ListDataAssetTagsResponseBodyPagingInfo extends $dara.Model {
 export class ListDataAssetTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paginated query results for the tag list.
+   * The paginated query results of the tag list.
    */
   pagingInfo?: ListDataAssetTagsResponseBodyPagingInfo;
   /**

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs extends $dara.Model {
   /**
    * @remarks
-   * The generation time of Operation logs.
+   * The time when the operation log was generated.
    * 
-   * The format is a 13-digit number, such as `1710239005403`.
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -31,7 +31,7 @@ export class ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs ex
   operationSeq?: number;
   /**
    * @remarks
-   * The ID of the node instance on which the operation was performed.
+   * The ID of the task instance on which the operation was performed.
    * 
    * @example
    * 1234

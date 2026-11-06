@@ -33,7 +33,7 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The name of the general-purpose resource group. It must start with a letter and can contain letters, digits, and underscores (_). It can be up to 128 characters in length.
+   * The name of the general-purpose resource group. The name must start with a letter and can contain letters, digits, and underscores (_). It can be up to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The billing duration.
+   * The subscription duration.
    * 
    * @example
    * 1
@@ -51,7 +51,7 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
   paymentDuration?: number;
   /**
    * @remarks
-   * The unit of the billing duration. Month indicates months, and Year indicates years.
+   * The unit of the subscription duration. Valid values: Month (monthly subscription) and Year (annual subscription).
    * 
    * @example
    * Month
@@ -59,7 +59,7 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
   paymentDurationUnit?: string;
   /**
    * @remarks
-   * The billing method of the resource group. PrePaid indicates subscription, and PostPaid indicates pay-as-you-go.
+   * The billing method of the resource group. Valid values: PrePaid: subscription. PostPaid: pay-as-you-go.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The remark of the general-purpose resource group. It can contain letters, Chinese characters, digits, and underscores (_). It can be up to 128 characters in length.
+   * The remark of the general-purpose resource group. The remark can contain letters, Chinese characters, digits, and underscores (_). It can be up to 128 characters in length.
    * 
    * @example
    * Create a serverless resource group for common tasks
@@ -77,7 +77,7 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
   remark?: string;
   /**
    * @remarks
-   * The specifications of the resource group. Unit: CU. This parameter is required when the billing method of the resource group is PrePaid.
+   * The specifications of the resource group. Unit: CU. This parameter is required when the billing method is set to PrePaid.
    * 
    * @example
    * 2
@@ -85,7 +85,7 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
   spec?: number;
   /**
    * @remarks
-   * The ID of the default VPC.
+   * The ID of the VPC to which the resource group is bound by default.
    * 
    * This parameter is required.
    * 
@@ -95,7 +95,7 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the default vSwitch.
+   * The ID of the vSwitch to which the resource group is bound by default.
    * 
    * This parameter is required.
    * 

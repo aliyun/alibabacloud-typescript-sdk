@@ -13,7 +13,7 @@ export class ListCrossProjectPipelineRunItemsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListCrossProjectPipelineRunItemsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the cross-workspace publish pipeline.
+   * The cross-workspace deployment pipeline ID.
    * 
    * This parameter is required.
    * 

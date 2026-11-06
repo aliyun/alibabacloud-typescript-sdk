@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataQualityEvaluationTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the data quality evaluation task for fuzzy matching.
+   * The keyword used to fuzzy match the name of the data quality check task.
    * 
    * @example
    * Test
@@ -13,7 +13,7 @@ export class ListDataQualityEvaluationTasksRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number for the paging query of the list. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListDataQualityEvaluationTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size for the paging query of the list. Default value: 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10

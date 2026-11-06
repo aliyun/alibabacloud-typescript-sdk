@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDownstreamTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The node ID.
+   * The task ID.
    * 
    * This parameter is required.
    * 

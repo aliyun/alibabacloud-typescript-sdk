@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LoadAgentSessionRequestParamsMeta extends $dara.Model {
   /**
    * @remarks
-   * The offset from which to pull subsequent SSE outputs in a resumable transmission scenario.
+   * Pulls the subsequent SSE output from the specified position in a resumable transfer scenario.
    * 
    * @example
    * 10000
@@ -13,7 +13,7 @@ export class LoadAgentSessionRequestParamsMeta extends $dara.Model {
   beginLogOffset?: number;
   /**
    * @remarks
-   * Specifies whether this is a resumable transmission scenario. If the SSE stream is interrupted due to network instability, you can set this flag to repull the SSE response data from the breakpoint.
+   * Specifies whether this is a resumable transfer scenario. In scenarios where the SSE stream is unstable, such as network instability that causes the SSE connection to drop midway, you can use this flag to pull the SSE response data again from the breakpoint.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class LoadAgentSessionRequestParamsMeta extends $dara.Model {
 export class LoadAgentSessionRequestParams extends $dara.Model {
   /**
    * @remarks
-   * The ACP extension parameters for DataWorks.
+   * The ACP extension parameters of DataWorks.
    */
   meta?: LoadAgentSessionRequestParamsMeta;
   /**
@@ -85,7 +85,7 @@ export class LoadAgentSessionRequestParams extends $dara.Model {
 export class LoadAgentSessionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID provided by the requester. This ID is echoed back as is.
+   * The ID passed by the requester. The value is returned as is.
    * 
    * @example
    * 4as3dasf654a
@@ -93,7 +93,7 @@ export class LoadAgentSessionRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. Fixed to 2.0.
+   * The JSON-RPC version. The value is fixed to 2.0.
    * 
    * @example
    * 2.0

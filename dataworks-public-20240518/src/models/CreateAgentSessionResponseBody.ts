@@ -95,7 +95,7 @@ export class CreateAgentSessionResponseBodyJsonRpcResponseResult extends $dara.M
 export class CreateAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
   /**
    * @remarks
-   * The JSON-RPC error message. This field is not returned if the request is successful.
+   * The JSON-RPC error message. This field is not returned when the request is successful.
    */
   error?: CreateAgentSessionResponseBodyJsonRpcResponseError;
   /**
@@ -108,7 +108,7 @@ export class CreateAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. This value is always 2.0.
+   * The JSON-RPC version. Fixed to 2.0.
    * 
    * @example
    * 2.0
@@ -116,12 +116,12 @@ export class CreateAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
   jsonrpc?: string;
   /**
    * @remarks
-   * The business data. The value is null if an error occurs.
+   * The business data. The value is null when an error occurs.
    */
   result?: CreateAgentSessionResponseBodyJsonRpcResponseResult;
   /**
    * @remarks
-   * The response time. The value is a UNIX timestamp in milliseconds.
+   * The response time. It is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1789549200000
@@ -165,12 +165,12 @@ export class CreateAgentSessionResponseBodyJsonRpcResponse extends $dara.Model {
 export class CreateAgentSessionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The JSON-RPC response.
+   * The JSON-RPC response result.
    */
   jsonRpcResponse?: CreateAgentSessionResponseBodyJsonRpcResponse;
   /**
    * @remarks
-   * Id of the request
+   * The request ID for this OpenAPI call. You can use it to troubleshoot issues with the call.
    * 
    * @example
    * 8A9D5E6C-5817-5837-9715-6E3967EC6123

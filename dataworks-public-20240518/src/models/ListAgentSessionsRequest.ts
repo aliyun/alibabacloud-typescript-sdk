@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentSessionsRequestParams extends $dara.Model {
   /**
    * @remarks
-   * The exact filter for the **agent name**. You must specify at least one of this parameter and SessionSourceList.
+   * The **agent name** for exact match filtering. You must specify at least one of this parameter and `SessionSourceList`.
    * 
    * @example
    * chat_cli_chatbi
@@ -13,9 +13,7 @@ export class ListAgentSessionsRequestParams extends $dara.Model {
   agentName?: string;
   /**
    * @remarks
-   * Specifies whether to return only archived sessions. Valid values:
-   * - true: Only archived sessions are returned.
-   * - false or not specified: Only unarchived sessions are returned.
+   * Specifies whether to query archived sessions. If you set this parameter to true, only archived sessions are returned. If you set this parameter to false or omit it, only unarchived sessions are returned. A value of false does not mean all sessions. To query both types of sessions, send separate requests and handle the pagination for each.
    */
   archived?: boolean;
   /**
@@ -36,7 +34,7 @@ export class ListAgentSessionsRequestParams extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The exact match for the session ID.
+   * The session ID for exact matching.
    * 
    * @example
    * sess_0f12abc34
@@ -44,12 +42,12 @@ export class ListAgentSessionsRequestParams extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The filter for the **session source list**. You must specify at least one of this parameter and AgentName.
+   * The **session source list** for filtering. You must specify at least one of this parameter and `AgentName`.
    */
   sessionSourceList?: string[];
   /**
    * @remarks
-   * The fuzzy filter for the session title.
+   * The session title for fuzzy match filtering.
    * 
    * @example
    * Sales in the last 30 days
@@ -57,7 +55,7 @@ export class ListAgentSessionsRequestParams extends $dara.Model {
   sessionTitle?: string;
   /**
    * @remarks
-   * The filter for the session tag code list.
+   * The session tag code list for filtering.
    */
   tagList?: string[];
   static names(): { [key: string]: string } {
@@ -104,7 +102,7 @@ export class ListAgentSessionsRequestParams extends $dara.Model {
 export class ListAgentSessionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID passed by the requester, which is returned as is.
+   * The request ID provided by the caller. This ID is returned as is in the response.
    * 
    * @example
    * 676303114031776
@@ -112,7 +110,7 @@ export class ListAgentSessionsRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. Fixed to 2.0.
+   * The JSON-RPC version, which is fixed to 2.0.
    * 
    * @example
    * 2.0

@@ -13,7 +13,7 @@ export class ListTaskInstanceOperationLogsRequest extends $dara.Model {
   date?: number;
   /**
    * @remarks
-   * The node instance ID.
+   * The task instance ID.
    * 
    * This parameter is required.
    * 

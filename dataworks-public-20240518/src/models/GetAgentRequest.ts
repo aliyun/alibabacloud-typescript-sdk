@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * If omitted, the current definition is retrieved. If a published version is specified, the corresponding snapshot and the fixed versions of official skills and suite artifacts are retrieved. If a current unpublished version is specified, the draft is returned without fixed artifact versions. This is not the POP system parameter Version.
+   * If omitted, the current definition is retrieved. If a published version is specified, the corresponding snapshot and the fixed versions of official skills and suite artifacts are retrieved. If the current unpublished version is specified, the draft is returned without fixed artifact versions. This is not the POP system parameter Version.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class GetAgentRequest extends $dara.Model {
   agentVersion?: number;
   /**
    * @remarks
-   * The name of the skill to read.
+   * The name of the skill to retrieve.
    * 
    * This parameter is required.
    * 

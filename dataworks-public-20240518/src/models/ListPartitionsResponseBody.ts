@@ -22,7 +22,7 @@ export class ListPartitionsResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The partition list of the table.
+   * The list of partitions in the table.
    */
   partitionList?: Partition[];
   /**
@@ -79,7 +79,7 @@ export class ListPartitionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

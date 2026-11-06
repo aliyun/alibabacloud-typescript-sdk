@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAssetTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The tag type.
+   * The tag category. Valid values:
    * - Normal
    * - System
    * 

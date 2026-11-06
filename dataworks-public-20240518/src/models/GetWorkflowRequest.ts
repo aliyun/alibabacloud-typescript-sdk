@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkflowRequest extends $dara.Model {
   /**
    * @remarks
-   * The project environment.
+   * The project environment. Valid values:
+   * - Prod: Production environment.
+   * - Dev: Development environment.
    * 
    * @example
    * Prod

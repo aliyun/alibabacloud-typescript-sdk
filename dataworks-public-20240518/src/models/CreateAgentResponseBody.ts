@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgentResponseBodyAgentExpertSuites extends $dara.Model {
   /**
    * @remarks
-   * This parameter is not returned upon creation. Call GetAgent to explicitly query the published version to obtain the fixed official suite artifact version.
+   * This field is not returned during creation. Use GetAgent to explicitly query the published version to obtain the fixed official suite artifact version.
    * 
    * @example
    * 0.1.0.202610211408
@@ -37,7 +37,7 @@ export class CreateAgentResponseBodyAgentExpertSuites extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * The saved version selection strategy is returned only for personal or enterprise resources and is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This parameter is not returned for official resources.
+   * The saved version selection strategy is returned only for personal or enterprise resources and is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This field is not returned for official resources.
    * 
    * @example
    * ^1.2.3
@@ -83,7 +83,7 @@ export class CreateAgentResponseBodyAgentSkills extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * This parameter is not returned upon creation. Call GetAgent to explicitly query the published version to obtain the fixed official artifact version.
+   * This field is not returned during creation. Use GetAgent to explicitly query the published version to obtain the fixed official artifact version.
    * 
    * @example
    * 0.6.0.202608201110
@@ -115,7 +115,7 @@ export class CreateAgentResponseBodyAgentSkills extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * The saved version selection strategy is returned only for personal or enterprise resources and is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This parameter is not returned for official resources.
+   * The saved version selection strategy is returned only for personal or enterprise resources and is mutually exclusive with the fixed integer Version. It does not represent the specific revision actually loaded in the session. This field is not returned for official resources.
    * 
    * @example
    * ^1.2.3
@@ -160,24 +160,20 @@ export class CreateAgentResponseBodyAgent extends $dara.Model {
   expertSuites?: CreateAgentResponseBodyAgentExpertSuites[];
   /**
    * @remarks
-   * The creation time, in milliseconds.
-   * 
-   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * The creation time, expressed as a timestamp in milliseconds.
    * 
    * @example
    * 1780555634000
    */
-  gmtCreateTime?: string;
+  gmtCreateTime?: number;
   /**
    * @remarks
-   * The last modification time, in milliseconds.
-   * 
-   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * The last modification time, expressed as a timestamp in milliseconds.
    * 
    * @example
    * 1780555634000
    */
-  gmtModifiedTime?: string;
+  gmtModifiedTime?: number;
   /**
    * @remarks
    * The name of the agent.
@@ -188,7 +184,7 @@ export class CreateAgentResponseBodyAgent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The saved skill references. For official skills, a fixed PackageVersion is returned after the agent is published.
+   * The saved skill references. Official skills return a fixed PackageVersion after the agent is published.
    */
   skills?: CreateAgentResponseBodyAgentSkills[];
   static names(): { [key: string]: string } {
@@ -204,8 +200,8 @@ export class CreateAgentResponseBodyAgent extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       expertSuites: { 'type': 'array', 'itemType': CreateAgentResponseBodyAgentExpertSuites },
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
+      gmtCreateTime: 'number',
+      gmtModifiedTime: 'number',
       name: 'string',
       skills: { 'type': 'array', 'itemType': CreateAgentResponseBodyAgentSkills },
     };

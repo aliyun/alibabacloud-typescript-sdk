@@ -13,7 +13,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   condition?: string;
   /**
    * @remarks
-   * The type of the subsequent action. Valid values:
+   * The type of the subsequent action.
    * - BlockTaskInstance: Blocks the execution of the DataWorks task instance.
    * 
    * @example
@@ -84,12 +84,12 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   extension?: string;
   /**
    * @remarks
-   * The type of the notification recipient. Valid values:
-   * - AliUid: the UID of the Alibaba Cloud account
-   * - WebhookUrl: the custom webhook URL
-   * - DingdingUrl: the DingTalk chatbot URL
-   * - FeishuUrl: the Lark chatbot URL
-   * - WeixinUrl: the WeCom chatbot URL
+   * The type of the alert recipient.
+   * - AliUid: Alibaba Cloud account UID
+   * - WebhookUrl: Custom webhook URL
+   * - DingdingUrl: DingTalk chatbot webhook URL
+   * - FeishuUrl: Lark chatbot webhook URL
+   * - WeixinUrl: WeCom chatbot webhook URL
    * 
    * @example
    * AliUid
@@ -97,7 +97,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   receiverType?: string;
   /**
    * @remarks
-   * The specific value of the notification recipient.
+   * The specific value of the alert recipient.
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -136,7 +136,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   notificationChannels?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationChannels[];
   /**
    * @remarks
-   * The notification recipient configuration.
+   * The alert recipient configuration.
    */
   notificationReceivers?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationReceivers[];
   static names(): { [key: string]: string } {
@@ -211,7 +211,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTarget extends $dara.Model {
   /**
    * @remarks
-   * The database type of the table dataset. Valid values:
+   * The database type of the table for table-type datasets. Valid values:
    * - maxcompute
    * - emr
    * - cdh
@@ -242,7 +242,8 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   tableGuid?: string;
   /**
    * @remarks
-   * The monitored object type. Valid values:
+   * The type of the monitored object.
+   * 
    * - Table
    * 
    * @example
@@ -284,7 +285,8 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   taskIds?: number[];
   /**
    * @remarks
-   * The event that triggers the execution of the data quality evaluation task. Valid values:
+   * The event that triggers the execution of the data quality check task.
+   * 
    * - ByScheduledTaskInstance: The scheduled instance runs successfully.
    * 
    * @example
@@ -319,13 +321,16 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasks extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the data source used by the data quality monitoring task.
+   * 
    * @example
    * 45238
    */
   dataSourceId?: number;
   /**
    * @remarks
-   * The description of the data quality evaluation task. The description can be up to 65,535 characters in length.
+   * The description of the data quality check task. The description can be up to 65,535 characters in length.
    * 
    * @example
    * This is a daily run data quality evaluation plan
@@ -333,12 +338,12 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   description?: string;
   /**
    * @remarks
-   * The callback settings in the instance lifecycle epoch of the data quality evaluation task. Currently, only one hook that blocks scheduling tasks is supported.
+   * The callback settings in the lifecycle of the data quality check task instance. Currently, only one hook that blocks the scheduled task is supported.
    */
   hooks?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksHooks[];
   /**
    * @remarks
-   * The ID of the data quality evaluation task.
+   * The ID of the data quality check task.
    * 
    * @example
    * 10001
@@ -346,7 +351,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   id?: number;
   /**
    * @remarks
-   * The name of the data quality evaluation task. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks, and can be up to 255 characters in length.
+   * The name of the data quality check task. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks, and can be up to 255 characters in length.
    * 
    * @example
    * Data quality verification task
@@ -367,7 +372,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   projectId?: number;
   /**
    * @remarks
-   * The settings for using the data source. Currently, you can only specify the YARN queue for EMR and set the SQL engine to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL when collecting EMR tables.
+   * The settings used when accessing the data source. Currently, you can only specify the YARN queue for EMR and set the SQL engine to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL when collecting EMR tables.
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK_SQL" }
@@ -375,12 +380,12 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   runtimeConf?: string;
   /**
    * @remarks
-   * The monitored object of the data quality evaluation task.
+   * The monitored object of the data quality check task.
    */
   target?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTarget;
   /**
    * @remarks
-   * The trigger configuration of the data quality evaluation task.
+   * The trigger configuration of the data quality check task.
    */
   trigger?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTrigger;
   static names(): { [key: string]: string } {
@@ -437,7 +442,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The data quality evaluation tasks.
+   * The data quality check tasks.
    */
   dataQualityEvaluationTasks?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasks[];
   /**
@@ -497,7 +502,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $dara.
 export class ListDataQualityEvaluationTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paging query results of the data quality evaluation tasks.
+   * The paged query results of the data quality check tasks.
    */
   pagingInfo?: ListDataQualityEvaluationTasksResponseBodyPagingInfo;
   /**

@@ -13,7 +13,7 @@ export class ListCrossProjectDeploymentCandidatesRequest extends $dara.Model {
   changeType?: string;
   /**
    * @remarks
-   * The start of the commit time range. This value is a UNIX timestamp in milliseconds.
+   * The start of the commit time range. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1788739200000
@@ -21,7 +21,7 @@ export class ListCrossProjectDeploymentCandidatesRequest extends $dara.Model {
   commitTimeFrom?: number;
   /**
    * @remarks
-   * The end of the commit time range. This value is a UNIX timestamp in milliseconds.
+   * The end of the commit time range. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1788825599999
@@ -29,7 +29,7 @@ export class ListCrossProjectDeploymentCandidatesRequest extends $dara.Model {
   commitTimeTo?: number;
   /**
    * @remarks
-   * The committer.
+   * The submitter.
    * 
    * @example
    * operator

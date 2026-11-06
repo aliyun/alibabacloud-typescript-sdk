@@ -31,22 +31,18 @@ export class ListCustomAgentsResponseBodyPagingInfoAgents extends $dara.Model {
    * @remarks
    * **The creation time (UNIX timestamp in milliseconds).**
    * 
-   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
-   * 
    * @example
    * 1780555634000
    */
-  gmtCreateTime?: string;
+  gmtCreateTime?: number;
   /**
    * @remarks
    * **The last modification time (UNIX timestamp in milliseconds).**
    * 
-   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
-   * 
    * @example
    * 1780555634000
    */
-  gmtModifiedTime?: string;
+  gmtModifiedTime?: number;
   /**
    * @remarks
    * **The last modifier ID.**
@@ -89,8 +85,8 @@ export class ListCustomAgentsResponseBodyPagingInfoAgents extends $dara.Model {
       creatorId: 'string',
       description: 'string',
       displayName: 'string',
-      gmtCreateTime: 'string',
-      gmtModifiedTime: 'string',
+      gmtCreateTime: 'number',
+      gmtModifiedTime: 'number',
       modifierId: 'string',
       name: 'string',
       visibility: 'string',

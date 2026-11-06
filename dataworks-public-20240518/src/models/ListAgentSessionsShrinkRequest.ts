@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentSessionsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID passed by the requester, which is returned as is.
+   * The request ID provided by the caller. This ID is returned as is in the response.
    * 
    * @example
    * 676303114031776
@@ -13,7 +13,7 @@ export class ListAgentSessionsShrinkRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-RPC version. Fixed to 2.0.
+   * The JSON-RPC version, which is fixed to 2.0.
    * 
    * @example
    * 2.0
