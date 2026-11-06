@@ -13,7 +13,7 @@ export class MarkTodosReadResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * The error description.
    * 
    * @example
    * The requested resource does not exist
@@ -21,7 +21,7 @@ export class MarkTodosReadResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

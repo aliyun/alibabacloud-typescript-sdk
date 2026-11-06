@@ -16,12 +16,12 @@ export class ExportWorkflowTemplateResponseBodyTemplateSteps extends $dara.Model
    * The step name.
    * 
    * @example
-   * example
+   * Customer complaint handling process
    */
   name?: string;
   /**
    * @remarks
-   * The name of the responsible agent.
+   * The name of the agent owner.
    * 
    * @example
    * example
@@ -47,7 +47,15 @@ export class ExportWorkflowTemplateResponseBodyTemplateSteps extends $dara.Model
   ownerUserId?: number;
   /**
    * @remarks
-   * The list of user IDs of the reviewers.
+   * 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
+   * 
+   * @example
+   * false
+   */
+  reviewOutput?: boolean;
+  /**
+   * @remarks
+   * The user IDs of the reviewers.
    * 
    * @example
    * example
@@ -63,18 +71,18 @@ export class ExportWorkflowTemplateResponseBodyTemplateSteps extends $dara.Model
   sortOrder?: number;
   /**
    * @remarks
-   * The step processing instructions.
+   * The step handling instructions.
    * 
    * @example
-   * example
+   * Collect customer information and submit it to the owner for review
    */
   specification?: string;
   /**
    * @remarks
-   * The array of structured segments for the step instructions. Supported types include text, mention, skill, app, files, and web_search. All segment fields and nested attachments are preserved exactly as returned by the backend.
+   * The ordered array of fragments. Supports text, mention, skill, app, files, and web_search. Preserves referenced identities and order.
    * 
    * @example
-   * [{"type":"text","content":"Organize input materials"}]
+   * [{"type":"text","content":"整理输入资料"}]
    */
   specificationJson?: { [key: string]: any }[];
   /**
@@ -92,6 +100,7 @@ export class ExportWorkflowTemplateResponseBodyTemplateSteps extends $dara.Model
       ownerAgentName: 'ownerAgentName',
       ownerType: 'ownerType',
       ownerUserId: 'ownerUserId',
+      reviewOutput: 'reviewOutput',
       reviewerUserIds: 'reviewerUserIds',
       sortOrder: 'sortOrder',
       specification: 'specification',
@@ -107,6 +116,7 @@ export class ExportWorkflowTemplateResponseBodyTemplateSteps extends $dara.Model
       ownerAgentName: 'string',
       ownerType: 'string',
       ownerUserId: 'number',
+      reviewOutput: 'boolean',
       reviewerUserIds: { 'type': 'array', 'itemType': 'number' },
       sortOrder: 'number',
       specification: 'string',
@@ -136,29 +146,56 @@ export class ExportWorkflowTemplateResponseBodyTemplate extends $dara.Model {
    * The template description.
    * 
    * @example
-   * example
+   * Standard process for handling customer complaints
    */
   description?: string;
+  /**
+   * @remarks
+   * 节点依赖边；每项包含from/to，引用稳定stepId
+   * 
+   * @example
+   * []
+   */
+  edges?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * 可选画布布局，按stepId索引；只影响展示，不决定依赖
+   * 
+   * @example
+   * {"collect":{"x":0,"y":0},"review":{"x":240,"y":0}}
+   */
+  layout?: { [key: string]: any };
   /**
    * @remarks
    * The template name.
    * 
    * @example
-   * example
+   * Customer complaint handling process
    */
   name?: string;
   /**
    * @remarks
-   * The normalization steps.
+   * 模板结构版本，当前为2，与业务版本vN独立
    * 
    * @example
-   * example
+   * 2
+   */
+  schemaVersion?: number;
+  /**
+   * @remarks
+   * The standardized steps.
+   * 
+   * @example
+   * [{\\"stepId\\":\\"collect\\",\\"sortOrder\\":1,\\"name\\":\\"收集客户信息\\"}]
    */
   steps?: ExportWorkflowTemplateResponseBodyTemplateSteps[];
   static names(): { [key: string]: string } {
     return {
       description: 'description',
+      edges: 'edges',
+      layout: 'layout',
       name: 'name',
+      schemaVersion: 'schemaVersion',
       steps: 'steps',
     };
   }
@@ -166,12 +203,21 @@ export class ExportWorkflowTemplateResponseBodyTemplate extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      edges: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      layout: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       name: 'string',
+      schemaVersion: 'number',
       steps: { 'type': 'array', 'itemType': ExportWorkflowTemplateResponseBodyTemplateSteps },
     };
   }
 
   validate() {
+    if(Array.isArray(this.edges)) {
+      $dara.Model.validateArray(this.edges);
+    }
+    if(this.layout) {
+      $dara.Model.validateMap(this.layout);
+    }
     if(Array.isArray(this.steps)) {
       $dara.Model.validateArray(this.steps);
     }
@@ -194,7 +240,7 @@ export class ExportWorkflowTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error description.
+   * The error message.
    * 
    * @example
    * The requested resource does not exist
@@ -202,7 +248,7 @@ export class ExportWorkflowTemplateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request tracking ID.
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -213,7 +259,7 @@ export class ExportWorkflowTemplateResponseBody extends $dara.Model {
    * The simplified template definition that can be re-imported.
    * 
    * @example
-   * example
+   * {\\"name\\":\\"客户投诉处理流程\\",\\"schemaVersion\\":2}
    */
   template?: ExportWorkflowTemplateResponseBodyTemplate;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class GetAgentWorkLogRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The page number. Pages start from 1.
+   * The page number, starting from 1.
    * 
    * @example
    * 1

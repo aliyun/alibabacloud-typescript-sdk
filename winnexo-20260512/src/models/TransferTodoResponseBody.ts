@@ -13,7 +13,7 @@ export class TransferTodoResponseBodyTargets extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The ID of the target user.
+   * The target user ID.
    * 
    * @example
    * 43
@@ -74,7 +74,7 @@ export class TransferTodoResponseBody extends $dara.Model {
   targets?: TransferTodoResponseBodyTargets[];
   /**
    * @remarks
-   * The ID of the to-do task.
+   * The list of target user IDs for the transfer (1 to 100).
    * 
    * @example
    * todo_abc123

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "WinNexo";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("winnexo", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -189,10 +193,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels to-do items in batches.
+   * Cancels multiple to-do items.
    * 
    * @remarks
-   * Cancels to-do items in batches based on a set of to-do IDs. No error is reported for completed or non-existent items, ensuring idempotence.
+   * Cancels multiple to-do items based on a list of IDs. This operation is idempotent and does not return errors for completed or non-existent items.
    * 
    * @param tmpReq - BatchCancelTodosRequest
    * @param headers - map
@@ -237,10 +241,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels to-do items in batches.
+   * Cancels multiple to-do items.
    * 
    * @remarks
-   * Cancels to-do items in batches based on a set of to-do IDs. No error is reported for completed or non-existent items, ensuring idempotence.
+   * Cancels multiple to-do items based on a list of IDs. This operation is idempotent and does not return errors for completed or non-existent items.
    * 
    * @param request - BatchCancelTodosRequest
    * @returns BatchCancelTodosResponse
@@ -540,10 +544,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks resource permissions within applications in batches.
+   * Checks the permissions of resources within applications in batches.
    * 
    * @remarks
-   * After authenticating each application in the batch, reuses the constant-time query of the service.
+   * Authenticates applications in batches and reuses constant-time service queries.
    * 
    * @param tmpReq - CheckAppResourcePermissionsBatchRequest
    * @param headers - map
@@ -600,10 +604,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks resource permissions within applications in batches.
+   * Checks the permissions of resources within applications in batches.
    * 
    * @remarks
-   * After authenticating each application in the batch, reuses the constant-time query of the service.
+   * Authenticates applications in batches and reuses constant-time service queries.
    * 
    * @param request - CheckAppResourcePermissionsBatchRequest
    * @returns CheckAppResourcePermissionsBatchResponse
@@ -1162,6 +1166,89 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createCustomOrgWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * CreateFreeExplorationWorkItem
+   * 
+   * @remarks
+   * 创建与页面一致的自由探索工作项及群话题，配置数字员工和可见范围；不发送消息，不自动执行；非幂等，超时先查询 queryWorkItemFeed
+   * 
+   * @param tmpReq - CreateFreeExplorationWorkItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFreeExplorationWorkItemResponse
+   */
+  async createFreeExplorationWorkItemWithOptions(tmpReq: $_model.CreateFreeExplorationWorkItemRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFreeExplorationWorkItemResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateFreeExplorationWorkItemShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.agentNames)) {
+      request.agentNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentNames, "agentNames", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.memberUserIds)) {
+      request.memberUserIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.memberUserIds, "memberUserIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentNamesShrink)) {
+      body["agentNames"] = request.agentNamesShrink;
+    }
+
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.memberUserIdsShrink)) {
+      body["memberUserIds"] = request.memberUserIdsShrink;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      body["title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.visibility)) {
+      body["visibility"] = request.visibility;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFreeExplorationWorkItem",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/createFreeExplorationWorkItem`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFreeExplorationWorkItemResponse>(await this.callApi(params, req, runtime), new $_model.CreateFreeExplorationWorkItemResponse({}));
+  }
+
+  /**
+   * CreateFreeExplorationWorkItem
+   * 
+   * @remarks
+   * 创建与页面一致的自由探索工作项及群话题，配置数字员工和可见范围；不发送消息，不自动执行；非幂等，超时先查询 queryWorkItemFeed
+   * 
+   * @param request - CreateFreeExplorationWorkItemRequest
+   * @returns CreateFreeExplorationWorkItemResponse
+   */
+  async createFreeExplorationWorkItem(request: $_model.CreateFreeExplorationWorkItemRequest): Promise<$_model.CreateFreeExplorationWorkItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createFreeExplorationWorkItemWithOptions(request, headers, runtime);
   }
 
   /**
@@ -4904,7 +4991,7 @@ export default class Client extends OpenApi {
    * Creates a draft of a workflow template.
    * 
    * @remarks
-   * Generates a draft version of a workflow template for editing by a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content is performed for content generation of a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently use UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
+   * Generates a draft version for editing a workflow template as a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content generation is performed to produce a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently call UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
    * 
    * @param request - CreateWorkflowTemplateDraftVersionRequest
    * @param headers - map
@@ -4954,7 +5041,7 @@ export default class Client extends OpenApi {
    * Creates a draft of a workflow template.
    * 
    * @remarks
-   * Generates a draft version of a workflow template for editing by a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content is performed for content generation of a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently use UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
+   * Generates a draft version for editing a workflow template as a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content generation is performed to produce a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently call UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
    * 
    * @param request - CreateWorkflowTemplateDraftVersionRequest
    * @returns CreateWorkflowTemplateDraftVersionResponse
@@ -4966,10 +5053,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple resource permissions within an application.
+   * Deletes resource permissions within applications in batches.
    * 
    * @remarks
-   * Verifies MANAGE permissions for each application and then calls the original atomic deletion capability.
+   * Invokes the original atomic deletion capability after passing MANAGE verification for each application.
    * 
    * @param tmpReq - DeleteAppResourcePermissionsRequest
    * @param headers - map
@@ -5018,10 +5105,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple resource permissions within an application.
+   * Deletes resource permissions within applications in batches.
    * 
    * @remarks
-   * Verifies MANAGE permissions for each application and then calls the original atomic deletion capability.
+   * Invokes the original atomic deletion capability after passing MANAGE verification for each application.
    * 
    * @param request - DeleteAppResourcePermissionsRequest
    * @returns DeleteAppResourcePermissionsResponse
@@ -5561,10 +5648,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports a simplified template definition that can be re-imported by valid members.
+   * Exports a simplified template definition that can be re-imported.
    * 
    * @remarks
-   * Exports a simplified template definition that can be re-imported by valid members.
+   * Exports a simplified template definition that can be re-imported.
    * 
    * @param request - ExportWorkflowTemplateRequest
    * @param headers - map
@@ -5611,10 +5698,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports a simplified template definition that can be re-imported by valid members.
+   * Exports a simplified template definition that can be re-imported.
    * 
    * @remarks
-   * Exports a simplified template definition that can be re-imported by valid members.
+   * Exports a simplified template definition that can be re-imported.
    * 
    * @param request - ExportWorkflowTemplateRequest
    * @returns ExportWorkflowTemplateResponse
@@ -5897,6 +5984,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getChatSessionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 预览和下载协作空间对话文件
+   * 
+   * @remarks
+   * 获取数字员工对话生成文件的正文、预览地址或短期下载地址，支持工作流节点中的USER_OUTPUT_ITEM文件引用。调用者需通过租户、空间成员和文件来源权限校验。无需将文件登记为工作项产物；本接口不接受artifactId。
+   * 
+   * @param request - GetCollaborationGroupOutputItemPreviewRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCollaborationGroupOutputItemPreviewResponse
+   */
+  async getCollaborationGroupOutputItemPreviewWithOptions(request: $_model.GetCollaborationGroupOutputItemPreviewRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCollaborationGroupOutputItemPreviewResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.itemId)) {
+      body["itemId"] = request.itemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCollaborationGroupOutputItemPreview",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getCollaborationGroupOutputItemPreview`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCollaborationGroupOutputItemPreviewResponse>(await this.callApi(params, req, runtime), new $_model.GetCollaborationGroupOutputItemPreviewResponse({}));
+  }
+
+  /**
+   * 预览和下载协作空间对话文件
+   * 
+   * @remarks
+   * 获取数字员工对话生成文件的正文、预览地址或短期下载地址，支持工作流节点中的USER_OUTPUT_ITEM文件引用。调用者需通过租户、空间成员和文件来源权限校验。无需将文件登记为工作项产物；本接口不接受artifactId。
+   * 
+   * @param request - GetCollaborationGroupOutputItemPreviewRequest
+   * @returns GetCollaborationGroupOutputItemPreviewResponse
+   */
+  async getCollaborationGroupOutputItemPreview(request: $_model.GetCollaborationGroupOutputItemPreviewRequest): Promise<$_model.GetCollaborationGroupOutputItemPreviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCollaborationGroupOutputItemPreviewWithOptions(request, headers, runtime);
   }
 
   /**
@@ -6542,17 +6690,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves execution records of scheduled tasks.
+   * Retrieves the execution records of scheduled tasks.
    * 
    * @remarks
-   * ## Operation description
-   * - This operation uploads files to an enterprise knowledge base.
-   * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this operation.
-   * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
-   * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
-   * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base folder. Otherwise, the file is bound to the default root folder of the current digital employee.
-   * - You can add tags to resources by using `sourceTags` for subsequent management and retrieval.
-   * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
+   * ## Request description
+   * - This API operation uploads files to the enterprise knowledge base.
+   * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this API operation.
+   * - When uploading a file, you must provide the OSS persistence address (`filePath`) of the file.
+   * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of the file information.
+   * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
+   * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
+   * - This operation generates a bill (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
    * 
    * @param request - GetScheduledTaskExecutionRecordsRequest
    * @param headers - map
@@ -6609,17 +6757,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves execution records of scheduled tasks.
+   * Retrieves the execution records of scheduled tasks.
    * 
    * @remarks
-   * ## Operation description
-   * - This operation uploads files to an enterprise knowledge base.
-   * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this operation.
-   * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
-   * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
-   * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base folder. Otherwise, the file is bound to the default root folder of the current digital employee.
-   * - You can add tags to resources by using `sourceTags` for subsequent management and retrieval.
-   * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
+   * ## Request description
+   * - This API operation uploads files to the enterprise knowledge base.
+   * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this API operation.
+   * - When uploading a file, you must provide the OSS persistence address (`filePath`) of the file.
+   * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of the file information.
+   * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
+   * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
+   * - This operation generates a bill (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
    * 
    * @param request - GetScheduledTaskExecutionRecordsRequest
    * @returns GetScheduledTaskExecutionRecordsResponse
@@ -7813,6 +7961,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询工作项审计记录
+   * 
+   * @param request - GetWorkItemAuditRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkItemAuditResponse
+   */
+  async getWorkItemAuditWithOptions(request: $_model.GetWorkItemAuditRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkItemAuditResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkItemAudit",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getWorkItemAudit`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkItemAuditResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkItemAuditResponse({}));
+  }
+
+  /**
+   * 查询工作项审计记录
+   * 
+   * @param request - GetWorkItemAuditRequest
+   * @returns GetWorkItemAuditResponse
+   */
+  async getWorkItemAudit(request: $_model.GetWorkItemAuditRequest): Promise<$_model.GetWorkItemAuditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkItemAuditWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询工作项运行总结
+   * 
+   * @param request - GetWorkItemRunSummariesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkItemRunSummariesResponse
+   */
+  async getWorkItemRunSummariesWithOptions(request: $_model.GetWorkItemRunSummariesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkItemRunSummariesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.nodeKey)) {
+      body["nodeKey"] = request.nodeKey;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkItemRunSummaries",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getWorkItemRunSummaries`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkItemRunSummariesResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkItemRunSummariesResponse({}));
+  }
+
+  /**
+   * 查询工作项运行总结
+   * 
+   * @param request - GetWorkItemRunSummariesRequest
+   * @returns GetWorkItemRunSummariesResponse
+   */
+  async getWorkItemRunSummaries(request: $_model.GetWorkItemRunSummariesRequest): Promise<$_model.GetWorkItemRunSummariesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkItemRunSummariesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries the current running, review, and pause statuses of a work item, along with the actual active nodes and execution progress, by using a stable logical instance ID.
    * 
    * @remarks
@@ -7867,6 +8129,65 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getWorkflowInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 读取工作流节点配置
+   * 
+   * @param request - GetWorkflowNodeConfigurationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkflowNodeConfigurationResponse
+   */
+  async getWorkflowNodeConfigurationWithOptions(request: $_model.GetWorkflowNodeConfigurationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkflowNodeConfigurationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      body["nodeId"] = request.nodeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkflowNodeConfiguration",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/getWorkflowNodeConfiguration`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkflowNodeConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkflowNodeConfigurationResponse({}));
+  }
+
+  /**
+   * 读取工作流节点配置
+   * 
+   * @param request - GetWorkflowNodeConfigurationRequest
+   * @returns GetWorkflowNodeConfigurationResponse
+   */
+  async getWorkflowNodeConfiguration(request: $_model.GetWorkflowNodeConfigurationRequest): Promise<$_model.GetWorkflowNodeConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWorkflowNodeConfigurationWithOptions(request, headers, runtime);
   }
 
   /**
@@ -8034,10 +8355,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
+   * Imports a portable template in JSON format and creates a new template regardless of the template name.
    * 
    * @remarks
-   * Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
+   * Imports a portable template in JSON format and creates a new template regardless of the template name.
    * 
    * @param tmpReq - ImportWorkflowTemplateRequest
    * @param headers - map
@@ -8086,10 +8407,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
+   * Imports a portable template in JSON format and creates a new template regardless of the template name.
    * 
    * @remarks
-   * Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
+   * Imports a portable template in JSON format and creates a new template regardless of the template name.
    * 
    * @param request - ImportWorkflowTemplateRequest
    * @returns ImportWorkflowTemplateResponse
@@ -8479,7 +8800,7 @@ export default class Client extends OpenApi {
    * Queries the resource authorization records within an application.
    * 
    * @remarks
-   * Pages results by secure application prefix after APP/MANAGE authorization.
+   * Pages the resource authorization records by secure application prefix after APP/MANAGE authorization.
    * 
    * @param tmpReq - ListAppResourcePermissionRecordsRequest
    * @param headers - map
@@ -8559,7 +8880,7 @@ export default class Client extends OpenApi {
    * Queries the resource authorization records within an application.
    * 
    * @remarks
-   * Pages results by secure application prefix after APP/MANAGE authorization.
+   * Pages the resource authorization records by secure application prefix after APP/MANAGE authorization.
    * 
    * @param request - ListAppResourcePermissionRecordsRequest
    * @returns ListAppResourcePermissionRecordsResponse
@@ -8571,10 +8892,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the valid resource permissions of a user within an application.
+   * Queries the effective resource permissions of a user within an application.
    * 
    * @remarks
-   * An application prefix is required. The VIEW permission is required to query your own permissions, and the MANAGE permission is required to query permissions on behalf of others.
+   * Enforces the application prefix. The VIEW permission is required for querying your own resources, and the MANAGE permission is required for querying resources on behalf of others.
    * 
    * @param tmpReq - ListAppResourceUserPermissionsRequest
    * @param headers - map
@@ -8647,10 +8968,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the valid resource permissions of a user within an application.
+   * Queries the effective resource permissions of a user within an application.
    * 
    * @remarks
-   * An application prefix is required. The VIEW permission is required to query your own permissions, and the MANAGE permission is required to query permissions on behalf of others.
+   * Enforces the application prefix. The VIEW permission is required for querying your own resources, and the MANAGE permission is required for querying resources on behalf of others.
    * 
    * @param request - ListAppResourceUserPermissionsRequest
    * @returns ListAppResourceUserPermissionsResponse
@@ -9050,6 +9371,140 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listChatSessionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询协作空间成员
+   * 
+   * @remarks
+   * 分页查询指定空间的有效成员，支持按成员显示名称搜索。调用者必须是当前租户内该空间的有效成员。isActive表示租户账号启用状态，不表示人事在职状态。
+   * 
+   * @param request - ListCollaborationGroupMembersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCollaborationGroupMembersResponse
+   */
+  async listCollaborationGroupMembersWithOptions(request: $_model.ListCollaborationGroupMembersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListCollaborationGroupMembersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      body["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCollaborationGroupMembers",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/listCollaborationGroupMembers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCollaborationGroupMembersResponse>(await this.callApi(params, req, runtime), new $_model.ListCollaborationGroupMembersResponse({}));
+  }
+
+  /**
+   * 查询协作空间成员
+   * 
+   * @remarks
+   * 分页查询指定空间的有效成员，支持按成员显示名称搜索。调用者必须是当前租户内该空间的有效成员。isActive表示租户账号启用状态，不表示人事在职状态。
+   * 
+   * @param request - ListCollaborationGroupMembersRequest
+   * @returns ListCollaborationGroupMembersResponse
+   */
+  async listCollaborationGroupMembers(request: $_model.ListCollaborationGroupMembersRequest): Promise<$_model.ListCollaborationGroupMembersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listCollaborationGroupMembersWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询当前用户可见的协作空间
+   * 
+   * @remarks
+   * 分页查询当前调用用户在当前租户中有效加入的协作空间，支持按空间名称搜索。仅返回ACTIVE空间；需要关联平台用户的调用身份，不支持无用户身份的部署凭证。
+   * 
+   * @param request - ListCollaborationGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCollaborationGroupsResponse
+   */
+  async listCollaborationGroupsWithOptions(request: $_model.ListCollaborationGroupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListCollaborationGroupsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      body["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      body["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCollaborationGroups",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/listCollaborationGroups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCollaborationGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListCollaborationGroupsResponse({}));
+  }
+
+  /**
+   * 查询当前用户可见的协作空间
+   * 
+   * @remarks
+   * 分页查询当前调用用户在当前租户中有效加入的协作空间，支持按空间名称搜索。仅返回ACTIVE空间；需要关联平台用户的调用身份，不支持无用户身份的部署凭证。
+   * 
+   * @param request - ListCollaborationGroupsRequest
+   * @returns ListCollaborationGroupsResponse
+   */
+  async listCollaborationGroups(request: $_model.ListCollaborationGroupsRequest): Promise<$_model.ListCollaborationGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listCollaborationGroupsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -9625,12 +10080,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the visible outputs of the current user or a specified collaboration workspace. Supports paging and filtering by session, labels, business ID, and existing output filter conditions.
+   * Performs a paged query of the visible outputs and the latest published file versions for the current user or a specified collaboration workspace. Supports filtering by session, label, and business ID. The paging and total count are calculated based on the primary output records.
    * 
    * @remarks
-   * If collaborationGroupId is not provided, queries the personal outputs of the current invoker. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The invoker identity and tenant permissions are determined by the authentication context.
-   * sessionId requires an exact match for a regular session, skill session, or node execution session. tags requires all labels to match simultaneously. bizId requires an exact match for the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using AND, and are executed before counting and paging.
-   * Labels and business IDs are derived from file registrations or workflow instance associations. Unregistered labels or business IDs are not inferred from titles. Paging defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
+   * If collaborationGroupId is not provided, queries the personal outputs of the current caller. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The caller identity and tenant permissions are determined by the authentication context.
+   * The sessionId parameter performs an exact match on a regular session, skill session, or node execution session. The tags parameter requires all specified labels to match simultaneously. The bizId parameter performs an exact match on the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using the AND operator, and are executed before counting and paging.
+   * Tags and business IDs are derived from file registrations or workflow instance associations. Unregistered tags or business IDs are not inferred from titles. Pagination defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
+   * For versioned files, the latest published version is returned by default without expanding historical versions. This API does not currently support querying specific versions. Pagination and the total count are still based on the primary output records, deduplicated by outputId, and are not counted by the number of files or historical versions.
+   * For versioned files, fileInfo.path is a time-sensitive download link attached to the published version and content revisions selected during the query. Downloads do not perform an automatic switchover to other versions published later. Invoke this API again to obtain a new link after the current one expires. Historical files that have not yet formed a published version may not return download information.
    * 
    * @param tmpReq - ListOutputFilesRequest
    * @param headers - map
@@ -9711,12 +10168,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the visible outputs of the current user or a specified collaboration workspace. Supports paging and filtering by session, labels, business ID, and existing output filter conditions.
+   * Performs a paged query of the visible outputs and the latest published file versions for the current user or a specified collaboration workspace. Supports filtering by session, label, and business ID. The paging and total count are calculated based on the primary output records.
    * 
    * @remarks
-   * If collaborationGroupId is not provided, queries the personal outputs of the current invoker. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The invoker identity and tenant permissions are determined by the authentication context.
-   * sessionId requires an exact match for a regular session, skill session, or node execution session. tags requires all labels to match simultaneously. bizId requires an exact match for the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using AND, and are executed before counting and paging.
-   * Labels and business IDs are derived from file registrations or workflow instance associations. Unregistered labels or business IDs are not inferred from titles. Paging defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
+   * If collaborationGroupId is not provided, queries the personal outputs of the current caller. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The caller identity and tenant permissions are determined by the authentication context.
+   * The sessionId parameter performs an exact match on a regular session, skill session, or node execution session. The tags parameter requires all specified labels to match simultaneously. The bizId parameter performs an exact match on the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using the AND operator, and are executed before counting and paging.
+   * Tags and business IDs are derived from file registrations or workflow instance associations. Unregistered tags or business IDs are not inferred from titles. Pagination defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
+   * For versioned files, the latest published version is returned by default without expanding historical versions. This API does not currently support querying specific versions. Pagination and the total count are still based on the primary output records, deduplicated by outputId, and are not counted by the number of files or historical versions.
+   * For versioned files, fileInfo.path is a time-sensitive download link attached to the published version and content revisions selected during the query. Downloads do not perform an automatic switchover to other versions published later. Invoke this API again to obtain a new link after the current one expires. Historical files that have not yet formed a published version may not return download information.
    * 
    * @param request - ListOutputFilesRequest
    * @returns ListOutputFilesResponse
@@ -11099,10 +11558,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+   * Queries valid templates in the current collaboration space with pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
    * 
    * @remarks
-   * Searches for valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+   * Queries valid templates in the current collaboration space with pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
    * 
    * @param request - ListWorkflowTemplatesRequest
    * @param headers - map
@@ -11161,10 +11620,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+   * Queries valid templates in the current collaboration space with pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
    * 
    * @remarks
-   * Searches for valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+   * Queries valid templates in the current collaboration space with pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
    * 
    * @param request - ListWorkflowTemplatesRequest
    * @returns ListWorkflowTemplatesResponse
@@ -11179,7 +11638,7 @@ export default class Client extends OpenApi {
    * Marks to-do items as read.
    * 
    * @remarks
-   * Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over the todoIds parameter. If both parameters are empty, no error is returned.
+   * Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over todoIds. No error is reported if both are empty.
    * 
    * @param tmpReq - MarkTodosReadRequest
    * @param headers - map
@@ -11231,7 +11690,7 @@ export default class Client extends OpenApi {
    * Marks to-do items as read.
    * 
    * @remarks
-   * Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over the todoIds parameter. If both parameters are empty, no error is returned.
+   * Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over todoIds. No error is reported if both are empty.
    * 
    * @param request - MarkTodosReadRequest
    * @returns MarkTodosReadResponse
@@ -12213,10 +12672,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers in-app resource permissions in bulk.
+   * Registers permissions for in-app resources in batches.
    * 
    * @remarks
-   * Checks the MANAGE permission for all applications first, and then performs an atomic batch registration.
+   * Checks the MANAGE permissions for all applications and then performs an atomic batch registration.
    * 
    * @param tmpReq - RegisterAppResourcePermissionsRequest
    * @param headers - map
@@ -12265,10 +12724,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers in-app resource permissions in bulk.
+   * Registers permissions for in-app resources in batches.
    * 
    * @remarks
-   * Checks the MANAGE permission for all applications first, and then performs an atomic batch registration.
+   * Checks the MANAGE permissions for all applications and then performs an atomic batch registration.
    * 
    * @param request - RegisterAppResourcePermissionsRequest
    * @returns RegisterAppResourcePermissionsResponse
@@ -13164,6 +13623,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * RerunWorkflowNode
+   * 
+   * @remarks
+   * 从工作项指定节点重跑；沿用业务权限和状态校验，命令接受不代表异步执行完成
+   * 
+   * @param request - RerunWorkflowNodeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RerunWorkflowNodeResponse
+   */
+  async rerunWorkflowNodeWithOptions(request: $_model.RerunWorkflowNodeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RerunWorkflowNodeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.nodeKey)) {
+      body["nodeKey"] = request.nodeKey;
+    }
+
+    if (!$dara.isNull(request.planId)) {
+      body["planId"] = request.planId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RerunWorkflowNode",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/rerunWorkflowNode`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RerunWorkflowNodeResponse>(await this.callApi(params, req, runtime), new $_model.RerunWorkflowNodeResponse({}));
+  }
+
+  /**
+   * RerunWorkflowNode
+   * 
+   * @remarks
+   * 从工作项指定节点重跑；沿用业务权限和状态校验，命令接受不代表异步执行完成
+   * 
+   * @param request - RerunWorkflowNodeRequest
+   * @returns RerunWorkflowNodeResponse
+   */
+  async rerunWorkflowNode(request: $_model.RerunWorkflowNodeRequest): Promise<$_model.RerunWorkflowNodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.rerunWorkflowNodeWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Resets the password of a user.
    * 
    * @remarks
@@ -13311,6 +13835,69 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.resetTokenWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 恢复工作流节点默认配置
+   * 
+   * @param request - ResetWorkflowNodeConfigurationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetWorkflowNodeConfigurationResponse
+   */
+  async resetWorkflowNodeConfigurationWithOptions(request: $_model.ResetWorkflowNodeConfigurationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResetWorkflowNodeConfigurationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.expectedVersion)) {
+      body["expectedVersion"] = request.expectedVersion;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      body["nodeId"] = request.nodeId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetWorkflowNodeConfiguration",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/resetWorkflowNodeConfiguration`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetWorkflowNodeConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.ResetWorkflowNodeConfigurationResponse({}));
+  }
+
+  /**
+   * 恢复工作流节点默认配置
+   * 
+   * @param request - ResetWorkflowNodeConfigurationRequest
+   * @returns ResetWorkflowNodeConfigurationResponse
+   */
+  async resetWorkflowNodeConfiguration(request: $_model.ResetWorkflowNodeConfigurationRequest): Promise<$_model.ResetWorkflowNodeConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resetWorkflowNodeConfigurationWithOptions(request, headers, runtime);
   }
 
   /**
@@ -14621,12 +15208,12 @@ export default class Client extends OpenApi {
    * Sends a message.
    * 
    * @remarks
-   * ## Operation description
-   * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
-   * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-   * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
-   * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
-   * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+   * ## Request description
+   * - This API is used to upload a file to My Resources of a specified digital employee.
+   * - The source_type is fixed to FILE, the scope is fixed to PERSONAL, and the platform is fixed to LOCAL.
+   * - The file must be provided with an OSS persistence address (filePath). Other information, such as the public access URL and original file name, is optional.
+   * - If the destination folder ID (directoryId) is not specified, the file is automatically attached to the default root folder of the current digital employee. If it is specified, ensure that the folder belongs to the personal folder of the invoker.
+   * - Multiple methods to authenticate (such as AK, BearerToken, and APP) are supported for security authentication.
    * - The operation type is write, and operation logs are recorded for subsequent auditing.
    * 
    * @param tmpReq - SendChatMessageRequest
@@ -14741,12 +15328,12 @@ export default class Client extends OpenApi {
    * Sends a message.
    * 
    * @remarks
-   * ## Operation description
-   * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
-   * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-   * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
-   * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
-   * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+   * ## Request description
+   * - This API is used to upload a file to My Resources of a specified digital employee.
+   * - The source_type is fixed to FILE, the scope is fixed to PERSONAL, and the platform is fixed to LOCAL.
+   * - The file must be provided with an OSS persistence address (filePath). Other information, such as the public access URL and original file name, is optional.
+   * - If the destination folder ID (directoryId) is not specified, the file is automatically attached to the default root folder of the current digital employee. If it is specified, ensure that the folder belongs to the personal folder of the invoker.
+   * - Multiple methods to authenticate (such as AK, BearerToken, and APP) are supported for security authentication.
    * - The operation type is write, and operation logs are recorded for subsequent auditing.
    * 
    * @param tmpReq - SendChatMessageRequest
@@ -14847,12 +15434,12 @@ export default class Client extends OpenApi {
    * Sends a message.
    * 
    * @remarks
-   * ## Operation description
-   * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
-   * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-   * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
-   * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
-   * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+   * ## Request description
+   * - This API is used to upload a file to My Resources of a specified digital employee.
+   * - The source_type is fixed to FILE, the scope is fixed to PERSONAL, and the platform is fixed to LOCAL.
+   * - The file must be provided with an OSS persistence address (filePath). Other information, such as the public access URL and original file name, is optional.
+   * - If the destination folder ID (directoryId) is not specified, the file is automatically attached to the default root folder of the current digital employee. If it is specified, ensure that the folder belongs to the personal folder of the invoker.
+   * - Multiple methods to authenticate (such as AK, BearerToken, and APP) are supported for security authentication.
    * - The operation type is write, and operation logs are recorded for subsequent auditing.
    * 
    * @param request - SendChatMessageRequest
@@ -14862,6 +15449,75 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.sendChatMessageWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 向自由探索工作项发送消息
+   * 
+   * @remarks
+   * 向当前租户、指定协作空间内的已有自由探索会话发送文本消息，立即返回消息提交回执，AI回复在后台异步生成。调用者需关联平台用户并具有话题发送权限。workItemId与conversationId至少传一个，同时传入时必须指向同一会话。不创建新会话，不支持工作流节点话题或Master话题。
+   * 
+   * @param request - SendWorkItemMessageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendWorkItemMessageResponse
+   */
+  async sendWorkItemMessageWithOptions(request: $_model.SendWorkItemMessageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SendWorkItemMessageResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      body["conversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.workItemId)) {
+      body["workItemId"] = request.workItemId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendWorkItemMessage",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/sendWorkItemMessage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SendWorkItemMessageResponse>(await this.callApi(params, req, runtime), new $_model.SendWorkItemMessageResponse({}));
+  }
+
+  /**
+   * 向自由探索工作项发送消息
+   * 
+   * @remarks
+   * 向当前租户、指定协作空间内的已有自由探索会话发送文本消息，立即返回消息提交回执，AI回复在后台异步生成。调用者需关联平台用户并具有话题发送权限。workItemId与conversationId至少传一个，同时传入时必须指向同一会话。不创建新会话，不支持工作流节点话题或Master话题。
+   * 
+   * @param request - SendWorkItemMessageRequest
+   * @returns SendWorkItemMessageResponse
+   */
+  async sendWorkItemMessage(request: $_model.SendWorkItemMessageRequest): Promise<$_model.SendWorkItemMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.sendWorkItemMessageWithOptions(request, headers, runtime);
   }
 
   /**
@@ -14930,10 +15586,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the effective version of a workflow.
+   * Sets the Settings of the effective version of a workflow template for the storage management administrator. Only versions with a commit are allowed, and each template can have only one effective version. Before the version takes effect, it is revalidated against the current workspace members, digital employees, and capabilities. Existing work items use their own execute snapshots and remain unaffected.
    * 
    * @remarks
-   * The workspace administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before taking effect, the version is re-verified based on the current workspace members, digital workers, capabilities, and storage management. Existing work items use their own execute snapshots and are not affected.
+   * The storage management administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before the version takes effect, it is revalidated against the current workspace members, digital employees, and capabilities. Existing work items use their own execute snapshots and remain unaffected.
    * 
    * @param request - SetWorkflowTemplateEffectiveVersionRequest
    * @param headers - map
@@ -14980,10 +15636,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the effective version of a workflow.
+   * Sets the Settings of the effective version of a workflow template for the storage management administrator. Only versions with a commit are allowed, and each template can have only one effective version. Before the version takes effect, it is revalidated against the current workspace members, digital employees, and capabilities. Existing work items use their own execute snapshots and remain unaffected.
    * 
    * @remarks
-   * The workspace administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before taking effect, the version is re-verified based on the current workspace members, digital workers, capabilities, and storage management. Existing work items use their own execute snapshots and are not affected.
+   * The storage management administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before the version takes effect, it is revalidated against the current workspace members, digital employees, and capabilities. Existing work items use their own execute snapshots and remain unaffected.
    * 
    * @param request - SetWorkflowTemplateEffectiveVersionRequest
    * @returns SetWorkflowTemplateEffectiveVersionResponse
@@ -15153,10 +15809,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits answers for a to-do item.
+   * Submits the answers for a to-do task.
    * 
    * @remarks
-   * Submits the answers for a to-do item. Repeated submissions by the same user are idempotent and return the initial result. If another user completes the item first, a 409 AlreadyCompleted error is returned.
+   * Submits the answers for a to-do task. If the same user submits the answers repeatedly, the operation is idempotent and returns the first result. If another user completes the task first, a 409 AlreadyCompleted error is returned.
    * 
    * @param tmpReq - SubmitTodoRequest
    * @param headers - map
@@ -15205,10 +15861,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits answers for a to-do item.
+   * Submits the answers for a to-do task.
    * 
    * @remarks
-   * Submits the answers for a to-do item. Repeated submissions by the same user are idempotent and return the initial result. If another user completes the item first, a 409 AlreadyCompleted error is returned.
+   * Submits the answers for a to-do task. If the same user submits the answers repeatedly, the operation is idempotent and returns the first result. If another user completes the task first, a 409 AlreadyCompleted error is returned.
    * 
    * @param request - SubmitTodoRequest
    * @returns SubmitTodoResponse
@@ -15658,10 +16314,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reassigns a to-do task.
+   * Transfers a to-do item.
    * 
    * @remarks
-   * Reassigns a to-do task to specified users. The operator is excluded from the target list, and atomic validation is performed for the entire task.
+   * Transfers a to-do item to specified users, excludes the operator from the targets, and performs atomic validation for the entire task.
    * 
    * @param tmpReq - TransferTodoRequest
    * @param headers - map
@@ -15714,10 +16370,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reassigns a to-do task.
+   * Transfers a to-do item.
    * 
    * @remarks
-   * Reassigns a to-do task to specified users. The operator is excluded from the target list, and atomic validation is performed for the entire task.
+   * Transfers a to-do item to specified users, excludes the operator from the targets, and performs atomic validation for the entire task.
    * 
    * @param request - TransferTodoRequest
    * @returns TransferTodoResponse
@@ -17118,10 +17774,95 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Overwrites and updates a workflow template. The last save takes effect.
+   * 编辑工作流节点配置
+   * 
+   * @param tmpReq - UpdateWorkflowNodeConfigurationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkflowNodeConfigurationResponse
+   */
+  async updateWorkflowNodeConfigurationWithOptions(tmpReq: $_model.UpdateWorkflowNodeConfigurationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkflowNodeConfigurationResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateWorkflowNodeConfigurationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.executor)) {
+      request.executorShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.executor, "executor", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.responsibleUserIds)) {
+      request.responsibleUserIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.responsibleUserIds, "responsibleUserIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.collaborationGroupId)) {
+      body["collaborationGroupId"] = request.collaborationGroupId;
+    }
+
+    if (!$dara.isNull(request.executorShrink)) {
+      body["executor"] = request.executorShrink;
+    }
+
+    if (!$dara.isNull(request.expectedVersion)) {
+      body["expectedVersion"] = request.expectedVersion;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      body["nodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.responsibleUserIdsShrink)) {
+      body["responsibleUserIds"] = request.responsibleUserIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkflowNodeConfiguration",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/updateWorkflowNodeConfiguration`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWorkflowNodeConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWorkflowNodeConfigurationResponse({}));
+  }
+
+  /**
+   * 编辑工作流节点配置
+   * 
+   * @param request - UpdateWorkflowNodeConfigurationRequest
+   * @returns UpdateWorkflowNodeConfigurationResponse
+   */
+  async updateWorkflowNodeConfiguration(request: $_model.UpdateWorkflowNodeConfigurationRequest): Promise<$_model.UpdateWorkflowNodeConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWorkflowNodeConfigurationWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Updates a workflow template by overwriting it with valid members. The last save takes effect.
    * 
    * @remarks
-   * Overwrites and updates a workflow template. The last save takes effect.
+   * Updates a workflow template by overwriting it with valid members. The last save takes effect.
    * 
    * @param tmpReq - UpdateWorkflowTemplateRequest
    * @param headers - map
@@ -17190,10 +17931,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Overwrites and updates a workflow template. The last save takes effect.
+   * Updates a workflow template by overwriting it with valid members. The last save takes effect.
    * 
    * @remarks
-   * Overwrites and updates a workflow template. The last save takes effect.
+   * Updates a workflow template by overwriting it with valid members. The last save takes effect.
    * 
    * @param request - UpdateWorkflowTemplateRequest
    * @returns UpdateWorkflowTemplateResponse

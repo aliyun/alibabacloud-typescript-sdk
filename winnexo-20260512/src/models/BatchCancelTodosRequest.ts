@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCancelTodosRequest extends $dara.Model {
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+   * The list of to-do item IDs. You can specify 1 to 100 IDs.
    * 
    * @example
    * 10000
@@ -13,7 +13,7 @@ export class BatchCancelTodosRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The list of to-do IDs. You can specify 1 to 100 IDs.
+   * The list of to-do item IDs. You can specify 1 to 100 IDs.
    * 
    * This parameter is required.
    * 

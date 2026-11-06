@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckAppResourcePermissionsBatchResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the user has the permission.
+   * Indicates whether the user has the required permissions.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class CheckAppResourcePermissionsBatchResponseBodyResults extends $dara.M
   permission?: string;
   /**
    * @remarks
-   * The dot-separated resource key whose first segment is the APP application key.
+   * The dot-separated resource key whose first segment is the application key.
    * 
    * @example
    * app.demo.resource_1
@@ -73,7 +73,7 @@ export class CheckAppResourcePermissionsBatchResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message. This field is empty if the request is successful.
+   * The error description. This field is empty if the request is successful.
    * 
    * @example
    * The requested resource does not exist
@@ -89,7 +89,7 @@ export class CheckAppResourcePermissionsBatchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The results, returned in the same order as the requested items.
+   * The results in the same order as the request.
    */
   results?: CheckAppResourcePermissionsBatchResponseBodyResults[];
   static names(): { [key: string]: string } {

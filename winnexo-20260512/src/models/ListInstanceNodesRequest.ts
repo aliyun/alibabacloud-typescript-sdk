@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstanceNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The collaboration workspace ID.
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 

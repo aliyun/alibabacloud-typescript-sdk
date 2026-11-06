@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppResourcePermissionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value 200 indicates success.
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DeleteAppResourcePermissionsResponseBody extends $dara.Model {
   deletedCount?: number;
   /**
    * @remarks
-   * The error message. This field is empty if the request is successful.
+   * The error message. Empty if the request is successful.
    * 
    * @example
    * The requested resource does not exist

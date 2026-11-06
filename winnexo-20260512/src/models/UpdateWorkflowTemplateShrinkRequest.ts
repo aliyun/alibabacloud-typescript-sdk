@@ -6,8 +6,8 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The write action. Valid values:
-   * - SAVE: Saves the template as a draft without taking effect.
-   * - SUBMIT: Saves and submits the template, setting it as the only effective version.
+   * - SAVE: Saves the template as a draft. The changes do not take effect. Node names and assignees can be left empty.
+   * - SUBMIT: Requires complete nodes. Saves and submits the template as the only effective version.
    * Default value: SUBMIT.
    * 
    * @example
@@ -21,22 +21,22 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * group_example
+   * cg_9401
    */
   collaborationGroupId?: string;
   /**
    * @remarks
-   * The complete JSON definition of the template to overwrite the existing one.
+   * The complete JSON definition of the template. This overwrites the existing definition.
    * 
    * This parameter is required.
    * 
    * @example
-   * example
+   * {"name":"Customer Complaint Handling Process","schemaVersion":2,"steps":[{"stepId":"collect","sortOrder":1,"name":"Collect Customer Information"}]}
    */
   definitionShrink?: string;
   /**
    * @remarks
-   * The submitted version number on which the new version is based. This parameter is mutually exclusive with the version parameter. If not specified, the current effective version is used as the fallback.
+   * The submitted version number on which the new version is based. This parameter is mutually exclusive with version. If you do not specify this parameter, the current effective version is used.
    * 
    * @example
    * v1
@@ -49,7 +49,7 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * tpl_example
+   * tpl_9401
    */
   templateId?: string;
   /**
@@ -62,7 +62,7 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The draft template version number to write. The format is a lowercase v followed by a positive integer, such as v1. Submitted versions cannot be written. If not specified, a new version is generated.
+   * The version number to which the content belongs.
    * 
    * @example
    * v2
@@ -70,10 +70,10 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The version description. The maximum length is 500 characters. When writing a draft, if this parameter is not specified or is null, the original value is retained. An empty string clears the value.
+   * The change description for this version. An empty value indicates that no description is provided.
    * 
    * @example
-   * Add a review step
+   * Added a review step
    */
   versionDescription?: string;
   static names(): { [key: string]: string } {

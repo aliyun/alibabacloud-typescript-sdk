@@ -10,7 +10,7 @@ export class CreateWorkflowTemplateDraftVersionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * group_example
+   * cg_9401
    */
   collaborationGroupId?: string;
   /**
@@ -20,7 +20,7 @@ export class CreateWorkflowTemplateDraftVersionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * tpl_example
+   * tpl_9401
    */
   templateId?: string;
   /**
@@ -33,7 +33,7 @@ export class CreateWorkflowTemplateDraftVersionRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The version number of the template on which the edit is based. The format is a lowercase v followed by a positive integer, such as v1. A draft version is returned as-is.
+   * The version number to which the returned content belongs.
    * 
    * This parameter is required.
    * 

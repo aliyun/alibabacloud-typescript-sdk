@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppResourceUserPermissionsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The stored and valid permission points.
+   * The permission filter.
    */
   permissions?: string[];
   /**
@@ -18,7 +18,7 @@ export class ListAppResourceUserPermissionsResponseBodyItems extends $dara.Model
   resourceKey?: string;
   /**
    * @remarks
-   * The resource type.
+   * The application key or its subpath.
    * 
    * @example
    * APP_RESOURCE
@@ -68,7 +68,7 @@ export class ListAppResourceUserPermissionsResponseBody extends $dara.Model {
   items?: ListAppResourceUserPermissionsResponseBodyItems[];
   /**
    * @remarks
-   * The error description. This parameter is empty if the request is successful.
+   * The error description. This field is empty when the request is successful.
    * 
    * @example
    * The requested resource does not exist
@@ -76,7 +76,7 @@ export class ListAppResourceUserPermissionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number.
+   * The number of entries per page.
    * 
    * @example
    * 1
@@ -84,7 +84,7 @@ export class ListAppResourceUserPermissionsResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The permission filter.
    * 
    * @example
    * 20
@@ -92,7 +92,7 @@ export class ListAppResourceUserPermissionsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

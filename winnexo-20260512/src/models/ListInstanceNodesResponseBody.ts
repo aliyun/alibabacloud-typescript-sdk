@@ -21,7 +21,7 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The time when the node was first run. This field is empty for historical or unrun nodes.
+   * The time when the node was first run. This field is empty for historical nodes or nodes that have not run.
    * 
    * @example
    * 2026-10-14T08:00:00Z
@@ -40,12 +40,12 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
    * The display name of the node assignee. This field is empty if the assignee is unknown.
    * 
    * @example
-   * Assistant Customer Success Manager (CSM)
+   * Customer Success Manager (CSM) Assistant
    */
   handler?: string;
   /**
    * @remarks
-   * The lane position of the node in the workflow graph.
+   * The lane of the node in the workflow graph.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   lane?: number;
   /**
    * @remarks
-   * The key of the node (nodeKey). This is not the session ID.
+   * The visible nodes arranged in topological order. The number of nodes is determined by the actual dynamic graph.
    * 
    * @example
    * query.amount
@@ -93,7 +93,7 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   rank?: number;
   /**
    * @remarks
-   * The original running status of the node, such as READY, RUNNING, WAITING, SUCCEEDED, or FAILED.
+   * The original node running status, such as READY, RUNNING, WAITING, SUCCEEDED, or FAILED.
    * 
    * @example
    * RUNNING
@@ -101,7 +101,7 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason for waiting, such as HUMAN_INPUT, HUMAN_STEP, REVIEW, MANUAL_PAUSE, or UNBLOCK. This field is empty if the node is not waiting.
+   * The wait reason: HUMAN_INPUT, HUMAN_STEP, REVIEW, MANUAL_PAUSE, or UNBLOCK. This field is empty when the node is not waiting.
    * 
    * @example
    * REVIEW
@@ -155,7 +155,7 @@ export class ListInstanceNodesResponseBodyNodes extends $dara.Model {
 export class ListInstanceNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of 200 indicates success.
+   * The business status code. The value 200 indicates success.
    * 
    * @example
    * 200
@@ -163,7 +163,7 @@ export class ListInstanceNodesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The physical instance ID.
+   * The physical workflow instance ID (planId).
    * 
    * @example
    * plan_example
@@ -171,7 +171,7 @@ export class ListInstanceNodesResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The error description.
+   * The error message.
    * 
    * @example
    * The requested resource does not exist
@@ -187,7 +187,7 @@ export class ListInstanceNodesResponseBody extends $dara.Model {
   nodes?: ListInstanceNodesResponseBodyNodes[];
   /**
    * @remarks
-   * The request tracking ID.
+   * The request trace ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

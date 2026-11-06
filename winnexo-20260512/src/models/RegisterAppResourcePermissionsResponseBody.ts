@@ -13,7 +13,7 @@ export class RegisterAppResourcePermissionsResponseBodyRecords extends $dara.Mod
   createdAt?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time with a time zone. If omitted, the permissions never expire.
    * 
    * @example
    * 2026-12-31T23:59:59+08:00
@@ -29,7 +29,7 @@ export class RegisterAppResourcePermissionsResponseBodyRecords extends $dara.Mod
   grantedBy?: string;
   /**
    * @remarks
-   * The principal ID.
+   * The principal ID. Omit this parameter for ALL_USERS.
    * 
    * @example
    * 10086
@@ -77,7 +77,7 @@ export class RegisterAppResourcePermissionsResponseBodyRecords extends $dara.Mod
   permissionId?: number;
   /**
    * @remarks
-   * The resource key.
+   * The dot-separated resource key with the first segment as the APP application key.
    * 
    * @example
    * app.demo.resource_1
@@ -85,7 +85,7 @@ export class RegisterAppResourcePermissionsResponseBodyRecords extends $dara.Mod
   resourceKey?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Fixed to APP_RESOURCE.
    * 
    * @example
    * APP_RESOURCE
@@ -153,7 +153,7 @@ export class RegisterAppResourcePermissionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message. This parameter is empty if the request is successful.
+   * The error description. Empty if the request is successful.
    * 
    * @example
    * The requested resource does not exist
@@ -161,12 +161,12 @@ export class RegisterAppResourcePermissionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The newly created or idempotently matched permission records.
+   * The created or idempotently matched permission records.
    */
   records?: RegisterAppResourcePermissionsResponseBodyRecords[];
   /**
    * @remarks
-   * The request tracking ID.
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

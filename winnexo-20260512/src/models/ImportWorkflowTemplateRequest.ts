@@ -5,27 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class ImportWorkflowTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The collaboration workspace ID.
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
    * @example
-   * group_example
+   * cg_9401
    */
   collaborationGroupId?: string;
   /**
    * @remarks
-   * The portable template JSON. The stepId and sortOrder fields can be omitted.
+   * The portable template in JSON format. The stepId and sortOrder fields can be omitted.
    * 
    * This parameter is required.
    * 
    * @example
-   * example
+   * {"name":"Customer Complaint Handling Process","schemaVersion":2}
    */
   template?: { [key: string]: any };
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If omitted, the default tenant of the caller is used.
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitTodoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of 200 indicates success.
+   * The array of answer values.
    * 
    * @example
    * 200
@@ -13,15 +13,15 @@ export class SubmitTodoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The completion time in ISO 8601 UTC format. Note that this format differs from other time fields formatted in UTC+8.
+   * The completion time in ISO 8601 UTC format. This format differs from other fields formatted in UTC+8.
    * 
    * @example
-   * 2026-10-12T02:00:00+00:00
+   * 2026-10-12T02:00:00Z
    */
   completedAt?: string;
   /**
    * @remarks
-   * The user ID of the user who completed the item.
+   * The user ID of the user who completed the task.
    * 
    * @example
    * 42
@@ -45,7 +45,7 @@ export class SubmitTodoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status after submission. This value is always COMPLETED.
+   * The status after submission. The value is always COMPLETED.
    * 
    * @example
    * COMPLETED
@@ -53,7 +53,7 @@ export class SubmitTodoResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the to-do item.
+   * The answer array. The original text of the question must align with the to-do question.
    * 
    * @example
    * todo_abc123

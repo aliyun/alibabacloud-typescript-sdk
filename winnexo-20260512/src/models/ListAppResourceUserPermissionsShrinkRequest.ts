@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppResourceUserPermissionsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The number of entries per page.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListAppResourceUserPermissionsShrinkRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The permission filter.
    * 
    * @example
    * 20
@@ -21,12 +21,12 @@ export class ListAppResourceUserPermissionsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The permission points to filter.
+   * The permission filter.
    */
   permissionsShrink?: string;
   /**
    * @remarks
-   * The application key or its subpath.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class ListAppResourceUserPermissionsShrinkRequest extends $dara.Model {
   resourceKeyPrefix?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the resource belongs. If you do not specify this parameter, the current tenant of the caller is used.
+   * The ID of the target platform user.
    * 
    * @example
    * 10000
@@ -44,7 +44,7 @@ export class ListAppResourceUserPermissionsShrinkRequest extends $dara.Model {
   resourceTenantId?: string;
   /**
    * @remarks
-   * The resource type. Set the value to APP_RESOURCE.
+   * The application key or its subpath.
    * 
    * This parameter is required.
    * 
@@ -54,7 +54,7 @@ export class ListAppResourceUserPermissionsShrinkRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The ID of the target platform user.
+   * The tenant to which the target user belongs. This parameter is required for cross-tenant targets.
    * 
    * @example
    * 10086
@@ -62,7 +62,7 @@ export class ListAppResourceUserPermissionsShrinkRequest extends $dara.Model {
   targetUserId?: number;
   /**
    * @remarks
-   * The tenant to which the target user belongs. This parameter is required for cross-tenant targets.
+   * The fixed value APP_RESOURCE.
    * 
    * @example
    * 10000
@@ -70,7 +70,7 @@ export class ListAppResourceUserPermissionsShrinkRequest extends $dara.Model {
   targetUserTenantId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If you do not specify this parameter, the default tenant of the caller is used.
+   * The ID of the tenant to which the resource belongs. If omitted, the current tenant of the caller is used.
    * 
    * @example
    * 10000

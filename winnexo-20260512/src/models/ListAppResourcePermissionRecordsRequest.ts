@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppResourcePermissionRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The grantee ID filter.
+   * The tenant filter for cross-tenant users.
    * 
    * @example
    * 10086
@@ -13,7 +13,7 @@ export class ListAppResourcePermissionRecordsRequest extends $dara.Model {
   granteeId?: string;
   /**
    * @remarks
-   * The tenant ID filter for cross-tenant users.
+   * The permission filter.
    * 
    * @example
    * 10000
@@ -21,7 +21,7 @@ export class ListAppResourcePermissionRecordsRequest extends $dara.Model {
   granteeTenantId?: string;
   /**
    * @remarks
-   * The grantee type filter.
+   * The principal ID filter.
    * 
    * @example
    * USER
@@ -29,7 +29,7 @@ export class ListAppResourcePermissionRecordsRequest extends $dara.Model {
   granteeType?: string;
   /**
    * @remarks
-   * The page number.
+   * The number of items per page.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListAppResourcePermissionRecordsRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The principal type filter.
    * 
    * @example
    * 20
@@ -50,7 +50,7 @@ export class ListAppResourcePermissionRecordsRequest extends $dara.Model {
   permissions?: string[];
   /**
    * @remarks
-   * The application key or its subpath.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -60,7 +60,7 @@ export class ListAppResourcePermissionRecordsRequest extends $dara.Model {
   resourceKeyPrefix?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
+   * The resource tenant ID. This parameter is fixed to APP_RESOURCE.
    * 
    * @example
    * 10000
@@ -68,7 +68,7 @@ export class ListAppResourcePermissionRecordsRequest extends $dara.Model {
   resourceTenantId?: string;
   /**
    * @remarks
-   * The resource type. Set this parameter to APP_RESOURCE.
+   * The application key or its subpath.
    * 
    * This parameter is required.
    * 
@@ -78,7 +78,7 @@ export class ListAppResourcePermissionRecordsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+   * The ID of the tenant to which the resource belongs. If omitted, the current tenant of the caller is used.
    * 
    * @example
    * 10000

@@ -13,15 +13,15 @@ export class SetWorkflowTemplateEffectiveVersionResponseBodySteps extends $dara.
   modelMode?: string;
   /**
    * @remarks
-   * The name of the step.
+   * The step name. This field can be empty for drafts but is required upon submission.
    * 
    * @example
-   * example
+   * Collect customer information
    */
   name?: string;
   /**
    * @remarks
-   * The name of the digital worker executor. This parameter is required when ownerType is set to AGENT.
+   * The name of the agent owner.
    * 
    * @example
    * example
@@ -29,9 +29,9 @@ export class SetWorkflowTemplateEffectiveVersionResponseBodySteps extends $dara.
   ownerAgentName?: string;
   /**
    * @remarks
-   * The type of the executor. Valid values:
-   * - MEMBER: Workspace member.
-   * - AGENT: Digital worker.
+   * The owner type. Valid values:
+   * - MEMBER: Human.
+   * - AGENT: Agent.
    * 
    * @example
    * MEMBER
@@ -39,7 +39,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBodySteps extends $dara.
   ownerType?: string;
   /**
    * @remarks
-   * The user ID of the member executor. This parameter is required when ownerType is set to MEMBER.
+   * The user ID of the human owner.
    * 
    * @example
    * 1
@@ -47,7 +47,15 @@ export class SetWorkflowTemplateEffectiveVersionResponseBodySteps extends $dara.
   ownerUserId?: number;
   /**
    * @remarks
-   * The list of user IDs of the owners (formerly reviewers). This parameter is valid only for steps with a digital worker executor and is always empty for steps with a member executor.
+   * 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
+   * 
+   * @example
+   * false
+   */
+  reviewOutput?: boolean;
+  /**
+   * @remarks
+   * The list of user IDs of the reviewers.
    * 
    * @example
    * example
@@ -55,7 +63,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBodySteps extends $dara.
   reviewerUserIds?: number[];
   /**
    * @remarks
-   * The order of the step.
+   * The step order.
    * 
    * @example
    * 1
@@ -63,23 +71,23 @@ export class SetWorkflowTemplateEffectiveVersionResponseBodySteps extends $dara.
   sortOrder?: number;
   /**
    * @remarks
-   * The array of ordered step description segments. Supported types include text, mention, skill, app, files, and web_search. When plain text is entered, a single text segment is returned. The fields and nested attachments of each segment are retained as-is by the backend.
+   * The display text derived from ordered segments. Fixed titles are not added, and the text is not stored independently.
    * 
    * @example
-   * [{"type":"text","content":"Organize input materials"}]
+   * Collect customer information and submit it to the person in charge for review
    */
   specification?: string;
   /**
    * @remarks
-   * The array of structured step description segments. Supported types include text, mention, skill, app, files, and web_search. The fields and nested attachments of each segment are retained as-is by the backend.
+   * The array of ordered segments. Supports text, mention, skill, app, files, and web_search. Retains reference identities and order.
    * 
    * @example
-   * [{"type":"text","content":"Organize input materials"}]
+   * [{"type":"text","text":"收集客户信息"}]
    */
   specificationJson?: { [key: string]: any }[];
   /**
    * @remarks
-   * The ID of the step.
+   * The step ID.
    * 
    * @example
    * collect
@@ -92,6 +100,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBodySteps extends $dara.
       ownerAgentName: 'ownerAgentName',
       ownerType: 'ownerType',
       ownerUserId: 'ownerUserId',
+      reviewOutput: 'reviewOutput',
       reviewerUserIds: 'reviewerUserIds',
       sortOrder: 'sortOrder',
       specification: 'specification',
@@ -107,6 +116,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBodySteps extends $dara.
       ownerAgentName: 'string',
       ownerType: 'string',
       ownerUserId: 'number',
+      reviewOutput: 'boolean',
       reviewerUserIds: { 'type': 'array', 'itemType': 'number' },
       sortOrder: 'number',
       specification: 'string',
@@ -144,20 +154,28 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
    * The user ID of the creator.
    * 
    * @example
-   * 1
+   * 10001
    */
   createdByUserId?: number;
   /**
    * @remarks
-   * The description of the template.
+   * The template description.
    * 
    * @example
-   * example
+   * Standard process for handling customer complaints
    */
   description?: string;
   /**
    * @remarks
-   * The current effective version number of the template. An empty value indicates that only a draft exists and the template cannot be used for work items.
+   * 节点依赖边；每项包含from/to，引用稳定stepId
+   * 
+   * @example
+   * []
+   */
+  edges?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The current effective version number of the template. An empty value indicates that only a draft exists and it cannot be used for work items.
    * 
    * @example
    * v1
@@ -168,7 +186,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
    * The creation time in ISO 8601 format.
    * 
    * @example
-   * example
+   * 2026-11-05T08:00:00Z
    */
   gmtCreate?: string;
   /**
@@ -176,9 +194,17 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
    * The modification time in ISO 8601 format.
    * 
    * @example
-   * example
+   * 2026-11-05T08:00:00Z
    */
   gmtModified?: string;
+  /**
+   * @remarks
+   * 可选画布布局，按stepId索引；只影响展示，不决定依赖
+   * 
+   * @example
+   * {"collect":{"x":0,"y":0},"review":{"x":240,"y":0}}
+   */
+  layout?: { [key: string]: any };
   /**
    * @remarks
    * The error description.
@@ -189,10 +215,10 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
   message?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The step name. This field can be empty for drafts but is required upon submission.
    * 
    * @example
-   * example
+   * Customer complaint handling process
    */
   name?: string;
   /**
@@ -205,23 +231,31 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
+   * 模板结构版本，当前为2，与业务版本vN独立
+   * 
+   * @example
+   * 2
+   */
+  schemaVersion?: number;
+  /**
+   * @remarks
    * The ordered steps.
    * 
    * @example
-   * example
+   * [{"stepId":"collect","sortOrder":1,"name":"收集客户信息"}]
    */
   steps?: SetWorkflowTemplateEffectiveVersionResponseBodySteps[];
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
    * @example
-   * tpl_example
+   * tpl_9401
    */
   templateId?: string;
   /**
    * @remarks
-   * The version number to which the returned content belongs.
+   * The version number of the returned content.
    * 
    * @example
    * v1
@@ -229,7 +263,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
   version?: string;
   /**
    * @remarks
-   * The change description of the version. An empty value indicates that no description is provided.
+   * The change description for this version. An empty value indicates that no description is provided.
    * 
    * @example
    * Added a review step
@@ -250,12 +284,15 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
       code: 'code',
       createdByUserId: 'createdByUserId',
       description: 'description',
+      edges: 'edges',
       effectiveVersion: 'effectiveVersion',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
+      layout: 'layout',
       message: 'message',
       name: 'name',
       requestId: 'requestId',
+      schemaVersion: 'schemaVersion',
       steps: 'steps',
       templateId: 'templateId',
       version: 'version',
@@ -269,12 +306,15 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
       code: 'string',
       createdByUserId: 'number',
       description: 'string',
+      edges: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       effectiveVersion: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      layout: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
       name: 'string',
       requestId: 'string',
+      schemaVersion: 'number',
       steps: { 'type': 'array', 'itemType': SetWorkflowTemplateEffectiveVersionResponseBodySteps },
       templateId: 'string',
       version: 'string',
@@ -284,6 +324,12 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
   }
 
   validate() {
+    if(Array.isArray(this.edges)) {
+      $dara.Model.validateArray(this.edges);
+    }
+    if(this.layout) {
+      $dara.Model.validateMap(this.layout);
+    }
     if(Array.isArray(this.steps)) {
       $dara.Model.validateArray(this.steps);
     }

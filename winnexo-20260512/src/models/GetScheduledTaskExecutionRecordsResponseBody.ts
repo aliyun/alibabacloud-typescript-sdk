@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $dara.Model {
   /**
    * @remarks
-   * The actual hours spent, in hours.
+   * The actual working hours in hours.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -37,7 +37,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
   executionId?: string;
   /**
    * @remarks
-   * Indicates whether the execution record has been archived due to expiration.
+   * The time zone.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
   isExpired?: boolean;
   /**
    * @remarks
-   * The execution output content (historical records only).
+   * The execution output content (history records only).
    * 
    * @example
    * string_value
@@ -105,7 +105,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
 export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The ID of the collaboration group to which the task belongs. An empty value indicates a personal task.
+   * The pre-filter for a single task. If you do not specify this parameter, the execution records of all visible tasks are returned.
    * 
    * @example
    * exampleCollaborationGroupId
@@ -137,10 +137,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Mod
   isOpen?: boolean;
   /**
    * @remarks
-   * The execution model tier. Valid values:
-   * - flagship: Flagship.
-   * - standard: Standard.
-   * - quick: Lightweight.
+   * The execution model tier. Valid values: flagship (flagship), standard (standard), and quick (lightweight).
    * 
    * @example
    * standard
@@ -151,7 +148,7 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Mod
    * The name.
    * 
    * @example
-   * SampleName.pdf
+   * Sample name.pdf
    */
   name?: string;
   /**
@@ -180,8 +177,8 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasks extends $dara.Mod
   /**
    * @remarks
    * The trigger type. Valid values:
-   * - Manual: Manual execution.
-   * - Cron: Timed scheduling.
+   * - Manual: manual execution.
+   * - Cron: scheduled trigger.
    * 
    * @example
    * string_value
@@ -240,7 +237,7 @@ export class GetScheduledTaskExecutionRecordsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether more data is available.
+   * Indicates whether more data exists.
    * 
    * @example
    * true
@@ -256,7 +253,7 @@ export class GetScheduledTaskExecutionRecordsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The current page number.
+   * The page number, starting from 1.
    * 
    * @example
    * 1
@@ -264,7 +261,7 @@ export class GetScheduledTaskExecutionRecordsResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of tasks per page.
+   * The ID of the collaboration group, such as cg_101. If you specify this parameter, the data is returned by group dimension, and the caller must be a valid group member. If you do not specify this parameter, the data is returned by personal dimension, excluding group tasks.
    * 
    * @example
    * 20

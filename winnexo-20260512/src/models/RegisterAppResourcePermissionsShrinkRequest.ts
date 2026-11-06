@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class RegisterAppResourcePermissionsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The batch authorization items.
+   * The batch authorization item.
    * 
    * This parameter is required.
    */
   itemsShrink?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
+   * The batch authorization item.
    * 
    * @example
    * 10000
@@ -20,7 +20,7 @@ export class RegisterAppResourcePermissionsShrinkRequest extends $dara.Model {
   resourceTenantId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+   * The ID of the tenant to which the resource belongs. If omitted, the current tenant of the caller is used.
    * 
    * @example
    * 10000

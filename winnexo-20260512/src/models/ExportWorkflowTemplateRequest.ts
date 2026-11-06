@@ -10,7 +10,7 @@ export class ExportWorkflowTemplateRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * group_example
+   * cg_9401
    */
   collaborationGroupId?: string;
   /**
@@ -20,7 +20,7 @@ export class ExportWorkflowTemplateRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * tpl_example
+   * tpl_9401
    */
   templateId?: string;
   /**

@@ -13,7 +13,7 @@ export class GetAgentWorkLogResponseBodyLogs extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The saved raw record content. Tool invocations and artifact metadata are represented as JSON strings.
+   * The saved original record content. Tool invocations and artifact metadata are JSON strings.
    * 
    * @example
    * The data query for the current round is completed
@@ -21,7 +21,7 @@ export class GetAgentWorkLogResponseBodyLogs extends $dara.Model {
   detail?: string;
   /**
    * @remarks
-   * The duration of this operation record, in milliseconds. The value is 0 for artifact records.
+   * The time consumed by the operation record, in milliseconds. The value is 0 for artifact records.
    * 
    * @example
    * 1200
@@ -29,7 +29,7 @@ export class GetAgentWorkLogResponseBodyLogs extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The key of the node to which the record belongs. This is not the session ID.
+   * The optional node key.
    * 
    * @example
    * query.amount
@@ -37,7 +37,7 @@ export class GetAgentWorkLogResponseBodyLogs extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The time when the event was recorded, in ISO 8601 format. If the source record has no time, an empty string is returned.
+   * The event time of the record in ISO 8601 format. If the source record has no time, an empty string is returned.
    * 
    * @example
    * 2026-10-14T08:00:00Z
@@ -99,7 +99,7 @@ export class GetAgentWorkLogResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The current page number, starting from 1.
+   * The page number, starting from 1.
    * 
    * @example
    * 1
@@ -107,7 +107,7 @@ export class GetAgentWorkLogResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
+   * The number of entries per page. Maximum value: 100.
    * 
    * @example
    * 20
@@ -123,7 +123,7 @@ export class GetAgentWorkLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of filtered operation log entries.
+   * The total number of filtered operation logs.
    * 
    * @example
    * 1

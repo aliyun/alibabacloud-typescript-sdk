@@ -23,7 +23,7 @@ export class SendChatMessageResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The SSE event stream payload. On success, the response is a text/event-stream raw frame that must be consumed frame by frame in streaming mode.
+   * The Server-Sent Events (SSE) event stream payload. If the request is successful, the response is the raw frame of text/event-stream, which must be consumed frame by frame in a streaming manner.
    * 
    * @example
    * {}
@@ -59,12 +59,7 @@ export class SendChatMessageResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The session work mode that takes effect for the current turn. Valid values:
-   * - ask: Quick Q&A.
-   * - work: Deep work.
-   * - direct: Direct connection (request-level).
-   * 
-   * In multi-digital-employee or task execution scenarios, if ask is provided, work takes effect instead.
+   * The session work mode. Valid values: ask (quick Q&A, which trims tools, skills, and connectors for single-turn direct answers), work (deep work, which is the default value), and direct (direct connection mode at the request level, which does not start the sandbox and prevents context pollution, equivalent to directChat=true). The ask and work modes are at the session level. The mode is fixed when a new session is created. Subsequent chats inherit the session mode by default. If the explicitly passed value is inconsistent with the session mode, a parameter error is returned. To switch the mode, create a new session or fork the session. If ask is passed in the multi-digital employee or task execution scenario, it takes effect as work. If directChat is set to true, this parameter is ignored.
    * 
    * @example
    * work

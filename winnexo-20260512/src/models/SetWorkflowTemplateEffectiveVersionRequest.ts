@@ -5,27 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class SetWorkflowTemplateEffectiveVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the collaboration workspace.
+   * The collaboration workspace ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * group_example
+   * cg_9401
    */
   collaborationGroupId?: string;
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * tpl_example
+   * tpl_9401
    */
   templateId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -33,7 +33,7 @@ export class SetWorkflowTemplateEffectiveVersionRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The submitted template version number to be set as effective. The format is a lowercase v followed by a positive integer, such as v1.
+   * The version number of the returned content.
    * 
    * This parameter is required.
    * 

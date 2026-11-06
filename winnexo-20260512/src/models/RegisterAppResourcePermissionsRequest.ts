@@ -57,7 +57,7 @@ export class RegisterAppResourcePermissionsRequestItemsGrantees extends $dara.Mo
 export class RegisterAppResourcePermissionsRequestItems extends $dara.Model {
   /**
    * @remarks
-   * The expiration time with the time zone. If not specified, the permissions never expire.
+   * The expiration time with a time zone. If omitted, the permissions never expire.
    * 
    * @example
    * 2026-12-31T23:59:59+08:00
@@ -79,7 +79,7 @@ export class RegisterAppResourcePermissionsRequestItems extends $dara.Model {
   permissions?: string[];
   /**
    * @remarks
-   * The dot-separated resource key, where the first segment is the APP application key.
+   * The dot-separated resource key with the first segment as the APP application key.
    * 
    * This parameter is required.
    * 
@@ -89,7 +89,7 @@ export class RegisterAppResourcePermissionsRequestItems extends $dara.Model {
   resourceKey?: string;
   /**
    * @remarks
-   * The resource type. Set the value to APP_RESOURCE.
+   * The resource type. Fixed to APP_RESOURCE.
    * 
    * This parameter is required.
    * 
@@ -135,14 +135,14 @@ export class RegisterAppResourcePermissionsRequestItems extends $dara.Model {
 export class RegisterAppResourcePermissionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The batch authorization items.
+   * The batch authorization item.
    * 
    * This parameter is required.
    */
   items?: RegisterAppResourcePermissionsRequestItems[];
   /**
    * @remarks
-   * The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
+   * The batch authorization item.
    * 
    * @example
    * 10000
@@ -150,7 +150,7 @@ export class RegisterAppResourcePermissionsRequest extends $dara.Model {
   resourceTenantId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+   * The ID of the tenant to which the resource belongs. If omitted, the current tenant of the caller is used.
    * 
    * @example
    * 10000

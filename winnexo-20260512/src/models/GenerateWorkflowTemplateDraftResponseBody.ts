@@ -16,12 +16,12 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
    * The name of the step.
    * 
    * @example
-   * example
+   * Customer complaint handling process
    */
   name?: string;
   /**
    * @remarks
-   * The name of the responsible agent.
+   * The name of the agent owner.
    * 
    * @example
    * example
@@ -29,7 +29,9 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
   ownerAgentName?: string;
   /**
    * @remarks
-   * The type of the owner. Valid values: MEMBER: Human. AGENT: Agent.
+   * The type of the owner. Valid values:
+   * - MEMBER: human
+   * - AGENT: agent
    * 
    * @example
    * MEMBER
@@ -45,6 +47,14 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
   ownerUserId?: number;
   /**
    * @remarks
+   * 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
+   * 
+   * @example
+   * false
+   */
+  reviewOutput?: boolean;
+  /**
+   * @remarks
    * The list of user IDs of the reviewers.
    * 
    * @example
@@ -53,7 +63,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
   reviewerUserIds?: number[];
   /**
    * @remarks
-   * The order of the step.
+   * The sort order of the step.
    * 
    * @example
    * 1
@@ -61,18 +71,18 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
   sortOrder?: number;
   /**
    * @remarks
-   * The processing instructions for the step.
+   * The processing instructions of the step.
    * 
    * @example
-   * example
+   * Collect customer information and submit it to the owner for review
    */
   specification?: string;
   /**
    * @remarks
-   * The array of structured segments for the step instructions. Supported types include text, mention, skill, app, files, and web_search. The fields and nested attachments of each segment are retained as returned by the backend.
+   * The ordered array of fragments. Supported types include text, mention, skill, app, files, and web_search. The referenced identities and order are preserved.
    * 
    * @example
-   * [{"type":"text","content":"Organize input materials"}]
+   * [{\\"type\\":\\"text\\",\\"text\\":\\"收集客户信息\\"}]
    */
   specificationJson?: { [key: string]: any }[];
   /**
@@ -90,6 +100,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
       ownerAgentName: 'ownerAgentName',
       ownerType: 'ownerType',
       ownerUserId: 'ownerUserId',
+      reviewOutput: 'reviewOutput',
       reviewerUserIds: 'reviewerUserIds',
       sortOrder: 'sortOrder',
       specification: 'specification',
@@ -105,6 +116,7 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraftSteps extends $dara.M
       ownerAgentName: 'string',
       ownerType: 'string',
       ownerUserId: 'number',
+      reviewOutput: 'boolean',
       reviewerUserIds: { 'type': 'array', 'itemType': 'number' },
       sortOrder: 'number',
       specification: 'string',
@@ -134,29 +146,56 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraft extends $dara.Model 
    * The description of the template.
    * 
    * @example
-   * example
+   * Standard process for handling customer complaints
    */
   description?: string;
+  /**
+   * @remarks
+   * 节点依赖边；每项包含from/to，引用稳定stepId
+   * 
+   * @example
+   * []
+   */
+  edges?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * 可选画布布局，按stepId索引；只影响展示，不决定依赖
+   * 
+   * @example
+   * {"collect":{"x":0,"y":0},"review":{"x":240,"y":0}}
+   */
+  layout?: { [key: string]: any };
   /**
    * @remarks
    * The name of the template.
    * 
    * @example
-   * example
+   * Customer complaint handling process
    */
   name?: string;
+  /**
+   * @remarks
+   * 模板结构版本，当前为2，与业务版本vN独立
+   * 
+   * @example
+   * 2
+   */
+  schemaVersion?: number;
   /**
    * @remarks
    * The ordered steps.
    * 
    * @example
-   * example
+   * [{\\"stepId\\":\\"collect\\",\\"sortOrder\\":1,\\"name\\":\\"收集客户信息\\"}]
    */
   steps?: GenerateWorkflowTemplateDraftResponseBodyDraftSteps[];
   static names(): { [key: string]: string } {
     return {
       description: 'description',
+      edges: 'edges',
+      layout: 'layout',
       name: 'name',
+      schemaVersion: 'schemaVersion',
       steps: 'steps',
     };
   }
@@ -164,12 +203,21 @@ export class GenerateWorkflowTemplateDraftResponseBodyDraft extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      edges: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      layout: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       name: 'string',
+      schemaVersion: 'number',
       steps: { 'type': 'array', 'itemType': GenerateWorkflowTemplateDraftResponseBodyDraftSteps },
     };
   }
 
   validate() {
+    if(Array.isArray(this.edges)) {
+      $dara.Model.validateArray(this.edges);
+    }
+    if(this.layout) {
+      $dara.Model.validateMap(this.layout);
+    }
     if(Array.isArray(this.steps)) {
       $dara.Model.validateArray(this.steps);
     }
@@ -195,12 +243,12 @@ export class GenerateWorkflowTemplateDraftResponseBody extends $dara.Model {
    * The generated non-persistent template draft.
    * 
    * @example
-   * example
+   * {\\"schemaVersion\\":2,\\"steps\\":[]}
    */
   draft?: GenerateWorkflowTemplateDraftResponseBodyDraft;
   /**
    * @remarks
-   * The error description.
+   * The error message.
    * 
    * @example
    * The requested resource does not exist
@@ -208,7 +256,7 @@ export class GenerateWorkflowTemplateDraftResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request tracking ID.
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

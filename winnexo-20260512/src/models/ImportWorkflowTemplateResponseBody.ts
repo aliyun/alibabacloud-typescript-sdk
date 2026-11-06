@@ -16,12 +16,12 @@ export class ImportWorkflowTemplateResponseBodySteps extends $dara.Model {
    * The step name.
    * 
    * @example
-   * example
+   * Customer Complaint Handling Process
    */
   name?: string;
   /**
    * @remarks
-   * The name of the responsible agent.
+   * The name of the digital employee executor.
    * 
    * @example
    * example
@@ -29,9 +29,9 @@ export class ImportWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerAgentName?: string;
   /**
    * @remarks
-   * The type of the responsible party. Valid values:
-   * - MEMBER: human.
-   * - AGENT: agent.
+   * The executor type. Valid values:
+   * - MEMBER: workspace member.
+   * - AGENT: digital employee.
    * 
    * @example
    * MEMBER
@@ -39,7 +39,7 @@ export class ImportWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerType?: string;
   /**
    * @remarks
-   * The user ID of the human responsible party.
+   * The user ID of the employee executor.
    * 
    * @example
    * 1
@@ -47,7 +47,15 @@ export class ImportWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * The list of user IDs for the reviewers.
+   * 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
+   * 
+   * @example
+   * false
+   */
+  reviewOutput?: boolean;
+  /**
+   * @remarks
+   * The list of user IDs of the persons in charge. This field is valid only for steps with a digital employee executor and is always empty for steps with a member executor.
    * 
    * @example
    * example
@@ -63,18 +71,18 @@ export class ImportWorkflowTemplateResponseBodySteps extends $dara.Model {
   sortOrder?: number;
   /**
    * @remarks
-   * The processing instructions for the step.
+   * The step processing instructions.
    * 
    * @example
-   * example
+   * Collect customer information and submit it to the person in charge for review
    */
   specification?: string;
   /**
    * @remarks
-   * The structured array of processing instructions for the step. This array supports text, mention, skill, app, files, and web_search types. All fragment fields and nested attachments are preserved exactly as returned by the backend.
+   * The ordered array of fragments, which supports text, mention, skill, app, files, and web_search. The referenced identities and order are retained.
    * 
    * @example
-   * [{"type":"text","content":"Organize input materials"}]
+   * [{\\"type\\":\\"text\\",\\"text\\":\\"收集客户信息\\"}]
    */
   specificationJson?: { [key: string]: any }[];
   /**
@@ -92,6 +100,7 @@ export class ImportWorkflowTemplateResponseBodySteps extends $dara.Model {
       ownerAgentName: 'ownerAgentName',
       ownerType: 'ownerType',
       ownerUserId: 'ownerUserId',
+      reviewOutput: 'reviewOutput',
       reviewerUserIds: 'reviewerUserIds',
       sortOrder: 'sortOrder',
       specification: 'specification',
@@ -107,6 +116,7 @@ export class ImportWorkflowTemplateResponseBodySteps extends $dara.Model {
       ownerAgentName: 'string',
       ownerType: 'string',
       ownerUserId: 'number',
+      reviewOutput: 'boolean',
       reviewerUserIds: { 'type': 'array', 'itemType': 'number' },
       sortOrder: 'number',
       specification: 'string',
@@ -152,12 +162,20 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
    * The template description.
    * 
    * @example
-   * example
+   * Standard process for handling customer complaints
    */
   description?: string;
   /**
    * @remarks
-   * The current effective version number of the template. An empty value indicates that only a draft exists and the template cannot be used for work items. Importing a template always creates a v1 draft, so this field is empty.
+   * 节点依赖边；每项包含from/to，引用稳定stepId；显式空数组表示没有依赖
+   * 
+   * @example
+   * [{"from":"collect","to":"deliver"}]
+   */
+  edges?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The current effective version number of the template. An empty value indicates that only a draft exists and it cannot be used for work items. For imported templates, a v1 draft is created and this field is empty.
    * 
    * @example
    * v1
@@ -168,7 +186,7 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
    * The creation time in ISO 8601 format.
    * 
    * @example
-   * example
+   * 2026-11-05T08:00:00Z
    */
   gmtCreate?: string;
   /**
@@ -176,9 +194,17 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
    * The modification time in ISO 8601 format.
    * 
    * @example
-   * example
+   * 2026-11-05T08:00:00Z
    */
   gmtModified?: string;
+  /**
+   * @remarks
+   * 可选画布布局，按stepId索引；只影响展示，不决定依赖
+   * 
+   * @example
+   * {"collect":{"x":0,"y":0},"review":{"x":240,"y":0}}
+   */
+  layout?: { [key: string]: any };
   /**
    * @remarks
    * The error description.
@@ -192,12 +218,12 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
    * The template name.
    * 
    * @example
-   * example
+   * Customer Complaint Handling Process
    */
   name?: string;
   /**
    * @remarks
-   * The request tracking ID.
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -205,10 +231,18 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
+   * 模板结构版本，当前为2，与业务版本vN独立
+   * 
+   * @example
+   * 2
+   */
+  schemaVersion?: number;
+  /**
+   * @remarks
    * The ordered steps.
    * 
    * @example
-   * example
+   * [{\\"stepId\\":\\"collect\\",\\"sortOrder\\":1,\\"name\\":\\"收集客户信息\\"}]
    */
   steps?: ImportWorkflowTemplateResponseBodySteps[];
   /**
@@ -216,12 +250,12 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
    * The template ID.
    * 
    * @example
-   * tpl_example
+   * tpl_9401
    */
   templateId?: string;
   /**
    * @remarks
-   * The version number generated by this import.
+   * The version number generated for this import.
    * 
    * @example
    * v1
@@ -232,7 +266,7 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
    * The version status. Valid values:
    * - DRAFT: draft.
    * - SUBMITTED: submitted.
-   * The status is always set to DRAFT for imported templates.
+   * The value is fixed to DRAFT for imported templates.
    * 
    * @example
    * DRAFT
@@ -243,12 +277,15 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
       code: 'code',
       createdByUserId: 'createdByUserId',
       description: 'description',
+      edges: 'edges',
       effectiveVersion: 'effectiveVersion',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
+      layout: 'layout',
       message: 'message',
       name: 'name',
       requestId: 'requestId',
+      schemaVersion: 'schemaVersion',
       steps: 'steps',
       templateId: 'templateId',
       version: 'version',
@@ -261,12 +298,15 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
       code: 'string',
       createdByUserId: 'number',
       description: 'string',
+      edges: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       effectiveVersion: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      layout: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
       name: 'string',
       requestId: 'string',
+      schemaVersion: 'number',
       steps: { 'type': 'array', 'itemType': ImportWorkflowTemplateResponseBodySteps },
       templateId: 'string',
       version: 'string',
@@ -275,6 +315,12 @@ export class ImportWorkflowTemplateResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.edges)) {
+      $dara.Model.validateArray(this.edges);
+    }
+    if(this.layout) {
+      $dara.Model.validateMap(this.layout);
+    }
     if(Array.isArray(this.steps)) {
       $dara.Model.validateArray(this.steps);
     }

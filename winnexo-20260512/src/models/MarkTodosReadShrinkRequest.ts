@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MarkTodosReadShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to mark all to-do items as read. This parameter takes precedence over the todoIds parameter.
+   * Specifies whether to mark all to-do items as read. This parameter takes precedence over todoIds.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class MarkTodosReadShrinkRequest extends $dara.Model {
   markAllRead?: boolean;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
+   * The list of to-do item IDs. A maximum of 100 IDs can be specified. This parameter is ignored when markAllRead is set to true.
    * 
    * @example
    * 10000
@@ -21,7 +21,7 @@ export class MarkTodosReadShrinkRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The list of to-do item IDs. You can specify up to 100 IDs. This parameter is ignored if markAllRead is set to true.
+   * The list of to-do item IDs. A maximum of 100 IDs can be specified. This parameter is ignored when markAllRead is set to true.
    * 
    * @example
    * todo_abc123

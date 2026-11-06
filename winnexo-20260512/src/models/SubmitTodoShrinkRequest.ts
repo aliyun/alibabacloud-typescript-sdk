@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitTodoShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The array of answers. The original text of the question must match the to-do question.
+   * The answer array. The original text of the question must align with the to-do question.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SubmitTodoShrinkRequest extends $dara.Model {
   answersShrink?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
+   * The to-do task ID.
    * 
    * @example
    * 10000
@@ -23,7 +23,7 @@ export class SubmitTodoShrinkRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The ID of the to-do item.
+   * The answer array. The original text of the question must align with the to-do question.
    * 
    * This parameter is required.
    * 

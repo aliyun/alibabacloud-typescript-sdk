@@ -21,7 +21,7 @@ export class BatchCancelTodosResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error description.
+   * The error message.
    * 
    * @example
    * The requested resource does not exist

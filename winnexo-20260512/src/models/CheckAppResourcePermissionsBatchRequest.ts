@@ -15,7 +15,7 @@ export class CheckAppResourcePermissionsBatchRequestChecks extends $dara.Model {
   permission?: string;
   /**
    * @remarks
-   * The dot-separated resource key whose first segment is the APP application key.
+   * The dot-separated resource key whose first segment is the application key.
    * 
    * This parameter is required.
    * 
@@ -61,14 +61,14 @@ export class CheckAppResourcePermissionsBatchRequestChecks extends $dara.Model {
 export class CheckAppResourcePermissionsBatchRequest extends $dara.Model {
   /**
    * @remarks
-   * The check items.
+   * The check item.
    * 
    * This parameter is required.
    */
   checks?: CheckAppResourcePermissionsBatchRequestChecks[];
   /**
    * @remarks
-   * The ID of the tenant to which the resource belongs. If not specified, the current tenant of the caller is used.
+   * The ID of the target platform user.
    * 
    * @example
    * 10000
@@ -76,7 +76,7 @@ export class CheckAppResourcePermissionsBatchRequest extends $dara.Model {
   resourceTenantId?: string;
   /**
    * @remarks
-   * The ID of the target platform user.
+   * The tenant to which the target user belongs. This parameter is required for cross-tenant targets.
    * 
    * @example
    * 10086
@@ -84,7 +84,7 @@ export class CheckAppResourcePermissionsBatchRequest extends $dara.Model {
   targetUserId?: number;
   /**
    * @remarks
-   * The tenant to which the target user belongs. This parameter is required for cross-tenant targets.
+   * The check item.
    * 
    * @example
    * 10000
@@ -92,7 +92,7 @@ export class CheckAppResourcePermissionsBatchRequest extends $dara.Model {
   targetUserTenantId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+   * The ID of the tenant to which the resource belongs. If this parameter is not specified, the current tenant of the caller is used.
    * 
    * @example
    * 10000

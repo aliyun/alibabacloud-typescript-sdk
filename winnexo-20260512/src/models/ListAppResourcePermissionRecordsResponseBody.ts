@@ -29,7 +29,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   grantedBy?: string;
   /**
    * @remarks
-   * The grantee ID.
+   * The tenant filter for cross-tenant users.
    * 
    * @example
    * 10086
@@ -37,7 +37,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   granteeId?: string;
   /**
    * @remarks
-   * The grantee name.
+   * The principal name.
    * 
    * @example
    * Zhang San
@@ -45,7 +45,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   granteeName?: string;
   /**
    * @remarks
-   * The ID of the tenant to which the cross-tenant user belongs.
+   * The permission filter.
    * 
    * @example
    * 10000
@@ -53,7 +53,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   granteeTenantId?: string;
   /**
    * @remarks
-   * The grantee type.
+   * The principal ID filter.
    * 
    * @example
    * USER
@@ -69,7 +69,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   permission?: string;
   /**
    * @remarks
-   * The ID of the permission record.
+   * The permission record ID.
    * 
    * @example
    * 1001
@@ -85,7 +85,7 @@ export class ListAppResourcePermissionRecordsResponseBodyItems extends $dara.Mod
   resourceKey?: string;
   /**
    * @remarks
-   * The resource type.
+   * The application key or its subpath.
    * 
    * @example
    * APP_RESOURCE
@@ -166,7 +166,7 @@ export class ListAppResourcePermissionRecordsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number.
+   * The number of items per page.
    * 
    * @example
    * 1
@@ -174,7 +174,7 @@ export class ListAppResourcePermissionRecordsResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The principal type filter.
    * 
    * @example
    * 20
@@ -182,7 +182,7 @@ export class ListAppResourcePermissionRecordsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

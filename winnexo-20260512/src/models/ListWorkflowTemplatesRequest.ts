@@ -10,7 +10,7 @@ export class ListWorkflowTemplatesRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * group_example
+   * cg_9401
    */
   collaborationGroupId?: string;
   /**
@@ -18,7 +18,7 @@ export class ListWorkflowTemplatesRequest extends $dara.Model {
    * The keyword for fuzzy search in the template name or description.
    * 
    * @example
-   * example
+   * Weekly report
    */
   keyword?: string;
   /**
@@ -34,7 +34,7 @@ export class ListWorkflowTemplatesRequest extends $dara.Model {
    * The pagination token. Obtain the token from the nextToken parameter in the previous response. This parameter takes precedence over page if both are specified.
    * 
    * @example
-   * example
+   * tok_9401
    */
   nextToken?: string;
   /**

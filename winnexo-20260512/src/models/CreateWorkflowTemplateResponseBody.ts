@@ -16,12 +16,12 @@ export class CreateWorkflowTemplateResponseBodySteps extends $dara.Model {
    * The step name.
    * 
    * @example
-   * example
+   * Customer Complaint Handling Process
    */
   name?: string;
   /**
    * @remarks
-   * The name of the responsible agent.
+   * The name of the agent in charge.
    * 
    * @example
    * example
@@ -29,7 +29,9 @@ export class CreateWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerAgentName?: string;
   /**
    * @remarks
-   * The owner type. Valid values: MEMBER: Human. AGENT: Agent.
+   * The type of the person in charge. Valid values:
+   * - MEMBER: Human.
+   * - AGENT: Agent.
    * 
    * @example
    * MEMBER
@@ -37,7 +39,7 @@ export class CreateWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerType?: string;
   /**
    * @remarks
-   * The user ID of the human owner.
+   * The user ID of the human person in charge.
    * 
    * @example
    * 1
@@ -45,10 +47,18 @@ export class CreateWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * The list of reviewer user IDs.
+   * 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
    * 
    * @example
-   * example
+   * false
+   */
+  reviewOutput?: boolean;
+  /**
+   * @remarks
+   * The list of user IDs of the reviewers.
+   * 
+   * @example
+   * [10001]
    */
   reviewerUserIds?: number[];
   /**
@@ -64,15 +74,15 @@ export class CreateWorkflowTemplateResponseBodySteps extends $dara.Model {
    * The step processing instructions.
    * 
    * @example
-   * example
+   * Collect customer information and submit it to the person in charge for review
    */
   specification?: string;
   /**
    * @remarks
-   * The array of structured segments for step instructions. Supports text, mention, skill, app, files, and web_search. Segment fields and nested attachments are preserved as returned by the backend.
+   * The ordered array of fragments. Supported types include text, mention, skill, app, files, and web_search. The referenced identities and order are preserved.
    * 
    * @example
-   * [{"type":"text","content":"Organize input materials"}]
+   * [{\\"type\\":\\"text\\",\\"text\\":\\"收集客户信息\\"}]
    */
   specificationJson?: { [key: string]: any }[];
   /**
@@ -90,6 +100,7 @@ export class CreateWorkflowTemplateResponseBodySteps extends $dara.Model {
       ownerAgentName: 'ownerAgentName',
       ownerType: 'ownerType',
       ownerUserId: 'ownerUserId',
+      reviewOutput: 'reviewOutput',
       reviewerUserIds: 'reviewerUserIds',
       sortOrder: 'sortOrder',
       specification: 'specification',
@@ -105,6 +116,7 @@ export class CreateWorkflowTemplateResponseBodySteps extends $dara.Model {
       ownerAgentName: 'string',
       ownerType: 'string',
       ownerUserId: 'number',
+      reviewOutput: 'boolean',
       reviewerUserIds: { 'type': 'array', 'itemType': 'number' },
       sortOrder: 'number',
       specification: 'string',
@@ -150,12 +162,20 @@ export class CreateWorkflowTemplateResponseBody extends $dara.Model {
    * The template description.
    * 
    * @example
-   * example
+   * Standard process for handling customer complaints
    */
   description?: string;
   /**
    * @remarks
-   * The current effective version number of the template. An empty value indicates that only a draft exists and it cannot be used for work items.
+   * 节点依赖边；每项包含from/to，引用稳定stepId；显式空数组表示没有依赖
+   * 
+   * @example
+   * [{"from":"collect","to":"deliver"}]
+   */
+  edges?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The current effective version number of the template. An empty value indicates that only a draft exists and the template cannot be used for work items.
    * 
    * @example
    * v1
@@ -166,7 +186,7 @@ export class CreateWorkflowTemplateResponseBody extends $dara.Model {
    * The creation time in ISO 8601 format.
    * 
    * @example
-   * example
+   * 2026-11-05T08:00:00Z
    */
   gmtCreate?: string;
   /**
@@ -174,9 +194,17 @@ export class CreateWorkflowTemplateResponseBody extends $dara.Model {
    * The modification time in ISO 8601 format.
    * 
    * @example
-   * example
+   * 2026-11-05T08:00:00Z
    */
   gmtModified?: string;
+  /**
+   * @remarks
+   * 可选画布布局，按stepId索引；只影响展示，不决定依赖
+   * 
+   * @example
+   * {"collect":{"x":0,"y":0},"review":{"x":240,"y":0}}
+   */
+  layout?: { [key: string]: any };
   /**
    * @remarks
    * The error description.
@@ -190,7 +218,7 @@ export class CreateWorkflowTemplateResponseBody extends $dara.Model {
    * The template name.
    * 
    * @example
-   * example
+   * Customer Complaint Handling Process
    */
   name?: string;
   /**
@@ -203,10 +231,18 @@ export class CreateWorkflowTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
+   * 模板结构版本，当前为2，与业务版本vN独立
+   * 
+   * @example
+   * 2
+   */
+  schemaVersion?: number;
+  /**
+   * @remarks
    * The ordered steps.
    * 
    * @example
-   * example
+   * [{"stepId":"collect","sortOrder":1,"name":"收集客户信息"}]
    */
   steps?: CreateWorkflowTemplateResponseBodySteps[];
   /**
@@ -214,7 +250,7 @@ export class CreateWorkflowTemplateResponseBody extends $dara.Model {
    * The template ID.
    * 
    * @example
-   * tpl_example
+   * tpl_9401
    */
   templateId?: string;
   /**
@@ -227,7 +263,7 @@ export class CreateWorkflowTemplateResponseBody extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The change description for this version. If this field is empty for v1, the template description is displayed.
+   * The change description of the version. If this field is empty for v1, the template description can be displayed.
    * 
    * @example
    * Initial template creation
@@ -235,7 +271,9 @@ export class CreateWorkflowTemplateResponseBody extends $dara.Model {
   versionDescription?: string;
   /**
    * @remarks
-   * The version status. Valid values: DRAFT: Draft. SUBMITTED: Submitted.
+   * The version status. Valid values:
+   * - DRAFT: Draft.
+   * - SUBMITTED: Submitted.
    * 
    * @example
    * SUBMITTED
@@ -246,12 +284,15 @@ export class CreateWorkflowTemplateResponseBody extends $dara.Model {
       code: 'code',
       createdByUserId: 'createdByUserId',
       description: 'description',
+      edges: 'edges',
       effectiveVersion: 'effectiveVersion',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
+      layout: 'layout',
       message: 'message',
       name: 'name',
       requestId: 'requestId',
+      schemaVersion: 'schemaVersion',
       steps: 'steps',
       templateId: 'templateId',
       version: 'version',
@@ -265,12 +306,15 @@ export class CreateWorkflowTemplateResponseBody extends $dara.Model {
       code: 'string',
       createdByUserId: 'number',
       description: 'string',
+      edges: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       effectiveVersion: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      layout: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
       name: 'string',
       requestId: 'string',
+      schemaVersion: 'number',
       steps: { 'type': 'array', 'itemType': CreateWorkflowTemplateResponseBodySteps },
       templateId: 'string',
       version: 'string',
@@ -280,6 +324,12 @@ export class CreateWorkflowTemplateResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.edges)) {
+      $dara.Model.validateArray(this.edges);
+    }
+    if(this.layout) {
+      $dara.Model.validateMap(this.layout);
+    }
     if(Array.isArray(this.steps)) {
       $dara.Model.validateArray(this.steps);
     }
