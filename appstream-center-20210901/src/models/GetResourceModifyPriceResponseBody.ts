@@ -13,7 +13,7 @@ export class GetResourceModifyPriceResponseBodyDataPricePromotions extends $dara
   optionCode?: string;
   /**
    * @remarks
-   * The description of the coupon, which is used to display the information about the discount.
+   * The description of the coupon, which is used to display information about the discount.
    * 
    * @example
    * **Discount during the promotion
@@ -29,7 +29,7 @@ export class GetResourceModifyPriceResponseBodyDataPricePromotions extends $dara
   promotionId?: string;
   /**
    * @remarks
-   * The name of the coupon, which is used to display the optional discount in the current quote.
+   * The name of the coupon, which is used to display the available discount in the quote.
    * 
    * @example
    * **Discount
@@ -78,7 +78,7 @@ export class GetResourceModifyPriceResponseBodyDataPricePromotions extends $dara
 export class GetResourceModifyPriceResponseBodyDataPrice extends $dara.Model {
   /**
    * @remarks
-   * The currency code of the price amount. CNY indicates Chinese Yuan. Refer to this field to understand the amounts of OriginalPrice, DiscountPrice, and TradePrice.
+   * The currency code of the price amount. CNY indicates Chinese Yuan. Use this field to interpret the amounts in OriginalPrice, DiscountPrice, and TradePrice.
    * 
    * @example
    * CNY
@@ -86,9 +86,9 @@ export class GetResourceModifyPriceResponseBodyDataPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The discount amount that can be deducted from the scale-out price, not the discount percentage.
+   * The discount amount for the scale-out, not the discount percentage.
    * 
-   * The discounted price TradePrice is obtained by subtracting this field from the original price OriginalPrice. For the currency of the amount, see Currency.
+   * The final price TradePrice is obtained by subtracting this value from the original price OriginalPrice. For the currency, see Currency.
    * 
    * @example
    * 1.00
@@ -96,7 +96,7 @@ export class GetResourceModifyPriceResponseBodyDataPrice extends $dara.Model {
   discountPrice?: number;
   /**
    * @remarks
-   * The original price of the scale-out, which is the amount before discounts. For the currency of the amount, see Currency.
+   * The original price of the scale-out, which is the amount before discounts. For the currency, see Currency.
    * 
    * @example
    * 11.00
@@ -104,14 +104,14 @@ export class GetResourceModifyPriceResponseBodyDataPrice extends $dara.Model {
   originalPrice?: number;
   /**
    * @remarks
-   * The list of optional coupons returned in the quote. Each item includes the coupon ID, name, description, and selection status.
+   * The list of available coupons returned in the quote. Each item includes the coupon ID, name, description, and selection status.
    */
   promotions?: GetResourceModifyPriceResponseBodyDataPricePromotions[];
   /**
    * @remarks
-   * The discounted price of the scale-out.
+   * The final price of the scale-out after discounts.
    * 
-   * Calculation relationship: TradePrice = OriginalPrice - DiscountPrice. For the currency of the amount, see Currency. This operation returns only a quote and does not execute payment.
+   * Calculation formula: TradePrice = OriginalPrice - DiscountPrice. For the currency, see Currency. This operation returns only a quote and does not execute payment.
    * 
    * @example
    * 10.00
@@ -152,7 +152,7 @@ export class GetResourceModifyPriceResponseBodyDataPrice extends $dara.Model {
 export class GetResourceModifyPriceResponseBodyDataRules extends $dara.Model {
   /**
    * @remarks
-   * The description of the pricing calculation rule, such as the user discount applicable to the current quote.
+   * The description of the pricing rule, such as the user discount applicable to the quote.
    * 
    * @example
    * User discount
@@ -160,7 +160,7 @@ export class GetResourceModifyPriceResponseBodyDataRules extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the pricing calculation rule, which is used to identify the rule applied in the quote.
+   * The ID of the pricing rule, which is used to identify the rule applied in the quote.
    * 
    * @example
    * 102002100393****
@@ -192,12 +192,12 @@ export class GetResourceModifyPriceResponseBodyDataRules extends $dara.Model {
 export class GetResourceModifyPriceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The pricing details of the scale-out. For the currency of the amounts, see Currency. For the coupon selection status, see Promotions.
+   * The price details of the scale-out. For the currency, see Currency. For the coupon selection status, see Promotions.
    */
   price?: GetResourceModifyPriceResponseBodyDataPrice;
   /**
    * @remarks
-   * The list of pricing calculation rules for the quote, which is used to describe the applicable pricing or discount rules.
+   * The list of pricing rules for the quote, which describes the applicable pricing or discount rules.
    */
   rules?: GetResourceModifyPriceResponseBodyDataRules[];
   static names(): { [key: string]: string } {
@@ -232,7 +232,7 @@ export class GetResourceModifyPriceResponseBodyData extends $dara.Model {
 export class GetResourceModifyPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The quote for the resource scale-out of the delivery group, which includes the pricing details and pricing calculation rules.
+   * The quote for the resource scale-out of the delivery group, which includes the price details and pricing rules.
    */
   data?: GetResourceModifyPriceResponseBodyData;
   /**

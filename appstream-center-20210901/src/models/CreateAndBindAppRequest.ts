@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAndBindAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The URL of the application icon. Specify an accessible icon URL when a custom icon needs to be displayed.
+   * The URL of the application icon. Specify an accessible icon URL to display a custom icon.
    * 
    * @example
    * https://example.com/apps/business/icon.png
@@ -33,13 +33,13 @@ export class CreateAndBindAppRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The application form. If omitted, the default value is CLIENT_BASE. Valid values:
+   * The application type. If omitted, the default value is CLIENT_BASE. Valid values:
    * 
-   * - **CLIENT_BASE**: client application
-   * - **WEB_BASE**: browser application
-   * - **CLOUD_NATIVE_BASE**: cloud-native application
-   * - **PORT_SERVICE_BASE**: port service application
-   * - **AGENT_SERVICE_BASE**: agent application
+   * - **CLIENT_BASE**: Client application.
+   * - **WEB_BASE**: Browser application.
+   * - **CLOUD_NATIVE_BASE**: Cloud-native application.
+   * - **PORT_SERVICE_BASE**: Port service application.
+   * - **AGENT_SERVICE_BASE**: Agent application.
    * 
    * @example
    * PORT_SERVICE_BASE
@@ -47,7 +47,7 @@ export class CreateAndBindAppRequest extends $dara.Model {
   originAppType?: string;
   /**
    * @remarks
-   * The service port of the application. For applications that require port-based access, specify the actual port number that the application listens on.
+   * The application service port. For applications that require port-based access, specify the actual port number that the application listens on.
    * 
    * @example
    * 8080
@@ -55,7 +55,7 @@ export class CreateAndBindAppRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The path suffix of the application access URL, which describes the access entry point together with the application service port.
+   * The path suffix of the application access URL, which is used together with the application service port to describe the access entry point.
    * 
    * @example
    * /console

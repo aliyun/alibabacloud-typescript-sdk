@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The complete list of application adaptation IDs for the selected image version. A maximum of 100 items are supported. **When a non-empty list is passed, it must include the adaptations that you still want to retain. Omitting this parameter or passing an empty list does not clear the existing associations.**
+   * The complete list of application adapter IDs for the selected image version. A maximum of 100 items are supported. **When a non-empty list is passed, it must include the adapters that you still want to retain. Omitting this parameter or passing an empty list does not clear the existing associations.**
    */
   adaptorIdList?: string[];
   /**
    * @remarks
-   * The new description of the image usage.
+   * The updated description of the image.
    * 
    * @example
    * Update office software and basic configurations
@@ -59,7 +59,7 @@ export class UpdateImageRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The ID of the image version to be modified. If this parameter is omitted, the current effective version of the image specified by ImageId is used. You must provide at least one of VersionId and ImageId.
+   * The ID of the image version to be modified. If this parameter is omitted, the current effective version of the image specified by ImageId is used. You must provide at least one of ImageId and VersionId.
    * 
    * @example
    * iv-bp1example****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppInstanceGroupChargeTypeResponseBodyAppInstanceGroupModel extends $dara.Model {
   /**
    * @remarks
-   * The ID of the billing conversion order task, used to associate with the current conversion. It is returned only when a related order task is required and created. It does not indicate that the payment is completed or the new billing method has taken effect.
+   * The ID of the billing conversion order task, used to associate with this conversion. It is returned only when a related order task is required and created. It does not indicate that the payment is completed or the new billing method has taken effect.
    * 
    * @example
    * task-123
@@ -35,12 +35,12 @@ export class ModifyAppInstanceGroupChargeTypeResponseBodyAppInstanceGroupModel e
 export class ModifyAppInstanceGroupChargeTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The task information for the billing method conversion.
+   * The task information for this billing method conversion.
    */
   appInstanceGroupModel?: ModifyAppInstanceGroupChargeTypeResponseBodyAppInstanceGroupModel;
   /**
    * @remarks
-   * The unique ID of the request. You can use the ID to troubleshoot request issues.
+   * The unique ID of the request, which can be used to troubleshoot request issues.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAdaptorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This field is returned when the request fails. A successful response may not contain this field.
+   * The error code. This parameter is returned when the request fails. A successful response may not contain this field.
    * 
    * @example
    * InternalError
@@ -18,7 +18,7 @@ export class UpdateAdaptorResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error or result message. This field describes the cause when the request fails. A successful response may not contain this field.
+   * The error or result message. This parameter describes the cause when the request fails. A successful response may not contain this field.
    * 
    * @example
    * Internal error.

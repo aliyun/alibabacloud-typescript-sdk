@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDesktopAgentRuntimeResponseBodyDataAgentImInfo extends $dara.Model {
   /**
    * @remarks
-   * The agent IM online status (Online/Offline). Default value: Offline.
+   * The online status of the agent IM. Valid values: Online and Offline. Default value: Offline.
    * 
    * @example
    * Online
@@ -71,7 +71,7 @@ export class ListDesktopAgentRuntimeResponseBodyDataAgentInstanceInfoList extend
   agentInstanceVersion?: string;
   /**
    * @remarks
-   * The agent platform.
+   * The Agent platform.
    * 
    * @example
    * ENTERPRISE_AGENTIC_COMPUTER
@@ -87,7 +87,7 @@ export class ListDesktopAgentRuntimeResponseBodyDataAgentInstanceInfoList extend
   agentProvider?: string;
   /**
    * @remarks
-   * Indicates whether the agent instance has a third-party channel configured.
+   * Indicates whether a third-party channel is configured for the agent instance.
    * 
    * @example
    * true
@@ -108,7 +108,15 @@ export class ListDesktopAgentRuntimeResponseBodyDataAgentInstanceInfoList extend
   deploymentSource?: string;
   /**
    * @remarks
-   * Indicates whether the agent instance has a model configured.
+   * The latest reported MindCenter version in the instance properties. This value is null if the version is not reported.
+   * 
+   * @example
+   * v0.3.20-D-20261105.181002
+   */
+  mindCenterVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether a model is configured for the agent instance.
    * 
    * @example
    * true
@@ -116,7 +124,7 @@ export class ListDesktopAgentRuntimeResponseBodyDataAgentInstanceInfoList extend
   modelConfigure?: boolean;
   /**
    * @remarks
-   * The configured model group ID.
+   * The ID of the configured model group.
    * 
    * @example
    * mt-xxxx
@@ -131,6 +139,7 @@ export class ListDesktopAgentRuntimeResponseBodyDataAgentInstanceInfoList extend
       channelConfigure: 'ChannelConfigure',
       channelConfiguredList: 'ChannelConfiguredList',
       deploymentSource: 'DeploymentSource',
+      mindCenterVersion: 'MindCenterVersion',
       modelConfigure: 'ModelConfigure',
       modelTemplateId: 'ModelTemplateId',
     };
@@ -145,6 +154,7 @@ export class ListDesktopAgentRuntimeResponseBodyDataAgentInstanceInfoList extend
       channelConfigure: 'boolean',
       channelConfiguredList: { 'type': 'array', 'itemType': 'string' },
       deploymentSource: 'string',
+      mindCenterVersion: 'string',
       modelConfigure: 'boolean',
       modelTemplateId: 'string',
     };
@@ -173,7 +183,7 @@ export class ListDesktopAgentRuntimeResponseBodyDataResourceGroup extends $dara.
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource group name.
+   * The name of the resource group.
    * 
    * @example
    * resource-group-001
@@ -205,7 +215,7 @@ export class ListDesktopAgentRuntimeResponseBodyDataResourceGroup extends $dara.
 export class ListDesktopAgentRuntimeResponseBodyDataRiskInfo extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the agent has been uninstalled.
+   * Indicates whether the agent is uninstalled.
    * 
    * @example
    * true
@@ -213,7 +223,7 @@ export class ListDesktopAgentRuntimeResponseBodyDataRiskInfo extends $dara.Model
   agentUninstalled?: boolean;
   /**
    * @remarks
-   * Indicates whether the third-party channel configuration has been modified (inconsistent with the configuration distributed by the administrator).
+   * Indicates whether the third-party channel configuration is modified and inconsistent with the configuration delivered by the administrator.
    * 
    * @example
    * true
@@ -221,7 +231,7 @@ export class ListDesktopAgentRuntimeResponseBodyDataRiskInfo extends $dara.Model
   channelModified?: boolean;
   /**
    * @remarks
-   * Indicates whether the model configuration has been modified (inconsistent with the configuration distributed by the administrator).
+   * Indicates whether the model configuration is modified and inconsistent with the configuration delivered by the administrator.
    * 
    * @example
    * true
@@ -291,7 +301,7 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The agent runtime name.
+   * The Agent runtime name.
    * 
    * @example
    * Agent-001
@@ -299,7 +309,7 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The Cloud Desktop status.
+   * The cloud desktop status.
    * 
    * @example
    * Running
@@ -307,7 +317,7 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
   desktopStatus?: string;
   /**
    * @remarks
-   * Indicates whether there is an authorized user with authorization.
+   * Indicates whether users are authorized.
    * 
    * @example
    * true
@@ -315,7 +325,7 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
   hasAuthUser?: boolean;
   /**
    * @remarks
-   * The management status list, parsed from the managementStatus combined value.
+   * The list of management statuses parsed from the aggregated managementStatus value.
    */
   managementStatuses?: string[];
   /**
@@ -328,7 +338,7 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
   modelConfigure?: boolean;
   /**
    * @remarks
-   * The active model template ID. This parameter is returned only when modelConfigure is set to true.
+   * The ID of the effective model template. This parameter is returned only when modelConfigure is set to true.
    * 
    * @example
    * mt-xxxx
@@ -336,7 +346,7 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
-   * The active model template name. This parameter is returned only when modelConfigure is set to true.
+   * The name of the effective model template. This parameter is returned only when modelConfigure is set to true.
    * 
    * @example
    * model-template-001
@@ -352,7 +362,7 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The list of channel codes in QR code configuration.
+   * The list of channel codes in the QR code configuration.
    */
   qrCodeConfiguringList?: string[];
   /**
@@ -365,7 +375,7 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The region location (the Chinese mainland or outside the Chinese mainland).
+   * The region location (mainland China or overseas).
    * 
    * @example
    * Mainland
@@ -378,7 +388,7 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
   resourceGroup?: ListDesktopAgentRuntimeResponseBodyDataResourceGroup;
   /**
    * @remarks
-   * The resource ID, which is the Cloud Desktop ID.
+   * The resource ID, which is the cloud desktop ID.
    * 
    * @example
    * ecd-xxxx
@@ -386,7 +396,7 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The risk information. This parameter is returned only when the request parameter IncludeRiskInfo is set to true. Otherwise, null is returned.
+   * The risk information. This parameter is returned only when the IncludeRiskInfo request parameter is set to true. Otherwise, null is returned.
    */
   riskInfo?: ListDesktopAgentRuntimeResponseBodyDataRiskInfo;
   static names(): { [key: string]: string } {
@@ -488,7 +498,7 @@ export class ListDesktopAgentRuntimeResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20
@@ -504,7 +514,7 @@ export class ListDesktopAgentRuntimeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count.
    * 
    * @example
    * 30

@@ -21,7 +21,7 @@ export class ListAppResponseBodyData extends $dara.Model {
   appIconUrl?: string;
   /**
    * @remarks
-   * The application ID, which is used for subsequent application queries or unbinding the image.
+   * The application ID, which is used to query the application or unbind an image later.
    * 
    * @example
    * app-bp1example****
@@ -47,9 +47,9 @@ export class ListAppResponseBodyData extends $dara.Model {
    * @remarks
    * The source type of the application. Valid values:
    * 
-   * - **USER_APP**: user-created application
-   * - **SYS_APP**: system-provided application
-   * - **VIRTUAL_APP**: virtual application
+   * - **USER_APP**: User-created applications.
+   * - **SYS_APP**: System-provided applications.
+   * - **VIRTUAL_APP**: Virtual applications.
    * 
    * @example
    * USER_APP
@@ -59,13 +59,13 @@ export class ListAppResponseBodyData extends $dara.Model {
    * @remarks
    * The business type to which the application belongs. Valid values:
    * 
-   * - **1**: basic product
-   * - **2**: personal cloud
-   * - **3**: cloud office
-   * - **4**: cloud flow
-   * - **10**: personal edition
-   * - **20**: business edition
-   * - **60**: Linggou team edition
+   * - **1**: Basic products.
+   * - **2**: Personal cloud.
+   * - **3**: Cloud office.
+   * - **4**: Cloud Flow.
+   * - **10**: Personal Edition.
+   * - **20**: Business Edition.
+   * - **60**: Linggou Team Edition.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class ListAppResponseBodyData extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * Indicates whether the current application is not referenced by any image. A value of true indicates that no image references the application. A value of false indicates that the application is still referenced by an image, and the reference must be removed before deletion.
+   * Indicates whether the current application is not referenced by any image. A value of true indicates that no image references the application. A value of false indicates that the application is still referenced by an image. You must remove the reference before deleting the application.
    */
   deletable?: boolean;
   /**
@@ -104,11 +104,11 @@ export class ListAppResponseBodyData extends $dara.Model {
    * @remarks
    * The form of the application. Valid values:
    * 
-   * - **CLIENT_BASE**: client application
-   * - **WEB_BASE**: browser application
-   * - **CLOUD_NATIVE_BASE**: cloud-native application
-   * - **PORT_SERVICE_BASE**: port service application
-   * - **AGENT_SERVICE_BASE**: agent application
+   * - **CLIENT_BASE**: Client applications.
+   * - **WEB_BASE**: Browser applications.
+   * - **CLOUD_NATIVE_BASE**: Cloud-native applications.
+   * - **PORT_SERVICE_BASE**: Port service applications.
+   * - **AGENT_SERVICE_BASE**: Agent applications.
    * 
    * @example
    * WEB_BASE
@@ -116,12 +116,12 @@ export class ListAppResponseBodyData extends $dara.Model {
   originAppType?: string;
   /**
    * @remarks
-   * The type of the operating system used by the application. Valid values:
+   * The type of operating system used by the application. Valid values:
    * 
-   * - **Unknown**: unknown operating system
-   * - **Windows**: Windows operating system
-   * - **Linux**: Linux operating system
-   * - **Android**: Android operating system
+   * - **Unknown**: The operating system is unknown.
+   * - **Windows**: Windows operating system.
+   * - **Linux**: Linux operating system.
+   * - **Android**: Android operating system.
    * 
    * @example
    * Windows
@@ -131,23 +131,23 @@ export class ListAppResponseBodyData extends $dara.Model {
    * @remarks
    * The product to which the resource belongs. Valid values:
    * 
-   * - **CloudGame**: cloud game
-   * - **CloudApp**: Wuying cloud application
-   * - **CloudBrowser**: secure browser
-   * - **CloudDesktop**: Wuying cloud computer
-   * - **ImageBuilder**: image building resource
-   * - **ImageValidate**: image validation resource
-   * - **AndroidCloud**: Android cloud
-   * - **GpuRender**: GPU rendering
-   * - **AndroidGpuRender**: Android cloud GPU rendering
-   * - **WuyingServer**: enterprise edition workstation
-   * - **GpuProxy**: GPU remote rendering proxy
-   * - **GpuCache**: GPU remote rendering cache
-   * - **AIAgent**: AI agent service
-   * - **HostedDesktop**: hosted computer
-   * - **WuyingWorkstation**: personal edition container workstation
-   * - **WuyingWorkstationBusiness**: business edition container workstation
-   * - **WuyingWorkstationTeam**: Linggou team edition container workstation
+   * - **CloudGame**: Cloud game.
+   * - **CloudApp**: Wuying cloud application.
+   * - **CloudBrowser**: Secure browser.
+   * - **CloudDesktop**: Wuying cloud desktop.
+   * - **ImageBuilder**: Image builder resources.
+   * - **ImageValidate**: Image validation resources.
+   * - **AndroidCloud**: Android cloud.
+   * - **GpuRender**: GPU rendering.
+   * - **AndroidGpuRender**: Android cloud GPU rendering.
+   * - **WuyingServer**: Enterprise Edition workstation.
+   * - **GpuProxy**: GPU remote rendering proxy.
+   * - **GpuCache**: GPU remote rendering cache.
+   * - **AIAgent**: AI Agent service.
+   * - **HostedDesktop**: Hosted desktop.
+   * - **WuyingWorkstation**: Personal Edition container workstation.
+   * - **WuyingWorkstationBusiness**: Business Edition container workstation.
+   * - **WuyingWorkstationTeam**: Linggou Team Edition container workstation.
    * 
    * @example
    * CloudApp
@@ -173,10 +173,10 @@ export class ListAppResponseBodyData extends $dara.Model {
    * @remarks
    * The subtype of the application. Valid values:
    * 
-   * - **PWA**: progressive web application
-   * - **SAAS**: software as a service (SaaS) application
-   * - **SANDBOX**: sandbox application
-   * - **CONTAINER**: container application
+   * - **PWA**: Progressive web applications.
+   * - **SAAS**: Software as a Service (SaaS) applications.
+   * - **SANDBOX**: Sandbox applications.
+   * - **CONTAINER**: Container applications.
    * 
    * @example
    * SAAS
@@ -259,7 +259,7 @@ export class ListAppResponseBody extends $dara.Model {
   data?: ListAppResponseBodyData[];
   /**
    * @remarks
-   * The error or result message. This field describes the cause when the request fails. A successful response may not contain this field.
+   * The error or result message. This field describes the cause when a request fails. A successful response may not contain this field.
    * 
    * @example
    * Internal error.
@@ -267,7 +267,7 @@ export class ListAppResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number of the current query. The name of this response field is PageNmuber.
+   * The page number of this query. The name of this response field is PageNmuber.
    * 
    * @example
    * 1
@@ -275,7 +275,7 @@ export class ListAppResponseBody extends $dara.Model {
   pageNmuber?: number;
   /**
    * @remarks
-   * The number of records per page in the paged query.
+   * The number of records per page in this paged query.
    * 
    * @example
    * 10
@@ -283,7 +283,7 @@ export class ListAppResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier of the request. You can provide this value when troubleshooting issues.
+   * The unique identifier of the request. You can provide this value for troubleshooting.
    * 
    * @example
    * 01A1A962-5503-107B-AC8F-EBA85DF905AC
@@ -291,7 +291,7 @@ export class ListAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was processed successfully. A value of true indicates that the current request was processed successfully. To check whether an asynchronous task is completed, you must query the task status separately.
+   * Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. To check whether an asynchronous task is completed, query the task status separately.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

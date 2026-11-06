@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstanceTypeResponseBodyAppInstanceTypeModelsInventoryInfoZoneInventoryInfo extends $dara.Model {
   /**
    * @remarks
-   * The available quantity in the zone obtained in the current query. Unit: instances. This value is an inventory snapshot and does not indicate that resources have been reserved for the current account.
+   * The available quantity in the zone obtained in this query. Unit: instances. This value is an inventory snapshot and does not indicate that resources have been reserved for the current account.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModelsInventoryInfoZo
   amount?: string;
   /**
    * @remarks
-   * The zone ID. You can call [ListZones](https://api.aliyun.com/document/appstream-center/2021-09-01/ListZones) to query the zone ID.
+   * The zone ID, which can be queried by calling the [ListZones](https://api.aliyun.com/document/appstream-center/2021-09-01/ListZones) operation.
    * 
    * @example
    * cn-hangzhou-h
@@ -55,8 +55,8 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModelsInventoryInfo e
    * @remarks
    * The instance type inventory status obtained in the current query.
    * 
-   * - Available: The total inventory of the queried zones is greater than 0.
-   * - SoldOut: The total inventory of the queried zones is not greater than 0.
+   * - `Available`: The total inventory of the queried zones is greater than 0.
+   * - `SoldOut`: The total inventory of the queried zones is not greater than 0.
    * 
    * @example
    * Available
@@ -98,7 +98,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModelsInventoryInfo e
 export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.Model {
   /**
    * @remarks
-   * The session instance type code. This can be used as the session instance type parameter for subsequent operations.
+   * The session instance type code, which can be used as the session instance type parameter for subsequent operations.
    * 
    * @example
    * appstreaming.vgpu.4c8g
@@ -114,7 +114,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   appInstanceTypeFamily?: string;
   /**
    * @remarks
-   * The number of CPU cores included in the instance type. This is represented by a numeric string. Unit: cores.
+   * The number of CPU cores included in the instance type, represented by a numeric string. Unit: cores.
    * 
    * @example
    * 4
@@ -130,7 +130,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   dataDiskSize?: number;
   /**
    * @remarks
-   * This parameter is not enabled. The example value is only used to demonstrate the format and does not represent the actual number of GPUs returned by this operation.
+   * Not enabled yet. The example value is only used to demonstrate the format and does not represent the actual number of GPUs returned by this operation.
    * 
    * @example
    * 1
@@ -154,7 +154,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   gpuSpec?: string;
   /**
    * @remarks
-   * The identifier of the instance type record. When you connect to the price inquiry or creation operation, use AppInstanceType. Do not use this field to replace the instance type code.
+   * The identifier of the instance type record. When integrating with pricing or creation operations, use `AppInstanceType`. Do not use this field to replace the instance type code.
    * 
    * @example
    * 1
@@ -162,7 +162,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   id?: number;
   /**
    * @remarks
-   * The display name of the instance type. The Chinese name is used only when Language is set to zh-CN. Otherwise, the instance type code is used.
+   * The display name of the instance type. The Chinese name is used only when `Language` is set to `zh-CN`. For other values or when omitted, the instance type code is used.
    * 
    * @example
    * appstreaming.vgpu.4c8g
@@ -170,7 +170,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   instanceTypeName?: string;
   /**
    * @remarks
-   * The inventory information of the instance type. This is returned only when the inventory is queried and the relevant information is obtained. If this field is not returned, it does not mean that the inventory is 0.
+   * The inventory information of the instance type. This parameter is returned only when the inventory is queried and the relevant information is obtained. If this parameter is not returned, it does not mean that the inventory is 0.
    */
   inventoryInfo?: ListAppInstanceTypeResponseBodyAppInstanceTypeModelsInventoryInfo;
   /**
@@ -185,7 +185,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
    * @remarks
    * The type of the product to which the instance type belongs. The current document displays the following values:
    * 
-   * - CloudApp: Wuying Cloud App.
+   * - `CloudApp`: Wuying Cloud Application.
    * 
    * @example
    * CloudApp
@@ -255,7 +255,7 @@ export class ListAppInstanceTypeResponseBody extends $dara.Model {
   appInstanceTypeModels?: ListAppInstanceTypeResponseBodyAppInstanceTypeModels[];
   /**
    * @remarks
-   * The page number used in the current query. This corresponds to the request parameter and the total number of entries.
+   * The page number used in this query, which corresponds to the request parameters and the total number of entries.
    * 
    * @example
    * 1
@@ -263,7 +263,7 @@ export class ListAppInstanceTypeResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page used in the current query.
+   * The number of entries per page used in this query.
    * 
    * @example
    * 20
@@ -271,7 +271,7 @@ export class ListAppInstanceTypeResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier of the request. You can use this ID to troubleshoot request issues.
+   * The unique identifier of the request, which can be used to troubleshoot request issues.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -279,7 +279,7 @@ export class ListAppInstanceTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of instance types that meet all filtering conditions. This is not the number of entries on the current page.
+   * The total number of instance types that meet all filtering conditions, not the number of entries on the current page.
    * 
    * @example
    * 1

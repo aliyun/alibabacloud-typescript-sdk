@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. Returned when the request fails. A successful response may not contain this field.
+   * The error code. This field is returned when the request fails. A successful response may not contain this field.
    * 
    * @example
    * InternalError
@@ -13,7 +13,7 @@ export class DeleteAppResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. A value of true indicates that the operation is successful.
+   * Indicates whether the operation was successful. A value of true indicates that the operation was successful.
    */
   data?: boolean;
   /**
@@ -26,7 +26,7 @@ export class DeleteAppResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the request. You can provide this value when you troubleshoot issues.
+   * The unique identifier of the request. You can provide this value for troubleshooting.
    * 
    * @example
    * 01A1A962-5503-107B-AC8F-EBA85DF905AC
@@ -34,7 +34,7 @@ export class DeleteAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. A value of true indicates that the request is successful. For asynchronous tasks, you must query the task status separately to check whether the task is completed.
+   * Indicates whether the request was successful. A value of true indicates that the request was successful. To check whether an asynchronous task is completed, you must query the task status separately.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

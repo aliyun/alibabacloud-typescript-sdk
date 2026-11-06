@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when an error occurs during the call. A normal result does not necessarily include this field. Do not use the return of a specific success code as a prerequisite for obtaining the quota.
+   * The error code returned when an error occurs during the call. A normal result is not guaranteed to contain this field. You should not use the return of a specific success code as a prerequisite for obtaining the quota.
    * 
    * @example
    * InvalidProductType.ValueNotSupported
@@ -15,9 +15,9 @@ export class GetResourceQuotaResponseBody extends $dara.Model {
    * @remarks
    * The maximum resource count quota applicable to the current query conditions. This is not the usage or remaining quota.
    * 
-   * - `ResourceType=AppInstanceGroup`: Unit: groups.
+   * - `ResourceType=AppInstanceGroup`: Unit: count.
    * - `ResourceType=AppAuthUser`: Unit: users.
-   * - `ResourceType=PoolNodeAmount`: Unit: nodes.
+   * - `ResourceType=PoolNodeAmount`: Unit: count.
    * 
    * If no smaller limit is obtained, `2147483647` is returned. This does not mean that the resource inventory is unlimited.
    * 
@@ -27,7 +27,7 @@ export class GetResourceQuotaResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The error message returned when an error occurs during the call. This message and the error code help you locate the cause of the error.
+   * The error message returned when an error occurs during the call. This message and the error code help you identify the cause of the error.
    * 
    * @example
    * The ProductType is not supported.
@@ -35,7 +35,7 @@ export class GetResourceQuotaResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the request. You can use the ID to troubleshoot issues.
+   * The unique identifier for the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

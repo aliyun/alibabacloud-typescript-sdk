@@ -13,7 +13,7 @@ export class UpdateAdaptorShrinkRequest extends $dara.Model {
   adaptorId?: string;
   /**
    * @remarks
-   * **Not enabled. Do not pass this parameter.** This parameter does not support modifying application scripts.
+   * **Not enabled. Do not pass this parameter.** This operation does not support modifying application scripts through this parameter.
    * 
    * The example "Not applicable (not enabled)" is only a description of the field status and is not a valid parameter value.
    * 
@@ -23,7 +23,7 @@ export class UpdateAdaptorShrinkRequest extends $dara.Model {
   appScript?: string;
   /**
    * @remarks
-   * **Not enabled. Do not pass this parameter.** This parameter does not support modifying executable file paths.
+   * **Not enabled. Do not pass this parameter.** This operation does not support modifying executable file paths through this parameter.
    * 
    * The example "Not applicable (not enabled)" is only a description of the field status and is not a valid parameter value.
    * 
@@ -41,7 +41,7 @@ export class UpdateAdaptorShrinkRequest extends $dara.Model {
   optimizeParam?: string;
   /**
    * @remarks
-   * The command-line parameters used when the application starts. If this parameter is not empty, it is used to update the startup parameters of the application adapter. Specify the parameters based on the startup requirements of the application.
+   * The command-line parameters used when the application starts. If not empty, this parameter is used to update the startup parameters of the application adapter. Specify the value based on the startup requirements of the application.
    * 
    * @example
    * --lang=zh-CN
@@ -51,7 +51,7 @@ export class UpdateAdaptorShrinkRequest extends $dara.Model {
    * @remarks
    * The application runtime configuration object. If this parameter is omitted, the existing user configuration is not modified.
    * 
-   * **If this parameter is passed, the original UserConfig is completely replaced and not merged item by item.** Submit the complete configuration and include the configuration items that need to be retained. Subfields that are not provided do not automatically inherit the original values.
+   * **If passed, the original UserConfig is entirely replaced and not merged item by item.** Submit the complete configuration and include the configuration items that need to be retained. Subfields that are not provided do not automatically inherit the original values.
    * 
    * @example
    * {"FixedResolution":"1440x2560","DisconnectAction":"KEEP_CURRENT","ShowWindow":"HIDE"}

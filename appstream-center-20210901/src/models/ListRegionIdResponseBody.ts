@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRegionIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This field is returned when the request fails. A successful response may not contain this field.
+   * The error code. This parameter is returned when the request fails. A successful response may not contain this field.
    * 
    * @example
    * InternalError
@@ -26,7 +26,7 @@ export class ListRegionIdResponseBody extends $dara.Model {
   data?: string[];
   /**
    * @remarks
-   * The error or result message. This field describes the cause when a request fails. A successful response may not contain this field.
+   * The error or result message. This parameter describes the cause when a request fails. A successful response may not contain this field.
    * 
    * @example
    * Internal error.
@@ -42,7 +42,7 @@ export class ListRegionIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Specifies whether the request was processed successfully. A value of true indicates that the request was processed successfully. To determine whether an asynchronous task is completed, you must query the task status separately.
+   * Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. To check whether an asynchronous task is completed, you must query the task status separately.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

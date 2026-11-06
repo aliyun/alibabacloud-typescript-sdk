@@ -398,7 +398,7 @@ export default class Client extends OpenApi {
    * Creates a custom image based on an existing image and starts an image creation task.
    * 
    * @remarks
-   * Before you call this operation, make sure that the parent image is available and that an available image distribution record exists in the region where the image is to be created.
+   * Before you call this operation, make sure that the parent image is available and an available image distribution record exists in the region where the image is created.
    * 1. Call ListImage to obtain the parent image ID.
    * 2. Specify the creation mode, disk capacity, and resource type, and then call this operation.
    * 3. Save the returned ImageId, VersionId, and TaskId.
@@ -522,7 +522,7 @@ export default class Client extends OpenApi {
    * Creates a custom image based on an existing image and starts an image creation task.
    * 
    * @remarks
-   * Before you call this operation, make sure that the parent image is available and that an available image distribution record exists in the region where the image is to be created.
+   * Before you call this operation, make sure that the parent image is available and an available image distribution record exists in the region where the image is created.
    * 1. Call ListImage to obtain the parent image ID.
    * 2. Specify the creation mode, disk capacity, and resource type, and then call this operation.
    * 3. Save the returned ImageId, VersionId, and TaskId.
@@ -733,7 +733,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Only custom images and community images that can be managed by the current account are supported. If VersionId is omitted, the current active version of the image is used. If specified, the version must belong to the image specified by ImageId.
-   * Call ListImage first to select an image. After the application is created, save the returned AppId, AppVersionId, ImageId, and VersionId. To dissociate the application, call UnbindApp.
+   * Call ListImage to select an image first. After the application is created, save the returned AppId, AppVersionId, ImageId, and VersionId. To dissociate the application, call UnbindApp.
    * 
    * @param request - CreateAndBindAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -792,7 +792,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Only custom images and community images that can be managed by the current account are supported. If VersionId is omitted, the current active version of the image is used. If specified, the version must belong to the image specified by ImageId.
-   * Call ListImage first to select an image. After the application is created, save the returned AppId, AppVersionId, ImageId, and VersionId. To dissociate the application, call UnbindApp.
+   * Call ListImage to select an image first. After the application is created, save the returned AppId, AppVersionId, ImageId, and VersionId. To dissociate the application, call UnbindApp.
    * 
    * @param request - CreateAndBindAppRequest
    * @returns CreateAndBindAppResponse
@@ -1218,6 +1218,68 @@ export default class Client extends OpenApi {
   async createBrowserInstanceGroup(request: $_model.CreateBrowserInstanceGroupRequest): Promise<$_model.CreateBrowserInstanceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createBrowserInstanceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an asynchronous export task to export the WUYING server list, user usage report, cloud browser bookmarks, or URL whitelist.
+   * 
+   * @remarks
+   * Creates an export task and returns the task ID and initial status. The exported file is not returned synchronously.
+   * After the task is created, save the TaskId and call DescribeExportTasks to query the task status and progress. A polling interval of 5 to 10 seconds is recommended. When the status is FINISHED, use the DownloadUrl in the latest query result to download the XLSX file. When the status is FAILED, check the ErrorMsg and stop polling.
+   * The task is valid for 24 hours after creation. The download URL has an independent signature validity period of up to 1 hour, which does not exceed the remaining validity period of the task. Query the latest URL before downloading. You cannot obtain a valid download URL after the task expires.
+   * Exporting the WUYING server list only accepts the filter fields listed in QueryParamJson. Pagination is controlled by the server, and a single task can export up to 100,000 records. Exporting cloud browser bookmarks and the URL whitelist exports the complete list of the target delivery group, regardless of list search terms or the current page. The system verifies the delivery group ownership and product type before execution. Data is paginated during execution, and no consistent snapshot is provided. A successful creation does not guarantee that subsequent verification, querying, or file generation will succeed.
+   * 
+   * @param request - CreateExportTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateExportTaskResponse
+   */
+  async createExportTaskWithOptions(request: $_model.CreateExportTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateExportTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.exportFields)) {
+      body["ExportFields"] = request.exportFields;
+    }
+
+    if (!$dara.isNull(request.queryParamJson)) {
+      body["QueryParamJson"] = request.queryParamJson;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateExportTask",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateExportTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateExportTaskResponse({}));
+  }
+
+  /**
+   * Creates an asynchronous export task to export the WUYING server list, user usage report, cloud browser bookmarks, or URL whitelist.
+   * 
+   * @remarks
+   * Creates an export task and returns the task ID and initial status. The exported file is not returned synchronously.
+   * After the task is created, save the TaskId and call DescribeExportTasks to query the task status and progress. A polling interval of 5 to 10 seconds is recommended. When the status is FINISHED, use the DownloadUrl in the latest query result to download the XLSX file. When the status is FAILED, check the ErrorMsg and stop polling.
+   * The task is valid for 24 hours after creation. The download URL has an independent signature validity period of up to 1 hour, which does not exceed the remaining validity period of the task. Query the latest URL before downloading. You cannot obtain a valid download URL after the task expires.
+   * Exporting the WUYING server list only accepts the filter fields listed in QueryParamJson. Pagination is controlled by the server, and a single task can export up to 100,000 records. Exporting cloud browser bookmarks and the URL whitelist exports the complete list of the target delivery group, regardless of list search terms or the current page. The system verifies the delivery group ownership and product type before execution. Data is paginated during execution, and no consistent snapshot is provided. A successful creation does not guarantee that subsequent verification, querying, or file generation will succeed.
+   * 
+   * @param request - CreateExportTaskRequest
+   * @returns CreateExportTaskResponse
+   */
+  async createExportTask(request: $_model.CreateExportTaskRequest): Promise<$_model.CreateExportTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createExportTaskWithOptions(request, runtime);
   }
 
   /**
@@ -1680,13 +1742,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified application adapter, or dissociates the adapter from a specified image version.
+   * Deletes a specified application adaptation, or dissociates the adaptation from a specified image version.
    * 
    * @remarks
-   * *Confirm the deletion scope.**
-   * - If both ImageId and VersionId are specified: The adapter is only dissociated from the specified image version.
-   * - If ImageId and VersionId are not both specified: The adapter deletion process is initiated. An adapter cannot be deleted if it is still referenced by multiple images. If the application has other adapters, the application cannot be deleted along with the adapter.
-   * **AdaptorId, AppVersionId, and AppId must be provided together and correspond to the same application adapter.** Verify these identifiers by checking the application and image query results first.
+   * *Confirm the deletion scope first.**
+   * - If both ImageId and VersionId are specified: only the association between the adaptation and the specified image version is dissociated.
+   * - If ImageId and VersionId are not both specified: the adaptation deletion process starts. The adaptation cannot be deleted if it is still referenced by multiple images. If the application still has other adaptations, the application cannot be deleted along with it.
+   * **AdaptorId, AppVersionId, and AppId must be provided together and correspond to the same application adaptation.** Verify these identifiers by querying the application and image first.
    * 
    * @param request - DeleteAdaptorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1733,13 +1795,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified application adapter, or dissociates the adapter from a specified image version.
+   * Deletes a specified application adaptation, or dissociates the adaptation from a specified image version.
    * 
    * @remarks
-   * *Confirm the deletion scope.**
-   * - If both ImageId and VersionId are specified: The adapter is only dissociated from the specified image version.
-   * - If ImageId and VersionId are not both specified: The adapter deletion process is initiated. An adapter cannot be deleted if it is still referenced by multiple images. If the application has other adapters, the application cannot be deleted along with the adapter.
-   * **AdaptorId, AppVersionId, and AppId must be provided together and correspond to the same application adapter.** Verify these identifiers by checking the application and image query results first.
+   * *Confirm the deletion scope first.**
+   * - If both ImageId and VersionId are specified: only the association between the adaptation and the specified image version is dissociated.
+   * - If ImageId and VersionId are not both specified: the adaptation deletion process starts. The adaptation cannot be deleted if it is still referenced by multiple images. If the application still has other adaptations, the application cannot be deleted along with it.
+   * **AdaptorId, AppVersionId, and AppId must be provided together and correspond to the same application adaptation.** Verify these identifiers by querying the application and image first.
    * 
    * @param request - DeleteAdaptorRequest
    * @returns DeleteAdaptorResponse
@@ -1755,7 +1817,7 @@ export default class Client extends OpenApi {
    * @remarks
    * *You must dissociate all image associations from the target application or version before deletion.**
    * 1. Call ListApp to obtain the AppId and confirm whether the application can be deleted.
-   * 2. Use UnbindApp or DeleteAdaptor to dissociate related image associations.
+   * 2. Use UnbindApp or DeleteAdaptor to dissociate the related image associations.
    * 3. Specify AppVersionId to delete a single application version, or omit this parameter to delete the entire application.
    * After an application version is deleted, if the application has no other valid adapters, the application record is also deleted.
    * 
@@ -1797,7 +1859,7 @@ export default class Client extends OpenApi {
    * @remarks
    * *You must dissociate all image associations from the target application or version before deletion.**
    * 1. Call ListApp to obtain the AppId and confirm whether the application can be deleted.
-   * 2. Use UnbindApp or DeleteAdaptor to dissociate related image associations.
+   * 2. Use UnbindApp or DeleteAdaptor to dissociate the related image associations.
    * 3. Specify AppVersionId to delete a single application version, or omit this parameter to delete the entire application.
    * After an application version is deleted, if the application has no other valid adapters, the application record is also deleted.
    * 
@@ -2343,6 +2405,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the execution status, progress, and download URLs of export tasks by using paging.
+   * 
+   * @remarks
+   * Calls this operation to use paging to query the export tasks under the current Alibaba Cloud account to obtain the task status, execution progress, export file names, and download URLs. Export tasks are created by calling CreateExportTask. This operation only reads task information and does not create, modify, or retry tasks.
+   * The query results are returned in descending order of task creation time, with the most recently created tasks listed first. Only tasks in the INIT, RUNNING, FINISHED, and FAILED states are returned. Tasks marked as EXPIRED are not included in the results.
+   * When polling a single task by TaskId, set PageNumber to 1 and PageSize to 1, set the polling interval to 5 to 10 seconds, and stop polling after the task enters the FINISHED or FAILED state.
+   * A task is valid for 24 hours after creation and is marked as expired by a background task after 25 hours. Therefore, within the 24- to 25-hour window, a FINISHED task may still be queried, but its DownloadUrl is empty. After a task is marked as expired, the query result is an empty array.
+   * If the query result is an empty array, it may be because there are no visible tasks under the current account, the task type does not match, the page number is out of bounds, or the tasks have expired. This operation always returns an array structure and does not return an error when the query result is empty.
+   * DownloadUrl is an OSS pre-signed URL. The default maximum validity period is 1 hour and does not exceed the remaining validity period of the task. The server automatically refreshes the URL when it is about to expire. Use the URL returned by the most recent query for downloading and do not cache the initially returned URL for a long time.
+   * 
+   * @param request - DescribeExportTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeExportTasksResponse
+   */
+  async describeExportTasksWithOptions(request: $_model.DescribeExportTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExportTasksResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeExportTasks",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeExportTasksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeExportTasksResponse({}));
+  }
+
+  /**
+   * Queries the execution status, progress, and download URLs of export tasks by using paging.
+   * 
+   * @remarks
+   * Calls this operation to use paging to query the export tasks under the current Alibaba Cloud account to obtain the task status, execution progress, export file names, and download URLs. Export tasks are created by calling CreateExportTask. This operation only reads task information and does not create, modify, or retry tasks.
+   * The query results are returned in descending order of task creation time, with the most recently created tasks listed first. Only tasks in the INIT, RUNNING, FINISHED, and FAILED states are returned. Tasks marked as EXPIRED are not included in the results.
+   * When polling a single task by TaskId, set PageNumber to 1 and PageSize to 1, set the polling interval to 5 to 10 seconds, and stop polling after the task enters the FINISHED or FAILED state.
+   * A task is valid for 24 hours after creation and is marked as expired by a background task after 25 hours. Therefore, within the 24- to 25-hour window, a FINISHED task may still be queried, but its DownloadUrl is empty. After a task is marked as expired, the query result is an empty array.
+   * If the query result is an empty array, it may be because there are no visible tasks under the current account, the task type does not match, the page number is out of bounds, or the tasks have expired. This operation always returns an array structure and does not return an error when the query result is empty.
+   * DownloadUrl is an OSS pre-signed URL. The default maximum validity period is 1 hour and does not exceed the remaining validity period of the task. The server automatically refreshes the URL when it is about to expire. Use the URL returned by the most recent query for downloading and do not cache the initially returned URL for a long time.
+   * 
+   * @param request - DescribeExportTasksRequest
+   * @returns DescribeExportTasksResponse
+   */
+  async describeExportTasks(request: $_model.DescribeExportTasksRequest): Promise<$_model.DescribeExportTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeExportTasksWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a development host.
    * 
    * @param request - DescribeWuyingServerRequest
@@ -2431,6 +2563,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the statistics of runtimes of a specified type under the current Alibaba Cloud account, grouped by agent platform and agent provider, including the total number of runtimes, the number of runtimes without model configurations, the number of runtimes without channel configurations, the number of risky runtimes, and the number of expired runtimes.
+   * 
+   * @param request - GetAgentRuntimeStatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentRuntimeStatisticResponse
+   */
+  async getAgentRuntimeStatisticWithOptions(request: $_model.GetAgentRuntimeStatisticRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentRuntimeStatisticResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      query["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      query["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.runtimeType)) {
+      query["RuntimeType"] = request.runtimeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentRuntimeStatistic",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentRuntimeStatisticResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentRuntimeStatisticResponse({}));
+  }
+
+  /**
+   * Queries the statistics of runtimes of a specified type under the current Alibaba Cloud account, grouped by agent platform and agent provider, including the total number of runtimes, the number of runtimes without model configurations, the number of runtimes without channel configurations, the number of risky runtimes, and the number of expired runtimes.
+   * 
+   * @param request - GetAgentRuntimeStatisticRequest
+   * @returns GetAgentRuntimeStatisticResponse
+   */
+  async getAgentRuntimeStatistic(request: $_model.GetAgentRuntimeStatisticRequest): Promise<$_model.GetAgentRuntimeStatisticResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgentRuntimeStatisticWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a specified delivery group.
    * 
    * @param request - GetAppInstanceGroupRequest
@@ -2477,12 +2663,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the connection authorization code and required resource information for an existing image or application building task.
+   * Retrieves the connection authorization code and required resource information for an existing image or application creation task.
    * 
    * @remarks
-   * Before calling this operation, you must create a task, and the building or validation resources corresponding to the task must be available.
-   * 1. Obtain TaskId and the actual TaskType from the response of the task creation operation or GetTask.
-   * 2. Specify ResourceType to obtain the connection information for the building or validation environment.
+   * Before calling this operation, you must create a task, and the creation or validation resources corresponding to the task must be available.
+   * 1. Obtain the TaskId and actual TaskType from the response of the task creation operation or GetTask.
+   * 2. Specify ResourceType to obtain the connection information for the creation or validation environment.
    * 3. Use the returned authorization code along with the user, resource group, and application identifiers in the same response for connection.
    * The authorization code is a sensitive connection credential. Do not record it in public documents or logs. When specifying AppId, you must also specify the matching AppVersionId.
    * 
@@ -2535,12 +2721,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the connection authorization code and required resource information for an existing image or application building task.
+   * Retrieves the connection authorization code and required resource information for an existing image or application creation task.
    * 
    * @remarks
-   * Before calling this operation, you must create a task, and the building or validation resources corresponding to the task must be available.
-   * 1. Obtain TaskId and the actual TaskType from the response of the task creation operation or GetTask.
-   * 2. Specify ResourceType to obtain the connection information for the building or validation environment.
+   * Before calling this operation, you must create a task, and the creation or validation resources corresponding to the task must be available.
+   * 1. Obtain the TaskId and actual TaskType from the response of the task creation operation or GetTask.
+   * 2. Specify ResourceType to obtain the connection information for the creation or validation environment.
    * 3. Use the returned authorization code along with the user, resource group, and application identifiers in the same response for connection.
    * The authorization code is a sensitive connection credential. Do not record it in public documents or logs. When specifying AppId, you must also specify the matching AppVersionId.
    * 
@@ -2915,25 +3101,79 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the pricing and discount information for scaling out a subscription delivery group to a specified total number of nodes.
+   * Queries the model settings of resource groups.
+   * 
+   * @param request - GetResourceGroupAgentModelSettingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceGroupAgentModelSettingsResponse
+   */
+  async getResourceGroupAgentModelSettingsWithOptions(request: $_model.GetResourceGroupAgentModelSettingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetResourceGroupAgentModelSettingsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      query["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      query["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.resourceGroupIds)) {
+      query["ResourceGroupIds"] = request.resourceGroupIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetResourceGroupAgentModelSettings",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetResourceGroupAgentModelSettingsResponse>(await this.callApi(params, req, runtime), new $_model.GetResourceGroupAgentModelSettingsResponse({}));
+  }
+
+  /**
+   * Queries the model settings of resource groups.
+   * 
+   * @param request - GetResourceGroupAgentModelSettingsRequest
+   * @returns GetResourceGroupAgentModelSettingsResponse
+   */
+  async getResourceGroupAgentModelSettings(request: $_model.GetResourceGroupAgentModelSettingsRequest): Promise<$_model.GetResourceGroupAgentModelSettingsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getResourceGroupAgentModelSettingsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the pricing and discount information required to scale out a subscription delivery group to a specified total number of nodes.
    * 
    * @remarks
-   * This operation queries the resource scale-out pricing for an existing delivery group. A successful call returns only a quote and does not create an order or add nodes.
-   * **Before you call this operation, verify the following conditions:**
+   * This operation queries the resource scale-out price of an existing delivery group. A successful call returns only a quote and does not create an order or add nodes.
+   * **Verify the following conditions before you call this operation:**
    * - The delivery group belongs to the current account and is located in a supported region in the Chinese mainland.
-   * - The product type is Wuying Cloud App or Cloud Browser, and the billing method is subscription and purchased by node. This operation does not apply to browser groups that use the pay-as-you-go billing method or are billed by monthly active users (MAU).
+   * - The product type is WUYING Cloud App or Cloud Browser, and the billing method is subscription and billed by node. Pay-as-you-go or browser groups billed by monthly active user (MAU) are not supported.
    * - The order status of the delivery group is normal, a resource node pool is associated, and no paid but ineffective renewal or scale-in orders exist.
-   * - The target total number of nodes is greater than the current number of purchased nodes and does not exceed the node quota for the corresponding region, product, and billing method under the account.
+   * - The target total number of nodes is greater than the current number of purchased nodes and does not exceed the node quota for the account in the corresponding region, product, and billing method.
    * **Parameter relationships:**
-   * - ProductType, AppInstanceGroupId, and Amount are all required parameters and must be specified together.
+   * - ProductType, AppInstanceGroupId, and Amount are all required and must be specified together.
    * - ProductType must match the product corresponding to AppInstanceGroupId.
-   * - **Amount is the total number of nodes after the scale-out, not the number of nodes added in this operation.** The region, node specifications, and billing method are determined by the existing delivery group and do not need to be passed separately.
-   * **Call sequence:**
-   * 1. First, confirm the target delivery group and the current number of purchased nodes. For Cloud App Common scenarios, you can first invoke [ListAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/ListAppInstanceGroup) to obtain the identity, and then invoke [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query the configuration and NodePool.NodeAmount.
-   * 2. Invoke this operation with the same product type, delivery group identity, and target total number of nodes to read the pricing, coupons, and pricing calculation rules.
-   * 3. After confirming the quote, if you need to execute the scale-out, you can invoke [ModifyNodePoolAmount](https://api.aliyun.com/document/appstream-center/2021-09-01/ModifyNodePoolAmount) and fill in the target total number in NodePool.NodeAmount as required by the operation. **A successful pricing query does not mean that an order has been created or the scale-out has been completed.**
+   * - **Amount is the total number of nodes after the scale-out, not the number of nodes added in this operation.** The region, node specifications, and billing method are determined by the existing delivery group and do not need to be specified.
+   * **Procedure:**
+   * 1. Confirm the target delivery group and the current number of purchased nodes. For common scenarios of cloud apps, you can first invoke [ListAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/ListAppInstanceGroup) to obtain the identity, and then invoke [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query the configuration and `NodePool.NodeAmount`.
+   * 2. Invoke this operation with the same product type, delivery group identity, and target total number of nodes to read the price, coupons, and pricing rules.
+   * 3. After confirming the quote, if you want to execute the scale-out, you can invoke [ModifyNodePoolAmount](https://api.aliyun.com/document/appstream-center/2021-09-01/ModifyNodePoolAmount) and specify the target total number in `NodePool.NodeAmount` as required by the operation. **A successful price inquiry does not mean that an order is created or the scale-out is completed.**
    * **Example scenario:**
-   * If a cloud app delivery group currently has 1 purchased subscription node and the target is to scale out to 2 nodes, set ProductType to CloudApp, AppInstanceGroupId to the ID of the delivery group, and Amount to 2. Replace the masked resource IDs with the actual values under the current account. The example quantities do not represent default values or quota limits. The pricing examples only illustrate the relationship among the original price, discount amount, and discounted price, and do not represent the fixed selling price of the specifications.
+   * If a cloud app delivery group currently has 1 purchased subscription node and you want to scale out to 2 nodes, specify ProductType=CloudApp, the AppInstanceGroupId of the delivery group, and Amount=2. Replace the masked resource IDs with the actual values under the current account. The example quantities do not represent default values or quota limits. The price examples only illustrate the relationship among the original price, discount amount, and final price, and do not represent the fixed selling price of the specifications.
    * 
    * @param request - GetResourceModifyPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2972,25 +3212,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the pricing and discount information for scaling out a subscription delivery group to a specified total number of nodes.
+   * Queries the pricing and discount information required to scale out a subscription delivery group to a specified total number of nodes.
    * 
    * @remarks
-   * This operation queries the resource scale-out pricing for an existing delivery group. A successful call returns only a quote and does not create an order or add nodes.
-   * **Before you call this operation, verify the following conditions:**
+   * This operation queries the resource scale-out price of an existing delivery group. A successful call returns only a quote and does not create an order or add nodes.
+   * **Verify the following conditions before you call this operation:**
    * - The delivery group belongs to the current account and is located in a supported region in the Chinese mainland.
-   * - The product type is Wuying Cloud App or Cloud Browser, and the billing method is subscription and purchased by node. This operation does not apply to browser groups that use the pay-as-you-go billing method or are billed by monthly active users (MAU).
+   * - The product type is WUYING Cloud App or Cloud Browser, and the billing method is subscription and billed by node. Pay-as-you-go or browser groups billed by monthly active user (MAU) are not supported.
    * - The order status of the delivery group is normal, a resource node pool is associated, and no paid but ineffective renewal or scale-in orders exist.
-   * - The target total number of nodes is greater than the current number of purchased nodes and does not exceed the node quota for the corresponding region, product, and billing method under the account.
+   * - The target total number of nodes is greater than the current number of purchased nodes and does not exceed the node quota for the account in the corresponding region, product, and billing method.
    * **Parameter relationships:**
-   * - ProductType, AppInstanceGroupId, and Amount are all required parameters and must be specified together.
+   * - ProductType, AppInstanceGroupId, and Amount are all required and must be specified together.
    * - ProductType must match the product corresponding to AppInstanceGroupId.
-   * - **Amount is the total number of nodes after the scale-out, not the number of nodes added in this operation.** The region, node specifications, and billing method are determined by the existing delivery group and do not need to be passed separately.
-   * **Call sequence:**
-   * 1. First, confirm the target delivery group and the current number of purchased nodes. For Cloud App Common scenarios, you can first invoke [ListAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/ListAppInstanceGroup) to obtain the identity, and then invoke [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query the configuration and NodePool.NodeAmount.
-   * 2. Invoke this operation with the same product type, delivery group identity, and target total number of nodes to read the pricing, coupons, and pricing calculation rules.
-   * 3. After confirming the quote, if you need to execute the scale-out, you can invoke [ModifyNodePoolAmount](https://api.aliyun.com/document/appstream-center/2021-09-01/ModifyNodePoolAmount) and fill in the target total number in NodePool.NodeAmount as required by the operation. **A successful pricing query does not mean that an order has been created or the scale-out has been completed.**
+   * - **Amount is the total number of nodes after the scale-out, not the number of nodes added in this operation.** The region, node specifications, and billing method are determined by the existing delivery group and do not need to be specified.
+   * **Procedure:**
+   * 1. Confirm the target delivery group and the current number of purchased nodes. For common scenarios of cloud apps, you can first invoke [ListAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/ListAppInstanceGroup) to obtain the identity, and then invoke [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query the configuration and `NodePool.NodeAmount`.
+   * 2. Invoke this operation with the same product type, delivery group identity, and target total number of nodes to read the price, coupons, and pricing rules.
+   * 3. After confirming the quote, if you want to execute the scale-out, you can invoke [ModifyNodePoolAmount](https://api.aliyun.com/document/appstream-center/2021-09-01/ModifyNodePoolAmount) and specify the target total number in `NodePool.NodeAmount` as required by the operation. **A successful price inquiry does not mean that an order is created or the scale-out is completed.**
    * **Example scenario:**
-   * If a cloud app delivery group currently has 1 purchased subscription node and the target is to scale out to 2 nodes, set ProductType to CloudApp, AppInstanceGroupId to the ID of the delivery group, and Amount to 2. Replace the masked resource IDs with the actual values under the current account. The example quantities do not represent default values or quota limits. The pricing examples only illustrate the relationship among the original price, discount amount, and discounted price, and do not represent the fixed selling price of the specifications.
+   * If a cloud app delivery group currently has 1 purchased subscription node and you want to scale out to 2 nodes, specify ProductType=CloudApp, the AppInstanceGroupId of the delivery group, and Amount=2. Replace the masked resource IDs with the actual values under the current account. The example quantities do not represent default values or quota limits. The price examples only illustrate the relationship among the original price, discount amount, and final price, and do not represent the fixed selling price of the specifications.
    * 
    * @param request - GetResourceModifyPriceRequest
    * @returns GetResourceModifyPriceResponse
@@ -3076,15 +3316,15 @@ export default class Client extends OpenApi {
    * @remarks
    * This operation queries the maximum quantity quota. It does not query the used quota, remaining quota, or real-time resource inventory.
    * **Parameter relationships:**
-   * - `ResourceType` and `ProductType` are required.
-   * - `BizRegionId` and `ChargeType` are optional query conditions and can be specified at the same time. They must be consistent with subsequent purchase or authorization operations.
+   * - ResourceType and ProductType are required.
+   * - BizRegionId and ChargeType are optional query conditions and can be specified at the same time. They must be consistent with subsequent purchase or authorization operations.
    * - If the region or billing method is omitted, the general quota for the corresponding dimension is queried. The quotas of different regions or billing methods are not added together.
    * - If multiple quotas apply at the same time, the larger limit is returned.
    * **Call sequence:**
-   * 1. Select the resource type, product, business region, and billing method of the payer based on subsequent business needs.
-   * 2. Invoke this operation to read `Data`. Query `AppInstanceGroup` before creating a delivery group, query `AppAuthUser` before adding an authorized user, and query `PoolNodeAmount` before purchasing or scaling out nodes.
-   * 3. Query the current usage in combination with the resources, and then verify the current operation by using subsequent creation, authorization, or scale-out operations. **This query does not reserve quotas or guarantee the success of subsequent purchases.**
-   * `Data=2147483647` indicates that no smaller quota limit is obtained in this query. It does not mean that the physical inventory is unlimited.
+   * 1. Select the resource type, product, business region, and billing method for the payer based on subsequent business needs.
+   * 2. Invoke this operation to read `Data`. Query `AppInstanceGroup` before creating a delivery group, query `AppAuthUser` before authorizing an authorized user, and query `PoolNodeAmount` before purchasing or scaling out nodes.
+   * 3. Query the current usage in combination with the resources, and then verify the current operation through subsequent creation, authorization, or scale-out operations. **This query does not reserve quotas or guarantee the success of subsequent purchases.**
+   * Data=2147483647 indicates that no smaller quota limit is obtained in this query. It does not mean that the physical inventory is unlimited.
    * 
    * @param request - GetResourceQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3132,15 +3372,15 @@ export default class Client extends OpenApi {
    * @remarks
    * This operation queries the maximum quantity quota. It does not query the used quota, remaining quota, or real-time resource inventory.
    * **Parameter relationships:**
-   * - `ResourceType` and `ProductType` are required.
-   * - `BizRegionId` and `ChargeType` are optional query conditions and can be specified at the same time. They must be consistent with subsequent purchase or authorization operations.
+   * - ResourceType and ProductType are required.
+   * - BizRegionId and ChargeType are optional query conditions and can be specified at the same time. They must be consistent with subsequent purchase or authorization operations.
    * - If the region or billing method is omitted, the general quota for the corresponding dimension is queried. The quotas of different regions or billing methods are not added together.
    * - If multiple quotas apply at the same time, the larger limit is returned.
    * **Call sequence:**
-   * 1. Select the resource type, product, business region, and billing method of the payer based on subsequent business needs.
-   * 2. Invoke this operation to read `Data`. Query `AppInstanceGroup` before creating a delivery group, query `AppAuthUser` before adding an authorized user, and query `PoolNodeAmount` before purchasing or scaling out nodes.
-   * 3. Query the current usage in combination with the resources, and then verify the current operation by using subsequent creation, authorization, or scale-out operations. **This query does not reserve quotas or guarantee the success of subsequent purchases.**
-   * `Data=2147483647` indicates that no smaller quota limit is obtained in this query. It does not mean that the physical inventory is unlimited.
+   * 1. Select the resource type, product, business region, and billing method for the payer based on subsequent business needs.
+   * 2. Invoke this operation to read `Data`. Query `AppInstanceGroup` before creating a delivery group, query `AppAuthUser` before authorizing an authorized user, and query `PoolNodeAmount` before purchasing or scaling out nodes.
+   * 3. Query the current usage in combination with the resources, and then verify the current operation through subsequent creation, authorization, or scale-out operations. **This query does not reserve quotas or guarantee the success of subsequent purchases.**
+   * Data=2147483647 indicates that no smaller quota limit is obtained in this query. It does not mean that the physical inventory is unlimited.
    * 
    * @param request - GetResourceQuotaRequest
    * @returns GetResourceQuotaResponse
@@ -3343,9 +3583,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Supports two query methods:
-   * - **Query by task ID**: Pass the TaskId parameter. This method takes precedence over querying by resource information.
-   * - **Query by resource**: Omit the TaskId parameter, and pass the EntityId, EntityType, and TaskCategory parameters. You can use the EntityVersionId parameter to specify the resource version.
-   * The API returns the current task status and recorded step information. Determine the overall task result based on the Status parameter. The success of a single step does not indicate the success of the entire task. You can call the ListTaskStep operation to query the names and categories of image creation and application adaptation steps.
+   * - **By task ID**: Pass the TaskId parameter. This method takes precedence over querying by resource information.
+   * - **By resource**: Omit the TaskId parameter, and pass the EntityId, EntityType, and TaskCategory parameters at the same time. You can use the EntityVersionId parameter to specify the resource version.
+   * The API returns the current task status and recorded step information. Determine the overall task result based on the Status parameter. The success of a single step does not mean the entire task is successful. You can call the ListTaskStep operation to query the names and categories of image creation and application adaptation steps.
    * 
    * @param request - GetTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3400,9 +3640,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Supports two query methods:
-   * - **Query by task ID**: Pass the TaskId parameter. This method takes precedence over querying by resource information.
-   * - **Query by resource**: Omit the TaskId parameter, and pass the EntityId, EntityType, and TaskCategory parameters. You can use the EntityVersionId parameter to specify the resource version.
-   * The API returns the current task status and recorded step information. Determine the overall task result based on the Status parameter. The success of a single step does not indicate the success of the entire task. You can call the ListTaskStep operation to query the names and categories of image creation and application adaptation steps.
+   * - **By task ID**: Pass the TaskId parameter. This method takes precedence over querying by resource information.
+   * - **By resource**: Omit the TaskId parameter, and pass the EntityId, EntityType, and TaskCategory parameters at the same time. You can use the EntityVersionId parameter to specify the resource version.
+   * The API returns the current task status and recorded step information. Determine the overall task result based on the Status parameter. The success of a single step does not mean the entire task is successful. You can call the ListTaskStep operation to query the names and categories of image creation and application adaptation steps.
    * 
    * @param request - GetTaskRequest
    * @returns GetTaskResponse
@@ -3413,11 +3653,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the valid applications of the current account based on conditions such as the application ID, name, type, and associated product.
+   * Queries the valid applications of the current account by paging based on conditions such as the application ID, name, type, and associated product.
    * 
    * @remarks
-   * When multiple filter conditions are specified simultaneously, they take effect together. AppName supports partial match. When a single-value filter and the corresponding list filter are specified simultaneously, the intersection is used. To avoid empty results, select only one of the formats.
-   * If PageSize is omitted, the value is 10. Query pages sequentially starting from PageNumber 1 until the number of retrieved records reaches Count. Before deleting an application, check Deletable.
+   * When multiple filter conditions are specified at the same time, they take effect together. AppName supports contains matching. When a single-value filter and the corresponding list filter are specified at the same time, the intersection is used. To avoid empty results, specify only one of the forms.
+   * If PageSize is omitted, the value is 10. Start from 1 for PageNumber and query page by page until the number of retrieved records reaches Count. Before deleting an application, check Deletable.
    * 
    * @param tmpReq - ListAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3502,11 +3742,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the valid applications of the current account based on conditions such as the application ID, name, type, and associated product.
+   * Queries the valid applications of the current account by paging based on conditions such as the application ID, name, type, and associated product.
    * 
    * @remarks
-   * When multiple filter conditions are specified simultaneously, they take effect together. AppName supports partial match. When a single-value filter and the corresponding list filter are specified simultaneously, the intersection is used. To avoid empty results, select only one of the formats.
-   * If PageSize is omitted, the value is 10. Query pages sequentially starting from PageNumber 1 until the number of retrieved records reaches Count. Before deleting an application, check Deletable.
+   * When multiple filter conditions are specified at the same time, they take effect together. AppName supports contains matching. When a single-value filter and the corresponding list filter are specified at the same time, the intersection is used. To avoid empty results, specify only one of the forms.
+   * If PageSize is omitted, the value is 10. Start from 1 for PageNumber and query page by page until the number of retrieved records reaches Count. Before deleting an application, check Deletable.
    * 
    * @param request - ListAppRequest
    * @returns ListAppResponse
@@ -3616,19 +3856,19 @@ export default class Client extends OpenApi {
    * Queries the available session instance types for the current account by paging based on the product, region, operating system, and instance type conditions.
    * 
    * @remarks
-   * This operation is used to select session instance types and does not create resources. The returned results are affected by the available instance types of the account and the business region. An empty result does not indicate a request failure.
+   * This operation is used to select session instance types and does not create resources. The returned results are affected by the available instance types for the account and the business region. An empty result does not indicate a request failure.
    * **Filtering and pagination:**
-   * - ProductType is required. Explicitly specify BizRegionId, PageNumber, and PageSize.
-   * - If BizRegionId is not provided, the region of the current request is used. You can call [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) to obtain the business region.
-   * - AppInstanceType and AppInstanceTypeList can be specified at the same time. In this case, only the instance types that meet both conditions are returned. Neither parameter overrides the other. The list can contain up to 100 items.
-   * - Instance type family, CPU, memory, GPU memory, operating system, and category conditions are filtered by intersection. The union is not automatically applied.
-   * - PageNumber starts from 1. Use TotalCount, PageSize, and PageNumber to continue pagination until all matching results are read.
+   * - `ProductType` is required. Explicitly specify `BizRegionId`, `PageNumber`, and `PageSize`.
+   * - If `BizRegionId` is not provided, the region of the current request is used. You can call the [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) operation to obtain the business region.
+   * - You can specify both `AppInstanceType` and `AppInstanceTypeList`. In this case, only the instance types that meet both conditions are returned. Neither parameter overrides the other. The list can contain up to 100 items.
+   * - The instance type family, CPU, memory, GPU memory, operating system, and category conditions are filtered by intersection. The union is not automatically applied.
+   * - Pass `PageNumber` starting from 1. Use `TotalCount`, `PageSize`, and `PageNumber` to continue pagination until all matching results are read.
    * **Inventory and subsequent calls:**
-   * - Inventory is queried only when QueryInventory is set to true. If inventory information is not obtained, do not assume that the inventory is 0.
+   * - Inventory is queried only when `QueryInventory` is set to `true`. If inventory information is not obtained, do not assume that the inventory is 0.
    * - The inventory reflects the current query result and does not indicate a successful reservation.
-   * - After obtaining the AppInstanceType, you can query the price based on the session instance type parameter requirements of [GetResourcePrice](https://api.aliyun.com/document/appstream-center/2021-09-01/GetResourcePrice).
-   * - The current query does not use AppCenterImageId to filter instance types. Do not use this parameter to determine the compatibility between images and instance types.
-   * Field examples are used to demonstrate how to specify parameters and do not guarantee that the example instance types exist in the selected region or account. The GPU count field does not currently provide values. Use the GPU memory field to understand the instance type.
+   * - After obtaining the `AppInstanceType`, you can query the price based on the session instance type parameter requirements of [GetResourcePrice](https://api.aliyun.com/document/appstream-center/2021-09-01/GetResourcePrice).
+   * - The current query does not use `AppCenterImageId` to filter instance types. Do not use this parameter to determine the compatibility between images and instance types.
+   * Field examples are used to demonstrate how to fill in the fields and do not guarantee that the example instance types exist in the selected region or account. The GPU count field currently does not provide a value. Use the GPU memory field to understand the instance type.
    * 
    * @param request - ListAppInstanceTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3722,19 +3962,19 @@ export default class Client extends OpenApi {
    * Queries the available session instance types for the current account by paging based on the product, region, operating system, and instance type conditions.
    * 
    * @remarks
-   * This operation is used to select session instance types and does not create resources. The returned results are affected by the available instance types of the account and the business region. An empty result does not indicate a request failure.
+   * This operation is used to select session instance types and does not create resources. The returned results are affected by the available instance types for the account and the business region. An empty result does not indicate a request failure.
    * **Filtering and pagination:**
-   * - ProductType is required. Explicitly specify BizRegionId, PageNumber, and PageSize.
-   * - If BizRegionId is not provided, the region of the current request is used. You can call [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) to obtain the business region.
-   * - AppInstanceType and AppInstanceTypeList can be specified at the same time. In this case, only the instance types that meet both conditions are returned. Neither parameter overrides the other. The list can contain up to 100 items.
-   * - Instance type family, CPU, memory, GPU memory, operating system, and category conditions are filtered by intersection. The union is not automatically applied.
-   * - PageNumber starts from 1. Use TotalCount, PageSize, and PageNumber to continue pagination until all matching results are read.
+   * - `ProductType` is required. Explicitly specify `BizRegionId`, `PageNumber`, and `PageSize`.
+   * - If `BizRegionId` is not provided, the region of the current request is used. You can call the [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) operation to obtain the business region.
+   * - You can specify both `AppInstanceType` and `AppInstanceTypeList`. In this case, only the instance types that meet both conditions are returned. Neither parameter overrides the other. The list can contain up to 100 items.
+   * - The instance type family, CPU, memory, GPU memory, operating system, and category conditions are filtered by intersection. The union is not automatically applied.
+   * - Pass `PageNumber` starting from 1. Use `TotalCount`, `PageSize`, and `PageNumber` to continue pagination until all matching results are read.
    * **Inventory and subsequent calls:**
-   * - Inventory is queried only when QueryInventory is set to true. If inventory information is not obtained, do not assume that the inventory is 0.
+   * - Inventory is queried only when `QueryInventory` is set to `true`. If inventory information is not obtained, do not assume that the inventory is 0.
    * - The inventory reflects the current query result and does not indicate a successful reservation.
-   * - After obtaining the AppInstanceType, you can query the price based on the session instance type parameter requirements of [GetResourcePrice](https://api.aliyun.com/document/appstream-center/2021-09-01/GetResourcePrice).
-   * - The current query does not use AppCenterImageId to filter instance types. Do not use this parameter to determine the compatibility between images and instance types.
-   * Field examples are used to demonstrate how to specify parameters and do not guarantee that the example instance types exist in the selected region or account. The GPU count field does not currently provide values. Use the GPU memory field to understand the instance type.
+   * - After obtaining the `AppInstanceType`, you can query the price based on the session instance type parameter requirements of [GetResourcePrice](https://api.aliyun.com/document/appstream-center/2021-09-01/GetResourcePrice).
+   * - The current query does not use `AppCenterImageId` to filter instance types. Do not use this parameter to determine the compatibility between images and instance types.
+   * Field examples are used to demonstrate how to fill in the fields and do not guarantee that the example instance types exist in the selected region or account. The GPU count field currently does not provide a value. Use the GPU memory field to understand the instance type.
    * 
    * @param request - ListAppInstanceTypeRequest
    * @returns ListAppInstanceTypeResponse
@@ -4510,7 +4750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of desktop agent runtimes.
+   * Queries a list of desktop Agent runtimes.
    * 
    * @param request - ListDesktopAgentRuntimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4645,7 +4885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of desktop agent runtimes.
+   * Queries a list of desktop Agent runtimes.
    * 
    * @param request - ListDesktopAgentRuntimeRequest
    * @returns ListDesktopAgentRuntimeResponse
@@ -4923,6 +5163,80 @@ export default class Client extends OpenApi {
   async listModelProviderEndpoints(request: $_model.ListModelProviderEndpointsRequest): Promise<$_model.ListModelProviderEndpointsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listModelProviderEndpointsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of available large language model (LLM) codes for a specified model provider. Supports filtering by LLM code, model brand, recommendation level, and recommendation status, and returns model information such as the model name, description, release time, features, inference modality, pricing, credit multiplier, and risk type.
+   * 
+   * @param request - ListModelProviderLlmCodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelProviderLlmCodesResponse
+   */
+  async listModelProviderLlmCodesWithOptions(request: $_model.ListModelProviderLlmCodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelProviderLlmCodesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.llmCode)) {
+      query["LlmCode"] = request.llmCode;
+    }
+
+    if (!$dara.isNull(request.modelBrands)) {
+      query["ModelBrands"] = request.modelBrands;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.providerName)) {
+      query["ProviderName"] = request.providerName;
+    }
+
+    if (!$dara.isNull(request.providerTemplateId)) {
+      query["ProviderTemplateId"] = request.providerTemplateId;
+    }
+
+    if (!$dara.isNull(request.recommended)) {
+      query["Recommended"] = request.recommended;
+    }
+
+    if (!$dara.isNull(request.recommendedLevels)) {
+      query["RecommendedLevels"] = request.recommendedLevels;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelProviderLlmCodes",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelProviderLlmCodesResponse>(await this.callApi(params, req, runtime), new $_model.ListModelProviderLlmCodesResponse({}));
+  }
+
+  /**
+   * Queries the list of available large language model (LLM) codes for a specified model provider. Supports filtering by LLM code, model brand, recommendation level, and recommendation status, and returns model information such as the model name, description, release time, features, inference modality, pricing, credit multiplier, and risk type.
+   * 
+   * @param request - ListModelProviderLlmCodesRequest
+   * @returns ListModelProviderLlmCodesResponse
+   */
+  async listModelProviderLlmCodes(request: $_model.ListModelProviderLlmCodesRequest): Promise<$_model.ListModelProviderLlmCodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listModelProviderLlmCodesWithOptions(request, runtime);
   }
 
   /**
@@ -5657,7 +5971,7 @@ export default class Client extends OpenApi {
    * Queries the list of region IDs available for image services under a specified product for the current account.
    * 
    * @remarks
-   * The returned results are affected by the available region configurations of the account and the product type. If ProductType is omitted, the query defaults to CloudApp.
+   * The returned results are affected by the available region configurations of the account and the product type. If ProductType is omitted, the query is performed based on CloudApp.
    * This operation returns the regions available for image services. You cannot use this information to determine whether a specific image has been distributed to these regions. Before you create or distribute an image based on a parent image, you must also check the region information of the destination image.
    * 
    * @param request - ListRegionIdRequest
@@ -5692,7 +6006,7 @@ export default class Client extends OpenApi {
    * Queries the list of region IDs available for image services under a specified product for the current account.
    * 
    * @remarks
-   * The returned results are affected by the available region configurations of the account and the product type. If ProductType is omitted, the query defaults to CloudApp.
+   * The returned results are affected by the available region configurations of the account and the product type. If ProductType is omitted, the query is performed based on CloudApp.
    * This operation returns the regions available for image services. You cannot use this information to determine whether a specific image has been distributed to these regions. Before you create or distribute an image based on a parent image, you must also check the region information of the destination image.
    * 
    * @param request - ListRegionIdRequest
@@ -5925,7 +6239,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Returns application adaptation steps when Type is set to ADAPTOR, and image creation steps when Type is set to IMAGE.
-   * This operation returns step definitions, not the actual progress of a specific task. Read the step definitions first, and then combine them with the current step and step status returned by GetTask to display the task progress. The step sets vary across different task types. Do not treat the step index as a completion percentage.
+   * This operation returns step definitions, not the actual progress of a specific task. Read the step definitions first, and then combine them with the current step and step status returned by GetTask to display the task progress. The step sets vary across different task types. Do not use the step index as the completion percentage.
    * 
    * @param request - ListTaskStepRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5960,7 +6274,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Returns application adaptation steps when Type is set to ADAPTOR, and image creation steps when Type is set to IMAGE.
-   * This operation returns step definitions, not the actual progress of a specific task. Read the step definitions first, and then combine them with the current step and step status returned by GetTask to display the task progress. The step sets vary across different task types. Do not treat the step index as a completion percentage.
+   * This operation returns step definitions, not the actual progress of a specific task. Read the step definitions first, and then combine them with the current step and step status returned by GetTask to display the task progress. The step sets vary across different task types. Do not use the step index as the completion percentage.
    * 
    * @param request - ListTaskStepRequest
    * @returns ListTaskStepResponse
@@ -6423,21 +6737,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the billing method of a specified delivery group to the target billing method and returns the ID of the billing conversion task to be created.
+   * Changes the billing method of a specified delivery group to a target billing method and returns the ID of the billing conversion task to be created.
    * 
    * @remarks
    * This operation performs billing method conversion, which may create orders and trigger subsequent billing changes. **A successful response or a returned task ID does not indicate that the new billing method has taken effect.**
-   * **Before you begin:**
-   * - The resources belong to the current account, and the product and business region match those in the request. Only one delivery group can be specified per request.
-   * - The target billing method must be different from the current one, and the target resource specifications must support the corresponding sales and Billable methods.
-   * - Delivery groups that have been added to a valid collection cannot be converted to a different billing method individually.
-   * - Multiple delivery groups created in the same batch of orders cannot be converted to different Billable methods separately.
+   * **Prerequisites:**
+   * - The resources belong to the current account, and the product and business region match the request. Only one delivery group can be specified per request.
+   * - The target billing method must be different from the current billing method, and the target resource specifications must support the corresponding sales and Billable methods.
+   * - Delivery groups that have been added to a valid collection cannot have their Billable methods converted individually.
+   * - Multiple delivery groups created in the same batch of orders cannot have their Billable methods converted separately.
    * **Parameter relationships and call sequence:**
-   * 1. Query the resource details first to confirm the product, business region, and current `ChargeType`. You can use [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query cloud application delivery groups.
-   * 2. Explicitly specify the target `ChargeType`. If you need to purchase a subscription, specify the purchase duration by combining `Period` and `PeriodUnit`. The period combination must comply with the sales rules currently supported by the resource.
-   * 3. Set `AutoPay` based on whether automatic payment is allowed. If auto-renewal is involved, explicitly set `AutoRenew`.
-   * 4. After the call, save the returned `AppInstanceGroupModel.TaskId`. If there are unpaid orders, complete the payment first, and then query the resource details again to confirm that the billing method has been changed.
-   * This operation does not accept an expiration time parameter. Do not pass the expiration time from other operations into this request. The task examples only illustrate the purpose of the ID and do not define a fixed prefix or length for actual task IDs.
+   * 1. Query the resource details first to confirm the product, business region, and current ChargeType. You can use [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query cloud application delivery groups.
+   * 2. Explicitly specify the target ChargeType. If you need to purchase a subscription, specify the purchase duration by combining Period and PeriodUnit. The period combination must comply with the sales rules currently supported by the resource.
+   * 3. Set AutoPay based on whether automatic payment is allowed. If auto-renewal is involved, explicitly set AutoRenew.
+   * 4. After the call, save the returned AppInstanceGroupModel.TaskId. If there are unpaid orders, complete the payment first, and then query the resource details again to confirm that the billing method has been changed.
+   * This operation does not accept an expiration time parameter. Do not pass the expiration time from other operations into this request. The task examples only illustrate the purpose of the ID and do not define a fixed prefix or length for real task IDs.
    * 
    * @param tmpReq - ModifyAppInstanceGroupChargeTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6506,21 +6820,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the billing method of a specified delivery group to the target billing method and returns the ID of the billing conversion task to be created.
+   * Changes the billing method of a specified delivery group to a target billing method and returns the ID of the billing conversion task to be created.
    * 
    * @remarks
    * This operation performs billing method conversion, which may create orders and trigger subsequent billing changes. **A successful response or a returned task ID does not indicate that the new billing method has taken effect.**
-   * **Before you begin:**
-   * - The resources belong to the current account, and the product and business region match those in the request. Only one delivery group can be specified per request.
-   * - The target billing method must be different from the current one, and the target resource specifications must support the corresponding sales and Billable methods.
-   * - Delivery groups that have been added to a valid collection cannot be converted to a different billing method individually.
-   * - Multiple delivery groups created in the same batch of orders cannot be converted to different Billable methods separately.
+   * **Prerequisites:**
+   * - The resources belong to the current account, and the product and business region match the request. Only one delivery group can be specified per request.
+   * - The target billing method must be different from the current billing method, and the target resource specifications must support the corresponding sales and Billable methods.
+   * - Delivery groups that have been added to a valid collection cannot have their Billable methods converted individually.
+   * - Multiple delivery groups created in the same batch of orders cannot have their Billable methods converted separately.
    * **Parameter relationships and call sequence:**
-   * 1. Query the resource details first to confirm the product, business region, and current `ChargeType`. You can use [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query cloud application delivery groups.
-   * 2. Explicitly specify the target `ChargeType`. If you need to purchase a subscription, specify the purchase duration by combining `Period` and `PeriodUnit`. The period combination must comply with the sales rules currently supported by the resource.
-   * 3. Set `AutoPay` based on whether automatic payment is allowed. If auto-renewal is involved, explicitly set `AutoRenew`.
-   * 4. After the call, save the returned `AppInstanceGroupModel.TaskId`. If there are unpaid orders, complete the payment first, and then query the resource details again to confirm that the billing method has been changed.
-   * This operation does not accept an expiration time parameter. Do not pass the expiration time from other operations into this request. The task examples only illustrate the purpose of the ID and do not define a fixed prefix or length for actual task IDs.
+   * 1. Query the resource details first to confirm the product, business region, and current ChargeType. You can use [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query cloud application delivery groups.
+   * 2. Explicitly specify the target ChargeType. If you need to purchase a subscription, specify the purchase duration by combining Period and PeriodUnit. The period combination must comply with the sales rules currently supported by the resource.
+   * 3. Set AutoPay based on whether automatic payment is allowed. If auto-renewal is involved, explicitly set AutoRenew.
+   * 4. After the call, save the returned AppInstanceGroupModel.TaskId. If there are unpaid orders, complete the payment first, and then query the resource details again to confirm that the billing method has been changed.
+   * This operation does not accept an expiration time parameter. Do not pass the expiration time from other operations into this request. The task examples only illustrate the purpose of the ID and do not define a fixed prefix or length for real task IDs.
    * 
    * @param request - ModifyAppInstanceGroupChargeTypeRequest
    * @returns ModifyAppInstanceGroupChargeTypeResponse
@@ -8580,10 +8894,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dissociates multiple applications from a specified image version.
+   * Dissociates applications from a specified image version in batches.
    * 
    * @remarks
-   * This operation supports only custom images and community images that the current account can manage. If you omit VersionId, the current effective version is used. If you specify VersionId, it must belong to the image specified by ImageId. Verify the associations between the applications and the version by querying the image before you submit AppIdList. **Dissociating applications does not directly delete the application records.** To delete an application, call DeleteApp.
+   * Only custom images and community images manageable by the current account are supported. If VersionId is omitted, the current active version is used. If specified, the version must belong to the image specified by ImageId. Verify the association between the applications and the version through the image query results before submitting AppIdList. **Dissociating applications does not directly delete application records.** To delete applications, call DeleteApp separately.
    * 
    * @param request - UnbindAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8627,10 +8941,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dissociates multiple applications from a specified image version.
+   * Dissociates applications from a specified image version in batches.
    * 
    * @remarks
-   * This operation supports only custom images and community images that the current account can manage. If you omit VersionId, the current effective version is used. If you specify VersionId, it must belong to the image specified by ImageId. Verify the associations between the applications and the version by querying the image before you submit AppIdList. **Dissociating applications does not directly delete the application records.** To delete an application, call DeleteApp.
+   * Only custom images and community images manageable by the current account are supported. If VersionId is omitted, the current active version is used. If specified, the version must belong to the image specified by ImageId. Verify the association between the applications and the version through the image query results before submitting AppIdList. **Dissociating applications does not directly delete application records.** To delete applications, call DeleteApp separately.
    * 
    * @param request - UnbindAppRequest
    * @returns UnbindAppResponse
@@ -8931,11 +9245,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name, description, version information, and associated application adaptations of an image.
+   * Modifies the name, description, version information, and associated application adapters of an image.
    * 
    * @remarks
-   * You can only modify images that are owned by the current account and allow modifications. Modifying images shared with the current account is not supported.
-   * You must provide at least one of ImageId and VersionId. If both are provided, they must point to the same image. If VersionId is omitted, the current effective version of the image is used. Passing a non-empty AdaptorIdList updates the application adaptation relationships of the selected version based on the complete list. Make sure to include the adaptations that you still want to retain.
+   * You can only modify images that are owned by the current account and allow modifications. Images shared with the current account cannot be modified.
+   * You must provide at least one of ImageId and VersionId. If both are provided, they must point to the same image. If VersionId is omitted, the current effective version of the image is used. Passing a non-empty AdaptorIdList updates the application adapter associations for the selected version based on the complete list. Make sure to include the adapters that you still want to retain.
    * 
    * @param request - UpdateImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8994,11 +9308,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name, description, version information, and associated application adaptations of an image.
+   * Modifies the name, description, version information, and associated application adapters of an image.
    * 
    * @remarks
-   * You can only modify images that are owned by the current account and allow modifications. Modifying images shared with the current account is not supported.
-   * You must provide at least one of ImageId and VersionId. If both are provided, they must point to the same image. If VersionId is omitted, the current effective version of the image is used. Passing a non-empty AdaptorIdList updates the application adaptation relationships of the selected version based on the complete list. Make sure to include the adaptations that you still want to retain.
+   * You can only modify images that are owned by the current account and allow modifications. Images shared with the current account cannot be modified.
+   * You must provide at least one of ImageId and VersionId. If both are provided, they must point to the same image. If VersionId is omitted, the current effective version of the image is used. Passing a non-empty AdaptorIdList updates the application adapter associations for the selected version based on the complete list. Make sure to include the adapters that you still want to retain.
    * 
    * @param request - UpdateImageRequest
    * @returns UpdateImageResponse
@@ -9012,7 +9326,8 @@ export default class Client extends OpenApi {
    * Sends a status update request for an existing image creation task to the corresponding creation resource.
    * 
    * @remarks
-   * The task must exist before you call this operation, and the corresponding creation resource and resource node must be available. TaskType must match the actual type of the task. **This operation does not support modifying the task step, image version, or destination region by using TaskStep, VersionId, or BizRegionId. Do not pass these three parameters.** A successful request only indicates that this status update call is completed. To query the final status of the task, call GetTask.
+   * The task must exist before you call this operation, and the corresponding creation resource and resource node must be available. The TaskType must match the actual type of the task.
+   * **This operation does not support modifying the task step, image version, or destination region by using TaskStep, VersionId, or BizRegionId. Do not pass these three parameters.** A successful request only indicates that the status update call is completed. To query the final status of the task, call GetTask.
    * 
    * @param request - UpdateImageTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9070,7 +9385,8 @@ export default class Client extends OpenApi {
    * Sends a status update request for an existing image creation task to the corresponding creation resource.
    * 
    * @remarks
-   * The task must exist before you call this operation, and the corresponding creation resource and resource node must be available. TaskType must match the actual type of the task. **This operation does not support modifying the task step, image version, or destination region by using TaskStep, VersionId, or BizRegionId. Do not pass these three parameters.** A successful request only indicates that this status update call is completed. To query the final status of the task, call GetTask.
+   * The task must exist before you call this operation, and the corresponding creation resource and resource node must be available. The TaskType must match the actual type of the task.
+   * **This operation does not support modifying the task step, image version, or destination region by using TaskStep, VersionId, or BizRegionId. Do not pass these three parameters.** A successful request only indicates that the status update call is completed. To query the final status of the task, call GetTask.
    * 
    * @param request - UpdateImageTaskRequest
    * @returns UpdateImageTaskResponse

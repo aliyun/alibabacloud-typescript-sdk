@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BuilderImageByParentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the image, which is used to query or modify the image later.
+   * The image ID, which is used for subsequent queries or modifications of the image.
    * 
    * @example
    * imgc-bp1example****
@@ -13,7 +13,7 @@ export class BuilderImageByParentResponseBodyData extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The ID of the task, which can be used to call GetTask to query the task status.
+   * The task ID, which can be used to call GetTask to query the task status.
    * 
    * @example
    * tid-bp1example****
@@ -21,7 +21,7 @@ export class BuilderImageByParentResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The ID of the image version, which is used to query or operate on the specified version of the image.
+   * The image version ID, which is used to query or manage the specified version of the image.
    * 
    * @example
    * iv-bp1example****
@@ -63,7 +63,7 @@ export class BuilderImageByParentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business data returned by the operation.
+   * The business data returned by this operation.
    */
   data?: BuilderImageByParentResponseBodyData;
   /**
@@ -84,7 +84,7 @@ export class BuilderImageByParentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. To check whether the asynchronous task is complete, you must query the task status separately.
+   * Indicates whether the request is processed successfully. A value of true indicates that the request is processed successfully. To check whether the asynchronous task is completed, you must query the task status separately.
    */
   success?: boolean;
   static names(): { [key: string]: string } {
