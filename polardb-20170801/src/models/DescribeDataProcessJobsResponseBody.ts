@@ -37,7 +37,7 @@ export class DescribeDataProcessJobsResponseBodyItems extends $dara.Model {
   destinationPath?: string;
   /**
    * @remarks
-   * The destination type. Currently, only PolarDB is supported.
+   * The type of the destination. Currently, only PolarDB is supported.
    * 
    * @example
    * PolarDB
@@ -184,7 +184,7 @@ export class DescribeDataProcessJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of jobs that meet the query conditions.
+   * The total number of jobs that match the query conditions.
    * 
    * @example
    * 1

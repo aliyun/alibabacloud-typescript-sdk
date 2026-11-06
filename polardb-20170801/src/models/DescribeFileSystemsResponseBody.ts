@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
   /**
    * @remarks
-   * The capacity of the file.
+   * The file capacity.
    * 
    * @example
    * 100GB
@@ -13,7 +13,7 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
   capacity?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The file name.
    * 
    * @example
    * test.txt
@@ -21,7 +21,7 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The time when the file was last modified. The time is in the RFC 3339 UTC format.
+   * The last modified time of the file, in RFC 3339 UTC format.
    * 
    * @example
    * 2025-03-25T09:37:10Z
@@ -65,7 +65,7 @@ export class DescribeFileSystemsResponseBodyFileSystems extends $dara.Model {
 export class DescribeFileSystemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the bucket.
+   * The bucket ID.
    * 
    * @example
    * bucket-456
@@ -73,7 +73,7 @@ export class DescribeFileSystemsResponseBody extends $dara.Model {
   bucketId?: string;
   /**
    * @remarks
-   * The total number of files that meet the specified conditions.
+   * The total number of files that match the conditions.
    * 
    * @example
    * 100
@@ -81,7 +81,7 @@ export class DescribeFileSystemsResponseBody extends $dara.Model {
   fileCount?: number;
   /**
    * @remarks
-   * The ID of the file system.
+   * The file system ID.
    * 
    * @example
    * fs-123
@@ -94,7 +94,7 @@ export class DescribeFileSystemsResponseBody extends $dara.Model {
   fileSystems?: DescribeFileSystemsResponseBodyFileSystems[];
   /**
    * @remarks
-   * Indicates whether the results are truncated. If the value is true, you can use NextToken to query subsequent results.
+   * Indicates whether the results are truncated. If true, you can use NextToken to retrieve subsequent results.
    */
   isTruncated?: boolean;
   /**
@@ -115,7 +115,7 @@ export class DescribeFileSystemsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2921D843-433A-5FB3-A03B-4EC093B219F8

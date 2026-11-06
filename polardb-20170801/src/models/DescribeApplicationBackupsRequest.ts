@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationBackupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeApplicationBackupsRequest extends $dara.Model {
   applicationType?: string;
   /**
    * @remarks
-   * The filter condition for the backup status. A value of Success indicates that the backup is completed, and a value of Failed indicates that the backup failed.
+   * The backup status filter. Valid values: Success: The backup is completed. Failed: The backup failed.
    * 
    * @example
    * Success
@@ -39,7 +39,7 @@ export class DescribeApplicationBackupsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number. The value must be an integer greater than 0 and less than or equal to 2147483647. Default value: 1.
+   * The page number. The value must be a positive integer up to 2147483647. Default value: 1.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class DescribeApplicationBackupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the application.
+   * The ID of the region where the application resides.
    * 
    * @example
    * cn-hangzhou

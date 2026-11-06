@@ -6,9 +6,9 @@ export class DescribeHistoryEventsStatRequest extends $dara.Model {
   /**
    * @remarks
    * The archive status of the events. Valid values:
-   * - Archived: Archived.
-   * - UnArchived: Unarchived.
-   * - All: All.
+   * - Archived: The events are archived.
+   * - UnArchived: The events are not archived.
+   * - All: All events.
    * 
    * @example
    * All
@@ -16,7 +16,7 @@ export class DescribeHistoryEventsStatRequest extends $dara.Model {
   archiveStatus?: string;
   /**
    * @remarks
-   * The start time of the time range for the task start time. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+   * The start time of the time range for task start times to query, in the YYYY-MM-DDThh:mm:ssZ format (UTC).
    * 
    * @example
    * 2025-01-02T11:31:03Z
@@ -32,7 +32,7 @@ export class DescribeHistoryEventsStatRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The end time of the time range for the task start time. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+   * The end time of the time range for task start times to query, in the YYYY-MM-DDThh:mm:ssZ format (UTC).
    * 
    * @example
    * 2025-01-03T12:31:03Z

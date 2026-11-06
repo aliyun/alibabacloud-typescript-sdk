@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceReportAttributeResponseBodyReportSubItems extends $dara.Model {
   /**
    * @remarks
-   * The risk level of the check item.
+   * The risk level of the inspection item.
    * 
    * @example
    * low
@@ -13,7 +13,7 @@ export class DescribeInstanceReportAttributeResponseBodyReportSubItems extends $
   riskLevel?: string;
   /**
    * @remarks
-   * The score of the check item.
+   * The score of the inspection item.
    * 
    * @example
    * 90
@@ -21,7 +21,7 @@ export class DescribeInstanceReportAttributeResponseBodyReportSubItems extends $
   score?: number;
   /**
    * @remarks
-   * The name of the inspection skill that generated the check result.
+   * The name of the inspection skill that generated the result.
    * 
    * @example
    * performance
@@ -29,7 +29,7 @@ export class DescribeInstanceReportAttributeResponseBodyReportSubItems extends $
   skillName?: string;
   /**
    * @remarks
-   * The result summary of the check item.
+   * The result summary of the inspection item.
    * 
    * @example
    * No anomalies found
@@ -102,7 +102,7 @@ export class DescribeInstanceReportAttributeResponseBody extends $dara.Model {
   reportStatus?: string;
   /**
    * @remarks
-   * The check results in the report.
+   * The inspection results for each item in the report.
    */
   reportSubItems?: DescribeInstanceReportAttributeResponseBodyReportSubItems[];
   /**

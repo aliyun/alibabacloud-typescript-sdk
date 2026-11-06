@@ -13,7 +13,7 @@ export class DescribeInspectionReportListRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The number of the page to return. Pages start from 1. Maximum value: 2147483647. Default value: 1.
+   * The page number. Pages start from 1. Maximum value: 2147483647. Default value: 1.
    * 
    * @example
    * 1

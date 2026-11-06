@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationSessionLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent name. This parameter must be specified together with the SessionId parameter, or neither of them is specified.
+   * The agent name. This parameter must be specified together with the SessionId parameter, or neither is specified.
    * 
    * @example
    * test-agent
@@ -62,7 +62,7 @@ export class DescribeApplicationSessionLogsRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   /**
    * @remarks
-   * The role filter for logs. Valid values: user, assistant, and toolResult.
+   * The role filter for logs. A value of user indicates a user, assistant indicates an assistant, and toolResult indicates a tool execution result.
    * 
    * @example
    * assistant
@@ -70,7 +70,7 @@ export class DescribeApplicationSessionLogsRequest extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The session ID. This parameter must be specified together with the Agent parameter, or neither of them is specified.
+   * The session ID. This parameter must be specified together with the Agent parameter, or neither is specified.
    * 
    * @example
    * session-123
@@ -88,7 +88,7 @@ export class DescribeApplicationSessionLogsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The log type. This API operation only queries session logs. Set the value to session.
+   * The log type. This operation only queries session logs.
    * 
    * @example
    * session

@@ -21,7 +21,7 @@ export class DescribeBudgetUsageRequest extends $dara.Model {
   budgetDimensionType?: string;
   /**
    * @remarks
-   * The ID of the gateway instance to query.
+   * The ID of the gateway instance.
    * 
    * @example
    * pc-123

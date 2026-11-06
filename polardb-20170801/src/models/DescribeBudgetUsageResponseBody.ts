@@ -37,7 +37,7 @@ export class DescribeBudgetUsageResponseBodyPolicies extends $dara.Model {
   budgetPoints?: string;
   /**
    * @remarks
-   * The ID of the budget policy.
+   * The budget policy ID.
    * 
    * @example
    * bp-001
@@ -61,7 +61,7 @@ export class DescribeBudgetUsageResponseBodyPolicies extends $dara.Model {
   resetDayOfMonth?: string;
   /**
    * @remarks
-   * The status of the budget policy.
+   * The budget policy status.
    * 
    * @example
    * Active
@@ -153,7 +153,7 @@ export class DescribeBudgetUsageResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the gateway instance.
+   * The gateway instance ID.
    * 
    * @example
    * pc-123

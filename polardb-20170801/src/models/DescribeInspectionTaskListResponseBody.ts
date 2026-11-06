@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInspectionTaskListResponseBodyTaskLists extends $dara.Model {
   /**
    * @remarks
-   * The date when the task was last modified.
+   * The last modification date of the task.
    * 
    * @example
    * 2024-06-01
@@ -13,7 +13,7 @@ export class DescribeInspectionTaskListResponseBodyTaskLists extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * The cron expression for periodic inspections.
+   * The cron expression for periodically executing the inspection.
    * 
    * @example
    * 0 0 2 * * ?
@@ -21,7 +21,7 @@ export class DescribeInspectionTaskListResponseBodyTaskLists extends $dara.Model
   cronExpression?: string;
   /**
    * @remarks
-   * The IDs of the PolarDB clusters to be inspected. Separate multiple IDs with commas.
+   * The IDs of the PolarDB clusters to be inspected. Multiple IDs are separated by commas.
    * 
    * @example
    * pc-001,pc-002

@@ -145,7 +145,7 @@ export class DescribePolarClawSkillTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The skill templates.
+   * The skill template group.
    */
   skillTemplates?: DescribePolarClawSkillTemplatesResponseBodySkillTemplates[];
   /**

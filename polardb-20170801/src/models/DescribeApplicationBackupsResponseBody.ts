@@ -13,7 +13,7 @@ export class DescribeApplicationBackupsResponseBodyItems extends $dara.Model {
   backupEndTime?: string;
   /**
    * @remarks
-   * The backup set ID.
+   * The ID of the backup set.
    * 
    * @example
    * 61*******
@@ -29,7 +29,7 @@ export class DescribeApplicationBackupsResponseBodyItems extends $dara.Model {
   backupStartTime?: string;
   /**
    * @remarks
-   * The backup status. A value of Success indicates that the backup is completed, and a value of Failed indicates that the backup failed.
+   * The backup status. Valid values: Success: The backup is completed. Failed: The backup failed.
    * 
    * @example
    * Success
@@ -37,7 +37,7 @@ export class DescribeApplicationBackupsResponseBodyItems extends $dara.Model {
   backupStatus?: string;
   /**
    * @remarks
-   * The backup type. A value of FullBackup indicates a full backup, and a value of IncrementalBackup indicates an incremental backup.
+   * The backup type. Valid values: FullBackup: full backup. IncrementalBackup: incremental backup.
    * 
    * @example
    * FullBackup
@@ -45,7 +45,7 @@ export class DescribeApplicationBackupsResponseBodyItems extends $dara.Model {
   backupType?: string;
   /**
    * @remarks
-   * The backup mode. A value of Automated indicates an automatic backup, and a value of Manual indicates a manual backup.
+   * The backup mode. Valid values: Automated: automatic backup. Manual: manual backup.
    * 
    * @example
    * Manual
@@ -106,7 +106,7 @@ export class DescribeApplicationBackupsResponseBody extends $dara.Model {
   pageRecordCount?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2921D843-433A-5FB3-A03B-4EC093B219F8

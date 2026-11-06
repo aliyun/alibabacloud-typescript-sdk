@@ -34,11 +34,11 @@ export class CheckPolarClawSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request result. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request succeeded.
+   * - **true**: The request is successful.
    * 
-   * - **false**: The request failed.
+   * - **false**: The request fails.
    * 
    * @example
    * true

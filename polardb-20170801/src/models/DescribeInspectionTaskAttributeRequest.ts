@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInspectionTaskAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region where the task is located.
+   * The ID of the region where the task resides.
    * 
    * @example
    * cn-beijing

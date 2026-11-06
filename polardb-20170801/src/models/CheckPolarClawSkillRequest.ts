@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckPolarClawSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID of the OSS bucket where the skill files are stored.
+   * The region ID of the OSS bucket that stores the skill files.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,7 @@ export class CheckPolarClawSkillRequest extends $dara.Model {
   bucketType?: string;
   /**
    * @remarks
-   * The name of the OSS bucket to be unbound.
+   * The name of the OSS bucket to be disassociated.
    * 
    * @example
    * oss-bucket-test
@@ -37,7 +37,7 @@ export class CheckPolarClawSkillRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the skill.
+   * The skill name.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CheckPolarClawSkillRequest extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The version number of the skill.
+   * The skill version number.
    * 
    * This parameter is required.
    * 
@@ -60,7 +60,7 @@ export class CheckPolarClawSkillRequest extends $dara.Model {
    * The brief description of the skill.
    * 
    * @example
-   * An example for managing PolarDB skills
+   * An example used to manage PolarDB skills
    */
   summary?: string;
   /**

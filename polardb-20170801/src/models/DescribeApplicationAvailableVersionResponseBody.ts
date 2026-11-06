@@ -13,7 +13,7 @@ export class DescribeApplicationAvailableVersionResponseBodyVersions extends $da
   releaseDate?: string;
   /**
    * @remarks
-   * The release notes of the version.
+   * The release notes.
    * 
    * @example
    * release

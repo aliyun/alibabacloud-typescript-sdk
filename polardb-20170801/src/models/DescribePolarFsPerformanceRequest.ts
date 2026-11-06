@@ -14,7 +14,7 @@ export class DescribePolarFsPerformanceRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end time of the query. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC and must not be earlier than the start time.
+   * The end time of the query. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC. The end time must not be earlier than the start time.
    * 
    * This parameter is required.
    * 
@@ -60,7 +60,7 @@ export class DescribePolarFsPerformanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time of the query. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC.
+   * The start time of the query. Specify the time in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 

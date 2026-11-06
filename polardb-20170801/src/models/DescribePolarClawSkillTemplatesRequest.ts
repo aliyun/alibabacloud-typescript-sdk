@@ -15,7 +15,7 @@ export class DescribePolarClawSkillTemplatesRequest extends $dara.Model {
    * @remarks
    * The application type.
    * 
-   * > If this is your first time calling this operation, you do not need to specify this parameter.
+   * > If you are calling this operation for the first time, you do not need to specify this parameter.
    * 
    * @example
    * supabase
@@ -31,7 +31,7 @@ export class DescribePolarClawSkillTemplatesRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -49,7 +49,7 @@ export class DescribePolarClawSkillTemplatesRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view all available regions for the current account, including region IDs.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
    * 
    * @example
    * cn-hangzhou

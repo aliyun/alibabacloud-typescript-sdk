@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFileSystemsRequest extends $dara.Model {
   /**
    * @remarks
-   * The absolute path of the directory to query. If you do not specify this parameter, the default path is used.
+   * The absolute path of the directory to query. If not specified, the default path is used.
    * 
    * @example
    * /test
@@ -13,7 +13,7 @@ export class DescribeFileSystemsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The maximum number of records to return for each request.
+   * The maximum number of records to return per request.
    * 
    * @example
    * 10

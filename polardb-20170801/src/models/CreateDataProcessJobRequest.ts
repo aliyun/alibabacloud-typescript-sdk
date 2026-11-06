@@ -13,7 +13,7 @@ export class CreateDataProcessJobRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The JSON string for the destination database connection configuration, including Account and Password.
+   * The JSON string for the destination database connection configuration, which includes the account and password.
    * 
    * @example
    * {"Account":"example_user","Password":"example_password"}
@@ -41,7 +41,7 @@ export class CreateDataProcessJobRequest extends $dara.Model {
   destinationPath?: string;
   /**
    * @remarks
-   * The type of the destination. Only PolarDB is supported.
+   * The destination type. Currently, only PolarDB is supported.
    * 
    * This parameter is required.
    * 
@@ -79,7 +79,7 @@ export class CreateDataProcessJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The additional configuration for the data source in JSON string format. This parameter can be left empty.
+   * The additional configuration for the data source in JSON string format. You can leave this parameter empty.
    * 
    * @example
    * {}
@@ -107,7 +107,7 @@ export class CreateDataProcessJobRequest extends $dara.Model {
   sourcePath?: string;
   /**
    * @remarks
-   * The type of the data source. Only PolarFS is supported.
+   * The data source type. Currently, only PolarFS is supported.
    * 
    * This parameter is required.
    * 

@@ -37,7 +37,7 @@ export class DescribeAIDBClusterResourceUsageResponseBodyNodeItemsPodItems exten
   podIP?: string;
   /**
    * @remarks
-   * The requested resources of the pod.
+   * The resource configuration requested by the pod.
    * 
    * @example
    * cpu=1,memory=2Gi
@@ -45,7 +45,7 @@ export class DescribeAIDBClusterResourceUsageResponseBodyNodeItemsPodItems exten
   resourceRequest?: string;
   /**
    * @remarks
-   * The status of the pod.
+   * The running status of the pod.
    * 
    * @example
    * Running
@@ -85,7 +85,7 @@ export class DescribeAIDBClusterResourceUsageResponseBodyNodeItemsPodItems exten
 export class DescribeAIDBClusterResourceUsageResponseBodyNodeItems extends $dara.Model {
   /**
    * @remarks
-   * The total CPU capacity of the node.
+   * The total CPU resources of the node.
    * 
    * @example
    * 4
@@ -93,7 +93,7 @@ export class DescribeAIDBClusterResourceUsageResponseBodyNodeItems extends $dara
   CPU?: string;
   /**
    * @remarks
-   * The used CPU capacity of the node.
+   * The amount of CPU resources used on the node.
    * 
    * @example
    * 2
@@ -109,7 +109,7 @@ export class DescribeAIDBClusterResourceUsageResponseBodyNodeItems extends $dara
   DBNodeId?: string;
   /**
    * @remarks
-   * The total GPU capacity of the node.
+   * The total GPU resources of the node.
    * 
    * @example
    * 1
@@ -125,7 +125,7 @@ export class DescribeAIDBClusterResourceUsageResponseBodyNodeItems extends $dara
   GPUModel?: string;
   /**
    * @remarks
-   * The used GPU capacity of the node.
+   * The amount of GPU resources used on the node.
    * 
    * @example
    * 0
@@ -133,7 +133,7 @@ export class DescribeAIDBClusterResourceUsageResponseBodyNodeItems extends $dara
   GPUUsed?: string;
   /**
    * @remarks
-   * The total memory capacity of the node.
+   * The total memory of the node.
    * 
    * @example
    * 16Gi
@@ -141,7 +141,7 @@ export class DescribeAIDBClusterResourceUsageResponseBodyNodeItems extends $dara
   memory?: string;
   /**
    * @remarks
-   * The used memory capacity of the node.
+   * The amount of memory used on the node.
    * 
    * @example
    * 8Gi
@@ -149,12 +149,12 @@ export class DescribeAIDBClusterResourceUsageResponseBodyNodeItems extends $dara
   memoryUsed?: string;
   /**
    * @remarks
-   * The resource information of the pods on the node.
+   * The list of resource information for the pods on the node.
    */
   podItems?: DescribeAIDBClusterResourceUsageResponseBodyNodeItemsPodItems[];
   /**
    * @remarks
-   * The ID of the virtual node associated with the database node.
+   * The ID of the virtual node corresponding to the database node.
    * 
    * @example
    * vnode-001
@@ -229,7 +229,7 @@ export class DescribeAIDBClusterResourceUsageResponseBody extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The DPI engine version of the cluster.
+   * The database engine version of the cluster.
    * 
    * @example
    * 3.0
@@ -237,7 +237,7 @@ export class DescribeAIDBClusterResourceUsageResponseBody extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The resource usage information of the nodes in the cluster.
+   * The list of resource usage details for the nodes in the cluster.
    */
   nodeItems?: DescribeAIDBClusterResourceUsageResponseBodyNodeItems[];
   /**

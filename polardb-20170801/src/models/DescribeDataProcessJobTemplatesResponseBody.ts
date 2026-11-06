@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataProcessJobTemplatesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether it is required to fetch the summary or video synopsis.
+   * Specifies whether it is to fetch the image summary or video synopsis.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class DescribeDataProcessJobTemplatesResponseBodyItems extends $dara.Mode
   creationTime?: string;
   /**
    * @remarks
-   * Specifies whether to convert content into vectors.
+   * Indicates whether content is converted into vectors.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class DescribeDataProcessJobTemplatesResponseBodyItems extends $dara.Mode
   embedding?: boolean;
   /**
    * @remarks
-   * The output dimension of the vector.
+   * The vector output dimensions.
    * 
    * @example
    * 768

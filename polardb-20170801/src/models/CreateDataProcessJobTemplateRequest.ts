@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataProcessJobTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to fetch the image summary or video synopsis. When Settings is set to true, CaptioningPrompt must be specified.
+   * Specifies whether to fetch the image summary or video synopsis. When Settings is true, CaptioningPrompt must be provided.
    */
   captioning?: boolean;
   /**
    * @remarks
-   * The prompt used for extracting summaries. This parameter takes effect only when Captioning is set to true.
+   * The prompt used for extracting captions. This parameter takes effect only when Captioning is set to true.
    * 
    * @example
    * Summarize the image content
@@ -59,7 +59,7 @@ export class CreateDataProcessJobTemplateRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The templatetype of the node. Valid values: image.
+   * The templatetype of the node template. Valid value: image.
    * 
    * This parameter is required.
    * 

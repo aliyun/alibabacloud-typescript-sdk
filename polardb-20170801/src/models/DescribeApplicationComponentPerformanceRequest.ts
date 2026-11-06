@@ -43,7 +43,7 @@ export class DescribeApplicationComponentPerformanceRequest extends $dara.Model 
   interval?: string;
   /**
    * @remarks
-   * The performance metrics to query. Separate multiple metrics with commas (,). You can specify up to 5 metrics.
+   * The performance metrics to query. Separate multiple metrics with commas. You can specify up to 5 metrics.
    * 
    * This parameter is required.
    * 

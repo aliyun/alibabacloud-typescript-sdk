@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataProcessJobAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data processing job to query.
+   * The ID of the data processing task to query.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDataProcessJobAttributeRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the region where the job is located.
+   * The region ID of the region where the task is located.
    * 
    * This parameter is required.
    * 

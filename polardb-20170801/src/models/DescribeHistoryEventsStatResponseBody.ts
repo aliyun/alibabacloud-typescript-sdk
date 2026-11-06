@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryEventsStatResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The category of the system event. For example, Exception indicates an exception event.
+   * The system event category. For example, Exception indicates an exception event.
    * 
    * @example
    * Exception

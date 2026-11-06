@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInspectionReportListResponseBodyReportItemsSubItems extends $dara.Model {
   /**
    * @remarks
-   * The number of check items at the Critical level.
+   * The number of check items at the critical level.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeInspectionReportListResponseBodyReportItemsSubItems extends
   critical?: number;
   /**
    * @remarks
-   * The number of check items at the Info level.
+   * The number of check items at the info level.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeInspectionReportListResponseBodyReportItemsSubItems extends
   info?: number;
   /**
    * @remarks
-   * The number of check items at the Normal level.
+   * The number of normal check items.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class DescribeInspectionReportListResponseBodyReportItemsSubItems extends
   normal?: number;
   /**
    * @remarks
-   * The number of check items at the Warning level.
+   * The number of check items at the warning level.
    * 
    * @example
    * 0
@@ -73,7 +73,7 @@ export class DescribeInspectionReportListResponseBodyReportItems extends $dara.M
   DBClusterId?: string;
   /**
    * @remarks
-   * Indicates whether this is the latest inspection report. The value is returned as a string.
+   * Indicates whether the inspection report is the latest report. The value is returned as a string.
    * 
    * @example
    * true
@@ -203,7 +203,7 @@ export class DescribeInspectionReportListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 30

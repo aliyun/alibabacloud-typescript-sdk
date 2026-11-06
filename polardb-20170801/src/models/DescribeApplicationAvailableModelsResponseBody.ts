@@ -598,7 +598,7 @@ export class DescribeApplicationAvailableModelsResponseBody extends $dara.Model 
   defaultRerankModel?: DescribeApplicationAvailableModelsResponseBodyDefaultRerankModel;
   /**
    * @remarks
-   * The default vision-language model.
+   * The default visual language model.
    */
   defaultVLModel?: DescribeApplicationAvailableModelsResponseBodyDefaultVLModel;
   /**
@@ -654,7 +654,7 @@ export class DescribeApplicationAvailableModelsResponseBody extends $dara.Model 
   rerankModels?: DescribeApplicationAvailableModelsResponseBodyRerankModels[];
   /**
    * @remarks
-   * The list of available vision-language models.
+   * The list of available visual language models.
    */
   VLModels?: DescribeApplicationAvailableModelsResponseBodyVLModels[];
   /**

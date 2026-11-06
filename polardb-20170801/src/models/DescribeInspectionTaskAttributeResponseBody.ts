@@ -13,7 +13,7 @@ export class DescribeInspectionTaskAttributeResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The cron expression for scheduling periodic inspections.
+   * The cron expression for periodic inspections.
    * 
    * @example
    * 0 0 2 * * ?

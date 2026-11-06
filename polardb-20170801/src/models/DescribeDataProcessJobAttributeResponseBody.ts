@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataProcessJobAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the job was created, in RFC 3339 format.
+   * The time when the task was created, in RFC 3339 format.
    * 
    * @example
    * 2025-01-01T00:00:00Z
@@ -37,7 +37,7 @@ export class DescribeDataProcessJobAttributeResponseBody extends $dara.Model {
   destinationPath?: string;
   /**
    * @remarks
-   * The destination type. Currently, only PolarDB is supported.
+   * The type of the destination. Currently, only PolarDB is supported.
    * 
    * @example
    * PolarDB
@@ -45,7 +45,7 @@ export class DescribeDataProcessJobAttributeResponseBody extends $dara.Model {
   destinationType?: string;
   /**
    * @remarks
-   * The ID of the data processing job.
+   * The ID of the data processing task.
    * 
    * @example
    * job-123456
@@ -69,7 +69,7 @@ export class DescribeDataProcessJobAttributeResponseBody extends $dara.Model {
   processingMode?: string;
   /**
    * @remarks
-   * The ID of the region where the data processing job is located.
+   * The region ID of the region where the data processing task is located.
    * 
    * @example
    * cn-hangzhou
@@ -101,7 +101,7 @@ export class DescribeDataProcessJobAttributeResponseBody extends $dara.Model {
   sourcePath?: string;
   /**
    * @remarks
-   * The data source type. Currently, only PolarFS is supported.
+   * The type of the data source. Currently, only PolarFS is supported.
    * 
    * @example
    * PolarFS
@@ -109,7 +109,7 @@ export class DescribeDataProcessJobAttributeResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The status of the data processing job.
+   * The status of the data processing task.
    * 
    * @example
    * Running
@@ -117,7 +117,7 @@ export class DescribeDataProcessJobAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the template used by the job.
+   * The ID of the template used by the task.
    * 
    * @example
    * tpl-123456

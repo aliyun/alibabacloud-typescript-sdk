@@ -25,7 +25,7 @@ export class RefreshProxyLevelRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The latest time to start the proxy specification upgrade, in the YYYY-MM-DDThh:mm:ssZ format (UTC).
+   * The latest time to execute the proxy specification upgrade. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2022-04-28T14:30:00Z
@@ -33,7 +33,7 @@ export class RefreshProxyLevelRequest extends $dara.Model {
   plannedEndTime?: string;
   /**
    * @remarks
-   * The earliest time to start the proxy specification upgrade, in the YYYY-MM-DDThh:mm:ssZ format (UTC).
+   * The earliest time to execute the proxy specification upgrade. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2022-04-28T14:00:00Z

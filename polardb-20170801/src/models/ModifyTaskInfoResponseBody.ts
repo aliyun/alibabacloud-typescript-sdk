@@ -29,7 +29,7 @@ export class ModifyTaskInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of tasks that were successfully updated.
+   * The number of successfully updated tasks.
    * 
    * @example
    * 1
