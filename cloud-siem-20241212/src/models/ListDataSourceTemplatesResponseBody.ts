@@ -3,99 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDataSourceTemplatesResponseBodyDataSourceTemplates extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether automatic discovery of new users is enabled. Valid values:
-   * - enabled: Enabled.
-   * - disabled: Disabled.
-   * 
-   * @example
-   * enabled
-   */
   autoScanNew?: string;
-  /**
-   * @remarks
-   * The creation time. This value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 1733269771123
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The data source origin. Valid values:
-   * - center
-   * - custom
-   * 
-   * @example
-   * custom
-   */
   dataSourceFrom?: string;
-  /**
-   * @remarks
-   * Indicates whether automatic discovery of new data sources is enabled.
-   * 
-   * @example
-   * true
-   */
   dataSourceRecognizeEnabled?: boolean;
-  /**
-   * @remarks
-   * The data source recognizer.
-   * 
-   * @example
-   * alibaba_cloud_actiontrail_event_ingestion
-   */
   dataSourceRecognizer?: string;
-  /**
-   * @remarks
-   * The data source template ID.
-   * 
-   * @example
-   * alibaba_cloud_actiontrail_event_ingestion
-   */
   dataSourceTemplateId?: string;
-  /**
-   * @remarks
-   * The data source template name.
-   * 
-   * @example
-   * alibaba_cloud_actiontrail_event_ingestion
-   */
   dataSourceTemplateName?: string;
-  /**
-   * @remarks
-   * The matching rule for the Simple Log Service project name.
-   * 
-   * @example
-   * aliyun-cloudsiem-data-173326*******
-   */
   logProjectPattern?: string;
-  /**
-   * @remarks
-   * The list of log storage region IDs.
-   */
   logRegionIds?: string[];
-  /**
-   * @remarks
-   * The matching rule for the Simple Log Service Logstore name.
-   * 
-   * @example
-   * audit-activity
-   */
   logStorePattern?: string;
-  /**
-   * @remarks
-   * The list of user IDs for batch data ingestion.
-   */
   logUserIds?: string[];
-  /**
-   * @remarks
-   * The update time. This value is a UNIX timestamp in milliseconds.
-   * 
-   * @example
-   * 1733269771123
-   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -147,34 +65,9 @@ export class ListDataSourceTemplatesResponseBodyDataSourceTemplates extends $dar
 }
 
 export class ListDataSourceTemplatesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of data source templates.
-   */
   dataSourceTemplates?: ListDataSourceTemplatesResponseBodyDataSourceTemplates[];
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: string;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
   pageSize?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -13,7 +13,7 @@ export class ListAlertAggregationsRequest extends $dara.Model {
   aggregationType?: string;
   /**
    * @remarks
-   * The end time of the alert.
+   * The time when the alert ended.
    * 
    * @example
    * 1773936020000
@@ -21,7 +21,7 @@ export class ListAlertAggregationsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -31,7 +31,7 @@ export class ListAlertAggregationsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of entries to return for this request.
    * 
    * @example
    * 50
@@ -39,7 +39,7 @@ export class ListAlertAggregationsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next page exists, set this parameter to the NextToken value returned in the previous API call.
+   * The token for the next query. If this is the first query or no subsequent query is required, you do not need to specify this parameter. If a subsequent query is required, set the value to the NextToken value returned by the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -47,7 +47,7 @@ export class ListAlertAggregationsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * This parameter is required.
    * 
@@ -67,15 +67,15 @@ export class ListAlertAggregationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query filter condition in JSON format. Valid values:
+   * The query filter conditions in JSON format. Valid values:
    * 
-   * - `{"Type":"maxCost", "Value":"100"}`: The 100 queries with the longest execution duration.
+   * - `{"Type":"maxCost", "Value":"100"}`: The top 100 queries that take the longest time.
    * - `{"Type":"status","Value":"finished"}`: Completed queries.
    * - `{"Type":"status","Value":"running"}`: Running queries.
-   * - `{"Type":"cost","Min":"30","Max":"50"}`: Custom execution duration queries. You can set the minimum and maximum execution duration. **Min** specifies the minimum execution duration. **Max** specifies the maximum execution duration. Unit: milliseconds (ms).
-   *     - If only **Min** is set, queries with an execution duration greater than this value are returned.
-   *     - If only **Max** is set, queries with an execution duration less than this value are returned.
-   *     - If both **Min** and **Max** are set, queries with an execution duration greater than or equal to **Min** and less than or equal to **Max** are returned.
+   * - `{"Type":"cost","Min":"30","Max":"50"}`: Custom duration queries. You can specify the minimum and maximum query durations. **Min** specifies the minimum duration, and **Max** specifies the maximum duration. Unit: milliseconds.
+   *     - If only **Min** is specified, the query returns queries whose execution duration is greater than the specified value.
+   *     - If only **Max** is specified, the query returns queries whose execution duration is less than the specified value.
+   *     - If both **Min** and **Max** are specified, the query returns queries whose execution duration is greater than or equal to the value of **Min** and less than or equal to the value of **Max**.
    * 
    * @example
    * {\\"Type\\":\\"cost\\",\\"Max\\":\\"200\\"}
@@ -91,9 +91,9 @@ export class ListAlertAggregationsRequest extends $dara.Model {
   queryViewId?: string;
   /**
    * @remarks
-   * The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
-   * - cn-hangzhou: The assets are located in the Chinese mainland.
-   * - ap-southeast-1: The assets are located outside China.
+   * The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland.
+   * - ap-southeast-1: Assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -101,7 +101,7 @@ export class ListAlertAggregationsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member to which the administrator switches the view.
+   * The ID of the member whose view the administrator switches to.
    * 
    * @example
    * 113091674488****

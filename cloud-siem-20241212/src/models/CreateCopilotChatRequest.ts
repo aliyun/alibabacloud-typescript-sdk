@@ -37,10 +37,10 @@ export class CreateCopilotChatRequestCreateConversation extends $dara.Model {
   thinkingMode?: string;
   /**
    * @remarks
-   * The conversation title.
+   * The session title.
    * 
    * @example
-   * Security incident investigation
+   * Security event investigation
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -75,15 +75,15 @@ export class CreateCopilotChatRequestCreateConversation extends $dara.Model {
 export class CreateCopilotChatRequestMessages extends $dara.Model {
   /**
    * @remarks
-   * The message content.
+   * The content of the message.
    * 
    * @example
-   * Investigate abnormal login activities in the last hour
+   * Investigate the abnormal logon activities in the past hour
    */
   content?: string;
   /**
    * @remarks
-   * The message role.
+   * The role of the message.
    * 
    * @example
    * user
@@ -115,7 +115,7 @@ export class CreateCopilotChatRequestMessages extends $dara.Model {
 export class CreateCopilotChatRequest extends $dara.Model {
   /**
    * @remarks
-   * The client conversation ID.
+   * The client session ID.
    * 
    * @example
    * 54b6c969-4b75-47be-9f43-71f88aeb****
@@ -133,7 +133,7 @@ export class CreateCopilotChatRequest extends $dara.Model {
   clientMessageId?: string;
   /**
    * @remarks
-   * The conversation ID.
+   * The session ID.
    * 
    * @example
    * 54b6c969-4b75-47be-9f43-71f88aeb****
@@ -141,12 +141,12 @@ export class CreateCopilotChatRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The conversation creation configuration.
+   * The session creation configuration.
    */
   createConversation?: CreateCopilotChatRequestCreateConversation;
   /**
    * @remarks
-   * The language of the returned messages. Valid values:
+   * The language of the returned message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -187,9 +187,9 @@ export class CreateCopilotChatRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region of the data management center for threat analysis. Specify the management center based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: Your assets reside in the Chinese mainland.
-   * - ap-southeast-1: Your assets reside in regions outside the Chinese mainland.
+   * The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Assets reside in the Chinese mainland.
+   * - ap-southeast-1: Assets reside outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -197,7 +197,7 @@ export class CreateCopilotChatRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the conversation turn to replace.
+   * The ID of the replaced conversation turn.
    * 
    * @example
    * dc18b894-19a3-45ee-8768-a59478e0****
@@ -205,7 +205,7 @@ export class CreateCopilotChatRequest extends $dara.Model {
   replaceTurnId?: string;
   /**
    * @remarks
-   * The route target identifier.
+   * The target route identifier for execution.
    * 
    * @example
    * security-agent-route-****
@@ -213,7 +213,7 @@ export class CreateCopilotChatRequest extends $dara.Model {
   routeTarget?: string;
   /**
    * @remarks
-   * The request source.
+   * The source of the request.
    * 
    * @example
    * console
@@ -237,7 +237,7 @@ export class CreateCopilotChatRequest extends $dara.Model {
   thinkingMode?: string;
   /**
    * @remarks
-   * The trace ID, which is used to query specific call information.
+   * The trace ID used to accurately query call information.
    * 
    * @example
    * 550e8400e29b41d4a71644665544****

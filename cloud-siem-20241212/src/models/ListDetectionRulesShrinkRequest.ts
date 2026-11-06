@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDetectionRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert ATT&CK technique.
+   * The ATT&CK technique of the alert.
    * 
    * @example
    * Discovery
@@ -26,7 +26,7 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   alertLevel?: string;
   /**
    * @remarks
-   * The alert tactic phase.
+   * The tactic phase of the alert.
    * 
    * @example
    * TA0042
@@ -34,7 +34,7 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   alertTacticId?: string;
   /**
    * @remarks
-   * The Alarm Metric of the alerting rule.
+   * The alerting type.
    * 
    * @example
    * siem_rule_type_alert_storm
@@ -80,10 +80,9 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the detection rule. Valid values:
-   * 
-   * - preset: preset detection rule.
-   * - custom: custom detection rule.
-   * - custom_template: rule template.
+   * - preset: Preset detection rule.
+   * - custom: Custom detection rule.
+   * - custom_template: Rule template.
    * 
    * @example
    * preset
@@ -93,10 +92,10 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
    * @remarks
    * The event summaries type. Valid values:
    * - none: No event is generated.
-   * - graph_compute: Graph computing (supported by predefined rules).
-   * - expert: Expert rule.
+   * - graph_compute: Graph computing (supported by preset rules).
+   * - expert: Expert rules.
    * - passthrough: Alerting pass-through (one-to-one).
-   * - window: Same-type aggregation (window).
+   * - window: Similar aggregation (window).
    * 
    * @example
    * graph_compute
@@ -104,11 +103,11 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   incidentAggregationType?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
-   * Note: This parameter is required. If you do not specify this parameter, the service returns a 400 error: "The specified Lang can not be empty." Explicitly pass a language code.
+   * Note: This parameter is required in actual calls. If it is not provided, the service returns a 400 error "The specified Lang can not be empty.". Explicitly specify the language code.
    * 
    * @example
    * zh
@@ -132,7 +131,12 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   logSchemaId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The collection of log schema IDs, which matches any schema by its full ID. If this parameter is not provided, this condition is not applied. If an empty array is explicitly provided, zero records are returned. If both this parameter and LogSchemaId are provided, the intersection is used.
+   */
+  logSchemaIdsShrink?: string;
+  /**
+   * @remarks
+   * The maximum number of data entries to return in this request.
    * 
    * @example
    * 50
@@ -140,7 +144,7 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query.
+   * The token used to start the next query.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -148,7 +152,7 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
+   * The sort direction. Valid values:
    * 
    * - **asc**: Ascending order. This is the default value.
    * - **desc**: Descending order.
@@ -160,8 +164,8 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The field used for sorting. Valid values:
-   * - GmtCreate: creation time.
-   * - GmtModified: update time.
+   * - GmtCreate: Creation time.
+   * - GmtModified: Update time.
    * 
    * @example
    * GmtModified
@@ -169,7 +173,7 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   orderFieldName?: string;
   /**
    * @remarks
-   * The page number of the current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -185,9 +189,9 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
+   * The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
    * - cn-hangzhou: The assets are located in the Chinese mainland.
-   * - ap-southeast-1: The assets are located outside China.
+   * - ap-southeast-1: The assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -195,7 +199,7 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the member to which the administrator switches the view.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -217,6 +221,7 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
       lang: 'Lang',
       logCategoryId: 'LogCategoryId',
       logSchemaId: 'LogSchemaId',
+      logSchemaIdsShrink: 'LogSchemaIds',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       orderDirection: 'OrderDirection',
@@ -244,6 +249,7 @@ export class ListDetectionRulesShrinkRequest extends $dara.Model {
       lang: 'string',
       logCategoryId: 'string',
       logSchemaId: 'string',
+      logSchemaIdsShrink: 'string',
       maxResults: 'number',
       nextToken: 'string',
       orderDirection: 'string',

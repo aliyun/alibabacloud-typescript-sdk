@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListNormalizationSchemasRequest extends $dara.Model {
   /**
    * @remarks
-   * The language type for the request and response messages. Valid values:
+   * The language of the request and response. Valid values:
    * 
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
-   * Note: This parameter is required in actual calls. If this parameter is not specified, the service returns a 400 error "The specified Lang can not be empty." Explicitly pass in the language code.
+   * Note: This parameter is required in actual API calls. If it is not provided, the service returns a 400 error "The specified Lang can not be empty.". Explicitly specify the language code.
    * 
    * @example
    * zh
@@ -18,7 +18,7 @@ export class ListNormalizationSchemasRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of entries to return in the current request.
    * 
    * @example
    * 50
@@ -29,7 +29,7 @@ export class ListNormalizationSchemasRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * The token used to retrieve the next page of results. Leave this parameter empty for the first request or when no more results are available. For subsequent requests, set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -37,7 +37,7 @@ export class ListNormalizationSchemasRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The normalization rule category ID.
+   * The ID of the normalization rule category.
    * 
    * @example
    * NETWORK_CATEGORY
@@ -45,7 +45,7 @@ export class ListNormalizationSchemasRequest extends $dara.Model {
   normalizationCategoryId?: string;
   /**
    * @remarks
-   * The field source filter. Valid values: normalized / native.
+   * The filter for the field source. Valid values: normalized and native.
    * 
    * @example
    * normalized
@@ -53,9 +53,9 @@ export class ListNormalizationSchemasRequest extends $dara.Model {
   normalizationFieldSource?: string;
   /**
    * @remarks
-   * The normalization schema type. Valid values:
-   * - log: log.
-   * - entity: entity.
+   * The type of the normalization schema. Valid values:
+   * - log: Log.
+   * - entity: Entity.
    * 
    * @example
    * entity
@@ -63,7 +63,7 @@ export class ListNormalizationSchemasRequest extends $dara.Model {
   normalizationSchemaType?: string;
   /**
    * @remarks
-   * The security domain ID.
+   * The ID of the security domain.
    * 
    * @example
    * NETWORK_AND_WEB_SECURITY
@@ -71,9 +71,9 @@ export class ListNormalizationSchemasRequest extends $dara.Model {
   normalizationSecurityDomainId?: string;
   /**
    * @remarks
-   * The region where the threat analysis data management center is located. Specify the management center based on the region of your assets. Valid values:
-   * - cn-hangzhou: The assets are located in the Chinese mainland.
-   * - ap-southeast-1: The assets are located outside China.
+   * The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland.
+   * - ap-southeast-1: Assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -81,7 +81,7 @@ export class ListNormalizationSchemasRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID used when an administrator switches to the perspective of another member.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 173326*******

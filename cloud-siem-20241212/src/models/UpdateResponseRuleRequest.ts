@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResponseRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response messages. Valid values:
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -15,7 +15,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of data records to read in this request.
+   * The maximum number of data records to read in the current request.
    * 
    * @example
    * 50
@@ -23,7 +23,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that marks the start position of the current read. Leave this parameter empty to start from the beginning.
+   * The token that specifies the position from which to start reading. If this parameter is left empty, the reading starts from the beginning.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -31,9 +31,9 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region where the data management center of Cloud Threat Detection and Response (CTDR) is located. Select the management center region based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: Your assets reside in the Chinese mainland.
-   * - ap-southeast-1: Your assets reside outside China.
+   * The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -50,12 +50,12 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The action type of the automated response rule. Valid values:
-   * - doPlaybook: runs a playbook.
-   * - changeEventStatus: updates the event status.
-   * - changeThreatLevel: updates the threat level of an event.
-   * - addEventTag: adds a label to an event.
-   * - deleteEventTag: deletes a label from an event.
-   * - alertWhitelist: adds an alert to the whitelist.
+   * - doPlaybook: Executes a playbook.
+   * - changeEventStatus: Updates the event status.
+   * - changeThreatLevel: Updates the threat level of the event.
+   * - addEventTag: Adds an event tag.
+   * - deleteEventTag: Deletes an event tag.
+   * - alertWhitelist: Adds an alert to the whitelist.
    * 
    * @example
    * alertWhitelist
@@ -63,7 +63,7 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   responseActionType?: string;
   /**
    * @remarks
-   * The trigger condition configuration of the rule.
+   * The rule trigger condition configuration.
    * 
    * @example
    * [{"left":{"value":"threat_level"},"operator":"equals","right":{"value":"suspicious"}}]
@@ -95,14 +95,17 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   responseRulePriority?: number;
   /**
    * @remarks
-   * The remarks for the response rule.
+   * The remarks of the response rule.
+   * 
+   * @example
+   * Verified as a low-risk alert and scheduled for regular cleanup
    */
   responseRuleRemark?: string;
   /**
    * @remarks
    * The status of the automated response rule. Valid values:
-   * - 0: disabled.
-   * - 100: enabled.
+   * - 0: Disabled.
+   * - 100: Enabled.
    * 
    * @example
    * 0
@@ -111,9 +114,9 @@ export class UpdateResponseRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The trigger type of the automated response rule. Valid values:
-   * - event: an event occurs.
-   * - event_update: an event is updated.
-   * - alert: an alert occurs.
+   * - event: An event occurs.
+   * - event_update: An event is updated.
+   * - alert: An alert is triggered.
    * 
    * @example
    * event

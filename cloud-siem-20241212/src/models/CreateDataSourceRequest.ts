@@ -6,9 +6,7 @@ export class CreateDataSourceRequestDataSourceStores extends $dara.Model {
   /**
    * @remarks
    * The source of the data. Valid values:
-   * 
    * - center
-   * 
    * - custom
    * 
    * @example
@@ -25,10 +23,8 @@ export class CreateDataSourceRequestDataSourceStores extends $dara.Model {
   dataSourceStoreId?: string;
   /**
    * @remarks
-   * The status of the log storage. Valid values:
-   * 
+   * The log storage status. Valid values:
    * - normal
-   * 
    * - abnormal
    * 
    * @example
@@ -94,9 +90,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   /**
    * @remarks
    * The source of the data. Valid values:
-   * 
    * - center
-   * 
    * - custom
    * 
    * @example
@@ -105,7 +99,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   dataSourceFrom?: string;
   /**
    * @remarks
-   * A list of data source IDs.
+   * The list of data source IDs.
    */
   dataSourceIds?: string[];
   /**
@@ -134,7 +128,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   dataSourceRecognizer?: string;
   /**
    * @remarks
-   * The IDs of associated data access instances.
+   * The data ingestion IDs associated with the data source.
    */
   dataSourceReferences?: string[];
   /**
@@ -153,9 +147,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the data source. Valid values:
-   * 
    * - preset
-   * 
    * - custom
    * 
    * @example
@@ -164,10 +156,8 @@ export class CreateDataSourceRequest extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
    * 
    * @example
@@ -200,7 +190,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The user ID for data ingestion.
+   * The ID of the user for data ingestion.
    * 
    * @example
    * 173326*******
@@ -209,10 +199,8 @@ export class CreateDataSourceRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order. Valid values:
-   * 
-   * - desc: descending.
-   * 
-   * - asc: ascending.
+   * - desc: Descending order.
+   * - asc: Ascending order.
    * 
    * @example
    * desc
@@ -220,11 +208,9 @@ export class CreateDataSourceRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The region of the Management Hub. Select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Assets are in the Chinese mainland.
-   * 
-   * - ap-southeast-1: Assets are outside China.
+   * The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: The assets are located in the Chinese mainland.
+   * - ap-southeast-1: The assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -232,7 +218,7 @@ export class CreateDataSourceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member whose perspective the administrator assumes.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 173326*******

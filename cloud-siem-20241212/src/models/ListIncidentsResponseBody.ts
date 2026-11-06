@@ -6,6 +6,9 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   /**
    * @remarks
    * The list of associated alert information.
+   * 
+   * @example
+   * [{"alertSrcProd":"aegis_suspicious_event","alertName":"Sample associated alert"}]
    */
   alertInfos?: string;
   /**
@@ -16,6 +19,9 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   /**
    * @remarks
    * The list of MITRE ATT&CK tactics.
+   * 
+   * @example
+   * [{"alertNum":3}]
    */
   attckTactics?: string;
   /**
@@ -37,21 +43,30 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   /**
    * @remarks
    * The name of the detection rule.
+   * 
+   * @example
+   * EX Sample rule
    */
   detectionRuleName?: string;
   /**
    * @remarks
    * The list of associated entity information.
+   * 
+   * @example
+   * [{"entityType":"host"}]
    */
   entityInfos?: string;
   /**
    * @remarks
    * The description of the incident.
+   * 
+   * @example
+   * Sample incident: At 2026-01-01 00:00:00, an abnormal logon occurred on the sample host 192.0.2.10 with the account example-user
    */
   incidentDescription?: string;
   /**
    * @remarks
-   * The event name.
+   * The name of the incident.
    * 
    * @example
    * ECS unusual log in
@@ -67,11 +82,11 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentRemark?: string;
   /**
    * @remarks
-   * The event status. Valid values:
-   * - 0: Unhandled.
-   * - 1: Handling.
-   * - 5: Handling failed.
-   * - 10: Handled.
+   * The status of the incident. Valid values:
+   * - 0: Unprocessed.
+   * - 1: Processing.
+   * - 5: Processing failed.
+   * - 10: Processed.
    * 
    * @example
    * 0
@@ -79,7 +94,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentStatus?: number;
   /**
    * @remarks
-   * The event tags.
+   * The tags of the incident.
    * 
    * @example
    * ["sys:data_source:siem","sys:trigger_type:auto"]
@@ -95,7 +110,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   incidentUuid?: string;
   /**
    * @remarks
-   * The UID of the account responsible for the event.
+   * The UIDs of the accounts of the incident owners.
    * 
    * @example
    * 1234567890xxxxxx
@@ -127,7 +142,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   relateAssetCount?: number;
   /**
    * @remarks
-   * The response time, in milliseconds (ms).
+   * The response time in milliseconds.
    * 
    * @example
    * 1603248483000
@@ -135,7 +150,7 @@ export class ListIncidentsResponseBodyIncidents extends $dara.Model {
   responseTime?: number;
   /**
    * @remarks
-   * The list of response types. Valid values: auto, manual, ai.
+   * The list of response types. Valid values: auto, manual, and ai.
    */
   responseTypes?: string[];
   /**
@@ -234,7 +249,7 @@ export class ListIncidentsResponseBody extends $dara.Model {
   incidents?: ListIncidentsResponseBodyIncidents[];
   /**
    * @remarks
-   * The maximum number of entries to read in this request.
+   * The maximum number of entries to return in this call.
    * 
    * @example
    * 50
@@ -242,7 +257,7 @@ export class ListIncidentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token used to retrieve the next page of results. Leave this parameter empty for the first request or when there are no more pages. If more pages exist, set this parameter to the NextToken value returned by the previous API call.
+   * The token for the next query. You do not need to specify this parameter for the first query or when no subsequent query is required. If a subsequent query is required, set this parameter to the value of NextToken returned from the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -250,7 +265,7 @@ export class ListIncidentsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The current page number for pagination.
+   * The current page number.
    * 
    * @example
    * 1
@@ -258,7 +273,7 @@ export class ListIncidentsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to display per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -266,7 +281,7 @@ export class ListIncidentsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request message ID.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

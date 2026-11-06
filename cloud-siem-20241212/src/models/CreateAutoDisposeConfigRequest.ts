@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAutoDisposeConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automated analysis. Valid values:
-   * 
-   * - enabled: Enables automated analysis.
-   * 
-   * - disabled: Disables automated analysis.
+   * Specifies whether automatic analysis is enabled for the user. Valid values:
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * This parameter is required.
    * 
@@ -19,10 +17,8 @@ export class CreateAutoDisposeConfigRequest extends $dara.Model {
   autoDecisionStatus?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
    * 
    * This parameter is required.
@@ -33,7 +29,7 @@ export class CreateAutoDisposeConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The code of the cloud product.
+   * The code of the cloud service.
    * 
    * This parameter is required.
    * 

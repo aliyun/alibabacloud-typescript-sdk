@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertAggregationsResponseBodyAlertAggregationsDefenseActionCounts extends $dara.Model {
   /**
    * @remarks
-   * The display name of the entity attribute field that can be added to the whitelist.
+   * The display name of the entity property field that can be added to the whitelist.
    * 
    * @example
    * accesstoken
@@ -13,10 +13,10 @@ export class ListAlertAggregationsResponseBodyAlertAggregationsDefenseActionCoun
   name?: string;
   /**
    * @remarks
-   * The default right-hand value displayed for the whitelist rule.
+   * The default right value displayed for the whitelist rule.
    * 
    * @example
-   * Test-FutureSystemAI
+   * Test-Qiantu System AI
    */
   value?: number;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListAlertAggregationsResponseBodyAlertAggregationsDefenseActionCoun
 export class ListAlertAggregationsResponseBodyAlertAggregationsStatusCounts extends $dara.Model {
   /**
    * @remarks
-   * The display name of the entity attribute field that can be added to the whitelist.
+   * The display name of the entity property field that can be added to the whitelist.
    * 
    * @example
    * http://domain.com/
@@ -53,7 +53,7 @@ export class ListAlertAggregationsResponseBodyAlertAggregationsStatusCounts exte
   name?: string;
   /**
    * @remarks
-   * The right-hand value.
+   * The right value.
    * 
    * @example
    * 123.123.123.123
@@ -85,17 +85,17 @@ export class ListAlertAggregationsResponseBodyAlertAggregationsStatusCounts exte
 export class ListAlertAggregationsResponseBodyAlertAggregations extends $dara.Model {
   /**
    * @remarks
-   * The list of account display values associated with the aggregation group, in one-to-one correspondence with AccountIds. When the username is valid and differs from the account ID, the format is "username/account ID". Otherwise, only the account ID is returned.
+   * The list of account display values involved in the aggregation group, which corresponds one-to-one with the order of AccountIds. If the username is valid and different from the account ID, the format is "Username/Account ID". Otherwise, only the account ID is returned.
    */
   accountDisplayValues?: string[];
   /**
    * @remarks
-   * The list of member accounts IDs for which the report is generated. You need to specify this parameter only when you generate a multi-account report and want to limit the report to specific member accounts.
+   * The list of IDs of the member accounts for which the report is generated. Note: You only need to specify this parameter when you generate a multi-account report and want to generate a report for a specified range of accounts.
    */
   accountIds?: string[];
   /**
    * @remarks
-   * The unique identifier of the aggregation group, which is a concatenation of AggregationType, PrimaryValue, and SecondaryValue joined by colons (:). The last segment is empty if no secondary aggregation value exists.
+   * The unique identifier of the aggregation group. It is concatenated by AggregationType, PrimaryValue, and SecondaryValue with colons (:). If there is no secondary aggregation value, the last segment is empty.
    * 
    * @example
    * vendor_product:alibaba_cloud:sas
@@ -119,17 +119,17 @@ export class ListAlertAggregationsResponseBodyAlertAggregations extends $dara.Mo
   alertCount?: number;
   /**
    * @remarks
-   * The collection of MITRE ATT&CK attack techniques associated with alerts in the aggregation group. Each element is a JSON array string.
+   * The collection of MITRE ATT&CK attack techniques associated with the alerts in the aggregation group. Each element is a JSON array string.
    */
   attackStages?: string[];
   /**
    * @remarks
-   * The quantity distribution by defense action within the aggregation group. Name is the action field value, and Value is the corresponding alert count.
+   * The distribution of alert counts by defense action in the aggregation group. Name is the value of the action field, and Value is the corresponding alert count.
    */
   defenseActionCounts?: ListAlertAggregationsResponseBodyAlertAggregationsDefenseActionCounts[];
   /**
    * @remarks
-   * The time of the first access, represented as a UNIX timestamp in seconds.
+   * The time of the first access. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1785290308
@@ -137,7 +137,7 @@ export class ListAlertAggregationsResponseBodyAlertAggregations extends $dara.Mo
   firstTime?: number;
   /**
    * @remarks
-   * The most recent time when the attack event occurred.
+   * The time when the attack event last occurred.
    * 
    * @example
    * 1785293908000
@@ -145,7 +145,7 @@ export class ListAlertAggregationsResponseBodyAlertAggregations extends $dara.Mo
   latestTime?: number;
   /**
    * @remarks
-   * The display text of the primary aggregation value. For account aggregation, the format is "username/account ID". If no valid username exists, only the account ID is returned. For event summaries, the event name is returned based on the Lang parameter. If the name is missing, the event UUID is returned.
+   * The display text of the primary aggregation value. For account aggregation, it returns "Username/Account ID". If there is no valid username, only the account ID is returned. For event summaries, it returns the event name based on Lang. If the name is missing, the event UUID is returned.
    * 
    * @example
    * Test incident
@@ -171,12 +171,12 @@ export class ListAlertAggregationsResponseBodyAlertAggregations extends $dara.Mo
    * @remarks
    * The collection of event source codes.
    * 
-   * > Example: [\\\\\\"MRM\\\\\\"]
+   * > Example: [\\"MRM\\"]
    */
   sourceCodes?: string[];
   /**
    * @remarks
-   * The quantity distribution by alert status within the aggregation group. Name is the alert status value, and Value is the corresponding alert count.
+   * The distribution of alert counts by alert status in the aggregation group. Name is the alert status value, and Value is the corresponding alert count.
    */
   statusCounts?: ListAlertAggregationsResponseBodyAlertAggregationsStatusCounts[];
   static names(): { [key: string]: string } {
@@ -268,7 +268,7 @@ export class ListAlertAggregationsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -284,7 +284,7 @@ export class ListAlertAggregationsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -292,7 +292,7 @@ export class ListAlertAggregationsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 57

@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogRegionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response message. Valid values:
-   * 
+   * The language of the returned message. Valid values:
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
    * 
    * @example
@@ -17,7 +15,7 @@ export class ListLogRegionsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The user ID of the member whose perspective the administrator wants to use.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 173326*******

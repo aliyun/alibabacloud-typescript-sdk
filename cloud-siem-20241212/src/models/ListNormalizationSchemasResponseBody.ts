@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The time when the normalization schema was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1736386610000
@@ -13,7 +13,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   createTime?: number;
   /**
    * @remarks
-   * The normalization rule category ID.
+   * The ID of the normalization rule category.
    * 
    * @example
    * NETWORK_CATEGORY
@@ -21,9 +21,9 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   normalizationCategoryId?: string;
   /**
    * @remarks
-   * The field source. Valid values:
-   * - normalized: normalized field.
-   * - native: native field.
+   * The source of the field. Valid values:
+   * - normalized: Normalized field.
+   * - native: Native field.
    * 
    * @example
    * normalized
@@ -31,7 +31,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   normalizationFieldSource?: string;
   /**
    * @remarks
-   * The normalization schema description.
+   * The description of the normalization schema.
    * 
    * @example
    * Network flow log
@@ -39,9 +39,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   normalizationSchemaDescription?: string;
   /**
    * @remarks
-   * The normalization schema source. Valid values:
-   * - preset: predefined.
-   * - custom: custom.
+   * The source of the normalization schema. Valid values: preset and custom.
    * 
    * @example
    * preset
@@ -49,7 +47,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   normalizationSchemaFrom?: string;
   /**
    * @remarks
-   * The normalization schema ID.
+   * The ID of the normalization schema.
    * 
    * @example
    * HTTP_ACTIVITY
@@ -57,7 +55,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   normalizationSchemaId?: string;
   /**
    * @remarks
-   * The normalization schema name.
+   * The name of the normalization schema.
    * 
    * @example
    * normalization_rule_Z57np
@@ -65,7 +63,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   normalizationSchemaName?: string;
   /**
    * @remarks
-   * The LogStore to which the normalization output is written.
+   * The Logstore for normalized output.
    * 
    * @example
    * network-activity
@@ -73,7 +71,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   normalizationSchemaTargetLogStore?: string;
   /**
    * @remarks
-   * The normalization schema type.
+   * The type of the normalization schema.
    * 
    * @example
    * log
@@ -81,7 +79,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   normalizationSchemaType?: string;
   /**
    * @remarks
-   * The security domain ID.
+   * The ID of the security domain.
    * 
    * @example
    * NETWORK_AND_WEB_SECURITY
@@ -89,16 +87,20 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   normalizationSecurityDomainId?: string;
   /**
    * @remarks
-   * The product ID.
+   * The ID of the product.
    * 
    * @example
    * sas
    */
   productId?: string;
+  /**
+   * @remarks
+   * The list of recommended entities.
+   */
   recommendEntities?: string[];
   /**
    * @remarks
-   * The Simple Log Service LogStore.
+   * The Logstore of Simple Log Service.
    * 
    * @example
    * network-activity
@@ -106,7 +108,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   targetLogStore?: string;
   /**
    * @remarks
-   * The Simple Log Service StoreView.
+   * The StoreView of Simple Log Service.
    * 
    * @example
    * network-activity
@@ -114,7 +116,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   targetStoreView?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the normalization schema was updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1736386610000
@@ -122,7 +124,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
   updateTime?: number;
   /**
    * @remarks
-   * The vendor ID.
+   * The ID of the vendor.
    * 
    * @example
    * alibaba
@@ -185,7 +187,7 @@ export class ListNormalizationSchemasResponseBodyNormalizationSchemas extends $d
 export class ListNormalizationSchemasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of entries to return in the current request.
    * 
    * @example
    * 50
@@ -193,7 +195,7 @@ export class ListNormalizationSchemasResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * The token used to retrieve the next page of results. Leave this parameter empty for the first request or when no more results are available. For subsequent requests, set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -206,7 +208,7 @@ export class ListNormalizationSchemasResponseBody extends $dara.Model {
   normalizationSchemas?: ListNormalizationSchemasResponseBodyNormalizationSchemas[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

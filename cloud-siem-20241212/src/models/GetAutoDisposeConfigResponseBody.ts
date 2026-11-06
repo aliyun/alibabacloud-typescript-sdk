@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAutoDisposeConfigResponseBodyAutoDisposeConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic response is enabled. Valid values:
-   * 
+   * The automatic disposal switch. Valid values:
    * - enabled: Enabled.
-   * 
    * - disabled: Disabled.
    * 
    * @example
@@ -17,7 +15,7 @@ export class GetAutoDisposeConfigResponseBodyAutoDisposeConfig extends $dara.Mod
   autoDecisionStatus?: string;
   /**
    * @remarks
-   * The code for the cloud product.
+   * The code of the cloud service.
    * 
    * @example
    * alibaba_cloud_sas
@@ -49,12 +47,12 @@ export class GetAutoDisposeConfigResponseBodyAutoDisposeConfig extends $dara.Mod
 export class GetAutoDisposeConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The automatic response configuration.
+   * The automatic disposal configuration for users.
    */
   autoDisposeConfig?: GetAutoDisposeConfigResponseBodyAutoDisposeConfig;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****

@@ -35,7 +35,7 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceReferences extends 
 export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dara.Model {
   /**
    * @remarks
-   * The check time.
+   * The check time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -43,7 +43,7 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
   checkTime?: number;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -51,7 +51,7 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
   createTime?: number;
   /**
    * @remarks
-   * The data source origin. Valid values:
+   * The source of the data source. Valid values:
    * - center
    * - custom
    * 
@@ -61,7 +61,7 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
   dataSourceStoreFrom?: string;
   /**
    * @remarks
-   * The log store ID.
+   * The ID of the log storage.
    * 
    * @example
    * di_xxxx_source_1
@@ -69,7 +69,7 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
   dataSourceStoreId?: string;
   /**
    * @remarks
-   * The log store status. Valid values:
+   * The status of the Logstore. Valid values:
    * - normal
    * - abnormal
    * 
@@ -79,7 +79,7 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
   dataSourceStoreStatus?: string;
   /**
    * @remarks
-   * The log store status code.
+   * The status code of the Logstore.
    * 
    * @example
    * LogStoreNotExist
@@ -87,7 +87,7 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
   dataSourceStoreStatusCode?: string;
   /**
    * @remarks
-   * The Simple Log Service project name.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * aliyun-cloudsiem-data-173326*******-cn-hangzhou
@@ -95,7 +95,7 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
   logProjectName?: string;
   /**
    * @remarks
-   * The log storage region ID.
+   * The ID of the log storage region.
    * 
    * @example
    * cn-hangzhou
@@ -103,7 +103,7 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
   logRegionId?: string;
   /**
    * @remarks
-   * The Simple Log Service Logstore name.
+   * The name of the Simple Log Service Logstore.
    * 
    * @example
    * audit-activity
@@ -111,7 +111,7 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
   logStoreName?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -159,7 +159,7 @@ export class ListDataSourcesResponseBodyDataSourcesDataSourceStores extends $dar
 export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -167,7 +167,7 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The data source origin. Valid values:
+   * The source of the data source. Valid values:
    * - center
    * - custom
    * 
@@ -177,7 +177,7 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   dataSourceFrom?: string;
   /**
    * @remarks
-   * The data source ID.
+   * The ID of the data source.
    * 
    * @example
    * ds-scpfegri73oyoknbc90c
@@ -185,7 +185,7 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The data source name.
+   * The name of the data source.
    * 
    * @example
    * AD_LOG
@@ -193,7 +193,7 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   dataSourceName?: string;
   /**
    * @remarks
-   * Indicates whether automatic discovery of new Logstores is enabled.
+   * Specifies whether to automatically discover new Logstores.
    * 
    * @example
    * true
@@ -214,7 +214,7 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   dataSourceReferences?: ListDataSourcesResponseBodyDataSourcesDataSourceReferences[];
   /**
    * @remarks
-   * The data source status. Valid values:
+   * The status of the data source. Valid values:
    * - unconfigured
    * - normal
    * - abnormal
@@ -225,12 +225,12 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   dataSourceStatus?: string;
   /**
    * @remarks
-   * The list of log services.
+   * The list of Simple Log Service resources.
    */
   dataSourceStores?: ListDataSourcesResponseBodyDataSourcesDataSourceStores[];
   /**
    * @remarks
-   * The data source template ID.
+   * The ID of the data source template.
    * 
    * @example
    * alibaba_cloud_sas_account_snapshot_log_173326*******
@@ -238,9 +238,9 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   dataSourceTemplateId?: string;
   /**
    * @remarks
-   * The data source type. Valid values:
-   *  - preset
-   *  - custom
+   * The type of the data source. Valid values:
+   * - preset
+   * - custom
    * 
    * @example
    * custom
@@ -248,7 +248,7 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The Simple Log Service project name.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * aliyun-cloudsiem-data-173326*******-cn-hangzhou
@@ -256,7 +256,7 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   logProjectName?: string;
   /**
    * @remarks
-   * The log storage region ID.
+   * The ID of the log storage region.
    * 
    * @example
    * cn-hangzhou
@@ -264,7 +264,7 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   logRegionId?: string;
   /**
    * @remarks
-   * The Simple Log Service Logstore name.
+   * The name of the Simple Log Service Logstore.
    * 
    * @example
    * audit-activity
@@ -272,7 +272,7 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The data ingestion user ID.
+   * The user ID for data ingestion.
    * 
    * @example
    * 173326*******
@@ -280,7 +280,7 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
   logUserId?: number;
   /**
    * @remarks
-   * The update time.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1733269771123
@@ -346,12 +346,12 @@ export class ListDataSourcesResponseBodyDataSources extends $dara.Model {
 export class ListDataSourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The alert source products associated with events.
+   * The products from which event-associated alerts originate.
    */
   dataSources?: ListDataSourcesResponseBodyDataSources[];
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of results to return in the current request.
    * 
    * @example
    * 50
@@ -359,7 +359,7 @@ export class ListDataSourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * The token used to retrieve the next page of results. If this is the first request or no subsequent requests are required, leave this parameter empty. If a subsequent request is required, set this parameter to the value of NextToken returned in the previous API call.
    * 
    * @example
    * AAAAAUqcj6VO4E3ECWIrFczs****
@@ -367,7 +367,7 @@ export class ListDataSourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -383,7 +383,7 @@ export class ListDataSourcesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****
@@ -391,7 +391,7 @@ export class ListDataSourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 2

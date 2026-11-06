@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCopilotChatShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client conversation ID.
+   * The client session ID.
    * 
    * @example
    * 54b6c969-4b75-47be-9f43-71f88aeb****
@@ -23,7 +23,7 @@ export class CreateCopilotChatShrinkRequest extends $dara.Model {
   clientMessageId?: string;
   /**
    * @remarks
-   * The conversation ID.
+   * The session ID.
    * 
    * @example
    * 54b6c969-4b75-47be-9f43-71f88aeb****
@@ -31,12 +31,12 @@ export class CreateCopilotChatShrinkRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The conversation creation configuration.
+   * The session creation configuration.
    */
   createConversationShrink?: string;
   /**
    * @remarks
-   * The language of the returned messages. Valid values:
+   * The language of the returned message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -77,9 +77,9 @@ export class CreateCopilotChatShrinkRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region of the data management center for threat analysis. Specify the management center based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: Your assets reside in the Chinese mainland.
-   * - ap-southeast-1: Your assets reside in regions outside the Chinese mainland.
+   * The region of the data management center for threat analysis. Select the region of the management center based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: Assets reside in the Chinese mainland.
+   * - ap-southeast-1: Assets reside outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -87,7 +87,7 @@ export class CreateCopilotChatShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the conversation turn to replace.
+   * The ID of the replaced conversation turn.
    * 
    * @example
    * dc18b894-19a3-45ee-8768-a59478e0****
@@ -95,7 +95,7 @@ export class CreateCopilotChatShrinkRequest extends $dara.Model {
   replaceTurnId?: string;
   /**
    * @remarks
-   * The route target identifier.
+   * The target route identifier for execution.
    * 
    * @example
    * security-agent-route-****
@@ -103,7 +103,7 @@ export class CreateCopilotChatShrinkRequest extends $dara.Model {
   routeTarget?: string;
   /**
    * @remarks
-   * The request source.
+   * The source of the request.
    * 
    * @example
    * console
@@ -127,7 +127,7 @@ export class CreateCopilotChatShrinkRequest extends $dara.Model {
   thinkingMode?: string;
   /**
    * @remarks
-   * The trace ID, which is used to query specific call information.
+   * The trace ID used to accurately query call information.
    * 
    * @example
    * 550e8400e29b41d4a71644665544****

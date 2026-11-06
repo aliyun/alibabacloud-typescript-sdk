@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
   /**
    * @remarks
-   * The time when the rule was created.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1769843323000
@@ -22,13 +22,12 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
   /**
    * @remarks
    * The action type of the automatic response rule. Valid values:
-   * 
-   * - doPlaybook: execute a playbook
-   * - changeEventStatus: update event status
-   * - changeThreatLevel: update event threat level
-   * - addEventTag: add an event label
-   * - deleteEventTag: delete an event label
-   * - alertWhitelist: add alert to whitelist
+   * - doPlaybook: Execute a playbook.
+   * - changeEventStatus: Update the event status.
+   * - changeThreatLevel: Update the event threat level.
+   * - addEventTag: Add an event tag.
+   * - deleteEventTag: Delete an event tag.
+   * - alertWhitelist: Add an alert to the whitelist.
    * 
    * @example
    * doPlaybook
@@ -66,13 +65,19 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
    * 1
    */
   responseRulePriority?: number;
+  /**
+   * @remarks
+   * The remarks of the response rule.
+   * 
+   * @example
+   * Send a notification when Security Center detects high-risk or critical malicious process (cloud antivirus) alerts. Only notify, do not take action
+   */
   responseRuleRemark?: string;
   /**
    * @remarks
    * The status of the automatic response rule. Valid values:
-   * 
-   * - 0: disabled
-   * - 100: enabled
+   * - 0: Disabled.
+   * - 100: Enabled.
    * 
    * @example
    * 0
@@ -81,9 +86,8 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
   /**
    * @remarks
    * The type of the response rule. Valid values:
-   * 
-   * - preset: predefined
-   * - custom: custom
+   * - preset: Preset.
+   * - custom: Custom.
    * 
    * @example
    * custom
@@ -92,10 +96,9 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
   /**
    * @remarks
    * The trigger type of the automatic response rule. Valid values:
-   * 
-   * - event: event occurred
-   * - event_update: event updated
-   * - alert: alert occurred
+   * - event: Event occurrence.
+   * - event_update: Event update.
+   * - alert: Alert occurrence.
    * 
    * @example
    * event
@@ -103,7 +106,7 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
   responseTriggerType?: string;
   /**
    * @remarks
-   * The time when the rule was last updated.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1769843323000
@@ -155,7 +158,7 @@ export class ListResponseRulesResponseBodyResponseRules extends $dara.Model {
 export class ListResponseRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records returned in this request.
+   * The maximum number of records returned for the current request.
    * 
    * @example
    * 50
@@ -163,7 +166,7 @@ export class ListResponseRulesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The position from which the current call starts reading. An empty value indicates that all data has been read.
+   * The position to which the current call has read. An empty value indicates that all data has been read.
    * 
    * This parameter is required.
    * 
@@ -173,7 +176,7 @@ export class ListResponseRulesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the current page.
    * 
    * @example
    * 1
@@ -181,7 +184,7 @@ export class ListResponseRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -202,7 +205,7 @@ export class ListResponseRulesResponseBody extends $dara.Model {
   responseRules?: ListResponseRulesResponseBodyResponseRules[];
   /**
    * @remarks
-   * The total number of records that match the request conditions. This parameter is optional and is not returned by default.
+   * The total number of data records that meet the request conditions. This parameter is optional and is not returned by default.
    * 
    * @example
    * 57

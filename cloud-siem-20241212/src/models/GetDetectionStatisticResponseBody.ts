@@ -6,6 +6,9 @@ export class GetDetectionStatisticResponseBodyDetectionStatistic extends $dara.M
   /**
    * @remarks
    * The number of AI-powered aggregation rules.
+   * 
+   * @example
+   * 10
    */
   aiPoweredAggregationRuleCount?: number;
   /**
@@ -92,7 +95,7 @@ export class GetDetectionStatisticResponseBodyDetectionStatistic extends $dara.M
 export class GetDetectionStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The count results of detection rules.
+   * The detection rule counts.
    */
   detectionStatistic?: GetDetectionStatisticResponseBodyDetectionStatistic;
   /**

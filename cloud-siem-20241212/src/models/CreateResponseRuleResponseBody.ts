@@ -13,7 +13,7 @@ export class CreateResponseRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the automatic response rule.
+   * The ID of the automated response rule.
    * 
    * @example
    * 399827

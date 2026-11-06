@@ -13,7 +13,7 @@ export class CreateDetectionRuleResponseBody extends $dara.Model {
   detectionRuleId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5CC09D0C-1CD7-54BD-A853-DCB2D945****

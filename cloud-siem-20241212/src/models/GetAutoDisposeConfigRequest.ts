@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAutoDisposeConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
    * 
    * This parameter is required.
@@ -19,7 +17,7 @@ export class GetAutoDisposeConfigRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The code for the cloud product.
+   * The code of the cloud service.
    * 
    * This parameter is required.
    * 

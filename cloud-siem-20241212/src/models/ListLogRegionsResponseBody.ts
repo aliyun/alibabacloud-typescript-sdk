@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of log storage region IDs.
+   * The list of log storage region IDs.
    */
   logRegions?: string[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteAutoDisposeRecordsRequestSelectedEntityList extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the investigation record.
+   * The unique ID of the analysis record.
    * 
    * @example
    * 0000089b040b8935fed2e24ca2ec8335
@@ -45,7 +45,7 @@ export class ExecuteAutoDisposeRecordsRequestSelectedEntityList extends $dara.Mo
 export class ExecuteAutoDisposeRecordsRequestUnSelectedEntityList extends $dara.Model {
   /**
    * @remarks
-   * The unique ID of the investigation record.
+   * The unique ID of the analysis record.
    * 
    * @example
    * 0000089b040b8935fed2e24ca2ec8335
@@ -85,7 +85,7 @@ export class ExecuteAutoDisposeRecordsRequestUnSelectedEntityList extends $dara.
 export class ExecuteAutoDisposeRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 

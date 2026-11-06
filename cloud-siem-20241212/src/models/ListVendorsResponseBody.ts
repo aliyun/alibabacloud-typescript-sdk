@@ -3,47 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListVendorsResponseBodyVendors extends $dara.Model {
-  /**
-   * @remarks
-   * The creation time. The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1733269771123
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The update time. The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1733269771123
-   */
   updateTime?: number;
-  /**
-   * @remarks
-   * The vendor ID.
-   * 
-   * @example
-   * vd-qlsw5eocx94w9
-   */
   vendorId?: string;
-  /**
-   * @remarks
-   * The vendor name.
-   * 
-   * @example
-   * 111
-   */
   vendorName?: string;
-  /**
-   * @remarks
-   * The vendor type. Valid values:
-   * - preset
-   * - custom
-   * 
-   * @example
-   * preset
-   */
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -76,44 +39,13 @@ export class ListVendorsResponseBodyVendors extends $dara.Model {
 
 export class ListVendorsResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The maximum number of entries to return in this request.
-   * 
-   * @example
-   * 50
-   * 
    * **if can be null:**
    * true
    */
   maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token for the next query. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
-   * 
-   * @example
-   * AAAAAUqcj6VO4E3ECWIrFczs****
-   */
   nextToken?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6276D891-*****-55B2-87B9-74D413F7****
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of records.
-   * 
-   * @example
-   * 57
-   */
   totalCount?: number;
-  /**
-   * @remarks
-   * The vendors.
-   */
   vendors?: ListVendorsResponseBodyVendors[];
   static names(): { [key: string]: string } {
     return {
