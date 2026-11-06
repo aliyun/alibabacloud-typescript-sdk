@@ -10,7 +10,7 @@ export class DescribeJVSInstanceRequest extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The page size.
+   * The maximum number of results per page.
    * 
    * @example
    * 10

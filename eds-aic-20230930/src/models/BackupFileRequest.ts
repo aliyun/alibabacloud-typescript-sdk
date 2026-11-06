@@ -2,6 +2,64 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class BackupFileRequestCustomScripts extends $dara.Model {
+  /**
+   * @example
+   * my-bucket
+   */
+  ossBucket?: string;
+  /**
+   * @example
+   * oss-cn-hangzhou-internal.aliyuncs.com
+   */
+  ossEndpoint?: string;
+  /**
+   * @example
+   * script/backup.sh
+   */
+  ossObjectKey?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  ossRegion?: string;
+  /**
+   * @example
+   * ["acp-0n4k52uiyon472rq0"]
+   */
+  testInstanceIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ossBucket: 'OssBucket',
+      ossEndpoint: 'OssEndpoint',
+      ossObjectKey: 'OssObjectKey',
+      ossRegion: 'OssRegion',
+      testInstanceIds: 'TestInstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossBucket: 'string',
+      ossEndpoint: 'string',
+      ossObjectKey: 'string',
+      ossRegion: 'string',
+      testInstanceIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.testInstanceIds)) {
+      $dara.Model.validateArray(this.testInstanceIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BackupFileRequest extends $dara.Model {
   /**
    * @remarks
@@ -34,6 +92,11 @@ export class BackupFileRequest extends $dara.Model {
    * This parameter is required.
    */
   backupFilePath?: string;
+  /**
+   * @example
+   * [{"OssBucket":"my-bucket","OssObjectKey":"script/backup.sh","OssEndpoint":"oss-cn-hangzhou-internal.aliyuncs.com","OssRegion":"cn-hangzhou"}]
+   */
+  customScripts?: BackupFileRequestCustomScripts[];
   /**
    * @remarks
    * The description of the backup file.
@@ -86,6 +149,7 @@ export class BackupFileRequest extends $dara.Model {
       backupAll: 'BackupAll',
       backupFileName: 'BackupFileName',
       backupFilePath: 'BackupFilePath',
+      customScripts: 'CustomScripts',
       description: 'Description',
       excludeAppList: 'ExcludeAppList',
       excludeSourceFilePathList: 'ExcludeSourceFilePathList',
@@ -102,6 +166,7 @@ export class BackupFileRequest extends $dara.Model {
       backupAll: 'boolean',
       backupFileName: 'string',
       backupFilePath: 'string',
+      customScripts: { 'type': 'array', 'itemType': BackupFileRequestCustomScripts },
       description: 'string',
       excludeAppList: { 'type': 'array', 'itemType': 'string' },
       excludeSourceFilePathList: { 'type': 'array', 'itemType': 'string' },
@@ -115,6 +180,9 @@ export class BackupFileRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.androidInstanceIdList)) {
       $dara.Model.validateArray(this.androidInstanceIdList);
+    }
+    if(Array.isArray(this.customScripts)) {
+      $dara.Model.validateArray(this.customScripts);
     }
     if(Array.isArray(this.excludeAppList)) {
       $dara.Model.validateArray(this.excludeAppList);

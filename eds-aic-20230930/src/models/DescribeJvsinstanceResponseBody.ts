@@ -53,7 +53,7 @@ export class DescribeJVSInstanceResponseBodyDataCreditConfig extends $dara.Model
   creditLimit?: number;
   /**
    * @remarks
-   * The credit limit period.
+   * The limit period.
    * 
    * @example
    * day
@@ -173,7 +173,7 @@ export class DescribeJVSInstanceResponseBodyDataUsedCredit extends $dara.Model {
   credit?: number;
   /**
    * @remarks
-   * The dimension of the current credit.
+   * The period of the current credit.
    * 
    * @example
    * day
@@ -210,7 +210,7 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   agentVersion?: DescribeJVSInstanceResponseBodyDataAgentVersion;
   /**
    * @remarks
-   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard.
+   * The creation time. The time is in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2026-04-10T01:31:32Z
@@ -218,12 +218,12 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The credit limit configuration. Subsequent quota configurations overwrite previous configurations.
+   * The credit limit configuration. Subsequent quota configurations overwrite previous ones.
    */
   creditConfig?: DescribeJVSInstanceResponseBodyDataCreditConfig[];
   /**
    * @remarks
-   * The expiration time. The time is displayed in UTC and follows the ISO 8601 standard.
+   * The expiration time. The time is in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2026-04-10T01:31:32Z
@@ -244,6 +244,14 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The instance name.
+   * 
+   * @example
+   * InstanceName
+   */
+  instanceName?: string;
+  /**
+   * @remarks
    * This parameter is not supported.
    * 
    * @example
@@ -252,7 +260,7 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
   jvsPackageId?: string;
   /**
    * @remarks
-   * The modification time. The time is displayed in UTC and follows the ISO 8601 standard.
+   * The modification time. The time is in UTC and follows the ISO 8601 standard.
    * 
    * @example
    * 2026-04-10T01:31:32Z
@@ -279,6 +287,7 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
       expireTime: 'ExpireTime',
       installedSkills: 'InstalledSkills',
       instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
       jvsPackageId: 'JvsPackageId',
       modifyTime: 'ModifyTime',
       status: 'Status',
@@ -294,6 +303,7 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
       expireTime: 'string',
       installedSkills: { 'type': 'array', 'itemType': DescribeJVSInstanceResponseBodyDataInstalledSkills },
       instanceId: 'string',
+      instanceName: 'string',
       jvsPackageId: 'string',
       modifyTime: 'string',
       status: 'string',
@@ -325,12 +335,12 @@ export class DescribeJVSInstanceResponseBodyData extends $dara.Model {
 export class DescribeJVSInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result object.
+   * The response object.
    */
   data?: DescribeJVSInstanceResponseBodyData[];
   /**
    * @remarks
-   * The maximum number of results returned in the current request.
+   * The maximum number of data entries returned in the current request.
    * 
    * @example
    * 10
@@ -338,7 +348,7 @@ export class DescribeJVSInstanceResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the starting position for the query. An empty value indicates that the query starts from the beginning.
+   * The token that specifies the starting position for the current query. If this parameter is left empty, the query starts from the beginning.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****

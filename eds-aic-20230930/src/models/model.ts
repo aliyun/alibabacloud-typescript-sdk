@@ -2,6 +2,7 @@ export { ActivateEdgeMobileAgentResponseBodyData } from './ActivateEdgeMobileAge
 export { AttachKeyPairResponseBodyData } from './AttachKeyPairResponseBody';
 export { BackupAndroidInstanceResponseBodyData } from './BackupAndroidInstanceResponseBody';
 export { BackupAppResponseBodyData } from './BackupAppResponseBody';
+export { BackupFileRequestCustomScripts } from './BackupFileRequest';
 export { BackupFileResponseBodyData } from './BackupFileResponseBody';
 export { BatchGetAcpConnectionTicketRequestInstanceTasks } from './BatchGetAcpConnectionTicketRequest';
 export { BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels } from './BatchGetAcpConnectionTicketResponseBody';
@@ -172,6 +173,7 @@ export { RebootAndroidInstancesInGroupResponseBodyTasksChildTasks } from './Rebo
 export { RebootAndroidInstancesInGroupResponseBodyTasks } from './RebootAndroidInstancesInGroupResponseBody';
 export { RecoverAndroidInstanceResponseBodyData } from './RecoverAndroidInstanceResponseBody';
 export { RecoverAppResponseBodyData } from './RecoverAppResponseBody';
+export { RecoveryFileRequestCustomScripts } from './RecoveryFileRequest';
 export { RecoveryFileResponseBodyData } from './RecoveryFileResponseBody';
 export { RefreshAuthTokensResponseBodyDataTokens } from './RefreshAuthTokensResponseBody';
 export { RefreshAuthTokensResponseBodyData } from './RefreshAuthTokensResponseBody';
