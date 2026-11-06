@@ -885,6 +885,9 @@ export { ExportDesktopGroupInfoResponse } from './ExportDesktopGroupInfoResponse
 export { ExportDesktopListInfoRequest } from './ExportDesktopListInfoRequest';
 export { ExportDesktopListInfoResponseBody } from './ExportDesktopListInfoResponseBody';
 export { ExportDesktopListInfoResponse } from './ExportDesktopListInfoResponse';
+export { GenerateSceneKeyRequest } from './GenerateSceneKeyRequest';
+export { GenerateSceneKeyResponseBody } from './GenerateSceneKeyResponseBody';
+export { GenerateSceneKeyResponse } from './GenerateSceneKeyResponse';
 export { GetAggregatedDesktopsRequest } from './GetAggregatedDesktopsRequest';
 export { GetAggregatedDesktopsResponseBody } from './GetAggregatedDesktopsResponseBody';
 export { GetAggregatedDesktopsResponse } from './GetAggregatedDesktopsResponse';

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "ecd";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("ecd", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -14204,6 +14208,60 @@ export default class Client extends OpenApi {
   async exportDesktopListInfo(request: $_model.ExportDesktopListInfoRequest): Promise<$_model.ExportDesktopListInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.exportDesktopListInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Generates an access key for a scenario.
+   * 
+   * @param request - GenerateSceneKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateSceneKeyResponse
+   */
+  async generateSceneKeyWithOptions(request: $_model.GenerateSceneKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateSceneKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!$dara.isNull(request.expireTime)) {
+      query["ExpireTime"] = request.expireTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.scene)) {
+      query["Scene"] = request.scene;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateSceneKey",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateSceneKeyResponse>(await this.callApi(params, req, runtime), new $_model.GenerateSceneKeyResponse({}));
+  }
+
+  /**
+   * Generates an access key for a scenario.
+   * 
+   * @param request - GenerateSceneKeyRequest
+   * @returns GenerateSceneKeyResponse
+   */
+  async generateSceneKey(request: $_model.GenerateSceneKeyRequest): Promise<$_model.GenerateSceneKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateSceneKeyWithOptions(request, runtime);
   }
 
   /**
