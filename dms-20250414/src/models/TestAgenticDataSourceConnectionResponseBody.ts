@@ -8,12 +8,12 @@ export class TestAgenticDataSourceConnectionResponseBodyData extends $dara.Model
    * The description of the connection test result. This parameter is usually empty when the connection is successful, and returns the cause when the connection fails.
    * 
    * @example
-   * Connection timed out. Check the connection endpoint
+   * Connection timed out. Check the endpoint.
    */
   message?: string;
   /**
    * @remarks
-   * Indicates whether the data source is connected.
+   * Indicates whether the data source is connected successfully.
    */
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -63,7 +63,7 @@ export class TestAgenticDataSourceConnectionResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate the current call.
+   * The ID of the request.
    * 
    * @example
    * request-1234567890
@@ -71,7 +71,7 @@ export class TestAgenticDataSourceConnectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the current call is successful.
+   * Indicates whether the call is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

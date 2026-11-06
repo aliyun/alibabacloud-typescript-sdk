@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCustomAgentResponseBodyDataCallbackConfig extends $dara.Model {
   /**
    * @remarks
-   * The callback tool invocation parameters.
+   * The parameters to invoke the callback tool.
    * 
    * @example
    * {"ID":"test"}
@@ -13,7 +13,7 @@ export class CreateCustomAgentResponseBodyDataCallbackConfig extends $dara.Model
   callbackArgs?: string;
   /**
    * @remarks
-   * The prompt for generating callback tool invocation parameters.
+   * The prompt for generating parameters to invoke the callback tool.
    * 
    * @example
    * send web report to 123456@163.com
@@ -21,7 +21,7 @@ export class CreateCustomAgentResponseBodyDataCallbackConfig extends $dara.Model
   callbackPrompt?: string;
   /**
    * @remarks
-   * The callback tool invocation timing.
+   * The timing to invoke the callback tool.
    * 
    * @example
    * 0
@@ -146,8 +146,8 @@ export class CreateCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.
   /**
    * @remarks
    * The access type. Valid values:
-   * - mcp: MCP access.
-   * - dms_kb: DMS knowledge base access.
+   * - mcp: Accessed through MCP.
+   * - dms_kb: Accessed through the DMS knowledge base.
    * 
    * @example
    * mcp
@@ -163,7 +163,7 @@ export class CreateCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.
   kbUuid?: string;
   /**
    * @remarks
-   * The MCP server ID.
+   * The ID of the MCP server.
    * 
    * @example
    * nhdpt9adf6ac**********ca
@@ -267,7 +267,7 @@ export class CreateCustomAgentResponseBodyDataScheduleTaskConfig extends $dara.M
   cronExpression?: string;
   /**
    * @remarks
-   * The query for the scheduled task.
+   * The question for the scheduled task.
    * 
    * @example
    * Analyze this data and provide a brief report
@@ -319,7 +319,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   agentType?: string;
   /**
    * @remarks
-   * The Alibaba Cloud main account ID.
+   * The ID of the Alibaba Cloud main account.
    * 
    * @example
    * 16738266********
@@ -335,7 +335,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   aliyunUid?: string;
   /**
    * @remarks
-   * The callback feature configuration.
+   * The callback feature configuration items.
    */
   callbackConfig?: CreateCustomAgentResponseBodyDataCallbackConfig;
   /**
@@ -348,7 +348,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   creatorUserName?: string;
   /**
    * @remarks
-   * The custom agent ID.
+   * The ID of the custom agent.
    * 
    * @example
    * ca-4y3ca4khkcu**********ysf
@@ -420,18 +420,18 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The instructions.
+   * The instruction.
    * 
    * @example
    * Analysis framework:
-   * 1. Monitor core metrics (GMV, order volume, UV, and conversion rate) on a daily, weekly, and monthly basis to analyze trend changes and year-over-year or month-over-month fluctuations.
-   * 2. Segment data by new and existing customers, channels, and regions to identify growth drivers and shortcomings.
-   * 3. Conduct funnel analysis based on user behavior paths (browse > add to cart > checkout) to identify churn stages
+   * 1. Monitor core metrics (GMV, order volume, UV, and conversion rate) on a daily, weekly, and monthly basis, and analyze trend changes and year-over-year or month-over-month fluctuations.
+   * 2. Segment data by new and returning customers, channels, and regions to identify growth sources and shortcomings.
+   * 3. Conduct funnel analysis based on user behavior paths (browse -> add to cart -> pay) to identify drop-off stages
    */
   instruction?: string;
   /**
    * @remarks
-   * Indicates whether a scheduled task is configured.
+   * Indicates whether a periodic task is configured.
    * 
    * @example
    * false
@@ -444,9 +444,9 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * @example
    * Core metric definitions:
    * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders.
-   * 2. Order volume refers to the number of valid daily orders.
-   * 3. UV (Unique Visitors) refers to the number of deduplicated users visiting the website or app.
-   * 4. Conversion rate = Paid orders / UV, reflecting the traffic conversion efficiency
+   * 2. Order volume refers to the number of valid orders placed per day.
+   * 3. UV (Unique Visitors) refers to the number of deduplicated users who visit the website or app.
+   * 4. Conversion rate = Number of paid orders / UV, reflecting the traffic conversion efficiency
    */
   knowledge?: string;
   /**
@@ -485,7 +485,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The next run time of the scheduled task.
+   * The next execution time of the periodic task.
    * - Timestamp format.
    * 
    * @example
@@ -532,7 +532,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
   releaseTime?: string;
   /**
    * @remarks
-   * The scheduled task configuration.
+   * The periodic task configuration.
    */
   scheduleTaskConfig?: CreateCustomAgentResponseBodyDataScheduleTaskConfig;
   /**
@@ -548,7 +548,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * The text report format.
    * 
    * @example
-   * The text report requires that all numbers be written as Chinese numerals instead of Arabic numerals
+   * The text report requires that all numbers be converted to Chinese numerals instead of Arabic numerals
    */
   textReportConfig?: string;
   /**
@@ -561,7 +561,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * The web report format.
    * 
    * @example
-   * The web report requires that all numbers be written as Chinese numerals instead of Arabic numerals
+   * The web report requires that all numbers be converted to Chinese numerals instead of Arabic numerals
    */
   webReportConfig?: string;
   /**
@@ -569,7 +569,7 @@ export class CreateCustomAgentResponseBodyData extends $dara.Model {
    * The web report theme. Valid values:
    * - default: Default.
    * - journal: Journal.
-   * - legacy: Classic.
+   * - legacy: Legacy.
    * - neobrutalism: Neobrutalism.
    * - infographic: Infographic.
    * 

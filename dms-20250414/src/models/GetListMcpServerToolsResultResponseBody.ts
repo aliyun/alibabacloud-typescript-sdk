@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetListMcpServerToolsResultResponseBodyDataTools extends $dara.Model {
   /**
    * @remarks
-   * The description of the MCP tool functionality.
+   * The description of the MCP tool.
    * 
    * @example
    * query user information by user ID
@@ -13,7 +13,7 @@ export class GetListMcpServerToolsResultResponseBodyDataTools extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * The JSON Schema string of the tool input parameters.
+   * The JSON schema string for the input parameters of the tool.
    * 
    * @example
    * {"type":"object","properties":{"userId":{"type":"string"}}}
@@ -21,7 +21,7 @@ export class GetListMcpServerToolsResultResponseBodyDataTools extends $dara.Mode
   inputSchema?: string;
   /**
    * @remarks
-   * The MCP tool name.
+   * The name of the MCP tool.
    * 
    * @example
    * query_user
@@ -55,7 +55,7 @@ export class GetListMcpServerToolsResultResponseBodyDataTools extends $dara.Mode
 export class GetListMcpServerToolsResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the MCP Server is accessible. The value is true only when State is success.
+   * Indicates whether the MCP server is accessible. The value is true only when State is success.
    * 
    * @example
    * true
@@ -63,12 +63,7 @@ export class GetListMcpServerToolsResultResponseBodyData extends $dara.Model {
   accessible?: boolean;
   /**
    * @remarks
-   * The detection status. Valid values:
-   * - pending: The detection is in progress.
-   * - success: The detection succeeded.
-   * - failed: The detection failed or timed out.
-   * 
-   * The top-level Success field can be true in all three business states.
+   * The detection status. Valid values: pending: The detection is in progress. success: The detection succeeded. failed: The detection failed or timed out. The top-level Success field can be true in all three business statuses.
    * 
    * @example
    * success
@@ -110,12 +105,12 @@ export class GetListMcpServerToolsResultResponseBodyData extends $dara.Model {
 export class GetListMcpServerToolsResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The MCP Server connectivity detection result. The business status is distinguished by the State field.
+   * The connectivity detection results of the MCP server. The business status is indicated by State.
    */
   data?: GetListMcpServerToolsResultResponseBodyData;
   /**
    * @remarks
-   * The return code. The value success is returned if the request succeeds. An error code is returned if the request fails.
+   * The error code. The value is success if the request succeeds, or the corresponding error code if the request fails.
    * 
    * @example
    * success
@@ -123,7 +118,7 @@ export class GetListMcpServerToolsResultResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when a system-level request failure occurs.
+   * The error message returned when the request fails at the system level.
    * 
    * @example
    * no mcp connect test record for session
@@ -131,7 +126,7 @@ export class GetListMcpServerToolsResultResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate this API call.
+   * The request ID, which is used to locate the call.
    * 
    * @example
    * 550***544
@@ -139,7 +134,7 @@ export class GetListMcpServerToolsResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * true

@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the workspace. The value is a UNIX timestamp in seconds.
+   * The configuration items of the workspace.
+   * 
+   * @example
+   * {sql_config:null}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The creation time of the session. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1765960516
@@ -21,7 +29,7 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * Indicates whether sessions are shared within the workspace.
+   * Indicates whether sessions in the workspace are shared.
    * 
    * @example
    * true
@@ -61,7 +69,7 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The description of the workspace.
+   * The description of the collaborative workspace.
    * 
    * @example
    * space for test
@@ -69,7 +77,7 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
   workspaceDesc?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The ID of the collaborative workspace.
    * 
    * @example
    * 20923*****7291
@@ -93,6 +101,7 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
   workspaceStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      config: 'Config',
       createTime: 'CreateTime',
       creator: 'Creator',
       isSessionShareEnabled: 'IsSessionShareEnabled',
@@ -109,6 +118,7 @@ export class GetDataAgentWorkspaceInfoResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: 'string',
       createTime: 'string',
       creator: 'string',
       isSessionShareEnabled: 'boolean',
@@ -156,7 +166,7 @@ export class GetDataAgentWorkspaceInfoResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E0D2-*****-A63B6

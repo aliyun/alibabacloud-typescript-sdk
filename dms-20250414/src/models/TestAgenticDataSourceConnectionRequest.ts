@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The alias. You can leave this parameter empty when testing a connection. This parameter does not create or modify a data source.
+   * The name of the AnalyticDB for MySQL Spark resource group. This parameter takes effect only when DbType is set to ADB_MYSQL_SPARK. You must specify a resource group when connecting to this type of data source. This parameter is independent of Schema (database name) and they cannot replace each other.
+   * 
+   * @example
+   * resourceGroup1
+   */
+  adbSparkResourceGroup?: string;
+  /**
+   * @remarks
+   * The alias. You can leave this parameter empty when testing a connection. This operation does not create or modify a data source.
    * 
    * @example
    * demo_mysql
@@ -29,7 +37,11 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   authPassword?: string;
   /**
    * @remarks
-   * The authentication type. This parameter is optional. Valid values: -1 (no authentication required), 0 (username and password), 1 (password only), and 2 (password-free).
+   * The authentication type. This parameter is optional. Valid values:
+   * - -1: No authentication required.
+   * - 0: Username and password.
+   * - 1: Password only.
+   * - 2: Password-free.
    * 
    * @example
    * 0
@@ -37,7 +49,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   authType?: number;
   /**
    * @remarks
-   * The catalog name. You can leave this parameter empty when testing a connection. This parameter does not create a metadata catalog.
+   * The catalog name. You can leave this parameter empty when testing a connection. This operation does not create a metadata catalog.
    * 
    * @example
    * demo_catalog
@@ -45,7 +57,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   catalogName?: string;
   /**
    * @remarks
-   * The UUID of the data source. This parameter is required when testing an existing data source. If no new password is passed, the saved password is reused. Leave this parameter empty when testing a new data source.
+   * The UUID of the data source. Specify this parameter when testing an existing data source. If no new password is passed, the saved password is reused. Leave this parameter empty when testing a new data source.
    * 
    * @example
    * cn-hangzhou_a1b2c3d4e5f6
@@ -53,7 +65,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   dataSourceUuid?: string;
   /**
    * @remarks
-   * The type of the data source. Use uppercase letters. Do not pass numbers. Valid values: MYSQL, POSTGRESQL, ORACLE, SQLSERVER, MARIADB, POLARDB, POLARDB_POSTGRESQL, POLARDB_ORACLE, OCEANBASEX, DRDS, ADB_MYSQL, ADB_POSTGRESQL, CLICKHOUSE, SELECTDB, STARROCKS, HOLOGRES, MAXCOMPUTE, ES_REST, and TRINO.
+   * The type of the data source. Use uppercase letters for the identifier. Do not pass numbers. Valid values: MYSQL, POSTGRESQL, ORACLE, SQLSERVER, MARIADB, POLARDB, POLARDB_POSTGRESQL, POLARDB_ORACLE, OCEANBASEX, DRDS, ADB_MYSQL, ADB_POSTGRESQL, CLICKHOUSE, SELECTDB, STARROCKS, HOLOGRES, MAXCOMPUTE, ES_REST, and TRINO.
    * 
    * This parameter is required.
    * 
@@ -71,7 +83,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The domain name or IP address of the database. Do not include the protocol, path, or port. This parameter is optional. You can leave this parameter empty when you select an existing cloud instance and the endpoint is automatically populated.
+   * The domain name or IP address of the database. Do not include the protocol, path, or port. This parameter is optional. You can leave this parameter empty if you select an existing cloud instance and the address is automatically populated.
    * 
    * @example
    * mysql.example.com
@@ -79,7 +91,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The ID of the cloud resource instance. This parameter is required when you select an existing cloud instance. You can leave this parameter empty when you enter a connection endpoint.
+   * The ID of the cloud resource instance. Specify this parameter when you select an existing cloud instance. You can leave this parameter empty when you enter an endpoint.
    * 
    * @example
    * rm-bp1234567890
@@ -89,10 +101,10 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
    * @remarks
    * The source of the data source. Valid values:
    * - RDS: ApsaraDB instance.
-   * - PUBLIC_OWN: self-managed database connected over the Internet.
-   * - ECS_OWN: self-managed database hosted on an ECS instance.
-   * - GATEWAY: database connected through Database Gateway.
-   * - VPC_IDC: database connected over a VPC or data center.
+   * - PUBLIC_OWN: Self-managed database connected over the Internet.
+   * - ECS_OWN: Self-managed database hosted on an ECS instance.
+   * - GATEWAY: Database connected through Database Gateway.
+   * - VPC_IDC: Database connected through a VPC or data center.
    * 
    * This parameter is required.
    * 
@@ -102,7 +114,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   instanceSource?: string;
   /**
    * @remarks
-   * The name of the KMS secret. This parameter is required when you use KMS to manage database credentials. Leave this parameter empty in other scenarios.
+   * The name of the credential managed by Key Management Service (KMS). Specify this parameter when you use KMS to manage database credentials. Leave this parameter empty in other scenarios.
    * 
    * @example
    * datasource-secret
@@ -110,7 +122,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   kmsSecret?: string;
   /**
    * @remarks
-   * The service port of the database. This parameter is optional. You can leave this parameter empty when you select an existing cloud instance and the port is automatically populated.
+   * The service port of the database. This parameter is optional. You can leave this parameter empty if you select an existing cloud instance and the port is automatically populated.
    * 
    * @example
    * 3306
@@ -118,7 +130,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The complete ARN of the RAM role. This parameter is required when you use an Alibaba Cloud RAM role to access the data source. Leave this parameter empty in other scenarios.
+   * The complete ARN of the Resource Access Management (RAM) role. Specify this parameter when you use an Alibaba Cloud RAM role to access the data source. Leave this parameter empty in other scenarios.
    * 
    * @example
    * acs:ram::123456789012****:role/DataSourceRole
@@ -126,7 +138,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The schema name. This parameter is optional. For ADB_POSTGRESQL, DRDS, POSTGRESQL, and POLARDB_POSTGRESQL, enter the database name. For ORACLE, enter the SID or service name, and prefix the service name with a forward slash (/). For POLARDB_ORACLE, enter the SID. For MAXCOMPUTE, enter the project name. Leave this parameter empty for other types.
+   * The schema name. This parameter is optional. For ADB_POSTGRESQL, DRDS, POSTGRESQL, and POLARDB_POSTGRESQL, specify the database name. For ORACLE, specify the SID or service name, and prefix the service name with a forward slash (/). For POLARDB_ORACLE, specify the SID. For MAXCOMPUTE, specify the project name. Leave this parameter empty for other types.
    * 
    * @example
    * postgres
@@ -150,7 +162,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   snowflakeWarehouse?: string;
   /**
    * @remarks
-   * Specifies whether to synchronize the alias. This parameter is optional when testing a connection. This parameter does not modify the data source name.
+   * Specifies whether to synchronize the alias. This parameter is optional when testing a connection. This operation does not modify the data source name.
    * 
    * @example
    * 0
@@ -161,7 +173,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
    * Specifies whether to enable SSL. Valid values:
    * - 1: Enable.
    * - 0: Disable.
-   * - -1: Use the default setting.
+   * - -1: Use default settings.
    * SSL is supported only for ADB_MYSQL, CLICKHOUSE, MARIADB, MYSQL, OCEANBASEX, POLARDB, SELECTDB, and STARROCKS. Leave this parameter empty for other types.
    * 
    * @example
@@ -170,7 +182,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   useSsl?: number;
   /**
    * @remarks
-   * The ID of the vSwitch. This parameter is required when you access MaxCompute over a VPC. Leave this parameter empty in other scenarios.
+   * The ID of the vSwitch. Specify this parameter when you access MaxCompute through a VPC. Leave this parameter empty in other scenarios.
    * 
    * @example
    * vsw-bp1234567890
@@ -178,7 +190,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC. This parameter is required when you access MaxCompute over a VPC. Leave this parameter empty in other scenarios.
+   * The ID of the VPC. Specify this parameter when you access MaxCompute through a VPC. Leave this parameter empty in other scenarios.
    * 
    * @example
    * vpc-bp1234567890
@@ -186,7 +198,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID. This parameter is required when you access MaxCompute over a VPC. Leave this parameter empty in other scenarios.
+   * The ID of the zone. Specify this parameter when you access MaxCompute through a VPC. Leave this parameter empty in other scenarios.
    * 
    * @example
    * cn-hangzhou-h
@@ -194,6 +206,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      adbSparkResourceGroup: 'AdbSparkResourceGroup',
       alias: 'Alias',
       authAccount: 'AuthAccount',
       authPassword: 'AuthPassword',
@@ -221,6 +234,7 @@ export class TestAgenticDataSourceConnectionRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adbSparkResourceGroup: 'string',
       alias: 'string',
       authAccount: 'string',
       authPassword: 'string',

@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataAgentSpaceInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * The workspace configuration items.
+   * 
+   * @example
+   * {sql_config:null}
+   */
+  config?: string;
+  /**
+   * @remarks
    * The current DMS unit.
    * 
    * @example
@@ -13,7 +21,7 @@ export class UpdateDataAgentSpaceInfoRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * Specifies whether to enable session sharing for the workspace. Valid values: true and false.
+   * Specifies whether to enable the session sharing feature for the workspace.
    * 
    * @example
    * true
@@ -21,7 +29,7 @@ export class UpdateDataAgentSpaceInfoRequest extends $dara.Model {
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The new description for the workspace.
+   * The new description of the workspace.
    * 
    * @example
    * space for test new
@@ -29,7 +37,7 @@ export class UpdateDataAgentSpaceInfoRequest extends $dara.Model {
   workspaceDesc?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 20923*****7291
@@ -37,7 +45,7 @@ export class UpdateDataAgentSpaceInfoRequest extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The new name for the workspace.
+   * The new name of the workspace.
    * 
    * @example
    * yunqitest_v2
@@ -45,6 +53,7 @@ export class UpdateDataAgentSpaceInfoRequest extends $dara.Model {
   workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      config: 'Config',
       DMSUnit: 'DMSUnit',
       isSessionShareEnabled: 'IsSessionShareEnabled',
       workspaceDesc: 'WorkspaceDesc',
@@ -55,6 +64,7 @@ export class UpdateDataAgentSpaceInfoRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: 'string',
       DMSUnit: 'string',
       isSessionShareEnabled: 'boolean',
       workspaceDesc: 'string',

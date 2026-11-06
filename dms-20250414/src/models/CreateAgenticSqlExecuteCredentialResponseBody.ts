@@ -13,7 +13,7 @@ export class CreateAgenticSqlExecuteCredentialResponseBodyData extends $dara.Mod
   accessKey?: string;
   /**
    * @remarks
-   * The AccessKey secret of the credential. This value is returned only once when the credential is created. Keep it secure.
+   * The AccessSecret of the credential. This value is returned only once when the credential is created. Keep it secure.
    * 
    * @example
    * xxxxxxxx
@@ -126,7 +126,7 @@ export class CreateAgenticSqlExecuteCredentialResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 34E01EDD-6A16-4CF0-9541-C644D1BE01AA

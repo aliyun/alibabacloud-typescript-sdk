@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetListMcpServerToolsResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The DMS unit identifier. This value is typically the same as the DMSUnit used in the request that started the tool detection.
+   * The DMS unit identifier. This is typically the same as the DMSUnit used in the request to start tool detection.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class GetListMcpServerToolsResultRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The MCP Server ID used when the detection was started. This value must match the detection record associated with the SessionId.
+   * The MCP server ID used when starting the detection. It must match the detection record corresponding to SessionId.
    * 
    * @example
    * 44lg***z65
@@ -21,7 +21,7 @@ export class GetListMcpServerToolsResultRequest extends $dara.Model {
   mcpServerUuid?: string;
   /**
    * @remarks
-   * The temporary session ID returned by StartListMcpServerTools. This ID is used to locate the connectivity detection task.
+   * The temporary session ID returned by StartListMcpServerTools, which is used to locate this connectivity detection task.
    * 
    * @example
    * 1vwe***6wr

@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataAgentSpaceInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the workspace was created, specified as a UNIX timestamp in seconds.
+   * The workspace configuration items.
+   * 
+   * @example
+   * {sql_config:null}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The creation time of the session (UNIX timestamp in seconds).
    * 
    * @example
    * 1765960516
@@ -13,7 +21,7 @@ export class UpdateDataAgentSpaceInfoResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The user ID (UID) of the workspace creator.
+   * The UID of the workspace creator.
    * 
    * @example
    * 20282*****7591
@@ -21,7 +29,7 @@ export class UpdateDataAgentSpaceInfoResponseBodyData extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The description of the workspace.
+   * The description of the table.
    * 
    * @example
    * space for test new
@@ -29,7 +37,7 @@ export class UpdateDataAgentSpaceInfoResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether session sharing is enabled in the workspace.
+   * Indicates whether session sharing within the workspace is supported.
    * 
    * @example
    * true
@@ -37,7 +45,7 @@ export class UpdateDataAgentSpaceInfoResponseBodyData extends $dara.Model {
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The time when the workspace was last modified, specified as a UNIX timestamp in seconds.
+   * The last modification time of the workspace (UNIX timestamp in seconds).
    * 
    * @example
    * 1765962516
@@ -45,7 +53,7 @@ export class UpdateDataAgentSpaceInfoResponseBodyData extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The user role in the workspace.
+   * The name of the removed user role.
    * 
    * @example
    * active
@@ -61,7 +69,7 @@ export class UpdateDataAgentSpaceInfoResponseBodyData extends $dara.Model {
   totalMember?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * 20923*****7291
@@ -85,6 +93,7 @@ export class UpdateDataAgentSpaceInfoResponseBodyData extends $dara.Model {
   workspaceStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      config: 'Config',
       createTime: 'CreateTime',
       creator: 'Creator',
       description: 'Description',
@@ -100,6 +109,7 @@ export class UpdateDataAgentSpaceInfoResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: 'string',
       createTime: 'string',
       creator: 'string',
       description: 'string',
@@ -125,12 +135,12 @@ export class UpdateDataAgentSpaceInfoResponseBodyData extends $dara.Model {
 export class UpdateDataAgentSpaceInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response struct.
    */
   data?: UpdateDataAgentSpaceInfoResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request fails.
+   * The error code returned when a request exception occurs.
    * 
    * @example
    * DMS-DA-40114
@@ -138,7 +148,7 @@ export class UpdateDataAgentSpaceInfoResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message returned when the call fails.
    * 
    * @example
    * Specified parameter is not valid.
@@ -154,7 +164,7 @@ export class UpdateDataAgentSpaceInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

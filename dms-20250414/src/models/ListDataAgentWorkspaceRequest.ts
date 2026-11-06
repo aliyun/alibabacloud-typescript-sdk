@@ -21,7 +21,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The maximum number of results per page.
+   * The page size.
    * 
    * @example
    * no use
@@ -63,7 +63,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * This parameter is required.
    * 
@@ -81,7 +81,7 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   workspaceName?: string;
   /**
    * @remarks
-   * The workspace type to query.
+   * The workspace type.
    * 
    * This parameter is required.
    * 

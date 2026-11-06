@@ -33,6 +33,7 @@ export { CreateDataAgentSessionResponseBodyData } from './CreateDataAgentSession
 export { CreateDataAgentSkillMetaResponseBodyData } from './CreateDataAgentSkillMetaResponseBody';
 export { CreateDataAgentThemeResponseBodyData } from './CreateDataAgentThemeResponseBody';
 export { CreateDataAgentWorkspaceResponseBodyData } from './CreateDataAgentWorkspaceResponseBody';
+export { DeleteAgenticVpcEndpointResponseBodyData } from './DeleteAgenticVpcEndpointResponseBody';
 export { DeleteAirflowResponseBodyRootResponses } from './DeleteAirflowResponseBody';
 export { DeleteAirflowResponseBodyRoot } from './DeleteAirflowResponseBody';
 export { DeleteCustomAgentResponseBodyData } from './DeleteCustomAgentResponseBody';
@@ -56,9 +57,16 @@ export { DescribeDataAgentSessionResponseBodyDataCapabilities } from './Describe
 export { DescribeDataAgentSessionResponseBodyDataChatHistoryLocations } from './DescribeDataAgentSessionResponseBody';
 export { DescribeDataAgentSessionResponseBodyDataDataSources } from './DescribeDataAgentSessionResponseBody';
 export { DescribeDataAgentSessionResponseBodyDataMessages } from './DescribeDataAgentSessionResponseBody';
+export { DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentCallbackConfig } from './DescribeDataAgentSessionResponseBody';
+export { DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentExecutionConfig } from './DescribeDataAgentSessionResponseBody';
+export { DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentKnowledgeConfigList } from './DescribeDataAgentSessionResponseBody';
+export { DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentKnowledgeSemanticConfigList } from './DescribeDataAgentSessionResponseBody';
+export { DescribeDataAgentSessionResponseBodyDataPreviewCustomAgentScheduleTaskConfig } from './DescribeDataAgentSessionResponseBody';
+export { DescribeDataAgentSessionResponseBodyDataPreviewCustomAgent } from './DescribeDataAgentSessionResponseBody';
 export { DescribeDataAgentSessionResponseBodyDataRecallResults } from './DescribeDataAgentSessionResponseBody';
 export { DescribeDataAgentSessionResponseBodyDataSessionConfig } from './DescribeDataAgentSessionResponseBody';
 export { DescribeDataAgentSessionResponseBodyData } from './DescribeDataAgentSessionResponseBody';
+export { DescribeDataAgentSkillDownloadResponseBodyData } from './DescribeDataAgentSkillDownloadResponseBody';
 export { DescribeDataAgentThemeResponseBodyData } from './DescribeDataAgentThemeResponseBody';
 export { DescribeDocumentResponseBodyData } from './DescribeDocumentResponseBody';
 export { DescribeFileUploadSignatureResponseBodyData } from './DescribeFileUploadSignatureResponseBody';
@@ -278,6 +286,9 @@ export { CreateOneMetaSqlTemplateResponse } from './CreateOneMetaSqlTemplateResp
 export { DeleteAgenticDataSourceRequest } from './DeleteAgenticDataSourceRequest';
 export { DeleteAgenticDataSourceResponseBody } from './DeleteAgenticDataSourceResponseBody';
 export { DeleteAgenticDataSourceResponse } from './DeleteAgenticDataSourceResponse';
+export { DeleteAgenticVpcEndpointRequest } from './DeleteAgenticVpcEndpointRequest';
+export { DeleteAgenticVpcEndpointResponseBody } from './DeleteAgenticVpcEndpointResponseBody';
+export { DeleteAgenticVpcEndpointResponse } from './DeleteAgenticVpcEndpointResponse';
 export { DeleteAirflowRequest } from './DeleteAirflowRequest';
 export { DeleteAirflowResponseBody } from './DeleteAirflowResponseBody';
 export { DeleteAirflowResponse } from './DeleteAirflowResponse';
@@ -337,6 +348,9 @@ export { DescribeDataAgentMetricsResponse } from './DescribeDataAgentMetricsResp
 export { DescribeDataAgentSessionRequest } from './DescribeDataAgentSessionRequest';
 export { DescribeDataAgentSessionResponseBody } from './DescribeDataAgentSessionResponseBody';
 export { DescribeDataAgentSessionResponse } from './DescribeDataAgentSessionResponse';
+export { DescribeDataAgentSkillDownloadRequest } from './DescribeDataAgentSkillDownloadRequest';
+export { DescribeDataAgentSkillDownloadResponseBody } from './DescribeDataAgentSkillDownloadResponseBody';
+export { DescribeDataAgentSkillDownloadResponse } from './DescribeDataAgentSkillDownloadResponse';
 export { DescribeDataAgentThemeRequest } from './DescribeDataAgentThemeRequest';
 export { DescribeDataAgentThemeResponseBody } from './DescribeDataAgentThemeResponseBody';
 export { DescribeDataAgentThemeResponse } from './DescribeDataAgentThemeResponse';

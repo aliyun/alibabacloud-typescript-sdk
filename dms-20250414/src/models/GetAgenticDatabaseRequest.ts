@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgenticDatabaseRequest extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the database. You can obtain this value by calling ListAgenticDatabase or SearchAgenticDatabase.
+   * The UUID of the database. You can obtain the UUID by calling ListAgenticDatabase or SearchAgenticDatabase.
    * 
    * This parameter is required.
    * 

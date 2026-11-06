@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the workspace. This value is a UNIX timestamp in seconds.
+   * The workspace configurations.
+   * 
+   * @example
+   * {sql_config:null}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The creation time of the workspace. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1765960516
@@ -21,7 +29,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * Indicates whether session sharing is enabled within the workspace.
+   * Indicates whether session sharing within the workspace is supported.
    * 
    * @example
    * true
@@ -29,7 +37,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The most recent modification time of the workspace. This value is a UNIX timestamp in seconds.
+   * The last modification time of the workspace. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1765961516
@@ -37,7 +45,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The role name of the user in the workspace.
+   * The name of the user\\"s role in the workspace.
    * 
    * @example
    * owner
@@ -45,7 +53,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
   roleName?: string;
   /**
    * @remarks
-   * The total number of members in the workspace.
+   * The number of members in the workspace.
    * 
    * @example
    * 11
@@ -54,9 +62,8 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The workspace type. Valid values:
-   * 
-   * - personal: personal workspace.
-   * - common/null: multi-user collaborative workspace.
+   * - personal: Personal workspace.
+   * - common or null: Multi-user collaborative workspace.
    * 
    * @example
    * personal/common
@@ -96,6 +103,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
   workspaceStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      config: 'Config',
       createTime: 'CreateTime',
       creator: 'Creator',
       isSessionShareEnabled: 'IsSessionShareEnabled',
@@ -112,6 +120,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: 'string',
       createTime: 'number',
       creator: 'string',
       isSessionShareEnabled: 'boolean',
@@ -167,7 +176,7 @@ export class CreateDataAgentWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

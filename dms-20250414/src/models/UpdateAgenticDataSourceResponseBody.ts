@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
+   * The name of the ADB MySQL Spark resource group. This parameter is returned only for data source details where DbType is ADB_MYSQL_SPARK. It is independent of the schema (database name).
+   * 
+   * @example
+   * resourceGroup1
+   */
+  adbSparkResourceGroup?: string;
+  /**
+   * @remarks
    * The display name of the data source.
    * 
    * @example
@@ -21,7 +29,7 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   authAccount?: string;
   /**
    * @remarks
-   * The masked value of the password or token. The actual value is not returned.
+   * The masked value of the password or token. The actual content is not returned.
    * 
    * @example
    * P@ss****
@@ -67,7 +75,7 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   dataSourceUuid?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values: MYSQL, POSTGRESQL, ORACLE, SQLSERVER, MARIADB, POLARDB, POLARDB_POSTGRESQL, POLARDB_ORACLE, OCEANBASEX, DRDS, ADB_MYSQL, ADB_POSTGRESQL, CLICKHOUSE, SELECTDB, STARROCKS, HOLOGRES, MAXCOMPUTE, ES_REST, and TRINO.
+   * The data source type. Valid values: MYSQL, POSTGRESQL, ORACLE, SQLSERVER, MARIADB, POLARDB, POLARDB_POSTGRESQL, POLARDB_ORACLE, OCEANBASEX, DRDS, ADB_MYSQL, ADB_POSTGRESQL, CLICKHOUSE, SELECTDB, STARROCKS, HOLOGRES, MAXCOMPUTE, ES_REST, and TRINO.
    * 
    * @example
    * MYSQL
@@ -117,10 +125,10 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
    * @remarks
    * The source of the data source. Valid values:
    * - RDS: ApsaraDB instance
-   * - PUBLIC_OWN: self-managed database on the Internet
-   * - ECS_OWN: self-managed database on an ECS instance
-   * - GATEWAY: connected through Database Gateway
-   * - VPC_IDC: connected through a VPC or IDC
+   * - PUBLIC_OWN: self-managed database connected over the Internet
+   * - ECS_OWN: self-managed database hosted on an ECS instance
+   * - GATEWAY: database connected through Database Gateway
+   * - VPC_IDC: database connected through a VPC or data center
    * 
    * @example
    * RDS
@@ -136,7 +144,7 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   kmsSecret?: string;
   /**
    * @remarks
-   * The ID of the data access security policy in use. This parameter is empty if no policy is configured.
+   * The ID of the data access security policy currently in use. This parameter is empty if no policy is set.
    * 
    * @example
    * sp-usr-example
@@ -168,7 +176,7 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   resourceAccountId?: string;
   /**
    * @remarks
-   * The ARN of the RAM role used to access the data source. This parameter is empty if role authorization is not used.
+   * The ARN of the RAM role used to access the data source. This parameter is empty if role-based authorization is not used.
    * 
    * @example
    * acs:ram::123456789012****:role/DataSourceRole
@@ -206,9 +214,9 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The SSL settings. Valid values:
-   * - 1: enabled
-   * - 0: disabled
-   * - -1: default settings
+   * - 1: enable
+   * - 0: disable
+   * - -1: use default settings
    * 
    * @example
    * 1
@@ -216,6 +224,7 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
   useSsl?: number;
   static names(): { [key: string]: string } {
     return {
+      adbSparkResourceGroup: 'AdbSparkResourceGroup',
       alias: 'Alias',
       authAccount: 'AuthAccount',
       authPassword: 'AuthPassword',
@@ -245,6 +254,7 @@ export class UpdateAgenticDataSourceResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adbSparkResourceGroup: 'string',
       alias: 'string',
       authAccount: 'string',
       authPassword: 'string',
@@ -289,7 +299,7 @@ export class UpdateAgenticDataSourceResponseBody extends $dara.Model {
   data?: UpdateAgenticDataSourceResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the call fails. This parameter is empty if the call is successful.
+   * The error code returned when the call fails. This parameter is empty when the call is successful.
    * 
    * @example
    * InvalidParameter
@@ -297,7 +307,7 @@ export class UpdateAgenticDataSourceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned if the call fails. This parameter is empty if the call is successful.
+   * The error message returned when the call fails. This parameter is empty when the call is successful.
    * 
    * @example
    * The parameter is invalid
@@ -305,7 +315,7 @@ export class UpdateAgenticDataSourceResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID used to trace the call.
    * 
    * @example
    * request-1234567890

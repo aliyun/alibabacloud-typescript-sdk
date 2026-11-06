@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAgenticDataSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the deletion was successful.
+   * Indicates whether the deletion is successful.
    */
   data?: boolean;
   /**
    * @remarks
-   * The error code returned when the call fails. This field is empty when the call succeeds.
+   * The error code returned if the call fails. This parameter is empty if the call succeeds.
    * 
    * @example
    * InvalidParameter
@@ -18,7 +18,7 @@ export class DeleteAgenticDataSourceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails. This field is empty when the call succeeds.
+   * The error message returned if the call fails. This parameter is empty if the call succeeds.
    * 
    * @example
    * The parameter is invalid
@@ -26,7 +26,7 @@ export class DeleteAgenticDataSourceResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the request. You can use this ID to trace the call.
+   * The request ID used to trace the call.
    * 
    * @example
    * request-1234567890
@@ -34,7 +34,7 @@ export class DeleteAgenticDataSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

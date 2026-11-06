@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class AddAgenticDataSourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the ADB MySQL Spark resource group. This parameter takes effect only when DbType is set to ADB_MYSQL_SPARK. You must specify a resource group for this connection type. This parameter is independent of Schema (database name) and they cannot replace each other.
+   * 
+   * @example
+   * resourceGroup1
+   */
+  adbSparkResourceGroup?: string;
+  /**
+   * @remarks
    * The display name of the data source. If you do not specify this parameter, the server generates a name.
    * 
    * @example
@@ -13,7 +21,7 @@ export class AddAgenticDataSourceRequest extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The logon username. You can leave this parameter empty for authentication methods that do not require a username.
+   * The logon username. You can leave this parameter empty if the authentication method does not require a username.
    * 
    * @example
    * db_user
@@ -29,11 +37,7 @@ export class AddAgenticDataSourceRequest extends $dara.Model {
   authPassword?: string;
   /**
    * @remarks
-   * Optional. The authentication type. Valid values:
-   * - -1: No authentication required.
-   * - 0: Username and password.
-   * - 1: Password only.
-   * - 2: Password-free.
+   * Optional. The authentication type. Valid values: -1: no authentication required, 0: username and password, 1: password only, and 2: password-free.
    * 
    * @example
    * 0
@@ -41,7 +45,7 @@ export class AddAgenticDataSourceRequest extends $dara.Model {
   authType?: number;
   /**
    * @remarks
-   * The name of the metadata catalog. If you do not specify this parameter, the name is automatically generated. The name can be up to 128 characters in length. It must start with a Chinese character, a letter, or an underscore, and can contain digits and hyphens. It cannot contain only digits.
+   * The name of the metadata catalog. If you do not specify this parameter, the name is automatically generated. The name can be up to 128 characters in length. It must start with a letter, Chinese character, or underscore, and can contain digits and hyphens. It cannot contain only digits.
    * 
    * @example
    * demo_catalog
@@ -49,10 +53,7 @@ export class AddAgenticDataSourceRequest extends $dara.Model {
   catalogName?: string;
   /**
    * @remarks
-   * The entry method. Valid values:
-   * - INSTANCE_ID: Select an existing cloud instance.
-   * - HOST_PORT: Enter the endpoint and port.
-   * If you do not specify this parameter, HOST_PORT is used.
+   * The entry method. Valid values: INSTANCE_ID: select an existing cloud instance, and HOST_PORT: enter an endpoint and port. If you do not specify this parameter, HOST_PORT is used.
    * 
    * @example
    * HOST_PORT
@@ -94,12 +95,7 @@ export class AddAgenticDataSourceRequest extends $dara.Model {
   instanceResourceId?: string;
   /**
    * @remarks
-   * The source of the data source. Valid values:
-   * - RDS: An ApsaraDB instance.
-   * - PUBLIC_OWN: A self-managed database on the Internet.
-   * - ECS_OWN: A self-managed database on an ECS instance.
-   * - GATEWAY: A database accessed through Database Gateway.
-   * - VPC_IDC: A database accessed through a VPC or data center.
+   * The source of the data source. Valid values: RDS: ApsaraDB instance, PUBLIC_OWN: self-managed database connected over the Internet, ECS_OWN: self-managed database hosted on an ECS instance, GATEWAY: database connected through Database Gateway, and VPC_IDC: database connected through a VPC or IDC.
    * 
    * This parameter is required.
    * 
@@ -117,7 +113,7 @@ export class AddAgenticDataSourceRequest extends $dara.Model {
   kmsSecret?: string;
   /**
    * @remarks
-   * Optional. The ID of the data access security policy. This policy is used to control the access and protection rules for the data source.
+   * Optional. The ID of the data access security policy. This policy is used to control access and protection rules for the data source.
    * 
    * @example
    * sp-usr-example
@@ -165,10 +161,7 @@ export class AddAgenticDataSourceRequest extends $dara.Model {
   snowflakeWarehouse?: string;
   /**
    * @remarks
-   * Specifies whether to use the cloud instance name as the data source name. Valid values:
-   * - 1: Yes.
-   * - 0: No.
-   * This parameter takes effect only when you select a cloud database instance.
+   * Specifies whether to use the cloud instance name as the data source name. Valid values: 1: yes, and 0: no. This parameter takes effect only when you select a cloud database instance.
    * 
    * @example
    * 0
@@ -176,11 +169,7 @@ export class AddAgenticDataSourceRequest extends $dara.Model {
   syncAlias?: number;
   /**
    * @remarks
-   * Specifies whether to use SSL. Valid values:
-   * - 1: Enable.
-   * - 0: Disable.
-   * - -1: Use the default setting.
-   * Only ADB_MYSQL, CLICKHOUSE, MARIADB, MYSQL, OCEANBASEX, POLARDB, SELECTDB, and STARROCKS support SSL. Leave this parameter empty for other types.
+   * Specifies whether to use SSL. Valid values: 1: enabled, 0: disabled, and -1: default settings. Only ADB_MYSQL, CLICKHOUSE, MARIADB, MYSQL, OCEANBASEX, POLARDB, SELECTDB, and STARROCKS support SSL. Leave this parameter empty for other types.
    * 
    * @example
    * 1
@@ -212,6 +201,7 @@ export class AddAgenticDataSourceRequest extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      adbSparkResourceGroup: 'AdbSparkResourceGroup',
       alias: 'Alias',
       authAccount: 'AuthAccount',
       authPassword: 'AuthPassword',
@@ -240,6 +230,7 @@ export class AddAgenticDataSourceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adbSparkResourceGroup: 'string',
       alias: 'string',
       authAccount: 'string',
       authPassword: 'string',

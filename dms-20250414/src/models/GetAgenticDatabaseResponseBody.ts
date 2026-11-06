@@ -11,7 +11,7 @@ export class GetAgenticDatabaseResponseBody extends $dara.Model {
   data?: AgenticDatabase;
   /**
    * @remarks
-   * The error code returned when an exception occurs.
+   * The error code returned when an exception occurs during the request.
    * 
    * @example
    * UnknownError
@@ -19,7 +19,7 @@ export class GetAgenticDatabaseResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message returned when the API call fails.
    * 
    * @example
    * UnknownError
@@ -27,7 +27,7 @@ export class GetAgenticDatabaseResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 67E910F2-4B62-5B0C-ACA3-7547695C****

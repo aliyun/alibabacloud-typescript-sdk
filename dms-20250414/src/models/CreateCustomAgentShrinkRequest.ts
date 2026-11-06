@@ -6,8 +6,8 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the custom agent. Valid values:
-   * - Default: the system-built-in custom agent. Each workspace can have at most one Default agent, and it cannot be deleted.
-   * - Common: a regular custom agent.
+   * - Default: The system-built-in custom agent. Each workspace can have at most one Default agent, and it cannot be deleted.
+   * - Common: A common custom agent.
    * 
    * @example
    * Common
@@ -15,9 +15,19 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
   agentType?: string;
   /**
    * @remarks
-   * The callback feature configuration.
+   * The callback feature configuration items.
    */
   callbackConfigShrink?: string;
+  /**
+   * @remarks
+   * The creation source. Valid values:
+   * - Empty (default): Create the agent by using a form.
+   * - SmartNew: Create the agent by using intelligent development.
+   * 
+   * @example
+   * SmartNew
+   */
+  createFrom?: string;
   /**
    * @remarks
    * The current DMS unit.
@@ -28,19 +38,19 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * The specified data scope, in **JSON character string format**.
-   * - General parameter descriptions
-   *   - tableFlag: true specifies the data scope.
-   *   - scope: personal is a fixed value.
-   *   - personal: the parameters for file and database types.
+   * The specified data scope in **JSON character string format**.
+   * - General parameter description:
+   *   - tableFlag: Set to true to specify the data scope.
+   *   - scope: Set to personal as a fixed value.
+   *   - personal: The parameters for file and database types.
    * 
-   * **File type**: pass parameters in the following format:
-   * - DataSourceType: remote_data_center is a fixed value.
-   * - FileId: the file ID.
-   * - Database: the database name returned by the ListDataCenterTable operation, which is usually the file name.
-   * - Tables: the table names returned by the ListDataCenterTable operation.
-   * - TableIds: the table IDs returned by the ListDataCenterTable operation.
-   * - RegionId: the current region.
+   * **File type**. Pass parameters in the following format:
+   * - DataSourceType: Set to remote_data_center as a fixed value.
+   * - FileId: The file ID.
+   * - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
+   * - Tables: The table names returned by the ListDataCenterTable operation.
+   * - TableIds: The table IDs returned by the ListDataCenterTable operation.
+   * - RegionId: The current region.
    * ```
    * {
    *   "tableFlag": true,
@@ -60,17 +70,17 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
    * }
    * ```
    * 
-   * **Database type**: pass parameters in the following format:
-   * - DataSourceType: database is a fixed value.
-   * - DmsInstanceId: the DMS instance ID returned by the data center API.
-   * - DmsDatabaseId: the DMS database ID returned by the data center API.
-   * - FileId: the instance name (**[Deprecated]**).
-   * - DbName: the database name returned by the data center API.
-   * - Database: the database name returned by the data center API.
-   * - Tables: the table names returned by the data center API.
-   * - TableIds: the table IDs returned by the data center API.
-   * - Engine: the database engine type, such as mysql or postgresql.
-   * - RegionId: the current region.
+   * **Database type**. Pass parameters in the following format:
+   * - DataSourceType: Set to database as a fixed value.
+   * - DmsInstanceId: The DMS instance ID returned by the data center operation.
+   * - DmsDatabaseId: The DMS database ID returned by the data center operation.
+   * - FileId: The instance name. **[Deprecated]**
+   * - DbName: The database name returned by the data center operation.
+   * - Database: The database name returned by the data center operation.
+   * - Tables: The table names returned by the data center operation.
+   * - TableIds: The table IDs returned by the data center operation.
+   * - Engine: The database engine type, such as mysql or postgresql.
+   * - RegionId: The current region.
    * ```
    * {
    *   "tableFlag": true,
@@ -124,28 +134,28 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
   executionConfigShrink?: string;
   /**
    * @remarks
-   * The instructions.
-   * - Input limit: up to 10,000 characters.
+   * The instruction.
+   * - Input limit: Up to 10,000 characters.
    * 
    * @example
    * Core metric definitions:
    * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders.
-   * 2. Order volume refers to the number of valid daily orders.
-   * 3. UV (Unique Visitors) refers to the number of deduplicated users visiting the website or app.
-   * 4. Conversion rate = Paid orders / UV, reflecting the traffic conversion efficiency
+   * 2. Order volume refers to the number of valid orders placed per day.
+   * 3. UV (Unique Visitors) refers to the number of deduplicated users who visit the website or app.
+   * 4. Conversion rate = Number of paid orders / UV, reflecting the traffic conversion efficiency
    */
   instruction?: string;
   /**
    * @remarks
    * The knowledge.
-   * - Input limit: up to 10,000 characters.
+   * - Input limit: Up to 10,000 characters.
    * 
    * @example
    * Core metric definitions:
    * 1. GMV (Gross Merchandise Volume) refers to the total order amount, including both paid and unpaid orders.
-   * 2. Order volume refers to the number of valid daily orders.
-   * 3. UV (Unique Visitors) refers to the number of deduplicated users visiting the website or app.
-   * 4. Conversion rate = Paid orders / UV, reflecting the traffic conversion efficiency
+   * 2. Order volume refers to the number of valid orders placed per day.
+   * 3. UV (Unique Visitors) refers to the number of deduplicated users who visit the website or app.
+   * 4. Conversion rate = Number of paid orders / UV, reflecting the traffic conversion efficiency
    */
   knowledge?: string;
   /**
@@ -190,7 +200,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
    * The text report format.
    * 
    * @example
-   * The text report requires that all numbers be written as Chinese numerals instead of Arabic numerals
+   * The text report requires that all numbers be converted to Chinese numerals instead of Arabic numerals
    */
   textReportConfig?: string;
   /**
@@ -203,7 +213,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
    * The web report format.
    * 
    * @example
-   * The web report requires that all numbers be written as Chinese numerals instead of Arabic numerals
+   * The web report requires that all numbers be converted to Chinese numerals instead of Arabic numerals
    */
   webReportConfig?: string;
   /**
@@ -226,6 +236,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
     return {
       agentType: 'AgentType',
       callbackConfigShrink: 'CallbackConfig',
+      createFrom: 'CreateFrom',
       DMSUnit: 'DMSUnit',
       dataJson: 'DataJson',
       description: 'Description',
@@ -250,6 +261,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
     return {
       agentType: 'string',
       callbackConfigShrink: 'string',
+      createFrom: 'string',
       DMSUnit: 'string',
       dataJson: 'string',
       description: 'string',

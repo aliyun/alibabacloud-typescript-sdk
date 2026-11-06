@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
+   * The name of the ADB MySQL Spark resource group. This field is returned only for data sources whose DbType is ADB_MYSQL_SPARK. It is independent of the Schema (database name).
+   * 
+   * @example
+   * resourceGroup1
+   */
+  adbSparkResourceGroup?: string;
+  /**
+   * @remarks
    * The display name of the data source.
    * 
    * @example
@@ -13,7 +21,7 @@ export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The logon username for the data source. This parameter is empty if username authentication is not used.
+   * The logon username for the data source. This field is empty if username authentication is not used.
    * 
    * @example
    * db_user
@@ -83,7 +91,7 @@ export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The time when the data source was created. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * The time when the data source was created. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2026-10-13 14:30:00
@@ -91,7 +99,7 @@ export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the data source was last modified. The time is in the yyyy-MM-dd HH:mm:ss format.
+   * The time when the data source was last modified. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2026-10-13 14:35:00
@@ -107,7 +115,7 @@ export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The ID of the cloud resource instance. This parameter may be empty for data sources registered by endpoint.
+   * The ID of the cloud resource instance. This field may be empty for data sources registered by endpoint.
    * 
    * @example
    * rm-bp1234567890
@@ -115,12 +123,7 @@ export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
   instanceResourceId?: string;
   /**
    * @remarks
-   * The source of the data source. Valid values:
-   * - RDS: An ApsaraDB instance.
-   * - PUBLIC_OWN: A self-managed database on the Internet.
-   * - ECS_OWN: A self-managed database on an ECS instance.
-   * - GATEWAY: A database accessed through Database Gateway.
-   * - VPC_IDC: A database accessed through a VPC or data center.
+   * The source of the data source. Valid values: RDS: ApsaraDB instance, PUBLIC_OWN: self-managed database connected over the Internet, ECS_OWN: self-managed database hosted on an ECS instance, GATEWAY: database connected through Database Gateway, and VPC_IDC: database connected through a VPC or IDC.
    * 
    * @example
    * RDS
@@ -128,7 +131,7 @@ export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
   instanceSource?: string;
   /**
    * @remarks
-   * The name of the KMS-managed credential. This parameter is empty if KMS is not used. This is sensitive information.
+   * The name of the Key Management Service (KMS) managed credential. This field is empty if KMS is not used and is considered sensitive information.
    * 
    * @example
    * datasource-secret
@@ -136,7 +139,7 @@ export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
   kmsSecret?: string;
   /**
    * @remarks
-   * The ID of the data access security policy in use. This parameter is empty if no policy is configured.
+   * The ID of the data access security policy currently in use. This field is empty if no policy is configured.
    * 
    * @example
    * sp-usr-example
@@ -152,7 +155,7 @@ export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The region where the data source resides.
+   * The region where the data source is located.
    * 
    * @example
    * cn-hangzhou
@@ -168,7 +171,7 @@ export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
   resourceAccountId?: string;
   /**
    * @remarks
-   * The ARN of the RAM role used to access the data source. This parameter is empty if role authorization is not used.
+   * The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role used to access the data source. This field is empty if role-based authorization is not used.
    * 
    * @example
    * acs:ram::123456789012****:role/DataSourceRole
@@ -176,7 +179,7 @@ export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The name of the connection target. For ADB_POSTGRESQL, DRDS, POSTGRESQL, and POLARDB_POSTGRESQL, this indicates the database name. For ORACLE, this indicates the SID or service name. For POLARDB_ORACLE, this indicates the SID. For MAXCOMPUTE, this indicates the project. For other types, this parameter is usually empty.
+   * The name of the connection target. For ADB_POSTGRESQL, DRDS, POSTGRESQL, and POLARDB_POSTGRESQL, this indicates the database name. For ORACLE, this indicates the SID or service name. For POLARDB_ORACLE, this indicates the SID. For MAXCOMPUTE, this indicates the project. For other types, this field is usually empty.
    * 
    * @example
    * postgres
@@ -195,7 +198,7 @@ export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
   state?: number;
   /**
    * @remarks
-   * Indicates whether the cloud instance name is used as the data source name. Valid values:
+   * Specifies whether to use the cloud instance name as the data source name. Valid values:
    * - 1: yes
    * - 0: no
    * 
@@ -216,6 +219,7 @@ export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
   useSsl?: number;
   static names(): { [key: string]: string } {
     return {
+      adbSparkResourceGroup: 'AdbSparkResourceGroup',
       alias: 'Alias',
       authAccount: 'AuthAccount',
       authPassword: 'AuthPassword',
@@ -245,6 +249,7 @@ export class AddAgenticDataSourceResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      adbSparkResourceGroup: 'string',
       alias: 'string',
       authAccount: 'string',
       authPassword: 'string',
@@ -289,7 +294,7 @@ export class AddAgenticDataSourceResponseBody extends $dara.Model {
   data?: AddAgenticDataSourceResponseBodyData;
   /**
    * @remarks
-   * The error code returned when the call fails. This parameter is empty if the call is successful.
+   * The error code returned when the call fails. This field is empty when the call is successful.
    * 
    * @example
    * InvalidParameter
@@ -297,7 +302,7 @@ export class AddAgenticDataSourceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails. This parameter is empty if the call is successful.
+   * The error message returned when the call fails. This field is empty when the call is successful.
    * 
    * @example
    * The parameter is invalid
@@ -305,7 +310,7 @@ export class AddAgenticDataSourceResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the call.
+   * The ID of the request.
    * 
    * @example
    * request-1234567890
@@ -313,7 +318,7 @@ export class AddAgenticDataSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

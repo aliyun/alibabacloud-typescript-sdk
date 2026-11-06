@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataAgentWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
+   * The workspace configurations.
+   * 
+   * @example
+   * {sql_config:null}
+   */
+  config?: string;
+  /**
+   * @remarks
    * The current DMS unit.
    * 
    * @example
@@ -13,7 +21,7 @@ export class CreateDataAgentWorkspaceRequest extends $dara.Model {
   DMSUnit?: string;
   /**
    * @remarks
-   * Specifies whether session sharing is enabled within the workspace.
+   * Specifies whether sessions within the workspace are shared.
    * 
    * @example
    * true
@@ -21,7 +29,7 @@ export class CreateDataAgentWorkspaceRequest extends $dara.Model {
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The description of the workspace.
+   * The description of the collaborative workspace.
    * 
    * @example
    * Space for test
@@ -29,7 +37,7 @@ export class CreateDataAgentWorkspaceRequest extends $dara.Model {
   workspaceDesc?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * The name of the collaborative workspace.
    * 
    * @example
    * workspaceTest
@@ -37,6 +45,7 @@ export class CreateDataAgentWorkspaceRequest extends $dara.Model {
   workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      config: 'Config',
       DMSUnit: 'DMSUnit',
       isSessionShareEnabled: 'IsSessionShareEnabled',
       workspaceDesc: 'WorkspaceDesc',
@@ -46,6 +55,7 @@ export class CreateDataAgentWorkspaceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: 'string',
       DMSUnit: 'string',
       isSessionShareEnabled: 'boolean',
       workspaceDesc: 'string',

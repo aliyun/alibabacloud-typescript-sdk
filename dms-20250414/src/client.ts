@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Dms";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dms", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data source accessible by the Agent data gateway.
+   * Creates a data source that can be accessed by the Agent data gateway.
    * 
    * @remarks
    * Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
@@ -42,6 +46,10 @@ export default class Client extends OpenApi {
   async addAgenticDataSourceWithOptions(request: $_model.AddAgenticDataSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddAgenticDataSourceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.adbSparkResourceGroup)) {
+      query["AdbSparkResourceGroup"] = request.adbSparkResourceGroup;
+    }
+
     if (!$dara.isNull(request.alias)) {
       query["Alias"] = request.alias;
     }
@@ -152,7 +160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a data source accessible by the Agent data gateway.
+   * Creates a data source that can be accessed by the Agent data gateway.
    * 
    * @remarks
    * Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
@@ -775,6 +783,10 @@ export default class Client extends OpenApi {
       query["CallbackConfig"] = request.callbackConfigShrink;
     }
 
+    if (!$dara.isNull(request.createFrom)) {
+      query["CreateFrom"] = request.createFrom;
+    }
+
     if (!$dara.isNull(request.DMSUnit)) {
       query["DMSUnit"] = request.DMSUnit;
     }
@@ -1282,7 +1294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DataAgent workspace.
+   * Creates a DataAgent collaborative workspace.
    * 
    * @param request - CreateDataAgentWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1291,6 +1303,10 @@ export default class Client extends OpenApi {
   async createDataAgentWorkspaceWithOptions(request: $_model.CreateDataAgentWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataAgentWorkspaceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.config)) {
+      query["Config"] = request.config;
+    }
+
     if (!$dara.isNull(request.DMSUnit)) {
       query["DMSUnit"] = request.DMSUnit;
     }
@@ -1325,7 +1341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DataAgent workspace.
+   * Creates a DataAgent collaborative workspace.
    * 
    * @param request - CreateDataAgentWorkspaceRequest
    * @returns CreateDataAgentWorkspaceResponse
@@ -1409,7 +1425,7 @@ export default class Client extends OpenApi {
    * Deletes a data source and its associated metadata catalog.
    * 
    * @remarks
-   * After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+   * After deletion, the data source can no longer establish connections and cannot be recovered by calling the enable API operation.
    * 
    * @param request - DeleteAgenticDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1443,7 +1459,7 @@ export default class Client extends OpenApi {
    * Deletes a data source and its associated metadata catalog.
    * 
    * @remarks
-   * After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+   * After deletion, the data source can no longer establish connections and cannot be recovered by calling the enable API operation.
    * 
    * @param request - DeleteAgenticDataSourceRequest
    * @returns DeleteAgenticDataSourceResponse
@@ -1451,6 +1467,54 @@ export default class Client extends OpenApi {
   async deleteAgenticDataSource(request: $_model.DeleteAgenticDataSourceRequest): Promise<$_model.DeleteAgenticDataSourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAgenticDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
+   * 
+   * @remarks
+   * After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+   * 
+   * @param request - DeleteAgenticVpcEndpointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgenticVpcEndpointResponse
+   */
+  async deleteAgenticVpcEndpointWithOptions(request: $_model.DeleteAgenticVpcEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgenticVpcEndpointResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgenticVpcEndpoint",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgenticVpcEndpointResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgenticVpcEndpointResponse({}));
+  }
+
+  /**
+   * Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
+   * 
+   * @remarks
+   * After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+   * 
+   * @param request - DeleteAgenticVpcEndpointRequest
+   * @returns DeleteAgenticVpcEndpointResponse
+   */
+  async deleteAgenticVpcEndpoint(request: $_model.DeleteAgenticVpcEndpointRequest): Promise<$_model.DeleteAgenticVpcEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgenticVpcEndpointWithOptions(request, runtime);
   }
 
   /**
@@ -2400,6 +2464,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the download link for a DataAgent skill.
+   * 
+   * @param request - DescribeDataAgentSkillDownloadRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataAgentSkillDownloadResponse
+   */
+  async describeDataAgentSkillDownloadWithOptions(request: $_model.DescribeDataAgentSkillDownloadRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDataAgentSkillDownloadResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.skillId)) {
+      query["SkillId"] = request.skillId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDataAgentSkillDownload",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDataAgentSkillDownloadResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDataAgentSkillDownloadResponse({}));
+  }
+
+  /**
+   * Retrieves the download link for a DataAgent skill.
+   * 
+   * @param request - DescribeDataAgentSkillDownloadRequest
+   * @returns DescribeDataAgentSkillDownloadResponse
+   */
+  async describeDataAgentSkillDownload(request: $_model.DescribeDataAgentSkillDownloadRequest): Promise<$_model.DescribeDataAgentSkillDownloadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDataAgentSkillDownloadWithOptions(request, runtime);
+  }
+
+  /**
    * Invokes the DescribeDataAgentTheme operation to query the details of a specific DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
    * 
    * @param request - DescribeDataAgentThemeRequest
@@ -2820,7 +2930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a data source by its UUID.
+   * Queries the details of a data source by UUID.
    * 
    * @remarks
    * Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
@@ -2854,7 +2964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a data source by its UUID.
+   * Queries the details of a data source by UUID.
    * 
    * @remarks
    * Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
@@ -3458,7 +3568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a workspace.
+   * Retrieves the details of a collaborative workspace.
    * 
    * @param request - GetDataAgentWorkspaceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3493,7 +3603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a workspace.
+   * Retrieves the details of a collaborative workspace.
    * 
    * @param request - GetDataAgentWorkspaceInfoRequest
    * @returns GetDataAgentWorkspaceInfoResponse
@@ -3504,7 +3614,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+   * Queries the connectivity and tool list results of an MCP server based on the session ID returned when the detection was started.
    * 
    * @param request - GetListMcpServerToolsResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3543,7 +3653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+   * Queries the connectivity and tool list results of an MCP server based on the session ID returned when the detection was started.
    * 
    * @param request - GetListMcpServerToolsResultRequest
    * @returns GetListMcpServerToolsResultResponse
@@ -4420,12 +4530,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the user security policy of the current Alibaba Cloud account by page and returns the enabled system default security policy.
+   * Queries the user security policy of the current Alibaba Cloud account by using paging and returns the enabled system default security policy.
    * 
    * @remarks
    * This operation returns the enabled system default policies and the user policies of the current Alibaba Cloud account.
-   * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned. They are not filtered by PolicyStatus or IncludeArchived.
-   * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of items in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
+   * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned, and they are not filtered by PolicyStatus or IncludeArchived.
+   * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of entries in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
    * - TotalCount is the sum of the number of all enabled system default policies and the number of user policies that meet the filter conditions.
    * - You can use Readonly to distinguish between the two types of policies: true indicates a system default policy, and false indicates a user policy.
    * 
@@ -4470,12 +4580,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the user security policy of the current Alibaba Cloud account by page and returns the enabled system default security policy.
+   * Queries the user security policy of the current Alibaba Cloud account by using paging and returns the enabled system default security policy.
    * 
    * @remarks
    * This operation returns the enabled system default policies and the user policies of the current Alibaba Cloud account.
-   * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned. They are not filtered by PolicyStatus or IncludeArchived.
-   * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of items in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
+   * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned, and they are not filtered by PolicyStatus or IncludeArchived.
+   * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of entries in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
    * - TotalCount is the sum of the number of all enabled system default policies and the number of user policies that meet the filter conditions.
    * - You can use Readonly to distinguish between the two types of policies: true indicates a system default policy, and false indicates a user policy.
    * 
@@ -7410,6 +7520,10 @@ export default class Client extends OpenApi {
   async testAgenticDataSourceConnectionWithOptions(request: $_model.TestAgenticDataSourceConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TestAgenticDataSourceConnectionResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.adbSparkResourceGroup)) {
+      query["AdbSparkResourceGroup"] = request.adbSparkResourceGroup;
+    }
+
     if (!$dara.isNull(request.alias)) {
       query["Alias"] = request.alias;
     }
@@ -7533,7 +7647,7 @@ export default class Client extends OpenApi {
    * Updates the connection, authentication, or display information of an existing data source.
    * 
    * @remarks
-   * Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
+   * Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
    * 
    * @param request - UpdateAgenticDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7542,6 +7656,10 @@ export default class Client extends OpenApi {
   async updateAgenticDataSourceWithOptions(request: $_model.UpdateAgenticDataSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgenticDataSourceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.adbSparkResourceGroup)) {
+      query["AdbSparkResourceGroup"] = request.adbSparkResourceGroup;
+    }
+
     if (!$dara.isNull(request.alias)) {
       query["Alias"] = request.alias;
     }
@@ -7622,6 +7740,18 @@ export default class Client extends OpenApi {
       query["UseSsl"] = request.useSsl;
     }
 
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7643,7 +7773,7 @@ export default class Client extends OpenApi {
    * Updates the connection, authentication, or display information of an existing data source.
    * 
    * @remarks
-   * Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
+   * Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
    * 
    * @param request - UpdateAgenticDataSourceRequest
    * @returns UpdateAgenticDataSourceResponse
@@ -7918,7 +8048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates workspace information.
+   * Updates the information of a workspace.
    * 
    * @param request - UpdateDataAgentSpaceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7927,6 +8057,10 @@ export default class Client extends OpenApi {
   async updateDataAgentSpaceInfoWithOptions(request: $_model.UpdateDataAgentSpaceInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataAgentSpaceInfoResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.config)) {
+      query["Config"] = request.config;
+    }
+
     if (!$dara.isNull(request.DMSUnit)) {
       query["DMSUnit"] = request.DMSUnit;
     }
@@ -7965,7 +8099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates workspace information.
+   * Updates the information of a workspace.
    * 
    * @param request - UpdateDataAgentSpaceInfoRequest
    * @returns UpdateDataAgentSpaceInfoResponse

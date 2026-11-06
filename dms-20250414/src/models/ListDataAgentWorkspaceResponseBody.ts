@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the workspace. The value is a timestamp in milliseconds.
+   * The workspace configuration items.
+   * 
+   * @example
+   * {sql_config:null}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The time when the workspace was created. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1765960516000
@@ -45,7 +53,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether session sharing is enabled for the workspace.
+   * Indicates whether workspace sessions are shared.
    * 
    * @example
    * true
@@ -53,7 +61,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   isSessionShareEnabled?: boolean;
   /**
    * @remarks
-   * The last modification time of the workspace. The value is a timestamp in milliseconds.
+   * The time when the workspace was last modified. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1765961516000
@@ -61,7 +69,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The role name of the user in the workspace.
+   * The name of the user\\"s role in the workspace.
    * 
    * @example
    * admin
@@ -125,6 +133,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   workspaceStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      config: 'Config',
       createTime: 'CreateTime',
       creator: 'Creator',
       creatorName: 'CreatorName',
@@ -145,6 +154,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      config: 'string',
       createTime: 'number',
       creator: 'string',
       creatorName: 'string',
@@ -266,7 +276,7 @@ export class ListDataAgentWorkspaceResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The maximum number of results per page.
+   * The page size.
    * 
    * @example
    * nu use
@@ -282,7 +292,7 @@ export class ListDataAgentWorkspaceResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * E0D2-*****-A63B6
