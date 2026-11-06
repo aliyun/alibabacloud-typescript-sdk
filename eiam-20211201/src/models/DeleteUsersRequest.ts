@@ -15,7 +15,7 @@ export class DeleteUsersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * A list of account IDs.
+   * The list of account IDs.
    * 
    * This parameter is required.
    * 

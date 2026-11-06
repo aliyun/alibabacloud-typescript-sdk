@@ -6,7 +6,7 @@ export class ListCredentialsRequestFilter extends $dara.Model {
   /**
    * @remarks
    * The name of the filter field. Valid values:
-   * - CredentialIdentifier: the credential identifier.
+   * - CredentialIdentifier: The credential identifier.
    * 
    * @example
    * CredentialIdentifier
@@ -14,7 +14,7 @@ export class ListCredentialsRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of filter field values.
+   * The values for the filter field.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -44,13 +44,25 @@ export class ListCredentialsRequestFilter extends $dara.Model {
 }
 
 export class ListCredentialsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The external unique identifiers of the credentials.
+   */
   credentialExternalIds?: string[];
   /**
    * @remarks
-   * The list of credential IDs.
+   * The credential IDs.
    */
   credentialIds?: string[];
+  /**
+   * @remarks
+   * The credential sharing scopes.
+   */
   credentialSharingScopes?: string[];
+  /**
+   * @remarks
+   * The credential types.
+   */
   credentialTypes?: string[];
   /**
    * @remarks
@@ -69,9 +81,7 @@ export class ListCredentialsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
-   * - Default value: 20.
-   * - Maximum value: 100.
+   * The maximum number of records per page. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20
@@ -87,7 +97,7 @@ export class ListCredentialsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of credential statuses.
+   * The credential statuses.
    */
   statuses?: string[];
   static names(): { [key: string]: string } {

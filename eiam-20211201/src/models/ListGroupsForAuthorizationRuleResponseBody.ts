@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsForAuthorizationRuleResponseBodyGroupsValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * The end time of the validity period. The value is a UNIX timestamp. Unit: milliseconds.
+   * The effective end time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -13,7 +13,7 @@ export class ListGroupsForAuthorizationRuleResponseBodyGroupsValidityPeriod exte
   endTime?: number;
   /**
    * @remarks
-   * The start time of the validity period. The value is a UNIX timestamp. Unit: milliseconds.
+   * The effective start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -66,10 +66,8 @@ export class ListGroupsForAuthorizationRuleResponseBodyGroups extends $dara.Mode
   validityPeriod?: ListGroupsForAuthorizationRuleResponseBodyGroupsValidityPeriod;
   /**
    * @remarks
-   * The type of the validity period of the relationship. Valid values:
-   * 
+   * The validity period type of the relationship. Valid values:
    * - permanent: permanent
-   * 
    * - time_bound: custom time range
    * 
    * @example
@@ -114,7 +112,7 @@ export class ListGroupsForAuthorizationRuleResponseBody extends $dara.Model {
   groups?: ListGroupsForAuthorizationRuleResponseBodyGroups[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -122,7 +120,7 @@ export class ListGroupsForAuthorizationRuleResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is returned for the next page.
+   * The next token returned in the current response, which is used to query the next page.
    * 
    * @example
    * NTxxxexample
@@ -138,7 +136,7 @@ export class ListGroupsForAuthorizationRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

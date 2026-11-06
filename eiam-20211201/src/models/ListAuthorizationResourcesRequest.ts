@@ -7,9 +7,9 @@ export class ListAuthorizationResourcesRequestFilter extends $dara.Model {
    * @remarks
    * The name of the filter field. Valid values:
    * 
-   * - AuthorizationResourceEntityType: the type of the resource entity associated with the authorized resource.
+   * - AuthorizationResourceEntityType: the type of the resource entity associated with the authorization resource.
    * 
-   * - AuthorizationResourceEntityId: the ID of the resource entity associated with the authorized resource.
+   * - AuthorizationResourceEntityId: the ID of the resource entity associated with the authorization resource.
    * 
    * @example
    * AuthorizationResourceEntityId
@@ -17,7 +17,7 @@ export class ListAuthorizationResourcesRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of filter field values.
+   * The list of values for the filter field.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -74,7 +74,7 @@ export class ListAuthorizationResourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of records per page.
+   * The maximum number of entries to return per page.
    * 
    * - If you do not specify this parameter, the default value is 20.
    * 
@@ -86,9 +86,9 @@ export class ListAuthorizationResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that marks the starting position of the next page.
+   * The pagination token that specifies the starting position for the next page.
    * 
-   * - If you do not specify this parameter, the query starts from the first page.
+   * - If you do not specify this parameter, the query starts from the first page by default.
    * 
    * @example
    * NTxxxxxexample

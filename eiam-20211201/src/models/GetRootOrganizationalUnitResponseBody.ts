@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRootOrganizationalUnitResponseBodyOrganizationalUnit extends $dara.Model {
   /**
    * @remarks
-   * The time when the organizational unit was created, in UNIX timestamp format. Unit: milliseconds.
+   * The time when the organizational unit was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -45,7 +45,7 @@ export class GetRootOrganizationalUnitResponseBodyOrganizationalUnit extends $da
   organizationalUnitName?: string;
   /**
    * @remarks
-   * The time when the organizational unit was last updated, in UNIX timestamp format. Unit: milliseconds.
+   * The time when the organizational unit was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179

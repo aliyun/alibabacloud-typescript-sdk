@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserRequestCustomFields extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the custom field. Create the custom field in advance. For more information, refer to the custom fields module in the console.
+   * The identifier of the extended field. You must create the extended field in advance. For more information, see the Extended Fields module in the console.
    * 
    * @example
    * nick_name
@@ -13,7 +13,7 @@ export class UpdateUserRequestCustomFields extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * The value of the custom field. The value must comply with the property constraints of the corresponding custom field.
+   * The value of the extended field. The value must comply with the attribute limits of the corresponding extended field.
    * 
    * @example
    * test_value
@@ -21,10 +21,10 @@ export class UpdateUserRequestCustomFields extends $dara.Model {
   fieldValue?: string;
   /**
    * @remarks
-   * The operation type for the custom field. Valid values:
-   * - add: adds a custom field value to the account.
-   * - replace: replaces an existing custom field value of the account. If the custom field value does not exist, the operation is converted to an add operation.
-   * - remove: removes the custom field value from the account.
+   * The operation type of the extended field. Valid values:
+   * - add: adds a value for the extended field of the account.
+   * - replace: replaces an existing value of the extended field. If the value does not exist, the operation is converted to add.
+   * - remove: removes the value of the extended field from the account.
    * 
    * @example
    * add
@@ -58,12 +58,12 @@ export class UpdateUserRequestCustomFields extends $dara.Model {
 export class UpdateUserRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of custom field objects.
+   * The list of extended field objects.
    */
   customFields?: UpdateUserRequestCustomFields[];
   /**
    * @remarks
-   * The display name of the account. The name can be up to 256 characters in length.
+   * The display name of the account. The maximum length is 256 characters.
    * 
    * @example
    * test_name
@@ -71,7 +71,7 @@ export class UpdateUserRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The email address. The prefix of the email address can contain uppercase letters, lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
+   * The email address. The prefix can contain uppercase letters, lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * example@example.com
@@ -79,7 +79,7 @@ export class UpdateUserRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Specifies whether the email address is verified. This parameter is required if an email address is specified. If no special business requirements exist, set this parameter to true.
+   * Specifies whether the email address is verified. If the email address is specified, this parameter is required. Set this parameter to true unless otherwise specified.
    * 
    * @example
    * true
@@ -97,7 +97,7 @@ export class UpdateUserRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The phone number. The value must be 6 to 15 digits in length.
+   * The phone number. It must be 6 to 15 digits in length.
    * 
    * @example
    * 156xxxxxxxxx
@@ -105,7 +105,7 @@ export class UpdateUserRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * Specifies whether the phone number is verified as a trusted phone number. This parameter is required if a phone number is specified. If no special business requirements exist, set this parameter to true.
+   * Specifies whether the phone number is verified. If the phone number is specified, this parameter is required. Set this parameter to true unless otherwise specified.
    * 
    * @example
    * true
@@ -113,7 +113,7 @@ export class UpdateUserRequest extends $dara.Model {
   phoneNumberVerified?: boolean;
   /**
    * @remarks
-   * The phone region code. Example: 86 for the Chinese mainland, without the 00 or + prefix. This parameter is required if a phone number is specified.
+   * The phone region code. For example, the region code for the Chinese mainland is 86. Do not include 00 or +. This parameter is required if the phone number is specified.
    * 
    * @example
    * 86
@@ -131,7 +131,7 @@ export class UpdateUserRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The account name. The name can contain letters, digits, underscores (_), periods (.), at signs (@), and hyphens (-). The name can be up to 256 characters in length.
+   * The username. It can contain letters, digits, and the following special characters: underscores (_), periods (.), at signs (@), and hyphens (-). The maximum length is 256 characters.
    * 
    * @example
    * username_test

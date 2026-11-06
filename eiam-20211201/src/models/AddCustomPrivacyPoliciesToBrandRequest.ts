@@ -15,7 +15,7 @@ export class AddCustomPrivacyPoliciesToBrandRequest extends $dara.Model {
   brandId?: string;
   /**
    * @remarks
-   * The list of term IDs.
+   * The IDs of the custom privacy policies.
    * 
    * This parameter is required.
    */

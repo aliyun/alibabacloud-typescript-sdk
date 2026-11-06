@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserAuthnSourceMappingsRequest extends $dara.Model {
   /**
    * @remarks
-   * The source identity provider (IdP) ID.
+   * The source IdP ID.
    * 
    * @example
    * idp_11111
@@ -23,7 +23,7 @@ export class ListUserAuthnSourceMappingsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of rows per page in a paged query.
+   * The maximum number of entries to return per page in a paging query.
    * 
    * @example
    * 20
@@ -39,7 +39,7 @@ export class ListUserAuthnSourceMappingsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token used to query the previous page.
+   * The pagination token for the previous page.
    * 
    * @example
    * PTxxxxxexample

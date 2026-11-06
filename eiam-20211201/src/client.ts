@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Eiam";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eiam", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30,7 +34,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an application account for a specified employee under the current application.
+   * Activates privileged hosting for a cloud account.
+   * 
+   * @param request - ActivateCloudAccountPrivilegeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ActivateCloudAccountPrivilegeResponse
+   */
+  async activateCloudAccountPrivilegeWithOptions(request: $_model.ActivateCloudAccountPrivilegeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ActivateCloudAccountPrivilegeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ActivateCloudAccountPrivilege",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ActivateCloudAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new $_model.ActivateCloudAccountPrivilegeResponse({}));
+  }
+
+  /**
+   * Activates privileged hosting for a cloud account.
+   * 
+   * @param request - ActivateCloudAccountPrivilegeRequest
+   * @returns ActivateCloudAccountPrivilegeResponse
+   */
+  async activateCloudAccountPrivilege(request: $_model.ActivateCloudAccountPrivilegeRequest): Promise<$_model.ActivateCloudAccountPrivilegeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.activateCloudAccountPrivilegeWithOptions(request, runtime);
+  }
+
+  /**
+   * Adds an application account for a specified employee in the current application.
    * 
    * @param request - AddApplicationAccountToUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73,7 +127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an application account for a specified employee under the current application.
+   * Adds an application account for a specified employee in the current application.
    * 
    * @param request - AddApplicationAccountToUserRequest
    * @returns AddApplicationAccountToUserResponse
@@ -148,7 +202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds terms to a brand.
+   * Adds custom privacy policies to a brand.
    * 
    * @param request - AddCustomPrivacyPoliciesToBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -187,7 +241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds terms to a brand.
+   * Adds custom privacy policies to a brand.
    * 
    * @param request - AddCustomPrivacyPoliciesToBrandRequest
    * @returns AddCustomPrivacyPoliciesToBrandResponse
@@ -326,7 +380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a specified EIAM account to multiple EIAM organizations. If the account already exists in an organization, the operation returns a success response directly.
+   * Adds a specified EIAM account to multiple EIAM organizations. If the account already belongs to an organization, the operation returns a success response.
    * 
    * @param request - AddUserToOrganizationalUnitsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -365,7 +419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a specified EIAM account to multiple EIAM organizations. If the account already exists in an organization, the operation returns a success response directly.
+   * Adds a specified EIAM account to multiple EIAM organizations. If the account already belongs to an organization, the operation returns a success response.
    * 
    * @param request - AddUserToOrganizationalUnitsRequest
    * @returns AddUserToOrganizationalUnitsResponse
@@ -376,7 +430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds multiple Employee Identity and Access Management (EIAM) accounts to a specified EIAM account group.
+   * Adds multiple EIAM accounts to a specified EIAM account group.
    * 
    * @param request - AddUsersToGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -415,7 +469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds multiple Employee Identity and Access Management (EIAM) accounts to a specified EIAM account group.
+   * Adds multiple EIAM accounts to a specified EIAM account group.
    * 
    * @param request - AddUsersToGroupRequest
    * @returns AddUsersToGroupResponse
@@ -426,7 +480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants multiple EIAM groups access to an application in a batch.
+   * Grants multiple EIAM groups access to an application.
    * 
    * @param request - AuthorizeApplicationToGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -469,7 +523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants multiple EIAM groups access to an application in a batch.
+   * Grants multiple EIAM groups access to an application.
    * 
    * @param request - AuthorizeApplicationToGroupsRequest
    * @returns AuthorizeApplicationToGroupsResponse
@@ -480,7 +534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants access to an application for multiple EIAM organizations in a batch operation.
+   * Grants multiple EIAM organizations access to an application.
    * 
    * @param request - AuthorizeApplicationToOrganizationalUnitsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -523,7 +577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants access to an application for multiple EIAM organizations in a batch operation.
+   * Grants multiple EIAM organizations access to an application.
    * 
    * @param request - AuthorizeApplicationToOrganizationalUnitsRequest
    * @returns AuthorizeApplicationToOrganizationalUnitsResponse
@@ -534,7 +588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants multiple EIAM accounts access to an application in a batch.
+   * Grants multiple EIAM accounts access to an application in batches.
    * 
    * @param request - AuthorizeApplicationToUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -577,7 +631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants multiple EIAM accounts access to an application in a batch.
+   * Grants multiple EIAM accounts access to an application in batches.
    * 
    * @param request - AuthorizeApplicationToUsersRequest
    * @returns AuthorizeApplicationToUsersResponse
@@ -588,7 +642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants Scope permissions under a specified ResourceServer to a Client application.
+   * Grants the scope permissions under a specified resource server to a client application.
    * 
    * @param request - AuthorizeResourceServerScopesToClientRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -631,7 +685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants Scope permissions under a specified ResourceServer to a Client application.
+   * Grants the scope permissions under a specified resource server to a client application.
    * 
    * @param request - AuthorizeResourceServerScopesToClientRequest
    * @returns AuthorizeResourceServerScopesToClientResponse
@@ -642,7 +696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants Scope permissions under a specified ResourceServer to a group.
+   * Grants the scope permissions under a specified resource server to a group.
    * 
    * @param request - AuthorizeResourceServerScopesToGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -689,7 +743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants Scope permissions under a specified ResourceServer to a group.
+   * Grants the scope permissions under a specified resource server to a group.
    * 
    * @param request - AuthorizeResourceServerScopesToGroupRequest
    * @returns AuthorizeResourceServerScopesToGroupResponse
@@ -700,7 +754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants scope permissions under a specified ResourceServer to an organizational unit.
+   * Grants the scope permissions of a specified resource server to an organizational unit.
    * 
    * @param request - AuthorizeResourceServerScopesToOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -747,7 +801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants scope permissions under a specified ResourceServer to an organizational unit.
+   * Grants the scope permissions of a specified resource server to an organizational unit.
    * 
    * @param request - AuthorizeResourceServerScopesToOrganizationalUnitRequest
    * @returns AuthorizeResourceServerScopesToOrganizationalUnitResponse
@@ -758,7 +812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants Scope permissions under a specified ResourceServer to an account.
+   * Grants scope permissions of a specified resource server to an account.
    * 
    * @param request - AuthorizeResourceServerScopesToUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -805,7 +859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Grants Scope permissions under a specified ResourceServer to an account.
+   * Grants scope permissions of a specified resource server to an account.
    * 
    * @param request - AuthorizeResourceServerScopesToUserRequest
    * @returns AuthorizeResourceServerScopesToUserResponse
@@ -866,7 +920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a third-party logon account.
+   * Binds a third-party logon account.
    * 
    * @param request - BindUserAuthnSourceMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -909,7 +963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a third-party logon account.
+   * Binds a third-party logon account.
    * 
    * @param request - BindUserAuthnSourceMappingRequest
    * @returns BindUserAuthnSourceMappingResponse
@@ -1012,7 +1066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether an instance has the feature of a specific module.
+   * Checks whether an instance has a specific module feature.
    * 
    * @param request - CheckInstanceModuleStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1063,7 +1117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether an instance has the feature of a specific module.
+   * Checks whether an instance has a specific module feature.
    * 
    * @param request - CheckInstanceModuleStatusRequest
    * @returns CheckInstanceModuleStatusResponse
@@ -1158,7 +1212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a client secret for an EIAM application. You can create a maximum of two client secrets for each EIAM application.
+   * Creates a client secret for an EIAM application. You can create a maximum of two client secrets for a single EIAM application.
    * 
    * @param request - CreateApplicationClientSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1197,7 +1251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a client secret for an EIAM application. You can create a maximum of two client secrets for each EIAM application.
+   * Creates a client secret for an EIAM application. You can create a maximum of two client secrets for a single EIAM application.
    * 
    * @param request - CreateApplicationClientSecretRequest
    * @returns CreateApplicationClientSecretResponse
@@ -1775,6 +1829,80 @@ export default class Client extends OpenApi {
   async createCloudAccountRole(request: $_model.CreateCloudAccountRoleRequest): Promise<$_model.CreateCloudAccountRoleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createCloudAccountRoleWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a permission template.
+   * 
+   * @param request - CreateCloudPermissionTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloudPermissionTemplateResponse
+   */
+  async createCloudPermissionTemplateWithOptions(request: $_model.CreateCloudPermissionTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCloudPermissionTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.allowRequest)) {
+      query["AllowRequest"] = request.allowRequest;
+    }
+
+    if (!$dara.isNull(request.applicableScope)) {
+      query["ApplicableScope"] = request.applicableScope;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudAccountResources)) {
+      query["CloudAccountResources"] = request.cloudAccountResources;
+    }
+
+    if (!$dara.isNull(request.cloudPermissionTemplateName)) {
+      query["CloudPermissionTemplateName"] = request.cloudPermissionTemplateName;
+    }
+
+    if (!$dara.isNull(request.cloudPermissionTemplateUsageType)) {
+      query["CloudPermissionTemplateUsageType"] = request.cloudPermissionTemplateUsageType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCloudPermissionTemplate",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCloudPermissionTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateCloudPermissionTemplateResponse({}));
+  }
+
+  /**
+   * Creates a permission template.
+   * 
+   * @param request - CreateCloudPermissionTemplateRequest
+   * @returns CreateCloudPermissionTemplateResponse
+   */
+  async createCloudPermissionTemplate(request: $_model.CreateCloudPermissionTemplateRequest): Promise<$_model.CreateCloudPermissionTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCloudPermissionTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -2952,7 +3080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an EIAM account in a specified EIAM instance.
+   * Creates an EIAM account under a specified EIAM instance.
    * 
    * @param request - CreateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3043,7 +3171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an EIAM account in a specified EIAM instance.
+   * Creates an EIAM account under a specified EIAM instance.
    * 
    * @param request - CreateUserRequest
    * @returns CreateUserResponse
@@ -3051,6 +3179,56 @@ export default class Client extends OpenApi {
   async createUser(request: $_model.CreateUserRequest): Promise<$_model.CreateUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createUserWithOptions(request, runtime);
+  }
+
+  /**
+   * Removes privileged access for a cloud account.
+   * 
+   * @param request - DeactivateCloudAccountPrivilegeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeactivateCloudAccountPrivilegeResponse
+   */
+  async deactivateCloudAccountPrivilegeWithOptions(request: $_model.DeactivateCloudAccountPrivilegeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeactivateCloudAccountPrivilegeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeactivateCloudAccountPrivilege",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeactivateCloudAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new $_model.DeactivateCloudAccountPrivilegeResponse({}));
+  }
+
+  /**
+   * Removes privileged access for a cloud account.
+   * 
+   * @param request - DeactivateCloudAccountPrivilegeRequest
+   * @returns DeactivateCloudAccountPrivilegeResponse
+   */
+  async deactivateCloudAccountPrivilege(request: $_model.DeactivateCloudAccountPrivilegeRequest): Promise<$_model.DeactivateCloudAccountPrivilegeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deactivateCloudAccountPrivilegeWithOptions(request, runtime);
   }
 
   /**
@@ -3106,7 +3284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a client secret of an EIAM application.
+   * Deletes a client secret for an EIAM application.
    * 
    * @param request - DeleteApplicationClientSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3145,7 +3323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a client secret of an EIAM application.
+   * Deletes a client secret for an EIAM application.
    * 
    * @param request - DeleteApplicationClientSecretRequest
    * @returns DeleteApplicationClientSecretResponse
@@ -3600,10 +3778,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a permission template.
+   * 
+   * @param request - DeleteCloudPermissionTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCloudPermissionTemplateResponse
+   */
+  async deleteCloudPermissionTemplateWithOptions(request: $_model.DeleteCloudPermissionTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCloudPermissionTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudPermissionTemplateId)) {
+      query["CloudPermissionTemplateId"] = request.cloudPermissionTemplateId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCloudPermissionTemplate",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCloudPermissionTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCloudPermissionTemplateResponse({}));
+  }
+
+  /**
+   * Deletes a permission template.
+   * 
+   * @param request - DeleteCloudPermissionTemplateRequest
+   * @returns DeleteCloudPermissionTemplateResponse
+   */
+  async deleteCloudPermissionTemplate(request: $_model.DeleteCloudPermissionTemplateRequest): Promise<$_model.DeleteCloudPermissionTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCloudPermissionTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a conditional access policy.
    * 
    * @remarks
-   * Before you delete a conditional access policy, make sure that the policy is no longer in use. After the policy is deleted, all configuration data is permanently removed and cannot be recovered.
+   * Before deleting a specified conditional access policy, ensure that the policy is no longer in use. After the policy is deleted, all configuration data is deleted and cannot be recovered.
    * 
    * @param request - DeleteConditionalAccessPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3641,7 +3869,7 @@ export default class Client extends OpenApi {
    * Deletes a conditional access policy.
    * 
    * @remarks
-   * Before you delete a conditional access policy, make sure that the policy is no longer in use. After the policy is deleted, all configuration data is permanently removed and cannot be recovered.
+   * Before deleting a specified conditional access policy, ensure that the policy is no longer in use. After the policy is deleted, all configuration data is deleted and cannot be recovered.
    * 
    * @param request - DeleteConditionalAccessPolicyRequest
    * @returns DeleteConditionalAccessPolicyResponse
@@ -3836,7 +4064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom domain name of a specified Employee Identity and Access Management (EIAM) instance. Deletion of the instance initialization domain name or default domain name is rejected.
+   * Deletes a custom domain name of a specified EIAM instance. Deletion of the initial domain name and default domain name of the instance is rejected.
    * 
    * @param request - DeleteDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3871,7 +4099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom domain name of a specified Employee Identity and Access Management (EIAM) instance. Deletion of the instance initialization domain name or default domain name is rejected.
+   * Deletes a custom domain name of a specified EIAM instance. Deletion of the initial domain name and default domain name of the instance is rejected.
    * 
    * @param request - DeleteDomainRequest
    * @returns DeleteDomainResponse
@@ -3882,7 +4110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a proxy token for a specified domain name of an EIAM instance. Only proxy tokens in the disabled state can be deleted.
+   * Deletes the proxy token for a specified domain name of an EIAM instance. Only disabled proxy tokens can be deleted.
    * 
    * @param request - DeleteDomainProxyTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3921,7 +4149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a proxy token for a specified domain name of an EIAM instance. Only proxy tokens in the disabled state can be deleted.
+   * Deletes the proxy token for a specified domain name of an EIAM instance. Only disabled proxy tokens can be deleted.
    * 
    * @param request - DeleteDomainProxyTokenRequest
    * @returns DeleteDomainProxyTokenResponse
@@ -4070,10 +4298,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Employee Identity and Access Management (EIAM) instance that you no longer use.
+   * Deletes an EIAM instance that is no longer in use.
    * 
    * @remarks
-   * Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+   * Ensure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
    * 
    * @param request - DeleteInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4104,10 +4332,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an Employee Identity and Access Management (EIAM) instance that you no longer use.
+   * Deletes an EIAM instance that is no longer in use.
    * 
    * @remarks
-   * Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
+   * Ensure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
    * 
    * @param request - DeleteInstanceRequest
    * @returns DeleteInstanceResponse
@@ -4210,7 +4438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified EIAM organizational unit. The deletion fails if the organizational unit contains EIAM accounts or child organizational units.
+   * Deletes a specified EIAM organization. The deletion fails if the organization contains EIAM accounts or sub-organizations.
    * 
    * @param request - DeleteOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4245,7 +4473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified EIAM organizational unit. The deletion fails if the organizational unit contains EIAM accounts or child organizational units.
+   * Deletes a specified EIAM organization. The deletion fails if the organization contains EIAM accounts or sub-organizations.
    * 
    * @param request - DeleteOrganizationalUnitRequest
    * @returns DeleteOrganizationalUnitResponse
@@ -4256,7 +4484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes all data of a specified organization. This operation can force delete all accounts and sub-organizations under the specified organization.
+   * Deletes all data of a specified organization and can force delete all accounts and sub-organizations under the organization.
    * 
    * @param request - DeleteOrganizationalUnitChildrenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4291,7 +4519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes all data of a specified organization. This operation can force delete all accounts and sub-organizations under the specified organization.
+   * Deletes all data of a specified organization and can force delete all accounts and sub-organizations under the organization.
    * 
    * @param request - DeleteOrganizationalUnitChildrenRequest
    * @returns DeleteOrganizationalUnitChildrenResponse
@@ -4408,7 +4636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified EIAM account and purges all information associated with the account.
+   * Deletes a specified EIAM account and clears all information related to the account.
    * 
    * @param request - DeleteUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4443,7 +4671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified EIAM account and purges all information associated with the account.
+   * Deletes a specified EIAM account and clears all information related to the account.
    * 
    * @param request - DeleteUserRequest
    * @returns DeleteUserResponse
@@ -4454,7 +4682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple accounts in a batch.
+   * Deletes multiple accounts.
    * 
    * @param request - DeleteUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4489,7 +4717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple accounts in a batch.
+   * Deletes multiple accounts.
    * 
    * @param request - DeleteUsersRequest
    * @returns DeleteUsersResponse
@@ -4500,7 +4728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the specified WebAuthn authenticator.
+   * Deletes a specified WebAuthn authenticator name.
    * 
    * @param request - DeleteWebAuthnAuthenticatorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4539,7 +4767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the specified WebAuthn authenticator.
+   * Deletes a specified WebAuthn authenticator name.
    * 
    * @param request - DeleteWebAuthnAuthenticatorRequest
    * @returns DeleteWebAuthnAuthenticatorResponse
@@ -4602,7 +4830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+   * Disables the Developer API call feature for an EIAM application.
    * 
    * @param request - DisableApplicationApiInvokeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4637,7 +4865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+   * Disables the Developer API call feature for an EIAM application.
    * 
    * @param request - DisableApplicationApiInvokeRequest
    * @returns DisableApplicationApiInvokeResponse
@@ -4698,7 +4926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a federated identity credential for an application.
+   * Disables an application federated credential.
    * 
    * @param request - DisableApplicationFederatedCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4737,7 +4965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a federated identity credential for an application.
+   * Disables an application federated credential.
    * 
    * @param request - DisableApplicationFederatedCredentialRequest
    * @returns DisableApplicationFederatedCredentialResponse
@@ -4886,7 +5114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application. This way, employees cannot log on to the application by using SSO.
+   * Disables the single sign-on (SSO) feature for an EIAM application. After this feature is disabled, employees cannot use SSO to log on to the application.
    * 
    * @param request - DisableApplicationSsoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4921,7 +5149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the single sign-on (SSO) feature for an Employee Identity and Access Management (EIAM) application. This way, employees cannot log on to the application by using SSO.
+   * Disables the single sign-on (SSO) feature for an EIAM application. After this feature is disabled, employees cannot use SSO to log on to the application.
    * 
    * @param request - DisableApplicationSsoRequest
    * @returns DisableApplicationSsoResponse
@@ -4935,7 +5163,7 @@ export default class Client extends OpenApi {
    * Disables an application token.
    * 
    * @remarks
-   * When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that this operation may cause.
+   * When you disable an application, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the risks associated with this operation.
    * 
    * @param request - DisableApplicationTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4977,7 +5205,7 @@ export default class Client extends OpenApi {
    * Disables an application token.
    * 
    * @remarks
-   * When you change an application from the enabled state to the disabled state, all features of the application become unavailable, such as SSO and account synchronization. Make sure that you are aware of the risks that this operation may cause.
+   * When you disable an application, all features of the application, such as SSO and account synchronization, become unavailable. Make sure that you are aware of the risks associated with this operation.
    * 
    * @param request - DisableApplicationTokenRequest
    * @returns DisableApplicationTokenResponse
@@ -5140,7 +5368,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a cloud role for a specified Alibaba Cloud account.
+   * Disables cloud account privileges.
+   * 
+   * @param request - DisableCloudAccountPrivilegeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableCloudAccountPrivilegeResponse
+   */
+  async disableCloudAccountPrivilegeWithOptions(request: $_model.DisableCloudAccountPrivilegeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableCloudAccountPrivilegeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableCloudAccountPrivilege",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableCloudAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new $_model.DisableCloudAccountPrivilegeResponse({}));
+  }
+
+  /**
+   * Disables cloud account privileges.
+   * 
+   * @param request - DisableCloudAccountPrivilegeRequest
+   * @returns DisableCloudAccountPrivilegeResponse
+   */
+  async disableCloudAccountPrivilege(request: $_model.DisableCloudAccountPrivilegeRequest): Promise<$_model.DisableCloudAccountPrivilegeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableCloudAccountPrivilegeWithOptions(request, runtime);
+  }
+
+  /**
+   * Disables a cloud role under a specified cloud account.
    * 
    * @param request - DisableCloudAccountRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5183,7 +5461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a cloud role for a specified Alibaba Cloud account.
+   * Disables a cloud role under a specified cloud account.
    * 
    * @param request - DisableCloudAccountRoleRequest
    * @returns DisableCloudAccountRoleResponse
@@ -5191,6 +5469,56 @@ export default class Client extends OpenApi {
   async disableCloudAccountRole(request: $_model.DisableCloudAccountRoleRequest): Promise<$_model.DisableCloudAccountRoleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disableCloudAccountRoleWithOptions(request, runtime);
+  }
+
+  /**
+   * Disables a permission template.
+   * 
+   * @param request - DisableCloudPermissionTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableCloudPermissionTemplateResponse
+   */
+  async disableCloudPermissionTemplateWithOptions(request: $_model.DisableCloudPermissionTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableCloudPermissionTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudPermissionTemplateId)) {
+      query["CloudPermissionTemplateId"] = request.cloudPermissionTemplateId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableCloudPermissionTemplate",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableCloudPermissionTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DisableCloudPermissionTemplateResponse({}));
+  }
+
+  /**
+   * Disables a permission template.
+   * 
+   * @param request - DisableCloudPermissionTemplateRequest
+   * @returns DisableCloudPermissionTemplateResponse
+   */
+  async disableCloudPermissionTemplate(request: $_model.DisableCloudPermissionTemplateRequest): Promise<$_model.DisableCloudPermissionTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableCloudPermissionTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -5484,7 +5812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a federated credential provider.
+   * Disables a federated trust source.
    * 
    * @param request - DisableFederatedCredentialProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5519,7 +5847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a federated credential provider.
+   * Disables a federated trust source.
    * 
    * @param request - DisableFederatedCredentialProviderRequest
    * @returns DisableFederatedCredentialProviderResponse
@@ -5716,7 +6044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables an internal authentication source.
+   * Disables the internal authentication source.
    * 
    * @param request - DisableInternalAuthenticationSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5751,7 +6079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables an internal authentication source.
+   * Disables the internal authentication source.
    * 
    * @param request - DisableInternalAuthenticationSourceRequest
    * @returns DisableInternalAuthenticationSourceResponse
@@ -5860,7 +6188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets an account status to disabled. If the account is already disabled, the operation returns success directly.
+   * Sets the status of an account to disabled. If the account is already disabled, the operation returns a success response.
    * 
    * @param request - DisableUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5895,7 +6223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets an account status to disabled. If the account is already disabled, the operation returns success directly.
+   * Sets the status of an account to disabled. If the account is already disabled, the operation returns a success response.
    * 
    * @param request - DisableUserRequest
    * @returns DisableUserResponse
@@ -5952,7 +6280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the EnableApplicationApiInvoke operation to enable Developer API calls for an EIAM application.
+   * Enables the Developer API invocation feature for an EIAM application.
    * 
    * @param request - EnableApplicationApiInvokeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5987,7 +6315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the EnableApplicationApiInvoke operation to enable Developer API calls for an EIAM application.
+   * Enables the Developer API invocation feature for an EIAM application.
    * 
    * @param request - EnableApplicationApiInvokeRequest
    * @returns EnableApplicationApiInvokeResponse
@@ -5998,7 +6326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the client key of an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Enables a client secret for an EIAM application.
    * 
    * @param request - EnableApplicationClientSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6037,7 +6365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the client key of an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+   * Enables a client secret for an EIAM application.
    * 
    * @param request - EnableApplicationClientSecretRequest
    * @returns EnableApplicationClientSecretResponse
@@ -6430,7 +6758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a specified application ClientPublicKey.
+   * Enables the specified application ClientPublicKey.
    * 
    * @param request - EnableClientPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6473,7 +6801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a specified application ClientPublicKey.
+   * Enables the specified application ClientPublicKey.
    * 
    * @param request - EnableClientPublicKeyRequest
    * @returns EnableClientPublicKeyResponse
@@ -6484,7 +6812,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a cloud role for a specified Alibaba Cloud account.
+   * Enables privileges for a cloud account.
+   * 
+   * @param request - EnableCloudAccountPrivilegeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableCloudAccountPrivilegeResponse
+   */
+  async enableCloudAccountPrivilegeWithOptions(request: $_model.EnableCloudAccountPrivilegeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableCloudAccountPrivilegeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableCloudAccountPrivilege",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableCloudAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new $_model.EnableCloudAccountPrivilegeResponse({}));
+  }
+
+  /**
+   * Enables privileges for a cloud account.
+   * 
+   * @param request - EnableCloudAccountPrivilegeRequest
+   * @returns EnableCloudAccountPrivilegeResponse
+   */
+  async enableCloudAccountPrivilege(request: $_model.EnableCloudAccountPrivilegeRequest): Promise<$_model.EnableCloudAccountPrivilegeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableCloudAccountPrivilegeWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables a cloud role under a specified cloud account.
    * 
    * @param request - EnableCloudAccountRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6527,7 +6905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a cloud role for a specified Alibaba Cloud account.
+   * Enables a cloud role under a specified cloud account.
    * 
    * @param request - EnableCloudAccountRoleRequest
    * @returns EnableCloudAccountRoleResponse
@@ -6538,10 +6916,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables a permission template.
+   * 
+   * @param request - EnableCloudPermissionTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableCloudPermissionTemplateResponse
+   */
+  async enableCloudPermissionTemplateWithOptions(request: $_model.EnableCloudPermissionTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableCloudPermissionTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudPermissionTemplateId)) {
+      query["CloudPermissionTemplateId"] = request.cloudPermissionTemplateId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableCloudPermissionTemplate",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableCloudPermissionTemplateResponse>(await this.callApi(params, req, runtime), new $_model.EnableCloudPermissionTemplateResponse({}));
+  }
+
+  /**
+   * Enables a permission template.
+   * 
+   * @param request - EnableCloudPermissionTemplateRequest
+   * @returns EnableCloudPermissionTemplateResponse
+   */
+  async enableCloudPermissionTemplate(request: $_model.EnableCloudPermissionTemplateRequest): Promise<$_model.EnableCloudPermissionTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableCloudPermissionTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Enables a conditional access policy.
    * 
    * @remarks
-   * When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Confirm that you are aware of the risks that this operation may cause.
+   * When a conditional access policy is changed from the enabled state to the disabled state, it no longer intercepts requests. Make sure that you are aware of the potential risks of this operation.
    * 
    * @param request - EnableConditionalAccessPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6579,7 +7007,7 @@ export default class Client extends OpenApi {
    * Enables a conditional access policy.
    * 
    * @remarks
-   * When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Confirm that you are aware of the risks that this operation may cause.
+   * When a conditional access policy is changed from the enabled state to the disabled state, it no longer intercepts requests. Make sure that you are aware of the potential risks of this operation.
    * 
    * @param request - EnableConditionalAccessPolicyRequest
    * @returns EnableConditionalAccessPolicyResponse
@@ -6740,7 +7168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a custom clause.
+   * Enables custom terms.
    * 
    * @param request - EnableCustomPrivacyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6775,7 +7203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a custom clause.
+   * Enables custom terms.
    * 
    * @param request - EnableCustomPrivacyPolicyRequest
    * @returns EnableCustomPrivacyPolicyResponse
@@ -6786,7 +7214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a domain proxy token for a specified EIAM instance domain name to verify domain security.
+   * Enables the domain proxy token of a specified EIAM instance to verify domain security.
    * 
    * @param request - EnableDomainProxyTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6825,7 +7253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a domain proxy token for a specified EIAM instance domain name to verify domain security.
+   * Enables the domain proxy token of a specified EIAM instance to verify domain security.
    * 
    * @param request - EnableDomainProxyTokenRequest
    * @returns EnableDomainProxyTokenResponse
@@ -6931,7 +7359,7 @@ export default class Client extends OpenApi {
    * Enables authentication.
    * 
    * @remarks
-   * When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the risks that this operation may cause.
+   * When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the potential risks of this operation.
    * 
    * @param request - EnableIdentityProviderAuthnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6969,7 +7397,7 @@ export default class Client extends OpenApi {
    * Enables authentication.
    * 
    * @remarks
-   * When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the risks that this operation may cause.
+   * When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Make sure that you are aware of the potential risks of this operation.
    * 
    * @param request - EnableIdentityProviderAuthnRequest
    * @returns EnableIdentityProviderAuthnResponse
@@ -7114,7 +7542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the custom subject feature for a specified resource server. After this feature is enabled, the subject of an issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>. The `client.activeSubjectUrn` is set in the attribute mapping of the application\\"s federated identity provider.
+   * Enables the custom subject capability for a specified resource server. After the custom subject is enabled, the issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated identity credential for the application.
    * 
    * @param request - EnableResourceServerCustomSubjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7149,7 +7577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the custom subject feature for a specified resource server. After this feature is enabled, the subject of an issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>. The `client.activeSubjectUrn` is set in the attribute mapping of the application\\"s federated identity provider.
+   * Enables the custom subject capability for a specified resource server. After the custom subject is enabled, the issued access token changes from <clientId> to <clientId>:<client.activeSubjectUrn>, where client.activeSubjectUrn is configured in the attribute mapping of the federated identity credential for the application.
    * 
    * @param request - EnableResourceServerCustomSubjectRequest
    * @returns EnableResourceServerCustomSubjectResponse
@@ -7258,7 +7686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Parses IdP metadata information.
+   * Parses IdP metadata.
    * 
    * @param request - ExecIdentityProviderMetadataUrlResolutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7305,7 +7733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Parses IdP metadata information.
+   * Parses IdP metadata.
    * 
    * @param request - ExecIdentityProviderMetadataUrlResolutionRequest
    * @returns ExecIdentityProviderMetadataUrlResolutionResponse
@@ -7417,8 +7845,16 @@ export default class Client extends OpenApi {
   async generateFileImportTemplateWithOptions(request: $_model.GenerateFileImportTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateFileImportTemplateResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.fieldSelectionEnabled)) {
+      query["FieldSelectionEnabled"] = request.fieldSelectionEnabled;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.selectedFieldNames)) {
+      query["SelectedFieldNames"] = request.selectedFieldNames;
     }
 
     if (!$dara.isNull(request.targetType)) {
@@ -7524,7 +7960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Upload Authentication
+   * Retrieves upload authentication.
    * 
    * @param request - GenerateUploadAuthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7563,7 +7999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Upload Authentication
+   * Retrieves upload authentication.
    * 
    * @param request - GenerateUploadAuthRequest
    * @returns GenerateUploadAuthResponse
@@ -7772,7 +8208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Developer API authorization scope of an EIAM application.
+   * Queries the Developer API authorization scopes of an EIAM application.
    * 
    * @param request - GetApplicationGrantScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7807,7 +8243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Developer API authorization scope of an EIAM application.
+   * Queries the Developer API authorization scopes of an EIAM application.
    * 
    * @param request - GetApplicationGrantScopeRequest
    * @returns GetApplicationGrantScopeResponse
@@ -7818,7 +8254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the account synchronization configuration for an Entity Identity and Access Management (EIAM) application.
+   * Queries the account synchronization configuration of an EIAM application.
    * 
    * @param request - GetApplicationProvisioningConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7853,7 +8289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the account synchronization configuration for an Entity Identity and Access Management (EIAM) application.
+   * Queries the account synchronization configuration of an EIAM application.
    * 
    * @param request - GetApplicationProvisioningConfigRequest
    * @returns GetApplicationProvisioningConfigResponse
@@ -7864,7 +8300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
+   * Queries the account synchronization scope of an EIAM application. This scope also defines the accounts that can be queried and managed by the Developer API.
    * 
    * @param request - GetApplicationProvisioningScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7899,7 +8335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
+   * Queries the account synchronization scope of an EIAM application. This scope also defines the accounts that can be queried and managed by the Developer API.
    * 
    * @param request - GetApplicationProvisioningScopeRequest
    * @returns GetApplicationProvisioningScopeResponse
@@ -7956,7 +8392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves application role information.
+   * Retrieves the application role information.
    * 
    * @param request - GetApplicationRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7995,7 +8431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves application role information.
+   * Retrieves the application role information.
    * 
    * @param request - GetApplicationRoleRequest
    * @returns GetApplicationRoleResponse
@@ -8428,6 +8864,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a permission template.
+   * 
+   * @param request - GetCloudPermissionTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCloudPermissionTemplateResponse
+   */
+  async getCloudPermissionTemplateWithOptions(request: $_model.GetCloudPermissionTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCloudPermissionTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudPermissionTemplateId)) {
+      query["CloudPermissionTemplateId"] = request.cloudPermissionTemplateId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCloudPermissionTemplate",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCloudPermissionTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetCloudPermissionTemplateResponse({}));
+  }
+
+  /**
+   * Queries a permission template.
+   * 
+   * @param request - GetCloudPermissionTemplateRequest
+   * @returns GetCloudPermissionTemplateResponse
+   */
+  async getCloudPermissionTemplate(request: $_model.GetCloudPermissionTemplateRequest): Promise<$_model.GetCloudPermissionTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCloudPermissionTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves a conditional access policy.
    * 
    * @remarks
@@ -8572,7 +9058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information about an extended field.
+   * Retrieves the extended field information.
    * 
    * @param request - GetCustomFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8607,7 +9093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information about an extended field.
+   * Retrieves the extended field information.
    * 
    * @param request - GetCustomFieldRequest
    * @returns GetCustomFieldResponse
@@ -8618,7 +9104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a custom privacy policy.
+   * Retrieves the custom privacy policy.
    * 
    * @param request - GetCustomPrivacyPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8653,7 +9139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a custom privacy policy.
+   * Retrieves the custom privacy policy.
    * 
    * @param request - GetCustomPrivacyPolicyRequest
    * @returns GetCustomPrivacyPolicyResponse
@@ -8710,7 +9196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the DNS Challenge record for a specified EIAM domain name. This record is used to verify domain ownership.
+   * Queries the DNS challenge records of a specified EIAM domain name. The generated records are used to verify the ownership of the domain name.
    * 
    * @param request - GetDomainDnsChallengeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8745,7 +9231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the DNS Challenge record for a specified EIAM domain name. This record is used to verify domain ownership.
+   * Queries the DNS challenge records of a specified EIAM domain name. The generated records are used to verify the ownership of the domain name.
    * 
    * @param request - GetDomainDnsChallengeRequest
    * @returns GetDomainDnsChallengeResponse
@@ -8841,6 +9327,41 @@ export default class Client extends OpenApi {
   async getForgetPasswordConfiguration(request: $_model.GetForgetPasswordConfigurationRequest): Promise<$_model.GetForgetPasswordConfigurationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getForgetPasswordConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询全局云账号系统角色权限模板
+   * 
+   * @param request - GetGlobalCloudAccountSystemRolePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGlobalCloudAccountSystemRolePolicyResponse
+   */
+  async getGlobalCloudAccountSystemRolePolicyWithOptions(request: $_model.GetGlobalCloudAccountSystemRolePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetGlobalCloudAccountSystemRolePolicyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGlobalCloudAccountSystemRolePolicy",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGlobalCloudAccountSystemRolePolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetGlobalCloudAccountSystemRolePolicyResponse({}));
+  }
+
+  /**
+   * 查询全局云账号系统角色权限模板
+   * 
+   * @param request - GetGlobalCloudAccountSystemRolePolicyRequest
+   * @returns GetGlobalCloudAccountSystemRolePolicyResponse
+   */
+  async getGlobalCloudAccountSystemRolePolicy(request: $_model.GetGlobalCloudAccountSystemRolePolicyRequest): Promise<$_model.GetGlobalCloudAccountSystemRolePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getGlobalCloudAccountSystemRolePolicyWithOptions(request, runtime);
   }
 
   /**
@@ -9302,7 +9823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves all module information under a first-level module.
+   * Retrieves information about all modules under a level-1 module.
    * 
    * @param request - GetInstanceModuleInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9337,7 +9858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves all module information under a first-level module.
+   * Retrieves information about all modules under a level-1 module.
    * 
    * @param request - GetInstanceModuleInfoRequest
    * @returns GetInstanceModuleInfoResponse
@@ -9482,7 +10003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a specified network access endpoint.
+   * Queries the details of a specified network endpoint.
    * 
    * @param request - GetNetworkAccessEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9517,7 +10038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a specified network access endpoint.
+   * Queries the details of a specified network endpoint.
    * 
    * @param request - GetNetworkAccessEndpointRequest
    * @returns GetNetworkAccessEndpointResponse
@@ -9574,7 +10095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of an EIAM organizational unit.
+   * Queries the information of an EIAM organization.
    * 
    * @param request - GetOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9609,7 +10130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of an EIAM organizational unit.
+   * Queries the information of an EIAM organization.
    * 
    * @param request - GetOrganizationalUnitRequest
    * @returns GetOrganizationalUnitResponse
@@ -9838,7 +10359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the root organizational unit information of EIAM.
+   * Queries the root organization information of EIAM.
    * 
    * @param request - GetRootOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9869,7 +10390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the root organizational unit information of EIAM.
+   * Queries the root organization information of EIAM.
    * 
    * @param request - GetRootOrganizationalUnitRequest
    * @returns GetRootOrganizationalUnitResponse
@@ -10338,7 +10859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of application federated credentials by federated trust source ID.
+   * Queries a list of application federated credentials based on the federated trust source ID.
    * 
    * @param request - ListApplicationFederatedCredentialsForProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10385,7 +10906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of application federated credentials by federated trust source ID.
+   * Queries a list of application federated credentials based on the federated trust source ID.
    * 
    * @param request - ListApplicationFederatedCredentialsForProviderRequest
    * @returns ListApplicationFederatedCredentialsForProviderResponse
@@ -10822,7 +11343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of applications associated with a network domain.
+   * Queries the applications associated with a network zone.
    * 
    * @param request - ListApplicationsForNetworkZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10869,7 +11390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of applications associated with a network domain.
+   * Queries the applications associated with a network zone.
    * 
    * @param request - ListApplicationsForNetworkZoneRequest
    * @returns ListApplicationsForNetworkZoneResponse
@@ -10880,10 +11401,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of applications accessible to an EIAM organizational unit by paging. The response includes application IDs. To obtain detailed application information, call the GetApplication operation.
+   * Performs a paging query for the list of applications accessible to an EIAM organization. The returned results include application IDs. To obtain detailed application information, call the GetApplication operation.
    * 
    * @remarks
-   * This operation queries only the direct permissions of the organizational unit, that is, applications directly assigned to the organizational unit. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+   * This operation queries only the direct permissions of the organization, which are applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
    * 
    * @param request - ListApplicationsForOrganizationalUnitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10930,10 +11451,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of applications accessible to an EIAM organizational unit by paging. The response includes application IDs. To obtain detailed application information, call the GetApplication operation.
+   * Performs a paging query for the list of applications accessible to an EIAM organization. The returned results include application IDs. To obtain detailed application information, call the GetApplication operation.
    * 
    * @remarks
-   * This operation queries only the direct permissions of the organizational unit, that is, applications directly assigned to the organizational unit. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+   * This operation queries only the direct permissions of the organization, which are applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
    * 
    * @param request - ListApplicationsForOrganizationalUnitRequest
    * @returns ListApplicationsForOrganizationalUnitResponse
@@ -11006,10 +11527,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists authorized resource information.
+   * Lists the authorization resources.
    * 
    * @remarks
-   * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+   * This operation queries only the direct permissions of an organization, which are applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
    * 
    * @param request - ListAuthorizationResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11056,10 +11577,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists authorized resource information.
+   * Lists the authorization resources.
    * 
    * @remarks
-   * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+   * This operation queries only the direct permissions of an organization, which are applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
    * 
    * @param request - ListAuthorizationResourcesRequest
    * @returns ListAuthorizationResourcesResponse
@@ -11286,7 +11807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of all authorization servers under an instance.
+   * Retrieves a list of all authorization servers for an instance.
    * 
    * @param request - ListAuthorizationServersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11325,7 +11846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of all authorization servers under an instance.
+   * Retrieves a list of all authorization servers for an instance.
    * 
    * @param request - ListAuthorizationServersRequest
    * @returns ListAuthorizationServersResponse
@@ -11553,6 +12074,76 @@ export default class Client extends OpenApi {
   async listCloudAccounts(request: $_model.ListCloudAccountsRequest): Promise<$_model.ListCloudAccountsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCloudAccountsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information of one or more permission templates by using a paging query.
+   * 
+   * @param request - ListCloudPermissionTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudPermissionTemplatesResponse
+   */
+  async listCloudPermissionTemplatesWithOptions(request: $_model.ListCloudPermissionTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloudPermissionTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudPermissionTemplateNamePrefix)) {
+      query["CloudPermissionTemplateNamePrefix"] = request.cloudPermissionTemplateNamePrefix;
+    }
+
+    if (!$dara.isNull(request.cloudPermissionTemplateSharingMode)) {
+      query["CloudPermissionTemplateSharingMode"] = request.cloudPermissionTemplateSharingMode;
+    }
+
+    if (!$dara.isNull(request.cloudPermissionTemplateUsageType)) {
+      query["CloudPermissionTemplateUsageType"] = request.cloudPermissionTemplateUsageType;
+    }
+
+    if (!$dara.isNull(request.creatorType)) {
+      query["CreatorType"] = request.creatorType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCloudPermissionTemplates",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCloudPermissionTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListCloudPermissionTemplatesResponse({}));
+  }
+
+  /**
+   * Queries the information of one or more permission templates by using a paging query.
+   * 
+   * @param request - ListCloudPermissionTemplatesRequest
+   * @returns ListCloudPermissionTemplatesResponse
+   */
+  async listCloudPermissionTemplates(request: $_model.ListCloudPermissionTemplatesRequest): Promise<$_model.ListCloudPermissionTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCloudPermissionTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -11900,7 +12491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of custom terms.
+   * Queries custom privacy policies.
    * 
    * @param request - ListCustomPrivacyPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11947,7 +12538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of custom terms.
+   * Queries custom privacy policies.
    * 
    * @param request - ListCustomPrivacyPoliciesRequest
    * @returns ListCustomPrivacyPoliciesResponse
@@ -11958,7 +12549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the resources of brand-linked instances.
+   * Retrieves the resources associated with a brand.
    * 
    * @param request - ListCustomPrivacyPoliciesForBrandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12005,7 +12596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the resources of brand-linked instances.
+   * Retrieves the resources associated with a brand.
    * 
    * @param request - ListCustomPrivacyPoliciesForBrandRequest
    * @returns ListCustomPrivacyPoliciesForBrandResponse
@@ -12016,7 +12607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of domain proxy tokens of an EIAM instance.
+   * Lists the proxy tokens for the domain name of an EIAM instance.
    * 
    * @param request - ListDomainProxyTokensRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12051,7 +12642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of domain proxy tokens of an EIAM instance.
+   * Lists the proxy tokens for the domain name of an EIAM instance.
    * 
    * @param request - ListDomainProxyTokensRequest
    * @returns ListDomainProxyTokensResponse
@@ -12185,7 +12776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the event list.
+   * Lists events.
    * 
    * @param request - ListEventTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12220,7 +12811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the event list.
+   * Lists events.
    * 
    * @param request - ListEventTypesRequest
    * @returns ListEventTypesResponse
@@ -12359,7 +12950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to list the groups authorized to access an application. The response returns the group IDs. To obtain detailed information for a group, you can call the GetGroup operation.
+   * Performs a paged query on the list of groups with authorization to access an application. The response includes group IDs and supports paging. To obtain detailed group information, invoke the GetGroup operation.
    * 
    * @param request - ListGroupsForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12410,7 +13001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to list the groups authorized to access an application. The response returns the group IDs. To obtain detailed information for a group, you can call the GetGroup operation.
+   * Performs a paged query on the list of groups with authorization to access an application. The response includes group IDs and supports paging. To obtain detailed group information, invoke the GetGroup operation.
    * 
    * @param request - ListGroupsForApplicationRequest
    * @returns ListGroupsForApplicationResponse
@@ -12541,7 +13132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of account groups to which a specified EIAM account belongs.
+   * Queries the groups to which a specified EIAM account belongs.
    * 
    * @param request - ListGroupsForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12584,7 +13175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of account groups to which a specified EIAM account belongs.
+   * Queries the groups to which a specified EIAM account belongs.
    * 
    * @param request - ListGroupsForUserRequest
    * @returns ListGroupsForUserResponse
@@ -12649,7 +13240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about Identity Providers (IdPs) for a network endpoint.
+   * Retrieves the IdP information for a network access endpoint.
    * 
    * @param request - ListIdentityProvidersForNetworkAccessEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12692,7 +13283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about Identity Providers (IdPs) for a network endpoint.
+   * Retrieves the IdP information for a network access endpoint.
    * 
    * @param request - ListIdentityProvidersForNetworkAccessEndpointRequest
    * @returns ListIdentityProvidersForNetworkAccessEndpointResponse
@@ -12773,7 +13364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the available regions for creating network access endpoints in IDaaS EIAM.
+   * Queries the list of regions where IDaaS EIAM supports creating network endpoints.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNetworkAccessEndpointAvailableRegionsResponse
@@ -12795,7 +13386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the available regions for creating network access endpoints in IDaaS EIAM.
+   * Queries the list of regions where IDaaS EIAM supports creating network endpoints.
    * @returns ListNetworkAccessEndpointAvailableRegionsResponse
    */
   async listNetworkAccessEndpointAvailableRegions(): Promise<$_model.ListNetworkAccessEndpointAvailableRegionsResponse> {
@@ -12846,7 +13437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of network access endpoints under an IDaaS EIAM instance.
+   * Queries the network access endpoints of an IDaaS EIAM instance.
    * 
    * @param request - ListNetworkAccessEndpointsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12901,7 +13492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of network access endpoints under an IDaaS EIAM instance.
+   * Queries the network access endpoints of an IDaaS EIAM instance.
    * 
    * @param request - ListNetworkAccessEndpointsRequest
    * @returns ListNetworkAccessEndpointsResponse
@@ -12958,7 +13549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of network zone objects.
+   * Queries network zone objects.
    * 
    * @param request - ListNetworkZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13005,7 +13596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of network zone objects.
+   * Queries network zone objects.
    * 
    * @param request - ListNetworkZonesRequest
    * @returns ListNetworkZonesResponse
@@ -13016,7 +13607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all ancestor organizations of a specified EIAM organization. The organizations in the result list are sorted in hierarchical order from the top level to the bottom level.
+   * Lists all ancestor organizations of a specified EIAM organization. The returned organization list is sorted in hierarchical order from the top level to the bottom level.
    * 
    * @param request - ListOrganizationalUnitParentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13051,7 +13642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all ancestor organizations of a specified EIAM organization. The organizations in the result list are sorted in hierarchical order from the top level to the bottom level.
+   * Lists all ancestor organizations of a specified EIAM organization. The returned organization list is sorted in hierarchical order from the top level to the bottom level.
    * 
    * @param request - ListOrganizationalUnitParentsRequest
    * @returns ListOrganizationalUnitParentsResponse
@@ -13128,7 +13719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to list the organizations that are granted access to an application. The response returns the IDs of the organizations. To obtain detailed information about a specific organization, call the GetOrganizationalUnit operation.
+   * Performs a paging query for the list of organizational units that an application is authorized to access. The returned result includes the organizational unit IDs. To obtain detailed information about an organizational unit, call the GetOrganizationalUnit operation.
    * 
    * @param request - ListOrganizationalUnitsForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13179,7 +13770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to list the organizations that are granted access to an application. The response returns the IDs of the organizations. To obtain detailed information about a specific organization, call the GetOrganizationalUnit operation.
+   * Performs a paging query for the list of organizational units that an application is authorized to access. The returned result includes the organizational unit IDs. To obtain detailed information about an organizational unit, call the GetOrganizationalUnit operation.
    * 
    * @param request - ListOrganizationalUnitsForApplicationRequest
    * @returns ListOrganizationalUnitsForApplicationResponse
@@ -13419,13 +14010,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of synchronization job details.
+   * Lists the details of synchronization tasks.
    * 
    * @remarks
-   * The following two methods are supported for viewing returned data:
-   * - Method 1: When querying the first page, you only need to set MaxResults to limit the number of entries returned. The NextToken in the response serves as the credential for querying subsequent pages. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response as the query credential, and set MaxResults to limit the number of entries returned. If there are no more pages, NextToken is no longer returned. The maximum value of MaxResults is 100.
-   * - Method 2: Set the number of entries returned per page using PageSize, and set the page number using PageNumber.
-   * You can only choose one of the above two methods. When a large number of entries are returned, Method 1 is recommended. If the MaxResults or NextToken parameter is set, the PageSize and PageNumber request parameters become invalid.
+   * You can view the returned data in one of the following ways:
+   * - Method 1: When performing a paged query for the first page, specify only MaxResults to limit the number of entries to return. The NextToken value in the response is used as the token to query the next page. When querying subsequent pages, set the NextToken parameter to the value obtained from the previous response and specify MaxResults to limit the number of entries to return. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+   * - Method 2: Use PageSize to specify the number of entries to return per page, and use PageNumber to specify the page number.
+   * You can use only one of the preceding methods. Method 1 is recommended when a large number of entries are returned. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters become invalid.
    * 
    * @param request - ListSynchronizationJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13500,13 +14091,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of synchronization job details.
+   * Lists the details of synchronization tasks.
    * 
    * @remarks
-   * The following two methods are supported for viewing returned data:
-   * - Method 1: When querying the first page, you only need to set MaxResults to limit the number of entries returned. The NextToken in the response serves as the credential for querying subsequent pages. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response as the query credential, and set MaxResults to limit the number of entries returned. If there are no more pages, NextToken is no longer returned. The maximum value of MaxResults is 100.
-   * - Method 2: Set the number of entries returned per page using PageSize, and set the page number using PageNumber.
-   * You can only choose one of the above two methods. When a large number of entries are returned, Method 1 is recommended. If the MaxResults or NextToken parameter is set, the PageSize and PageNumber request parameters become invalid.
+   * You can view the returned data in one of the following ways:
+   * - Method 1: When performing a paged query for the first page, specify only MaxResults to limit the number of entries to return. The NextToken value in the response is used as the token to query the next page. When querying subsequent pages, set the NextToken parameter to the value obtained from the previous response and specify MaxResults to limit the number of entries to return. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+   * - Method 2: Use PageSize to specify the number of entries to return per page, and use PageNumber to specify the page number.
+   * You can use only one of the preceding methods. Method 1 is recommended when a large number of entries are returned. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters become invalid.
    * 
    * @param request - ListSynchronizationJobsRequest
    * @returns ListSynchronizationJobsResponse
@@ -13589,10 +14180,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the binding relationships of third-party login accounts.
+   * Queries the binding relationships of third-party logon accounts.
    * 
    * @remarks
-   * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+   * This operation queries only the direct permissions of an organization, namely the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
    * 
    * @param request - ListUserAuthnSourceMappingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13647,10 +14238,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the binding relationships of third-party login accounts.
+   * Queries the binding relationships of third-party logon accounts.
    * 
    * @remarks
-   * This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+   * This operation queries only the direct permissions of an organization, namely the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
    * 
    * @param request - ListUserAuthnSourceMappingsRequest
    * @returns ListUserAuthnSourceMappingsResponse
@@ -13661,10 +14252,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries EIAM account information by using paging.
+   * Performs a paging query of EIAM account information.
    * 
    * @remarks
-   * This operation queries only the direct permissions of an organizational unit, which are the applications directly assigned to the organizational unit. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+   * This operation queries only the direct permissions of an organization, which are the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
    * 
    * @param request - ListUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13755,10 +14346,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries EIAM account information by using paging.
+   * Performs a paging query of EIAM account information.
    * 
    * @remarks
-   * This operation queries only the direct permissions of an organizational unit, which are the applications directly assigned to the organizational unit. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
+   * This operation queries only the direct permissions of an organization, which are the applications directly assigned to the organization. When you call this operation, you can filter applications by using the **ApplicationIds** parameter.
    * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
@@ -13769,7 +14360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to list the accounts that have been granted access to an application. The response includes account IDs. To retrieve detailed information about an account, call the GetUser operation.
+   * Performs a paging query to retrieve the list of accounts authorized to access an application. The response includes account IDs. To obtain detailed account information, call the GetUser operation.
    * 
    * @param request - ListUsersForApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13820,7 +14411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to list the accounts that have been granted access to an application. The response includes account IDs. To retrieve detailed information about an account, call the GetUser operation.
+   * Performs a paging query to retrieve the list of accounts authorized to access an application. The response includes account IDs. To obtain detailed account information, call the GetUser operation.
    * 
    * @param request - ListUsersForApplicationRequest
    * @returns ListUsersForApplicationResponse
@@ -14521,7 +15112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes Employee Identity and Access Management (EIAM) accounts from an EIAM group of Identity as a Service (IDaaS).
+   * Removes multiple EIAM accounts from a specified EIAM account group.
    * 
    * @param request - RemoveUsersFromGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14560,7 +15151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes Employee Identity and Access Management (EIAM) accounts from an EIAM group of Identity as a Service (IDaaS).
+   * Removes multiple EIAM accounts from a specified EIAM account group.
    * 
    * @param request - RemoveUsersFromGroupRequest
    * @returns RemoveUsersFromGroupResponse
@@ -14613,7 +15204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the permissions of multiple Employee Identity and Access Management (EIAM) groups to access an application in a batch.
+   * Revokes application access permissions for multiple EIAM groups.
    * 
    * @param request - RevokeApplicationFromGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14656,7 +15247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the permissions of multiple Employee Identity and Access Management (EIAM) groups to access an application in a batch.
+   * Revokes application access permissions for multiple EIAM groups.
    * 
    * @param request - RevokeApplicationFromGroupsRequest
    * @returns RevokeApplicationFromGroupsResponse
@@ -14667,7 +15258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes application access from multiple EIAM organizations in a batch operation.
+   * Revokes access to an application for multiple EIAM organizational units in batches.
    * 
    * @param request - RevokeApplicationFromOrganizationalUnitsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14710,7 +15301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes application access from multiple EIAM organizations in a batch operation.
+   * Revokes access to an application for multiple EIAM organizational units in batches.
    * 
    * @param request - RevokeApplicationFromOrganizationalUnitsRequest
    * @returns RevokeApplicationFromOrganizationalUnitsResponse
@@ -14721,7 +15312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the permissions of multiple Enterprise Identity Access Management (EIAM) accounts to access an application in a batch.
+   * Revokes access to an application for multiple EIAM accounts.
    * 
    * @param request - RevokeApplicationFromUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14764,7 +15355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the permissions of multiple Enterprise Identity Access Management (EIAM) accounts to access an application in a batch.
+   * Revokes access to an application for multiple EIAM accounts.
    * 
    * @param request - RevokeApplicationFromUsersRequest
    * @returns RevokeApplicationFromUsersResponse
@@ -15041,7 +15632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a synchronization task. This operation creates a new synchronization task and immediately executes it.
+   * Runs a synchronization task. This creates a new synchronization task and immediately executes it.
    * 
    * @param request - RunSynchronizationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15054,12 +15645,20 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.fieldSelectionEnabled)) {
+      query["FieldSelectionEnabled"] = request.fieldSelectionEnabled;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
     if (!$dara.isNull(request.passwordInitialization)) {
       query["PasswordInitialization"] = request.passwordInitialization;
+    }
+
+    if (!$dara.isNull(request.selectedFieldNames)) {
+      query["SelectedFieldNames"] = request.selectedFieldNames;
     }
 
     if (!$dara.isNull(request.synchronizationScopeConfig)) {
@@ -15096,7 +15695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a synchronization task. This operation creates a new synchronization task and immediately executes it.
+   * Runs a synchronization task. This creates a new synchronization task and immediately executes it.
    * 
    * @param request - RunSynchronizationJobRequest
    * @returns RunSynchronizationJobResponse
@@ -15453,7 +16052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets a specified domain name of an EIAM instance as the default domain name.
+   * Sets the specified domain name of an EIAM instance as the default domain name.
    * 
    * @param request - SetDefaultDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15488,7 +16087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets a specified domain name of an EIAM instance as the default domain name.
+   * Sets the specified domain name of an EIAM instance as the default domain name.
    * 
    * @param request - SetDefaultDomainRequest
    * @returns SetDefaultDomainResponse
@@ -15499,7 +16098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the forgot password policy for an EIAM instance.
+   * Configures the forgot password policy for EIAM.
    * 
    * @param request - SetForgetPasswordConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15538,7 +16137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the forgot password policy for an EIAM instance.
+   * Configures the forgot password policy for EIAM.
    * 
    * @param request - SetForgetPasswordConfigurationRequest
    * @returns SetForgetPasswordConfigurationResponse
@@ -15951,7 +16550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the password expiration policy for a specified Enterprise Identity and Access Management (EIAM) instance.
+   * Sets the password expiration policy for a specified EIAM instance.
    * 
    * @param request - SetPasswordExpirationConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16014,7 +16613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the password expiration policy for a specified Enterprise Identity and Access Management (EIAM) instance.
+   * Sets the password expiration policy for a specified EIAM instance.
    * 
    * @param request - SetPasswordExpirationConfigurationRequest
    * @returns SetPasswordExpirationConfigurationResponse
@@ -16025,7 +16624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the password history policy for a specified Enterprise Identity and Access Management (EIAM) instance.
+   * Sets the password history policy for a specified EIAM instance.
    * 
    * @param request - SetPasswordHistoryConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16064,7 +16663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the password history policy for a specified Enterprise Identity and Access Management (EIAM) instance.
+   * Sets the password history policy for a specified EIAM instance.
    * 
    * @param request - SetPasswordHistoryConfigurationRequest
    * @returns SetPasswordHistoryConfigurationResponse
@@ -16075,7 +16674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the password initialization policy for a specified EIAM instance.
+   * Configures the password initialization policy for a specified EIAM instance.
    * 
    * @param request - SetPasswordInitializationConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16122,7 +16721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the password initialization policy for a specified EIAM instance.
+   * Configures the password initialization policy for a specified EIAM instance.
    * 
    * @param request - SetPasswordInitializationConfigurationRequest
    * @returns SetPasswordInitializationConfigurationResponse
@@ -16133,7 +16732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the specified client public key as the primary key for an application.
+   * Sets the specified application ClientPublicKey as preferred.
    * 
    * @param request - SetPrimaryClientPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16176,7 +16775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the specified client public key as the primary key for an application.
+   * Sets the specified application ClientPublicKey as preferred.
    * 
    * @param request - SetPrimaryClientPublicKeyRequest
    * @returns SetPrimaryClientPublicKeyResponse
@@ -16341,7 +16940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a third-party logon account from a user.
+   * Disassociates a third-party logon account.
    * 
    * @param request - UnbindUserAuthnSourceMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16384,7 +16983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Unbinds a third-party logon account from a user.
+   * Disassociates a third-party logon account.
    * 
    * @param request - UnbindUserAuthnSourceMappingRequest
    * @returns UnbindUserAuthnSourceMappingResponse
@@ -16441,7 +17040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the advanced configuration of an application.
+   * Updates the advanced configurations of an application.
    * 
    * @param request - UpdateApplicationAdvancedConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16480,7 +17079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the advanced configuration of an application.
+   * Updates the advanced configurations of an application.
    * 
    * @param request - UpdateApplicationAdvancedConfigRequest
    * @returns UpdateApplicationAdvancedConfigResponse
@@ -16491,7 +17090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the authorization type of an Employee Identity and Access Management (EIAM) application.
+   * Updates the access authorization type of a specified EIAM application.
    * 
    * @param request - UpdateApplicationAuthorizationTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16530,7 +17129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the authorization type of an Employee Identity and Access Management (EIAM) application.
+   * Updates the access authorization type of a specified EIAM application.
    * 
    * @param request - UpdateApplicationAuthorizationTypeRequest
    * @returns UpdateApplicationAuthorizationTypeResponse
@@ -16541,7 +17140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the expiration time of a specified ClientSecret for an application.
+   * Updates the expiration time of a specified client secret for an application.
    * 
    * @param request - UpdateApplicationClientSecretExpirationTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16584,7 +17183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the expiration time of a specified ClientSecret for an application.
+   * Updates the expiration time of a specified client secret for an application.
    * 
    * @param request - UpdateApplicationClientSecretExpirationTimeRequest
    * @returns UpdateApplicationClientSecretExpirationTimeResponse
@@ -16595,7 +17194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of an Employee Identity and Access Management (EIAM) application.
+   * Updates the description of an EIAM application.
    * 
    * @param request - UpdateApplicationDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16634,7 +17233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of an Employee Identity and Access Management (EIAM) application.
+   * Updates the description of an EIAM application.
    * 
    * @param request - UpdateApplicationDescriptionRequest
    * @returns UpdateApplicationDescriptionResponse
@@ -17057,7 +17656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic properties of an authorization rule.
+   * Updates the basic information of an authorization rule.
    * 
    * @param request - UpdateAuthorizationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17106,7 +17705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the basic properties of an authorization rule.
+   * Updates the basic information of an authorization rule.
    * 
    * @param request - UpdateAuthorizationRuleRequest
    * @returns UpdateAuthorizationRuleResponse
@@ -17117,7 +17716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the properties of the relationship between an authorization rule and an application.
+   * Updates the relationship properties between an authorization rule and an application.
    * 
    * @param request - UpdateAuthorizationRuleApplicationAttachmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17170,7 +17769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the properties of the relationship between an authorization rule and an application.
+   * Updates the relationship properties between an authorization rule and an application.
    * 
    * @param request - UpdateAuthorizationRuleApplicationAttachmentRequest
    * @returns UpdateAuthorizationRuleApplicationAttachmentResponse
@@ -17301,7 +17900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the relationship properties between an authorization rule and an account.
+   * Updates the relationship attributes between an authorization rule and an account.
    * 
    * @param request - UpdateAuthorizationRuleUserAttachmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17354,7 +17953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the relationship properties between an authorization rule and an account.
+   * Updates the relationship attributes between an authorization rule and an account.
    * 
    * @param request - UpdateAuthorizationRuleUserAttachmentRequest
    * @returns UpdateAuthorizationRuleUserAttachmentResponse
@@ -17701,6 +18300,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates a permission template.
+   * 
+   * @remarks
+   * Retrieves the list of application templates.
+   * 
+   * @param request - UpdateCloudPermissionTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudPermissionTemplateResponse
+   */
+  async updateCloudPermissionTemplateWithOptions(request: $_model.UpdateCloudPermissionTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCloudPermissionTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.allowRequest)) {
+      query["AllowRequest"] = request.allowRequest;
+    }
+
+    if (!$dara.isNull(request.applicableScope)) {
+      query["ApplicableScope"] = request.applicableScope;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudAccountResources)) {
+      query["CloudAccountResources"] = request.cloudAccountResources;
+    }
+
+    if (!$dara.isNull(request.cloudPermissionTemplateId)) {
+      query["CloudPermissionTemplateId"] = request.cloudPermissionTemplateId;
+    }
+
+    if (!$dara.isNull(request.cloudPermissionTemplateName)) {
+      query["CloudPermissionTemplateName"] = request.cloudPermissionTemplateName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCloudPermissionTemplate",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCloudPermissionTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCloudPermissionTemplateResponse({}));
+  }
+
+  /**
+   * Updates a permission template.
+   * 
+   * @remarks
+   * Retrieves the list of application templates.
+   * 
+   * @param request - UpdateCloudPermissionTemplateRequest
+   * @returns UpdateCloudPermissionTemplateResponse
+   */
+  async updateCloudPermissionTemplate(request: $_model.UpdateCloudPermissionTemplateRequest): Promise<$_model.UpdateCloudPermissionTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCloudPermissionTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Updates a conditional access policy.
    * 
    * @remarks
@@ -17837,7 +18516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update basic information for a credential.
+   * Updates the basic information of a credential.
    * 
    * @param request - UpdateCredentialRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17884,7 +18563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update basic information for a credential.
+   * Updates the basic information of a credential.
    * 
    * @param request - UpdateCredentialRequest
    * @returns UpdateCredentialResponse
@@ -18571,7 +19250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name of a private network access endpoint.
+   * Updates the name of a dedicated network access endpoint.
    * 
    * @param request - UpdateNetworkAccessEndpointNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18610,7 +19289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name of a private network access endpoint.
+   * Updates the name of a dedicated network access endpoint.
    * 
    * @param request - UpdateNetworkAccessEndpointNameRequest
    * @returns UpdateNetworkAccessEndpointNameResponse
@@ -18687,7 +19366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description of a network zone.
+   * Updates the description of a network zone object.
    * 
    * @param request - UpdateNetworkZoneDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18730,7 +19409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the description of a network zone.
+   * Updates the description of a network zone object.
    * 
    * @param request - UpdateNetworkZoneDescriptionRequest
    * @returns UpdateNetworkZoneDescriptionResponse

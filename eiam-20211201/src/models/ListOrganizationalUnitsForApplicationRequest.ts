@@ -15,7 +15,7 @@ export class ListOrganizationalUnitsForApplicationRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色ID。
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -33,7 +33,7 @@ export class ListOrganizationalUnitsForApplicationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of organization IDs. A single request can contain up to 100 organization IDs.
+   * The organizational unit IDs. A maximum of 100 organizational unit IDs can be specified in a single operation.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -49,7 +49,7 @@ export class ListOrganizationalUnitsForApplicationRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20

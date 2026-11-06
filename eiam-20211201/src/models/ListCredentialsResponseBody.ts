@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCredentialsResponseBodyCredentialsCredentialContentOAuthClientContent extends $dara.Model {
   /**
    * @remarks
-   * The client_id of the OAuth protocol.
+   * The client ID of the OAuth protocol.
    * 
    * @example
    * dmvncmxersdxxxxxx
@@ -35,7 +35,7 @@ export class ListCredentialsResponseBodyCredentialsCredentialContentOAuthClientC
 export class ListCredentialsResponseBodyCredentialsCredentialContent extends $dara.Model {
   /**
    * @remarks
-   * The credential content of the OAuth client authentication credential type.
+   * The content of an OAuth client credential.
    */
   OAuthClientContent?: ListCredentialsResponseBodyCredentialsCredentialContentOAuthClientContent;
   static names(): { [key: string]: string } {
@@ -65,7 +65,7 @@ export class ListCredentialsResponseBodyCredentialsCredentialContent extends $da
 export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   /**
    * @remarks
-   * The creation time, in UNIX timestamp format. Unit: milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830225000
@@ -80,12 +80,19 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
    * @remarks
    * The creation type of the credential. Valid values:
    * - system_init: Created by the system.
-   * - user_custom: Created by the user.
+   * - user_custom: Created by a user.
    * 
    * @example
    * user_custom
    */
   credentialCreationType?: string;
+  /**
+   * @remarks
+   * The external unique identifiers of the credentials.
+   * 
+   * @example
+   * 23528e9957304f57b98112c72788b5xxxxx
+   */
   credentialExternalId?: string;
   /**
    * @remarks
@@ -113,18 +120,27 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   credentialName?: string;
   /**
    * @remarks
-   * The scenarios label of the credential. Valid values:
-   * - llm: large language model.
-   * - saas: third-party SaaS service.
+   * The Scenarios label of the credential. Valid values:
+   * - llm: Large model.
+   * - saas: Third-party SaaS service.
    * 
    * @example
    * llm
    */
   credentialScenarioLabel?: string;
+  /**
+   * @remarks
+   * The credential sharing scope. Valid values:
+   * - common: General.
+   * - user_exclusive: Account-specific.
+   * 
+   * @example
+   * common
+   */
   credentialSharingScope?: string;
   /**
    * @remarks
-   * The subject ID to which the credential belongs.
+   * The ID of the subject to which the credential belongs.
    * 
    * @example
    * apt_werthgfdsasffxxxxx
@@ -133,7 +149,7 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   /**
    * @remarks
    * The subject type to which the credential belongs. Valid values:
-   * - authentication_token_provider: authentication token provider.
+   * - authentication_token_provider: Authentication token provider.
    * 
    * @example
    * authentication_token_provider
@@ -142,8 +158,8 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   /**
    * @remarks
    * The credential type. Valid values:
-   * - api_key: API key authentication credential.
-   * - oauth_client: OAuth client authentication credential.
+   * - api_key: API key credential.
+   * - oauth_client: OAuth client credential.
    * 
    * @example
    * api_key
@@ -157,6 +173,13 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
    * credential_description
    */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the exclusive user for the credential.
+   * 
+   * @example
+   * user_d6sbsuumeta4h66ec3il7yxxxx
+   */
   exclusiveUserId?: string;
   /**
    * @remarks
@@ -178,7 +201,7 @@ export class ListCredentialsResponseBodyCredentials extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time, in UNIX timestamp format. Unit: milliseconds.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830227000
@@ -248,7 +271,7 @@ export class ListCredentialsResponseBody extends $dara.Model {
   credentials?: ListCredentialsResponseBodyCredentials[];
   /**
    * @remarks
-   * The maximum number of entries per page for paging.
+   * The number of entries per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -256,7 +279,7 @@ export class ListCredentialsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned in this call.
+   * The pagination token returned by the current request.
    * 
    * @example
    * NTxxxexample
@@ -272,7 +295,7 @@ export class ListCredentialsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of items.
    * 
    * @example
    * 100

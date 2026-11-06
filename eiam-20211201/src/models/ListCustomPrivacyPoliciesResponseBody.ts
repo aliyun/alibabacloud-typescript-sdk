@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends $dara.Model {
   /**
    * @remarks
-   * The custom term ID.
+   * The ID of the custom privacy policy.
    * 
    * @example
    * pp_xxxxx
@@ -13,7 +13,7 @@ export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends 
   customPrivacyPolicyId?: string;
   /**
    * @remarks
-   * The custom term name.
+   * The name of the custom privacy policy.
    * 
    * @example
    * Custom Privacy Policy Name
@@ -21,7 +21,7 @@ export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends 
   customPrivacyPolicyName?: string;
   /**
    * @remarks
-   * The default language term entry. The value is obtained from the LanguageCode field returned by the ListLanguages operation.
+   * The default language code for the privacy policy. The valid values are the LanguageCode values returned by the ListLanguages operation.
    * 
    * @example
    * zh-Hans-CN
@@ -37,7 +37,7 @@ export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends 
   instanceId?: string;
   /**
    * @remarks
-   * The custom term status.
+   * The status of the custom privacy policy.
    * 
    * @example
    * enabled
@@ -45,7 +45,7 @@ export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends 
   status?: string;
   /**
    * @remarks
-   * The consent type of the custom term.
+   * The user consent type for the custom privacy policy.
    * 
    * @example
    * implied_consent
@@ -85,12 +85,12 @@ export class ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies extends 
 export class ListCustomPrivacyPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of custom terms.
+   * The list of custom privacy policies.
    */
   customPrivacyPolicies?: ListCustomPrivacyPoliciesResponseBodyCustomPrivacyPolicies[];
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The maximum number of entries to return per page in a paging query.
    * 
    * @example
    * 20
@@ -98,7 +98,7 @@ export class ListCustomPrivacyPoliciesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The pagination token returned by the current request.
    * 
    * @example
    * NTxxxexample
@@ -106,7 +106,7 @@ export class ListCustomPrivacyPoliciesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The pagination token returned by the current request.
    * 
    * @example
    * PTxxxexample
@@ -122,7 +122,7 @@ export class ListCustomPrivacyPoliciesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 100

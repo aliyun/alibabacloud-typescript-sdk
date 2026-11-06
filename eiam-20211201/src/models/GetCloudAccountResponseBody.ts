@@ -50,7 +50,7 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResul
   errorReason?: GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResultErrorReason;
   /**
    * @remarks
-   * The time of the last check. The value is a UNIX timestamp in milliseconds.
+   * The last check time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -58,9 +58,10 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResul
   lastCheckTime?: number;
   /**
    * @remarks
-   * The health check result of the cloud account. Valid values:
-   * - success: The check succeeded.
-   * - failed: The check failed.
+   * The cloud account health check result. Valid values:
+   * 
+   * - success: Success.
+   * - failed: Failure.
    * 
    * @example
    * success
@@ -105,7 +106,7 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig e
   audience?: string;
   /**
    * @remarks
-   * The ID of the authorization server.
+   * The authorization server ID.
    * 
    * @example
    * iauths_system
@@ -157,7 +158,7 @@ export class GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig e
 export class GetCloudAccountResponseBodyCloudAccountPrivilegeHostingError extends $dara.Model {
   /**
    * @remarks
-   * The error code of the failure.
+   * The failure error code.
    * 
    * @example
    * Error
@@ -165,7 +166,7 @@ export class GetCloudAccountResponseBodyCloudAccountPrivilegeHostingError extend
   errorCode?: string;
   /**
    * @remarks
-   * The error message of the failure.
+   * The failure message.
    * 
    * @example
    * test message
@@ -205,10 +206,10 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   cloudAccountExternalId?: string;
   /**
    * @remarks
-   * The health status of the cloud account. Valid values:
-   * - healthy: The cloud account is healthy.
-   * - unhealthy: The cloud account is unhealthy.
-   * - unknown: The health status is unknown.
+   * The cloud account health status. Valid values:
+   * - healthy: Healthy.
+   * - unhealthy: Unhealthy.
+   * - unknown: Unknown.
    * 
    * @example
    * healthy
@@ -216,7 +217,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   cloudAccountHealth?: string;
   /**
    * @remarks
-   * The health check result of the cloud account.
+   * The cloud account health check result.
    */
   cloudAccountHealthCheckResult?: GetCloudAccountResponseBodyCloudAccountCloudAccountHealthCheckResult;
   /**
@@ -229,7 +230,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   cloudAccountId?: string;
   /**
    * @remarks
-   * The name of the cloud account.
+   * The cloud account name.
    * 
    * @example
    * cloud_accout_xxxx
@@ -237,12 +238,12 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   cloudAccountName?: string;
   /**
    * @remarks
-   * The configuration information of the identity provider.
+   * The identity provider configuration information.
    */
   cloudAccountProviderConfig?: GetCloudAccountResponseBodyCloudAccountCloudAccountProviderConfig;
   /**
    * @remarks
-   * The name of the identity provider.
+   * The identity provider name.
    * 
    * @example
    * idaas-eiam-oidc-provider
@@ -250,7 +251,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   cloudAccountProviderName?: string;
   /**
    * @remarks
-   * The site of the cloud account. Valid values:
+   * The cloud account site. Valid values:
    * - china_mainland: The Chinese mainland.
    * - global: Global.
    * 
@@ -260,7 +261,8 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   cloudAccountSite?: string;
   /**
    * @remarks
-   * The type of the cloud account. Valid values:
+   * The cloud account type. Valid values:
+   * 
    * - alibaba_cloud: Alibaba Cloud.
    * 
    * @example
@@ -277,7 +279,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The description of the cloud account.
+   * The cloud account description.
    * 
    * @example
    * cloud_accout_description
@@ -293,7 +295,7 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of associated privileged application IDs.
+   * The list of associated privilege application IDs.
    */
   privilegeApplicationIds?: string[];
   /**
@@ -303,13 +305,13 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   privilegeHostingError?: GetCloudAccountResponseBodyCloudAccountPrivilegeHostingError;
   /**
    * @remarks
-   * The hosting status of the cloud account. Default value: hosting_unmanaged. Valid values:
+   * The cloud account hosting status. Default value: hosting_unmanaged. Valid values:
    * - hosting_unmanaged: Unmanaged. The cloud account has not initiated hosting and is in the initial state.
-   * - hosting_pending: Hosting. The hosting task has been submitted and is being executed asynchronously. Wait for the hosting process to complete to enter the final state.
-   * - hosting_completed: Hosting completed. The cloud account hosting process is executed successfully, and the relevant permission templates and hosting bindings have taken effect.
-   * - hosting_failed: Hosting failed. The hosting process encounters an exception. You can view the cause of the failure and initiate hosting again.
-   * - hosting_removing: Removing. The removal task has been submitted and is being executed asynchronously. Wait for the removal process to complete to enter the final state.
-   * - hosting_remove_failed: Removal failed. The removal process encounters an exception. You can view the cause of the failure and initiate removal again.
+   * - hosting_pending: Hosting. The hosting task is submitted and executed asynchronously. You must wait for the hosting process to complete to enter the final state.
+   * - hosting_completed: Hosting completed. The hosting process is executed successfully, and the relevant permission templates and hosting bindings take effect.
+   * - hosting_failed: Hosting failed. An exception occurs during the hosting process. You can view the failure cause and initiate hosting again.
+   * - hosting_removing: Removing. The removal task is submitted and executed asynchronously. You must wait for the removal process to complete to enter the final state.
+   * - hosting_remove_failed: Removal failed. An exception occurs during the removal process. You can view the failure cause and initiate removal again.
    * 
    * @example
    * hosting_unmanaged
@@ -317,9 +319,9 @@ export class GetCloudAccountResponseBodyCloudAccount extends $dara.Model {
   privilegeHostingState?: string;
   /**
    * @remarks
-   * The status of the privilege switch. Valid values:
-   * - enabled: Enabled. The resource is in the effective state and can be used normally.
-   * - disabled: Disabled. The resource is in the stopped state and no longer takes effect. You can enable it again to restore it.
+   * The privilege switch status. Valid values:
+   * - enabled: Enabled. The resource is active and can be used normally.
+   * - disabled: Disabled. The resource is deactivated and no longer takes effect. You can re-enable it to restore the resource.
    * 
    * @example
    * enabled

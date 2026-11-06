@@ -13,7 +13,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   principalId?: string;
   /**
    * @remarks
-   * The Azure resource group name.
+   * The name of the Azure resource group.
    * 
    * @example
    * user_default
@@ -70,7 +70,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   instanceIds?: string[];
   /**
    * @remarks
-   * The GCP project ID to which the resource belongs.
+   * The ID of the GCP project to which the resource belongs.
    * 
    * @example
    * turnkey-axiom-475109-xx
@@ -78,7 +78,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   projectId?: string;
   /**
    * @remarks
-   * The subject (sub) that corresponds to the service account.
+   * The sub claim corresponding to the service account.
    * 
    * @example
    * 123456789
@@ -145,7 +145,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
 export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicationFederatedCredentialsOidcVerificationConfigKubernetesConfig extends $dara.Model {
   /**
    * @remarks
-   * The Kubernetes namespace.
+   * The K8s namespace.
    * 
    * @example
    * default
@@ -161,7 +161,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   podNamePrefix?: string;
   /**
    * @remarks
-   * The Kubernetes service account name.
+   * The name of the K8s service account.
    * 
    * @example
    * default
@@ -331,7 +331,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   applicationId?: string;
   /**
    * @remarks
-   * The time when the credential was created. The value is a UNIX timestamp in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1758785994982
@@ -363,7 +363,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   instanceId?: string;
   /**
    * @remarks
-   * The time when the credential was last used. The value is a UNIX timestamp in milliseconds.
+   * The last used time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1758785994982
@@ -389,7 +389,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   status?: string;
   /**
    * @remarks
-   * The time when the credential was last updated. The value is a UNIX timestamp in milliseconds.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1758785994982
@@ -406,8 +406,8 @@ export class ListApplicationFederatedCredentialsForProviderResponseBodyApplicati
   /**
    * @remarks
    * The verification mode. Valid values:
-   * - freedom: free mode.
-   * - structured: structured mode.
+   * - freedom: free mode
+   * - structured: structured mode
    * 
    * @example
    * structured
@@ -476,7 +476,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBody extends 
   applicationFederatedCredentials?: ListApplicationFederatedCredentialsForProviderResponseBodyApplicationFederatedCredentials[];
   /**
    * @remarks
-   * The maximum number of entries per page in a paged query.
+   * The maximum number of rows per page in a paging query.
    * 
    * @example
    * 20
@@ -484,7 +484,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBody extends 
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The pagination token returned by the current call.
    * 
    * @example
    * NTxxxexample
@@ -492,7 +492,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBody extends 
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The pagination token returned by the current call.
    * 
    * @example
    * PTxxxexample
@@ -508,7 +508,7 @@ export class ListApplicationFederatedCredentialsForProviderResponseBody extends 
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of items.
    * 
    * @example
    * 100

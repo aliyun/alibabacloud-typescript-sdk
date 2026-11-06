@@ -15,7 +15,7 @@ export class GetInstanceModuleInfoRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The identifier of the first-level module.
+   * The level-1 module identifier.
    * 
    * This parameter is required.
    * 

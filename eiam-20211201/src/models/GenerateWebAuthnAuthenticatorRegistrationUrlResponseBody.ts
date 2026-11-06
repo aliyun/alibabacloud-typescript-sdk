@@ -13,7 +13,7 @@ export class GenerateWebAuthnAuthenticatorRegistrationUrlResponseBodyWebAuthnAut
   registrationUrl?: string;
   /**
    * @remarks
-   * The parameters for the WebAuthn authenticator registration URL.
+   * The WebAuthn authenticator registration URL parameters.
    * 
    * @example
    * eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwia2lkIjoia2V5X29ueWNzbXNib3Y1bmV2anlncHgyZnlsbjdhIn0
@@ -53,7 +53,7 @@ export class GenerateWebAuthnAuthenticatorRegistrationUrlResponseBody extends $d
   requestId?: string;
   /**
    * @remarks
-   * Information about the WebAuthn authenticator registration URL.
+   * The WebAuthn authenticator registration URL information.
    */
   webAuthnAuthenticatorRegistrationUrl?: GenerateWebAuthnAuthenticatorRegistrationUrlResponseBodyWebAuthnAuthenticatorRegistrationUrl;
   static names(): { [key: string]: string } {

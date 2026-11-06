@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOrganizationalUnitRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetOrganizationalUnitRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Organizational unit ID.
+   * The organizational unit ID.
    * 
    * This parameter is required.
    * 

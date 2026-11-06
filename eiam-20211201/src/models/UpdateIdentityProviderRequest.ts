@@ -21,7 +21,7 @@ export class UpdateIdentityProviderRequestDingtalkAppConfig extends $dara.Model 
   appSecret?: string;
   /**
    * @remarks
-   * The DingTalk QR code login version.
+   * The DingTalk scan-to-logon version.
    * 
    * @example
    * new_version
@@ -91,7 +91,7 @@ export class UpdateIdentityProviderRequestLarkConfig extends $dara.Model {
   appSecret?: string;
   /**
    * @remarks
-   * The encryptKey of the custom Lark application.
+   * The EncryptKey of the custom Lark application.
    * 
    * @example
    * VkdWw91mdkrjVFr3ObNwefap21dfbZbKxxxx
@@ -99,7 +99,7 @@ export class UpdateIdentityProviderRequestLarkConfig extends $dara.Model {
   encryptKey?: string;
   /**
    * @remarks
-   * The verificationToken of the custom Lark application.
+   * The VerificationToken of the custom Lark application.
    * 
    * @example
    * feishuVerifyTokenxxxxx
@@ -138,12 +138,12 @@ export class UpdateIdentityProviderRequestLdapConfig extends $dara.Model {
    * The administrator password.
    * 
    * @example
-   * xxxxxx
+   * ExamplePassword123!
    */
   administratorPassword?: string;
   /**
    * @remarks
-   * The administrator account.
+   * The administrator username.
    * 
    * @example
    * DC=example,DC=com
@@ -192,7 +192,7 @@ export class UpdateIdentityProviderRequestLdapConfig extends $dara.Model {
   ldapServerPort?: number;
   /**
    * @remarks
-   * Specifies whether StartTLS is enabled. Valid values:
+   * Specifies whether to enable StartTLS. Valid values:
    * - disabled: Disabled.
    * 
    * - enabled: Enabled.
@@ -318,7 +318,7 @@ export class UpdateIdentityProviderRequestOidcConfigEndpointConfig extends $dara
   tokenEndpoint?: string;
   /**
    * @remarks
-   * The OIDC UserInfo endpoint.
+   * The OIDC userinfo endpoint.
    * 
    * @example
    * https://example.com/oauth/userinfo
@@ -393,7 +393,7 @@ export class UpdateIdentityProviderRequestOidcConfig extends $dara.Model {
   pkceChallengeMethod?: string;
   /**
    * @remarks
-   * Specifies whether to use PKCE in the AuthorizationCode grant mode.
+   * Specifies whether to use PKCE in authorization code mode.
    * 
    * @example
    * true
@@ -442,7 +442,7 @@ export class UpdateIdentityProviderRequestOidcConfig extends $dara.Model {
 export class UpdateIdentityProviderRequestSamlConfigCertificates extends $dara.Model {
   /**
    * @remarks
-   * The content of the certificate.
+   * The certificate content.
    * 
    * @example
    * -----BEGIN CERTIFICATE----- MIIC0jCCAbqgAwIBAgIQXXXXX-----END CERTIFICATE-----
@@ -472,7 +472,7 @@ export class UpdateIdentityProviderRequestSamlConfigCertificates extends $dara.M
 export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
   /**
    * @remarks
-   * The binding type.
+   * The binding method.
    * 
    * @example
    * HTTP-REDIRECT
@@ -480,7 +480,7 @@ export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
   bindingMethod?: string;
   /**
    * @remarks
-   * The list of IdP certificates.
+   * The list of certificates for the IdP.
    */
   certificates?: UpdateIdentityProviderRequestSamlConfigCertificates[];
   /**
@@ -509,7 +509,7 @@ export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
   maxClockSkew?: number;
   /**
    * @remarks
-   * Specifies whether the request must be signed.
+   * Specifies whether to require the request to be signed.
    * 
    * @example
    * true
@@ -517,7 +517,7 @@ export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
   requireRequestSigned?: boolean;
   /**
    * @remarks
-   * Specifies whether the external IdP is required to sign the Assertion.
+   * Specifies whether to require the external IdP to sign the assertion.
    * 
    * @example
    * true
@@ -525,7 +525,7 @@ export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
   wantAssertionsSigned?: boolean;
   /**
    * @remarks
-   * Specifies whether the external IdP is required to sign the Response.
+   * Specifies whether to require the external IdP to sign the response.
    * 
    * @example
    * false
@@ -572,7 +572,7 @@ export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
 export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
   /**
    * @remarks
-   * The AgentId of the WeCom self-built application.
+   * The AgentId of the WeCom custom application.
    * 
    * @example
    * 1237403
@@ -596,7 +596,7 @@ export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
   contactSecret?: string;
   /**
    * @remarks
-   * The CorpSecret of the WeCom self-built application.
+   * The CorpSecret of the WeCom custom application.
    * 
    * @example
    * CSEHDddddddxxxxuxkJEHPveWRXBGqVqRsxxxx
@@ -650,7 +650,7 @@ export class UpdateIdentityProviderRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The DingTalk configuration basic information.
+   * The basic DingTalk configuration information.
    */
   dingtalkAppConfig?: UpdateIdentityProviderRequestDingtalkAppConfig;
   /**
@@ -688,7 +688,7 @@ export class UpdateIdentityProviderRequest extends $dara.Model {
   larkConfig?: UpdateIdentityProviderRequestLarkConfig;
   /**
    * @remarks
-   * The AD/LDAP basic information.
+   * The basic AD/LDAP information.
    */
   ldapConfig?: UpdateIdentityProviderRequestLdapConfig;
   /**
@@ -701,7 +701,7 @@ export class UpdateIdentityProviderRequest extends $dara.Model {
   logoUrl?: string;
   /**
    * @remarks
-   * The network endpoint ID.
+   * The network access endpoint ID.
    * 
    * @example
    * nae_examplexxxx
@@ -719,7 +719,7 @@ export class UpdateIdentityProviderRequest extends $dara.Model {
   samlConfig?: UpdateIdentityProviderRequestSamlConfig;
   /**
    * @remarks
-   * The WeCom basic information.
+   * The basic WeCom information.
    */
   weComConfig?: UpdateIdentityProviderRequestWeComConfig;
   static names(): { [key: string]: string } {

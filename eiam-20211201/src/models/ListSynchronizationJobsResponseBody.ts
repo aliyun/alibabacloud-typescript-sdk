@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsBinded extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -65,7 +65,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsCreated extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -81,7 +81,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -89,7 +89,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -125,7 +125,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsDeleted extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -133,7 +133,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -141,7 +141,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -149,7 +149,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -185,7 +185,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsPushed extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -193,7 +193,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -201,7 +201,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -209,7 +209,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -245,7 +245,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsSame extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -253,7 +253,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -261,7 +261,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -269,7 +269,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -305,7 +305,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsUpdated extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -313,7 +313,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -321,7 +321,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -329,7 +329,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -365,32 +365,32 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatistics extends $dara.Model {
   /**
    * @remarks
-   * Binding result statistics
+   * The statistics of the binding result.
    */
   binded?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsBinded;
   /**
    * @remarks
-   * Creation result statistics
+   * The statistics of the creation result.
    */
   created?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsCreated;
   /**
    * @remarks
-   * Deletion result statistics
+   * The statistics of the deletion result.
    */
   deleted?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsDeleted;
   /**
    * @remarks
-   * Push result statistics
+   * The statistics of the push result.
    */
   pushed?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsPushed;
   /**
    * @remarks
-   * Unchanged result statistics
+   * The statistics of identical results.
    */
   same?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsSame;
   /**
    * @remarks
-   * Update result statistics
+   * The statistics of the update result.
    */
   updated?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatisticsUpdated;
   static names(): { [key: string]: string } {
@@ -445,7 +445,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMe
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsBinded extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -453,7 +453,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -461,7 +461,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -469,7 +469,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -505,7 +505,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsCreated extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -513,7 +513,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -521,7 +521,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -529,7 +529,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -565,7 +565,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsDeleted extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -573,7 +573,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -581,7 +581,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -589,7 +589,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -625,7 +625,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsPushed extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -633,7 +633,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -641,7 +641,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -649,7 +649,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -685,7 +685,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsSame extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -693,7 +693,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -701,7 +701,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -709,7 +709,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -745,7 +745,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsUpdated extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -753,7 +753,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -761,7 +761,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -769,7 +769,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -805,32 +805,32 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatistics extends $dara.Model {
   /**
    * @remarks
-   * Binding result statistics
+   * The statistics of the binding result.
    */
   binded?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsBinded;
   /**
    * @remarks
-   * Creation result statistics
+   * The statistics of the creation result.
    */
   created?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsCreated;
   /**
    * @remarks
-   * Deletion result statistics
+   * The statistics of the deletion result.
    */
   deleted?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsDeleted;
   /**
    * @remarks
-   * Push result statistics
+   * The statistics of the push result.
    */
   pushed?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsPushed;
   /**
    * @remarks
-   * Unchanged result statistics
+   * The statistics of identical results.
    */
   same?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsSame;
   /**
    * @remarks
-   * Update result statistics
+   * The statistics of the update result.
    */
   updated?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatisticsUpdated;
   static names(): { [key: string]: string } {
@@ -885,7 +885,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupSt
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsBinded extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -893,7 +893,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -901,7 +901,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -909,7 +909,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -945,7 +945,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsCreated extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -953,7 +953,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -961,7 +961,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -969,7 +969,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -1005,7 +1005,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsDeleted extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -1013,7 +1013,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -1021,7 +1021,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -1029,7 +1029,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -1062,10 +1062,70 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   }
 }
 
+export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsExported extends $dara.Model {
+  /**
+   * @remarks
+   * The number of failures.
+   * 
+   * @example
+   * 0
+   */
+  failed?: number;
+  /**
+   * @remarks
+   * The number of skipped items.
+   * 
+   * @example
+   * 0
+   */
+  skipped?: number;
+  /**
+   * @remarks
+   * The number of successes.
+   * 
+   * @example
+   * 0
+   */
+  success?: number;
+  /**
+   * @remarks
+   * The total count.
+   * 
+   * @example
+   * 0
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failed: 'Failed',
+      skipped: 'Skipped',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failed: 'number',
+      skipped: 'number',
+      success: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsPushed extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -1073,7 +1133,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -1081,7 +1141,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -1089,7 +1149,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -1125,7 +1185,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsSame extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -1133,7 +1193,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -1141,7 +1201,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -1149,7 +1209,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -1185,7 +1245,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsUpdated extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -1193,7 +1253,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -1201,7 +1261,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -1209,7 +1269,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -1245,32 +1305,37 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatistics extends $dara.Model {
   /**
    * @remarks
-   * Binding result statistics
+   * The statistics of the binding result.
    */
   binded?: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsBinded;
   /**
    * @remarks
-   * Creation result statistics
+   * The statistics of the creation result.
    */
   created?: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsCreated;
   /**
    * @remarks
-   * Deletion result statistics
+   * The statistics of the deletion result.
    */
   deleted?: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsDeleted;
   /**
    * @remarks
-   * Push result statistics
+   * The export result statistics.
+   */
+  exported?: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsExported;
+  /**
+   * @remarks
+   * The statistics of the push result.
    */
   pushed?: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsPushed;
   /**
    * @remarks
-   * Unchanged result statistics
+   * The statistics of identical results.
    */
   same?: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsSame;
   /**
    * @remarks
-   * Update result statistics
+   * The statistics of the update result.
    */
   updated?: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsUpdated;
   static names(): { [key: string]: string } {
@@ -1278,6 +1343,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
       binded: 'Binded',
       created: 'Created',
       deleted: 'Deleted',
+      exported: 'Exported',
       pushed: 'Pushed',
       same: 'Same',
       updated: 'Updated',
@@ -1289,6 +1355,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
       binded: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsBinded,
       created: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsCreated,
       deleted: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsDeleted,
+      exported: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsExported,
       pushed: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsPushed,
       same: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsSame,
       updated: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatisticsUpdated,
@@ -1304,6 +1371,9 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
     }
     if(this.deleted && typeof (this.deleted as any).validate === 'function') {
       (this.deleted as any).validate();
+    }
+    if(this.exported && typeof (this.exported as any).validate === 'function') {
+      (this.exported as any).validate();
     }
     if(this.pushed && typeof (this.pushed as any).validate === 'function') {
       (this.pushed as any).validate();
@@ -1325,7 +1395,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganiz
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsBinded extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -1333,7 +1403,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -1341,7 +1411,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -1349,7 +1419,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -1385,7 +1455,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsCreated extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -1393,7 +1463,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -1401,7 +1471,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -1409,7 +1479,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -1445,7 +1515,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsDeleted extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -1453,7 +1523,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -1461,7 +1531,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -1469,7 +1539,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -1505,7 +1575,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsExported extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 2
@@ -1513,7 +1583,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -1521,7 +1591,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 2
@@ -1529,7 +1599,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 5
@@ -1565,7 +1635,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsPushed extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -1573,7 +1643,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -1581,7 +1651,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -1589,7 +1659,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -1625,7 +1695,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsSame extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -1633,7 +1703,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -1641,7 +1711,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -1649,7 +1719,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -1685,7 +1755,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsUpdated extends $dara.Model {
   /**
    * @remarks
-   * Failure count
+   * The number of failures.
    * 
    * @example
    * 1
@@ -1693,7 +1763,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   failed?: number;
   /**
    * @remarks
-   * Skipped count
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -1701,7 +1771,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   skipped?: number;
   /**
    * @remarks
-   * Success count
+   * The number of successes.
    * 
    * @example
    * 1
@@ -1709,7 +1779,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
   success?: number;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * @example
    * 3
@@ -1745,37 +1815,37 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatistics extends $dara.Model {
   /**
    * @remarks
-   * Binding result statistics
+   * The statistics of the binding result.
    */
   binded?: ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsBinded;
   /**
    * @remarks
-   * Creation result statistics
+   * The statistics of the creation result.
    */
   created?: ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsCreated;
   /**
    * @remarks
-   * Deletion result statistics
+   * The statistics of the deletion result.
    */
   deleted?: ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsDeleted;
   /**
    * @remarks
-   * Export result statistics
+   * The export result statistics.
    */
   exported?: ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsExported;
   /**
    * @remarks
-   * Push result statistics
+   * The statistics of the push result.
    */
   pushed?: ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsPushed;
   /**
    * @remarks
-   * Unchanged result statistics
+   * The statistics of identical results.
    */
   same?: ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsSame;
   /**
    * @remarks
-   * Update result statistics
+   * The statistics of the update result.
    */
   updated?: ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatisticsUpdated;
   static names(): { [key: string]: string } {
@@ -1835,7 +1905,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResultUserSta
 export class ListSynchronizationJobsResponseBodySynchronizationJobsResult extends $dara.Model {
   /**
    * @remarks
-   * Synchronization result error code
+   * The error code of the synchronization result.
    * 
    * @example
    * MissingParameter.Username
@@ -1843,7 +1913,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResult extend
   errorCode?: string;
   /**
    * @remarks
-   * Synchronization result error message
+   * The error message of the synchronization result.
    * 
    * @example
    * The specified parameter Username is required!
@@ -1851,22 +1921,22 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResult extend
   errorMessage?: string;
   /**
    * @remarks
-   * Group member synchronization result statistics
+   * The statistics of the group member synchronization result.
    */
   groupMemberStatistics?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupMemberStatistics;
   /**
    * @remarks
-   * Group synchronization result statistics
+   * The group synchronization result statistics.
    */
   groupStatistics?: ListSynchronizationJobsResponseBodySynchronizationJobsResultGroupStatistics;
   /**
    * @remarks
-   * Organizational unit synchronization result statistics
+   * The organizational unit synchronization result statistics.
    */
   organizationalUnitStatistics?: ListSynchronizationJobsResponseBodySynchronizationJobsResultOrganizationalUnitStatistics;
   /**
    * @remarks
-   * User synchronization result statistics
+   * The user synchronization result statistics.
    */
   userStatistics?: ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatistics;
   static names(): { [key: string]: string } {
@@ -1915,7 +1985,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobsResult extend
 export class ListSynchronizationJobsResponseBodySynchronizationJobs extends $dara.Model {
   /**
    * @remarks
-   * Synchronization job description
+   * The description of the synchronization job.
    * 
    * @example
    * Description
@@ -1923,7 +1993,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobs extends $dar
   description?: string;
   /**
    * @remarks
-   * Synchronization job direction. Valid values:
+   * The direction of the synchronization task. Valid values:
    * 
    * - ingress: inbound
    * 
@@ -1935,7 +2005,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobs extends $dar
   direction?: string;
   /**
    * @remarks
-   * Synchronization end time in Unix timestamp format, in milliseconds.
+   * The end time of the synchronization. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -1943,12 +2013,12 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobs extends $dar
   endTime?: number;
   /**
    * @remarks
-   * Synchronization job result
+   * The task result of the synchronization node.
    */
   result?: ListSynchronizationJobsResponseBodySynchronizationJobsResult;
   /**
    * @remarks
-   * Synchronization start time in Unix timestamp format, in milliseconds.
+   * The start time of the synchronization. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -1956,7 +2026,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobs extends $dar
   startTime?: number;
   /**
    * @remarks
-   * Synchronization job status. Valid values:
+   * The status of the synchronization task. Valid values:
    * 
    * - pending: initial state
    * 
@@ -1964,9 +2034,9 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobs extends $dar
    * 
    * - failed: failed
    * 
-   * - partial_success: partially succeeded
+   * - partial_success: partially successful
    * 
-   * - success: succeeded
+   * - success: successful
    * 
    * @example
    * success
@@ -1974,7 +2044,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobs extends $dar
   status?: string;
   /**
    * @remarks
-   * Synchronization job ID
+   * The ID of the synchronization job.
    * 
    * @example
    * sync_0000347vjovtcf41li0fgsd98gn24q9njxxxxx
@@ -1982,7 +2052,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobs extends $dar
   synchronizationJobId?: string;
   /**
    * @remarks
-   * Synchronization target ID
+   * The synchronization target ID.
    * 
    * @example
    * idp_my664lwkhpicbyzirog3xxxxx
@@ -1990,7 +2060,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobs extends $dar
   targetId?: string;
   /**
    * @remarks
-   * Synchronization target type. Valid values:
+   * The type of the synchronization target. Valid values:
    * 
    * - identity_provider: identity provider
    * 
@@ -2002,11 +2072,11 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobs extends $dar
   targetType?: string;
   /**
    * @remarks
-   * Synchronization trigger type. Valid values:
+   * The trigger type of the synchronization job. Valid values:
    * 
-   * - auto: automatically triggered
+   * - auto: Automatically triggered.
    * 
-   * - manual: manually triggered
+   * - manual: Manually triggered.
    * 
    * @example
    * auto
@@ -2057,7 +2127,7 @@ export class ListSynchronizationJobsResponseBodySynchronizationJobs extends $dar
 export class ListSynchronizationJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The query token value returned by this request.
+   * The query token returned by this call.
    * 
    * @example
    * NTxxxexample
@@ -2065,7 +2135,7 @@ export class ListSynchronizationJobsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -2073,12 +2143,12 @@ export class ListSynchronizationJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of synchronization jobs
+   * The list of synchronization jobs.
    */
   synchronizationJobs?: ListSynchronizationJobsResponseBodySynchronizationJobs[];
   /**
    * @remarks
-   * Total number of entries.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

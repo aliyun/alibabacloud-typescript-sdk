@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsForUserResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
-   * The account group ID.
+   * The group ID.
    * 
    * @example
    * group_d6sbsuumeta4h66ec3il7yxxxx
@@ -13,9 +13,7 @@ export class ListGroupsForUserResponseBodyGroups extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The source ID of the group member relationship.
-   * 
-   * For the build_in type, this defaults to the instance ID. For other types, this corresponds to the enterprise ID of the respective source. For example, for a DingTalk source, this corresponds to the corpId of the DingTalk enterprise.
+   * The source ID of the group member relationship. For self-managed groups, the default value is the instance ID. For other types, the value corresponds to the enterprise ID of the source. For example, if the source is DingTalk, the value is the corpId of the DingTalk enterprise.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -24,16 +22,11 @@ export class ListGroupsForUserResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
    * The source type of the group member relationship. Valid values:
-   * 
-   * build_in: built-in.
-   * 
-   * ding_talk: imported from DingTalk.
-   * 
-   * ad: imported from AD.
-   * 
-   * ldap: imported from LDAP.
-   * 
-   * we_com: imported from WeCom.
+   * - build_in: Self-managed.
+   * - ding_talk: Imported from DingTalk.
+   * - ad: Imported from AD.
+   * - ldap: Imported from LDAP.
+   * - we_com: Imported from WeCom.
    * 
    * @example
    * build_in
@@ -67,7 +60,7 @@ export class ListGroupsForUserResponseBodyGroups extends $dara.Model {
 export class ListGroupsForUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of account groups.
+   * The list of groups.
    */
   groups?: ListGroupsForUserResponseBodyGroups[];
   /**
@@ -80,7 +73,7 @@ export class ListGroupsForUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of matching records. The maximum number of records returned per page is determined by PageSize.
+   * The total number of matched entries. The maximum number of entries returned per page is specified by the PageSize parameter.
    * 
    * @example
    * 1000

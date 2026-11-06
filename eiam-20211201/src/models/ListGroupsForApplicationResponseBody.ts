@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsForApplicationResponseBodyGroupsApplicationRoles extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application role.
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -35,7 +35,7 @@ export class ListGroupsForApplicationResponseBodyGroupsApplicationRoles extends 
 export class ListGroupsForApplicationResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
-   * The list of application roles. This parameter is not returned for SAML applications.
+   * The list of application roles. No roles are returned for SAML applications.
    */
   applicationRoles?: ListGroupsForApplicationResponseBodyGroupsApplicationRoles[];
   /**
@@ -75,7 +75,7 @@ export class ListGroupsForApplicationResponseBodyGroups extends $dara.Model {
 export class ListGroupsForApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of groups.
+   * The list of group IDs.
    */
   groups?: ListGroupsForApplicationResponseBodyGroups[];
   /**

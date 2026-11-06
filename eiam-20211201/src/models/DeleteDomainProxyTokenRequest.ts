@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDomainProxyTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name ID.
+   * The domain ID.
    * 
    * This parameter is required.
    * 

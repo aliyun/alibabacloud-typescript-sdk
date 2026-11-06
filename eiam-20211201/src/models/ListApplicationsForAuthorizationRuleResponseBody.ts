@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForAuthorizationRuleResponseBodyApplicationsValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * The end time of the validity period, in UNIX timestamp format. Unit: milliseconds.
+   * The end time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -13,7 +13,7 @@ export class ListApplicationsForAuthorizationRuleResponseBodyApplicationsValidit
   endTime?: number;
   /**
    * @remarks
-   * The start time of the validity period, in UNIX timestamp format. Unit: milliseconds.
+   * The start time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -61,14 +61,14 @@ export class ListApplicationsForAuthorizationRuleResponseBodyApplications extend
   instanceId?: string;
   /**
    * @remarks
-   * The time range of the validity period. This parameter takes effect only when ValidityType is set to time_bound.
+   * The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
    */
   validityPeriod?: ListApplicationsForAuthorizationRuleResponseBodyApplicationsValidityPeriod;
   /**
    * @remarks
    * The validity type of the association. Valid values:
    * - permanent: permanent
-   * - time_bound: custom time range.
+   * - time_bound: custom time range
    * 
    * @example
    * permanent
@@ -120,7 +120,7 @@ export class ListApplicationsForAuthorizationRuleResponseBody extends $dara.Mode
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned in this call. Use this token for the next paged query.
+   * The pagination token returned in the response, which is used to query the next page.
    * 
    * @example
    * NTxxxexample
@@ -136,7 +136,7 @@ export class ListApplicationsForAuthorizationRuleResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 100

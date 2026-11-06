@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSynchronizationJobsRequestFilters extends $dara.Model {
   /**
    * @remarks
-   * Dynamic parameter name
+   * The name of the dynamic parameter.
    * 
    * @example
    * qps
@@ -13,7 +13,7 @@ export class ListSynchronizationJobsRequestFilters extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Dynamic parameter values
+   * The value of the dynamic parameter.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class ListSynchronizationJobsRequestFilters extends $dara.Model {
 export class ListSynchronizationJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * Synchronization job direction. Valid values:
+   * The direction of the synchronization task. Valid values:
    * 
    * - ingress: inbound
    * 
@@ -57,7 +57,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * Synchronization end time in Unix timestamp format, in milliseconds.
+   * The end time of the synchronization. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -65,12 +65,12 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Filter parameters
+   * The filter parameters.
    */
   filters?: ListSynchronizationJobsRequestFilters[];
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -80,7 +80,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Number of rows per page for paginated queries. Maximum value: 100.
+   * The number of entries per page for a paged query. Maximum value: 100.
    * 
    * @example
    * 20
@@ -88,7 +88,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token for querying the next page. This parameter is not returned when there are no more pages.
+   * The token used to query the next page. If no more pages exist, this parameter is not returned.
    * 
    * @example
    * NTxxxxxexample
@@ -96,7 +96,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Page number, starting from 1.
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -104,7 +104,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size. Maximum value: 100.
+   * The number of entries per page. Maximum value: 100.
    * 
    * @example
    * 10
@@ -112,7 +112,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Synchronization start time in Unix timestamp format, in milliseconds.
+   * The start time of the synchronization. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -120,7 +120,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * Synchronization job status. Valid values:
+   * The status of the synchronization task. Valid values:
    * 
    * - pending: initial state
    * 
@@ -128,9 +128,9 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
    * 
    * - failed: failed
    * 
-   * - partial_success: partially succeeded
+   * - partial_success: partially successful
    * 
-   * - success: succeeded
+   * - success: successful
    * 
    * @example
    * running
@@ -138,7 +138,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * List of synchronization target IDs. [idp_111XXXX,idp_222XXXX]
+   * The list of synchronization target IDs. Example: [idp_111XXXX,idp_222XXXX].
    * 
    * @example
    * target_001
@@ -146,7 +146,7 @@ export class ListSynchronizationJobsRequest extends $dara.Model {
   targetIds?: string[];
   /**
    * @remarks
-   * Synchronization target type. Valid values:
+   * The type of the synchronization target. Valid values:
    * 
    * - identity_provider: identity provider
    * 

@@ -13,7 +13,7 @@ export class UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPr
   customPrivacyPolicyItemName?: string;
   /**
    * @remarks
-   * The endpoint of the custom privacy policy item. The value must start with https\\://.
+   * The access URL of the custom privacy policy item. The URL must start with https://.
    * 
    * @example
    * https://example.com
@@ -50,7 +50,7 @@ export class UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents extends
   customPrivacyPolicyItems?: UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPrivacyPolicyItems[];
   /**
    * @remarks
-   * The prompt for the custom privacy policy content.
+   * The tip for the custom privacy policy content.
    * 
    * @example
    * Please read and agree：
@@ -58,7 +58,7 @@ export class UpdateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents extends
   customPrivacyPolicyTip?: string;
   /**
    * @remarks
-   * The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
+   * The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages API operation.
    * 
    * @example
    * zh-Hans-CN
@@ -118,7 +118,7 @@ export class UpdateCustomPrivacyPolicyRequest extends $dara.Model {
   customPrivacyPolicyName?: string;
   /**
    * @remarks
-   * The default language of the policy. The value is the LanguageCode returned by the ListLanguages operation.
+   * The default language code for the privacy policy items. The value is the LanguageCode returned by the ListLanguages API operation.
    * 
    * @example
    * zh-Hans-CN

@@ -7,7 +7,7 @@ export class ListApplicationsForAuthorizationRuleRequestFilter extends $dara.Mod
    * @remarks
    * The name of the filter field. Valid values:
    * 
-   * - ApplicationId: the application ID.
+   * - ApplicationId: the application ID
    * 
    * @example
    * ApplicationId
@@ -15,7 +15,7 @@ export class ListApplicationsForAuthorizationRuleRequestFilter extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The values of the filter field.
+   * The list of filter field values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -72,11 +72,7 @@ export class ListApplicationsForAuthorizationRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
-   * 
-   * - Default value: 20.
-   * 
-   * - Maximum value: 100.
+   * The maximum number of entries per page. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20
@@ -84,9 +80,7 @@ export class ListApplicationsForAuthorizationRuleRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that indicates the start position of the next page.
-   * 
-   * - If this parameter is not specified, the query starts from the first page.
+   * The pagination token that specifies the starting position for the next page. If you do not specify this parameter, the query starts from the first page by default.
    * 
    * @example
    * NTxxxxxexample

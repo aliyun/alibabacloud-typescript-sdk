@@ -15,7 +15,7 @@ export class ListNetworkAccessEndpointsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of rows per page in a paged query. Maximum value: 100.
+   * The number of entries to return per page in a paging query. Maximum value: 100.
    * 
    * @example
    * 20
@@ -41,7 +41,7 @@ export class ListNetworkAccessEndpointsRequest extends $dara.Model {
    * The type of the network access endpoint. Valid values:
    * 
    * - shared: shared network access endpoint.
-   * - private: dedicated network access endpoint.
+   * - private: private network access endpoint.
    * 
    * Default value: private.
    * 
@@ -51,7 +51,7 @@ export class ListNetworkAccessEndpointsRequest extends $dara.Model {
   networkAccessEndpointType?: string;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call. Leave this parameter empty for the first query.
+   * The pagination token. Set the value to the NextToken value returned from the previous API call. Leave this parameter empty for the first call.
    * 
    * @example
    * NTxxxxxexample
@@ -59,7 +59,7 @@ export class ListNetworkAccessEndpointsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The VPC ID of the dedicated network access endpoint. This parameter does not take effect when NetworkAccessEndpointType is set to shared.
+   * The ID of the VPC to which the private network access endpoint is connected. This parameter does not take effect when NetworkAccessEndpointType is set to shared.
    * 
    * @example
    * vpc-examplexxx
@@ -67,7 +67,7 @@ export class ListNetworkAccessEndpointsRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The region of the VPC for the dedicated network access endpoint. The region must be one of the regions returned by the ListNetworkAccessEndpointAvailableRegions operation. This parameter does not take effect when NetworkAccessEndpointType is set to shared.
+   * The region of the VPC to which the private network access endpoint is connected. The region must be returned by the ListNetworkAccessEndpointAvailableRegions operation. This parameter does not take effect when NetworkAccessEndpointType is set to shared.
    * 
    * @example
    * cn-hangzhou

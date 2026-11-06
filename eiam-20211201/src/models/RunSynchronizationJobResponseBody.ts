@@ -13,7 +13,7 @@ export class RunSynchronizationJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The synchronization task ID.
+   * The ID of the synchronization task.
    * 
    * @example
    * sync_0000347vjovtcf41li0fgsd98gn24q9nj9xxxxx

@@ -33,7 +33,7 @@ export class CheckInstanceModuleStatusRequest extends $dara.Model {
   moduleKey?: string;
   /**
    * @remarks
-   * The resource label URN key.
+   * The URN key of the resource label.
    * 
    * @example
    * urn:alibaba:idaas:license:label:template:app
@@ -41,7 +41,7 @@ export class CheckInstanceModuleStatusRequest extends $dara.Model {
   resourceLabelKey?: string;
   /**
    * @remarks
-   * The resource label name.
+   * The name of the resource label.
    * 
    * @example
    * apt_ram_user_sso

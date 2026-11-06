@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateFileImportTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether field selection mode is enabled.
+   */
+  fieldSelectionEnabled?: boolean;
+  /**
+   * @remarks
    * The instance ID.
    * 
    * This parameter is required.
@@ -15,10 +20,12 @@ export class GenerateFileImportTemplateRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The synchronization target type. Valid values:
-   * - identity_provider: identity provider
-   * - application: application
-   * - eiam_v2_user_import: IDaaS 2.0 user import.
+   * The selected fields.
+   */
+  selectedFieldNames?: string[];
+  /**
+   * @remarks
+   * The synchronization target type.
    * 
    * This parameter is required.
    * 
@@ -29,19 +36,26 @@ export class GenerateFileImportTemplateRequest extends $dara.Model {
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
+      fieldSelectionEnabled: 'FieldSelectionEnabled',
       instanceId: 'InstanceId',
+      selectedFieldNames: 'SelectedFieldNames',
       targetType: 'TargetType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      fieldSelectionEnabled: 'boolean',
       instanceId: 'string',
+      selectedFieldNames: { 'type': 'array', 'itemType': 'string' },
       targetType: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.selectedFieldNames)) {
+      $dara.Model.validateArray(this.selectedFieldNames);
+    }
     super.validate();
   }
 

@@ -60,7 +60,7 @@ export class ListApplicationsForNetworkZoneResponseBody extends $dara.Model {
   applications?: ListApplicationsForNetworkZoneResponseBodyApplications[];
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries to return per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -68,7 +68,7 @@ export class ListApplicationsForNetworkZoneResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The next token returned by this call.
    * 
    * @example
    * NTxxxexample
@@ -76,7 +76,7 @@ export class ListApplicationsForNetworkZoneResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The next token returned by this call.
    * 
    * @example
    * PTxxxexample
@@ -92,7 +92,7 @@ export class ListApplicationsForNetworkZoneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 100

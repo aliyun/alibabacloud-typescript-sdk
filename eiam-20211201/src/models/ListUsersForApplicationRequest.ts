@@ -15,7 +15,7 @@ export class ListUsersForApplicationRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色ID。
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -41,7 +41,7 @@ export class ListUsersForApplicationRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20
@@ -49,7 +49,7 @@ export class ListUsersForApplicationRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of account IDs. A maximum of 100 account IDs are supported in a single request.
+   * The list of account IDs. You can specify up to 100 account IDs in a single operation.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx

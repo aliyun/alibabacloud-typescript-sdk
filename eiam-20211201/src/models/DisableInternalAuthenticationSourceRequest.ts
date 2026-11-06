@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableInternalAuthenticationSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the internal authentication source.
+   * The internal authentication source ID.
    * 
    * @example
    * ia_password

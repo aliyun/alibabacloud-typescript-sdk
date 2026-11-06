@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForOrganizationalUnitRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of application IDs. A maximum of 100 application IDs are supported in a single operation.
+   * The list of application IDs. You can specify up to 100 application IDs in a single request.
    * 
    * @example
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx

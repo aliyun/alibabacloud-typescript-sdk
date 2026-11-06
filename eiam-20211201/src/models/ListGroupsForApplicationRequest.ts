@@ -23,7 +23,7 @@ export class ListGroupsForApplicationRequest extends $dara.Model {
   applicationRoleId?: string;
   /**
    * @remarks
-   * A list of group IDs. You can specify up to 100 group IDs in a single operation.
+   * The list of group IDs. You can specify up to 100 group IDs in a single operation.
    * 
    * @example
    * group_miu8e4t4d7i4u7uwezgr54xxxx
@@ -41,7 +41,7 @@ export class ListGroupsForApplicationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1
@@ -49,7 +49,7 @@ export class ListGroupsForApplicationRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20

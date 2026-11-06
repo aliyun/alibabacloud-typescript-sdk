@@ -45,7 +45,7 @@ export class ListNetworkAccessEndpointAvailableRegionsResponseBodyRegions extend
 export class ListNetworkAccessEndpointAvailableRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The collection of available regions.
+   * The list of available regions.
    */
   regions?: ListNetworkAccessEndpointAvailableRegionsResponseBodyRegions[];
   /**

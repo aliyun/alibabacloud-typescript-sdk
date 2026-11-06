@@ -25,7 +25,7 @@ export class DeleteWebAuthnAuthenticatorRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The user ID.
+   * UserID
    * 
    * This parameter is required.
    * 

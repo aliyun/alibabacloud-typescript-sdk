@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings extends $dara.Model {
   /**
    * @remarks
-   * The authentication source type of the source IdP.
+   * The source IdP authentication source type.
    * 
    * @example
    * urn:alibaba:idaas:authntype:oidc
@@ -21,7 +21,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
   createTime?: number;
   /**
    * @remarks
-   * The association information of the third-party account.
+   * The third-party account association information.
    * 
    * @example
    * {\\"userId\\":\\"xxxx\\",\\"name\\":\\"xxx\\",\\"bindTime\\":\\"1766050298872\\",\\"description\\":\\"bind request id: reqpre_xxx\\"}
@@ -105,7 +105,7 @@ export class ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings exte
 export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of rows per page in a paged query.
+   * The maximum number of entries to return per page in a paging query.
    * 
    * @example
    * 20
@@ -113,7 +113,7 @@ export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The pagination token returned by the current call.
    * 
    * @example
    * NTxxxexample
@@ -121,7 +121,7 @@ export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The pagination token returned by the current call.
    * 
    * @example
    * PTxxxexample
@@ -145,7 +145,7 @@ export class ListUserAuthnSourceMappingsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of third-party account login bindings.
+   * The list of third-party account logon bindings.
    */
   userAuthnSourceMappings?: ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings[];
   static names(): { [key: string]: string } {

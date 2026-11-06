@@ -31,7 +31,7 @@ export class ListGroupsForUserRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The account ID.
+   * The user ID.
    * 
    * This parameter is required.
    * 

@@ -21,12 +21,12 @@ export class ListNetworkZonesResponseBodyNetworkZones extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IPv4 CIDR blocks of the network zone.
+   * The IPv4 CIDR blocks.
    */
   ipv4Cidrs?: string[];
   /**
    * @remarks
-   * The IPv6 CIDR blocks of the network zone.
+   * The IPv6 CIDR blocks.
    */
   ipv6Cidrs?: string[];
   /**
@@ -105,12 +105,12 @@ export class ListNetworkZonesResponseBodyNetworkZones extends $dara.Model {
 export class ListNetworkZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of network zones.
+   * The network zones.
    */
   networkZones?: ListNetworkZonesResponseBodyNetworkZones[];
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The pagination token returned for this call.
    * 
    * @example
    * NTxxxexample
@@ -134,7 +134,7 @@ export class ListNetworkZonesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 100

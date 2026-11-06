@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomPrivacyPoliciesForBrandResponseBodyBrandCustomPrivacyPolicies extends $dara.Model {
   /**
    * @remarks
-   * The privacy policy ID.
+   * The custom privacy policy ID.
    * 
    * @example
    * pp_xxxx
@@ -40,7 +40,7 @@ export class ListCustomPrivacyPoliciesForBrandResponseBody extends $dara.Model {
   brandCustomPrivacyPolicies?: ListCustomPrivacyPoliciesForBrandResponseBodyBrandCustomPrivacyPolicies[];
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The maximum number of entries to return per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -48,7 +48,7 @@ export class ListCustomPrivacyPoliciesForBrandResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results.
+   * The pagination token returned for this call.
    * 
    * @example
    * NTxxxexample
@@ -56,7 +56,7 @@ export class ListCustomPrivacyPoliciesForBrandResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token to retrieve the previous page of results.
+   * The pagination token returned for this call.
    * 
    * @example
    * PTxxxexample

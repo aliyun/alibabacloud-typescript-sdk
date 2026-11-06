@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDomainProxyTokensRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain ID.
+   * The domain name ID.
    * 
    * This parameter is required.
    * 

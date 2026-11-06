@@ -35,7 +35,7 @@ export class ListUsersForApplicationResponseBodyUsersApplicationRoles extends $d
 export class ListUsersForApplicationResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * The list of application roles.
+   * The list of application roles. No roles are returned for SAML applications.
    */
   applicationRoles?: ListUsersForApplicationResponseBodyUsersApplicationRoles[];
   /**
@@ -91,7 +91,7 @@ export class ListUsersForApplicationResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of accounts.
+   * The list of account IDs.
    */
   users?: ListUsersForApplicationResponseBodyUsers[];
   static names(): { [key: string]: string } {

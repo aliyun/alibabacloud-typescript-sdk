@@ -25,7 +25,7 @@ export class DeleteApplicationClientSecretRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The client secret ID of the application.
+   * The ID of the client secret for the application.
    * 
    * This parameter is required.
    * 

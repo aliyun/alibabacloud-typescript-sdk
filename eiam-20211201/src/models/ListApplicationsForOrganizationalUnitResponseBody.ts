@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsForOrganizationalUnitResponseBodyApplicationsApplicationRoles extends $dara.Model {
   /**
    * @remarks
-   * The application role ID.
+   * The application role identifier.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -43,7 +43,7 @@ export class ListApplicationsForOrganizationalUnitResponseBodyApplications exten
   applicationId?: string;
   /**
    * @remarks
-   * The list of application roles.
+   * The list of application roles. No roles are returned for SAML applications.
    */
   applicationRoles?: ListApplicationsForOrganizationalUnitResponseBodyApplicationsApplicationRoles[];
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class ListApplicationsForOrganizationalUnitResponseBodyApplications exten
 export class ListApplicationsForOrganizationalUnitResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of applications that are authorized for access.
+   * The list of applications that the organization is authorized to access.
    */
   applications?: ListApplicationsForOrganizationalUnitResponseBodyApplications[];
   /**
@@ -88,7 +88,7 @@ export class ListApplicationsForOrganizationalUnitResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUsersResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * The account expiration time, in UNIX timestamp format. Unit: milliseconds.
+   * The expiration time of the account. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -13,7 +13,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   accountExpireTime?: number;
   /**
    * @remarks
-   * The account creation time, in UNIX timestamp format. Unit: milliseconds.
+   * The creation time of the account. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -29,7 +29,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name of the account.
+   * The display name.
    * 
    * @example
    * display_name001
@@ -45,7 +45,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * Indicates whether the email address has been verified. A value of true indicates that the email address has been verified by the user or set as verified by the administrator. A value of false indicates that the email address has not been verified.
+   * Indicates whether the email address is verified. A value of true indicates that the email address has been verified by the user or set as verified by the administrator. A value of false indicates that the email address is not verified.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The account lock expiration time, in UNIX timestamp format. Unit: milliseconds.
+   * The expiration time of the account lock. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -69,7 +69,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   lockExpireTime?: number;
   /**
    * @remarks
-   * The password expiration time, in UNIX timestamp format. Unit: milliseconds.
+   * The expiration time of the password. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -77,7 +77,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   passwordExpireTime?: number;
   /**
    * @remarks
-   * Indicates whether a password has been set.
+   * Indicates whether the password is set.
    * 
    * @example
    * false
@@ -85,7 +85,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   passwordSet?: boolean;
   /**
    * @remarks
-   * The phone number of the account.
+   * The phone number.
    * 
    * @example
    * 156xxxxxxx
@@ -93,7 +93,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * Indicates whether the phone number has been verified. A value of true indicates that the phone number has been verified by the user or set as verified by the administrator. A value of false indicates that the phone number has not been verified.
+   * Indicates whether the phone number is verified. A value of true indicates that the phone number has been verified by the user or set as verified by the administrator. A value of false indicates that the phone number is not verified.
    * 
    * @example
    * true
@@ -101,7 +101,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   phoneNumberVerified?: boolean;
   /**
    * @remarks
-   * The phone region code. Example: The region code for the Chinese mainland is 86, without the 00 or + prefix.
+   * The phone region code. Example: 86 for the Chinese mainland, without 00 or +.
    * 
    * @example
    * 86
@@ -109,7 +109,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   phoneRegion?: string;
   /**
    * @remarks
-   * The account registration time, in UNIX timestamp format. Unit: milliseconds.
+   * The registration time of the account. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -117,9 +117,9 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   registerTime?: number;
   /**
    * @remarks
-   * The account status. Valid values:
-   * - enabled: Enabled.
-   * - disabled: Disabled.
+   * The status of the account. Valid values:
+   * - enabled: enabled
+   * - disabled: disabled
    * 
    * @example
    * enabled
@@ -127,7 +127,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the account was last updated, in UNIX timestamp format. Unit: milliseconds.
+   * The last update time of the account. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -135,9 +135,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * The external ID of the account, which is used to associate external data with IDaaS accounts. The default value is the IDaaS account ID.
-   * 
-   * Note: The external ID must be unique within the same source type and source ID.
+   * The external ID of the account. This ID is used to map external data to IDaaS accounts. The default value is the IDaaS account ID. Note: The external ID must be unique within the same source type and source ID.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx
@@ -155,7 +153,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
    * @remarks
    * The source ID of the account.
    * 
-   * For self-built accounts, the default value is the instance ID. For other types, the value corresponds to the enterprise ID of the respective source. For example, for a DingTalk source, the value corresponds to the corpId of the DingTalk enterprise.
+   * For the build-in type, the default value is the instance ID. For other types, the value corresponds to the enterprise ID of the source. For example, for the DingTalk source, the value is the corpId of the DingTalk enterprise.
    * 
    * @example
    * idaas_ue2jvisn35ea5lmthk267xxxxx
@@ -164,10 +162,10 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
    * The source type of the account. Valid values:
-   * - build_in: self-built.
-   * - ding_talk: imported from DingTalk.
-   * - ad: imported from AD.
-   * - ldap: imported from LDAP.
+   * - build_in: self-managed
+   * - ding_talk: imported from DingTalk
+   * - ad: imported from AD
+   * - ldap: imported from LDAP
    * 
    * @example
    * build_in
@@ -245,7 +243,7 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
 export class ListUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page for paging.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -253,7 +251,7 @@ export class ListUsersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The query token.
    * 
    * @example
    * NTxxxxxexample
@@ -269,7 +267,7 @@ export class ListUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -277,7 +275,7 @@ export class ListUsersResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of account data.
+   * The list of accounts.
    */
   users?: ListUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {

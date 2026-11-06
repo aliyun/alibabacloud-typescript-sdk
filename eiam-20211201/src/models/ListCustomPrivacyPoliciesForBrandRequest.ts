@@ -25,7 +25,7 @@ export class ListCustomPrivacyPoliciesForBrandRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The maximum number of entries to return per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -33,7 +33,7 @@ export class ListCustomPrivacyPoliciesForBrandRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * The pagination token.
    * 
    * @example
    * NTxxxxxexample
@@ -41,7 +41,7 @@ export class ListCustomPrivacyPoliciesForBrandRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token that is used to retrieve the previous page of results.
+   * The previous token.
    * 
    * @example
    * PTxxxxxexample

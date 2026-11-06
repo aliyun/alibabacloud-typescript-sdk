@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateFileImportTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The download URL of the template.
+   * The template download URL.
    * 
    * @example
    * https://test.oss-cn-hangzhou.aliyuncs.com/idaas_ly77wa2oexrciw5v672vxxxx/tmp/eiam_v2_user_import_1766469463365.csv

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationProvisioningScopeResponseBodyApplicationProvisioningScope extends $dara.Model {
   /**
    * @remarks
-   * Synchronize the list of authorized groups.
+   * The list of groups authorized for synchronization.
    */
   groupIds?: string[];
   /**
    * @remarks
-   * Instance Indicates the maximum quota number of authorized agents.
+   * The maximum quota of authorized principals for the tenant.
    * 
    * @example
    * 1000
@@ -18,12 +18,12 @@ export class GetApplicationProvisioningScopeResponseBodyApplicationProvisioningS
   maxQuota?: number;
   /**
    * @remarks
-   * The list of organizational units that are authorized for account synchronization.
+   * The list of organizational unit scopes authorized for account synchronization.
    */
   organizationalUnitIds?: string[];
   /**
    * @remarks
-   * Indicates the quota number of used authorized agents.
+   * The used quota of authorized principals.
    * 
    * @example
    * 10
@@ -65,12 +65,12 @@ export class GetApplicationProvisioningScopeResponseBodyApplicationProvisioningS
 export class GetApplicationProvisioningScopeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The scope of account synchronization.
+   * The account synchronization scope.
    */
   applicationProvisioningScope?: GetApplicationProvisioningScopeResponseBodyApplicationProvisioningScope;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

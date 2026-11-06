@@ -10,7 +10,7 @@ export class UpdateApplicationAdvancedConfigRequestScimServerAdvancedConfig exte
   supportedUserCustomFieldIds?: string[];
   /**
    * @remarks
-   * The namespace of user extended fields.
+   * The namespace of user extension fields.
    * 
    * @example
    * urn:ietf:params:scim:schemas:extension:customfield:2.0:User
@@ -65,7 +65,7 @@ export class UpdateApplicationAdvancedConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The SCIM server advanced configuration.
+   * The advanced configurations of the SCIM server.
    */
   scimServerAdvancedConfig?: UpdateApplicationAdvancedConfigRequestScimServerAdvancedConfig;
   static names(): { [key: string]: string } {

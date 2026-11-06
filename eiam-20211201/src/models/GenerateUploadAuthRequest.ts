@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateUploadAuthRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GenerateUploadAuthRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * File purpose.
+   * The file purpose.
    * 
    * @example
    * user_import
@@ -23,7 +23,7 @@ export class GenerateUploadAuthRequest extends $dara.Model {
   purpose?: string;
   /**
    * @remarks
-   * File type.
+   * The file type.
    * 
    * @example
    * image

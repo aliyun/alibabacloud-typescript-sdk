@@ -33,7 +33,7 @@ export class RevokeApplicationFromUsersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of account IDs. A maximum of 100 account IDs are supported in a single operation.
+   * The list of account IDs. You can specify up to 100 account IDs in a single request.
    * 
    * This parameter is required.
    * 

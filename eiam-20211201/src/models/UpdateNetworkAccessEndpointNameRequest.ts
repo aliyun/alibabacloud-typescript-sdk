@@ -15,7 +15,7 @@ export class UpdateNetworkAccessEndpointNameRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the private network access endpoint.
+   * The ID of the dedicated network access endpoint.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateNetworkAccessEndpointNameRequest extends $dara.Model {
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The name of the private network access endpoint. The endpoint type must be private.
+   * The name of the dedicated network access endpoint. You can only update the name of a network access endpoint whose NetworkEndpointType is dedicated (private). xx business VPC access endpoint.
    * 
    * This parameter is required.
    * 

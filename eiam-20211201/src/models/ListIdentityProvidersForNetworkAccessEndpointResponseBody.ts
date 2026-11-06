@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIdentityProvidersForNetworkAccessEndpointResponseBodyIdentityProvidersForNetworkAccessEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IdP.
+   * The IdP ID.
    * 
    * @example
    * idp_nbq7i4ylodmm64iy6t5muxxxxx
@@ -13,7 +13,7 @@ export class ListIdentityProvidersForNetworkAccessEndpointResponseBodyIdentityPr
   identityProviderId?: string;
   /**
    * @remarks
-   * The name of the IdP.
+   * The IdP name.
    * 
    * @example
    * OIDC Provider
@@ -55,12 +55,12 @@ export class ListIdentityProvidersForNetworkAccessEndpointResponseBodyIdentityPr
 export class ListIdentityProvidersForNetworkAccessEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The collection of IdPs for the network endpoint.
+   * The IdPs under the network access endpoint.
    */
   identityProvidersForNetworkAccessEndpoint?: ListIdentityProvidersForNetworkAccessEndpointResponseBodyIdentityProvidersForNetworkAccessEndpoint[];
   /**
    * @remarks
-   * The token that is returned from the call.
+   * The pagination token returned by this call.
    * 
    * @example
    * NTxxxexample

@@ -15,7 +15,7 @@ export class RevokeApplicationFromOrganizationalUnitsRequest extends $dara.Model
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色ID。
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -33,7 +33,7 @@ export class RevokeApplicationFromOrganizationalUnitsRequest extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * A list of organizational unit IDs. A single operation supports up to 100 organizational unit IDs.
+   * The list of organizational unit IDs. You can specify up to 100 organizational unit IDs in a single request.
    * 
    * This parameter is required.
    * 

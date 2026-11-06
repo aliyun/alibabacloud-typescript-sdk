@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateApplicationDescriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application that you want to modify.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateApplicationDescriptionRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

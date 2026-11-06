@@ -85,7 +85,7 @@ export class GetCustomFieldResponseBodyCustomFieldFieldDataConfig extends $dara.
 export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   /**
    * @remarks
-   * The time when the extended field was created, in UNIX timestamp format. Unit: milliseconds.
+   * The creation time of the extended field. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 17642960730
@@ -117,7 +117,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   encrypted?: boolean;
   /**
    * @remarks
-   * The entity type to which the field belongs.
+   * The entity type of the field.
    * 
    * @example
    * user
@@ -125,7 +125,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The field value configuration items.
+   * The configuration items for the field values.
    */
   fieldDataConfig?: GetCustomFieldResponseBodyCustomFieldFieldDataConfig;
   /**
@@ -202,7 +202,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   unique?: boolean;
   /**
    * @remarks
-   * The time when the extended field was last updated, in UNIX timestamp format. Unit: milliseconds.
+   * The last update time of the extended field. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 17642960730
@@ -210,7 +210,7 @@ export class GetCustomFieldResponseBodyCustomField extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * The user-side (portal-side) permission.
+   * The permissions on the user portal side.
    * 
    * @example
    * read_only

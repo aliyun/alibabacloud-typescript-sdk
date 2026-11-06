@@ -15,7 +15,7 @@ export class ListApplicationsForNetworkZoneRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries to return per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -23,7 +23,7 @@ export class ListApplicationsForNetworkZoneRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The ID of the network zone associated with the application.
+   * The ID of the network zone.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListApplicationsForNetworkZoneRequest extends $dara.Model {
   networkZoneId?: string;
   /**
    * @remarks
-   * The pagination token.
+   * The next token.
    * 
    * @example
    * NTxxxxxexample
@@ -41,7 +41,7 @@ export class ListApplicationsForNetworkZoneRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The pagination token for the previous page.
+   * The previous token.
    * 
    * @example
    * PTxxxxxexample

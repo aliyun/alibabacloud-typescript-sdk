@@ -15,7 +15,7 @@ export class AuthorizeApplicationToOrganizationalUnitsRequest extends $dara.Mode
   applicationId?: string;
   /**
    * @remarks
-   * 应用角色ID。
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -33,7 +33,7 @@ export class AuthorizeApplicationToOrganizationalUnitsRequest extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The list of organization IDs. You can specify a maximum of 100 organization IDs per operation.
+   * The list of organizational unit IDs. A single operation supports up to 100 organizational unit IDs.
    * 
    * This parameter is required.
    * 

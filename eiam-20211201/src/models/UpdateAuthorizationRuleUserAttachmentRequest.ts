@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAuthorizationRuleUserAttachmentRequestValidityPeriod extends $dara.Model {
   /**
    * @remarks
-   * The end time of the validity period, in UNIX timestamp format. Unit: milliseconds.
+   * The end time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704062061000
@@ -13,7 +13,7 @@ export class UpdateAuthorizationRuleUserAttachmentRequestValidityPeriod extends 
   endTime?: number;
   /**
    * @remarks
-   * The start time of the validity period, in UNIX timestamp format. Unit: milliseconds.
+   * The start time of the validity period. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1704042061000
@@ -55,7 +55,7 @@ export class UpdateAuthorizationRuleUserAttachmentRequest extends $dara.Model {
   authorizationRuleId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * The client token that is used to ensure the idempotence of the request. You can generate a parameter value from your client to ensure that the parameter value is unique among different requests. The ClientToken parameter can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -85,14 +85,14 @@ export class UpdateAuthorizationRuleUserAttachmentRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
+   * The time range of the validity period. This parameter takes effect when **ValidityType** is set to **time_bound**.
    */
   validityPeriod?: UpdateAuthorizationRuleUserAttachmentRequestValidityPeriod;
   /**
    * @remarks
    * The validity type of the relationship. Valid values:
-   * - permanent: permanent
-   * - time_bound: custom time range.
+   * - permanent: Permanent.
+   * - time_bound: Custom time range.
    * 
    * This parameter is required.
    * 

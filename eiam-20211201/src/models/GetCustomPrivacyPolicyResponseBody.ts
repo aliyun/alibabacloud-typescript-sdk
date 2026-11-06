@@ -13,7 +13,7 @@ export class GetCustomPrivacyPolicyResponseBodyCustomPrivacyPolicyCustomPrivacyP
   customPrivacyPolicyItemName?: string;
   /**
    * @remarks
-   * The URL of the custom privacy policy item. The URL must start with https://.
+   * The access URL of the custom privacy policy item. The URL must start with https://.
    * 
    * @example
    * https://example.com
@@ -50,7 +50,7 @@ export class GetCustomPrivacyPolicyResponseBodyCustomPrivacyPolicyCustomPrivacyP
   customPrivacyPolicyItems?: GetCustomPrivacyPolicyResponseBodyCustomPrivacyPolicyCustomPrivacyPolicyContentsCustomPrivacyPolicyItems[];
   /**
    * @remarks
-   * The tip for the custom privacy policy content.
+   * The prompt for the custom privacy policy content.
    * 
    * @example
    * Please read and agree：
@@ -58,7 +58,7 @@ export class GetCustomPrivacyPolicyResponseBodyCustomPrivacyPolicyCustomPrivacyP
   customPrivacyPolicyTip?: string;
   /**
    * @remarks
-   * The language of the custom privacy policy. The value is obtained from the LanguageCode parameter returned by the ListLanguages operation.
+   * The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
    * 
    * @example
    * zh-Hans-CN
@@ -95,7 +95,7 @@ export class GetCustomPrivacyPolicyResponseBodyCustomPrivacyPolicyCustomPrivacyP
 export class GetCustomPrivacyPolicyResponseBodyCustomPrivacyPolicy extends $dara.Model {
   /**
    * @remarks
-   * The content details of the custom privacy policy.
+   * The details of the custom privacy policy content.
    */
   customPrivacyPolicyContents?: GetCustomPrivacyPolicyResponseBodyCustomPrivacyPolicyCustomPrivacyPolicyContents[];
   /**
@@ -116,7 +116,7 @@ export class GetCustomPrivacyPolicyResponseBodyCustomPrivacyPolicy extends $dara
   customPrivacyPolicyName?: string;
   /**
    * @remarks
-   * The language of the custom privacy policy. The value is obtained from the LanguageCode parameter returned by the ListLanguages operation.
+   * The language of the custom privacy policy. The value is the LanguageCode returned by the ListLanguages operation.
    * 
    * @example
    * zh-Hans-CN
@@ -132,7 +132,7 @@ export class GetCustomPrivacyPolicyResponseBodyCustomPrivacyPolicy extends $dara
   instanceId?: string;
   /**
    * @remarks
-   * The status of the custom privacy policy. Valid values:
+   * The account status. Valid values:
    * - enabled: Enabled.
    * - disabled: Disabled.
    * 

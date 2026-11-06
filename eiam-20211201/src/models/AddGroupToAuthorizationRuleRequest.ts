@@ -55,7 +55,7 @@ export class AddGroupToAuthorizationRuleRequest extends $dara.Model {
   authorizationRuleId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but you must ensure that the parameter value is unique among different requests. The ClientToken parameter can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -85,14 +85,14 @@ export class AddGroupToAuthorizationRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The time range of the validity period. This parameter takes effect only when **ValidityType** is set to **time_bound**.
+   * The time range of the validity period. This parameter takes effect when **ValidityType** is set to **time_bound**.
    */
   validityPeriod?: AddGroupToAuthorizationRuleRequestValidityPeriod;
   /**
    * @remarks
    * The validity type of the relationship. Valid values:
-   * - permanent: permanent
-   * - time_bound: custom time range.
+   * - permanent: Permanent.
+   * - time_bound: Custom time range.
    * 
    * This parameter is required.
    * 

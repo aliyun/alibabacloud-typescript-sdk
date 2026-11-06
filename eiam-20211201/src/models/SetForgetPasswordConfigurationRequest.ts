@@ -6,8 +6,8 @@ export class SetForgetPasswordConfigurationRequest extends $dara.Model {
   /**
    * @remarks
    * The list of authentication channels. Valid values:
-   * - email: email.
-   * - sms: text message.
+   * - email: Email.
+   * - sms: SMS.
    * 
    * @example
    * email
@@ -16,8 +16,8 @@ export class SetForgetPasswordConfigurationRequest extends $dara.Model {
   /**
    * @remarks
    * The forgot password configuration status. Valid values:
-   * - enabled: enabled.
-   * - disabled: disabled.
+   * - enabled: Enabled.
+   * - disabled: Disabled.
    * 
    * This parameter is required.
    * 

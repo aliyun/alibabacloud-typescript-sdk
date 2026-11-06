@@ -65,7 +65,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResourcesConditi
 export class ListAuthorizationResourcesResponseBodyAuthorizationResources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource entity associated with the authorized resource.
+   * The ID of the resource entity associated with the authorization resource.
    * 
    * @example
    * carole_01kmek49aqxxxx
@@ -73,7 +73,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   authorizationResourceEntityId?: string;
   /**
    * @remarks
-   * The type of the resource entity associated with the authorized resource. Valid values:
+   * The type of the resource entity associated with the authorization resource. Valid values:
    * - cloud_account_role: cloud role.
    * 
    * @example
@@ -98,7 +98,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   authorizationRuleId?: string;
   /**
    * @remarks
-   * The ID of the cloud account to which the resource entity associated with the authorized resource belongs.
+   * The ID of the cloud account to which the resource entity associated with the authorization resource belongs.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -106,12 +106,12 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   cloudAccountId?: string;
   /**
    * @remarks
-   * The effective condition.
+   * The effective conditions.
    */
   condition?: ListAuthorizationResourcesResponseBodyAuthorizationResourcesCondition;
   /**
    * @remarks
-   * The creation time, in UNIX timestamp format. Unit: milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1768789292000
@@ -127,7 +127,7 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
   instanceId?: string;
   /**
    * @remarks
-   * The update time, in UNIX timestamp format. Unit: milliseconds.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1768789292000
@@ -176,12 +176,12 @@ export class ListAuthorizationResourcesResponseBodyAuthorizationResources extend
 export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of authorized resources.
+   * The list of authorization resources.
    */
   authorizationResources?: ListAuthorizationResourcesResponseBodyAuthorizationResources[];
   /**
    * @remarks
-   * The number of rows per page in a paging query.
+   * The maximum number of entries returned per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -189,7 +189,7 @@ export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned in this call, which is used for the next paged query.
+   * The pagination token returned in the current response for the next paged query.
    * 
    * @example
    * NTxxxexample
@@ -205,7 +205,7 @@ export class ListAuthorizationResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries in the list.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnitsApplicationRoles extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application role.
+   * The application role ID.
    * 
    * @example
    * app_role_mkv7rgt4ds8d8v0qtzev2mxxxx
@@ -35,12 +35,12 @@ export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnit
 export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnits extends $dara.Model {
   /**
    * @remarks
-   * The list of application roles.
+   * The application roles.
    */
   applicationRoles?: ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnitsApplicationRoles[];
   /**
    * @remarks
-   * The organization ID.
+   * The organizational unit ID.
    * 
    * @example
    * ou_wovwffm62xifdziem7an7xxxxx
@@ -75,7 +75,7 @@ export class ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnit
 export class ListOrganizationalUnitsForApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of organizations.
+   * The list of organizational unit IDs.
    */
   organizationalUnits?: ListOrganizationalUnitsForApplicationResponseBodyOrganizationalUnits[];
   /**

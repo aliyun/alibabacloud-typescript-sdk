@@ -15,7 +15,7 @@ export class ListBrandsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -23,7 +23,7 @@ export class ListBrandsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The next token.
    * 
    * @example
    * NTxxxxxexample
@@ -31,7 +31,7 @@ export class ListBrandsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The token used to query the previous page.
+   * The previous token.
    * 
    * @example
    * PTxxxxxexample

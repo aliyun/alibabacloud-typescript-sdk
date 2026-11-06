@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeResourceServerScopesToGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID of the ResourceServer.
+   * The application ID of the resource server.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AuthorizeResourceServerScopesToGroupRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate a parameter value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * Ensures the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class AuthorizeResourceServerScopesToGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of Scope permission IDs under the ResourceServer.
+   * The list of scope IDs under the resource server.
    * 
    * This parameter is required.
    * 

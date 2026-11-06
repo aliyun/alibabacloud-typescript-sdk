@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupVpcEndpoint extends $dara.Model {
   /**
    * @remarks
-   * The list of private egress IP addresses of the backup network access endpoint.
+   * The private egress IP addresses of the backup network access endpoint.
    */
   backupEgressPrivateIpAddresses?: string[];
   /**
    * @remarks
-   * The list of public egress IP addresses of the backup network access endpoint.
+   * The public egress IP addresses of the backup network access endpoint.
    */
   backupEgressPublicIpAddresses?: string[];
   /**
    * @remarks
-   * The security group ID of the backup network access endpoint.
+   * The ID of the security group for the backup network access endpoint.
    * 
    * @example
    * sg-examplexxx
@@ -23,12 +23,12 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupV
   backupSecurityGroupId?: string;
   /**
    * @remarks
-   * The list of vSwitches for the backup network access endpoint.
+   * The IDs of the vSwitches for the backup network access endpoint.
    */
   backupVSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID of the backup network access endpoint.
+   * The ID of the VPC for the backup network access endpoint.
    * 
    * @example
    * vpc-examplexxx
@@ -36,7 +36,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupV
   backupVpcId?: string;
   /**
    * @remarks
-   * The region of the backup network access endpoint VPC.
+   * The region of the VPC for the backup network access endpoint.
    * 
    * @example
    * cn-beijing
@@ -85,12 +85,12 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupV
 export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extends $dara.Model {
   /**
    * @remarks
-   * The backup network access endpoint VPC configuration.
+   * The VPC configurations of the backup network access endpoint.
    */
   backupVpcEndpoint?: ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpointsBackupVpcEndpoint;
   /**
    * @remarks
-   * The creation time of the network access endpoint. The value is a UNIX timestamp in milliseconds.
+   * The time when the network access endpoint was created. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -106,7 +106,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   instanceId?: string;
   /**
    * @remarks
-   * The network access endpoint ID.
+   * The ID of the network access endpoint.
    * 
    * @example
    * nae_examplexxx
@@ -114,7 +114,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The network access endpoint name. For example, the VPC access endpoint for a specific business.
+   * The name of the network access endpoint, such as the xx business VPC access endpoint.
    * 
    * @example
    * VPC access endpoint for xx service
@@ -125,7 +125,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
    * The type of the network access endpoint. Valid values:
    * 
    * - shared: shared network access endpoint.
-   * - private: dedicated network access endpoint.
+   * - private: private network access endpoint.
    * 
    * @example
    * private
@@ -133,7 +133,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   networkAccessEndpointType?: string;
   /**
    * @remarks
-   * The security group ID used by the dedicated network access endpoint.
+   * The ID of the security group used by the private network access endpoint.
    * 
    * @example
    * sg-examplexxx
@@ -154,7 +154,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   status?: string;
   /**
    * @remarks
-   * The last update time of the network access endpoint. The value is a UNIX timestamp in milliseconds.
+   * The time when the network access endpoint was last updated. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1649830226000
@@ -162,7 +162,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   updateTime?: number;
   /**
    * @remarks
-   * The list of vSwitches for the dedicated network access endpoint.
+   * The IDs of the vSwitches to which the private network access endpoint is connected.
    * 
    * @example
    * vsw-examplexxx
@@ -170,7 +170,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID of the dedicated network access endpoint.
+   * The ID of the VPC to which the private network access endpoint is connected.
    * 
    * @example
    * vpc-examplexxx
@@ -178,7 +178,7 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
   vpcId?: string;
   /**
    * @remarks
-   * The region of the VPC for the dedicated network access endpoint.
+   * The region of the VPC to which the private network access endpoint is connected.
    * 
    * @example
    * cn-hangzhou
@@ -236,12 +236,12 @@ export class ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints extend
 export class ListNetworkAccessEndpointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of network access endpoints.
+   * The network access endpoints.
    */
   networkAccessEndpoints?: ListNetworkAccessEndpointsResponseBodyNetworkAccessEndpoints[];
   /**
    * @remarks
-   * The pagination token returned by this call.
+   * The pagination token returned for the current call.
    * 
    * @example
    * NTxxxexample
@@ -249,7 +249,7 @@ export class ListNetworkAccessEndpointsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -257,7 +257,7 @@ export class ListNetworkAccessEndpointsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries returned.
    * 
    * @example
    * 100

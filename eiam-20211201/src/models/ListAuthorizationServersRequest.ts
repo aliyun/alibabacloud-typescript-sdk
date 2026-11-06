@@ -15,7 +15,7 @@ export class ListAuthorizationServersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query.
+   * The number of entries to return per page in a paging query.
    * 
    * @example
    * 20
@@ -23,7 +23,7 @@ export class ListAuthorizationServersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * The next token.
    * 
    * @example
    * NTxxxxxexample

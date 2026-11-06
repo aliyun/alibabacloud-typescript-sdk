@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the domain proxy token, in Unix timestamp format, in milliseconds.
+   * The creation time of the domain proxy token. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -13,7 +13,7 @@ export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Mo
   createTime?: number;
   /**
    * @remarks
-   * The domain ID.
+   * The domain name ID.
    * 
    * @example
    * dm_examplexxxx
@@ -45,7 +45,7 @@ export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The most recent usage time of the domain proxy token, in Unix timestamp format, in milliseconds.
+   * The last used time of the domain proxy token. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -54,9 +54,9 @@ export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Mo
   /**
    * @remarks
    * The token status. Valid values:
-   * - enabled: The token is enabled.
+   * - enabled: Enabled.
    * 
-   * - disabled: The token is disabled.
+   * - disabled: Disabled.
    * 
    * @example
    * enabled
@@ -64,7 +64,7 @@ export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * The most recent update time of the domain proxy token, in Unix timestamp format, in milliseconds.
+   * The last update time of the domain proxy token. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830226000
@@ -108,7 +108,7 @@ export class ListDomainProxyTokensResponseBodyDomainProxyTokens extends $dara.Mo
 export class ListDomainProxyTokensResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of domain proxy token objects.
+   * The list of proxy tokens for the domain name.
    */
   domainProxyTokens?: ListDomainProxyTokensResponseBodyDomainProxyTokens[];
   /**
