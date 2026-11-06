@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModelGalleryModelTags extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * k1
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * v1
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,327 +29,42 @@ export class ModelGalleryModelTags extends $dara.Model {
 }
 
 export class ModelGalleryModel extends $dara.Model {
-  /**
-   * @remarks
-   * The collection to which the model belongs.
-   * 
-   * @example
-   * QuickStart
-   */
   collection?: string;
-  /**
-   * @remarks
-   * Indicates whether compression is supported.
-   * 
-   * @example
-   * true
-   */
   compressible?: boolean;
-  /**
-   * @remarks
-   * Indicates whether deep thinking is supported.
-   * 
-   * @example
-   * true
-   */
   deepThink?: boolean;
-  /**
-   * @remarks
-   * Indicates whether online experience is supported.
-   * 
-   * @example
-   * true
-   */
   demonstrable?: boolean;
-  /**
-   * @remarks
-   * Indicates whether deployment is supported.
-   * 
-   * @example
-   * true
-   */
   deployable?: boolean;
-  /**
-   * @remarks
-   * Indicates whether distillation is supported.
-   * 
-   * @example
-   * true
-   */
   distillable?: boolean;
-  /**
-   * @remarks
-   * The domain. For example, aigc (generative AI), nlp (natural language processing), or cv (computer vision).
-   * 
-   * @example
-   * aigc
-   */
   domain?: string;
-  /**
-   * @remarks
-   * Indicates whether evaluation is supported.
-   * 
-   * @example
-   * true
-   */
   evaluable?: boolean;
-  /**
-   * @remarks
-   * The additional information.
-   * 
-   * @example
-   * {}
-   */
   extraInfo?: { [key: string]: any };
-  /**
-   * @remarks
-   * Indicates whether FunctionCall is supported.
-   * 
-   * @example
-   * true
-   */
   functionCall?: boolean;
-  /**
-   * @remarks
-   * The creation time.
-   * 
-   * @example
-   * 2025-12-03T07:21:28.000Z
-   */
   gmtCreateTime?: string;
-  /**
-   * @remarks
-   * The update time of the latest model version.
-   * 
-   * @example
-   * 2025-12-03T07:21:28.000Z
-   */
   gmtLatestVersionModified?: string;
-  /**
-   * @remarks
-   * The update time.
-   * 
-   * @example
-   * 2025-12-03T07:21:28.000Z
-   */
   gmtModifiedTime?: string;
-  /**
-   * @remarks
-   * The latest model version.
-   * 
-   * @example
-   * 1.0.0
-   */
   latestVersionName?: string;
-  /**
-   * @remarks
-   * The model description.
-   * 
-   * @example
-   * Large language model
-   */
   modelDescription?: string;
-  /**
-   * @remarks
-   * The model documentation.
-   * 
-   * @example
-   * http://
-   */
   modelDoc?: string;
-  /**
-   * @remarks
-   * The model ID.
-   * 
-   * @example
-   * model-8npjorqxl8gmdo72nj
-   */
   modelId?: string;
-  /**
-   * @remarks
-   * The model name.
-   * 
-   * @example
-   * Qwen3-235B-A22B-Thinking-2507
-   */
   modelName?: string;
-  /**
-   * @remarks
-   * The model series.
-   * 
-   * @example
-   * Qwen
-   */
   modelSeries?: string;
-  /**
-   * @remarks
-   * The model type.
-   * 
-   * @example
-   * LoRA
-   */
   modelType?: string;
-  /**
-   * @remarks
-   * The ordinal number.
-   * 
-   * @example
-   * 1
-   */
   orderNumber?: number;
-  /**
-   * @remarks
-   * The model source, used to filter the list of models that belong to a specific community or organization. For example, ModelScope, PAI, or NIM.
-   * 
-   * @example
-   * PAI
-   */
   origin?: string;
-  /**
-   * @remarks
-   * The number of parameters, in millions (M).
-   * 
-   * @example
-   * 1024
-   */
   parameterSize?: number;
-  /**
-   * @remarks
-   * The search keywords.
-   * 
-   * @example
-   * llm
-   */
   searchWords?: string;
-  /**
-   * @remarks
-   * The supported compression methods.
-   * 
-   * @example
-   * {
-   *   "Methods": [{
-   *     "Method": "Quantization",
-   *     "SubMethod": "MinMax-8Bit",
-   *     "Resource": "GPU"
-   *   }]
-   * }
-   */
   supportedCompressionMethods?: { [key: string]: any };
-  /**
-   * @remarks
-   * The resources supported for compression.
-   * 
-   * @example
-   * GPU,GP7V
-   */
   supportedCompressionResources?: string;
-  /**
-   * @remarks
-   * The supported distillation methods.
-   * 
-   * @example
-   * {
-   *   "Methods": [{
-   *     "Method": "EasyDistill",
-   *     "SubMethod": "DataSynthesis",
-   *     "Resource": "GPU"
-   *   }]
-   * }
-   */
   supportedDistillationMethods?: { [key: string]: any };
-  /**
-   * @remarks
-   * The resources supported for distillation.
-   * 
-   * @example
-   * GPU,GP7V
-   */
   supportedDistillationResources?: string;
-  /**
-   * @remarks
-   * The supported evaluation methods.
-   * 
-   * @example
-   * {
-   *   "Methods": [{
-   *     "Method": "Single-Node-Standard",
-   *     "Resource": "GPU"
-   *   }]
-   * }
-   */
   supportedEvaluationMethods?: { [key: string]: any };
-  /**
-   * @remarks
-   * The resources supported for evaluation.
-   * 
-   * @example
-   * GPU,GP7V
-   */
   supportedEvaluationResources?: string;
-  /**
-   * @remarks
-   * The supported deployment methods.
-   * 
-   * @example
-   * {
-   *   "Methods": [{
-   *     "framework": "blade",
-   *     "scenario": "nvidia-standard",
-   *     "Resource": "GPU"
-   *   }]
-   * }
-   */
   supportedInferenceMethods?: { [key: string]: any };
-  /**
-   * @remarks
-   * The resources supported for deployment.
-   * 
-   * @example
-   * GPU,GP7V
-   */
   supportedInferenceResources?: string;
-  /**
-   * @remarks
-   * The supported training methods.
-   * 
-   * @example
-   * {
-   *   "Methods": [{
-   *     "Method": "SFT",
-   *     "SubMethod": "LoRA_LLM",
-   *     "Resource": "GPU"
-   *   }]
-   * }
-   */
   supportedTrainingMethods?: { [key: string]: any };
-  /**
-   * @remarks
-   * The resources supported for training.
-   * 
-   * @example
-   * GPU,GP7V
-   */
   supportedTrainingResources?: string;
-  /**
-   * @remarks
-   * The list of tags.
-   */
   tags?: ModelGalleryModelTags;
-  /**
-   * @remarks
-   * The task. For example, large-language-model (large language model), image-classification (image classification), or embedding.
-   * 
-   * @example
-   * large-language-model
-   */
   task?: string;
-  /**
-   * @remarks
-   * Indicates whether training is supported.
-   * 
-   * @example
-   * true
-   */
   trainable?: boolean;
   static names(): { [key: string]: string } {
     return {

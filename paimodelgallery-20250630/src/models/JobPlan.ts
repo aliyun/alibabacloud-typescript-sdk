@@ -74,19 +74,13 @@ export class JobPlan extends $dara.Model {
   ownerId?: string;
   tags?: JobPlanTags[];
   /**
-   * @remarks
-   * The distillation template ID used when creating the task plan. An empty value indicates that this is not a scenario-specific distillation task.
-   * 
    * @example
    * advanced_cot_distill
    */
   templateId?: string;
   /**
-   * @remarks
-   * The display name of the distillation template used, localized based on the language specified in the request.
-   * 
    * @example
-   * Chain-of-Thought Reasoning Distillation
+   * 思维链推理蒸馏
    */
   templateName?: string;
   userId?: string;

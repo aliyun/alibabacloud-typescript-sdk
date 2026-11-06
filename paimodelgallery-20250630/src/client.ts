@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "PAIModelGallery";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("paimodelgallery", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30,13 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new job plan that supports task types such as distillation.
-   * 
-   * @remarks
-   * ## Operation description
-   * - This API operation creates a new node plan. You can specify the workspace ID, node plan type, name, and steps.
-   * - If you use a scenario-specific distillation template, provide the `TemplateId` parameter and make sure that `JobPlanSteps` contains distillation configurations that match the template.
-   * - The `Tag` parameter follows the Alibaba Cloud label system specification and is used to add additional identity information to the node plan.
+   * 创建任务计划。
    * 
    * @param request - CreateJobPlanRequest
    * @param headers - map
@@ -89,13 +87,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a new job plan that supports task types such as distillation.
-   * 
-   * @remarks
-   * ## Operation description
-   * - This API operation creates a new node plan. You can specify the workspace ID, node plan type, name, and steps.
-   * - If you use a scenario-specific distillation template, provide the `TemplateId` parameter and make sure that `JobPlanSteps` contains distillation configurations that match the template.
-   * - The `Tag` parameter follows the Alibaba Cloud label system specification and is used to add additional identity information to the node plan.
+   * 创建任务计划。
    * 
    * @param request - CreateJobPlanRequest
    * @returns CreateJobPlanResponse
@@ -107,10 +99,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified task plan by task plan ID.
-   * 
-   * @remarks
-   * ## Operation description.
+   * 删除任务计划。
    * 
    * @param request - DeleteJobPlanRequest
    * @param headers - map
@@ -137,10 +126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified task plan by task plan ID.
-   * 
-   * @remarks
-   * ## Operation description.
+   * 删除任务计划。
    * 
    * @param request - DeleteJobPlanRequest
    * @returns DeleteJobPlanResponse
@@ -152,15 +138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified distillation template, including preset configurations and default YAML.
-   * 
-   * @remarks
-   * ## Operation description
-   * - This API operation queries the full details of a specific distillation template to facilitate rendering the creation form.
-   * - The template ID is a required parameter, obtained from the `ListDistillationTemplates` operation.
-   * - The `DefaultConfig` field provides the complete EasyDistill configuration YAML (with comments). All paths in the YAML are relative paths, and callers do not need to perform absolute path conversion or string replacement.
-   * - All translatable fields are automatically parsed into the corresponding language version based on the `x-acs-accept-language` request header.
-   * - If the `TrainingOptions` field is missing, the template supports only the first stage of processing. Attempts to use such a template to create a task that includes the second stage will fail.
+   * 查询蒸馏模板详情。
    * 
    * @param request - GetDistillationTemplateRequest
    * @param headers - map
@@ -187,15 +165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified distillation template, including preset configurations and default YAML.
-   * 
-   * @remarks
-   * ## Operation description
-   * - This API operation queries the full details of a specific distillation template to facilitate rendering the creation form.
-   * - The template ID is a required parameter, obtained from the `ListDistillationTemplates` operation.
-   * - The `DefaultConfig` field provides the complete EasyDistill configuration YAML (with comments). All paths in the YAML are relative paths, and callers do not need to perform absolute path conversion or string replacement.
-   * - All translatable fields are automatically parsed into the corresponding language version based on the `x-acs-accept-language` request header.
-   * - If the `TrainingOptions` field is missing, the template supports only the first stage of processing. Attempts to use such a template to create a task that includes the second stage will fail.
+   * 查询蒸馏模板详情。
    * 
    * @param request - GetDistillationTemplateRequest
    * @returns GetDistillationTemplateResponse
@@ -207,11 +177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified job plan by job plan ID.
-   * 
-   * @remarks
-   * ## Description
-   * This API operation retrieves the details of a job plan based on the specified job plan ID (`JobPlanId`), including but not limited to the name, type, and current step status of the job plan. Make sure the `JobPlanId` provided in the request is valid and belongs to your workspace.
+   * 获取任务计划。
    * 
    * @param request - GetJobPlanRequest
    * @param headers - map
@@ -238,11 +204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified job plan by job plan ID.
-   * 
-   * @remarks
-   * ## Description
-   * This API operation retrieves the details of a job plan based on the specified job plan ID (`JobPlanId`), including but not limited to the name, type, and current step status of the job plan. Make sure the `JobPlanId` provided in the request is valid and belongs to your workspace.
+   * 获取任务计划。
    * 
    * @param request - GetJobPlanRequest
    * @returns GetJobPlanResponse
@@ -254,14 +216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves summary information of distillation templates for rendering the template card list.
-   * 
-   * @remarks
-   * ## Operation description
-   * - This operation supports filtered queries by using the TemplateId, Category, and Keyword parameters.
-   * - Pagination is controlled by the PageNumber and PageSize parameters, consistent with other paginated operations of the same service.
-   * - Templates are public resources that do not belong to any workspace. Therefore, you do not need to specify WorkspaceId.
-   * - All translatable fields such as TemplateName and Description are automatically parsed into the corresponding language version based on the x-acs-accept-language request header.
+   * 查询蒸馏模板列表。
    * 
    * @param request - ListDistillationTemplatesRequest
    * @param headers - map
@@ -291,6 +246,10 @@ export default class Client extends OpenApi {
       query["TemplateId"] = request.templateId;
     }
 
+    if (!$dara.isNull(request.templateKind)) {
+      query["TemplateKind"] = request.templateKind;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -310,14 +269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves summary information of distillation templates for rendering the template card list.
-   * 
-   * @remarks
-   * ## Operation description
-   * - This operation supports filtered queries by using the TemplateId, Category, and Keyword parameters.
-   * - Pagination is controlled by the PageNumber and PageSize parameters, consistent with other paginated operations of the same service.
-   * - Templates are public resources that do not belong to any workspace. Therefore, you do not need to specify WorkspaceId.
-   * - All translatable fields such as TemplateName and Description are automatically parsed into the corresponding language version based on the x-acs-accept-language request header.
+   * 查询蒸馏模板列表。
    * 
    * @param request - ListDistillationTemplatesRequest
    * @returns ListDistillationTemplatesResponse
@@ -329,15 +281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of job plans in a specified workspace.
-   * 
-   * @remarks
-   * ## Operation description
-   * - `WorkspaceId` is a required parameter that specifies the workspace to which the job plans belong.
-   * - The `Tag` parameter must be encoded by using `EncodeURI` before being passed.
-   * - If both `TemplateId` and `HasTemplate` are specified, the value of `TemplateId` takes precedence for filtering.
-   * - `JobPlanName` supports exact match. Enclose the specific name in quotation marks.
-   * - By default, results are sorted in descending order by creation time (`GmtCreateTime`). Set the `Order` parameter to `ASC` to change the sort order.
+   * 获取任务计划列表。
    * 
    * @param tmpReq - ListJobPlansRequest
    * @param headers - map
@@ -412,15 +356,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of job plans in a specified workspace.
-   * 
-   * @remarks
-   * ## Operation description
-   * - `WorkspaceId` is a required parameter that specifies the workspace to which the job plans belong.
-   * - The `Tag` parameter must be encoded by using `EncodeURI` before being passed.
-   * - If both `TemplateId` and `HasTemplate` are specified, the value of `TemplateId` takes precedence for filtering.
-   * - `JobPlanName` supports exact match. Enclose the specific name in quotation marks.
-   * - By default, results are sorted in descending order by creation time (`GmtCreateTime`). Set the `Order` parameter to `ASC` to change the sort order.
+   * 获取任务计划列表。
    * 
    * @param request - ListJobPlansRequest
    * @returns ListJobPlansResponse
@@ -432,7 +368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of models from ModelGallery (deprecated, use the 2026-06-03 version instead).
+   * 获取ModelGallery模型列表
    * 
    * @param tmpReq - ListModelGalleryModelsRequest
    * @param headers - map
@@ -579,7 +515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of models from ModelGallery (deprecated, use the 2026-06-03 version instead).
+   * 获取ModelGallery模型列表
    * 
    * @param request - ListModelGalleryModelsRequest
    * @returns ListModelGalleryModelsResponse
@@ -591,15 +527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the current step and tag information of a specified task plan.
-   * 
-   * @remarks
-   * ## Request description
-   * You can use this API operation to update the current execution step (`JobPlanCurrentStep`) and related tags (`Tag`) of a specific task plan identified by `JobPlanId`. If the request contains tag information, tags are updated or added based on the provided key-value pairs.
-   * - **JobPlanId** is a path parameter. You must provide a valid task plan ID.
-   * - **JobPlanCurrentStep** is an optional parameter that specifies the new current step of the task.
-   * - **Tag** is an optional parameter that specifies a list of key-value pairs used to label the task plan. Each tag consists of a `Key` and a `Value`.
-   * Note: Ensure that the `JobPlanId` you provide exists and that you have the permissions to modify it.
+   * 更新任务计划。
    * 
    * @param request - UpdateJobPlanRequest
    * @param headers - map
@@ -636,15 +564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the current step and tag information of a specified task plan.
-   * 
-   * @remarks
-   * ## Request description
-   * You can use this API operation to update the current execution step (`JobPlanCurrentStep`) and related tags (`Tag`) of a specific task plan identified by `JobPlanId`. If the request contains tag information, tags are updated or added based on the provided key-value pairs.
-   * - **JobPlanId** is a path parameter. You must provide a valid task plan ID.
-   * - **JobPlanCurrentStep** is an optional parameter that specifies the new current step of the task.
-   * - **Tag** is an optional parameter that specifies a list of key-value pairs used to label the task plan. Each tag consists of a `Key` and a `Value`.
-   * Note: Ensure that the `JobPlanId` you provide exists and that you have the permissions to modify it.
+   * 更新任务计划。
    * 
    * @param request - UpdateJobPlanRequest
    * @returns UpdateJobPlanResponse

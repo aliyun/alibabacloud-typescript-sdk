@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateJobPlanRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key. If the tag key already exists, the tag is updated. Otherwise, a new tag is added.
-   * 
-   * @example
-   * foo
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag key. If the tag key already exists, the tag is updated. Otherwise, a new tag is added.
-   * 
-   * @example
-   * bar
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,18 +29,7 @@ export class UpdateJobPlanRequestTag extends $dara.Model {
 }
 
 export class UpdateJobPlanRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The current step of the task plan. Set this parameter to `DatasetSynthesisAndModelTrain` for the full process or `DatasetSynthesisModelTrain` for step-by-step execution.
-   * 
-   * @example
-   * DatasetSynthesisAndModelTrain
-   */
   jobPlanCurrentStep?: string;
-  /**
-   * @remarks
-   * The list of tags.
-   */
   tag?: UpdateJobPlanRequestTag[];
   static names(): { [key: string]: string } {
     return {

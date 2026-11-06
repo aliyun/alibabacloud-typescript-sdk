@@ -4,29 +4,8 @@ import { ModelGalleryModel } from "./ModelGalleryModel";
 
 
 export class ListModelGalleryModelsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of models.
-   * 
-   * @example
-   * [{\\"SupportResponseSchema\\": False, \\"ToolCall\\": False, \\"ModelType\\": \\"LLM\\", \\"SupportReasoning\\": False, \\"Model\\": \\"ds1\\", \\"SupportVision\\": False, \\"MaxModelLength\\": 4096}]
-   */
   models?: ModelGalleryModel;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * B6B54325-C98C-5937-87A3-2F96C07652EC
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of models.
-   * 
-   * @example
-   * 15
-   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {

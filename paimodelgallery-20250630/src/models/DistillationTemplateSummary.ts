@@ -4,27 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class DistillationTemplateSummaryPipelineStages extends $dara.Model {
   /**
-   * @remarks
-   * The stage description, localized based on the language specified in the request.
-   * 
    * @example
-   * The teacher model generates reasoning-augmented responses for each question
+   * 由教师模型对每个问题生成带推理过程的回答。
    */
   description?: string;
   /**
-   * @remarks
-   * The stage identifier, which corresponds to the pipeline[].stage value in the algorithm configuration.
-   * 
    * @example
    * cot_distill
    */
   key?: string;
   /**
-   * @remarks
-   * The stage display name, localized based on the language specified in the request.
-   * 
    * @example
-   * Generate Chain-of-Thought
+   * 生成思维链
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -53,20 +44,9 @@ export class DistillationTemplateSummaryPipelineStages extends $dara.Model {
 }
 
 export class DistillationTemplateSummaryTrainingOptions extends $dara.Model {
-  /**
-   * @remarks
-   * The available Model Gallery Task values for the student model.
-   */
   modelTasks?: string[];
-  /**
-   * @remarks
-   * The list of supported training method families.
-   */
   trainingMethods?: string[];
   /**
-   * @remarks
-   * The training type. The frontend uses this value to select the training workflow and display text.
-   * 
    * @example
    * sft
    */
@@ -103,68 +83,43 @@ export class DistillationTemplateSummaryTrainingOptions extends $dara.Model {
 }
 
 export class DistillationTemplateSummary extends $dara.Model {
-  /**
-   * @remarks
-   * The list of capability tags, used for scenario card display.
-   */
   capabilityTags?: string[];
   /**
-   * @remarks
-   * The template category. The frontend uses this value to filter scenario cards.
-   * 
    * @example
    * reasoning
    */
   category?: string;
   /**
-   * @remarks
-   * The template description, localized based on the language specified in the request. The description specifies applicable scenarios and outputs.
-   * 
    * @example
-   * Designed for scenarios that require multi-step reasoning, such as math, logic, and code. Produces an SFT dataset
+   * 面向数学、逻辑、代码等需要多步推理的场景，产出 SFT 数据集。
    */
   description?: string;
   /**
-   * @remarks
-   * The algorithm job type. The value is the same as TemplateId.
-   * 
    * @example
    * advanced_cot_distill
    */
   jobType?: string;
   /**
-   * @remarks
-   * The display order. A smaller value indicates a higher position.
-   * 
    * @example
    * 10
    */
   orderNumber?: number;
-  /**
-   * @remarks
-   * The list of pipeline stages. The order of the stages represents the execution order.
-   */
   pipelineStages?: DistillationTemplateSummaryPipelineStages[];
   /**
-   * @remarks
-   * The distillation template ID, which is the same as the algorithm job_type. Pass this value as TemplateId when creating a task plan.
-   * 
    * @example
    * advanced_cot_distill
    */
   templateId?: string;
   /**
-   * @remarks
-   * The template display name, localized based on the language specified in the request.
-   * 
    * @example
-   * Chain-of-Thought Reasoning Distillation
+   * scenario
+   */
+  templateKind?: string;
+  /**
+   * @example
+   * 思维链推理蒸馏
    */
   templateName?: string;
-  /**
-   * @remarks
-   * The capability declaration for the second stage, in which the distilled data is used to train the student model. An empty value indicates that the template supports only the distillation stage.
-   */
   trainingOptions?: DistillationTemplateSummaryTrainingOptions[];
   static names(): { [key: string]: string } {
     return {
@@ -175,6 +130,7 @@ export class DistillationTemplateSummary extends $dara.Model {
       orderNumber: 'OrderNumber',
       pipelineStages: 'PipelineStages',
       templateId: 'TemplateId',
+      templateKind: 'TemplateKind',
       templateName: 'TemplateName',
       trainingOptions: 'TrainingOptions',
     };
@@ -189,6 +145,7 @@ export class DistillationTemplateSummary extends $dara.Model {
       orderNumber: 'number',
       pipelineStages: { 'type': 'array', 'itemType': DistillationTemplateSummaryPipelineStages },
       templateId: 'string',
+      templateKind: 'string',
       templateName: 'string',
       trainingOptions: { 'type': 'array', 'itemType': DistillationTemplateSummaryTrainingOptions },
     };

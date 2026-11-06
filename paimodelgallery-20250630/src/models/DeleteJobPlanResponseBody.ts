@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteJobPlanResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 40325405-579C-4D82-9624-EC2B1779848E
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

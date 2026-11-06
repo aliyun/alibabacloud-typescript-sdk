@@ -4,18 +4,7 @@ import { DistillationTemplate } from "./DistillationTemplate";
 
 
 export class GetDistillationTemplateResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The distillation template details.
-   */
   distillationTemplate?: DistillationTemplate;
-  /**
-   * @remarks
-   * **Request ID**
-   * 
-   * @example
-   * 40325405-579C-4D82****
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

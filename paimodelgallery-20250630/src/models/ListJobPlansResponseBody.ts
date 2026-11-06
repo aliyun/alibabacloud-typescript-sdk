@@ -4,26 +4,8 @@ import { JobPlan } from "./JobPlan";
 
 
 export class ListJobPlansResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of job plans.
-   */
   jobPlans?: JobPlan[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 40325405-579C-4D82-9624-EC2B1779848E
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries.
-   * 
-   * @example
-   * 15
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
