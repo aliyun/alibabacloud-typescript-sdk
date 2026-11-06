@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteClusterNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically drain the pods on the nodes. Valid values:
-   * - `true`: Automatically drains the pods on the nodes.
-   * - `false`: Does not automatically drain the pods on the nodes.
+   * Specifies whether to automatically drain pods from the nodes. Valid values:
+   * - `true`: Automatically drains pods from the nodes.
+   * - `false`: Does not automatically drain pods from the nodes.
    * 
    * Default value: `false`.
    * 
@@ -17,6 +17,14 @@ export class DeleteClusterNodesRequest extends $dara.Model {
   drainNode?: boolean;
   /**
    * @remarks
+   * The drain timeout period in seconds. Valid values: (0, 1800]. If this parameter is not specified, the default value 1800 is used. This parameter takes effect only when drain_node is set to true.
+   * 
+   * @example
+   * 600
+   */
+  drainTimeoutSeconds?: number;
+  /**
+   * @remarks
    * The list of nodes to remove. The node name must be the name of the node in the cluster, such as `cn-hangzhou.192.168.xx.xx`.
    * 
    * This parameter is required.
@@ -24,14 +32,14 @@ export class DeleteClusterNodesRequest extends $dara.Model {
   nodes?: string[];
   /**
    * @remarks
-   * Specifies whether to release the ECS instances at the same time. Valid values:
+   * Specifies whether to release the associated ECS instances. Valid values:
    * 
-   * - `true`: Releases the ECS instances at the same time.
-   * - `false`: Retains the ECS instances.
+   * - `true`: Releases the associated ECS instances.
+   * - `false`: Retains the associated ECS instances.
    * 
    * Default value: `false`.
    * 
-   * > If the nodes are subscription instances, you cannot release the ECS instances at the same time.
+   * > When a node is a subscription instance, you cannot release the associated ECS instance.
    * 
    * @example
    * true
@@ -40,6 +48,7 @@ export class DeleteClusterNodesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       drainNode: 'drain_node',
+      drainTimeoutSeconds: 'drain_timeout_seconds',
       nodes: 'nodes',
       releaseNode: 'release_node',
     };
@@ -48,6 +57,7 @@ export class DeleteClusterNodesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       drainNode: 'boolean',
+      drainTimeoutSeconds: 'number',
       nodes: { 'type': 'array', 'itemType': 'string' },
       releaseNode: 'boolean',
     };

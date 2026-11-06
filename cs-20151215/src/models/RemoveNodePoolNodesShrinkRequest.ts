@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveNodePoolNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove the nodes concurrently. Valid values:
-   * 
-   * - true: removes the nodes from the scaling group concurrently.
-   * - false: removes the nodes from the scaling group sequentially.
+   * Specifies whether to remove nodes concurrently. Valid values:
+   * - true: Nodes are removed from the scaling group concurrently.
+   * - false: Nodes are removed from the scaling group sequentially.
    * 
    * Default value: false.
    * 
@@ -19,8 +18,8 @@ export class RemoveNodePoolNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to drain the nodes. Valid values:
-   * - true: drains the nodes.
-   * - false: does not drain the nodes.
+   * - true: Drain the nodes.
+   * - false: Do not drain the nodes.
    * 
    * @example
    * true
@@ -28,14 +27,22 @@ export class RemoveNodePoolNodesShrinkRequest extends $dara.Model {
   drainNode?: boolean;
   /**
    * @remarks
-   * The list of instances to remove.
+   * The drain timeout period in seconds. Valid values: (0, 1800]. Default value: 1800. This parameter takes effect only when drain_node is set to true.
+   * 
+   * @example
+   * 600
+   */
+  drainTimeoutSeconds?: number;
+  /**
+   * @remarks
+   * The list of instances to be removed.
    */
   instanceIdsShrink?: string;
   /**
    * @remarks
    * **[Deprecated]**
    * 
-   * The list of nodes to remove.
+   * The list of nodes to be removed.
    * 
    * >Danger: This parameter is deprecated. Use `instance_ids` instead.</danger>
    * 
@@ -45,10 +52,10 @@ export class RemoveNodePoolNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether automatic release the nodes. Valid values:
-   * - true: releases the nodes.
-   * - false: does not release the nodes.
+   * - true: Release the nodes.
+   * - false: Do not release the nodes.
    * 
-   * Subscription nodes are not automatically released when you remove them. Automatic release subscription nodes, [change the billing method of the nodes from subscription to pay-as-you-go](https://www.alibabacloud.com/help/en/ecs/change-the-billing-method-of-an-instance-from-subscription-to-pay-as-you-go-1) and then release them in the ECS console.
+   * Removing nodes does not automatically release subscription nodes. Automatic release subscription nodes, [change the billing method of the nodes from subscription to pay-as-you-go](https://www.alibabacloud.com/help/en/ecs/change-the-billing-method-of-an-instance-from-subscription-to-pay-as-you-go-1), and then log on to the ECS console automatic release them.
    * 
    * @example
    * true
@@ -58,6 +65,7 @@ export class RemoveNodePoolNodesShrinkRequest extends $dara.Model {
     return {
       concurrency: 'concurrency',
       drainNode: 'drain_node',
+      drainTimeoutSeconds: 'drain_timeout_seconds',
       instanceIdsShrink: 'instance_ids',
       nodesShrink: 'nodes',
       releaseNode: 'release_node',
@@ -68,6 +76,7 @@ export class RemoveNodePoolNodesShrinkRequest extends $dara.Model {
     return {
       concurrency: 'boolean',
       drainNode: 'boolean',
+      drainTimeoutSeconds: 'number',
       instanceIdsShrink: 'string',
       nodesShrink: 'string',
       releaseNode: 'boolean',

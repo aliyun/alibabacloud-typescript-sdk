@@ -6,7 +6,7 @@ import { Runtime } from "./Runtime";
 export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.Model {
   /**
    * @remarks
-   * The image architecture.
+   * The architecture of the image.
    * 
    * @example
    * x86_64
@@ -14,12 +14,11 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   architecture?: string;
   /**
    * @remarks
-   * The image category. Some valid values:
-   * 
-   * - `system`: public images.
-   * - `self`: your custom images.
-   * - `others`: public images from other users.
-   * - `marketplace`: Alibaba Cloud Marketplace images.
+   * The category of the image. Valid values:
+   * - `system`: public images
+   * - `self`: custom images
+   * - `others`: public images from other users
+   * - `marketplace`: marketplace images
    * 
    * @example
    * system
@@ -27,7 +26,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   imageCategory?: string;
   /**
    * @remarks
-   * The image ID.
+   * The ID of the image.
    * 
    * @example
    * aliyun_3_x64_20G_alibase_20241218.vhd
@@ -35,7 +34,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   imageId?: string;
   /**
    * @remarks
-   * The image name.
+   * The name of the image.
    * 
    * @example
    * Alibaba Cloud Linux 3.2104
@@ -43,8 +42,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   imageName?: string;
   /**
    * @remarks
-   * The operating system distribution type. Use this field to specify the operating system for nodes. Valid values:
-   * 
+   * The operating system distribution type. Use this field to specify the node operating system. Valid values:
    * - `CentOS`
    * - `AliyunLinux`
    * - `AliyunLinux Qboot`
@@ -61,8 +59,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
   imageType?: string;
   /**
    * @remarks
-   * The operating system type. Examples:
-   * 
+   * The operating system type. Valid values:
    * - `Windows`
    * - `Linux`
    * 
@@ -147,13 +144,16 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   creatable?: boolean;
   /**
    * @remarks
-   * The expiration time of the Kubernetes version. The time is in ISO 8601 format and includes time zone information.
+   * The expiration time of the Kubernetes version, in ISO 8601 format with time zone information.
    * 
    * @example
    * 2026-01-30T00:00:00Z
    */
   expirationDate?: string;
   /**
+   * @remarks
+   * The expiration time of the extended support for the Kubernetes version. An empty value indicates that extended support is not provided for this version.
+   * 
    * @example
    * 2026-04-30T00:00:00Z
    */
@@ -165,7 +165,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   images?: DescribeKubernetesVersionMetadataResponseBodyImages[];
   /**
    * @remarks
-   * The metadata of the Kubernetes version.
+   * The metadata information of the Kubernetes version.
    * 
    * @example
    * {
@@ -177,7 +177,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   metaData?: { [key: string]: any };
   /**
    * @remarks
-   * The release time of the Kubernetes version. The time is in ISO 8601 format and includes time zone information.
+   * The release time of the Kubernetes version, in ISO 8601 format with time zone information.
    * 
    * @example
    * 2025-01-30T00:00:00Z
@@ -189,6 +189,12 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
    */
   runtimes?: Runtime[];
   /**
+   * @remarks
+   * The support policy required to obtain this patch version. The value is case-sensitive. Valid values:
+   * - Standard: regular patch versions
+   * - Extended: patch versions exclusive to the extended support period, which include backported CVE and critical bug fixes. Only clusters with extended support enabled can be upgraded to these versions.
+   * This field always has a value. It shares the same name and value range as the support_policy of the cluster. You can directly compare the policy enabled for the cluster with the policy required for this version.
+   * 
    * @example
    * Extended
    */
@@ -200,7 +206,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
   upgradableVersions?: string[];
   /**
    * @remarks
-   * The Kubernetes version released by ACK. For more information about versions, see [Overview of Kubernetes version releases](https://help.aliyun.com/document_detail/185269.html).
+   * The Kubernetes version released by ACK. For more version information, see [Kubernetes version release overview](https://help.aliyun.com/document_detail/185269.html).
    * 
    * @example
    * 1.31.1-aliyun.1

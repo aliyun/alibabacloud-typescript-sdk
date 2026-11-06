@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserKubeConfigStatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
-   * - Valid values: greater than or equal to 1.
+   * - Valid values: an integer greater than or equal to 1.
    * 
    * - Default value: 1.
    * 
@@ -17,7 +17,7 @@ export class ListUserKubeConfigStatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of results to return per page.
    * 
    * - Valid values: 1 to 100.
    * 

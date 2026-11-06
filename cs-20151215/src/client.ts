@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "CS";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-2-pop': "cs.aliyuncs.com",
@@ -161,7 +165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds existing ECS instances to a node pool as worker nodes in an ACK cluster, or re-adds removed worker nodes to a node pool.
+   * Adds existing ECS instances to an ACK cluster as worker nodes, or re-adds removed node instances to a node pool. You can invoke AttachInstancesToNodePool to add existing nodes to a node pool.
    * 
    * @param request - AttachInstancesToNodePoolRequest
    * @param headers - map
@@ -206,7 +210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds existing ECS instances to a node pool as worker nodes in an ACK cluster, or re-adds removed worker nodes to a node pool.
+   * Adds existing ECS instances to an ACK cluster as worker nodes, or re-adds removed node instances to a node pool. You can invoke AttachInstancesToNodePool to add existing nodes to a node pool.
    * 
    * @param request - AttachInstancesToNodePoolRequest
    * @returns AttachInstancesToNodePoolResponse
@@ -448,12 +452,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clears the issued KubeConfig credentials and Role-Based Access Control (RBAC) permissions of a specified user in a specified cluster. You can call this operation to clean up and revoke authorization for KubeConfig files that pose security risks.
+   * Clears the issued KubeConfig credentials and revokes the RBAC authorization of a specified user in a specified cluster. You can invoke CleanClusterUserPermissions to clean up and revoke authorization for KubeConfigs that pose a security risk.
    * 
    * @remarks
-   * > 1. You must have the permissions to manage Container Service for Kubernetes (CS). The required policy is AliyunCSFullAccess. 
-   * > 2. You cannot clear the permissions of an Alibaba Cloud account.
-   * > 3. You cannot clear the permissions of the user who performs this operation.
+   * > 1. You must have the permissions to manage Container Service for Kubernetes (CS) (AliyunCSFullAccess). 
+   * > 2. This operation does not support clearing the permissions of an Alibaba Cloud account.
+   * > 3. This operation does not support clearing the permissions of the current user.
    * 
    * @param request - CleanClusterUserPermissionsRequest
    * @param headers - map
@@ -486,12 +490,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clears the issued KubeConfig credentials and Role-Based Access Control (RBAC) permissions of a specified user in a specified cluster. You can call this operation to clean up and revoke authorization for KubeConfig files that pose security risks.
+   * Clears the issued KubeConfig credentials and revokes the RBAC authorization of a specified user in a specified cluster. You can invoke CleanClusterUserPermissions to clean up and revoke authorization for KubeConfigs that pose a security risk.
    * 
    * @remarks
-   * > 1. You must have the permissions to manage Container Service for Kubernetes (CS). The required policy is AliyunCSFullAccess. 
-   * > 2. You cannot clear the permissions of an Alibaba Cloud account.
-   * > 3. You cannot clear the permissions of the user who performs this operation.
+   * > 1. You must have the permissions to manage Container Service for Kubernetes (CS) (AliyunCSFullAccess). 
+   * > 2. This operation does not support clearing the permissions of an Alibaba Cloud account.
+   * > 3. This operation does not support clearing the permissions of the current user.
    * 
    * @param request - CleanClusterUserPermissionsRequest
    * @returns CleanClusterUserPermissionsResponse
@@ -503,12 +507,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cleans up and revokes the KubeConfig credentials and RBAC permissions issued to a specified user, such as resigned employees or users with frozen accounts.
+   * Clears the issued KubeConfig credentials and RBAC permissions of a specified user to revoke authorizations for risky users, such as resigned employees or users with frozen accounts.
    * 
    * @remarks
-   * >- Requires the permissions to manage Container Service for Kubernetes (CS) (AliyunCSFullAccess).
-   * >- Clearing the permissions of Alibaba Cloud accounts is not supported.
-   * >- Clearing the permissions of the calling user is not supported.
+   * >- You must have the permissions to manage Container Service for Kubernetes (CS) (AliyunCSFullAccess).
+   * >- You cannot clear the permissions of an Alibaba Cloud account.
+   * >- You cannot clear your own permissions.
    * 
    * @param tmpReq - CleanUserPermissionsRequest
    * @param headers - map
@@ -551,12 +555,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cleans up and revokes the KubeConfig credentials and RBAC permissions issued to a specified user, such as resigned employees or users with frozen accounts.
+   * Clears the issued KubeConfig credentials and RBAC permissions of a specified user to revoke authorizations for risky users, such as resigned employees or users with frozen accounts.
    * 
    * @remarks
-   * >- Requires the permissions to manage Container Service for Kubernetes (CS) (AliyunCSFullAccess).
-   * >- Clearing the permissions of Alibaba Cloud accounts is not supported.
-   * >- Clearing the permissions of the calling user is not supported.
+   * >- You must have the permissions to manage Container Service for Kubernetes (CS) (AliyunCSFullAccess).
+   * >- You cannot clear the permissions of an Alibaba Cloud account.
+   * >- You cannot clear your own permissions.
    * 
    * @param request - CleanUserPermissionsRequest
    * @returns CleanUserPermissionsResponse
@@ -736,16 +740,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an ACK cluster, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When you create a cluster, you configure cluster information, cluster components, and ACK-related cloud resources.
+   * Creates an ACK cluster, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When creating a cluster, you configure cluster information, cluster components, and ACK-related cloud resources.
    * 
    * @remarks
    * ### Generate OpenAPI request parameters by using the console
-   * When you call the CreateCluster operation to create a cluster, if the API call fails due to incorrect combinations of request parameters, you can use the console to generate the required request parameter combinations. Perform the following steps:
-   * 1. Log on to the [Container Service for Kubernetes (ACK) console](https://csnew.console.aliyun.com) and choose **Clusters** in the left-side navigation pane.
-   * 1. On the **Clusters** page, click **Cluster Template**.
-   * 1. In the dialog box, select the cluster type that you want to create, click Create, and then configure the cluster information on the cluster configuration page.
-   * 1. After the configuration is complete, on the **Confirm Configuration** page, click **Equivalent Code** in the upper-right corner. The dialog box displays the parameter combinations required for creating the cluster. You can copy and use them.
-   * >Notice: Starting from July 04, 2026, some request parameters will no longer take effect. For details about the changes and replacement parameter descriptions, see [Notice on changes to OpenAPI request and response parameters for ACK cluster management and OpenAPI offline](https://help.aliyun.com/document_detail/2932733.html).</notice>
+   * When you call the CreateCluster API operation to create a cluster, if the API call fails due to an incorrect combination of request parameters, you can generate the required combination of request parameters for cluster creation by using the console. Proceed as follows:
+   * 1. Log on to the [Container Service console](https://csnew.console.aliyun.com). In the left-side navigation pane, click **Clusters**.
+   * 1. On the **Clusters** page, click **Cluster Templates**.
+   * 1. In the dialog box, select the type of cluster that you want to create, click Create, and then configure the cluster information on the cluster configuration page.
+   * 1. After the configuration is complete, on the **Confirm** page, click **Equivalent Code** in the upper-right corner. The dialog box displays the combination of parameters required for cluster creation. You can copy and use the parameters.
+   * >Notice: Starting July 4, 2026, some request parameters will no longer take effect. For details about the changes and replacement parameters, see [Announcement on changes to input and output parameters of ACK cluster management-related OpenAPIs and OpenAPI deprecation](https://help.aliyun.com/document_detail/2932733.html).</notice>
    * 
    * @param request - CreateClusterRequest
    * @param headers - map
@@ -1194,16 +1198,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an ACK cluster, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When you create a cluster, you configure cluster information, cluster components, and ACK-related cloud resources.
+   * Creates an ACK cluster, including ACK managed clusters, ACK Serverless clusters, ACK Edge clusters, and registered clusters. When creating a cluster, you configure cluster information, cluster components, and ACK-related cloud resources.
    * 
    * @remarks
    * ### Generate OpenAPI request parameters by using the console
-   * When you call the CreateCluster operation to create a cluster, if the API call fails due to incorrect combinations of request parameters, you can use the console to generate the required request parameter combinations. Perform the following steps:
-   * 1. Log on to the [Container Service for Kubernetes (ACK) console](https://csnew.console.aliyun.com) and choose **Clusters** in the left-side navigation pane.
-   * 1. On the **Clusters** page, click **Cluster Template**.
-   * 1. In the dialog box, select the cluster type that you want to create, click Create, and then configure the cluster information on the cluster configuration page.
-   * 1. After the configuration is complete, on the **Confirm Configuration** page, click **Equivalent Code** in the upper-right corner. The dialog box displays the parameter combinations required for creating the cluster. You can copy and use them.
-   * >Notice: Starting from July 04, 2026, some request parameters will no longer take effect. For details about the changes and replacement parameter descriptions, see [Notice on changes to OpenAPI request and response parameters for ACK cluster management and OpenAPI offline](https://help.aliyun.com/document_detail/2932733.html).</notice>
+   * When you call the CreateCluster API operation to create a cluster, if the API call fails due to an incorrect combination of request parameters, you can generate the required combination of request parameters for cluster creation by using the console. Proceed as follows:
+   * 1. Log on to the [Container Service console](https://csnew.console.aliyun.com). In the left-side navigation pane, click **Clusters**.
+   * 1. On the **Clusters** page, click **Cluster Templates**.
+   * 1. In the dialog box, select the type of cluster that you want to create, click Create, and then configure the cluster information on the cluster configuration page.
+   * 1. After the configuration is complete, on the **Confirm** page, click **Equivalent Code** in the upper-right corner. The dialog box displays the combination of parameters required for cluster creation. You can copy and use the parameters.
+   * >Notice: Starting July 4, 2026, some request parameters will no longer take effect. For details about the changes and replacement parameters, see [Announcement on changes to input and output parameters of ACK cluster management-related OpenAPIs and OpenAPI deprecation](https://help.aliyun.com/document_detail/2932733.html).</notice>
    * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
@@ -1967,14 +1971,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes nodes from a cluster. When you remove nodes, you can specify whether to release the associated ECS instances and whether to automatically drain the nodes.
+   * Removes nodes from a cluster. When removing nodes, you can specify whether to release the associated ECS instances and whether to automatically drain the nodes.
    * 
    * @remarks
-   * - When removing nodes, perform standard operations by calling this API operation or using the [Container Service console](https://cs.console.aliyun.com). Do not manually remove nodes by running the `kubectl delete node` command.
-   * - Do not manually release nodes or remove instances in the ECS or Auto Scaling (ESS) console or by calling related API operations, or passively release nodes when a subscription instance expires. In these cases, the nodes are directly shut down and automatically removed from the Container Service console.
-   * - If the expected number of nodes is configured for a node pool, the node pool automatically scales out other instances based on the corresponding configurations to maintain the expected number of nodes.
-   * - Removing nodes involves pod migration and may affect your services. Perform this operation during off-peak hours. Unexpected risks may occur during the operation. Back up your data in advance.
-   * - When you remove nodes, ACK executes drain operations. Make sure that other nodes in the cluster have sufficient resources to avoid application pod scheduling failures.
+   * - When removing nodes, perform standard operations by using this API operation or the [Container Service console](https://cs.console.aliyun.com). Do not manually remove nodes by running the `kubectl delete node` command.
+   * - Do not manually release nodes or remove instances in the ECS or Auto Scaling (ESS) console (or by calling related API operations), or passively release nodes when a subscription instance expires. In these cases, the nodes are directly stopped and automatically removed from the Container Service console.
+   * - If the expected number of nodes is configured for a node pool, the node pool automatically scales out other instances based on the configuration to maintain the expected number of nodes.
+   * - Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours. Unexpected risks may occur during the operation. Back up your data in advance.
+   * - When removing nodes, ACK executes a drain operation. Ensure that other nodes in the cluster have sufficient resources to avoid application pod scheduling failures.
    * - Check the node affinity rules and scheduling policies of the pods on the nodes to be removed to ensure that the pods can be scheduled to other nodes after the nodes are removed.
    * 
    * @param request - DeleteClusterNodesRequest
@@ -1987,6 +1991,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.drainNode)) {
       body["drain_node"] = request.drainNode;
+    }
+
+    if (!$dara.isNull(request.drainTimeoutSeconds)) {
+      body["drain_timeout_seconds"] = request.drainTimeoutSeconds;
     }
 
     if (!$dara.isNull(request.nodes)) {
@@ -2016,14 +2024,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes nodes from a cluster. When you remove nodes, you can specify whether to release the associated ECS instances and whether to automatically drain the nodes.
+   * Removes nodes from a cluster. When removing nodes, you can specify whether to release the associated ECS instances and whether to automatically drain the nodes.
    * 
    * @remarks
-   * - When removing nodes, perform standard operations by calling this API operation or using the [Container Service console](https://cs.console.aliyun.com). Do not manually remove nodes by running the `kubectl delete node` command.
-   * - Do not manually release nodes or remove instances in the ECS or Auto Scaling (ESS) console or by calling related API operations, or passively release nodes when a subscription instance expires. In these cases, the nodes are directly shut down and automatically removed from the Container Service console.
-   * - If the expected number of nodes is configured for a node pool, the node pool automatically scales out other instances based on the corresponding configurations to maintain the expected number of nodes.
-   * - Removing nodes involves pod migration and may affect your services. Perform this operation during off-peak hours. Unexpected risks may occur during the operation. Back up your data in advance.
-   * - When you remove nodes, ACK executes drain operations. Make sure that other nodes in the cluster have sufficient resources to avoid application pod scheduling failures.
+   * - When removing nodes, perform standard operations by using this API operation or the [Container Service console](https://cs.console.aliyun.com). Do not manually remove nodes by running the `kubectl delete node` command.
+   * - Do not manually release nodes or remove instances in the ECS or Auto Scaling (ESS) console (or by calling related API operations), or passively release nodes when a subscription instance expires. In these cases, the nodes are directly stopped and automatically removed from the Container Service console.
+   * - If the expected number of nodes is configured for a node pool, the node pool automatically scales out other instances based on the configuration to maintain the expected number of nodes.
+   * - Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours. Unexpected risks may occur during the operation. Back up your data in advance.
+   * - When removing nodes, ACK executes a drain operation. Ensure that other nodes in the cluster have sufficient resources to avoid application pod scheduling failures.
    * - Check the node affinity rules and scheduling policies of the pods on the nodes to be removed to ensure that the pods can be scheduled to other nodes after the nodes are removed.
    * 
    * @param request - DeleteClusterNodesRequest
@@ -2713,7 +2721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the script used to add existing ECS instances to an ACK cluster as worker nodes, or to re-add removed worker nodes to a node pool. ACK supports manually adding existing nodes to a node pool. You can invoke the DescribeClusterAttachScripts operation to obtain the script for adding existing nodes.
+   * Queries the script for adding existing nodes to a cluster node pool. Container Service for Kubernetes (ACK) supports manually adding existing nodes to a node pool if you need to add existing ECS instances to an ACK cluster as worker nodes or re-add node instances to a node pool after removing worker nodes. You can invoke the DescribeClusterAttachScripts operation to obtain the script for adding existing nodes.
    * 
    * @param request - DescribeClusterAttachScriptsRequest
    * @param headers - map
@@ -2774,7 +2782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the script used to add existing ECS instances to an ACK cluster as worker nodes, or to re-add removed worker nodes to a node pool. ACK supports manually adding existing nodes to a node pool. You can invoke the DescribeClusterAttachScripts operation to obtain the script for adding existing nodes.
+   * Queries the script for adding existing nodes to a cluster node pool. Container Service for Kubernetes (ACK) supports manually adding existing nodes to a node pool if you need to add existing ECS instances to an ACK cluster as worker nodes or re-add node instances to a node pool after removing worker nodes. You can invoke the DescribeClusterAttachScripts operation to obtain the script for adding existing nodes.
    * 
    * @param request - DescribeClusterAttachScriptsRequest
    * @returns DescribeClusterAttachScriptsResponse
@@ -3392,7 +3400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of all clusters in a specified region.
+   * Queries all clusters in a specified region.
    * 
    * @param request - DescribeClustersForRegionRequest
    * @param headers - map
@@ -3449,7 +3457,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of all clusters in a specified region.
+   * Queries all clusters in a specified region.
    * 
    * @param request - DescribeClustersForRegionRequest
    * @returns DescribeClustersForRegionResponse
@@ -3720,7 +3728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of Kubernetes versions, including version information, release dates, expiration dates, compatible operating systems, and supported runtimes.
+   * Queries the details of Kubernetes versions, including version information, release dates, expiration dates, compatible operating systems, and runtimes.
    * 
    * @param request - DescribeKubernetesVersionMetadataRequest
    * @param headers - map
@@ -3781,7 +3789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of Kubernetes versions, including version information, release dates, expiration dates, compatible operating systems, and supported runtimes.
+   * Queries the details of Kubernetes versions, including version information, release dates, expiration dates, compatible operating systems, and runtimes.
    * 
    * @param request - DescribeKubernetesVersionMetadataRequest
    * @returns DescribeKubernetesVersionMetadataResponse
@@ -5795,10 +5803,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the KubeConfig status list of all clusters for the current user.
+   * Queries the KubeConfig status list for all clusters of the current user.
    * 
    * @remarks
-   * > To call this operation, you must have the permissions to manage Container Service (CS) (AliyunCSFullAccess).
+   * > To call this operation, you must have the AliyunCSFullAccess permission to manage Container Service for Kubernetes (CS).
    * 
    * @param request - ListUserKubeConfigStatesRequest
    * @param headers - map
@@ -5835,10 +5843,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the KubeConfig status list of all clusters for the current user.
+   * Queries the KubeConfig status list for all clusters of the current user.
    * 
    * @remarks
-   * > To call this operation, you must have the permissions to manage Container Service (CS) (AliyunCSFullAccess).
+   * > To call this operation, you must have the AliyunCSFullAccess permission to manage Container Service for Kubernetes (CS).
    * 
    * @param request - ListUserKubeConfigStatesRequest
    * @returns ListUserKubeConfigStatesResponse
@@ -5960,10 +5968,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of an ACK cluster.
+   * Modifies the configurations of an ACK cluster.
    * 
    * @remarks
-   * <notice>Starting from July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Announcement on changes to OpenAPI request and response parameters and OpenAPI deprecation for ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
+   * <notice>Starting July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Announcement on changes to request and response parameters of ACK cluster management API operations and API operation deprecation](https://help.aliyun.com/document_detail/2932733.html).</notice>
    * 
    * @param request - ModifyClusterRequest
    * @param headers - map
@@ -6080,10 +6088,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of an ACK cluster.
+   * Modifies the configurations of an ACK cluster.
    * 
    * @remarks
-   * <notice>Starting from July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Announcement on changes to OpenAPI request and response parameters and OpenAPI deprecation for ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
+   * <notice>Starting July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Announcement on changes to request and response parameters of ACK cluster management API operations and API operation deprecation](https://help.aliyun.com/document_detail/2932733.html).</notice>
    * 
    * @param request - ModifyClusterRequest
    * @returns ModifyClusterResponse
@@ -6631,14 +6639,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes nodes from a node pool in a cluster and adjusts the expected number of nodes when the nodes are no longer needed. When removing nodes, you can specify whether to release the associated ECS instances and whether to automatically drain the nodes. Removing nodes involves pod migration and may affect your services. Perform this operation during off-peak hours and back up your data in advance.
+   * Removes nodes from a node pool in a cluster and adjusts the expected number of nodes when the nodes are no longer needed. When removing nodes, you can specify whether to release the associated Elastic Compute Service (ECS) instances and whether to automatically drain the nodes. Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours and back up your data in advance.
    * 
    * @remarks
-   * - Removing nodes involves pod migration and may affect your services. Perform this operation during off-peak hours.
+   * - Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours.
    * - Unexpected risks may occur during the operation. Back up your data in advance.
-   * - During the operation, the system sets the nodes to the unschedulable state.
+   * - During the operation, the system sets the current nodes to the unschedulable state.
    * - Only worker nodes are removed. Master nodes are not removed.
-   * - Even if you choose to release nodes (by setting `release_node` to `true`), subscription nodes are not released. To release subscription nodes, you must first [change their billing method to pay-as-you-go](https://www.alibabacloud.com/help/en/ecs/change-the-billing-method-of-an-instance-from-subscription-to-pay-as-you-go-1) and then release them in the [ECS console](https://ecs.console.aliyun.com/).
+   * - Even if you choose to release nodes (that is, set `release_node` to `true`), subscription nodes are not released. To release subscription nodes, you must remove them first and then release them in the [ECS console](https://ecs.console.aliyun.com/).
    * 
    * @param tmpReq - RemoveNodePoolNodesRequest
    * @param headers - map
@@ -6664,6 +6672,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.drainNode)) {
       query["drain_node"] = request.drainNode;
+    }
+
+    if (!$dara.isNull(request.drainTimeoutSeconds)) {
+      query["drain_timeout_seconds"] = request.drainTimeoutSeconds;
     }
 
     if (!$dara.isNull(request.instanceIdsShrink)) {
@@ -6697,14 +6709,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes nodes from a node pool in a cluster and adjusts the expected number of nodes when the nodes are no longer needed. When removing nodes, you can specify whether to release the associated ECS instances and whether to automatically drain the nodes. Removing nodes involves pod migration and may affect your services. Perform this operation during off-peak hours and back up your data in advance.
+   * Removes nodes from a node pool in a cluster and adjusts the expected number of nodes when the nodes are no longer needed. When removing nodes, you can specify whether to release the associated Elastic Compute Service (ECS) instances and whether to automatically drain the nodes. Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours and back up your data in advance.
    * 
    * @remarks
-   * - Removing nodes involves pod migration and may affect your services. Perform this operation during off-peak hours.
+   * - Removing nodes involves pod migration, which may affect your services. Perform this operation during off-peak hours.
    * - Unexpected risks may occur during the operation. Back up your data in advance.
-   * - During the operation, the system sets the nodes to the unschedulable state.
+   * - During the operation, the system sets the current nodes to the unschedulable state.
    * - Only worker nodes are removed. Master nodes are not removed.
-   * - Even if you choose to release nodes (by setting `release_node` to `true`), subscription nodes are not released. To release subscription nodes, you must first [change their billing method to pay-as-you-go](https://www.alibabacloud.com/help/en/ecs/change-the-billing-method-of-an-instance-from-subscription-to-pay-as-you-go-1) and then release them in the [ECS console](https://ecs.console.aliyun.com/).
+   * - Even if you choose to release nodes (that is, set `release_node` to `true`), subscription nodes are not released. To release subscription nodes, you must remove them first and then release them in the [ECS console](https://ecs.console.aliyun.com/).
    * 
    * @param request - RemoveNodePoolNodesRequest
    * @returns RemoveNodePoolNodesResponse
@@ -7572,7 +7584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the audit log feature for a specified ACK cluster, or updates the audit log configurations to record requests to the Kubernetes API and the corresponding results for tracing cluster operation history and troubleshooting cluster faults.
+   * Updates the audit log configuration of a specified ACK cluster. You can call this operation to enable or disable the audit log feature, or update the audit log configuration to record requests to the Kubernetes API and their results for tracing cluster operation history and troubleshooting cluster faults.
    * 
    * @remarks
    * Before you call this operation, make sure that you fully understand the billing methods and pricing of <props="china">[Simple Log Service](https://www.aliyun.com/price/product#/sls/detail/sls)<props="intl">[Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
@@ -7612,7 +7624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the audit log feature for a specified ACK cluster, or updates the audit log configurations to record requests to the Kubernetes API and the corresponding results for tracing cluster operation history and troubleshooting cluster faults.
+   * Updates the audit log configuration of a specified ACK cluster. You can call this operation to enable or disable the audit log feature, or update the audit log configuration to record requests to the Kubernetes API and their results for tracing cluster operation history and troubleshooting cluster faults.
    * 
    * @remarks
    * Before you call this operation, make sure that you fully understand the billing methods and pricing of <props="china">[Simple Log Service](https://www.aliyun.com/price/product#/sls/detail/sls)<props="intl">[Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing).
@@ -8160,10 +8172,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the Role-Based Access Control (RBAC) access permissions of a Resource Access Management (RAM) user or RAM role in an ACK cluster. By default, RAM users, RAM roles, and users other than the cluster creator do not have any RBAC access permissions in the cluster. You can invoke the UpdateUserPermissions operation to update the RBAC access permissions of a RAM user or RAM role, including the accessible resources, the scope of the permissions, and the preset role types, to improve secure access control in cluster management.
+   * Updates the RBAC access permissions of a Resource Access Management (RAM) user or RAM role in an ACK cluster. By default, RAM users and RAM roles other than the cluster creator do not have any RBAC access permissions in the cluster. You can invoke the UpdateUserPermissions operation to update the RBAC access permissions of a RAM user or role, including the accessible resources, the scope of the permissions, and the preset role types, to improve secure access control in cluster management.
    * 
    * @remarks
-   * You can update the cluster authorization information of a target Resource Access Management (RAM) user or RAM role by using a full update or an incremental update. A full update overwrites the existing cluster permissions of the target RAM user or RAM role. The request must include all permission configurations that you want to grant to the target RAM user or RAM role. An incremental update includes add and delete operations. It only modifies the permissions based on the cluster authorization information included in the request and does not affect other cluster permissions of the RAM user or RAM role.
+   * You can update the cluster authorization information of a target Resource Access Management (RAM) user or RAM role by using full update or incremental update. A full update overwrites the existing cluster permissions of the target RAM user or RAM role. The request must include all permission configurations that you want to grant to the target RAM user or RAM role. An incremental update includes add and delete operations. It only modifies the permissions based on the cluster authorization information included in the request and does not affect other cluster permissions of the RAM user or RAM role.
    * 
    * @param request - UpdateUserPermissionsRequest
    * @param headers - map
@@ -8197,10 +8209,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the Role-Based Access Control (RBAC) access permissions of a Resource Access Management (RAM) user or RAM role in an ACK cluster. By default, RAM users, RAM roles, and users other than the cluster creator do not have any RBAC access permissions in the cluster. You can invoke the UpdateUserPermissions operation to update the RBAC access permissions of a RAM user or RAM role, including the accessible resources, the scope of the permissions, and the preset role types, to improve secure access control in cluster management.
+   * Updates the RBAC access permissions of a Resource Access Management (RAM) user or RAM role in an ACK cluster. By default, RAM users and RAM roles other than the cluster creator do not have any RBAC access permissions in the cluster. You can invoke the UpdateUserPermissions operation to update the RBAC access permissions of a RAM user or role, including the accessible resources, the scope of the permissions, and the preset role types, to improve secure access control in cluster management.
    * 
    * @remarks
-   * You can update the cluster authorization information of a target Resource Access Management (RAM) user or RAM role by using a full update or an incremental update. A full update overwrites the existing cluster permissions of the target RAM user or RAM role. The request must include all permission configurations that you want to grant to the target RAM user or RAM role. An incremental update includes add and delete operations. It only modifies the permissions based on the cluster authorization information included in the request and does not affect other cluster permissions of the RAM user or RAM role.
+   * You can update the cluster authorization information of a target Resource Access Management (RAM) user or RAM role by using full update or incremental update. A full update overwrites the existing cluster permissions of the target RAM user or RAM role. The request must include all permission configurations that you want to grant to the target RAM user or RAM role. An incremental update includes add and delete operations. It only modifies the permissions based on the cluster authorization information included in the request and does not affect other cluster permissions of the RAM user or RAM role.
    * 
    * @param request - UpdateUserPermissionsRequest
    * @returns UpdateUserPermissionsResponse

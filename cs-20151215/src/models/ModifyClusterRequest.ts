@@ -7,8 +7,8 @@ export class ModifyClusterRequestApiServerCustomCertSans extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to overwrite or append the SAN configuration. Valid values:
-   * - overwrite: overwrites the existing SAN configuration.
-   * - append: appends to the existing SAN configuration.
+   * - overwrite: overwrites the existing configuration.
+   * - append: appends to the existing configuration.
    * 
    * @example
    * append
@@ -48,10 +48,10 @@ export class ModifyClusterRequestApiServerCustomCertSans extends $dara.Model {
 export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for control plane node instances. This parameter takes effect only when `charge_type` is set to `PrePaid`. Valid values:
+   * Specifies whether to enable auto-renewal for the control plane node instances. This parameter takes effect only when `charge_type` is set to `PrePaid`. Valid values:
    * 
-   * - `true`: Enables auto-renewal.
-   * - `false`: Disables auto-renewal.
+   * - `true`: enables auto-renewal.
+   * - `false`: disables auto-renewal.
    * 
    * Default value: `false`.
    * 
@@ -61,9 +61,9 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal period for each renewal of control plane node instances.
+   * The auto-renewal period for the control plane node instances.
    * 
-   * Valid values: {1, 2, 3, 6, 12}. Unit: months.
+   * Valid values: 1, 2, 3, 6, and 12. Unit: months.
    * 
    * Default value: 1.
    * 
@@ -73,10 +73,10 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The billing method for control plane node instances. Valid values:
+   * The billing method of the control plane node instances. Valid values:
    * 
-   * - `PrePaid`: subscription.
-   * - `PostPaid`: pay-as-you-go.
+   * - `PrePaid`: subscription
+   * - `PostPaid`: pay-as-you-go
    * 
    * Default value: `PostPaid`.
    * 
@@ -86,10 +86,10 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Specifies whether to install the CloudMonitor agent on control plane nodes. Valid values:
+   * Specifies whether to install the CloudMonitor agent on the control plane nodes. Valid values:
    * 
-   * - `true`: Installs the CloudMonitor agent.
-   * - `false`: Does not install the CloudMonitor agent.
+   * - `true`: installs the CloudMonitor agent.
+   * - `false`: does not install the CloudMonitor agent.
    * 
    * @example
    * true
@@ -97,10 +97,10 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   cloudMonitorFlags?: boolean;
   /**
    * @remarks
-   * The CPU management policy for nodes. The following policies are supported for clusters running version 1.12.6 or later:
+   * The CPU management policy for nodes. The following two policies are supported when the cluster version is 1.12.6 or later:
    * 
-   * - `static`: Allows pods with certain resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
-   * - `none`: Uses the existing default CPU affinity scheme.
+   * - `static`: allows pods with specific resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
+   * - `none`: indicates that the default CPU affinity scheme is used.
    * 
    * Default value: `none`.
    * 
@@ -118,7 +118,7 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   deploymentsetId?: string;
   /**
    * @remarks
-   * The custom image ID. Specify this parameter when using a custom image.
+   * The custom image ID. Specify this parameter when you use a custom image.
    * 
    * @example
    * aliyun_3_x64_20G_alibase_20240819.vhd
@@ -126,9 +126,9 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The operating system image type. Valid values:
+   * The type of the operating system image. Valid values:
    * 
-   * - `AliyunLinux3`: Alinux3 image.
+   * - `AliyunLinux3`: Alibaba Cloud Linux 3 image.
    * - `Custom`: custom image.
    * 
    * @example
@@ -137,12 +137,12 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The instance types. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
    */
   instanceTypes?: string[];
   /**
    * @remarks
-   * The key pair name. Specify either this parameter or `login_password`.
+   * The name of the key pair. You must specify this parameter or `login_password`.
    * 
    * @example
    * ack
@@ -150,7 +150,7 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   keyPair?: string;
   /**
    * @remarks
-   * The SSH logon password. Specify either this parameter or `key_pair`. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. To use password-based logon, specify this parameter during scale-out.
+   * The SSH logon password. You must specify this parameter or `key_pair`. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. If you want to use a password for logon, you must specify this parameter during scale-out.
    * 
    * @example
    * Ack@2000.
@@ -158,7 +158,8 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   loginPassword?: string;
   /**
    * @remarks
-   * The node service port range. Valid port range: [30000, 65535].
+   * The service port range of the node.
+   * Valid values: 30000 to 65535.
    * 
    * Default value: 30000-32767.
    * 
@@ -168,9 +169,9 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   nodePortRange?: string;
   /**
    * @remarks
-   * The subscription duration for control plane node instances. This parameter takes effect and is required only when `charge_type` is set to `PrePaid`.
+   * The subscription duration of the control plane node instances. This parameter is required and takes effect only when `charge_type` is set to `PrePaid`.
    * 
-   * When `period_unit=Month`, valid values: {1, 2, 3, 6, 12, 24, 36, 48, 60}.
+   * When `period_unit` is set to `Month`, valid values are 1, 2, 3, 6, 12, 24, 36, 48, and 60.
    * 
    * @example
    * 1
@@ -178,9 +179,9 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The billing period unit for control plane node instances. This parameter takes effect only when `charge_type` is set to `PrePaid`.
+   * The billing cycle of the control plane node instances. This parameter takes effect only when `charge_type` is set to `PrePaid`.
    * 
-   * `Month`: The billing period is measured in months. Currently, only months are supported.
+   * `Month`: months. Currently, only months are supported.
    * 
    * @example
    * Month
@@ -188,9 +189,9 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The container runtime name. Valid values:
+   * The name of the container runtime. Valid values:
    * 
-   * - `containerd`: Recommended. Supported by all cluster versions.
+   * - `containerd`: recommended. Supported by all cluster versions.
    * 
    * Default value: containerd.
    * 
@@ -202,8 +203,8 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
    * @remarks
    * Specifies whether to enable Alibaba Cloud OS security hardening. Valid values:
    * 
-   * - `true`: Enables Alibaba Cloud OS security hardening.
-   * - `false`: Disables Alibaba Cloud OS security hardening.
+   * - `true`: enables Alibaba Cloud OS security hardening.
+   * - `false`: disables Alibaba Cloud OS security hardening.
    * 
    * Default value: `false`.
    * 
@@ -213,7 +214,7 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   securityHardeningOs?: boolean;
   /**
    * @remarks
-   * The number of control plane nodes. To scale out the control plane of a dedicated cluster, set this parameter to the target number of control plane nodes, which must be greater than the current number.
+   * The number of control plane nodes. If you want to scale out the control plane of a dedicated cluster, set this parameter to the target number of control plane nodes, which must be greater than the current number of control plane nodes.
    * 
    * @example
    * 5
@@ -221,11 +222,11 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * Specifies whether to enable MLPS 2.0 security hardening. For more information, see [China Chinese ACK MLPS 2.0 security hardening](https://help.aliyun.com/document_detail/196148.html).
+   * Specifies whether to enable MLPS 2.0 security hardening. For more information, see [ACK MLPS 2.0 security hardening instructions](https://help.aliyun.com/document_detail/196148.html).
    * 
    * Valid values:
-   * - `true`: Enables MLPS 2.0 security hardening.
-   * - `false`: Disables MLPS 2.0 security hardening.
+   * - `true`: enables MLPS 2.0 security hardening.
+   * - `false`: disables MLPS 2.0 security hardening.
    * 
    * Default value: `false`.
    * 
@@ -235,9 +236,9 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   socEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable burst mode for the node system cloud disk. Valid values:
-   * - `true`: Enabled.
-   * - `false`: Disabled.
+   * Specifies whether to enable the burst mode for the system cloud disk of the node. Valid values:
+   * - `true`: yes
+   * - `false`: no
    * 
    * This parameter is supported only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
    * 
@@ -247,12 +248,12 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskBurstingEnabled?: boolean;
   /**
    * @remarks
-   * The type of the node system cloud disk. Valid values:
-   * - `cloud_efficiency`: ultra cloud disk.
-   * - `cloud_ssd`: standard SSD.
-   * - `cloud_essd`: ESSD.
-   * - `cloud_auto`: ESSD AutoPL cloud disk.
-   * - `cloud_essd_entry`: ESSD Entry cloud disk.
+   * The type of the system cloud disk. Valid values:
+   * - `cloud_efficiency`: ultra disk
+   * - `cloud_ssd`: standard SSD
+   * - `cloud_essd`: ESSD
+   * - `cloud_auto`: ESSD AutoPL cloud disk
+   * - `cloud_essd_entry`: ESSD Entry cloud disk
    * 
    * @example
    * cloud_essd
@@ -260,7 +261,7 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The performance level of the node system cloud disk. This parameter takes effect only for ESSD cloud disks. The performance level varies based on the cloud disk size. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * The performance level of the system cloud disk. This parameter takes effect only for ESSDs. The performance level is related to the disk size. For more information, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
    * 
    * @example
    * PL1
@@ -268,7 +269,7 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS for the node system cloud disk. Valid values: 0 to min{50,000, 1000 × capacity - baseline performance}. Baseline performance = min{1,800 + 50 × capacity, 50,000}.
+   * The provisioned read and write IOPS of the system cloud disk. Valid values: 0 to min{50,000, 1000 × capacity - baseline performance}. Baseline performance = min{1,800 + 50 × capacity, 50000}.
    * 
    * This parameter is supported only when `system_disk_category` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
    * 
@@ -278,7 +279,7 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskProvisionedIops?: number;
   /**
    * @remarks
-   * The size of the node system cloud disk. Valid values: 40 to 500. Unit: GiB.
+   * The size of the system cloud disk. Valid values: 40 to 500. Unit: GiB.
    * 
    * @example
    * 120
@@ -286,7 +287,7 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
   systemDiskSize?: number;
   /**
    * @remarks
-   * The ID of the automatic snapshot policy used by the node system cloud disk.
+   * The ID of the automatic snapshot policy applied to the system cloud disk of the node.
    * 
    * @example
    * sp-2zej1nogjvovnz4z****
@@ -365,13 +366,13 @@ export class ModifyClusterRequestControlPlaneConfig extends $dara.Model {
 export class ModifyClusterRequestControlPlaneEndpointsConfigInternalDnsConfig extends $dara.Model {
   /**
    * @remarks
-   * The VPCs in which the internal domain name DNS records take effect.
+   * The VPCs where internal DNS resolution takes effect.
    */
   bindVpcs?: string[];
   /**
    * @remarks
-   * Specifies whether to enable internal domain name access for the cluster. Valid values:
-   * - true: Enables internal domain name access. Node-side components (kubelet, kube-proxy) access the API server through the internal domain name.
+   * Specifies whether to enable internal DNS access for the cluster. Valid values:
+   * - true: Enables internal DNS access. Node-side components such as kubelet and kube-proxy access the API server by using the internal domain name.
    * 
    * @example
    * true
@@ -414,7 +415,7 @@ export class ModifyClusterRequestControlPlaneEndpointsConfigLoadBalancersConfig 
   endpointType?: string;
   /**
    * @remarks
-   * The SLB instance associated with the endpoint.
+   * The ID of the Server Load Balancer (SLB) instance associated with the endpoint.
    * 
    * @example
    * nlb-xxxx
@@ -446,7 +447,7 @@ export class ModifyClusterRequestControlPlaneEndpointsConfigLoadBalancersConfig 
 export class ModifyClusterRequestControlPlaneEndpointsConfig extends $dara.Model {
   /**
    * @remarks
-   * The internal domain name configuration for the cluster. This applies to ACK managed clusters. The internal domain name is used by node-side system components such as kubelet and kube-proxy to access the API server. If the internal domain name access is not enabled, node-side system components access the API server through the CLB IP address.
+   * The internal DNS configuration for ACK managed clusters. Internal domain names are used by node-side system components such as kubelet and kube-proxy to access the API server. If internal DNS access is not enabled, node-side system components access the API server by using the CLB IP address.
    */
   internalDnsConfig?: ModifyClusterRequestControlPlaneEndpointsConfigInternalDnsConfig;
   /**
@@ -486,7 +487,7 @@ export class ModifyClusterRequestControlPlaneEndpointsConfig extends $dara.Model
 export class ModifyClusterRequestOperationPolicyClusterAutoUpgrade extends $dara.Model {
   /**
    * @remarks
-   * The automatic cluster upgrade frequency. For more information, see [Upgrade frequency](https://help.aliyun.com/document_detail/2712866.html).
+   * The channel for automatic cluster upgrades. For more information, see [Upgrade channels](https://help.aliyun.com/document_detail/2712866.html).
    * 
    * Valid values:
    * - patch: The latest patch version.
@@ -499,11 +500,11 @@ export class ModifyClusterRequestOperationPolicyClusterAutoUpgrade extends $dara
   channel?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic cluster upgrade.
+   * Specifies whether to enable automatic cluster upgrades. Valid values:
    * 
-   * - true: Enables automatic upgrade.
+   * - true: Enables automatic upgrades.
    * 
-   * - false: Disables automatic upgrade.
+   * - false: Disables automatic upgrades.
    * 
    * @example
    * true
@@ -565,12 +566,11 @@ export class ModifyClusterRequestOperationPolicy extends $dara.Model {
 export class ModifyClusterRequestSystemEventsLogging extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable system event storage.
+   * Specifies whether to enable system event logging. Valid values:
    * 
+   * - true: Enables system event logging.
    * 
-   * - true: Enables system event storage.
-   * 
-   * - false: Disables system event storage.
+   * - false: Disables system event logging.
    * 
    * @example
    * true
@@ -578,7 +578,7 @@ export class ModifyClusterRequestSystemEventsLogging extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The name of the LogProject for system event storage.
+   * The name of the LogProject for system event logging.
    * 
    * @example
    * k8s-log-cb95aa626a47740afbf6aa099b65****
@@ -610,24 +610,24 @@ export class ModifyClusterRequestSystemEventsLogging extends $dara.Model {
 export class ModifyClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The access control list (ACL) for the API server SLB of a registered cluster.
+   * The access control list of the SLB instance for the API server of the registered cluster.
    * 
    * @deprecated
    */
   accessControlList?: string[];
   /**
    * @remarks
-   * The custom API server certificate Subject Alternative Names (SANs). This parameter adds custom IP addresses or domain names to the SAN field of the cluster API server certificate for client access control.
+   * The custom Subject Alternative Names (SANs) for the API server certificate. You can add custom IP addresses or domain names to the SAN field of the API server certificate to implement access control for clients.
    * 
    * Only managed clusters support this parameter.
    */
   apiServerCustomCertSans?: ModifyClusterRequestApiServerCustomCertSans;
   /**
    * @remarks
-   * Specifies whether the cluster is attached with an EIP for public network access to the API server. Valid values:
+   * Specifies whether an EIP is attached to the cluster for public network access to the API server. Valid values:
    * 
-   * - `true`: The cluster is attached with an EIP.
-   * - `false`: The cluster is not attached with an EIP.
+   * - `true`: attaches an EIP to the cluster.
+   * - `false`: does not attach an EIP to the cluster.
    * 
    * @example
    * true
@@ -635,7 +635,7 @@ export class ModifyClusterRequest extends $dara.Model {
   apiServerEip?: boolean;
   /**
    * @remarks
-   * The instance ID of the EIP attached to the cluster API server. This parameter takes effect only when `api_server_eip` is set to `true`.
+   * The EIP instance ID attached to the API server of the cluster. This parameter takes effect only when `api_server_eip` is set to `true`.
    * 
    * @example
    * eip-wz9fnasl6dsfhmvci****
@@ -659,16 +659,16 @@ export class ModifyClusterRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The cluster specification when `cluster_type` is set to `ManagedKubernetes` and `profile` is configured. Valid values:
+   * The specification of the cluster when `cluster_type` is set to `ManagedKubernetes` and `profile` is configured. Valid values:
    * 
-   * - `ack.pro.small`: Pro
+   * - `ack.pro.small`: Pro Edition
    * - `ack.pro.xlarge`: Pro XL
    * - `ack.pro.2xlarge`: Pro 2XL
-   * - `ack.pro.4xlarge`: Pro 4XL (contact customer service to be added to the whitelist)
+   * - `ack.pro.4xlarge`: Pro 4XL (contact customer service to apply for whitelist access)
    * 
-   * Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by <props="china">[ACK Pro Provisioned Control Plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro Provisioned Control Plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and dedicating control plane resources, these tiers ensure that API concurrency and pod scheduling capabilities remain at a consistently high level. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
+   * Pro XL, Pro 2XL, and Pro 4XL are the three tiers provided by the <props="china">[ACK Pro provisioned control plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro provisioned control plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). By pre-allocating and reserving control plane resources, these tiers ensure that API concurrency and pod scheduling capabilities are always maintained at a consistently high level. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
    * 
-   * For information about the cluster management fees for Pro and Provisioned Control Plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
+   * For more information about the cluster management fees for the Pro Edition and provisioned control plane editions, see <props="china">[Cluster management fees](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fees](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
    * 
    * @example
    * ack.pro.small
@@ -686,10 +686,10 @@ export class ModifyClusterRequest extends $dara.Model {
   controlPlaneEndpointsConfig?: ModifyClusterRequestControlPlaneEndpointsConfig;
   /**
    * @remarks
-   * Specifies whether to enable deletion protection for the cluster. This prevents accidental deletion of the cluster through the console or API. Valid values:
+   * Specifies whether to enable deletion protection for the cluster to prevent accidental deletion through the console or API calls. Valid values:
    * 
-   * - `true`: Enables cluster deletion protection. The cluster cannot be deleted through the console or API.
-   * - `false`: Disables cluster deletion protection. The cluster can be deleted through the console or API.
+   * - `true`: Enables deletion protection. The cluster cannot be deleted through the console or API calls.
+   * - `false`: Disables deletion protection. The cluster can be deleted through the console or API calls.
    * 
    * Default value: `false`.
    * 
@@ -699,10 +699,10 @@ export class ModifyClusterRequest extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable or disable the RRSA feature. Only managed clusters support this parameter. Valid values:
+   * Specifies whether to enable the RAM Roles for Service Accounts (RRSA) feature. Only managed clusters support this parameter. Valid values:
    * 
-   * - `true`: Enable.
-   * - `false`: Disable.
+   * - `true`: Enables the feature.
+   * - `false`: Disables the feature.
    * 
    * @example
    * true
@@ -710,7 +710,7 @@ export class ModifyClusterRequest extends $dara.Model {
   enableRrsa?: boolean;
   /**
    * @remarks
-   * Specifies whether to rebind the test domain name of the cluster. Valid values:
+   * Specifies whether to rebind the test domain name of the cluster to the SLB address of the Ingress. Valid values:
    * 
    * - `true`: Rebinds the test domain name of the cluster.
    * - `false`: Does not rebind the test domain name of the cluster.
@@ -725,7 +725,7 @@ export class ModifyClusterRequest extends $dara.Model {
   ingressDomainRebinding?: boolean;
   /**
    * @remarks
-   * The instance ID of the SLB for the cluster to be modified.
+   * The instance ID of the SLB for the Ingress of the cluster to be modified.
    * 
    * @example
    * lb-wz97kes8tnndkpodw****
@@ -735,10 +735,10 @@ export class ModifyClusterRequest extends $dara.Model {
   ingressLoadbalancerId?: string;
   /**
    * @remarks
-   * Specifies whether to enable instance deletion protection. This prevents accidental deletion of nodes through the console or API. Valid values:
+   * Specifies whether to enable deletion protection for instances to prevent accidental deletion or release of nodes through the console or API calls. Valid values:
    * 
-   * - `true`: Nodes cannot be accidentally deleted through the console or API.
-   * - `false`: Nodes can be deleted through the console or API.
+   * - `true`: Enables deletion protection. Nodes cannot be accidentally deleted or released through the console or API calls.
+   * - `false`: Disables deletion protection. Nodes can be accidentally deleted or released through the console or API calls.
    * 
    * Default value: `false`.
    * 
@@ -750,7 +750,7 @@ export class ModifyClusterRequest extends $dara.Model {
   instanceDeletionProtection?: boolean;
   /**
    * @remarks
-   * The O&M window configuration for the cluster. This feature takes effect only in ACK Pro managed clusters.
+   * The maintenance window of the cluster. This feature takes effect only in ACK managed clusters of the Pro edition.
    */
   maintenanceWindow?: MaintenanceWindow;
   /**
@@ -760,7 +760,7 @@ export class ModifyClusterRequest extends $dara.Model {
   operationPolicy?: ModifyClusterRequestOperationPolicy;
   /**
    * @remarks
-   * The resource group ID of the cluster.
+   * The ID of the resource group to which the cluster belongs.
    * 
    * @example
    * rg-acfmyvw3wjm****
@@ -768,10 +768,10 @@ export class ModifyClusterRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The control plane security group ID.
+   * The ID of the control plane security group.
    * 
-   * - If you have configured blocking rules in the security group, make sure the security group rules allow the protocols and ports that the cluster depends on. For the recommended security group rule scope, see [Configure and manage cluster security groups](https://help.aliyun.com/document_detail/353191.html).
-   * - For non-ACK dedicated clusters, the cluster control plane and installed managed components (such as terway-controlplane) will briefly restart during the cluster management procedure. Perform this operation during off-peak hours. After the control plane security group is changed, the elastic network interfaces (ENIs) used by the cluster control plane and installed managed components are automatically added to the new security group.
+   * - If you have configured blocking rules in the security group, make sure that the security group rules allow the protocols and ports on which the cluster depends. For more information about the recommended security group rules for cluster management, see [Configure and manage cluster security groups](https://help.aliyun.com/document_detail/353191.html).
+   * - For ACK clusters other than dedicated clusters, the cluster control plane and installed managed components such as terway-controlplane will be briefly restarted during the procedure. We recommend that you perform this operation during off-peak hours. After the control plane security group is changed, the elastic network interfaces (ENIs) used by the cluster control plane and installed managed components are automatically added to the new security group.
    * - For ACK dedicated clusters, after the control plane security group is changed, newly scaled-out master nodes automatically apply the new control plane security group. Existing control plane nodes are not affected.
    * 
    * @example
@@ -779,23 +779,30 @@ export class ModifyClusterRequest extends $dara.Model {
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The version support policy for the cluster. The value is case-sensitive. Valid values:
+   * - Standard: Standard support.
+   * - Extended: Extended support. After the standard support period ends, the cluster enters the extended support period and continues to receive CVE patch versions.
+   * Only ACK managed clusters of the Pro edition (where cluster_spec is set to ack.pro.* and profile is set to Default) support the Extended value. If you specify Extended for ACK standard clusters, ACS clusters, ACK managed clusters of the edge edition, or ACK dedicated clusters, the request will be rejected.
+   * If you do not specify this parameter, the current value of the cluster remains unchanged. After a cluster is upgraded to an extended support patch version, it cannot be changed back to Standard.
+   * 
    * @example
    * Extended
    */
   supportPolicy?: string;
   /**
    * @remarks
-   * The system event storage configuration.
+   * The system event logging configuration.
    */
   systemEventsLogging?: ModifyClusterRequestSystemEventsLogging;
   /**
    * @remarks
-   * The cluster time zone. See [Supported time zones](https://help.aliyun.com/document_detail/354879.html).
-   * - After the time zone is changed, the cluster inspection configuration uses the new time zone settings.
+   * The time zone of the cluster. For more information, see [Supported time zones](https://help.aliyun.com/document_detail/354879.html).
+   * - After the time zone is changed, the cluster inspection configuration adopts the new time zone settings.
    * 
-   * - For managed clusters, the cluster control plane and installed managed components (such as terway-controlplane) will briefly restart during the change. Perform this operation during off-peak hours. After the time zone is changed, newly scaled-out nodes automatically apply the new time zone settings. Existing nodes are not affected. You can use the node pool node reset feature to apply the new settings to existing nodes.
+   * - For managed clusters, the cluster control plane and installed managed components such as terway-controlplane will be briefly restarted during the modification. We recommend that you perform this operation during off-peak hours. After the time zone is changed, newly scaled-out nodes automatically apply the new time zone settings. Existing nodes are not affected. You can use the node reset feature in the node pool to apply the new settings to existing nodes.
    * 
-   * - For dedicated clusters, after the time zone is changed, newly scaled-out nodes (including control plane nodes) automatically apply the new time zone settings. Existing nodes (including control plane nodes) are not affected. You can use the node pool node reset feature to apply the new settings to existing nodes. For control plane nodes, you need to scale out and then scale in to apply the settings to all control plane nodes.
+   * - For dedicated clusters, after the time zone is changed, newly scaled-out nodes, including control plane nodes, automatically apply the new time zone settings. Existing nodes, including control plane nodes, are not affected. You can use the node reset feature in the node pool to apply the new settings to existing nodes. For control plane nodes, you must scale out and then scale in the nodes to apply the new settings to all control plane nodes.
    * 
    * @example
    * Asia/Shanghai
@@ -803,11 +810,11 @@ export class ModifyClusterRequest extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The control plane vSwitches of the cluster. For dedicated clusters, the change applies to newly scaled-out control plane nodes. For managed clusters, note the following when changing control plane vSwitches:
-   * - This parameter performs an overwrite update. You must specify the complete target vSwitch list.
-   * - Control plane components will briefly restart during the change. Proceed with caution.
-   * - Make sure all security groups of the cluster (including the control plane security group, security groups of all node pools, and security groups used by the container network) allow inbound and outbound traffic for the IP CIDR blocks of the new vSwitches. This prevents nodes and containers from being unable to connect to the API server.
-   * - If the new control plane vSwitches have ACL rules configured, make sure the ACL rules allow communication with the IP CIDR blocks of cluster nodes and the container network.
+   * The vSwitches for the cluster control plane. For dedicated clusters, the change takes effect on newly scaled-out control plane nodes. For managed clusters, note the following when changing the control plane vSwitches:
+   * - This parameter overwrites the existing configuration. You must specify the complete list of target vSwitches.
+   * - Control plane components will be briefly restarted during the modification. Proceed with caution.
+   * - Make sure that the inbound and outbound rules of all security groups in the cluster, including the control plane security group, security groups of all node pools, and security groups used by the container network, allow the CIDR blocks of the new vSwitches. This prevents nodes and containers from failing to connect to the API server.
+   * - If ACL rules are configured for the new control plane vSwitches, make sure that the ACL rules allow communication with the CIDR blocks of cluster nodes and the container network.
    */
   vswitchIds?: string[];
   static names(): { [key: string]: string } {
