@@ -23,7 +23,7 @@ export class UpdateJobTemplateResponseBody extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * The ID of the request, used for diagnostics and troubleshooting.
+   * The ID of the request, which is used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxxx
@@ -39,7 +39,7 @@ export class UpdateJobTemplateResponseBody extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * Indicates whether a new version was created.
+   * Indicates whether a new version is created.
    * 
    * @example
    * true

@@ -12,12 +12,12 @@ export class JobSettings extends $dara.Model {
   advancedSettings?: { [key: string]: any };
   /**
    * @remarks
-   * Specifies whether to allocate all RDMA NICs.
+   * Specifies whether to mount all RDMA NICs.
    */
   allocateAllRDMADevices?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow jobs to be scheduled to nodes that are marked as unschedulable or are in the workspace blacklist. If enabled, node status checks are skipped and the corresponding bypass configurations are applied.
+   * Specifies whether to allow the job to be scheduled to nodes that are marked as unschedulable or included in the workspace blacklist. If enabled, node status checks are skipped and corresponding bypass configurations are applied.
    */
   allowUnschedulableNodes?: boolean;
   /**
@@ -43,7 +43,7 @@ export class JobSettings extends $dara.Model {
   dataJuicerConfig?: DataJuicerConfig;
   /**
    * @remarks
-   * Specifies whether to skip the ECS inventory check. Valid values:
+   * Specifies whether to skip the inventory check. Valid values:
    * - true
    * - false
    * 
@@ -69,7 +69,7 @@ export class JobSettings extends $dara.Model {
   elasticSpotJobMaxRestartTimes?: number;
   /**
    * @remarks
-   * The CPU affinity settings. These settings take effect only when general-purpose computing subscription resources are used.
+   * The CPU affinity settings. This setting takes effect only when general-purpose computing subscription resources are used.
    * 
    * @example
    * true
@@ -92,7 +92,17 @@ export class JobSettings extends $dara.Model {
   enableErrorMonitoringInAIMaster?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow OSS append writes. Valid values:
+   * Specifies whether to allow job nodes to communicate with each other over SSH. The image must have SSHD built-in. This parameter takes effect only for PyTorch jobs that use self-managed computing resources. Valid values:
+   * - true
+   * - false
+   * 
+   * @example
+   * true
+   */
+  enableIntraJobSSH?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to allow OSS append operations. Valid values:
    * - true
    * - false
    * 
@@ -112,7 +122,7 @@ export class JobSettings extends $dara.Model {
   enableRDMA?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable computing power health checks for the job. Valid values:
+   * Specifies whether to enable the computing power health check for the job. Valid values:
    * - true
    * - false
    * 
@@ -122,7 +132,7 @@ export class JobSettings extends $dara.Model {
   enableSanityCheck?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow the job to use tide resources. Valid values:
+   * Specifies whether to allow the job to use tidal resources. Valid values:
    * - true
    * - false
    * 
@@ -132,7 +142,7 @@ export class JobSettings extends $dara.Model {
   enableTideResource?: boolean;
   /**
    * @remarks
-   * The configuration parameters for fault tolerance monitoring when it is enabled, such as specifying whether to enable log hang-based detection.
+   * The configuration parameters for fault tolerance monitoring after it is enabled, such as specifying whether to enable log hang-based detection.
    * 
    * @example
    * --enable-log-hang-detection true
@@ -169,7 +179,7 @@ export class JobSettings extends $dara.Model {
   oversoldType?: string;
   /**
    * @remarks
-   * The workflow ID.
+   * The pipeline ID.
    * 
    * @example
    * pid-12****
@@ -177,7 +187,7 @@ export class JobSettings extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * The configuration parameters for computing power health checks.
+   * The configuration parameters for the computing power health check.
    * 
    * @example
    * --sanity-check-timing=AfterJobFaultTolerant --sanity-check-timeout-ops=MarkJobFail
@@ -185,7 +195,7 @@ export class JobSettings extends $dara.Model {
   sanityCheckArgs?: string;
   /**
    * @remarks
-   * The shell used to execute job commands. Valid values: /bin/sh and /bin/bash.
+   * The shell used to execute job commands, such as /bin/sh or /bin/bash.
    * 
    * @example
    * /bin/bash
@@ -218,6 +228,7 @@ export class JobSettings extends $dara.Model {
       enableCPUAffinity: 'EnableCPUAffinity',
       enableDSWDev: 'EnableDSWDev',
       enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
+      enableIntraJobSSH: 'EnableIntraJobSSH',
       enableOssAppend: 'EnableOssAppend',
       enableRDMA: 'EnableRDMA',
       enableSanityCheck: 'EnableSanityCheck',
@@ -249,6 +260,7 @@ export class JobSettings extends $dara.Model {
       enableCPUAffinity: 'boolean',
       enableDSWDev: 'boolean',
       enableErrorMonitoringInAIMaster: 'boolean',
+      enableIntraJobSSH: 'boolean',
       enableOssAppend: 'boolean',
       enableRDMA: 'boolean',
       enableSanityCheck: 'boolean',

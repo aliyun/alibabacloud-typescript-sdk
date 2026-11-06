@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWebTerminalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID for this call, used for diagnostics and troubleshooting.
+   * The ID of the request. This ID is used for diagnostics and troubleshooting.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -13,7 +13,7 @@ export class GetWebTerminalResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The WebSocket link for accessing the container. You need to build a WebSocket client. For the detailed communication format, refer to the following code:
+   * The WebSocket link for accessing the container. You must build a WebSocket client. For the detailed communication format, refer to the following code:
    *   ```
    *   ws = new WebSocket(
    *     `wss://xxxxx`,
@@ -28,7 +28,7 @@ export class GetWebTerminalResponseBody extends $dara.Model {
    *     term.write(\\"Connection closed\\");
    *   };
    * 
-   *   // Receive response from the backend
+   *   // Receive a response from the backend
    *   ws.onmessage = function incoming(event) {
    *     const msg = JSON.parse(event.data);
    *     console.warn(msg);

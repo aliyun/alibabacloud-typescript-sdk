@@ -81,7 +81,7 @@ export class CreateTensorboardRequest extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The extension field of custom dataset, in JSON format. Currently, only MountPath is supported, which specifies the custom mount path of custom dataset.
+   * The extended fields of custom dataset in JSON format. Currently, MountPath is supported, which specifies the custom mount path of custom dataset.
    * 
    * @example
    * {"mountpath":"/root/data/"}
@@ -100,8 +100,8 @@ export class CreateTensorboardRequest extends $dara.Model {
   /**
    * @remarks
    * The resource quota ID. This parameter is required when you create a TensorBoard job by using resources from a resource quota. <props="china">For more information about how to obtain the resource quota ID, see [ListQuotas](https://help.aliyun.com/document_detail/2628071.html).
-   * <props="china">Released only on the China site.
-   * Currently, only whitelisted users can create TensorBoard jobs by using resources from a resource quota. To use this feature, contact us.
+   * <props="china">Available only on the China site.
+   * Currently, only whitelisted users can use resource quota resources to create TensorBoard jobs. To use this feature, contact us.
    * 
    * @example
    * quota12345
@@ -146,12 +146,12 @@ export class CreateTensorboardRequest extends $dara.Model {
   tensorboardDataSources?: TensorboardDataSourceSpec[];
   /**
    * @remarks
-   * The pay-as-you-go configuration information of the TensorBoard instance, which is used to create a TensorBoard job that uses pay-as-you-go resources.
+   * The pay-as-you-go configuration information of TensorBoard, which is used to create a TensorBoard job that uses pay-as-you-go resources.
    */
   tensorboardSpec?: TensorboardSpec;
   /**
    * @remarks
-   * The URI of the dataset:
+   * The URI of the dataset.
    * - If DataSourceType is set to OSS, the format is `oss://[oss-bucket].[endpoint]/[path]`.
    * - If DataSourceType is set to NAS, the format is `nas://[nas-filesystem-id].[region]/[path]`.
    * 

@@ -29,7 +29,7 @@ export class CreateTensorboardResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The TensorBoard ID.
+   * The Tensorboard ID.
    * 
    * @example
    * tbxxxxxxxx

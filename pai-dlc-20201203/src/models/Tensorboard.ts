@@ -103,7 +103,7 @@ export class Tensorboard extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The extended fields of the dataset in JSON format. Currently, MountPath is supported, which specifies the mount path for a custom dataset.
+   * The extended fields of the dataset in JSON format. Currently, MountPath is supported to specify the mount path for a custom dataset.
    * 
    * @example
    * {"mountpath":"/root/data/"}
@@ -233,7 +233,7 @@ export class Tensorboard extends $dara.Model {
   username?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The workspace.
    * 
    * @example
    * 123***

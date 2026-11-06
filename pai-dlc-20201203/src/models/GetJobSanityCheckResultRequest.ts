@@ -16,11 +16,11 @@ export class GetJobSanityCheckResultRequest extends $dara.Model {
   /**
    * @remarks
    * The phase of the computing power health check. Valid values:
-   * - CheckInit: environment preparation.
-   * - DeviceCheck: single-device computing power check.
-   * - SingleNodeCommCheck: intra-node communication check.
-   * - TwoNodeCommCheck: inter-node communication check between two nodes.
-   * - AllNodeCommCheck: communication check across all nodes.
+   * - CheckInit: environment preparation
+   * - DeviceCheck: single-device computing power check
+   * - SingleNodeCommCheck: intra-node communication check
+   * - TwoNodeCommCheck: inter-node communication check between two nodes
+   * - AllNodeCommCheck: all-node communication check
    * 
    * @example
    * DeviceCheck

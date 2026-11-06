@@ -39,7 +39,7 @@ export class ListJobsRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The job name. Fuzzy match is supported. The match is case-insensitive and does not support wildcards. For example, if you enter test, it can match test-job1, job-test, job-test2, or job-Test, but cannot match job-t1. Default value: empty, which indicates any job name.
+   * The job name. Supports fuzzy match. The match is case-insensitive and does not support wildcards. For example, if you enter test, it can match test-job1, job-test, job-test2, or job-Test, but it cannot match job-t1. Default value: empty, which indicates any job name.
    * 
    * @example
    * tf-mnist-test
@@ -55,7 +55,7 @@ export class ListJobsRequest extends $dara.Model {
   displayNameSearchMode?: string;
   /**
    * @remarks
-   * Specifies whether to filter jobs that run on specified nodes.
+   * Specifies whether to filter jobs that are configured to run on specified nodes.
    * 
    * @example
    * true
@@ -71,7 +71,7 @@ export class ListJobsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Specifies whether to retrieve jobs across workspaces. This parameter must be used together with ShowOwn=true to query the jobs recently submitted by the current user.
+   * Specifies whether to retrieve the job list across workspaces. This parameter must be used together with the ShowOwn=true parameter to query the jobs recently submitted by the current user.
    * 
    * @example
    * false
@@ -79,7 +79,7 @@ export class ListJobsRequest extends $dara.Model {
   fromAllWorkspaces?: boolean;
   /**
    * @remarks
-   * Uses the full-text index to retrieve data in the images field. Chinese and English tokenization are supported.
+   * Retrieves data from the full-text index in the image (images) field. Chinese and English tokenization is supported.
    * 
    * @example
    * pytorch
@@ -116,7 +116,7 @@ export class ListJobsRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The field name for numeric range filtering. This parameter must be used together with NumericRangeMin and NumericRangeMax.
+   * The field name used for numeric range filtering. This parameter must be used together with NumericRangeMin and NumericRangeMax.
    * 
    * @example
    * RequestGPU
@@ -124,7 +124,7 @@ export class ListJobsRequest extends $dara.Model {
   numericRangeField?: string;
   /**
    * @remarks
-   * The maximum value for numeric range filtering, inclusive. This parameter must be used together with NumericRangeField.
+   * The maximum value (inclusive) for numeric range filtering. This parameter must be used together with NumericRangeField.
    * 
    * @example
    * 8
@@ -132,7 +132,7 @@ export class ListJobsRequest extends $dara.Model {
   numericRangeMax?: number;
   /**
    * @remarks
-   * The minimum value for numeric range filtering, inclusive. This parameter must be used together with NumericRangeField.
+   * The minimum value (inclusive) for numeric range filtering. This parameter must be used together with NumericRangeField.
    * 
    * @example
    * 4
@@ -150,10 +150,10 @@ export class ListJobsRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The idle resource information. Valid values:
+   * The off-peak resource information. Valid values:
    * - ForbiddenQuotaOverSold
    * - ForceQuotaOverSold
-   * - AcceptQuotaOverSold-true: true indicates that the job actually used idle resources.
+   * - AcceptQuotaOverSold-true: true indicates that the job actually used off-peak resources.
    * - AcceptQuotaOverSold-false: false indicates that the job actually used guaranteed resources.
    * 
    * @example
@@ -162,7 +162,7 @@ export class ListJobsRequest extends $dara.Model {
   oversoldInfo?: string;
   /**
    * @remarks
-   * The page number for paging in a paged query. The start value is 1. Default value: 1.
+   * The page number for paging in a paged query. The starting value is 1. Default value: 1.
    * 
    * @example
    * 1
@@ -170,7 +170,7 @@ export class ListJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of jobs to return on each page.
+   * The number of jobs to return per page.
    * 
    * @example
    * 50
@@ -189,7 +189,7 @@ export class ListJobsRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The pipeline ID used to filter jobs.
+   * The pipeline ID. Only jobs created by this pipeline are returned.
    * 
    * @example
    * flow-*******
@@ -197,7 +197,7 @@ export class ListJobsRequest extends $dara.Model {
   pipelineId?: string;
   /**
    * @remarks
-   * Uses the full-text index to retrieve data in the reason field of the failed node. Chinese and English tokenization are supported.
+   * Retrieves data from the full-text index in the failed node reason field. Chinese and English tokenization is supported.
    * 
    * @example
    * OOM
@@ -234,7 +234,7 @@ export class ListJobsRequest extends $dara.Model {
   showOwn?: boolean;
   /**
    * @remarks
-   * The field by which to sort. Valid values:
+   * The field used for sorting. Valid values:
    * - DisplayName
    * - JobType
    * - Status
@@ -258,7 +258,7 @@ export class ListJobsRequest extends $dara.Model {
    * The running status of the job. Valid values:
    * - Creating
    * - Queuing
-   * - Bidding (currently limited to Lingjun spot jobs)
+   * - Bidding (currently only available for Lingjun spot jobs)
    * - EnvPreparing
    * - SanityChecking
    * - Running
@@ -281,7 +281,7 @@ export class ListJobsRequest extends $dara.Model {
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The template ID used to filter jobs created by the specified template.
+   * The template ID used to filter jobs created by a specified template.
    * 
    * @example
    * tmlabc123
@@ -297,7 +297,7 @@ export class ListJobsRequest extends $dara.Model {
   timeRangeField?: string;
   /**
    * @remarks
-   * Uses the full-text index to retrieve data in the user_command field. Chinese and English tokenization are supported.
+   * Retrieves data from the full-text index in the user command (user_command) field. Chinese and English tokenization is supported.
    * 
    * @example
    * python train.py
